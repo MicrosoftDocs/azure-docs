@@ -15,7 +15,6 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
-ms.custom: mvc
 ms.custom: seodec18
 ---
 # Configuring a Web Application Firewall (WAF) for App Service Environment

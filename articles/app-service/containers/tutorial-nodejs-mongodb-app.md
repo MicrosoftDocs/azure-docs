@@ -15,7 +15,6 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
-ms.custom: mvc
 ms.custom: seodec18
 ---
 # Build a Node.js and MongoDB app in Azure App Service on Linux

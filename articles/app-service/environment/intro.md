@@ -14,7 +14,6 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
-ms.custom: mvc
 ms.custom: seodec18
 ---
 # Introduction to the App Service Environments #

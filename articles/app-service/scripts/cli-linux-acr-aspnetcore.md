@@ -16,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/13/2018
 ms.author: msangapu
-ms.custom: mvc
 ms.custom: seodec18
 ---
 

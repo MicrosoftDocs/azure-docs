@@ -15,7 +15,6 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
-ms.custom: mvc
 ms.custom: seodec18
 ---
 # Create a PHP app in App Service on Linux

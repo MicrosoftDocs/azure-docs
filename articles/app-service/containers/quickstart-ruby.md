@@ -16,7 +16,6 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: cfowler
-ms.custom: mvc
 ms.custom: seodec18
 ---
 # Create a Ruby on Rails App in App Service on Linux

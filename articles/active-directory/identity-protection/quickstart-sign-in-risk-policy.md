@@ -9,7 +9,6 @@ manager: daveba
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: quickstart 
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

@@ -16,7 +16,6 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu;yili
-ms.custom: mvc
 ms.custom: seodec18
 
 ---

@@ -15,7 +15,6 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: cephalin
-ms.custom: mvc, devcenter
 ms.custom: seodec18
 
 experimental: false

@@ -14,7 +14,6 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: astay;cephalin;kraigb
-ms.custom: mvc
 ms.custom: seodec18
 ---
 

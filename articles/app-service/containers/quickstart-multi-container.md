@@ -15,7 +15,6 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: msangapu
-ms.custom: mvc
 ms.custom: seodec18
 ---
 # Create a multi-container (preview) app using a Docker Compose configuration

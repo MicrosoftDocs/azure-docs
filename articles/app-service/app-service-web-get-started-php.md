@@ -15,7 +15,6 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cephalin;cfowler
-ms.custom: mvc
 ms.custom: seodec18
 
 ---

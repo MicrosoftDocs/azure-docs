@@ -15,7 +15,6 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
-ms.custom: mvc
 ms.custom: seodec18
 #Customer intent: As an Azure customer, I want to learn how to deploy multiple containers using WordPress into Web App for Containers.
 ---

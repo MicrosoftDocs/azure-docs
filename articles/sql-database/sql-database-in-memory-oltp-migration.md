@@ -9,7 +9,6 @@ ms.devlang:
 ms.topic: conceptual
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer:
 manager: craigg
 ms.reviewer: MightyPen
 ms.date: 11/07/2018

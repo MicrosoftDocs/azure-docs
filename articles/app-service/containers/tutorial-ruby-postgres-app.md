@@ -11,7 +11,6 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
-ms.custom: mvc
 ms.custom: seodec18
 ---
 # Build a Ruby and Postgres app in Azure App Service on Linux

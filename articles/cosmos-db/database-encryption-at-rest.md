@@ -5,7 +5,6 @@ author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: rimman
 ms.author: sngun
 ms.custom: seodec18
 ---

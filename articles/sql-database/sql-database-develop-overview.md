@@ -2,7 +2,6 @@
 title: SQL Database Application Development Overview | Microsoft Docs
 description: Learn about available connectivity libraries and best practices for applications connecting to SQL Database.
 services: sql-database
-ms.service: sql-database
 ms.subservice: development
 ms.custom: 
 ms.devlang:

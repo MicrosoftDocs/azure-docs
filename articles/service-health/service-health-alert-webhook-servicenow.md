@@ -3,7 +3,6 @@ title: Configure Azure service health alerts with ServiceNow | Microsoft Docs
 description: Get personalized notifications about service health events to your ServiceNow instance.
 author: stephbaron
 ms.author: stbaron
-ms.topic: conceptual
 ms.service: service-health
 ms.topic: article
 ms.date: 11/14/2017

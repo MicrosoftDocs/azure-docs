@@ -7,7 +7,6 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.workload: data-services
 ms.topic: tutorial
-ms.custom: mvc
 ms.date: 12/07/2018
 ms.custom: seodec18
 

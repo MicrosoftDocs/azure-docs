@@ -8,7 +8,6 @@ ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
 ms.custom: seodec18
 ---
 # Define and Assign an Azure Blueprint with REST API

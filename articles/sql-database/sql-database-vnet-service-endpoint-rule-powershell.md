@@ -2,7 +2,6 @@
 title: "PowerShell for VNet endpoints and rules for single and pooled databases in Azure SQL | Microsoft Docs"
 description: "Provides PowerShell scripts to create and manage Virtual Service endpoints for your Azure SQL Database and SQL Data Warehouse."
 services: sql-database
-ms.service: sql-database
 ms.subservice: development
 ms.custom: 
 ms.devlang: PowerShell

@@ -14,7 +14,6 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
-ms.custom: mvc
 ms.custom: seodec18
 ---
 

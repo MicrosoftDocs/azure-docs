@@ -16,7 +16,6 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
-ms.custom: mvc
 ms.custom: seodec18
 ---
 # Create an ASP.NET Core app in App Service on Linux

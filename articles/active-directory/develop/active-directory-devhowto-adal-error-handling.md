@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: danieldobalian
 manager: mtillman
-ms.author: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na

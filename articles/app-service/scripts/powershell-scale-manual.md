@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Scale a web app manually | Microsoft Docs
 description: Azure PowerShell Script Sample - Scale a web app manually
 services: app-service\web
@@ -16,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
 ms.author: msangapu
-ms.custom: mvc
 ms.custom: seodec18
 ---
 

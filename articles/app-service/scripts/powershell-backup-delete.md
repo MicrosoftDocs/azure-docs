@@ -15,7 +15,6 @@ ms.devlang: na
 ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
-ms.custom: mvc
 ms.custom: seodec18
 ---
 

@@ -8,7 +8,6 @@ ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
 ms.custom: seodec18
 ---
 # Define and assign an Azure Blueprint in the portal

@@ -4,7 +4,6 @@ description: Learn how to configure Conditional Access for Azure SQL Database an
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
 author: GithubMirek

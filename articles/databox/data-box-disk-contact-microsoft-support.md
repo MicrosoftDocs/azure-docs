@@ -4,7 +4,6 @@ description: Learn how to log support request for issues related to your Data Bo
 services: databox
 author: alkohli
 ms.service: databox
-ms.subservice: disk
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: alkohli

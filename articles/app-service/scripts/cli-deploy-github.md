@@ -16,7 +16,6 @@ ms.tgt_pltfrm: sample
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc
 ms.custom: seodec18
 ---
 # Create an App Service app with deployment from GitHub using Azure CLI

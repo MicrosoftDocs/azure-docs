@@ -16,7 +16,6 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: msangapu
-ms.custom: mvc
 ms.custom: seodec18
 ---
 # Use a custom Docker image for Web App for Containers

@@ -1,5 +1,4 @@
 ---
-layout: LandingPage
 description: Learn how to troubleshoot virtual machine deployments.
 
 title: Troubleshooting for Azure Virtual Machines Documentation | Microsoft Docs

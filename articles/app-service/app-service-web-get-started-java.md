@@ -15,7 +15,6 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
-ms.custom: mvc, devcenter
 ms.custom: seodec18
 
 ---

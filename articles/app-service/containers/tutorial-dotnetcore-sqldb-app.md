@@ -15,7 +15,6 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: cephalin
-ms.custom: mvc
 ms.custom: seodec18
 ---
 # Build a .NET Core and SQL Database app in Azure App Service on Linux

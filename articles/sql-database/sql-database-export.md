@@ -6,7 +6,6 @@ ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
 author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: carlrab

@@ -1,5 +1,4 @@
 ---
-layout: LandingPage
 title: Azure billing and cost management documentation | Microsoft Docs
 description: Learn how to understand your Azure billing, manage and monitor usage and costs, and manage your account and subscriptions.
 services: billing

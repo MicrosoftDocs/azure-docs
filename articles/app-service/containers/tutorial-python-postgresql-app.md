@@ -11,7 +11,6 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
-ms.custom: mvc
 ms.custom: seodec18
 ---
 # Build a Python and PostgreSQL app in Azure App Service

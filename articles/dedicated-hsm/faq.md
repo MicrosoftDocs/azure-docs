@@ -5,7 +5,6 @@ services: dedicated-hsm
 author: johncdawson
 manager: barbkess
 tags: azure-resource-manager
-ms.custom: "mvc, seodec18"
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na

@@ -16,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: cephalin
-ms.custom: mvc
 ms.custom: seodec18
 ---
 

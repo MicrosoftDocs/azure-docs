@@ -15,7 +15,6 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter, vs-azure
 ms.custom: seodec18
 
 ---

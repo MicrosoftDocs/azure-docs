@@ -15,7 +15,6 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
-ms.custom: mvc
 ms.custom: seodec18
 
 ---

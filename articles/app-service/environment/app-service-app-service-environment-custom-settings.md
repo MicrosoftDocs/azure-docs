@@ -15,7 +15,6 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: stefsch
-ms.custom: mvc
 ms.custom: seodec18
 ---
 # Custom configuration settings for App Service Environments

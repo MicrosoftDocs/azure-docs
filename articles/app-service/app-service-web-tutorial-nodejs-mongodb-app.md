@@ -15,7 +15,6 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
-ms.custom: mvc
 ms.custom: seodec18
 
 ---

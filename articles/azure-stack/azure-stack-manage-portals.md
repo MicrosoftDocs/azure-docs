@@ -12,7 +12,6 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.custom: mvc
 ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.custom: mvc

@@ -6,7 +6,6 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein

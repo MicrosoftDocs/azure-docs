@@ -3,7 +3,6 @@ title: Continuous integration and delivery in Azure Data Factory | Microsoft Doc
 description: Learn how to use continuous integration and delivery to move Data Factory pipelines from one environment (development, test, production) to another.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na

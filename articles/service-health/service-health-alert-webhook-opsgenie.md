@@ -3,7 +3,6 @@ title: Configure Azure service health alerts with OpsGenie | Microsoft Docs
 description: Get personalized notifications about service health events to your OpsGenie instance.
 author: stephbaron
 ms.author: stbaron
-ms.topic: conceptual
 ms.service: service-health
 ms.workload: Supportability
 ms.topic: article

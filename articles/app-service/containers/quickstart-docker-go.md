@@ -12,7 +12,6 @@ ms.devlang: go
 ms.topic: quickstart
 ms.date: 01/17/2018
 ms.author: msangapu
-ms.custom: mvc
 ms.custom: seodec18
 ---
 

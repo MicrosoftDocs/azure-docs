@@ -8,7 +8,6 @@ ms.service: app-service-web
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.custom: mvc
 ms.custom: seodec18
 ---
 

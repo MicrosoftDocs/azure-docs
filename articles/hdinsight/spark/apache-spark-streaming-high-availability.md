@@ -6,7 +6,6 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/26/2018

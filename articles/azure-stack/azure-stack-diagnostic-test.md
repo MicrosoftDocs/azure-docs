@@ -1,7 +1,6 @@
 ---
 title: Use the Azure Stack validation tool  | Microsoft Docs
 description: How to collect log files for diagnostics in Azure Stack.
-services: azure-stack
 author: jeffgilb
 manager: femila
 services: azure-stack

@@ -6,7 +6,6 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: overview
 ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath

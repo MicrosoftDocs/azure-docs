@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Restore app backup to another subscription | Microsoft Docs
 description: Azure PowerShell Script Sample - Restore a web app from a backup in another subscription
 services: app-service\web
@@ -15,7 +15,6 @@ ms.devlang: na
 ms.topic: sample
 ms.date: 11/21/2018
 ms.author: msangapu
-ms.custom: mvc
 ms.custom: seodec18
 ---
 

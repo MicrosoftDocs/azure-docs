@@ -5,7 +5,6 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
-ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.author: estfan
 ms.topic: article

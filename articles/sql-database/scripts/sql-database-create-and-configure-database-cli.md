@@ -8,7 +8,6 @@ ms.custom:
 ms.devlang: azurecli
 ms.topic: sample
 author: CarlRabeler
-manager: craigg
 ms.author: carlrab
 ms.reviewer:
 manager: craigg

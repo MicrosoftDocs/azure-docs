@@ -14,7 +14,6 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
-ms.custom: mvc
 ms.custom: seodec18
 ---
 

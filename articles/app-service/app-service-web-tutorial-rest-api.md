@@ -15,7 +15,6 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
 ms.custom: seodec18
 
 ---
