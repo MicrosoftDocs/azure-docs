@@ -1,4 +1,4 @@
-﻿#How to Use the Blob Storage Service from Java
+# How to Use the Blob Storage Service from Java
 
 This guide will show you how to perform common scenarios using the Windows Azure Blob storage service. The samples are written in Java and use the [Windows Azure SDK for Java] [download]. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps] (#NextSteps) section.
 
@@ -35,13 +35,16 @@ The Blob service contains the following components:
 
 ![Image1] []
 
-* 	**URL format:** Blobs are addressable using the following URL format: 
-  	http://<storage account>.blob.core.windows.net/<container>/<blob>
-  	The following URL addresses one of the blobs in the diagram:
-  	http://sally.blob.core.windows.net/movies/MOV1.AVI
-* 	**Storage Account:** All access to Windows Azure Storage is done through a storage account. This is the highest level of the namespace for accessing blobs. An account can contain an unlimited number of containers, as long as their total size is under 100TB.
-* 	**Container:** A container provides a grouping of a set of blobs. All blobs must be in a container. An account can contain an unlimited number of containers. A container can store an unlimited number of blobs.
-* 	**Blob:** A file of any type and size. There are two types of blobs that can be stored in Windows Azure Storage. Most files are block blobs. A single block blob can be up to 200GB in size. This tutorial uses block blobs. Page blobs, another blob type, can be up to 1TB in size, and are more efficient when ranges of bytes in a file are modified frequently
+*	**URL format:** Blobs are addressable using the following URL format:
+    
+	`http://<storage account>.blob.core.windows.net/<container>/<blob>`
+
+	The following URL addresses one of the blobs in the diagram:
+	
+	`http://sally.blob.core.windows.net/movies/MOV1.AVI`
+*	**Storage Account:** All access to Windows Azure Storage is done through a storage account. This is the highest level of the namespace for accessing blobs. An account can contain an unlimited number of containers, as long as their total size is under 100TB.
+*	**Container:** A container provides a grouping of a set of blobs. All blobs must be in a container. An account can contain an unlimited number of containers. A container can store an unlimited number of blobs.
+*	**Blob:** A file of any type and size. There are two types of blobs that can be stored in Windows Azure Storage. Most files are block blobs. A single block blob can be up to 200GB in size. This tutorial uses block blobs. Page blobs, another blob type, can be up to 1TB in size, and are more efficient when ranges of bytes in a file are modified frequently
 
 <h2 id="CreateAccount">Create a Windows Azure Storage Account</h2>
 
@@ -53,9 +56,13 @@ To use storage operations, you need a Windows Azure storage account. You can cre
 2.	In the navigation pane, click **Hosted Services, Storage Accounts & CDN**.
 3.	At the top of the navigation pane, click **Storage Accounts**.
 4.	On the ribbon, in the **Storage** group, click **New Storage Account**.
+                                   
 	![Image2] []
+
 	The **Create a New Storage Account** dialog box opens.
+	
 	![Image3] []
+
 5.	In **Choose a Subscription**, select the subscription that the storage account will be used with.
 6.	In **Enter a URL**, type a subdomain name to use in the URI for the storage account. The entry can contain from 3-24 lowercase letters and numbers. This value becomes the host name within the URI that is used to address Blob, Queue, or Table resources for the subscription.
 7.	Choose a region or an affinity group in which to locate the storage. If you will be using storage from your Windows Azure application, select the same region where you will deploy your application.
@@ -79,7 +86,7 @@ Add the following import statements to the top of the Java file where you want t
 
 <h2 id="ConnectionString">Setup a Windows Azure Storage Connection String</h2>
 
-A Windows Azure storage client uses a storage connection string to store endpoints and credentials for accessing storage services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Management Portal for the AccountName and AccountKey values. This example shows how you can declare a static field to hold the connection string:
+A Windows Azure storage client uses a storage connection string to store endpoints and credentials for accessing storage services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Management Portal for the <i>AccountName</i> and <i>AccountKey</i> values. This example shows how you can declare a static field to hold the connection string:
 
 	// Define the connection-string with your values
 	public static final String storageConnectionString = 
@@ -87,7 +94,7 @@ A Windows Azure storage client uses a storage connection string to store endpoin
 	    "AccountName=your_storage_account;" + 
 	    "AccountKey=your_storage_account_key";
 
-In an application running within a role in Windows Azure, this string can be stored in the service configuration file, ServiceConfiguration.cscfg, and can be accessed with a call to the **RoleEnvironment.getConfigurationSettings** method. Here’s an example of getting the connection string from a **Setting** element named StorageConnectionString in the service configuration file:
+In an application running within a role in Windows Azure, this string can be stored in the service configuration file, ServiceConfiguration.cscfg, and can be accessed with a call to the **RoleEnvironment.getConfigurationSettings** method. Here’s an example of getting the connection string from a **Setting** element named <i>StorageConnectionString</i> in the service configuration file:
 
 	// Retrieve storage account from connection-string
 	String storageConnectionString = 
