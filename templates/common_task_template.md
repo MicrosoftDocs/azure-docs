@@ -1,4 +1,4 @@
-﻿# (TODO: title of Common Task)
+# (TODO: title of Common Task)
 
 (TODO: Provide a short 1-2 sentence overview of the contents of the article)
 
