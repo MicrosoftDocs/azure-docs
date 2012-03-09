@@ -1,4 +1,4 @@
-﻿# Configuring SSL for an Application in Windows Azure
+# Configuring SSL for an Application in Windows Azure
 
 Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
 
