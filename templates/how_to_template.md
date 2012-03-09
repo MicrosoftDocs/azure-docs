@@ -1,4 +1,4 @@
-﻿#(TODO: title of the How To)
+# (TODO: title of the How To)
 
 (TODO: provide a short description of the article and what skills will be gained by following the steps in the guide.)
 
