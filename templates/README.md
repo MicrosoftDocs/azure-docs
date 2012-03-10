@@ -1,4 +1,4 @@
-﻿# README
+# README
 
 This folder contains all the information that an individual needs to start contributing articles to the azure-content repository.
 
@@ -92,6 +92,7 @@ Below is a list of the most common markdown syntax.
 * 	**Strong** - The HTML `<strong>some text</strong>` element is written `**some text**`
 * 	**Headers** - HTML headers are designated by an number of `#` characters at the start of the line.  The number of `#` characters corresponds to the header number (ie `#` = h1 and `###` = h3).
 * 	**Ordered Lists** - To make an ordered list start the line with `1. `.  If you want multiple elements within a single list element, format your list as follows:
+		
 		1.	Notice that this line is tabbed over after the '.'
 		
 			Now notice that there is a line break between the two paragraphs in the list element, and that the indentation here matches the indentation of the line above.
