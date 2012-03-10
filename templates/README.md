@@ -4,7 +4,7 @@ This folder contains all the information that an individual needs to start contr
 
 ## Using GitHub, Git and this Repository
 
-**Note:** Most of the information in this section will be a brief overview of the [GitHub Help] [] articles.  If you are familiar with Git and GitHub, skip to the Contribute/Edit Content section for the particulars of the code/content flow of this repository.
+**Note:** Most of the information in this section will be a brief overview of the [GitHub Help] [] articles.  If you are familiar with Git and GitHub, skip to the "Contribute/Edit Content" section for the particulars of the code/content flow of this repository.
 
 ### Setting up your Fork of the Repository
 
@@ -61,7 +61,7 @@ When you are done with your work, and are ready to have it merged into the centr
 3.	At the top of the page is a **Pull Request** button.  Click on it.
 4.	Insure that the Base branch is WindowsAzure/azure-content-pr@master and the Head branch is <your username>/azure-content-pr@<branch name>
 5.	Click the **Update Commit Range** button.
-6.	Give your pull request a Title, and describe all the changes being made.
+6.	Give your pull request a Title, and describe all the changes being made.  If your bug fixes a TFS Item or GitHub issue make sure to reference them in the description.
 7.	Submit the Pull Request.
 
 One of the site administrators will now process your pull request.  Your pull request will surface on the WindowsAzure/azure-content-pr site under Issues.  When the Pull Request is accepted, the issue will be resolved.
@@ -76,17 +76,60 @@ Once your changes have been successfully merged into the central repository you 
 
 Congratulations, you have successfully contributed to the project.
 
-## Using Markdown
+## Folder Structure of the Repository
+
+(Coming Soon)
+
+## Writing an Article using Markdown
+
+All of the articles in this repository use Markdown.  While a complete introduction (and listing of all the syntax) can be found here [Markdown Home] [], the relevent basics will be covered here.
+
+### Markdown Basics
+
+Below is a list of the most common markdown syntax.
+
+* 	**Line Breaks vs. Paragraphs** - In Markdown there is no HTML `<br />` element.  Instead, a new paragraph is designated by an empty line between two blocks of text.
+* 	**Strong** - The HTML `<strong>some text</strong>` element is written `**some text**`
+* 	**Headers** - HTML headers are designated by an number of `#` characters at the start of the line.  The number of `#` characters corresponds to the header number (ie `#` = h1 and `###` = h3).
+* 	**Ordered Lists** - To make an ordered list start the line with `1. `.  If you want multiple elements within a single list element, format your list as follows:
+		1.	Notice that this line is tabbed over after the '.'
+		
+			Now notice that there is a line break between the two paragraphs in the list element, and that the indentation here matches the indentation of the line above.
+
+*	**Unordered Lists** - Unordered lists are almost identical to ordered lists except that the `1. ` is replaced with either `* `, `- `, or `+ `.  Multiple element lists work the same way as with ordered lists.
+*	**Links** - The base syntax for a link is `[visible link text] (link url)`.
+
+	Links can also have references, which will be discussed in the "Link and Image References" section below.
+
+*	**Images** - The base syntax for an image is `![alt text for the image] (image url)`.
+
+	Images can also have references, which will be discussed in the "Link and Image References" section below.
+
+*	**In-line HTML** - Finally, markdown allows for the inclusion of HTML inline.  `<i>italic</i>` for instance will be correctly rendered by Markdown as <i>italic</i>.
 
 ### Using a template
 
-### Links
+In order to make the transition into using markdown as easy as possible, each of the Article types has a template and sample in this folder.  When starting a new article, create a new file in the appropriate folder in your local repository, and copy the template in.  The template will already have the structure necessary for the table of contents to work correctly.  Whereever there is a `(TODO: some description)`, replace with the desired text.  If you are adding more sections than the table of contents has, make sure to both add a new line in the Table of Contents, and format the section header in the same fashion as the pre-existing ones.
 
-### Images
+### Link and Image References
+
+Markdown has a really nice feature that allows a user to insert a reference instead of a url for images and links.  The syntax for using this feature is:
+
+	The image below is from [Google] [googleweb]
+	
+	![Google's logo] [logo]
+	
+	[googleweb]: google.com
+	[logo]: https://www.google.com/images/srpr/logo3w.png
+
+At first glance this format seems inefficient.  However, it allows us to have a convention where all links and image urls can be grouped together as opposed to spread throughout the article.  Therefore, all (external) links and images will use references, with the reference definitions (the `[refID]: url` part) at the bottom of the file.  This both makes maintaining external addresses easier, and can help streamline the process of copying images from github into windowsazure.com
 
 ## Additional Information
 
+* For more information on Markdown go to [their site] [Markdown Home].
+* For more information on using Git and GitHub first check out the [GitHub Help Section] [GitHub Help] and if necessary contact the site adminstrators.
 
 [GitHub Home]: github.com
 [GitHub Help]: http://help.github.com/
 [Set Up Git]: http://help.github.com/win-set-up-git/
+[Markdown Home]: http://daringfireball.net/projects/markdown/
