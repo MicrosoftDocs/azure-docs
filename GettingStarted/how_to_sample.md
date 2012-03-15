@@ -249,7 +249,7 @@ Now that you’ve learned the basics of blob storage, follow these links to lear
 [Windows Azure Management Portal]: http://windows.azure.com/
 [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
 
-[Image1]: /media/WA_HowToBlobStorage.png
-[Image2]: /media/WA_HowToBlobStorage2.png
-[Image3]: /media/WA_HowToBlobStorage3.png
-[Image4]: /media/WA_HowToBlobStorage4.png
+[Image1]: media/WA_HowToBlobStorage.png
+[Image2]: media/WA_HowToBlobStorage2.png
+[Image3]: media/WA_HowToBlobStorage3.png
+[Image4]: media/WA_HowToBlobStorage4.png
