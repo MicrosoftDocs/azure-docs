@@ -52,7 +52,7 @@ To use storage operations, you need a Windows Azure storage account. You can cre
 
 **How to Create a Storage Account using the Management Portal**
 
-1.	Log into the [Windows Azure Management Portal] (http://windows.azure.com/).
+1.	Log into the [Windows Azure Management Portal] [].
 2.	In the navigation pane, click **Hosted Services, Storage Accounts & CDN**.
 3.	At the top of the navigation pane, click **Storage Accounts**.
 4.	On the ribbon, in the **Storage** group, click **New Storage Account**.
@@ -86,7 +86,7 @@ Add the following import statements to the top of the Java file where you want t
 
 <h2 id="ConnectionString">Setup a Windows Azure Storage Connection String</h2>
 
-A Windows Azure storage client uses a storage connection string to store endpoints and credentials for accessing storage services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Management Portal for the <i>AccountName</i> and <i>AccountKey</i> values. This example shows how you can declare a static field to hold the connection string:
+A Windows Azure storage client uses a storage connection string to store endpoints and credentials for accessing storage services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Management Portal for the *AccountName* and *AccountKey* values. This example shows how you can declare a static field to hold the connection string:
 
 	// Define the connection-string with your values
 	public static final String storageConnectionString = 
@@ -94,7 +94,7 @@ A Windows Azure storage client uses a storage connection string to store endpoin
 	    "AccountName=your_storage_account;" + 
 	    "AccountKey=your_storage_account_key";
 
-In an application running within a role in Windows Azure, this string can be stored in the service configuration file, ServiceConfiguration.cscfg, and can be accessed with a call to the **RoleEnvironment.getConfigurationSettings** method. Here’s an example of getting the connection string from a **Setting** element named <i>StorageConnectionString</i> in the service configuration file:
+In an application running within a role in Windows Azure, this string can be stored in the service configuration file, ServiceConfiguration.cscfg, and can be accessed with a call to the **RoleEnvironment.getConfigurationSettings** method. Here’s an example of getting the connection string from a **Setting** element named *StorageConnectionString* in the service configuration file:
 
 	// Retrieve storage account from connection-string
 	String storageConnectionString = 
@@ -242,12 +242,14 @@ Finally, to delete a blob container, get a blob container reference, and call de
 
 Now that you’ve learned the basics of blob storage, follow these links to learn how to do more complex storage tasks.
 
-- See the MSDN Reference: [Storing and Accessing Data in Windows Azure] (http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+- See the MSDN Reference: [Storing and Accessing Data in Windows Azure] []
 - Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
 
 [download]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=vs.103).aspx
+[Windows Azure Management Portal]: http://windows.azure.com/
+[Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
 
-[Image1]: http://www.windowsazure.com/media/java/WA_HowToBlobStorage.png
-[Image2]: http://www.windowsazure.com/media/java/WA_HowToBlobStorage2.png
-[Image3]: http://www.windowsazure.com/media/java/WA_HowToBlobStorage3.png
-[Image4]: http://www.windowsazure.com/media/java/WA_HowToBlobStorage4.png
+[Image1]: /media/WA_HowToBlobStorage.png
+[Image2]: /media/WA_HowToBlobStorage2.png
+[Image3]: /media/WA_HowToBlobStorage3.png
+[Image4]: /media/WA_HowToBlobStorage4.png

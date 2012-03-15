@@ -71,24 +71,58 @@ One of the site administrators will now process your pull request.  Your pull re
 Once your changes have been successfully merged into the central repository you can delete your branch as you will no longer need it.  Any further work will require a new branch.  To delete your branch follow the steps below:
 
 1.	In GitBash type `git checkout master` in the command prompt.  This is to insure that you aren't in the branch to be deleted (which isn't allowed).
-2.	Next, type 'git branch -d <branch name>` in the command prompt.  This will delete the branch on your local machine.
+2.	Next, type `git branch -D <branch name>` in the command prompt.  This will delete the branch on your local machine.
 3.	Finally, type `git push origin :<branch name>` in the command prompt.  This will delete the branch on your github fork.
 
 Congratulations, you have successfully contributed to the project.
 
 ## Folder Structure of the Repository
 
-(Coming Soon)
+The goal of the folder structure in the GitHub repository was to make it as easy to navigate as possible while mimicing the windowsazure.com site layout as much as possible.  In this vein we have created the folder structure detailed below:
+
+	/DevCenter
+		/<languages>
+			/<IA type>
+			/media
+		/Shared
+			/<IA type>
+			/media
+	/ITPro
+		/<platform>
+			/<IA type>
+			/media
+		/<shared>
+			/<IA type>
+			/media
+	/Shared
+		/<IA type>
+		/media
+	/GettingStarted
+
+In this layout the following principles are applied:
+
+1. Shared folders are used for articles that could be placed in multiple different sub-folders.  The most specific Shared folder should be used.  For instance, if there was a Common Task article that was used by Java, Node and PHP, it would be placed in the `/DevCenter/Shared` folder.  If however, that same article was also used by Linux in ITPro, the article would instead go in the root `/Shared/` folder.
+2. The media folders are for images related to the articles under the `/<IA type>` folders in the same level.  For instance a "How to: Blob Storage (Java)" article would go in `/DevCenter/Java/HowTo` and the images for this article would go in `/DevCenter/Java/media`.
+	- If however, a second unique article uses images from a different article (Two blob How To articles, one Java and one Node) the images will only be in the media folder of the first article, and the second article should reference them there.
+3. The GettingStarted folder is for getting started with the GitHub repository, and not correlated to any getting started or tutorial content on WindowsAzure.com.
+4. In general, only files in the 3 main folders will be published, and even then not everything there (README.md files for instance) will be published.
+5. As a best practice, the README.md files in the `/<IA type>` folders should contain a list of all the documents of this type on windowsazure.com and a link to their location on the github site (most will be in that folder, but some will be in shared locations).
+
 
 ## Writing an Article using Markdown
 
 All of the articles in this repository use Markdown.  While a complete introduction (and listing of all the syntax) can be found here [Markdown Home] [], the relevent basics will be covered here.
+
+If you are looking for a good editor [Markdown Pad] [] is a great editor for Windows.
+
+Until the script for porting the content from GitHub to Umbraco is complete, a simple method that can be used is highlighting all the markdown text in MarkdownPad and then Copy HTML to Clipboard (Ctrl+Shift+C), and then pasting this in Umbraco in the appropriate location.
 
 ### Markdown Basics
 
 Below is a list of the most common markdown syntax.
 
 * 	**Line Breaks vs. Paragraphs** - In Markdown there is no HTML `<br />` element.  Instead, a new paragraph is designated by an empty line between two blocks of text.
+*	**Italics** - The HTML `<i>some text</i>` is written `*some text*`
 * 	**Strong** - The HTML `<strong>some text</strong>` element is written `**some text**`
 * 	**Headers** - HTML headers are designated by an number of `#` characters at the start of the line.  The number of `#` characters corresponds to the header number (ie `#` = h1 and `###` = h3).
 * 	**Ordered Lists** - To make an ordered list start the line with `1. `.  If you want multiple elements within a single list element, format your list as follows:
@@ -134,3 +168,4 @@ At first glance this format seems inefficient.  However, it allows us to have a 
 [GitHub Help]: http://help.github.com/
 [Set Up Git]: http://help.github.com/win-set-up-git/
 [Markdown Home]: http://daringfireball.net/projects/markdown/
+[Markdown Pad]: http://markdownpad.com/
