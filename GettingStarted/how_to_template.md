@@ -35,22 +35,25 @@
 
 <h2 id="HowTo1">(TODO: Insert HowTo1 Name)</h2>
 
-(TODO: There are several of these with the heading formatted as "How to: <use the feature>."  For example, "How to: Delete a Blob".)
+(TODO: There are several of these with the heading formatted as "How to: `<use the feature>`."  For example, "How to: Delete a Blob".)
 
 <h2 id="HowTo2">(TODO: Insert HowTo2 Name)</h2>
 
-(TODO: There are several of these with the heading formatted as "How to: <use the feature>."  For example, "How to: Delete a Blob".)
+(TODO: There are several of these with the heading formatted as "How to: `<use the feature>`."  For example, "How to: Delete a Blob".)
 
 <h2 id="HowTo3">(TODO: Insert HowTo3 Name)</h2>
 
-(TODO: There are several of these with the heading formatted as "How to: <use the feature>."  For example, "How to: Delete a Blob".)
+(TODO: There are several of these with the heading formatted as "How to: `<use the feature>`."  For example, "How to: Delete a Blob".)
 
 <h2 id="NextSteps">Next Steps</h2>
 
 (TODO: Short summary and transition to list of related articles.)
 
-* (TODO: Short sentence of link1): [(TODO: Enter link1 text)] ((TODO: Enter link1 URL))
-* (TODO: Short sentence of link2): [(TODO: Enter link2 text)] ((TODO: Enter link2 URL))
+* (TODO: Short sentence of link1): [(TODO: Enter link1 text)] [NextStepsLink1]
+* (TODO: Short sentence of link2): [(TODO: Enter link2 text)] [NextStepsLink2]
+
+[NextStepsLink1]: (TODO: enter Next Steps 1 URL)
+[NextStepsLink2]: (TODO: enter Next Steps 2 URL)
 
 [Image1]: (TODO: if used an image1, enter the url here, otherwise delete this)
 [Image2]: (TODO: if used an image2, enter the url here, otherwise delete this)

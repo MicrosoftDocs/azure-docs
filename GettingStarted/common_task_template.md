@@ -4,21 +4,21 @@
 
 The task inclues the following steps:
 
-* [(TODO: Insert Name of Step 1, steps should have the following naming convention "Step <N>: <verb noun phrase>")] (#Step1)
-* [(TODO: Insert Name of Step 2, steps should have the following naming convention "Step <N>: <verb noun phrase>")] (#Step2)
-* [(TODO: Insert Name of Step 3, steps should have the following naming convention "Step <N>: <verb noun phrase>")] (#Step3)
+* [(TODO: Insert Name of Step 1, steps should have the following naming convention "Step {N}: {verb noun phrase}")] (#Step1)
+* [(TODO: Insert Name of Step 2, steps should have the following naming convention "Step {N}: {verb noun phrase}")] (#Step2)
+* [(TODO: Insert Name of Step 3, steps should have the following naming convention "Step {N}: {verb noun phrase}")] (#Step3)
 
-<h2 id="Step1">(TODO: Insert Name of Step 1, steps should have the following naming convention "Step <N>: <verb noun phrase>")</h2>
+<h2 id="Step1">(TODO: Insert Name of Step 1, steps should have the following naming convention "Step {N}: {verb noun phrase}")</h2>
 
-(TODO: Insert a description of how to complete the Step.  If necessary use an ordered list by starting each line with 1.<tab> etc.. if incremental steps are needed)
+(TODO: Insert a description of how to complete the Step.  If necessary use an ordered list by starting each line with 1.`<tab>` etc.. if incremental steps are needed)
 
-<h2 id="Step2">(TODO: Insert Name of Step 2, steps should have the following naming convention "Step <N>: <verb noun phrase>")</h2>
+<h2 id="Step2">(TODO: Insert Name of Step 2, steps should have the following naming convention "Step {N}: {verb noun phrase}")</h2>
 
-(TODO: Insert a description of how to complete the Step.  If necessary use an ordered list by starting each line with 1.<tab> etc.. if incremental steps are needed)
+(TODO: Insert a description of how to complete the Step.  If necessary use an ordered list by starting each line with 1.`<tab>` etc.. if incremental steps are needed)
 
-<h2 id="Step3">(TODO: Insert Name of Step 3, steps should have the following naming convention "Step <N>: <verb noun phrase>")</h2>
+<h2 id="Step3">(TODO: Insert Name of Step 3, steps should have the following naming convention "Step {N}: {verb noun phrase}")</h2>
 
-(TODO: Insert a description of how to complete the Step.  If necessary use an ordered list by starting each line with 1.<tab> etc.. if incremental steps are needed)
+(TODO: Insert a description of how to complete the Step.  If necessary use an ordered list by starting each line with 1.`<tab>` etc.. if incremental steps are needed)
 
 ## Additional Resources
 

@@ -125,8 +125,8 @@ Now that your deployment is up and running in Windows Azure, you can connect to 
 [Windows Azure Management Portal]: http://windows.azure.com/
 [How to Configure an SSL Certificate on an HTTPS Endpoint]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
 
-[Image1]: http://www.windowsazure.com/media/net/common-task-ssl-01.png
-[Image2]: http://www.windowsazure.com/media/net/common-task-ssl-02.png
-[Image3]: http://www.windowsazure.com/media/net/common-task-ssl-03.png
-[Image4]: http://www.windowsazure.com/media/net/common-task-ssl-04.png
+[Image1]: media/common-task-ssl-01.png
+[Image2]: media/common-task-ssl-02.png
+[Image3]: media/common-task-ssl-03.png
+[Image4]: media/common-task-ssl-04.png
 
