@@ -18,7 +18,7 @@ This folder contains all the information that an individual needs to start contr
 	Next create a reference to the root repository by entering these commands:
 
 		cd azure-content-pr
-		git remote add upstream git://github.com/WindowsAzure/azure-content-pr.git
+		git remote add upstream git@github.com:WindowsAzure/azure-content-pr.git
 		git fetch upstream
 
 Congratulations you have now set up your repository.  The above steps will not need to be repeated again.
