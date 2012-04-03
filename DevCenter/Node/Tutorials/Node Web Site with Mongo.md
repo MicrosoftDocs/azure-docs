@@ -1,6 +1,6 @@
 # Node.js Web Application with Storage on MongoDB
 
-This tutorial describes how to use MongoDB to store and access data from a Windows Azure web site written in Node.js. This guide assumes that you have some prior experience using Node.js. For information on Node.js, see the [Node.js website]. The guide also assumes that you have some knowledge of MongoDB. For an overview of MongoDB, see the MongoDB website.
+This tutorial describes how to use MongoDB to store and access data from a Windows Azure web site written in Node.js. This guide assumes that you have some prior experience using Node.js, MongoDB, and Git. For information on Node.js, see the [Node.js website]. For information on MongoDB, see the [MongoDB website]. For information on Git, see the [Git website].
 
 You will learn how to:
 
@@ -12,7 +12,7 @@ You will learn how to:
 
 Throughout this tutorial you will build a simple web-based task-management application that allows retrieving and creating tasks, which are stored in MongoDB. MongoDB is hosted in a Windows Azure Virtual Machine, and the web application is hosted in a web role.
  
-The project files for this tutorial will be stored in C:\node and the completed application will look similar to:
+The project files for this tutorial will be stored in a tasklist directory and the completed application will look similar to:
 
 ## Setting up your deployment environment
 
@@ -304,21 +304,102 @@ To test the application on your local machine, perform the following steps:
 
         node app.js
 
+    You should see output similar to the following:
+
+    (TODO Insert Screenshot)
+
 3. Open your browser and navigate to http://127.0.0.1:1337. This should display a web page similar to the following:
 
-(TODO: Insert screenshot)
+    (TODO: Insert screenshot)
 
 4. Use the providied fields for Item Name, Item Category, and Item Date to enter information, and then click Add item.
 
+    (TODO Insert Screenshot)
+
 5. The page should update to display the item in the ToDo List table.
 
-(TODO: Insert screenshot)
+    (TODO: Insert screenshot)
 
 6. In the terminal application, press Ctrl + C to terminate the node session.
 
 ## Deploy your application to Windows Azure
 
+In this section, you will use the Windows Azure portal to create a new web site, enable the Git deployment option, and finally deploy your application to Windows Azure using Git.
 
+### Configure your application
+
+Before deploying the application to Windows Azure, we must add a *web.config* file to the root of the tasklist directory. This file contains settings that instruct Windows Azure on how to run your Node application, such as adding the iisnode handler and adding a rule to direct incoming requests to the *app.js* file. Using a text editor, create the *web.config* file and add the following:
+
+    <?xml version="1.0" encoding="utf-8"?>
+      <configuration>
+        <appSettings>
+          <add key="EMULATED" value="true" />
+        </appSettings>
+        <system.webServer>
+          <modules runAllManagedModulesForAllRequests="false" />
+          <handlers>
+            <add name="iisnode" path="app.js" verb="*" modules="iisnode" />
+          </handlers>
+          <rewrite>
+            <rules>
+              <clear />
+              <rule name="app" enabled="true" patternSyntax="ECMAScript" stopProcessing="true">
+                  <match url="app\.js.+" negate="true" />
+                  <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                  <action type="Rewrite" url="app.js" />
+              </rule>
+            </rules>
+          </rewrite>
+        </system.webServer>
+      </configuration>
+
+Save this file to the tasklist directory.
+
+### Create a new web site
+
+1. Open your web browser, navigate to the [Windows Azure portal], and then sign in. After signing in, you should see a web page similar to the following:
+
+(TODO Insert Screenshot)
+
+2. Select **+ New** at the bottom of the page, then select **Web Site** and **Quick Create**. In the form, enter a name for the web site and select your subscription and the region in which to create this web site. Finally, select **Create Web Site**. 
+    (TODO Insert Screenshot)
+
+3. Once the web site status changes to Running, select the name of the web site to display the dashboard for this site.
+
+    (TODO Insert Screenshot)
+
+3. In the lower left corner of the dashboard, select **Setup Git Publishing**.
+
+    (TODO Insert Screenshot)
+
+4. After the Git repository has been provisioned, you will be presented with the steps to initialize a Git repository for your Node application, as well as the steps to publish to your Windows Azure web site. Keep this page open as we will use this information in the next section.
+
+### Git Deploy
+
+1. Open the Terminal application if it is not already open, and change directories to the tasklist directory.
+
+2. Issue the following commands to initialize a Git repository in this directory, and perform an initial commit of all the files:
+
+        git init
+        git add .
+        git commit -m "Initial commit"
+
+    This should return results similar to the following:
+
+    (TODO Insert screenshot)
+
+3. To add the Windows Azure web site you configured previously as a remote repository and deploy your application, use the commands displayed in your web browser from the previous section. These steps should appear similar to the following:
+
+        git remote add azure https://larryfr@repository.sporf.antdf0.antares-test.windows-int.net/sporf.git
+        git push azure master 
+
+    This should return results similar to the following:
+
+4. After the git push completes, you should notice your browser update to display a message confirming the deployment. This should appear similar to the following:
+
+    (TODO Insert screenshot)
+
+5. At this point, your web application should be available. (TODO: Add steps for finding URL)
 
 * (TODO: Short sentence of link1): [(TODO: Enter link1 text)] [NextStepsLink1]
 * (TODO: Short sentence of link2): [(TODO: Enter link2 text)] [NextStepsLink2]
@@ -327,6 +408,9 @@ To test the application on your local machine, perform the following steps:
 [NextStepsLink2]: (TODO: enter Next Steps 2 URL)
 
 [Node.js website]: http://nodejs.org
+[MongoDB website]: http://www.mongodb.org
+[Git website]: http://git-scm.com
+[Windows Azure portal]: TBD
 
 [Image1]: (TODO: if used an image1, enter the url here, otherwise delete this)
 [Image2]: (TODO: if used an image2, enter the url here, otherwise delete this)
