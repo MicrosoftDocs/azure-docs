@@ -1,5 +1,3 @@
-# How to Use Twilio for Voice and SMS Capabilities
-
 This guide demonstrates how to perform common programming tasks with the Twilio API service on Windows Azure. The scenarios covered include making a phone call and sending a Short Message Service (SMS) message. For more information on Twilio and using voice and SMS in your applications, see the Next Steps<!-- How to make this link to a different chunk? --> section.
 
 ## Table of Contents
