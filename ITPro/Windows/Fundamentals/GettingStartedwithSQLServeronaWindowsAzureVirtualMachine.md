@@ -51,19 +51,19 @@ This SQL Server installation contains the following components.
 
 # How to Connect To this Instance of SQL Server
 ## Connecting from Management Studio running on this VM
-In the Management Studio **Connect to server** dialog box, enter the computer name of the virtual machine (or enter **(local)**  ) in the **Server name** box. For more information, see [Tutorial: Installing a SQL Server Virtual Machine](http://msdn.microsoft.com/en-us/library/dd146365.aspx "Tutorial: Installing a SQL Server Virtual Machine") and [Tutorial: Getting Started with the Database Engine](http://msdn.microsoft.com/en-us/library/ms345318.aspx).
+In the Management Studio **Connect to server** dialog box, enter the computer name of the virtual machine (or enter **(local)**  ) in the **Server name** box. For more information, see [Tutorial: Installing a SQL Server Virtual Machine]( http://go.microsoft.com/fwlink/?LinkId=248281)  and [Tutorial: Getting Started with the Database Engine](http://msdn.microsoft.com/en-us/library/ms345318.aspx).
 
 ## Virtual machine steps for connecting to SQL Server from an application running on another computer ##
 Before you can connect directly to the instance of SQL Server from the internet, they following tasks must be completed.
 
-- Determins the DNS name of the virtual machine.
+- Determines the DNS name of the virtual machine.
 - Create a TCP endpoint in for the virtual machine.
 - Configure SQL Server to listen on the TCP protocol and restart the Database Engine.
 - Open TCP port 1433 in the Windows firewall for the default instance of the Database Engine. Open additional ports for other components as needed. For more information, see [Configuring the Windows Firewall to Allow SQL Server Access](http://msdn.microsoft.com/en-us/library/cc646023.aspx).
 - Configure SQL Server for mixed mode authentication.
 - Create a SQL Server authentication login.
 
-For step instruction for completing these steps, see [Tutorial: Installing a SQL Server Virtual Machine](http://msdn.microsoft.com/en-us/library/dd146365.aspx "Tutorial: Installing a SQL Server Virtual Machine").
+For step instruction for completing these steps, see  [Tutorial: Installing a SQL Server Virtual Machine]( http://go.microsoft.com/fwlink/?LinkId=248281).
 
 ### Client steps for connecting to SQL Server from an application running on another computer ###
 
@@ -100,4 +100,4 @@ The SQL Server setup media is saved on the virtual machine in the **C:\SQLServer
 
 # Additional Information #
 
-* For a short tutorial on installing a virtual machine and connecting to SQL Server: [Tutorial: Installing a SQL Server Virtual Machine)](http://msdn.microsoft.com/en-us/library/dd146365.aspx)
+* For a short tutorial on installing a virtual machine and connecting to SQL Server:  [Tutorial: Installing a SQL Server Virtual Machine]( http://go.microsoft.com/fwlink/?LinkId=248281)
