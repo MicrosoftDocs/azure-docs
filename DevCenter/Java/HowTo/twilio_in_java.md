@@ -56,6 +56,8 @@ The following shows how to make an outgoing call using the `CallFactory` class. 
     // Make the call.
     Call call = callFactory.create(params);
 
+For more information about the parameters passed in to the `CallFactory.create` method, see [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
+
 As mentioned, this code uses a Twilio-provided site to return the TwiML response. You could instead use your own site to provide the TwiML response; for more information, see [How to Provide TwiML Responses in a Java Application on Windows Azure](#howto_provide_twiml_responses).
 
 <h2 id="howto_send_sms">How to: Send an SMS message</h2>
@@ -86,6 +88,8 @@ The following shows how to send an SMS message using the `SmsFactory` class. The
 
     // Send the message.
     Sms sms = smsFactory.create(smsParams);
+
+For more information about the parameters passed in to the `SmsFactory.create` method, see [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms].
 
 <h2 id="howto_provide_twiml_responses">How to: Provide TwiML Responses from your own Web site</h2>
 When your application initiates a call to the Twilio API, for example via the `CallFactory.create` method, Twilio will send your request to a URL that is expected to return a TwiML response. The example above uses the Twilio-provided URL [http://twimlets.com/message][twimlet_message_url]. (While TwiML is designed for use by Web services, you can view the TwiML in your browser. For example, click [http://twimlets.com/message][twimlet_message_url] to see an empty `<Response>` element; as another example, click [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] to see a `<Response>` element that contains a `<Say>` element.)
@@ -140,3 +144,5 @@ For additional information about using Twilio in Windows Azure with Java, see [H
 [misc_role_config_settings]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690945.aspx
 [twimlet_message_url]: http://twimlets.com/message
 [twimlet_message_url_hello_world]: http://twimlets.com/message?Message%5B0%5D=Hello%20World
+[twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
+[twilio_rest_sending_sms]: http://www.twilio.com/docs/api/rest/sending-sms
