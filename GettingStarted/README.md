@@ -41,7 +41,7 @@ Each branch should be limited to a single concept/article both to streamline wor
 #### Create a New Branch
 
 1.	Open GitBash
-2.	Type `git fetch upstream master:<new branch name>` in the prompt.  This will create a new branch locally copied from the latest WindowsAzure master branch.
+2.	Type `git pull upstream master:<new branch name>` in the prompt.  This will create a new branch locally copied from the latest WindowsAzure master branch.
 3.	Type `git push origin <new branch name>` in the prompt.  This will alert github of the new branch.  You should now be able to see the new branch in your fork of the repository on GitHub.
 4.	Finally type, `git checkout <new branch name>` to switch to your new branch.
 
