@@ -1,6 +1,6 @@
-# Installing a SQL Server Virtual Machine
+# Deploying a SQL Server Virtual Machine
 
-The Windows Azure virtual machine gallery provides Windows Azure virtual machine images of Microsoft Windows Server 2008 R2, Service Pack 1 (64-bit) with  a complete 64-bit installation of SQL Server. You can select one of the virtual machine images from the Windows Azure gallery and with a few clicks you can install the virtual machine onto your Windows Azure environment.
+The Windows Azure virtual machine gallery provides Windows Azure virtual machine images of Microsoft Windows Server 2008 R2, Service Pack 1 (64-bit) with  a complete 64-bit installation of SQL Server. You can select one of the virtual machine images from the Windows Azure gallery and with a few clicks you can deploy the virtual machine to your Windows Azure environment.
 
 You will learn:
 
@@ -8,7 +8,7 @@ You will learn:
 - How to connect to the virtual machine using Remote Desktop.
 - How to connect to SQL Server on the virtual machine using SQL Server Management Studio or your application.
 
-## Connect to the Windows Azure Management Portal and Download a Virtual Machine Image ##
+## Connect to the Windows Azure Management Portal and Provision a Virtual Machine Image ##
 
 1. Login to the Windows Azure Management Portal [http://windows.azure.com](http://windows.azure.com) using your account. If you do not have a Windows Azure account visit [Windows Azure 3 Month free trial](http://www.windowsazure.com/en-us/pricing/free-trial/).
 2. On the Windows Azure Management Portal, at the bottom left of the web page, click **+NEW**, click **VIRTUAL MACHINE**, and then click **FROM GALLERY**.
@@ -17,17 +17,17 @@ You will learn:
 
 3. Select a virtual machine image containing SQL Server, and then click the next arrow at the bottom right of the page.
 
-4. On the **VM Configuration** page, provide the following information.
+4. On the **VM Configuration** page, provide the following information:
 - Provide a **VIRTUAL MACHINE NAME**.
 - Leave the **CHOOSE USER NAME** box as Administrator.
-- In the **CHOOSE PASSWORD** box, type a strong password.
+- In the **CHOOSE PASSWORD** box, type a strong password. [Strong Passwords](http://msdn.microsoft.com/en-us/library/ms161962.aspx)
 - In the **CONFIRM PASSWORD** box, retype the password.
 - Select the appropriate **SIZE** from the drop down list.
 
    Click the next arrow to continue.
 
 	![VM Configuration] [Image2]
-5. On **VM Mode** page, provide the following information.
+5. On **VM Mode** page, provide the following information:
 - Select **Standalone Virtual Machine**.
 - In the **DNS NAME** box, type a valid DNS in the format **TESTNAME.cloudapp.net**
 - In the **REGION/AFFINITY GROUP/VIRTUAL NETWORK** box, select a region where this virtual image will be hosted.
@@ -42,9 +42,9 @@ You will learn:
 
 ## Open the Virtual Machine Using Remote Desktop and Complete Setup ##
 
-1. After the virtual machine is installed, on the Windows Azure Management Portal, click on **VIRTUAL MACHINES**, and the click on your new virtual machine. Information about your virtual machine is presented.
+1. After the virtual machine is provisioned, on the Windows Azure Management Portal, click on **VIRTUAL MACHINES**, and the click on your new virtual machine. Information about your virtual machine is presented.
 
-	![Select VM] [Image5]
+	![Select VM] [Image4]
 2. At the bottom of the page, click **Connect**. Choose to open the rpd file using the Windows Remote Desktop program (`%windir%\system32\mstsc.exe`).
 	![Click Connect] [Image5]
 3. At the **Windows Security** dialog box, provide the password for the **Administrator** account. (You might be asked to verify the credentials of the virtual machine.)
@@ -54,11 +54,11 @@ Once you are connected to the virtual machine with Windows Remote Desktop, the v
 
 ## Connecting to the Virtual Machine Using SQL Server Management Studio or Your Application ##
 
-Before you can connect directly to the instance of SQL Server from the internet, they following tasks must be completed.
+Before you can connect to the instance of SQL Server from the internet, the following tasks must be completed:
 
-- Create a TCP endpoint in for the virtual machine.
+- Create a TCP endpoint for the virtual machine.
 - Configure SQL Server to listen on the TCP protocol and restart the Database Engine.
-- Open TCP ports in the Windows firewall,
+- Open TCP ports in the Windows firewall.
 - Configure SQL Server for mixed mode authentication.
 - Create a SQL Server authentication login.
 - Determine the DNS name and IP address of the virtual machine.
@@ -105,7 +105,7 @@ For more information about enabling protocols for the SQL Server Database Engine
 
 6. In the **Action** dialog box, select **Allow the connection**, and then click **Next**.
 
-    **Security Note:** Selecting **Allow the connection if it is secure** can provide additional security. Select this if you are able to configure the additional security options in your environment.
+    **Security Note:** Selecting **Allow the connection if it is secure** can provide additional security. Select this option if you want to configure additional security options in your environment.
 
     ![Allow Connections] [Image11]
 
@@ -191,7 +191,7 @@ To connect to the SQL Server Database Engine from another computer you must know
 
 1. In the Windows Azure Management Portal, select **VIRTUAL MACHINES**. 
 
-2. On the **VM INSTANCES** page, in the **DNS NAME** column, find and copy the DNS name for the virtual machine which appears preceeded by **http://**.
+2. On the **VM INSTANCES** page, in the **DNS NAME** column, find and copy the DNS name for the virtual machine which appears preceded by **http://**.
 
     ![DNS Name] [Image21]
 
@@ -232,6 +232,7 @@ Your existing database can be moved to this new instance of the Database Engine 
 - Copy the **mdf**, **ndf**, and **ldf** files to a folder on this virtual machine, and then attach the database.
 - Create scripts of the source database, and execute the scripts on this new instance of SQL Server.
 - By using [Copy Database Wizard](http://msdn.microsoft.com/en-us/library/ms188664.aspx) in Management Studio.
+- By using DAC Import/Export
 
 For more information about migrating a database to SQL Server on a Windows Azure virtual machine, see Guide to Migrating Existing applications and Databases to Windows Azure Platform and Step-by-step guide to database migration.
 
