@@ -4,15 +4,17 @@ This tutorial describes how to use MongoDB to store and access data from a Windo
 
 You will learn how to:
 
-* Use npm to install the MongoDB driver for Node.js.
+* Use npm to install the Mongoose module for Node.js.
 
-* Use MongoDB within a Node.js application.
+* Use MongoDB within a Node.js application by using the Mongoose module.
 
-* Publish a Node.js application to a Windows Azure web site.
+* Publish a Node.js application as a Windows Azure Site.
 
-Throughout this tutorial you will build a simple web-based task-management application that allows retrieving and creating tasks, which are stored in MongoDB. MongoDB is hosted in a Windows Azure Virtual Machine, and the web application is hosted in a web role.
+Throughout this tutorial you will build a simple web-based task-management application that allows retrieving and creating tasks, which are stored in MongoDB. MongoDB is hosted in a Windows Azure Virtual Machine, and the web application is hosted as a Windows Azure Site.
  
-The project files for this tutorial will be stored in a tasklist directory and the completed application will look similar to:
+The project files for this tutorial will be stored in a tasklist directory and the completed application will look similar to the following:
+
+![Finished][]
 
 ## Setting up your deployment environment
 
@@ -22,13 +24,18 @@ In order to create and test a Node.js application, you will need the following:
 
 * A web browser
 
-* Node 0.6.14 or above. You can find the latest installation for your platform at http://nodejs.org.
+* Node 0.6.14 or above. You can find the latest installation for your platform at the [Node.js website].
+
+* Git version control system for your operating system. You can find the latest installation for your platform at the [Git website].
 
 Note: While the examples in this tutorial show vi and Chrome being used, any text editor or web browser should work.
 
 ## Install MongoDB on a Linux VM
 
-(TODO: Optional section that points the user to related topics and additional information.  Start with a short  summary and then transition to a list of related articles.)
+In this section you will provision a new Linux VM and install MongoDB. This MongoDB instance will be used by your application to store data.
+
+(TODO: Waiting on instructions from Glenn and Eduard.)
+(TODO: Possibly create a seperate document on installing Mongo/Linux/VM as this is a common task not specificially tied to this tutorial.)
 
 ## Creating a Node.js application
 
@@ -37,8 +44,6 @@ In this section you will create a new Node application and use npm to add module
 For the task-list application you will use the following modules:
 
 * express - A web framework inspired by Sinatra.
-
-* node-uuid - A utility library for creating universally unique identifiers (UUIDs) (similar to GUIDs)
 
 * mongodb - The driver for communicating with MongoDB.
 
@@ -49,17 +54,13 @@ Open the Terminal application and perform the following steps to create the appl
 	    mkdir tasklist
         cd tasklist
 
-    The output of these commands should appear similar to the following:
-
-    (TODO: Insert screenshot)
-
 3. Enter the following command to install the express, node-uuid, and mongodb modules:
 
-        npm install express node-uuid mongodb
+        npm install express mongoose
 
     The output of these commands should appear similar to the following:
 
-    (TODO: Insert screenshot)
+    ![npmInstall][]
 
 4. To created the scaffolding which will be used for this application, issue the express command. When prompted to overwrite the destination, enter **y** or **yes**. The output of this command should appear similar to the following:
 
@@ -67,7 +68,7 @@ Open the Terminal application and perform the following steps to create the appl
 
     The output of this command should appear as follows:
 
-    (TODO: Insert screenshot)
+    ![ExpressOutput][]
 
 5. To install additional modules required by the express application, enter the following command:
 
@@ -75,250 +76,152 @@ Open the Terminal application and perform the following steps to create the appl
 
     The output of this command should appear as follows:
 
-    (TODO: Insert screenshot)
+    ![npmInstallAfterExpress][]
 
 ## Using MongoDB in a Node Application
 
-In this section you will extend your application to create a web-based task-list application that you will deploy to Azure. The task list will allow a user to retrieve tasks, add new tasks, and mark tasks as completed. The application will utilize MongoDB to store task data.
+In this section you will extend the basic application created by the express command, creating a web-based task-list application that you will deploy to Windows Azure. The task list will allow a user to retrieve tasks and add new tasks. The application will utilize MongoDB to store task data.
 
-### Create the connector for the MongoDB driver
+### Create the model
 
-1. In the tasklist folder, create a new file named *taskProvider.js*. This file will contain the connector for the MongoDB driver for the tasklist application.
+1. In the **tasklist** directory, create a new directory named **models**. In the **models** directory, create a new file named *taskModel.js*. This file will contain the model for the tasks created by your application.
 
-2. At the beginning of the file add the following code to reference required libraries:
+2. At the beginning of the *taskModel.js* file, add the following code to reference required libraries:
 
-        var mongoDb = require('mongodb').Db;
-        var mongoDbConnection = require('mongodb').Connection;
-        var mongoServer = require('mongodb').Server;
-        var bson = require('mongodb').BSONNative;
-        var objectID = require('mongodb').ObjectID;
+        var mongoose = require('mongoose')
+	      , Schema = mongoose.Schema;
 
-3. Next, you will add code to set up the TaskProvider object. This object will be used to perform interactions with the MongoDB database.
+3. Next, you will add code to define and export the model. This model will be used to perform interactions with the MongoDB database.
 
-        var TaskProvider = function() {
-          var self = this;
+        var TaskSchema = new Schema({
+	        itemName      : String
+	      , itemCategory  : String
+	      , itemCompleted : { type: Boolean, default: false }
+	      , itemDate      : { type: Date, default: Date.now }
+        });
 
-          self.db = new mongoDb('tasks', new mongoServer('192.168.1.86', 27017, {}));
-          self.db.open(function() {});
-        };
+        module.exports = mongoose.model('TaskModel', TaskSchema)
 
-    (TODO: Figure out a way to automagically find the IP address instead of hard coding it)
- 
-4. The remaining code to finish off the MongoDB driver is fairly standard code that you may be familiar with from previous MongoDB projects:
-
-    	TaskProvider.prototype.getCollection = function(callback) {
-  		  var self = this;
-
-  		  var ensureMongoDbConnection = function(callback) {
-            if (self.db.state !== 'connected') {
-              self.db.open(function (error, client) {
-                callback(error);
-              });
-            } else {
-              callback(null);      
-            }
-          }
-
-          ensureMongoDbConnection(function(error) {
-            if (error) {
-              callback(error);
-            } else {
-              self.db.collection('task', function(error, task_collection) {
-                if (error) {
-                  callback(error);
-                } else {
-                  callback(null, task_collection);
-                }
-              });
-            }
-          });
-        };
-
-        TaskProvider.prototype.findAll = function(callback) {
-          this.getCollection(function(error, task_collection) {
-            if (error) {
-              callback(error)
-            } else {
-              task_collection.find().toArray(function(error, results) {
-                if (error) {
-                  callback(error)
-                } else {
-                  callback(null, results)
-                }
-              });
-            }
-          });
-        };
-
-        TaskProvider.prototype.save = function(tasks, callback) {
-          this.getCollection(function (error, task_collection) {
-            if (error) {
-              callback(error)
-            } else {
-              if (typeof (tasks.length) == "undefined") {
-                tasks = [tasks];
-              }
-              for (var i = 0; i < tasks.length; i++) {
-                task = tasks[i];
-                task.created_at = new Date();
-              }
-              task_collection.insert(tasks, function (err) {
-                callback(null, tasks);
-              });
-            }
-          });
-        };
-        exports.TaskProvider = TaskProvider;
-
-5. Save and close the taskprovider.js file.
+4. Save and close the *taskModel.js* file.
 
 ## Modify app.js
 
-1. Open the *app.js* file in a text editor. This file was created earlier by running the express command.
+1. In the **tasklist** directory, open the *app.js* file in a text editor. This file was created earlier by running the express command.
 
-2. Include the node-uuid, home, and azure modules. The home module does not exist yet, but you will create it shortly. Add the code below after the line that ends with express.createServer().
+2. Add the following code after the app.get statement in the routes section. It will add a new route for submitting new tasks. We will create the newItem function used by this route in the next section.
 
-        var TaskProvider = require('./taskProvider').TaskProvider;
-        var taskProvider = new TaskProvider();
-        var Home = require('./home');
-        var home = new Home(taskProvider); 
+        app.post('/', routes.newItem);
 
-3. Replace the existing code in the route section with the code below. It will create a home controller instance and route all requests to "/" or "/home" to it.
+	After adding the previous line, the routes section should appear as follows:
 
-        //Routes
-        app.get('/', home.showItems.bind(home));
-        app.get('/home', home.showItems.bind(home));
+		// Routes
 
-4. Replace the last two lines of the file with the code below. This configures Node to listen on the environment PORT value provided by Windows Azure when published to the cloud, or port 1337 when you run the application locally.
+		app.get('/', routes.index);
+		app.post('/', routes.newItem);
+
+4. Replace the app.listen statement at the end of the file with the code below. This configures Node to listen on the environment PORT value provided by Windows Azure when published to the cloud, or port 1337 when you run the application locally.
 
         app.listen(process.env.port || 1337);
 
-## Create the home controller
+## Modify the index controller
 
-The home controller will handle all requests for the task list site.
+The controller defined in *index.js* will handle all requests for the task list site. This file can be found in the **routes** sub-directory of the **tasklist** directory.
 
-1. Create a new *home.js* and open it in a text editor. This will be the controller for handling the logic for the task list.
+1. Open *index.js* in your text editor and add the following statements at the beginning of the file. This will include the mongoose module, the *taskModel.js* file you created earlier, and connect to the MongoDB server. 
 
-2. Replace the contents with the code below and save the file. The code below uses the javascript module pattern. It exports a Home function. The Home prototype contains the functions to handle the actual requests.
+		var mongoose = require('mongoose')
+  		  , taskModel = require('../models/taskModel.js');
 
-        module.exports = Home;
-        function Home (taskProvider) {
-          this.taskProvider = taskProvider;
-        };
-        Home.prototype = {
-          showItems: function (req, res) {
-            var self = this;
-            this.getItems(function (error, tasklist) {
-              if (!tasklist) {
-                tasklist = [];
-              }
-              self.showResults(res, tasklist);
-            });
-          },
-          getItems: function (callback) {
-            this.taskProvider.findAll(callback);
-          },
-          showResults: function (res, tasklist) {
-            res.render('home', { title: 'Todo list', layout: false, tasklist: tasklist });
-          },
-        newItem: function (req, res) {
-            var self = this;
-            var createItem = function (resp, tasklist) {
-              if (!tasklist) {
-                tasklist = [];
-              }
-              var count = tasklist.length;
-              var item = req.body.item;
-              item.completed = false;
-              var newtasks = new Array();
-              newtasks[0] = item;
-              self.taskProvider.save(newtasks, function (error, tasks) { 
-                self.showItems(req, res);
-              });
-            };
-            this.getItems(createItem);
-          },
-        }; 
+		mongoose.connect('mongodb://mongodbserveraddr/tasks');
 
-    Your home controller now includes three functions:
+    **Note**: change the *mongodbserveraddr* in the mongoose.connect statement to the IP address or fully qualified domain name of your MongoDB server.
 
-    * showItems handles the request.
+2. Replace the existing 'exports.index' section with the following. This will find and display tasks stored in MongoDB.
 
-    * getItems uses the table client to retrieve open task items from your tasks table. Notice that the query can have additional filters applied; for example, the above query filters only show tasks where completed is equal to false.
+		exports.index = function(req, res){
+		  taskModel.find({}, function(err, items){
+		  	res.render('index',{title: 'My ToDo List ', tasks: items})
+		  })
+		};
 
-    * showResults calls the Express render function to render the page using the home view that you will create in the next section.
+2. Add the following code to the bottom of the file. The code below defines the *newItem* route used when new tasks are submitted. It creates a new task using the model defined earlier and then saves the task to MongoDB. Finally, it redirects the user back to the index route.
+
+		exports.newItem = function (req, res){
+		  task              = new taskModel();
+		  task.itemName     = req.body.itemName;
+		  task.itemCategory = req.body.itemCategory;
+
+		  task.save(function(err){
+			if(err){
+		   	  console.log(err);
+		    }
+		    res.redirect('home');
+	      });
+		}
  
-3. Save and close the home.js file.
+3. Save and close the index.js file.
 
-### Modify the home view using jade
+### Modify the index view
 
-1. Change directories to the views folder and create a new *home.jade* file, and then open the file in a text editor.
+1. Change directories to the **views** directory and open the *index.jade* file in a text editor.
 
-2. Replace the contents of the home.jade file with the code below and save the file. The form below contains functionality for reading and updating the task items. (Note that currently the home controller only supports reading; you will change this later.) The form contains details for each item in the task list.
+2. Replace the contents of the *index.jade* file with the code below. This defines the view for displaying existing tasks, as well as a form for adding new tasks.
 
-        html
-        head
-        title Index
-        body
-        h1 My ToDo List
-        form
-        table(border="1")
-          tr
-            td Name
-            td Category
-            td Date
-            td Complete
-          each item in tasklist
-            tr
-              td #{item.name}
-              td #{item.category}
-              td #{item.date}
-              td
-                input(type="checkbox", name="completed", value="#{item.RowKey}") 
-        hr
-        form(action="/home/newitem", method="post")
-          table(border="1") 
-            tr
-              td Item Name: 
-              td 
-                input(name="item[name]", type="textbox")
-            tr
-              td Item Category: 
-              td 
-                input(name="item[category]", type="textbox")
-            tr
-              td Item Date: 
-              td 
-                input(name="item[date]", type="textbox")
-          input(type="submit", value="Add item")
+		h1= title
+		  font(color="grey") (powered by Node.js and MongoDB on Azure)
+		form
+		table(border="1")
+		  tr
+		    td Name
+		    td Category
+		    td Date
+		    td Complete
+		  each task in tasks
+		    tr
+		      td #{task.itemName}
+ 		     td #{task.itemCategory}
+		      - var day   = task.itemDate.getDate();
+		      - var month = task.itemDate.getMonth() + 1;
+		      - var year  = task.itemDate.getFullYear();
+		      td #{month + "/" + day + "/" + year}
+		      td
+		        input(type="checkbox", name="completed", value="#{task._id}", checked=task.itemCompleted)
+		hr
+		form(action="/", method="post")
+		  table(border="1") 
+		    tr
+		      td Item Name: 
+		      td 
+		        input(name="itemName", type="textbox")
+		    tr
+		      td Item Category: 
+		      td 
+		        input(name="itemCategory", type="textbox")
+		  input(type="submit", value="Add item")
 
-3. Save and close the home.jade file.
+3. Save and close the *index.jade* file.
 
 ## Run your application locally
 
 To test the application on your local machine, perform the following steps:
 
-1. Open the Terminal application if it is not already open, and change directories to the tasklist folder.
+1. Open the Terminal application if it is not already open, and change directories to the tasklist directory.
 
 2. To launch the application, use the following command:
 
         node app.js
 
-    You should see output similar to the following:
-
-    (TODO Insert Screenshot)
-
 3. Open your browser and navigate to http://127.0.0.1:1337. This should display a web page similar to the following:
 
-    (TODO: Insert screenshot)
+    ![Finished][]
 
-4. Use the providied fields for Item Name, Item Category, and Item Date to enter information, and then click Add item.
+4. Use the providied fields for Item Name and Item Category to enter information, and then click Add item.
 
-    (TODO Insert Screenshot)
+    ![AddItems][]
 
 5. The page should update to display the item in the ToDo List table.
 
-    (TODO: Insert screenshot)
+    ![WithItems][]
 
 6. In the terminal application, press Ctrl + C to terminate the node session.
 
@@ -359,7 +262,7 @@ Save this file to the tasklist directory.
 
 1. Open your web browser, navigate to the [Windows Azure portal], and then sign in. After signing in, you should see a web page similar to the following:
 
-(TODO Insert Screenshot)
+	(TODO Insert Screenshot)
 
 2. Select **+ New** at the bottom of the page, then select **Web Site** and **Quick Create**. In the form, enter a name for the web site and select your subscription and the region in which to create this web site. Finally, select **Create Web Site**. 
     (TODO Insert Screenshot)
@@ -401,16 +304,14 @@ Save this file to the tasklist directory.
 
 5. At this point, your web application should be available. (TODO: Add steps for finding URL)
 
-* (TODO: Short sentence of link1): [(TODO: Enter link1 text)] [NextStepsLink1]
-* (TODO: Short sentence of link2): [(TODO: Enter link2 text)] [NextStepsLink2]
-
-[NextStepsLink1]: (TODO: enter Next Steps 1 URL)
-[NextStepsLink2]: (TODO: enter Next Steps 2 URL)
-
 [Node.js website]: http://nodejs.org
 [MongoDB website]: http://www.mongodb.org
 [Git website]: http://git-scm.com
 [Windows Azure portal]: TBD
 
-[Image1]: (TODO: if used an image1, enter the url here, otherwise delete this)
-[Image2]: (TODO: if used an image2, enter the url here, otherwise delete this)
+[Finished]: ../media/todo_list_empty.png
+[ExpressOutput]: ../media/express_output.png
+[npmInstall]: ../media/npm_install_express_mongoose.png
+[npmInstallAfterExpress]: ../media/npm_install_after_express.png
+[AddItems]: ../media/todo_add_item.png
+[WithItems]: ../media/todo_list_items.png
