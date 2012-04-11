@@ -6,7 +6,7 @@ This guide also assumes that you have access to a MongoDB server, such as the on
 
 You will learn how to:
 
-* Use npm to install the Mongoose module for Node.js.
+* Use npm (node package manager) to install the Mongoose module for Node.js.
 
 * Use MongoDB within a Node.js application by using the Mongoose module.
 
@@ -14,7 +14,7 @@ You will learn how to:
 
 Throughout this tutorial you will build a simple web-based task-management application that allows creating, retrieving and completing tasks, which are stored in MongoDB. MongoDB is hosted in a Windows Azure Virtual Machine, and the web application is hosted as a Windows Azure Site.
  
-The project files for this tutorial will be stored in a tasklist directory and the completed application will look similar to the following:
+The project files for this tutorial will be stored in a directory named *tasklist* and the completed application will look similar to the following:
 
 ![Finished][]
 
@@ -38,9 +38,9 @@ In this section you will create a new Node application and use npm to add module
  
 For the task-list application you will use the following modules:
 
-* express - A web framework inspired by Sinatra.
+* Express - A web framework inspired by Sinatra.
 
-* mongodb - The driver for communicating with MongoDB.
+* MongoDB - The driver for communicating with MongoDB.
 
 Open the Terminal application and perform the following steps to create the application directory and install the required modules:
 
@@ -49,7 +49,7 @@ Open the Terminal application and perform the following steps to create the appl
 	    mkdir tasklist
         cd tasklist
 
-3. Enter the following command to install the express, node-uuid, and mongodb modules:
+3. Enter the following command to install the express and mongoose modules:
 
         npm install express mongoose
 
@@ -57,9 +57,11 @@ Open the Terminal application and perform the following steps to create the appl
 
     ![npmInstall][]
 
-4. To created the scaffolding which will be used for this application, issue the express command. When prompted to overwrite the destination, enter **y** or **yes**. The output of this command should appear similar to the following:
+4. To create the scaffolding which will be used for this application, issue the express command. When prompted to overwrite the destination, enter **y** or **yes**. The output of this command should appear similar to the following:
 
         ./node_modules/express/bin/express
+
+    **Note**: On a Windows system the express command should be ran from .\node_modules\.\bin\express instead.
 
     The output of this command should appear as follows:
 
@@ -103,7 +105,7 @@ In this section you will extend the basic application created by the express com
 
 1. In the **tasklist** directory, open the *app.js* file in a text editor. This file was created earlier by running the express command.
 
-2. Add the following code after the app.get statement in the routes section. It will add a new route for submitting new tasks. We will create the updateItem function used by this route in the next section.
+2. Add the following code after the `app.get` statement in the routes section. It will add a new route for submitting new tasks. We will create the *updateItem* function used by this route in the next section.
 
         app.post('/', routes.updateItem);
 
@@ -114,7 +116,7 @@ In this section you will extend the basic application created by the express com
 		app.get('/', routes.index);
 		app.post('/', routes.updateItem);
 
-4. Replace the app.listen statement at the end of the file with the code below. This configures Node to listen on the environment PORT value provided by Windows Azure when published to the cloud, or port 1337 when you run the application locally.
+4. Replace the 'app.listen statement' at the end of the file with the code below. This configures Node to listen on the environment PORT value provided by Windows Azure when published to the cloud, or port 1337 when you run the application locally.
 
         app.listen(process.env.port || 1337);
 
@@ -129,9 +131,9 @@ The controller defined in *index.js* will handle all requests for the task list 
 
 		mongoose.connect('mongodb://mongodbserveraddr/tasks');
 
-    **Note**: change the *mongodbserveraddr* in the mongoose.connect statement to the IP address or fully qualified domain name of your MongoDB server.
+    **Note**: change the *mongodbserveraddr* in the `mongoose.connect` statement to the IP address or fully qualified domain name of your MongoDB server.
 
-2. Replace the existing 'exports.index' section with the following. This will find and display tasks stored in MongoDB.
+2. Replace the existing `exports.index` section with the following. This will find and display tasks stored in MongoDB.
 
 		exports.index = function(req, res){
 		  taskModel.find({}, function(err, items){
@@ -223,13 +225,15 @@ To test the application on your local machine, perform the following steps:
 
     ![Finished][]
 
-4. Use the providied fields for Item Name and Item Category to enter information, and then click Add item.
+4. Use the provided fields for Item Name and Item Category to enter information, and then click **Add item**.
 
     ![AddItems][]
 
 5. The page should update to display the item in the ToDo List table.
 
     ![WithItems][]
+
+6. To complete a task, simply check the checkbox in the Complete column, and then click **Update tasks**. While there is no visual change after clicking **Update tasks**, the document entry in MongoDB has now been marked as completed.
 
 6. In the terminal application, press Ctrl + C to terminate the node session.
 
@@ -272,7 +276,8 @@ Save this file to the tasklist directory.
 
 	(TODO Insert Screenshot)
 
-2. Select **+ New** at the bottom of the page, then select **Web Site** and **Quick Create**. In the form, enter a name for the web site and select your subscription and the region in which to create this web site. Finally, select **Create Web Site**. 
+2. Select **+ New** at the bottom of the page, then select **Web Site** and **Quick Create**. In the form, enter a name for the web site and select your subscription and the region in which to create this web site. Finally, select **Create Web Site**.
+
     (TODO Insert Screenshot)
 
 3. Once the web site status changes to Running, select the name of the web site to display the dashboard for this site.
@@ -306,11 +311,19 @@ Save this file to the tasklist directory.
 
     This should return results similar to the following:
 
+    (TODO Insert screenshot)
+
 4. After the git push completes, you should notice your browser update to display a message confirming the deployment. This should appear similar to the following:
 
     (TODO Insert screenshot)
 
-5. At this point, your web application should be available. (TODO: Add steps for finding URL)
+5. At this point, your web application should be available. To find the URL of the Windows Azure site at which your application is hosted, select the **Dashboard** link for your web site and then find the site URL in the **quick glance** section.
+
+    (TODO Insert screenshot)
+
+** Web Site Management
+
+Using the web site dashboard, you can perform management tasks such as monitoring, pausing, or deleting your application. Additionally you can configure hosting and deployment options, as well as scale your application. For more information on using the dashboard, see **TBD**
 
 [Node.js website]: http://nodejs.org
 [MongoDB website]: http://www.mongodb.org
