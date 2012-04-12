@@ -1,6 +1,6 @@
 # How to Use the Queue Storage Service from PHP
 
-This guide will show you how to perform common scenarios using the Windows Azure Queue storage service. The samples are written using the Windows Azure Libraries for PHP. The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**. For more information on queues, see the [Next Steps] (#NextSteps) section.
+This guide will show you how to perform common scenarios using the Windows Azure Queue storage service. The samples are written using classes from the Windows SDK for PHP. The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**. For more information on queues, see the [Next Steps] (#NextSteps) section.
 
 ##What is Queue Storage
 
@@ -33,28 +33,23 @@ This guide will show you how to perform common scenarios using the Windows Azure
 
 <h2 id="create-app">Create a PHP Application</h2>
 
-In this guide, you will use storage features which can be run within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site. We assume you have downloaded and installed PHP, and followed the instructions in [Download the Windows Azure SDK for PHP] [download] to install the Windows Azure Libraries for PHP and the Windows Azure SDK, and have created a Windows Azure storage account in your Windows Azure subscription.
+The only requirement for creating a PHP application that accesses the Windows Azure Queue storage service is the referencing of classes from the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
-You can use any development tools to create your application, including Notepad. The only requirements are having PHP installed and the ability to reference the Windows Azure Libraries for PHP from within your application.
+In this guide, you will use storage features which can be run within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site. We assume you have downloaded and installed PHP, followed the instructions in [Download the Windows Azure SDK for PHP] [download], and have created a Windows Azure storage account in your Windows Azure subscription.
 
 
 <h2 id="configure-app">Configure your Application to Access Queue Storage</h2>
 
 To use the Windows Azure storage APIs to access queues, you need to:
 
-1. Reference the `Autoload.php` file (from the Windows Azure Libraries for PHP) using the [require_once] [require_once] statement, and
+1. Reference the `Autoload.php` file (from the Windows Azure SDK for PHP) using the [require_once] [require_once] statement, and
 2. Reference any classes you might use.
 
-The following example shows how to include the `Autoload.php` file and references all classes you might use with the Queue API, but you only need to reference those classes you actually use in your application:
+The following example shows how to include the `Autoload.php` file and references some of the classes you might use with the Queue API:
 
 	require_once 'Autoload.php';
 	
-	use PEAR2\WindowsAzure\Core\WindowsAzureUtilities;
-	use PEAR2\Tests\Framework\QueueRestProxyTestBase;
-	use PEAR2\WindowsAzure\Services\Core\Configuration;
 	use PEAR2\WindowsAzure\Services\Core\Models\ServiceProperties;
-	use PEAR2\WindowsAzure\Services\Queue\QueueRestProxy;
-	use PEAR2\WindowsAzure\Services\Queue\IQueue;
 	use PEAR2\WindowsAzure\Services\Queue\QueueService;
 	use PEAR2\WindowsAzure\Services\Queue\QueueSettings;
 	use PEAR2\WindowsAzure\Services\Queue\Models\ListQueuesOptions;
@@ -67,13 +62,10 @@ The following example shows how to include the `Autoload.php` file and reference
 	use PEAR2\WindowsAzure\Services\Queue\Models\PeekMessagesOptions;
 	use PEAR2\WindowsAzure\Services\Queue\Models\UpdateMessageResult;
 	use PEAR2\WindowsAzure\Services\Queue\Models\QueueServiceOptions;
-	use PEAR2\Tests\Framework\TestResources;
-	use PEAR2\WindowsAzure\Resources;
-	use PEAR2\WindowsAzure\Core\ServiceException;
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
-<h2 id="connection-string">Setup a Windows Azure Storage Connection String</h2>
+<h2 id="connection-string">Setup a Windows Azure Storage Connection</h2>
 
 A Windows Azure Queue storage client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the primary access key, and the queue URI for the storage account listed in the Management Portal. This example shows how you can create a new configuration object and set these properties:
 
