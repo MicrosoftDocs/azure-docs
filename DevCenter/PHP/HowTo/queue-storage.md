@@ -1,6 +1,6 @@
 # How to Use the Queue Storage Service from PHP
 
-This guide will show you how to perform common scenarios using the Windows Azure Queue storage service. The samples are written using classes from the Windows SDK for PHP. The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**. For more information on queues, see the [Next Steps] (#NextSteps) section.
+This guide will show you how to perform common scenarios using the Windows Azure Queue storage service. The samples are written using classes from the Windows SDK for PHP. The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**. For more information on queues, see the [Next Steps](#NextSteps) section.
 
 ##What is Queue Storage
 
