@@ -1,6 +1,6 @@
 # How to Use the Blob Storage Service from PHP
 
-This guide will show you how to perform common scenarios using the Windows Azure Blob storage service. The samples are written in PHP and use the [Windows Azure SDK for PHP] [download]. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps] (#NextSteps) section.
+This guide will show you how to perform common scenarios using the Windows Azure Blob storage service. The samples are written in PHP and use the [Windows Azure SDK for PHP] [download]. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#NextSteps) section.
 
 ##What is Blob Storage
 
