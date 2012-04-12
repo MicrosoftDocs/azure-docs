@@ -1,10 +1,12 @@
-# (TODO: Title of the tutorial)
+# Now to create and deploy a Windows Azure Site (node.js)
 
 (TODO: provide a short description of the article.)
 
 You will learn:
 
-* (TODO: provide a bulleted list of items the customer will learn by completing this tutorial.  List items should begin with "how to," for example: "How to use Visual Studio to develop for Windows Azure." Each bulleted list item should end in a period.
+* How to create a Node.js application
+
+* How to deploy a Node.js application to Windows Azure
 
 (TODO: provide a description of the final application, followed by a screenshot of the completed application.)
 
