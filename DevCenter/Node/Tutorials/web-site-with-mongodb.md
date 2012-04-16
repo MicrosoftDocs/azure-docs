@@ -81,9 +81,9 @@ In this section you will extend the basic application created by the express com
 
 ### Create the model
 
-1. In the **tasklist** directory, create a new directory named **models**. In the **models** directory, create a new file named *taskModel.js*. This file will contain the model for the tasks created by your application.
+1. In the **tasklist** directory, create a new directory named **models**. In the **models** directory, create a new file named *task.js*. This file will contain the model for the tasks created by your application.
 
-2. At the beginning of the *taskModel.js* file, add the following code to reference required libraries:
+2. At the beginning of the *task.js* file, add the following code to reference required libraries:
 
         var mongoose = require('mongoose')
 	      , Schema = mongoose.Schema;
@@ -99,11 +99,11 @@ In this section you will extend the basic application created by the express com
 
         module.exports = mongoose.model('TaskModel', TaskSchema)
 
-4. Save and close the *taskModel.js* file.
+4. Save and close the *task.js* file.
 
-## Modify app.js
+## Modify server.js
 
-1. In the **tasklist** directory, open the *app.js* file in a text editor. This file was created earlier by running the express command.
+1. In the **tasklist** directory, open the *server.js* file in a text editor. This file was created earlier by running the express command.
 
 2. Add the following code after the `app.get` statement in the routes section. It will add a new route for submitting new tasks. We will create the *updateItem* function used by this route in the next section.
 
@@ -124,10 +124,10 @@ In this section you will extend the basic application created by the express com
 
 The controller defined in *index.js* will handle all requests for the task list site. This file can be found in the **routes** sub-directory of the **tasklist** directory.
 
-1. Open *index.js* in your text editor and add the following statements at the beginning of the file. This will include the mongoose module, the *taskModel.js* file you created earlier, and connect to the MongoDB server. 
+1. Open *index.js* in your text editor and add the following statements at the beginning of the file. This will include the mongoose module, the *task.js* file you created earlier, and connect to the MongoDB server. 
 
 		var mongoose = require('mongoose')
-  		  , taskModel = require('../models/taskModel.js');
+  		  , task = require('../models/taskModel.js');
 
 		mongoose.connect('mongodb://mongodbserveraddr/tasks');
 
@@ -136,7 +136,7 @@ The controller defined in *index.js* will handle all requests for the task list 
 2. Replace the existing `exports.index` section with the following. This will find and display tasks stored in MongoDB.
 
 		exports.index = function(req, res){
-		  taskModel.find({}, function(err, items){
+		  task.find({}, function(err, items){
 		  	res.render('index',{title: 'My ToDo List ', tasks: items})
 		  })
 		};
@@ -146,10 +146,10 @@ The controller defined in *index.js* will handle all requests for the task list 
 
 		exports.updateItem = function (req, res){
 		  if(req.body.item){
-		    task = new taskModel();
-		    task.itemName = req.body.item.name;
-		    task.itemCategory = req.body.item.category;
-		    task.save(function(err){
+		    newTask = new task();
+		    newTask.itemName = req.body.item.name;
+		    newTask.itemCategory = req.body.item.category;
+		    newTask.save(function(err){
 			  if(err){
 				console.log(err);
 			  }
@@ -158,7 +158,7 @@ The controller defined in *index.js* will handle all requests for the task list 
             for(key in req.body){
     	      conditions = { _id: key };
     	      update = { itemCompleted: req.body[key] };
-    	      taskModel.update(conditions, update, function(err){
+    	      task.update(conditions, update, function(err){
     		    if(err){
     			  console.log(err);
     		    }
@@ -219,7 +219,7 @@ To test the application on your local machine, perform the following steps:
 
 2. To launch the application, use the following command:
 
-        node app.js
+        node server.js
 
 3. Open your browser and navigate to http://127.0.0.1:1337. This should display a web page similar to the following:
 
@@ -243,7 +243,7 @@ In this section, you will use the Windows Azure portal to create a new web site,
 
 ### Configure your application
 
-Before deploying the application to Windows Azure, we must add a *web.config* file to the root of the tasklist directory. This file contains settings that instruct Windows Azure on how to run your Node application, such as adding the iisnode handler and adding a rule to direct incoming requests to the *app.js* file. Using a text editor, create the *web.config* file and add the following:
+Before deploying the application to Windows Azure, we must add a *web.config* file to the root of the tasklist directory. This file contains settings that instruct Windows Azure on how to run your Node application, such as adding the iisnode handler and adding a rule to direct incoming requests to the *server.js* file. Using a text editor, create the *web.config* file and add the following:
 
     <?xml version="1.0" encoding="utf-8"?>
       <configuration>
@@ -253,15 +253,15 @@ Before deploying the application to Windows Azure, we must add a *web.config* fi
         <system.webServer>
           <modules runAllManagedModulesForAllRequests="false" />
           <handlers>
-            <add name="iisnode" path="app.js" verb="*" modules="iisnode" />
+            <add name="iisnode" path="server.js" verb="*" modules="iisnode" />
           </handlers>
           <rewrite>
             <rules>
               <clear />
               <rule name="app" enabled="true" patternSyntax="ECMAScript" stopProcessing="true">
-                  <match url="app\.js.+" negate="true" />
+                  <match url="server\.js.+" negate="true" />
                   <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
-                  <action type="Rewrite" url="app.js" />
+                  <action type="Rewrite" url="server.js" />
               </rule>
             </rules>
           </rewrite>
