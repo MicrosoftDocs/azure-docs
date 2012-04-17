@@ -1,34 +1,78 @@
 # Node.js Web Application
 
-Developing for Windows Azure is easy when using the available tools. This tutorial assumes you have no prior experience using Windows Azure. On completing this guide, you will have an application that uses multiple Windows Azure resources up and running in the cloud.
+This tutorial assumes you have no prior experience using Windows Azure. On completing this guide, you will have a Node.js application running on Windows Azure.
 
 You will learn:
 
-* How to create a new Windows Azure Node.js application using the Windows PowerShell tools.
-
 * How to run your Node application locally
 
-* How to publish and re-publish your application to Windows Azure.
+* How to publish your application to Windows Azure.
 
-following this tutorial, you will build a simple Hello World web application. The application will be hosted in an instance of a web role that, when running in Windows Azure, is itself hosted in a dedicated virtual machine (VM).
+following this tutorial, you will build a simple Hello World web application. The application will be hosted in a Windows Azure Web Site when deployed. A Web Site is a lightweight web hosting feature of the Windows Azure platform.
  
 A screenshot of the completed application is below:
 
-(TODO: provide a description of the final application, followed by a screenshot of the completed application.)
+**(TODO: provide a description of the final application, followed by a screenshot of the completed application.)**
 
 ##Setting Up the Development Environment
 
-###Download and Install the SDK
+Before you can begin developing your Windows Azure application, you need to get the tools and set up your development environment.
 
-In this section, you will download and install the Windows Azure SDK for Node.js.
+1. To install the Windows Azure SDK for Node.js, click the button below:
 
-**(TODO: Figure out our steps for obtaining the SDK & tools. Same as it is now? Confirm with Mike and Molly.)**
+    **(TODO add image/button)**
+
+2. **TODO: Determine final name/process for Mac**
+
+Once the installation is complete, you have everything necessary to start developing. The following components are installed:
+
+* **TODO: Determine components**
+
+##Creating a New Node Application
+
+**TODO: Determine critical path - do we need to use the azure site create command first or can it go last?**
+
+1. Open the Finder and navigate to the Applications folder, then Utilities. Finally, double click on Terminal to launch the Terminal application.
+
+    **(TODO Screenshot)**
+
+2. Using the Terminal window, create a new **node** directory in your home folder. Create a new **helloworld** directory in the **node** directory, and then change directories to the ~/node/helloworld directory. The commands to perform these tasks are:
+
+        mkdir -p ~/node/helloworld
+        cd ~/node/helloworld
+
+3. Using a text editor, create a new *server.js* file in the ~/node/helloworld directory. Add the following as the contents of the *server.js* file, and then save it:
+
+        var http = require('http')
+        var port = process.env.port || 1337;
+        http.createServer(function(req, res) {
+          res.writeHead(200, { 'Content-Type': 'text/plain' });
+          res.end('Hello World\n');
+        }).listen(port);
+
+## Testing Your Application Locally
+
+To test your application locally, perform the following steps to launch the application using Node:
+
+1. Open the Terminal application if it is not currently running, and enter the following command:
+
+        node server.js
+
+2. Open your web browser and navigate to http://localhost:1337. A web page displaying "Hello World" will appear as shown in the screenshot below:
+
+    **(TODO Screenshot)**
+
+3. To stop the application, switch to the Terminal window and hold down the ctrl and c keys on your keyboard.
+
+Deploying the Application to Windows Azure
+
+In order to deploy your application to Windows Azure, you need an account. If you do not have one you can create a free trial account. Once you are logged in with your account, you can download a Windows Azure publishing profile. The publishing profile authorizes your computer to publish deployment packages to Windows Azure using the SDK tools.
 
 ###Creating a Windows Azure Account
 
 In this section, you will create a Windows Azure subscription. This subscription will be used by the Windows Azure SDK tools in subsequent steps.
 
-(TODO: Steps on creating a free account)
+**(TODO: Steps on creating a free account)**
 
 ###Downloading the Windows Azure Publishing Settings
 
@@ -36,7 +80,7 @@ In this section, you will download the publishing settings for your Windows Azur
 
 1. Open the Finder and navigate to the Applications folder, then Utilities. Finally, double click on Terminal to launch the Terminal application.
 
-    (TODO Screenshot)
+    **(TODO Screenshot)**
 
 2. From the Terminal window, launch the download page by running the following command:
 
@@ -44,13 +88,13 @@ In this section, you will download the publishing settings for your Windows Azur
 
     This launches the browser for you to log into the Windows Azure Management Portal with your Windows Live ID credentials.
 
-    (TODO Screenshot)
+    **(TODO Screenshot)**
 
 3. Log into the Management Portal. This takes you to the page to download your Windows Azure publishing settings.
 
 4. Save the profile to the Downloads folder, using the filename AzureSubscription.publishsettings:
 
-    (TODO Screenshot)
+    **(TODO Screenshot)**
 
 3. To import the subscription information, enter the following command in the Terminal window:
 
@@ -60,29 +104,46 @@ In this section, you will download the publishing settings for your Windows Azur
 
     **Note**: After importing the publish settings, you should delete the .publishsettings file as it is no longer required and contains information that could be used to manage your Windows Azure subscription.
 
-##Creating a New Node Application
+###Publishing the Application
 
-In this section you will use these tools to create a new application.
+**TODO: Get final steps on this. I believe we are leaning toward automatically creating the remote for you**
 
 1. Open the Terminal application if it is not currently running, and enter the following command:
 
-        azure create site tasklist --git
+        azure create site helloworld --git --location "South Central US"
 
-    This command creates a folder named *tasklist* on your computer, as well as create a new Windows Azure Web Site with the same name on your subscription. The `--git` parameter will automatically create a git repository for this folder, and setup the Windows Azure Web Site as a remote.
 
-2. **(TODO more steps)**
+    This command creates a new Windows Azure Web Site named 'helloworld'. The --git parameter creates a git repository on Windows Azure, which you will use to deploy this application. The --location parameter specifies the data center that this web site will be hosted in. The output of this command should be similar to the following:
 
-3. 
+    **(TODO Screenshot)**
 
-##Next Steps
+2. Using the Terminal, enter the git commands returned by the previous step. These commands will initialize a local git repository for your application, add the existing files to the local repository, create a remote named 'azure' for the web site repository on Windows Azure, and finally push the local files to the 'azure' remote. The result should appear similar to the following:
 
-(TODO: Optional section that points the user to related topics and additional information.  Start with a short  summary and then transition to a list of related articles.)
+    **(TODO Screenshot)**
 
-* (TODO: Short sentence of link1): [(TODO: Enter link1 text)] [NextStepsLink1]
-* (TODO: Short sentence of link2): [(TODO: Enter link2 text)] [NextStepsLink2]
+3. Start your web browser and navigate to the URL of your web site. A page should appear that displays "Hello World".
 
-[NextStepsLink1]: (TODO: enter Next Steps 1 URL)
-[NextStepsLink2]: (TODO: enter Next Steps 2 URL)
+    **(TODO Screenshot)**
 
-[Image1]: (TODO: if used an image1, enter the url here, otherwise delete this)
-[Image2]: (TODO: if used an image2, enter the url here, otherwise delete this)
+    Your application is now running on Windows Azure!
+
+## Stopping and Deleting Your Application
+
+The following steps show you how to stop and delete your application.
+
+1. Using the Terminal, stop the web site deployed in the previous section by entering the following command:
+
+        azure site stop helloworld
+
+    When the service has stopped, you will receive a message similar to the following:
+
+    **(TODO Screenshot)**
+
+2. To delete the web site, enter the following command:
+
+        azure site delete helloworld
+
+    The output of this command will be similar to the following:
+
+    **(TODO Screenshot)**
+
