@@ -4,9 +4,11 @@ This tutorial assumes you have no prior experience using Windows Azure. On compl
 
 You will learn:
 
-* How to run your Node application locally
+* How to create a Windows Azure Web Site
 
-* How to publish your application to Windows Azure.
+* How to publish your application to Windows Azure using Git
+
+* How to stop and delete a Windows Azure Web Site
 
 following this tutorial, you will build a simple Hello World web application. The application will be hosted in a Windows Azure Web Site when deployed. A Web Site is a lightweight web hosting feature of the Windows Azure platform.
  
@@ -18,19 +20,28 @@ A screenshot of the completed application is below:
 
 Before you can begin developing your Windows Azure application, you need to get the tools and set up your development environment.
 
+###Windows Azure SDK
+
+The Windows Azure SDK installs the 'azure' command line interface, which you will use later to deploy your application to Windows Azure.
+
 1. To install the Windows Azure SDK for Node.js, click the button below:
 
     **(TODO add image/button)**
 
 2. **TODO: Determine final name/process for Mac**
 
-Once the installation is complete, you have everything necessary to start developing. The following components are installed:
+###Node.js
 
-* **TODO: Determine components**
+If it is not already installed, you can download the latest version of Node.js from [Node.js website].
+
+###Git
+
+If it is not already installed, you can download the latest version of Git from [Git website].
+
+###Other Tools
+In addition to the Windows Azure SDK, Node.js and Git, you will also need access to a text editor or integrated development environment (IDE).
 
 ##Creating a New Node Application
-
-**TODO: Determine critical path - do we need to use the azure site create command first or can it go last?**
 
 1. Open the Finder and navigate to the Applications folder, then Utilities. Finally, double click on Terminal to launch the Terminal application.
 
@@ -78,11 +89,7 @@ In this section, you will create a Windows Azure subscription. This subscription
 
 In this section, you will download the publishing settings for your Windows Azure subscription. Unless you change your subscription or clear your subscription settings, you will only need to perform these steps once as the publishing settings are cached on your computer.
 
-1. Open the Finder and navigate to the Applications folder, then Utilities. Finally, double click on Terminal to launch the Terminal application.
-
-    **(TODO Screenshot)**
-
-2. From the Terminal window, launch the download page by running the following command:
+1. From the Terminal window, launch the download page by running the following command:
 
         azure account download
 
@@ -90,23 +97,39 @@ In this section, you will download the publishing settings for your Windows Azur
 
     **(TODO Screenshot)**
 
-3. Log into the Management Portal. This takes you to the page to download your Windows Azure publishing settings.
+2. Log into the Management Portal. This takes you to the page to download your Windows Azure publishing settings.
 
-4. Save the profile to the Downloads folder, using the filename AzureSubscription.publishsettings:
+3. Save the profile to the Downloads folder, the filename will vary depending on your service name. For the purpose of this article we will use AzureSubscription.publishsettings:
 
     **(TODO Screenshot)**
 
-3. To import the subscription information, enter the following command in the Terminal window:
+4. To import the subscription information, enter the following command in the Terminal window. Substitute your .publishsettings filename in the path:
 
         azure account import ~\Downloads\AzureSubscription.publishsettings
 
-    This command will parse the .publishsettings file and store the information contained in it to the ~\.azure directory. You can clear this information by using the `azure account clear` command if you wish to remove this information from your computer.
+    This command will parse the .publishsettings file and cache the information contained in it to the ~\.azure directory. You can clear this information by using the `azure account clear` command if you wish to remove this information from your computer.
 
     **Note**: After importing the publish settings, you should delete the .publishsettings file as it is no longer required and contains information that could be used to manage your Windows Azure subscription.
 
 ###Publishing the Application
 
-**TODO: Get final steps on this. I believe we are leaning toward automatically creating the remote for you**
+If this is the first application you have published as a Windows Azure Web Site, you must use the web portal to create the site.
+
+1. Open the Terminal application if it is not already running, and enter the following command:
+
+        azure site portal
+
+    This will open your browser and navigate to the Windows Azure portal:
+
+    **(TODO Screenshot)**
+
+2. On the portal, select **+ NEW**, and then select **Web Site*.
+
+    **(TODO Screenshot)**
+
+3. Select **Quick Create**, and then enter the site name in the URL field and select the region to create the site in. Finally, select **Create Web Site**.
+
+    **(TODO Screenshot)**
 
 1. Open the Terminal application if it is not currently running, and enter the following command:
 
@@ -147,3 +170,5 @@ The following steps show you how to stop and delete your application.
 
     **(TODO Screenshot)**
 
+[Node.js website]: http://nodejs.org/
+[Git website]: http://git-scm.com/
