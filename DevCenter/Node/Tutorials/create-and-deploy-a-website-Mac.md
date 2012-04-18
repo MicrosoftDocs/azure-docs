@@ -77,7 +77,7 @@ To test your application locally, perform the following steps to launch the appl
 
 3. To stop the application, switch to the Terminal window and hold down the ctrl and c keys on your keyboard.
 
-Deploying the Application to Windows Azure
+##Deploying the Application to Windows Azure
 
 In order to deploy your application to Windows Azure, you need an account. If you do not have one you can create a free trial account. Once you are logged in with your account, you can download a Windows Azure publishing profile. The publishing profile authorizes your computer to publish deployment packages to Windows Azure using the SDK tools.
 
