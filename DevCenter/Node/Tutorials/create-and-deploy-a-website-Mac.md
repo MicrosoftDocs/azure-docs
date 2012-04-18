@@ -43,6 +43,8 @@ In addition to the Windows Azure SDK, Node.js and Git, you will also need access
 
 ##Creating a New Node Application
 
+**TODO: Refactor once we have scaffolding command**
+
 1. Open the Finder and navigate to the Applications folder, then Utilities. Finally, double click on Terminal to launch the Terminal application.
 
     **(TODO Screenshot)**
