@@ -35,7 +35,7 @@ This guide will show you how to perform common scenarios using the Windows Azure
 
 The only requirement for creating a PHP application that accesses the Windows Azure Queue storage service is the referencing of classes from the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you will use storage features which can be run within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site. We assume you have downloaded and installed PHP, followed the instructions in [Download the Windows Azure SDK for PHP] [download], and have created a Windows Azure storage account in your Windows Azure subscription.
+In this guide, you will use storage features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site. We assume you have downloaded and installed PHP, followed the instructions in [Download the Windows Azure SDK for PHP] [download], and have created a Windows Azure storage account in your Windows Azure subscription.
 
 
 <h2 id="configure-app">Configure your Application to Access Queue Storage</h2>
@@ -49,30 +49,30 @@ The following example shows how to include the `Autoload.php` file and reference
 
 	require_once 'Autoload.php';
 	
-	use PEAR2\WindowsAzure\Services\Core\Models\ServiceProperties;
-	use PEAR2\WindowsAzure\Services\Queue\QueueService;
-	use PEAR2\WindowsAzure\Services\Queue\QueueSettings;
-	use PEAR2\WindowsAzure\Services\Queue\Models\ListQueuesOptions;
-	use PEAR2\WindowsAzure\Services\Queue\Models\ListQueuesResult;
-	use PEAR2\WindowsAzure\Services\Queue\Models\CreateQueueOptions;
-	use PEAR2\WindowsAzure\Services\Queue\Models\GetQueueMetadataResult;
-	use PEAR2\WindowsAzure\Services\Queue\Models\ListMessagesResult;
-	use PEAR2\WindowsAzure\Services\Queue\Models\ListMessagesOptions;
-	use PEAR2\WindowsAzure\Services\Queue\Models\PeekMessagesResult;
-	use PEAR2\WindowsAzure\Services\Queue\Models\PeekMessagesOptions;
-	use PEAR2\WindowsAzure\Services\Queue\Models\UpdateMessageResult;
-	use PEAR2\WindowsAzure\Services\Queue\Models\QueueServiceOptions;
+	use WindowsAzure\Services\Core\Models\ServiceProperties;
+	use WindowsAzure\Services\Queue\QueueService;
+	use WindowsAzure\Services\Queue\QueueSettings;
+	use WindowsAzure\Services\Queue\Models\ListQueuesOptions;
+	use WindowsAzure\Services\Queue\Models\ListQueuesResult;
+	use WindowsAzure\Services\Queue\Models\CreateQueueOptions;
+	use WindowsAzure\Services\Queue\Models\GetQueueMetadataResult;
+	use WindowsAzure\Services\Queue\Models\ListMessagesResult;
+	use WindowsAzure\Services\Queue\Models\ListMessagesOptions;
+	use WindowsAzure\Services\Queue\Models\PeekMessagesResult;
+	use WindowsAzure\Services\Queue\Models\PeekMessagesOptions;
+	use WindowsAzure\Services\Queue\Models\UpdateMessageResult;
+	use WindowsAzure\Services\Queue\Models\QueueServiceOptions;
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
 <h2 id="connection-string">Setup a Windows Azure Storage Connection</h2>
 
-A Windows Azure Queue storage proxy uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the primary access key, and the queue URI for the storage account listed in the Management Portal. This example shows how you can create a new configuration object and set these properties:
+A Windows Azure Queue storage client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the primary access key, and the queue URI for the storage account listed in the Management Portal. This example shows how you can create a new configuration object and set these properties:
 
 	require_once 'Autoload.php';
 
-	use PEAR2\WindowsAzure\Services\Core\Configuration;
-	use PEAR2\WindowsAzure\Services\Queue\QueueSettings;
+	use WindowsAzure\Services\Core\Configuration;
+	use WindowsAzure\Services\Queue\QueueSettings;
 	
 	$storage_account_name = "your_storage_account_name";
 	$storage_account_key = "your_storage_account_key";
@@ -83,7 +83,7 @@ A Windows Azure Queue storage proxy uses a **Configuration** object for storing 
 	$config->setProperty(QueueSettings::ACCOUNT_KEY, $storgae_account_key);
 	$config->setProperty(QueueSettings::URI, $storage_account_URI);
 
-You will pass this `Configuration` instance (`$config`) to other objects when using the Queue APIs.
+You will pass this `Configuration` instance (`$config`) to other objects when using the Queue API.
 
 <h2 id="create-queue">How to Create a Queue</h2>
 
@@ -91,12 +91,11 @@ A **QueueService** object lets you create a queue with the **createQueue** metho
 
 	require_once 'Autoload.php';
 
-	use PEAR2\WindowsAzure\Services\Queue\QueueService;
-	use PEAR2\WindowsAzure\Services\Queue\Models\CreateQueueOptions;
-	use PEAR2\WindowsAzure\Core\ServiceException;
+	use WindowsAzure\Services\Queue\QueueService;
+	use WindowsAzure\Services\Queue\Models\CreateQueueOptions;
 	
-	// Create queue service proxy.
-	$queue_proxy = QueueService::create($config);
+	// Create queue service client.
+	$queue_client = QueueService::create($config);
 	
 	// OPTIONAL: Set queue metadata.
 	$createQueueOptions = new CreateQueueOptions();
@@ -105,9 +104,9 @@ A **QueueService** object lets you create a queue with the **createQueue** metho
 	
 	try	{
 		// Create queue.
-		$queue_proxy->createQueue("myqueue", $createQueueOptions);
+		$queue_client->createQueue("myqueue", $createQueueOptions);
 	}
-	catch(ServiceException $e){
+	catch(Exception $e){
 		$code = $e->getCode();
 		// If $code == 204, the queue already exists.
 		// If $code == 409, the queue already exists, but with different metadata.
@@ -121,11 +120,11 @@ To add a message to a queue, use you call **QueueService->createMessage**. The m
 
 	require_once 'Autoload.php';
 
-	use PEAR2\WindowsAzure\Services\Queue\QueueService;
-	use PEAR2\WindowsAzure\Services\Queue\Models\CreateMessageOptions;
+	use WindowsAzure\Services\Queue\QueueService;
+	use WindowsAzure\Services\Queue\Models\CreateMessageOptions;
 
-	// Create queue service proxy.
-	$queue_proxy = QueueService::create($config);
+	// Create queue service client.
+	$queue_client = QueueService::create($config);
 	
 	// OPTIONAL: Set message options.
 	$message_options = new CreateMessageOptions();
@@ -133,7 +132,7 @@ To add a message to a queue, use you call **QueueService->createMessage**. The m
 	$message_options->setTimeToLiveInSeconds("3600"); // Default and max value are 7 days. Must be string?
 	
 	// Create message.
-	$queue_proxy->createMessage("myqueue", "Hello World!", $message_options);
+	$queue_client->createMessage("myqueue", "Hello World!", $message_options);
 
 <h2 id="peek-message">How to Peek at the Next Message</h2>
 
@@ -141,18 +140,18 @@ You can peek at a message (or messages) at the front of a queue without removing
 
 	require_once 'Autoload.php';
 
-	use PEAR2\WindowsAzure\Services\Queue\QueueService;
-	use PEAR2\WindowsAzure\Services\Queue\Models\PeekMessagesResult;
-	use PEAR2\WindowsAzure\Services\Queue\Models\PeekMessagesOptions;
+	use WindowsAzure\Services\Queue\QueueService;
+	use WindowsAzure\Services\Queue\Models\PeekMessagesResult;
+	use WindowsAzure\Services\Queue\Models\PeekMessagesOptions;
 
-	// Create queue service proxy.
-	$queue_proxy = QueueService::create($config);
+	// Create queue service client.
+	$queue_client = QueueService::create($config);
 	
 	// OPTIONAL: Set peek message options.
 	$message_options = new PeekMessagesOptions();
 	$message_options->setNumberOfMessages(1); // Default value is 1.
 	
-	$peekMessagesResult = $queue_proxy->peekMessages("myqueue", $message_options); // Returns a PeekMessagesResult object
+	$peekMessagesResult = $queue_client->peekMessages("myqueue", $message_options); // Returns a PeekMessagesResult object
 	$messages = $peekMessagesResult->getQueueMessages(); // Array of AzureQueueMessage objects
 
 	// View messages here
@@ -163,15 +162,15 @@ Your code removes a message from a queue in two steps. First, you call **QueueSe
 
 	require_once 'Autoload.php';
 
-	use PEAR2\WindowsAzure\Services\Queue\QueueService;
-	use PEAR2\WindowsAzure\Services\Queue\Models\ListMessageOptions;
-	use PEAR2\WindowsAzure\Services\Queue\Models\QueueServiceOptions;
+	use WindowsAzure\Services\Queue\QueueService;
+	use WindowsAzure\Services\Queue\Models\ListMessageOptions;
+	use WindowsAzure\Services\Queue\Models\QueueServiceOptions;
 
-	// Create queue service proxy.
-	$queue_proxy = QueueService::create($config);
+	// Create queue service client.
+	$queue_client = QueueService::create($config);
 	
 	// Get message.
-	$listMessagesResult = $queue_proxy->listMessages("myqueue", $options); // Returns a ListMessagesResult object
+	$listMessagesResult = $queue_client->listMessages("myqueue", $options); // Returns a ListMessagesResult object
 	$messages = $listMessagesResult->getQueueMessages(); // Array of AzureQueueMessage objects
 	$message = $messages[0];
 	
@@ -184,7 +183,7 @@ Your code removes a message from a queue in two steps. First, you call **QueueSe
 	$popReceipt = $message->getPopReceipt();
 	
 	// Delete message.
-	$queue_proxy->deleteMessage("myqueue", $messageId, $popReceipt);
+	$queue_client->deleteMessage("myqueue", $messageId, $popReceipt);
 
 <h2 id="change-message">How to Change the Contents of a Queued Message</h2>
 
@@ -192,15 +191,15 @@ You can change the contents of a message in-place in the queue by calling **Queu
 
 	require_once 'Autoload.php';
 
-	use PEAR2\WindowsAzure\Services\Queue\QueueService;
-	use PEAR2\WindowsAzure\Services\Queue\Models\ListMessagesOptions;
-	use PEAR2\WindowsAzure\Services\Queue\Models\QueueServiceOptions;
+	use WindowsAzure\Services\Queue\QueueService;
+	use WindowsAzure\Services\Queue\Models\ListMessagesOptions;
+	use WindowsAzure\Services\Queue\Models\QueueServiceOptions;
 
-	// Create queue service proxy.
-	$queue_proxy = QueueService::create($config);
+	// Create queue service client.
+	$queue_client = QueueService::create($config);
 	
 	// Get message.
-	$listMessagesResult = $queue_proxy->listMessages("myqueue"); //Returns a ListMessagesResult object
+	$listMessagesResult = $queue_client->listMessages("myqueue"); //Returns a ListMessagesResult object
 	$messages = $listMessagesResult->getQueueMessages(); // Array of AzureQueueMessage objects
 	$message = $messages[0];
 	
@@ -213,7 +212,7 @@ You can change the contents of a message in-place in the queue by calling **Queu
 	$popReceipt = $message->getPopReceipt();
 	
 	// Update message.
-	$queue_proxy->updateMessage("myqueue", $messageId, $popReceipt, $new_message_text, $new_visibility_timeout);
+	$queue_client->updateMessage("myqueue", $messageId, $popReceipt, $new_message_text, $new_visibility_timeout);
 
 <h2 id="additional-options">Additional Options for De-queuing Messages</h2>
 
@@ -221,12 +220,12 @@ There are two ways you can customize message retrieval from a queue. First, you 
 
 	require_once 'Autoload.php';
 
-	use PEAR2\WindowsAzure\Services\Queue\QueueService;
-	use PEAR2\WindowsAzure\Services\Queue\Models\ListMessagesOptions;
-	use PEAR2\WindowsAzure\Services\Queue\Models\QueueServiceOptions;
+	use WindowsAzure\Services\Queue\QueueService;
+	use WindowsAzure\Services\Queue\Models\ListMessagesOptions;
+	use WindowsAzure\Services\Queue\Models\QueueServiceOptions;
 
-	// Create queue service proxy.
-	$queue_proxy = QueueService::create($config);
+	// Create queue service client.
+	$queue_client = QueueService::create($config);
 	
 	// Set list message options. 
 	$message_options = new ListMessagesOptions();
@@ -234,7 +233,7 @@ There are two ways you can customize message retrieval from a queue. First, you 
 	$message_options->setNumberOfMessages("16");
 	
 	// Get messages.
-	$listMessagesResult = $queue_proxy->listMessages("myqueue", $message_options); // Returns a ListMessagesResult object
+	$listMessagesResult = $queue_client->listMessages("myqueue", $message_options); // Returns a ListMessagesResult object
 	$messages = $listMessagesResult->getQueueMessages(); // Array of AzureQueueMessage objects
 
 	foreach($messages as $message){
@@ -248,7 +247,7 @@ There are two ways you can customize message retrieval from a queue. First, you 
 		$popReceipt = $message->getPopReceipt();
 		
 		// Delete message.
-		$queue_proxy->deleteMessage("myqueue", $messageId, $popReceipt);	   
+		$queue_client->deleteMessage("myqueue", $messageId, $popReceipt);	   
 	}
 
 <h2 id="get-queue-length">How To: Get Queue Length</h2>
@@ -257,13 +256,13 @@ You can get an estimate of the number of messages in a queue. The **QueueService
 
 	require_once 'Autoload.php';
 
-	use PEAR2\WindowsAzure\Services\Queue\QueueService;
+	use WindowsAzure\Services\Queue\QueueService;
 
-	// Create queue service proxy.
-	$queue_proxy = QueueService::create($config);
+	// Create queue service client.
+	$queue_client = QueueService::create($config);
 	
 	// Get queue metadata.
-	$queue_metadata = $queue_proxy->getQueueMetadata("myqueue"); // Returns a GetQueueMetadataResult object
+	$queue_metadata = $queue_client->getQueueMetadata("myqueue"); // Returns a GetQueueMetadataResult object
 	
 	$approx_msg_count = $queue_metadata->getApproximateMessageCount();
 
@@ -273,13 +272,13 @@ To delete a queue and all the messages contained in it, call the **QueueService-
 
 	require_once 'Autoload.php';
 
-	use PEAR2\WindowsAzure\Services\Queue\QueueService;
+	use WindowsAzure\Services\Queue\QueueService;
 
-	// Create queue service proxy.
-	$queue_proxy = QueueService::create($config);
+	// Create queue service client.
+	$queue_client = QueueService::create($config);
 	
 	// Delete queue.
-	$queue_proxy->deleteQueue("myqueue");
+	$queue_client->deleteQueue("myqueue");
 
 
 <h2 id="next-steps">Next Steps</h2>
