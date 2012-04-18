@@ -33,7 +33,7 @@ This guide will show you how to perform common scenarios using the Windows Azure
 
 The only requirement for creating a PHP application that accesses the Windows Azure Blob storage service is the referencing of classes in the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you will use storage features which can be run within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site. We assume you have downloaded and installed PHP, followed the instructions in [Download the Windows Azure SDK for PHP] [download], and have created a Windows Azure storage account in your Windows Azure subscription.
+In this guide, you will use storage features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site. We assume you have downloaded and installed PHP, followed the instructions in [Download the Windows Azure SDK for PHP] [download], and have created a Windows Azure storage account in your Windows Azure subscription.
 
 <h2 id="ConfigureStorage">Configure your Application to Access Blob Storage</h2>
 
@@ -46,37 +46,37 @@ The following example shows how to include the `Autoload.php` file and reference
 
 	require_once 'Autoload.php';
 
-	use PEAR2\WindowsAzure\Services\Blob\BlobSettings;
-	use PEAR2\WindowsAzure\Services\Blob\BlobService;
-	use PEAR2\WindowsAzure\Services\Blob\Models\BlobServiceOptions;
-	use PEAR2\WindowsAzure\Services\Blob\Models\ListContainersOptions;
-	use PEAR2\WindowsAzure\Services\Blob\Models\ListContainersResult;
-	use PEAR2\WindowsAzure\Services\Blob\Models\CreateContainerOptions;
-	use PEAR2\WindowsAzure\Services\Blob\Models\SetContainerMetadataOptions;
-	use PEAR2\WindowsAzure\Services\Blob\Models\ListBlobsOptions;
-	use PEAR2\WindowsAzure\Services\Blob\Models\ListBlobsResult;
-	use PEAR2\WindowsAzure\Services\Blob\Models\CreateBlobOptions;
-	use PEAR2\WindowsAzure\Services\Blob\Models\GetBlobPropertiesOptions;
-	use PEAR2\WindowsAzure\Services\Blob\Models\GetBlobPropertiesResult;
-	use PEAR2\WindowsAzure\Services\Blob\Models\SetBlobPropertiesOptions;
-	use PEAR2\WindowsAzure\Services\Blob\Models\SetBlobPropertiesResult;
-	use PEAR2\WindowsAzure\Services\Blob\Models\GetBlobMetadataOptions;
-	use PEAR2\WindowsAzure\Services\Blob\Models\GetBlobMetadataResult;
-	use PEAR2\WindowsAzure\Services\Blob\Models\SetBlobMetadataOptions;
-	use PEAR2\WindowsAzure\Services\Blob\Models\GetBlobOptions;
-	use PEAR2\WindowsAzure\Services\Blob\Models\GetBlobResult;
-	use PEAR2\WindowsAzure\Services\Blob\Models\DeleteBlobOptions;
+	use WindowsAzure\Services\Blob\BlobSettings;
+	use WindowsAzure\Services\Blob\BlobService;
+	use WindowsAzure\Services\Blob\Models\BlobServiceOptions;
+	use WindowsAzure\Services\Blob\Models\ListContainersOptions;
+	use WindowsAzure\Services\Blob\Models\ListContainersResult;
+	use WindowsAzure\Services\Blob\Models\CreateContainerOptions;
+	use WindowsAzure\Services\Blob\Models\SetContainerMetadataOptions;
+	use WindowsAzure\Services\Blob\Models\ListBlobsOptions;
+	use WindowsAzure\Services\Blob\Models\ListBlobsResult;
+	use WindowsAzure\Services\Blob\Models\CreateBlobOptions;
+	use WindowsAzure\Services\Blob\Models\GetBlobPropertiesOptions;
+	use WindowsAzure\Services\Blob\Models\GetBlobPropertiesResult;
+	use WindowsAzure\Services\Blob\Models\SetBlobPropertiesOptions;
+	use WindowsAzure\Services\Blob\Models\SetBlobPropertiesResult;
+	use WindowsAzure\Services\Blob\Models\GetBlobMetadataOptions;
+	use WindowsAzure\Services\Blob\Models\GetBlobMetadataResult;
+	use WindowsAzure\Services\Blob\Models\SetBlobMetadataOptions;
+	use WindowsAzure\Services\Blob\Models\GetBlobOptions;
+	use WindowsAzure\Services\Blob\Models\GetBlobResult;
+	use WindowsAzure\Services\Blob\Models\DeleteBlobOptions;
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
 <h2 id="ConnectionString">Setup a Windows Azure Storage Connection</h2>
 
-A Windows Azure Blob storage proxy uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the primary access key, and the blob URI for the storage account listed in the Management Portal. This example shows how you can create a new configuration object and set these properties:
+A Windows Azure Blob storage client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the primary access key, and the blob URI for the storage account listed in the Management Portal. This example shows how you can create a new configuration object and set these properties:
 
 	require_once 'Autoload.php';
 
-	use PEAR2\WindowsAzure\Services\Core\Configuration;
-	use PEAR2\WindowsAzure\Services\Blob\BlobSettings;
+	use WindowsAzure\Services\Core\Configuration;
+	use WindowsAzure\Services\Blob\BlobSettings;
 	
 	$storage_account_name = "your_storage_account_name";
 	$storage_account_key = "your_storage_account_key";
@@ -87,7 +87,7 @@ A Windows Azure Blob storage proxy uses a **Configuration** object for storing c
 	$config->setProperty(BlobSettings::ACCOUNT_KEY, $storgae_account_key);
 	$config->setProperty(BlobSettings::URI, $storage_account_URI);
 
-You will pass this `Configuration` instance (`$config`) to other objects when using the Blob APIs.
+You will pass this `Configuration` instance (`$config`) to other objects when using the Blob API.
 
 <h2 id="CreateContainer">How to Create a Container</h2>
 
@@ -95,22 +95,19 @@ A **BlobService** object lets you create a blob container with the **createConta
 
 	require_once 'Autoload.php';
 
-	use PEAR2\WindowsAzure\Services\Blob\BlobService;
-	use PEAR2\WindowsAzure\Services\Blob\Models\CreateContainerOptions;
-	use PEAR2\WindowsAzure\Services\Blob\Models\PublicAccessType;
-	use PEAR2\WindowsAzure\Core\ServiceException;
+	use WindowsAzure\Services\Blob\BlobService;
+	use WindowsAzure\Services\Blob\Models\CreateContainerOptions;
 
-	// Create blob service proxy.
-	$blob_proxy = BlobService::create($config);
+	// Create blob service client.
+	$blob_client = BlobService::create($config);
 
 	// OPTIONAL: Set public access policy and metadata.
 	$createContainerOptions = new CreateContainerOptions();	
 
-	// Set public access policy. Possible values are 
-	// PublicAccessType::CONTAINER_AND_BLOBS and PublicAccessType::BLOBS_ONLY.
+	// Set public access policy. Possible values are 'container' and 'blob'.
 	// If this value is not specified in the request, container data is private.
 	// For more information, see http://msdn.microsoft.com/en-us/library/windowsazure/dd179391.aspx.
-	$createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
+	$createContainerOptions->setPublicAccess('container');
 	
 	// Set container metadata
 	$createContainerOptions->addMetaData("key1", "value1");
@@ -119,9 +116,9 @@ A **BlobService** object lets you create a blob container with the **createConta
 	try	
 	{
 		// Create container.
-		$blob_proxy->createContainer("mycontainer", $createContainerOptions);
+		$blob_client->createContainer("mycontainer", $createContainerOptions);
 	}
-	catch(ServiceException $e)
+	catch(Exception $e)
 	{
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -139,14 +136,14 @@ To upload a file as a blob, use the **BlobService->createBlockBlob** method. Thi
 
 	require_once 'Autoload.php';
 
-	use PEAR2\WindowsAzure\Services\Blob\BlobService;
+	use WindowsAzure\Services\Blob\BlobService;
 
-	// Create blob service proxy.
-	$blob_proxy = BlobService::create($config);
+	// Create blob service client.
+	$blob_client = BlobService::create($config);
 	
 	$content = file_get_contents("c:\myfile.txt");
 	$blob_name = "myblob";
-	$blob_proxy->createBlockBlob("mycontainer", $blob_name, $content);
+	$blob_client->createBlockBlob("mycontainer", $blob_name, $content);
 
 <h2 id="ListBlobs">How to List the Blobs in a Container</h2>
 
@@ -154,14 +151,14 @@ To list the blobs in a container, use the **BlobService->listBlobs** method with
 
 	require_once 'Autoload.php';
 
-	use PEAR2\WindowsAzure\Services\Blob\BlobService;
-	use PEAR2\WindowsAzure\Services\Blob\Models\ListBlobsResult;
+	use WindowsAzure\Services\Blob\BlobService;
+	use WindowsAzure\Services\Blob\Models\ListBlobsResult;
 
-	// Create blob service proxy.
-	$blob_proxy = BlobService::create($config);
+	// Create blob service client.
+	$blob_client = BlobService::create($config);
 
 	// List blobs.
-	$blob_list = $blob_proxy->listBlobs("mycontainer"); // Returns ListBlobResult object.
+	$blob_list = $blob_client->listBlobs("mycontainer"); // Returns ListBlobResult object.
 	$blobs = $blob_list->getBlobs(); // Returns an array of Blob objects.
 	
 	foreach($blobs as $blob)
@@ -178,14 +175,14 @@ To download a blob, call the **BlobService->getBlob** method, then call the **ge
 
 	require_once 'Autoload.php';
 
-	use PEAR2\WindowsAzure\Services\Blob\BlobService;
-	use PEAR2\WindowsAzure\Services\Blob\Models\GetBlobResult;
+	use WindowsAzure\Services\Blob\BlobService;
+	use WindowsAzure\Services\Blob\Models\GetBlobResult;
 
-	// Create blob service proxy.
-	$blob_proxy = BlobService::create($config);
+	// Create blob service client.
+	$blob_client = BlobService::create($config);
 
 	// Get blob.
-	$blob = $blob_proxy->getBlob("mycontainer", "myblob"); //Returns a GetBlobResult object.
+	$blob = $blob_client->getBlob("mycontainer", "myblob"); //Returns a GetBlobResult object.
 	$content = $blob->getContentStream();
 
 <h2 id="DeleteBlob">How to Delete a Blob</h2>
@@ -194,13 +191,13 @@ To delete a blob, pass the container name and blob name to **BlobService->delete
 
 	require_once 'Autoload.php';
 
-	use PEAR2\WindowsAzure\Services\Blob\BlobService;
+	use WindowsAzure\Services\Blob\BlobService;
 
-	// Create blob service proxy.
-	$blob_proxy = BlobService::create($config);
+	// Create blob service client.
+	$blob_client = BlobService::create($config);
 	
 	// Delete container.
-	$blob_proxy->deleteBlob("mycontainer", "myblob");
+	$blob_client->deleteBlob("mycontainer", "myblob");
 
 <h2 id="DeleteContainer">How to Delete a Blob Container</h2>
 
@@ -208,13 +205,13 @@ Finally, to delete a blob container, pass the container name to **BlobService->d
 
 	require_once 'Autoload.php';
 
-	use PEAR2\WindowsAzure\Services\Blob\BlobService;
+	use WindowsAzure\Services\Blob\BlobService;
 
-	// Create blob service proxy.
-	$blob_proxy = BlobService::create($config);
+	// Create blob service client.
+	$blob_client = BlobService::create($config);
 	
 	// Delete container.
-	$blob_proxy->deleteContainer("mycontainer");
+	$blob_client->deleteContainer("mycontainer");
 
 <h2 id="NextSteps">Next Steps</h2>
 
