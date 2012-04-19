@@ -78,14 +78,14 @@
     <li>
       <p>In Visual Studio 2010 on your development computer, on the View menu, choose <strong>Team Explorer</strong>, or choose Ctrl+\, Ctrl+M. In the Team Explorer window, expand the <strong>Builds </strong>node, right-click <strong>All Build Definitions</strong>, and then click <strong>New Build Definition</strong>:</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/tfs-01.png" />
+        <img src="../../../DevCenter/dotNet/Media/tfs-01.png" />
       </p>
     </li>
     <li>Click the <strong>Process </strong>tab. On the Process tab, choose the default template, and expand the <strong>Advanced </strong>section in the grid.</li>
     <li>
       <p>Choose <strong>MSBuild Arguments</strong>, and set the appropriate MSBuild command line arguments as described in Step 2 above. For example, enter <strong>/t:Publish /p:PublishDir=\\myserver\drops\ </strong>to build a package and copy the package files to the location \\myserver\drops\:</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/tfs-02.png" />
+        <img src="../../../DevCenter/dotNet/Media/tfs-02.png" />
       </p>
       <p>
         <strong>Note:</strong> Copying the files to a public share makes it easier to manually deploy the packages from your development computer.</p>

@@ -24,7 +24,7 @@
   <p>Throughout this tutorial you will build a simple web-based task-management application that allows retrieving and creating tasks stored in MongoDB. MongoDB is hosted in a Windows Azure worker role, and the web application is hosted in a web role.</p>
   <p>The project files for this tutorial will be stored in <strong><em>C:\node</em></strong> and the completed application will look similar to:</p>
   <p>
-    <img src="../../../DevCenter/Node/media/mongo_tutorial01.png" alt="task list application screenshot" />
+    <img src="../../../DevCenter/Node/Media/mongo_tutorial01.png" alt="task list application screenshot" />
   </p>
   <h2>Setting up the deployment environment</h2>
   <p>Before you can begin developing your Windows Azure application, you need to get the tools and set up your development environment. For details about getting and installing the Windows Azure SDK for Node.js, see <a href="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/#setup">Setup the Development Environment</a> in the Node.js Web Application tutorial.</p>
@@ -34,7 +34,7 @@
   <ol>
     <li>
       <p>Download and run the Windows Azure Tools for MongoDB and Node.js MSI from the <a href="http://downloads.mongodb.org/azure/AzureMongoDeploymentCmdlets.msi">MongoDB download site</a>.</p>
-      <img src="../../../DevCenter/Node/media/mongo_tutorial02.png" alt="Windows Azure Tools for MongoDB and Node.js Installer" />
+      <img src="../../../DevCenter/Node/Media/mongo_tutorial02.png" alt="Windows Azure Tools for MongoDB and Node.js Installer" />
     </li>
   </ol>
   <h2>Launching Windows Azure PowerShell for Node.js</h2>
@@ -42,7 +42,7 @@
   <ol>
     <li>
       <p>On the <strong>Start</strong> menu, click <strong>All Programs</strong>, click <strong>Windows Azure SDK for Node.js - November 2011</strong>. Some of the commands require Administrator permissions, so right-click <strong>Windows PowerShell for Node.js</strong> and click <strong>Run as administrator</strong>.</p>
-      <img src="../../../DevCenter/Node/media/node7.png" alt="launch PowerShell environment" />
+      <img src="../../../DevCenter/Node/Media/node7.png" alt="launch PowerShell environment" />
     </li>
   </ol>
   <h2>Download the MongoDB Binary Package</h2>
@@ -52,28 +52,28 @@
       <pre class="prettyprint">PS C:\&gt; Get-AzureMongoDBBinaries
 </pre>
       <p>You will see the following response:</p>
-      <img src="../../../DevCenter/Node/media/mongo_tutorial01-1.png" alt="Get-AzureMongoDBBinaries output" />
+      <img src="../../../DevCenter/Node/Media/mongo_tutorial01-1.png" alt="Get-AzureMongoDBBinaries output" />
     </li>
   </ol>
   <h2>Create a new application</h2>
   <ol>
     <li>
       <p>Create a new <strong>node</strong> directory on your C drive and change to the c:\node directory. If you have completed other Windows Azure tutorials in Node.js, this directory may already exist.</p>
-      <img src="../../../DevCenter/Node/media/getting-started-6.png" alt="create directory" />
+      <img src="../../../DevCenter/Node/Media/getting-started-6.png" alt="create directory" />
     </li>
     <li>
       <p>Use the <strong>New-AzureService</strong> cmdlet to create a new solution:</p>
       <pre class="prettyprint">PS C:\node&gt; New-AzureService tasklistMongo
 </pre>
       <p>You will see the following response:</p>
-      <img src="../../../DevCenter/Node/media/mongo_tutorial06.png" alt="New-AzureService cmdlet response" />
+      <img src="../../../DevCenter/Node/Media/mongo_tutorial06.png" alt="New-AzureService cmdlet response" />
     </li>
     <li>
       <p>Enter the following command to add a new web role instance:</p>
       <pre class="prettyprint">PS C:\node\tasklistMongo&gt; Add-AzureNodeWebRole
 </pre>
       <p>You will see the following response:</p>
-      <img src="../../../DevCenter/Node/media/mongo_tutorial07.png" alt="task list application" />
+      <img src="../../../DevCenter/Node/Media/mongo_tutorial07.png" alt="task list application" />
     </li>
     <li>
       <p>Enter the following command to change to the newly generated directory:</p>
@@ -99,7 +99,7 @@
       <pre class="prettyprint">PS C:\node\tasklistMongo\WebRole1&gt; Add-AzureMongoWorkerRole
 </pre>
       <p>
-        <img src="../../../DevCenter/Node/media/mongo_tutorial08.png" alt="Add-AzureMongoWorkerRole cmdlet response" />
+        <img src="../../../DevCenter/Node/Media/mongo_tutorial08.png" alt="Add-AzureMongoWorkerRole cmdlet response" />
       </p>
     </li>
     <li>
@@ -107,7 +107,7 @@
       <pre class="prettyprint">PS C:\node\tasklistMongo\WebRole1&gt; Join-AzureNodeRoleToMongoRole WebRole1
 </pre>
       <p>
-        <img src="../../../DevCenter/Node/media/mongo_tutorial09.png" alt="Join-AzureNodeRoleToMongoRole cmdlet response" />
+        <img src="../../../DevCenter/Node/Media/mongo_tutorial09.png" alt="Join-AzureNodeRoleToMongoRole cmdlet response" />
       </p>
     </li>
     <li>
@@ -128,7 +128,7 @@
       <pre class="prettyprint">PS C:\node\tasklistMongo\WebRole1&gt; Start-AzureEmulator -launch
 </pre>
       <p>A browser will open and display content similar to the details shown in the screenshot below. This indicates that the service is running in the compute emulator and is working correctly.</p>
-      <img src="../../../DevCenter/Node/media/mongo_tutorial10.png" alt="application running in emulator" />
+      <img src="../../../DevCenter/Node/Media/mongo_tutorial10.png" alt="application running in emulator" />
       <p>Running the application in the emulator also starts instances of mongod.exe and AzureEndpointsAgent.exe running on your local machine. You will see three console windows open for the mongod.exe instancesâ€”one for each replicated instance. A fourth console window will open for AzureEndpointsAgent.exe. Calling Stop-AzureEmulator will also cause the instances of these applications to stop.</p>
       <p>
         <strong>Note:</strong> In some cases, your browser window may launch and attempt to load the web application before your worker role instances are running, which will cause an error message to be displayed in the browser. If this occurs, refreshing the page in the browser when the worker role instances are running will result in the page being displayed correctly.</p>
@@ -163,7 +163,7 @@
     </li>
     <li>
       <p>You will be prompted to overwrite your earlier application. Enter <strong>y</strong> or <strong>yes</strong> to continue, and express will generate a folder structure for building your application.</p>
-      <img src="../../../DevCenter/Node/media/mongo_tutorial11.png" alt="linstalling express module" />
+      <img src="../../../DevCenter/Node/Media/mongo_tutorial11.png" alt="linstalling express module" />
     </li>
     <li>
       <p>Delete your existing server.js file and rename the generated app.js file to server.js. This is needed because the Windows Azure web role in your application is configured to dispatch HTTP requests to server.js.</p>
@@ -308,7 +308,7 @@ exports.TaskProvider = TaskProvider;
     <li>
       <p>Include the node-uuid, home, and azure modules. The home module does not exist yet, but you will create it shortly. Add the code below after the line that ends with express.createServer().</p>
       <p>
-        <img src="../../../DevCenter/Node/media/mongo_tutorial12.png" alt="server.js snippet" />
+        <img src="../../../DevCenter/Node/Media/mongo_tutorial12.png" alt="server.js snippet" />
       </p>
       <pre class="prettyprint">var TaskProvider = require('./taskProvider').TaskProvider;
 var taskProvider = new TaskProvider();
@@ -319,7 +319,7 @@ var home = new Home(taskProvider);
     <li>
       <p>Replace the existing code in the route section with the code below. It will create a home controller instance and route all requests to "/" or "/home" to it.</p>
       <p>
-        <img src="../../../DevCenter/Node/media/mongo_tutorial13.png" alt="server.js snippet" />
+        <img src="../../../DevCenter/Node/Media/mongo_tutorial13.png" alt="server.js snippet" />
       </p>
       <pre class="prettyprint">//Routes
 var home = new Home(taskProvider);
@@ -330,7 +330,7 @@ app.get('/home', home.showItems.bind(home));
     <li>
       <p>Replace the last two lines of the file with the code below. This configures Node to listen on the environment PORT value provided by Windows Azure when published to the cloud.</p>
       <p>
-        <img src="../../../DevCenter/Node/media/node27.png" alt="server.js snippet" />
+        <img src="../../../DevCenter/Node/Media/node27.png" alt="server.js snippet" />
       </p>
       <pre class="prettyprint">app.listen(process.env.port);
 </pre>
@@ -433,7 +433,7 @@ table(border="1")
       <pre class="prettyprint">PS C:\node\tasklistMongo\WebRole1\views&gt; Start-AzureEmulator -launch
 </pre>
       <p>When the emulator is running, your browser will display the following page, showing the structure for task items that will be retrieved from MongoDB:</p>
-      <img src="../../../DevCenter/Node/media/mongo_tutorial14.png" alt="screenshot of app running in emulator" />
+      <img src="../../../DevCenter/Node/Media/mongo_tutorial14.png" alt="screenshot of app running in emulator" />
     </li>
   </ol>
   <h2>Adding new task functionality</h2>
@@ -442,7 +442,7 @@ table(border="1")
     <li>
       <p>First, add a new route to server.js. In the server.js file, add the following line after the last route entry for /home, and then save the file.</p>
       <p>
-        <img src="../../../DevCenter/Node/media/mongo_tutorial15.png" alt="server.js snippet" />
+        <img src="../../../DevCenter/Node/Media/mongo_tutorial15.png" alt="server.js snippet" />
       </p>
       <pre class="prettyprint">app.post('/home/newitem', home.newItem.bind(home));
 </pre>
@@ -457,7 +457,7 @@ app.post('/home/newitem', home.newItem.bind(home));
     <li>
       <p>In order to use the node-uuid module to create a unique identifier, add the following line at the top of the home.js file after the first line where the module is exported.</p>
       <p>
-        <img src="../../../DevCenter/Node/media/mongo_tutorial16.png" alt="home.js snippet" />
+        <img src="../../../DevCenter/Node/Media/mongo_tutorial16.png" alt="home.js snippet" />
       </p>
       <pre class="prettyprint">var uuid = require('node-uuid');
 </pre>
@@ -465,7 +465,7 @@ app.post('/home/newitem', home.newItem.bind(home));
     <li>
       <p>To implement the new item functionality, create a newItem function. In your home.js file, paste the following code after the last function and then save the file.</p>
       <p>
-        <img src="../../../DevCenter/Node/media/mongo_tutorial17.png" alt="home.js snippet 2" />
+        <img src="../../../DevCenter/Node/Media/mongo_tutorial17.png" alt="home.js snippet 2" />
       </p>
       <pre class="prettyprint">newItem: function (req, res) {
   var self = this;
@@ -525,7 +525,7 @@ form(action="/home/newitem", method="post")
       <pre class="prettyprint">PS C:\node\tasklistMongo\WebRole1\views&gt; start http://localhost:81/home
 </pre>
       <p>The browser will open and display the following page:</p>
-      <img src="../../../DevCenter/Node/media/mongo_tutorial18.png" alt="screenshot of task list application in emulator" />
+      <img src="../../../DevCenter/Node/Media/mongo_tutorial18.png" alt="screenshot of task list application in emulator" />
     </li>
     <li>
       <p>Enter the following values:</p>
@@ -547,7 +547,7 @@ form(action="/home/newitem", method="post")
     <li>
       <p>Then click <strong>Add item</strong>.</p>
       <p>The item will be added to your tasks table in MongoDB and displayed as shown in the screenshot below.</p>
-      <img src="../../../DevCenter/Node/media/mongo_tutorial19.png" alt="task list application running in emulator" />
+      <img src="../../../DevCenter/Node/Media/mongo_tutorial19.png" alt="task list application running in emulator" />
     </li>
     <li>
       <p>Enter the following command to stop the Windows Azure compute emulator.</p>

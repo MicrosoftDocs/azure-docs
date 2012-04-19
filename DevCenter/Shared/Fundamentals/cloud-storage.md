@@ -46,7 +46,7 @@
   <p>In addition, you may want to increase or decrease the number of machines running your application code in order to handle the actual load being placed on your application by client requests. If you have multiple machines running the code then multiple client requests from a single client could be directed to different machines. In order to keep data for a single client accessible to multiple machines, your application has to keep the client’s data in a central repository accessible to all the machines running your application code.</p>
   <p>The figure below shows how client requests could be distributed to different machines all of which have access the same data storage.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/data-storage-offerings-3.jpg" width="620" height="247" alt="[image]" />
+    <img src="../../../DevCenter/Shared/Media/data-storage-offerings-3.jpg" width="620" height="247" alt="[image]" />
   </p>
   <p>For example, let’s say that your application allows a client to place items into a shopping cart and later, the client purchases the items they previously put into their cart. In this example, the client’s request to add an item to the shopping cart could occur on one machine and the request to checkout could be directed to a different machine. The second machine would need to know the items in the client’s cart.</p>
   <p>In order to achieve highly available and scalable applications, Windows Azure Platform Services offers multitenant storage machines within the various Windows Azure data centers. These machines replicate your data ensuring that if one replica fails, others are still viable. These storage offerings can be accessed by applications running in a Windows Azure data center and can also be accessed directly by applications running on-premises or hosted in another cloud service.</p>
@@ -107,7 +107,7 @@
   </ul>
   <p>These abstractions are accessible via <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dd179355.aspx">HTTP(S) REST APIs</a> (overs ports 80 and 443) making them available to all operating systems and all programming languages. To simplify making the web requests for software developers, you can use several <em>client libraries</em> targeting specific operating systems and programming languages. Libraries exist for .NET, Node.js, Java, and PHP, and are available at the <a href="{localLink:1123}" title="Downloads">Windows Azure website</a>. The term “client libraries” is used since your application is a client to the data storage servers. The figure below shows how your application code makes a call into a client library which, in turn, makes an HTTP(S) REST request to Blobs or Tables.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/data-storage-offerings-4.jpg" width="623" height="123" alt="[image]" />
+    <img src="../../../DevCenter/Shared/Media/data-storage-offerings-4.jpg" width="623" height="123" alt="[image]" />
   </p>
   <p>When you create a storage account, your account is assigned two 256-bit account keys. One of these two keys must be specified in a header that is part of the HTTP(S) request. Having two keys allows for key rotation in order to maintain good security on your data. Typically, your applications would use one of the keys to access your data. Then, after a period of time (determined by you), you have your applications switch over to using the second key. Once you know your applications are using the second key, you retire the first key and then generate a new key. Using the two keys this way allows your applications access to the data without incurring any downtime.</p>
   <a name="blobs">
@@ -349,7 +349,7 @@
   <p>SQL Azure is a multitenant service which maintains scalability by automatically moving databases from heavily accessed machines to other machines. You access the database using the Tabular Data Stream (TDS) protocol on port 1433; In addition, access is granted from specific IP ranges and a password. Like Blobs &amp; Tables, SQL Azure can also be accessed via applications running on-premises, inside a Windows Azure data center or via some other cloud service.</p>
   <p>The figure below shows how your application code makes a call into a SQL client library (such as ADO.NET) which, in turn, makes a TDS request over TCP to SQL Azure.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/data-storage-offerings-5.jpg" width="623" height="121" alt="[image]" />
+    <img src="../../../DevCenter/Shared/Media/data-storage-offerings-5.jpg" width="623" height="121" alt="[image]" />
     <a id="SQLAzure" name="SQLAzure">
     </a>
   </p>

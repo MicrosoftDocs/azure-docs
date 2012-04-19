@@ -76,7 +76,7 @@
     <strong>ACS Namespace</strong> - A namespace is a top level partition of ACS that you use for organizing your settings. A namespace holds a list of IPs you trust, the RP applications you want to serve, the rules that you expect the rule engine to process incoming tokens with, and so on. A namespace exposes various endpoints that will be used by the application and the developer to get ACS to perform its function.</p>
   <p>The following figure shows how ACS authentication works with a web application:</p>
   <p>
-    <img src="../../../DevCenter/dotNet/media/acs-01.png" />
+    <img src="../../../DevCenter/dotNet/Media/acs-01.png" />
   </p>
   <ol>
     <li>The client (in this case a browser) requests a page from the RP.</li>
@@ -124,25 +124,25 @@
     <li>
       <p>Log into the <a href="http://windows.azure.com">Windows Azure Management Portal</a>.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/acs-02.png" />
+        <img src="../../../DevCenter/dotNet/Media/acs-02.png" />
       </p>
     </li>
     <li>
       <p>In the lower left navigation pane of the Management Portal, click <strong>Service Bus, Access Control &amp; Caching</strong>.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/acs-03.png" alt="Management Portal Service Bus, Access Control, and Caching section" />
+        <img src="../../../DevCenter/dotNet/Media/acs-03.png" alt="Management Portal Service Bus, Access Control, and Caching section" />
       </p>
     </li>
     <li>
       <p>In the upper left navigation pane of the Management Portal, click <strong>Access Control</strong>, and the click <strong>New</strong>.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/acs-04.png" />
+        <img src="../../../DevCenter/dotNet/Media/acs-04.png" />
       </p>
     </li>
     <li>
       <p>In Create a new Service Namespace, enter a namespace, and then to make sure that it is unique, click <strong>Check Availability</strong>.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/acs-05.png" />
+        <img src="../../../DevCenter/dotNet/Media/acs-05.png" />
       </p>
     </li>
     <li>If it is available, select the country or region in which to use ACS (for the best performance, use the same country/region in which you are deploying your application), and then click <strong>Create Namespace</strong>.</li>
@@ -153,7 +153,7 @@
     </a>Add Identity Providers</h2>
   <p>In this task, you add IPs to use with your RP application for authentication. For demonstration purposes, this task shows how to add Google as an IP, but you could use any of the IPs listed in the ACS Management Portal.</p>
   <ol>
-    <li>In the upper left navigation pane of Windows Azure Management Portal, click <strong>Access Control</strong>, select the ACS namespace that you want to configure, and then click <strong>Access Control Service</strong>.<br />The ACS Management Portal appears. <img src="../../../DevCenter/dotNet/media/acs-06.png" /></li>
+    <li>In the upper left navigation pane of Windows Azure Management Portal, click <strong>Access Control</strong>, select the ACS namespace that you want to configure, and then click <strong>Access Control Service</strong>.<br />The ACS Management Portal appears. <img src="../../../DevCenter/dotNet/Media/acs-06.png" /></li>
     <li>In the left navigation pane of the ACS Management Portal, click <strong>Identity providers</strong>.</li>
     <li>On the Identity Providers page, click <strong>Add</strong>, select <strong>Google </strong>as the IP, and then click <strong>Next</strong>.<br /><strong>Note:</strong> This task uses Google for demonstration purposes only. You can pick any of the IPs listed.</li>
     <li>The Add Google Identity Provider page prompts you to enter login link text (the default is Google) and an image URL. You can change this information, but for this exercise, just use the default values, and click <strong>Save</strong>.<br /><strong>Note:</strong> When a new ACS namespace is created, Windows Live ID is added as a default IP and cannot be deleted.</li>
@@ -239,7 +239,7 @@ ClaimsIdentity ci = Thread.CurrentPrincipal.Identity as ClaimsIdentity; foreach 
     <li>
       <p>In Visual Studio 2010, press F5 to start debugging your ASP.NET web application.<br />Instead of opening the default ASP.NET Web Application, your browser is redirected to a Home Realm Discovery page hosted by ACS that prompts you to choose an IP. Your screen should look similar to this:</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/acs-07.png" />
+        <img src="../../../DevCenter/dotNet/Media/acs-07.png" />
       </p>
     </li>
     <li>Click <strong>Google </strong>or <strong>Windows Live ID</strong>.<br />The browser then loads the Google or Windows Live sign-in page.</li>
@@ -247,7 +247,7 @@ ClaimsIdentity ci = Thread.CurrentPrincipal.Identity as ClaimsIdentity; foreach 
       <p>Enter your Google or Windows Live ID credentials.</p>
       <p>The browser then posts back to ACS, ACS issues a token, and posts that token to your application site. Your screen should look similar to this:</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/acs-08.png" />
+        <img src="../../../DevCenter/dotNet/Media/acs-08.png" />
       </p>
     </li>
   </ol>

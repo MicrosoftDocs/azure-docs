@@ -98,10 +98,10 @@
   <p>Your deployment package has been updated to use the certificate, and an HTTPS endpoint has been added. Now you can upload the package and certificate to Windows Azure with the Management Portal.</p>
   <ol>
     <li>
-      <p>Log into the <a href="http://windows.azure.com">Windows Azure Management Portal</a>, and go to the Hosted Services section. Click <strong>New Hosted Service</strong>, add the required information about your hosted service, and then click <strong>Add Certificate</strong>. <br /><img src="../../../DevCenter/Shared/media/ssl-01.png" /></p>
+      <p>Log into the <a href="http://windows.azure.com">Windows Azure Management Portal</a>, and go to the Hosted Services section. Click <strong>New Hosted Service</strong>, add the required information about your hosted service, and then click <strong>Add Certificate</strong>. <br /><img src="../../../DevCenter/Shared/Media/ssl-01.png" /></p>
     </li>
     <li>
-      <p>In <strong>Upload Certificates</strong>, enter the location for the SSL certificate .pfx file, the password for the certificate, and click <strong>OK</strong>.<br /><img src="../../../DevCenter/Shared/media/ssl-02.png" /></p>
+      <p>In <strong>Upload Certificates</strong>, enter the location for the SSL certificate .pfx file, the password for the certificate, and click <strong>OK</strong>.<br /><img src="../../../DevCenter/Shared/Media/ssl-02.png" /></p>
     </li>
     <li>
       <p>Click <strong>OK</strong> to create your hosted service. When the deployment has reached the <strong>Ready</strong> status, you can proceed to the next steps.</p>
@@ -113,14 +113,14 @@
   <p>Now that your deployment is up and running in Windows Azure, you can connect to it using HTTPS.</p>
   <ol>
     <li>
-      <p>In the Management Portal, select your deployment, then right-click on the DNS name link in the <strong>Properties</strong> pane and choose <strong>Copy</strong>.<br /><img src="../../../DevCenter/Shared/media/ssl-03.png" /></p>
+      <p>In the Management Portal, select your deployment, then right-click on the DNS name link in the <strong>Properties</strong> pane and choose <strong>Copy</strong>.<br /><img src="../../../DevCenter/Shared/Media/ssl-03.png" /></p>
     </li>
     <li>
       <p>Paste the address in a web browser, but make sure that it starts with <strong>https</strong> instead of <strong>http</strong>, and then visit the page.</p>
       <p>Your browser displays the address in green to indicate that it's using an HTTPS connection. This also indicates that your application has been configured correctly for SSL.</p>
       <p>
         <strong>Note:</strong> If you are using a self-signed certificate, when you browse to an HTTPS endpoint that's associated with the self-signed certificate you will see a certificate error in the browser. Using a certificate signed by a certification authority will eliminate this problem; in the meantime, you can ignore the error.</p>
-      <img src="../../../DevCenter/Shared/media/ssl-04.png" />
+      <img src="../../../DevCenter/Shared/Media/ssl-04.png" />
     </li>
   </ol>
   <h2>Additional Resources</h2>

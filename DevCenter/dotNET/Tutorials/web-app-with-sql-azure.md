@@ -7,7 +7,7 @@
   </p>
   <p>You will build a to-do list web application that runs in Windows Azure and stores its data in SQL Azure. The application is hosted in an instance of a Web role that, when running in the cloud, is itself hosted in a dedicated virtual machine (VM). A screenshot of the completed application is below:</p>
   <p>
-    <img src="../../../DevCenter/dotNet/media/getting-started-1.png" />
+    <img src="../../../DevCenter/dotNet/Media/getting-started-1.png" />
   </p>
   <h2>OBJECTIVES</h2>
   <p>In this tutorial you will learn how to:</p>
@@ -53,11 +53,11 @@
       <p>To install the Windows Azure SDK for .NET, click the button below:</p>
       <a href="http://go.microsoft.com/fwlink/?LinkID=234939" class="site-arrowboxcta download-cta">Get Tools and SDK</a>
       <p>When prompted to run or save WindowsAzureSDKForNet.exe, click Run:</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-3.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-3.png" />
     </li>
     <li>
       <p>Click on Install in the installer window and proceed with the installation:</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-4.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-4.png" />
     </li>
     <li>
       <p>Once the installation is complete, you will have everything necessary to start developing. The SDK includes tools that let you easily develop Windows Azure applications in Visual Studio. If you do not have Visual Studio installed, it also installs the free Visual Web Developer Express.</p>
@@ -71,12 +71,12 @@
     <li>
       <p>Use administrator privileges launch either Microsoft Visual Studio 2010 or Microsoft Visual Web Developer Express 2010. To launch Visual Studio with administrator privileges, right-click Microsoft Visual Studio 2010 (or Microsoft Visual Web Developer Express 2010) and then click Run as administrator. The Windows Azure compute emulator, discussed later in this guide, requires that Visual Studio be launched with administrator privileges.</p>
       <p>In Visual Studio, on the File menu, click New, and then click Project.</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-5.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-5.png" />
     </li>
     <li>From Installed Templates, under Visual C#, click Web and then click ASP.NET MVC 3 Web Application.</li>
     <li>
       <p>Name the application ToDoListApp and click OK:</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-6.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-6.png" />
     </li>
     <li>In the New ASP.NET MVC 3 Project dialog, select the Internet Application template and the Razor view engine. Click OK.</li>
   </ol>
@@ -84,11 +84,11 @@
   <ol>
     <li>
       <p>In Solution Explorer, under Views\Shared open the _Layout.cshtml file.</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-7.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-7.png" />
     </li>
     <li>
       <p>Within the body tag, find the title of the page enclosed in h1 tags. Change the title text from My MVC Application to To Do List. Here is where you type this in:</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-8.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-8.png" />
     </li>
   </ol>
   <h3>RUN YOUR APPLICATION LOCALLY</h3>
@@ -99,7 +99,7 @@
     </li>
     <li>
       <p>Your application should appear running in a browser:</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-9.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-9.png" />
     </li>
   </ol>
   <h2>
@@ -109,19 +109,19 @@
   <ol>
     <li>
       <p>To make your app deployable to the cloud, right click on the ToDoListApp project in Solution Explorer and click Add Windows Azure Deployment Project:</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-10.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-10.png" />
     </li>
     <li>
       <p>
         <span>To enable the built-in membership provider you must use the ASP.NET Universal Providers. This provider enables the account management capabilities in your application. In Solution Explorer, right click on ToDoListApp and then click <strong>Manage NuGet Packages...</strong> (or <strong>Add Library Package Reference...</strong> in older versions of NuGet):</span>
       </p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-27-1.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-27-1.png" />
     </li>
     <li>
       <p>
         <span>In the <strong>ToDoListApp – Manage NuGet Packages</strong> dialog, in the top right corner within the <strong>Search Online</strong> field, write <strong>"universal providers"</strong>:</span>
       </p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-27-2.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-27-2.png" />
     </li>
     <li>
       <p>
@@ -142,11 +142,11 @@
     </li>
     <li>
       <p>This will start the Windows Azure compute emulator. The compute emulator uses the local computer to emulate your application running in Windows Azure. You can confirm the emulator has started by looking at the system tray:</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-10a.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-10a.png" />
     </li>
     <li>
       <p>A browser will still display your application running locally, and it will look and function the same way it did when you ran it earlier as a regular ASP.NET MVC 3 application.</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-11.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-11.png" />
     </li>
   </ol>
   <h2>
@@ -159,7 +159,7 @@
     <li>
       <p>Open a web browser, and browse to <a href="http://www.windowsazure.com">http://www.windowsazure.com</a>.</p>
       <p>To get started with a free account, click <strong>free trial </strong>in the upper right corner and follow the steps.</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-12.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-12.png" />
     </li>
     <li>
       <p>Your account is now created. You are ready to deploy your application to Windows Azure!</p>
@@ -169,55 +169,55 @@
   <ol>
     <li>
       <p>Right click on the ToDoListApp project in Solution Explorer and click Publish to Windows Azure.</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-13.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-13.png" />
     </li>
     <li>
       <p>The first time you publish, you will first have to download credentials via the provided link.</p>
       <ol>
         <li>
           <p>Click <strong>Sign in to download credentials</strong>:</p>
-          <img src="../../../DevCenter/dotNet/media/getting-started-14.png" />
+          <img src="../../../DevCenter/dotNet/Media/getting-started-14.png" />
         </li>
         <li>
           <p>Sign-in using your Live ID:</p>
-          <img src="../../../DevCenter/dotNet/media/getting-started-15.png" />
+          <img src="../../../DevCenter/dotNet/Media/getting-started-15.png" />
         </li>
         <li>
           <p>Save the publish profile file to a location on your hard drive where you can retrieve it:</p>
-          <img src="../../../DevCenter/dotNet/media/getting-started-16.png" />
+          <img src="../../../DevCenter/dotNet/Media/getting-started-16.png" />
         </li>
         <li>
           <p>Within the publish dialog, click on Import Profile:</p>
-          <img src="../../../DevCenter/dotNet/media/getting-started-17.png" />
+          <img src="../../../DevCenter/dotNet/Media/getting-started-17.png" />
         </li>
         <li>
           <p>Browse for and select the file that you just downloaded, then click Next.</p>
         </li>
         <li>
           <p>Pick the Windows Azure subscription you would like to publish to:</p>
-          <img src="../../../DevCenter/dotNet/media/getting-started-18.png" />
+          <img src="../../../DevCenter/dotNet/Media/getting-started-18.png" />
         </li>
         <li>
           <p>If your subscription doesn’t already contain any hosted services, you will be asked to create one. The hosted service acts as a container for your application within your Windows Azure subscription. Enter a name that identifies your application and choose the region for which the application should be optimized. (You can expect faster loading times for users accessing it from this region.)</p>
-          <img src="../../../DevCenter/dotNet/media/getting-started-19.png" />
+          <img src="../../../DevCenter/dotNet/Media/getting-started-19.png" />
         </li>
         <li>
           <p>Select the hosted service you would like to publish your application to. Keep the defaults as shown below for the remaining settings. Click Next:</p>
-          <img src="../../../DevCenter/dotNet/media/getting-started-20.png" />
+          <img src="../../../DevCenter/dotNet/Media/getting-started-20.png" />
         </li>
         <li>
           <p>On the last page, click Publish to start the deployment process:</p>
-          <img src="../../../DevCenter/dotNet/media/getting-started-21.png" />
+          <img src="../../../DevCenter/dotNet/Media/getting-started-21.png" />
           <p>This will take approximately 5-7 minutes. Since this is the first time you are publishing, Windows Azure provisions a virtual machine (VM), performs security hardening, creates a Web role on the VM to host your application, deploys your code to that Web role, and finally configures the load balancer and networking so you application is available to the public.</p>
         </li>
         <li>
           <p>While publishing is in progress you will be able to monitor the activity in the Windows Azure Activity Log window, which is typically docked to the bottom of Visual Studio or Visual Web Developer:</p>
-          <img src="../../../DevCenter/dotNet/media/getting-started-23.png" />
+          <img src="../../../DevCenter/dotNet/Media/getting-started-23.png" />
         </li>
         <li>
           <p>When deployment is complete, you can view your website by clicking the Website URL link in the monitoring window:</p>
-          <img src="../../../DevCenter/dotNet/media/getting-started-24.png" />
-          <img src="../../../DevCenter/dotNet/media/getting-started-25.png" />
+          <img src="../../../DevCenter/dotNet/Media/getting-started-24.png" />
+          <img src="../../../DevCenter/dotNet/Media/getting-started-25.png" />
         </li>
       </ol>
     </li>
@@ -277,11 +277,11 @@ namespace ToDoListLib.Models
   <ol>
     <li>
       <p>In Solution Explorer, right-click on Controllers and click Add and then click Controller.</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-26.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-26.png" />
     </li>
     <li>
       <p>In the Add Controller window, enter HomeController as your Controller name, and select the Controller with read/write actions and views, using Entity Framework template. Scaffolding will also write code that uses a model and a data context. Select ToDoItem as your model class and ToDoDb as your data context class, as shown in the screenshot below:</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-27.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-27.png" />
     </li>
     <li>
       <p>Click Add.</p>
@@ -302,7 +302,7 @@ namespace ToDoListLib.Models
     </li>
     <li>
       <p>To test your application at this stage, press F5 in Visual Studio to run the application in the compute emulator. When your application first runs, a database will be created in your local SQL Server Express instance, which was installed as part of the Windows Azure SDK.</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-28.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-28.png" />
     </li>
     <li>
       <p>Clicking the Create New link on the web page that is displayed in the browser will create new entries in the database.</p>
@@ -312,18 +312,18 @@ namespace ToDoListLib.Models
   <ol>
     <li>
       <p>The next step is to configure your application to store data in the cloud. First, you must create a SQL Azure server. Login to the Windows Azure Platform Management Portal, http://windows.azure.com, and click on Database:</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-29.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-29.png" />
     </li>
     <li>
       <p>On the top of the left pane, click the subscription associated with your SQL Azure account:</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-30.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-30.png" />
     </li>
     <li>
       <p>From the top menu, click Create.</p>
     </li>
     <li>
       <p>In Create Server, select the region for which you want database access to be optimized, and then click Next:</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-31.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-31.png" />
       <p>IMPORTANT: Pick the same region that you choose earlier when deploying your application. This will give you the best performance.</p>
     </li>
     <li>
@@ -366,7 +366,7 @@ namespace ToDoListLib.Models
     <li>
       <p>
         <strong>Important:</strong> In addition to configuring the SQL Azure server-side firewall, you must also configure your client-side environment to allow outbound TCP connections over TCP port 1433. For more information, see <a href="http://social.technet.microsoft.com/wiki/contents/articles/security-guidelines-for-sql-azure.aspx">Security Guidelines for SQL Azure</a>.</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-32.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-32.png" />
     </li>
     <li>
       <p>Click Finish.</p>
@@ -383,7 +383,7 @@ namespace ToDoListLib.Models
   <ol>
     <li>
       <p>Back in Visual Studio or Visual Web Developer, in Solution Explorer, open the Web.Release.config file located under Web.config in the root directory of the ToDoListApp project.</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-33.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-33.png" />
     </li>
     <li>
       <p>Under the &lt;configuration&gt; / &lt;connectionStrings&gt; section replace all items as shown below. Substitute the &lt;serverName&gt; placeholder with the name of the server you created. For &lt;user&gt; and &lt;password&gt;, enter the administrative user and password you created earlier.</p>
@@ -403,17 +403,17 @@ namespace ToDoListLib.Models
   <ol>
     <li>
       <p>Confirm that the correct publishing profile is still selected and click Publish. In particular, ensure that the Build Configuration is set to Release, so you pick up the SQL Azure connection string from the Web.Release.Config that you edited earlier.</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-35.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-35.png" />
       <p>Clicking Publish will perform an in-place update, so this will complete faster than your initial deployment.</p>
     </li>
     <li>
       <p>When deployment completes, open the URL of your app from the deployment monitor</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-36.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-36.png" />
     </li>
     <li>
       <p>Check that your application functions as expected:</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-37.png" />
-      <img src="../../../DevCenter/dotNet/media/getting-started-38.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-37.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-38.png" />
     </li>
     <li>
       <p>The application is now fully running in the cloud. It uses SQL Azure to store its data, and it is running on one small web role instance. One of the benefits the cloud provides over running this application under standard web hosting is the ability to dynamically scale the number of instances as demand changes. This scaling will require no changes to the application itself. Moreover, updates can be deployed without service interruptions as Azure ensures there is always a role instance handling user requests while another one is being updated.</p>
@@ -428,11 +428,11 @@ namespace ToDoListLib.Models
   <ol>
     <li>
       <p>Login to the Windows Azure Platform Management Portal, http://windows.azure.com, and click on Hosted Sevices, Storage Accounts &amp; CDN, then Hosted Services:</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-39.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-39.png" />
     </li>
     <li>
       <p>Click on Stop to temporarily suspend your application. You will be able to start it again just by clicking on Start. Click on Delete to completely remove your application from Windows Azure with no ability to restore it.</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-40.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-40.png" />
     </li>
   </ol>
   <h2>

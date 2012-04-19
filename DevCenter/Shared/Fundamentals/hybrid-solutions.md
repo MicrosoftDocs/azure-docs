@@ -61,7 +61,7 @@
   <p>The day-to-day maintenance of identities between business partners is also very complicated and subject to oversights and procedural errors. These mistakes might subject a business to many negative consequences and potential legal penalties when unauthorized access or malicious operations are undertaken by unauthorized personnel. The procedures for securely onboarding another business partner, service, or application can also be very daunting. Configuring the security for a new application can take longer to implement than it did to write.</p>
   <p>Service Bus Relay cuts through many of the physical and political difficulties of connecting enterprise applications across departmental and corporate boundaries, and it does so in a rather elegant way. When applications are registered for use with Service Bus Relay, the administrator selects a unique endpoint address in the Windows Azure Access Control namespace by prefixing the accesscontrol.windows.net suffix with an exclusive (e.g. https://<strong>contoso</strong>.accesscontrol.windows.net/). Rather than waiting for incoming traffic to arrive at the corporate firewall or DMZ for the application, the Service Bus Relay model allows the application to open up an <em>outbound</em> communication channel with the Service Bus Relay service in Windows Azure as depicted in Figure 1. The application then keeps its connection with the cloud open in perpetuity (or until the application is shut down or recycled) by sending tiny outbound “ping” heartbeat message every few seconds. Service Bus Relay then relays any traffic sent to endpoint address in the cloud to the on-premises service application where the messages are processed.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/building-hybrid-solutions-1.jpg" width="552" height="406" alt="[image]" />
+    <img src="../../../DevCenter/Shared/Media/building-hybrid-solutions-1.jpg" width="552" height="406" alt="[image]" />
     <br />
     <strong>Figure 1-Windows Azure Service Bus Relay</strong>
   </p>
@@ -97,13 +97,13 @@
   <ul>
     <li>
       <p>
-        <strong>Load leveling</strong> allows work to be spread over time generally saving money because the message consumer only needs to be capable of handling an average message load instead of the peak message load.<br /><img src="../../../DevCenter/Shared/media/building-hybrid-solutions-2.jpg" width="597" height="274" alt="[image]" /><br /><strong>Figure 2-Load Leveling</strong></p>
+        <strong>Load leveling</strong> allows work to be spread over time generally saving money because the message consumer only needs to be capable of handling an average message load instead of the peak message load.<br /><img src="../../../DevCenter/Shared/Media/building-hybrid-solutions-2.jpg" width="597" height="274" alt="[image]" /><br /><strong>Figure 2-Load Leveling</strong></p>
     </li>
   </ul>
   <ul>
     <li>
       <p>
-        <strong>Load balancing</strong> allows additional message consumers to be added during peak message volume to keep throughput high but without breaking the bank by having idle capacity during non-peak loads.<img src="../../../DevCenter/Shared/media/building-hybrid-solutions-3.jpg" width="574" height="377" alt="[image]" /><br /><strong>Figure 3-Load Balancing</strong></p>
+        <strong>Load balancing</strong> allows additional message consumers to be added during peak message volume to keep throughput high but without breaking the bank by having idle capacity during non-peak loads.<img src="../../../DevCenter/Shared/Media/building-hybrid-solutions-3.jpg" width="574" height="377" alt="[image]" /><br /><strong>Figure 3-Load Balancing</strong></p>
     </li>
   </ul>
   <ul>
@@ -130,7 +130,7 @@
   <p>For example, this service can be used to keep two or more SQL Azure databases synchronized when you want to improve performance by geographically collocating application data with your customers. You can use the SQL Data Sync service to accomplish this objective. Synchronization can also be useful when you want to assure that your data is being redundantly stored in different geographical locations in the unlikely event of a cataclysmic disaster striking a regional data center. In hybrid application scenarios, data may need to be used by on-premises applications as well as cloud applications, or you may simply want to replicate data based on proximity in order to improve performance.</p>
   <p>Unidirectional and bidirectional synchronization are supported, giving you the flexibility of allowing changes only to a replication master or having changes to the data flow in both directions. Individual tables and even columns to be synchronized can be specified and filters can be established to apply synchronization only to a subset of rows. Conflict resolution for two-way synchronizations and synchronization frequency are also tunable.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/building-hybrid-solutions-4.jpg" width="569" height="496" alt="[image]" />
+    <img src="../../../DevCenter/Shared/Media/building-hybrid-solutions-4.jpg" width="569" height="496" alt="[image]" />
     <br />
     <strong>Figure 4-SQL Azure Data Sync</strong>
   </p>
@@ -159,7 +159,7 @@
   <p>Using Active Directory Federation Services v2.0 (AD FS), corporate identities stored in AD FS can be put into use beyond the organization’s firewall for use in securing Internet applications. AD FS adheres to the WS-Federation specification, an industry standard with widespread adoption, which was jointly developed by BEA Systems, BMC Software, CA Inc., IBM, Layer 7 Technologies, Microsoft, Novell, Ping Identity, and VeriSign for brokering trust of identities between participating applications and services across heterogeneous machines and platforms. A custom Security Token Services (STS) written using Microsoft Windows Identity Foundation or an AD FS installation are two examples of WS-Federation compliant identity sources.</p>
   <h3>ACS Paired with AD FS</h3>
   <p>
-    <img src="../../../DevCenter/Shared/media/building-hybrid-solutions-5.jpg" width="621" height="441" alt="[image]" />
+    <img src="../../../DevCenter/Shared/Media/building-hybrid-solutions-5.jpg" width="621" height="441" alt="[image]" />
     <br />
     <strong>Figure 5-ACS Paired With AD FS</strong>
   </p>
@@ -202,7 +202,7 @@
   <p>With Windows Azure Connect, a worker or web role in the cloud can access on-premises resources, such as a SQL Server database or an on premise web service, directly because Windows Azure Connect provides the illusion that the on-premises and cloud networks are actually one by routing the traffic through an IPsec tunnel between the two networks. In fact, in such a configuration, the application’s connection string doesn’t even have to change as the on-premises SQL Server just looks to be part of the same network as far as the Windows Azure cloud instances are concerned.</p>
   <p>To accomplish these objectives, Windows Azure Connect creates a secured communications tunnel between your on-premises applications and resources and your cloud-based applications and resources. This allows your Windows Azure role instances to become a logical extension of your corporate network. The instances in the cloud become additional machines on your corporate network as shown in Figure 6.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/building-hybrid-solutions-6.jpg" width="581" height="390" alt="[image]" />
+    <img src="../../../DevCenter/Shared/Media/building-hybrid-solutions-6.jpg" width="581" height="390" alt="[image]" />
     <br />
     <strong>Figure 6-Windows Azure Connect</strong>
     <a id="SQLAzure" name="SQLAzure">

@@ -12,14 +12,14 @@
   </ul>
   <p>You will build a front-end ASP.NET MVC web role that uses a back-end worker role to process long running jobs. You will learn how to create multi-role solutions, as well as how to use Service Bus Queues to enable inter-role communication. A screenshot of the completed application is shown below:</p>
   <p>
-    <img src="../../../DevCenter/dotNet/media/getting-started-multi-tier-01.png" />
+    <img src="../../../DevCenter/dotNet/Media/getting-started-multi-tier-01.png" />
   </p>
   <h2>Scenario Overview: Inter-Role Communication</h2>
   <p>To submit an order for processing, the front end UI component, running in the web role, needs to interact with the middle tier logic running in the worker role. This example uses Service Bus brokered messaging for the communication between the tiers.</p>
   <p>Using brokered messaging between the web and middle tiers decouples the two components. In contrast to direct messaging (that is, TCP or HTTP), the web tier does not connect to the middle tier directly; instead it pushes units of work, as messages, into the Service Bus, which reliably retains them until the middle tier is ready to consume and process them.</p>
   <p>The Service Bus provides two entities to support brokered messaging, queues and topics. With queues, each message sent to the queue is consumed by a single receiver. Topics support the publish/subscribe pattern in which each published message is made available to each subscription registered with the topic. Each subscription logically maintains its own queue of messages. Subscriptions can also be configured with filter rules that restrict the set of messages passed to the subscription queue to those that match the filter. This example uses Service Bus queues.</p>
   <p>
-    <img src="../../../DevCenter/dotNet/media/getting-started-multi-tier-100.png" width="600" height="295" />
+    <img src="../../../DevCenter/dotNet/Media/getting-started-multi-tier-100.png" width="600" height="295" />
   </p>
   <p>This communication mechanism has several advantages over direct messaging, namely:</p>
   <ul>
@@ -35,7 +35,7 @@
       <p>
         <strong>Load balancing.</strong> As load increases, more worker processes can be added to read from the queue. Each message is processed by only one of the worker processes. Furthermore, this pull-based load balancing allows for optimum utilization of the worker machines even if the worker machines differ in terms of processing power as they will pull messages at their own maximum rate. This pattern is often termed the competing consumer pattern.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/getting-started-multi-tier-101.png" width="600" height="387" />
+        <img src="../../../DevCenter/dotNet/Media/getting-started-multi-tier-101.png" width="600" height="387" />
       </p>
     </li>
   </ul>
@@ -47,11 +47,11 @@
       <p>To install the Windows Azure SDK for .NET, click the button below:</p>
       <a href="http://go.microsoft.com/fwlink/?LinkID=234939&amp;clcid=0x409" class="site-arrowboxcta download-cta">Get Tools and SDK</a>
       <p>When prompted to run or save WindowsAzureSDKForNet.exe, click <strong>Run</strong>:</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-3.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-3.png" />
     </li>
     <li>
       <p>Click <strong>Install </strong>in the installer window and proceed with the installation:</p>
-      <img src="../../../DevCenter/dotNet/media/getting-started-4.png" />
+      <img src="../../../DevCenter/dotNet/Media/getting-started-4.png" />
     </li>
     <li>
       <p>Once the installation is complete, you will have everything necessary to start developing. The SDK includes tools that let you easily develop Windows Azure applications in Visual Studio. If you do not have Visual Studio installed, it also installs the free Visual Web Developer Express.</p>
@@ -63,7 +63,7 @@
       <p>Open a web browser, and browse to <a href="http://www.windowsazure.com" target="_blank">http://www.windowsazure.com</a>.</p>
       <p>To get started with a free account, click <strong>free trial </strong>in the upper right corner and follow the steps.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/getting-started-12.png" />
+        <img src="../../../DevCenter/dotNet/Media/getting-started-12.png" />
       </p>
     </li>
     <li>
@@ -84,11 +84,11 @@
     <li>
       <p>In the upper left pane of the Management Portal, click the <strong>Service Bus</strong> node, then click <strong>New</strong>.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/sb-queues-03.png" />
+        <img src="../../../DevCenter/dotNet/Media/sb-queues-03.png" />
       </p>
     </li>
     <li>
-      <p>In the <strong>Create a new Service Namespace</strong> dialog, enter a namespace, and then to make sure that it is unique, click <strong>Check Availability</strong>. <br /><img src="../../../DevCenter/dotNet/media/sb-queues-04.png" /></p>
+      <p>In the <strong>Create a new Service Namespace</strong> dialog, enter a namespace, and then to make sure that it is unique, click <strong>Check Availability</strong>. <br /><img src="../../../DevCenter/dotNet/Media/sb-queues-04.png" /></p>
     </li>
     <li>
       <p>After making sure the namespace name is available, choose the country or region in which your namespace should be hosted (make sure you use the same country/region in which you are deploying your compute resources), and then click <strong>Create Namespace</strong>. Also, choose a country/region from the dropdown, a connection pack size, and the name of the subscription you want to use:</p>
@@ -115,31 +115,31 @@
       <p>Using administrator privileges, start either Microsoft Visual Studio 2010 or Microsoft Visual Web Developer Express 2010. To start Visual Studio with administrator privileges, right-click <strong>Microsoft Visual Studio 2010 (or Microsoft Visual Web Developer Express 2010)</strong> and then click Run as administrator. The Windows Azure compute emulator, discussed later in this guide, requires that Visual Studio be launched with administrator privileges.</p>
       <p>In Visual Studio, on the <strong>File</strong> menu, click <strong>New</strong>, and then click <strong>Project</strong>.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/getting-started-multi-tier-09.png" />
+        <img src="../../../DevCenter/dotNet/Media/getting-started-multi-tier-09.png" />
       </p>
     </li>
     <li>
       <p>From <strong>Installed Templates</strong>, under <strong>Visual C#</strong>, click Cloud and then click <strong>Windows Azure Project</strong>. Name the project <strong>MultiTierApp</strong>. Then click <strong>OK</strong>.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/getting-started-multi-tier-10.jpg" width="597" height="368" />
+        <img src="../../../DevCenter/dotNet/Media/getting-started-multi-tier-10.jpg" width="597" height="368" />
       </p>
     </li>
     <li>
       <p>From <strong>.NET Framework 4</strong> roles, double-click <strong>ASP.NET MVC 3 Web Role</strong>.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/getting-started-multi-tier-11.png" />
+        <img src="../../../DevCenter/dotNet/Media/getting-started-multi-tier-11.png" />
       </p>
     </li>
     <li>
       <p>Hover over <strong>MvcWebRole1</strong> under <strong>Windows Azure solution</strong>, click the pencil icon, and rename the web role to <strong>FrontendWebRole</strong>.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/getting-started-multi-tier-02.png" />
+        <img src="../../../DevCenter/dotNet/Media/getting-started-multi-tier-02.png" />
       </p>
     </li>
     <li>
       <p>From the <strong>Select a template</strong> list, click <strong>Internet Application</strong>, then click <strong>OK</strong>.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/getting-started-multi-tier-12.png" />
+        <img src="../../../DevCenter/dotNet/Media/getting-started-multi-tier-12.png" />
       </p>
     </li>
     <li>
@@ -148,7 +148,7 @@
     <li>
       <p>Select <strong>Online</strong> on the left-hand side of the dialog. Search for ‘<strong>WindowsAzure.ServiceBus</strong>’ and select the <strong>Windows Azure.Service Bus</strong> item. Then complete the installation and close this dialog.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/getting-started-multi-tier-13.png" />
+        <img src="../../../DevCenter/dotNet/Media/getting-started-multi-tier-13.png" />
       </p>
     </li>
     <li>
@@ -229,7 +229,7 @@ using Microsoft.ServiceBus;</pre>
     <li>
       <p>Now, you will create the view for the <strong>Submit()</strong> method you created above. Right-click within the Submit() method, and choose <strong>Add View</strong></p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/getting-started-multi-tier-33.png" />
+        <img src="../../../DevCenter/dotNet/Media/getting-started-multi-tier-33.png" />
       </p>
     </li>
     <li>
@@ -238,7 +238,7 @@ using Microsoft.ServiceBus;</pre>
     <li>
       <p>A dialog appears for creating the view. Click the checkbox for <strong>Create a strongly-typed view</strong>. In addition, select the <strong>OnlineOrder</strong> class in the <strong>Model class</strong> dropdown, and choose <strong>Create</strong> under the <strong>Scaffold template</strong> dropdown.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/getting-started-multi-tier-34.png" />
+        <img src="../../../DevCenter/dotNet/Media/getting-started-multi-tier-34.png" />
       </p>
     </li>
     <li>
@@ -250,7 +250,7 @@ using Microsoft.ServiceBus;</pre>
     <li>
       <p>Locate <strong>&lt;h1&gt;My MVC Application&lt;/h1&gt;</strong>, and replace it with <strong>&lt;h1&gt;LITWARE'S Awesome Products&lt;/h1&gt;</strong>:</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/getting-started-multi-tier-35.png" />
+        <img src="../../../DevCenter/dotNet/Media/getting-started-multi-tier-35.png" />
       </p>
     </li>
     <li>
@@ -261,7 +261,7 @@ using Microsoft.ServiceBus;</pre>
     <li>
       <p>You now have implemented your UI. You can press <strong>F5</strong> to run your application and confirm it looks as expected.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/getting-started-multi-tier-36.png" />
+        <img src="../../../DevCenter/dotNet/Media/getting-started-multi-tier-36.png" />
       </p>
     </li>
   </ol>
@@ -383,7 +383,7 @@ namespace FrontendWebRole
     <li>
       <p>You can now run your application again. Each time you submit an order, you should see the message count increase.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/getting-started-multi-tier-37.png" />
+        <img src="../../../DevCenter/dotNet/Media/getting-started-multi-tier-37.png" />
       </p>
     </li>
   </ol>
@@ -480,10 +480,10 @@ namespace OrderProcessingRole
     <li>
       <p>You have completed the application. You can test the full application as you did earlier, by pressing F5. You will notice now, however, that the message count rarely goes above 1 or 2. This is because the worker role is processing items from the queue and marking them as complete. You can see the trace output of your worker role by viewing the Windows Azure Compute Emulator UI. You can do this by right-clicking the emulator icon in the notification area of your taskbar and selecting <strong>Show Compute Emulator UI</strong>.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/getting-started-multi-tier-38.png" />
+        <img src="../../../DevCenter/dotNet/Media/getting-started-multi-tier-38.png" />
       </p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/getting-started-multi-tier-39.png" />
+        <img src="../../../DevCenter/dotNet/Media/getting-started-multi-tier-39.png" />
       </p>
     </li>
   </ol>

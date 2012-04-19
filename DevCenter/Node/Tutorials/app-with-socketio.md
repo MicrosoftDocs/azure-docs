@@ -52,11 +52,11 @@
   <ol>
     <li>
       <p>On the <strong>Start</strong> menu, click _<em>All Programs, Windows Azure SDK Node.js - November 2011</em>, right-click <strong>Windows Azure PowerShell for Node.js</strong>, and then select <strong>Run As Administrator</strong>. Opening your Windows PowerShell environment this way ensures that all of the Node command-line tools are available. Running with elevated privileges avoids extra prompts when working with the Windows Azure Emulator.</p>
-      <img src="../../../DevCenter/Node/media/node7.png" alt="The Windows start menu, expanded, selected on the Windows Azure PowerShell for Node.js item" />
+      <img src="../../../DevCenter/Node/Media/node7.png" alt="The Windows start menu, expanded, selected on the Windows Azure PowerShell for Node.js item" />
     </li>
     <li>
       <p>Create a new <strong>node</strong> directory on your C drive, and change to the c:\node directory:</p>
-      <img src="../../../DevCenter/Node/media/getting-started-6.png" alt="A console prompt displaying mkdir c:\node and then cd \node" />
+      <img src="../../../DevCenter/Node/Media/getting-started-6.png" alt="A console prompt displaying mkdir c:\node and then cd \node" />
     </li>
     <li>
       <p>Enter the following commands to create a new solution named <strong>chatapp</strong> and a worker role named <strong>WorkerRole1</strong>:</p>
@@ -71,15 +71,15 @@ PS C:\node\chatapp&gt; Add-AzureNodeWorkerRole</pre>
   <ol>
     <li>
       <p>Click the <strong>ZIP</strong> button to download a .zip archive of the project.</p>
-      <img src="../../../DevCenter/Node/media/socketio-2.PNG" alt="A browser window viewing https://github.com/LearnBoost/socket.io/tree/master/examples/chat, with the ZIP download icon highlighted" />
+      <img src="../../../DevCenter/Node/Media/socketio-2.PNG" alt="A browser window viewing https://github.com/LearnBoost/socket.io/tree/master/examples/chat, with the ZIP download icon highlighted" />
     </li>
     <li>
       <p>In Windows Explorer, right click the downloaded .zip file and select <strong>Extract All</strong>. When prompted, select a directory to extract the files to and then click Extract. The folder containing the extracted files should open.</p>
-      <img src="../../../DevCenter/Node/media/socketio-3.PNG" alt="The Extract Compressed (Zipped) Folders dialog" />
+      <img src="../../../DevCenter/Node/Media/socketio-3.PNG" alt="The Extract Compressed (Zipped) Folders dialog" />
     </li>
     <li>
       <p>Navigate the folder structure until you arrive at the examples\chat folder. Copy the contents of this folder to the C:\node\chatapp\WorkerRole1 folder created earlier.</p>
-      <img src="../../../DevCenter/Node/media/socketio-4.PNG" alt="Explorer, displaying the contents of the examples\chat folder extracted from the archive" />
+      <img src="../../../DevCenter/Node/Media/socketio-4.PNG" alt="Explorer, displaying the contents of the examples\chat folder extracted from the archive" />
       <p>After the copy operation completes, the contents of the WorkerRole1 folder should appear as follows:</p>
       <img src="/media/nodejs/dev-nodejs-socketio-5.png" alt="Explorer, displaying the contents of the WorkerRole1 folder; app.js, index.jade, node.exe, package.json, server.js, setup_worker.cmd and a public folder" />
     </li>

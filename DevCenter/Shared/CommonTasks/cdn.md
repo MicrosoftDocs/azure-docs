@@ -25,7 +25,7 @@
       <p>On the ribbon, in the <strong>Storage </strong>group, click <strong>New Storage Account</strong>.</p>
       <p>The <strong>Create a New Storage Account</strong> dialog box opens.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/CDN_CreateNewStorageAcct.png" />
+        <img src="../../../DevCenter/Shared/Media/CDN_CreateNewStorageAcct.png" />
       </p>
     </li>
     <li>From the <strong>Choose a Subscription</strong> drop-down list, select the subscription that the storage account will be used with.</li>
@@ -67,7 +67,7 @@
       <p>In the upper portion of the navigation pane, click <strong>CDN</strong>, and then on the ribbon, click <strong>New Endpoint</strong>.</p>
       <p>This will open the <strong>Create a New CDN Endpoint</strong> window.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/CDN_CreateNewCDNEndpoint.png" />
+        <img src="../../../DevCenter/Shared/Media/CDN_CreateNewCDNEndpoint.png" />
       </p>
     </li>
     <li>In the <strong>Create a New CDN Endpoint </strong>window, select a subscription from the <strong>Choose a Subscription</strong> drop-down list, select a subscription on which to enable CDN.</li>

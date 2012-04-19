@@ -50,23 +50,23 @@
   <p>To use the Windows Azure Caching service, you need a cache. You can create a cache in the Windows Azure Platform Management Portal as shown below:</p>
   <ol>
     <li>
-      <p>Log into the <a href="http://windows.azure.com/" target="_blank">Windows Azure Management Portal</a>. <br /><img src="../../../DevCenter/dotNet/media/cache1.png" alt="Cache1" /></p>
+      <p>Log into the <a href="http://windows.azure.com/" target="_blank">Windows Azure Management Portal</a>. <br /><img src="../../../DevCenter/dotNet/Media/cache1.png" alt="Cache1" /></p>
     </li>
     <li>
-      <p>In the lower left navigation pane of the Management Portal, click <strong>Service Bus, Access Control &amp; Caching</strong>. <br /><img src="../../../DevCenter/dotNet/media/cache2.png" alt="Cache2" /></p>
+      <p>In the lower left navigation pane of the Management Portal, click <strong>Service Bus, Access Control &amp; Caching</strong>. <br /><img src="../../../DevCenter/dotNet/Media/cache2.png" alt="Cache2" /></p>
     </li>
     <li>
-      <p>In the upper left navigation pane of the Management Portal, click <strong>Cache</strong>, and the click <strong>New</strong>. <br /><img src="../../../DevCenter/dotNet/media/cache3.png" alt="Cache3" /></p>
+      <p>In the upper left navigation pane of the Management Portal, click <strong>Cache</strong>, and the click <strong>New</strong>. <br /><img src="../../../DevCenter/dotNet/Media/cache3.png" alt="Cache3" /></p>
     </li>
     <li>
-      <p>In <strong>Create a new Service Namespace</strong>, enter a namespace, and then to make sure that it is unique, click <strong>Check Availability</strong>. <br /><img src="../../../DevCenter/dotNet/media/cache4.png" alt="Cache4" /></p>
+      <p>In <strong>Create a new Service Namespace</strong>, enter a namespace, and then to make sure that it is unique, click <strong>Check Availability</strong>. <br /><img src="../../../DevCenter/dotNet/Media/cache4.png" alt="Cache4" /></p>
     </li>
     <li>
       <p>If it is available, choose the country or region in which your storage account is (or will be) located, the subscription for the storage account, the cache size, and then click <strong>Create Namespace</strong>.</p>
       <p>The namespace appears in the Management Portal and takes a moment to activate. Wait until the status is <strong>Active</strong> before moving on.</p>
     </li>
     <li>
-      <p>Select the newly created namespace, and take note of the <strong>Properties</strong> in the right hand column. You will need these in subsequent steps to access the cache: Service URL, Service Port, and Authentication Token. <br /><img src="../../../DevCenter/dotNet/media/cache5.png" alt="Cache5" /></p>
+      <p>Select the newly created namespace, and take note of the <strong>Properties</strong> in the right hand column. You will need these in subsequent steps to access the cache: Service URL, Service Port, and Authentication Token. <br /><img src="../../../DevCenter/dotNet/Media/cache5.png" alt="Cache5" /></p>
     </li>
   </ol>
   <h2>
@@ -122,8 +122,8 @@
   <p>You can configure your application to use caching in code, or by using configuration files. The guide covers using configuration files. For information on configuring your application to use caching in code, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx">How to: Configure a Cache Client Programmatically</a>.</p>
   <ol>
     <li>
-      <p>In the Management Portal, select the desired cache, and then click <strong>View Client Configuration</strong>: <br /><img src="../../../DevCenter/dotNet/media/cache6.png" alt="Cache6" /></p>
-      <p>This brings up the Client Configuration window, which contains sections of XML snippets to copy into the appropriate sections in the configuration file of your application. <br /><img src="../../../DevCenter/dotNet/media/cache7.png" alt="Cache7" /></p>
+      <p>In the Management Portal, select the desired cache, and then click <strong>View Client Configuration</strong>: <br /><img src="../../../DevCenter/dotNet/Media/cache6.png" alt="Cache6" /></p>
+      <p>This brings up the Client Configuration window, which contains sections of XML snippets to copy into the appropriate sections in the configuration file of your application. <br /><img src="../../../DevCenter/dotNet/Media/cache7.png" alt="Cache7" /></p>
     </li>
     <li>
       <p>Copy the <strong>dataCacheClients</strong> section into the <strong>configSections</strong> of your configuration file. If your configuration file does not have a <strong>configSections</strong>, then add one.</p>

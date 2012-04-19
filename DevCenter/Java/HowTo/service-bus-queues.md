@@ -43,7 +43,7 @@
     </a>What are Service Bus Queues?</h2>
   <p>Service Bus Queues support a <strong>brokered messaging communication</strong> model. When using queues, components of a distributed application do not communicate directly with each other, they instead exchange messages via a queue, which acts as an intermediary. A message producer (sender) hands off a message to the queue and then continues its processing. Asynchronously, a message consumer (receiver) pulls the message from the queue and processes it. The producer does not have to wait for a reply from the consumer in order to continue to process and send further messages. Queues offer <strong>First In, First Out (FIFO)</strong> message delivery to one or more competing consumers. That is, messages are typically received and processed by the receivers in the order in which they were added to the queue, and each message is received and processed by only one message consumer.</p>
   <p>
-    <img src="../../../DevCenter/Java/media/SvcBusQueues_01_FlowDiagram.jpg" alt="Service Bus Queue Diagram" />
+    <img src="../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg" alt="Service Bus Queue Diagram" />
   </p>
   <p>Service Bus queues are a general-purpose technology that can be used for a wide variety of scenarios:</p>
   <ul>
@@ -60,8 +60,8 @@
   <ol>
     <li>Log on to the <a href="http://windows.azure.com/">Windows Azure Management Portal</a>.</li>
     <li>In the lower left navigation pane of the Management Portal, click <strong>Service Bus, Access Control &amp; Caching</strong>.</li>
-    <li>In the upper left pane of the Management Portal, click the <strong> Service Bus</strong> node, and then click the <strong>New</strong> button.<br /><img src="../../../DevCenter/Java/media/SvcBusQueues_02_SvcBusNode.jpg" alt="Service Bus Node screenshot" /></li>
-    <li>In the <strong>Create a new Service Namespace</strong> dialog, enter a <strong>Namespace</strong>, and then to make sure that it is unique, click the <strong>Check Availability</strong> button.<br /><img src="../../../DevCenter/Java/media/SvcBusQueues_03_CreateNewSvcNamespace.jpg" alt="Create a New Namespace &#xD;&#xA;&#xD;&#xA;screenshot" /></li>
+    <li>In the upper left pane of the Management Portal, click the <strong> Service Bus</strong> node, and then click the <strong>New</strong> button.<br /><img src="../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg" alt="Service Bus Node screenshot" /></li>
+    <li>In the <strong>Create a new Service Namespace</strong> dialog, enter a <strong>Namespace</strong>, and then to make sure that it is unique, click the <strong>Check Availability</strong> button.<br /><img src="../../../DevCenter/Java/Media/SvcBusQueues_03_CreateNewSvcNamespace.jpg" alt="Create a New Namespace &#xD;&#xA;&#xD;&#xA;screenshot" /></li>
     <li>After making sure the namespace name is available, choose the country or region in which your namespace should be hosted (make sure you use the same country/region in which you are deploying your compute resources), and then click the <strong>Create Namespace</strong> button. Having a compute instance is optional, and the service bus can be consumed from any application with internet access.<br /><br /> The namespace you created will then appear in the Management Portal and takes a moment to activate. Wait until the status is <strong>Active</strong> before moving on.</li>
   </ol>
   <h2>
@@ -69,10 +69,10 @@
     </a>Obtain the Default Management Credentials for the Namespace</h2>
   <p>In order to perform management operations, such as creating a queue, on the new namespace, you need to obtain the management credentials for the namespace.</p>
   <ol>
-    <li>In the left navigation pane, click the <strong>Service Bus</strong> node, to display the list of available namespaces: <br /><img src="../../../DevCenter/Java/media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg" alt="Available Namespaces &#xD;&#xA;&#xD;&#xA;screenshot" /></li>
-    <li>Select the namespace you just created from the list shown: <br /><img src="../../../DevCenter/Java/media/SvcBusQueues_05_NamespaceList.jpg" alt="Namespace List screenshot" /></li>
-    <li>The right-hand <strong>Properties</strong> pane will list the properties for the new namespace: <br /><img src="../../../DevCenter/Java/media/SvcBusQueues_06_PropertiesPane.jpg" alt="Properties Pane screenshot" /></li>
-    <li>The <strong>Default Key</strong> is hidden. Click the <strong>View</strong> button to display the security credentials: <br /><img src="../../../DevCenter/Java/media/SvcBusQueues_07_DefaultKey.jpg" alt="Default Key screenshot" /></li>
+    <li>In the left navigation pane, click the <strong>Service Bus</strong> node, to display the list of available namespaces: <br /><img src="../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg" alt="Available Namespaces &#xD;&#xA;&#xD;&#xA;screenshot" /></li>
+    <li>Select the namespace you just created from the list shown: <br /><img src="../../../DevCenter/Java/Media/SvcBusQueues_05_NamespaceList.jpg" alt="Namespace List screenshot" /></li>
+    <li>The right-hand <strong>Properties</strong> pane will list the properties for the new namespace: <br /><img src="../../../DevCenter/Java/Media/SvcBusQueues_06_PropertiesPane.jpg" alt="Properties Pane screenshot" /></li>
+    <li>The <strong>Default Key</strong> is hidden. Click the <strong>View</strong> button to display the security credentials: <br /><img src="../../../DevCenter/Java/Media/SvcBusQueues_07_DefaultKey.jpg" alt="Default Key screenshot" /></li>
     <li>Make a note of the <strong>Default Issuer</strong> and the <strong> Default Key</strong> as you will use this information below to perform operations with the namespace.</li>
   </ol>
   <h2>

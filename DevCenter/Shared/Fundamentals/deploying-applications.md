@@ -49,7 +49,7 @@
   <p>Before you can deploy an application into the hosted service, you must package (zip) your application for your roles together into a CSPKG file. Your service definition (CSDEF) file must also be embedded into the CSPKG file. In addition, you need to have your service configuration (CSCFG) file ready. These files are discussed in the <a href="../application-model/">Windows Azure Application Model</a> article. Then, you upload these files to Windows Azure via the Windows Azure Management Portal or by calling the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/ee460813.aspx">Create Deployment REST API</a>. You can alternatively deploy your application directly from Windows Azure tooling, such as the Visual Studio tooling in the Windows Azure SDK for .NET or the command line tooling in the Windows Azure SDK for Node.js. With the tooling, the underlying details of creating a CSPKG and uploading it to Windows Azure are handled for you automatically.</p>
   <p>Within a few minutes after uploading the files, Windows Azure provisions your role instances and your application is up and running. The figure below shows the CSPKG and CSCFG files that you create on your development computer. The CSPKG file contains the CSDEF file and the code for two roles. After uploading the CSPKG and CSCFG files to Windows Azure via the Service Management API, Windows Azure creates the role instances in the data center. In this example, the CSCFG file indicates that Windows Azure should create three instances of role #1 and two instances of role #2.<a id="AzureStorage" name="AzureStorage"></a></p>
   <p>
-    <img src="../../../DevCenter/Shared/media/deploying-and updating-applications-3.jpg" width="624" height="221" alt="[image]" />
+    <img src="../../../DevCenter/Shared/Media/deploying-and updating-applications-3.jpg" width="624" height="221" alt="[image]" />
   </p>
   <a name="scenario2">
   </a>
@@ -59,7 +59,7 @@
   <p>When scaling a role’s instances, Windows Azure adjusts the number of role instances running each role’s code. Increasing the number of instances for a role does not impact the currently running instances. If you decrease the number of instances for a role, then Windows Azure selects which instances to terminate. Note that instances being terminated are given a chance to shut down cleanly allowing them to save any data on the role instance out to more persistent storage such as SQL Azure, Blobs, or Tables.</p>
   <p>In the figure below, a new CSCFG file is uploaded to Windows Azure, indicating that role #1 should have two instances and role #2 should have one instance. Windows Azure then terminates one instance of each role.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/deploying-and updating-applications-4.jpg" width="606" height="154" alt="[image]" />
+    <img src="../../../DevCenter/Shared/Media/deploying-and updating-applications-4.jpg" width="606" height="154" alt="[image]" />
   </p>
   <p>When changing configuration setting values, the applications on the role instances may have to restart in order to pick up the new configuration values. Windows Azure restarts the role instances using the in-place rolling upgrade technique described earlier. More details about this technique are also discussed in the next section.<a id="Blob" name="Blob"></a></p>
   <a name="scenario3">
@@ -144,11 +144,11 @@
   <p>Windows Azure deploys your new application to a new set of role instances and Windows Azure assign a globally unique identifier (GUID) as a special DNS prefix when an application is deployed to the staging environment. The new version of your application is now up and running in your desired data center and accessible for you to test at <em>guid</em>.cloudapp.net.</p>
   <p>Note that the old version of your application is still publicly available to clients at the preferred DNS prefix and that you are charged for the instances that are running your production (old) code as well as the instances that are running your staging (new) code. The figure below shows version 1.0 of your application running in the production environment and version 2.0 running in the staging environment.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/deploying-and updating-applications-5.jpg" width="624" height="253" alt="[image]" />
+    <img src="../../../DevCenter/Shared/Media/deploying-and updating-applications-5.jpg" width="624" height="253" alt="[image]" />
   </p>
   <p>Once you have sufficiently tested your new code in staging using <em>guid</em>.cloudapp.net, you tell Windows Azure to put it into production by performing what is called a <em>Virtual IP (VIP) Swap</em>. This causes Windows Azure to reprogram the load balancer so that it now directs client traffic sent to <em>prefix</em>.cloudapp.net to the instances running the new version of your code. This means that clients immediately start accessing the new version of your application and no longer have access to the old version. Again, clients experience no downtime. The figure below shows how the load balancer directs traffic after a VIP Swap has been performed.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/deploying-and updating-applications-6.jpg" width="621" height="251" alt="[image]" />
+    <img src="../../../DevCenter/Shared/Media/deploying-and updating-applications-6.jpg" width="621" height="251" alt="[image]" />
   </p>
   <p>Note that after you swap the VIPs, the old version of your application is still running and is now available in the staging environment at guid.cloudapp.net. While this version is still running, you are still being charged for the role instances. You can now delete the deployment containing the old version of your application to reduce charges. Alternatively, you can keep it running for some time and, if any problems appear with the new version of your application, you can swap the VIPs again making the old code accessible to clients while you fix the new version.<a id="SQLAzure" name="SQLAzure"></a></p>
   <a name="references">

@@ -66,7 +66,7 @@
     </a>Concepts</h2>
   <p>The Queue service contains the following components:</p>
   <p>
-    <img src="../../../DevCenter/dotNet/media/queue1.png" alt="Queue1" />
+    <img src="../../../DevCenter/dotNet/Media/queue1.png" alt="Queue1" />
   </p>
   <ul>
     <li>
@@ -101,7 +101,7 @@
       <p>At the top of the navigation pane, click <strong>Storage Accounts</strong>.</p>
     </li>
     <li>
-      <p>On the ribbon, in the Storage group, click <strong>New Storage Account</strong>. <br /><img src="../../../DevCenter/Java/media/WA_HowToBlobStorage2.png" alt="Blob2" /><br /><br />The <strong>Create a New Storage Account </strong>dialog box opens. <br /><img src="../../../DevCenter/Java/media/WA_HowToBlobStorage3.png" alt="Blob3" /></p>
+      <p>On the ribbon, in the Storage group, click <strong>New Storage Account</strong>. <br /><img src="../../../DevCenter/Java/Media/WA_HowToBlobStorage2.png" alt="Blob2" /><br /><br />The <strong>Create a New Storage Account </strong>dialog box opens. <br /><img src="../../../DevCenter/Java/Media/WA_HowToBlobStorage3.png" alt="Blob3" /></p>
     </li>
     <li>
       <p>In <strong>Choose a Subscription</strong>, select the subscription that the storage account will be used with.</p>
@@ -145,23 +145,23 @@ using Microsoft.WindowsAzure.StorageClient;</pre>
   <p>To configure your connection string in the Windows Azure service configuration:</p>
   <ol>
     <li>
-      <p>In the Solution Explorer, in the <strong>Roles</strong> folder, right-click a web role or worker role and click <strong>Properties</strong>.<br /><img src="../../../DevCenter/dotNet/media/blob5.png" alt="Blob5" /></p>
+      <p>In the Solution Explorer, in the <strong>Roles</strong> folder, right-click a web role or worker role and click <strong>Properties</strong>.<br /><img src="../../../DevCenter/dotNet/Media/blob5.png" alt="Blob5" /></p>
     </li>
     <li>
-      <p>Click <strong>Settings</strong> and click <strong>Add Setting</strong>.<br /><img src="../../../DevCenter/dotNet/media/blob6.png" alt="Blob6" /></p>
+      <p>Click <strong>Settings</strong> and click <strong>Add Setting</strong>.<br /><img src="../../../DevCenter/dotNet/Media/blob6.png" alt="Blob6" /></p>
       <p>A new setting is created.</p>
     </li>
     <li>
-      <p>In the <strong>Type</strong> drop-down of the <strong>Setting1</strong> entry, choose <strong>Connection String</strong>.<br /><img src="../../../DevCenter/dotNet/media/blob7.png" alt="Blob7" /></p>
+      <p>In the <strong>Type</strong> drop-down of the <strong>Setting1</strong> entry, choose <strong>Connection String</strong>.<br /><img src="../../../DevCenter/dotNet/Media/blob7.png" alt="Blob7" /></p>
     </li>
     <li>
       <p>Click the <strong>...</strong> button at the right end of the <strong>Setting1</strong> entry. The <strong>Storage Account Connection String</strong> dialog opens.</p>
     </li>
     <li>
-      <p>Choose whether you want to target the storage emulator (Windows Azure storage simulated on your desktop) or an actual storage account in the cloud, and click <strong>OK</strong>. The code in this guide works with either option.<br /><img src="../../../DevCenter/dotNet/media/blob8.png" alt="Blob8" /></p>
+      <p>Choose whether you want to target the storage emulator (Windows Azure storage simulated on your desktop) or an actual storage account in the cloud, and click <strong>OK</strong>. The code in this guide works with either option.<br /><img src="../../../DevCenter/dotNet/Media/blob8.png" alt="Blob8" /></p>
     </li>
     <li>
-      <p>Change the entry <strong>Name</strong> from <strong>Setting1</strong> to <strong>StorageConnectionString</strong>. You will reference this name in the code in this guide.<br /><img src="../../../DevCenter/dotNet/media/blob9.png" alt="Blob9" /></p>
+      <p>Change the entry <strong>Name</strong> from <strong>Setting1</strong> to <strong>StorageConnectionString</strong>. You will reference this name in the code in this guide.<br /><img src="../../../DevCenter/dotNet/Media/blob9.png" alt="Blob9" /></p>
     </li>
   </ol>
   <p>You are now ready to perform the How To's in this guide.</p>

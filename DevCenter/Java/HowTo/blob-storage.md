@@ -61,7 +61,7 @@
     </a>Concepts</h2>
   <p>The Blob service contains the following components:</p>
   <p>
-    <img src="../../../DevCenter/Java/media/WA_HowToBlobStorage.png" alt="Blob Service Components" />
+    <img src="../../../DevCenter/Java/Media/WA_HowToBlobStorage.png" alt="Blob Service Components" />
   </p>
   <ul>
     <li>
@@ -84,11 +84,11 @@
     <li>Log into the <a href="http://windows.azure.com/">Windows Azure Management Portal</a>.</li>
     <li>In the navigation pane, click <strong>Hosted Services, Storage Accounts &amp; CDN</strong>.</li>
     <li>At the top of the navigation pane, click <strong>Storage Accounts</strong>.</li>
-    <li>On the ribbon, in the <strong>Storage</strong> group, click <strong>New Storage Account</strong>.<br /><img src="../../../DevCenter/Java/media/WA_HowToBlobStorage2.png" alt="New Storage Account screenshot" /><br /> The <strong>Create a New Storage Account</strong> dialog box opens.<br /><img src="../../../DevCenter/Java/media/WA_HowToBlobStorage3.png" alt="Create New Storage Account screenshot" /></li>
+    <li>On the ribbon, in the <strong>Storage</strong> group, click <strong>New Storage Account</strong>.<br /><img src="../../../DevCenter/Java/Media/WA_HowToBlobStorage2.png" alt="New Storage Account screenshot" /><br /> The <strong>Create a New Storage Account</strong> dialog box opens.<br /><img src="../../../DevCenter/Java/Media/WA_HowToBlobStorage3.png" alt="Create New Storage Account screenshot" /></li>
     <li>In <strong>Choose a Subscription</strong>, select the subscription that the storage account will be used with.</li>
     <li>In <strong>Enter a URL</strong>, type a subdomain name to use in the URI for the storage account. The entry can contain from 3-24 lowercase letters and numbers. This value becomes the host name within the URI that is used to address Blob, Queue, or Table resources for the subscription.</li>
     <li>Choose a region or an affinity group in which to locate the storage. If you will be using storage from your Windows Azure application, select the same region where you will deploy your application.</li>
-    <li>Finally, take note of your <strong>Primary access key</strong> in the right-hand column. You will need this in subsequent steps to access storage.<br /><img src="../../../DevCenter/Java/media/WA_HowToBlobStorage4.png" alt="Properties screenshot" /></li>
+    <li>Finally, take note of your <strong>Primary access key</strong> in the right-hand column. You will need this in subsequent steps to access storage.<br /><img src="../../../DevCenter/Java/Media/WA_HowToBlobStorage4.png" alt="Properties screenshot" /></li>
   </ol>
   <h2>
     <a name="bkmk_CreateJavaApp">

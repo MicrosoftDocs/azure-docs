@@ -26,13 +26,13 @@
     <li>
       <p>In the Management Portal, click <strong>New Hosted Service</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/staging-01.png" />
+        <img src="../../../DevCenter/Shared/Media/staging-01.png" />
       </p>
     </li>
     <li>
       <p>In the Create a New Hosted Service dialog, fill in the required information and select <strong>Deploy to stage environment</strong> under <strong>Deployment options</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/staging-02.png" />
+        <img src="../../../DevCenter/Shared/Media/staging-02.png" />
       </p>
     </li>
     <li>
@@ -41,7 +41,7 @@
     <li>
       <p>After the hosted service is created and the deployment's status has been updated to <strong>Ready</strong>, click on the deployment and note the values in the <strong>Properties</strong> pane to the right. The DNS name is an obfuscated internal ID that Windows Azure generated. Also, the environment is set to <strong>Staging</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/staging-03.png" />
+        <img src="../../../DevCenter/Shared/Media/staging-03.png" />
       </p>
     </li>
   </ol>
@@ -66,7 +66,7 @@
     <li>
       <p>In Windows Azure Publish Settings, select hosted service in which to publish the application, and then in Environment, select <strong>Staging</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/staging-04.png" />
+        <img src="../../../DevCenter/Shared/Media/staging-04.png" />
       </p>
     </li>
     <li>
@@ -92,7 +92,7 @@
     <li>
       <p>Expand the hosted service that contains the deployment that you want to upgrade, and then click <strong>Swap VIP</strong>. This opens the Swap VIPs dialog.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/staging-05.png" />
+        <img src="../../../DevCenter/Shared/Media/staging-05.png" />
       </p>
     </li>
     <li>

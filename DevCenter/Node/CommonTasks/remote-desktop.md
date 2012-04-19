@@ -24,19 +24,19 @@
     <li>
       <p>From the <strong>Start</strong> menu, select <strong>Windows Azure PowerShell for Node.js</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Node/media/remote-desktop-01.png" />
+        <img src="../../../DevCenter/Node/Media/remote-desktop-01.png" />
       </p>
     </li>
     <li>
       <p>Change directory to the service directory, type <strong>Enable-AzureRemoteDesktop</strong>, and then enter a user name and password to use when authenticating with role instances in the cloud:</p>
       <p>
-        <img src="../../../DevCenter/Node/media/remote-desktop-02.png" />
+        <img src="../../../DevCenter/Node/Media/remote-desktop-02.png" />
       </p>
     </li>
     <li>
       <p>Publish the service configuration changes to the cloud. At the <strong>Windows Azure PowerShell for Node.js</strong> prompt, type <strong>Publish-AzureService</strong>:</p>
       <p>
-        <img src="../../../DevCenter/Node/media/remote-desktop-03.png" />
+        <img src="../../../DevCenter/Node/Media/remote-desktop-03.png" />
       </p>
     </li>
   </ol>
@@ -49,31 +49,31 @@
     <li>
       <p>When the deployment status in the Windows Azure Management Portal is <strong>Ready</strong>, select an instance of the deployment, and click <strong>Connect</strong> in the <strong>Remote Access</strong> area of the portal ribbon.</p>
       <p>
-        <img src="../../../DevCenter/Node/media/remote-desktop-10.png" />
+        <img src="../../../DevCenter/Node/Media/remote-desktop-10.png" />
       </p>
     </li>
     <li>
       <p>When you click <strong>Connect</strong>, the web browser prompts you to save an .rdp file. If you’re using Internet Explorer, click <strong>Open</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Node/media/remote-desktop-11.png" />
+        <img src="../../../DevCenter/Node/Media/remote-desktop-11.png" />
       </p>
     </li>
     <li>
       <p>When the file is opened, the following security prompt appears:</p>
       <p>
-        <img src="../../../DevCenter/Node/media/remote-desktop-12.png" />
+        <img src="../../../DevCenter/Node/Media/remote-desktop-12.png" />
       </p>
     </li>
     <li>
       <p>Click <strong>Connect</strong>, and a security prompt will appear for entering credentials to access the instance. Enter the password you created in <a href="#step1">Step 1</a>, and then click <strong>OK</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Node/media/remote-desktop-13.png" />
+        <img src="../../../DevCenter/Node/Media/remote-desktop-13.png" />
       </p>
     </li>
   </ol>
   <p>When the connection is made, Remote Desktop Connection displays the desktop of the instance in Windows Azure. You have successfully gained remote access to your instance and can perform any necessary tasks to manage your application.</p>
   <p>
-    <img src="../../../DevCenter/Node/media/remote-desktop-14.png" />
+    <img src="../../../DevCenter/Node/Media/remote-desktop-14.png" />
   </p>
   <h2>
     <a name="step3">
@@ -83,19 +83,19 @@
     <li>
       <p>From the <strong>Start</strong> menu, select <strong>Windows Azure PowerShell for Node.js</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Node/media/remote-desktop-01.png" />
+        <img src="../../../DevCenter/Node/Media/remote-desktop-01.png" />
       </p>
     </li>
     <li>
       <p>Change directory to the service directory, and type <strong>Disable-AzureRemoteDesktop</strong>:</p>
       <p>
-        <img src="../../../DevCenter/Node/media/remote-desktop-04.png" />
+        <img src="../../../DevCenter/Node/Media/remote-desktop-04.png" />
       </p>
     </li>
     <li>
       <p>Publish the service configuration changes to the cloud. At the <strong>Windows Azure PowerShell for Node.js</strong> prompt, type <strong>Publish-AzureService</strong>:</p>
       <p>
-        <img src="../../../DevCenter/Node/media/remote-desktop-03.png" />
+        <img src="../../../DevCenter/Node/Media/remote-desktop-03.png" />
       </p>
     </li>
   </ol>

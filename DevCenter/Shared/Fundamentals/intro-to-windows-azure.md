@@ -48,7 +48,7 @@
     </a>The Components of Windows Azure</h2>
   <p>To understand what Windows Azure offers, it's useful to group its services into distinct categories. Figure 1 shows one way to do this.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/intro-to-windows-azure-1.png" alt="Windows Azure components" />
+    <img src="../../../DevCenter/Shared/Media/intro-to-windows-azure-1.png" alt="Windows Azure components" />
     <br />
     <strong>Figure 1: Windows Azure provides a set of cloud services running in Microsoft datacenters.</strong>
   </p>
@@ -61,7 +61,7 @@
   <p>If you just want to create a simple ASP.NET or PHP application, for example, you might use only a web role. For a more demanding application, you might decide to use a web role to interact with users, then rely on a worker role to carry out the requests those users make. And in some cases, you'll use just a worker role, such as with an application that processes lots of data in parallel.</p>
   <p>Whatever roles you break your application into, the code for each one will execute in a <em>role instance</em>. Each role instance is really just a virtual machine (VM) running a flavor of Windows Server, and each one executes in a Windows Azure datacenter. Figure 2 shows how this looks for a simple application that runs two instances of a web role.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/intro-to-windows-azure-2.png" alt="Windows Azure role instances" />
+    <img src="../../../DevCenter/Shared/Media/intro-to-windows-azure-2.png" alt="Windows Azure role instances" />
     <br />
     <strong>Figure 2: The code for every Windows Azure application runs in some number of role instances, each of which is really a virtual machine.</strong>
   </p>
@@ -73,7 +73,7 @@
     </a>Data Management</h2>
   <p>Every Windows Azure application runs in one or more role instances, i.e., in one or more VMs. Each VM has local storage, which an application is free to use. Remember, though, that Windows Azure will periodically shut down instances for maintenance. Because of this, data that an application wishes to store persistently—which is almost everything—must be stored outside of the VMs in which the application runs. To allow this, Windows Azure provides three data management options, as Figure 3 shows.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/intro-to-windows-azure-3.png" alt="Windows Azure data management" />
+    <img src="../../../DevCenter/Shared/Media/intro-to-windows-azure-3.png" alt="Windows Azure data management" />
     <br />
     <strong>Figure 3: For data management, Windows Azure provides relational storage, scalable tables, and unstructured blobs.</strong>
   </p>
@@ -99,7 +99,7 @@
   <h3>Queues</h3>
   <p>The service provided by Windows Azure <em>Queues</em> is easy to understand: One application places a message in a queue, which is eventually read by another application. One common use of Queues today is to let a web role instance communicate with a worker role instance, as Figure 4 illustrates.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/intro-to-windows-azure-4.png" alt="Windows Azure queues" />
+    <img src="../../../DevCenter/Shared/Media/intro-to-windows-azure-4.png" alt="Windows Azure queues" />
     <br />
     <strong>Figure 4: Queues are commonly used to let web role instances communicate with worker role instances.</strong>
   </p>
@@ -107,7 +107,7 @@
   <h3>Service Bus</h3>
   <p>Along with Queues, Windows Azure provides Service Bus, a somewhat more general approach to connecting software through the cloud. Service Bus also provides a queuing service, but it's not identical to the Queues just described. (For a more detailed comparison of the two, see <a href="http://msdn.microsoft.com/en-us/library/hh767287(v=vs.103).aspx">here</a>.) One common use of Service bus is to connect different applications, as Figure 5 shows.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/intro-to-windows-azure-5.png" alt="Windows Azure Service Bus" />
+    <img src="../../../DevCenter/Shared/Media/intro-to-windows-azure-5.png" alt="Windows Azure Service Bus" />
     <br />
     <strong>Figure 5: Service Bus lets applications communicate either through queues or directly.</strong>
   </p>
@@ -120,7 +120,7 @@
   <h3>Traffic Manager</h3>
   <p>An application with users in just a single part of the world might run its role instances in just one datacenter. An application with many users scattered around the world might run role instances in multiple datacenters, maybe even all six of them. In this second situation, you face a problem: How do you intelligently assign users to application instances? Most of the time, you probably want each user to access the datacenter closest to her, since it will likely give her the best response time. But what if that copy of the application is overloaded or unavailable? It would be nice to route her request automatically to another datacenter. This is exactly what's done by Windows Azure <em>Traffic Manager</em>, as Figure 6 shows.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/intro-to-windows-azure-6.png" alt="Windows Azure Traffic Manager" />
+    <img src="../../../DevCenter/Shared/Media/intro-to-windows-azure-6.png" alt="Windows Azure Traffic Manager" />
     <br />
     <strong>Figure 6: If your application runs in multiple datacenters, Windows Azure Traffic Manager can route user requests intelligently across them.</strong>
   </p>
@@ -128,7 +128,7 @@
   <h3>Connect</h3>
   <p>Another concern for the creator of a Windows Azure application is connecting back to on-premises systems. For example, suppose you want to write an application that runs on Windows Azure but accesses data stored in a database on Windows Server inside your organization. To address this problem, Windows Azure provides the <em>Connect</em> service, shown in Figure 7.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/intro-to-windows-azure-7.png" alt="Windows Azure Connect" />
+    <img src="../../../DevCenter/Shared/Media/intro-to-windows-azure-7.png" alt="Windows Azure Connect" />
     <br />
     <strong>Figure 7: Windows Azure Connect makes it easy to establish a secure link between an on-premises server and a Windows Azure application.</strong>
   </p>
@@ -140,7 +140,7 @@
   <h3>In-Memory Caching</h3>
   <p>Accessing data stored in any of Windows Azure's data management services—SQL Azure, Tables, or Blobs—is quite fast. Yet accessing data stored in memory is even faster. Because of this, keeping an in-memory copy of frequently accessed data can improve application performance. To allow this, Windows Azure includes <em>In-Memory Caching</em>, illustrated in Figure 8.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/intro-to-windows-azure-8.png" alt="Windows Azure In-Memory Caching" />
+    <img src="../../../DevCenter/Shared/Media/intro-to-windows-azure-8.png" alt="Windows Azure In-Memory Caching" />
     <br />
     <strong>Figure 8: In-Memory Caching speeds up a Windows Azure application's access to frequently used data.</strong>
   </p>
@@ -149,7 +149,7 @@
   <h3>Content Delivery Network (CDN)</h3>
   <p>Suppose you need to store blob data that will be accessed by users around the world. Maybe it's a video of the latest World Cup match, for instance, or driver updates, or a popular e-book. Storing a copy of the data in all six Windows Azure datacenters will help, but if there are lots of users, it's probably not enough. For even better performance, you can use the Windows Azure <em>CDN</em>, illustrated in Figure 9.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/intro-to-windows-azure-9.png" alt="Windows Azure CDN" />
+    <img src="../../../DevCenter/Shared/Media/intro-to-windows-azure-9.png" alt="Windows Azure CDN" />
     <br />
     <strong>Figure 9: The Windows Azure CDN stores a copy of a blob at dozens of locations around the world, letting users in different countries access that blob more quickly.</strong>
   </p>
@@ -159,7 +159,7 @@
     </a>High-Performance Computing (HPC)</h2>
   <p>One of the most attractive ways to use a cloud platform is for parallel processing. Commonly known as <em>high-performance computing (HPC)</em>, this approach relies on executing code on many machines at the same time. On Windows Azure, this means running many role instances simultaneously, all working in parallel to solve some problem. Doing this requires some way to schedule applications, which means distributing their work across these instances. To allow this, Windows Azure provides the <em>HPC Scheduler</em>. Figure 10 shows a simple picture of this technology.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/intro-to-windows-azure-10.png" alt="Windows Azure HPC Scheduler" />
+    <img src="../../../DevCenter/Shared/Media/intro-to-windows-azure-10.png" alt="Windows Azure HPC Scheduler" />
     <br />
     <strong>Figure 10: The HPC Scheduler schedules parallel applications that run simultaneously in multiple role instances.</strong>
   </p>

@@ -61,15 +61,15 @@
   <p>When your application is deployed as a hosted service in Windows Azure, it runs as one or more <em>roles.</em> A <em>role</em> simply refers to application files and configuration. You can define one or more roles for your application, each with its own set of application files and configuration. For each role in your application, you can specify the number of VMs, or <em>role instances</em>, to run. The figure below show two simple examples of an application modeled as a hosted service using roles and role instances.</p>
   <h5>Figure 1: A single role with three instances (VMs) running in a Windows Azure data center</h5>
   <p>
-    <img src="../../../DevCenter/Shared/media/application-model-3.jpg" width="628" height="358" alt="[image]" />
+    <img src="../../../DevCenter/Shared/Media/application-model-3.jpg" width="628" height="358" alt="[image]" />
   </p>
   <h5>Figure 2: Two roles, each with two instances (VMs), running in a Windows Azure data center</h5>
   <p>
-    <img src="../../../DevCenter/Shared/media/application-model-4.jpg" width="621" height="417" alt="[image]" />
+    <img src="../../../DevCenter/Shared/Media/application-model-4.jpg" width="621" height="417" alt="[image]" />
   </p>
   <p>Role instances typically process Internet client requests entering the data center through what is called an <em>input endpoint</em>. A single role can have 0 or more input endpoints. Each endpoint indicates a protocol (HTTP, HTTPS, or TCP) and a port. It is common to configure a role to have two input endpoints: HTTP listening on port 80 and HTTPS listening on port 443. The figure below shows an example of two different roles with different input endpoints directing client requests to them.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/application-model-5.jpg" width="626" height="348" alt="[image]" />
+    <img src="../../../DevCenter/Shared/Media/application-model-5.jpg" width="626" height="348" alt="[image]" />
   </p>
   <p>When you create a hosted service in Windows Azure, it is assigned a publicly addressable IP address that clients can use to access it. Upon creating the hosted service you must also select a URL prefix that is mapped to that IP address. This prefix must be unique as you are essentially reserving the <em>prefix</em>.cloudapp.net URL so that no one else can have it. Clients communicate with your role instances by using the URL. Usually, you will not distribute or publish the Windows Azure <em>prefix</em>.cloudapp.net URL. Instead, you will purchase a DNS name from your DNS registrar of choice and configure your DNS name to redirect client requests to the Windows Azure URL. For more details, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Windows Azure</a>.</p>
   <h2>
@@ -116,7 +116,7 @@
   <p>When creating a hosted service, you select a sub-region indicating the location in which you want your code to execute.</p>
   <p>To achieve high availability and scalability, it is critically important that your application’s data be kept in a central repository accessible to multiple role instances. To help with this, Windows Azure offers several storage options such as blobs, tables, and SQL Azure. Please see the <a href="http://www.windowsazure.com/en-us/develop/net/fundamentals/cloud-storage/">Data Storage Offerings in Windows Azure</a> article for more information about these storage technologies. The figure below shows how the load balancer inside the Windows Azure data center distributes client requests to different role instances all of which have access to the same data storage.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/application-model-6.jpg" width="620" height="247" alt="[image]" />
+    <img src="../../../DevCenter/Shared/Media/application-model-6.jpg" width="620" height="247" alt="[image]" />
   </p>
   <p>Usually, you want to locate your application code and your data in the same data center as this allows for low latency (better performance) when your application code accesses the data. In addition, you are not charged for bandwidth when data is moved around within the same data center.</p>
   <h2>
@@ -124,7 +124,7 @@
     </a>Designing your Application for Scale</h2>
   <p>Sometimes, you may want to take a single application (like a simple web site) and have it hosted in Windows Azure. But frequently, your application may consist of several roles that all work together. For example, in the figure below, there are two instances of the Web Site role, three instances of the Order Processing role, and one instance of the Report Generator role. These roles are all working together and the code for all of them can be packaged together and deployed as a single unit up to Windows Azure.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/application-model-7.jpg" width="622" height="219" alt="[image]" />
+    <img src="../../../DevCenter/Shared/Media/application-model-7.jpg" width="622" height="219" alt="[image]" />
   </p>
   <p>The main reason to split an application into different roles each running on its own set of role instances (that is, VMs) is to scale the roles independently. For example, during the holiday season, many customers may be purchasing products from your company, so you might want to increase the number of role instances running your Web Site role as well as the number of role instances running your Order Processing role. After the holiday season, you may get a lot of products returned, so you may still need a lot of Web Site instances but fewer Order Processing instances. During the rest of the year, you may only need a few Web Site and Order Processing instances. Throughout all of this, you may need only one Report Generator instance. The flexibility of role-based deployments in Windows Azure enables you to easily adapt your application to your business needs.</p>
   <p>It’s common to have the role instances within your hosted service communicate with each other. For example, the web site role accepts a customer’s order but then it offloads the order processing to the Order Processing role instances. The best way to pass work form one set of role instances to another set of instances is using the queuing technology provided by Windows Azure, either the Queue Service or Service Bus Queues. The use of a queue is a critical part of the story here. The queue allows the hosted service to scale its roles independently allowing you to balance the workload against cost. If the number of messages in the queue increases over time, then you can scale up the number of Order Processing role instances. If the number of messages in the queue decreases over time, then you can scale down the number of Order Processing role instances. This way, you are only paying for the instances required to handle the actual workload.</p>
@@ -322,7 +322,7 @@
   <p>Creating a hosted service requires that you first go to the <a href="http://Windows.Azure.com/">Windows Azure Management Portal</a> and provision a hosted service by specifying a DNS prefix and the data center you ultimately want your code running in. Then in your development environment, you create your service definition (CSDEF) file, build your application code and package (zip) all these files into a service package (CSPKG) file. You must also prepare your service configuration (CSCFG) file. To deploy your role, you upload the CSPKG and CSCFG files with the Windows Azure Service Management API. Once deployed, Windows Azure, will provision role instances in the data center (based upon the configuration data), extract your application code from the package, copy it to the role instances, and boot the instances. Now, your code is up and running.</p>
   <p>The figure below shows the CSPKG and CSCFG files you create on your development computer. The CSPKG file contains the CSDEF file and the code for two roles. After uploading the CSPKG and CSCFG files with the Windows Azure Service Management API, Windows Azure creates the role instances in the data center. In this example, the CSCFG file indicated that Windows Azure should create three instances of role #1 and two instances of Role #2.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/application-model-8.jpg" width="624" height="221" alt="[image]" />
+    <img src="../../../DevCenter/Shared/Media/application-model-8.jpg" width="624" height="221" alt="[image]" />
   </p>
   <p>For more information about deploying, upgrading, and reconfiguring your roles, see the <a href="http://www.windowsazure.com/en-us/develop/net/fundamentals/deploying-applications/">Deploying and Updating Windows Azure Applications</a> article.<a id="Ref" name="Ref"></a></p>
   <h2>

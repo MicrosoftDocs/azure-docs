@@ -29,25 +29,25 @@
     <li>
       <p>From the <strong>Start</strong> menu, select <a href="http://go.microsoft.com/?linkid=9790229&amp;clcid=0x409"><strong>Windows Azure PowerShell for Node.js</strong></a>.</p>
       <p>
-        <img src="../../../DevCenter/Node/media/enable-ssl-00.png" />
+        <img src="../../../DevCenter/Node/Media/enable-ssl-00.png" />
       </p>
     </li>
     <li>
       <p>Create a new service, using <strong>New-AzureService</strong> cmdlet provided with a unique service name. This service name will determine the URL of your service in Windows Azure:</p>
       <p>
-        <img src="../../../DevCenter/Node/media/enable-ssl-01.png" />
+        <img src="../../../DevCenter/Node/Media/enable-ssl-01.png" />
       </p>
     </li>
     <li>
       <p>Add a web role to your service using <strong>Add-AzureNodeWebRole</strong> cmdlet:</p>
       <p>
-        <img src="../../../DevCenter/Node/media/enable-ssl-02.png" />
+        <img src="../../../DevCenter/Node/Media/enable-ssl-02.png" />
       </p>
     </li>
     <li>
       <p>Publish your service to the cloud using <strong>Publish-AzureService</strong> cmdlet:</p>
       <p>
-        <img src="../../../DevCenter/Node/media/enable-ssl-03.png" />
+        <img src="../../../DevCenter/Node/Media/enable-ssl-03.png" />
       </p>
     </li>
   </ol>
@@ -74,13 +74,13 @@
     <li>
       <p>Right click on the <strong>Certificates</strong> entry for the hosted service and select <strong>Add Certificate...</strong> from the drop down menu.</p>
       <p>
-        <img src="../../../DevCenter/Node/media/enable-ssl-04.png" />
+        <img src="../../../DevCenter/Node/Media/enable-ssl-04.png" />
       </p>
     </li>
     <li>
       <p>In the <strong>Upload an X.509 Certificate</strong> dialog, enter the location of the SSL certificate .pfx file, the password for the certificate, and click <strong>OK</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Node/media/enable-ssl-05.png" />
+        <img src="../../../DevCenter/Node/Media/enable-ssl-05.png" />
       </p>
     </li>
   </ul>
@@ -129,7 +129,7 @@
 &lt;/Role&gt;
 </pre>
     </li>
-    <li>To refresh your service configuration in the cloud, you must publish your service again. At the Windows Azure PowerShell for Node.js prompt, type <strong>Publish-AzureService</strong> from the service directory. <img src="../../../DevCenter/Node/media/enable-ssl-06.png" /></li>
+    <li>To refresh your service configuration in the cloud, you must publish your service again. At the Windows Azure PowerShell for Node.js prompt, type <strong>Publish-AzureService</strong> from the service directory. <img src="../../../DevCenter/Node/Media/enable-ssl-06.png" /></li>
   </ol>
   <h2>
     <a name="step5">
@@ -139,14 +139,14 @@
     <li>
       <p>In the Management Portal, select your deployment, then right-click on the DNS name link in the <strong>Properties</strong> pane and choose <strong>Copy</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Node/media/enable-ssl-07.png" />
+        <img src="../../../DevCenter/Node/Media/enable-ssl-07.png" />
       </p>
     </li>
     <li>
       <p>Paste the address in a web browser, but make sure that it starts with <strong>https</strong> instead of <strong>http</strong>, and then visit the page.</p>
       <p>Your browser displays the address in green to indicate that it is using an HTTPS connection. This also indicates that your application has been configured correctly for SSL.</p>
       <p>
-        <img src="../../../DevCenter/Node/media/enable-ssl-08.png" />
+        <img src="../../../DevCenter/Node/Media/enable-ssl-08.png" />
       </p>
     </li>
   </ol>

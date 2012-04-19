@@ -25,7 +25,7 @@
     <li>
       <p>Log on to the <a href="http://windows.azure.com" target="_blank">Windows Azure Management Portal</a>. After the hosted service is created and the deployment's status has been updated to <strong>Ready</strong>, click on the deployment and note the values in the <strong>Properties</strong> pane to the right. The DNS name is an obfuscated internal ID that Windows Azure generated. Also, the environment is set to <strong>Staging</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/staging-03.png" />
+        <img src="../../../DevCenter/Shared/Media/staging-03.png" />
       </p>
     </li>
   </ol>
@@ -43,7 +43,7 @@
     <li>
       <p>Expand the hosted service that contains the deployment that you want to upgrade, and then click <strong>Swap VIP</strong>. This opens the Swap VIPs dialog.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/staging-05.png" />
+        <img src="../../../DevCenter/Shared/Media/staging-05.png" />
       </p>
     </li>
     <li>

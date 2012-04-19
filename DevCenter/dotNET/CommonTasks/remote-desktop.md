@@ -22,7 +22,7 @@
   <ol>
     <li>
       <p>In a Windows Azure project in Visual Studio 2010, open Solution Explorer, right-click the name of your project, and then click <strong>Configure Remote Desktop</strong>.<br /><br /> The <strong>Remote Desktop Configuration</strong> dialog box appears.</p>
-      <img src="../../../DevCenter/dotNet/media/remote-desktop-01.png" />
+      <img src="../../../DevCenter/dotNet/Media/remote-desktop-01.png" />
     </li>
     <li>In the <strong>Remote Desktop Configuration</strong> dialog box, select the <strong>Enable connections for all roles</strong> check box.</li>
     <li>In the certificate drop-down list, leave it on <strong>Automatic</strong>, which means an appropriate certificate from your current certificate store will be automatically selected or a new one will be created if an appropriate one doesn't exist. Alternatively, you can pick a certificate to use or create a new one.</li>
@@ -38,7 +38,7 @@
   <ol>
     <li>
       <p>In Solution Explorer, right-click the name of your project, and click <strong>Publish</strong>.<br /> The <strong>Publish Windows Azure Application</strong> wizard appears.</p>
-      <img src="../../../DevCenter/dotNet/media/remote-desktop-02.png" />
+      <img src="../../../DevCenter/dotNet/Media/remote-desktop-02.png" />
     </li>
     <li>On the <strong>Windows Azure Publish Sign In</strong> page, select the named authentication credentials you want to use, and then click <strong>Next</strong>. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/ff683676.aspx">Setting Up Named Authentication Credentials</a>.</li>
     <li>On the <strong>Windows Azure Publish Settings</strong> page, select the hosted service in which to publish the application, production or staging environment, the build configuration, and the service configuration. Make sure <strong>Remote desktop connections for all roles</strong> is selected, and then click <strong>Next</strong>.</li>
@@ -55,19 +55,19 @@
     <li>In the upper navigation pane, click <strong>Hosted Services</strong>. The hosted service in which your newly deployed application is running appears in the portal listed under your subscription.</li>
     <li>
       <p>Under the deployment, select a role instance, and then click <strong>Connect</strong>.</p>
-      <img src="../../../DevCenter/dotNet/media/remote-desktop-03.png" />
+      <img src="../../../DevCenter/dotNet/Media/remote-desktop-03.png" />
     </li>
     <li>
       <p>When prompted to open or save the .rdp file, click <strong>Open</strong>.</p>
-      <img src="../../../DevCenter/dotNet/media/remote-desktop-04.png" />
+      <img src="../../../DevCenter/dotNet/Media/remote-desktop-04.png" />
     </li>
     <li>
       <p>If you receive the Remote Desktop Connection security warning, click <strong>Connect</strong>.</p>
-      <img src="../../../DevCenter/dotNet/media/remote-desktop-05.png" />
+      <img src="../../../DevCenter/dotNet/Media/remote-desktop-05.png" />
     </li>
     <li>
       <p>In the <strong>Windows Security</strong> dialog box, enter the user name and password that you specified when you configured the Remote Desktop Connection settings in Visual Studio earlier, and then click <strong>OK</strong>.</p>
-      <img src="../../../DevCenter/dotNet/media/remote-desktop-06.png" />
+      <img src="../../../DevCenter/dotNet/Media/remote-desktop-06.png" />
     </li>
   </ol>
   <p>The Remote Desktop Connection session opens on the Windows Azure role instance.</p>

@@ -30,31 +30,31 @@
     <li>
       <p>In the <strong>IIS</strong> section, click <strong>Server Certificates</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/remote-desktop-01.png" />
+        <img src="../../../DevCenter/Shared/Media/remote-desktop-01.png" />
       </p>
     </li>
     <li>
       <p>On the <strong>Actions</strong> menu on the right, click <strong>Create Self-Signed Certificate</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/remote-desktop-02.png" />
+        <img src="../../../DevCenter/Shared/Media/remote-desktop-02.png" />
       </p>
     </li>
     <li>
       <p>In the <strong>Create Self-Signed Certificate</strong> dialog box, enter a name for your certificate, and then click <strong>OK</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/remote-desktop-03.png" />
+        <img src="../../../DevCenter/Shared/Media/remote-desktop-03.png" />
       </p>
     </li>
     <li>
       <p>The new certificate appears in the list of certificates. Click the new certificate, and then click <strong>Export</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/remote-desktop-04.png" />
+        <img src="../../../DevCenter/Shared/Media/remote-desktop-04.png" />
       </p>
     </li>
     <li>
       <p>In the <strong>Export Certificate</strong> dialog box, choose an export location, a password for the certificate, and then click <strong>OK</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/remote-desktop-05.png" />
+        <img src="../../../DevCenter/Shared/Media/remote-desktop-05.png" />
       </p>
     </li>
   </ol>
@@ -109,13 +109,13 @@
     <li>
       <p>Click <strong>New Hosted Service</strong>, add the required information about your hosted service, and then click <strong>Add Certificate</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/remote-desktop-06.png" />
+        <img src="../../../DevCenter/Shared/Media/remote-desktop-06.png" />
       </p>
     </li>
     <li>
       <p>In the <strong>Upload Certificates</strong> dialog box, enter the location for the PFX certificate you created earlier, the password for the certificate, and then click <strong>OK</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/remote-desktop-07.png" />
+        <img src="../../../DevCenter/Shared/Media/remote-desktop-07.png" />
       </p>
     </li>
     <li>
@@ -131,42 +131,42 @@
     <li>
       <p>In the Management Portal, select the role in the deployment that you configured for remote access, and then click the <strong>Enable</strong> check box in the <strong>Remote Access</strong> area of the portal ribbon.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/remote-desktop-08.png" />
+        <img src="../../../DevCenter/Shared/Media/remote-desktop-08.png" />
       </p>
     </li>
     <li>
       <p>In the Set Remote Desktop Credentials dialog box, enter the username and password for the Remote Desktop Connection when accessing a deployment instance. Select the certificate you uploaded when you created the hosted service earlier, set the desired expiration time, and then click <strong>OK</strong>.</p>
       <p>It may take a few seconds to enable Remote Desktop for the deployment; during this time its status is <strong>Updating</strong>.</p>
-      <p> <img src="../../../DevCenter/Shared/media/remote-desktop-09.png" /></p>
+      <p> <img src="../../../DevCenter/Shared/Media/remote-desktop-09.png" /></p>
     </li>
     <li>
       <p>When the deployment status is <strong>Ready</strong>, select an instance of the deployment, and then click <strong>Connect</strong> in the <strong>Remote Access</strong> area of the portal ribbon.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/remote-desktop-10.png" />
+        <img src="../../../DevCenter/Shared/Media/remote-desktop-10.png" />
       </p>
     </li>
     <li>
       <p>When you click <strong>Connect</strong>, the web browser prompts you to save an .rdp file. If you're using Internet Explorer, click <strong>Open</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/remote-desktop-11.png" />
+        <img src="../../../DevCenter/Shared/Media/remote-desktop-11.png" />
       </p>
     </li>
     <li>
       <p>When the file is opened, a security prompt appears. Click <strong>Connect</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/remote-desktop-12.png" />
+        <img src="../../../DevCenter/Shared/Media/remote-desktop-12.png" />
       </p>
     </li>
     <li>
       <p>Click <strong>Connect</strong>, and a security prompt will appear for entering credentials to access the instance. Enter the password for the account you created, and then click <strong>OK</strong>.</p>
       <p>
-        <img src="../../../DevCenter/Shared/media/remote-desktop-13.png" />
+        <img src="../../../DevCenter/Shared/Media/remote-desktop-13.png" />
       </p>
     </li>
   </ol>
   <p>When the connection is made, Remote Desktop Connection displays the desktop of the instance in Windows Azure. You have successfully gained remote access to your instance and can perform any necessary tasks to manage your application.</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/remote-desktop-14.png" />
+    <img src="../../../DevCenter/Shared/Media/remote-desktop-14.png" />
   </p>
   <h2>Additional Resources</h2>
   <ul>

@@ -45,7 +45,7 @@
   <h2 id="What_are_Service_Bus_Topics_and_Subscriptions">What are Service Bus Topics and Subscriptions</h2>
   <p>Service Bus topics and subscriptions support a <strong>publish/subscribe messaging communication</strong> model. When using topics and subscriptions, components of a distributed application do not communicate directly with each other, they instead exchange messages via a topic, which acts as an intermediary.</p>
   <p>
-    <img src="../../../DevCenter/dotNet/media/sb-topics-01.png" alt="Topic Concepts" />
+    <img src="../../../DevCenter/dotNet/Media/sb-topics-01.png" alt="Topic Concepts" />
   </p>
   <p>In contrast to Service Bus queues, where each message is processed by a single consumer, topics and subscriptions provide a <strong>one-to-many</strong> form of communication, using a publish/subscribe pattern. It is possible to register multiple subscriptions to a topic. When a message is sent to a topic, it is then made available to each subscription to handle/process independently.</p>
   <p>A topic subscription resembles a virtual queue that receives copies of the messages that were sent to the topic. You can optionally register filter rules for a topic on a per-subscription basis, which allows you to filter/restrict which messages to a topic are received by which topic subscriptions.</p>
@@ -63,13 +63,13 @@
     <li>
       <p>In the upper left pane of the Management Portal, click the <strong>Service Bus</strong> node, and then click the <strong>New</strong> button.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/sb-queues-03.png" alt="image" />
+        <img src="../../../DevCenter/dotNet/Media/sb-queues-03.png" alt="image" />
       </p>
     </li>
     <li>
       <p>In the <strong>Create a new Service Namespace</strong> dialog, enter a <strong>Namespace</strong>, and then to make sure that it is unique, click the <strong>Check Availability</strong> button.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/sb-queues-04.png" alt="image" />
+        <img src="../../../DevCenter/dotNet/Media/sb-queues-04.png" alt="image" />
       </p>
     </li>
     <li>
@@ -83,25 +83,25 @@
     <li>
       <p>In the left navigation pane, click the <strong>Service Bus</strong> node to display the list of available namespaces:</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/sb-queues-03.png" alt="image" />
+        <img src="../../../DevCenter/dotNet/Media/sb-queues-03.png" alt="image" />
       </p>
     </li>
     <li>
       <p>Select the namespace you just created from the list shown:</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/sb-queues-05.png" alt="image" />
+        <img src="../../../DevCenter/dotNet/Media/sb-queues-05.png" alt="image" />
       </p>
     </li>
     <li>
       <p>The right-hand <strong>Properties</strong> pane will list the properties for the new namespace:</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/sb-queues-06.png" alt="image" />
+        <img src="../../../DevCenter/dotNet/Media/sb-queues-06.png" alt="image" />
       </p>
     </li>
     <li>
       <p>The <strong>Default Key</strong> is hidden. Click the <strong>View</strong> button to display the security credentials:</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/sb-queues-07.png" alt="image" />
+        <img src="../../../DevCenter/dotNet/Media/sb-queues-07.png" alt="image" />
       </p>
     </li>
     <li>

@@ -42,7 +42,7 @@
   <h2>
     <a name="bkmk_WhatAreSvcBusTopics">
     </a>What are Service Bus Topics and Subscriptions?</h2>
-  <p>Service Bus topics and subscriptions support a <strong>publish/subscribe messaging communication</strong> model. When using topics and subscriptions, components of a distributed application do not communicate directly with each other, they instead exchange messages via a topic, which acts as an intermediary.<br /><img src="../../../DevCenter/Java/media/SvcBusTopics_01_FlowDiagram.jpg" alt="Service Bus Topics diagram" /></p>
+  <p>Service Bus topics and subscriptions support a <strong>publish/subscribe messaging communication</strong> model. When using topics and subscriptions, components of a distributed application do not communicate directly with each other, they instead exchange messages via a topic, which acts as an intermediary.<br /><img src="../../../DevCenter/Java/Media/SvcBusTopics_01_FlowDiagram.jpg" alt="Service Bus Topics diagram" /></p>
   <p>In contrast to Service Bus queues, where each message is processed by a single consumer, topics and subscriptions provide a <strong>one-to-many</strong> form of communication, using a publish/subscribe pattern. It is possible to register multiple subscriptions to a topic. When a message is sent to a topic, it is then made available to each subscription to handle/process independently.</p>
   <p>A topic subscription resembles a virtual queue that receives copies of the messages that were sent to the topic. You can optionally register filter rules for a topic on a per-subscription basis, which allows you to filter/restrict which messages to a topic are received by which topic subscriptions.</p>
   <p>Service Bus topics and subscriptions enable you to scale to process a very large number of messages across a very large number of users and applications.</p>
@@ -56,8 +56,8 @@
   <ol>
     <li>Log on to the <a href="http://windows.azure.com/">Windows Azure Management Portal</a>.</li>
     <li>In the lower left navigation pane of the Management Portal, click <strong>Service Bus, Access Control &amp; Caching</strong>.</li>
-    <li>In the upper left pane of the Management Portal, click the <strong>Service Bus</strong> node, and then click the <strong>New</strong> button. <br /><img src="../../../DevCenter/dotNet/media/sb-queues-03.png" alt="Service Bus Node screenshot" /></li>
-    <li>In the <strong>Create a new Service Namespace</strong> dialog, enter a <strong>Namespace</strong>, and then to make sure that it is unique, click the <strong>Check Availability</strong> button. <br /><img src="../../../DevCenter/dotNet/media/sb-queues-04.png" alt="Create a New Namespace " /></li>
+    <li>In the upper left pane of the Management Portal, click the <strong>Service Bus</strong> node, and then click the <strong>New</strong> button. <br /><img src="../../../DevCenter/dotNet/Media/sb-queues-03.png" alt="Service Bus Node screenshot" /></li>
+    <li>In the <strong>Create a new Service Namespace</strong> dialog, enter a <strong>Namespace</strong>, and then to make sure that it is unique, click the <strong>Check Availability</strong> button. <br /><img src="../../../DevCenter/dotNet/Media/sb-queues-04.png" alt="Create a New Namespace " /></li>
     <li>After making sure the namespace name is available, choose the country or region in which your namespace should be hosted (make sure you use the same country/region in which you are deploying your compute resources), and then click the <strong>Create Namespace</strong> button. Having a compute instance is optional, and the service bus can be consumed from any application with internet access.<br /><br /> The namespace you created will then appear in the Management Portal and takes a moment to activate. Wait until the status is <strong>Active</strong> before moving on.</li>
   </ol>
   <h2>
@@ -65,10 +65,10 @@
     </a>Obtain the Default Management Credentials for the Namespace</h2>
   <p>In order to perform management operations, such as creating a topic, on the new namespace, you need to obtain the management credentials for the namespace.</p>
   <ol>
-    <li>In the left navigation pane, click the <strong>Service Bus</strong> node, to display the list of available namespaces: <br /><img src="../../../DevCenter/dotNet/media/sb-queues-03.png" alt="Available Namespaces " /></li>
-    <li>Select the namespace you just created from the list shown:<br /><img src="../../../DevCenter/dotNet/media/sb-queues-05.png" alt="Namespace List screenshot" /></li>
-    <li>The right-hand <strong>Properties</strong> pane will list the properties for the new namespace: <br /><img src="../../../DevCenter/dotNet/media/sb-queues-06.png" alt="Properties Pane screenshot" /></li>
-    <li>The <strong>Default Key</strong> is hidden. Click the <strong>View</strong> button to display the security credentials: <br /><img src="../../../DevCenter/dotNet/media/sb-queues-07.png" alt="Default Key screenshot" /></li>
+    <li>In the left navigation pane, click the <strong>Service Bus</strong> node, to display the list of available namespaces: <br /><img src="../../../DevCenter/dotNet/Media/sb-queues-03.png" alt="Available Namespaces " /></li>
+    <li>Select the namespace you just created from the list shown:<br /><img src="../../../DevCenter/dotNet/Media/sb-queues-05.png" alt="Namespace List screenshot" /></li>
+    <li>The right-hand <strong>Properties</strong> pane will list the properties for the new namespace: <br /><img src="../../../DevCenter/dotNet/Media/sb-queues-06.png" alt="Properties Pane screenshot" /></li>
+    <li>The <strong>Default Key</strong> is hidden. Click the <strong>View</strong> button to display the security credentials: <br /><img src="../../../DevCenter/dotNet/Media/sb-queues-07.png" alt="Default Key screenshot" /></li>
     <li>Make a note of the <strong>Default Issuer</strong> and the <strong>Default Key</strong> as you will use this information below to perform operations with the namespace.</li>
   </ol>
   <h2>

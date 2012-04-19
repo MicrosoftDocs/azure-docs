@@ -47,12 +47,12 @@
   <ol>
     <li>Log into the <a href="http://windows.azure.com" target="_blank">Windows Azure Management Portal</a>.</li>
     <li>In the navigation pane on the left, click <strong>Database</strong>. <br />At the top of the navigation pane, expand <strong>Subscriptions</strong>, click the subscription in which you want to create the database server, and then click <strong>Create</strong>. This opens the Create Server wizard.
-<p><img src="../../../DevCenter/dotNet/media/sql-01.png" /></p></li>
+<p><img src="../../../DevCenter/dotNet/Media/sql-01.png" /></p></li>
     <li>Select a region in which you want to host your SQL Azure server, and then click <strong>Next</strong>. Typically, you want to choose a region that is closer to your location to reduce network latency.</li>
     <li>Type the Administrator login name and the password, and then click <strong>Next</strong>.<br /><strong>Note:</strong> SQL Azure only supports SQL Authentication; Windows authentication is not supported.</li>
     <li>Click <strong>Finish</strong>. You will configure the firewall rules in the <a href="#config-access">Configure Access to the SQL Azure Server</a> section.</li>
     <li>In the navigation pane, expand the subscription in which you created the database server, and then click the newly created SQL Azure server.
-<p><img src="../../../DevCenter/dotNet/media/sql-02.png" /></p><p>In the Properties pane on the right, it lists the Fully Qualified DNS Name (FQDN) and other properties of the SQL Azure server. You will need the FQDN to build your connection string. In the middle pane, it lists the master database that is created when the SQL Azure server is created.</p><p><strong>Note:</strong> Because the SQL Azure server must be accessible worldwide, SQL Azure configures the appropriate DNS entries when the server is created. The generated name ensures that there are no name collisions with other DNS entries. You cannot change the name of your SQL Azure server.</p></li>
+<p><img src="../../../DevCenter/dotNet/Media/sql-02.png" /></p><p>In the Properties pane on the right, it lists the Fully Qualified DNS Name (FQDN) and other properties of the SQL Azure server. You will need the FQDN to build your connection string. In the middle pane, it lists the master database that is created when the SQL Azure server is created.</p><p><strong>Note:</strong> Because the SQL Azure server must be accessible worldwide, SQL Azure configures the appropriate DNS entries when the server is created. The generated name ensures that there are no name collisions with other DNS entries. You cannot change the name of your SQL Azure server.</p></li>
   </ol>
   <p>For more information, see <a href="http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-server.aspx" target="_blank">How to Create a SQL Azure Server</a>. Next, configure access to the SQL Azure server by creating firewall rules.</p>
   <h2>
@@ -73,9 +73,9 @@
   <p>To create a new database, you must connect to the master database. The following steps show you how to create a database using the Management Portal for SQL Azure.</p>
   <ol>
     <li>At the top of the navigation pane, expand <strong>Subscriptions</strong>, expand the subscription, expand the SQL Azure server you created, click <strong>master</strong>, and then click <strong>Manage</strong>.
-<p><img src="../../../DevCenter/dotNet/media/sql-03.png" /></p><p>This opens the Management Portal for SQL Azure logon screen.</p><p><img src="../../../DevCenter/dotNet/media/sql-04.png" /></p></li>
+<p><img src="../../../DevCenter/dotNet/Media/sql-03.png" /></p><p>This opens the Management Portal for SQL Azure logon screen.</p><p><img src="../../../DevCenter/dotNet/Media/sql-04.png" /></p></li>
     <li>Enter the user name and the password that you specified when you created the SQL Azure server, and then click <strong>Log on</strong>. This opens the Management Portal for SQL Azure in a different browser tab or a new browser window.<br /><strong>Note:</strong> If an error occurs, it displays a message saying "There was an error connecting to the server" beneath the Password textbox. You can click on the message to see the error details. A common error is the firewall rule not created for the client computer.</li>
-    <li>In the Management Portal for SQL Azure, click <strong>New Query</strong>. <img src="../../../DevCenter/dotNet/media/sql-05.png" /></li>
+    <li>In the Management Portal for SQL Azure, click <strong>New Query</strong>. <img src="../../../DevCenter/dotNet/Media/sql-05.png" /></li>
     <li>In the query window, copy and paste the following Transact-SQL script using your own name for the database in place of database_name:
 <pre class="prettyprint">CREATE DATABASE database_name;</pre></li>
     <li>Click <strong>Execute</strong>. Make sure the result pane showing <strong>Command(s) completed successfully.</strong></li>

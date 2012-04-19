@@ -51,7 +51,7 @@
     </li>
     <li>
       <p>Search for <strong>SendGrid</strong> and select the <strong>SendGrid</strong> item in the results list.</p>
-      <img src="../../../DevCenter/dotNet/media/sendgrid01.png" alt="SendGrid NuGet package" />
+      <img src="../../../DevCenter/dotNet/Media/sendgrid01.png" alt="SendGrid NuGet package" />
     </li>
     <li>
       <p>Click <strong>Install</strong> to complete the installation, then close this dialog.</p>

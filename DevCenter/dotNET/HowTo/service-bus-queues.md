@@ -45,7 +45,7 @@
     <span>Service Bus Queues support a <strong>brokered messaging communication</strong> model. When using queues, components of a distributed application do not communicate directly with each other, they instead exchange messages via a queue, which acts as an intermediary. A message producer (sender) hands off a message to the queue and then continues its processing. Asynchronously, a message consumer (receiver) pulls the message from the queue and processes it. The producer does not have to wait for a reply from the consumer in order to continue to process and send further messages. Queues offer <strong>First In, First Out (FIFO)</strong> message delivery to one or more competing consumers. That is, messages are typically received and processed by the receivers in the order in which they were added to the queue, and each message is received and processed by only one message consumer.</span>
   </p>
   <p>
-    <img src="../../../DevCenter/dotNet/media/sb-queues-08.png" alt="Queue Concepts" />
+    <img src="../../../DevCenter/dotNet/Media/sb-queues-08.png" alt="Queue Concepts" />
   </p>
   <p>Service Bus queues are a general-purpose technology that can be used for a wide variety of scenarios:</p>
   <ul>
@@ -67,10 +67,10 @@
       <p>In the lower left navigation pane of the Management Portal, click <strong>Service Bus, Access Control &amp; Caching</strong>.</p>
     </li>
     <li>
-      <p>In the upper left pane of the Management Portal, click the <strong>Service Bus</strong> node, and then click the <strong>New</strong> button. <br /><img src="../../../DevCenter/dotNet/media/sb-queues-03.png" /></p>
+      <p>In the upper left pane of the Management Portal, click the <strong>Service Bus</strong> node, and then click the <strong>New</strong> button. <br /><img src="../../../DevCenter/dotNet/Media/sb-queues-03.png" /></p>
     </li>
     <li>
-      <p>In the <strong>Create a new Service Namespace</strong> dialog, enter a <strong>Namespace</strong>, and then to make sure that it is unique, click the <strong>Check Availability</strong> button. <br /><img src="../../../DevCenter/dotNet/media/sb-queues-04.png" /></p>
+      <p>In the <strong>Create a new Service Namespace</strong> dialog, enter a <strong>Namespace</strong>, and then to make sure that it is unique, click the <strong>Check Availability</strong> button. <br /><img src="../../../DevCenter/dotNet/Media/sb-queues-04.png" /></p>
     </li>
     <li>
       <p>After making sure the namespace name is available, choose the country or region in which your namespace should be hosted (make sure you use the same country/region in which you are deploying your compute resources), and then click the <strong>Create Namespace</strong> button.</p>
@@ -83,16 +83,16 @@
   <p>In order to perform management operations, such as creating a queue, on the new namespace, you need to obtain the management credentials for the namespace.</p>
   <ol>
     <li>
-      <p>In the left navigation pane, click the <strong>Service Bus</strong> node, to display the list of available namespaces: <br /><img src="../../../DevCenter/dotNet/media/sb-queues-03.png" /></p>
+      <p>In the left navigation pane, click the <strong>Service Bus</strong> node, to display the list of available namespaces: <br /><img src="../../../DevCenter/dotNet/Media/sb-queues-03.png" /></p>
     </li>
     <li>
-      <p>Select the namespace you just created from the list shown: <br /><img src="../../../DevCenter/dotNet/media/sb-queues-05.png" /></p>
+      <p>Select the namespace you just created from the list shown: <br /><img src="../../../DevCenter/dotNet/Media/sb-queues-05.png" /></p>
     </li>
     <li>
-      <p>The right-hand <strong>Properties</strong> pane will list the properties for the new namespace: <br /><img src="../../../DevCenter/dotNet/media/sb-queues-06.png" /></p>
+      <p>The right-hand <strong>Properties</strong> pane will list the properties for the new namespace: <br /><img src="../../../DevCenter/dotNet/Media/sb-queues-06.png" /></p>
     </li>
     <li>
-      <p>The <strong>Default Key</strong> is hidden. Click the <strong>View</strong> button to display the security credentials: <br /><img src="../../../DevCenter/dotNet/media/sb-queues-07.png" /></p>
+      <p>The <strong>Default Key</strong> is hidden. Click the <strong>View</strong> button to display the security credentials: <br /><img src="../../../DevCenter/dotNet/Media/sb-queues-07.png" /></p>
     </li>
     <li>
       <p>Make a note of the <strong>Default Issuer</strong> and the <strong>Default Key</strong> as you will use this information below to perform operations with the namespace.</p>

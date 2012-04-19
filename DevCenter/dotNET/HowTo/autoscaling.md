@@ -33,7 +33,7 @@
     </a>Concepts</h2>
   <p>In the following diagram, the green line shows a plot of the number of running instances of a Windows Azure role over two days. The number of instances changes automatically over time in response to a set of autoscaling rules.</p>
   <p>
-    <img src="../../../DevCenter/dotNet/media/auotscaling01.png" alt="diagram of sample autoscaling" />
+    <img src="../../../DevCenter/dotNet/Media/auotscaling01.png" alt="diagram of sample autoscaling" />
   </p>
   <p>The block uses two types of rules to define the autoscaling behavior for your application:</p>
   <ul>
@@ -80,7 +80,7 @@
   </ol>
   <p>Installing the NuGet package updates your project with all the necessary assemblies and references that you need to use the Autoscaling Application Block. Your project now includes the XML schema files for the autoscaling rule definitions and autoscaling service information. The project now also includes a readme file that contains important information about the Autoscaling Application Block:</p>
   <p>
-    <img src="../../../DevCenter/dotNet/media/auotscaling02.png" alt="files configured by autoscaling NuGet package" />
+    <img src="../../../DevCenter/dotNet/Media/auotscaling02.png" alt="files configured by autoscaling NuGet package" />
   </p>
   <h3>Set the Target Framework to .NET Framework 4</h3>
   <p>Your project must target the .NET Framework 4. To change or verify the target framework:</p>
@@ -91,7 +91,7 @@
     <li>
       <p>In the <strong>Application</strong> tab of the Properties window, make sure Target framework is set to <strong>.NET Framework 4</strong>.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/autoscaling03.png" alt="[image]" />
+        <img src="../../../DevCenter/dotNet/Media/autoscaling03.png" alt="[image]" />
       </p>
     </li>
   </ol>
@@ -121,7 +121,7 @@ scaler.Start();
     <li>
       <p>Within the Properties pane, set the <strong>Copy to Output Directory</strong> value to <strong>Copy always</strong>.</p>
       <p>
-        <img src="../../../DevCenter/dotNet/media/autoscaling04.png" alt="Set Copy to Output Directory value" />
+        <img src="../../../DevCenter/dotNet/Media/autoscaling04.png" alt="Set Copy to Output Directory value" />
       </p>
     </li>
   </ol>
@@ -165,7 +165,7 @@ scaler.Start();
         <li>
           <p>Click on the subscription in the center results pane. The Properties pane on the right will display the <strong>Name</strong> and <strong>Subscription ID</strong>.</p>
           <p>
-            <img src="../../../DevCenter/dotNet/media/autoscaling05.png" alt="[image]" />
+            <img src="../../../DevCenter/dotNet/Media/autoscaling05.png" alt="[image]" />
           </p>
         </li>
       </ol>
@@ -180,7 +180,7 @@ scaler.Start();
         <li>
           <p>Click on the hosted service in the center results pane. The Properties pane on the right will display the <strong>DNS Prefix</strong>.</p>
           <p>
-            <img src="../../../DevCenter/dotNet/media/autoscaling06.png" alt="[image]" />
+            <img src="../../../DevCenter/dotNet/Media/autoscaling06.png" alt="[image]" />
           </p>
         </li>
       </ol>
@@ -195,7 +195,7 @@ scaler.Start();
         <li>
           <p>Click on the role in the center results pane. The Properties pane on the right will display the <strong>Name</strong>.</p>
           <p>
-            <img src="../../../DevCenter/dotNet/media/autoscaling07.png" alt="[image]" />
+            <img src="../../../DevCenter/dotNet/Media/autoscaling07.png" alt="[image]" />
           </p>
         </li>
       </ol>
@@ -215,7 +215,7 @@ scaler.Start();
         <li>
           <p>Click the <strong>View</strong> button next to the hidden <strong>Primary access key</strong> to get the primary account key.</p>
           <p>
-            <img src="../../../DevCenter/dotNet/media/autoscaling08.png" alt="[image]" />
+            <img src="../../../DevCenter/dotNet/Media/autoscaling08.png" alt="[image]" />
           </p>
         </li>
       </ol>
@@ -230,7 +230,7 @@ scaler.Start();
         <li>
           <p>Click on the certificate in the center results pane. The Properties pane on the right will display the <strong>Thumbprint</strong>.</p>
           <p>
-            <img src="../../../DevCenter/dotNet/media/autoscaling09.png" alt="[image]" />
+            <img src="../../../DevCenter/dotNet/Media/autoscaling09.png" alt="[image]" />
           </p>
         </li>
       </ol>
@@ -317,25 +317,25 @@ scaler.Start();
       <p>Right-click on the <strong>App.config</strong> file in Solution Explorer and then click <strong>Edit Configuration File</strong>.</p>
     </li>
     <li>
-      <p>In the <strong>Blocks</strong> menu, click <strong>Add Autoscaling Settings</strong>:<br /><img src="../../../DevCenter/dotNet/media/auotscaling10.png" alt="[image]" /></p>
+      <p>In the <strong>Blocks</strong> menu, click <strong>Add Autoscaling Settings</strong>:<br /><img src="../../../DevCenter/dotNet/Media/auotscaling10.png" alt="[image]" /></p>
     </li>
     <li>
-      <p>Expand the <strong>Autoscaling Settings</strong> and then click the ellipsis (…) next to the <strong>Data Points Store Storage Account</strong>, add the <strong>Account name</strong> and <strong>Account key</strong> of the Windows Azure storage account where the block will store the data points that it collects (see <a href="#DefineServiceModel">How To: Define your Service Model</a> if you are unsure about where to find these values), and then click <strong>OK</strong>:<br /><img src="../../../DevCenter/dotNet/media/autoscaling11.png" alt="[image]" /></p>
+      <p>Expand the <strong>Autoscaling Settings</strong> and then click the ellipsis (…) next to the <strong>Data Points Store Storage Account</strong>, add the <strong>Account name</strong> and <strong>Account key</strong> of the Windows Azure storage account where the block will store the data points that it collects (see <a href="#DefineServiceModel">How To: Define your Service Model</a> if you are unsure about where to find these values), and then click <strong>OK</strong>:<br /><img src="../../../DevCenter/dotNet/Media/autoscaling11.png" alt="[image]" /></p>
     </li>
     <li>
-      <p>Expand the <strong>Autoscaling Settings</strong> section to reveal the <strong>Rules Store</strong> and <strong>Service Information Store</strong> sections. By default, they are configured to use Windows Azure blob storage:<br /><img src="../../../DevCenter/dotNet/media/autoscaling12.png" alt="[image]" /></p>
+      <p>Expand the <strong>Autoscaling Settings</strong> section to reveal the <strong>Rules Store</strong> and <strong>Service Information Store</strong> sections. By default, they are configured to use Windows Azure blob storage:<br /><img src="../../../DevCenter/dotNet/Media/autoscaling12.png" alt="[image]" /></p>
     </li>
     <li>
       <p>Click the plus sign (+) next to <strong>Rules Store</strong>, point to <strong>Set Rules Store</strong>, then click <strong>Use Local File Rules Store</strong>, and then click <strong>Yes</strong>.</p>
     </li>
     <li>
-      <p>In the <strong>File Name</strong> box, type <strong>rules.xml</strong>. This is the name of the file that contains your autoscaling rules:<br /><img src="../../../DevCenter/dotNet/media/autoscaling13.png" alt="[image]" /></p>
+      <p>In the <strong>File Name</strong> box, type <strong>rules.xml</strong>. This is the name of the file that contains your autoscaling rules:<br /><img src="../../../DevCenter/dotNet/Media/autoscaling13.png" alt="[image]" /></p>
     </li>
     <li>
       <p>Click the plus sign (+) next to <strong>Service Information Store</strong>, point to <strong>Set Service Information Store</strong>, then click <strong>Use Local File Service Information Store</strong>, and then click <strong>Yes</strong>.</p>
     </li>
     <li>
-      <p>In the <strong>File Name</strong> box, type <strong>services.xml</strong>. This is the name of the file that contains your autoscaling rules:<br /><img src="../../../DevCenter/dotNet/media/autoscaling14.png" alt="[image]" /></p>
+      <p>In the <strong>File Name</strong> box, type <strong>services.xml</strong>. This is the name of the file that contains your autoscaling rules:<br /><img src="../../../DevCenter/dotNet/Media/autoscaling14.png" alt="[image]" /></p>
     </li>
     <li>
       <p>In the Enterprise Library Configuration window, on the <strong>File</strong> menu, click <strong>Save</strong> to save your configuration changes. Then in the Enterprise Library Configuration window, on the <strong>File</strong> menu, click <strong>Exit</strong>.</p>

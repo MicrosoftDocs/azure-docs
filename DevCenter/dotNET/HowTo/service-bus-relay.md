@@ -31,7 +31,7 @@
     </a>What is the Service Bus Relay</h2>
   <p>The Service Bus <strong>Relay</strong> service enables you to build <strong>hybrid applications</strong> that run across both a Windows Azure datacenter and your own on-premise enterprise environment. The Service Bus relay facilitates this by enabling you to securely expose <span> Windows Communication Foundation (</span>WCF) services that reside within a corporate enterprise network to the public cloud, without having to open up a firewall connection or requiring intrusive changes to a corporate network infrastructure.</p>
   <p>
-    <img src="../../../DevCenter/dotNet/media/sb-relay-01.png" alt="Relay Concepts" />
+    <img src="../../../DevCenter/dotNet/Media/sb-relay-01.png" alt="Relay Concepts" />
   </p>
   <p>The Service Bus relay allows you to host WCF services within your existing enterprise environment. You can then delegate listening for incoming sessions and requests to these WCF services to the Service Bus running within Windows Azure - allowing you to expose these services to application code running there, or to mobile workers or extranet partner environments. The Service Bus allows you to securely control who can access these services at a fine-grain level. It provides a powerful and secure way to expose application functionality and data from your existing enterprise solutions and take advantage of it from the cloud.</p>
   <p>This guide demonstrates how to use the Service Bus relay to create a WCF web service, exposed using a TCP channel binding, that implements a secured conversation between two parties.</p>
@@ -48,10 +48,10 @@
       <p>In the lower left navigation pane of the Management Portal, click <strong>Service Bus, Access Control &amp; Caching</strong>.</p>
     </li>
     <li>
-      <p>In the upper left pane of the Management Portal, click the <strong>Service Bus</strong> node, then click the <strong>New</strong> button. <br /><img src="../../../DevCenter/dotNet/media/sb-queues-03.png" /></p>
+      <p>In the upper left pane of the Management Portal, click the <strong>Service Bus</strong> node, then click the <strong>New</strong> button. <br /><img src="../../../DevCenter/dotNet/Media/sb-queues-03.png" /></p>
     </li>
     <li>
-      <p>In the <strong>Create a new Service Namespace</strong> dialog box, enter a <strong>Namespace</strong>, and then to make sure that it is unique, click the <strong>Check Availability</strong> button. <br /><img src="../../../DevCenter/dotNet/media/sb-queues-04.png" /></p>
+      <p>In the <strong>Create a new Service Namespace</strong> dialog box, enter a <strong>Namespace</strong>, and then to make sure that it is unique, click the <strong>Check Availability</strong> button. <br /><img src="../../../DevCenter/dotNet/Media/sb-queues-04.png" /></p>
     </li>
     <li>
       <p>After making sure the namespace name is available, choose the country or region in which your namespace should be hosted (make sure you use the same <strong>Country/Region</strong> in which you are deploying your compute resources), and then click the <strong>Create Namespace</strong> button.</p>
@@ -64,16 +64,16 @@
   <p>In order to perform management operations, such as creating a relay connection, on the new namespace, you need to obtain the management credentials for the namespace.</p>
   <ol>
     <li>
-      <p>In the left navigation pane, click <strong>Service Bus</strong> to display the list of available namespaces: <br /><img src="../../../DevCenter/dotNet/media/sb-queues-03.png" /></p>
+      <p>In the left navigation pane, click <strong>Service Bus</strong> to display the list of available namespaces: <br /><img src="../../../DevCenter/dotNet/Media/sb-queues-03.png" /></p>
     </li>
     <li>
-      <p>Select the namespace you just created from the list shown: <br /><img src="../../../DevCenter/dotNet/media/sb-queues-05.png" /></p>
+      <p>Select the namespace you just created from the list shown: <br /><img src="../../../DevCenter/dotNet/Media/sb-queues-05.png" /></p>
     </li>
     <li>
-      <p>The <strong>Properties</strong> pane on the right side will list the properties for the new namespace: <br /><img src="../../../DevCenter/dotNet/media/sb-queues-06.png" /></p>
+      <p>The <strong>Properties</strong> pane on the right side will list the properties for the new namespace: <br /><img src="../../../DevCenter/dotNet/Media/sb-queues-06.png" /></p>
     </li>
     <li>
-      <p>The <strong>Default Key</strong> is hidden. Click the <strong>View</strong> button to display the security credentials: <br /><img src="../../../DevCenter/dotNet/media/sb-queues-07.png" /></p>
+      <p>The <strong>Default Key</strong> is hidden. Click the <strong>View</strong> button to display the security credentials: <br /><img src="../../../DevCenter/dotNet/Media/sb-queues-07.png" /></p>
     </li>
     <li>
       <p>Make a note of the <strong>Default Issuer</strong> and the <strong>Default Key</strong> as you will use this information below to perform operations with the namespace.</p>
@@ -90,7 +90,7 @@
     <li>In Solution Explorer, right-click <strong>References</strong>, then click <strong>Manage NuGet Packages</strong>.</li>
     <li>
       <p>Search for "WindowsAzure.ServiceBus" and select the <strong>Windows Azure Service Bus</strong> item. Click <strong>Install</strong> to complete the installation, then close this dialog.</p>
-      <img src="../../../DevCenter/dotNet/media/hy-con-2.png" />
+      <img src="../../../DevCenter/dotNet/Media/hy-con-2.png" />
     </li>
   </ol>
   <h2>

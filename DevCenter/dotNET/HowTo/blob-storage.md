@@ -56,7 +56,7 @@
     </a>Concepts</h2>
   <p>The Blob service contains the following components:</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/blob1.jpg" alt="Blob1" />
+    <img src="../../../DevCenter/Shared/Media/blob1.jpg" alt="Blob1" />
   </p>
   <ul>
     <li>
@@ -91,7 +91,7 @@
       <p>At the top of the navigation pane, click <strong>Storage Accounts</strong>.</p>
     </li>
     <li>
-      <p>On the ribbon, in the Storage group, click <strong>New Storage Account</strong>. <br /><img src="../../../DevCenter/Java/media/WA_HowToBlobStorage2.png" alt="Blob2" /><br /><br />The <strong>Create a New Storage Account </strong>dialog box will then open: <br /><img src="../../../DevCenter/Java/media/WA_HowToBlobStorage3.png" alt="Blob3" /></p>
+      <p>On the ribbon, in the Storage group, click <strong>New Storage Account</strong>. <br /><img src="../../../DevCenter/Java/Media/WA_HowToBlobStorage2.png" alt="Blob2" /><br /><br />The <strong>Create a New Storage Account </strong>dialog box will then open: <br /><img src="../../../DevCenter/Java/Media/WA_HowToBlobStorage3.png" alt="Blob3" /></p>
     </li>
     <li>
       <p>In <strong>Choose a Subscription</strong>, select the account subscription that the storage account will be used with.</p>
@@ -106,7 +106,7 @@
       <p>Click <strong>OK</strong>.</p>
     </li>
     <li>
-      <p>Click the <strong>View</strong> button in the right-hand column below to display and save the <strong>Primary access key</strong> for the storage account. You will need this in subsequent steps to access storage. <br /><img src="../../../DevCenter/Java/media/WA_HowToBlobStorage4.png" alt="Blob4" /></p>
+      <p>Click the <strong>View</strong> button in the right-hand column below to display and save the <strong>Primary access key</strong> for the storage account. You will need this in subsequent steps to access storage. <br /><img src="../../../DevCenter/Java/Media/WA_HowToBlobStorage4.png" alt="Blob4" /></p>
     </li>
   </ol>
   <h2>
@@ -116,23 +116,23 @@
   <p>To configure your connection string in the Windows Azure service configuration:</p>
   <ol>
     <li>
-      <p>Within the Solution Explorer of Visual Studio, in the <strong>Roles</strong> folder of your Windows Azure Deployment Project, right-click your web role or worker role and click <strong>Properties</strong>.<br /><img src="../../../DevCenter/dotNet/media/blob5.png" alt="Blob5" /></p>
+      <p>Within the Solution Explorer of Visual Studio, in the <strong>Roles</strong> folder of your Windows Azure Deployment Project, right-click your web role or worker role and click <strong>Properties</strong>.<br /><img src="../../../DevCenter/dotNet/Media/blob5.png" alt="Blob5" /></p>
     </li>
     <li>
-      <p>Click the <strong>Settings</strong> tab and press the <strong>Add Setting</strong> button.<br /><img src="../../../DevCenter/dotNet/media/blob6.png" alt="Blob6" /></p>
+      <p>Click the <strong>Settings</strong> tab and press the <strong>Add Setting</strong> button.<br /><img src="../../../DevCenter/dotNet/Media/blob6.png" alt="Blob6" /></p>
       <p>A new <strong>Setting1</strong> entry will then show up in the settings grid.</p>
     </li>
     <li>
-      <p>In the <strong>Type</strong> drop-down of the new <strong>Setting1</strong> entry, choose <strong>Connection String</strong>.<br /><img src="../../../DevCenter/dotNet/media/blob7.png" alt="Blob7" /></p>
+      <p>In the <strong>Type</strong> drop-down of the new <strong>Setting1</strong> entry, choose <strong>Connection String</strong>.<br /><img src="../../../DevCenter/dotNet/Media/blob7.png" alt="Blob7" /></p>
     </li>
     <li>
       <p>Click the <strong>...</strong> button at the right end of the <strong>Setting1</strong> entry. The <strong>Storage Account Connection String</strong> dialog will open.</p>
     </li>
     <li>
-      <p>Choose whether you want to target the storage emulator (the Windows Azure storage simulated on your local machine) or an actual storage account in the cloud. The code in this guide works with either option. Enter the <strong>Primary Access Key</strong> value copied from the earlier step in this tutorial if you wish to store blob data in the storage account we created earlier on Windows Azure. <br /><img src="../../../DevCenter/dotNet/media/blob8.png" alt="Blob8" /></p>
+      <p>Choose whether you want to target the storage emulator (the Windows Azure storage simulated on your local machine) or an actual storage account in the cloud. The code in this guide works with either option. Enter the <strong>Primary Access Key</strong> value copied from the earlier step in this tutorial if you wish to store blob data in the storage account we created earlier on Windows Azure. <br /><img src="../../../DevCenter/dotNet/Media/blob8.png" alt="Blob8" /></p>
     </li>
     <li>
-      <p>Change the entry <strong>Name</strong> from <strong>Setting1</strong> to a "friendlier" name like <strong>StorageConnectionString</strong>. You will reference this connectionstring later in the code in this guide.<br /><img src="../../../DevCenter/dotNet/media/blob9.png" alt="Blob9" /></p>
+      <p>Change the entry <strong>Name</strong> from <strong>Setting1</strong> to a "friendlier" name like <strong>StorageConnectionString</strong>. You will reference this connectionstring later in the code in this guide.<br /><img src="../../../DevCenter/dotNet/Media/blob9.png" alt="Blob9" /></p>
     </li>
   </ol>
   <p>You are now ready to perform the How To's in this guide.</p>

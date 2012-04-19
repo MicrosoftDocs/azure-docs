@@ -46,7 +46,7 @@
     </a>Concepts</h2>
   <p>The Blob service contains the following components:</p>
   <p>
-    <img src="../../../DevCenter/Shared/media/blob1.jpg" alt="Blob1" />
+    <img src="../../../DevCenter/Shared/Media/blob1.jpg" alt="Blob1" />
   </p>
   <ul>
     <li>
@@ -81,7 +81,7 @@
       <p>At the top of the navigation pane, click <strong>Storage Accounts</strong>.</p>
     </li>
     <li>
-      <p>On the ribbon, in the Storage group, click <strong>New Storage Account</strong>. <br /><img src="../../../DevCenter/Java/media/WA_HowToBlobStorage2.png" alt="Blob2" /><br /><br />The <strong>Create a New Storage Account </strong>dialog box opens. <br /><img src="../../../DevCenter/Java/media/WA_HowToBlobStorage3.png" alt="Blob3" /></p>
+      <p>On the ribbon, in the Storage group, click <strong>New Storage Account</strong>. <br /><img src="../../../DevCenter/Java/Media/WA_HowToBlobStorage2.png" alt="Blob2" /><br /><br />The <strong>Create a New Storage Account </strong>dialog box opens. <br /><img src="../../../DevCenter/Java/Media/WA_HowToBlobStorage3.png" alt="Blob3" /></p>
     </li>
     <li>
       <p>In <strong>Choose a Subscription</strong>, select the subscription that the storage account will be used with.</p>
@@ -93,7 +93,7 @@
       <p>Choose a country/region or an affinity group in which to locate the storage. If you will be using storage from your Windows Azure application, select the same region where you will deploy your application.</p>
     </li>
     <li>
-      <p>Finally, take note of your<strong> Primary access key</strong> in the right-hand column. You will need this in subsequent steps to access storage. <br /><img src="../../../DevCenter/Java/media/WA_HowToBlobStorage4.png" alt="Blob4" /></p>
+      <p>Finally, take note of your<strong> Primary access key</strong> in the right-hand column. You will need this in subsequent steps to access storage. <br /><img src="../../../DevCenter/Java/Media/WA_HowToBlobStorage4.png" alt="Blob4" /></p>
     </li>
   </ol>
   <h2>

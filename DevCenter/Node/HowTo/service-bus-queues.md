@@ -41,7 +41,7 @@
     </a>What are Service Bus Queues</h2>
   <p>Service Bus Queues support a <strong>brokered messaging communication</strong> model. When using queues, components of a distributed application do not communicate directly with each other, they instead exchange messages via a queue, which acts as an intermediary. A message producer (sender) hands off a message to the queue and then continues its processing. Asynchronously, a message consumer (receiver) pulls the message from the queue and processes it. The producer does not have to wait for a reply from the consumer in order to continue to process and send further messages. Queues offer <strong>First In, First Out (FIFO)</strong> message delivery to one or more competing consumers. That is, messages are typically received and processed by the receivers in the order in which they were added to the queue, and each message is received and processed by only one message consumer.</p>
   <p>
-    <img src="../../../DevCenter/dotNet/media/sb-queues-08.png" alt="Queue Concepts" />
+    <img src="../../../DevCenter/dotNet/Media/sb-queues-08.png" alt="Queue Concepts" />
   </p>
   <p>Service Bus queues are a general-purpose technology that can be used for a wide variety of scenarios:</p>
   <ul>
@@ -64,11 +64,11 @@
     </li>
     <li>
       <p>In the upper left pane of the Management Portal, click the <strong>Service Bus</strong> node, and then click the <strong>New</strong> button.</p>
-      <img src="../../../DevCenter/dotNet/media/sb-queues-03.png" alt="image" />
+      <img src="../../../DevCenter/dotNet/Media/sb-queues-03.png" alt="image" />
     </li>
     <li>
       <p>In the <strong>Create a new Service Namespace</strong> dialog, enter a <strong>Namespace</strong>, and then to make sure that it is unique, click the <strong>Check Availability</strong> button.</p>
-      <img src="../../../DevCenter/dotNet/media/sb-queues-04.png" alt="image" />
+      <img src="../../../DevCenter/dotNet/Media/sb-queues-04.png" alt="image" />
     </li>
     <li>
       <p>After making sure the namespace name is available, choose the country or region in which your namespace should be hosted (make sure you use the same country/region in which you are deploying your compute resources), and then click the <strong>Create Namespace</strong> button.</p>
@@ -82,19 +82,19 @@
   <ol>
     <li>
       <p>In the left navigation pane, click the <strong>Service Bus</strong> node, to display the list of available namespaces:</p>
-      <img src="../../../DevCenter/dotNet/media/sb-queues-03.png" alt="image" />
+      <img src="../../../DevCenter/dotNet/Media/sb-queues-03.png" alt="image" />
     </li>
     <li>
       <p>Select the namespace you just created from the list shown:</p>
-      <img src="../../../DevCenter/dotNet/media/sb-queues-05.png" alt="image" />
+      <img src="../../../DevCenter/dotNet/Media/sb-queues-05.png" alt="image" />
     </li>
     <li>
       <p>The right-hand <strong>Properties</strong> pane will list the properties for the new namespace:</p>
-      <img src="../../../DevCenter/dotNet/media/sb-queues-06.png" alt="image" />
+      <img src="../../../DevCenter/dotNet/Media/sb-queues-06.png" alt="image" />
     </li>
     <li>
       <p>The <strong>Default Key</strong> is hidden. Click the <strong>View</strong> button to display the security credentials:</p>
-      <img src="../../../DevCenter/dotNet/media/sb-queues-07.png" alt="image" />
+      <img src="../../../DevCenter/dotNet/Media/sb-queues-07.png" alt="image" />
     </li>
     <li>
       <p>Make a note of the <strong>Default Key</strong> as you will use this information below to perform operations with the namespace.</p>
