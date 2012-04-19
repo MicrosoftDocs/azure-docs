@@ -1,6 +1,6 @@
 # Node.js Web Application with Storage on MongoDB
 
-This tutorial describes how to use MongoDB to store and access data from a Windows Azure web site written in Node.js. This guide assumes that you have some prior experience using Node.js, MongoDB, and Git. For information on Node.js, see the [Node.js website]. For information on MongoDB, see the [MongoDB website]. For information on Git, see the [Git website].
+This tutorial describes how to use MongoDB to store and access data from a Node.js application hosted as a Windows Azure Web Site. This guide assumes that you have some prior experience using Node.js, MongoDB, and Git. For information on Node.js, see the [Node.js website]. For information on MongoDB, see the [MongoDB website]. For information on Git, see the [Git website].
 
 This guide also assumes that you have access to a MongoDB server, such as the one created by following the steps in **TBD**
 
@@ -8,9 +8,9 @@ You will learn how to:
 
 * Use npm (node package manager) to install the Mongoose module for Node.js.
 
-* Use MongoDB within a Node.js application by using the Mongoose module.
+* Use MongoDB within a Node.js application through the Mongoose module.
 
-* Publish a Node.js application as a Windows Azure Site.
+* Publish a Node.js application as a Windows Azure Web Site.
 
 Throughout this tutorial you will build a simple web-based task-management application that allows creating, retrieving and completing tasks, which are stored in MongoDB. MongoDB is hosted in a Windows Azure Virtual Machine, and the web application is hosted as a Windows Azure Site.
  
@@ -22,15 +22,9 @@ The project files for this tutorial will be stored in a directory named *tasklis
 
 In order to create and test a Node.js application, you will need the following:
 
-* A text editor or Integrated Development Environment (IDE)
-
-* A web browser
-
-* Node 0.6.14 or above. You can find the latest installation for your platform at the [Node.js website].
+* The Windows Azure SDK for Node.js
 
 * Git version control system for your operating system. You can find the latest installation for your platform at the [Git website].
-
-Note: While the examples in this tutorial show vi and Chrome being used, any text editor or web browser should work.
 
 ## Creating a Node.js application
 
@@ -42,12 +36,20 @@ For the task-list application you will use the following modules:
 
 * MongoDB - The driver for communicating with MongoDB.
 
-Open the Terminal application and perform the following steps to create the application directory and install the required modules:
+**TODO: Revisit these steps once the new powershell stuff is available/stable**
 
-1. Enter the following commands to create a new **tasklist** directory and change to this directory.
+1. On the Start menu, click **All Programs**, **Windows Azure SDK Node.js**, right-click W**indows Azure PowerShell for Node.js**, and then select Run As Administrator. Opening your Windows PowerShell environment this way ensures that all of the Node command-line tools are available. Running with elevated privileges avoids extra prompts when working with the Windows Azure Emulator.
 
-	    mkdir tasklist
-        cd tasklist
+	    PS C:\> mkdir c:\node
+        PS C:\> cd c:\node
+
+2. Enter the following cmdlet to create a new solution:
+
+		ps C:\node> New-AzureService tasklist
+
+	You will see the following response:
+
+	**(TODO Screenshot)**
 
 3. Enter the following command to install the express and mongoose modules:
 
@@ -81,7 +83,16 @@ In this section you will extend the basic application created by the express com
 
 ### Create the model
 
-1. In the **tasklist** directory, create a new directory named **models**. In the **models** directory, create a new file named *task.js*. This file will contain the model for the tasks created by your application.
+1. In the **tasklist** directory, create a new directory named **models** by using the following command:
+
+		PS C:\node\tasklist> mkdir models
+
+
+2. Start notepad.exe and create a new file named *task.js* in the **models** directory. This file will contain the model for the tasks created by your application.
+
+		PS C:\node\tasklist> notepad.exe task.js
+
+	When prompted to create the file, select **Yes**.
 
 2. At the beginning of the *task.js* file, add the following code to reference required libraries:
 
@@ -103,9 +114,13 @@ In this section you will extend the basic application created by the express com
 
 ## Modify server.js
 
-1. In the **tasklist** directory, open the *server.js* file in a text editor. This file was created earlier by running the express command.
+**TODO: Revisit periodically and see if express starts generating server.js instead of app.js**
 
-2. Add the following code after the `app.get` statement in the routes section. It will add a new route for submitting new tasks. We will create the *updateItem* function used by this route in the next section.
+1. In the **tasklist** directory, rename the *app.js* file to *server.js*:
+
+		rn app.js server.js
+
+2. open the *server.js* file in notepad and add the following code after the `app.get` statement in the routes section. It will add a new route for submitting new tasks. We will create the *updateItem* function used by this route in the next section.
 
         app.post('/', routes.updateItem);
 
@@ -116,7 +131,7 @@ In this section you will extend the basic application created by the express com
 		app.get('/', routes.index);
 		app.post('/', routes.updateItem);
 
-4. Replace the 'app.listen statement' at the end of the file with the code below. This configures Node to listen on the environment PORT value provided by Windows Azure when published to the cloud, or port 1337 when you run the application locally.
+4. Replace the 'app.listen statement' at the end of the file with the code below. This configures Node to listen on the environment PORT value provided by Windows Azure when published to the cloud, or port 1337 when ran directly using node.exe.
 
         app.listen(process.env.port || 1337);
 
@@ -124,7 +139,7 @@ In this section you will extend the basic application created by the express com
 
 The controller defined in *index.js* will handle all requests for the task list site. This file can be found in the **routes** sub-directory of the **tasklist** directory.
 
-1. Open *index.js* in your text editor and add the following statements at the beginning of the file. This will include the mongoose module, the *task.js* file you created earlier, and connect to the MongoDB server. 
+1. Open *index.js* in notepad and add the following statements at the beginning of the file. This will include the mongoose module, the *task.js* file you created earlier, and connect to the MongoDB server. 
 
 		var mongoose = require('mongoose')
   		  , task = require('../models/taskModel.js');
@@ -211,64 +226,23 @@ The controller defined in *index.js* will handle all requests for the task list 
 
 3. Save and close the *index.jade* file.
 
-## Run your application locally
+## Run Your Application Locally in the Emulator
 
-To test the application on your local machine, perform the following steps:
+One of the tools installed by the Windows Azure SDK is the Windows Azure compute emulator, which allows you to test your application locally. The compute emulator simulates the environment your application will run in when it is deployed to the cloud, including providing access to services like Windows Azure Table Storage. This means you can test your application without having to actually deploy it.
+ 1.
+Close Notepad and switch back to the Windows PowerShell window. Enter the following cmdlet to run your service in the emulator and launch a browser window:
+ PS C:\node\tasklist\WebRole1> Start-AzureEmulator -launch 
+The –launch parameter specifies that the tools should automatically open a browser window and display the application once it is running in the emulator. A browser opens and displays “Hello World,” as shown in the screenshot below. This indicates that the service is running in the compute emulator and is working correctly.
+ A web browser displaying the Hello World web page
+ 2.
+To stop the compute emulator, you can access it (as well as the storage emulator, which you will leverage later in this tutorial) from the Windows taskbar as shown in the screenshot below:
 
-1. Open the Terminal application if it is not already open, and change directories to the tasklist directory.
+## Deploy Your Application to Windows Azure
 
-2. To launch the application, use the following command:
-
-        node server.js
-
-3. Open your browser and navigate to http://127.0.0.1:1337. This should display a web page similar to the following:
-
-    ![Finished][]
-
-4. Use the provided fields for Item Name and Item Category to enter information, and then click **Add item**.
-
-    ![AddItems][]
-
-5. The page should update to display the item in the ToDo List table.
-
-    ![WithItems][]
-
-6. To complete a task, simply check the checkbox in the Complete column, and then click **Update tasks**. While there is no visual change after clicking **Update tasks**, the document entry in MongoDB has now been marked as completed.
-
-6. In the terminal application, press Ctrl + C to terminate the node session.
-
-## Deploy your application to Windows Azure
+**TODO: Refactor once I know the cmdlets for publishing to antares**
 
 In this section, you will use the Windows Azure portal to create a new web site, enable the Git deployment option, and finally deploy your application to Windows Azure using Git.
 
-### Configure your application
-
-Before deploying the application to Windows Azure, we must add a *web.config* file to the root of the tasklist directory. This file contains settings that instruct Windows Azure on how to run your Node application, such as adding the iisnode handler and adding a rule to direct incoming requests to the *server.js* file. Using a text editor, create the *web.config* file and add the following:
-
-    <?xml version="1.0" encoding="utf-8"?>
-      <configuration>
-        <appSettings>
-          <add key="EMULATED" value="true" />
-        </appSettings>
-        <system.webServer>
-          <modules runAllManagedModulesForAllRequests="false" />
-          <handlers>
-            <add name="iisnode" path="server.js" verb="*" modules="iisnode" />
-          </handlers>
-          <rewrite>
-            <rules>
-              <clear />
-              <rule name="app" enabled="true" patternSyntax="ECMAScript" stopProcessing="true">
-                  <match url="server\.js.+" negate="true" />
-                  <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
-                  <action type="Rewrite" url="server.js" />
-              </rule>
-            </rules>
-          </rewrite>
-        </system.webServer>
-      </configuration>
-
-Save this file to the tasklist directory.
 
 ### Create a new web site
 

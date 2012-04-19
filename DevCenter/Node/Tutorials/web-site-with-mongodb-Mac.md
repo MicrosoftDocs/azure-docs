@@ -1,6 +1,6 @@
 # Node.js Web Application with Storage on MongoDB
 
-This tutorial describes how to use MongoDB to store and access data from a Windows Azure web site written in Node.js. This guide assumes that you have some prior experience using Node.js, MongoDB, and Git. For information on Node.js, see the [Node.js website]. For information on MongoDB, see the [MongoDB website]. For information on Git, see the [Git website].
+This tutorial describes how to use MongoDB to store and access data from a Node.js application hosted as a Windows Azure Web Site. This guide assumes that you have some prior experience using Node.js, MongoDB, and Git. For information on Node.js, see the [Node.js website]. For information on MongoDB, see the [MongoDB website]. For information on Git, see the [Git website].
 
 This guide also assumes that you have access to a MongoDB server, such as the one created by following the steps in **TBD**
 
@@ -22,9 +22,7 @@ The project files for this tutorial will be stored in a directory named *tasklis
 
 In order to create and test a Node.js application, you will need the following:
 
-* A text editor or Integrated Development Environment (IDE)
-
-* A web browser
+* The Windows Azure SDK for Node.js
 
 * Node 0.6.14 or above. You can find the latest installation for your platform at the [Node.js website].
 
@@ -44,10 +42,10 @@ For the task-list application you will use the following modules:
 
 Open the Terminal application and perform the following steps to create the application directory and install the required modules:
 
-1. Enter the following commands to create a new **tasklist** directory and change to this directory.
+1. Enter the following commands to create a new **tasklist** directory under ~/node/ and change to this directory.
 
-	    mkdir tasklist
-        cd tasklist
+	    mkdir -p ~/node/tasklist
+        cd ~/node/tasklist
 
 3. Enter the following command to install the express and mongoose modules:
 
