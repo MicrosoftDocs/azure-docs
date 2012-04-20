@@ -10,7 +10,7 @@ This guide will show you how to perform common scenarios using the Windows Azure
 
 * [Concepts](#Concepts)
 * [Create a Windows Azure Storage Account](#CreateAccount)
-* [Create a Java Application](#CreateApplication)
+* [Create a PHP Application](#CreateApplication)
 * [Configure your Application to Access Blob Storage](#ConfigureStorage)
 * [Setup a Windows Azure Storage Connect String](#ConnectionString)
 * [How to Create a Container](#CreateContainer)
