@@ -18,11 +18,17 @@ Detailed instructions for using the Twilio client library for Java are available
 <h2 id="configure_app">Configure Your Application to Use Twilio Libraries</h2>
 Within your code, you can add `import` statements at the top of your Java files for the Twilio packages or classes you want to use in your application. For example:
 
+    import com.twilio.*;
+    import com.twilio.sdk.*;
+    import com.twilio.sdk.resource.factory.*;
+    import com.twilio.sdk.resource.instance.*;
+
+For JSP:
+
     import="com.twilio.*"
     import="com.twilio.sdk.*"
     import="com.twilio.sdk.resource.factory.*"
     import="com.twilio.sdk.resource.instance.*"
-
 Depending on which Twilio packages or classes you want to use, your `import` statements may be different.
 
 <h2 id="howto_make_call">How to: Make an outgoing call</h2>
