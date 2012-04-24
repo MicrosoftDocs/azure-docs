@@ -115,7 +115,7 @@ In this section, you will download the publishing settings for your Windows Azur
 
 ###Enabling Publication
 
-If this is the first application you have published as a Windows Azure Web Site, you must use the web portal to create the site.
+If this is the first application you have published as a Windows Azure Web Site, you must use the web portal to create the site. After creating the initial web site, you can subsequently use the Windows Azure SDK tools to create or manage additional sites. For information on using the SDK tools, see **TBD**.
 
 1. Open the Terminal application if it is not already running, and enter the following command:
 
@@ -154,28 +154,8 @@ If this is the first application you have published as a Windows Azure Web Site,
 ###Create a Local Repository
 
 
-##FIGURE OUT WHERE THIS GOES
-
-steps to use the console tools.
-
-1. Open the Terminal application if it is not currently running, and enter the following command:
-
-        azure create site helloworld --git --location "South Central US"
 
 
-    This command creates a new Windows Azure Web Site named 'helloworld'. The --git parameter creates a git repository on Windows Azure, which you will use to deploy this application. The --location parameter specifies the data center that this web site will be hosted in. The output of this command should be similar to the following:
-
-    **(TODO Screenshot)**
-
-2. Using the Terminal, enter the git commands returned by the previous step. These commands will initialize a local git repository for your application, add the existing files to the local repository, create a remote named 'azure' for the web site repository on Windows Azure, and finally push the local files to the 'azure' remote. The result should appear similar to the following:
-
-    **(TODO Screenshot)**
-
-3. Start your web browser and navigate to the URL of your web site. A page should appear that displays "Hello World".
-
-    **(TODO Screenshot)**
-
-    Your application is now running on Windows Azure!
 
 ## Stopping and Deleting Your Application
 
