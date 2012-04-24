@@ -113,7 +113,7 @@ In this section, you will download the publishing settings for your Windows Azur
 
     **Note**: After importing the publish settings, you should delete the .publishsettings file as it is no longer required and contains information that could be used to manage your Windows Azure subscription.
 
-###Publishing the Application
+###Enabling Publication
 
 If this is the first application you have published as a Windows Azure Web Site, you must use the web portal to create the site.
 
@@ -121,17 +121,42 @@ If this is the first application you have published as a Windows Azure Web Site,
 
         azure site portal
 
-    This will open your browser and navigate to the Windows Azure portal:
+    This will open your browser and navigate to the Windows Azure portal.
 
     **(TODO Screenshot)**
 
-2. On the portal, select **+ NEW**, and then select **Web Site*.
+2. In the portal, select **+ NEW**, and then select **Web Site*.
 
     **(TODO Screenshot)**
 
 3. Select **Quick Create**, and then enter the site name in the URL field and select the region to create the site in. Finally, select **Create Web Site**.
 
     **(TODO Screenshot)**
+
+4. Once the web site status switches to 'Running', click on the name of the web site. This will display the **Quickstart** page.
+
+	**(TODO Screenshot)**
+
+5. On the **Quickstart** page, find the **Integrate source control** section and then click **Set up Git publishing**.
+
+	**(TODO Screenshot)**
+
+6. Enter a user name and password, and then click the checkmark to save this information. You will enter this user name and password when you publish your application to Windows Azure using Git.
+	
+	**Note**: The user name and password entered here will be used for publishing to all Windows Azure Web Sites you create.
+
+	**(TODO Screenshot)**
+
+7. After you have confirmed the user name and password, a Git repository will be created on the server and you will be presented with the steps required for initializing a local Git repository.
+
+	**(TODO Screenshot)**
+
+###Create a Local Repository
+
+
+##FIGURE OUT WHERE THIS GOES
+
+steps to use the console tools.
 
 1. Open the Terminal application if it is not currently running, and enter the following command:
 
