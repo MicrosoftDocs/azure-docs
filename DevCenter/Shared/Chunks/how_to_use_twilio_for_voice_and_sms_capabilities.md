@@ -50,7 +50,7 @@ When you sign up for a Twilio account, you’ll receive an account ID and an aut
 <h2 id="VerifyPhoneNumbers">Verify Phone Numbers</h2>
 Various phone numbers need to be verified with Twilio for your account. For example, if you want to place outbound phone calls, the phone number must be verified as an outbound caller ID with Twilio. Similarly, if you want a phone number to receive SMS messages, the receiving phone number must be verified with Twilio. For information on how to verify a phone number, see [Manage Numbers] [verify_phone]. Some of the code below relies on phone numbers that you will need to verify with Twilio.
 
-As an alternative to using an existing number for your applications, you can purchase a Twilio phone number.
+As an alternative to using an existing number for your applications, you can purchase a Twilio phone number. For information about purchasing a Twilio phone number, see [Twilio Phone Numbers Help](https://www.twilio.com/help/faq/phone-numbers).
 
 [twilio_pricing]: http://www.twilio.com/pricing
 [twilio_libraries]: https://www.twilio.com/docs/libraries
