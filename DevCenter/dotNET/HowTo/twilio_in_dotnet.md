@@ -24,30 +24,28 @@ Twilio provides five libraries for .NET developers:
         <th>Description</th>
     </tr>
     <tr>
-        <td>
-    <tr>
         <td>Twilio.API</td>
-        <td>The core Twilio library that wraps the Twilio REST API in a friendly .NET library. This library is available in .NET, Silverlight and Windows Phone 7 flavors.</td>
+        <td>The core Twilio library that wraps the Twilio REST API in a friendly .NET library. This library is available for .NET, Silverlight, and Windows Phone 7.</td>
     </tr>        
     <tr>
         <td>Twilio.TwiML</td>
-        <td>Provides a .NET friendly way to generate TwiML markup</td>
+        <td>Provides a .NET friendly way to generate TwiML markup.</td>
     </tr>  
     <tr>
         <td>Twilio.MVC</td>
-        <td>For developers using ASP.NET MVC, this library includes a TwilioController and TwiML ActionResult and request validation attribute</td>
+        <td>For developers using ASP.NET MVC, this library includes a TwilioController and TwiML ActionResult and request validation attribute.</td>
     </tr>  
     <tr>
         <td>Twilio.WebMatrix</td>
-        <td>For developers using Microsoft free WebMatrix development tool, this library contains Razor syntax helpers for various Twilio actions</td>
+        <td>For developers using Microsoft free WebMatrix development tool, this library contains Razor syntax helpers for various Twilio actions.</td>
     </tr>  
     <tr>
         <td>Twilio.Client.Capability</td>
-        <td>Contains the Capability token generator for use with the Twilio Client JavaScript SDK</td>
+        <td>Contains the Capability token generator for use with the Twilio Client JavaScript SDK.</td>
     </tr>  
 </table>  
 
-Note that all libraries require .NET 3.5, Silverlight 4 or Windows Phone 7 or later.
+Note that all libraries require .NET 3.5, Silverlight 4, or Windows Phone 7 or later.
 
 The samples provided in this guide use the Twilio.API library.
 
@@ -78,15 +76,13 @@ The following shows how to make an outgoing call using the `TwilioRestClient` cl
     TwilioRestClient client;
     client = new TwilioRestClient(accountSID, authToken);
 
-    // Retrieve the account, used later to create an instance of the CallFactory.
-    Twilio.Account account = client.GetAccount();
-
     // Use the Twilio-provided site for the TwiML response.
     String Url="http://twimlets.com/message";
     Url = Url + "?Message%5B0%5D=Hello%20World";
 
-    // Place the call From, To, and URL values into a hash map.
-    // This sample uses the sandbox number provided by Twilio to make the call.
+    // Set the call From, To, and URL values to use for the call.
+    // This sample uses the sandbox number provided by 
+	// Twilio to make the call.
     options.From = "+NNNNNNNNNN";
     options.To = "NNNNNNNNNN";
     options.Url = Url;
@@ -101,7 +97,8 @@ As mentioned, this code uses a Twilio-provided site to return the TwiML response
 <h2 id="howto_send_sms">How to: Send an SMS message</h2>
 The following shows how to send an SMS message using the `SmsFactory` class. The **From** number, **4155992671**, is provided by Twilio for trial accounts to send SMS messages. The **To** number must be verified for your Twilio account prior to running the code.
 
-	    // Use your account SID and authentication token instead of the placeholders shown here.
+	    // Use your account SID and authentication token instead 
+		// of the placeholders shown here.
    	 	string accountSID = "your_twilio_account";
 	    string authToken = "your_twilio_authentication_token";
 	
@@ -109,11 +106,13 @@ The following shows how to send an SMS message using the `SmsFactory` class. The
 	    TwilioRestClient client;
 	    client = new TwilioRestClient(accountSID, authToken);
 	
-	    // Retrieve the account, used later to create an instance of the SmsFactory.
+	    // Retrieve the account, used later to create an instance 
+		// of the SmsFactory.
 	    Twilio.Account account = client.GetAccount();
 	
 	    // Send an SMS message.
-	    SMSMessage result = client.SendSmsMessage("+14155992671", "+12069419717", "This is my SMS message.");
+	    SMSMessage result = client.SendSmsMessage(
+			"+14155992671", "+12069419717", "This is my SMS message.");
 	
 	    if (result.RestException != null)
 	    {
@@ -122,7 +121,7 @@ The following shows how to send an SMS message using the `SmsFactory` class. The
 	    }
 
 <h2 id="howto_provide_twiml_responses">How to: TwiML Responses from your own Web site</h2>
-When your application initiates a call to the Twilio API, for example via the `client.InitiateOutboundCall` method, Twilio sends your request to a URL that is expected to return a TwiML response. The example in [How to: Make an outgoing call](#howto_make_call) uses the Twilio-provided URL [http://twimlets.com/message][twimlet_message_url] to return the response. (While TwiML is designed for use by Web services, you can view the TwiML in your browser. For example, click [http://twimlets.com/message][twimlet_message_url] to see an empty `<Response>` element; as another example, click [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] to see a `<Response>` element that contains a `<Say>` element.)
+When your application initiates a call to the Twilio API, for example via the `client.InitiateOutboundCall` method, Twilio sends your request to a URL that is expected to return a TwiML response. The example in [How to: Make an outgoing call](#howto_make_call) uses the Twilio-provided URL [http://twimlets.com/message][twimlet_message_url] to return the response. (While TwiML is designed for use by Web services, you can view the TwiML in your browser. For example, click [http://twimlets.com/message][twimlet_message_url] to see an empty &lt;Response> element; as another example, click [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] to see a &lt;Response> element that contains a &lt;Say> element.)
 
 Instead of relying on the Twilio-provided URL, you can create your own URL site that returns HTTP responses. You can create the site in any language that returns HTTP responses; this topic assumes you’ll be hosting the URL from an ASP.NET generic handler.
 
@@ -135,31 +134,31 @@ The following ashx page results in a TwiML response that says **Hello World** on
 	
 	namespace WebRole1
 	{
-    /// <summary>
-    /// Summary description for Handler1
-    /// </summary>
-    public class Handler1 : IHttpHandler
-    {
-
-        public void ProcessRequest(HttpContext context)
-        {
-		    context.Response.Clear();
-		    context.Response.ContentType = "text/xml";
-		    context.Response.ContentEncoding = System.Text.Encoding.UTF8;
-		    string twiMLResponse = "<Response><Say>Hello World</Say></Response>";
-		    context.Response.Write(twiMLResponse);
-		    context.Response.End();
-        }
-
-        public bool IsReusable
-        {
-            get
-            {
-                return false;
-            }
-        }
-    }
-}
+	    /// <summary>
+	    /// Summary description for Handler1
+	    /// </summary>
+	    public class Handler1 : IHttpHandler
+	    {
+	
+	        public void ProcessRequest(HttpContext context)
+	        {
+			    context.Response.Clear();
+			    context.Response.ContentType = "text/xml";
+			    context.Response.ContentEncoding = System.Text.Encoding.UTF8;
+			    string twiMLResponse = "<Response><Say>Hello World</Say></Response>";
+			    context.Response.Write(twiMLResponse);
+			    context.Response.End();
+	        }
+	
+	        public bool IsReusable
+	        {
+	            get
+	            {
+	                return false;
+	            }
+	        }
+	    }
+	}
 
 The following ashx page results in a TwiML response that says some text, has several pauses, and reports the Twilio API version.
 
