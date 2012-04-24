@@ -160,6 +160,6 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 [twilio_docs_security]: http://www.twilio.com/docs/security
 [twilio_docs]: http://www.twilio.com/docs
 [twilio_say]: http://www.twilio.com/docs/api/twiml/say
-[twilio_java]: ./media/WA_TwilioJavaCallForm.jpg
-[twilio_java_response]: ./media/WA_TwilioJavaMakeCall.jpg
+[twilio_java]: ./media/net/WA_TwilioJavaCallForm.jpg
+[twilio_java_response]: ./media/net/WA_TwilioJavaMakeCall.jpg
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.serviceruntime.aspx
