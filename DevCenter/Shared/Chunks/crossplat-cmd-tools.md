@@ -49,10 +49,15 @@ Downloading and importing your publish settings will allow you to use the comman
 
 This will open your default browser and prompt you to sign in with your Windows Azure credentials. After signing in, your `.publishsettings` file will be downloaded.
 
-The next step, importing the `.publishsettings` file, allows the command-line tools to create and manage Windows Azure Services. To import your `.publishsettings` file, run the following command:
+The next step, importing the `.publishsettings` file, allows the command-line tools to create and manage Windows Azure Services. To import your `.publishsettings` file, run the following command, replacing `<path to .publishsettings file>` with the path to your .publishsettings file:
 
 	azure account import <path to .publishsettings file>
-  
+
+You can remove all of the information stored by the `import` command by running the following command:
+
+	azure account clear
+
+	**TODO: Provide summary of other 'account' commands (if they exist)**  
 
 <h2 id="Certificates">How to Manage Certificates</h2>
 
