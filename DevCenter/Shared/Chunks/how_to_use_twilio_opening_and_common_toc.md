@@ -5,6 +5,4 @@ This guide demonstrates how to perform common programming tasks with the Twilio 
 * [Twilio Pricing](#Pricing)
 * [Concepts](#Concepts)
 * [Create a Twilio Account](#CreateAccount)
-* [Special Twilio Offer for Windows Azure customers](#SpecialOffer)
-* [Twilio Account ID and Authentication Token](#AccountID)
 * [Verify Phone Numbers](#VerifyPhoneNumbers)
