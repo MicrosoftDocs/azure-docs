@@ -1,0 +1,19 @@
+To create a website with the Windows Azure Cross-Platform Command Line Tools, run the following command from your local applicaton directory, replacing `[site name]` with the name of your website:
+
+	azure site create [site name]
+
+This should return a response similar to the following:
+
+	**TODO: Screenshot**
+
+The default URL for your website will have the following format:
+
+	**TODO: Get the default format**
+
+Note that you can execute the `azure site create` command with any of the following options:
+
+* `--location [location name]`
+* `--hostname [custom host nam]`
+* `--git`
+
+For more information see **TODO: Link to "How to Use the Windows Azure Cross-Platform Command Line Tools"**
