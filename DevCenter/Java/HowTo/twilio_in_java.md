@@ -16,7 +16,7 @@
 Detailed instructions for using the Twilio client library for Java are available at [How to Make a Phone Call Using Twilio in a Java Application on Windows Azure][howto_phonecall_java].
 
 <h2 id="configure_app">Configure Your Application to Use Twilio Libraries</h2>
-Within your code, you can add `import` statements at the top of your Java files for the Twilio packages or classes you want to use in your application. For example:
+Within your code, you can add **import** statements at the top of your Java files for the Twilio packages or classes you want to use in your application. For example:
 
     import com.twilio.*;
     import com.twilio.sdk.*;
@@ -29,10 +29,10 @@ For JSP:
     import="com.twilio.sdk.*"
     import="com.twilio.sdk.resource.factory.*"
     import="com.twilio.sdk.resource.instance.*"
-Depending on which Twilio packages or classes you want to use, your `import` statements may be different.
+Depending on which Twilio packages or classes you want to use, your **import** statements may be different.
 
 <h2 id="howto_make_call">How to: Make an outgoing call</h2>
-The following shows how to make an outgoing call using the `CallFactory` class. This code also uses a Twilio-provided site to return the Twilio Markup Language (TwiML) response. Substitute your values for the **From** and **To** phone numbers, and ensure that you verify the **From** phone number for your Twilio account prior to running the code.
+The following shows how to make an outgoing call using the **CallFactory** class. This code also uses a Twilio-provided site to return the Twilio Markup Language (TwiML) response. Substitute your values for the **From** and **To** phone numbers, and ensure that you verify the **From** phone number for your Twilio account prior to running the code.
 
     // Use your account SID and authentication token instead
     // of the placeholders shown here.
@@ -62,12 +62,12 @@ The following shows how to make an outgoing call using the `CallFactory` class. 
     // Make the call.
     Call call = callFactory.create(params);
 
-For more information about the parameters passed in to the `CallFactory.create` method, see [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
+For more information about the parameters passed in to the **CallFactory.create** method, see [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
 
 As mentioned, this code uses a Twilio-provided site to return the TwiML response. You could instead use your own site to provide the TwiML response; for more information, see [How to Provide TwiML Responses in a Java Application on Windows Azure](#howto_provide_twiml_responses).
 
 <h2 id="howto_send_sms">How to: Send an SMS message</h2>
-The following shows how to send an SMS message using the `SmsFactory` class. The **From** number, **4155992671**, is provided by Twilio for trial accounts to send SMS messages. The **To** number must be verified for your Twilio account prior to running the code.
+The following shows how to send an SMS message using the **SmsFactory** class. The **From** number, **4155992671**, is provided by Twilio for trial accounts to send SMS messages. The **To** number must be verified for your Twilio account prior to running the code.
 
     // Use your account SID and authentication token instead
     // of the placeholders shown here.
@@ -95,10 +95,10 @@ The following shows how to send an SMS message using the `SmsFactory` class. The
     // Send the message.
     Sms sms = smsFactory.create(smsParams);
 
-For more information about the parameters passed in to the `SmsFactory.create` method, see [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms].
+For more information about the parameters passed in to the **SmsFactory.create** method, see [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms].
 
 <h2 id="howto_provide_twiml_responses">How to: Provide TwiML Responses from your own Web site</h2>
-When your application initiates a call to the Twilio API, for example via the `CallFactory.create` method, Twilio will send your request to a URL that is expected to return a TwiML response. The example above uses the Twilio-provided URL [http://twimlets.com/message][twimlet_message_url]. (While TwiML is designed for use by Web services, you can view the TwiML in your browser. For example, click [http://twimlets.com/message][twimlet_message_url] to see an empty `<Response>` element; as another example, click [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] to see a `<Response>` element that contains a `<Say>` element.)
+When your application initiates a call to the Twilio API, for example via the **CallFactory.create** method, Twilio will send your request to a URL that is expected to return a TwiML response. The example above uses the Twilio-provided URL [http://twimlets.com/message][twimlet_message_url]. (While TwiML is designed for use by Web services, you can view the TwiML in your browser. For example, click [http://twimlets.com/message][twimlet_message_url] to see an empty **&lt;Response&gt;** element; as another example, click [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] to see a **&lt;Response&gt;** element that contains a **&lt;Say&gt;** element.)
 
 Instead of relying on the Twilio-provided URL, you can create your own URL site that returns HTTP responses. You can create the site in any language that returns HTTP responses; this topic assumes you’ll be hosting the URL in a JSP page.
 
@@ -122,9 +122,9 @@ The following JSP page results in a TwiML response that says some text, has seve
         <Say>Good bye.</Say>
     </Response>
 
-The `ApiVersion` is available in Twilio voice requests (not SMS requests). To see the available request parameters for Twilio voice and SMS requests, see [https://www.twilio.com/docs/api/twiml/twilio\_request][twilio_voice_request] and [https://www.twilio.com/docs/api/twiml/sms/twilio\_request][twilio_sms_request], respectively. The `RoleName` environment variable is available as part of a Windows Azure deployment. (If you want to add custom environment variables so they could be picked up from `System.getenv`, see the environment variables section at [Miscellaneous Role Configuration Settings][misc_role_config_settings].)
+The **ApiVersion** parameter is available in Twilio voice requests (not SMS requests). To see the available request parameters for Twilio voice and SMS requests, see [https://www.twilio.com/docs/api/twiml/twilio\_request][twilio_voice_request] and [https://www.twilio.com/docs/api/twiml/sms/twilio\_request][twilio_sms_request], respectively. The **RoleName** environment variable is available as part of a Windows Azure deployment. (If you want to add custom environment variables so they could be picked up from **System.getenv**, see the environment variables section at [Miscellaneous Role Configuration Settings][misc_role_config_settings].)
 
-Once you have your JSP page set up to provide TwiML responses, use the URL of the JSP page as the URL passed into the `CallFactory.create` method. For example, if you have a Web application named MyTwiML deployed to a Windows Azure hosted service, and the name of the JSP page is mytwiml.jsp, the URL can be passed to `CallFactory.create` as shown in the following:
+Once you have your JSP page set up to provide TwiML responses, use the URL of the JSP page as the URL passed into the **CallFactory.create** method. For example, if you have a Web application named MyTwiML deployed to a Windows Azure hosted service, and the name of the JSP page is mytwiml.jsp, the URL can be passed to **CallFactory.create** as shown in the following:
 
     // Place the call From, To and URL values into a hash map. 
     HashMap<String, String> params = new HashMap<String, String>();
@@ -135,7 +135,7 @@ Once you have your JSP page set up to provide TwiML responses, use the URL of th
     CallFactory callFactory = account.getCallFactory();
     Call call = callFactory.create(params);
 
-Another option for responding with TwiML is via the `TwiMLResponse` class, which is available in the `com.twilio.sdk.verbs` package.
+Another option for responding with TwiML is via the **TwiMLResponse** class, which is available in the **com.twilio.sdk.verbs** package.
 
 For additional information about using Twilio in Windows Azure with Java, see [How to Make a Phone Call Using Twilio in a Java Application on Windows Azure][howto_phonecall_java].
 
