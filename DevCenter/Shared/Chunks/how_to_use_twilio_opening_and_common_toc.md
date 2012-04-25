@@ -2,10 +2,7 @@ This guide demonstrates how to perform common programming tasks with the Twilio 
 
 ## Table of Contents
 * [What is Twilio?](#WhatIs)
-* [Twilio Features](#Features)
 * [Twilio Pricing](#Pricing)
-* [Twilio API](#API)
+* [Concepts](#Concepts)
 * [Create a Twilio Account](#CreateAccount)
-* [Special Twilio Offer for Windows Azure customers](#SpecialOffer)
-* [Twilio Account ID and Authentication Token](#AccountID)
-* [Verifying Phone Numbers](#VerifyPhoneNumbers)
+* [Verify Phone Numbers](#VerifyPhoneNumbers)
