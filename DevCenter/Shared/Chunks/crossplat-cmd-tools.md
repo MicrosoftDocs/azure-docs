@@ -1,20 +1,18 @@
 #How to Use the Windows Azure Cross-Platform Command Line Tools
 
-	**TODO: Intro**
+This guide describes how to use Windows Azure Cross-Platform Command Line Tools to create and manage services in Windows Azure. The scenarios covered include **importing your publishing settings**, **creating and managing Windows Azure Websites**, and **creating and managing Windows Azure Virtual Machines**.
 
 ##Table of Contents
 * [What are the Windows Azure Cross-Platform Command Line Tools](#Overview)
 * [How to Install the Windows Azure Cross-Platform Command Line Tools](#Download)
 * [How to Create a Windows Azure Account](#CreateAccount)
 * [How to Download and Import Publish Settings](#Account)
-* [How to Manage Certificates](#Certificates)
-* [How to Manage Local Settings](#LocalSettings)
+* [How to Create and Manage a Windows Azure Web Site](#WebSites)
+* [How to Create and Manage a Virtual Machine](#VMs)
 * [How to Manage Disk Images](#DiskImages)
 * [How to Manage VM Images](#VMImages)
-* [How to Create and Manage a Windows Azure Web Site](#WebSites)
-* [How to Manage Virtual Machines](#VMs)
-* [How to Manage VM Endpoints](#VMEndpoints)
-* [How to Manage VM Data Disks](#VMDataDisks)
+* [How to Manage Certificates](#Certificates)
+* [How to Manage Local Settings](#LocalSettings)
 
 <h2 id="Overview">What are the Windows Azure Cross-Platform Command Line Tools</h2>
 
@@ -22,7 +20,9 @@ The Windows Azure Cross-Platform Command Line Tools are a set of command-line to
  
 The supported tasks include the following:
 
-* Import publishing settings to enable you to deploy services in Windows Azure.
+* Import publishing settings.
+* Create and manage Windows Azure Websites.
+* Create and manage Windows Azure Virtual Machines.
 * **(TODO: FILL out this list)**
 
 For a complete list of supported commands, type `azure -help` at the command line after installing the tools.
@@ -65,21 +65,13 @@ You can remove all of the information stored by the `import` command by running 
 
 	azure account clear
 
-To see a list of options for these commands, run the following:
+To see a list of options for `account` commands, run the following:
 
 	azure account -help 
 
-<h2 id="Certificates">How to Manage Certificates</h2>
-
-<h2 id="LocalSettings">How to Manage Local Settings</h2>
-
-<h2 id="DiskImages">How to Manage Disk Images</h2>
-
-<h2 id="VMImages">How to Manage VM Images</h2>
-
 <h2 id="WebSites">How to Create and Manage a Windows Azure Web Site</h2>
 
-To create a website, you first need to change directories to your local application directory. This is necessary becasue the tools will write files and subdirectories that contain information for managing a site to the directory from which the command below is executed. After you have changed directories, run the following command, replacing `[site name]` with the name of your website:
+To create a Windows Azure Website, you first need to change directories to your local application directory. This is necessary becasue the tools will write files and subdirectories that contain information for managing a site to the directory from which the command below is executed. After you have changed directories, run the following command, replacing `[site name]` with the name of your website:
 
 	azure site create [site name]
 
@@ -99,7 +91,7 @@ To get detailed information about a site, run the following:
 
 	azure site show [site name]
 
-You can stop and start a site (respectively) with the following commands:
+You can stop or start a site (respectively) with one of the following commands:
 
 	azure site stop [site name]
 	azure stie start [site name]
@@ -108,12 +100,56 @@ To see a complete list of `azure site` commands, run the following:
 
 	azure site -help
 
+To see a list of options for `vm` commands, run the following:
 
-<h2 id="VMs">How to Manage Virtual Machines</h2>
+	azure vm -help 
 
-<h2 id="VMEndpoints">How to Manage VM Endpoints</h2>
+<h2 id="VMs">How to Create and Manage a Virtual Machine</h2>
 
-<h2 id="VMDataDisks">How to Manage VM Data Disks</h2>
+A Windows Azure Virtual Machine allows you to run the operating system of your choice, inlcuding Linux. You can create a VM from images that are available in the Image Gallery, or you can provide your own image.
+
+To see images that are available, run the following command:
+
+	**TODO: figure out what this command is, and what images are shown...Gallery + custom?**
+
+To create a new VM from one of the available images, run this command:
+
+	azure vm create <dns-prefix> <image> <userName> [password]
+
+The parameters in the command above are as follows:
+
+* `<dns-prefix>`: The DNS prefix for VM URL. This will also be the VM name.
+* `<image>`: The image name (from the list of available images).
+* `<userName>`: The administrator user name.
+* `[password]`: The administrator's password.
+
+To see a list of provisioned VMs, run the following:
+
+	azure vm list
+
+To get detailed information about a VM, run the following:
+
+	azure vm show <vm name>
+
+**TODO: Add info about endpoint and disk management?**
+
+You can shutdown, start, or restart a VM (respectively), with one of the following commands:
+
+	azure vm shutdown <vm name>
+	azure vm start <vm name>
+	azure vm restart <vm name>
+
+To delete a VM, run the following:
+
+	azure vm delete <vm name>
+
+<h2 id="DiskImages">How to Manage Disk Images</h2>
+
+<h2 id="VMImages">How to Manage VM Images</h2>
+
+<h2 id="Certificates">How to Manage Certificates</h2>
+
+<h2 id="LocalSettings">How to Manage Local Settings</h2>
 
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
