@@ -6,13 +6,12 @@
 * [What are the Windows Azure Cross-Platform Command Line Tools](#Overview)
 * [How to Install the Windows Azure Cross-Platform Command Line Tools](#Download)
 * [How to Create a Windows Azure Account](#CreateAccount)
-* [How to Manage Account and Publish Settings](#Account)
+* [How to Download and Import Publish Settings](#Account)
 * [How to Manage Certificates](#Certificates)
-* [How to Manage Cloud Services](#CloudServices)
 * [How to Manage Local Settings](#LocalSettings)
 * [How to Manage Disk Images](#DiskImages)
 * [How to Manage VM Images](#VMImages)
-* [How to Manage Windows Azure Web Sites](#WebSites)
+* [How to Create and Manage a Windows Azure Web Site](#WebSites)
 * [How to Manage Virtual Machines](#VMs)
 * [How to Manage VM Endpoints](#VMEndpoints)
 * [How to Manage VM Data Disks](#VMDataDisks)
@@ -38,18 +37,27 @@ For a complete list of supported commands, type `azure -help` at the command lin
 
 **For Windows users**, **TODO: Get info from Glenn about positioning vs. Powershell**
 
+To test the installation, type the following at the command prompt:
+
+	azure
+
+This will list all of the available `azure` commands. For details about a particular command, run the following:
+
+	azure [command name] -help
+
 <h2 id="CreateAccount">How to Create a Windows Azure Account</h2>
 
-	**TODO: Reference content chunk?**
+	**TODO: Reference content chunk: talk to Diane**
 
 <h2 id="Account">How to Download and Import Publish Settings</h2>
+
 Downloading and importing your publish settings will allow you to use the command-line tools to create and manage Azure Services. To download your publish settings, run the following command:
 
 	azure account download
 
 This will open your default browser and prompt you to sign in with your Windows Azure credentials. After signing in, your `.publishsettings` file will be downloaded.
 
-The next step, importing the `.publishsettings` file, allows the command-line tools to create and manage Windows Azure Services. To import your `.publishsettings` file, run the following command, replacing `<path to .publishsettings file>` with the path to your .publishsettings file:
+Next, import the `.publishsettings` file by running the following command, replacing `<path to .publishsettings file>` with the path to your .publishsettings file:
 
 	azure account import <path to .publishsettings file>
 
@@ -57,11 +65,11 @@ You can remove all of the information stored by the `import` command by running 
 
 	azure account clear
 
-	**TODO: Provide summary of other 'account' commands (if they exist)**  
+To see a list of options for these commands, run the following:
+
+	azure account -help 
 
 <h2 id="Certificates">How to Manage Certificates</h2>
-
-<h2 id="CloudServices">How to Manage Cloud Services</h2>
 
 <h2 id="LocalSettings">How to Manage Local Settings</h2>
 
@@ -69,13 +77,43 @@ You can remove all of the information stored by the `import` command by running 
 
 <h2 id="VMImages">How to Manage VM Images</h2>
 
-<h2 id="WebSites">How to Manage Windows Azure Web Sites</h2>
+<h2 id="WebSites">How to Create and Manage a Windows Azure Web Site</h2>
+
+To create a website, you first need to change directories to your local application directory. This is necessary becasue the tools will write files and subdirectories that contain information for managing a site to the directory from which the command below is executed. After you have changed directories, run the following command, replacing `[site name]` with the name of your website:
+
+	azure site create [site name]
+
+The output from this command will contain the default URL for your website.
+
+Note that you can execute the `azure site create` command with any of the following options:
+
+* `--location [location name]`. This option allows you to specify the location of the data center in which your website is created. Possible values are **TODO: get list of location values and the default value**.
+* `--hostname [custom host nam]`. This option allows you to specify a custom hostname for your website.
+* `--git`. This option allows you to use git to publish to your website by creating git repositories in both your local application directory and in your website's data center. If your local application direcotory is already a git repository, the `azure site create` command will create a git repository in your website's data center regardless of whether you use the `--git` option.
+
+To list your websites, use the following command:
+
+	azure site list
+
+To get detailed information about a site, run the following:
+
+	azure site show [site name]
+
+You can stop and start a site (respectively) with the following commands:
+
+	azure site stop [site name]
+	azure stie start [site name]
+
+To see a complete list of `azure site` commands, run the following:
+
+	azure site -help
+
 
 <h2 id="VMs">How to Manage Virtual Machines</h2>
 
 <h2 id="VMEndpoints">How to Manage VM Endpoints</h2>
 
-<h2 id="VMDataDisks">How to Manage VM Endpoints</h2>
+<h2 id="VMDataDisks">How to Manage VM Data Disks</h2>
 
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
