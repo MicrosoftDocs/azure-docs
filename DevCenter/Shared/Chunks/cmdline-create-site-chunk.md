@@ -15,5 +15,3 @@ Note that you can execute the `azure site create` command with any of the follow
 * `--location [location name]`
 * `--hostname [custom host nam]`
 * `--git`
-
-For more information see **TODO: Link to "How to Use the Windows Azure Cross-Platform Command Line Tools"**
