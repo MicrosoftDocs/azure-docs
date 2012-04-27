@@ -14,7 +14,7 @@ For purposes of this example, use the verified phone number as the **From** valu
 
 ## Create a web form for making a call
 
-The following HTML code shows how to build a web pag (**callform.html**) that retrieves user data for making a call:
+The following HTML code shows how to build a web page (**callform.html**) that retrieves user data for making a call:
 
     <html>
 	<head>
@@ -47,7 +47,7 @@ The following HTML code shows how to build a web pag (**callform.html**) that re
 	</html>
 
 ## Create the code to make the call
-The following code shows how to build a web page (**makecall.php**) which is called when the user submits the form displayed by **callform.html**. The code shown below creates the call message and generates the call. (Use your Twilio account and authentication token instead of the placeholder values assigned to `$sid` and `$token` in the code below.)
+The following code shows how to build a web page (**makecall.php**) which is called when the user submits the form displayed by **callform.html**. The code shown below creates the call message and generates the call. (Use your Twilio account and authentication token instead of the placeholder values assigned to **$sid** and **$token** in the code below.)
 
     <html>
 	<head><title>Making call...</title></head>
@@ -89,7 +89,7 @@ Following are the high-level steps for running your application in the Windows A
 
 		>scaffolder run -out="c:\temp\WindowsAzurePHPApp"	
 
-2. Add **callform.html**, **makecall.php**, and the Twilio library for PHP to the newly created `c:\temp\WindowsAzurePHPApp\PhpOnAzure.Web` directory.
+2. Add **callform.html**, **makecall.php**, and the Twilio library for PHP to the newly created **c:\temp\WindowsAzurePHPApp\PhpOnAzure.Web** directory.
 
 3. Run the application in the compute emulator. 
 
