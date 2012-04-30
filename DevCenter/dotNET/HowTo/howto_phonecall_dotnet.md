@@ -1,6 +1,6 @@
 # How to Make a Phone Call Using Twilio in a Web Role on Windows Azure 
 
-a The resulting application will prompt the user for phone call values, as shown in the following screen shot.
+The following example shows you how you can use Twilio to make a call from a web page hosted in Windows Azure. The resulting application will prompt the user for phone call values, as shown in the following screen shot.
 
 ![Windows Azure Call Form Using Twilio and ASP.NET][twilio_dotnet_basic_form]
 
@@ -9,9 +9,9 @@ You will need to do the following to use the code in this topic:
 1. Acquire a Twilio account and authentication token. To get started with Twilio, sign up at [https://www.twilio.com/try-twilio][try_twilio]. You can evaluate pricing at [http://www.twilio.com/pricing][twilio_pricing]. For information about the API provided by Twilio, see [http://www.twilio.com/api][twilio_api].
 2. Verify your phone number with Twilio. For information on how to verify your phone number, see [https://www.twilio.com/user/account/phone-numbers/verified#][verify_phone]. As an alternative to using an existing number, you can purchase a Twilio phone number.<br/>
 For the purposes of this example you will use the Twilio sandbox phone number to send a message to the verified phone number. You can only use the sandbox phone number to send to verified phone numbers
-3. Add the Twilio .NET libary to your Web role. See "To add the Twilio libraries to your Web role Visual Studio solution" below.
+3. Add the Twilio .NET libary to your web role. See "To add the Twilio libraries to your web role Visual Studio solution" below.
 
-You should be familiar with creating a basic Web role on Windows Azure. 
+You should be familiar with creating a basic web role on Windows Azure. 
 
 ## Create a web form for making a call
 
@@ -46,7 +46,7 @@ The following code shows how to create a web form to retrieve user data for maki
 	</asp:Content>
 
 ## Create the code to make the call
-The following code, which is called when the user completes the form, creates the call message and generates the call. For purposes of this example, the code is run in the onclick event handler of the button on the form. (Use your Twilio account and authentication token instead of the placeholder values assigned to `accountSID` and `authToken` in the code below.)
+The following code, which is called when the user completes the form, creates the call message and generates the call. For purposes of this example, the code is run in the onclick event handler of the button on the form. (Use your Twilio account and authentication token instead of the placeholder values assigned to **accountSID** and **authToken** in the code below.)
 
 	using System;
 	using System.Collections.Generic;
@@ -126,10 +126,10 @@ In addition to making the call, the Twilio endpoint, API version, and the call s
 More information about TwiML can be found at [http://www.twilio.com/docs/api/twiml][twiml], and more information about `<Say>` and other Twilio verbs can be found at [http://www.twilio.com/docs/api/twiml/say][twilio_say].
 
 ## Next steps
-This code was provided to show you basic functionality using Twilio in an ASP.NET Web role on Windows Azure. Before deploying to Windows Azure in production, you may want to add more error handling or other features. For example:
+This code was provided to show you basic functionality using Twilio in an ASP.NET web role on Windows Azure. Before deploying to Windows Azure in production, you may want to add more error handling or other features. For example:
 
 * Instead of using a web form, you could use Windows Azure storage blobs or SQL Azure to store phone numbers and call text. For information about using Windows Azure storage blobs, see [How to Use the Blob Storage Service][howto_blob_storage_dotnet]. For information about using SQL Azure, see [How to Use SQL Azure][howto_sql_azure_dotnet].
-* You could use `RoleEnvironment.getConfigurationSettings` to retrieve the Twilio account ID and authentication token from your deployment’s configuration settings, instead of hard-coding the values in your form. For information about the `RoleEnvironment` class, see [Microsoft.WindowsAzure.ServiceRuntime Namespace][azure_runtime_ref_dotnet].
+* You could use RoleEnvironment.getConfigurationSettings to retrieve the Twilio account ID and authentication token from your deployment’s configuration settings, instead of hard-coding the values in your form. For information about the RoleEnvironment class, see [Microsoft.WindowsAzure.ServiceRuntime Namespace][azure_runtime_ref_dotnet].
 * Read the Twilio security guidelines at [https://www.twilio.com/docs/security][twilio_docs_security].
 
 For additional information about Twilio, see [https://www.twilio.com/docs][twilio_docs].
