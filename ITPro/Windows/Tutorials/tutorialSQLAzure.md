@@ -1,16 +1,3 @@
-<style type="text/css">
- <!--
- div.scroll {
- height: 200px;
- width: 300px;
- overflow: auto;
- border: 1px solid #666;
- background-color: #ccc;
- padding: 8px;
- }
- -->
- </style> 
-
 <h1 id="SQLAzureTutorialITPro"> Getting Started with Windows Azure SQL Database</h1>
 
 Learn the fundamentals of Windows Azure SQL Database administration using just the Windows Azure Platform Management portal and the instructions in this tutorial. If you are new to database administration, you can follow these lessons to learn essential skills in about 30 minutes. 
