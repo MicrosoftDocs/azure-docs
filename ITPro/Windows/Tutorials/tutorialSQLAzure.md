@@ -1,13 +1,26 @@
-<h1 id="SQLAzureTutorialITPro"> Getting Started with Windows Azure SQL Databases</h1>
+<style type="text/css">
+ <!--
+ div.scroll {
+ height: 200px;
+ width: 300px;
+ overflow: auto;
+ border: 1px solid #666;
+ background-color: #ccc;
+ padding: 8px;
+ }
+ -->
+ </style> 
 
-Learn the fundamentals of Windows Azure database administration using just the portal and the instructions in this tutorial. If you are new to database administration, you can follow these lessons to learn essential skills in about 30 minutes. 
+<h1 id="SQLAzureTutorialITPro"> Getting Started with Windows Azure SQL Database</h1>
+
+Learn the fundamentals of Windows Azure SQL Database administration using just the Windows Azure Platform Management portal and the instructions in this tutorial. If you are new to database administration, you can follow these lessons to learn essential skills in about 30 minutes. 
 
 This tutorial does not assume prior experience with SQL Server or Windows Azure SQL Database. Upon completing this tutorial, you will have a sample database on Windows Azure and an understanding of how to perform basic administration tasks using the management portal.
 
 You will learn:
 
 * How to create a database and server using the portal.
-* How to add data using script.
+* How to add data to the database using script.
 * How to query sample and system data.
 * How to create a database login and assign permissions.
 * How to connect to the database from Excel.
@@ -38,7 +51,7 @@ To get started with a free account, click free trial in the upper right corner a
 
     ![Image2] []
 
-    Choosing this option lets you create a new server at the same time, with you as the administrator. As the system administrator, you can perform more tasks, including connecting to the SQL Database management portal, which you will do later in this tutorial.  
+    Choosing this option lets you create a new server at the same time, with you as the administrator. As the system administrator, you can perform more tasks, including connecting to the Management Portal for SQL Azure, which you will do later in this tutorial.  
 
 4.  The Database Settings page appears when you click **Custom Create**. In this page, you provide basic information that creates an empty database on the server. Adding tables and data will come in a later step. 
 
@@ -59,13 +72,13 @@ To get started with a free account, click free trial in the upper right corner a
 
     ![Image4] []
 
-* Enter an administrator name as one word with no spaces. SQL Database uses SQL Authentication over an encrypted connection to validate user identity. A new login that has administrator permissions will be created using the name you provide. The administrator name cannot be a Windows user, nor should it be a Windows Live ID. Windows authentication is not supported on SQL Database.
+* Enter an administrator name as one word with no spaces. SQL Database uses SQL Authentication over an encrypted connection to validate user identity. A new SQL Server authentication login that has administrator permissions will be created using the name you provide. The administrator name cannot be a Windows user, nor should it be a Windows Live ID. Windows authentication is not supported on SQL Database.
 
 * Provide a strong password that is over eight characters, using a combination of upper and lower case values, and a number or symbol.
 
 * Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Generally, you choose a location that is closest to you or your customers to minimize how long it takes data to travel over an internet connection.
 
-* Be sure to keep the **Allow Windows Azure Services to access this server**  checkbox selected so that you can connect to this database using the SQL Database management portal, Excel in Office 365, or Windows Azure SQL Reporting.
+* Be sure to keep the **Allow Windows Azure Services to access this server**  checkbox selected so that you can connect to this database using the Management Portal for SQL Azure, Excel in Office 365, or Windows Azure SQL Reporting.
 
 * Click the checkmark at the bottom of the page when you are finished.
 
@@ -108,13 +121,13 @@ To configure the firewall so that connections are allowed through, you'll enter 
 
 You now have a SQL Database server on Windows Azure, a firewall rule that enables access to the server, a database object, and an administrator login. But you still don't have a working database that you can query. To do that, your database must have a schema and actual data.
 
-Because this tutorial uses just the tools on hand, you'll use the query window in the management portal to run Transact-SQL (T-SQL) script that builds a predefined database.
+Because this tutorial uses just the tools at hand, you'll use the query window in the Management Portal for SQL Azure to run Transact-SQL script that builds a predefined database.
 
 As your skills increase, you will want to explore additional ways of creating a database, including programmatic approaches or the designer in SQL Server Data Tools. If you already have an existing SQL Server database that runs on a local server, you can easily migrate that database to the SQL Azure server that you just set up. Use the links at the end of this tutorial to find out how. 
 
 
 
-<h2 id="AddData">Add data and a schema using T-SQL script</h2>
+<h2 id="AddData">Add data and a schema using Transact-SQL script</h2>
 
 In this step, you run two scripts. The first one creates a schema that defines tables, columns, and relationships. The second script adds the data. Each step is performed independently on a separate connection. If you've built databases in SQL Server before, one of the differences you'll notice in SQL Database is that CREATE and INSERT commands must run in separate batches. SQL Database imposes this requirement to minimize attacks against the data while it is in transit. 
 
@@ -129,7 +142,7 @@ In this step, you run two scripts. The first one creates a schema that defines t
 
    ![Image9] []
 
-3. Click **Manage** at the bottom of the page. If it is not visible, refresh the browser window. This will open the SQL Database management portal. This portal is separate from the Windows Azure management portal. You'll use this portal to run T-SQL commands and queries. 
+3. Click **Manage** at the bottom of the page. If it is not visible, refresh the browser window. This will open the Management Portal for SQL Azure. This portal is separate from the Windows Azure management portal. You'll use this portal to run Transact-SQL commands and queries. 
 
 	![Image10] []
 
@@ -137,7 +150,7 @@ In this step, you run two scripts. The first one creates a schema that defines t
 
 	![Image11] []
 
-5. Click **New Query** in SQL Database management portal. An empty query window opens in the workspace. In the next step, you will use this window to copy in a series of predefined scripts that will add structure and data to your empty database.
+5. Click **New Query** in Management Portal for SQL Azure. An empty query window opens in the workspace. In the next step, you will use this window to copy in a series of predefined scripts that will add structure and data to your empty database.
 
 	![Image12] []
 	
@@ -148,13 +161,13 @@ In this step, you will create the schema using the following script. The script 
 
 Copy the script and paste it into the query window. Click **Run** at the top of the window to execute the script.
 
-
-    -- Create the Department table.
-    IF NOT EXISTS (SELECT * FROM sys.objects 
+<div style="width:auto; height:600px; overflow:auto"><pre>
+	-- Create the Department table.
+	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[Department]') 
-		AND type in (N'U'))
-    BEGIN
-    CREATE TABLE [dbo].[Department](
+		AND type in (N'U'));
+   	BEGIN
+  	CREATE TABLE [dbo].[Department](
 		[DepartmentID] [int] NOT NULL,
 		[Name] [nvarchar](50) NOT NULL,
 		[Budget] [money] NOT NULL,
@@ -165,13 +178,13 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 	[DepartmentID] ASC
     )WITH (IGNORE_DUP_KEY = OFF)
     )
-    END
+    END;
 	GO
 
 	-- Create the Person table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[Person]') 
-		AND type in (N'U'))
+		AND type in (N'U'));
 	BEGIN
 	CREATE TABLE [dbo].[Person](
 		[PersonID] [int] IDENTITY(1,1) NOT NULL,
@@ -184,13 +197,13 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 	[PersonID] ASC
 	)WITH (IGNORE_DUP_KEY = OFF)
 	) 
-	END
+	END;
 	GO
 
 	-- Create the OnsiteCourse table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OnsiteCourse]') 
-		AND type in (N'U'))
+		AND type in (N'U'));
 	BEGIN
 	CREATE TABLE [dbo].[OnsiteCourse](
 		[CourseID] [int] NOT NULL,
@@ -202,13 +215,13 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 		[CourseID] ASC
 	)WITH (IGNORE_DUP_KEY = OFF)
 	) 
-	END
+	END;
 	GO
 
 	-- Create the OnlineCourse table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OnlineCourse]') 
-		AND type in (N'U'))
+		AND type in (N'U'));
 	BEGIN
 	CREATE TABLE [dbo].[OnlineCourse](
 		[CourseID] [int] NOT NULL,
@@ -218,13 +231,13 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 		[CourseID] ASC
 	)WITH (IGNORE_DUP_KEY = OFF)
 	) 
-	END
+	END;
 	GO
 
 	--Create the StudentGrade table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[StudentGrade]') 
-		AND type in (N'U'))
+		AND type in (N'U'));
 	BEGIN
 	CREATE TABLE [dbo].[StudentGrade](
 		[EnrollmentID] [int] IDENTITY(1,1) NOT NULL,
@@ -236,13 +249,13 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 		[EnrollmentID] ASC
 	)WITH (IGNORE_DUP_KEY = OFF)
 	) 
-	END
+	END;
 	GO
 
 	-- Create the CourseInstructor table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[CourseInstructor]') 
-		AND type in (N'U'))
+		AND type in (N'U'));
 	BEGIN
 	CREATE TABLE [dbo].[CourseInstructor](
 		[CourseID] [int] NOT NULL,
@@ -253,13 +266,13 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 		[PersonID] ASC
 	)WITH (IGNORE_DUP_KEY = OFF)
 	) 
-	END
+	END;
 	GO
 
 	-- Create the Course table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[Course]') 
-		AND type in (N'U'))
+		AND type in (N'U'));
 	BEGIN
 	CREATE TABLE [dbo].[Course](
 		[CourseID] [int] NOT NULL,
@@ -271,13 +284,13 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 		[CourseID] ASC
 	)WITH (IGNORE_DUP_KEY = OFF)
 	)
-	END
+	END;
 	GO
 
 	-- Create the OfficeAssignment table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OfficeAssignment]')
-		AND type in (N'U'))
+		AND type in (N'U'));
 	BEGIN
 	CREATE TABLE [dbo].[OfficeAssignment](
 		[InstructorID] [int] NOT NULL,
@@ -288,112 +301,115 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 		[InstructorID] ASC
 	)WITH (IGNORE_DUP_KEY = OFF)
 	)
-	END
+	END;
 	GO
 
 	-- Define the relationship between OnsiteCourse and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnsiteCourse_Course]')
-       AND parent_object_id = OBJECT_ID(N'[dbo].[OnsiteCourse]'))
+       AND parent_object_id = OBJECT_ID(N'[dbo].[OnsiteCourse]'));
 	ALTER TABLE [dbo].[OnsiteCourse]  WITH CHECK ADD  
        CONSTRAINT [FK_OnsiteCourse_Course] FOREIGN KEY([CourseID])
-	REFERENCES [dbo].[Course] ([CourseID])
+	REFERENCES [dbo].[Course] ([CourseID]);
 	GO
 	ALTER TABLE [dbo].[OnsiteCourse] CHECK 
-       CONSTRAINT [FK_OnsiteCourse_Course]
+       CONSTRAINT [FK_OnsiteCourse_Course];
 	GO
 
 	-- Define the relationship between OnlineCourse and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnlineCourse_Course]')
-       AND parent_object_id = OBJECT_ID(N'[dbo].[OnlineCourse]'))
+       AND parent_object_id = OBJECT_ID(N'[dbo].[OnlineCourse]'));
 	ALTER TABLE [dbo].[OnlineCourse]  WITH CHECK ADD  
        CONSTRAINT [FK_OnlineCourse_Course] FOREIGN KEY([CourseID])
-	REFERENCES [dbo].[Course] ([CourseID])
+	REFERENCES [dbo].[Course] ([CourseID]);
 	GO
 	ALTER TABLE [dbo].[OnlineCourse] CHECK 
-       CONSTRAINT [FK_OnlineCourse_Course]
+       CONSTRAINT [FK_OnlineCourse_Course];
 	GO
 	-- Define the relationship between StudentGrade and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Course]')
-       AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))
+       AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'));
 	ALTER TABLE [dbo].[StudentGrade]  WITH CHECK ADD  
        CONSTRAINT [FK_StudentGrade_Course] FOREIGN KEY([CourseID])
-	REFERENCES [dbo].[Course] ([CourseID])
+	REFERENCES [dbo].[Course] ([CourseID]);
 	GO
 	ALTER TABLE [dbo].[StudentGrade] CHECK 
-       CONSTRAINT [FK_StudentGrade_Course]
+       CONSTRAINT [FK_StudentGrade_Course];
 	GO
 
 	--Define the relationship between StudentGrade and Student.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Student]')
-       AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))	
+       AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'));	
 	ALTER TABLE [dbo].[StudentGrade]  WITH CHECK ADD  
        CONSTRAINT [FK_StudentGrade_Student] FOREIGN KEY([StudentID])
-	REFERENCES [dbo].[Person] ([PersonID])
+	REFERENCES [dbo].[Person] ([PersonID]);
 	GO
 	ALTER TABLE [dbo].[StudentGrade] CHECK 
-       CONSTRAINT [FK_StudentGrade_Student]
+       CONSTRAINT [FK_StudentGrade_Student];
 	GO
 
 	-- Define the relationship between CourseInstructor and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
   	 WHERE object_id = OBJECT_ID(N'[dbo].[FK_CourseInstructor_Course]')
-  	 AND parent_object_id = OBJECT_ID(N'[dbo].[CourseInstructor]'))
+  	 AND parent_object_id = OBJECT_ID(N'[dbo].[CourseInstructor]'));
 	ALTER TABLE [dbo].[CourseInstructor]  WITH CHECK ADD  
   	 CONSTRAINT [FK_CourseInstructor_Course] FOREIGN KEY([CourseID])
-	REFERENCES [dbo].[Course] ([CourseID])
+	REFERENCES [dbo].[Course] ([CourseID]);
 	GO
 	ALTER TABLE [dbo].[CourseInstructor] CHECK 
- 	  CONSTRAINT [FK_CourseInstructor_Course]
+ 	  CONSTRAINT [FK_CourseInstructor_Course];
 	GO
 
 	-- Define the relationship between CourseInstructor and Person.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
  	  WHERE object_id = OBJECT_ID(N'[dbo].[FK_CourseInstructor_Person]')
-	   AND parent_object_id = OBJECT_ID(N'[dbo].[CourseInstructor]'))
+	   AND parent_object_id = OBJECT_ID(N'[dbo].[CourseInstructor]'));
 	ALTER TABLE [dbo].[CourseInstructor]  WITH CHECK ADD  
  	  CONSTRAINT [FK_CourseInstructor_Person] FOREIGN KEY([PersonID])
-	REFERENCES [dbo].[Person] ([PersonID])
+	REFERENCES [dbo].[Person] ([PersonID]);
 	GO
 	ALTER TABLE [dbo].[CourseInstructor] CHECK 
-  	 CONSTRAINT [FK_CourseInstructor_Person]
+  	 CONSTRAINT [FK_CourseInstructor_Person];
 	GO
 
 	-- Define the relationship between Course and Department.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_Course_Department]')
-       AND parent_object_id = OBJECT_ID(N'[dbo].[Course]'))
+       AND parent_object_id = OBJECT_ID(N'[dbo].[Course]'));
 	ALTER TABLE [dbo].[Course]  WITH CHECK ADD  
        CONSTRAINT [FK_Course_Department] FOREIGN KEY([DepartmentID])
-	REFERENCES [dbo].[Department] ([DepartmentID])
+	REFERENCES [dbo].[Department] ([DepartmentID]);
 	GO
-	ALTER TABLE [dbo].[Course] CHECK CONSTRAINT [FK_Course_Department]
+	ALTER TABLE [dbo].[Course] CHECK CONSTRAINT [FK_Course_Department];
 	GO
 
 	--Define the relationship between OfficeAssignment and Person.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
 	  WHERE object_id = OBJECT_ID(N'[dbo].[FK_OfficeAssignment_Person]')
- 	  AND parent_object_id = OBJECT_ID(N'[dbo].[OfficeAssignment]'))
+ 	  AND parent_object_id = OBJECT_ID(N'[dbo].[OfficeAssignment]'));
 	ALTER TABLE [dbo].[OfficeAssignment]  WITH CHECK ADD  
  	  CONSTRAINT [FK_OfficeAssignment_Person] FOREIGN KEY([InstructorID])
-	REFERENCES [dbo].[Person] ([PersonID])
+	REFERENCES [dbo].[Person] ([PersonID]);
 	GO
 	ALTER TABLE [dbo].[OfficeAssignment] CHECK 
-   	 CONSTRAINT [FK_OfficeAssignment_Person]
+   	 CONSTRAINT [FK_OfficeAssignment_Person];
 	GO
+</pre></div>
 
 
+<SPACER TYPE=VERTICAL SIZE=30>
 <h2 id="insertData">Insert data</h2>
 
 Open a new query window and then paste in the following script. Run the script to insert data. This script uses the [INSERT](http://msdn.microsoft.com/en-us/library/windowsazure/ee336284.aspx) statement to add values to each column.
 
+<div style="width:auto; height:600px; overflow:auto"><pre>
 	-- Insert data into the Person table.
-	USE School
+	USE School;
 	GO
-	SET IDENTITY_INSERT dbo.Person ON
+	SET IDENTITY_INSERT dbo.Person ON;
 	GO
 	INSERT INTO dbo.Person (PersonID, LastName, FirstName, HireDate, EnrollmentDate)
 	VALUES (1, 'Abercrombie', 'Kim', '1995-03-11', null);
@@ -464,7 +480,7 @@ Open a new query window and then paste in the following script. Run the script t
 	INSERT INTO dbo.Person (PersonID, LastName, FirstName, HireDate, EnrollmentDate)
 	VALUES (34, 'Van Houten', 'Roger', '2000-12-07', null);
 	GO
-	SET IDENTITY_INSERT dbo.Person OFF
+	SET IDENTITY_INSERT dbo.Person OFF;
 	GO
 	-- Insert data into the Department table.
 	INSERT INTO dbo.Department (DepartmentID, [Name], Budget, StartDate, Administrator)
@@ -641,16 +657,19 @@ Open a new query window and then paste in the following script. Run the script t
 	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
 	VALUES (1061, 30, 4);
 	GO
+</pre></div>
 
-
+<SPACER TYPE=VERTICAL SIZE=30>
 <h2 id="QueryDBSysData">Query sample and system data in the management portal</h2>
 
 To check your work, run a query that returns the data you just entered. You can also run built-in stored procedures and data management views that provide information about the databases running on your SQL Database server.
 
 <h4 id="QueryDB">Query sample data</h4>
 
-In a new query window, copy and run the following T-SQL script to retrieve some of the data you just added.
+In a new query window, copy and run the following Transact-SQL script to retrieve some of the data you just added.
 
+
+<div style="width:auto; height:auto; overflow:auto"><pre>
 	SELECT
 		Course.Title as "Course Title"
   		,Department.Name as "Department"
@@ -667,7 +686,8 @@ In a new query window, copy and run the following T-SQL script to retrieve some 
  	 INNER JOIN Person
  	   ON CourseInstructor.PersonID = Person.PersonID
  	 INNER JOIN OnsiteCourse
-		ON OnsiteCourse.CourseID = CourseInstructor.CourseID
+		ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
+</pre></div>
 
 You should see a result set that looks like the following illustration.
 
@@ -696,20 +716,20 @@ Do not close the portal connection to the **School** database. You will need it 
 
 <h2 id="DBLogin">Create a database login and assign permissions</h2>
 
-In SQL Database, data access is configured using T-SQL. In this lesson, using T-SQL, you will do three things: create a login, create  a database user, and grant permissions via role membership.
+In SQL Database, data access is configured using Transact-SQL. In this lesson, using Transact-SQL, you will do three things: create a SQL Server authentication login, create  a database user, and grant permissions via role membership.
 
-A SQL login is used for server connections. All users who access a database on a SQL Database server do so by providing a SQL login name and password. 
+A SQL Server authentication login is used for server connections. All users who access a database on a SQL Database server do so by providing a SQL Server authentication login name and password. 
 
 To create a login, you must first connect to the **master** database.
 
-<h4 id=CreateLogin>Create a SQL login</h4>
+<h4 id=CreateLogin>Create a SQL Server authentication login</h4>
 
 1. Go back to the Windows Azure portal, select **SQL Databases**, click **Servers**, choose the server and then click the white arrow to open the
 server page. 
 
     ![Image5] []
 
-2. On the Quick Start page, click **Manage Server** to open a new SQL Database management portal connection. 
+2. On the Quick Start page, click **Manage Server** to open a new connection to the Management Portal for SQL Azure. 
 
 3. Enter the administrator name and password. This is the administrator login that you specified when you created the server.
 
@@ -719,22 +739,22 @@ server page.
 
 	![Image14] []
 
-5. If you see an error on the page similar to the following, ignore it. Click **New Query** to open a query window that lets you execute T-SQL commands on the **master** database.
+5. If you see an error on the page similar to the following, ignore it. Click **New Query** to open a query window that lets you execute Transact-SQL commands on the **master** database.
 
 	![Image15] []
 
 6. Copy and paste the following command into the query window.
 
-     CREATE LOGIN myDBlogin WITH password='Password1';
+        CREATE LOGIN myDBlogin WITH password='Password1';
 
 7. Run the command to create a new SQL Server login named 'myDBlogin'.
 
 
 <h4 id=CreateDBuser>Create a database user and assign permissions</h4>
 
-After you create a login, the next step is to assign the database and permission levels associated with the login. You do this by creating a **database user** on each database.
+After you create a SQL Server authentication login, the next step is to assign the database and permission levels associated with the login. You do this by creating a **database user** on each database.
 
-1. Go back to the SQL Database management portal page that connects to the **School** database. If you closed the browser window, start a new connection to **School** database using the steps from the previous lesson, "Add data and a schema using T-SQL script". 
+1. Go back to the SQL Database management portal page that connects to the **School** database. If you closed the browser window, start a new connection to **School** database using the steps from the previous lesson, "Add data and a schema using Transact-SQL script". 
 
 	On the SQL Database management portal page, the **School** database name is visible in the top left corner.
 
@@ -742,19 +762,17 @@ After you create a login, the next step is to assign the database and permission
 
 2. Click **New Query** to open a new query window and copy in the following statement. 
 
-	CREATE USER myDBuser FROM LOGIN myDBlogin;
+	    CREATE USER myDBuser FROM LOGIN myDBlogin;
 
-3. Run the script. This script creates a new database user based on the server login.
+3. Run the script. This script creates a new database user based on the login.
 
    Next, you'll assign permissions using the db_datareader role. Database users assigned to this role can read all data from all user tables in the database. 
 
-4. Open a new query window and then enter and run the next statement. This statement runs a built-in stored procedure that assigns the db_datareader role to the new user you just created.
+4. Open a new query window and then enter and run the next statement. This statement runs a built-in stored procedure that assigns the db_datareader role to the new user you just created. 
 
+        EXEC sp&#95;addrolemember 'db&#95;datareader', 'myDBuser';
 
-     EXEC sp&#95;addrolemember 'db&#95;datareader', 'myDBuser';
-
-
-You now have a new SQL Server login that has read-only permission to the **School** database. Using these steps, you can create other logins to allow different levels of access to your data.
+You now have a new SQL Server authentication login that has read-only permission to the **School** database. Using these steps, you can create other SQL Server authentication logins to allow different levels of access to your data.
 
 
 
@@ -770,11 +788,11 @@ If Excel 2010 is installed on your computer, you can use the following steps to 
 
 1. In Excel, on the Data tab, click **From Other Sources**, and then click **From SQL Server**.
 
-2. In the Data Connection wizard, enter the fully-qualified domain name of your SQL Database server, followed by a SQL Server login that has permission to access the database. 
+2. In the Data Connection wizard, enter the fully-qualified domain name of your SQL Database server, followed by a SQL Server authentication login that has permission to access the database. 
 
   The server name can be found on the Windows Azure management portal, on SQL Database, on Server page, on the Dashboard, in **Manage URL**. The server name consists of a series of letters and numbers, followed by '.database.windows.net'. Specify this name in the Database Connection wizard. Do not include the http:// or https:// prefix when specifying the name.
 
-  Enter a SQL login. For testing purposes, you can use the administrator login that you created when you set up the server. For regular data access, use a database user login similar to the one you just created.
+  Enter a SQL Server authentication login. For testing purposes, you can use the administrator login that you created when you set up the server. For regular data access, use a database user login similar to the one you just created.
 
     ![Image16] []
 
@@ -798,9 +816,9 @@ Using just Excel, you can import only one table at a time. A better approach is 
 
 Now that you are familiar with SQL Database and the management portals, you can move on to the next step by learning more about tools and techniques used by SQL Server database administrators.
 
-To actively manage your new database, consider installing and using SQL Server Management Studio. Management Studio is the primary database administration tool for managing SQL Server databases, including those running on Windows Azure. Using Management Studio, you can save queries for future use, add new tables and stored procedures, and hone your T-SQL skills in a rich scripting environment that includes a syntax checker, intellisense, and templates. To get started, follow the instructions in [Managing SQL Azure Servers and Databases Using SQL Server Management Studio](http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/).
+To actively manage your new database, consider installing and using SQL Server Management Studio. Management Studio is the primary database administration tool for managing SQL Server databases, including those running on Windows Azure. Using Management Studio, you can save queries for future use, add new tables and stored procedures, and hone your Transact-SQL skills in a rich scripting environment that includes a syntax checker, intellisense, and templates. To get started, follow the instructions in [Managing SQL Azure Servers and Databases Using SQL Server Management Studio](http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/).
 
-Fluency in the T-SQL query and data definition language is essential for database administrators. If you are new to T-SQL, start with the [Tutorial: Writing Transact-SQL Statements](http://msdn.microsoft.com/en-us/library/ms365303.aspx) to learn some basic skills.
+Fluency in the Transact-SQL query and data definition language is essential for database administrators. If you are new to Transact-SQL, start with the [Tutorial: Writing Transact-SQL Statements](http://msdn.microsoft.com/en-us/library/ms365303.aspx) to learn some basic skills.
 
 There are other methods for moving an on-premise database to SQL Database. If you have existing databases, or if you downloaded sample databases to practice with, try the following alternative approaches:
 
