@@ -4,8 +4,8 @@ Twilio is a telephony web-service API that lets you use your existing web langua
 
 **Twilio Voice** allows your applications to make and receive phone calls. **Twilio SMS** allows your applications to make and receive SMS messages. **Twilio Client** allows your applications to enable voice communication using existing Internet connections, including mobile connections.
 
-<h2 id="Pricing">Twilio Pricing</h2>
-Information about Twilio pricing is available at [Twilio Pricing] [twilio_pricing]. For a Twilio special offer for Windows Azure customers, see [To be determined – the link doesn’t exist yet].
+<h2 id="Pricing">Twilio Pricing and Special Offers</h2>
+Information about Twilio pricing is available at [Twilio Pricing] [twilio_pricing]. Windows Azure customers receive a [special offer][special_offer]: a free credit of 1000 texts or 1000 inbound minutes. To sign up for this offer or get more information, please visit [http://ahoy.twilio.com/azure][special_offer].  
 
 <h2 id="Concepts">Concepts</h2>
 The Twilio API is a RESTful API that provides voice and SMS functionality for applications. Client libraries are available in multiple languages; for a list, see [Twilio API Libraries] [twilio_libraries].
@@ -53,6 +53,7 @@ Various phone numbers need to be verified with Twilio for your account. For exam
 As an alternative to using an existing number for your applications, you can purchase a Twilio phone number. For information about purchasing a Twilio phone number, see [Twilio Phone Numbers Help](https://www.twilio.com/help/faq/phone-numbers).
 
 [twilio_pricing]: http://www.twilio.com/pricing
+[special_offer]: http://ahoy.twilio.com/azure
 [twilio_libraries]: https://www.twilio.com/docs/libraries
 [twiml]: http://www.twilio.com/docs/api/twiml
 [twilio_api]: http://www.twilio.com/api
