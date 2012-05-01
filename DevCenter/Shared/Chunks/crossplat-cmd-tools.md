@@ -1,4 +1,4 @@
-#How to Use the Windows Azure Cross-Platform Command Line Tools
+#How to Use the Cross-Platform Tools for Windows Azure
 
 This guide describes how to use Windows Azure Cross-Platform Command Line Tools to create and manage services in Windows Azure. The scenarios covered include **importing your publishing settings**, **creating and managing Windows Azure Websites**, and **creating and managing Windows Azure Virtual Machines**.
 
@@ -14,9 +14,9 @@ This guide describes how to use Windows Azure Cross-Platform Command Line Tools 
 * [How to Manage Certificates](#Certificates)
 * [How to Manage Local Settings](#LocalSettings)
 
-<h2 id="Overview">What are the Windows Azure Cross-Platform Command Line Tools</h2>
+<h2 id="Overview">What are the Cross-Platform Tools for Windows Azure</h2>
 
-The Windows Azure Cross-Platform Command Line Tools are a set of command-line tools for developing and deploying Windows Azure applications. These tools work on any platform, including MacIntosh, Linux, and Windows.
+The Cross-Platform Tools for Windows Azure are a set of command-line tools for deploying and managing Windows Azure applications. These tools work on any platform, including MacIntosh, Linux, and Windows.
  
 The supported tasks include the following:
 
@@ -80,7 +80,7 @@ The output from this command will contain the default URL for your website.
 Note that you can execute the `azure site create` command with any of the following options:
 
 * `--location [location name]`. This option allows you to specify the location of the data center in which your website is created. Possible values are **TODO: get list of location values and the default value**.
-* `--hostname [custom host nam]`. This option allows you to specify a custom hostname for your website.
+* `--hostname [custom host name]`. This option allows you to specify a custom hostname for your website.
 * `--git`. This option allows you to use git to publish to your website by creating git repositories in both your local application directory and in your website's data center. If your local application direcotory is already a git repository, the `azure site create` command will create a git repository in your website's data center regardless of whether you use the `--git` option.
 
 To list your websites, use the following command:
