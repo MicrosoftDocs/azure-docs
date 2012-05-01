@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
-  <properties linkid="dev-net-tutorials-web-app-with-sql-azure" urlDisplayName="Web App with SQL Azure" headerExpose="" pageTitle=".NET Web App with SQL Azure" metaKeywords="Azure hello world tutorial, Azure getting started tutorial, SQL Azure tutorial, Azure .NET hello world tutorial, Azure .NET getting started tutorial, SQL Azure .NET tutorial, Azure C# hello world tutorial, Azure C# getting started tutorial, SQL Azure C# tutorial" footerExpose="" metaDescription="An end-to-end tutorial that helps you develop an ASP.NET MVC 3 application with a SQL Azure back-end and deploy it to Windows Azure." umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="dev-net-tutorials-web-app-with-sql-azure" urlDisplayName="Web App with SQL Azure" headerExpose="" pageTitle=".NET Web App with SQL Azure" metaKeywords="Azure hello world tutorial, Azure getting started tutorial, SQL Azure tutorial, Azure .NET hello world tutorial, Azure .NET getting started tutorial, SQL Azure .NET tutorial, Azure C# hello world tutorial, Azure C# getting started tutorial, SQL Azure C# tutorial" footerExpose="" metaDescription="An end-to-end tutorial that helps you develop an ASP.NET MVC 3 application with a SQL Azure back-end and deploy it to Windows Azure." umbracoNaviHide="0" disqusComments="1" />
   <h1>.NET Web Application with SQL Azure</h1>
   <p>
     <span>Developing for Windows Azure is easy using Visual Studio 2010 and the free Windows Azure SDK for .NET. If you do not already have Visual Studio 2010, the SDK will automatically install Visual Web Developer 2010 Express, so you can start developing for Windows Azure entirely for free. This guide assumes you have no prior experience using Windows Azure. On completing this guide, you will have an application that uses multiple Windows Azure resources up and running in the cloud.</span>
@@ -444,4 +442,3 @@ namespace ToDoListLib.Models
     <li>Review the <a>SQL Azure How-to Guide</a> to learn more about using SQL Azure.</li>
     <li>Complete the <a>Multi-tier Application Tutorial</a> to further your knowledge about Windows Azure by creating a website that leverages a background worker role to process data.</li>
   </ul>
-</body>

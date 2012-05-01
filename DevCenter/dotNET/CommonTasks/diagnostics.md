@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-net-commons-tasks-diagnostics" urlDisplayName="Diagnostics" headerExpose="" pageTitle="Enable Diagnostics - .NET" metaKeywords="Azure diagnostics, Azure monitoring, Azure logs, Azure event logs, Azure logging, Azure crash dumps, Azure diagnostics C#, Azure monitoring C#, Azure logs C#, Azure event logs C#, Azure logging C#, Azure crash dumps C#" footerExpose="" metaDescription="Learn how to collect and view diagnostic data from an application running in Windows Azure. You can use diagnostic data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing." umbracoNaviHide="0" disqusComments="1" />
   <h1>Enabling Diagnostics in Windows Azure</h1>
   <p>Windows Azure Diagnostics enables you to collect diagnostic data from an application running in Windows Azure. You can use diagnostic data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing.</p>
@@ -343,4 +341,3 @@ CloudStorageAccount storageAccount = new CloudStorageAccount(credentials, true);
   <p>
     <a href="http://msdn.microsoft.com/en-us/library/windowsazure/ee405479.aspx">Debugging a Windows Azure Application</a>
   </p>
-</body>

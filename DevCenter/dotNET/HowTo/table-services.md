@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties umbracoNaviHide="0" pageTitle="How to Use the Table Storage Service from .NET" metaKeywords="Get started Azure table, Azure nosql, Azure large structured data store, Azure table, Azure table storage, Azure table .NET, Azure table storage .NET, Azure table C#, Azure table storage C#" metaDescription="Get started with Windows Azure table storage. Learn how to use the Windows Azure table storage service to create and delete tables and insert and query entities in a table." linkid="dev-net-how-to-table-services" urlDisplayName="Table Service" headerExpose="" footerExpose="" disqusComments="1" />
   <h1>How to Use the Table Storage Service</h1>
   <p>This guide will show you how to perform common scenarios using the Windows Azure Table storage service. The samples are written in C# code and use the .NET API. The scenarios covered include <strong>creating and deleting a table, inserting and querying entities in a table</strong>. For more information on tables, see the <a href="#next-steps">Next Steps</a> section.</p>
@@ -498,4 +496,3 @@ tableClient.DeleteTableIfExist("people");
     <li>See the MSDN Reference: <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Windows Azure</a></li>
     <li>Visit the <a href="http://blogs.msdn.com/b/windowsazurestorage/">Windows Azure Storage Team Blog</a></li>
   </ul>
-</body>

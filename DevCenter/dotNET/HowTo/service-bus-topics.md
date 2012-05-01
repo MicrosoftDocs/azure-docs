@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties umbracoNaviHide="0" pageTitle="Service Bus Topics - How To - .NET - Develop" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Azure Service Bus topic, Service Bus topic, Azure messaging topics and subscriptions .NET, Azure Service Bus topic .NET, Service Bus topic .NET, Azure messaging topics and subscriptions C#, Azure Service Bus topic C#, Service Bus topic C#" metaDescription="Get Started with Windows Azure Service Bus topics and subscriptions, including creating topics and subscriptions, creating subscription filters, sending messages to a topic, receiving messages from a subscription, and deleting topics and subscriptions." linkid="dev-net-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" headerExpose="" footerExpose="" disqusComments="1" />
   <h1>How to Use Service Bus Topics/Subscriptions</h1>
   <p>
@@ -313,4 +311,3 @@
     <li>API reference for <a href="http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx">SqlFilter</a>.</li>
     <li>Build a working application that sends and receives messages to and from a Service Bus queue: <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh367512.aspx">Service Bus Brokered Messaging .NET Tutorial</a>.</li>
   </ul>
-</body>

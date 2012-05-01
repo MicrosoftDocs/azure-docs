@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-net-white-papers" urlDisplayName="White Papers" headerExpose="" pageTitle="White Papers on Windows Azure" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
   <h1>White Papers on Windows Azure</h1>
   <p>The white papers listed below provide additional views and perspectives on Windows Azure services.</p>
@@ -189,4 +187,3 @@
       </tr>
     </tbody>
   </table>
-</body>

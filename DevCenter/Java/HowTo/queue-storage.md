@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-net-how-to-use-queue-storage-service-java" urlDisplayName="Queue Service" headerExpose="" pageTitle="How to Use the Queue Storage Service from Java" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
   <h1>How to Use the Queue Storage Service from Java</h1>
   <p>This guide will show you how to perform common scenarios using the Windows Azure Queue storage service. The samples are written in Java and use the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=VS.103).aspx"> Windows Azure SDK for Java</a>. The scenarios covered include inserting, peeking, getting, and deleting queue messages, as well as creating and deleting queues. For more information on queues, refer to the <a href="#bkmk_NextSteps"> Next Steps</a> section.</p>
@@ -266,4 +264,3 @@ queue.delete();</pre>
     <li>See the MSDN Reference: <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx"> Storing and Accessing Data in Windows Azure</a></li>
     <li>Visit the <a href="http://blogs.msdn.com/b/windowsazurestorage/">Windows Azure Storage Team Blog</a></li>
   </ul>
-</body>

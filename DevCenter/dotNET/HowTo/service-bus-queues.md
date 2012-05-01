@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-net-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" headerExpose="" pageTitle="Service Bus Queues - How To - .NET - Develop" metaKeywords="Get Started Service Bus queues, Get started Azure Service Bus queues, Azure messaging, Azure brokered messaging, Azure messaging queue, Service Bus queue, Azure Service Bus queue, Azure messaging .NET, Azure messaging queue .NET, Azure Service Bus queue .NET, Service Bus queue .NET, Azure messaging C#, Azure messaging queue C#, Azure Service Bus queue C#, Service Bus queue C#" footerExpose="" metaDescription="Get started with Windows Azure Service Bus queues, including how to create queues, how to send and receive messages, and how to delete queues." umbracoNaviHide="0" disqusComments="1" />
   <h1>How to Use Service Bus Queues</h1>
   <p>
@@ -256,4 +254,3 @@
     <li>See the MSDN Reference: <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx">Queues, Topics, and Subscriptions.</a></li>
     <li>Build a working application that sends and receives messages to and from a Service Bus queue: <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh367512.aspx">Service Bus Brokered Messaging .NET Tutorial</a>.</li>
   </ul>
-</body>

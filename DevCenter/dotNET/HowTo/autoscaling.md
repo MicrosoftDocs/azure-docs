@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-net-how-to-autoscaling" urlDisplayName="Autoscaling" headerExpose="" pageTitle="Autoscaling - How To - .NET - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
   <h1>How to Use the Autoscaling Application Block</h1>
   <p>This guide will demonstrate how to perform common scenarios using the Autoscaling Application Block from the <a href="http://go.microsoft.com/fwlink/?LinkID=235134">Microsoft Enterprise Library 5.0 Integration Pack for Windows Azure</a>. The samples are written in C# and use the .NET API. The scenarios covered include <strong>hosting the block</strong>, <strong>using constraint rules</strong>, and <strong>using reactive rules</strong>. For more information on the Autoscaling Application Block, see the <a href="#NextSteps">Next Steps</a> section.</p>
@@ -429,4 +427,3 @@ Autoscaling Updates Information: 3002 : Role configuration changes for deploymen
       <a href="http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx">Developer's Guide to the Enterprise Library 5.0 Integration Pack for Windows Azure</a>
     </li>
   </ul>
-</body>

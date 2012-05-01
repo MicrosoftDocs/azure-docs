@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties umbracoNaviHide="0" pageTitle="Service Bus Relay - How To - .NET - Develop" metaKeywords="get started azure Service Bus Relay, Azure relay, Azure Service Bus relay, Service Bus relay, Azure relay .NET, Azure Service Bus relay .NET, Service Bus relay .NET, Azure relay C#, Azure Service Bus relay C#, Service Busy relay C#" metaDescription="Learn how to use the Windows Azure Service Bus relay service to connect two applications hosted in different locations." linkid="dev-net-how-to-service-bus-relay" urlDisplayName="Service Bus Relay" headerExpose="" footerExpose="" disqusComments="1" />
   <h1>How to Use the Service Bus Relay Service</h1>
   <p>
@@ -266,4 +264,3 @@ using (var ch = cf.CreateChannel())
     <li>Building the client: <a href="http://msdn.microsoft.com/en-us/library/windowsazure/ee173543.aspx">Building a Service Bus Client Application</a>.</li>
     <li>Service Bus samples: download from <a href="http://code.msdn.microsoft.com/windowsazure">Windows Azure Samples</a>.</li>
   </ul>
-</body>

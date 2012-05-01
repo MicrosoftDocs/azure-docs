@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Queue Service" headerExpose="" pageTitle="Queue Service - How To - Node.js - Develop" metaKeywords="Azure asynchronous processing Node.js, Azure queue Node.js, Azure queue storage Node.js" footerExpose="" metaDescription="Learn how to use the Windows Azure queue storage service to create and delete queues and insert, peek, get, and delete queue messages from your Node.js application." umbracoNaviHide="0" disqusComments="1" />
   <h1>How to Use the Queue Storage Service from Node.js</h1>
   <p>This guide shows you how to perform common scenarios using the Windows Azure Queue storage service. The samples are written using the Node.js API. The scenarios covered include <strong>inserting</strong>, <strong>peeking</strong>, <strong>getting</strong>, and <strong>deleting </strong>queue messages, as well as <strong>creating and deleting queues</strong>. For more information on queues, refer to the <a href="#next-steps">Next Steps</a> section.</p>
@@ -520,4 +518,3 @@ http.createServer(function serverCreated(req, res) {
     <li>See the MSDN Reference: <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Windows Azure</a></li>
     <li>Visit the <a href="http://blogs.msdn.com/b/windowsazurestorage/">Windows Azure Storage Team Blog</a></li>
   </ul>
-</body>

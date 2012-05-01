@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" headerExpose="" pageTitle="Hybrid On-Premise /Cloud Application" metaKeywords="Azure Service Bus tutorial, Azure Service Bus relay tutorial, Azure hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial" footerExpose="" metaDescription="An end-to-end tutorial that helps you develop an application that uses the Windows Azure Service Bus relay to connect between two applications." umbracoNaviHide="0" disqusComments="1" />
   <h1>.NET On-Premises/Cloud Hybrid Application Using Service Bus Relay</h1>
   <h2>INTRODUCTION</h2>
@@ -524,4 +522,3 @@ namespace ProductsWeb.Controllers
       </ol>
     </li>
   </ol>
-</body>

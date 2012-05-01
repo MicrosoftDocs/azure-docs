@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-nodejs-mongodb" urlDisplayName="Web App with MongoDB" headerExpose="" pageTitle="Node.js Web Application with Storage on MongoDB" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
   <h1>Node.js Web Application with Storage on MongoDB</h1>
   <p>This tutorial describes how to use MongoDB to store and access data from a Windows Azure application written in Node.js. This guide assumes that you have some prior experience using Windows Azure and Node.js. For an introduction to Windows Azure and Node.js, see <a href="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/">Node.js Web Application</a>. The guide also assumes that you have some knowledge of MongoDB. For an overview of MongoDB, see the <a href="http://www.mongodb.org/">MongoDB website</a>.</p>
@@ -603,4 +601,3 @@ form(action="/home/newitem", method="post")
       <p>After the service has been deleted you will receive a message indicating that the service has been deleted.</p>
     </li>
   </ol>
-</body>

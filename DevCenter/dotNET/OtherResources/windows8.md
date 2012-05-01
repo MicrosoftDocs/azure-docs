@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties umbracoNaviHide="1" pageTitle="Windows Azure on Windows 8" metaKeywords="Installing the Windows Azure SDK on Windows 8" metaDescription="Describes how to install the Windows Azure SDK on Windows 8." linkid="dev-net-windows8" urlDisplayName="Windows Azure Install Windows 8" headerExpose="" footerExpose="" disqusComments="1" />
   <h1>Installing the Windows Azure SDK on Windows 8</h1>
   <p>You can develop Windows Azure applications on Windows 8 by manually installing and configuring your development environment. The Windows Azure all-in-one installer is not yet supported on Windows 8. The steps below describe how to set up your Windows 8 system for Windows Azure development.</p>
@@ -100,4 +98,3 @@
     <a name="Support">
     </a>Support</h2>
   <p>For support and questions about the Windows Azure SDK, visit the <a href="http://www.windowsazure.com/en-us/support/forums/">Windows Azure online forums</a>.</p>
-</body>

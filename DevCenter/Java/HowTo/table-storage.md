@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties umbracoNaviHide="0" pageTitle="How to Use the Table Storage Service - How To - Java - Develop" metaKeywords="Get started Azure table Java, Azure nosql Java, Azure table storage Java, Azure table Java" metaDescription="" linkid="dev-java-how-to-use-table-storage" urlDisplayName="Table Service" headerExpose="" footerExpose="" disqusComments="1" />
   <h1>How to Use the Table Storage Service</h1>
   <p>This guide will show you how to perform common scenarios using the Windows Azure Table storage service. The samples are written in Java code. The scenarios covered include <strong>creating and deleting a table, inserting and querying entities in a table</strong>. For more information on tables, see the <a href="#bkmk_next-steps">Next Steps</a> section.</p>
@@ -470,4 +468,3 @@ tableClient.deleteTableIfExists("people");</pre>
     <li>See the MSDN Reference: <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Windows Azure</a></li>
     <li>Visit the <a href="http://blogs.msdn.com/b/windowsazurestorage/">Windows Azure Storage Team Blog</a></li>
   </ul>
-</body>

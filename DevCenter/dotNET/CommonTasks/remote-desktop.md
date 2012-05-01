@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-net-commons-tasks-remote-desktop" urlDisplayName="Remote Desktop" headerExpose="" pageTitle="Enable Remote Desktop - .NET - Develop" metaKeywords="Azure remote access, Azure remote connection, Azure VM access, Azure virtual machine access, Azure .NET remote access, Azure .NET remote connection, Azure .NET VM access, Azure .NET virtual machine access, Azure C# remote access, Azure C# remote connection, Azure C# VM access, Azure C# virtual machine access, Azure Visual Studio remote access, Azure Visual Studio remote connection" footerExpose="" metaDescription="Learn how to enable remote-desktop access for the virtual machines hosting your Windows Azure application. " umbracoNaviHide="0" disqusComments="1" />
   <h1>Enabling Remote Desktop in Windows Azure with Visual Studio</h1>
   <p>Remote Desktop enables you to access the desktop of a role instance running in Windows Azure. You can use a remote desktop connection to configure the virtual machine or troubleshoot problems with your application. Windows Azure Tools for Microsoft Visual Studio, which is included in Windows Azure SDK for .NET, lets you configure Remote Desktop Services from a Windows Azure project in Visual Studio.</p>
@@ -84,4 +82,3 @@
       <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh403987.aspx">Uploading Certificates and Encrypting Passwords for Remote Desktop Connections</a>
     </li>
   </ul>
-</body>
