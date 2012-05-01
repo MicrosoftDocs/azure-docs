@@ -91,10 +91,10 @@ To get detailed information about a site, run the following:
 
 	azure site show [site name]
 
-You can stop or start a site (respectively) with one of the following commands:
+You can stop or start a site with one of the following commands (respectively):
 
 	azure site stop [site name]
-	azure stie start [site name]
+	azure site start [site name]
 
 To see a complete list of `azure site` commands, run the following:
 
