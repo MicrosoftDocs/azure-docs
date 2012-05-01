@@ -1,3 +1,4 @@
+<properties />
 # How to Use Service Bus Topics/Subscriptions
 
 This guide will show you how to use Service Bus topics and
