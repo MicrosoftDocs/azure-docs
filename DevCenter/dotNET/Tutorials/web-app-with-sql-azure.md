@@ -1,6 +1,5 @@
-<properties linkid="dev-net-tutorials-web-app-with-sql-azure" urlDisplayName="Web App with SQL Azure" headerExpose="" pageTitle=".NET Web App with SQL Azure" metaKeywords="Azure hello world tutorial, Azure getting started tutorial, SQL Azure tutorial, Azure .NET hello world tutorial, Azure .NET getting started tutorial, SQL Azure .NET tutorial, Azure C# hello world tutorial, Azure C# getting started tutorial, SQL Azure C# tutorial" footerExpose="" metaDescription="An end-to-end tutorial that helps you develop an ASP.NET MVC 3 application with a SQL Azure back-end and deploy it to Windows Azure." umbracoNaviHide="0" disqusComments="1" />
-# Deploying a .NET Web Application to a Windows Azure Web Site and SQL Azure
- 
+#  Deploying an ASP.NET Web Application to a Windows Azure Web Site and SQL Azure
+
 This walkthrough shows how to deploy an ASP.NET web application to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012 RC or Visual Studio 2012 for Web RC. The wizard enables you to perform most deployment tasks within Visual Studio. The wizard also lets you save Publish profiles so that you can reuse wizard settings in future deployments. This simplifies the deployment process for deploying updates in the future.
 
 You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK will automatically install Visual Studio 2012 for Web Express, so you can start developing for Windows Azure entirely for free.
@@ -149,8 +148,6 @@ This starts the process of copying the files to the Windows Azure server.<br>
 The application you created is now running in the cloud.<br>
 ![To Do List home page running in Windows Azure][Image042]<br>
 
-
-
 ## Add a database to the application
 
 Next, you'll update the MVC application to add the ability to display and update to-do-list items and store the data in a database. The application will use the Entity Framework to create the database and to read and update data in the database.
@@ -289,6 +286,17 @@ When you see that the item you enter is saved and appears on the Index page, you
  
 The application is now running in the cloud, using SQL Azure to store its data.
 
+## Important Information about ASP.NET in Windows Azure Web Sites
+
+Here are some things you should know for planning and developing an ASP.NET application for Windows Azure Web Sites:
+
+* The application must target ASP.NET 4.0 or earlier (not ASP.NET 4.5).
+* The application will run in Integrated mode (not Classic mode).
+* The application should not use Windows Authentication, because the Windows identity that the application runs under might change across process recycles.
+* The application will run in Full Trust (not Medium Trust).
+* The application must use the ASP.NET Universal Providers (the [System.Web.Providers][UniversalProviders] NuGet package) for provider-based features such as membership, profile, role manager, and session state.
+* If the applications writes to files, the files should be located in the application's content folder or one of its subfolders.
+
 ## Next Steps
 
 You've seen how to deploy a web application to a Windows Azure Web Site. To learn more about how to configure, manage, and scale Windows Azure Web Sites, see the how-to topics on the [Common Tasks][CommonTasks] page.
@@ -299,9 +307,16 @@ To learn how to deploy an application to a Windows Azure Cloud App, see the foll
 * [.NET Multi-Tier Application Using Service Bus Queues][MultiTierApp]
 * [.NET On-Premises/Cloud Hybrid Application Using Service Bus Relay][HybridApp]
 
-Another way to store data in a Windows Azure application is to use Windows Azure Storage Services. Windows Azure Storage Services provide non-relational data storage in the form of BLOBs and tables. The to-do list application could have been designed to use Windows Azure Storage instead of SQL Azure. For more information about both SQL Azure and Windows Azure Storage, see [Data Storage Offerings on the Windows Azure Platform][WindowsAzureDataStorageOfferings].
+Another way to store data in a Windows Azure application is to use Windows Azure Storage Services, which provides non-relational data storage in the form of blobs and tables. The to-do list application could have been designed to use Windows Azure Storage instead of SQL Azure. For more information about both SQL Azure and Windows Azure Storage, see [Data Storage Offerings on the Windows Azure Platform][WindowsAzureDataStorageOfferings].
 
-To learn more about how to use SQL Azure, see [SQL Azure How-to Guide][SQLAzureHowTo]. To learn about options for migrating an existing database to SQL Azure, see [Data Migration to SQL Azure: Tools and Techniques][SQLAzureDataMigration]. 
+To learn more about how to use SQL Azure, see the following resources:
+
+* [Data Migration to SQL Azure: Tools and Techniques][SQLAzureDataMigration]
+* [Migrating a Database to SQL Azure using SSDT][SQLAzureDataMigrationBlog]
+* [General Guidelines and Limitations (SQL Azure Database)][SQLAzureGuidelines]
+* [SQL Azure How-to Guide][SQLAzureHowTo]
+* [Transact-SQL Reference (SQL Azure Database)][TSQLReference]
+* [Minimizing Connection Pool errors in SQL Azure][SQLAzureConnPoolErrors]
 
 You might want use the ASP.NET membership system in Windows Azure. For information about how to use either Windows Azure Storage or SQL Azure for the membership database, see [Real World: ASP.NET Forms-Based Authentication Models for Windows Azure][ASP.NETFormsAuth].
 
@@ -316,62 +331,68 @@ You might want use the ASP.NET membership system in Windows Azure. For informati
 [SQLAzureDataMigration]: http://msdn.microsoft.com/en-us/library/windowsazure/hh694043(v=vs.103).aspx
 [ASP.NETFormsAuth]: http://msdn.microsoft.com/en-us/library/windowsazure/hh508993.aspx
 [CommonTasks]: http://windowsazure.com/
+[TSQLReference]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336281.aspx
+[SQLAzureGuidelines]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336245.aspx
+[SQLAzureDataMigrationBlog]: http://blogs.msdn.com/b/ssdt/archive/2012/04/19/migrating-a-database-to-sql-azure-using-ssdt.aspx
+[SQLAzureConnPoolErrors]: http://blogs.msdn.com/b/adonet/archive/2011/11/05/minimizing-connection-pool-errors-in-sql-azure.aspx
+[UniversalProviders]: http://nuget.org/packages/System.Web.Providers
 
-[Image001]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-001.png
-[Image002]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-002.png
-[Image003]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-003.png
-[Image004]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-004.png
-[Image010]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-010.png
-[Image011]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-011.png
-[Image012]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-012.png
-[Image013]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-013.png
-[Image014]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-014.png
-[Image015]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-015.png
-[Image016]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-016.png
-[Image017]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-017.png
-[Image018]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-018.png
-[Image020]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-020.png
-[Image021]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-021.png
-[Image022]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-022.png
-[Image023]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-023.png
-[Image024]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-024.png
-[Image025]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-025.png
-[Image026]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-026.png
-[Image030]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-030.png
-[Image031]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-031.png
-[Image032]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-032.png
-[Image033]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-033.png
-[Image034]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-034.png
-[Image035]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-035.png
-[Image036]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-036.png
-[Image037]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-037.png
-[Image038]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-038.png
-[Image039]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-039.png
-[Image040]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-040.png
-[Image041]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-041.png
-[Image042]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-042.png
-[Image043]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-043.png
-[Image045]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-045.png
-[Image046]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-046.png
-[Image047]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-047.png
-[Image048]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-048.png
-[Image049]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-049.png
-[Image050]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-050.png
-[Image051]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-051.png
-[Image051a]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-051a.png
-[Image052]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-052.png
-[Image053]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-053.png
-[Image054]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-054.png
-[Image055]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-055.png
-[Image056]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-056.png
-[Image057]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-057.png
-[Image058]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-058.png
-[Image059]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-059.png
-[Image060]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-060.png
-[Image061]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-061.png
-[Image062]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-062.png
-[Image063]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-063.png
-[Image070]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-070.png
-[Image071]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-071.png
-[Image072]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-072.png
-[Image073]: ../../../DevCenter/dotNet/Media\dev-net-getting-started-073.png
+
+[Image001]: ../Media/Dev-net-getting-started-001.png
+[Image002]: ../Media/Dev-net-getting-started-002.png
+[Image003]: ../Media/Dev-net-getting-started-003.png
+[Image004]: ../Media/Dev-net-getting-started-004.png
+[Image010]: ../Media/Dev-net-getting-started-010.png
+[Image011]: ../Media/Dev-net-getting-started-011.png
+[Image012]: ../Media/Dev-net-getting-started-012.png
+[Image013]: ../Media/Dev-net-getting-started-013.png
+[Image014]: ../Media/Dev-net-getting-started-014.png
+[Image015]: ../Media/Dev-net-getting-started-015.png
+[Image016]: ../Media/Dev-net-getting-started-016.png
+[Image017]: ../Media/Dev-net-getting-started-017.png
+[Image018]: ../Media/Dev-net-getting-started-018.png
+[Image020]: ../Media/Dev-net-getting-started-020.png
+[Image021]: ../Media/Dev-net-getting-started-021.png
+[Image022]: ../Media/Dev-net-getting-started-022.png
+[Image023]: ../Media/Dev-net-getting-started-023.png
+[Image024]: ../Media/Dev-net-getting-started-024.png
+[Image025]: ../Media/Dev-net-getting-started-025.png
+[Image026]: ../Media/Dev-net-getting-started-026.png
+[Image030]: ../Media/Dev-net-getting-started-030.png
+[Image031]: ../Media/Dev-net-getting-started-031.png
+[Image032]: ../Media/Dev-net-getting-started-032.png
+[Image033]: ../Media/Dev-net-getting-started-033.png
+[Image034]: ../Media/Dev-net-getting-started-034.png
+[Image035]: ../Media/Dev-net-getting-started-035.png
+[Image036]: ../Media/Dev-net-getting-started-036.png
+[Image037]: ../Media/Dev-net-getting-started-037.png
+[Image038]: ../Media/Dev-net-getting-started-038.png
+[Image039]: ../Media/Dev-net-getting-started-039.png
+[Image040]: ../Media/Dev-net-getting-started-040.png
+[Image041]: ../Media/Dev-net-getting-started-041.png
+[Image042]: ../Media/Dev-net-getting-started-042.png
+[Image043]: ../Media/Dev-net-getting-started-043.png
+[Image045]: ../Media/Dev-net-getting-started-045.png
+[Image046]: ../Media/Dev-net-getting-started-046.png
+[Image047]: ../Media/Dev-net-getting-started-047.png
+[Image048]: ../Media/Dev-net-getting-started-048.png
+[Image049]: ../Media/Dev-net-getting-started-049.png
+[Image050]: ../Media/Dev-net-getting-started-050.png
+[Image051]: ../Media/Dev-net-getting-started-051.png
+[Image051a]: ../Media/Dev-net-getting-started-051a.png
+[Image052]: ../Media/Dev-net-getting-started-052.png
+[Image053]: ../Media/Dev-net-getting-started-053.png
+[Image054]: ../Media/Dev-net-getting-started-054.png
+[Image055]: ../Media/Dev-net-getting-started-055.png
+[Image056]: ../Media/Dev-net-getting-started-056.png
+[Image057]: ../Media/Dev-net-getting-started-057.png
+[Image058]: ../Media/Dev-net-getting-started-058.png
+[Image059]: ../Media/Dev-net-getting-started-059.png
+[Image060]: ../Media/Dev-net-getting-started-060.png
+[Image061]: ../Media/Dev-net-getting-started-061.png
+[Image062]: ../Media/Dev-net-getting-started-062.png
+[Image063]: ../Media/Dev-net-getting-started-063.png
+[Image070]: ../Media/Dev-net-getting-started-070.png
+[Image071]: ../Media/Dev-net-getting-started-071.png
+[Image072]: ../Media/Dev-net-getting-started-072.png
+[Image073]: ../Media/Dev-net-getting-started-073.png
