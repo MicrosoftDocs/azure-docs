@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-java-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" headerExpose="" pageTitle="Service Bus Queues - How To - Java - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
   <h1>
     <span> How to Use Service Bus Queues</span>
@@ -187,4 +185,3 @@ key);
     <a name="bkmk_NextSteps">
     </a>Next Steps</h2>
   <p>Now that you've learned the basics of Service Bus queues, see the MSDN topic <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx"> Queues, Topics, and Subscriptions</a> for more information.</p>
-</body>

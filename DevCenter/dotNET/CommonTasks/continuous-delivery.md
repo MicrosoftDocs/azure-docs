@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
-  <properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" headerExpose="" pageTitle="Continuous Delivery for Cloud Applications in Windows Azure" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" headerExpose="" pageTitle="Continuous Delivery for Cloud Applications in Windows Azure" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
   <h1>Continuous Delivery for Cloud Applications in Windows Azure</h1>
   <p>The process described in this article shows you how to set up continuous delivery for Windows Azure cloud apps. This process enables you to automatically create packages and deploy the package to Windows Azure after every code check-in. The package build process described in this article is equivalent to the Package command in Visual Studio, and the publishing steps are equivalent to the Publish command in Visual Studio. The article covers the methods you would use to create a build server with MSBuild command-line statements and Windows PowerShell scripts, and it also demonstrates how to optionally configure Visual Studio Team Foundation Server - Team Build definitions to use the MSBuild commands and PowerShell scripts. The process is customizable for your build environment and Windows Azure target environments.</p>
   <p>This task includes the following steps:</p>
@@ -635,4 +633,3 @@ $deploymentUrl = $deployment.Url
 Write-Output "$(Get-Date –f $timeStampFormat) - Created Cloud App with URL $deploymentUrl."
 Write-Output "$(Get-Date –f $timeStampFormat) - Azure Cloud App deploy script finished."
 </pre>
-</body>

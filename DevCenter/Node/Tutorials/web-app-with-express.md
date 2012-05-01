@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-nodejs-basic-web-app-with-express" urlDisplayName="Web App With Express" headerExpose="" pageTitle="Web App With Express" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" footerExpose="" metaDescription="An tutorial that builds on the Web app tutorial, and demonstrates how to use the Express module" umbracoNaviHide="0" disqusComments="1" />
   <h1 id="node.jswebapplicationusingexpress">Node.js Web Application using Express</h1>
   <p>Node.js includes a minimal set of functionality in the core runtime. Developers often use 3rd party modules to provide additional functionality when developing a Node.js application. In this tutorial you will extend the application created in the <a href="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/">Node.js Web Application</a> tutorial by using modules.</p>
@@ -157,4 +155,3 @@ p A work in progress.
   <p>
     <img src="../../../DevCenter/Node/Media/node36.png" alt="A web browser displaying the Express page. The URL indicates it is now hosted on Windows Azure." />
   </p>
-</body>

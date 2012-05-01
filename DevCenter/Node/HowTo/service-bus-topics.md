@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties umbracoNaviHide="0" pageTitle="Service Bus Topics - How To - Node.js - Develop" metaKeywords="Service Bus topics Node.js, getting started service bus topics node.js, getting started service bus subscriptions node.j" metaDescription="" linkid="dev-nodejs-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" headerExpose="" footerExpose="" disqusComments="1" />
   <h1 id="How_to_Use_Service_Bus_TopicsSubscriptions">How to Use Service Bus Topics/Subscriptions</h1>
   <p>This guide will show you how to use Service Bus topics and subscriptions from Node.js applications. The scenarios covered include <strong>creating topics and subscriptions, creating subscription filters, sending messages</strong> to a topic, <strong>receiving messages from a subscription</strong>, and <strong>deleting topics and subscriptions</strong>. For more information on topics and subscriptions, see the <a href="#nextsteps">Next Steps</a> section.</p>
@@ -327,4 +325,3 @@ serviceBusService.receiveSubscriptionMessage('MyTopic', 'HighMessages', { isPeek
     <li>See the MSDN Reference: <a href="http://msdn.microsoft.com/en-us/library/hh367516.aspx">Queues, Topics, and Subscriptions</a>.</li>
     <li>API reference for <a href="http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx">SqlFilter</a>.</li>
   </ul>
-</body>

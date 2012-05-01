@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-net-how-to-sendgrid-email-service" urlDisplayName="SendGrid Email Service" headerExpose="" pageTitle="SendGrid Email Service - How To - .NET - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
   <h1>How to Send Email Using SendGrid</h1>
   <p>This guide demonstrates how to perform common programming tasks with the SendGrid email service on Windows Azure. The samples are written in C# and use the .NET API. The scenarios covered include <strong>constructing email</strong>, <strong>sending email</strong>, <strong>adding attachments</strong>, and <strong>using filters</strong>. For more information on SendGrid and sending email, see the <a href="#nextsteps">Next Steps</a> section.</p>
@@ -225,4 +223,3 @@ myMessage.EnableClickTracking(true);
       <p>SendGrid special offer for Windows Azure customers: <a href="http://sendgrid.com/azure.html">http://sendgrid.com/azure.html</a></p>
     </li>
   </ul>
-</body>

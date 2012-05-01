@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties umbracoNaviHide="0" pageTitle="How to Use the Caching Service from .NET" metaKeywords="Windows Azure cache, Windows Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" metaDescription="Learn how to use the Windows Azure caching service: add and remove objects from the cache, store ASP.NET session state in the cache, and enable ASP.NET page output caching." linkid="Contact - Support" urlDisplayName="Caching" headerExpose="" footerExpose="" disqusComments="1" />
   <h1>How to Use the Caching Service</h1>
   <p>This guide will show you how to perform common scenarios using the Windows Azure Caching service. The samples are written in C# code and use the .NET API. The scenarios covered include <strong>adding and removing objects from the cache, storing ASP.NET session state in the cache</strong>, and <strong>enabling ASP.NET page output caching using the cache</strong>. For more information on using the Windows Azure Caching service, refer to the <a href="#next-steps">Next Steps</a> section.</p>
@@ -250,4 +248,3 @@ TimeSpan timeRemaining = item.Timeout;
     <li>Visit the <a href="http://blogs.msdn.com/b/windowsazure/" target="_blank">Team Blog</a></li>
     <li>Watch training videos on <a href="http://www.microsoft.com/en-us/showcase/Search.aspx?phrase=azure+caching" target="_blank">Windows Azure Caching</a>.</li>
   </ul>
-</body>

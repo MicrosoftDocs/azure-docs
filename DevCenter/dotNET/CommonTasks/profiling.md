@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-net-commons-tasks-profiling" urlDisplayName="Performance Profiling" headerExpose="" pageTitle="Enable Profiling - .NET - Develop" metaKeywords="Azure performance counters, Azure performance profiling, Azure performance counters C#, Azure performance profiling C#" footerExpose="" metaDescription="Learn how to enable and collect data from performance counters in Windows Azure applications. " umbracoNaviHide="0" disqusComments="1" />
   <h1>Using Performance Counters in Windows Azure</h1>
   <p>You can use performance counters in a Windows Azure application to collect data that can help determine system bottlenecks and fine-tune system and application performance. Windows Azure provides a subset of the performance counters available for Windows Server 2008, IIS and ASP.NET. For a list of the performance counters that might be of interest in Windows Azure applications, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh411520.aspx">Overview of Creating and Using Performance Counters in a Windows Azure Application</a>.</p>
@@ -216,4 +214,3 @@ IEnumerable&lt;PerformanceCountersEntity&gt; result = query.Execute();
   <p>
     <a href="http://www.windowsazure.com/en-us/develop/net/how-to-guides/autoscaling/">How to Use the Autoscaling Application Block</a>
   </p>
-</body>

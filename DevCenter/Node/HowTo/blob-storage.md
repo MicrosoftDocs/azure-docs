@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" headerExpose="" pageTitle="How to Use the Blob Storage Service from Node.js" metaKeywords="Azure unstructured data Node.js, Azure unstructured storage Node.js, Azure blob Node.js, Azure blob storage Node.js" footerExpose="" metaDescription="Learn how to use the Windows Azure blob storage service to upload, download, list, and delete blob content from your Node.js application." umbracoNaviHide="0" disqusComments="1" />
   <h1>How to Use the Blob Storage Service from Node.js</h1>
   <p>This guide will show you how to perform common scenarios using the Windows Azure Blob storage service. The samples are written using the Node.js API. The scenarios covered include <strong>uploading</strong>,<strong> listing</strong>, <strong>downloading</strong>, and <strong>deleting</strong> blobs. For more information on blobs, see the <a href="#next-steps">Next Steps</a> section.</p>
@@ -378,4 +376,3 @@ http.createServer(function serverCreated(req, res) {
     <li>See the MSDN Reference: <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Windows Azure</a></li>
     <li>Visit the <a href="http://blogs.msdn.com/b/windowsazurestorage/">Windows Azure Storage Team Blog</a></li>
   </ul>
-</body>

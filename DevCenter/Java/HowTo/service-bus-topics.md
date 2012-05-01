@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-java-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" headerExpose="" pageTitle="Service Bus Topics - How To - Java - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
   <h1>How to Use Service Bus Topics/Subscriptions</h1>
   <p>This guide will show you how to use Service Bus topics and subscriptions. The samples are written in Java and use the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=vs.103).aspx">Windows Azure SDK for Java</a>. The scenarios covered include <strong>creating topics and subscriptions</strong>, <strong>creating subscription filters</strong>, <strong>sending messages to a topic</strong>, <strong>receiving messages from a subscription</strong>, and <strong>deleting topics and subscriptions</strong>.</p>
@@ -169,4 +167,3 @@ opts);<br />     BrokeredMessage message = resultQM.getValue(); <br />
     <a name="bkmk_NextSteps">
     </a>Next Steps</h1>
   <p>Now that you've learned the basics of Service Bus queues, see the MSDN topic <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx">Queues, Topics, and Subscriptions</a> for more information.</p>
-</body>

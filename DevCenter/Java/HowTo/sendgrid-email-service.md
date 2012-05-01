@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-java-how-to-access-control" urlDisplayName="SendGrid Email Service" headerExpose="" pageTitle="SendGrid Email Service - How To - Java - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
   <h1>How to Send Email Using SendGrid from Java</h1>
   <p>This guide demonstrates how to perform common programming tasks with the SendGrid email service on Windows Azure. The samples are written in Java. The scenarios covered include <strong>constructing email</strong>, <strong>sending email</strong>, <strong>adding attachments</strong>, <strong>using filters</strong>, and <strong>updating properties</strong>. For more information on SendGrid and sending email, see the <a href="#bkmk_NextSteps">Next Steps</a> section.</p>
@@ -177,4 +175,3 @@ InternetAddress("john@contoso.com"));</pre>
     <li>SendGrid API documentation: <a href="http://docs.sendgrid.com/documentation/api/"> http://docs.sendgrid.com/documentation/api/</a></li>
     <li>SendGrid special offer for Windows Azure customers: <a href="http://sendgrid.com/azure.html">http://sendgrid.com/azure.html</a></li>
   </ul>
-</body>
