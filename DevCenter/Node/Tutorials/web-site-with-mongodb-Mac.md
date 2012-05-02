@@ -1,92 +1,102 @@
 # Node.js Web Application with Storage on MongoDB
 
-This tutorial describes how to use MongoDB to store and access data from a Node.js application hosted as a Windows Azure Web Site. This guide assumes that you have some prior experience using Node.js, MongoDB, and Git. For information on Node.js, see the [Node.js website]. For information on MongoDB, see the [MongoDB website]. For information on Git, see the [Git website].
+This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on [Windows Azure]. This guide assumes that you have some prior experience using node, MongoDB, and [Git].
 
 This guide also assumes that you have access to a MongoDB server, such as the one created by following the steps in **TBD**
 
-You will learn how to:
+You will learn:
 
-* Use npm (node package manager) to install the Mongoose module for Node.js.
+* How to use npm (node package manager) to install the node modules
 
-* Use MongoDB within a Node.js application by using the Mongoose module.
+* How to access MongoDB from a node application
 
-* Publish a Node.js application as a Windows Azure Site.
+* How to use the Windows Azure command-line tools to create a Windows Azure Website
 
-Throughout this tutorial you will build a simple web-based task-management application that allows creating, retrieving and completing tasks, which are stored in MongoDB. MongoDB is hosted in a Windows Azure Virtual Machine, and the web application is hosted as a Windows Azure Site.
+By following this tutorial, you will build a simple web-based task-management application that allows creating, retrieving and completing tasks. The tasks are stored on a MongoDB server.
  
-The project files for this tutorial will be stored in a directory named *tasklist* and the completed application will look similar to the following:
+The project files for this tutorial will be stored in a directory named **tasklist** and the completed application will look similar to the following:
 
-![Finished][]
+![A web page displaying an empty tasklist][node-mongo-finished]
 
-## Setting up your deployment environment
+The instructions in this article have been tested on the following platforms:
 
-In order to create and test a Node.js application, you will need the following:
+* Windows 7
 
-* The Windows Azure SDK for Node.js
+* OS X **version???**
 
-* Node 0.6.14 or above. You can find the latest installation for your platform at the [Node.js website].
+**Note**: This tutorial makes reference to the **~/node/helloworld** folder. This path indicates that the **node** directory is within the current user's home directory. If you wish to locate the application in a different location, or the path structure is different on the operating system you are using, you can substitute a different path. For example, **c:\node\helloworld** or **/home/username/node/helloworld**.
 
-* Git version control system for your operating system. You can find the latest installation for your platform at the [Git website].
+**Note**: The steps below reference the Terminal application, which is the command-line interface for OS X systems. If you are using an operating system other than OS X, substitue references to the Terminal application with the command-line interface available on your operating system.
 
-Note: While the examples in this tutorial show vi and Chrome being used, any text editor or web browser should work.
+##Prerequisites
 
-## Creating a Node.js application
+Before following the instructions in this article, you should ensure that you have the following installed:
 
-In this section you will create a new Node application and use npm to add module packages. This application will use the express module to build a task-list application, which will use MongoDB as storage.
- 
-For the task-list application you will use the following modules:
+* [node] version 0.6.14 or higher
 
-* Express - A web framework inspired by Sinatra.
+* [Git]
 
-* MongoDB - The driver for communicating with MongoDB.
+* A [MongoDB] server
 
-Open the Terminal application and perform the following steps to create the application directory and install the required modules:
+* A text editor
 
-1. Enter the following commands to create a new **tasklist** directory under ~/node/ and change to this directory.
+* A web browser
 
-	    mkdir -p ~/node/tasklist
-        cd ~/node/tasklist
+##Install modules and generate scaffolding
+
+In this section you will create a new Node application and use npm to add module packages. For the task-list application you will use the following modules:
+
+* [Express] - An MVC framework
+
+* [Mongoose] - A driver for communicating with MongoDB 
+
+1. Create a new file named **tasklist** in the **~/node** directory. If the **~/node** directory does not exist, create it.
+
+2. Start the Terminal application, and change directories to the **~/node/tasklist** directory.
 
 3. Enter the following command to install the express and mongoose modules:
 
-        npm install express mongoose
+		npm install express -g
+		npm install mongoose
 
     The output of these commands should appear similar to the following:
 
-    ![npmInstall][]
+    ![npm install results][node-mongo-npm-results]
 
-4. To create the scaffolding which will be used for this application, issue the express command. When prompted to overwrite the destination, enter **y** or **yes**. The output of this command should appear similar to the following:
+	**Note**: The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the **express** command to generate website scaffolding without having to type in additional path information.
 
-        ./node_modules/express/bin/express
+4. To create the scaffolding which will be used for this application, use the **express** command:
 
-    **Note**: On a Windows system the express command should be ran from .\node_modules\.\bin\express instead.
+        express
 
-    The output of this command should appear as follows:
+	When prompted to overwrite the destination, enter **y** or **yes**. The output of this command should appear similar to the following:
 
-    ![ExpressOutput][]
+    ![Express command output][node-mongo-express-results]
 
-5. To install additional modules required by the express application, enter the following command:
+5. To install additional modules required by the express application, which are specified in the **package.json** file created by the **express** command, enter the following:
 
         npm install
 
     The output of this command should appear as follows:
 
-    ![npmInstallAfterExpress][]
+    ![npm installing express modules output][node-mongo-express-npm-results]
 
-## Using MongoDB in a Node Application
+##Using MongoDB in a node application
 
-In this section you will extend the basic application created by the express command, creating a web-based task-list application that you will deploy to Windows Azure. The task list will allow a user to retrieve tasks and add new tasks. The application will utilize MongoDB to store task data.
+In this section you will extend the basic application created by the **express** command by adding a **task.js** file which contains the model for your tasks. You will also modify the existing **app.js** and **index.js** files to make use of the model.
 
 ### Create the model
 
-1. In the **tasklist** directory, create a new directory named **models**. In the **models** directory, create a new file named *task.js*. This file will contain the model for the tasks created by your application.
+1. In the **tasklist** directory, create a new directory named **models**.
 
-2. At the beginning of the *task.js* file, add the following code to reference required libraries:
+2. In the **models** directory, create a new file named **task.js**. This file will contain the model for the tasks created by your application.
+
+3. At the beginning of the **task.js** file, add the following code to reference required libraries:
 
         var mongoose = require('mongoose')
 	      , Schema = mongoose.Schema;
 
-3. Next, you will add code to define and export the model. This model will be used to perform interactions with the MongoDB database.
+4. Next, you will add code to define and export the model. This model will be used to perform interactions with the MongoDB database.
 
         var TaskSchema = new Schema({
 	        itemName      : String
@@ -97,13 +107,13 @@ In this section you will extend the basic application created by the express com
 
         module.exports = mongoose.model('TaskModel', TaskSchema)
 
-4. Save and close the *task.js* file.
+5. Save and close the file.
 
 ## Modify server.js
 
-1. In the **tasklist** directory, open the *server.js* file in a text editor. This file was created earlier by running the express command.
+1. In the **tasklist** directory, open the **server.js** file in a text editor. This file was created earlier by running the **express** command.
 
-2. Add the following code after the `app.get` statement in the routes section. It will add a new route for submitting new tasks. We will create the *updateItem* function used by this route in the next section.
+2. Add the following code after the `app.get` statement in the routes section. It will add a new route for submitting new tasks. We will create the **updateItem** function used by this route in the next section.
 
         app.post('/', routes.updateItem);
 
@@ -120,16 +130,16 @@ In this section you will extend the basic application created by the express com
 
 ## Modify the index controller
 
-The controller defined in *index.js* will handle all requests for the task list site. This file can be found in the **routes** sub-directory of the **tasklist** directory.
+The controller defined in **index.js** will handle all requests for the task list site. This file can be found in the **routes** sub-directory of the **tasklist** directory.
 
-1. Open *index.js* in your text editor and add the following statements at the beginning of the file. This will include the mongoose module, the *task.js* file you created earlier, and connect to the MongoDB server. 
+1. Open **index.js** in your text editor and add the following statements at the beginning of the file. This will include the mongoose module, the **task.js** file you created earlier, and connect to the MongoDB server. 
 
 		var mongoose = require('mongoose')
   		  , task = require('../models/taskModel.js');
 
 		mongoose.connect('mongodb://mongodbserveraddr/tasks');
 
-    **Note**: change the *mongodbserveraddr* in the `mongoose.connect` statement to the IP address or fully qualified domain name of your MongoDB server.
+    **Note**: change the **mongodbserveraddr** in the `mongoose.connect` statement to the IP address or fully qualified domain name of your MongoDB server.
 
 2. Replace the existing `exports.index` section with the following. This will find and display tasks stored in MongoDB.
 
@@ -139,8 +149,7 @@ The controller defined in *index.js* will handle all requests for the task list 
 		  })
 		};
 
-2. Add the following code to the bottom of the file. The code below defines the *updateItem* route used when new tasks are submitted or existing tasks are marked as completed. When creating a new task, it uses the model defined earlier to create a new task object, and then saves the task to MongoDB. When updating an existing item, it performs an update by specifying a condition that identifies the document to be updated and the values to be updated. Finally, it redirects the user back to the index route.
-
+2. Add the following code to the bottom of the file:
 
 		exports.updateItem = function (req, res){
 		  if(req.body.item){
@@ -165,14 +174,16 @@ The controller defined in *index.js* will handle all requests for the task list 
 	      }
 	      res.redirect('home');
         }
+
+	This defines the **updateItem** route used when new tasks are submitted or existing tasks are marked as completed. When creating a new task, it uses the model defined earlier to create a new task object, and then saves the task to MongoDB. When updating an existing item, it performs an update by specifying a condition that identifies the document to be updated and the values to be updated. Finally, it redirects the user back to the index route.
  
-3. Save and close the index.js file.
+3. Save and close the file.
 
-### Modify the index view
+###Modify the index view
 
-1. Change directories to the **views** directory and open the *index.jade* file in a text editor.
+1. Change directories to the **views** directory and open the **index.jade** file in a text editor.
 
-2. Replace the contents of the *index.jade* file with the code below. This defines the view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.
+2. Replace the contents of the **index.jade** file with the code below. This defines the view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.
 
 		h1= title
 		  font(color="grey") (powered by Node.js and MongoDB on Azure)
@@ -207,13 +218,13 @@ The controller defined in *index.js* will handle all requests for the task list 
 		        input(name="itemCategory", type="textbox")
 		  input(type="submit", value="Add item")
 
-3. Save and close the *index.jade* file.
+3. Save and close the file.
 
-## Run your application locally
+##Run your application locally
 
 To test the application on your local machine, perform the following steps:
 
-1. Open the Terminal application if it is not already open, and change directories to the tasklist directory.
+1. Open the Terminal application if it is not already open, and change directories to the **tasklist** directory.
 
 2. To launch the application, use the following command:
 
@@ -221,116 +232,112 @@ To test the application on your local machine, perform the following steps:
 
 3. Open your browser and navigate to http://127.0.0.1:1337. This should display a web page similar to the following:
 
-    ![Finished][]
+    ![A webpage displaying an empty tasklist][node-mongo-finished]
 
-4. Use the provided fields for Item Name and Item Category to enter information, and then click **Add item**.
+4. Use the provided fields for **Item Name** and **Item Category** to enter information, and then click **Add item**.
 
-    ![AddItems][]
+    ![An image of the add item field with populated values.][node-mongo-add-item]
 
 5. The page should update to display the item in the ToDo List table.
 
-    ![WithItems][]
+    ![An image of the new item in the list of tasks][node-mongo-list-items]
 
 6. To complete a task, simply check the checkbox in the Complete column, and then click **Update tasks**. While there is no visual change after clicking **Update tasks**, the document entry in MongoDB has now been marked as completed.
 
-6. In the terminal application, press Ctrl + C to terminate the node session.
+6. In the Terminal application, press the **CTRL** and **C** keys to terminate the node session.
 
-## Deploy your application to Windows Azure
+##Deploy your application to Windows Azure
 
-In this section, you will use the Windows Azure portal to create a new web site, enable the Git deployment option, and finally deploy your application to Windows Azure using Git.
+In this section, you will install and use the Windows Azure command-line tools to create a new Windows Azure Website, and then use Git to deploy your application. To perform these steps you must have a Windows Azure subscription. If you do not already have a subscription, you can sign up for one [for free].
 
-### Configure your application
+###Install the command-line tools
 
-Before deploying the application to Windows Azure, we must add a *web.config* file to the root of the tasklist directory. This file contains settings that instruct Windows Azure on how to run your Node application, such as adding the iisnode handler and adding a rule to direct incoming requests to the *server.js* file. Using a text editor, create the *web.config* file and add the following:
+1. **TBD**: package download location and install steps.
 
-    <?xml version="1.0" encoding="utf-8"?>
-      <configuration>
-        <appSettings>
-          <add key="EMULATED" value="true" />
-        </appSettings>
-        <system.webServer>
-          <modules runAllManagedModulesForAllRequests="false" />
-          <handlers>
-            <add name="iisnode" path="server.js" verb="*" modules="iisnode" />
-          </handlers>
-          <rewrite>
-            <rules>
-              <clear />
-              <rule name="app" enabled="true" patternSyntax="ECMAScript" stopProcessing="true">
-                  <match url="server\.js.+" negate="true" />
-                  <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
-                  <action type="Rewrite" url="server.js" />
-              </rule>
-            </rules>
-          </rewrite>
-        </system.webServer>
-      </configuration>
+###Import publishing settings
 
-Save this file to the tasklist directory.
+Before using the command-line tools with Windows Azure, you must first download a file containing information about your subscription. Perform the following steps to download and import this file.
 
-### Create a new web site
+1. Open the Terminal application if it is not already open, and change directories to the **tasklist** directory.
 
-1. Open your web browser, navigate to the [Windows Azure portal], and then sign in. After signing in, you should see a web page similar to the following:
+2. Enter the following command to launch the browser and navigate to the download page. If prompted, login with the account associated with your subscription.
 
-	(TODO Insert Screenshot)
+		azure account download
+	
+	![The download page][download-publishing-settings]
+	
+	The file download should begin automatically; if it does not, you can click the link at the beginning of the page to manually download the file.
 
-2. Select **+ New** at the bottom of the page, then select **Web Site** and **Quick Create**. In the form, enter a name for the web site and select your subscription and the region in which to create this web site. Finally, select **Create Web Site**.
+3. After the file download has completed, use the following command in the Terminal window to import the settings:
 
-    (TODO Insert Screenshot)
+		azure account import <path-to-file>
+		
+	Specify the path and file name of the publishing settings file you downloaded in the previous step. Once the command completes, you should see output similar to the following:
+	
+	![The output of the import command][import-publishing-settings]
 
-3. Once the web site status changes to Running, select the name of the web site to display the dashboard for this site.
+4. Once the import has completed, you should delete the publish settings file as it is no longer needed and contains sensitive information regarding your Windows Azure subscription.
 
-    (TODO Insert Screenshot)
+###Create a Windows Azure Website
 
-3. In the lower left corner of the dashboard, select **Setup Git Publishing**.
+1. In the Terminal window, change directories to the **tasklist** directory if you are not already there.
 
-    (TODO Insert Screenshot)
+2. Use the following command to create a new Windows Azure Website
 
-4. After the Git repository has been provisioned, you will be presented with the steps to initialize a Git repository for your Node application, as well as the steps to publish to your Windows Azure web site. Keep this page open as we will use this information in the next section.
+		azure site create --git
+		
+	You will be prompted for the web site name and the datacenter that it will be located in. Provide a unique name and select the datacenter geographically close to your location.
+	
+	The `--git` parameter will create a Git repository on Windows Azure for this web site. It will also initialize a Git repository in the current directory if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Windows Azure. Finally, it will create a **web.config** file, which contains settings used by Windows Azure to host node applications.
+	
+	**Note**: If this command is ran from a directory that already contains a Git repository, it will not re-initialize the directory.
+	
+	**Note**: If the `--git` parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.
+	
+	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Website created at** contains the URL for the website.
+	
+	![output of the site create command][cmd-line-site-create-git]
 
-### Git Deploy
+###Publish the application
 
-1. Open the Terminal application if it is not already open, and change directories to the tasklist directory.
+1. In the Terminal window, change directories to the **tasklist** directory if you are not already there.
 
-2. Issue the following commands to initialize a Git repository in this directory, and perform an initial commit of all the files:
+2. Use the following commands to add, and then commit files to the local Git repository:
 
-        git init
-        git add .
-        git commit -m "Initial commit"
+		git add .
+		git commit -m "adding files"
+		
+	The output of these commands will be similar to the following:
+	
+	![output of git add. and git commit commands][git-add-commit]
 
-    This should return results similar to the following:
+3. When pushing the latest Git repository changes to the Windows Azure Website, you must specify that the target branch is **master** as this is used for the website content.
 
-    (TODO Insert screenshot)
+		git push azure master
+	
+	The output of this command will be similar to the following:
+	
+	![output of git push azure master][git-push-azure-master]
 
-3. To add the Windows Azure web site you configured previously as a remote repository and deploy your application, use the commands displayed in your web browser from the previous section. These steps should appear similar to the following:
+4. Once the push operation has completed, browse to the website URL returned previously by the `azure create site` command to view your application.
+		
 
-        git remote add azure https://larryfr@repository.sporf.antdf0.antares-test.windows-int.net/sporf.git
-        git push azure master 
+[node]: http://nodejs.org
+[MongoDB]: http://www.mongodb.org
+[Git]: http://git-scm.com
+[Windows Azure]: http://windowsazure.com
+[Express]: http://expressjs.com
+[Mongoose]: http://mongoosejs.com
+[for free]: http://windowsazure.com
+[Git remote]: http://gitref.org/remotes/
 
-    This should return results similar to the following:
-
-    (TODO Insert screenshot)
-
-4. After the git push completes, you should notice your browser update to display a message confirming the deployment. This should appear similar to the following:
-
-    (TODO Insert screenshot)
-
-5. At this point, your web application should be available. To find the URL of the Windows Azure site at which your application is hosted, select the **Dashboard** link for your web site and then find the site URL in the **quick glance** section.
-
-    (TODO Insert screenshot)
-
-** Web Site Management
-
-Using the web site dashboard, you can perform management tasks such as monitoring, pausing, or deleting your application. Additionally you can configure hosting and deployment options, as well as scale your application. For more information on using the dashboard, see **TBD**
-
-[Node.js website]: http://nodejs.org
-[MongoDB website]: http://www.mongodb.org
-[Git website]: http://git-scm.com
-[Windows Azure portal]: TBD
-
-[Finished]: /media/todo_list_empty.png
-[ExpressOutput]: /media/express_output.png
-[npmInstall]: /media/npm_install_express_mongoose.png
-[npmInstallAfterExpress]: ../media/npm_install_after_express.png
-[AddItems]: /media/todo_add_item.png
-[WithItems]: /media/todo_list_items.png
+[node-mongo-finished]: ../media/todo_list_empty.png
+[node-mongo-npm-results]: ../media/npm_install_express_mongoose.png
+[node-mongo-express-results]: ../media/express_output.png
+[node-mongo-express-npm-results]: ../media/npm_install_after_express.png
+[node-mongo-add-items]: ../media/todo_add_item.png
+[node-mongo-list-items]: ../media/todo_list_items.png
+[download-publishing-settings]: /media/downloadpublish.png
+[cmd-line-site-create-git]: /media/cmd-line-site-create-git.png
+[git-add-commit]: /media/git-add-commit.png
+[git-push-azure-master]: /media/git-push-azure-master.png
