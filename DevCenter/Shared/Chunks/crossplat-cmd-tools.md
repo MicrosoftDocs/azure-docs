@@ -106,22 +106,29 @@ To see a list of options for `vm` commands, run the following:
 
 <h2 id="VMs">How to Create and Manage a Virtual Machine</h2>
 
-A Windows Azure Virtual Machine allows you to run the operating system of your choice, inlcuding Linux. You can create a VM from images that are available in the Image Gallery, or you can provide your own image.
+A Windows Azure Virtual Machine is created from a virtual machine image (a .vhd file) that you provide or that is avalailable in the Image Gallery. To see images that are available, run the following command:
 
-To see images that are available, run the following command:
+	azure vm image list
 
-	**TODO: figure out what this command is, and what images are shown...Gallery + custom?**
+You can provision and start a VM from one of the available images with the `vm create` command. The following example shows how to create a Linux virtual machine (called `myCentOSVM`) from an image in the Image Gallery (CentOS 6.2). The root user name and password for the VM are `myusername` and `Mypassw0rd` respectively. (Note that the `--location` parameter specifies the data center in which the VM is created.)
 
-To create a new VM from one of the available images, run this command:
+	azure vm create myCentOSVM OpenLogic__OpenLogic-CentOS-62-en-us-30GB myusername Mypassw0rd --location "Windows Azure Preview"
 
-	azure vm create <dns-prefix> <image> <userName> [password]
+**TODO: Update location value**
 
-The parameters in the command above are as follows:
+If you would rather provision a VM from a custom image, you can create an image from a .vhd file with the `vm image create` command, then use the `vm create` command to provision the VM. The following example shows how to create a Linux image (called `myImage`) from a local .vhd file. (The `--location` parameter specifies the data in which the image is stored.)
 
-* `<dns-prefix>`: The DNS prefix for VM URL. This will also be the VM name.
-* `<image>`: The image name (from the list of available images).
-* `<userName>`: The administrator user name.
-* `[password]`: The administrator's password.
+	azure vm image create myImage /path/to/myImage.vhd --os linux --location "Windows Azure Preview"
+
+**TODO: update location in previous command**
+
+After creating `myImage`, you can provision a VM from the image by using `vm create`. Note that when provisioning a VM from a custom image, the `--os` parameter must be provided. Valid values are `linux` and `windows`.
+
+	azure vm create myImage myusername Mypassw0rd --os linux --location "Windows Azure Preview"
+
+**TODO: The above command doesn't seem right. How do I specify the image?**
+
+Once 
 
 To see a list of provisioned VMs, run the following:
 
