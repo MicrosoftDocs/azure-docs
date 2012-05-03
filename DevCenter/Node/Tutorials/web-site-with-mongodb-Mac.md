@@ -1,6 +1,6 @@
 # Node.js Web Application with Storage on MongoDB
 
-This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on [Windows Azure]. This guide assumes that you have some prior experience using node, MongoDB, and [Git].
+This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on Windows Azure. This tutorial assumes that you have some prior experience using node, MongoDB, and [Git].
 
 This guide also assumes that you have access to a MongoDB server, such as the one created by following the steps in **TBD**
 
@@ -10,7 +10,7 @@ You will learn:
 
 * How to access MongoDB from a node application
 
-* How to use the Windows Azure command-line tools to create a Windows Azure Website
+* How to use the Cross-Platform Tools for Windows Azure to create a Windows Azure Website
 
 By following this tutorial, you will build a simple web-based task-management application that allows creating, retrieving and completing tasks. The tasks are stored on a MongoDB server.
  
@@ -22,11 +22,11 @@ The instructions in this article have been tested on the following platforms:
 
 * Windows 7
 
-* OS X **version???**
+* Mac OS X 10.7.3
 
-**Note**: This tutorial makes reference to the **~/node/helloworld** folder. This path indicates that the **node** directory is within the current user's home directory. If you wish to locate the application in a different location, or the path structure is different on the operating system you are using, you can substitute a different path. For example, **c:\node\helloworld** or **/home/username/node/helloworld**.
+**Note**: This tutorial makes reference to the **~/node/helloworld** folder. If you wish to locate the application in a different location, or the path structure is different on the operating system you are using, you can substitute a different path. For example, **c:\node\helloworld** or **/home/username/node/helloworld**.
 
-**Note**: The steps below reference the Terminal application, which is the command-line interface for OS X systems. If you are using an operating system other than OS X, substitue references to the Terminal application with the command-line interface available on your operating system.
+**Note**: Many steps in this tutorial mention using the command-line. For these steps, use the command-line for your operating system, such as **cmd.exe** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
 
 ##Prerequisites
 
@@ -44,15 +44,11 @@ Before following the instructions in this article, you should ensure that you ha
 
 ##Install modules and generate scaffolding
 
-In this section you will create a new Node application and use npm to add module packages. For the task-list application you will use the following modules:
-
-* [Express] - An MVC framework
-
-* [Mongoose] - A driver for communicating with MongoDB 
+In this section you will create a new Node application and use npm to add module packages. For the task-list application you will use the [Express] and [Mongoose] modules. The Express module provides a Model View Controller framework for node, while Mongoose is a driver for communicating with MongoDB.
 
 1. Create a new file named **tasklist** in the **~/node** directory. If the **~/node** directory does not exist, create it.
 
-2. Start the Terminal application, and change directories to the **~/node/tasklist** directory.
+2. From the command-line, change directories to the **~/node/tasklist** directory.
 
 3. Enter the following command to install the express and mongoose modules:
 
@@ -224,13 +220,13 @@ The controller defined in **index.js** will handle all requests for the task lis
 
 To test the application on your local machine, perform the following steps:
 
-1. Open the Terminal application if it is not already open, and change directories to the **tasklist** directory.
+1. From the command-line, change directories to the **tasklist** directory.
 
-2. To launch the application, use the following command:
+2. Use the following command to launch the application locally:
 
         node server.js
 
-3. Open your browser and navigate to http://127.0.0.1:1337. This should display a web page similar to the following:
+3. Open a web browser and navigate to http://127.0.0.1:1337. This should display a web page similar to the following:
 
     ![A webpage displaying an empty tasklist][node-mongo-finished]
 
@@ -244,15 +240,17 @@ To test the application on your local machine, perform the following steps:
 
 6. To complete a task, simply check the checkbox in the Complete column, and then click **Update tasks**. While there is no visual change after clicking **Update tasks**, the document entry in MongoDB has now been marked as completed.
 
-6. In the Terminal application, press the **CTRL** and **C** keys to terminate the node session.
+7. To stop the node process, go to the command-line and press the **CTRL** and **C** keys.
 
 ##Deploy your application to Windows Azure
 
 In this section, you will install and use the Windows Azure command-line tools to create a new Windows Azure Website, and then use Git to deploy your application. To perform these steps you must have a Windows Azure subscription. If you do not already have a subscription, you can sign up for one [for free].
 
-###Install the command-line tools
+###Install the Cross-Platform Tools for Windows Azure
 
-1. **TBD**: package download location and install steps.
+**TBD**: Revisit once we have a clearer idea of the install story.
+
+To install the cross-platform tools, go to the [Windows Azure Developer Center] and select the download package for your operating system. If a package is not availble for your system, you can clone the project from the [azure-sdk-for-node] repository, and then install the tools by using `npm install /path/to/azure-sdk-for-node -g`. For more information, see [Cross-Platform Tools for Windows Azure].
 
 ###Import publishing settings
 
@@ -325,11 +323,12 @@ Before using the command-line tools with Windows Azure, you must first download 
 [node]: http://nodejs.org
 [MongoDB]: http://www.mongodb.org
 [Git]: http://git-scm.com
-[Windows Azure]: http://windowsazure.com
 [Express]: http://expressjs.com
 [Mongoose]: http://mongoosejs.com
 [for free]: http://windowsazure.com
 [Git remote]: http://gitref.org/remotes/
+[azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
+[Cross-Platform Tools for Windows Azure]:
 
 [node-mongo-finished]: ../media/todo_list_empty.png
 [node-mongo-npm-results]: ../media/npm_install_express_mongoose.png
