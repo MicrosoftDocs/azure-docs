@@ -110,9 +110,9 @@ If you would rather provision a VM from a custom image, you can create an image 
 
 **TODO: update location in previous command**
 
-After creating an image, you can provision a VM from the image by using `vm create`. The command below creates a VM called `myVM` from the image created with the command above (`myImage`). Note that when provisioning a VM from a custom image, the `--os` parameter must be provided. Valid values are `linux` and `windows`.
+After creating an image, you can provision a VM from the image by using `vm create`. The command below creates a VM called `myVM` from the image created with the command above (`myImage`).
 
-	azure vm create myVM myImage myusername Mypassw0rd --os linux --location "Windows Azure Preview"
+	azure vm create myVM myImage myusername Mypassw0rd --location "Windows Azure Preview"
 
 After you have provisioned a VM, you may want to create endpoints to, for example, allow remote access to your VM. The following example uses the `vm create endpoint` command to open external port 22 and local port 22 on `myCentOSVM`:
 
