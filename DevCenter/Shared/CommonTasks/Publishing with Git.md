@@ -2,7 +2,9 @@
 
 Git is a popular, open source, distributed version control system. Windows Azure Websites allow you to enable a Git repository for your site, which allows you to quickly and easily push code changes to your site. In this article, you will learn how to use Git to publish to Windows Azure.
 
-The task inclues the following steps:
+**Note**: Many of the Git commands described in this article can be performed automatically when creating a Windows Azure Website using the [Cross-Platform Tools for Windows Azure]. For more information on using the cross-platform tools, see **TBD**
+
+The task includes the following steps:
 
 * [Install Git] (#Step1)
 * [Create a local repository] (#Step2)
@@ -13,17 +15,11 @@ The task inclues the following steps:
 
 <h2 id="Step1">Installing Git</h2>
 
-The steps required to install Git vary between operating systems. To find the latest version of Git and the installation steps specific to your operating system, visist the [Git website]. If a pre-compiled version is not available from the Git website, you may be able to obtain one through your operating system's [package management system]. Alternatively, you can download and compile the source code.
-
-**Note**: On Windows, when you reach the **Adjusting your PATH environment** section of Git installation, you should select **Run Git from the Windows Command Prompt**. If you do not select this option, you may receive errors when using utilities such as the Windows Azure cross-platform tools when creating a new website.
-
-![Git setup, with run Git from the Windows Command Prompt selected][run-git-from-cmd]
+The steps required to install Git vary between operating systems. To find the latest version of Git and the installation steps specific to your operating system, visit the [Git website]. If a pre-compiled version is not available from the Git website, you may be able to obtain one through your operating system's [package management system]. Alternatively, you can download and compile the source code.
 
 <h2 id="Step2">Create a local repository</h2>
 
-There are two ways to create a Git repository; using the **git** command directly or using the **Cross-Platform Tools for Windows Azure**.
-
-##Git command
+Perform the following tasks to create a new Git repository.
 
 1. Open a command-line, such as **cmd.exe** (Windows,) **Bash** (Unix Shell). On OS X systems you can access the command-line through the **Terminal** application.
 
@@ -37,12 +33,6 @@ There are two ways to create a Git repository; using the **git** command directl
 	
 	This command creates a hidden directory named **.git**, which stores metadata about the files in this repository.
 
-##Cross-Platform Tools for Windows Azure
-
-The [cross-platform tools] allow you to create a Windows Azure Website directly from the command line by using the `azure create` command. This command supports a `--git` parameter, which will perform a `git init` operation in the current directory.
-
-The cross-platform tools also create a remote repository on Windows Azure when creating the web site, as well as automatically performing the `git add remote` command described later in this article.
-
 <h2 id="Step3">Working with files</h2>
 
 When working with files, you must use the **git** command to notify the repository of changes to files. The most commonly used commands are **add** and **rm**; **add** incrementally records changes to files into the repository, while **rm** removes a file. For information on other commands supported by Git, use `git help` from the command line. 
@@ -53,9 +43,9 @@ When working with files, you must use the **git** command to notify the reposito
 
 2. From the command-line, make sure you are in the directory that you created the repository in and use the following command to add the **index.html** file to the repository:
 
-		git add index.html
+		git add index.html 
 
-	**Note**: If you want to add changes to all files to the repository at onece, use `git add .`.
+	**Note**: If you want to add changes to all files to the repository at once, use `git add .`.
 
 3. Next, commit the changes to the repository by using the following command:
 
@@ -89,7 +79,7 @@ When working with files, you must use the **git** command to notify the reposito
 
 	After issuing this command, use the **dir** or **ls** command to verify that the **index.html** file no longer exists.
 
-2. Even though the file is no longer present in the directory, the deletion has not yet been commited to the repository. You can verify this by using the **status** command, which will show all uncommited changes.
+2. Even though the file is no longer present in the directory, the deletion has not yet been committed to the repository. You can verify this by using the **status** command, which will show all uncommitted changes.
 
 		git status
 
@@ -102,15 +92,13 @@ When working with files, you must use the **git** command to notify the reposito
 		#       deleted:    index.html
 		#
 
-3. Instead of commiting the deletion of the file, use the **checkout** command to retrieve the last commited version of index.html:
+3. Instead of committing the deletion of the file, use the **checkout** command to retrieve the last committed version of index.html:
 
 		git checkout HEAD index.html
 
-	After issuing this command, use the **dir** or **ls** command to verify that the **index.html** has been restored, and is the previously commited version containing 'Hello Git!'. Note that `git status` no longer shows a pending delete operation.
+	After issuing this command, use the **dir** or **ls** command to verify that the **index.html** has been restored, and is the previously committed version containing 'Hello Git!'. Note that `git status` no longer shows a pending delete operation.
 
 <h2 id="Step4">Enable the web site repository</h2>
-
-As mentioned earlier, if you use the **Cross-Platform Tools for Windows Azure** and specify the `--git` parameter, a repository will be created for your web site automatically. However you can also enable a repository by using the Windows Azure portal. You can also use the portal to reset the authentication used when publishing to the repository.
 
 Perform the following steps to enable a Git repository for your web site by using the Windows Azure portal:
 
@@ -124,15 +112,13 @@ Perform the following steps to enable a Git repository for your web site by usin
 
 	![The Setup Git Publishing link][portal-setup-git]
 
-	If this is the first time you have enabled publishing for for a Windows Azure Website, you may be prompted for deployment credentials. Enter a username and password, which will be required when publishing to your web sites in the future.
+	If this is the first time you have enabled publishing for a Windows Azure Website, you may be prompted for deployment credentials. Enter a username and password, which will be required when publishing to your web sites in the future.
 
 	![Deployment credentials prompt][portal-deployment-credentials]
 
 4. After a short delay, you should be presented with a message that your repository is ready. Below this message, click the **Push my local files to Windows Azure** for a list of commands that can be used to push your local files to Windows Azure.
 
-	![Repository ready][portal-repository ready]
-
-	![Push steps][portal-push-steps]
+	![Repository ready][portal-repository-ready]
 
 <h2 id="Step5">Add the web site as a remote repository</h2>
 
@@ -183,11 +169,18 @@ The **push** command pushes the latest changes that have been checked into the l
 
 ## Additional Resources
 
-[(TODO: insert link text for first additional resource)] [Resource1]
+* [PowerShell for Windows Azure]
 
-[(TODO: insert link text for second additional resource)] [Resource2]
+* [Command-line Tools for Windows Azure]
 
 [Git website]: http://git-scm.com
 [package management system]: http://en.wikipedia.org/wiki/List_of_software_package_management_systems
+[PowerShell for Windows Azure]: http://windowsazure.com
+[Command-line Tools for Windows Azure]: http://windowsazure.com
 
-[Image1]: (TODO: insert hyperlink for Image1, if it exists.)
+[portal-select-website]: ../Media/git-select-website.png
+[portal-setup-git]: ../Media/git-setup-git-link.png
+[portal-deployment-credentials]: ../Media/git-deployment-credentials.png
+[portal-repository-ready]: ../Media/git-setup-complete.png
+[hello-git]: ../Media/git-hello-git.png
+[yay]: ../Media/git-yay.png
