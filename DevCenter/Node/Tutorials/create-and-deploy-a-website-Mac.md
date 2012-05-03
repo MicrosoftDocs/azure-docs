@@ -1,8 +1,10 @@
 #Create and deploy a Node.js application to Windows Azure
 
-This tutorial shows you how to create a [node] application and deploy it to [Windows Azure] using [Git]. The instructions in this tutorial can be followed on any development platform that is capable of running node.
+This tutorial shows you how to create a [node] application and deploy it to Windows Azure using [Git]. The instructions in this tutorial can be followed on any development platform that is capable of running node.
 
 You will learn:
+
+* How to setup required developer tools
 
 * How to create a Windows Azure Web Site using the Windows Azure Developer Portal
 
@@ -19,28 +21,29 @@ A screenshot of the completed application is below:
 The instructions in this article have been tested on the following platforms:
 
 * Windows 7
-* OS X **version???**
+* Mac OS X 10.7.3
 
-**Note**: This tutorial makes reference to the **~/node/helloworld** folder. This path indicates that the **node** directory is within the current user's home directory. If you wish to locate the application in a different location, or the path structure is different on the operating system you are using, you can substitute a different path. For example, **c:\node\helloworld** or **/home/username/node/helloworld**.
+**Note**: This tutorial makes reference to the **helloworld** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/helloworld** or **c:\node\helloworld**
 
-**Note**: The steps below reference the Terminal application, which is the command-line interface for OS X systems. If you are using an operating system other than OS X, substitue references to the Terminal application with the command-line interface available on your operating system.
+**Note**: Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **cmd.exe** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
 
 ##Prerequisites
 
 Before following the instructions in this article, you should ensure that you have the following installed:
 
-* [node] version 0.6.14 or higher.
-
-* [Git]
-
 * A text editor
 
 * A web browser
 
+##Install developer tools
+
+To successfully complete the steps in this tutorial, you must have a working installation of node and Git. Installation packages for node are available from the [nodejs.org download page] while installation packages for Git are available from the [git-scm.com download page].
+
+If a pre-compiled version is not listed for your operating system, you may be able to obtain one through your operating system's [package management system]. Alternatively, you can download and compile the source code from the download pages listed above.
 
 ##Build and test your application locally
 
-1. Using a text editor, create a new file named **server.js** in the **~/node/helloworld** directory. If the **~/node/helloworld** directory does not exist, create it.
+1. Using a text editor, create a new file named **server.js** in the **helloworld** directory. If the **helloworld** directory does not exist, create it.
 
 2. Add the following as the contents of the **server.js** file, and then save it:
 
@@ -51,7 +54,7 @@ Before following the instructions in this article, you should ensure that you ha
           res.end('Hello World\n');
         }).listen(port);
 
-3. Open the Terminal application if it is not currently running, and enter the following command:
+3. Open the command-line, and use the following command to start the web page locally:
 
         node server.js
 
@@ -105,7 +108,7 @@ Follow these steps to create a Windows Azure Website, and then enable Git publis
 
 **Note**: The steps below are based on the instructions returned at the end of the **Create a Windows Azure Website and Set up Git Publishing** section.
 
-1. In the Terminal window, change directories to your application directory and enter the following commands to initialize a local Git repository. If you have already initialized a local repository for this application, skip this step.
+1. From the command-line, change directories to the **helloworld** directory and enter the following commands to initialize a local Git repository. If you have already initialized a local repository for this application, skip this step.
 
 		git init
 
@@ -134,7 +137,7 @@ Follow these steps to create a Windows Azure Website, and then enable Git publis
 
 1. Open the **server.js** file in a text editor, and change 'Hello World\n' to 'Hello Azure\n'. Save the file.
 
-2. In the Terminal window, change directories to your application directory and enter the following commands to add the changes to the local repository:
+2. From the command-line, change directories to the **helloworld** directory and enter the following commands to commit changes to the local repository:
 
 		git add .
 		git commit -m "changing to hello azure"
@@ -171,6 +174,9 @@ While the steps in this article use the Windows Azure Portal to create, stop, an
 [Windows Azure]: http://windowsazure.com
 [Windows Azure Portal]: http://windowsazure.com
 [for free]: http://windowsazure.com
+[git-scm.com download page]: http://git-scm.com/download
+[nodejs.org download page]: http://nodejs.org/#download
+[package management system]: http://en.wikipedia.org/wiki/List_of_software_package_management_systems
 
 [helloworld-completed]: ./Media/helloworld_completed.png
 [helloworld-localhost]: ./Media/helloworld_localhost.png
