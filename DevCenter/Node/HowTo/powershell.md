@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-nodejs-how-to-powershell" urlDisplayName="PowerShell Cmdlets" headerExpose="" pageTitle="How to Use the Windows Azure PowerShell for Node.js" metaKeywords="Azure PowerShell Node.js, Azure PowerShell Node.js cmdlet" footerExpose="" metaDescription="Learn Windows PowerShell fundamentals and details about how to use the Windows Azure PowerShell for Node.js cmdlets." umbracoNaviHide="0" disqusComments="1" />
   <h1>How to Use Windows Azure PowerShell for Node.js</h1>
   <p>This guide describes how to use Windows PowerShell cmdlets to create, test, deploy, and manage Node.js services in Windows Azure. The scenarios covered include <strong>importing your publishing settings</strong>, <strong>creating Windows Azure services to host Node.js applications</strong>, <strong>running a service in the Windows Azure compute emulator</strong>, <strong>deploying and updating hosted services</strong>, <strong>setting deployment options for a service</strong>, and <strong>stopping, starting, and removing a service</strong>.</p>
@@ -466,4 +464,3 @@ PS C:\node\MyService&gt; Publish-AzureService
     <br />
     <a href="http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/enable-ssl/">Configuring SSL for a Node.js Application in Windows Azure</a>
   </p>
-</body>

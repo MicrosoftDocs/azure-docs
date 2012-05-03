@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-nodejs-getting-started" urlDisplayName="Node.js Web Application" headerExpose="" pageTitle="Node.js Getting Started Guide" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" footerExpose="" metaDescription="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Windows Azure." umbracoNaviHide="0" disqusComments="1" />
   <h1 id="node.jswebapplication">Node.js Web Application</h1>
   <p>Developing for Windows Azure is easy when using the available tools. This tutorial assumes you have no prior experience using Windows Azure. On completing this guide, you will have an application that uses multiple Windows Azure resources up and running in the cloud.</p>
@@ -203,4 +201,3 @@ PS C:\node\tasklist\WebRole1&gt; ls
   </ol>
   <p>
     <strong>Note</strong>: Deleting the service does not delete the storage account that was created when the service was initially published, and you will continue to be billed for storage used. Since storage accounts can be used by multiple deployments, be sure that no other deployed service is using the storage account before you delete it. For more information on deleting a storage account, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx">How to Delete a Storage Account from a Windows Azure Subscription</a>.</p>
-</body>

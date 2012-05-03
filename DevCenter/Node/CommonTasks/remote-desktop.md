@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-node-remotedesktop" urlDisplayName="Enable Remote Desktop" headerExpose="" pageTitle="Enable Remote Desktop - Node.js - Develop" metaKeywords="Azure Node.js remote access, Azure Node.js remote connection, Azure Node.js VM access, Azure Node.js virtual machine access" footerExpose="" metaDescription="Learn how to enable remote-desktop access for the virtual machines hosting your Windows Azure Node.js application. " umbracoNaviHide="0" disqusComments="1" />
   <h1>Enabling Remote Desktop in Windows Azure</h1>
   <p>Remote Desktop enables you to access the desktop of a role instance running in Windows Azure. You can use a remote desktop connection to configure the virtual machine or troubleshoot problems with your application.</p>
@@ -105,4 +103,3 @@
     <br />
     <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx">Using Remote Desktop with Windows Azure Roles</a>
   </p>
-</body>

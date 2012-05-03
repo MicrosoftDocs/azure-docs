@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-net-commons-tasks-enable-ssl" urlDisplayName="Enable SSL" headerExpose="" pageTitle="Enable SSL - .NET - Develop" metaKeywords="Azure SSL, Azure HTTPS, Windows Azure SSL, Windows Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" footerExpose="" metaDescription="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." umbracoNaviHide="0" disqusComments="1" />
   <h1>Configuring SSL for an Application in Windows Azure</h1>
   <p>Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.</p>
@@ -130,4 +128,3 @@
   <p>
     <a href="http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx">How to Configure an SSL Certificate on an HTTPS Endpoint</a>
   </p>
-</body>

@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-net-how-to-blob-storage" urlDisplayName="Blob Service" headerExpose="" pageTitle="How to Use the Blob Storage Service from .NET" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob .NET, Azure blob storage .NET, Azure blob C#, Azure blob storage C#" footerExpose="" metaDescription="Get started using the Windows Azure blob storage service to upload, download, list, and delete blob content." umbracoNaviHide="0" disqusComments="1" />
   <h1>How to Use the Blob Storage Service</h1>
   <p>This guide will demonstrate how to perform common scenarios using the Windows Azure Blob storage service. The samples are written in C# and use the .NET API. The scenarios covered include <strong>uploading</strong>,<strong> listing</strong>, <strong>downloading</strong>, and <strong>deleting</strong> blobs. For more information on blobs, see the <a href="#next-steps">Next Steps</a> section.</p>
@@ -258,4 +256,3 @@ blob.Delete(); </pre>
     <li>See the MSDN Reference: <a href="http://msdn.microsoft.com/en-us/library/gg433040.aspx">Storing and Accessing Data in Windows Azure</a></li>
     <li>Visit the <a href="http://blogs.msdn.com/b/windowsazurestorage/">Windows Azure Storage Team Blog</a></li>
   </ul>
-</body>

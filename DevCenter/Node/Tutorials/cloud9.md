@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties umbracoNaviHide="0" pageTitle="Node.js Deploying with Cloud9" metaKeywords="" metaDescription="" linkid="dev-nodejs-cloud9" urlDisplayName="Deploying with Cloud9" headerExpose="" footerExpose="" disqusComments="1" />
   <h1 id="deployingnodefromcloud9idetowindowsazure">Deploying a Windows Azure App from Cloud9</h1>
   <p>This tutorial describes how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Windows Azure.</p>
@@ -244,4 +242,3 @@ http.createServer(function(req,res) {
       <a href="http://go.microsoft.com/fwlink/?LinkId=241421&amp;clcid=0x409">Cloud9 documentation</a>
     </li>
   </ul>
-</body>

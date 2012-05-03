@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties umbracoNaviHide="0" pageTitle="Web App with Storage" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" metaDescription="A tutorial that builds on the Web App with Express tutorial by adding Windows Azure Storage services and the Azure module." linkid="dev-nodejs-basic-web-app-with-storage" urlDisplayName="Web App with Storage" headerExpose="" footerExpose="" disqusComments="1" />
   <h1 id="node.jswebapplicationusingstorage">Node.js Web Application using Storage</h1>
   <p>In this tutorial, you will extend the application created in the <a href="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/">Node.js Web Application using Express</a> tutorial by using the Windows Azure Client Libraries for Node.js to work with storage services. You will extend your application to create a web-based task-list application that you can deploy to Windows Azure. The task list allows a user to retrieve tasks, add new tasks, and mark tasks as completed.</p>
@@ -340,4 +338,3 @@ body
       <img src="../../../DevCenter/Node/Media/node49.png" alt="Status messages indicating the service has been deleted." />
     </li>
   </ol>
-</body>

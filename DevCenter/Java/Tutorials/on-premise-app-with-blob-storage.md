@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties umbracoNaviHide="0" pageTitle="On-Premise Application with Blob Storage - How To - Java - Develop" metaKeywords="" metaDescription="" linkid="dev-java-how-to-on-premise-application-with-blob-storage" urlDisplayName="Application Using Blobs" headerExpose="" footerExpose="" disqusComments="1" />
   <h1>On-Premise Application with Blob Storage</h1>
   <p>The following example shows you how you can use Windows Azure storage to store images in Windows Azure. The code below is for a console application that uploads an image to Windows Azure, and then creates an HTML file that displays the image in your browser.</p>
@@ -320,4 +318,3 @@ public class DeleteContainer {
     }
 }</pre>
   <p>For an overview of other blob storage classes and methods, see <a href="http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/">How to Use the Blob Storage Service from Java</a>.</p>
-</body>

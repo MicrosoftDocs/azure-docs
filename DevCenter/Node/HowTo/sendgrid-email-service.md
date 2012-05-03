@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-nodejs-how-to-sendgrid-email-service" urlDisplayName="SendGrid Email Service" headerExpose="" pageTitle="SendGrid Email Service - How To - Node.js - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
   <h1>How to Send Email Using SendGrid from Node.js</h1>
   <p>This guide demonstrates how to perform common programming tasks with the SendGrid email service on Windows Azure. The samples are written using the Node.js API. The scenarios covered include <strong>constructing email</strong>, <strong>sending email</strong>, <strong>adding attachments</strong>, <strong>using filters</strong>, and <strong>updating properties</strong>. For more information on SendGrid and sending email, see the <a href="http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/blob-storage/#next-steps">Next Steps</a> section.</p>
@@ -201,4 +199,3 @@
       <p>SendGrid special offer for Windows Azure customers: <a href="http://sendgrid.com/azure.html">http://sendgrid.com/azure.html</a></p>
     </li>
   </ul>
-</body>

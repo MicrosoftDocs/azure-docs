@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties umbracoNaviHide="0" pageTitle="Access Control - How To - .NET - Develop" metaKeywords="Azure Access Control Service, Azure ACS, Azure authentication, Azure authentication LiveID, Azure authentication Google, Azure authentication Facebook, Azure authentication .NET, Azure authentication C#" metaDescription="Learn how to use Windows Azure Access Control Service (ACS) in your Windows Azure application to authenticate users from identity providers like Windows Live, Google, or Facebook when they try to gain access to a web application." linkid="dev-net-how-to-access-control" urlDisplayName="Access Control" headerExpose="" footerExpose="" disqusComments="0" />
   <h1>How to Authenticate Web Users with Windows Azure Access Control Service</h1>
   <p>This guide shows you how to use Windows Azure Access Control Service (ACS) to authenticate users from identity providers like Windows Live, Google, or Facebook when they try to gain access to a web application.</p>
@@ -259,4 +257,3 @@ ClaimsIdentity ci = Thread.CurrentPrincipal.Identity as ClaimsIdentity; foreach 
     <a name="whats-next">
     </a>What's Next</h2>
   <p>To further explore ACS's functionality and to experiment with more sophisticated scenarios, see <a href="http://go.microsoft.com/fwlink/?LinkID=212360">Access Control Service 2.0.</a></p>
-</body>

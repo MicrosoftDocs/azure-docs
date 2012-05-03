@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties umbracoNaviHide="0" pageTitle="SQL Azure - How To - .NET - Develop" metaKeywords="Get started SQL Azure, Getting started SQL Azure, SQL Azure database connection, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" metaDescription="Get started with SQL Azure. Learn how to create a SQL Azure database and connect to it using ADO.NET, ODBC, and EntityClient Provider." linkid="dev-net-how-to-sql-azure" urlDisplayName="SQL Azure" headerExpose="" footerExpose="" disqusComments="1" />
   <h1>How to Use SQL Azure</h1>
   <p>This guide shows you how to create a SQL Azure database and connect to it using the following .NET Framework data provider technologies: ADO.NET, ODBC, and EntityClient Provider.</p>
@@ -171,4 +169,3 @@ conn.Open();</pre>
       <a href="http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx">SQL Azure Database</a>
     </li>
   </ul>
-</body>

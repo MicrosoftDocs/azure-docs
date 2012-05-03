@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-nodejs-worker-app-with-socketio" urlDisplayName="App Using Socket.IO" headerExpose="" pageTitle="Node.js Application using Socket.io" metaKeywords="Azure Node.js socket.io tutorial, Azure Node.js socket.io, Azure Node.js tutorial" footerExpose="" metaDescription="A tutorial that demonstrates using socket.io in a node.js application hosted on Windows Azure" umbracoNaviHide="0" disqusComments="1" />
   <h1 id="socket.ioonwindowsazure">Node.js Application using Socket.io</h1>
   <p>Socket.io provides realtime communication between between your node.js server and clients. This tutorial will walk you through hosting a socket.io based chat application on Windows Azure. For more information on Socket.io, see <a href="http://socket.io/">http://socket.io/</a>.</p>
@@ -161,4 +159,3 @@ PS C:\node\chatapp&gt; Add-AzureNodeWorkerRole</pre>
     <li>Explore more Windows Azure features in the <a>Windows Azure How-to Guides for Node.js</a></li>
     <li>Complete more end-to-end <a>Node.js tutorials</a></li>
   </ul>
-</body>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
-  <properties linkid="dev-net-e2e-multi-tier" urlDisplayName="Multi-Tier Application" headerExpose="" pageTitle=".NET Multi-Tier Application" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET Service Bus queue tutorial, Azure .NET queue tutorial, Azure .NET worker role tutorial, Azure C# Service Bus queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial " footerExpose="" metaDescription="An end-to-end tutorial that helps you develop a multi-tier application in Windows Azure that includes web and worker roles and uses Service Bus queues to communicate between tiers." umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="dev-net-e2e-multi-tier" urlDisplayName="Multi-Tier Application" headerExpose="" pageTitle=".NET Multi-Tier Application" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET Service Bus queue tutorial, Azure .NET queue tutorial, Azure .NET worker role tutorial, Azure C# Service Bus queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial " footerExpose="" metaDescription="An end-to-end tutorial that helps you develop a multi-tier application in Windows Azure that includes web and worker roles and uses Service Bus queues to communicate between tiers." umbracoNaviHide="0" disqusComments="1" />
   <h1>.NET Multi-Tier Application Using Service Bus Queues</h1>
   <p>Developing for Windows Azure is easy using Visual Studio 2010 and the free Windows Azure SDK for .NET. If you do not already have Visual Studio 2010, the SDK will automatically install Visual Web Developer 2010 Express, so you can start developing for Windows Azure entirely for free. This guide assumes you have no prior experience using Windows Azure. On completing this guide, you will have an application that uses multiple Windows Azure resources running in your local environment and demonstrating how a multi-tier application works.</p>
   <p>You will learn:</p>
@@ -487,4 +485,3 @@ namespace OrderProcessingRole
       </p>
     </li>
   </ol>
-</body>

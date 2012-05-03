@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-php-how-to-sendgrid-email-service" urlDisplayName="SendGrid Email Service" headerExpose="" pageTitle="SendGrid Email Service - How To - PHP - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
   <h1>How to Use the SendGrid Email Service from PHP</h1>
   <p>This guide demonstrates how to perform common programming tasks with the SendGrid email service on Windows Azure. The samples are written in PHP. The scenarios covered include <strong>constructing email</strong>, <strong>sending email</strong>, and <strong>adding attachments</strong>. For more information on SendGrid and sending email, see the <a href="#bkmk_NextSteps">Next Steps</a> section.</p>
@@ -426,4 +424,3 @@
     <li>SendGrid API documentation: <a href="http://docs.sendgrid.com/documentation/api/">http://docs.sendgrid.com/documentation/api/ </a></li>
     <li>SendGrid special offer for Windows Azure customers: <a href="http://sendgrid.com/azure.html">http://sendgrid.com/azure.html </a></li>
   </ul>
-</body>

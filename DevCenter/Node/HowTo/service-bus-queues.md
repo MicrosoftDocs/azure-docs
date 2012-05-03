@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<body>
   <properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" headerExpose="" pageTitle="Service Bus Queues - How To - Node.js - Develop" metaKeywords="Azure messaging, Azure brokered messaging, Azure messaging queue, Service Bus queue, Azure Service Bus queue, Azure messaging Node.js, Azure messaging queue Node.js, Azure Service Bus queue Node.js, Service Bus queue Node.js" footerExpose="" metaDescription="Learn about Windows Azure Service Bus queues, including how to create queues, how to send and receive messages, and how to delete queues." umbracoNaviHide="0" disqusComments="1" />
   <h1 id="howtouseservicebusqueues">How to Use Service Bus Queues</h1>
   <p>This guide will show you how to use Service Bus queues. The samples are written in JavaScript and use the Node.js Azure module. The scenarios covered include <strong>creating queues, sending and receiving messages</strong>, and <strong>deleting queues</strong>. For more information on queues, see the <a href="#next-steps">Next Steps</a> section.</p>
@@ -230,4 +228,3 @@ serviceBusService.receiveQueueMessage(queueName, { isPeekLock: true }, function(
   <ul>
     <li>See the MSDN Reference: <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx">Queues, Topics, and Subscriptions.</a></li>
   </ul>
-</body>
