@@ -1,5 +1,3 @@
-#Creating a Windows Azure Website and a MySQL Database
-
 Windows Azure Websites allows you to easily create a website and provision a MySQL Database.
 
 **Note**: In the preview release of Windows Azure Websites, you cannot create a MySQL Database for a website *after* creating the website. You must create a website and a MySQL database as described in the steps below.
