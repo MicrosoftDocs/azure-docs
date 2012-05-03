@@ -1,6 +1,6 @@
 #How to Use the Cross-Platform Tools for Windows Azure
 
-This guide describes how to use Windows Azure Cross-Platform Command Line Tools to create and manage services in Windows Azure. The scenarios covered include **importing your publishing settings**, **creating and managing Windows Azure Websites**, and **creating and managing Windows Azure Virtual Machines**.
+This guide describes how to use Cross-Platform Tools for Windows Azure to create and manage services in Windows Azure. The scenarios covered include **installing the tools**, **importing your publishing settings**, **creating and managing Windows Azure Websites**, and **creating and managing Windows Azure Virtual Machines**. For comprehensive reference documentation, see **TODO: link to the reference doc**. 
 
 ##Table of Contents
 * [What are the Windows Azure Cross-Platform Command Line Tools](#Overview)
@@ -9,23 +9,19 @@ This guide describes how to use Windows Azure Cross-Platform Command Line Tools 
 * [How to Download and Import Publish Settings](#Account)
 * [How to Create and Manage a Windows Azure Web Site](#WebSites)
 * [How to Create and Manage a Virtual Machine](#VMs)
-* [How to Manage Disk Images](#DiskImages)
-* [How to Manage VM Images](#VMImages)
-* [How to Manage Certificates](#Certificates)
-* [How to Manage Local Settings](#LocalSettings)
+
 
 <h2 id="Overview">What are the Cross-Platform Tools for Windows Azure</h2>
 
-The Cross-Platform Tools for Windows Azure are a set of command-line tools for deploying and managing Windows Azure applications. These tools work on any platform, including MacIntosh, Linux, and Windows.
+The Cross-Platform Tools for Windows Azure are a set of command-line tools for deploying and managing Windows Azure services. These tools work on any platform, including MacIntosh, Linux, and Windows.
  
 The supported tasks include the following:
 
 * Import publishing settings.
 * Create and manage Windows Azure Websites.
 * Create and manage Windows Azure Virtual Machines.
-* **(TODO: FILL out this list)**
 
-For a complete list of supported commands, type `azure -help` at the command line after installing the tools.
+For a complete list of supported commands, type `azure -help` at the command line after installing the tools, or see the reference documentation: **TODO: link to reference doc**.
 
 <h2 id="Download">How to Install the Windows Azure Cross-Platform Command Line Tools</h2>
 
@@ -37,45 +33,41 @@ For a complete list of supported commands, type `azure -help` at the command lin
 
 **For Windows users**, **TODO: Get info from Glenn about positioning vs. Powershell**
 
-To test the installation, type the following at the command prompt:
-
-	azure
-
-This will list all of the available `azure` commands. For details about a particular command, run the following:
-
-	azure [command name] -help
+To test the installation, type `azure` at the command prompt. If the installation was successful, you will see a list of all the available `azure` commands.
 
 <h2 id="CreateAccount">How to Create a Windows Azure Account</h2>
+
+To use the Cross-Platform Tools for Windows Azure, you will need a Windows Azure account.
 
 	**TODO: Reference content chunk: talk to Diane**
 
 <h2 id="Account">How to Download and Import Publish Settings</h2>
 
-Downloading and importing your publish settings will allow you to use the command-line tools to create and manage Azure Services. To download your publish settings, run the following command:
+Downloading and importing your publish settings will allow you to use the command-line tools to create and manage Azure Services. To download your publish settings, use the `account download` command:
 
 	azure account download
 
-This will open your default browser and prompt you to sign in with your Windows Azure credentials. After signing in, your `.publishsettings` file will be downloaded.
+This will open your default browser and prompt you to sign in with your Windows Azure credentials. After signing in, your `.publishsettings` file will be downloaded. Make note of where you save this file.
 
 Next, import the `.publishsettings` file by running the following command, replacing `<path to .publishsettings file>` with the path to your .publishsettings file:
 
 	azure account import <path to .publishsettings file>
 
-You can remove all of the information stored by the `import` command by running the following command:
+You are now ready to being creating and managing Windows Azure Virtual Machines and Windows Azure Websites. However, if necessary, you can remove all of the information stored by the `import` command by using the `account clear` command:
 
 	azure account clear
 
-To see a list of options for `account` commands, run the following:
+To see a list of options for `account` commands, use the `-help` option:
 
 	azure account -help 
 
 <h2 id="WebSites">How to Create and Manage a Windows Azure Web Site</h2>
 
-To create a Windows Azure Website, you first need to change directories to your local application directory. This is necessary becasue the tools will write files and subdirectories that contain information for managing a site to the directory from which the command below is executed. After you have changed directories, run the following command, replacing `[site name]` with the name of your website:
+To create a Windows Azure Website, you first need to change directories to your local application directory. This is necessary becasue the tools will write files and subdirectories that contain information for managing a site to the directory from which the `site create` command is executed. After you have changed directories, run the following command, run the following command to create a site called `MySite`:
 
-	azure site create [site name]
+	azure site create MySite
 
-The output from this command will contain the default URL for your website.
+The output from this command will contain the default URL for the newly created website.
 
 Note that you can execute the `azure site create` command with any of the following options:
 
@@ -87,26 +79,22 @@ To list your websites, use the following command:
 
 	azure site list
 
-To get detailed information about a site, run the following:
+To get detailed information about a site, use the `site show` command. The following example shows details for `MySite`:
 
-	azure site show [site name]
+	azure site show MySite
 
-You can stop or start a site with one of the following commands (respectively):
+You can stop or start a site with the `site stop` and `site start` commands (respectively):
 
-	azure site stop [site name]
-	azure site start [site name]
+	azure site stop MySite
+	azure site start MySite
 
-To see a complete list of `azure site` commands, run the following:
+To see a complete list of `azure site` commands, use the `-help` option:
 
-	azure site -help
-
-To see a list of options for `vm` commands, run the following:
-
-	azure vm -help 
+	azure site -help 
 
 <h2 id="VMs">How to Create and Manage a Virtual Machine</h2>
 
-A Windows Azure Virtual Machine is created from a virtual machine image (a .vhd file) that you provide or that is avalailable in the Image Gallery. To see images that are available, run the following command:
+A Windows Azure Virtual Machine is created from a virtual machine image (a .vhd file) that you provide or that is avalailable in the Image Gallery. To see images that are available, use the `vm image list` command:
 
 	azure vm image list
 
@@ -122,41 +110,32 @@ If you would rather provision a VM from a custom image, you can create an image 
 
 **TODO: update location in previous command**
 
-After creating `myImage`, you can provision a VM from the image by using `vm create`. Note that when provisioning a VM from a custom image, the `--os` parameter must be provided. Valid values are `linux` and `windows`.
+After creating an image, you can provision a VM from the image by using `vm create`. The command below creates a VM called `myVM` from the image created with the command above (`myImage`). Note that when provisioning a VM from a custom image, the `--os` parameter must be provided. Valid values are `linux` and `windows`.
 
-	azure vm create myImage myusername Mypassw0rd --os linux --location "Windows Azure Preview"
+	azure vm create myVM myImage myusername Mypassw0rd --os linux --location "Windows Azure Preview"
 
-**TODO: The above command doesn't seem right. How do I specify the image?**
+After you have provisioned a VM, you may want to create endpoints to, for example, allow remote access to your VM. The following example uses the `vm create endpoint` command to open external port 22 and local port 22 on `myCentOSVM`:
 
-Once 
+	azure vm endpoint create myCentOSVM 22 22
 
-To see a list of provisioned VMs, run the following:
+You can get detailed information about a VM (including IP address, DNS name, and endpoint information) with the `vm show` command:
 
-	azure vm list
+	azure vm show myCentOSVM
 
-To get detailed information about a VM, run the following:
+To shutdown, start, or restart, the VM, use one of the following commands (respectively):
 
-	azure vm show <vm name>
+	azure vm shutdown myCentOSVM
+	azure vm start myCentOSVM
+	azure vm restart myCentOSVM
 
-**TODO: Add info about endpoint and disk management?**
+And finally, to delete the VM, use the `vm delete` command:
 
-You can shutdown, start, or restart a VM (respectively), with one of the following commands:
+	azure vm delete myCentOSVM
 
-	azure vm shutdown <vm name>
-	azure vm start <vm name>
-	azure vm restart <vm name>
+For a complete list of commands for creating and managing virtual machines, use the `-h` option:
 
-To delete a VM, run the following:
+	azure vm -h
 
-	azure vm delete <vm name>
-
-<h2 id="DiskImages">How to Manage Disk Images</h2>
-
-<h2 id="VMImages">How to Manage VM Images</h2>
-
-<h2 id="Certificates">How to Manage Certificates</h2>
-
-<h2 id="LocalSettings">How to Manage Local Settings</h2>
 
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
