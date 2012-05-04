@@ -1,6 +1,6 @@
 # Publishing with Git
 
-Git is a popular, open source, distributed version control system. Windows Azure Websites allow you to enable a Git repository for your site, which allows you to quickly and easily push code changes to your site. In this article, you will learn how to use Git to publish to Windows Azure.
+Git is a popular, open source, distributed version control system. Windows Azure Websites allow you to enable a Git repository for your site, which allows you to quickly and easily push code changes to your site. In this article, you will learn how to use Git to publish to a Windows Azure Website.
 
 **Note**: Many of the Git commands described in this article can be performed automatically when creating a Windows Azure Website using the [Cross-Platform Tools for Windows Azure]. For more information on using the cross-platform tools, see **TBD**
 
@@ -16,6 +16,11 @@ The task includes the following steps:
 <h2 id="Step1">Installing Git</h2>
 
 The steps required to install Git vary between operating systems. To find the latest version of Git and the installation steps specific to your operating system, visit the [Git website]. If a pre-compiled version is not available from the Git website, you may be able to obtain one through your operating system's [package management system]. Alternatively, you can download and compile the source code.
+
+**Note**: When installing Git for Windows, you should ensure that the **git** command is available from the Windows command prompt (**cmd.exe**). This can be accomplished by selecting the **Run Git from the Windows Command Prompt** option during installation as illustrated below:
+
+![Run git from the windows command prompt][windows-git-setup-path]
+
 
 <h2 id="Step2">Create a local repository</h2>
 
@@ -171,12 +176,12 @@ The **push** command pushes the latest changes that have been checked into the l
 
 * [PowerShell for Windows Azure]
 
-* [Command-line Tools for Windows Azure]
+* [Cross-Platform Tools for Windows Azure]
 
 [Git website]: http://git-scm.com
 [package management system]: http://en.wikipedia.org/wiki/List_of_software_package_management_systems
 [PowerShell for Windows Azure]: http://windowsazure.com
-[Command-line Tools for Windows Azure]: http://windowsazure.com
+[Cross-Platform Tools for Windows Azure]: http://windowsazure.com
 
 [portal-select-website]: ../Media/git-select-website.png
 [portal-setup-git]: ../Media/git-setup-git-link.png
@@ -184,3 +189,4 @@ The **push** command pushes the latest changes that have been checked into the l
 [portal-repository-ready]: ../Media/git-setup-complete.png
 [hello-git]: ../Media/git-hello-git.png
 [yay]: ../Media/git-yay.png
+[windows-git-setup-path]: ../Media
