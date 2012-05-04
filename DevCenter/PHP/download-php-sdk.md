@@ -61,6 +61,14 @@ The following list contains information for installing the Cross-Platform tools,
 
 * **Windows**:  Download and launch the [Microsoft Web Platform Installer][download-wpi]. **TODO: Get info about WebPI installation...what to select? Will it install both PS cmdlets AND Cross-Plat tools?**
 
+	**Note**: Installing the Windows Azure SDK for PHP via the Web Platform Installer will also install the Windows Azure Emulators.
+
+##Windows Azure Emulators (Windows Only)
+
+The Windows Azure Emulators are available through the [Microsoft Web Platform Installer][download-wpi]. **TODO: Get info about WebPI installation...what to select? Will it install both PS cmdlets AND Cross-Plat tools?**
+
+**Note**: Installing the Windows Azure SDK for PHP via the Web Platform Installer will also install the PowerShell Cmdlets for Windows Aure and the Cross-Platform Tools for Windows Azure.
+
 ##Next Steps
 
 For information about using the PHP Client Libraries for PHP and the Cross-Platform Tools for Windows Azure, see the following articles:
