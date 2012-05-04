@@ -38,7 +38,7 @@ To download and install the PHP Client Libraries for PHP manually, follow these 
 
 1. Download a .zip archive that contains the libraries from Github: **TODO: Provide link**. Alternatively, fork the repository and clone it to your local machine. (The latter option requires a Github account and having Git installed locally.)
 
-	**Note**: The PHP Client Libraries for Windows Azure have a dependency on the [HTTP_Request2 PEAR package][http-request2-package]. The recommended way to resolve this dependency is to install the HTTP\_Request2 package using the [PEAR package manager][install-pear].
+	**Note**: The PHP Client Libraries for Windows Azure have a dependency on the [HTTP\_Request2][http-request2-package], [Mail\_mime][mail-mime-package], and [Mail\_mimeDecode][mail-mimedecode-package] PEAR packages. The recommended way to resolve these dependencies is to install these packages using the [PEAR package manager][install-pear].
 
 2. Copy the `src` directory of the downloaded archive to your application directory structure and reference classes from your application. Alternatively, put the `src` directory in your `include_path` and reference classes from your application.
 
@@ -82,6 +82,8 @@ For information about using the PHP Client Libraries for PHP and the Cross-Platf
 [composer-github]: https://github.com/composer/composer
 [pear-net]: http://pear.php.net/
 [http-request2-package]: http://pear.php.net/package/HTTP_Request2
+[mail-mimedecode-package]: http://pear.php.net/package/Mail_mimeDecode
+[mail-mime-package]: http://pear.php.net/package/Mail_mime
 [install-pear]: http://pear.php.net/manual/en/installation.php
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
