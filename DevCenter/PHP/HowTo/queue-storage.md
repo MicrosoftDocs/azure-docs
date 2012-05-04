@@ -49,7 +49,9 @@ The following example shows how to include the `Autoload.php` file and reference
 
 	require_once 'Autoload.php';
 	
+	use WindowsAzure\Core\Configuration;
 	use WindowsAzure\Services\Core\Models\ServiceProperties;
+	use WindowsAzure\Services\Queue\QueueRestProxy;
 	use WindowsAzure\Services\Queue\QueueService;
 	use WindowsAzure\Services\Queue\QueueSettings;
 	use WindowsAzure\Services\Queue\Models\ListQueuesOptions;
@@ -71,7 +73,7 @@ A Windows Azure Queue storage client uses a **Configuration** object for storing
 
 	require_once 'Autoload.php';
 
-	use WindowsAzure\Services\Core\Configuration;
+	use WindowsAzure\Core\Configuration;
 	use WindowsAzure\Services\Queue\QueueSettings;
 	
 	$storage_account_name = "your_storage_account_name";
@@ -87,15 +89,15 @@ You will pass this `Configuration` instance (`$config`) to other objects when us
 
 <h2 id="create-queue">How to Create a Queue</h2>
 
-A **QueueService** object lets you create a queue with the **createQueue** method. When creating a queue, you can set options on the queue, but doing so is not required. (The example below shows how to set metadata on a queue.) If you attempt to create a queue that already exists, an exception will be thrown and should be handled appropriately.
+A **QueueService** object lets you create a queue with the **createQueue** method. When creating a queue, you can set options on the queue, but doing so is not required. (The example below shows how to set metadata on a queue.)
 
 	require_once 'Autoload.php';
 
 	use WindowsAzure\Services\Queue\QueueService;
 	use WindowsAzure\Services\Queue\Models\CreateQueueOptions;
 	
-	// Create queue service client.
-	$queue_client = QueueService::create($config);
+	// Create queue service proxy.
+	$queue_proxy = QueueService::create($config);
 	
 	// OPTIONAL: Set queue metadata.
 	$createQueueOptions = new CreateQueueOptions();
@@ -104,13 +106,14 @@ A **QueueService** object lets you create a queue with the **createQueue** metho
 	
 	try	{
 		// Create queue.
-		$queue_client->createQueue("myqueue", $createQueueOptions);
+		$queue_proxy->createQueue("myqueue", $createQueueOptions);
 	}
-	catch(Exception $e){
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
-		// If $code == 204, the queue already exists.
-		// If $code == 409, the queue already exists, but with different metadata.
-		// Handle accordingly.
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
 	}
 
 
@@ -123,16 +126,25 @@ To add a message to a queue, use you call **QueueService->createMessage**. The m
 	use WindowsAzure\Services\Queue\QueueService;
 	use WindowsAzure\Services\Queue\Models\CreateMessageOptions;
 
-	// Create queue service client.
-	$queue_client = QueueService::create($config);
+	// Create queue service proxy.
+	$queue_proxy = QueueService::create($config);
 	
 	// OPTIONAL: Set message options.
 	$message_options = new CreateMessageOptions();
-	$message_options->setVisibilityTimeoutInSeconds("60"); // Default is 0. Max value is 7 days. Must be string?
-	$message_options->setTimeToLiveInSeconds("3600"); // Default and max value are 7 days. Must be string?
+	$message_options->setVisibilityTimeoutInSeconds(60); // Default is 0. Max value is 7 days.
+	$message_options->setTimeToLiveInSeconds(3600); // Default and max value are 7 days.
 	
-	// Create message.
-	$queue_client->createMessage("myqueue", "Hello World!", $message_options);
+	try	{
+		// Create message.
+		$queue_proxy->createMessage("myqueue", "Hello World!", $message_options);
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 
 <h2 id="peek-message">How to Peek at the Next Message</h2>
 
@@ -144,17 +156,39 @@ You can peek at a message (or messages) at the front of a queue without removing
 	use WindowsAzure\Services\Queue\Models\PeekMessagesResult;
 	use WindowsAzure\Services\Queue\Models\PeekMessagesOptions;
 
-	// Create queue service client.
-	$queue_client = QueueService::create($config);
+	// Create queue service proxy.
+	$queue_proxy = QueueService::create($config);
 	
 	// OPTIONAL: Set peek message options.
 	$message_options = new PeekMessagesOptions();
 	$message_options->setNumberOfMessages(1); // Default value is 1.
 	
-	$peekMessagesResult = $queue_client->peekMessages("myqueue", $message_options); // Returns a PeekMessagesResult object
+	try	{
+		$peekMessagesResult = $queue_proxy->peekMessages("myqueue", $message_options); // Returns a PeekMessagesResult object
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
+	
 	$messages = $peekMessagesResult->getQueueMessages(); // Array of AzureQueueMessage objects
 
-	// View messages here
+	// View messages.
+	$messageCount = count($messages);
+	if($messageCount <= 0){
+		echo "There are no messages.<br />";
+	}
+	else{
+		foreach($messages as $message)	{
+			echo "Peeked message:<br />";
+			echo "Message ID: ".$message->getMessageId()."<br />";
+			echo "Insertion date: ".date_format($message->getInsertionDate(), 'Y-m-d H:i:s')."<br />";
+			echo "Message text: ".$message->getMessageText()."<br /><br />";
+		}
+	}
 
 <h2 id="dequeue-message">How to De-queue the Next Message</h2>
 
@@ -166,24 +200,37 @@ Your code removes a message from a queue in two steps. First, you call **QueueSe
 	use WindowsAzure\Services\Queue\Models\ListMessageOptions;
 	use WindowsAzure\Services\Queue\Models\QueueServiceOptions;
 
-	// Create queue service client.
-	$queue_client = QueueService::create($config);
+	// Create queue service proxy.
+	$queue_proxy = QueueService::create($config);
+	
+	// OPTIONAL: Set List Message Options
+	$options = new ListMessagesOptions();
+	// Set options here.
 	
 	// Get message.
-	$listMessagesResult = $queue_client->listMessages("myqueue", $options); // Returns a ListMessagesResult object
+	$listMessagesResult = $queue_proxy->listMessages("myqueue", $options); // Returns a ListMessagesResult object
 	$messages = $listMessagesResult->getQueueMessages(); // Array of AzureQueueMessage objects
 	$message = $messages[0];
 	
-	/* -----------------------
-		Process message here.
-	   ----------------------- */
+	/* ---------------------
+		Process message.
+	   --------------------- */
 	
 	// Get message ID and pop receipt.
 	$messageId = $message->getMessageId();
 	$popReceipt = $message->getPopReceipt();
 	
-	// Delete message.
-	$queue_client->deleteMessage("myqueue", $messageId, $popReceipt);
+	try	{
+		// Delete message.
+		$queue_proxy->deleteMessage("myqueue", $messageId, $popReceipt);
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 
 <h2 id="change-message">How to Change the Contents of a Queued Message</h2>
 
@@ -195,24 +242,33 @@ You can change the contents of a message in-place in the queue by calling **Queu
 	use WindowsAzure\Services\Queue\Models\ListMessagesOptions;
 	use WindowsAzure\Services\Queue\Models\QueueServiceOptions;
 
-	// Create queue service client.
-	$queue_client = QueueService::create($config);
+	// Create queue service proxy.
+	$queue_proxy = QueueService::create($config);
 	
 	// Get message.
-	$listMessagesResult = $queue_client->listMessages("myqueue"); //Returns a ListMessagesResult object
+	$listMessagesResult = $queue_proxy->listMessages("myqueue"); // Returns a ListMessagesResult object
 	$messages = $listMessagesResult->getQueueMessages(); // Array of AzureQueueMessage objects
 	$message = $messages[0];
 	
 	// Define new message properties.
 	$new_message_text = "New message text.";
-	$new_visibility_timeout = "5";	// Measured in seconds.
+	$new_visibility_timeout = 5; // Measured in seconds.
 	
 	// Get message ID and pop receipt.
 	$messageId = $message->getMessageId();
 	$popReceipt = $message->getPopReceipt();
 	
-	// Update message.
-	$queue_client->updateMessage("myqueue", $messageId, $popReceipt, $new_message_text, $new_visibility_timeout);
+	try	{
+		// Update message.
+		$queue_proxy->updateMessage("myqueue", $messageId, $popReceipt, $new_message_text, $new_visibility_timeout);
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 
 <h2 id="additional-options">Additional Options for De-queuing Messages</h2>
 
@@ -224,30 +280,30 @@ There are two ways you can customize message retrieval from a queue. First, you 
 	use WindowsAzure\Services\Queue\Models\ListMessagesOptions;
 	use WindowsAzure\Services\Queue\Models\QueueServiceOptions;
 
-	// Create queue service client.
-	$queue_client = QueueService::create($config);
+	// Create queue service proxy.
+	$queue_proxy = QueueService::create($config);
 	
 	// Set list message options. 
 	$message_options = new ListMessagesOptions();
-	$message_options->setVisibilityTimeoutInSeconds("300");
-	$message_options->setNumberOfMessages("16");
+	$message_options->setVisibilityTimeoutInSeconds(300); // Overrides the existing visibility timeout.
+	$message_options->setNumberOfMessages(16); // The number of messages to retrieve.
 	
 	// Get messages.
-	$listMessagesResult = $queue_client->listMessages("myqueue", $message_options); // Returns a ListMessagesResult object
+	$listMessagesResult = $queue_proxy->listMessages("myqueue", $message_options); // Returns a ListMessagesResult object
 	$messages = $listMessagesResult->getQueueMessages(); // Array of AzureQueueMessage objects
 
 	foreach($messages as $message){
 		
-		/* -----------------------
-			Process message here.
-		----------------------- */
+		/* ---------------------
+			Process message.
+		--------------------- */
 	
 		// Get message ID and pop receipt.
 		$messageId = $message->getMessageId();
 		$popReceipt = $message->getPopReceipt();
 		
 		// Delete message.
-		$queue_client->deleteMessage("myqueue", $messageId, $popReceipt);	   
+		$queue_proxy->deleteMessage("myqueue", $messageId, $popReceipt);	   
 	}
 
 <h2 id="get-queue-length">How To: Get Queue Length</h2>
@@ -258,13 +314,23 @@ You can get an estimate of the number of messages in a queue. The **QueueService
 
 	use WindowsAzure\Services\Queue\QueueService;
 
-	// Create queue service client.
-	$queue_client = QueueService::create($config);
+	// Create queue service proxy.
+	$queue_proxy = QueueService::create($config);
 	
-	// Get queue metadata.
-	$queue_metadata = $queue_client->getQueueMetadata("myqueue"); // Returns a GetQueueMetadataResult object
+	try	{
+		// Get queue metadata.
+		$queue_metadata = $queue_proxy->getQueueMetadata("myqueue"); // Returns a GetQueueMetadataResult object
+		$approx_msg_count = $queue_metadata->getApproximateMessageCount();
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 	
-	$approx_msg_count = $queue_metadata->getApproximateMessageCount();
+	echo $approx_msg_count;
 
 <h2 id="delete-queue">How To: Delete a Queue</h2>
 
@@ -274,11 +340,20 @@ To delete a queue and all the messages contained in it, call the **QueueService-
 
 	use WindowsAzure\Services\Queue\QueueService;
 
-	// Create queue service client.
-	$queue_client = QueueService::create($config);
+	// Create queue service proxy.
+	$queue_proxy = QueueService::create($config);
 	
-	// Delete queue.
-	$queue_client->deleteQueue("myqueue");
+	try	{
+		// Delete queue.
+		$queue_proxy->deleteQueue("myqueue");
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 
 
 <h2 id="next-steps">Next Steps</h2>
