@@ -178,10 +178,13 @@ The **push** command pushes the latest changes that have been checked into the l
 
 * [Cross-Platform Tools for Windows Azure]
 
+* [Git Documentation]
+
 [Git website]: http://git-scm.com
 [package management system]: http://en.wikipedia.org/wiki/List_of_software_package_management_systems
 [PowerShell for Windows Azure]: http://windowsazure.com
 [Cross-Platform Tools for Windows Azure]: http://windowsazure.com
+[Git Documentation]: http://git-scm.com/documentation
 
 [portal-select-website]: ../Media/git-select-website.png
 [portal-setup-git]: ../Media/git-setup-git-link.png
