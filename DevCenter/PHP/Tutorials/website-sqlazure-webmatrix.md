@@ -1,6 +1,8 @@
 #Create and Deploy a PHP-SQL Azure Windows Azure Website using WebMatrix
 
-This tutorial shows you how to use WebMatrix to develop and deploy a PHP-SQL Azure application to a Windows Azure Website. WebMatrix is a free web development tool from Microsoft that includes everything you need for website development. WebMatrix supports PHP and includes intellisense for PHP development.
+This tutorial shows you how to use WebMatrix to develop and deploy a PHP-SQL Azure application to a Windows Azure Website. WebMatrix is a free web development tool from Microsoft that includes everything you need for website development. WebMatrix supports PHP and includes intellisense for PHP development. 
+
+This tutorial assumes you have [SQL Server Express][install-SQLExpress] installed on your computer so that you can test an application locally. However, you can complete the tutorial without having SQL Server Express installed. Instead, you can deploy your application directly to Windows Azure Websites.
 
 Upon completing this guide, you will have a PHP-SQL Azure website running in Windows Azure.
  
@@ -117,14 +119,14 @@ In the next few steps you will develop the Tasklist application by adding the fi
 
 <h2 id="Publish">Publish Your Application</h2>
 
-Before publishing your application to Windows Azure Websites, the database connection information in `taskmodel.php` needs to be updated with the connection information you obtained earlier (in the [Create a Windows Azure Website and MySQL Database](#CreateWebsite) section).
+Before publishing your application to Windows Azure Websites, the database connection information in `taskmodel.php` needs to be updated with the connection information you obtained earlier (in the [Create a Windows Azure Website and SQL Azure Database](#CreateWebsite) section).
 
 1. Open the `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function.
 
 		// DB connection info
-		$host = "value of Data Source";
-		$user = "value of User Id";
-		$pwd = "value of Password";
+		$host = "value of $serverName";
+		$user = "value of UID";
+		$pwd = "the SQL password you created when creating the website";
 		$db = "value of Database";
 	
 	Save the `taskmodel.php` file.
@@ -171,7 +173,7 @@ You can easily modify and republish your application. Here, you will make a simp
 
 4. When publishing has completed, navigate to http://[your website name].windows.net/index.php to see the published changes.
 
-
+[install-SQLExpress]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
 [running-app]: ../../Shared/Media/running_app.jpg
 [tasklist-sqlazure-download]: https://github.com/brian-swan/tasklist-sqlazure
 [install-webmatrix]: ../../Shared/Media/install_webmatrix_from_site_dashboard.jpg
