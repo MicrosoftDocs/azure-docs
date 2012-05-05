@@ -183,7 +183,7 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 [twilio_api_service]: http://api.twilio.com
 [add_ca_cert]: add_ca_cert.md
 [azure_java_eclipse_hello_world]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx
-[howto_twilio_voice_sms_java]: twilio-voice-and-sms-service
+[howto_twilio_voice_sms_java]: twilio_in_java.md
 [howto_blob_storage_java]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/
 [howto_sql_azure_java]: http://msdn.microsoft.com/en-us/library/windowsazure/hh749029.aspx
 [azure_runtime_jsp]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690948.aspx
