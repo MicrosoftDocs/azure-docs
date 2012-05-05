@@ -9,7 +9,7 @@ You’ll need to do the following to use the code in this topic:
 1. Acquire a Twilio account and authentication token. To get started with Twilio, evaluate pricing at [http://www.twilio.com/pricing][twilio_pricing]. You can sign up at [https://www.twilio.com/try-twilio][try_twilio]. For information about the API provided by Twilio, see [http://www.twilio.com/api][twilio_api].
 2. Verify your phone number as an outbound caller ID with Twilio. For information on how to verify your phone number, see [https://www.twilio.com/user/account/phone-numbers/verified#][verify_phone]. As an alternative to using an existing number, you can purchase a Twilio phone number.
 For purposes of this example, use the verified phone number as the **From** value of callform.jsp (described later).
-3. Obtain the Twilio JAR. At [https://github.com/twilio/twilio-java][twilio_java], you can download the GitHub sources and create your own JAR, or download a pre-built JAR (with or without dependencies).
+3. Obtain the Twilio JAR. At [https://github.com/twilio/twilio-java][twilio_java_github], you can download the GitHub sources and create your own JAR, or download a pre-built JAR (with or without dependencies).
 The code in this topic was written using the pre-built TwilioJava-3.3.8-with-dependencies JAR.
 4. Add the JAR to your Java build path.
 5. If you are using Eclipse to create this Java application, include the Twilio JAR in your application deployment file (WAR) using Eclipse’s deployment assembly feature. If you are not using Eclipse to create this Java application, ensure the Twilio JAR is included within the same Azure role as your Java application, and added to the class path of your application.
@@ -60,7 +60,7 @@ The following code shows how to create a web form to retrieve user data for maki
     </html>
 
 ## Create the code to make the call
-The following code, which is called when the user completes the form displayed by callform.jsp, creates the call message and generates the call. For purposes of this example, the JSP file is named **makecall.jsp** and was added to the **TwilioCloud** project. (Use your Twilio account and authentication token instead of the placeholder values assigned to `accountSID` and `authToken` in the code below.)
+The following code, which is called when the user completes the form displayed by callform.jsp, creates the call message and generates the call. For purposes of this example, the JSP file is named **makecall.jsp** and was added to the **TwilioCloud** project. (Use your Twilio account and authentication token instead of the placeholder values assigned to **accountSID** and **authToken** in the code below.)
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     import="java.util.*"
@@ -163,8 +163,8 @@ When you are ready to deploy to Windows Azure, recompile for deployment to the c
 This code was provided to show you basic functionality using Twilio in Java on Windows Azure. Before deploying to Windows Azure in production, you may want to add more error handling or other features. For example:
 
 * Instead of using a web form, you could use Windows Azure storage blobs or SQL Azure to store phone numbers and call text. For information about using Windows Azure storage blobs in Java, see [How to Use the Blob Storage Service from Java][howto_blob_storage_java]. For information about using SQL Azure in Java, see [Using SQL Azure in Java][howto_sql_azure_java].
-* You could use `RoleEnvironment.getConfigurationSettings` to retrieve the Twilio account ID and authentication token from your deployment’s configuration settings, instead of hard-coding the values in makecall.jsp. For information about the `RoleEnvironment` class, see [Using the Windows Azure Service Runtime Library in JSP][azure_runtime_jsp] and the Windows Azure Service Runtime package documentation at [http://dl.windowsazure.com/javadoc][azure_javadoc].
-* The makecall.jsp code assigns a Twilio-provided URL, [http://twimlets.com/message][twimlet_message_url], to the `Url` variable. This URL provides a Twilio Markup Language (TwiML) response that informs Twilio how to proceed with the call. For example, the TwiML that is returned can contain a `<Say>` verb that results in text being spoken to the call recipient. Instead of using the Twilio-provided URL, you could build your own service to respond to Twilio’s request; for more information, see [How to Use Twilio for Voice and SMS Capabilities in Java][howto_twilio_voice_sms_java]. More information about TwiML can be found at [http://www.twilio.com/docs/api/twiml][twiml], and more information about `<Say>` and other Twilio verbs can be found at [http://www.twilio.com/docs/api/twiml/say][twilio_say].
+* You could use **RoleEnvironment.getConfigurationSettings** to retrieve the Twilio account ID and authentication token from your deployment’s configuration settings, instead of hard-coding the values in makecall.jsp. For information about the **RoleEnvironment** class, see [Using the Windows Azure Service Runtime Library in JSP][azure_runtime_jsp] and the Windows Azure Service Runtime package documentation at [http://dl.windowsazure.com/javadoc][azure_javadoc].
+* The makecall.jsp code assigns a Twilio-provided URL, [http://twimlets.com/message][twimlet_message_url], to the **Url** variable. This URL provides a Twilio Markup Language (TwiML) response that informs Twilio how to proceed with the call. For example, the TwiML that is returned can contain a **&lt;Say&gt;** verb that results in text being spoken to the call recipient. Instead of using the Twilio-provided URL, you could build your own service to respond to Twilio’s request; for more information, see [How to Use Twilio for Voice and SMS Capabilities in Java][howto_twilio_voice_sms_java]. More information about TwiML can be found at [http://www.twilio.com/docs/api/twiml][twiml], and more information about **&lt;Say&gt;** and other Twilio verbs can be found at [http://www.twilio.com/docs/api/twiml/say][twilio_say].
 * Read the Twilio security guidelines at [https://www.twilio.com/docs/security][twilio_docs_security].
 
 For additional information about Twilio, see [https://www.twilio.com/docs][twilio_docs].
@@ -177,15 +177,15 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 [try_twilio]: http://www.twilio.com/try-twilio
 [twilio_api]: http://www.twilio.com/api
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
-[twilio_java]: http://github.com/twilio/twilio-java
+[twilio_java_github]: http://github.com/twilio/twilio-java
 [twimlet_message_url]: http://twimlets.com/message
 [twiml]: http://www.twilio.com/docs/api/twiml
 [twilio_api_service]: http://api.twilio.com
 [add_ca_cert]: add_ca_cert.md
 [azure_java_eclipse_hello_world]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx
-[howto_twilio_voice_sms_java]: how_to_use_twilio_for_voice_and_sms_capabilities.md
+[howto_twilio_voice_sms_java]: twilio-voice-and-sms-service
 [howto_blob_storage_java]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/
-[howto_sql_azure_java]: [http://msdn.microsoft.com/en-us/library/windowsazure/hh749029.aspx]
+[howto_sql_azure_java]: http://msdn.microsoft.com/en-us/library/windowsazure/hh749029.aspx
 [azure_runtime_jsp]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690948.aspx
 [azure_javadoc]: http://dl.windowsazure.com/javadoc
 [twilio_docs_security]: http://www.twilio.com/docs/security
