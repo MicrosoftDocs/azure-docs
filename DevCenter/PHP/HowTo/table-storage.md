@@ -1,8 +1,8 @@
-# How to Use the Blob Storage Service from PHP
+# How to Use the Table Service from PHP
 
-This guide will show you how to perform common scenarios using the Windows Azure Blob storage service. The samples are written in PHP and use the [Windows Azure SDK for PHP] [download]. The scenarios covered include **creating and deleting a table, and inserting, deleting, and querying entities in a table**. For more information on blobs, see the [Next Steps](#NextSteps) section.
+This guide will show you how to perform common scenarios using the Windows Azure Table service. The samples are written in PHP and use the [Windows Azure SDK for PHP][download]. The scenarios covered include **creating and deleting a table, and inserting, deleting, and querying entities in a table**. For more information on the Windows Azure Table service, see the [Next Steps](#NextSteps) section.
 
-##What is Blob Storage
+##What is the Windows Azure Table Service
 
 	(TODO: Reference reusable content chunk.)
 
@@ -11,7 +11,7 @@ This guide will show you how to perform common scenarios using the Windows Azure
 * [Concepts](#Concepts)
 * [Create a Windows Azure Storage Account](#CreateAccount)
 * [Create a PHP Application](#CreateApplication)
-* [Configure your Application to Access Table Storage](#ConfigureStorage)
+* [Configure your Application to Access the Table Service](#ConfigureStorage)
 * [Setup a Windows Azure Storage Connect String](#ConnectionString)
 * [How to Create a Table](#CreateTable)
 * [How to Add an Entity to a Table](#AddEntity)
@@ -21,7 +21,6 @@ This guide will show you how to perform common scenarios using the Windows Azure
 * [How to Retrieve a Subset of Entity Properties](#RetPropertiesSubset)
 * [How to Update an Entity](#UpdateEntity)
 * [How to Batch Table Operations](#BatchOperations)
-* [How to Delete a Blob](#DeleteBlob)
 * [How to Delete a Table](#DeleteTable)
 * [Next Steps](#NextSteps)
 
@@ -35,14 +34,14 @@ This guide will show you how to perform common scenarios using the Windows Azure
 
 <h2 id="CreateApplication">Create a PHP Application</h2>
 
-The only requirement for creating a PHP application that accesses the Windows Azure Table storage service is the referencing of classes in the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
+The only requirement for creating a PHP application that accesses the Windows Azure Table service is the referencing of classes in the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you will use storage features which can be called from within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site. We assume you have downloaded and installed PHP, followed the instructions in [Download the Windows Azure SDK for PHP] [download], and have created a Windows Azure storage account in your Windows Azure subscription.
+In this guide, you will use Table service features which can be called from within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site. We assume you have downloaded and installed PHP, followed the instructions in [Download the Windows Azure SDK for PHP] [download], and have created a Windows Azure storage account in your Windows Azure subscription.
 
 
-<h2 id="ConfigureStorage">Configure your Application to Access Table Storage</h2>
+<h2 id="ConfigureStorage">Configure your Application to Access the Table Service</h2>
 
-To use the Windows Azure storage APIs to access blobs, you need to:
+To use the Windows Azure Table service APIs to access Tables, you need to:
 
 1. Reference the `Autoload.php` file (from the Windows Azure SDK for PHP) using the [require_once][require_once] statement, and
 2. Reference any classes you might use.
@@ -70,11 +69,11 @@ In the examples below, the `require_once` statement will be shown always, but on
 
 <h2 id="ConnectionString">Setup a Windows Azure Storage Connection String</h2>
 
-A Windows Azure Table storage client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the primary access key, and the table URI for the storage account listed in the Management Portal. This example shows how you can create a new configuration object and set these properties:
+A Windows Azure Table service client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the primary access key, and the table URI for the storage account listed in the Management Portal. This example shows how you can create a new configuration object and set these properties:
 
 	require_once 'Autoload.php';
 
-	use WindowsAzure\Services\Core\Configuration;
+	use WindowsAzure\Core\Configuration;
 	use WindowsAzure\Services\Table\TableSettings;
 	
 	$storage_account_name = "your_storage_account_name";
@@ -95,15 +94,10 @@ A **TableService** object lets you create a table with the **createTable** metho
 	require_once 'Autoload.php';
 
 	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Services\Table\Models\TableServiceOptions;
 	use WindowsAzure\Core\ServiceException;
 
-	// Create table service proxy.
+	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
-
-	// OPTIONAL: Set table service timeout.
-	$options = new TableServiceOptions();
-	$options->setTimeout('20'); //Default value is 30.
 
 	try	{
 		// Create table.
@@ -126,28 +120,30 @@ To add an entity to a table, create a new **Entity** object and pass it to **Tab
 	require_once 'Autoload.php';
 
 	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Services\Table\Models\TableServiceOptions;
 	use WindowsAzure\Services\Table\Models\Entity;
 	use WindowsAzure\Services\Table\Models\EdmType;
-	use WindowsAzure\Utilities;
+	use WindowsAzure\Core\ServiceException;
 
-	// Create table service proxy.
+	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
 	
-	// Create entity.
 	$entity = new Entity();
-
-	// PartitionKey and RowKey are required.
 	$entity->setPartitionKey("tasksSeattle");
 	$entity->setRowKey("1");
-
-	// Other properties are optional.
-	$entity->addProperty("Description", null, "Take out the trash."); // Default type is Edm::STRING.
+	$entity->addProperty("Description", null, "Take out the trash.");
 	$entity->addProperty("DueDate", EdmType::DATETIME, new DateTime("2012-11-05T08:15:00-08:00"));
 	$entity->addProperty("Location", EdmType::STRING, "Home");
 	
-	// Insert entity.
-	$table_proxy->insertEntity("mytable", $entity);
+	try{
+		$table_proxy->insertEntity("mytable", $entity);
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+	}
 
 For information about Table properties and types, see [Understanding the Table Service Data Model][table-data-model].
 
@@ -156,12 +152,12 @@ The **TableService** offers two alternative methods for inserting entities: **in
 	require_once 'Autoload.php';
 
 	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Services\Table\Models\TableServiceOptions;
 	use WindowsAzure\Services\Table\Models\Entity;
 	use WindowsAzure\Services\Table\Models\EdmType;
+	use WindowsAzure\Core\ServiceException;
 	use WindowsAzure\Utilities;
 
-	// Create table service proxy.
+	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
 	
 	//Create new entity.
@@ -170,7 +166,6 @@ The **TableService** offers two alternative methods for inserting entities: **in
 	// PartitionKey and RowKey are required.
 	$entity->setPartitionKey("tasksSeattle");
 	$entity->setRowKey("1");
-	$entity->setTimestamp(Utilities::isoDate()); //This requirement is a bug.
 	
 	// If entity exists, existing properties are updated with new values and
 	// new properties are added. Missing properties are unchanged.
@@ -179,16 +174,24 @@ The **TableService** offers two alternative methods for inserting entities: **in
 	$entity->addProperty("Location", EdmType::STRING, "Home");
 	$entity->addProperty("Status", EdmType::STRING, "Complete"); // Added Status field.
 	
-	$table_proxy->insertOrMergeEntity("mytable", $entity);
-	// Calling insertOrReplaceEntity would simply replace the entity
-	// having PartitionKey "tasksSeattle" and RowKey "1".
+	try	{
+		// Calling insertOrReplaceEntity would simply replace the entity
+		// with PartitionKey "tasksSeattle" and RowKey "1".
+		$table_proxy->insertOrMergeEntity("mytable", $entity);
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 	   
 
 <h2 id="RetrieveEntity">How to Retrieve a Single Entity</h2>
 
-	(NOTE: There is a pending DCR that may change the coding pattern here and in other examples. The Query object may be abstracted, so that all options are passed in the $options object.)
-
-The **TableService->getEntity** method allows you to retrieve a single entity by querying for its `PartitionKey` and `RowKey`. Queries are constructed using filters (for more information, see [Querying Tables and Entities][filters]). In the example below, a raw string is passed as a filter to a **Query** object, which in turn is passed to **QueriesEntitiesOptions** object. The **QueryEntitiesOptions** object is then passed to the **getEntity** method.
+The **TableService->getEntity** method allows you to retrieve a single entity by querying for its `PartitionKey` and `RowKey`. Queries are constructed using filters (for more information, see [Querying Tables and Entities][filters]). In the example below, a string is passed as a filter to a **Query** object, which in turn is passed to **QueriesEntitiesOptions** object. The **QueryEntitiesOptions** object is then passed to the **getEntity** method.
 
 	require_once 'Autoload.php';
 
@@ -197,17 +200,28 @@ The **TableService->getEntity** method allows you to retrieve a single entity by
 	use WindowsAzure\Services\Table\Models\QueryEntitiesResult;
 	use WindowsAzure\Services\Table\Models\Query;
 	use WindowsAzure\Services\Table\Models\Filters\Filter;
+	use WindowsAzure\Core\ServiceException;
 
-	// Create table service proxy.
+	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
 	
 	$query = new Query();
 	$filter = "PartitionKey eq 'tasksSeattle' and RowKey eq '1'";
-	$query->setFilter(Filter::applyRawString($filter));
+	$query->setFilter(Filter::applyQueryString($filter));
     $options = new QueryEntitiesOptions();
     $options->setQuery($query);
 	
-	$result = $table_proxy->queryEntities("mytable", $options);
+	try	{
+		$result = $table_proxy->queryEntities("mytable", $options);
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 	
 	$entities = $result->getEntities();
 	
@@ -225,17 +239,28 @@ As shown in the previous example, you can query for entities in a table by using
 	use WindowsAzure\Services\Table\Models\QueryEntitiesResult;
 	use WindowsAzure\Services\Table\Models\Query;
 	use WindowsAzure\Services\Table\Models\Filters\Filter;
+	use WindowsAzure\Core\ServiceException;
 
-	// Create table service proxy.
+	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
 	
 	$query = new Query();
 	$filter = "PartitionKey eq 'tasksSeattle'";
-	$query->setFilter(Filter::applyRawString($filter));
+	$query->setFilter(Filter::applyQueryString($filter));
     $options = new QueryEntitiesOptions();
     $options->setQuery($query);
 	
-	$result = $table_proxy->queryEntities("mytable", $options);
+	try	{
+		$result = $table_proxy->queryEntities("mytable", $options);
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 	
 	$entities = $result->getEntities();
 	
@@ -252,17 +277,28 @@ The same pattern used in the previous two examples can be used to retrieve any s
 	use WindowsAzure\Services\Table\Models\QueryEntitiesResult;
 	use WindowsAzure\Services\Table\Models\Query;
 	use WindowsAzure\Services\Table\Models\Filters\Filter;
+	use WindowsAzure\Core\ServiceException;
 
-	// Create table service proxy.
+	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
 	
 	$query = new Query();
 	$filter = "Location eq 'Office' and DueDate lt '2012-11-5'";
-	$query->setFilter(Filter::applyRawString($filter));
+	$query->setFilter(Filter::applyQueryString($filter));
     $options = new QueryEntitiesOptions();
     $options->setQuery($query);
 	
-	$result = $table_proxy->queryEntities("mytable", $options);
+	try	{
+		$result = $table_proxy->queryEntities("mytable", $options);
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 	
 	$entities = $result->getEntities();
 	
@@ -281,8 +317,9 @@ A query can retrieve a subset of entity properties. This technique, called *proj
 	use WindowsAzure\Services\Table\Models\QueryEntitiesResult;
 	use WindowsAzure\Services\Table\Models\Query;
 	use WindowsAzure\Services\Table\Models\Filters\Filter;
+	use WindowsAzure\Core\ServiceException;
 
-	// Create table service proxy.
+	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
 	
 	$query = new Query();
@@ -290,7 +327,17 @@ A query can retrieve a subset of entity properties. This technique, called *proj
     $options = new QueryEntitiesOptions();
     $options->setQuery($query);
 	
-	$result = $table_proxy->queryEntities("mytable", $options);
+	try	{
+		$result = $table_proxy->queryEntities("mytable", $options);
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 	
 	// All entities in the table are returned, regardless of whether they have the Description field.
 	// To limit the results returned, use a filter.
@@ -314,13 +361,14 @@ An existing entity can be updated by using the **Entity->setProperty** and **Ent
 	use WindowsAzure\Services\Table\Models\EdmType;
 	use WindowsAzure\Services\Table\Models\Property;
 	use WindowsAzure\Services\Table\Models\Filters\Filter;
+	use WindowsAzure\Core\ServiceException;
 
-	// Create table service proxy.
+	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
 	
 	$query = new Query();
 	$filter = "PartitionKey eq 'tasksSeattle' and RowKey eq '1'";
-	$query->setFilter(Filter::applyRawString($filter));
+	$query->setFilter(Filter::applyQueryString($filter));
     $options = new QueryEntitiesOptions();
     $options->setQuery($query);
 	
@@ -339,7 +387,17 @@ An existing entity can be updated by using the **Entity->setProperty** and **Ent
 	
 	$entity->addProperty("Status", EdmType::STRING, "In progress"); // Added Status field.
 
-	$table_proxy->updateEntity("mytable", $entity);
+	try	{
+		$table_proxy->updateEntity("mytable", $entity);
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 
 <h2 id="BatchOperations">How to Batch Table Operations</h2>
 
@@ -352,9 +410,38 @@ The **TableService->batch** method allows you to execute multiple operations in 
 * **addInsertOrMergeEntity** (adds an insertOrMergeEntity operation)
 * **addDeleteEntity** (adds a deleteEntity operation)
 
-The following example shows how to execute insertEntity and deleteEntity operations in a single request:
+The following example shows how to execute **insertEntity** and **deleteEntity** operations in a single request:
 
- 	(TODO: Add this code example - waiting on DCR.)
+ 	// Create table REST proxy.
+	$table_proxy = TableService::create($config);
+	
+	// Create list of batch operation.
+	$operations = new BatchOperations();
+	
+	$entity1 = new Entity();
+	$entity1->setPartitionKey("tasksSeattle");
+	$entity1->setRowKey("3");
+	$entity1->addProperty("Description", null, "Clean roof gutters.");
+	$entity1->addProperty("DueDate", EdmType::DATETIME, new DateTime("2012-11-05T08:15:00-08:00"));
+	$entity1->addProperty("Location", EdmType::STRING, "Home");
+	
+	// Add operation to list of batch operations.
+    $operations->addInsertEntity("mytable", $entity1);
+
+	// Add operation to list of batch operations.
+	$operations->addDeleteEntity("mytable", "tasksSeattle", "1");
+	
+	try	{
+		$table_proxy->batch($operations);
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 
 <h2 id="DeleteEntity">How to Delete an Entity</h2>
 
@@ -363,13 +450,23 @@ To delete an entity, pass the table name, and the entity's `PartitionKey` and `R
 	require_once 'Autoload.php';
 
 	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Services\Table\Models\DeleteEntityOptions;
+	use WindowsAzure\Core\ServiceException;
 
-	// Create table service proxy.
+	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
 	
-	// Delete entity.
-	$table_proxy->deleteEntity("mytable", "tasksSeattle", "1");
+	try	{
+		// Delete entity.
+		$table_proxy->deleteEntity("mytable", "tasksSeattle", "2");
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 
 Note that for concurrency checks, you can set the Etag for an entity to be deleted by using the **DeleteEntityOptions->setEtag** method and passing the **DeleteEntityOptions** object to **deleteEntity** as a fourth parameter.
 
@@ -377,11 +474,30 @@ Note that for concurrency checks, you can set the Etag for an entity to be delet
 
 Finally, to delete a table, pass the table name to the **TableService->deleteTable** method.
 
+	require_once 'Autoload.php';
 
+	use WindowsAzure\Services\Table\TableService;
+	use WindowsAzure\Core\ServiceException;
+
+	// Create table REST proxy.
+	$table_proxy = TableService::create($config);
+	
+	try	{
+		// Delete table.
+		$table_proxy->deleteTable("mytable");
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 
 <h2 id="NextSteps">Next Steps</h2>
 
-Now that you’ve learned the basics of blob storage, follow these links to learn how to do more complex storage tasks.
+Now that you’ve learned the basics of the Windows Azure Table Service, follow these links to learn how to do more complex storage tasks.
 
 - See the MSDN Reference: [Storing and Accessing Data in Windows Azure] []
 - Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
