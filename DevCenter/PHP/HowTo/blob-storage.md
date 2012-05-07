@@ -39,12 +39,12 @@ In this guide, you will use service features which can be called within a PHP ap
 
 To use the Windows Azure Blob service APIs, you need to:
 
-1. Reference the `Autoload.php` file (from the Windows Azure SDK for PHP) using the [require_once][require_once] statement, and
+1. Reference the `WindowsAzure.php` file (from the Windows Azure SDK for PHP) using the [require_once][require_once] statement, and
 2. Reference any classes you might use.
 
-The following example shows how to include the `Autoload.php` file and references some of the classes you might use with the Blob API:
+The following example shows how to include the `WindowsAzure.php` file and references some of the classes you might use with the Blob API:
 
-	require_once 'Autoload.php';
+	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Blob\BlobSettings;
 	use WindowsAzure\Services\Blob\BlobService;
@@ -73,7 +73,7 @@ In the examples below, the `require_once` statement will be shown always, but on
 
 A Windows Azure Blob service client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the primary access key, and the blob URI for the storage account listed in the Management Portal. This example shows how you can create a new configuration object and set these properties:
 
-	require_once 'Autoload.php';
+	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Core\Configuration;
 	use WindowsAzure\Services\Blob\BlobSettings;
@@ -93,7 +93,7 @@ You will pass this `Configuration` instance (`$config`) to other objects when us
 
 A **BlobService** object lets you create a blob container with the **createContainer** method. When creating a container, you can set options on the container, but doing so is not required. (The example below shows how to set the container ACL and container metadata.)
 
-	require_once 'Autoload.php';
+	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Blob\BlobService;
 	use WindowsAzure\Services\Blob\Models\CreateContainerOptions;
@@ -132,9 +132,9 @@ For more information about Blob service error codes, see [Blob Service Error Cod
 
 <h2 id="UploadBlob">How to Upload a Blob into a Container</h2>
 
-To upload a file as a blob, use the **BlobService->createBlockBlob** method. This operation will create the blob if it doesn’t exist, or overwrite it if it does. The code example below assumes that the container has already been created and uses [fopen][fopen] to open the file as a stream.
+To upload a file as a blob, use the **IBlob->createBlockBlob** method. This operation will create the blob if it doesn’t exist, or overwrite it if it does. The code example below assumes that the container has already been created and uses [fopen][fopen] to open the file as a stream.
 
-	require_once 'Autoload.php';
+	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Blob\BlobService;
 	use WindowsAzure\Core\ServiceException;
@@ -161,9 +161,9 @@ Note that the example above uploads a blob as a stream. However, a blob can also
 
 <h2 id="ListBlobs">How to List the Blobs in a Container</h2>
 
-To list the blobs in a container, use the **BlobService->listBlobs** method with a **foreach** loop to loop through the result. The following code outputs the name of each blob in a container and its URI to the browser.
+To list the blobs in a container, use the **IBlob->listBlobs** method with a **foreach** loop to loop through the result. The following code outputs the name of each blob in a container and its URI to the browser.
 
-	require_once 'Autoload.php';
+	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Blob\BlobService;
 	use WindowsAzure\Services\Blob\Models\ListBlobsResult;
@@ -193,9 +193,9 @@ To list the blobs in a container, use the **BlobService->listBlobs** method with
 
 <h2 id="DownloadBlob">How to Download a Blob</h2>
 
-To download a blob, call the **BlobService->getBlob** method, then call the **getContentStream** method on the resulting **GetBlobResult** object.
+To download a blob, call the **IBlob->getBlob** method, then call the **getContentStream** method on the resulting **GetBlobResult** object.
 
-	require_once 'Autoload.php';
+	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Blob\BlobService;
 	use WindowsAzure\Services\Blob\Models\GetBlobOptions;
@@ -222,9 +222,9 @@ Note that the example above gets a blob as a stream resouce (the default behavio
 
 <h2 id="DeleteBlob">How to Delete a Blob</h2>
 
-To delete a blob, pass the container name and blob name to **BlobService->deleteBlob**. 
+To delete a blob, pass the container name and blob name to **IBlob->deleteBlob**. 
 
-	require_once 'Autoload.php';
+	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Blob\BlobService;
 	use WindowsAzure\Core\ServiceException;
@@ -246,9 +246,9 @@ To delete a blob, pass the container name and blob name to **BlobService->delete
 
 <h2 id="DeleteContainer">How to Delete a Blob Container</h2>
 
-Finally, to delete a blob container, pass the container name to **BlobService->deleteContainer**.
+Finally, to delete a blob container, pass the container name to **IBlob->deleteContainer**.
 
-	require_once 'Autoload.php';
+	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Blob\BlobService;
 	use WindowsAzure\Core\ServiceException;
