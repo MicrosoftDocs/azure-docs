@@ -1,8 +1,8 @@
-# How to Use the Queue Storage Service from PHP
+# How to Use the Queue Service from PHP
 
-This guide will show you how to perform common scenarios using the Windows Azure Queue storage service. The samples are written using classes from the Windows SDK for PHP. The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**. For more information on queues, see the [Next Steps](#NextSteps) section.
+This guide will show you how to perform common scenarios using the Windows Azure Queue service. The samples are written using classes from the Windows SDK for PHP. The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**. For more information on queues, see the [Next Steps](#NextSteps) section.
 
-##What is Queue Storage
+##What is Queue the Windows Azure Queue Service
 
 	(TODO: Reference appropriate content "chunk".)
 
@@ -11,7 +11,7 @@ This guide will show you how to perform common scenarios using the Windows Azure
 * [Concepts](#concepts)
 * [Create a Windows Azure Storage Account](#create-account)
 * [Create a PHP Application](#create-app)
-* [Configure Your Application to Access Queue Storage](#configure-app)
+* [Configure Your Application to the Queue Service](#configure-app)
 * [Setup a Windows Azure Storage Connection String](#connection-string)
 * [How to Create a Queue](#create-queue)
 * [How to Add a Message to a Queue](#add-message)
@@ -33,12 +33,12 @@ This guide will show you how to perform common scenarios using the Windows Azure
 
 <h2 id="create-app">Create a PHP Application</h2>
 
-The only requirement for creating a PHP application that accesses the Windows Azure Queue storage service is the referencing of classes from the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
+The only requirement for creating a PHP application that accesses the Windows Azure Queue service is the referencing of classes from the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you will use storage features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site. We assume you have downloaded and installed PHP, followed the instructions in [Download the Windows Azure SDK for PHP] [download], and have created a Windows Azure storage account in your Windows Azure subscription.
+In this guide, you will use Queue service features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site. We assume you have downloaded and installed PHP, followed the instructions in [Download the Windows Azure SDK for PHP] [download], and have created a Windows Azure storage account in your Windows Azure subscription.
 
 
-<h2 id="configure-app">Configure your Application to Access Queue Storage</h2>
+<h2 id="configure-app">Configure your Application to Access the Queue Service</h2>
 
 To use the Windows Azure storage APIs to access queues, you need to:
 
@@ -69,7 +69,7 @@ In the examples below, the `require_once` statement will be shown always, but on
 
 <h2 id="connection-string">Setup a Windows Azure Storage Connection</h2>
 
-A Windows Azure Queue storage client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the primary access key, and the queue URI for the storage account listed in the Management Portal. This example shows how you can create a new configuration object and set these properties:
+A Windows Azure Queue service client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the primary access key, and the queue URI for the storage account listed in the Management Portal. This example shows how you can create a new configuration object and set these properties:
 
 	require_once 'Autoload.php';
 
@@ -95,8 +95,9 @@ A **QueueService** object lets you create a queue with the **createQueue** metho
 
 	use WindowsAzure\Services\Queue\QueueService;
 	use WindowsAzure\Services\Queue\Models\CreateQueueOptions;
+	use WindowsAzure\Core\ServiceException;
 	
-	// Create queue service proxy.
+	// Create queue REST proxy.
 	$queue_proxy = QueueService::create($config);
 	
 	// OPTIONAL: Set queue metadata.
@@ -119,24 +120,20 @@ A **QueueService** object lets you create a queue with the **createQueue** metho
 
 <h2 id="add-message">How to Add a Message to a Queue</h2>
 
-To add a message to a queue, use you call **QueueService->createMessage**. The method takes the queue name, the message text, and message options (which are optional).
+To add a message to a queue, use **QueueService->createMessage**. The method takes the queue name, the message text, and message options (which are optional).
 
 	require_once 'Autoload.php';
 
 	use WindowsAzure\Services\Queue\QueueService;
 	use WindowsAzure\Services\Queue\Models\CreateMessageOptions;
+	use WindowsAzure\Core\ServiceException;
 
-	// Create queue service proxy.
+	// Create queue REST proxy.
 	$queue_proxy = QueueService::create($config);
-	
-	// OPTIONAL: Set message options.
-	$message_options = new CreateMessageOptions();
-	$message_options->setVisibilityTimeoutInSeconds(60); // Default is 0. Max value is 7 days.
-	$message_options->setTimeToLiveInSeconds(3600); // Default and max value are 7 days.
 	
 	try	{
 		// Create message.
-		$queue_proxy->createMessage("myqueue", "Hello World!", $message_options);
+		$queue_proxy->createMessage("myqueue", "Hello World!");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -148,15 +145,16 @@ To add a message to a queue, use you call **QueueService->createMessage**. The m
 
 <h2 id="peek-message">How to Peek at the Next Message</h2>
 
-You can peek at a message (or messages) at the front of a queue without removing it from the queue by calling **QueueService->peekMessages**. By default, **peekMessage** method returns a single message, but you can change that value with the **PeekMessagesOptions->setNumberOfMessages** method.
+You can peek at a message (or messages) at the front of a queue without removing it from the queue by calling **QueueService->peekMessages**. By default, **peekMessage** method returns a single message, but you can change that value with the **PeekMessagesOptions->setNumberOfMessages** method. Note that when a message is retrieved with **peekMessages**, it will become unavailable to other API calls according to its visibility timeout setting.
 
 	require_once 'Autoload.php';
 
 	use WindowsAzure\Services\Queue\QueueService;
 	use WindowsAzure\Services\Queue\Models\PeekMessagesResult;
 	use WindowsAzure\Services\Queue\Models\PeekMessagesOptions;
+	use WindowsAzure\Core\ServiceException;
 
-	// Create queue service proxy.
+	// Create queue REST proxy.
 	$queue_proxy = QueueService::create($config);
 	
 	// OPTIONAL: Set peek message options.
@@ -174,7 +172,7 @@ You can peek at a message (or messages) at the front of a queue without removing
 		echo $code.": ".$error_message."<br />";
 	}
 	
-	$messages = $peekMessagesResult->getQueueMessages(); // Array of AzureQueueMessage objects
+	$messages = $peekMessagesResult->getQueueMessages(); // Array of WindowsAzureQueueMessage objects
 
 	// View messages.
 	$messageCount = count($messages);
@@ -184,7 +182,7 @@ You can peek at a message (or messages) at the front of a queue without removing
 	else{
 		foreach($messages as $message)	{
 			echo "Peeked message:<br />";
-			echo "Message ID: ".$message->getMessageId()."<br />";
+			echo "Message Id: ".$message->getMessageId()."<br />";
 			echo "Insertion date: ".date_format($message->getInsertionDate(), 'Y-m-d H:i:s')."<br />";
 			echo "Message text: ".$message->getMessageText()."<br /><br />";
 		}
@@ -192,15 +190,16 @@ You can peek at a message (or messages) at the front of a queue without removing
 
 <h2 id="dequeue-message">How to De-queue the Next Message</h2>
 
-Your code removes a message from a queue in two steps. First, you call **QueueService->listMessages**, which makes the message invisible to any other code reading from the queue. By default, this message will stay invisible for 30 seconds (if the code is not deleted in this time period, it will be put back on the queue). To finish removing the message from the queue, you must call **QueueService->deleteMessage**. This two-step process of removing a message assures that when your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls **deleteMessage** right after the message has been processed.
+Your code removes a message from a queue in two steps. First, you call **QueueService->listMessages**, which makes the message invisible to any other code reading from the queue. By default, this message will stay invisible for 30 seconds (if the message is not deleted in this time period, it will become visible on the queue again). To finish removing the message from the queue, you must call **QueueService->deleteMessage**. This two-step process of removing a message assures that when your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls **deleteMessage** right after the message has been processed.
 
 	require_once 'Autoload.php';
 
 	use WindowsAzure\Services\Queue\QueueService;
 	use WindowsAzure\Services\Queue\Models\ListMessageOptions;
 	use WindowsAzure\Services\Queue\Models\QueueServiceOptions;
+	use WindowsAzure\Core\ServiceException;
 
-	// Create queue service proxy.
+	// Create queue REST proxy.
 	$queue_proxy = QueueService::create($config);
 	
 	// OPTIONAL: Set List Message Options
@@ -216,7 +215,7 @@ Your code removes a message from a queue in two steps. First, you call **QueueSe
 		Process message.
 	   --------------------- */
 	
-	// Get message ID and pop receipt.
+	// Get message Id and pop receipt.
 	$messageId = $message->getMessageId();
 	$popReceipt = $message->getPopReceipt();
 	
@@ -241,8 +240,9 @@ You can change the contents of a message in-place in the queue by calling **Queu
 	use WindowsAzure\Services\Queue\QueueService;
 	use WindowsAzure\Services\Queue\Models\ListMessagesOptions;
 	use WindowsAzure\Services\Queue\Models\QueueServiceOptions;
+	use WindowsAzure\Core\ServiceException;
 
-	// Create queue service proxy.
+	// Create queue REST proxy.
 	$queue_proxy = QueueService::create($config);
 	
 	// Get message.
@@ -254,7 +254,7 @@ You can change the contents of a message in-place in the queue by calling **Queu
 	$new_message_text = "New message text.";
 	$new_visibility_timeout = 5; // Measured in seconds.
 	
-	// Get message ID and pop receipt.
+	// Get message Id and pop receipt.
 	$messageId = $message->getMessageId();
 	$popReceipt = $message->getPopReceipt();
 	
@@ -272,7 +272,7 @@ You can change the contents of a message in-place in the queue by calling **Queu
 
 <h2 id="additional-options">Additional Options for De-queuing Messages</h2>
 
-There are two ways you can customize message retrieval from a queue. First, you can get a batch of messages (up to 32). Second, you can set a longer or shorter invisibility timeout, allowing your code more or less time to fully process each message. The following code example uses the getMessages method to get 16 messages in one call. Then it processes each message using a **for** loop. It also sets the invisibility timeout to five minutes for each message.
+There are two ways you can customize message retrieval from a queue. First, you can get a batch of messages (up to 32). Second, you can set a longer or shorter visibility timeout, allowing your code more or less time to fully process each message. The following code example uses the **getMessages** method to get 16 messages in one call. Then it processes each message using a **for** loop. It also sets the invisibility timeout to five minutes for each message.
 
 	require_once 'Autoload.php';
 
@@ -280,7 +280,7 @@ There are two ways you can customize message retrieval from a queue. First, you 
 	use WindowsAzure\Services\Queue\Models\ListMessagesOptions;
 	use WindowsAzure\Services\Queue\Models\QueueServiceOptions;
 
-	// Create queue service proxy.
+	// Create queue REST proxy.
 	$queue_proxy = QueueService::create($config);
 	
 	// Set list message options. 
@@ -298,7 +298,7 @@ There are two ways you can customize message retrieval from a queue. First, you 
 			Process message.
 		--------------------- */
 	
-		// Get message ID and pop receipt.
+		// Get message Id and pop receipt.
 		$messageId = $message->getMessageId();
 		$popReceipt = $message->getPopReceipt();
 		
@@ -313,8 +313,9 @@ You can get an estimate of the number of messages in a queue. The **QueueService
 	require_once 'Autoload.php';
 
 	use WindowsAzure\Services\Queue\QueueService;
+	use WindowsAzure\Core\ServiceException;
 
-	// Create queue service proxy.
+	// Create queue REST proxy.
 	$queue_proxy = QueueService::create($config);
 	
 	try	{
@@ -339,8 +340,9 @@ To delete a queue and all the messages contained in it, call the **QueueService-
 	require_once 'Autoload.php';
 
 	use WindowsAzure\Services\Queue\QueueService;
+	use WindowsAzure\Core\ServiceException;
 
-	// Create queue service proxy.
+	// Create queue REST proxy.
 	$queue_proxy = QueueService::create($config);
 	
 	try	{
@@ -358,7 +360,7 @@ To delete a queue and all the messages contained in it, call the **QueueService-
 
 <h2 id="next-steps">Next Steps</h2>
 
-Now that you’ve learned the basics of blob storage, follow these links to learn how to do more complex storage tasks.
+Now that you’ve learned the basics of the Windows Azure Queue service, follow these links to learn how to do more complex storage tasks.
 
 - See the MSDN Reference: [Storing and Accessing Data in Windows Azure] []
 - Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
