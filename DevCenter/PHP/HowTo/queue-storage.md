@@ -40,14 +40,14 @@ In this guide, you will use Queue service features which can be called within a 
 
 <h2 id="configure-app">Configure your Application to Access the Queue Service</h2>
 
-To use the Windows Azure storage APIs to access queues, you need to:
+To use the Windows Azure Queue service APIs to access queues, you need to:
 
-1. Reference the `Autoload.php` file (from the Windows Azure SDK for PHP) using the [require_once] [require_once] statement, and
+1. Reference the `WindowsAzure.php` file (from the Windows Azure SDK for PHP) using the [require_once] [require_once] statement, and
 2. Reference any classes you might use.
 
-The following example shows how to include the `Autoload.php` file and references some of the classes you might use with the Queue API:
+The following example shows how to include the `WindowsAzure.php` file and references some of the classes you might use with the Queue API:
 
-	require_once 'Autoload.php';
+	require_once 'WindowsAzure.php';
 	
 	use WindowsAzure\Core\Configuration;
 	use WindowsAzure\Services\Core\Models\ServiceProperties;
@@ -69,9 +69,9 @@ In the examples below, the `require_once` statement will be shown always, but on
 
 <h2 id="connection-string">Setup a Windows Azure Storage Connection</h2>
 
-A Windows Azure Queue service client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the primary access key, and the queue URI for the storage account listed in the Management Portal. This example shows how you can create a new configuration object and set these properties:
+A Windows Azure Queue service client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the primary access key, and the queue URI for the storage account listed in the Management Portal. The following example shows how you can create a new configuration object and set these properties. Note that the full URI (including `http://`) for your storage account must be used when setting the account URI.
 
-	require_once 'Autoload.php';
+	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Core\Configuration;
 	use WindowsAzure\Services\Queue\QueueSettings;
@@ -91,7 +91,7 @@ You will pass this `Configuration` instance (`$config`) to other objects when us
 
 A **QueueService** object lets you create a queue with the **createQueue** method. When creating a queue, you can set options on the queue, but doing so is not required. (The example below shows how to set metadata on a queue.)
 
-	require_once 'Autoload.php';
+	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Queue\QueueService;
 	use WindowsAzure\Services\Queue\Models\CreateQueueOptions;
@@ -117,12 +117,13 @@ A **QueueService** object lets you create a queue with the **createQueue** metho
 		echo $code.": ".$error_message."<br />";
 	}
 
+**Note**: You should not rely on case sensetivity for metadata keys. All keys are read from the service in lowercase.
 
 <h2 id="add-message">How to Add a Message to a Queue</h2>
 
-To add a message to a queue, use **QueueService->createMessage**. The method takes the queue name, the message text, and message options (which are optional).
+To add a message to a queue, use **IQueue->createMessage**. The method takes the queue name, the message text, and message options (which are optional).
 
-	require_once 'Autoload.php';
+	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Queue\QueueService;
 	use WindowsAzure\Services\Queue\Models\CreateMessageOptions;
@@ -145,9 +146,9 @@ To add a message to a queue, use **QueueService->createMessage**. The method tak
 
 <h2 id="peek-message">How to Peek at the Next Message</h2>
 
-You can peek at a message (or messages) at the front of a queue without removing it from the queue by calling **QueueService->peekMessages**. By default, **peekMessage** method returns a single message, but you can change that value with the **PeekMessagesOptions->setNumberOfMessages** method. Note that when a message is retrieved with **peekMessages**, it will become unavailable to other API calls according to its visibility timeout setting.
+You can peek at a message (or messages) at the front of a queue without removing it from the queue by calling **IQueue->peekMessages**. By default, **peekMessage** method returns a single message, but you can change that value with the **PeekMessagesOptions->setNumberOfMessages** method.
 
-	require_once 'Autoload.php';
+	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Queue\QueueService;
 	use WindowsAzure\Services\Queue\Models\PeekMessagesResult;
@@ -190,9 +191,9 @@ You can peek at a message (or messages) at the front of a queue without removing
 
 <h2 id="dequeue-message">How to De-queue the Next Message</h2>
 
-Your code removes a message from a queue in two steps. First, you call **QueueService->listMessages**, which makes the message invisible to any other code reading from the queue. By default, this message will stay invisible for 30 seconds (if the message is not deleted in this time period, it will become visible on the queue again). To finish removing the message from the queue, you must call **QueueService->deleteMessage**. This two-step process of removing a message assures that when your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls **deleteMessage** right after the message has been processed.
+Your code removes a message from a queue in two steps. First, you call **IQueue->listMessages**, which makes the message invisible to any other code reading from the queue. By default, this message will stay invisible for 30 seconds (if the message is not deleted in this time period, it will become visible on the queue again). To finish removing the message from the queue, you must call **IQueue->deleteMessage**. This two-step process of removing a message assures that when your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls **deleteMessage** right after the message has been processed.
 
-	require_once 'Autoload.php';
+	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Queue\QueueService;
 	use WindowsAzure\Services\Queue\Models\ListMessageOptions;
@@ -208,7 +209,7 @@ Your code removes a message from a queue in two steps. First, you call **QueueSe
 	
 	// Get message.
 	$listMessagesResult = $queue_proxy->listMessages("myqueue", $options); // Returns a ListMessagesResult object
-	$messages = $listMessagesResult->getQueueMessages(); // Array of AzureQueueMessage objects
+	$messages = $listMessagesResult->getQueueMessages(); // Array of WindowsAzureQueueMessage objects
 	$message = $messages[0];
 	
 	/* ---------------------
@@ -233,9 +234,9 @@ Your code removes a message from a queue in two steps. First, you call **QueueSe
 
 <h2 id="change-message">How to Change the Contents of a Queued Message</h2>
 
-You can change the contents of a message in-place in the queue by calling **QueueService->updateMessage**. If the message represents a work task, you could use this feature to update the status of the work task. The following code updates the queue message with new contents, and sets the visibility timeout to extend another 60 seconds. This saves the state of work associated with the message, and gives the client another minute to continue working on the message. You could use this technique to track multi-step workflows on queue messages, without having to start over from the beginning if a processing step fails due to hardware or software failure. Typically, you would keep a retry count as well, and if the message is retried more than n times, you would delete it. This protects against a message that triggers an application error each time it is processed.
+You can change the contents of a message in-place in the queue by calling **IQueue->updateMessage**. If the message represents a work task, you could use this feature to update the status of the work task. The following code updates the queue message with new contents, and sets the visibility timeout to extend another 60 seconds. This saves the state of work associated with the message, and gives the client another minute to continue working on the message. You could use this technique to track multi-step workflows on queue messages, without having to start over from the beginning if a processing step fails due to hardware or software failure. Typically, you would keep a retry count as well, and if the message is retried more than n times, you would delete it. This protects against a message that triggers an application error each time it is processed.
 
-	require_once 'Autoload.php';
+	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Queue\QueueService;
 	use WindowsAzure\Services\Queue\Models\ListMessagesOptions;
@@ -247,7 +248,7 @@ You can change the contents of a message in-place in the queue by calling **Queu
 	
 	// Get message.
 	$listMessagesResult = $queue_proxy->listMessages("myqueue"); // Returns a ListMessagesResult object
-	$messages = $listMessagesResult->getQueueMessages(); // Array of AzureQueueMessage objects
+	$messages = $listMessagesResult->getQueueMessages(); // Array of WindowsAzureQueueMessage objects
 	$message = $messages[0];
 	
 	// Define new message properties.
@@ -274,7 +275,7 @@ You can change the contents of a message in-place in the queue by calling **Queu
 
 There are two ways you can customize message retrieval from a queue. First, you can get a batch of messages (up to 32). Second, you can set a longer or shorter visibility timeout, allowing your code more or less time to fully process each message. The following code example uses the **getMessages** method to get 16 messages in one call. Then it processes each message using a **for** loop. It also sets the invisibility timeout to five minutes for each message.
 
-	require_once 'Autoload.php';
+	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Queue\QueueService;
 	use WindowsAzure\Services\Queue\Models\ListMessagesOptions;
@@ -290,7 +291,7 @@ There are two ways you can customize message retrieval from a queue. First, you 
 	
 	// Get messages.
 	$listMessagesResult = $queue_proxy->listMessages("myqueue", $message_options); // Returns a ListMessagesResult object
-	$messages = $listMessagesResult->getQueueMessages(); // Array of AzureQueueMessage objects
+	$messages = $listMessagesResult->getQueueMessages(); // Array of WindowsAzureQueueMessage objects
 
 	foreach($messages as $message){
 		
@@ -308,9 +309,9 @@ There are two ways you can customize message retrieval from a queue. First, you 
 
 <h2 id="get-queue-length">How To: Get Queue Length</h2>
 
-You can get an estimate of the number of messages in a queue. The **QueueService->getQueueMetadata** method asks the queue service to return metadata about the queue. Calling the **getApproximateMessageCount** method on the returned object provides a count of how many messages are in a queue. The count is only approximate because messages can be added or removed after the queue service responds to your request.
+You can get an estimate of the number of messages in a queue. The **IQueue->getQueueMetadata** method asks the queue service to return metadata about the queue. Calling the **getApproximateMessageCount** method on the returned object provides a count of how many messages are in a queue. The count is only approximate because messages can be added or removed after the queue service responds to your request.
 
-	require_once 'Autoload.php';
+	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Queue\QueueService;
 	use WindowsAzure\Core\ServiceException;
@@ -335,9 +336,9 @@ You can get an estimate of the number of messages in a queue. The **QueueService
 
 <h2 id="delete-queue">How To: Delete a Queue</h2>
 
-To delete a queue and all the messages contained in it, call the **QueueService->deleteQueue** method.
+To delete a queue and all the messages contained in it, call the **IQueue->deleteQueue** method.
 
-	require_once 'Autoload.php';
+	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Queue\QueueService;
 	use WindowsAzure\Core\ServiceException;
