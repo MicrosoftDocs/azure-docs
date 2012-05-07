@@ -2,7 +2,7 @@
 
 This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on Windows Azure. This tutorial assumes that you have some prior experience using node, MongoDB, and [Git].
 
-This guide also assumes that you have access to a MongoDB server, such as the one created by following the steps in **TBD**
+This guide also assumes that you have access to a MongoDB server, such as the one created by following the steps in the [Installing MongoDB on a Linux Virtual machine] article.
 
 You will learn:
 
@@ -377,6 +377,7 @@ While the steps in this article describe using MongoDB to store information, you
 [Cross-Platform Tools for Windows Azure]: http://windowsazure.com
 [Create and deploy a Node.js application to Windows Azure Web Sites]: http://windowsazure.com
 [Publishing to Windows Azure Web Sites with Git]: http://windowsazure.com
+[Installing MongoDB on a Linux Virtual machine]: http://windowsazure.com
 
 [node-mongo-finished]: ../media/todo_list_empty.png
 [node-mongo-npm-results]: ../media/npm_install_express_mongoose.png
