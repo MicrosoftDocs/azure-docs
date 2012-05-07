@@ -46,14 +46,15 @@ Before following the instructions in this article, you should ensure that you ha
 
 In this section you will create a new Node application and use npm to add module packages. For the task-list application you will use the [Express] and [Mongoose] modules. The Express module provides a Model View Controller framework for node, while Mongoose is a driver for communicating with MongoDB.
 
+###Install express and generate scaffolding
+
 1. From the command-line, change directories to the **tasklist** directory. If the **tasklist** directory does not exist, create it.
 
-2. Enter the following commands to install the express and mongoose modules:
+2. Enter the following command to install express.
 
 		npm install express -g
-		npm install mongoose
 
-    The output of these commands should appear similar to the following:
+    The output of this command should appear similar to the following:
 
     ![npm install results][node-mongo-npm-results]
 
@@ -67,7 +68,34 @@ In this section you will create a new Node application and use npm to add module
 
     ![Express command output][node-mongo-express-results]
 
-5. To install additional modules required by the express application, which are specified in the **package.json** file created by the **express** command, enter the following:
+	After this command completes, you should have several new directories and files in the **tasklist** directory.
+
+###Install additional modules
+
+The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for this application. To add a requirement for the Mongoose module perform the following steps:
+
+1. Open the **package.json** file in a text editor.
+
+2. Find the line that contains **"jade":** . Add a new line after it, which should contain the following:
+
+		, "mongoose": ">= 2.5.13"
+
+	After this change, the file contents should appear similar to the following:
+
+		{
+	    "name": "application-name"
+		  , "version": "0.0.1"
+		  , "private": true
+		  , "dependencies": {
+		      "express": "2.5.8"
+		    , "jade": ">= 0.0.1"
+		    , "mongoose": ">= 2.5.13"
+		  }
+		}
+
+3. Save the **package.json** file.
+	
+4. From the command-line, change directories to the **tasklist** folder and enter the following to install the modules described in the **package.json** file:
 
         npm install
 
