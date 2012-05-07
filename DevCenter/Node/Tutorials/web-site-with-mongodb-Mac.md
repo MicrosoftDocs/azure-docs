@@ -12,7 +12,7 @@ You will learn:
 
 * How to use the Cross-Platform Tools for Windows Azure to create a Windows Azure Website
 
-By following this tutorial, you will build a simple web-based task-management application that allows creating, retrieving and completing tasks. The tasks are stored on a MongoDB server.
+By following this tutorial, you will build a simple web-based task-management application that allows creating, retrieving and completing tasks. The tasks are stored in MongoDB.
  
 The project files for this tutorial will be stored in a directory named **tasklist** and the completed application will look similar to the following:
 
@@ -24,9 +24,9 @@ The instructions in this article have been tested on the following platforms:
 
 * Mac OS X 10.7.3
 
-**Note**: This tutorial makes reference to the **~/node/helloworld** folder. If you wish to locate the application in a different location, or the path structure is different on the operating system you are using, you can substitute a different path. For example, **c:\node\helloworld** or **/home/username/node/helloworld**.
+**Note**: This tutorial makes reference to the **tasklist** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/tasklist** or **c:\node\tasklist**
 
-**Note**: Many steps in this tutorial mention using the command-line. For these steps, use the command-line for your operating system, such as **cmd.exe** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
+**Note**: Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **cmd.exe** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
 
 ##Prerequisites
 
@@ -46,11 +46,9 @@ Before following the instructions in this article, you should ensure that you ha
 
 In this section you will create a new Node application and use npm to add module packages. For the task-list application you will use the [Express] and [Mongoose] modules. The Express module provides a Model View Controller framework for node, while Mongoose is a driver for communicating with MongoDB.
 
-1. Create a new file named **tasklist** in the **~/node** directory. If the **~/node** directory does not exist, create it.
+1. From the command-line, change directories to the **tasklist** directory. If the **tasklist** directory does not exist, create it.
 
-2. From the command-line, change directories to the **~/node/tasklist** directory.
-
-3. Enter the following command to install the express and mongoose modules:
+2. Enter the following commands to install the express and mongoose modules:
 
 		npm install express -g
 		npm install mongoose
@@ -79,7 +77,7 @@ In this section you will create a new Node application and use npm to add module
 
 ##Using MongoDB in a node application
 
-In this section you will extend the basic application created by the **express** command by adding a **task.js** file which contains the model for your tasks. You will also modify the existing **app.js** and **index.js** files to make use of the model.
+In this section you will extend the basic application created by the **express** command by adding a **task.js** file which contains the model for your tasks. You will also modify the existing **app.js** and create a new **tasklist.js** controller file to make use of the model.
 
 ### Create the model
 
@@ -103,77 +101,83 @@ In this section you will extend the basic application created by the **express**
 
         module.exports = mongoose.model('TaskModel', TaskSchema)
 
-5. Save and close the file.
+5. Save and close the **task.js** file.
 
-## Modify server.js
+###Create the controller
 
-1. In the **tasklist** directory, open the **server.js** file in a text editor. This file was created earlier by running the **express** command.
+1. In the **tasklist/routes** directory, create a new file named **tasklist.js** and open it in a text editor.
 
-2. Add the following code after the `app.get` statement in the routes section. It will add a new route for submitting new tasks. We will create the **updateItem** function used by this route in the next section.
-
-        app.post('/', routes.updateItem);
-
-	After adding the previous line, the routes section should appear as follows:
-
-		// Routes
-
-		app.get('/', routes.index);
-		app.post('/', routes.updateItem);
-
-4. Replace the 'app.listen statement' at the end of the file with the code below. This configures Node to listen on the environment PORT value provided by Windows Azure when published to the cloud, or port 1337 when you run the application locally.
-
-        app.listen(process.env.port || 1337);
-
-## Modify the index controller
-
-The controller defined in **index.js** will handle all requests for the task list site. This file can be found in the **routes** sub-directory of the **tasklist** directory.
-
-1. Open **index.js** in your text editor and add the following statements at the beginning of the file. This will include the mongoose module, the **task.js** file you created earlier, and connect to the MongoDB server. 
+2. Add the folowing code to **tasklist.js**. This loads the mongoose module and the task model defined in **task.js**. The TaskList function is used to create the connection to the MongoDB server based on the **connection** value:
 
 		var mongoose = require('mongoose')
-  		  , task = require('../models/taskModel.js');
+	      , task = require('../models/task.js');
 
-		mongoose.connect('mongodb://mongodbserveraddr/tasks');
+		module.exports = TaskList;
 
-    **Note**: change the **mongodbserveraddr** in the `mongoose.connect` statement to the IP address or fully qualified domain name of your MongoDB server.
+		function TaskList(connection) {
+  		  mongoose.connect(connection);
+		}
 
-2. Replace the existing `exports.index` section with the following. This will find and display tasks stored in MongoDB.
+2. Continue adding to the **tasklist.js** file by adding the methods used to **showTasks**, **addTask**, and **completeTasks**:
 
-		exports.index = function(req, res){
-		  task.find({}, function(err, items){
-		  	res.render('index',{title: 'My ToDo List ', tasks: items})
-		  })
-		};
+		TaskList.prototype = {
+  		  showTasks: function(req, res) {
+      	    task.find({itemCompleted: false}, function(err, items) {
+      		  res.render('index',{title: 'My ToDo List ', tasks: items})
+    		});
+  		  },
 
-2. Add the following code to the bottom of the file:
+  		  addTask: function(req,res) {
+    		var item = req.body.item;
+    		newTask = new task();
+    		newTask.itemName = item.name;
+    		newTask.itemCategory = item.category;
+    		newTask.save(function(err){
+      		  if(err) {
+      		    throw err;
+      		  }
+    	    });
+    	  	res.redirect('home');
+  		  },
+  
 
-		exports.updateItem = function (req, res){
-		  if(req.body.item){
-		    newTask = new task();
-		    newTask.itemName = req.body.item.name;
-		    newTask.itemCategory = req.body.item.category;
-		    newTask.save(function(err){
-			  if(err){
-				console.log(err);
-			  }
-		    });
-	      }else{
-            for(key in req.body){
-    	      conditions = { _id: key };
-    	      update = { itemCompleted: req.body[key] };
-    	      task.update(conditions, update, function(err){
-    		    if(err){
-    			  console.log(err);
-    		    }
-    	      });
-            }
-	      }
-	      res.redirect('home');
-        }
+  		  completeTask: function(req,res) {
+    		var completedTasks = req.body;
+    		for(taskId in completedTasks) {
+      		  if(completedTasks[taskId]=='true') {
+        		var conditions = { _id: taskId };
+        		var updates = { itemCompleted: completedTasks[taskId] };
+        		task.update(conditions, updates, function(err) {
+          		  if(err) {
+          		    throw err;
+          		  }
+        		});
+      		  }
+    		}
+    		res.redirect('home');
+  		  }
+		}
 
-	This defines the **updateItem** route used when new tasks are submitted or existing tasks are marked as completed. When creating a new task, it uses the model defined earlier to create a new task object, and then saves the task to MongoDB. When updating an existing item, it performs an update by specifying a condition that identifies the document to be updated and the values to be updated. Finally, it redirects the user back to the index route.
- 
-3. Save and close the file.
+3. Save the **tasklist.js** file.
+
+### Modify server.js
+
+1. In the **tasklist** directory, open the **app.js** file in a text editor. This file was created earlier by running the **express** command.
+
+2. Replace the content after the `//Routes` comment with the following code. This will initialize **TaskList** with the connection string for the MongoDB server and add the  functions defined in **tasklist.js** as routes:
+
+        var TaskList = require('./routes/tasklist');
+		var taskList = new TaskList('mongodb://mongodbserver/tasks');
+
+    	app.get('/', taskList.showTasks.bind(taskList));
+    	app.post('/addtask', taskList.addTask.bind(taskList));
+    	app.post('/completetask', taskList.completeTask.bind(taskList));
+
+		app.listen(process.env.port || 1337);
+
+	**Note**: You must replace the connection string above with the connection string for your MongoDB server. For example, **'mongodb://127.0.0.1/tasks**.
+
+4. Save the **app.js** file.
 
 ###Modify the index view
 
@@ -182,39 +186,39 @@ The controller defined in **index.js** will handle all requests for the task lis
 2. Replace the contents of the **index.jade** file with the code below. This defines the view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.
 
 		h1= title
-		  font(color="grey") (powered by Node.js and MongoDB on Azure)
-		form(action="/", method="post")
-		table(border="1")
-		  tr
-		    td Name
-		    td Category
-		    td Date
-		    td Complete
-		  each task in tasks
+		  font(color="grey") (powered by Node.js and MongoDB)
+		form(action="/completetask", method="post")
+		  table(border="1")
 		    tr
-		      td #{task.itemName}
- 		     td #{task.itemCategory}
-		      - var day   = task.itemDate.getDate();
-		      - var month = task.itemDate.getMonth() + 1;
-		      - var year  = task.itemDate.getFullYear();
-		      td #{month + "/" + day + "/" + year}
-		      td
-		        input(type="checkbox", name="#{task._id}", value="#{!task.itemCompleted}", checked=task.itemCompleted)
-          input(type="submit", value="Update tasks")
+		      td Name
+		      td Category
+		      td Date
+		      td Complete
+		    each task in tasks
+		      tr
+		        td #{task.itemName}
+		        td #{task.itemCategory}
+		        - var day   = task.itemDate.getDate();
+		        - var month = task.itemDate.getMonth() + 1;
+		        - var year  = task.itemDate.getFullYear();
+		        td #{month + "/" + day + "/" + year}
+		        td
+		          input(type="checkbox", name="#{task._id}", value="#{!task.itemCompleted}", checked=task.itemCompleted)
+		  input(type="submit", value="Update tasks")
 		hr
-		form(action="/", method="post")
+		form(action="/addtask", method="post")
 		  table(border="1") 
 		    tr
 		      td Item Name: 
 		      td 
-		        input(name="itemName", type="textbox")
+		        input(name="item[name]", type="textbox")
 		    tr
 		      td Item Category: 
 		      td 
-		        input(name="itemCategory", type="textbox")
+		        input(name="item[category]", type="textbox")
 		  input(type="submit", value="Add item")
 
-3. Save and close the file.
+3. Save and close **index.jade** file.
 
 ##Run your application locally
 
@@ -224,7 +228,7 @@ To test the application on your local machine, perform the following steps:
 
 2. Use the following command to launch the application locally:
 
-        node server.js
+        node app.js
 
 3. Open a web browser and navigate to http://127.0.0.1:1337. This should display a web page similar to the following:
 
@@ -256,7 +260,7 @@ To install the cross-platform tools, go to the [Windows Azure Developer Center] 
 
 Before using the command-line tools with Windows Azure, you must first download a file containing information about your subscription. Perform the following steps to download and import this file.
 
-1. Open the Terminal application if it is not already open, and change directories to the **tasklist** directory.
+1. From the command-line, change directories to the **tasklist** directory.
 
 2. Enter the following command to launch the browser and navigate to the download page. If prompted, login with the account associated with your subscription.
 
@@ -266,7 +270,7 @@ Before using the command-line tools with Windows Azure, you must first download 
 	
 	The file download should begin automatically; if it does not, you can click the link at the beginning of the page to manually download the file.
 
-3. After the file download has completed, use the following command in the Terminal window to import the settings:
+3. After the file download has completed, use the following command to import the settings:
 
 		azure account import <path-to-file>
 		
@@ -278,15 +282,15 @@ Before using the command-line tools with Windows Azure, you must first download 
 
 ###Create a Windows Azure Website
 
-1. In the Terminal window, change directories to the **tasklist** directory if you are not already there.
+1. From the command-line, change directories to the **tasklist** directory.
 
 2. Use the following command to create a new Windows Azure Website
 
 		azure site create --git
 		
-	You will be prompted for the web site name and the datacenter that it will be located in. Provide a unique name and select the datacenter geographically close to your location.
+	You will be prompted for the website name and the datacenter that it will be located in. Provide a unique name and select the datacenter geographically close to your location.
 	
-	The `--git` parameter will create a Git repository on Windows Azure for this web site. It will also initialize a Git repository in the current directory if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Windows Azure. Finally, it will create a **web.config** file, which contains settings used by Windows Azure to host node applications.
+	The `--git` parameter will create a Git repository on Windows Azure for this website. It will also initialize a Git repository in the current directory if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Windows Azure. Finally, it will create a **web.config** file, which contains settings used by Windows Azure to host node applications.
 	
 	**Note**: If this command is ran from a directory that already contains a Git repository, it will not re-initialize the directory.
 	
@@ -295,6 +299,8 @@ Before using the command-line tools with Windows Azure, you must first download 
 	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Website created at** contains the URL for the website.
 	
 	![output of the site create command][cmd-line-site-create-git]
+
+	**Note**: If this is the first Windows Azure Web Site for your subscription, you will be instructed to use the portal to create the website. For more information, see [Create and deploy a Node.js application to Windows Azure Web Sites].
 
 ###Publish the application
 
@@ -318,7 +324,19 @@ Before using the command-line tools with Windows Azure, you must first download 
 	![output of git push azure master][git-push-azure-master]
 
 4. Once the push operation has completed, browse to the website URL returned previously by the `azure create site` command to view your application.
-		
+
+##Next steps
+
+While the steps in this article describe using MongoDB to store information, you can also use Windows Azure Storage. See [Node.js Web Application with Windows Azure Storage] for more information.
+
+##Additional resources
+
+* [Cross-Platform Tools for Windows Azure]
+
+* [Create and deploy a Node.js application to Windows Azure Web Sites]
+
+* [Publishing to Windows Azure Web Sites with Git]
+
 
 [node]: http://nodejs.org
 [MongoDB]: http://www.mongodb.org
@@ -328,7 +346,9 @@ Before using the command-line tools with Windows Azure, you must first download 
 [for free]: http://windowsazure.com
 [Git remote]: http://gitref.org/remotes/
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
-[Cross-Platform Tools for Windows Azure]:
+[Cross-Platform Tools for Windows Azure]: http://windowsazure.com
+[Create and deploy a Node.js application to Windows Azure Web Sites]: http://windowsazure.com
+[Publishing to Windows Azure Web Sites with Git]: http://windowsazure.com
 
 [node-mongo-finished]: ../media/todo_list_empty.png
 [node-mongo-npm-results]: ../media/npm_install_express_mongoose.png
