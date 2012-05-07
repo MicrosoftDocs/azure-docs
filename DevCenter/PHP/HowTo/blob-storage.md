@@ -1,8 +1,8 @@
-# How to Use the Blob Storage Service from PHP
+# How to Use the Blob Service from PHP
 
-This guide will show you how to perform common scenarios using the Windows Azure Blob storage service. The samples are written in PHP and use the [Windows Azure SDK for PHP] [download]. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#NextSteps) section.
+This guide will show you how to perform common scenarios using the Windows Azure Blob service. The samples are written in PHP and use the [Windows Azure SDK for PHP] [download]. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#NextSteps) section.
 
-##What is Blob Storage
+##What is the Windows Azure Blob Service
 
 	(TODO: Reference reusable "chunk".)
 
@@ -11,7 +11,7 @@ This guide will show you how to perform common scenarios using the Windows Azure
 * [Concepts](#Concepts)
 * [Create a Windows Azure Storage Account](#CreateAccount)
 * [Create a PHP Application](#CreateApplication)
-* [Configure your Application to Access Blob Storage](#ConfigureStorage)
+* [Configure your Application to Access the Blob Service](#ConfigureStorage)
 * [Setup a Windows Azure Storage Connect String](#ConnectionString)
 * [How to Create a Container](#CreateContainer)
 * [How to Upload a Blob into a Container](#UploadBlob)
@@ -31,13 +31,13 @@ This guide will show you how to perform common scenarios using the Windows Azure
 
 <h2 id="CreateApplication">Create a PHP Application</h2>
 
-The only requirement for creating a PHP application that accesses the Windows Azure Blob storage service is the referencing of classes in the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
+The only requirement for creating a PHP application that accesses the Windows Azure Blob service is the referencing of classes in the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you will use storage features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site. We assume you have downloaded and installed PHP, followed the instructions in [Download the Windows Azure SDK for PHP] [download], and have created a Windows Azure storage account in your Windows Azure subscription.
+In this guide, you will use service features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site. We assume you have downloaded and installed PHP, followed the instructions in [Download the Windows Azure SDK for PHP] [download], and have created a Windows Azure storage account in your Windows Azure subscription.
 
-<h2 id="ConfigureStorage">Configure your Application to Access Blob Storage</h2>
+<h2 id="ConfigureStorage">Configure your Application to Access the Blob Service</h2>
 
-To use the Windows Azure storage APIs to access blobs, you need to:
+To use the Windows Azure Blob service APIs, you need to:
 
 1. Reference the `Autoload.php` file (from the Windows Azure SDK for PHP) using the [require_once][require_once] statement, and
 2. Reference any classes you might use.
@@ -71,7 +71,7 @@ In the examples below, the `require_once` statement will be shown always, but on
 
 <h2 id="ConnectionString">Setup a Windows Azure Storage Connection</h2>
 
-A Windows Azure Blob storage client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the primary access key, and the blob URI for the storage account listed in the Management Portal. This example shows how you can create a new configuration object and set these properties:
+A Windows Azure Blob service client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the primary access key, and the blob URI for the storage account listed in the Management Portal. This example shows how you can create a new configuration object and set these properties:
 
 	require_once 'Autoload.php';
 
@@ -132,7 +132,7 @@ For more information about Blob service error codes, see [Blob Service Error Cod
 
 <h2 id="UploadBlob">How to Upload a Blob into a Container</h2>
 
-To upload a file as a blob, use the **BlobService->createBlockBlob** method. This operation will create the blob if it doesn’t exist, or overwrite it if it does. The code example below assumes that the container has already been created and uses [fopen][fopen] to open the file as a string.
+To upload a file as a blob, use the **BlobService->createBlockBlob** method. This operation will create the blob if it doesn’t exist, or overwrite it if it does. The code example below assumes that the container has already been created and uses [fopen][fopen] to open the file as a stream.
 
 	require_once 'Autoload.php';
 
@@ -270,7 +270,7 @@ Finally, to delete a blob container, pass the container name to **BlobService->d
 
 <h2 id="NextSteps">Next Steps</h2>
 
-Now that you’ve learned the basics of blob storage, follow these links to learn how to do more complex storage tasks.
+Now that you’ve learned the basics of the Windows Azure Blob service, follow these links to learn how to do more complex storage tasks.
 
 - See the MSDN Reference: [Storing and Accessing Data in Windows Azure] []
 - Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
