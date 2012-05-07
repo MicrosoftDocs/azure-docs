@@ -16,7 +16,7 @@ This guide will show you how to perform common scenarios using the Windows Azure
 * [How to Create a Container](#CreateContainer)
 * [How to Upload a Blob into a Container](#UploadBlob)
 * [How to List the Blobs in a Container](#ListBlobs)
-* [How to Download Blobs](#DownloadBlob)
+* [How to Download a Blob](#DownloadBlob)
 * [How to Delete a Blob](#DeleteBlob)
 * [How to Delete a Blob Container](#DeleteContainer)
 * [Next Steps](#NextSteps)
@@ -191,11 +191,9 @@ To list the blobs in a container, use the **BlobService->listBlobs** method with
 	}
 
 
-<h2 id="DownloadBlob">How to Download Blobs</h2>
+<h2 id="DownloadBlob">How to Download a Blob</h2>
 
-To download a blob, call the **BlobService->getBlob** method, then call the **getContentStream** method on the resulting GetBlobResult object.
-
-<font size='5'>**Seems odd that getContentStream returns a string.*</font>
+To download a blob, call the **BlobService->getBlob** method, then call the **getContentStream** method on the resulting **GetBlobResult** object.
 
 	require_once 'Autoload.php';
 
