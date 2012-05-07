@@ -39,7 +39,7 @@ In this guide, you will use storage features which can be called within a PHP ap
 
 To use the Windows Azure storage APIs to access blobs, you need to:
 
-1. Reference the `Autoload.php` file (from the Windows Azure SDK for PHP) using the [require_once] [require_once] statement, and
+1. Reference the `Autoload.php` file (from the Windows Azure SDK for PHP) using the [require_once][require_once] statement, and
 2. Reference any classes you might use.
 
 The following example shows how to include the `Autoload.php` file and references some of the classes you might use with the Blob API:
@@ -75,7 +75,7 @@ A Windows Azure Blob storage client uses a **Configuration** object for storing 
 
 	require_once 'Autoload.php';
 
-	use WindowsAzure\Services\Core\Configuration;
+	use WindowsAzure\Core\Configuration;
 	use WindowsAzure\Services\Blob\BlobSettings;
 	
 	$storage_account_name = "your_storage_account_name";
@@ -91,7 +91,7 @@ You will pass this `Configuration` instance (`$config`) to other objects when us
 
 <h2 id="CreateContainer">How to Create a Container</h2>
 
-A **BlobService** object lets you create a blob container with the **createContainer** method. When creating a container, you can set options on the container, but doing so is not required. (The example below shows how to set the container ACL and container metadata.) If you attempt to create a container that already exists, an exception will be thrown and should be handled appropriately.
+A **BlobService** object lets you create a blob container with the **createContainer** method. When creating a container, you can set options on the container, but doing so is not required. (The example below shows how to set the container ACL and container metadata.)
 
 	require_once 'Autoload.php';
 
@@ -123,7 +123,7 @@ A **BlobService** object lets you create a blob container with the **createConta
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		// Handle exception based on error codes and messages.
-		// Error codes and messages can be found here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		// Error codes and messages are here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
 	}
 
 Calling **setPublicAccess('container')** makes the container and blob data accessible via anonymous requests. Calling **setPublicAccess('blob')** makes only blob data accessible via anonymous requests. For more information about container ACLs, see [Set Container ACL (REST API)][container-acl].
@@ -132,18 +132,32 @@ For more information about Blob service error codes, see [Blob Service Error Cod
 
 <h2 id="UploadBlob">How to Upload a Blob into a Container</h2>
 
-To upload a file as a blob, use the **BlobService->createBlockBlob** method. This operation will create the blob if it doesn’t exist, or overwrite it if it does. The code example below assumes that the container has already been created and uses [file\_get\_contents][file_get_contents] to open the file as a string.
+To upload a file as a blob, use the **BlobService->createBlockBlob** method. This operation will create the blob if it doesn’t exist, or overwrite it if it does. The code example below assumes that the container has already been created and uses [fopen][fopen] to open the file as a string.
 
 	require_once 'Autoload.php';
 
 	use WindowsAzure\Services\Blob\BlobService;
+	use WindowsAzure\Core\ServiceException;
 
-	// Create blob service client.
-	$blob_client = BlobService::create($config);
+	// Create blob service proxy.
+	$blob_proxy = BlobService::create($config);
 	
-	$content = file_get_contents("c:\myfile.txt");
+	$content = fopen("c:\myfile.txt", "r");
 	$blob_name = "myblob";
-	$blob_client->createBlockBlob("mycontainer", $blob_name, $content);
+	
+	try	{
+		//Upload blob
+		$blob_proxy->createBlockBlob("mycontainer", $blob_name, $content);//, null);
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
+
+Note that the example above uploads a blob as a stream. However, a blob can also be uploaded as a string using, for example, the [file\_get\_contents][file_get_contents] function. To do this, change `$content = fopen("c:\myfile.txt", "r");` in the example above to `$content = file_get_contents("c:\myfile.txt");`.
 
 <h2 id="ListBlobs">How to List the Blobs in a Container</h2>
 
@@ -153,17 +167,27 @@ To list the blobs in a container, use the **BlobService->listBlobs** method with
 
 	use WindowsAzure\Services\Blob\BlobService;
 	use WindowsAzure\Services\Blob\Models\ListBlobsResult;
+	use WindowsAzure\Core\ServiceException;
 
-	// Create blob service client.
-	$blob_client = BlobService::create($config);
-
-	// List blobs.
-	$blob_list = $blob_client->listBlobs("mycontainer"); // Returns ListBlobResult object.
-	$blobs = $blob_list->getBlobs(); // Returns an array of Blob objects.
+	// Create blob service proxy.
+	$blob_proxy = BlobService::create($config);
 	
-	foreach($blobs as $blob)
-	{
-		echo $blob->getName().": ".$blob->getUrl()."<br />";
+	try	{
+		// List blobs.
+		$blob_list = $blob_proxy->listBlobs("mycontainer"); // Returns ListBlobResult object.
+		$blobs = $blob_list->getBlobs(); // Returns an array of Blob objects.
+		
+		foreach($blobs as $blob)
+		{
+			echo $blob->getName().": ".$blob->getUrl()."<br />";
+		}
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
 	}
 
 
@@ -176,14 +200,27 @@ To download a blob, call the **BlobService->getBlob** method, then call the **ge
 	require_once 'Autoload.php';
 
 	use WindowsAzure\Services\Blob\BlobService;
+	use WindowsAzure\Services\Blob\Models\GetBlobOptions;
 	use WindowsAzure\Services\Blob\Models\GetBlobResult;
+	use WindowsAzure\Core\ServiceException;
 
-	// Create blob service client.
-	$blob_client = BlobService::create($config);
+	// Create blob service proxy.
+	$blob_proxy = BlobService::create($config);
+	
+	try	{
+		// Get blob.
+		$blob = $blob_proxy->getBlob("mycontainer", "myblob");
+		fpassthru($blob->getContentStream());
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 
-	// Get blob.
-	$blob = $blob_client->getBlob("mycontainer", "myblob"); //Returns a GetBlobResult object.
-	$content = $blob->getContentStream();
+Note that the example above gets a blob as a stream resouce (the default behavior). However, you can use the **Utilities::readStream** static method to convert the returned stream to a string. To do this, you will need to reference th `WindowsAzure\Utilities` namespace.
 
 <h2 id="DeleteBlob">How to Delete a Blob</h2>
 
@@ -192,12 +229,22 @@ To delete a blob, pass the container name and blob name to **BlobService->delete
 	require_once 'Autoload.php';
 
 	use WindowsAzure\Services\Blob\BlobService;
+	use WindowsAzure\Core\ServiceException;
 
-	// Create blob service client.
-	$blob_client = BlobService::create($config);
+	// Create blob service proxy.
+	$blob_proxy = BlobService::create($config);
 	
-	// Delete container.
-	$blob_client->deleteBlob("mycontainer", "myblob");
+	try	{
+		// Delete container.
+		$blob_proxy->deleteBlob("mycontainer", "myblob");
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 
 <h2 id="DeleteContainer">How to Delete a Blob Container</h2>
 
@@ -206,12 +253,22 @@ Finally, to delete a blob container, pass the container name to **BlobService->d
 	require_once 'Autoload.php';
 
 	use WindowsAzure\Services\Blob\BlobService;
+	use WindowsAzure\Core\ServiceException;
 
-	// Create blob service client.
-	$blob_client = BlobService::create($config);
+	// Create blob service proxy.
+	$blob_proxy = BlobService::create($config);
 	
-	// Delete container.
-	$blob_client->deleteContainer("mycontainer");
+	try	{
+		// Delete container.
+		$blob_proxy->deleteContainer("mycontainer");
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 
 <h2 id="NextSteps">Next Steps</h2>
 
@@ -227,3 +284,4 @@ Now that you’ve learned the basics of blob storage, follow these links to lear
 [error-codes]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
 [require_once]: http://php.net/require_once
+[fopen]: http://www.php.net/fopen
