@@ -1,37 +1,40 @@
-#  Deploying an ASP.NET Web Application to a Windows Azure Web Site and SQL Azure
+#  Deploying an ASP.NET Web Application to a Windows Azure Web Site and SQL Database
 
-This walkthrough shows how to deploy an ASP.NET web application to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012 RC or Visual Studio 2012 for Web RC. The wizard enables you to perform most deployment tasks within Visual Studio. The wizard also lets you save Publish profiles so that you can reuse wizard settings in future deployments. This simplifies the deployment process for deploying updates in the future.
+This tutorial shows how to deploy an ASP.NET web application to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012 RC or Visual Studio 2012 for Web Express RC. If you prefer, you can follow the tutorial steps by using Visual Studio 2010 or Visual Web Developer Express 2010.
 
-You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK will automatically install Visual Studio 2012 for Web Express, so you can start developing for Windows Azure entirely for free.
+You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK will automatically install Visual Studio 2012 for Web Express. So you can start developing for Windows Azure entirely for free.
 
-This tutorial assumes you have no prior experience using Windows Azure. On completing this tutorial, you'll have a data-driven web application up and running in the cloud and using a cloud database.
+This tutorial assumes that you have no prior experience using Windows Azure. On completing this tutorial, you'll have a data-driven web application up and running in the cloud and using a cloud database.
  
 You'll learn:
 
 * How to enable your machine for Windows Azure development by installing the Windows Azure SDK.
 * How to create a Visual Studio ASP.NET MVC 4 project and publish it to a Windows Azure Web Site.
-* How to use a SQL Azure database to store data in the cloud.
+* How to use a SQL database to store data in Windows Azure.
 * How to publish application updates to Windows Azure.
 
-You'll build a simple to-do list web application that is built on ASP.NET MVC 4 and uses the ADO.NET Entity Framework for database access. A screenshot from the completed application is shown below:
+You'll build a simple to-do list web application that is built on ASP.NET MVC 4 and uses the ADO.NET Entity Framework for database access. The following illustration shows the completed application:
 
 ![screenshot of web site][Image059]
  
 ## Set up the development environment
 
-To start, you'll set up your development environment by installing the Windows Azure SDK for the .NET Framework. (If you already have Visual Studio 2012 RC or Visual Studio 2012 for Web Express RC installed, the SDK isn't actually required for this tutorial. It will be required later if you follow the suggestions for further learning at the end of the tutorial.) 
+To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. (If you already have Visual Studio or Visual Web Developer, the SDK isn't actually required for this tutorial. It will be required later if you follow the suggestions for further learning at the end of the tutorial.) 
 
-1. To install the Windows Azure SDK for .NET, click the button.<br>
-<a href="http://go.microsoft.com/fwlink/?LinkID=234939&clcid=0x409" class="site-arrowboxcta download-cta">Get Tools and SDK</a>
+1. To install the Windows Azure SDK for .NET, click the button that corresponds to the version of Visual Studio you are using. If you don't have Visual Studio installed yet, use the Visual Studio 2012 button.<br>
+<a href="http://go.microsoft.com/fwlink/?LinkID=234939&clcid=0x409" class="site-arrowboxcta download-cta">Get Tools and SDK for Visual Studio 2012</a><br>
+<a href="http://go.microsoft.com/fwlink/?LinkID=234939&clcid=0x409" class="site-arrowboxcta download-cta">Get Tools and SDK for Visual Studio 2010</a>
 2. When you are prompted to run or save WindowsAzureSDKForNet.exe, click Run.<br>
 ![run the WindowsAzureSDKForNet.exe file][Image002]
 3. In the Web Platform Installer window, click **Install** and proceed with the installation.<br>
 ![Web Platform Installer - Windows Azure SDK for .NET][Image003]<br>
-When the installation is complete, you will have everything necessary to start developing. The SDK includes tools that let you easily develop Windows Azure applications in Visual Studio.
+4. If you are using Visual Studio 2010 or Visual Web Developer 2010 Express, install [Visual Studio 2010 Web Publish Update][WTEInstall] and [MVC 4][MVC4Install].
+
+When the installation is complete, you have everything necessary to start developing.
 
 ## Set up the Windows Azure environment
  
-Next, you'll set up the Windows Azure environment by creating a Windows Azure account, a Windows Azure Web Site, and a SQL Azure database.
+Next, you set up the Windows Azure environment by creating a Windows Azure account, a Windows Azure Web Site, and a SQL database.
 
 ### Create a Windows Azure account
 
@@ -39,13 +42,13 @@ Next, you'll set up the Windows Azure environment by creating a Windows Azure ac
 2. To get started with a free account, click **Free Trial** in the upper-right corner and follow the steps.<br/>
 ![Free trial screenshot][Image010]
 
-### Create a Windows Azure Web Site and a SQL Azure database
+### Create a website and a SQL database in Windows Azure
 
-The next step is to create the Windows Azure Web Site and the SQL Azure database that you need.
+The next step is to create the Windows Azure website and the SQL database that your application will use.
 
-Your Windows Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Windows Azure clients. This is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to a Windows Azure Cloud App. Cloud Apps run on dedicated VMs that you can configure according to your needs.
+Your Windows Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Windows Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to a Windows Azure Cloud App. Cloud Apps run on dedicated VMs that you can configure according to your needs.
 
-SQL Azure is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Azure.
+SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
 
 1. In the Windows Azure Management Portal, click **New**.<br>
 ![New button in Management Portal][Image011]
@@ -60,12 +63,12 @@ This setting specifies which data center your VM will run in.
 ![Create a New Web Site step of New Web Site - Custom Create wizard][Image014]<br>
 The wizard advances to the **Database Settings** step.
 8. In the **Name** box, enter a name for your database.
-9. In the **Server** box, select **New SQL Azure server**.
+9. In the **Server** box, select **New SQL Database server**.
 9. Click the arrow that points to the right at the bottom of the box.<br>
 ![Database Settings step of New Web Site - Custom Create wizard][Image015]<br>
 The wizard advances to the **Create a Server** step.
 9. Enter an administrator name and password.<br>
-This is not an existing name and password. It's a new name and password that you're defining now to use later when you access the database.
+You aren't entering an existing name and password here. You're entering s a new name and password that you're defining now to use later when you access the database.
 9. In the **Region** box, choose the same region that you chose for the web site (unless the same region is not offered). Keeping the web server and the database server in the same region gives you the best performance. 
 9. Select **Allow Windows Azure Services to access the server**.<br>
 This creates a firewall rule that allows your Windows Azure Web Site to access this database.
@@ -88,7 +91,7 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 4. Name the application **ToDoListApp** and click **OK**.<br>
 ![New Project dialog box][Image021]
 5. In the **New ASP.NET MVC 4 Project** dialog box, select the **Internet Application** template.
-6. From the **View Engine** drop-down list select **Razor**, and then click **OK**.
+6. From the **View Engine** drop-down list select **Razor**, and then click **OK**.<br>
 ![New ASP.NET MVC 4 Project dialog box][Image022]
 
 ### Set the page header and footer
@@ -103,8 +106,8 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 ### Run the application locally
 
-1. Press Ctrl+F5 to run the application.
-The application's home page appears in the default browser.<br>
+1. Press CTRL+F5 to run the application.
+The application home page appears in the default browser.<br>
 ![To Do List home page][Image026]
 
 This is all you need to do for now to create the application that you'll deploy to Windows Azure. Later you'll add database functionality.
@@ -116,12 +119,12 @@ This is all you need to do for now to create the application that you'll deploy 
 ![todolistapp in Management Portal Web Sites tab][Image030]
 1. Select the **Quickstart** tab and then click **Download publishing profile**.<br>
 ![Quickstart tab and Download Publishing Profile button][Image031]<br>
-This downloads a file that contains all of the settings that you need to deploy an application to your Web Site. You'll import this file into Visual Studio so you don't have to enter this information manually.
+This step downloads a file that contains all of the settings that you need to deploy an application to your Web Site. You'll import this file into Visual Studio so you don't have to enter this information manually.
 1. Save the .publishsettings file in a folder that you can access from Visual Studio.<br>
 ![saving the .publishsettings file][Image032]
 1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br>
 ![Publish in project context menu][Image033]<br>
-This starts the **Publish Web** wizard.
+The **Publish Web** wizard opens.
 1. In the **Profile** tab of the **Publish Web** wizard, click **Import**.<br>
 ![Import button in Publish Web wizard][Image034]
 1. Select the .publishsettings file you downloaded earlier, and then click **Open**.<br>
@@ -137,10 +140,10 @@ When the connection has been validated, a green check mark is shown next to the 
 You can accept all of the default settings on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server. The **DefaultConnection** entry under **Databases** is for the ASP.NET membership (log on) functionality built into the default MVC 4 project template. You aren't using that membership functionality for this tutorial, so you don't need to enter any settings for **DefaultConnection**.<br>  
 ![Settings tab of the Publish Web wizard][Image039]
 1. In the **Preview** tab, click **Start Preview**.<br>
-This displays a list of the files that will be copied to the server. It isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with list of files that is displayed.<br> 
+The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed.<br> 
 ![StartPreview button in the Preview tab][Image040]<br>
 1. Click **Publish**.<br>
-This starts the process of copying the files to the Windows Azure server.<br>
+Visual Studio begins the process of copying the files to the Windows Azure server.<br>
 ![Publish button in the Preview tab][Image041]
 1. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.<br>
 ![Output window reporting successful deployment][Image043]
@@ -188,7 +191,7 @@ namespace ToDoListApp.Models
 }</pre>
 The **ToDoDb** class lets the Entity Framework know that you want to use **ToDoItem** objects as entities in an entity set.  An entity set in the Entity Framework corresponds to a table in a database. This is all the information the Entity Framework needs to create the database for you.
 
-### Enable Migrations and Create the Database
+### Enable Migrations and create the database
 
 The next task is to enable the Code First Migrations feature in order to create the database based on the data model you created.
 
@@ -203,7 +206,7 @@ update-database<br>
 The **enable-migrations** command creates a Migrations folder and a **Configuration** class that the Entity Framework uses to control database updates.<br>
 The **add-migration Initial** command generates a class named **Initial** that creates the database. You can see the new class files in **Solution Explorer**.<br>
 ![Migrations folder in Solution Explorer][Image051a]<br>
-In the **Initial** class the **Up** method creates the ToDoItems table, and the **Down** method (used when you want to return to the previous state) drops it:<br>
+In the **Initial** class, the **Up** method creates the ToDoItems table, and the **Down** method (used when you want to return to the previous state) drops it:<br>
 <pre class="prettyprint">public partial class Initial : DbMigration
 {
     public override void Up()
@@ -223,14 +226,14 @@ In the **Initial** class the **Up** method creates the ToDoItems table, and the 
         DropTable("ToDoItems");
     }
 }</pre>
-Finally, **update-database** runs this first migration which creates the database. By default, the database is created as a SQL Server Express LocalDB database. (Unless you have SQL Server Express installed, in which case the database is created using the SQL Server Express instance).
+Finally, **update-database** runs this first migration which creates the database. By default, the database is created as a SQL Server Express LocalDB database. (Unless you have SQL Server Express installed, in which case the database is created using the SQL Server Express instance.)
 
 ### Create web pages that enable app users to work with to-do list items
 
 In ASP.NET MVC the scaffolding feature can automatically generate code that performs CRUD (create, read, update, delete) actions.
 
-1. In Visual Studio, build the project. For example, you can press Ctrl+Shift+B.<br>
-This compiles the data model classes that you created and makes them available for MVC scaffolding.
+1. In Visual Studio, build the project. For example, you can press CTRL+Shift+B.<br>
+Visual Studio compiles the data model classes that you created and makes them available for MVC scaffolding.
 2. In **Solution Explorer**, right-click Controllers and click **Add**, and then click **Controller**.<br>
 ![Add Controller in Controllers folder context menu][Image054]
 3. In the **Add Controller** dialog box, enter "HomeController" as your controller name, and select the **Controller with read/write actions and views, using Entity Framework** template.
@@ -239,18 +242,18 @@ This compiles the data model classes that you created and makes them available f
 4. In the dialog box that indicates HomeController.cs already exists, select both **Overwrite HomeController.cs** and **Overwrite associated views** and click **OK**.<br>
 The MVC template created a default home page for your application, and you are replacing the default functionality with the to-do list CRUD functionality.
 ![Add Controller message box][Image056] <br>
-This creates a controller and views for each of the four main database operations (create, read, update, delete) for **ToDoItem** objects.
+Visual Studio creates a controller and views for each of the four main database operations (create, read, update, delete) for **ToDoItem** objects.
 
 ### Run the application locally
 
-1. Press Ctrl+F5 to run the application.<br>
+1. Press CTRL+F5 to run the application.<br>
 ![Index page][Image057] 
 2. Click **Create New** and enter a to-do list item.<br>
 ![Create page][Image058]
 3. Click **Create**. The app returns to the home page and displays the item you entered.<br>
 ![Index page with to-do list items][Image059] 
 
-## Publish the application update to Windows Azure and SQL Azure
+## Publish the application update to Windows Azure and SQL Database
 
 To publish the application, you repeat the procedure you followed earlier, adding a step to configure database deployment.
 
@@ -258,16 +261,16 @@ To publish the application, you repeat the procedure you followed earlier, addin
 2. In the **Publish Web** wizard, select the **Profile** tab.
 3. Click **Import**.
 4. Select the same .publishsettings file that you selected earlier.
-You're importing the .publishsettings file again because it has the SQL Azure connection string you need for configuring database publishing.
+You're importing the .publishsettings file again because it has the SQL Database connection string you need for configuring database publishing.
 5. Click the **Settings** tab.
-6. In the connection string combo box for the **ToDoDb** database, select the SQL Azure connection string that was provided in the .publishsettings file.<br>
+6. In the connection string box for the **ToDoDb** database, select the SQL Database connection string that was provided in the .publishsettings file.<br>
 7. Select **Apply Code First migrations (runs on application start)**.<br>
 ![Settings tab of Publish Web wizard][Image060]<br>
 (As was noted earlier, the **DefaultConnection** database is for the ASP.NET membership system. You are not using membership functionality in this tutorial, so you aren't configuring this database for deployment.)
 8. Click **Publish**.<br>
 After the deployment completes, the browser opens to the home page of the application.<br>
 ![Index page with no to-do list items][Image061]<br>
-The Visual Studio publish process automatically configured the connection string in the deployed Web.config file to point to the SQL Azure database. It also configured Code First Migrations to automatically upgrade the database to the latest version the first time the application accesses the database after deployment. The following XML in the Web.config file configures Code First Migrations to use the MigrateDatabaseToLatestVersion initializer:<br><pre class="prettyprint">&lt;entityFramework&gt;
+The Visual Studio publish process automatically configured the connection string in the deployed Web.config file to point to the SQL database. It also configured Code First Migrations to automatically upgrade the database to the latest version the first time the application accesses the database after deployment. The following XML in the Web.config file configures Code First Migrations to use the MigrateDatabaseToLatestVersion initializer:<br><pre class="prettyprint">&lt;entityFramework&gt;
   &lt;defaultConnectionFactory type="System.Data.Entity.Infrastructure.SqlConnectionFactory, EntityFramework" /&gt;
   &lt;contexts&gt;
     &lt;context type="ToDoListApp.Models.ToDoDb, ToDoListApp"&gt;
@@ -279,16 +282,16 @@ The Visual Studio publish process automatically configured the connection string
     &lt;/context&gt;
   &lt;/contexts&gt;
 &lt;/entityFramework&gt;</pre>
-As a result of this setting, the first time you ran the application after deployment, Code First created the database by running the code in the **Initial** class that you created earlier. 
+As a result of this setting, Code First created the database by running the code in the **Initial** class that you created earlier. It did this the first time the application tried to access the database after deployment. 
 9. Enter a to-do list item as you did when you ran the app locally, to verify that database deployment succeeded.
-When you see that the item you enter is saved and appears on the Index page, you know that it has been stored in the database.
+When you see that the item you enter is saved and appears on the Index page, you know that it has been stored in the database.<br>
 ![Index page with to-do list items][Image063]
  
-The application is now running in the cloud, using SQL Azure to store its data.
+The application is now running in the cloud, using SQL Database to store its data.
 
 ## Important Information about ASP.NET in Windows Azure Web Sites
 
-Here are some things you should know for planning and developing an ASP.NET application for Windows Azure Web Sites:
+Here are some things to be aware of when you plan and develop an ASP.NET application for Windows Azure Web Sites:
 
 * The application must target ASP.NET 4.0 or earlier (not ASP.NET 4.5).
 * The application will run in Integrated mode (not Classic mode).
@@ -307,19 +310,21 @@ To learn how to deploy an application to a Windows Azure Cloud App, see the foll
 * [.NET Multi-Tier Application Using Service Bus Queues][MultiTierApp]
 * [.NET On-Premises/Cloud Hybrid Application Using Service Bus Relay][HybridApp]
 
-Another way to store data in a Windows Azure application is to use Windows Azure Storage Services, which provides non-relational data storage in the form of blobs and tables. The to-do list application could have been designed to use Windows Azure Storage instead of SQL Azure. For more information about both SQL Azure and Windows Azure Storage, see [Data Storage Offerings on the Windows Azure Platform][WindowsAzureDataStorageOfferings].
+Another way to store data in a Windows Azure application is to use Windows Azure Storage Services, which provides non-relational data storage in the form of blobs and tables. The to-do list application could have been designed to use Windows Azure Storage instead of SQL Database. For more information about both SQL Azure and Windows Azure Storage, see [Data Storage Offerings on the Windows Azure Platform][WindowsAzureDataStorageOfferings].
 
 To learn more about how to use SQL Azure, see the following resources:
 
 * [Data Migration to SQL Azure: Tools and Techniques][SQLAzureDataMigration]
 * [Migrating a Database to SQL Azure using SSDT][SQLAzureDataMigrationBlog]
-* [General Guidelines and Limitations (SQL Azure Database)][SQLAzureGuidelines]
-* [SQL Azure How-to Guide][SQLAzureHowTo]
-* [Transact-SQL Reference (SQL Azure Database)][TSQLReference]
-* [Minimizing Connection Pool errors in SQL Azure][SQLAzureConnPoolErrors]
+* [General Guidelines and Limitations (SQL Database)][SQLAzureGuidelines]
+* [SQL Database How-to Guide][SQLAzureHowTo]
+* [Transact-SQL Reference (SQL Database)][TSQLReference]
+* [Minimizing Connection Pool errors in SQL Database][SQLAzureConnPoolErrors]
 
-You might want use the ASP.NET membership system in Windows Azure. For information about how to use either Windows Azure Storage or SQL Azure for the membership database, see [Real World: ASP.NET Forms-Based Authentication Models for Windows Azure][ASP.NETFormsAuth].
+You might want to use the ASP.NET membership system in Windows Azure. For information about how to use either Windows Azure Storage or SQL Database for the membership database, see [Real World: ASP.NET Forms-Based Authentication Models for Windows Azure][ASP.NETFormsAuth].
 
+[WTEInstall]: http://go.microsoft.com/fwlink/?LinkID=208120
+[MVC4Install]: http://www.asp.net/mvc/mvc4
 [VS2012ExpressForWebInstall]: http://www.microsoft.com/web/gallery/install.aspx?appid=VWD11_BETA&prerelease=true
 [windowsazure.com]: http://www.windowsazure.com
 [WindowsAzureDataStorageOfferings]: http://social.technet.microsoft.com/wiki/contents/articles/data-storage-offerings-on-the-windows-azure-platform.aspx
