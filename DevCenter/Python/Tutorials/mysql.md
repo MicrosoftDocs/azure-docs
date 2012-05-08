@@ -27,7 +27,7 @@
   </ul>
 
   <p>You will expand upon the <a href="TODO" style="color:red;">Django Hello World</a> sample by utilizing a MySQL database, hosted in an Azure VM,
-  to find an interesting replacement for <i>World</i>. The replacement will in turn be determined via a MySQL-backed Django <i>counter</i> app. As was the case for the Hello World sample, the Django application will again be hosted in a web role.</p>
+  to find an interesting replacement for <i>World</i>. The replacement will in turn be determined via a MySQL-backed Django <i>counter</i> app. As was the case for the Hello World sample, this Django application will again be hosted in a web role.</p>
 
   <p>The project files for this tutorial will be stored in <strong><em>C:\django\helloworld\*</em></strong> and the completed application will look similar to:</p>
   <p>
@@ -109,10 +109,10 @@ DATABASES = {
     }
 }
 </pre>
-As you can see, we've just given Django instructions on where to find our MySQL database. <br><br><b>IMPORTANT NOTE</b>: you <b style="color:red;">must</b> change the <i>HOST</i> key to match your own MySQL VM's IP address. At this point, <i>HOST</i> should be set to whatever the <i>ipconfig</i> Windows command reports it as being.  You'll need to update this key once again though after you've actually uploaded the VM to Windows Azure and obtained a <b>permanent</b> IP address for it.<br><br>After you've modified <i>HOST</i> to match the MySQL VM's current IP address, please save this file and close it.</p>
+As you can see, we've just given Django instructions on where to find our MySQL database. <br><br><b>IMPORTANT NOTE</b><br>You <b style="color:red;">must</b> change the <i>HOST</i> key to match your own MySQL VM's IP address. At this point, <i>HOST</i> should be set to whatever the <i>ipconfig</i> Windows command reports it as being.  You'll need to update this key once again after you've actually uploaded the VM to Windows Azure and obtained a <b>permanent</b> IP address for it.<br><br>After you've modified <i>HOST</i> to match the MySQL VM's current IP address, please save this file and close it.</p>
     </li>
     <li>
-      <p>Now that we've referenced our <i>djangoazure</i> database, let's do something useful with it! To this end, we'll model a trivial <i>counter</i> app.  To instruct Django to create this, run the following commands:<pre class="prettyprint">
+      <p>Now that we've referenced our <i>djangoazure</i> database, let's do something useful with it! To this end, we'll create a model for a trivial <i>counter</i> app.  To instruct Django to create this, run the following commands:<pre class="prettyprint">
 cd C:\django\helloworld
 %SystemDrive%\Python27\python.exe manage.py startapp counter
 </pre>If Django doesn't report any output from the final command above, it succeeded.</p>
@@ -126,7 +126,7 @@ cd C:\django\helloworld
     <li>
       <p>Next we make Django aware of <i>Counter</i>'s existence:
 		<ol>
-			<li>Edit <strong><em>C:\django\helloworld\helloworld\settings.py</em></strong> again.  This time, add <i>'counter'</i> to the <i>INSTALLED_APPS</i> tuple.</li>
+			<li>Edit <strong><em>C:\django\helloworld\helloworld\settings.py</em></strong> again. Add <i>'counter'</i> to the <i>INSTALLED_APPS</i> tuple.</li>
 			<li>From a command prompt, please run:<pre class="prettyprint">cd C:\django\helloworld
 %SystemDrive%\Python27\python manage.py sql counter
 %SystemDrive%\Python27\python manage.py syncdb
@@ -212,10 +212,11 @@ def hello(request):
   <p>Before running your application in the Azure emulator, let's run it as a normal Django application to ensure everything's working properly:<pre class="prettyprint">
 pushd C:\django\helloworld
 %SystemDrive%\Python27\python.exe manage.py runserver
-<b style="color:red;">#TODO - add iexplore command line here...</b>
+"%ProgramFiles%\Internet Explorer\iexplore.exe" http://localhost:<b style="color:orange;">8000</b>/hello
 </pre>
-<p>You should see output similar to the following in your web browser:</p>
+<p>Note, that you might need to change port <b style="color:orange;">8000</b> to another port depending upon how Django configured your application locally.</p><p>You should see output similar to the following in your web browser:</p>
   <img src="../../../DevCenter/Python/Media/mysql_tutorial01.png" alt="Local Django app" /></p>
+<p>Refresh the web browser a few times and you should see the message change from "<i>Hello Aruba</i>" to "<i>Hello <em>&lt;some other country&gt;</em></i>".
   
   <h2>Running Your Application Locally in the Emulator</h2> 
 
@@ -228,12 +229,10 @@ pushd C:\django\helloworld
 <p>Once you've done this, please re-open <strong><em>C:\django\helloworld\helloworld\settings.py</em></strong>, and modify the <i>HOST</i> key in the <i>DATABASES</i> global dictionary to reflect the permanent IP address of your Azure MySQL VM.</p>
 
   <h2>Deploying the application to Windows Azure</h2>
-  <p>From here, all you need to do is duplicate the steps performed in the <a href="TODO" style="color:red;">Django Hello World</a> tutorial to publish the MySQL derivation to Azure.  Additionally, you'll need to:
+  <p>From here, all you need to do is duplicate the steps performed in the <a href="TODO" style="color:red;">Django Hello World</a> tutorial to publish the MySQL derivation to Azure.  On top of this, you'll need to:
   <ul style="color:red;">
     <li>
       <p>#TODO: "Open up TCP port for MySQL"<br>Status: to be written by dfugate; I'm sure we need to do something special to open up port 3771 to outside traffic in Azure before this tutorial will work. Not quite sure how to make this happen yet...</p> dictionary to reflect the permanent IP address of your Azure MySQL VM.
-
-Deploying the application to Windows Azure
-
     </li>
   </ul>
+</p>
