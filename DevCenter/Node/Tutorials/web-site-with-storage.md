@@ -60,7 +60,7 @@ Perform the following steps to create a storage account. This account will be us
 
 4. Once the storage account has been created, click **Manage Keys** at the bottom of the page. This will display the primary and secondary access keys for this storage account. Copy and save the primary access key, then click the checkmark.
 
-	![access keys][porta-storage-access-keys]
+	![access keys][portal-storage-access-keys]
 
 ##Install modules and generate scaffolding
 
@@ -294,7 +294,7 @@ In this section you will extend the basic application created by the **express**
 
 	**Note**: You must replace the values **'accountName'** and **'accountKey'** with the values obtained earlier when creating your Windows Azure storage account.
 
-3. Replace the content after the `//Routes` comment with the following code. This will initialize an instance of **Task** with a connection to your storage account. This is then passwed to the **TaskList**, which will use it to communicate with the Table service:
+3. Replace the content after the `//Routes` comment with the following code. This will initialize an instance of **Task** with a connection to your storage account. This is then password to the **TaskList**, which will use it to communicate with the Table service:
 
         var TaskList = require('./routes/tasklist');
 		var Task = require('./models/tasks.js');
@@ -387,7 +387,7 @@ In this section, you will install and use the Windows Azure command-line tools t
 
 **TBD**: Revisit once we have a clearer idea of the install story.
 
-To install the cross-platform tools, go to the [Windows Azure Developer Center] and select the download package for your operating system. If a package is not availble for your system, you can clone the project from the [azure-sdk-for-node] repository, and then install the tools by using `npm install /path/to/azure-sdk-for-node -g`. For more information, see [Cross-Platform Tools for Windows Azure].
+To install the cross-platform tools, go to the [Windows Azure Developer Center] and select the download package for your operating system. If a package is not available for your system, you can clone the project from the [azure-sdk-for-node] repository, and then install the tools by using `npm install /path/to/azure-sdk-for-node -g`. For more information, see [Cross-Platform Tools for Windows Azure].
 
 ###Import publishing settings
 
