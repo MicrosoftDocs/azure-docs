@@ -4,7 +4,7 @@ The Windows Azure Content Delivery Network (CDN) offers developers a
 global solution for delivering high-bandwidth content by caching blobs
 and static content of compute instances at physical nodes in the United
 States, Europe, Asia, Australia and South America. For a current list of
-CDN node locations, see [Windows Azure CDN Node Locations.][]
+CDN node locations, see [Windows Azure CDN Node Locations.]
 
 The benefits of using CDN to cache Windows Azure data include:
 
@@ -16,8 +16,8 @@ The benefits of using CDN to cache Windows Azure data include:
 
 To use the Windows Azure CDN, you must have a Windows Azure subscription
 and enable the feature on the storage account or hosted service in the
-[Windows Azure Management Portal][]. The CDN is an add-on feature to
-your subscription and has a separate [billing plan][].
+[Windows Azure Management Portal]. The CDN is an add-on feature to
+your subscription and has a separate [billing plan].
 
 ## Step 1: Create Storage Account or Hosted Service
 
@@ -28,33 +28,26 @@ Azure storage services. The storage account represents the highest level
 of the namespace for accessing each of the Windows Azure storage service
 components: Blob services, Queue services, and Table services. For more
 information about the Windows Azure storage services, see [Using the
-Windows Azure Storage Services][].
+Windows Azure Storage Services].
 
 To create a storage account, you must be either the service
 administrator or a co-administrator for the associated subscription.
 
 **Note:** For information about performing this operation by using the
-Windows Azure Service Management API, see the Create Storage Account
+Windows Azure Service Management API, see the [Create Storage Account]
 reference topic.
 
 **To create a storage account for a Windows Azure subscription**
 
 1.  Log into the [Windows Azure Management Portal][].
-2.  In the navigation pane, click **Hosted Services, Storage Accounts
-    and CDN**.
-3.  At the top of the navigation pane, click **Storage Accounts**.
-4.  On the ribbon, in the **Storage**group, click **New Storage
-    Account**.
+2.  In the lower left corner, click **+ NEW**, and then click **Storage Account**.
+3.  Click **Quick Create**.
 
-    The **Create a New Storage Account** dialog box opens.
+    The **Create a New Storage Account** dialog appears.
 
-    ![][]
+    ![Create a new Storage Account][create-new-storage-account]
 
-5.  From the **Choose a Subscription** drop-down list, select the
-    subscription that the storage account will be used with.
-6.  In the **Enter a URL**field, type a subdomain name to use in the URI
-    for the storage account. The entry can contain from 3-24 lowercase
-    letters and numbers.
+4. In the **URL** field, type a subdomain name. This entry can contain from 3-24 lowercase letters and dnumbers.
 
     This value becomes the host name within the URI that is used to
     address Blob, Queue, or Table resources for the subscription. To
@@ -68,10 +61,12 @@ reference topic.
     account URI and must be unique among all hosted services in Windows
     Azure.
 
+	This value is also used as the name of this storage account in the portal, or when accessing this account programatically.
+
     **Tip:** If you prefer to allow your customers to access blobs by
     using your own custom subdomain, you can create a custom domain for
     the storage account. For more information, see [How to Register a
-    Custom Subdomain Name for Accessing Blobs in Windows Azure][].
+    Custom Subdomain Name for Accessing Blobs in Windows Azure].
 
 7.  Choose a region or an affinity group in which to locate the storage:
 
@@ -192,6 +187,7 @@ CDN.
 -   [About the Service Management API][]
 -   [How to Map CDN Content to a Custom Domain][]
 
+  [Create Storage Account]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
   [Windows Azure CDN Node Locations.]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680302.aspx
   [Windows Azure Management Portal]: http://windows.azure.com/
   [billing plan]: /en-us/pricing/calculator/advanced/
