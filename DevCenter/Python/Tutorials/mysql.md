@@ -221,18 +221,15 @@ pushd C:\django\helloworld
   <h2>Running Your Application Locally in the Emulator</h2> 
 
   <p>Start the Azure emulator and open the Django webpage exactly as you did in the <a href="TODO" style="color:red;">Django Hello World</a> tutorial</p>
-  <p>You should see output similar to the following in your web browser:</p>
+  <p>The output should be essentially the same to what you saw with the locally hosted version:</p>
   <img src="../../../DevCenter/Python/Media/mysql_tutorial01.png" alt="Emulated Django app" />
   
   <h2>Deploying your MySQL virtual machine to Azure</h2>
   <p>Windows Azure includes the ability to host Windows Server 2008 R2 virtual machines in an Azure <i>VM</i> role. Please follow the instructions found <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg465385.aspx">here</a> to accomplish this.</p>
-<p>Once you've done this, please re-open <strong><em>C:\django\helloworld\helloworld\settings.py</em></strong>, and modify the <i>HOST</i> key in the <i>DATABASES</i> global dictionary to reflect the permanent IP address of your Azure MySQL VM.</p>
+<p style="color:red;">#TODO: "Open up TCP port for MySQL"<br>Status: to be written by dfugate; I'm sure we need to do something special to open up port 3771 to outside traffic in Azure before this tutorial will work. Not quite sure how to make this happen yet...</p>
+
 
   <h2>Deploying the application to Windows Azure</h2>
-  <p>From here, all you need to do is duplicate the steps performed in the <a href="TODO" style="color:red;">Django Hello World</a> tutorial to publish the MySQL derivation to Azure.  On top of this, you'll need to:
-  <ul style="color:red;">
-    <li>
-      <p>#TODO: "Open up TCP port for MySQL"<br>Status: to be written by dfugate; I'm sure we need to do something special to open up port 3771 to outside traffic in Azure before this tutorial will work. Not quite sure how to make this happen yet...</p> dictionary to reflect the permanent IP address of your Azure MySQL VM.
-    </li>
-  </ul>
+  <p>From here, all you need to do is duplicate the steps performed in the <a href="TODO" style="color:red;">Django Hello World</a> tutorial to publish the MySQL derivation to Azure.</p>
+  <p>Before you do this though, re-open <strong><em>C:\django\helloworld\helloworld\settings.py</em></strong>, and modify the <i>HOST</i> key in the <i>DATABASES</i> global dictionary to reflect the permanent IP address of the <em>Azure</em> MySQL VM created in the previous step.
 </p>
