@@ -72,7 +72,7 @@ You will pass this `Configuration` instance (`$config`) to other objects when us
 
 <h2 id="CreateTable">How to Create a Table</h2>
 
-A **TableService** object lets you create a table with the **createTable** method. When creating a table, you can set the Table Service timeout. (For more information about the table service timeout, see [Setting Timeouts for Table Service Operations][table-service-timeouts].) If you attempt to create a table that already exists, an exception will be thrown and should be handled appropriately. (For more information about error codes, see [Table Service Error Codes][table-error-codes].)
+An **ITable** object lets you create a table with the **createTable** method. When creating a table, you can set the Table Service timeout. (For more information about the table service timeout, see [Setting Timeouts for Table Service Operations][table-service-timeouts].) If you attempt to create a table that already exists, an exception will be thrown and should be handled appropriately. (For more information about error codes, see [Table Service Error Codes][table-error-codes].)
 
 	require_once 'WindowsAzure.php';
 
@@ -84,7 +84,7 @@ A **TableService** object lets you create a table with the **createTable** metho
 
 	try	{
 		// Create table.
-		$table_proxy->createTable("mytable", $options);
+		$table_proxy->createTable("mytable");
 	}
 	catch(ServiceException $e){
 		$code = $e->getCode();
@@ -130,15 +130,14 @@ To add an entity to a table, create a new **Entity** object and pass it to **ITa
 
 For information about Table properties and types, see [Understanding the Table Service Data Model][table-data-model].
 
-The **TableService** offers two alternative methods for inserting entities: **insertOrMergeEntity** and **insertOrReplaceEntity**. To use these methods, create a new **Entity** and pass it as a parameter to either method. Each method will insert the entity if it does not exist. If the entity already exists, **insertOrMergeEntity** will update property values if the properties already exist and add new properties if they do not exist, while **insertOrReplaceEntity** completely replaces an existing entity. The following example shows how to use **insertorMergeEntity**. If the entity with `PartitionKey` "tasksSeattle" and `RowKey` "1" does not already exist, it will be inserted. However, if it has previously been inserted (as shown in the example above), the `DueDate` property will be updated and the `Status` property will be added. The `Description` and `Location` properties are updated with the same values as before. If these latter two properties were not set, the existing values would remain unchanged.
+The **ITable** interface offers two alternative methods for inserting entities: **insertOrMergeEntity** and **insertOrReplaceEntity**. To use these methods, create a new **Entity** and pass it as a parameter to either method. Each method will insert the entity if it does not exist. If the entity already exists, **insertOrMergeEntity** will update property values if the properties already exist and add new properties if they do not exist, while **insertOrReplaceEntity** completely replaces an existing entity. The following example shows how to use **insertOrMergeEntity**. If the entity with `PartitionKey` "tasksSeattle" and `RowKey` "1" does not already exist, it will be inserted. However, if it has previously been inserted (as shown in the example above), the `DueDate` property will be updated and the `Status` property will be added. The `Description` and `Location` properties are updated with the same values as before. If these latter two properties were not set, the existing values would remain unchanged.
 
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Table\TableService;
 	use WindowsAzure\Services\Table\Models\Entity;
 	use WindowsAzure\Services\Table\Models\EdmType;
-	use WindowsAzure\Core\ServiceException;
-	use WindowsAzure\Utilities;
+	use WindowsAzure\Core\ServiceException
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -158,8 +157,8 @@ The **TableService** offers two alternative methods for inserting entities: **in
 	$entity->addProperty("Status", EdmType::STRING, "Complete"); // Added Status field.
 	
 	try	{
-		// Calling insertOrReplaceEntity would simply replace the entity
-		// with PartitionKey "tasksSeattle" and RowKey "1".
+		// Calling insertOrReplaceEntity, instead of insertOrMergeEntity as shown,
+		// would simply replace the entity with PartitionKey "tasksSeattle" and RowKey "1".
 		$table_proxy->insertOrMergeEntity("mytable", $entity);
 	}
 	catch(ServiceException $e){
@@ -174,25 +173,22 @@ The **TableService** offers two alternative methods for inserting entities: **in
 
 <h2 id="RetrieveEntity">How to Retrieve a Single Entity</h2>
 
-The **ITable->getEntity** method allows you to retrieve a single entity by querying for its `PartitionKey` and `RowKey`. Queries are constructed using filters (for more information, see [Querying Tables and Entities][filters]). In the example below, a string is passed as a filter to a **Query** object, which in turn is passed to **QueriesEntitiesOptions** object. The **QueryEntitiesOptions** object is then passed to the **getEntity** method.
+The **ITable->getEntity** method allows you to retrieve a single entity by querying for its `PartitionKey` and `RowKey`. Queries are constructed using filters (for more information, see [Querying Tables and Entities][filters]). In the example below, a string is passed as a filter to a **Query** object.
 
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Services\Table\Models\QueryEntitiesOptions;
 	use WindowsAzure\Services\Table\Models\QueryEntitiesResult;
-	use WindowsAzure\Services\Table\Models\Query;
+	use WindowsAzure\Services\Table\Models\QueryEntitiesOptions;
 	use WindowsAzure\Services\Table\Models\Filters\Filter;
 	use WindowsAzure\Core\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
 	
-	$query = new Query();
 	$filter = "PartitionKey eq 'tasksSeattle' and RowKey eq '1'";
-	$query->setFilter(Filter::applyQueryString($filter));
     $options = new QueryEntitiesOptions();
-    $options->setQuery($query);
+    $options->setFilter(Filter::applyQueryString($filter));
 	
 	try	{
 		$result = $table_proxy->queryEntities("mytable", $options);
@@ -218,20 +214,17 @@ As shown in the previous example, you can query for entities in a table by using
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Services\Table\Models\QueryEntitiesOptions;
 	use WindowsAzure\Services\Table\Models\QueryEntitiesResult;
-	use WindowsAzure\Services\Table\Models\Query;
+	use WindowsAzure\Services\Table\Models\QueryEntitiesOptions;
 	use WindowsAzure\Services\Table\Models\Filters\Filter;
 	use WindowsAzure\Core\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
 	
-	$query = new Query();
 	$filter = "PartitionKey eq 'tasksSeattle'";
-	$query->setFilter(Filter::applyQueryString($filter));
     $options = new QueryEntitiesOptions();
-    $options->setQuery($query);
+    $options->setFilter(Filter::applyQueryString($filter));
 	
 	try	{
 		$result = $table_proxy->queryEntities("mytable", $options);
@@ -258,20 +251,17 @@ The same pattern used in the previous two examples can be used to retrieve any s
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Services\Table\Models\QueryEntitiesOptions;
 	use WindowsAzure\Services\Table\Models\QueryEntitiesResult;
-	use WindowsAzure\Services\Table\Models\Query;
+	use WindowsAzure\Services\Table\Models\QueryEntitiesOptions;
 	use WindowsAzure\Services\Table\Models\Filters\Filter;
 	use WindowsAzure\Core\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
 	
-	$query = new Query();
 	$filter = "Location eq 'Office' and DueDate lt '2012-11-5'";
-	$query->setFilter(Filter::applyQueryString($filter));
-    $options = new QueryEntitiesOptions();
-    $options->setQuery($query);
+	$options = new QueryEntitiesOptions();
+    $options->setFilter(Filter::applyQueryString($filter));
 	
 	try	{
 		$result = $table_proxy->queryEntities("mytable", $options);
@@ -298,19 +288,15 @@ A query can retrieve a subset of entity properties. This technique, called *proj
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Services\Table\Models\QueryEntitiesOptions;
 	use WindowsAzure\Services\Table\Models\QueryEntitiesResult;
-	use WindowsAzure\Services\Table\Models\Query;
-	use WindowsAzure\Services\Table\Models\Filters\Filter;
+	use WindowsAzure\Services\Table\Models\QueryEntitiesOptions;
 	use WindowsAzure\Core\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
 	
-	$query = new Query();
-	$query->addSelectField("Description");
-    $options = new QueryEntitiesOptions();
-    $options->setQuery($query);
+	$options = new QueryEntitiesOptions();
+	$options->addSelectField("Description");
 	
 	try	{
 		$result = $table_proxy->queryEntities("mytable", $options);
@@ -428,6 +414,7 @@ The following example shows how to execute **insertEntity** and **deleteEntity**
 		echo $code.": ".$error_message."<br />";
 	}
 
+For more information about batching Table operations, see [Performing Entity Group Transactions][entity-group-transactions]
 <h2 id="DeleteEntity">How to Delete an Entity</h2>
 
 To delete an entity, pass the table name, and the entity's `PartitionKey` and `RowKey` to the **ITable->deleteEntity** method.
@@ -495,3 +482,4 @@ Now that you’ve learned the basics of the Windows Azure Table Service, follow 
 [table-error-codes]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
 [table-data-model]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx
 [filters]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx
+[entity-group-transactions]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894038.aspx
