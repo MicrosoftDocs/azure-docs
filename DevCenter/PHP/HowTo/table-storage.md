@@ -46,44 +46,27 @@ To use the Windows Azure Table service APIs to access Tables, you need to:
 1. Reference the `WindowsAzure.php` file (from the Windows Azure SDK for PHP) using the [require_once][require_once] statement, and
 2. Reference any classes you might use.
 
-The following example shows how to include the `WindowsAzure.php` file and references some of the classes you might use with the Table API:
+The following example shows how to include the `WindowsAzure.php` file and reference the TableService class:
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Services\Table\Utilities\AtomReaderWriter;
-	use WindowsAzure\Services\Table\Utilities\MimeReaderWriter;
-	use WindowsAzure\Core\WindowsAzureUtilities;
-	use WindowsAzure\Core\ServiceException;
-	use WindowsAzure\Resources;
-	use WindowsAzure\Services\Table\TableRestProxy;
-	use WindowsAzure\Services\Core\Models\ServiceProperties;
-	use WindowsAzure\Services\Table\Models\QueryTablesOptions;
-	use WindowsAzure\Services\Table\Models\Query;
-	use WindowsAzure\Services\Table\Models\Filters\Filter;
-	use WindowsAzure\Services\Table\Models\Entity;
-	use WindowsAzure\Services\Table\Models\EdmType;
-	use WindowsAzure\Services\Table\Models\QueryEntitiesOptions;
-	use WindowsAzure\Services\Table\Models\BatchOperations;
+	use WindowsAzure\Services\Table\TableService;
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
 <h2 id="ConnectionString">Setup a Windows Azure Storage Connection String</h2>
 
-A Windows Azure Table service client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the primary access key, and the table URI for the storage account listed in the Management Portal. This example shows how you can create a new configuration object and set these properties:
+A Windows Azure Table service client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the access key, and the table URI for the storage account listed in the Management Portal. This example shows how you can create a new configuration object and set these properties:
 
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Core\Configuration;
 	use WindowsAzure\Services\Table\TableSettings;
 	
-	$storage_account_name = "your_storage_account_name";
-	$storage_account_key = "your_storage_account_key";
-	$storage_account_URI = "http://your_storage_account_name.table.core.windows.net"
-	
 	$config = new Configuration();
-	$config->setProperty(TableSettings::ACCOUNT_NAME, $storage_account_name);
-	$config->setProperty(TableSettings::ACCOUNT_KEY, $storgae_account_key);
-	$config->setProperty(TableSettings::URI, $storage_account_URI);
+	$config->setProperty(TableSettings::ACCOUNT_NAME, "your_storage_account_name");
+	$config->setProperty(TableSettings::ACCOUNT_KEY, "your_storage_account_key");
+	$config->setProperty(TableSettings::URI, "http://your_storage_account_name.table.core.windows.net");
 
 You will pass this `Configuration` instance (`$config`) to other objects when using the Table API.
 
