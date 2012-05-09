@@ -42,50 +42,28 @@ To use the Windows Azure Blob service APIs, you need to:
 1. Reference the `WindowsAzure.php` file (from the Windows Azure SDK for PHP) using the [require_once][require_once] statement, and
 2. Reference any classes you might use.
 
-The following example shows how to include the `WindowsAzure.php` file and references some of the classes you might use with the Blob API:
+The following example shows how to include the `WindowsAzure.php` file and reference the **BlobService** class:
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Services\Blob\BlobSettings;
 	use WindowsAzure\Services\Blob\BlobService;
-	use WindowsAzure\Services\Blob\Models\BlobServiceOptions;
-	use WindowsAzure\Services\Blob\Models\ListContainersOptions;
-	use WindowsAzure\Services\Blob\Models\ListContainersResult;
-	use WindowsAzure\Services\Blob\Models\CreateContainerOptions;
-	use WindowsAzure\Services\Blob\Models\SetContainerMetadataOptions;
-	use WindowsAzure\Services\Blob\Models\ListBlobsOptions;
-	use WindowsAzure\Services\Blob\Models\ListBlobsResult;
-	use WindowsAzure\Services\Blob\Models\CreateBlobOptions;
-	use WindowsAzure\Services\Blob\Models\GetBlobPropertiesOptions;
-	use WindowsAzure\Services\Blob\Models\GetBlobPropertiesResult;
-	use WindowsAzure\Services\Blob\Models\SetBlobPropertiesOptions;
-	use WindowsAzure\Services\Blob\Models\SetBlobPropertiesResult;
-	use WindowsAzure\Services\Blob\Models\GetBlobMetadataOptions;
-	use WindowsAzure\Services\Blob\Models\GetBlobMetadataResult;
-	use WindowsAzure\Services\Blob\Models\SetBlobMetadataOptions;
-	use WindowsAzure\Services\Blob\Models\GetBlobOptions;
-	use WindowsAzure\Services\Blob\Models\GetBlobResult;
-	use WindowsAzure\Services\Blob\Models\DeleteBlobOptions;
+
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
 <h2 id="ConnectionString">Setup a Windows Azure Storage Connection</h2>
 
-A Windows Azure Blob service client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the primary access key, and the blob URI for the storage account listed in the Management Portal. This example shows how you can create a new configuration object and set these properties:
+A Windows Azure Blob service client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the access key, and the blob URI for the storage account listed in the Management Portal. This example shows how you can create a new configuration object and set these properties:
 
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Core\Configuration;
 	use WindowsAzure\Services\Blob\BlobSettings;
 	
-	$storage_account_name = "your_storage_account_name";
-	$storage_account_key = "your_storage_account_key";
-	$storage_account_URI = "http://your_storage_account_name.blob.core.windows.net"
-	
 	$config = new Configuration();
-	$config->setProperty(BlobSettings::ACCOUNT_NAME, $storage_account_name);
-	$config->setProperty(BlobSettings::ACCOUNT_KEY, $storgae_account_key);
-	$config->setProperty(BlobSettings::URI, $storage_account_URI);
+	$config->setProperty(BlobSettings::ACCOUNT_NAME, "your_storage_account_name");
+	$config->setProperty(BlobSettings::ACCOUNT_KEY, "your_storage_account_key");
+	$config->setProperty(BlobSettings::URI, "http://your_storage_account_name.blob.core.windows.net");
 
 You will pass this `Configuration` instance (`$config`) to other objects when using the Blob API.
 
