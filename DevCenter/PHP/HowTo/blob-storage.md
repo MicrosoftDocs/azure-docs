@@ -75,36 +75,47 @@ A **BlobService** object lets you create a blob container with the **createConta
 
 	use WindowsAzure\Services\Blob\BlobService;
 	use WindowsAzure\Services\Blob\Models\CreateContainerOptions;
+	use WindowsAzure\Services\Blob\Models\PublicAccessType;
+	use WindowsAzure\Core\ServiceException;
 
-	// Create blob service client.
-	$blob_client = BlobService::create($config);
+	// Create blob REST proxy.
+	$blob_proxy = BlobService::create($config);
 
 	// OPTIONAL: Set public access policy and metadata.
+	
+	// Create container options object.
 	$createContainerOptions = new CreateContainerOptions();	
 
-	// Set public access policy. Possible values are 'container' and 'blob'.
-	// If this value is not specified in the request, container data is private.
-	// For more information, see http://msdn.microsoft.com/en-us/library/windowsazure/dd179391.aspx.
-	$createContainerOptions->setPublicAccess('container');
+	// Set public access policy. Possible values are PublicAccessType::CONTAINER_AND_BLOBS
+	// and PublicAccessType::BLOBS_ONLY.
+	// CONTAINER_AND_BLOBS: 	Specifies full public read access for container and blob data.
+    //            				proxys can enumerate blobs within the container via anonymous 
+	//							request, but cannot enumerate containers within the storage account.
+	// BLOBS_ONLY: 		Specifies public read access for blobs. Blob data within this 
+    //       			container can be read via anonymous request, but container data is not 
+    //       			available. proxys cannot enumerate blobs within the container via anonymous 
+	//					request.
+	// If this value is not specified in the request, container data is private to the account owner.
+	$createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
 	
 	// Set container metadata
 	$createContainerOptions->addMetaData("key1", "value1");
 	$createContainerOptions->addMetaData("key2", "value2");
 	
-	try	
-	{
+	try	{
 		// Create container.
-		$blob_client->createContainer("mycontainer", $createContainerOptions);
+		$blob_proxy->createContainer("mycontainer", $createContainerOptions);
 	}
-	catch(Exception $e)
-	{
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
-		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		echo $code.": ".$error_message."<br />";
 	}
 
-Calling **setPublicAccess('container')** makes the container and blob data accessible via anonymous requests. Calling **setPublicAccess('blob')** makes only blob data accessible via anonymous requests. For more information about container ACLs, see [Set Container ACL (REST API)][container-acl].
+Calling **setPublicAccess(CONTAINER_AND_BLOBS)** makes the container and blob data accessible via anonymous requests. Calling **setPublicAccess(BLOBS_ONLY)** makes only blob data accessible via anonymous requests. For more information about container ACLs, see [Set Container ACL (REST API)][container-acl].
 
 For more information about Blob service error codes, see [Blob Service Error Codes][error-codes].
 
@@ -117,7 +128,7 @@ To upload a file as a blob, use the **IBlob->createBlockBlob** method. This oper
 	use WindowsAzure\Services\Blob\BlobService;
 	use WindowsAzure\Core\ServiceException;
 
-	// Create blob service proxy.
+	// Create blob REST proxy.
 	$blob_proxy = BlobService::create($config);
 	
 	$content = fopen("c:\myfile.txt", "r");
@@ -147,7 +158,7 @@ To list the blobs in a container, use the **IBlob->listBlobs** method with a **f
 	use WindowsAzure\Services\Blob\Models\ListBlobsResult;
 	use WindowsAzure\Core\ServiceException;
 
-	// Create blob service proxy.
+	// Create blob REST proxy.
 	$blob_proxy = BlobService::create($config);
 	
 	try	{
@@ -180,7 +191,7 @@ To download a blob, call the **IBlob->getBlob** method, then call the **getConte
 	use WindowsAzure\Services\Blob\Models\GetBlobResult;
 	use WindowsAzure\Core\ServiceException;
 
-	// Create blob service proxy.
+	// Create blob REST proxy.
 	$blob_proxy = BlobService::create($config);
 	
 	try	{
@@ -207,7 +218,7 @@ To delete a blob, pass the container name and blob name to **IBlob->deleteBlob**
 	use WindowsAzure\Services\Blob\BlobService;
 	use WindowsAzure\Core\ServiceException;
 
-	// Create blob service proxy.
+	// Create blob REST proxy.
 	$blob_proxy = BlobService::create($config);
 	
 	try	{
@@ -231,7 +242,7 @@ Finally, to delete a blob container, pass the container name to **IBlob->deleteC
 	use WindowsAzure\Services\Blob\BlobService;
 	use WindowsAzure\Core\ServiceException;
 
-	// Create blob service proxy.
+	// Create blob REST proxy.
 	$blob_proxy = BlobService::create($config);
 	
 	try	{
