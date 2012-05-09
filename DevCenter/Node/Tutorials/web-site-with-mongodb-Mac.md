@@ -54,6 +54,8 @@ In this section you will create a new Node application and use npm to add module
 
 		npm install express -g
 
+	**Note**: When using the '-g' parameter on some operating systems, you may receive an error of **Error: EPERM, chmod '/usr/local/bin/express'** and a request to try running the account as an administrator. If this occurs, use the [sudo] command to run npm at a higher privilege level.
+
     The output of this command should appear similar to the following:
 
     ![npm install results][node-mongo-npm-results]
@@ -188,7 +190,7 @@ In this section you will extend the basic application created by the **express**
 
 3. Save the **tasklist.js** file.
 
-### Modify server.js
+### Modify app.js
 
 1. In the **tasklist** directory, open the **app.js** file in a text editor. This file was created earlier by running the **express** command.
 
@@ -379,6 +381,7 @@ While the steps in this article describe using MongoDB to store information, you
 [Publishing to Windows Azure Web Sites with Git]: http://windowsazure.com
 [Installing MongoDB on a Linux Virtual machine]: http://windowsazure.com
 [Node.js Web Application with the Windows Azure Table Service]: ./web-site-with-storage.html
+[sudo]: http://en.wikipedia.org/wiki/Sudo
 
 [node-mongo-finished]: ../media/todo_list_empty.png
 [node-mongo-npm-results]: ../media/npm_install_express_mongoose.png
