@@ -45,45 +45,27 @@ To use the Windows Azure Queue service APIs to access queues, you need to:
 1. Reference the `WindowsAzure.php` file (from the Windows Azure SDK for PHP) using the [require_once] [require_once] statement, and
 2. Reference any classes you might use.
 
-The following example shows how to include the `WindowsAzure.php` file and references some of the classes you might use with the Queue API:
+The following example shows how to include the `WindowsAzure.php` file and reference the **QueueService** class:
 
 	require_once 'WindowsAzure.php';
-	
-	use WindowsAzure\Core\Configuration;
-	use WindowsAzure\Services\Core\Models\ServiceProperties;
-	use WindowsAzure\Services\Queue\QueueRestProxy;
-	use WindowsAzure\Services\Queue\QueueService;
-	use WindowsAzure\Services\Queue\QueueSettings;
-	use WindowsAzure\Services\Queue\Models\ListQueuesOptions;
-	use WindowsAzure\Services\Queue\Models\ListQueuesResult;
-	use WindowsAzure\Services\Queue\Models\CreateQueueOptions;
-	use WindowsAzure\Services\Queue\Models\GetQueueMetadataResult;
-	use WindowsAzure\Services\Queue\Models\ListMessagesResult;
-	use WindowsAzure\Services\Queue\Models\ListMessagesOptions;
-	use WindowsAzure\Services\Queue\Models\PeekMessagesResult;
-	use WindowsAzure\Services\Queue\Models\PeekMessagesOptions;
-	use WindowsAzure\Services\Queue\Models\UpdateMessageResult;
-	use WindowsAzure\Services\Queue\Models\QueueServiceOptions;
 
+	use WindowsAzure\Services\Queue\QueueService;
+	
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
 <h2 id="connection-string">Setup a Windows Azure Storage Connection</h2>
 
-A Windows Azure Queue service client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the primary access key, and the queue URI for the storage account listed in the Management Portal. The following example shows how you can create a new configuration object and set these properties. Note that the full URI (including `http://`) for your storage account must be used when setting the account URI.
+A Windows Azure Queue service client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the access key, and the queue URI for the storage account listed in the Management Portal. The following example shows how you can create a new configuration object and set these properties. Note that the full URI (including `http://`) for your storage account must be used when setting the account URI.
 
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Core\Configuration;
 	use WindowsAzure\Services\Queue\QueueSettings;
 	
-	$storage_account_name = "your_storage_account_name";
-	$storage_account_key = "your_storage_account_key";
-	$storage_account_URI = "http://your_storage_account_name.queue.core.windows.net"
-	
 	$config = new Configuration();
-	$config->setProperty(QueueSettings::ACCOUNT_NAME, $storage_account_name);
-	$config->setProperty(QueueSettings::ACCOUNT_KEY, $storgae_account_key);
-	$config->setProperty(QueueSettings::URI, $storage_account_URI);
+	$config->setProperty(QueueSettings::ACCOUNT_NAME, "your_storage_account_name");
+	$config->setProperty(QueueSettings::ACCOUNT_KEY, "your_storage_account_key");
+	$config->setProperty(QueueSettings::URI, "http://your_storage_account_name.queue.core.windows.net");
 
 You will pass this `Configuration` instance (`$config`) to other objects when using the Queue API.
 
