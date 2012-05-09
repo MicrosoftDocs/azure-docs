@@ -159,7 +159,7 @@ performed via the **NamespaceManager** class. A **NamespaceManager**
 object is constructed with the base address of a Service Bus namespace
 and an appropriate token provider that has permissions to manage it. The
 base address of a Service Bus namespace is a URI of the form
-"sb://.servicebus.windows.net". The **ServiceBusEnvironment** class
+"sb://[serviceNamespace].servicebus.windows.net". The **ServiceBusEnvironment** class
 provides the **CreateServiceUri** helper method to assist the creation
 of these URIs.
 
@@ -179,7 +179,7 @@ service namespace:
      // Create NamespaceManager for our "HowToSample" service namespace
      NamespaceManager namespaceManager = new NamespaceManager(uri, tP);
 
-     // Create a new Topic named "TestQueue" 
+     // Create a new Topic named "TestTopic" 
      namespaceManager.CreateTopic("TestTopic");
 
 There are overloads of the **CreateTopic** method that allow properties
@@ -243,8 +243,8 @@ filter.
 
 ### Create Subscriptions with Filters
 
-You can also setup filters that allow you to scope which messages sent
-to a topic should show up within a specific topic subscription.
+You can also set up filters that allow you to scope which messages sent
+to a topic should appear within a specific topic subscription.
 
 The most flexible type of filter supported by subscriptions is the
 **SqlFilter**, which implements a subset of SQL92. SQL filters operate
@@ -268,7 +268,7 @@ a **MessageNumber** property less than or equal to 3:
      SqlFilter lowMessages = new SqlFilter("MessageNumber <= 3");
      namespaceManager.CreateSubscription("TestTopic", "LowMessages", lowMessages);
 
-When a message is now sent to the "TestTopic", it will always be
+Now when a message is sent to "TestTopic", it will always be
 delivered to receivers subscribed to the "AllMessages" topic
 subscription, and selectively delivered to receivers subscribed to the
 "HighMessages" and "LowMessages" topic subscriptions (depending upon the
@@ -276,13 +276,13 @@ message content).
 
 ## <a name="send-messages"> </a>How to Send Messages to a Topic
 
-To send a message to a Service Bus topic, your application will obtain a
+To send a message to a Service Bus topic, your application will create a
 **MessageSender** object. Like **NamespaceManager** objects, this object
 is created from the base URI of the service namespace and the
 appropriate token provider.
 
-The below code demonstrates how to retrieve a **MessageSender** object
-for the "TestTopic" topic we created above within our "HowToSample"
+The code below demonstrates how to retrieve a **MessageSender** object
+for the "TestTopic" topic created above within the "HowToSample"
 service namespace:
 
      string issuer = "<obtained from portal>";
@@ -296,18 +296,18 @@ service namespace:
      MessagingFactory factory = MessagingFactory.Create(uri, tP);
      MessageSender testTopic = factory.CreateMessageSender("TestTopic");
 
-Messages sent to Service Bus Topics are instances of the
+Messages sent to Service Bus topics are instances of the
 **BrokeredMessage** class. **BrokeredMessage** objects have a set of
 standard properties (such as **Label** and **TimeToLive**), a dictionary
-that is used to hold custom application specific properties, and a body
+that is used to hold custom application-specific properties, and a body
 of arbitrary application data. An application can set the body of the
-message by passing any serializable object into the constructor of the
+message by passing any serializable object to the constructor of the
 **BrokeredMessage**, and the appropriate **DataContractSerializer** will
 then be used to serialize the object. Alternatively, a
 **System.IO.Stream** can be provided.
 
 The following example demonstrates how to send five test messages to the
-"TestTopic" **MessageSender** we obtained in the code snippet above.
+"TestTopic" **MessageSender** obtained in the code snippet above.
 Note how the **MessageNumber** property value of each message varies on
 the iteration of the loop (this will determine which subscriptions
 receive it):
@@ -338,32 +338,31 @@ The simplest way to receive messages from a subscription is to use a
 different modes: **ReceiveAndDelete** and **PeekLock**.
 
 When using the **ReceiveAndDelete** mode, receive is a single-shot
-operation - that is, when Service Bus receives a read request for a
+operation - that is, when the Service Bus receives a read request for a
 message in a subscription, it marks the message as being consumed and
 returns it to the application. **ReceiveAndDelete** mode is the simplest
 model and works best for scenarios in which an application can tolerate
 not processing a message in the event of a failure. To understand this,
 consider a scenario in which the consumer issues the receive request and
-then crashes before processing it. Because Service Bus will have marked
-the message as being consumed, then when the application restarts and
+then crashes before processing it. Because the Service Bus will have marked
+the message as consumed, when the application restarts and
 begins consuming messages again, it will have missed the message that
 was consumed prior to the crash.
 
-In **PeekLock** mode (which is the default mode), receive becomes a two
-stage operation which makes it possible to support applications that
-cannot tolerate missing messages. When Service Bus receives a request,
+In **PeekLock** mode (which is the default mode), the receive process becomes a two-stage operation which makes it possible to support applications that
+cannot tolerate missing messages. When the Service Bus receives a request,
 it finds the next message to be consumed, locks it to prevent other
 consumers receiving it, and then returns it to the application. After
 the application finishes processing the message (or stores it reliably
 for future processing), it completes the second stage of the receive
-process by calling **Complete** on the received message. When Service
-Bus sees the **Complete** call, it will mark the message as being
-consumed and remove it from the subscription.
+process by calling **Complete** on the received message. When the Service
+Bus sees the **Complete** call, it marks the message as being
+consumed and removes it from the subscription.
 
 The example below demonstrates how messages can be received and
-processed using **PeekLock** mode (the default mode). The example below
-does an infinite loop and processes messages as they arrive to our
-"HighMessages" subscription. Note that the path to our "HighMessages"
+processed using the default **PeekLock** mode. The example below
+creates an infinite loop and processes messages as they arrive to the
+"HighMessages" subscription. Note that the path to the "HighMessages"
 subscription is supplied in the form "<*topic
 path*\>/subscriptions/<*subscription name*\>".
 
@@ -405,20 +404,18 @@ path*\>/subscriptions/<*subscription name*\>".
 
 ## <a name="handle-crashes"> </a>How to Handle Application Crashes and Unreadable Messages
 
-Service Bus provides functionality to help you gracefully recover from
+The Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
-receiver application is unable to process the message for some reason,
+receiving application is unable to process the message for some reason,
 then it can call the **Abandon** method on the received message (instead
-of the **Complete** method). This will cause Service Bus to unlock the
+of the **Complete** method). This will cause the Service Bus to unlock the
 message within the subscription and make it available to be received
 again, either by the same consuming application or by another consuming
 application.
 
 There is also a timeout associated with a message locked within the
 subscription, and if the application fails to process the message before
-the lock timeout expires (e.g., if the application crashes), then
-Service Bus will unlock the message automatically and make it available
-to be received again.
+the lock timeout expires (for example, if the application crashes), then the Service Bus unlocks the message automatically and makes it available to be received again.
 
 In the event that the application crashes after processing the message
 but before the **Complete** request is issued, then the message will be
@@ -458,7 +455,7 @@ following code demonstrates how to delete a subscription named
 
 ## <a name="next-steps"> </a> <a name="nextsteps"> </a>Next Steps
 
-Now that you've learned the basics of Service Bus topics, follow these
+Now that you've learned the basics of Service Bus topics and subscriptions, follow these
 links to learn more.
 
 -   See the MSDN Reference: [Queues, Topics, and Subscriptions][].
