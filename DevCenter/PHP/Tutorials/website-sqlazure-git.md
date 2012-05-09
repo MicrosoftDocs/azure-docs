@@ -113,8 +113,6 @@ Before publishing the Tasklist application, the database connection information 
 	
 3. From the **PHP** section of the resulting dialog, make note of the values for `UID`, `PWD`, `Database`, and `$serverName`.
 
-	**TODO: Insert screenshot?**
-
 4. Open the **taskmodel.php** file in a text editor or IDE and update the database connection information in the `connect` function by copying the appropriate values from the previous step:
 
 		// DB connection info
