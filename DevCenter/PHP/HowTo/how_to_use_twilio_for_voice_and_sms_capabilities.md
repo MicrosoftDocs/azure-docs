@@ -1,3 +1,5 @@
+<properties umbracoNaviHide="0" pageTitle="How to Use Twilio for Voice and SMS Capabilities in PHP" metaKeywords="Windows Azure, Azure, Twilio, Telephony, PHP" metaDescription="Learn how to use Twilio for voice and SMS messages from PHP in Windows Azure." linkid="dev-php-howto-twilio-voice-and-sms-service" urlDisplayName="Twilio Voice/SMS Service" headerExpose="" footerExpose="" disqusComments="1" />
+
 # How to Use Twilio for Voice and SMS Capabilities in PHP
 <div chunk="././Shared/Chunks/how_to_use_twilio_opening_and_common_toc" />
 
