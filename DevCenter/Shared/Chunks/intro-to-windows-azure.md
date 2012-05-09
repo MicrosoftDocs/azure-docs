@@ -497,8 +497,7 @@ management interface.
 ## <a id="gettingstarted"> </a>Getting Started
 
 Now that you have a big-picture understanding, the next step is to write
-your first Windows Azure application. Choose your language, [get the
-appropriate SDK][], and go for it. Cloud computing is the new
+your first Windows Azure application. Choose your language, [get the appropriate SDK][], and go for it. Cloud computing is the new
 default—get started now.
 
   [The Components of Windows Azure]: #components
