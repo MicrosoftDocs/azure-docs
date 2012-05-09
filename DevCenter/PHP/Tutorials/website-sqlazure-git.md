@@ -6,7 +6,7 @@ This tutorial shows you how to create a PHP Windows Azure Website with a Windows
  
 You will learn:
 
-* How to create a Windows Azure Website and a SQL Database using the Windows Azure Developer Portal. Because PHP is enabled in Windows Azure Websites by default, nothing special is required to run your PHP code.
+* How to create a Windows Azure Website and a SQL Database using the Preview Management Portal. Because PHP is enabled in Windows Azure Websites by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Windows Azure using Git.
  
 By following this tutorial, you will build a simple Tasklist web application in PHP. The application will be hosted in a Windows Azure Website. A screenshot of the completed application is below:
@@ -53,7 +53,7 @@ After you have run the application locally, you are ready to create a Windows Az
 
 Follow these steps to create a Windows Azure Website and a SQL Database:
 
-1. Login to the Windows Azure portal. **TODO: provide link**
+1. Login to the Preview Management Portal. **TODO: provide link**
 2. Click the **+ New** icon on the bottom left of the portal.
 
 	![Create New Windows Azure Website][new-website]
@@ -103,7 +103,7 @@ Follow these steps to create a Windows Azure Website and a SQL Database:
 
 Before publishing the Tasklist application, the database connection information (in the **taskmodel.php** file) must be updated. To get SQL Database connection information, follow these steps:
 
-1. From the Windows Azure portal, click **LINKED RESOURCES**.
+1. From the Preview Management Portal, click **LINKED RESOURCES**.
 
 	![Linked Resources][linked-resources]
 
