@@ -1,12 +1,12 @@
 #Create a PHP-SQL Azure Windows Azure Website and Deploy Using Git
 
-This tutorial shows you how to create a PHP-SQL Azure Windows Azure Website and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], SQL Server Express[install-SQLExpress], the [Microsoft Drivers for SQL Server for PHP][install-drivers], a web server, and [Git][install-git] installed on your computer. Upon completing this guide, you will have an PHP/SQL Azure website running in Windows Azure.
+This tutorial shows you how to create a PHP-SQL Azure Windows Azure Website and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [SQL Server Express][install-SQLExpress], the [Microsoft Drivers for SQL Server for PHP][install-drivers], a web server, and [Git][install-git] installed on your computer. Upon completing this guide, you will have a PHP/SQL Azure website running in Windows Azure.
 
 **Note**: You can install and configure PHP, SQL Server Express, the Microsoft Drivers for SQL Server for PHP, and Internet Information Services (IIS) using the [Microsoft Web Platform Installer][wpi].
  
 You will learn:
 
-* How to create a Windows Azure Website and a SQL Azure database using the Windows Azure Developer Portal. Because PHP is enabled in Windows Azure Websites by default, nothing special is requried to run your PHP code.
+* How to create a Windows Azure Website and a SQL Azure database using the Windows Azure Developer Portal. Because PHP is enabled in Windows Azure Websites by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Windows Azure using Git.
  
 By following this tutorial, you will build a simple Tasklist web application in PHP. The application will be hosted in a Windows Azure Website. A screenshot of the completed application is below:
@@ -30,9 +30,9 @@ To run the application locally, follow the steps below. Note that these steps as
 1. Download the application files from Github here: [https://github.com/brian-swan/tasklist-sqlazure][tasklist-sqlazure-download]. Put the files in a folder called `tasklist` in your web server's root directory.
 2. Create a SQL Server database called `tasklist`. You can do this from the `sqlcmd` command prompt with these commands:
 
-	>sqlcmd -S <server name>\sqlexpress -U <user name> -P <password>
-	1> create database tasklist
-	2> GO	
+		>sqlcmd -S <server name>\sqlexpress -U <user name> -P <password>
+		1> create database tasklist
+		2> GO	
 
 
 3. Open the **taskmodel.php** file in a text editor or IDE and provide the database connection information by providing values for `$host`, `$user`, `$pwd`, and `$db` variables in the `connect` function:
@@ -72,7 +72,7 @@ Follow these steps to create a Windows Azure Website and a SQL Azure database:
 
 	![Create new SQL Azure server][create-server]
 
-	When the website has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfuly**. Now, you can enable Git publishing.
+	When the website has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfully**. Now, you can enable Git publishing.
 
 5. Click the name of the website displayed in the list of websites to open the website’s Quick Start dashboard.
 
@@ -127,7 +127,7 @@ Before publishing the Tasklist application, the database connection information 
 
 To publish your application with Git, follow the steps below:
 
-**Note**: These are the steps noted at the end ofthe **Create a Windows Azure Website and Set up Git Publishing** section.
+**Note**: These are the steps noted at the end of the **Create a Windows Azure Website and Set up Git Publishing** section.
 
 1. Open GitBash (or a terminal, if Git is in your `PATH`), and run the following commands:
 
@@ -147,7 +147,7 @@ To publish your application with Git, follow the steps below:
 To publish changes to application, follow these steps:
 
 1. Make changes to your application locally.
-2. Open GitBach (or a terminal, it Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:
+2. Open GitBash (or a terminal, it Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:
 
 		git add .
 		git commit -m "comment describing changes"
@@ -178,6 +178,6 @@ To publish changes to application, follow these steps:
 [credentials]: ./Media/credentials.jpg
 [creating-repo]: ./Media/creating_repo.jpg
 [push-files]: ./Media/push_files.jpg
-[git-instructions: ./Media/git_instructions.jpg
+[git-instructions]: ./Media/git_instructions.jpg
 [linked-resources]: ./Media/linked_resources.jpg
 [connection-string]: ./Media/connection_string.jpg
