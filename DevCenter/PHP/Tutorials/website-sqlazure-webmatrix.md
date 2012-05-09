@@ -1,14 +1,14 @@
-#Create and Deploy a PHP-SQL Azure Windows Azure Website using WebMatrix
+#Create and Deploy a PHP Website and SQL Database using WebMatrix
 
-This tutorial shows you how to use WebMatrix to develop and deploy a PHP-SQL Azure application to a Windows Azure Website. WebMatrix is a free web development tool from Microsoft that includes everything you need for website development. WebMatrix supports PHP and includes intellisense for PHP development. 
+This tutorial shows you how to use WebMatrix to develop and deploy a PHP application that uses a Windows Azure SQL Database to a Windows Azure Website. WebMatrix is a free web development tool from Microsoft that includes everything you need for website development. WebMatrix supports PHP and includes intellisense for PHP development. 
 
 This tutorial assumes you have [SQL Server Express][install-SQLExpress] installed on your computer so that you can test an application locally. However, you can complete the tutorial without having SQL Server Express installed. Instead, you can deploy your application directly to Windows Azure Websites.
 
-Upon completing this guide, you will have a PHP-SQL Azure website running in Windows Azure.
+Upon completing this guide, you will have a PHP-SQL Database website running in Windows Azure.
  
 You will learn:
 
-* How to create a Windows Azure Website and a SQL Azure database using the Windows Azure Developer Portal. Because PHP is enabled in Windows Azure Websites by default, nothing special is requried to run your PHP code.
+* How to create a Windows Azure Website and a SQL Database using the Windows Azure Developer Portal. Because PHP is enabled in Windows Azure Websites by default, nothing special is required to run your PHP code.
 * How to develop a PHP application using WebMatrix.
 * How to publish and re-publish your application to Windows Azure using WebMatrix.
  
@@ -18,7 +18,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 ##Prerequisites
 
-1. Download the Tasklist application files from here: [https://github.com/brian-swan/tasklist-sqlazure][tasklist-sqlazure-download]. The Tasklist application is a simple PHP application that allows you to add, mark complete, and delete items from a task list. Task list items are stored in a SQL Azure database (SQL Server Express for local testing). The application consists of these files:
+1. Download the Tasklist application files from here: [https://github.com/brian-swan/tasklist-sqlazure][tasklist-sqlazure-download]. The Tasklist application is a simple PHP application that allows you to add, mark complete, and delete items from a task list. Task list items are stored in a SQL Database (SQL Server Express for local testing). The application consists of these files:
 
 * **index.php**: Displays tasks and provides a form for adding an item to the list.
 * **additem.php**: Adds an item to the list.
@@ -26,7 +26,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 * **markitemcomplete.php**: Changes the status of an item to complete.
 * **deleteitem.php**: Deletes an item.
 * **taskmodel.php**: Contains functions that add, get, update, and delete items from the database.
-* **createtable.php**: Creates the SQL Azure table for the application. This file will only be called once.
+* **createtable.php**: Creates the SQL Database table for the application. This file will only be called once.
 
 2. Create a SQL Server database called `tasklist`. You can do this from the `sqlcmd` command prompt with these commands:
 
@@ -36,29 +36,29 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 	This step is only necessary if you want to test your application locally.
 
-<h2 id="CreateWebsite">Create a Windows Azure Website and SQL Azure Database</h2>
-Follow these steps to create a Windows Azure Website and a SQL Azure database:
+<h2 id="CreateWebsite">Create a Windows Azure Website and SQL Database</h2>
+Follow these steps to create a Windows Azure Website and a SQL Database:
 
 1. Login to the Windows Azure portal. **TODO: provide link**
 2. Click the **+ New** icon on the bottom left of the portal.
 
-![Create New Windows Azure Website][new-website]
+	![Create New Windows Azure Website][new-website]
 
 3. Click **Web Site**, then **Custom Create**. Enter a value for **URL**, select **Create a New SQL Azure Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
 
-![Custom Create a new Website][custom-create]
+	![Custom Create a new Website][custom-create]
 
-![Fill in Website details][website-details-sqlazure]
+	![Fill in Website details][website-details-sqlazure]
 
-4. Enter a value for the **NAME** of your database, select the **EDITION** (WEB or BUSINESS), select the **MAX SIZE** for your database, choose the **COLLATION**, and select **NEW SQL Azure server**. Click the arrow at the bottom of the dialog.
+4. Enter a value for the **NAME** of your database, select the **EDITION** (WEB or BUSINESS), select the **MAX SIZE** for your database, choose the **COLLATION**, and select **NEW SQL Database server**. Click the arrow at the bottom of the dialog.
 
-	![Fill in SQL Azure database settings][database-settings]
+	![Fill in SQL Database settings][database-settings]
 
-5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Azure server will be created, and check the `Allow Windows Azure Services to access this server` box.
+5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Database server will be created, and check the `Allow Windows Azure Services to access this server` box.
 
-	![Create new SQL Azure server][create-server]
+	![Create new SQL Database server][create-server]
 
-	When the website has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfuly**. Next, you will get the database connection information.
+	When the website has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfully**. Next, you will get the database connection information.
 
 1. Click the the website's name, then click **LINKED RESOURCES**, then the database's name.
 
@@ -119,7 +119,7 @@ In the next few steps you will develop the Tasklist application by adding the fi
 
 <h2 id="Publish">Publish Your Application</h2>
 
-Before publishing your application to Windows Azure Websites, the database connection information in `taskmodel.php` needs to be updated with the connection information you obtained earlier (in the [Create a Windows Azure Website and SQL Azure Database](#CreateWebsite) section).
+Before publishing your application to Windows Azure Websites, the database connection information in `taskmodel.php` needs to be updated with the connection information you obtained earlier (in the [Create a Windows Azure Website and SQL Database](#CreateWebsite) section).
 
 1. Open the `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function.
 
@@ -151,11 +151,11 @@ Before publishing your application to Windows Azure Websites, the database conne
 
 	**TODO: Insert screenshot**
 
-6. Click **Continue** on the **Publish Preveiw** dialog.
+6. Click **Continue** on the **Publish Preview** dialog.
 
 	**TODO: Insert screenshot**
 
-	When the publishing is complete, you will see **Publishing - Complete** at the bottom of the WebMatirx screen.
+	When the publishing is complete, you will see **Publishing - Complete** at the bottom of the WebMatrix screen.
 
 7. Navigate to http://[your website name].windows.net/createtable.php to create the `items` table.
 
