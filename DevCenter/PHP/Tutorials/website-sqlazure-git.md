@@ -1,12 +1,12 @@
-#Create a PHP-SQL Azure Windows Azure Website and Deploy Using Git
+#Create a PHP Website with a SQL Database and Deploy Using Git
 
-This tutorial shows you how to create a PHP-SQL Azure Windows Azure Website and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [SQL Server Express][install-SQLExpress], the [Microsoft Drivers for SQL Server for PHP][install-drivers], a web server, and [Git][install-git] installed on your computer. Upon completing this guide, you will have a PHP/SQL Azure website running in Windows Azure.
+This tutorial shows you how to create a PHP Windows Azure Website with a Windows Azure SQL Database and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [SQL Server Express][install-SQLExpress], the [Microsoft Drivers for SQL Server for PHP][install-drivers], a web server, and [Git][install-git] installed on your computer. Upon completing this guide, you will have a PHP-SQL Database website running in Windows Azure.
 
 **Note**: You can install and configure PHP, SQL Server Express, the Microsoft Drivers for SQL Server for PHP, and Internet Information Services (IIS) using the [Microsoft Web Platform Installer][wpi].
  
 You will learn:
 
-* How to create a Windows Azure Website and a SQL Azure database using the Windows Azure Developer Portal. Because PHP is enabled in Windows Azure Websites by default, nothing special is required to run your PHP code.
+* How to create a Windows Azure Website and a SQL Database using the Windows Azure Developer Portal. Because PHP is enabled in Windows Azure Websites by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Windows Azure using Git.
  
 By following this tutorial, you will build a simple Tasklist web application in PHP. The application will be hosted in a Windows Azure Website. A screenshot of the completed application is below:
@@ -23,7 +23,7 @@ The Tasklist application is a simple PHP application that allows you to add, mar
 * **markitemcomplete.php**: Changes the status of an item to complete.
 * **deleteitem.php**: Deletes an item.
 * **taskmodel.php**: Contains functions that add, get, update, and delete items from the database.
-* **createtable.php**: Creates the SQL Azure table for the application. This file will only be called once.
+* **createtable.php**: Creates the SQL Database table for the application. This file will only be called once.
 
 To run the application locally, follow the steps below. Note that these steps assume you have PHP, SQL Server Express, and a web server set up on your local machine, and that you have enabled the [PDO extension for SQL Server][pdo-sqlsrv].
 
@@ -51,14 +51,14 @@ After you have run the application locally, you are ready to create a Windows Az
 
 ##Create a Windows Azure Website and Set up Git Publishing
 
-Follow these steps to create a Windows Azure Website and a SQL Azure database:
+Follow these steps to create a Windows Azure Website and a SQL Database:
 
 1. Login to the Windows Azure portal. **TODO: provide link**
 2. Click the **+ New** icon on the bottom left of the portal.
 
 	![Create New Windows Azure Website][new-website]
 
-3. Click **Web Site**, then **Custom Create**. Enter a value for **URL**, select **Create a New SQL Azure Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
+3. Click **Web Site**, then **Custom Create**. Enter a value for **URL**, select **Create a New SQL Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
 
 	![Custom Create a new Website][custom-create]
 
@@ -66,11 +66,11 @@ Follow these steps to create a Windows Azure Website and a SQL Azure database:
 
 4. Enter a value for the **NAME** of your database, select the **EDITION** (WEB or BUSINESS), select the **MAX SIZE** for your database, choose the **COLLATION**, and select **NEW SQL Azure server**. Click the arrow at the bottom of the dialog.
 
-	![Fill in SQL Azure database settings][database-settings]
+	![Fill in SQL Database settings][database-settings]
 
-5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Azure server will be created, and check the `Allow Windows Azure Services to access this server` box.
+5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Database server will be created, and check the `Allow Windows Azure Services to access this server` box.
 
-	![Create new SQL Azure server][create-server]
+	![Create new SQL Database server][create-server]
 
 	When the website has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfully**. Now, you can enable Git publishing.
 
@@ -99,9 +99,9 @@ Follow these steps to create a Windows Azure Website and a SQL Azure database:
 
 	![Git instructions][git-instructions]
 
-##Get SQL Azure Connection Information
+##Get SQL Database Connection Information
 
-Before publishing the Tasklist application, the database connection information (in the **taskmodel.php** file) must be updated. To get SQL Azure connection information, follow these steps:
+Before publishing the Tasklist application, the database connection information (in the **taskmodel.php** file) must be updated. To get SQL Database connection information, follow these steps:
 
 1. From the Windows Azure portal, click **LINKED RESOURCES**.
 
@@ -139,7 +139,7 @@ To publish your application with Git, follow the steps below:
 
 	You will be prompted for the password you created earlier.
 
-2. Browse to **http://[your website domain]/createtable.php** to create the SQL Azure table for the application.
+2. Browse to **http://[your website domain]/createtable.php** to create the SQL Database table for the application.
 3. Browse to **http://[your website domain/index.php** to begin using the application. 
 
 ##Publish Changes to Your Application
