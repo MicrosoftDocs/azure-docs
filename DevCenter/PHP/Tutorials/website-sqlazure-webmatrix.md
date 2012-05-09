@@ -8,7 +8,7 @@ Upon completing this guide, you will have a PHP-SQL Database website running in 
  
 You will learn:
 
-* How to create a Windows Azure Website and a SQL Database using the Windows Azure Developer Portal. Because PHP is enabled in Windows Azure Websites by default, nothing special is required to run your PHP code.
+* How to create a Windows Azure Website and a SQL Database using the Preview Management Portal. Because PHP is enabled in Windows Azure Websites by default, nothing special is required to run your PHP code.
 * How to develop a PHP application using WebMatrix.
 * How to publish and re-publish your application to Windows Azure using WebMatrix.
  
@@ -39,7 +39,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 <h2 id="CreateWebsite">Create a Windows Azure Website and SQL Database</h2>
 Follow these steps to create a Windows Azure Website and a SQL Database:
 
-1. Login to the Windows Azure portal. **TODO: provide link**
+1. Login to the Preview Management Portal. **TODO: provide link**
 2. Click the **+ New** icon on the bottom left of the portal.
 
 	![Create New Windows Azure Website][new-website]
@@ -70,11 +70,9 @@ Follow these steps to create a Windows Azure Website and a SQL Database:
 	
 From the **PHP** section of the resulting dialog, make note of the values for `UID`, `PWD`, `Database`, and `$serverName`. You will use this information later.
 
-	**TODO: Insert screenshot?**
-
 ##Install WebMatrix
 
-You can install WebMatrix from the Windows Azure Portal. From your website's dashboard, click **QUICKSTART** near the top of the page, then click **Install WebMatrix**.
+You can install WebMatrix from the Preview Management Portal. From your website's dashboard, click **QUICKSTART** near the top of the page, then click **Install WebMatrix**.
 
 ![Install WebMatrix][install-webmatrix]
 
@@ -131,7 +129,7 @@ Before publishing your application to Windows Azure Websites, the database conne
 	
 	Save the `taskmodel.php` file.
 
-2. Return to the Windows Azure Portal and navigate to your website's **DASHBOARD**. Click the **Download publish profile** link at the bottom right corner of the page:
+2. Return to the Preview Management Portal and navigate to your website's **DASHBOARD**. Click the **Download publish profile** link at the bottom right corner of the page:
 
 	![Download publish profile][download-publish-profile]
 
