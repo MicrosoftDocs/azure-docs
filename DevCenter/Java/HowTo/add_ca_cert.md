@@ -1,3 +1,7 @@
+<properties umbracoNaviHide="1" pageTitle="Add a Certificate to the CA Store" metaKeywords="Azure Twilio Java, Twilio Java Certificate" 
+metaDescription="The following steps show you how to add a certificate authority (CA) certificate to the Java CA certificate (cacerts) store." 
+linkid="develop-java-how-to-add-a-certificate" urlDisplayName="Add a Certificate to the CA Store" headerExpose="" footerExpose="" disqusComments="1" />
+
 # Adding a Certificate to the Java CA Certificates Store
 The following steps show you how to add a certificate authority (CA) certificate to the Java CA certificate (cacerts) store.
 
