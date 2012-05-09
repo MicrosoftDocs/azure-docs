@@ -27,81 +27,9 @@ to the [Next Steps][] section.
 -   [How To: Delete a Queue][]
 -   [Next Steps][]
 
-## <a name="what-is"> </a>What is Queue Storage
+<div chunk="../../Shared/Chunks/howto-queue-storage.md" />
 
-Windows Azure Queue storage is a service for storing large numbers of
-messages that can be accessed from anywhere in the world via
-authenticated calls using HTTP or HTTPS. A single queue message can be
-up to 64KB in size, a queue can contain millions of messages, up to the
-100TB total capacity limit of a storage account. Common uses of Queue
-storage include:
-
--   <span>Creating a backlog of work to process asynchronously</span>
--   Passing messages from a Windows Azure Web role to a Windows Azure
-    Worker role
-
-## <a name="concepts"> </a>Concepts
-
-The Queue service contains the following components:
-
-![Queue1][]
-
--   **URL format:** Queues are addressable using the following URL
-    format:   
-    http://<storage account\>.queue.core.windows.net/<queue\>  
-      
-    The following URL addresses one of the queues in the diagram:  
-    http://myaccount.queue.core.windows.net/imagesToDownload
-
--   **Storage Account:** All access to Windows Azure Storage is done
-    through a storage account. A storage account is the highest level of
-    the namespace for accessing queues. The total size of blob, table,
-    and queue contents in a storage account cannot exceed 100TB.
-
--   **Queue:** A queue contains a set of messages. All messages must be
-    in a queue.
-
--   **Message:** A message, in any format, of up to 64KB.
-
-## <a name="create-account"> </a>Create a Windows Azure Storage Account
-
-To use storage operations, you need a Windows Azure storage account. You
-can create a storage account by following these steps. (You can also
-create a storage account [using the REST API][].)
-
-1.  Log into the [Windows Azure Management Portal][].
-
-2.  In the navigation pane, click **Hosted Services, Storage Accounts &
-    CDN**.
-
-3.  At the top of the navigation pane, click **Storage Accounts**.
-
-4.  On the ribbon, in the Storage group, click **New Storage Account**.
-      
-    ![Blob2][]  
-      
-    The **Create a New Storage Account**dialog box opens.   
-    ![Blob3][]
-
-5.  In **Choose a Subscription**, select the subscription that the
-    storage account will be used with.
-
-6.  In **Enter a URL**, type a subdomain name to use in the URI for the
-    storage account. The entry can contain from 3-24 lowercase letters
-    and numbers. This value becomes the host name within the URI that is
-    used to address Blob, Queue, or Table resources for the
-    subscription.
-
-7.  Choose a region or an affinity group in which to locate the storage.
-    If you will be using storage from your Windows Azure application,
-    select the same region where you will deploy your application.
-
-8.  Click **OK**.
-
-9.  Click the **View** button in the right-hand column below to display
-    and save the **Primary access key** for the storage account. You
-    will need this in subsequent steps to access storage.   
-    ![Blob4][]
+<div chunk="../../Shared/Chunks/create-storage-account.md" />
 
 ## <a name="create-project"> </a>Create a Windows Azure Project in Visual Studio
 
@@ -394,12 +322,6 @@ to learn how to do more complex storage tasks.
   [How To: Additional Options for Dequeuing Messages]: #advanced-get
   [How To: Get the Queue Length]: #get-queue-length
   [How To: Delete a Queue]: #delete-queue
-  [Queue1]: ../../../DevCenter/dotNet/Media/queue1.png
-  [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
-  [Windows Azure Management Portal]: http://windows.azure.com
-  [Blob2]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage2.png
-  [Blob3]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage3.png
-  [Blob4]: /media//java/WA_HowToBlobStorage4.png
   [Download and install the Windows Azure SDK for .NET]: /en-us/develop/net/
   [Creating a Windows Azure Project in Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx
   [Blob5]: ../../../DevCenter/dotNet/Media/blob5.png
