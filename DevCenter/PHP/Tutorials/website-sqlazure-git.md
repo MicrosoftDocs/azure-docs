@@ -56,13 +56,13 @@ Follow these steps to create a Windows Azure Website and a SQL Azure database:
 1. Login to the Windows Azure portal. **TODO: provide link**
 2. Click the **+ New** icon on the bottom left of the portal.
 
-![Create New Windows Azure Website][new-website]
+	![Create New Windows Azure Website][new-website]
 
 3. Click **Web Site**, then **Custom Create**. Enter a value for **URL**, select **Create a New SQL Azure Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
 
-![Custom Create a new Website][custom-create]
+	![Custom Create a new Website][custom-create]
 
-![Fill in Website details][website-details-sqlazure]
+	![Fill in Website details][website-details-sqlazure]
 
 4. Enter a value for the **NAME** of your database, select the **EDITION** (WEB or BUSINESS), select the **MAX SIZE** for your database, choose the **COLLATION**, and select **NEW SQL Azure server**. Click the arrow at the bottom of the dialog.
 
