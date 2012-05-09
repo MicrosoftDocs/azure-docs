@@ -32,6 +32,9 @@ The following list contains information for installing the Cross-Platform tools,
 * **Linux**: Install the latest version of [Node.js][nodejs-org] (see [Install Node.js via Package Manager][install-node-linux]), then run the following command:
 
 		npm install azure -g
+	**Note**: You may need to run this command with elevated privileges:
+
+		sudo npm install azure -g
 
 * **Windows**:  Download and launch the [Microsoft Web Platform Installer][download-wpi]. **TODO: Get info about WebPI installation...what to select? Will it install both PS cmdlets AND Cross-Plat tools?**
 
@@ -63,7 +66,9 @@ To see a list of options for `account` commands, use the `-help` option:
 
 	azure account -help
 
-After downloading your publish setting, you are now ready to being creating and managing Windows Azure Websites and Windows Azure Virtual Machines.  
+After downloading your publish settings, you should delete the `.publishsettings` file for security reasons.
+
+You are now ready to being creating and managing Windows Azure Websites and Windows Azure Virtual Machines.  
 
 <h2 id="WebSites">How to Create and Manage a Windows Azure Web Site</h2>
 
