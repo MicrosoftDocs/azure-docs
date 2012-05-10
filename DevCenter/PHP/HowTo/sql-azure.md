@@ -11,12 +11,12 @@ This guide will show you the basics of using Windows Azure SQL Database from PHP
 * [Concepts](#Concepts)
 * [How to Setup Your Environment](#Setup)
 * [How to Create a SQL Database Server](#CreateServer)
-* [How to Create a SQL Database Database](#CreateDatabase)
+* [How to Create a SQL Database Instance](#CreateDatabase)
 * [How to Connect to a SQL Azure Database](#Connect)
 * [Next Steps](#NextSteps)
 
 <h2 id="Concepts">Concepts</h2>
-Because Windows Azure SQL Database is built on SQL Server technologies, accessing SQL Database from PHP is very similar to accessing SQL Server from PHP. You can develop an application locally (using SQL Server) and then connect to SQL Database by changing only the connection string. However, there are some differences between SQL Database and SQL Server that could affect your application. For more information, see [Guidelines and Limitations (SQL Azure Database)][limitations].
+Because Windows Azure SQL Database is built on SQL Server technologies, accessing SQL Database from PHP is very similar to accessing SQL Server from PHP. You can develop an application locally (using SQL Server) and then connect to SQL Database by changing only the connection string. However, there are some differences between SQL Database and SQL Server that could affect your application. For more information, see [Guidelines and Limitations (SQL Database)][limitations].
 
 For accessing SQL Database from Windows, the recommended approach is to use the [Microsoft Drivers for PHP for SQL Server][download-drivers]. (The examples in this article will use these drivers.) For accessing SQL Azure from Linux and other non-Windows platforms, using an ODBC driver for SQL Server and the [ODBC extension for PHP][odbc-php] is recommended. For more information, see the [Next Steps](#NextSteps) section.
 
@@ -24,13 +24,17 @@ For accessing SQL Database from Windows, the recommended approach is to use the 
 
 	(Use Web PI...content TBD.)
 
-Alternatively, you can manually configure IIS and install PHP by following the instructions here: [http://php.net/manual/en/install.windows.iis7.php][manual-config]. After configuring IIS and installing PHP, download and install the Microsoft Drivers for PHP for SQL Server by following the directions that begin here: [http://php.net/manual/en/sqlsrv.requirements.php][install-drivers].
+Alternatively, you can set up your environment manually:
+
+* Install PHP and configure IIS: [http://php.net/manual/en/install.windows.iis7.php][manual-config].
+* Download and install SQL Server Express: [http://www.microsoft.com/en-us/download/details.aspx?id=29062][install-sql-express]
+* Download and install the Microsoft Drivers for PHP for SQL Server: [http://php.net/manual/en/sqlsrv.requirements.php][install-drivers].
 
 <h2 id="CreateServer">How to Create a SQL Database Server</h2>
 
 	(Content TBD)
 
-<h2 id="CreateDatabase">How to Create a SQL Azure Database</h2>
+<h2 id="CreateDatabase">How to Create a SQL Database Instance</h2>
 
 	(Content TBD)
 
@@ -83,3 +87,4 @@ For accessing SQL Azure from Linux and other non-Windows platforms, using an ODB
 [install-linux-driver]: http://strangenut.com/blogs/dacrowlah/archive/2012/04/13/installing-and-using-the-microsoft-sql-server-odbc-driver-for-linux.aspx
 [access-php-odbc]: http://social.technet.microsoft.com/wiki/contents/articles/accessing-sql-azure-from-php.aspx
 [download-linux-driver]: http://www.microsoft.com/download/en/details.aspx?id=28160
+[install-sql-express]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
