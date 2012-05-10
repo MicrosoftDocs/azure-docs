@@ -2,7 +2,7 @@
 
 #How to Use the Windows Azure Command-Line Tools for Mac and Linux
 
-This guide describes how to use the Windows Azure Command-Line Tools for Mac and Linux to create and manage services in Windows Azure. The scenarios covered include **installing the tools**, **importing your publishing settings**, **creating and managing Windows Azure Websites**, and **creating and managing Windows Azure Virtual Machines**. For comprehensive reference documentation, see **TODO: link to the reference doc**. 
+This guide describes how to use the Windows Azure Command-Line Tools for Mac and Linux to create and manage services in Windows Azure. The scenarios covered include **installing the tools**, **importing your publishing settings**, **creating and managing Windows Azure Websites**, and **creating and managing Windows Azure Virtual Machines**. For comprehensive reference documentation, see [Windows Azure command-line tool for Mac and Linux Documentation][reference-docs]. 
 
 ##Table of Contents
 * [What are the Windows Azure Command-Line Tools for Mac and Linux](#Overview)
@@ -23,13 +23,13 @@ The supported tasks include the following:
 * Create and manage Windows Azure Websites.
 * Create and manage Windows Azure Virtual Machines.
 
-For a complete list of supported commands, type `azure -help` at the command line after installing the tools, or see the reference documentation: **TODO: link to reference doc**.
+For a complete list of supported commands, type `azure -help` at the command line after installing the tools, or see the [reference documentation][reference-docs].
 
 <h2 id="Download">How to Install the Windows Azure Command-Line Tools for Mac and Linux</h2>
 
 The following list contains information for installing the command-line tools, depending on your operating system:
 
-* **Mac**: Download the Windows Azure SDK Installer here: **TODO: Get FWLink to download site for MacInstaller**. Open the downloaded .pkg file and complete the installation steps as you are prompted.
+* **Mac**: Download the [Windows Azure SDK Installer][mac-installer]. Open the downloaded .pkg file and complete the installation steps as you are prompted.
 
 * **Linux**: Install the latest version of [Node.js][nodejs-org] (see [Install Node.js via Package Manager][install-node-linux]), then run the following command:
 
@@ -160,3 +160,5 @@ For a complete list of commands for creating and managing virtual machines, use 
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 [download-wpi]: http://www.microsoft.com/web/downloads/platform.aspx
+[mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
+[reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
