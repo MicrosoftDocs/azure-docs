@@ -39,7 +39,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 <h2 id="CreateWebsite">Create a Windows Azure Website and SQL Database</h2>
 Follow these steps to create a Windows Azure Website and a SQL Database:
 
-1. Login to the Preview Management Portal. **TODO: provide link**
+1. Login to the [Preview Management Portal][preview-portal].
 2. Click the **+ New** icon on the bottom left of the portal.
 
 	![Create New Windows Azure Website][new-website]
@@ -88,15 +88,21 @@ In the next few steps you will develop the Tasklist application by adding the fi
 
 2. Create a new project by clicking **Templates**, then **PHP** (in the left pane), and finally **Empty Site**. Fill in name of site (tasklist), click **Next**.
 
-	**TODO: Insert 3 screenshots, one each for Templates, PHP, and Empty Site**
+	![WebMatrix - Select Templates][webmatrix-templates]
+
+	![WebMatrix - Select PHP Template][webmatrix-php-template]
+
+	![WebMatrix - Select PHP Empty Site][webmatrix-php-emptysite]
 
 3. In the lower left corner, click **Files**, then delete `index.php` from the project.
 
-	**TODO: Insert 2 screenshots, one for Files and one for deleting index.php**
+	![WebMatrix - Select Files][webmatrix-files]
+
+	![WebMatrix - Delete index.php][webmatrix-delete-indexphp]
 
 4. To import the files you downloaded earlier, click **Add Existing**, navigate to the directory where you saved the Tasklist application files, select them, and add them to the project.
 
-	**TODO: Insert screenshot**
+	![WebMatrix - Add existing files][webmatrix-add-existing]
 
 5. Next, you need to add your local SQL Express database connection information to the `taskmodel.php` file. Open the  `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function. (**Note**: Jump [Publish Your Application](#Publish) if you do not want to test your application locally and want to instead publish directly to Windows Azure Websites.)
 
@@ -110,7 +116,7 @@ In the next few steps you will develop the Tasklist application by adding the fi
 
 6. For the application to run, the `items` table needs to be created. Right click the `createtable.php` file and select **Launch in browser**. This will launch `createtable.php` in your browser and execute code that creates the `items` table in the `tasklist` database.
 
-	**TODO: Insert screenshot**
+	![WebMatrix - Launch createtable.php in browser][webmatrix-launchinbrowser]
 
 7. Now you can test the application locally. Right click the `index.php` file and select **Launch in browser**. Test the application by adding items, marking them complete, and deleting them.  
 
@@ -137,21 +143,21 @@ Before publishing your application to Windows Azure Websites, the database conne
 
 3. In WebMatrix, click the **Publish** icon.
 
-	**TODO: Insert screenshot**
+	![WebMatrix - Publish][webmatrix-publish]
 
 4. In the dialog box that opens, click **Import publish settings**.
 
-	**TODO: Insert screenshot**
+	![Webmatrix - Import publish settings][webmatrix-import-pub-settings]
 
 	Navigate the the `.publishsettings` file that you saved in the previous step, import it, and click **Save**. You will be asked to allow WebMatrix to upload files to your site for compatibility testing. Choose to allow WebMatrix to do this.
 
 5. Click **Continue** on the **Publish Compatibility** dialog.
 
-	**TODO: Insert screenshot**
+	![Webmatrix - Publish Compatability][webmatrix-pubcompat-continue]
 
 6. Click **Continue** on the **Publish Preview** dialog.
 
-	**TODO: Insert screenshot**
+	![Webmatrix - Publish Preview][webmatrix-pubpreview]
 
 	When the publishing is complete, you will see **Publishing - Complete** at the bottom of the WebMatrix screen.
 
@@ -187,3 +193,15 @@ You can easily modify and republish your application. Here, you will make a simp
 [install-webmatrix]: ../../Shared/Media/install_webmatrix_from_site_dashboard.jpg
 [launch-webmatrix]: ../../Shared/Media/launch_webmatrix.jpg
 [download-publish-profile]: ../../Shared/Media/download_publish_profile.jpg
+[webmatrix-templates]: ../../Shared/Media/webmatrix_templates.jpg
+[webmatrix-php-template]: ../../Shared/Media/webmatrix_php_template.jpg
+[webmatrix-php-emptysite]: ../../Shared/Media/webmatrix_php_emptysite.jpg
+[webmatrix-files]: ../../Shared/Media/webmatrix_files.jpg
+[webmatrix-delete-indexphp]: ../../Shared/Media/webmatrix_files.jpg
+[webmatrix-add-existing]: ../../Shared/Media/webmatrix_add_existing.jpg
+[webmatrix-launchinbrowser]: ../../Shared/Media/webmatrix_launchinbrowser.jpg
+[webmatrix-publish]: ../../Shared/Media/webmatrix_publish.jpg
+[webmatrix-import-pub-settings]: ../../Shared/Media/webmatrix_import_pub_settings.jpg
+[webmatrix-pubcompat-continue]: ../../Shared/Media/webmatrix_pubcompat_continue.jpg
+[webmatirx-pubpreview]: ../../Shared/Media/webmatrix_pubpreview.jpg
+[preview-portal]: https://manage.windowsazure.com
