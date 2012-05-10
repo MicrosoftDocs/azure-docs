@@ -1,8 +1,8 @@
-#How to Access SQL Azure from PHP
+#How to Access Windows Azure SQL Database from PHP
 
-This guide will show you how to perform common tasks using the SQL Azure database service. The samples are written in PHP and use the Windows Azure SDK for PHP. The scenarios covered include creating a server, creating a database, and connecting to a database. For more information, see the [Next Steps](#NextSteps) section.
+This guide will show you the basics of using Windows Azure SQL Database from PHP. The samples are written in PHP. The scenarios covered include **creating a server**, **creating a database**, and **connecting to a database**. For more information, see the [Next Steps](#NextSteps) section.
 
-##What is SQL Azure
+##What is Windows Azure SQL Database
 
 	(TODO: Reference reusable content "chunk".)
 
@@ -10,15 +10,15 @@ This guide will show you how to perform common tasks using the SQL Azure databas
 
 * [Concepts](#Concepts)
 * [How to Setup Your Environment](#Setup)
-* [How to Create a SQL Azure Server](#CreateServer)
-* [How to Create a SQL Azure Database](#CreateDatabase)
+* [How to Create a SQL Database Server](#CreateServer)
+* [How to Create a SQL Database Database](#CreateDatabase)
 * [How to Connect to a SQL Azure Database](#Connect)
 * [Next Steps](#NextSteps)
 
 <h2 id="Concepts">Concepts</h2>
-Because SQL Azure is built on SQL Server technologies, accessing SQL Azure from PHP is very similar to accessing SQL Server from PHP. You can develop an application locally (using SQL Server) and then connect to SQL Azure by changing only the connection string. However, there are some differences between SQL Azure and SQL Server that could affect your application. For more information, see [Guidelines and Limitations (SQL Azure Database)][limitations].
+Because Windows Azure SQL Database is built on SQL Server technologies, accessing SQL Database from PHP is very similar to accessing SQL Server from PHP. You can develop an application locally (using SQL Server) and then connect to SQL Database by changing only the connection string. However, there are some differences between SQL Database and SQL Server that could affect your application. For more information, see [Guidelines and Limitations (SQL Azure Database)][limitations].
 
-For accessing SQL Azure from Windows, the recommended approach is to use the [Microsoft Drivers for PHP for SQL Server][download-drivers]. (The examples in this article will use these drivers.) For accessing SQL Azure from Linux and other non-Windows platforms, using an ODBC driver for SQL Server and the [ODBC extension for PHP][odbc-php] is recommended. For more information, see the [Next Steps](#NextSteps) section.
+For accessing SQL Database from Windows, the recommended approach is to use the [Microsoft Drivers for PHP for SQL Server][download-drivers]. (The examples in this article will use these drivers.) For accessing SQL Azure from Linux and other non-Windows platforms, using an ODBC driver for SQL Server and the [ODBC extension for PHP][odbc-php] is recommended. For more information, see the [Next Steps](#NextSteps) section.
 
 <h2 id="Setup">How to Setup Your Environment</h2>
 
@@ -26,7 +26,7 @@ For accessing SQL Azure from Windows, the recommended approach is to use the [Mi
 
 Alternatively, you can manually configure IIS and install PHP by following the instructions here: [http://php.net/manual/en/install.windows.iis7.php][manual-config]. After configuring IIS and installing PHP, download and install the Microsoft Drivers for PHP for SQL Server by following the directions that begin here: [http://php.net/manual/en/sqlsrv.requirements.php][install-drivers].
 
-<h2 id="CreateServer">How to Create a SQL Azure Server</h2>
+<h2 id="CreateServer">How to Create a SQL Database Server</h2>
 
 	(Content TBD)
 
@@ -69,7 +69,7 @@ The following examples show how to use the **SQLSRV** and **PDO_SQLSRV** extensi
 
 
 <h2 id="NextSteps">Next Steps</h2>
-As mentioned earlier, using SQL Azure is very similar to using SQL Server. Once you have established a connection to a SQL Azure database (as shown above), you can then use the **SQLSRV** or **PDO_SQLSRV** APIs for inserting, retrieving, updating, and deleting data. For information about the **SQLSRV** and **PDO_SQLSRV** APIs, see the [Microsoft Drivers for PHP for SQL Server documentation][driver-docs]. There are, however, some differences between SQL Azure and SQL Server that could affect your application. For more information, see [Guidelines and Limitations (SQL Azure Database)][limitations]. 
+As mentioned earlier, using SQL Database is very similar to using SQL Server. Once you have established a connection to a SQL Database (as shown above), you can then use the **SQLSRV** or **PDO\_SQLSRV** APIs for inserting, retrieving, updating, and deleting data. For information about the **SQLSRV** and **PDO\_SQLSRV** APIs, see the [Microsoft Drivers for PHP for SQL Server documentation][driver-docs]. There are, however, some differences between SQL Database and SQL Server that could affect your application. For more information, see [Guidelines and Limitations (SQL Azure Database)][limitations]. 
 
 For accessing SQL Azure from Linux and other non-Windows platforms, using an ODBC driver for SQL Server and the [ODBC extension for PHP][odbc-php] is recommended. For more information, see [Installing and Using the Microsoft SQL Server ODBC Driver for Linux][install-linux-driver], [Download the Microsoft SQL Server ODBC Driver for Linux][download-linux-driver], and [Accessing SQL Azure from PHP][access-php-odbc].
 
