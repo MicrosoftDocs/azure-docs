@@ -23,8 +23,8 @@ In this tutorial you will learn:
 
 4. On the **VM Configuration** page, provide the following information:
 - Provide a **VIRTUAL MACHINE NAME**.
-- Leave the **CHOOSE USER NAME** box as Administrator.
-- In the **CHOOSE PASSWORD** box, type a strong password. [Strong Passwords](http://msdn.microsoft.com/en-us/library/ms161962.aspx)
+- Leave the **NEW USER NAME** box as Administrator.
+- In the **NEW PASSWORD** box, type a strong password. [Strong Passwords](http://msdn.microsoft.com/en-us/library/ms161962.aspx)
 - In the **CONFIRM PASSWORD** box, retype the password.
 - Select the appropriate **SIZE** from the drop down list. Medium is the smallest size recommended for production workloads. 
 
@@ -33,19 +33,20 @@ In this tutorial you will learn:
 	![VM Configuration] [Image4]
 5. On **VM Mode** page, provide the following information:
 - Select **Standalone Virtual Machine**.
-- In the **DNS NAME** box, type a valid DNS name in the format **TESTNAME.cloudapp.net**
+- In the **DNS NAME** box, provide the first portion of the DNS name, so that it completes a name in the format **TESTNAME.cloudapp.net**
 - In the **REGION/AFFINITY GROUP/VIRTUAL NETWORK** box, select a region where this virtual image will be hosted.
-- Leave the **SUBSCRIPTION** box, validate your account selection.
 
    Click the next arrow to continue.
 
 	![VM Mode] [Image5]
 
-6. On the **VM Options** page, select **(none)**. Read and accept the legal terms.
+6. On the **VM Options** page:
+- In the **AVAILABILITY SET** box, select **(none)**. 
+- Read and accept the legal terms.
 
 	![VM Options] [Image6]
 
-7. Click the check mark to continue.
+7. Click the check mark in the bottom right corner to continue.
 
 8. Wait while Windows Azure prepares your virtual machine.
 
@@ -63,9 +64,9 @@ In this tutorial you will learn:
 	![Click Open] [Image8]
 3. At the **Windows Security** dialog box, provide the password for the **Administrator** account that you specified in an earlier step. (You might be asked to verify the credentials of the virtual machine.)
 
-4. The first time you log on to this virtual machine, several processes may need to complete, including setup of your desktop, Windows updates, and completion of the Windows initial configuration tasks. `SELECT @@SERVERNAME` may not return the correct name until SQL Server setup completes.
+4. The first time you log on to this virtual machine, several processes may need to complete, including setup of your desktop, Windows updates, and completion of the Windows initial configuration tasks (sysprep). After Windows sysprep completes, SQL Server setup  completes configuration tasks. These tasks make cause a short delay while they complete. `SELECT @@SERVERNAME` may not return the correct name until SQL Server setup completes.
 
-Once you are connected to the virtual machine with Windows Remote Desktop, the virtual machine works much like any other computer. Connect to the default instance of SQL Server with SQL Server Management Studio in the normal way. If you need additional training on connecting to the Database Engine, see [Tutorial: Getting Started with the Database Engine](http://msdn.microsoft.com/en-us/library/ms345318.aspx).
+Once you are connected to the virtual machine with Windows Remote Desktop, the virtual machine works much like any other computer. Connect to the default instance of SQL Server with SQL Server Management Studio (running on the virtual machine) in the normal way. If you need additional training on connecting to the Database Engine, see [Tutorial: Getting Started with the Database Engine](http://msdn.microsoft.com/en-us/library/ms345318.aspx).
 
 ## Connecting to the Virtual Machine Using SQL Server Management Studio or Your Application ##
 
@@ -210,24 +211,24 @@ For more information about SQL Server logins, see [Create a Login](http://msdn.m
 
 	![Select VM] [Image26]
 
-2. Click on your new virtual machine. Information about your virtual machine is presented.
+2. Click on your newly created virtual machine. Information about your virtual machine is presented.
 
 	![Click the VM] [Image27]
 
-3. Near the top of the page, select the ENDPOINTS page, and then click ADD ENDPOINT.
+3. Near the top of the page, select the **ENDPOINTS** page, and then click **ADD ENDPOINT**.
 
 	![Click ADD ENDPOINT] [Image28]
 
-4. On the Add endpoint to virtual machine page, click Add Endpoint, and then click the Next arrow to continue.
+4. On the **Add endpoint to virtual machine** page, click **Add Endpoint**, and then click the Next arrow to continue.
 
 	![Click Add endpoint] [Image29]
 
-5. On the New Endpoint Details page, provide the following information.
+5. On the **New Endpoint Details** page, provide the following information.
 
-- In the NAME box, provide a name for the endpoint.
-- In the PROTOCOL box, select TCP.
-- In the PUBLIC PORT box, type 1433.
-- In the PRIVATE PORT box, type 1433.
+- In the **NAME** box, provide a name for the endpoint.
+- In the **PROTOCOL** box, select **TCP**.
+- In the **PUBLIC PORT** box, type **1433**.
+- In the **PRIVATE PORT** box, type **1433**.
 
 	![Endpoint screen] [Image30]
 
