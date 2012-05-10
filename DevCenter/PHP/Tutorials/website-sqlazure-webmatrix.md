@@ -1,4 +1,6 @@
-#Create and Deploy a PHP Website and SQL Database using WebMatrix
+<properties umbracoNaviHide="0" pageTitle="PHP-MySQL Windows Azure Website using WebMatrix" metaKeywords="Windows Azure deployment, Azure deployment, Windows Azure Websites, Windows Azure SQL Database, SQL Database, PHP, WebMatrix" metaDescription="Learn how to create and deploy a PHP website and a SQL Database to Windows Azure using WebMatrix." linkid="dev-php-tutorials-sql-database-website-webmatrix" urlDisplayName="Create and Deploy a PHP Website and SQL Database Using WebMatrix" headerExpose="" footerExpose="" disqusComments="1" />
+
+#Create and Deploy a PHP Website and SQL Database Using WebMatrix
 
 This tutorial shows you how to use WebMatrix to develop and deploy a PHP application that uses a Windows Azure SQL Database to a Windows Azure Website. WebMatrix is a free web development tool from Microsoft that includes everything you need for website development. WebMatrix supports PHP and includes intellisense for PHP development. 
 
