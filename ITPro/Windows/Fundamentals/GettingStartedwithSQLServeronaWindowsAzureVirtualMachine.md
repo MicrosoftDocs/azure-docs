@@ -1,12 +1,6 @@
 # Getting Started with SQL Server on a Windows Azure Virtual Machine
 
-The Windows Azure virtual machine gallery provides Windows Azure virtual machine images of Microsoft Windows Server 2008 R2, Service Pack 1 (64-bit) with  a complete 64-bit installation of SQL Server. Versions of this virtual machine are available in the following five configurations.
-
-- SQL Server 2012 Evaluation (64-bit)
-- SQL Server 2012 Standard (64-bit)
-- SQL Server 2012 Enterprise (64-bit)
-- SQL Server 2008 R2 Standard, Service Pack 1 (64-bit)
-- SQL Server 2008 R2 Enterprise, Service Pack 1 (64-bit)
+The Windows Azure virtual machine gallery provides Windows Azure virtual machine images of Microsoft Windows Server 2008 R2, Service Pack 1 (64-bit) with  a complete 64-bit installation of SQL Server. A version of this virtual machine is available with SQL Server 2012 Evaluation (64-bit).
 
 # About this Virtual Machine Image
 ##Windows Server 2008 R2
