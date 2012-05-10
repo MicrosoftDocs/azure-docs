@@ -1,19 +1,19 @@
-#How to Use the Cross-Platform Tools for Windows Azure
+#How to Use the Windows Azure Command-Line Tools for Mac and Linux
 
-This guide describes how to use the Cross-Platform Tools for Windows Azure to create and manage services in Windows Azure. The scenarios covered include **installing the tools**, **importing your publishing settings**, **creating and managing Windows Azure Websites**, and **creating and managing Windows Azure Virtual Machines**. For comprehensive reference documentation, see **TODO: link to the reference doc**. 
+This guide describes how to use the Windows Azure Command-Line Tools for Mac and Linux to create and manage services in Windows Azure. The scenarios covered include **installing the tools**, **importing your publishing settings**, **creating and managing Windows Azure Websites**, and **creating and managing Windows Azure Virtual Machines**. For comprehensive reference documentation, see **TODO: link to the reference doc**. 
 
 ##Table of Contents
-* [What are the Windows Azure Cross-Platform Command Line Tools](#Overview)
-* [How to Install the Windows Azure Cross-Platform Command Line Tools](#Download)
+* [What are the Windows Azure Command-Line Tools for Mac and Linux](#Overview)
+* [How to Install the Windows Azure Command-Line Tools for Mac and Linux](#Download)
 * [How to Create a Windows Azure Account](#CreateAccount)
 * [How to Download and Import Publish Settings](#Account)
 * [How to Create and Manage a Windows Azure Web Site](#WebSites)
 * [How to Create and Manage a Virtual Machine](#VMs)
 
 
-<h2 id="Overview">What are the Cross-Platform Tools for Windows Azure</h2>
+<h2 id="Overview">What are the Windows Azure Command-Line Tools for Mac and Linux</h2>
 
-The Cross-Platform Tools for Windows Azure are a set of command-line tools for deploying and managing Windows Azure services. These tools work on any platform, including Mac, Linux, and Windows.
+The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Windows Azure services. These tools work on any platform, including Mac, Linux, and Windows.
  
 The supported tasks include the following:
 
@@ -23,26 +23,27 @@ The supported tasks include the following:
 
 For a complete list of supported commands, type `azure -help` at the command line after installing the tools, or see the reference documentation: **TODO: link to reference doc**.
 
-<h2 id="Download">How to Install the Windows Azure Cross-Platform Command Line Tools</h2>
+<h2 id="Download">How to Install the Windows Azure Command-Line Tools for Mac and Linux</h2>
 
-The following list contains information for installing the Cross-Platform tools, depending on your operating system:
+The following list contains information for installing the command-line tools, depending on your operating system:
 
 * **Mac**: Download the Windows Azure SDK Installer here: **TODO: Get FWLink to download site for MacInstaller**. Open the downloaded .pkg file and complete the installation steps as you are prompted.
 
 * **Linux**: Install the latest version of [Node.js][nodejs-org] (see [Install Node.js via Package Manager][install-node-linux]), then run the following command:
 
 		npm install azure -g
+	
 	**Note**: You may need to run this command with elevated privileges:
 
 		sudo npm install azure -g
 
-* **Windows**:  Download and launch the [Microsoft Web Platform Installer][download-wpi]. **TODO: Get info about WebPI installation...what to select? Will it install both PS cmdlets AND Cross-Plat tools?**
+* **Windows**:  Use the [Microsoft Web Platform Installer 4.0][download-wpi] to install the Windows Azure SDK for Node.js or the Windows Azure SDK for PHP. Those SDKs include the Windows Azure Command-Line Tools for Mac and Linux, which run on Windows.
 
 To test the installation, type `azure` at the command prompt. If the installation was successful, you will see a list of all the available `azure` commands.
 
 <h2 id="CreateAccount">How to Create a Windows Azure Account</h2>
 
-To use the Cross-Platform Tools for Windows Azure, you will need a Windows Azure account.
+To use the Windows Azure Command-Line Tools for Mac and Linux, you will need a Windows Azure account.
 
 	**TODO: Reference content chunk**
 
