@@ -234,7 +234,7 @@ Your existing database can be moved to this new instance of the Database Engine 
 - By using [Copy Database Wizard](http://msdn.microsoft.com/en-us/library/ms188664.aspx) in Management Studio.
 - By using DAC Import/Export
 
-For more information about migrating a database to SQL Server on a Windows Azure virtual machine, see Guide to Migrating Existing applications and Databases to Windows Azure Platform and Step-by-step guide to database migration.
+For more information about migrating a database to SQL Server on a Windows Azure virtual machine, see [Guide to Migrating Existing applications and Databases to Windows Azure Platform](http://go.microsoft.com/fwlink/?LinkId=249158).
 
 ### Creating Database Users ###
 

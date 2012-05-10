@@ -51,10 +51,6 @@ In the Management Studio **Connect to server** dialog box, enter the of the virt
 ## Connecting from the Internet by using Management Studio ##
 Additional configuration of SQL Server, the virtual machine, and Windows Azure is required to connect to SQL Server over the internet. For more information, see [Deploying a SQL Server Virtual Machine on Windows Azure](http://go.microsoft.com/fwlink/?LinkId=251117).
  
-## Connecting from a hosted service ##
-
-To be completed.
-
 ## Connecting from Management Studio running on another computer using Windows Azure Virtual Network ##
 
 Windows Azure Virtual Network allows a virtual machine hosted on Windows Azure to interact more easily with your private network. There are multiple steps to properly configure the Windows Azure Virtual Network settings. Some configurations create optimal performance. Others are optimized for cost. For more information about Windows Azure Virtual Network, see [Overview of Windows Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=251117).
@@ -75,8 +71,6 @@ Provide a connection string similar to
 where <VM_Name> is the name you provided for this virtual machine during setup.
 
 # Next Steps #
-## Configuring the Virtual Machine ##
-Additional links to be determined.
 
 ## Migrating an Existing Database ##
 Your existing database can be moved to this new instance of the Database Engine by using any of the following methods.
@@ -86,7 +80,7 @@ Your existing database can be moved to this new instance of the Database Engine 
 - Create scripts of the source database, and execute the scripts on this new instance of SQL Server.
 - By using Copy Database Wizard in Management Studio.
 
-For more information about migrating a database to SQL Server on a Windows Azure virtual machine, see **Guide to Migrating Existing applications and Databases to Windows Azure Platform** and **Step-by-step guide to database migration**.
+For more information about migrating a database to SQL Server on a Windows Azure virtual machine, see [Guide to Migrating Existing applications and Databases to Windows Azure Platform](http://go.microsoft.com/fwlink/?LinkId=249158) and migration steps near the end of [Deploying a SQL Server Virtual Machine on Windows Azure](http://go.microsoft.com/fwlink/?LinkId=251117).
 
 ## Create New Logins and Users ##
 Create new Windows users, SQL Server Windows Authentication logins, and database users as you would any on-premises database. If you intend to use SQL Server Authentication you must configure the Database Engine for mixed mode authentication. The sa account is currently disabled. For information about how to change the authentication mode and enable the sa account, see [Change Server Authentication Mode](http://msdn.microsoft.com/en-us/library/ms188670.aspx).
