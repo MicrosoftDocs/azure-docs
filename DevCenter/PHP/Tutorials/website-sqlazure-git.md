@@ -1,3 +1,5 @@
+<properties umbracoNaviHide="0" pageTitle="Create a PHP Website with a SQL Database and Deploy Using Git" metaKeywords="Windows Azure, Windows Azure Websites, SQL Database, PHP, Git, Git deploy" metaDescription="Learn how to create a Windows Azure PHP website with a SQL Database and deploy to it using Git." linkid="dev-php-tutorials-php-site-sql-database-git" urlDisplayName="Create a PHP Website with a SQL Database and Deploy Using Git" headerExpose="" footerExpose="" disqusComments="1" />
+
 #Create a PHP Website with a SQL Database and Deploy Using Git
 
 This tutorial shows you how to create a PHP Windows Azure Website with a Windows Azure SQL Database and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [SQL Server Express][install-SQLExpress], the [Microsoft Drivers for SQL Server for PHP][install-drivers], a web server, and [Git][install-git] installed on your computer. Upon completing this guide, you will have a PHP-SQL Database website running in Windows Azure.
