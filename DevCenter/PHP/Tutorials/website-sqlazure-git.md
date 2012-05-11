@@ -55,7 +55,7 @@ After you have run the application locally, you are ready to create a Windows Az
 
 Follow these steps to create a Windows Azure Website and a SQL Database:
 
-1. Login to the Preview Management Portal. **TODO: provide link**
+1. Login to the [Preview Management Portal][preview-portal].
 2. Click the **+ New** icon on the bottom left of the portal.
 
 	![Create New Windows Azure Website][new-website]
@@ -181,3 +181,4 @@ To publish changes to application, follow these steps:
 [git-instructions]: ./Media/git_instructions.jpg
 [linked-resources]: ./Media/linked_resources.jpg
 [connection-string]: ./Media/connection_string.jpg
+[preview-portal]: https://manage.windowsazure.com/
