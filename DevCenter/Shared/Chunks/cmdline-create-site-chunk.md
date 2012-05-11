@@ -8,7 +8,7 @@ This should return a response similar to the following:
 
 The default URL for your website will have the following format:
 
-	**TODO: Get the default format**
+	[site name].azurewebsites.net
 
 Note that you can execute the `azure site create` command with any of the following options:
 
