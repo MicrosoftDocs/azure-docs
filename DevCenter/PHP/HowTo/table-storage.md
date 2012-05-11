@@ -50,7 +50,7 @@ The following example shows how to include the `WindowsAzure.php` file and refer
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Services\Table\TableService;
+	use WindowsAzure\Table\TableService;
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
@@ -60,8 +60,8 @@ A Windows Azure Table service client uses a **Configuration** object for storing
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Core\Configuration;
-	use WindowsAzure\Services\Table\TableSettings;
+	use WindowsAzure\Common\Configuration;
+	use WindowsAzure\Table\TableSettings;
 	
 	$config = new Configuration();
 	$config->setProperty(TableSettings::ACCOUNT_NAME, "your_storage_account_name");
@@ -76,8 +76,8 @@ An **ITable** object lets you create a table with the **createTable** method. Wh
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Core\ServiceException;
+	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Common\Internal\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -102,10 +102,10 @@ To add an entity to a table, create a new **Entity** object and pass it to **ITa
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Services\Table\Models\Entity;
-	use WindowsAzure\Services\Table\Models\EdmType;
-	use WindowsAzure\Core\ServiceException;
+	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Table\Models\Entity;
+	use WindowsAzure\Table\Models\EdmType;
+	use WindowsAzure\Common\Internal\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -134,10 +134,10 @@ The **ITable** interface offers two alternative methods for inserting entities: 
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Services\Table\Models\Entity;
-	use WindowsAzure\Services\Table\Models\EdmType;
-	use WindowsAzure\Core\ServiceException
+	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Table\Models\Entity;
+	use WindowsAzure\Table\Models\EdmType;
+	use WindowsAzure\Common\Internal\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -177,8 +177,8 @@ The **ITable->getEntity** method allows you to retrieve a single entity by query
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Core\ServiceException;
+	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Common\Internal\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -205,8 +205,8 @@ Entity queries are constructed using filters (for more information, see [Queryin
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Core\ServiceException;
+	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Common\Internal\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -237,8 +237,8 @@ The same pattern used in the previous example can be used to retrieve any subset
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Core\ServiceException;
+	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Common\Internal\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -269,10 +269,9 @@ A query can retrieve a subset of entity properties. This technique, called *proj
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Services\Table\Models\QueryEntitiesResult;
-	use WindowsAzure\Services\Table\Models\QueryEntitiesOptions;
-	use WindowsAzure\Core\ServiceException;
+	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Table\Models\QueryEntitiesOptions;
+	use WindowsAzure\Common\Internal\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -307,36 +306,21 @@ An existing entity can be updated by using the **Entity->setProperty** and **Ent
 
 	require_once 'WindowsAzure.php';
 	
-	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Services\Table\Models\QueryEntitiesOptions;
-	use WindowsAzure\Services\Table\Models\QueryEntitiesResult;
-	use WindowsAzure\Services\Table\Models\Query;
-	use WindowsAzure\Services\Table\Models\EdmType;
-	use WindowsAzure\Services\Table\Models\Property;
-	use WindowsAzure\Services\Table\Models\Filters\Filter;
-	use WindowsAzure\Core\ServiceException;
+	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Table\Models\Entity;
+	use WindowsAzure\Table\Models\EdmType;
+	use WindowsAzure\Common\Internal\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
 	
-	$query = new Query();
-	$filter = "PartitionKey eq 'tasksSeattle' and RowKey eq '1'";
-	$query->setFilter(Filter::applyQueryString($filter));
-    $options = new QueryEntitiesOptions();
-    $options->setQuery($query);
+	$result = $table_proxy->getEntity("mytable", "tasksSeattle", 1);
 	
-	$result = $table_proxy->queryEntities("mytable", $options);
+	$entity = $result->getEntity();
 	
-	$entities = $result->getEntities();
-	$entity = $entities[0];
+	$entity->setPropertyValue("DueDate", new DateTime()); // Modified the DueDate field.
 	
-	$due_date = $entity->getProperty("DueDate");
-	$due_date->setValue(new DateTime());
-	$entity->setProperty("DueDate", $due_date); // Modified the DueDate field.
-	
-	$location = $entity->getProperty("Location");
-	$location->setValue(null);
-	$entity->setProperty("Location", $location); // Removed Location field.
+	$entity->setPropertyValue("Location", null); // Removed Location field.
 	
 	$entity->addProperty("Status", EdmType::STRING, "In progress"); // Added Status field.
 
@@ -364,6 +348,14 @@ The **ITable->batch** method allows you to execute multiple operations in a sing
 * **addDeleteEntity** (adds a deleteEntity operation)
 
 The following example shows how to execute **insertEntity** and **deleteEntity** operations in a single request:
+
+	require_once 'WindowsAzure.php';
+	
+	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Table\Models\Entity;
+	use WindowsAzure\Table\Models\EdmType;
+	use WindowsAzure\Table\Models\BatchOperations;
+	use WindowsAzure\Common\Internal\ServiceException;
 
  	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -403,8 +395,8 @@ To delete an entity, pass the table name, and the entity's `PartitionKey` and `R
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Core\ServiceException;
+	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Common\Internal\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -430,8 +422,8 @@ Finally, to delete a table, pass the table name to the **ITable->deleteTable** m
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Core\ServiceException;
+	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Common\Internal\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
