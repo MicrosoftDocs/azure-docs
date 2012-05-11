@@ -1,4 +1,6 @@
-# How to Use the Blob Service from PHP
+<properties umbracoNaviHide="0" pageTitle="How to Use the Blob Service from PHP" metaKeywords="" metaDescription="Learn how to use the Windows Azure Blob Service from PHP applications." linkid="dev-php-blob-service" urlDisplayName="How to Use the Blob Service from PHP" headerExpose="" footerExpose="" disqusComments="1" />
+
+#How to Use the Blob Service from PHP
 
 This guide will show you how to perform common scenarios using the Windows Azure Blob service. The samples are written in PHP and use the [Windows Azure SDK for PHP] [download]. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#NextSteps) section.
 
