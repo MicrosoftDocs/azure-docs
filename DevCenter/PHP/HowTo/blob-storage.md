@@ -46,7 +46,7 @@ The following example shows how to include the `WindowsAzure.php` file and refer
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Services\Blob\BlobService;
+	use WindowsAzure\Blob\BlobService;
 
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
@@ -57,8 +57,8 @@ A Windows Azure Blob service client uses a **Configuration** object for storing 
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Core\Configuration;
-	use WindowsAzure\Services\Blob\BlobSettings;
+	use WindowsAzure\Common\Configuration;
+	use WindowsAzure\Blob\BlobSettings;
 	
 	$config = new Configuration();
 	$config->setProperty(BlobSettings::ACCOUNT_NAME, "your_storage_account_name");
@@ -73,10 +73,10 @@ A **BlobService** object lets you create a blob container with the **createConta
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Services\Blob\BlobService;
-	use WindowsAzure\Services\Blob\Models\CreateContainerOptions;
-	use WindowsAzure\Services\Blob\Models\PublicAccessType;
-	use WindowsAzure\Core\ServiceException;
+	use WindowsAzure\Blob\BlobService;
+	use WindowsAzure\Blob\Models\CreateContainerOptions;
+	use WindowsAzure\Blob\Models\PublicAccessType;
+	use WindowsAzure\Common\Internal\ServiceException;
 
 	// Create blob REST proxy.
 	$blob_proxy = BlobService::create($config);
@@ -125,8 +125,8 @@ To upload a file as a blob, use the **IBlob->createBlockBlob** method. This oper
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Services\Blob\BlobService;
-	use WindowsAzure\Core\ServiceException;
+	use WindowsAzure\Blob\BlobService;
+	use WindowsAzure\Common\Internal\ServiceException;
 
 	// Create blob REST proxy.
 	$blob_proxy = BlobService::create($config);
@@ -140,7 +140,8 @@ To upload a file as a blob, use the **IBlob->createBlockBlob** method. This oper
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -154,9 +155,8 @@ To list the blobs in a container, use the **IBlob->listBlobs** method with a **f
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Services\Blob\BlobService;
-	use WindowsAzure\Services\Blob\Models\ListBlobsResult;
-	use WindowsAzure\Core\ServiceException;
+	use WindowsAzure\Blob\BlobService;
+	use WindowsAzure\Common\Internal\ServiceException;
 
 	// Create blob REST proxy.
 	$blob_proxy = BlobService::create($config);
@@ -173,7 +173,8 @@ To list the blobs in a container, use the **IBlob->listBlobs** method with a **f
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -186,10 +187,8 @@ To download a blob, call the **IBlob->getBlob** method, then call the **getConte
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Services\Blob\BlobService;
-	use WindowsAzure\Services\Blob\Models\GetBlobOptions;
-	use WindowsAzure\Services\Blob\Models\GetBlobResult;
-	use WindowsAzure\Core\ServiceException;
+	use WindowsAzure\Blob\BlobService;
+	use WindowsAzure\Common\Internal\ServiceException;
 
 	// Create blob REST proxy.
 	$blob_proxy = BlobService::create($config);
@@ -201,13 +200,14 @@ To download a blob, call the **IBlob->getBlob** method, then call the **getConte
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-Note that the example above gets a blob as a stream resouce (the default behavior). However, you can use the **Utilities::readStream** static method to convert the returned stream to a string. To do this, you will need to reference th `WindowsAzure\Utilities` namespace.
+Note that the example above gets a blob as a stream resouce (the default behavior). However, you can use the [stream_get_contents][stream-get-contents] function to convert the returned stream to a string.
 
 <h2 id="DeleteBlob">How to Delete a Blob</h2>
 
@@ -215,8 +215,8 @@ To delete a blob, pass the container name and blob name to **IBlob->deleteBlob**
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Services\Blob\BlobService;
-	use WindowsAzure\Core\ServiceException;
+	use WindowsAzure\Blob\BlobService;
+	use WindowsAzure\Common\Internal\ServiceException;
 
 	// Create blob REST proxy.
 	$blob_proxy = BlobService::create($config);
@@ -227,7 +227,8 @@ To delete a blob, pass the container name and blob name to **IBlob->deleteBlob**
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -239,8 +240,8 @@ Finally, to delete a blob container, pass the container name to **IBlob->deleteC
 
 	require_once 'WindowsAzure.php';
 
-	use WindowsAzure\Services\Blob\BlobService;
-	use WindowsAzure\Core\ServiceException;
+	use WindowsAzure\Blob\BlobService;
+	use WindowsAzure\Common\Internal\ServiceException;
 
 	// Create blob REST proxy.
 	$blob_proxy = BlobService::create($config);
@@ -251,7 +252,8 @@ Finally, to delete a blob container, pass the container name to **IBlob->deleteC
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -272,3 +274,4 @@ Now that you’ve learned the basics of the Windows Azure Blob service, follow t
 [file_get_contents]: http://php.net/file_get_contents
 [require_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
+[stream-get-contents]: http://www.php.net/stream_get_contents
