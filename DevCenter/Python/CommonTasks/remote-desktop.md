@@ -1,0 +1,2 @@
+<properties linkid="dev-python-commons-tasks-remote-desktop" urlDisplayName="Remote Desktop" headerExpose="" pageTitle="Enable Remote Desktop - Python - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<div chunk="../../Shared/Chunks/remote-desktop.md">
