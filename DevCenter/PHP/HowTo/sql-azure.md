@@ -1,3 +1,5 @@
+<properties umbracoNaviHide="0" pageTitle="How to Access Windows Azure SQL Database from PHP" metaKeywords="Windows Azure, SQL Database, PHP" metaDescription="Learn how to use PHP to access Windows Azure SQL Database." linkid="dev-php-howto-sql-database" urlDisplayName="How to Access Windows Azure SQL Database from PHP" headerExpose="" footerExpose="" disqusComments="1" />
+
 #How to Access Windows Azure SQL Database from PHP
 
 This guide will show you the basics of using Windows Azure SQL Database from PHP. The samples are written in PHP. The scenarios covered include **creating a server**, **creating a database**, and **connecting to a database**. This guide covers creating a server and creating a database from the [Preview Management Portal][preview-portal]. For information about performing these tasks from the production portal, see [Getting Started with PHP and SQL Azure][prod-portal-instructions]. For more information, see the [Next Steps](#NextSteps) section.
