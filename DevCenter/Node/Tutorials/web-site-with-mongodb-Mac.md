@@ -379,7 +379,7 @@ While the steps in this article describe using MongoDB to store information, you
 [Cross-Platform Tools for Windows Azure]: http://windowsazure.com
 [Create and deploy a Node.js application to Windows Azure Web Sites]: http://windowsazure.com
 [Publishing to Windows Azure Web Sites with Git]: http://windowsazure.com
-[Installing MongoDB on a Linux Virtual machine]: http://windowsazure.com
+[Installing MongoDB on a Linux Virtual machine]: ../../../Shared/Tutorials/InstallMongoOnCentOSLinuxVM.md
 [Node.js Web Application with the Windows Azure Table Service]: ./web-site-with-storage.html
 [sudo]: http://en.wikipedia.org/wiki/Sudo
 
