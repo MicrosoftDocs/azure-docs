@@ -68,37 +68,28 @@ To use storage operations, you need a Windows Azure storage account. You
 can create a storage account by following these steps. (You can also
 create a storage account [using the REST API][].)
 
-1.  Log into the [Windows Azure Management Portal][].
+1.  Log into the [Windows Azure Management Portal].
 
-2.  In the navigation pane, click **Hosted Services, Storage Accounts &
-    CDN**.
+2.  At the bottom of the navigation pane, click **+NEW**.
 
-3.  At the top of the navigation pane, click **Storage Accounts**.
+	![+new][plus-new]
 
-4.  On the ribbon, in the Storage group, click **New Storage Account**.
-      
-    ![Blob2][]  
-      
-    The **Create a New Storage Account**dialog box opens.   
-    ![Blob3][]
+3.  Click **Storage Account**, and then click **Quick Create**.
 
-5.  In **Choose a Subscription**, select the subscription that the
-    storage account will be used with.
+	![Quick create dialog][quick-create-storage]
 
-6.  In Enter a URL, type a subdomain name to use in the URI for the
+4.  In URL, type a subdomain name to use in the URI for the
     storage account. The entry can contain from 3-24 lowercase letters
     and numbers. This value becomes the host name within the URI that is
     used to address Blob, Queue, or Table resources for the
     subscription.
 
-7.  Choose a country/region or an affinity group in which to locate the
+5.  Choose a Region/Affinity Group in which to locate the
     storage. If you will be using storage from your Windows Azure
     application, select the same region where you will deploy your
     application.
 
-8.  Finally, take note of your**Primary access key** in the right-hand
-    column. You will need this in subsequent steps to access storage.   
-    ![Blob4][]
+6.  Click **Create Storage Account**.
 
 ## <a name="create-app"> </a>Create a Node.js Application
 
@@ -588,6 +579,9 @@ to learn how to do more complex storage tasks.
   [Queue1]: ../../../DevCenter/dotNet/Media/queue1.png
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
   [Windows Azure Management Portal]: http://windows.azure.com
+
+  [plus-new]: ../../../DevCenter/Shared/Media/plus-new.png
+  [quick-create-storage]: ../../../DevCenter/Shared/Media/quick-storage.png
   [Blob2]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage2.png
   [Blob3]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage3.png
   [Blob4]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage4.png
