@@ -1,3 +1,5 @@
+<properties umbracoNaviHide="0" pageTitle="How to Use the Queue Service from PHP" metaKeywords="" metaDescription="Learn how to use the Windows Azure Queue Service from PHP applications." linkid="dev-php-queue-service" urlDisplayName="How to Use the Queue Service from PHP" headerExpose="" footerExpose="" disqusComments="1" />
+
 # How to Use the Queue Service from PHP
 
 This guide will show you how to perform common scenarios using the Windows Azure Queue service. The samples are written using classes from the Windows SDK for PHP. The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**. For more information on queues, see the [Next Steps](#NextSteps) section.
