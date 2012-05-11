@@ -9,11 +9,10 @@ application.
 
 This task includes the following steps:
 
--   [Step 1: Configure the service for Remote Desktop access using
-    Windows Azure PowerShell for Node.js][]
--   [Step 2: Connect to the role instance][]
+-   [Step 1: Configure the service for Remote Desktop access using Windows Azure PowerShell for Node.js]
+-   [Step 2: Connect to the role instance]
 -   [Step 3: Configure the service to disable Remote Desktop access
-    using Windows Azure PowerShell for Node.js][]
+    using Windows Azure PowerShell for Node.js]
 
 ## <a name="step1"> </a>Step 1: Configure the service for Remote Desktop access using Windows Azure PowerShell for Node.js
 
@@ -29,7 +28,7 @@ definition was created.
 1.  From the **Start** menu, select **Windows Azure PowerShell for
     Node.js**.
 
-    ![][]
+    ![][0]
 
 2.  Change directory to the service directory, type
     **Enable-AzureRemoteDesktop**, and then enter a user name and
@@ -52,7 +51,9 @@ in the cloud are configured for Remote Desktop access.
 With your deployment up and running in Windows Azure, you can connect to
 the role instance.
 
-1.  When the deployment status in the Windows Azure Management Portal is
+1.  In the [Windows Azure Management Portal], select **Cloud Services**, the service deployed in Step 1 above, and then click the Configure
+
+When the deployment status in the Windows Azure Management Portal is
     **Ready**, select an instance of the deployment, and click
     **Connect** in the **Remote Access** area of the portal ribbon.
 
@@ -90,7 +91,7 @@ Azure PowerShell for Node.js][]
 1.  From the **Start** menu, select **Windows Azure PowerShell for
     Node.js**.
 
-    ![][]
+    ![][0]
 
 2.  Change directory to the service directory, and type
     **Disable-AzureRemoteDesktop**:
@@ -105,16 +106,14 @@ Azure PowerShell for Node.js][]
 
 ## Additional Resources
 
-[Remotely Accessing Role Instances in Windows Azure][]   
- [Using Remote Desktop with Windows Azure Roles][]
+[Remotely Accessing Role Instances in Windows Azure] 
+[Using Remote Desktop with Windows Azure Roles]
 
-  [Step 1: Configure the service for Remote Desktop access using Windows
-  Azure PowerShell for Node.js]: #step1
+  [Step 1: Configure the service for Remote Desktop access using Windows Azure PowerShell for Node.js]: #step1
   [Step 2: Connect to the role instance]: #step2
-  [Step 3: Configure the service to disable Remote Desktop access using
-  Windows Azure PowerShell for Node.js]: #step3
+  [Step 3: Configure the service to disable Remote Desktop access using Windows Azure PowerShell for Node.js]: #step3
   [Windows Azure PowerShell for Node.js]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
-  []: ../../../DevCenter/Node/Media/remote-desktop-01.png
+  [0]: ../../../DevCenter/Node/Media/remote-desktop-01.png
   [1]: ../../../DevCenter/Node/Media/remote-desktop-02.png
   [2]: ../../../DevCenter/Node/Media/remote-desktop-03.png
   [3]: ../../../DevCenter/Node/Media/remote-desktop-10.png
