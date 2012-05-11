@@ -173,25 +173,18 @@ The **ITable** interface offers two alternative methods for inserting entities: 
 
 <h2 id="RetrieveEntity">How to Retrieve a Single Entity</h2>
 
-The **ITable->getEntity** method allows you to retrieve a single entity by querying for its `PartitionKey` and `RowKey`. Queries are constructed using filters (for more information, see [Querying Tables and Entities][filters]). In the example below, a string is passed as a filter to a **Query** object.
+The **ITable->getEntity** method allows you to retrieve a single entity by querying for its `PartitionKey` and `RowKey`. In the example below, the partition key `tasksSeattle` and row key `1` are passed to the **getEntity** method.
 
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Services\Table\Models\QueryEntitiesResult;
-	use WindowsAzure\Services\Table\Models\QueryEntitiesOptions;
-	use WindowsAzure\Services\Table\Models\Filters\Filter;
 	use WindowsAzure\Core\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
 	
-	$filter = "PartitionKey eq 'tasksSeattle' and RowKey eq '1'";
-    $options = new QueryEntitiesOptions();
-    $options->setFilter(Filter::applyQueryString($filter));
-	
 	try	{
-		$result = $table_proxy->queryEntities("mytable", $options);
+		$result = $table_proxy->getEntity("mytable", "tasksSeattle", 1);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -202,32 +195,26 @@ The **ITable->getEntity** method allows you to retrieve a single entity by query
 		echo $code.": ".$error_message."<br />";
 	}
 	
-	$entities = $result->getEntities();
-	
-	echo count($entities)."<br />"; // Should be 1;
-	echo $entities[0]->getPartitionKey().":".$entities[0]->getRowKey();
+	$entity = $result->getEntity();
+
+	echo $entity->getPartitionKey().":".$entity->getRowKey();
 
 <h2 id="RetEntitiesInPartition">How to Retrieve All Entities in a Partition</h2>
 
-As shown in the previous example, you can query for entities in a table by using a filter. To retrieve all entities in partition, use the filter "PartitionKey eq *partition_name*".
+Entity queries are constructed using filters (for more information, see [Querying Tables and Entities][filters]). To retrieve all entities in partition, use the filter "PartitionKey eq *partition_name*". The following example shows how to retrieve all entities in the `tasksSeattle` partition by passing a filter to the **queryEntities** method.
 
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Services\Table\Models\QueryEntitiesResult;
-	use WindowsAzure\Services\Table\Models\QueryEntitiesOptions;
-	use WindowsAzure\Services\Table\Models\Filters\Filter;
 	use WindowsAzure\Core\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
 	
 	$filter = "PartitionKey eq 'tasksSeattle'";
-    $options = new QueryEntitiesOptions();
-    $options->setFilter(Filter::applyQueryString($filter));
 	
 	try	{
-		$result = $table_proxy->queryEntities("mytable", $options);
+		$result = $table_proxy->queryEntities("mytable", $filter);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -246,25 +233,20 @@ As shown in the previous example, you can query for entities in a table by using
 
 <h2 id="RetrieveSubset">How to Retrieve a Subset of Entities in a Partition</h2>
 
-The same pattern used in the previous two examples can be used to retrieve any subset of entities in a partition. The subset of entities you retrieve will be determined by the filter you use (for more information, see [Querying Tables and Entities][filters]).The following example shows how to use a filter to retrieve all entities with a specific `Location` and a `DueDate` less than a specified date.
+The same pattern used in the previous example can be used to retrieve any subset of entities in a partition. The subset of entities you retrieve will be determined by the filter you use (for more information, see [Querying Tables and Entities][filters]).The following example shows how to use a filter to retrieve all entities with a specific `Location` and a `DueDate` less than a specified date.
 
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Services\Table\TableService;
-	use WindowsAzure\Services\Table\Models\QueryEntitiesResult;
-	use WindowsAzure\Services\Table\Models\QueryEntitiesOptions;
-	use WindowsAzure\Services\Table\Models\Filters\Filter;
 	use WindowsAzure\Core\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
 	
 	$filter = "Location eq 'Office' and DueDate lt '2012-11-5'";
-	$options = new QueryEntitiesOptions();
-    $options->setFilter(Filter::applyQueryString($filter));
 	
 	try	{
-		$result = $table_proxy->queryEntities("mytable", $options);
+		$result = $table_proxy->queryEntities("mytable", $filter);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
