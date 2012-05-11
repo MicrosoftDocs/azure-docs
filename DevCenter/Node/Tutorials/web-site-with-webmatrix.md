@@ -1,6 +1,6 @@
 #Create and deploy a Node.js Windows Azure Website using WebMatrix
 
-This tutorial shows you how to use WebMatrix to develop and deploy a node application to a Windows Azure Website. WebMatrix is a free web development tool from Microsoft that includes everything you need for website development. WebMatrix supports node and includes intellisense for node development.
+This tutorial shows you how to use WebMatrix to develop and deploy a node application to a Windows Azure Website. WebMatrix is a free web development tool from Microsoft that includes everything you need for website development. WebMatrix supports node and includes code completion for node development.
 
 Upon completing this guide, you will have a node website running in Windows Azure.
  
@@ -14,7 +14,6 @@ By following this tutorial, you will build a simple node web application. The ap
 ![Windows Azure node Website][webmatrix-node-completed]
 
 ##Create a Windows Azure Website
-Windows Azure Websites allows you to easily create a website.
 
 <div chunk="../../Shared/Chunks/create-website" />
 
