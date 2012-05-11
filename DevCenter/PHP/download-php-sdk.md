@@ -1,3 +1,5 @@
+<properties umbracoNaviHide="0" pageTitle="Download the Windows Azure SDK for PHP" metaKeywords="Windows Azure, Windows Azure SDK for PHP, PHP, Azure PHP" metaDescription="Learn how to download and install the Windows Azure SDK for PHP." linkid="dev-php-download-php-sdk" urlDisplayName="Download the Windows Azure SDK for PHP" headerExpose="" footerExpose="" disqusComments="1" />
+
 #Download the Windows Azure SDK for PHP
 
 The Windows Azure SDK for PHP includes components that allow you to develop, deploy, and mangage PHP applications for Windows Azure. Specifically, the Windows Azure SDK for PHP includes the following:
