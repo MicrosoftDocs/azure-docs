@@ -1,4 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="How to Use the Blob Service from PHP" metaKeywords="" metaDescription="Learn how to use the Windows Azure Blob Service from PHP applications." linkid="dev-php-blob-service" urlDisplayName="How to Use the Blob Service from PHP" headerExpose="" footerExpose="" disqusComments="1" />
+<properties umbracoNaviHide="0" pageTitle="How to Use the Blob Service from PHP" metaKeywords="Windows Azure, Blob Service, Blob Storage, PHP" metaDescription="Learn how to use the Windows Azure Blob Service from PHP applications." linkid="dev-php-blob-service" urlDisplayName="How to Use the Blob Service from PHP" headerExpose="" footerExpose="" disqusComments="1" />
 
 #How to Use the Blob Service from PHP
 
