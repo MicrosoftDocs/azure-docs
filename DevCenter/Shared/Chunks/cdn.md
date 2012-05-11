@@ -164,7 +164,7 @@ CDN.
 
   [Create Storage Account]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
   [Windows Azure CDN Node Locations.]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680302.aspx
-  [Windows Azure Management Portal]: http://windows.azure.com/
+  [Windows Azure Management Portal]: https://manage.windowsazure.com/
   [billing plan]: /en-us/pricing/calculator/advanced/
   [Using the Windows Azure Storage Services]: http://msdn.microsoft.com/en-us/library/windowsazure/ee924681.aspx
   [How to Register a Custom Subdomain Name for Accessing Blobs in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee795179.aspx
