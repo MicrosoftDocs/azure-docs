@@ -4,20 +4,20 @@ You can install WebMatrix from two locations: from the **Quickstart** menu of a 
 
 		![Install WebMatrix from website dashboard][install-from-dashboard]
 
-		If you are installing from [http://www.microsoft.com/web/webmatrix/][mscom-download], click **TODO: Point readers to correct button. "Install Webmatrix" or "Or try the latest beta"**.
+	If you are installing from [http://www.microsoft.com/web/webmatrix/][mscom-download], click **TODO: Point readers to correct button. "Install Webmatrix" or "Or try the latest beta"**.
 
 		**TODO: Insert screenshot**
 
 2. Run the downloaded .exe file. This will install the Microsoft Web Platform Installer, launch it, and select WebMatrix for installation.
 3. Click **Install** in the Web Platform Installer dialog.
 
-		screenshot
+		**TODO: Insert screenshot**
 
 4. You will be shown a list of dependencies for WebMatrix. Click **I Accept** to accept the license terms of the software that is being installed.
 
 		**TODO: Insert screenshot**
 
-		It may take several minutes for the installation to complete.
+	It may take several minutes for the installation to complete.
 
 		**TODO: Insert screenshot**
 
