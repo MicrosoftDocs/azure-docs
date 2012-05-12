@@ -1,0 +1,205 @@
+#Create and deploy a Node.js application to Windows Azure
+
+This tutorial shows you how to create a [node] application and deploy it to Windows Azure using [Git]. The instructions in this tutorial can be followed on any operating system that is capable of running node.
+
+You will learn:
+
+* How to setup required developer tools
+
+* How to create a Windows Azure Web Site using the Windows Azure Developer Portal
+
+* How to publish and re-publish your application to Windows Azure using Git
+
+* How to stop and delete a Windows Azure Web Site
+
+By following this tutorial, you will build a simple Hello World web application in node. The application will be hosted in a Windows Azure Website when deployed.
+ 
+A screenshot of the completed application is below:
+
+![A browser displaying the 'Hello World' message.][helloworld-completed]
+
+The instructions in this article have been tested on the following platforms:
+
+* Windows 7
+* Mac OS X 10.7.3
+
+**Note**: This tutorial makes reference to the **helloworld** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/helloworld** or **c:\node\helloworld**
+
+**Note**: Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **cmd.exe** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
+
+##Prerequisites
+
+Before following the instructions in this article, you should ensure that you have the following installed:
+
+* A text editor
+
+* A web browser
+
+##Install developer tools
+
+To successfully complete the steps in this tutorial, you must have a working installation of node and Git. Installation packages for node are available from the [nodejs.org download page] while installation packages for Git are available from the [git-scm.com download page].
+
+If a pre-compiled version is not listed for your operating system, you may be able to obtain one through your operating system's [package management system]. Alternatively, you can download and compile the source code from the download pages listed above.
+
+**Note**: When installing Git for Windows, you should ensure that the **git** command is available from the Windows command prompt (**cmd.exe**). This can be accomplished by selecting the **Run Git from the Windows Command Prompt** option during installation as illustrated below:
+
+![Run git from the windows command prompt][windows-git-setup-path]
+
+##Build and test your application locally
+
+1. Using a text editor, create a new file named **server.js** in the **helloworld** directory. If the **helloworld** directory does not exist, create it.
+
+2. Add the following as the contents of the **server.js** file, and then save it:
+
+        var http = require('http')
+        var port = process.env.port || 1337;
+        http.createServer(function(req, res) {
+          res.writeHead(200, { 'Content-Type': 'text/plain' });
+          res.end('Hello World\n');
+        }).listen(port);
+
+3. Open the command-line, and use the following command to start the web page locally:
+
+        node server.js
+
+4. Open your web browser and navigate to http://localhost:1337. A web page displaying "Hello World" will appear as shown in the screenshot below:
+
+    ![A browser displaying the 'Hello World' message.][helloworld-localhost]
+
+5. To stop the application, switch to the Terminal window and hold down the **CTRL** and **C** keys on your keyboard.
+
+##Create a Windows Azure Website and enable Git publishing
+
+Follow these steps to create a Windows Azure Website, and then enable Git publishing for the website. If you do not already have a Windows Azure subscription, you can sign up [for free].
+
+1. Login to the [Windows Azure Portal].
+
+2. Click the **+ NEW** icon on the bottom left of the portal
+
+    ![The Windows Azure Portal with the +NEW link highlighted.][portal-new-website]
+
+3. Click **WEB SITE**, then **QUICK CREATE**. Enter a value for **URL** and select the datacenter for your website in the **REGION** dropdown. Click the checkmark at the bottom of the dialog.
+
+    ![The Quick Create dialog][portal-quick-create]
+
+4. When the website has been created, you will see the text **Creation of Web Site '[SITENAME]' completed successfully**. 
+
+	![The site created successfully message.][portal-website-created]
+
+5. Click on the name of the website in the list at the top of the page.
+
+	![The list of websites.][portal-website-list]
+
+	This will display the Dashboard for the selected website.
+
+	![The website dashboard.][portal-website-dashboard]
+
+6. At the bottom of the Dashboard, select **Set up Git Publishing**.
+
+	![The dashboard, with Set up Git Publishing highlighted.][portal-website-dashboard-setup-git]
+
+7. To enable Git publishing, you must provide a user name and password. Make a note of the user name and password, as they will be used for Git publishing to all Windows Azure Websites you create.
+
+	![The dialog prompting for user name and password.][portal-git-username-password]
+
+	**Note**: If you have previously enabled publishing for a Windows Azure Website, you will not be prompted for the user name or password. Instead, a Git repository will be created using the user name and password you previously specified.
+
+8. Once the Git repository is ready, you will be presented with instructions on initialize a repository for your local application. These instructions also include the commands to create a remote for your Windows Azure Website, and to push the files to the website.
+
+	![Git deployment instructions returned after creating a repository for the website.][portal-git-instructions]
+
+##Publish your application
+
+**Note**: The steps below are based on the instructions returned at the end of the **Create a Windows Azure Website and Set up Git Publishing** section. For more information on using Git to publish to Windows Azure, see [Publishing with Git].
+
+1. From the command-line, change directories to the **helloworld** directory and enter the following commands to initialize a local Git repository. If you have already initialized a local repository for this application, skip this step.
+
+		git init
+
+2. Use the following commands to add files to the repository:
+
+		git add .
+		git commit -m "initial commit"
+
+3. A Git remote is a link to a remote repository, either for fetching updates from the remote repository or pushing updates to it. To create a remote for the Windows Azure Website you created previously, use the following command:
+
+		git add remote azure [URL for remote repository]
+
+	This will create a remote named **azure**.
+
+	**Note**: the URL used should be the one returned at the end of the **Create a Windows Azure Website and Set up Git Publishing** section.
+
+4. Push the local repository to the **master** branch of the remote repository **azure** repository by using the following command:
+
+		git push azure master
+
+	You will be prompted for the password you created earlier.
+
+5. Browse to **http://[your website url]/** to begin using the application.
+
+###Modify and re-publish your application
+
+1. Open the **server.js** file in a text editor, and change 'Hello World\n' to 'Hello Azure\n'. Save the file.
+
+2. From the command-line, change directories to the **helloworld** directory and enter the following commands to commit changes to the local repository:
+
+		git add .
+		git commit -m "changing to hello azure"
+
+3. Use the following command to push updates to the **azure** remote:
+
+		git push azure master
+
+4. Browse to **http://[your website url]/** and note that the updates have been applied.
+
+	![A web page displaying 'Hello Azure'][hello-azure]
+
+##Stop and delete your application
+
+The following steps show you how to stop and delete your application.
+
+1. If it is not already open, navigate to the [Windows Azure Portal] and login using your web browser.
+
+2. Click on **WEB SITES** in the navigation bar on the left, and then select your website from the list.
+
+	![The website list.][portal-website-list]
+
+3. At the bottom of the page, click **Stop** to stop your web application; click **Delete** to delete it.
+
+	![The portal, with the stop and delete links for a website highlighted.][portal-website-stop-delete]
+
+##Next steps
+
+While the steps in this article use the Windows Azure Portal to create, stop, and delete a website, you can also use the [Cross-Platform Tools for Windows Azure] to perform the these and other operations.
+
+##Additional Resources
+
+* [PowerShell for Windows Azure]
+
+* [Cross-Platform Tools for Windows Azure]
+
+[PowerShell for Windows Azure]: http://windowsazure.com
+[node]: http://nodejs.org/
+[Git]: http://git-scm.com/
+[Windows Azure]: http://windowsazure.com
+[Windows Azure Portal]: http://windowsazure.com
+[for free]: http://windowsazure.com
+[git-scm.com download page]: http://git-scm.com/download
+[nodejs.org download page]: http://nodejs.org/#download
+[package management system]: http://en.wikipedia.org/wiki/List_of_software_package_management_systems
+[Cross-Platform Tools for Windows Azure]: http://windowsazure.com
+[Publishing with Git]: http://windowsazure.com
+
+[windows-git-setup-path]: ../Media/
+[helloworld-completed]: ../Media/helloworld_completed.png
+[helloworld-localhost]: ../Media/helloworld_localhost.png
+[hello-azure]: ../Media/node_helloazure.png
+[portal-new-website]: ../Media/portal_new_website.png
+[portal-quick-create]: ../Media/portal_quick_create.png
+[portal-website-created]: ../Media/portal_quick_create.png
+[portal-website-list]: ../Media/portal_website_list.png
+[portal-website-dashboard]: ../Media/portal_website_dashboard.png
+[portal-website-dashboard-setup-git]: ../Media/portal-website-dashboard-setup-git.png
+[portal-git-username-password]: ../Media/portal_git_username_password.png
+[portal-git-instructions]: ../Media/portal_git_instructions.png
+[portal-website-stop-delete]: ../Media/portal_website_stop_delete.png
