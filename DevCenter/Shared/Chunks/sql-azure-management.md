@@ -59,7 +59,7 @@ Connecting to SQL Database requires that you know the server name on Windows Azu
     3.  On the SQL Databases home page, click **SERVERS** at the top of the page to list all of the servers associated with your subscription. Find the name of the server to which you want to connect and copy it to the clipboard.
 
 
--   Next, configure your SQL Dtabase firewall to
+-   Next, configure your SQL Database firewall to
     allow connections from your local machine. You do this by adding your local machines IP address to the firewall exception list.
 
     1.  On SQL Databases home page, click **SERVERS** and then click the server to which you want to connect.

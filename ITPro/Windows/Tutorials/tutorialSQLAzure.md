@@ -25,7 +25,7 @@ To get started with a free account, click free trial in the upper right corner a
 2. Your account is now created. You are ready to get started.
 
 
-<h2 id="Connect">Connect to SQL Database and create a database</h2>
+<h2 id="Connect">Connect to Windows Azure and create a database</h2>
 
 
 1. Connect to Windows Azure at [http://www.windowsazure.com](http://www.windowsazure.com) and sign in to the Management Portal. You should see a navigation pane that looks like this. 
@@ -63,7 +63,7 @@ To get started with a free account, click free trial in the upper right corner a
 
 * Provide a strong password that is over eight characters, using a combination of upper and lower case values, and a number or symbol.
 
-* Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Generally, you choose a location that is closest to you or your customers to minimize how long it takes data to travel over an internet connection.
+* Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you. Keeping your Windows Azure application and database in the same region saves you on egress bandwidth cost and data latency.
 
 * Be sure to keep the **Allow Windows Azure Services to access this server**  checkbox selected so that you can connect to this database using the Management Portal for SQL Database, Excel in Office 365, or Windows Azure SQL Reporting.
 
@@ -152,7 +152,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 	-- Create the Department table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[Department]') 
-		AND type in (N'U'));
+		AND type in (N'U'))
    	BEGIN
   	CREATE TABLE [dbo].[Department](
 		[DepartmentID] [int] NOT NULL,
@@ -171,7 +171,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 	-- Create the Person table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[Person]') 
-		AND type in (N'U'));
+		AND type in (N'U'))
 	BEGIN
 	CREATE TABLE [dbo].[Person](
 		[PersonID] [int] IDENTITY(1,1) NOT NULL,
@@ -190,7 +190,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 	-- Create the OnsiteCourse table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OnsiteCourse]') 
-		AND type in (N'U'));
+		AND type in (N'U'))
 	BEGIN
 	CREATE TABLE [dbo].[OnsiteCourse](
 		[CourseID] [int] NOT NULL,
@@ -208,7 +208,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 	-- Create the OnlineCourse table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OnlineCourse]') 
-		AND type in (N'U'));
+		AND type in (N'U'))
 	BEGIN
 	CREATE TABLE [dbo].[OnlineCourse](
 		[CourseID] [int] NOT NULL,
@@ -224,7 +224,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 	--Create the StudentGrade table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[StudentGrade]') 
-		AND type in (N'U'));
+		AND type in (N'U'))
 	BEGIN
 	CREATE TABLE [dbo].[StudentGrade](
 		[EnrollmentID] [int] IDENTITY(1,1) NOT NULL,
@@ -242,7 +242,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 	-- Create the CourseInstructor table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[CourseInstructor]') 
-		AND type in (N'U'));
+		AND type in (N'U'))
 	BEGIN
 	CREATE TABLE [dbo].[CourseInstructor](
 		[CourseID] [int] NOT NULL,
@@ -259,7 +259,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 	-- Create the Course table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[Course]') 
-		AND type in (N'U'));
+		AND type in (N'U'))
 	BEGIN
 	CREATE TABLE [dbo].[Course](
 		[CourseID] [int] NOT NULL,
@@ -277,7 +277,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 	-- Create the OfficeAssignment table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OfficeAssignment]')
-		AND type in (N'U'));
+		AND type in (N'U'))
 	BEGIN
 	CREATE TABLE [dbo].[OfficeAssignment](
 		[InstructorID] [int] NOT NULL,
@@ -294,7 +294,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 	-- Define the relationship between OnsiteCourse and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnsiteCourse_Course]')
-       AND parent_object_id = OBJECT_ID(N'[dbo].[OnsiteCourse]'));
+       AND parent_object_id = OBJECT_ID(N'[dbo].[OnsiteCourse]'))
 	ALTER TABLE [dbo].[OnsiteCourse]  WITH CHECK ADD  
        CONSTRAINT [FK_OnsiteCourse_Course] FOREIGN KEY([CourseID])
 	REFERENCES [dbo].[Course] ([CourseID]);
@@ -306,7 +306,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 	-- Define the relationship between OnlineCourse and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnlineCourse_Course]')
-       AND parent_object_id = OBJECT_ID(N'[dbo].[OnlineCourse]'));
+       AND parent_object_id = OBJECT_ID(N'[dbo].[OnlineCourse]'))
 	ALTER TABLE [dbo].[OnlineCourse]  WITH CHECK ADD  
        CONSTRAINT [FK_OnlineCourse_Course] FOREIGN KEY([CourseID])
 	REFERENCES [dbo].[Course] ([CourseID]);
@@ -317,7 +317,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 	-- Define the relationship between StudentGrade and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Course]')
-       AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'));
+       AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))
 	ALTER TABLE [dbo].[StudentGrade]  WITH CHECK ADD  
        CONSTRAINT [FK_StudentGrade_Course] FOREIGN KEY([CourseID])
 	REFERENCES [dbo].[Course] ([CourseID]);
@@ -329,7 +329,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 	--Define the relationship between StudentGrade and Student.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Student]')
-       AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'));	
+       AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))	
 	ALTER TABLE [dbo].[StudentGrade]  WITH CHECK ADD  
        CONSTRAINT [FK_StudentGrade_Student] FOREIGN KEY([StudentID])
 	REFERENCES [dbo].[Person] ([PersonID]);
@@ -341,7 +341,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 	-- Define the relationship between CourseInstructor and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
   	 WHERE object_id = OBJECT_ID(N'[dbo].[FK_CourseInstructor_Course]')
-  	 AND parent_object_id = OBJECT_ID(N'[dbo].[CourseInstructor]'));
+  	 AND parent_object_id = OBJECT_ID(N'[dbo].[CourseInstructor]'))
 	ALTER TABLE [dbo].[CourseInstructor]  WITH CHECK ADD  
   	 CONSTRAINT [FK_CourseInstructor_Course] FOREIGN KEY([CourseID])
 	REFERENCES [dbo].[Course] ([CourseID]);
@@ -353,7 +353,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 	-- Define the relationship between CourseInstructor and Person.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
  	  WHERE object_id = OBJECT_ID(N'[dbo].[FK_CourseInstructor_Person]')
-	   AND parent_object_id = OBJECT_ID(N'[dbo].[CourseInstructor]'));
+	   AND parent_object_id = OBJECT_ID(N'[dbo].[CourseInstructor]'))
 	ALTER TABLE [dbo].[CourseInstructor]  WITH CHECK ADD  
  	  CONSTRAINT [FK_CourseInstructor_Person] FOREIGN KEY([PersonID])
 	REFERENCES [dbo].[Person] ([PersonID]);
@@ -365,7 +365,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 	-- Define the relationship between Course and Department.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_Course_Department]')
-       AND parent_object_id = OBJECT_ID(N'[dbo].[Course]'));
+       AND parent_object_id = OBJECT_ID(N'[dbo].[Course]'))
 	ALTER TABLE [dbo].[Course]  WITH CHECK ADD  
        CONSTRAINT [FK_Course_Department] FOREIGN KEY([DepartmentID])
 	REFERENCES [dbo].[Department] ([DepartmentID]);
@@ -376,7 +376,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 	--Define the relationship between OfficeAssignment and Person.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
 	  WHERE object_id = OBJECT_ID(N'[dbo].[FK_OfficeAssignment_Person]')
- 	  AND parent_object_id = OBJECT_ID(N'[dbo].[OfficeAssignment]'));
+ 	  AND parent_object_id = OBJECT_ID(N'[dbo].[OfficeAssignment]'))
 	ALTER TABLE [dbo].[OfficeAssignment]  WITH CHECK ADD  
  	  CONSTRAINT [FK_OfficeAssignment_Person] FOREIGN KEY([InstructorID])
 	REFERENCES [dbo].[Person] ([PersonID]);
@@ -394,8 +394,6 @@ Open a new query window and then paste in the following script. Run the script t
 
 <div style="width:auto; height:600px; overflow:auto"><pre>
 	-- Insert data into the Person table.
-	USE School;
-	GO
 	SET IDENTITY_INSERT dbo.Person ON;
 	GO
 	INSERT INTO dbo.Person (PersonID, LastName, FirstName, HireDate, EnrollmentDate)
