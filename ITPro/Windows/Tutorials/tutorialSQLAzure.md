@@ -15,8 +15,6 @@ You will learn:
 
 You will create and provision a sample database on Windows Azure and query system and user data using Excel and other applications.
 
-
-
 <h2 id="Subscribe">Create a Windows Azure Account</h2>
 
 1. Open a web browser, and browse to [http://www.windowsazure.com](http://www.windowsazure.com).
@@ -701,7 +699,7 @@ Do not close the portal connection to the **School** database. You will need it 
 
 <h2 id="DBLogin">Create a database login and assign permissions</h2>
 
-In SQL Database, data access is configured using Transact-SQL. In this lesson, using Transact-SQL, you will do three things: create a SQL Server authentication login, create  a database user, and grant permissions via role membership.
+In SQL Database, you can create logins and grant permissions using Transact-SQL. In this lesson, using Transact-SQL, you will do three things: create a SQL Server authentication login, create  a database user, and grant permissions via role membership.
 
 A SQL Server authentication login is used for server connections. All users who access a database on a SQL Database server do so by providing a SQL Server authentication login name and password. 
 
@@ -814,24 +812,24 @@ There are other methods for moving an on-premise database to SQL Database. If yo
 
 
 
-[Image1]: media/NavPaneDBSelected.png
-[Image2]: media/MainPageCustomCreateDB.png
-[Image3]: media/DatabaseSettings.PNG
-[Image4]: media/ServerSettings.png
-[Image5]: media/DBPortalDatabasesServers.PNG
-[Image6]: media/DBConfigFirewall.png
-[Image7]: media/DBConfigFirewallSAVE.png
-[Image8]: media/MainPageHome.PNG
-[Image9]: media/dblistschool.png
-[Image10]: media/dbportalmanagebutton.png
-[Image11]: media/ManageDatabaseLogin.png
-[Image12]: media/DBPortalNewQuery.png
-[Image13]: media/DBQueryResults.png
-[Image14]: media/DBPortalConnectMaster.PNG
-[Image15]: media/DBPortalConnectMasterErr.PNG
-[Image16]: media/ExcelConnect.png
-[Image17]: media/ExcelSelect.png
-[Image18]: media/ExcelTable.png
-[Image19]: media/ExcelImport.png
-[Image20]: media/ManageDatabaseLogin.png
+[Image1]: media/1NavPaneDBSelected_SQLTut.png
+[Image2]: media/2MainPageCustomCreateDB_SQLTut.png
+[Image3]: media/3DatabaseSettings_SQLTut.PNG
+[Image4]: media/4ServerSettings_SQLTut.png
+[Image5]: media/5DBPortalDatabasesServers_SQLTut.PNG
+[Image6]: media/6DBConfigFirewall_SQLTut.png
+[Image7]: media/7DBConfigFirewallSAVE_SQLTut.png
+[Image8]: media/8MainPageHome_SQLTut.PNG
+[Image9]: media/9dblistschool_SQLTut.png
+[Image10]: media/10dbportalmanagebutton_SQLTut.png
+[Image11]: media/11ManageDatabaseLogin_SQLTut.png
+[Image12]: media/12DBPortalNewQuery_SQLTut.png
+[Image13]: media/13DBQueryResults_SQLTut.png
+[Image14]: media/14DBPortalConnectMaster_SQLTut.PNG
+[Image15]: media/15DBPortalConnectMasterErr_SQLTut.PNG
+[Image16]: media/16ExcelConnect_SQLTut.png
+[Image17]: media/17ExcelSelect_SQLTut.png
+[Image18]: media/18ExcelTable_SQLTut.png
+[Image19]: media/19ExcelImport_SQLTut.png
+[Image20]: media/11ManageDatabaseLogin_SQLTut.png
 

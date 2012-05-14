@@ -20,16 +20,16 @@ SQL Database provides relational database management services on Windows Azure, 
 
 <h2 id="PreReq1">Sign in to Windows Azure</h2>
 
-SQL Database provides relational data storage, access, and management services on Windows Azure. To use it, you'll need a Windows Azure subscription to the Web or Business edition. Each edition has different capabilities. With the Business edition, you can run larger databases at a greater scale.
+SQL Database provides relational data storage, access, and management services on Windows Azure. To use it, you'll need a Windows Azure subscription.
 
 1. Open a web browser, and browse to [http://www.windowsazure.com](http://www.windowsazure.com). To get started with a free account, click free trial in the upper right corner and follow the steps.
 
 2. Your account is now created. You are ready to get started.
 
 
-<h2 id="PreReq2">Configure SQL Database</h2>
+<h2 id="PreReq2">Create and configure SQL Database</h2>
 
-Next, you'll step through logical server configuration. In the new Windows Azure (Preview) Management Portal, revised workflows let you create a database first, and then configure a server. 
+Next, you'll step through logical server creation and configuration. In the new Windows Azure (Preview) Management Portal, revised workflows let you create a database first, and then create a server. 
 
 In this guide, you'll create the server first. You might prefer this approach if you have existing SQL Server databases that you want to upload.
 
@@ -55,9 +55,9 @@ In this guide, you'll create the server first. You might prefer this approach if
 
 9. Click the checkmark at the bottom of the page when you are finished.
 
-Notice that you did not specify a server name. Because the SQL Database server must be accessible worldwide, SQL Database configures the appropriate DNS entries when the server is created. The generated name ensures that there are no name collisions with other DNS entries. You cannot change the name of your SQL Database server.
+Notice that you did not specify a server name. SQL Database auto-generates the server name to ensure there are no duplicate DNS entries. The server name is a ten-character alphanumeric string. You cannot change the name of your SQL Database server.
 
-In the next step, you will configure the firewall so that connections from applications running on your computer are allowed access.
+In the next step, you will configure the firewall so that connections from applications running on your network are allowed access.
 
 <h3 id="configFW">Configure the firewall for the logical server</h3>
 
@@ -77,9 +77,9 @@ In the next step, you will configure the firewall so that connections from appli
 
 7. Click **Save** at the bottom of the page to complete the step. If you do not see **Save**, refresh the browser page.
 
-You now have a logical server, a firewall rule that allows inbound connections from your IP address, and an administrator login. In the next step, you'll switch to your local computer to complete the configuration.
+You now have a logical server, a firewall rule that allows inbound connections from your IP address, and an administrator login. In the next step, you'll switch to your local computer to complete the remaining configuration steps.
 
-**Note:** The logical server you just created is transient and will be arbitrarily hosted on physical servers in a data center. If you delete the server, you should know in advance that this is a non-recoverable action. Be sure to backup any databases that you subsequently upload to the server. 
+**Note:** The logical server you just created is transient and will be dynamically hosted on physical servers in a data center. If you delete the server, you should know in advance that this is a non-recoverable action. Be sure to backup any databases that you subsequently upload to the server. 
 
 
 
@@ -87,7 +87,7 @@ You now have a logical server, a firewall rule that allows inbound connections f
 
 Management Studio is an administrative tool that lets you manage multiple SQL Server instances and servers in a single workspace. If you already have an on-premise SQL Server instance, you can open a connection to both the on-premise instance and a logical server on Windows Azure to perform tasks side by side.
 
-Management Studio includes features that are not currently available in the management portal, such as a syntax checker and the ability to save scripts and named queries for reuse. SQL Database is just a tabular data stream (TDS) endpoint. Any tools that work with TDS, including Management Studio, are valid for SQL Database operations. Scripts that you developed for on-premise server will run on on a SQL Database logical server. 
+Management Studio includes features that are not currently available in the management portal, such as a syntax checker and the ability to save scripts and named queries for reuse. SQL Database is just a tabular data stream (TDS) endpoint. Any tools that work with TDS, including Management Studio, are valid for SQL Database operations. Scripts that you develop for on-premise server will run on a SQL Database logical server. 
 
 In the following step, you'll use Management Studio to connect to a logical server on Windows Azure. This step requires you to have SQL Server Management Studio version 2008 R2 or 2012. If you need help downloading or connecting to  Management Studio, see [Managing SQL Database using Management Studio][] on this site.
 
@@ -124,7 +124,7 @@ Before you can connect, it is sometimes necessary to create a firewall exception
 
 <h2 id="HowTo1">Deploy a database to Windows Azure</h2>
 
-There are numerous approaches for moving an on-premise SQL Server database to Windows Azure. In this task, you'll use the Export Data-Tier Application wizard to upload a sample database that is ready to deploy to Windows Azure.
+There are numerous approaches for moving an on-premise SQL Server database to Windows Azure. In this task, you'll use the Deploy Database to SQL Database wizard to upload a sample database.
 
 The School sample database is conveniently simple; all of its objects are compatible with SQL Database, eliminating the need to modify or prepare a database for migration. As a new administrator, try deploying a simple database first to learn the steps before using your own databases. 
 
@@ -132,7 +132,7 @@ The School sample database is conveniently simple; all of its objects are compat
 
 <h3 id="CreateDB">Create the school database on an on-premise server</h3>
 
-Scripts for creating this database can be found in the [Getting Started with SQL Database Administration][]. You can run these scripts in Management Studio to create an on-premise version of this database.
+Scripts for creating this database can be found in the [Getting Started with SQL Database Administration][]. In this guide, you'll run these scripts in Management Studio to create an on-premise version of the school database.
 
 1. In Management Studio, connect to an on-premise server. Right-click **Databases**, click **New Database**, and enter *school*.
 
@@ -632,80 +632,65 @@ Next, copy and execute the Insert Data script.
 	GO
 </pre></div><p/>
 
-   You now have an on-premise database that you can export to Windows Azure. Next, you'll export the schema and data to a .bacpac file.
+   You now have an on-premise database that you can export to Windows Azure. Next, you'll run a wizard that creates a .bacpac file, loads it onto Windows Azure, and imports it into SQL Database.
 
 
-<h3 id="Export">Export to a .BACPAC file</h3>
+<h3 id="DeployDB">Deploy to SQL Database</h3>
 
-1. In Management Studio, connect to an on-premise SQL Server instance that has a database you want to migrate to Windows Azure.
+1. In Management Studio, connect to an on-premise SQL Server instance that has a database you want to migrate.
 
-2. Right-click the school database, point to **Tasks**, and click **Export Data-tier Application**.
+2. Right-click the school database that you just created, point to **Tasks**, and click **Deploy Database to SQL Database**.
 
-3. In Export Settings, click **Save to local disk**.
+3. In Deployment Settings, enter a name for the database, such as *school*. 
 
-4. Enter a name for the file and specify a location. 
+4. Click **Connect**.
 
-You now have a .bacpac file that contains the schema and data of a local database. 
+5. In Server name, enter the 10-character server name, followed by .databases.windows.net.
 
-Using the blog service requires that you have a storage account on Windows Azure and tools for loading file. Configuring a storage account is next up in this series of tasks. For more information, see [How to use the Blob storage service][].
+6. In Authentication, choose **SQL Server Authentication**.
 
-<h3 id="StorageAcct">Configure a storage account</h3>
+7. Enter the administrator login name and password that you provisioned when creating the SQL Database logical server.
 
-1. On Windows Azure (Preview) Management Portal, click **STORAGE ACCOUNTS** in the left navigation pane.
+8. Click **Options**.
 
-2. Click **ADD NEW STORAGE ACCOUNT**. 
+9. In Connection Properties, in Connect to database, type **master**.
 
-3. In URL, enter a unique prefix, between 3 and 24 characters, that will be used as part of the host name. An administrator at Adventure Works Cycles might use a prefix like *adventureworks*.  
-
-4. In Region or affinity group, choose a region. Pick the same region that hosts your SQL Database logical server. 
-
-  If you are also hosting web applications or using other storage services, choosing an affinity group might be a better option. For more information about this option, see [How to create a storage account for a Windows Azure subscription][].
-
-5. Keep the default checkbox selection that enables geo-replication. You won't use it for migration, but having it turned on is a best practice. For more information, see [Introducing Geo-Replication for Windows Azure Storage][].
-
-6. Click **CREATE STORAGE ACCOUNT**.
-
-  You now have a storage account that you can use to export an on-premise SQL Server database to Windows Azure.
+10. Click **Connect**. This step concludes the connection specification and takes you back to the wizard.
 
 
-<h3 id="UploadBob">Download the Windows Azure Management Tools</h3>
+11. Click **Next** and click **Finish** to run the wizard.
 
-Next, download and install a tool for loading the .bacpac to Blob service.
+<h3 id="VerifyDBMigration">Verify database deployment</h3>
 
-1. Download [Windows Azure Management Tools][]. Run Setup, and when prompted configure the application.
+1. In Management Studio, connect to the logical server. If you already have a connection open, you can close it and open a new one. The existing connection shows only those databases that were running at the time the connection was made.
 
-   The tool has prerequisites that you might need to install before you can configure the tool. As of this writing, the SDK version that you need is 1.4 or later, which you can get at [Download Windows Azure SDK][].
+   For instructions on how to connect to a logical server, see [Connect using Management Studio][] in this document. 
 
-2. Start the tool. It will start automatically once configuration succeeds. You can also start it from the management console.
+2. Expand the Databases folder. You should see the school database in the list.
 
-<h3 id="UploadBob">Upload .bacpac to blob services</h3>
+3. Right-click on the school database and click **New Query**.
 
-1. Right-click **Storage Explorer**, and click **New Connection**.
+4. Execute the following query to verify that data is accessible.
 
-2. In Account Name, enter the storage account as it appears in the storage account list. This is the prefix between 3 and 24 characters that you specified earlier.
-
-3. In Account Key, enter the primary access key. You can get this key from MANAGE KEYS on the Windows Azure (Preview) Management Portal or from the previous portal.
-
-4. Right-click **BLOB Containers**, and click **Add Container**.
-
-5. Enter *bacpacs*.
-
-6. Right-click *bacpacs*, and click **Upload BLOB**. Browse to the location of the .bacpac file you created earlier. Click **OK** to upload the file.
-
-You are now ready to deploy from the blob service to a SQL Database logical server on Windows Azure. For this step, you'll use the DAC Import Export client service.
-
-
-<h3 id="RunDACClient">Run the DAC Import</h3>
-
-1. Download [DAC SQL Azure Import Export Service Client v 1.5][]. Save the file, and then extract its contents.
-
-2. From a command prompt, type the executable and specify arguments, similar to the following example:
-
-        DacIESvcCli.exe -i -s <your SQLDatabase logical server>.databases.windows.net -u <your SQLlogin> -p <your password> -d schooldb -EDITION web -SIZE 1 -ACCESSKEYTYPE storage -BLOBURL https://school.blob.core.windows.net/bacpacs/schooldbmigration.bacpac -BLOBACCESSKEY <your key>
-
-    You should see an import command completed message when the operation is complete.
-
-3. In the portal, the database should now appear in the logical server.
+<div style="width:auto; height:auto; overflow:auto"><pre>
+	SELECT
+		Course.Title as "Course Title"
+  		,Department.Name as "Department"
+  		,Person.LastName as "Instructor"
+  		,OnsiteCourse.Location as "Location"
+  		,OnsiteCourse.Days as "Days"
+  		,OnsiteCourse.Time as "Time"
+	FROM
+ 	 Course
+ 	 INNER JOIN Department
+  	  ON Course.DepartmentID = Department.DepartmentID
+ 	 INNER JOIN CourseInstructor
+ 	   ON Course.CourseID = CourseInstructor.CourseID
+ 	 INNER JOIN Person
+ 	   ON CourseInstructor.PersonID = Person.PersonID
+ 	 INNER JOIN OnsiteCourse
+		ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
+</pre></div>
 
 
 <h2 id="HowTo2">Add logins and users</h2>
@@ -793,13 +778,15 @@ For more information, see [Monitoring SQL Database Using Dynamic Management View
 
 On Windows Azure, database scalability is synonymous with scale out, or redistribution of a workload across multiple commodity servers in a data center. Scale out is a strategy for addressing problems with data capacity or performance. A very large database that is on a high-growth trajectory will eventually require a scale out strategy, whether it is accessed by a few users or many users.
 
-On Windows Azure, scale out is best achieved through federation. SQL Database federation is based on horizontal sharding, where the structures are available on all copies, and just the data is parceled out.
+On Windows Azure, scale out is best achieved through federation. SQL Database federation is based on horizontal sharding, where the structures are available on all copies and just the data is parceled out.
 
 Federation is not the only answer to every scalability problem. Sometimes, the characteristics of your data or application requirements point to simpler approaches. The following list presents potential solutions in order of complexity.
 
 **Increase the size of the database**
 
-Databases are created at a fixed size subject to a maximum imposed by each edition. For the Web edition, you can increase a database to a maximum of 5 gigabytes. For Business edition, the maximum database size is 150 gigabytes. One solution to increasing data requirements is to upgrade to Business edition and use the higher maximum.
+Databases are created at a fixed size subject to a maximum imposed by each edition. For the Web edition, you can increase a database to a maximum of 5 gigabytes. For Business edition, the maximum database size is 150 gigabytes. One solution to increasing data requirements is to change the edition and maximum size:
+
+     ALTER DATABASE school MODIFY (EDITION = 'Business', MAXSIZE=10GB);
 
 **Use multiple databases and allocate users**
 

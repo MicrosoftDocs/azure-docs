@@ -21,7 +21,7 @@ This task includes the following steps:
 Management Studio is an integrated environment for
 managing SQL databases. When managing 
 databases on Windows Azure, you can use the Management Studio application installed with
-SQL Server, or you can download the free SQL Server 2012 Management Studio Express (SSMSE) version. The steps below describe
+SQL Server or download the free SQL Server 2012 Management Studio Express (SSMSE) version. The steps below describe
 how to install SSMSE.
 
 1.  On the [Microsoft SQL Server 2012 Express][] page, select the x86 version of Management Studio if you are running a 32-bit operating system, or x64 if you are running a 64-bit operating system. Click **Download**, and when prompted, run Setup.
