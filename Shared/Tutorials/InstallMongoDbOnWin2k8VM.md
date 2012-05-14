@@ -1,22 +1,23 @@
-# Installing MongoDB on a Windows Virtual Machine
+# Install MongoDB on a Virtual Machine Running Windows Server 2008 R2
 
-The Windows Azure virtual machine gallery provides Windows Azure virtual machine images of Microsoft Windows Server 2008 R2, Service Pack 1 (64-bit). You can select one of the virtual machine images from the Windows Azure gallery, deploy the virtual machine to your Windows Azure environment, and install MongoDB.
+[MongoDB][MongoDB] is a popular open source, high performance NoSQL database.  Using the Windows Azure Management Portal, you can easily create a virtual machine running Microsoft Windows Server 2008 R2 from the Image Gallery.  You can then install and configure a MongoDB database on the virtual machine.
 
-You will learn:
+In this tutorial, you will learn:
 
-- How to use the Windows Azure Management Portal to select and install a Windows Server 2008 R2 SP1 virtual machine from the gallery.
+- How to use the Windows Azure Management Portal to create a Windows Server 2008 R2 SP1 virtual machine from the gallery.
 - How to connect to the virtual machine using Remote Desktop.
 - How to install MongoDB on the virtual machine.
 
-## Connect to the Windows Azure Management Portal and Provision a Virtual Machine Image
+## Create a Virtual Machine Running Windows Server 2008 R2
 
-<div chunk="././Shared/Chunks/create-and-configure-windows-server-2008-vm-in-portal"/>
+<div chunk="create-and-configure-windows-server-2008-vm-in-portal"/>
 
 ## Install and Run MongoDB on the Virtual Machine 
 
-<div chunk="././Shared/Chunks/install-and-run-mongo-on-win2k8-vm"/>
+<div chunk="install-and-run-mongo-on-win2k8-vm"/>
 
 ##Summary
-In this tutorial you learned how to create a Windows Server 2008 R2 SP1 virtual machine and remotely connect to it.  You also learned how to install and configure MongoDB on the Windows virtual machine. For more information on MongoDB, see the [MongoDB Docs][MongoDocs].
+In this tutorial you learned how to create a Windows Server 2008 R2 SP1 virtual machine and remotely connect to it.  You also learned how to install and configure MongoDB on the Windows virtual machine. For more information on MongoDB, see the [MongoDB Documentation][MongoDocs].
 
 [MongoDocs]: http://www.mongodb.org/display/DOCS/Home
+[MongoDB]: http://www.mongodb.org/
