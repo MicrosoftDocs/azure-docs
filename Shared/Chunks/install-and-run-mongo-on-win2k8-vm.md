@@ -33,17 +33,49 @@
 	`> help`  
 
 	The database is created by the insert.
-
-9. Once the virtual machine is created you must configure an endpoint. In the Windows Azure portal, click **Virtual Machines**, then click the name of your new VM, then click **Endpoints**.
-10. Click **Add Endpoint** at the bottom of the page, and add an endpoint with name *mongo*, protocol *TCP*, and both *Public* and *Private* ports set to 27017. This will allow MongoDB to be accessed remotely.
-11. (Optional) mongod.exe has support for installing and running as a Windows service. To install mongod.exe as a service, run the following from the command prompt:
+9. (Optional) mongod.exe has support for installing and running as a Windows service. To install mongod.exe as a service, run the following from the command prompt:
 
 	C:\mongodb\bin>mongod --logpath "c:\mongodb\logs\logfile.log" --logappend --dbpath "c:\data" --install 
 
 	This creates a service named "Mongo DB" with a description of "Mongo DB". The --logpath option must be used to specify a log file, since the running service will not have a command window to display output.  The --logappend option specifies that a restart of the service will cause output to append to the existing log file.  The --dbpath option specifies the location of the data directory. For more service-related command line options, see [Service-related command line options] [MongoWindowsSvcOptions].
+10. Now that MongoDB is installed and running you must open a port in Windows Firewall in order to remotely connect to MongoDB.  From the **Start** menu, select **Administrator Tools** and then **Windows Firewall with Advanced Security**. 
+11. In the left pane, select **Inbound Rules**.  In the **Actions** pane on the right, select **New Rule...**.
+	![Windows Firewall][Image1]
 
+	In the **New Inbound Rule Wizard**, select **Port** and then click **Next**.
+	![Windows Firewall][Image2]
+
+	Select **TCP** and then **Specific local ports**.  Specify a port of "27107" (the port MongoDB listens on) and click **Next**.
+	![Windows Firewall][Image3]
+
+	Select **Allow the connection** and click **Next**.
+	![Windows Firewall][Image4]
+
+	Click **Next** again.
+	![Windows Firewall][Image5]
+
+	Specify a name for the rule, such as "MongoPort", and click Finish.
+	![Windows Firewall][Image6]
+	
+12. Once the virtual machine is created you must configure an endpoint. In the Windows Azure portal, click **Virtual Machines**, then click the name of your new VM, then click **Endpoints**.
+![Endpoints][Image7]
+13. Click **Add Endpoint** at the bottom of the page.
+	![Endpoints][Image8]
+
+	Add an endpoint with name "Mongo", protocol *TCP*, and both *Public* and *Private* ports set to "27017". This will allow MongoDB to be accessed remotely.
+![Endpoints][Image9]
 
 [MongoDownloads]: http://www.mongodb.org/downloads
 [MongoWindowsSvc]: http://www.mongodb.org/display/DOCS/Windows
 [MongoWindowsSvcOptions]: http://www.mongodb.org/display/DOCS/Windows+Service
 [MongoDocs]: http://www.mongodb.org/display/DOCS/Home
+
+[Image1]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinFirewall1.png
+[Image2]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinFirewall2.png
+[Image3]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinFirewall3.png
+[Image4]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinFirewall4.png
+[Image5]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinFirewall5.png
+[Image6]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinFirewall6.png
+[Image7]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinVmAddEndpoint.png
+[Image8]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinVmAddEndpoint2.png
+[Image9]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinVmAddEndpoint3.png

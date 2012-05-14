@@ -32,6 +32,6 @@
 3. At the **Windows Security** dialog box, provide the password for the **Administrator** account. (You might be asked to verify the credentials of the virtual machine.)
 4. The first time you log on to this virtual machine, several processes may need to complete, including setup of your desktop, Windows updates, and completion of the Windows initial configuration tasks. Once you are connected to the virtual machine with Windows Remote Desktop, the virtual machine works like any other computer.
 
-[Image1]: ../../Shared/Media/CreateWinVM.png
-[Image2]: ../../Shared/Media/WinVmConfiguration1.png
-[Image3]: ../../Shared/Media/WinVmConfiguration2.png
+[Image1]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\CreateWinVM.png
+[Image2]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinVmConfiguration1.png
+[Image3]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinVmConfiguration2.png
