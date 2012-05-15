@@ -55,7 +55,9 @@ For purposes of this tutorial, a JDK will be installed from Oracle's site.
 3. Click the **Download** button for the JDK that you want to download. For purposes of this tutorial, the **Download** button for the Java SE 6 Update 32 JDK was used.
 4. Accept the license agreement.
 5. Click the download executable for **Windows x64 (64-bit)**.
-6. Follow the prompts and respond as needed to install the JDK to your virtual machine.
+6. Follow the prompts and respond as needed to install the JDK to your virtual machine. 
+
+Note that the Service Bus functionality requires the GTE CyberTrust Global Root certificate to be installed as part of your JRE's **cacerts** store. This certificate is automatically included in the JRE used by this tutorial. If you do not have this certificate in your JRE **cacerts** store, it can be installed by copying the certificate contents from <https://secure.omniroot.com/cacert/ct_root.der>, saving the contents to a **.cer** file, and adding it to the **cacerts** store via **keytool**. For more detailed instructions on adding a certificate to the **cacerts** store, see [Adding a Certificate to the Java CA Certificate Store][add_ca_cert].</p> 
 
 ## How to create a service bus namespace
 
@@ -478,11 +480,13 @@ The solver will run until it finishes examining all routes.
 For both the solver and client applications, you can press **Ctrl+C** to exit if you want to end prio to normal completion.
 
 
-[solver_output]: ./media/WA_JavaTSPSolver.png
-[client_output]: ./media/WA_JavaTSPClient.png
-[svc_bus_node]: ./media/SvcBusQueues_02_SvcBusNode.jpg
-[create_namespace]: ./media/SvcBusQueues_03_CreateNewSvcNamespace.jpg
-[avail_namespaces]: ./media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
-[namespace_list]: ./media/SvcBusQueues_05_NamespaceList.jpg
-[properties_pane]: ./media/SvcBusQueues_06_PropertiesPane.jpg
-[default_key]: ./media/SvcBusQueues_07_DefaultKey.jpg
+[solver_output]: ../media/WA_JavaTSPSolver.png
+[client_output]: ../media/WA_JavaTSPClient.png
+[svc_bus_node]: ../media/SvcBusQueues_02_SvcBusNode.jpg
+[create_namespace]: ../media/SvcBusQueues_03_CreateNewSvcNamespace.jpg
+[avail_namespaces]: ../media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
+[namespace_list]: ../media/SvcBusQueues_05_NamespaceList.jpg
+[properties_pane]: ../media/SvcBusQueues_06_PropertiesPane.jpg
+[default_key]: ../media/SvcBusQueues_07_DefaultKey.jpg
+[add_ca_cert]: add_ca_cert.md
+
