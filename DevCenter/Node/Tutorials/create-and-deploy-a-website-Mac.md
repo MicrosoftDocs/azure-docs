@@ -1,6 +1,8 @@
-#Create and deploy a Node.js application to Windows Azure
+<properties linkid="dev-nodejs-website" urldisplayname="Node.js Website" headerexpose pagetitle="Node.js Application using a Windows Azure Website" metakeywords="Azure Node.js tutorial, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates deploying a Node.js application to a Windows Azure Website" umbraconavihide="0" disquscomments="1"></properties>
 
-This tutorial shows you how to create a [node] application and deploy it to Windows Azure using [Git]. The instructions in this tutorial can be followed on any operating system that is capable of running node.
+#Create and deploy a Node.js application to a Windows Azure Website
+
+This tutorial shows you how to create a [node] application and deploy it to a Windows Azure Website using [Git]. The instructions in this tutorial can be followed on any operating system that is capable of running node.
 
 You will learn:
 
