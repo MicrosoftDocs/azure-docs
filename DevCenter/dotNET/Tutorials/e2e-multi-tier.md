@@ -26,7 +26,7 @@ multi-role solutions, as well as how to use Service Bus Queues to enable
 inter-role communication. A screenshot of the completed application is
 shown below:
 
-![][]
+![][0]
 
 ## Scenario Overview: Inter-Role Communication
 
@@ -101,7 +101,7 @@ to get the tools and set-up your development environment.
 
     ![][3]
 
-2.  Click **Install**in the installer window and proceed with the
+2.  Click **Install** in the installer window and proceed with the
     installation:
 
     ![][4]
@@ -116,7 +116,7 @@ to get the tools and set-up your development environment.
 
 1.  Open a web browser, and browse to [http://www.windowsazure.com][].
 
-    To get started with a free account, click **free trial**in the upper
+    To get started with a free account, click **free trial** in the upper
     right corner and follow the steps.
 
     ![][5]
@@ -205,7 +205,7 @@ Queue and displaying status information about the queue.
     ![][10]
 
 4.  Hover over **MvcWebRole1** under **Windows Azure solution**, click
-    the pencil icon, and rename the web role to **FrontendWebRole**.
+    the pencil icon, and rename the web role to **FrontendWebRole**. Then Click **OK**.
 
     ![][11]
 
@@ -306,13 +306,13 @@ displays.
             }
         }
 
-4.  Now, you will create the view for the **Submit()** method you
+4.  Build the application (F6).
+
+5.  Now, you will create the view for the **Submit()** method you
     created above. Right-click within the Submit() method, and choose
     **Add View**
 
     ![][14]
-
-5.  Build the application (F6).
 
 6.  A dialog appears for creating the view. Click the checkbox for
     **Create a strongly-typed view**. In addition, select the
@@ -336,7 +336,7 @@ displays.
 10. Finally, tweak the submission page to include some information about
     the queue. In the **Solution Explorer**, double-click the
     **Views\\Home\\Submit.cshtml** file to open it in the Visual Studio
-    editor. Add the following line after **<h2\>Submit</h2\>**. For now,
+    editor. Add the following line after `<h2>Submit</h2>`. For now,
     the **ViewBag.MessageCount** is empty. You will populate it later.
 
         <p>Current Number of Orders in Queue Waiting to be Processed: @ViewBag.MessageCount</p>
@@ -356,14 +356,13 @@ information. Then, you will initialize your connection from
 created earlier in **HomeController.cs** to actually submit items to a
 Service Bus Queue.
 
-1.  In Solution Explorer, right-click **FrontendWebRole**. Click
-    **Add**, and then click **Class**.
+1.  In Solution Explorer, right-click **FrontendWebRole** (right-click the class, not the role). Click **Add**, and then click **Class**.
 
-2.  Name the class **QueueConnector.cs**.
+2.  Name the class **QueueConnector.cs**. Click **Add** to create the class.
 
 3.  You will now paste in code that encapsulates your connection
     information and contains methods for initializing the connection to
-    a Service Bus Queue. Paste in the following code, and enter in
+    a Service Bus Queue. In QueueConnector.cs, paste in the following code, and enter in
     values for **Namespace**, **IssuerName**, and **IssuerKey**. You can
     find these values in the [Management Portal][Windows Azure Platform
     Management Portal].
@@ -384,9 +383,9 @@ Service Bus Queue.
                 public static QueueClient OrdersQueueClient;
 
                 // Obtain these values from the Management Portal
-                public const string Namespace = "<your service bus namespace>";
-                public const string IssuerName = "<issuer name>";
-                public const string IssuerKey = "<issuer key>";
+                public const string Namespace = "your service bus namespace";
+                public const string IssuerName = "issuer name";
+                public const string IssuerKey = "issuer key";
 
                 // The name of your queue
                 public const string QueueName = "OrdersQueue";
@@ -478,122 +477,78 @@ Service Bus Queue.
         }
 
 9.  You can now run your application again. Each time you submit an
-    order, you should see the message count increase.
+    order, the message count increases.
 
     ![][18]
 
 ## Create the Worker Role
 
-You will now create the worker role that will process the order
-submissions.
+You will now create the worker role that processes the order
+submissions. This example uses the **Worker Role with Service Bus Queue** Visual Studio project template. First, you will use Server Explorer in Visual Studio to obtain the required credentials.
 
-1.  In Visual Studio, in **Solution Explorer** right-click the
-    **MultiTierApp** solution, then click **New Worker Role Project**.
+1. From the menu bar in Visual Studio, choose **View**, and then click **Server Explorer**. A **Windows Azure Service Bus** node appears within the Server Explorer hierarchy, as in the following figure.
 
-2.  In the **Add New Role Project**dialog, name the project
-    **OrderProcessingRole**. Then click **Add**.
+	![][21]
 
-3.  In Visual Studio, in **Solution Explorer**, right-click
-    **References**in the **OrderProcessingRole**project and add
-    references to **System.ServiceModel.dll**,
-    **Microsoft.ServiceBus.dll**and
-    **System.Runtime.Serialization.dll**.
+2. In Server Explorer, right-click **Windows Azure Service Bus**, then click **Add New Connection**.
 
-4.  Create a **QueueConnector** class to encapsulate the connection to
-    the Service Bus Queue, as you did earlier. Rather than rewriting the
-    code, you can copy the one you already created. Right-click
-    **OrderProcessingRole**. Click **Add**, and then click **Existing
-    Item**.
+3. In the **Add Connection** dialog, type the name of the service namespace, the issuer name, and the issuer key. Then click **OK** to connect.
 
-5.  Browse to the subfolder for **FrontendWebRole**, and double-click
-    **QueueConnector.cs** to add it to this project.
+	![][22]
 
-6.  You now need an **OnlineOrder** class to represent the orders as you
-    process them from the queue. Again, you can copy a class you have
-    already created. Right-click **OrderProcessingRole**. Click **Add**,
-    and then click **Existing Item**.
+4.  In Visual Studio, in **Solution Explorer** right-click the
+    **Roles** folder under the **MultiTierApp** project.
 
-7.  Browse to the subfolder for **FrontendWebRole\\Models**, and
-    double-click **OnlineOrder.cs** to add it to this project.
+5.  Click **Add**, and then click **New Worker Role Project**. The **Add New Role Project** dialog appears.
 
-8.  Finally, replace the code in **WorkerRole.cs** with the following.
-    As you did earlier when initializing the queue for the front end,
-    you also have the initialize the queue in the worker role. However,
-    you now initialize it the **OnStart()** method of your worker role,
-    as compared to the **Application\_Start** method of your web role.
-    Once your queue is initialized, you receive messages by calling the
-    **Receive()** method in a loop. Once you process the message, you
-    finally remove it from the queue by calling **Complete()**.
+	![][26]
 
-        using System;
-        using System.Collections.Generic;
-        using System.Diagnostics;
-        using System.Linq;
-        using System.Net;
-        using System.Threading;
-        using Microsoft.WindowsAzure;
-        using Microsoft.WindowsAzure.Diagnostics;
-        using Microsoft.WindowsAzure.ServiceRuntime;
-        using Microsoft.WindowsAzure.StorageClient;
-        using Microsoft.ServiceBus;
-        using Microsoft.ServiceBus.Messaging;
-        using FrontendWebRole;
-        using FrontendWebRole.Models;
+6.  In the **Add New Role Project dialog**, click **Worker Role with Service Bus Queue**, as in the following figure:
 
-        namespace OrderProcessingRole
-        {
-            public class WorkerRole : RoleEntryPoint
-            {
-                public override void Run()
-                {
-                    while (true)
-                    {
-                        // Receive the message
-                        BrokeredMessage receivedMessage = 
-                            QueueConnector.OrdersQueueClient.Receive();
-                        if (receivedMessage != null)
-                        {
-                            try
-                            {
-                                // View the message as an OnlineOrder
-                                OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
-                                Trace.WriteLine(
-                                    order.Customer + ": " + order.Product, 
-                                    "ProcessingMessage");
+	![][23]
 
-                                // Remove it from the queue
-                                receivedMessage.Complete();
-                            }
-                            catch (MessagingException)
-                            {
-                                receivedMessage.Abandon();
-                            }
-                        }
-                        else
-                        {
-                            Thread.Sleep(10000);
-                        }
-                    }
-                }
+7.  In the **Name** box, name the project **OrderProcessingRole**. Then click **Add**.
 
-                public override bool OnStart()
-                {
-                    // Set the maximum number of concurrent connections 
-                    ServicePointManager.DefaultConnectionLimit = 12;
+8.  In Server Explorer, right-click the name of your service namespace, then click **Properties**. In the Visual Studio **Properties** pane, the first entry contains a connection string that is populated with the service namespace endpoint containing the required authorization credentials. For example, see the following figure. Double-click **ConnectionString**, and then press **Ctrl+C** to copy this string to the clipboard.
 
-                    // Initialize the connection to a Service Bus Queue
-                    QueueConnector.Initialize();
+	![][24]
 
-                    return base.OnStart();
-                }
-            }
-        }
+9.  In Solution Explorer, right-click the **OrderProcessingRole** you created in step 7, then click **Properties**.
 
-9.  You have completed the application. You can test the full
-    application as you did earlier, by pressing F5. You will notice now,
-    however, that the message count rarely goes above 1 or 2. This is
-    because the worker role is processing items from the queue and
-    marking them as complete. You can see the trace output of your
+10.  In the **Settings** tab of the **Properties** dialog, click inside the **Value** box for **Microsoft.ServiceBus.ConnectionString**, and then paste the endpoint value you copied in step 8.
+
+	![][25]
+
+11.  Create an **OnlineOrder** class to represent the orders as you process them from the queue. You can reuse a class you have already created. In Solution Explorer, right-click the **OrderProcessingRole** project (right-click the project, not the role). Click **Add**, then click **Existing Item**.
+
+12. Browse to the subfolder for **FrontendWebRole\Models**, and double-click **OnlineOrder.cs** to add it to this project.
+
+13. Replace the value of the **QueueName** variable in **WorkerRole.cs** from `“ProcessingQueue”` to `“OrdersQueue”` as in the following code:
+
+		// The name of your queue
+		const string QueueName = "OrdersQueue";
+
+14. Add the following using statement at the top of the WorkerRole.cs file:
+
+		using FrontendWebRole.Models;
+
+15. In the `Run()` function, add the following code inside the `if (receivedMessage != null)` loop, below the `Trace` statement:
+
+		if (receivedMessage != null)
+    	{
+        	// Process the message
+        	Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
+
+        	// Add these two lines of code
+        	// View the message as an OnlineOrder
+        	OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
+        	Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
+
+        	receivedMessage.Complete();
+    	}
+
+16.  You have completed the application. You can test the full
+    application as you did earlier, by pressing F5. Note that the message count does not increment, because the worker role processes items from the queue and marks them as complete. You can see the trace output of your
     worker role by viewing the Windows Azure Compute Emulator UI. You
     can do this by right-clicking the emulator icon in the notification
     area of your taskbar and selecting **Show Compute Emulator UI**.
@@ -602,27 +557,33 @@ submissions.
 
     ![][20]
 
-  []: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-01.png
-  [1]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-100.png
-  [2]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-101.png
+  [0]: ../Media/getting-started-multi-tier-01.png
+  [1]: ../Media/getting-started-multi-tier-100.png
+  [2]: ../Media/getting-started-multi-tier-101.png
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkID=234939&clcid=0x409
-  [3]: ../../../DevCenter/dotNet/Media/getting-started-3.png
-  [4]: ../../../DevCenter/dotNet/Media/getting-started-4.png
+  [3]: ../Media/getting-started-3.png
+  [4]: ../Media/getting-started-4.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
-  [5]: ../../../DevCenter/dotNet/Media/getting-started-12.png
+  [5]: ../Media/getting-started-12.png
   [Windows Azure Platform Management Portal]: http://windows.azure.com
-  [6]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
-  [7]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
-  [8]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-09.png
-  [9]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-10.jpg
-  [10]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-11.png
-  [11]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-02.png
-  [12]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-12.png
-  [13]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-13.png
-  [14]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-33.png
-  [15]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-34.png
-  [16]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-35.png
-  [17]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-36.png
-  [18]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-37.png
-  [19]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-38.png
-  [20]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-39.png
+  [6]: ../Media/sb-queues-03.png
+  [7]: ../Media/sb-queues-04.png
+  [8]: ../Media/getting-started-multi-tier-09.png
+  [9]: ../Media/getting-started-multi-tier-10.jpg
+  [10]: ../Media/getting-started-multi-tier-11.png
+  [11]: ../Media/getting-started-multi-tier-02.png
+  [12]: ../Media/getting-started-multi-tier-12.png
+  [13]: ../Media/getting-started-multi-tier-13.png
+  [14]: ../Media/getting-started-multi-tier-33.png
+  [15]: ../Media/getting-started-multi-tier-34.png
+  [16]: ../Media/getting-started-multi-tier-35.png
+  [17]: ../Media/getting-started-multi-tier-36.png
+  [18]: ../Media/getting-started-multi-tier-37.png
+  [19]: ../Media/getting-started-multi-tier-38.png
+  [20]: ../Media/getting-started-multi-tier-39.png
+  [21]: ../Media/SBExplorer.jpg
+  [22]: ../Media/SBExplorerAddConnect.jpg
+  [23]: ../Media/SBWorkerRole1.jpg
+  [24]: ../Media/SBExplorerProperties.jpg
+  [25]: ../Media/SBWorkerRoleProperties.jpg
+  [26]: ../Media/SBNewWorkerRole.jpg

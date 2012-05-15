@@ -29,98 +29,9 @@ information on tables, see the [Next Steps][] section.
 -   [How To: Delete a Table][]
 -   [Next Steps][]
 
-## <a name="what-is"> </a>What is the Table Service
+<div chunk="../../Shared/Chunks/howto-table-storage.md" />
 
-The Windows Azure Table storage service stores large amounts of
-structured data. The service is a NoSQL datastore which accepts
-authenticated calls from inside and outside the Azure cloud. Azure
-tables are ideal for storing structured, non-relational data. Common
-uses of the Table service include:
-
--   Storing TBs of structured data capable of serving web scale
-    applications
--   Storing datasets that don't require complex joins, foreign keys, or
-    stored procedures and can be denormalized for fast access
--   Quickly querying data using a clustered index
--   Accessing data using the OData protocol and LINQ queries with WCF
-    Data Service .NET Libraries
-
-You can use the Table service to store and query huge sets of
-structured, non-relational data, and your tables will scale as demand
-increases.
-
-## <a name="concepts"> </a>Concepts
-
-The Table service contains the following components:
-
-![Table1][]
-
--   **URL format:** Code addresses tables in an account using this
-    address format:   
-    http://<storage account\>.table.core.windows.net/<table\>  
-      
-    You can address Azure tables directly using this address with the
-    OData protocol. For more information, see [OData.org][]
-
--   **Storage Account:** All access to Windows Azure Storage is done
-    through a storage account. The total size of blob, table, and queue
-    contents in a storage account cannot exceed 100TB.
-
--   **Table**: A table is a collection of entities. Tables don't enforce
-    a schema on entities, which means a single table can contain
-    entities that have different sets of properties. An account can
-    contain many tables, the size of which is only limited by the 100TB
-    storage account limit.
-
--   **Entity**: An entity is a set of properties, similar to a database
-    row. An entity can be up to 1MB in size.
-
--   **Properties**: A property is a name-value pair. Each entity can
-    include up to 252 properties to store data. Each entity also has 3
-    system properties that specify a partition key, a row key, and a
-    timestamp. Entities with the same partition key can be queried more
-    quickly, and inserted/updated in atomic operations. An entity's row
-    key is its unique identifier within a partition.
-
-## <a name="create-account"> </a>Create a Windows Azure Storage Account
-
-To use storage operations, you need a Windows Azure storage account. You
-can create a storage account by following these steps. (You can also
-create a storage account [using the REST API][].)
-
-1.  Log into the [Windows Azure Management Portal][].
-
-2.  In the navigation pane, click **Hosted Services, Storage Accounts &
-    CDN**.
-
-3.  At the top of the navigation pane, click **Storage Accounts**.
-
-4.  On the ribbon, in the Storage group, click **New Storage Account**.
-      
-    ![Blob2][]  
-      
-    The **Create a New Storage Account**dialog box opens.   
-    ![Blob3][]
-
-5.  In **Choose a Subscription**, select the subscription that the
-    storage account will be used with.
-
-6.  In **Enter a URL**, type a subdomain name to use in the URI for the
-    storage account. The entry can contain from 3-24 lowercase letters
-    and numbers. This value becomes the host name within the URI that is
-    used to address Blob, Queue, or Table resources for the
-    subscription.
-
-7.  Choose a region or an affinity group in which to locate the storage.
-    If you will be using storage from your Windows Azure application,
-    select the same region where you will deploy your application.
-
-8.  Click **OK**.
-
-9.  Click the **View** button in the right-hand column below to display
-    and save the **Primary access key** for the storage account. You
-    will need this in subsequent steps to access storage.   
-    ![Blob4][]
+<div chunk="../../Shared/Chunks/create-storage-account.md" />
 
 ## <a name="create-project"> </a>Create a Windows Azure Project in Visual Studio
 
@@ -614,13 +525,6 @@ to learn how to do more complex storage tasks.
   [How To: Insert-or-Replace an Entity]: #insert-entity
   [How To: Delete an Entity]: #delete-entity
   [How To: Delete a Table]: #delete-table
-  [Table1]: ../../../DevCenter/dotNet/Media/table1.png
-  [OData.org]: http://www.odata.org/
-  [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
-  [Windows Azure Management Portal]: http://windows.azure.com
-  [Blob2]: ../../../DevCenter/dotNet/Media/blob2.png
-  [Blob3]: ../../../DevCenter/dotNet/Media/blob3.png
-  [Blob4]: ../../../DevCenter/dotNet/Media/blob4.png
   [Download and install the Windows Azure SDK for .NET]: /en-us/develop/net/
   [Creating a Windows Azure Project in Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx
   [Blob5]: ../../../DevCenter/dotNet/Media/blob5.png
