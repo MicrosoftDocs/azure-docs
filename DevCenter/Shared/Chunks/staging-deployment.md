@@ -134,26 +134,25 @@ Windows Azure]
 
 [Overview of Managing Deployments in Windows Azure]
 
-[Publishing Applications to Windows Azure from Visual Studio][]
+[Publishing Applications to Windows Azure from Visual Studio]
 
   [Step 1: Stage an Application by Using the Management Portal]: #step1
   [Step 1 (Alternate): Stage an Application with Visual Studio]: #step2
   [Step 2: Deploy an Application to Production by Swapping VIPs]: #step3
   [Windows Azure Management Portal]: http://windows.azure.com
-  []: ../../../DevCenter/Shared/Media/staging-01.png
+  [0]: ../../../DevCenter/Shared/Media/staging-01.png
   [1]: ../../../DevCenter/Shared/Media/staging-02.png
   [2]: ../../../DevCenter/Shared/Media/staging-03.png
   [Setting Up Named Authentication Credentials.]: http://msdn.microsoft.com/en-us/library/windowsazure/ff683676.aspx
   [3]: ../../../DevCenter/Shared/Media/staging-04.png
   [4]: ../../../DevCenter/Shared/Media/staging-05.png
-  [How to Deploy a Service Upgrade to Production by Swapping VIPs in
-  Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx
+  [How to Deploy a Service Upgrade to Production by Swapping VIPs in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx
   [Overview of Managing Deployments in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx
   [Publishing Applications to Windows Azure from Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460772.aspx
-[cloud-service]: ../../../DevCenter/Shared/Media/staging-cloud-service-running.png
-[cloud-service-dashboard]: ../../../DevCenter/Shared/Media/cloud-service-dashboard-staging.png
-[cloud-service-staging-url]: ../../../DevCenter/Shared/Media/cloud-service-staging-url
-[vip-swap-dialog]: ../../../DevCenter/Shared/Media/vip-swap-dialog.png
-[new-cloud-service]: ../../../DevCenter/Shared/Media/cloud-service-new-custom-create.png
-[custom-create-page1]: ../../../DevCenter/Shared/Media/cloud-service-custom-create.png
-[custom-create-page2]: ../../../DevCenter/Shared/Media/cloud-service-custom-create-package
+[cloud-service]: ../../Shared/Media/staging-cloud-service-running.png
+[cloud-service-dashboard]: ../../Shared/Media/cloud-service-dashboard-staging.png
+[cloud-service-staging-url]: ../../Shared/Media/cloud-service-staging-url
+[vip-swap-dialog]: ../../Shared/Media/vip-swap-dialog.png
+[new-cloud-service]: ../../Shared/Media/cloud-service-new-custom-create.png
+[custom-create-page1]: ../../Shared/Media/cloud-service-custom-create.png
+[custom-create-page2]: ../../Shared/Media/cloud-service-custom-create-package

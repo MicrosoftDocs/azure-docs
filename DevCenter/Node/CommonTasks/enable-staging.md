@@ -19,7 +19,7 @@ This task includes the following steps:
 ## Step 1: Stage an Application
 
 This task covers how to stage an application by using the **Windows
-Azure PowerShell for Node.js**.
+Azure PowerShell**.
 
 1.  When publishing a service, simply pass the **-Slot** parameter to
     the **Publish-AzureServiceProject** cmdlet.
@@ -81,10 +81,10 @@ Windows Azure]
   [Step 1: Stage an Application]: #step1
   [Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
   [Windows Azure Management Portal]: http://manage.windowsazure.com
-[cloud-service]: ../../../DevCenter/Shared/Media/staging-cloud-service-running.png
-[cloud-service-dashboard]: ../../../DevCenter/Shared/Media/cloud-service-dashboard-staging.png
-  [cloud-service-staging-url]: ../../../DevCenter/Shared/Media/cloud-service-staging-url
-  [vip-swap-dialog]: ../../../DevCenter/Shared/Media/vip-swap-dialog.png
+[cloud-service]: ../../Shared/Media/staging-cloud-service-running.png
+[cloud-service-dashboard]: ../../Shared/Media/cloud-service-dashboard-staging.png
+  [cloud-service-staging-url]: ../../Shared/Media/cloud-service-staging-url
+  [vip-swap-dialog]: ../../Shared/Media/vip-swap-dialog.png
   [How to Deploy a Service Upgrade to Production by Swapping VIPs in
   Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx
   [Overview of Managing Deployments in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx
