@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-how-to-blob-storage" urldisplayname="Blob Service" headerexpose pagetitle="How to Use the Blob Storage Service from Node.js" metakeywords="Azure unstructured data Node.js, Azure unstructured storage Node.js, Azure blob Node.js, Azure blob storage Node.js" footerexpose metadescription="Learn how to use the Windows Azure blob storage service to upload, download, list, and delete blob content from your Node.js application." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-how-to-blob-storage" urldisplayname="Blob Service" headerexpose="" pagetitle="How to Use the Blob Storage Service from Node.js" metakeywords="Azure unstructured data Node.js, Azure unstructured storage Node.js, Azure blob Node.js, Azure blob storage Node.js" footerexpose="" metadescription="Learn how to use the Windows Azure blob storage service to upload, download, list, and delete blob content from your Node.js application." umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Use the Blob Storage Service from Node.js
 
