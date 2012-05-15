@@ -1,4 +1,4 @@
-<properties linkid="dev-net-commons-tasks-profiling" urldisplayname="Performance Profiling" headerexpose pagetitle="Enable Profiling - .NET - Develop" metakeywords="Azure performance counters, Azure performance profiling, Azure performance counters C#, Azure performance profiling C#" footerexpose metadescription="Learn how to enable and collect data from performance counters in Windows Azure applications. " umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-commons-tasks-profiling" urldisplayname="Performance Profiling" headerexpose="" pagetitle="Enable Profiling - .NET - Develop" metakeywords="Azure performance counters, Azure performance profiling, Azure performance counters C#, Azure performance profiling C#" footerexpose="" metadescription="Learn how to enable and collect data from performance counters in Windows Azure applications. " umbraconavihide="0" disquscomments="1"></properties>
 
 # Using Performance Counters in Windows Azure
 

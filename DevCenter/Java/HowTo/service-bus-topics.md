@@ -1,4 +1,4 @@
-<properties linkid="dev-java-how-to-service-bus-topics" urldisplayname="Service Bus Topics" headerexpose pagetitle="Service Bus Topics - How To - Java - Develop" metakeywords footerexpose metadescription umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-java-how-to-service-bus-topics" urldisplayname="Service Bus Topics" headerexpose="" pagetitle="Service Bus Topics - How To - Java - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Use Service Bus Topics/Subscriptions
 
