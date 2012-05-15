@@ -31,7 +31,7 @@ This guide will show you how to perform common scenarios using the Windows Azure
 
 <h2 id="create-account">Create a Windows Azure Storage Account</h2>
 
-	(TODO: Reference appropriate content "chunk".)
+<div chunk="../../Shared/Chunks/create-storage-account" />
 
 <h2 id="create-app">Create a PHP Application</h2>
 
@@ -67,7 +67,8 @@ A Windows Azure Queue service client uses a **Configuration** object for storing
 	$config = new Configuration();
 	$config->setProperty(QueueSettings::ACCOUNT_NAME, "your_storage_account_name");
 	$config->setProperty(QueueSettings::ACCOUNT_KEY, "your_storage_account_key");
-	$config->setProperty(QueueSettings::URI, "http://your_storage_account_name.queue.core.windows.net");
+	$config->setProperty(QueueSettings::URI, 
+						"http://your_storage_account_name.queue.core.windows.net");
 
 You will pass this `Configuration` instance (`$config`) to other objects when using the Queue API.
 
@@ -79,7 +80,7 @@ A **QueueService** object lets you create a queue with the **createQueue** metho
 
 	use WindowsAzure\Queue\QueueService;
 	use WindowsAzure\Queue\Models\CreateQueueOptions;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 	
 	// Create queue REST proxy.
 	$queue_proxy = QueueService::create($config);
@@ -112,7 +113,7 @@ To add a message to a queue, use **IQueue->createMessage**. The method takes the
 
 	use WindowsAzure\Queue\QueueService;
 	use WindowsAzure\Queue\Models\CreateMessageOptions;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create queue REST proxy.
 	$queue_proxy = QueueService::create($config);
@@ -138,7 +139,7 @@ You can peek at a message (or messages) at the front of a queue without removing
 
 	use WindowsAzure\Queue\QueueService;
 	use WindowsAzure\Queue\Models\PeekMessagesOptions;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create queue REST proxy.
 	$queue_proxy = QueueService::create($config);
@@ -170,7 +171,7 @@ You can peek at a message (or messages) at the front of a queue without removing
 		foreach($messages as $message)	{
 			echo "Peeked message:<br />";
 			echo "Message Id: ".$message->getMessageId()."<br />";
-			echo "Insertion date: ".date_format($message->getInsertionDate(), 'Y-m-d H:i:s')."<br />";
+			echo "Date: ".date_format($message->getInsertionDate(), 'Y-m-d')."<br />";
 			echo "Message text: ".$message->getMessageText()."<br /><br />";
 		}
 	}
@@ -182,7 +183,7 @@ Your code removes a message from a queue in two steps. First, you call **IQueue-
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Queue\QueueService;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create queue REST proxy.
 	$queue_proxy = QueueService::create($config);
@@ -220,7 +221,7 @@ You can change the contents of a message in-place in the queue by calling **IQue
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Queue\QueueService;
-	use WindowsAzure\Common\Internal\ServiceException;	
+	use WindowsAzure\Common\ServiceException;	
 
 	// Create queue REST proxy.
 	$queue_proxy = QueueService::create($config);
@@ -240,7 +241,11 @@ You can change the contents of a message in-place in the queue by calling **IQue
 	
 	try	{
 		// Update message.
-		$queue_proxy->updateMessage("myqueue", $messageId, $popReceipt, $new_message_text, $new_visibility_timeout);
+		$queue_proxy->updateMessage("myqueue", 
+									$messageId, 
+									$popReceipt, 
+									$new_message_text, 
+									$new_visibility_timeout);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -259,7 +264,7 @@ There are two ways you can customize message retrieval from a queue. First, you 
 
 	use WindowsAzure\Queue\QueueService;
 	use WindowsAzure\Queue\Models\ListMessagesOptions;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create queue REST proxy.
 	$queue_proxy = QueueService::create($config);
@@ -271,7 +276,8 @@ There are two ways you can customize message retrieval from a queue. First, you 
 	
 	// Get messages.
 	try{
-		$listMessagesResult = $queue_proxy->listMessages("myqueue", $message_options); 
+		$listMessagesResult = $queue_proxy->listMessages("myqueue", 
+														 $message_options); 
 		$messages = $listMessagesResult->getQueueMessages(); 
 
 		foreach($messages as $message){
@@ -304,7 +310,7 @@ You can get an estimate of the number of messages in a queue. The **IQueue->getQ
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Queue\QueueService;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create queue REST proxy.
 	$queue_proxy = QueueService::create($config);
@@ -332,7 +338,7 @@ To delete a queue and all the messages contained in it, call the **IQueue->delet
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Queue\QueueService;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create queue REST proxy.
 	$queue_proxy = QueueService::create($config);
@@ -358,7 +364,7 @@ Now that you’ve learned the basics of the Windows Azure Queue service, follow 
 - See the MSDN Reference: [Storing and Accessing Data in Windows Azure] []
 - Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
 
-[download]: http://this.link.doesnt.exist.yet
+[download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Windows Azure Management Portal]: http://windows.azure.com/
 [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
