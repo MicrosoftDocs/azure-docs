@@ -34,12 +34,11 @@ Azure PowerShell for Node.js**.
 
 	![cloud service dashboard][cloud-service-dashboard]
 
-4. Note the values in the **Site URL** entry to the right. The DNS name is an obfuscated internal ID that Windows Azure generated.
+4. Note the value in the **Site URL** entry to the right. The DNS name is an obfuscated internal ID that Windows Azure generated.
 
     ![site url][cloud-service-staging-url]
 
-Now you can verify that the application is working correctly in the
-staging environment using the staging site URL.
+Now you can verify that the application is working correctly in the staging environment by using the staging site URL.
 
 For an upgrade scenario, in which the staged application is an upgraded
 version of one that has already been deployed to production, you can
