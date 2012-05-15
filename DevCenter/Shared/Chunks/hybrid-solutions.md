@@ -9,8 +9,7 @@ with on-premises resources. <a id="compare" name="compare"></a>
 -   [Service Bus Relay][]
 -   [Service Bus Queues and Topics][]
 -   [SQL Azure Data Sync][]
--   [Access Control Service (ACS) paired with Active Directory
-    Federation Services (AD FS)][]
+-   [Access Control Service (ACS) paired with Active Directory Federation Services (AD FS)][]
 -   [Windows Azure Connect][]
 -   [Conclusion][]
 
@@ -99,8 +98,7 @@ system and show it to the user immediately might use the Service Bus
 Relay to accomplish this objective. The Service Bus Relay provides
 direct and low-latency service access.
 
-Windows Azure Connect is another technology ([introduced later in this
-article][]) which could be used to accomplish the objective of exposing
+Windows Azure Connect is another technology ([introduced later in this article][]) which could be used to accomplish the objective of exposing
 an on-premises service endpoint to the cloud-deployed web application.
 The primary differentiator between these two technologies is that the
 Service Bus Relay is a messaging technology operating at the application
@@ -149,7 +147,7 @@ heartbeat message every few seconds. Service Bus Relay then relays any
 traffic sent to endpoint address in the cloud to the on-premises service
 application where the messages are processed.
 
-![[image]][]   
+![image][]   
  **Figure 1-Windows Azure Service Bus Relay**
 
 Coding this orchestration by hand would undoubtedly be challenging, but
@@ -168,9 +166,7 @@ request or TCP session, which is generally adequate enough to ensure
 reasonable load balancing of messages across all listeners. Note: There
 isn’t an SLA guarantee of equal distribution of incoming message; it is
 stated only as a “best effort.” For more information on the Service Bus
-load balancing feature, see [Windows Azure Service Bus Relay Load
-balancing (Scale & Availability
-Feature)][].<a id="_Service_Bus_Queues" name="_Service_Bus_Queues"></a>
+load balancing feature, see [Windows Azure Service Bus Relay Load balancing (Scale & Availability Feature)][].<a id="_Service_Bus_Queues" name="_Service_Bus_Queues"></a>
 
 For more information about Service Bus Relays, see:
 
@@ -240,13 +236,13 @@ following business objectives:
     saving money because the message consumer only needs to be capable
     of handling an average message load instead of the peak message
     load.  
-    ![[image]][2]  
+    ![image][2]  
     **Figure 2-Load Leveling**
 
 -   **Load balancing** allows additional message consumers to be added
     during peak message volume to keep throughput high but without
     breaking the bank by having idle capacity during non-peak
-    loads.![[image]][3]  
+    loads.![image][3]  
     **Figure 3-Load Balancing**
 
 -   **Loose coupling** allows message producers and message consumers to
@@ -259,7 +255,7 @@ following business objectives:
 For more information on Service Bus Queues and Topics, see:
 
 1.  <a id="_SQL_Azure_Data" name="_SQL_Azure_Data"> </a> [How To Use
-    Service Bus Queues][]
+    Service Bus Queues]
 2.  [How To Use Service Bus Topics/Subscriptions][]
 
 <a name="sql"> </a>
@@ -291,7 +287,7 @@ established to apply synchronization only to a subset of rows. Conflict
 resolution for two-way synchronizations and synchronization frequency
 are also tunable.
 
-![[image]][4]   
+![image][4]   
  **Figure 4-SQL Azure Data Sync**
 
 For more information on SQL Azure Data Sync: see:
@@ -383,7 +379,7 @@ WS-Federation compliant identity sources.
 
 ### ACS Paired with AD FS
 
-![[image]][5]   
+![image][5]   
  **Figure 5-ACS Paired With AD FS**
 
 Many organizations use AD FS for managing their corporate identities. AD
@@ -476,7 +472,7 @@ your Windows Azure role instances to become a logical extension of your
 corporate network. The instances in the cloud become additional machines
 on your corporate network as shown in Figure 6.
 
-![[image]][6]   
+![image][6]   
  **Figure 6-Windows Azure Connect** <a id="SQLAzure" name="SQLAzure">
 </a>
 
@@ -509,11 +505,9 @@ resources:
 
 -   [Overview of Windows Azure Connect (MSDN Library)][]
 -   [Windows Azure Connect Team Blog][]
--   [Windows Azure Connect Team Blog - Domain Joining Windows Azure
-    roles][]
+-   [Windows Azure Connect Team Blog - Domain Joining Windows Azure roles][]
 -   [Guide to Windows Azure Connect][]
--   [Using Windows Azure Connect to Integrate On-Premises Web
-    Services][]
+-   [Using Windows Azure Connect to Integrate On-Premises Web Services][]
 
 <a name="conclusion"> </a>
 
@@ -570,14 +564,12 @@ Azure.
   [Service Bus Relay]: #relay
   [Service Bus Queues and Topics]: #queues
   [SQL Azure Data Sync]: #sql
-  [Access Control Service (ACS) paired with Active Directory Federation
-  Services (AD FS)]: #acs
+  [Access Control Service (ACS) paired with Active Directory Federation Services (AD FS)]: #acs
   [Windows Azure Connect]: #connect
   [Conclusion]: #conclusion
   [introduced later in this article]: #_Windows_Azure_Connect_1
-  [[image]]: ../../../DevCenter/Shared/Media/building-hybrid-solutions-1.jpg
-  [Windows Azure Service Bus Relay Load balancing (Scale & Availability
-  Feature)]: http://blogs.msdn.com/b/avkashchauhan/archive/2011/10/27/windows-azure-appfabric-servicebus-relay-load-balancing-scale-amp-availability-feature.aspx
+  [image]: ../../../DevCenter/Shared/Media/building-hybrid-solutions-1.jpg
+  [Windows Azure Service Bus Relay Load balancing (Scale & Availability Feature)]: http://blogs.msdn.com/b/avkashchauhan/archive/2011/10/27/windows-azure-appfabric-servicebus-relay-load-balancing-scale-amp-availability-feature.aspx
   [How to Use the Service Bus Relay Service]: ../../how-to-guides/service-bus-relay/
   [Windows Azure Service Bus]: ../../../../home/features/service-bus/
   [Developer resources]: http://msdn.microsoft.com/ServiceBus
@@ -599,7 +591,6 @@ Azure.
   [6]: ../../../DevCenter/Shared/Media/building-hybrid-solutions-6.jpg
   [Overview of Windows Azure Connect (MSDN Library)]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432997.aspx
   [Windows Azure Connect Team Blog]: http://blogs.msdn.com/b/windows_azure_connect_team_blog/
-  [Windows Azure Connect Team Blog - Domain Joining Windows Azure
-  roles]: http://blogs.msdn.com/b/windows_azure_connect_team_blog/archive/2010/12/10/domain-joining-windows-azure-roles.aspx
+  [Windows Azure Connect Team Blog - Domain Joining Windows Azure roles]: http://blogs.msdn.com/b/windows_azure_connect_team_blog/archive/2010/12/10/domain-joining-windows-azure-roles.aspx
   [Guide to Windows Azure Connect]: http://techyfreak.blogspot.com/2010/11/guide-to-windows-azure-connect.html
   [Using Windows Azure Connect to Integrate On-Premises Web Services]: http://msdn.microsoft.com/en-us/library/windowsazure/hh697512.aspx
