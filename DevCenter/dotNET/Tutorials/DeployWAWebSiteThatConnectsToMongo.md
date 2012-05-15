@@ -459,15 +459,15 @@ You have now successfully deployed your ASP.NET application to a Windows Azure w
 [MongoDB]: http://www.mongodb.org
 [MongoCSharpDriverDownload]: http://github.com/mongodb/mongo-csharp-driver/downloads
 
-[Image0]: C:\Users\a-ryanwi\Desktop\AntaresMongoDB\media\TaskListAppFull.png
-[Image00]: C:\Users\a-ryanwi\Desktop\AntaresMongoDB\media\NewProject.png
-[Image1]: C:\Users\a-ryanwi\Desktop\AntaresMongoDB\media\NewProject2.png
-[Image2]: C:\Users\a-ryanwi\Desktop\AntaresMongoDB\media\AddReference.png
-[Image2.1]: C:\Users\a-ryanwi\Desktop\AntaresMongoDB\media\MongoDbBsonCopyLocal.png
-[Image2.2]: C:\Users\a-ryanwi\Desktop\AntaresMongoDB\media\MongoDbDriverCopyLocal.png
-[Image3]: C:\Users\a-ryanwi\Desktop\AntaresMongoDB\media\SolnExplorer.png
-[Image4]: C:\Users\a-ryanwi\Desktop\AntaresMongoDB\media\TaskListAppBlank.png
-[Image7]: C:\Users\a-ryanwi\Desktop\AntaresMongoDB\media\NewWebSite.png
-[Image8]: C:\Users\a-ryanwi\Desktop\AntaresMongoDB\media\Dashboard.png
-[Image9]: C:\Users\a-ryanwi\Desktop\AntaresMongoDB\media\RepoReady.png
-[Image10]: C:\Users\a-ryanwi\Desktop\AntaresMongoDB\media\GitInstructions.png
+[Image0]: ../../../DevCenter/dotNET/Media/TaskListAppFull.png
+[Image00]: ../../../DevCenter/dotNET/Media/NewProject.png
+[Image1]: ../../../DevCenter/dotNET/Media/NewProject2.png
+[Image2]: ../../../DevCenter/dotNET/Media/AddReference.png
+[Image2.1]: ../../../DevCenter/dotNET/Media/MongoDbBsonCopyLocal.png
+[Image2.2]: ../../../DevCenter/dotNET/Media/MongoDbDriverCopyLocal.png
+[Image3]: ../../../DevCenter/dotNET/Media/SolnExplorer.png
+[Image4]: ../../../DevCenter/dotNET/Media/TaskListAppBlank.png
+[Image7]: ../../../DevCenter/dotNET/Media/NewWebSite.png
+[Image8]: ../../../DevCenter/dotNET/Media/Dashboard.png
+[Image9]: ../../../DevCenter/dotNET/Media/RepoReady.png
+[Image10]: ../../../DevCenter/dotNET/Media/GitInstructions.png
