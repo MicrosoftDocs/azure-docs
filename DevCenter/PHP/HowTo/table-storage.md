@@ -101,7 +101,7 @@ For information about restrictions on Table names, see [Understanding the Table 
 
 <h2 id="AddEntity">How to Add an Entity to a Table</h2>
 
-To add an entity to a table, create a new **Entity** object and pass it to **ITable->insertEntity**. Note that when you create an entity you must specify a `PartitionKey` and `RowKey`. These are the unique identifiers for an entity and are values that can be queried much faster than other entity properties. The system uses `PartitionKey` to automatically distribute the table’s entities over many storage nodes. Entities with the same `PartitionKey` are stored on the same node. The `RowKey` is the unique ID of an entity within a partition.
+To add an entity to a table, create a new **Entity** object and pass it to **ITable->insertEntity**. Note that when you create an entity you must specify a `PartitionKey` and `RowKey`. These are the unique identifiers for an entity and are values that can be queried much faster than other entity properties. The system uses `PartitionKey` to automatically distribute the table’s entities over many storage nodes. Entities with the same `PartitionKey` are stored on the same node. (Operations on multiple entities stored on the same node will perform better than on entities stored across different nodes.) The `RowKey` is the unique ID of an entity within a partition.
 
 	require_once 'WindowsAzure.php';
 
@@ -135,7 +135,7 @@ To add an entity to a table, create a new **Entity** object and pass it to **ITa
 
 For information about Table properties and types, see [Understanding the Table Service Data Model][table-data-model].
 
-The **ITable** interface offers two alternative methods for inserting entities: **insertOrMergeEntity** and **insertOrReplaceEntity**. To use these methods, create a new **Entity** and pass it as a parameter to either method. Each method will insert the entity if it does not exist. If the entity already exists, **insertOrMergeEntity** will update property values if the properties already exist and add new properties if they do not exist, while **insertOrReplaceEntity** completely replaces an existing entity. The following example shows how to use **insertOrMergeEntity**. If the entity with `PartitionKey` "tasksSeattle" and `RowKey` "1" does not already exist, it will be inserted. However, if it has previously been inserted (as shown in the example above), the `DueDate` property will be updated and the `Status` property will be added. The `Description` and `Location` properties are updated with the same values as before. If these latter two properties were not set, the existing values would remain unchanged.
+The **ITable** interface offers two alternative methods for inserting entities: **insertOrMergeEntity** and **insertOrReplaceEntity**. To use these methods, create a new **Entity** and pass it as a parameter to either method. Each method will insert the entity if it does not exist. If the entity already exists, **insertOrMergeEntity** will update property values if the properties already exist and add new properties if they do not exist, while **insertOrReplaceEntity** completely replaces an existing entity. The following example shows how to use **insertOrMergeEntity**. If the entity with `PartitionKey` "tasksSeattle" and `RowKey` "1" does not already exist, it will be inserted. However, if it has previously been inserted (as shown in the example above), the `DueDate` property will be updated and the `Status` property will be added. The `Description` and `Location` properties are also updated, but with values that effectively leave them unchanged. If these latter two properties were not added as shown in the example, but existed on the target entity, their existing values would remain unchanged.
 
 	require_once 'WindowsAzure.php';
 
@@ -341,6 +341,33 @@ An existing entity can be updated by using the **Entity->setProperty** and **Ent
 		echo $code.": ".$error_message."<br />";
 	}
 
+<h2 id="DeleteEntity">How to Delete an Entity</h2>
+
+To delete an entity, pass the table name, and the entity's `PartitionKey` and `RowKey` to the **ITable->deleteEntity** method.
+
+	require_once 'WindowsAzure.php';
+
+	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Common\ServiceException;
+
+	// Create table REST proxy.
+	$table_proxy = TableService::create($config);
+	
+	try	{
+		// Delete entity.
+		$table_proxy->deleteEntity("mytable", "tasksSeattle", "2");
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
+
+Note that for concurrency checks, you can set the Etag for an entity to be deleted by using the **DeleteEntityOptions->setEtag** method and passing the **DeleteEntityOptions** object to **deleteEntity** as a fourth parameter.
+
 <h2 id="BatchOperations">How to Batch Table Operations</h2>
 
 The **ITable->batch** method allows you to execute multiple operations in a single request. The pattern here involves adding operations to **BatchRequest** object and then passing the **BatchRequest** object to the **ITable->batch** method. To add an operation to a **BatchRequest** object, you can call any of the following methods multiple times:
@@ -395,33 +422,7 @@ The following example shows how to execute **insertEntity** and **deleteEntity**
 		echo $code.": ".$error_message."<br />";
 	}
 
-For more information about batching Table operations, see [Performing Entity Group Transactions][entity-group-transactions]
-<h2 id="DeleteEntity">How to Delete an Entity</h2>
-
-To delete an entity, pass the table name, and the entity's `PartitionKey` and `RowKey` to the **ITable->deleteEntity** method.
-
-	require_once 'WindowsAzure.php';
-
-	use WindowsAzure\Table\TableService;
-	use WindowsAzure\Common\ServiceException;
-
-	// Create table REST proxy.
-	$table_proxy = TableService::create($config);
-	
-	try	{
-		// Delete entity.
-		$table_proxy->deleteEntity("mytable", "tasksSeattle", "2");
-	}
-	catch(ServiceException $e){
-		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
-		$code = $e->getCode();
-		$error_message = $e->getMessage();
-		echo $code.": ".$error_message."<br />";
-	}
-
-Note that for concurrency checks, you can set the Etag for an entity to be deleted by using the **DeleteEntityOptions->setEtag** method and passing the **DeleteEntityOptions** object to **deleteEntity** as a fourth parameter.
+For more information about batching Table operations, see [Performing Entity Group Transactions][entity-group-transactions].
 
 <h2 id="DeleteTable">How to Delete a Table</h2>
 
