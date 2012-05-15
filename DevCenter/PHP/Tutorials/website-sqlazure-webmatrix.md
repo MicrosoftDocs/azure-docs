@@ -180,7 +180,7 @@ You can easily modify and republish your application. Here, you will make a simp
 4. When publishing has completed, navigate to http://[your website name].windows.net/index.php to see the published changes.
 
 [install-SQLExpress]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
-[running-app]: ../../Shared/Media/running_app.jpg
+[running-app]: ../Media/running_app.jpg
 [tasklist-sqlazure-download]: http://go.microsoft.com/fwlink/?LinkId=252504
 [install-webmatrix]: ../../Shared/Media/install_webmatrix_from_site_dashboard.jpg
 [launch-webmatrix]: ../../Shared/Media/launch_webmatrix.jpg
@@ -188,10 +188,10 @@ You can easily modify and republish your application. Here, you will make a simp
 [new-website]: ../../Shared/Media/new_website.jpg
 [custom-create]: ../../Shared/Media/custom_create.jpg
 [website-details-sqlazure]: ./Media/website_details_sqlazure.jpg
-[database-settings]: ./Media/database_settings.jpg
-[create-server]: ./Media/create_server.jpg
-[linked-resources]: ./Media/linked_resources.jpg
-[connection-string]: ./Media/connection_string.jpg
+[database-settings]: ../Media/database_settings.jpg
+[create-server]: ../Media/create_server.jpg
+[linked-resources]: ../Media/linked_resources.jpg
+[connection-string]: ../Media/connection_string.jpg
 [install-webmatrix]: ../../Shared/Media/install_webmatrix_from_site_dashboard.jpg
 [launch-webmatrix]: ../../Shared/Media/launch_webmatrix.jpg
 [download-publish-profile]: ../../Shared/Media/download_publish_profile.jpg

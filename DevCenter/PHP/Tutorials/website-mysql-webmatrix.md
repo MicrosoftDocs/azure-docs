@@ -157,7 +157,7 @@ You can easily modify and republish your application. Here, you will make a simp
 
 
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
-[running-app]: ../../Shared/Media/running_app.jpg
+[running-app]: ../Media/running_app.jpg
 [tasklist-mysql-download]: http://go.microsoft.com/fwlink/?LinkId=252506
 [install-webmatrix]: ../../Shared/Media/install_webmatrix_from_site_dashboard.jpg
 [launch-webmatrix]: ../../Shared/Media/launch_webmatrix.jpg
