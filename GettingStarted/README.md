@@ -66,12 +66,26 @@ When you are done with your work, and are ready to have it merged into the centr
 
 One of the site administrators will now process your pull request.  Your pull request will surface on the WindowsAzure/azure-content-pr site under Issues.  When the Pull Request is accepted, the issue will be resolved.
 
-#### Delete the Branch
+#### Create a New Branch After Merge
+
+After a branch has been successfully merged (i.e. your pull request has been accepted), you may want to make further updates to the successfully merged content. In this case, do not continue working in the local branch that was successfully merged upstream. This can lead to merge conflicts if you submit another pull request. Instead, create a new local branch from the successfully merged upstream branch. For example, suppose your local branch X was successfully merged into the upstream spring branch and you want to make further updates to the content that was merged. You need to create a new branch, X’, from the upstream spring branch. To do this, open GitBash and execute the following commands:
+
+	cd azure-content-pr
+	git pull upstream spring:<new branch name>
+	git push origin <new branch name>
+
+You should now have local copies (in a new local branch) of the work that you submitted in branch X. This branch also contains all the work other writers have merged, so if your work depends on others work (e.g. shared images), it will be available in the new branch. You can verify that your previous work (and others' work) is in the branch by checking out the new branch...
+
+	git checkout <new branch name>
+
+...and verifying the content. Once you have checked out the new branch, you can make updates to the content and commit them as usual. However, to avoid working in the merged branch (X) by mistake, it is best to delete it (see "Delete a Branch" section below).
+
+#### Delete a Branch
 
 Once your changes have been successfully merged into the central repository you can delete your branch as you will no longer need it.  Any further work will require a new branch.  To delete your branch follow the steps below:
 
 1.	In GitBash type `git checkout master` in the command prompt.  This is to insure that you aren't in the branch to be deleted (which isn't allowed).
-2.	Next, type `git branch -D <branch name>` in the command prompt.  This will delete the branch on your local machine.
+2.	Next, type `git branch -d <branch name>` in the command prompt.  This will delete the branch on your local machine only if it has been successfully merged upstream. (You can override this behavior with the `–D` flag, but first be sure you want to do this.)
 3.	Finally, type `git push origin :<branch name>` in the command prompt.  This will delete the branch on your github fork.
 
 Congratulations, you have successfully contributed to the project.
