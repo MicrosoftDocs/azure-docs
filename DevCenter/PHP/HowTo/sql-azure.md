@@ -135,10 +135,10 @@ For accessing SQL Database from Linux and other non-Windows platforms, using an 
 [prod-portal-instructions]: http://blogs.msdn.com/b/brian_swan/archive/2010/02/12/getting-started-with-php-and-sql-azure.aspx
 [new-website]: ../../Shared/Media/new_website.jpg
 [custom-create]: ../../Shared/Media/create_custom_sql_db.jpg
-[database-settings]: ./Media/database_settings.jpg
-[create-server]: ./Media/create_server.jpg
+[database-settings]: ../Media/database_settings.jpg
+[create-server]: ../Media/create_server.jpg
 [sql-dbs-servers]: ../../Shared/Media/sql_db_servers.jpg
 [new-db-existing-server]: ../../Shared/Media/new_db_existing_server.jpg
 [go-to-conn-info]: ../../Shared/Media/go_to_conn_info.jpg
-[connection-string]: ./Media/connection_string.jpg
+[connection-string]: ../Media/connection_string.jpg
 [wpi-installer]: http://www.microsoft.com/web/downloads/platform.aspx
