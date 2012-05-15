@@ -1,4 +1,4 @@
-<properties linkid="dev-node-remotedesktop" urldisplayname="Enable Remote Desktop" headerexpose pagetitle="Enable Remote Desktop - Node.js - Develop" metakeywords="Azure Node.js remote access, Azure Node.js remote connection, Azure Node.js VM access, Azure Node.js virtual machine access" footerexpose metadescription="Learn how to enable remote-desktop access for the virtual machines hosting your Windows Azure Node.js application. " umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-node-remotedesktop" urldisplayname="Enable Remote Desktop" headerexpose="" pagetitle="Enable Remote Desktop - Node.js - Develop" metakeywords="Azure Node.js remote access, Azure Node.js remote connection, Azure Node.js VM access, Azure Node.js virtual machine access" footerexpose="" metadescription="Learn how to enable remote-desktop access for the virtual machines hosting your Windows Azure Node.js application. " umbraconavihide="0" disquscomments="1"></properties>
 
 # Enabling Remote Desktop in Windows Azure
 

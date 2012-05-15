@@ -1,2 +1,2 @@
-<properties linkid="dev-net-commons-tasks-custom-dns" urlDisplayName="Custom DNS" headerExpose="" pageTitle="Enable Custom DNS - .NET - Develop" metaKeywords="DNS Azure, Azure custom domain, .NET DNS Azure, .NET Azure custom domain, C# DNS Azure, C# Azure custom domain, VB DNS Azure, VB Azure custom domain" footerExpose="" metaDescription="Learn how to expose your  Windows Azure application or data on a custom domain by configuring DNS settings." umbracoNaviHide="0" disqusComments="1" />
-<div chunk="../../Shared/Chunks/custom-dns.md">
+<properties linkid="dev-net-commons-tasks-custom-dns" urlDisplayName="Custom DNS" headerExpose="" pageTitle="Enable Custom DNS - Node.js - Develop" metaKeywords="" footerExpose="" metaDescription="Learn how to expose your  Windows Azure application or data on a custom domain by configuring DNS settings." umbracoNaviHide="0" disqusComments="1" />
+<div chunk="../../Shared/Chunks/custom-dns.md" />

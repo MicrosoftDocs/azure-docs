@@ -1,2 +1,2 @@
-<properties linkid="dev-net-commons-tasks-enable-ssl" urlDisplayName="Enable SSL" headerExpose="" pageTitle="Enable SSL - Java - Develop" metaKeywords="Java Azure SSL, Java Azure HTTPS" footerExpose="" metaDescription="Learn how to specify an HTTPS endpoint for a Java web role and how to upload an SSL certificate to secure your application." umbracoNaviHide="0" disqusComments="1" />
-<div chunk="../../Shared/Chunks/enable-ssl">
+<properties linkid="dev-python-commons-tasks-enable-ssl" urlDisplayName="Enable SSL" headerExpose="" pageTitle="Enable SSL - Python - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<div chunk="../../Shared/Chunks/enable-ssl.md" />
