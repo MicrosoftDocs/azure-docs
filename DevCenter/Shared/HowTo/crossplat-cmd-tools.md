@@ -31,15 +31,15 @@ The following list contains information for installing the command-line tools, d
 
 * **Mac**: Download the [Windows Azure SDK Installer][mac-installer]. Open the downloaded .pkg file and complete the installation steps as you are prompted.
 
-* **Linux**: Install the latest version of [Node.js][nodejs-org] (see [Install Node.js via Package Manager][install-node-linux]), then run the following command:
+* **Linux** and **Windows**: Install the latest version of [Node.js][nodejs-org] (see [Install Node.js via Package Manager][install-node-linux]), then run the following command:
 
 		npm install azure -g
 	
-	**Note**: You may need to run this command with elevated privileges:
+	**Note**: On Linux, uou may need to run this command with elevated privileges:
 
 		sudo npm install azure -g
 
-* **Windows**:  Use the [Microsoft Web Platform Installer 4.0][download-wpi] to install the Windows Azure SDK for Node.js or the Windows Azure SDK for PHP. Those SDKs include the Windows Azure Command-Line Tools for Mac and Linux, which run on Windows.
+	On Windows, you may need to run the command from a prompt with elevated privileges.
 
 To test the installation, type `azure` at the command prompt. If the installation was successful, you will see a list of all the available `azure` commands.
 
@@ -83,7 +83,7 @@ The output from this command will contain the default URL for the newly created 
 
 Note that you can execute the `azure site create` command with any of the following options:
 
-* `--location [location name]`. This option allows you to specify the location of the data center in which your website is created. Possible values are **TODO: get list of location values and the default value**.
+* `--location [location name]`. This option allows you to specify the location of the data center in which your website is created (e.g. "West US"). If you omit this option, you will be promted to choose a location.
 * `--hostname [custom host name]`. This option allows you to specify a custom hostname for your website.
 * `--git`. This option allows you to use git to publish to your website by creating git repositories in both your local application directory and in your website's data center. If your local application directory is already a git repository, the `azure site create` command will create a git repository in your website's data center regardless of whether you use the `--git` option.
 
@@ -114,17 +114,13 @@ A Windows Azure Virtual Machine is created from a virtual machine image (a .vhd 
 
 	azure vm image list
 
-You can provision and start a VM from one of the available images with the `vm create` command. The following example shows how to create a Linux virtual machine (called `myVM`) from an image in the Image Gallery (CentOS 6.2). The root user name and password for the VM are `myusername` and `Mypassw0rd` respectively. (Note that the `--location` parameter specifies the data center in which the VM is created.)
+You can provision and start a VM from one of the available images with the `vm create` command. The following example shows how to create a Linux virtual machine (called `myVM`) from an image in the Image Gallery (CentOS 6.2). The root user name and password for the VM are `myusername` and `Mypassw0rd` respectively. (Note that the `--location` parameter specifies the data center in which the VM is created. If you omit the `--location` parameter, you will be prompted to choose a location.)
 
-	azure vm create myVM OpenLogic__OpenLogic-CentOS-62-en-us-30GB myusername Mypassw0rd --location "Windows Azure Preview"
-
-**TODO: Update location value**
+	azure vm create myVM OpenLogic__OpenLogic-CentOS-62-en-us-30GB myusername Mypassw0rd --location "West US"
 
 If you would rather provision a VM from a custom image, you can create an image from a .vhd file with the `vm image create` command, then use the `vm create` command to provision the VM. The following example shows how to create a Linux image (called `myImage`) from a local .vhd file. (The `--location` parameter specifies the data in which the image is stored.)
 
-	azure vm image create myImage /path/to/myImage.vhd --os linux
-
-**TODO: update location in previous command**
+	azure vm image create myImage /path/to/myImage.vhd --os linux --location "West US"
 
 Instead of creating an image from a local .vhd, you can create an image from a .vhd stored in Windows Azure Blob Storage. You can do this with the `blob-url` parameter:
 
@@ -132,7 +128,7 @@ Instead of creating an image from a local .vhd, you can create an image from a .
 
 After creating an image, you can provision a VM from the image by using `vm create`. The command below creates a VM called `myVM` from the image created above (`myImage`).
 
-	azure vm create myVM myImage myusername Mypassw0rd --location "Windows Azure Preview"
+	azure vm create myVM myImage myusername Mypassw0rd --location "West US"
 
 After you have provisioned a VM, you may want to create endpoints to allow remote access to your VM (for example). The following example uses the `vm create endpoint` command to open external port 22 and local port 22 on `myVM`:
 

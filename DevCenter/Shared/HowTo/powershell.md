@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-how-to-powershell" urldisplayname="PowerShell Cmdlets" headerexpose pagetitle="How to Use the Windows Azure PowerShell for Node.js" metakeywords="Azure PowerShell Node.js, Azure PowerShell Node.js cmdlet" footerexpose metadescription="Learn Windows PowerShell fundamentals and details about how to use the Windows Azure PowerShell for Node.js cmdlets." umbraconavihide="0" disquscomments="1"></properties>
 
-# How to Use Windows Azure PowerShell for Node.js
+# How to Use Powershell for Windows Azure
 
 This guide describes how to use Windows PowerShell cmdlets to create,
 test, deploy, and manage Node.js services in Windows Azure. The
