@@ -1,4 +1,4 @@
-<properties linkid="dev-java-how-to-service-bus-queues" urldisplayname="Service Bus Queues" headerexpose pagetitle="Service Bus Queues - How To - Java - Develop" metakeywords footerexpose metadescription umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-java-how-to-service-bus-queues" urldisplayname="Service Bus Queues" headerexpose="" pagetitle="Service Bus Queues - How To - Java - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # <span> How to Use Service Bus Queues</span>
 
