@@ -29,7 +29,7 @@ This guide will show you how to perform common scenarios using the Windows Azure
 
 <h2 id="CreateAccount">Create a Windows Azure Storage Account</h2>
 
-	(TODO: Reference reusable "chunk".)
+<div chunk="../../Shared/Chunks/create-storage-account" />
 
 <h2 id="CreateApplication">Create a PHP Application</h2>
 
@@ -78,26 +78,29 @@ A **BlobService** object lets you create a blob container with the **createConta
 	use WindowsAzure\Blob\BlobService;
 	use WindowsAzure\Blob\Models\CreateContainerOptions;
 	use WindowsAzure\Blob\Models\PublicAccessType;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blob_proxy = BlobService::create($config);
 
 	// OPTIONAL: Set public access policy and metadata.
-	
 	// Create container options object.
 	$createContainerOptions = new CreateContainerOptions();	
 
-	// Set public access policy. Possible values are PublicAccessType::CONTAINER_AND_BLOBS
-	// and PublicAccessType::BLOBS_ONLY.
-	// CONTAINER_AND_BLOBS: 	Specifies full public read access for container and blob data.
-    //            				proxys can enumerate blobs within the container via anonymous 
-	//							request, but cannot enumerate containers within the storage account.
-	// BLOBS_ONLY: 		Specifies public read access for blobs. Blob data within this 
-    //       			container can be read via anonymous request, but container data is not 
-    //       			available. proxys cannot enumerate blobs within the container via anonymous 
-	//					request.
-	// If this value is not specified in the request, container data is private to the account owner.
+	// Set public access policy. Possible values are 
+	// PublicAccessType::CONTAINER_AND_BLOBS and PublicAccessType::BLOBS_ONLY.
+	// CONTAINER_AND_BLOBS: 	
+	// Specifies full public read access for container and blob data.
+    // proxys can enumerate blobs within the container via anonymous 
+	// request, but cannot enumerate containers within the storage account.
+	//
+	// BLOBS_ONLY:
+	// Specifies public read access for blobs. Blob data within this 
+    // container can be read via anonymous request, but container data is not 
+    // available. proxys cannot enumerate blobs within the container via 
+	// anonymous request.
+	// If this value is not specified in the request, container data is 
+	// private to the account owner.
 	$createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
 	
 	// Set container metadata
@@ -128,7 +131,7 @@ To upload a file as a blob, use the **IBlob->createBlockBlob** method. This oper
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Blob\BlobService;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blob_proxy = BlobService::create($config);
@@ -138,7 +141,7 @@ To upload a file as a blob, use the **IBlob->createBlockBlob** method. This oper
 	
 	try	{
 		//Upload blob
-		$blob_proxy->createBlockBlob("mycontainer", $blob_name, $content);//, null);
+		$blob_proxy->createBlockBlob("mycontainer", $blob_name, $content);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -158,15 +161,15 @@ To list the blobs in a container, use the **IBlob->listBlobs** method with a **f
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Blob\BlobService;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blob_proxy = BlobService::create($config);
 	
 	try	{
 		// List blobs.
-		$blob_list = $blob_proxy->listBlobs("mycontainer"); // Returns ListBlobResult object.
-		$blobs = $blob_list->getBlobs(); // Returns an array of Blob objects.
+		$blob_list = $blob_proxy->listBlobs("mycontainer");
+		$blobs = $blob_list->getBlobs();
 		
 		foreach($blobs as $blob)
 		{
@@ -190,7 +193,7 @@ To download a blob, call the **IBlob->getBlob** method, then call the **getConte
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Blob\BlobService;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blob_proxy = BlobService::create($config);
@@ -209,7 +212,7 @@ To download a blob, call the **IBlob->getBlob** method, then call the **getConte
 		echo $code.": ".$error_message."<br />";
 	}
 
-Note that the example above gets a blob as a stream resouce (the default behavior). However, you can use the [stream_get_contents][stream-get-contents] function to convert the returned stream to a string.
+Note that the example above gets a blob as a stream resouce (the default behavior). However, you can use the [stream\_get\_contents][stream-get-contents] function to convert the returned stream to a string.
 
 <h2 id="DeleteBlob">How to Delete a Blob</h2>
 
@@ -218,7 +221,7 @@ To delete a blob, pass the container name and blob name to **IBlob->deleteBlob**
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Blob\BlobService;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blob_proxy = BlobService::create($config);
@@ -243,7 +246,7 @@ Finally, to delete a blob container, pass the container name to **IBlob->deleteC
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Blob\BlobService;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create blob REST proxy.
 	$blob_proxy = BlobService::create($config);
@@ -268,8 +271,7 @@ Now that you’ve learned the basics of the Windows Azure Blob service, follow t
 - See the MSDN Reference: [Storing and Accessing Data in Windows Azure] []
 - Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
 
-[download]: http://link-does-not-exist-yet.com
-[Windows Azure Management Portal]: http://windows.azure.com/
+[download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
 [container-acl]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
