@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-use-blog-storage-service-java" urldisplayname="Blob Storage" headerexpose="" pagetitle="How to Use the Blob Storage Service from Java" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-java-how-to-use-blog-storage-service-java" urldisplayname="Blob Storage" headerexpose="" pagetitle="How to Use the Blob Storage Service from Java" metakeywords="Azure Blob Storage Java" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Use the Blob Storage Service from Java
 
