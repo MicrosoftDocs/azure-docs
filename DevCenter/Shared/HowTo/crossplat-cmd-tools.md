@@ -15,7 +15,7 @@ This guide describes how to use the Windows Azure Command-Line Tools for Mac and
 
 <h2 id="Overview">What are the Windows Azure Command-Line Tools for Mac and Linux</h2>
 
-The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Windows Azure services. These tools work on any platform, including Mac, Linux, and Windows.
+The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Windows Azure services.
  
 The supported tasks include the following:
 
