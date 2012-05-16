@@ -576,15 +576,15 @@ to learn how to do more complex storage tasks.
   [How To: Additional Options for Dequeuing Messages]: #advanced-get
   [How To: Get the Queue Length]: #get-queue-length
   [How To: Delete a Queue]: #delete-queue
-  [Queue1]: ../../../DevCenter/dotNet/Media/queue1.png
+  [Queue1]: ../../dotNet/Media/queue1.png
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
   [Windows Azure Management Portal]: http://windows.azure.com
 
   [plus-new]: ../../Shared/Media/plus-new.png
   [quick-create-storage]: ../../Shared/Media/quick-storage.png
-  [Blob2]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage2.png
-  [Blob3]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage3.png
-  [Blob4]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage4.png
+  [Blob2]: ../../Java/Media/WA_HowToBlobStorage2.png
+  [Blob3]: ../../Java/Media/WA_HowToBlobStorage3.png
+  [Blob4]: ../../Java/Media/WA_HowToBlobStorage4.png
   [Node.js Web Application]: {localLink:2221} "Web App with Express"
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

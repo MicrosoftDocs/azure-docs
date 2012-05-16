@@ -664,9 +664,9 @@ to learn how to do more complex storage tasks.
 
   [plus-new]: ../../Shared/Media/plus-new.png
   [quick-create-storage]: ../../Shared/Media/quick-storage.png
-  [Blob2]: ../../../DevCenter/dotNet/Media/blob2.png
-  [Blob3]: ../../../DevCenter/dotNet/Media/blob3.png
-  [Blob4]: ../../../DevCenter/dotNet/Media/blob4.png
+  [Blob2]: ../../dotNet/Media/blob2.png
+  [Blob3]: ../../dotNet/Media/blob3.png
+  [Blob4]: ../../dotNet/Media/blob4.png
   [Node.js Web Application]: {localLink:2221} "Web App with Express"
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Visit the Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
