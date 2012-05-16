@@ -187,7 +187,7 @@ You can easily modify and republish your application. Here, you will make a simp
 [download-publish-profile]: ../../Shared/Media/download_publish_profile.jpg
 [new-website]: ../../Shared/Media/new_website.jpg
 [custom-create]: ../../Shared/Media/custom_create.jpg
-[website-details-sqlazure]: ./Media/website_details_sqlazure.jpg
+[website-details-sqlazure]: ../Media/website_details_sqlazure.jpg
 [database-settings]: ../Media/database_settings.jpg
 [create-server]: ../Media/create_server.jpg
 [linked-resources]: ../Media/linked_resources.jpg
@@ -199,7 +199,7 @@ You can easily modify and republish your application. Here, you will make a simp
 [webmatrix-php-template]: ../../Shared/Media/webmatrix_php_template.jpg
 [webmatrix-php-emptysite]: ../../Shared/Media/webmatrix_php_emptysite.jpg
 [webmatrix-files]: ../../Shared/Media/webmatrix_files.jpg
-[webmatrix-delete-indexphp]: ../../Shared/Media/webmatrix_files.jpg
+[webmatrix-delete-indexphp]: ../../Shared/Media/webmatrix_delete_indexphp.jpg
 [webmatrix-add-existing]: ../../Shared/Media/webmatrix_add_existing.jpg
 [webmatrix-launchinbrowser]: ../../Shared/Media/webmatrix_launchinbrowser.jpg
 [webmatrix-publish]: ../../Shared/Media/webmatrix_publish.jpg
