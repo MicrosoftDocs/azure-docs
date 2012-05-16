@@ -17,7 +17,7 @@ The instructions in this topic assume that you have [PHP][install-php] installed
 
 The PHP Client Libraries for Windows Azure are PHP class libraries that provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services, from any operating system. These libraries can be installed as a PEAR package, using Composer, or manually.
 
-For information about how to use the PHP Client Libraries for Windows Azure, see How to Use the Blob Service from PHP (**TODO: Link**), How to Use the Table Service from PHP (**TODO: Link**), and How to Use the Queue Service from PHP (**TODO: Link**).
+For information about how to use the PHP Client Libraries for Windows Azure, see [How to Use the Blob Service from PHP][blob-service], [How to Use the Table Service from PHP][table-service], and [How to Use the Queue Service from PHP][queue-service].
 
 ###Install as a PEAR Package
 
@@ -38,7 +38,7 @@ After the installation completes, you can reference class libraries from your ap
 
 To download and install the PHP Client Libraries for Windows Azure manually, follow these steps:
 
-1. Download a .zip archive that contains the libraries from Github: **TODO: Provide link**. Alternatively, fork the repository and clone it to your local machine. (The latter option requires a Github account and having Git installed locally.)
+1. Download a .zip archive that contains the libraries from Github: [http://go.microsoft.com/fwlink/?LinkId=252719][php-sdk-github]. Alternatively, fork the repository and clone it to your local machine. (The latter option requires a Github account and having Git installed locally.)
 
 	**Note**: The PHP Client Libraries for Windows Azure have a dependency on the [HTTP\_Request2][http-request2-package], [Mail\_mime][mail-mime-package], and [Mail\_mimeDecode][mail-mimedecode-package] PEAR packages. The recommended way to resolve these dependencies is to install these packages using the [PEAR package manager][install-pear].
 
@@ -52,7 +52,7 @@ The recommended way to install Powershell for Windows Azure and the Windows Azur
 
 Note that you can also choose to install other development components, such as PHP, SQL Server, the Microsoft Drivers for SQL Server for PHP, and WebMatrix.
 
-For information about how to use Powershell for Windows Azure, see How to Use Powershell for Windows Azure (**TODO: Link**).
+For information about how to use Powershell for Windows Azure, see [How to Use Powershell for Windows Azure][powershell-tools].
 
 ##Windows Azure Command-Line Tools for Mac and Linux
 
@@ -68,7 +68,7 @@ The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line
 
 		sudo npm install azure -g 
 
-For information about how to use the Windows Azure Command-Line Tools for Mac and Linux, see How to Use the Command-Line Tools for Mac and Linux (**TODO: Link**).
+For information about how to use the Windows Azure Command-Line Tools for Mac and Linux, see [How to Use the Command-Line Tools for Mac and Linux][crossplat-tools].
 
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer
@@ -81,3 +81,9 @@ For information about how to use the Windows Azure Command-Line Tools for Mac an
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 [download-wpi]: http://www.microsoft.com/web/downloads/platform.aspx
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
+[blob-service]: http://go.microsoft.com/fwlink/?LinkId=252714
+[table-service]: http://go.microsoft.com/fwlink/?LinkId=252715
+[queue-service]: http://go.microsoft.com/fwlink/?LinkId=252716
+[crossplat-tools]: http://go.microsoft.com/fwlink/?LinkId=252717
+[powershell-tools]: http://go.microsoft.com/fwlink/?LinkId=252718
+[php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
