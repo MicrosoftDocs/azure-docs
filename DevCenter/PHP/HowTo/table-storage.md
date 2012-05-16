@@ -1,3 +1,5 @@
+<properties umbracoNaviHide="0" pageTitle="How to Use the Table Service from PHP" metaKeywords="Windows Azure, Table Service, Table Storage, PHP" metaDescription="Learn how to use the Windows Azure Table Service from PHP applications." linkid="dev-php-howto-table-service" urlDisplayName="How to Use the Table Service from PHP" headerExpose="" footerExpose="" disqusComments="1" />
+
 # How to Use the Table Service from PHP
 
 This guide will show you how to perform common scenarios using the Windows Azure Table service. The samples are written in PHP and use the [Windows Azure SDK for PHP][download]. The scenarios covered include **creating and deleting a table, and inserting, deleting, and querying entities in a table**. For more information on the Windows Azure Table service, see the [Next Steps](#NextSteps) section.
@@ -30,7 +32,7 @@ This guide will show you how to perform common scenarios using the Windows Azure
 
 <h2 id="CreateAccount">Create a Windows Azure Storage Account</h2>
 
-	(TODO: Reference reusable content chunk.)
+<div chunk="../../Shared/Chunks/create-storage-account" />
 
 <h2 id="CreateApplication">Create a PHP Application</h2>
 
@@ -66,7 +68,8 @@ A Windows Azure Table service client uses a **Configuration** object for storing
 	$config = new Configuration();
 	$config->setProperty(TableSettings::ACCOUNT_NAME, "your_storage_account_name");
 	$config->setProperty(TableSettings::ACCOUNT_KEY, "your_storage_account_key");
-	$config->setProperty(TableSettings::URI, "http://your_storage_account_name.table.core.windows.net");
+	$config->setProperty(TableSettings::URI, 
+						"http://your_storage_account_name.table.core.windows.net");
 
 You will pass this `Configuration` instance (`$config`) to other objects when using the Table API.
 
@@ -77,7 +80,7 @@ An **ITable** object lets you create a table with the **createTable** method. Wh
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Table\TableService;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -98,14 +101,14 @@ For information about restrictions on Table names, see [Understanding the Table 
 
 <h2 id="AddEntity">How to Add an Entity to a Table</h2>
 
-To add an entity to a table, create a new **Entity** object and pass it to **ITable->insertEntity**. Note that when you create an entity you must specify a `PartitionKey` and `RowKey`. These are the unique identifiers for an entity and are values that can be queried much faster than other entity properties. The system uses `PartitionKey` to automatically distribute the table’s entities over many storage nodes. Entities with the same `PartitionKey` are stored on the same node. The `RowKey` is the unique ID of an entity within a partition.
+To add an entity to a table, create a new **Entity** object and pass it to **ITable->insertEntity**. Note that when you create an entity you must specify a `PartitionKey` and `RowKey`. These are the unique identifiers for an entity and are values that can be queried much faster than other entity properties. The system uses `PartitionKey` to automatically distribute the table’s entities over many storage nodes. Entities with the same `PartitionKey` are stored on the same node. (Operations on multiple entities stored on the same node will perform better than on entities stored across different nodes.) The `RowKey` is the unique ID of an entity within a partition.
 
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Table\TableService;
 	use WindowsAzure\Table\Models\Entity;
 	use WindowsAzure\Table\Models\EdmType;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -114,7 +117,9 @@ To add an entity to a table, create a new **Entity** object and pass it to **ITa
 	$entity->setPartitionKey("tasksSeattle");
 	$entity->setRowKey("1");
 	$entity->addProperty("Description", null, "Take out the trash.");
-	$entity->addProperty("DueDate", EdmType::DATETIME, new DateTime("2012-11-05T08:15:00-08:00"));
+	$entity->addProperty("DueDate", 
+						 EdmType::DATETIME, 
+						 new DateTime("2012-11-05T08:15:00-08:00"));
 	$entity->addProperty("Location", EdmType::STRING, "Home");
 	
 	try{
@@ -130,14 +135,14 @@ To add an entity to a table, create a new **Entity** object and pass it to **ITa
 
 For information about Table properties and types, see [Understanding the Table Service Data Model][table-data-model].
 
-The **ITable** interface offers two alternative methods for inserting entities: **insertOrMergeEntity** and **insertOrReplaceEntity**. To use these methods, create a new **Entity** and pass it as a parameter to either method. Each method will insert the entity if it does not exist. If the entity already exists, **insertOrMergeEntity** will update property values if the properties already exist and add new properties if they do not exist, while **insertOrReplaceEntity** completely replaces an existing entity. The following example shows how to use **insertOrMergeEntity**. If the entity with `PartitionKey` "tasksSeattle" and `RowKey` "1" does not already exist, it will be inserted. However, if it has previously been inserted (as shown in the example above), the `DueDate` property will be updated and the `Status` property will be added. The `Description` and `Location` properties are updated with the same values as before. If these latter two properties were not set, the existing values would remain unchanged.
+The **ITable** interface offers two alternative methods for inserting entities: **insertOrMergeEntity** and **insertOrReplaceEntity**. To use these methods, create a new **Entity** and pass it as a parameter to either method. Each method will insert the entity if it does not exist. If the entity already exists, **insertOrMergeEntity** will update property values if the properties already exist and add new properties if they do not exist, while **insertOrReplaceEntity** completely replaces an existing entity. The following example shows how to use **insertOrMergeEntity**. If the entity with `PartitionKey` "tasksSeattle" and `RowKey` "1" does not already exist, it will be inserted. However, if it has previously been inserted (as shown in the example above), the `DueDate` property will be updated and the `Status` property will be added. The `Description` and `Location` properties are also updated, but with values that effectively leave them unchanged. If these latter two properties were not added as shown in the example, but existed on the target entity, their existing values would remain unchanged.
 
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Table\TableService;
 	use WindowsAzure\Table\Models\Entity;
 	use WindowsAzure\Table\Models\EdmType;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -178,7 +183,7 @@ The **ITable->getEntity** method allows you to retrieve a single entity by query
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Table\TableService;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -206,7 +211,7 @@ Entity queries are constructed using filters (for more information, see [Queryin
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Table\TableService;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -238,7 +243,7 @@ The same pattern used in the previous example can be used to retrieve any subset
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Table\TableService;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -271,7 +276,7 @@ A query can retrieve a subset of entity properties. This technique, called *proj
 
 	use WindowsAzure\Table\TableService;
 	use WindowsAzure\Table\Models\QueryEntitiesOptions;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -309,7 +314,7 @@ An existing entity can be updated by using the **Entity->setProperty** and **Ent
 	use WindowsAzure\Table\TableService;
 	use WindowsAzure\Table\Models\Entity;
 	use WindowsAzure\Table\Models\EdmType;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -318,11 +323,11 @@ An existing entity can be updated by using the **Entity->setProperty** and **Ent
 	
 	$entity = $result->getEntity();
 	
-	$entity->setPropertyValue("DueDate", new DateTime()); // Modified the DueDate field.
+	$entity->setPropertyValue("DueDate", new DateTime()); //Modified DueDate.
 	
-	$entity->setPropertyValue("Location", null); // Removed Location field.
+	$entity->setPropertyValue("Location", null); //Removed Location.
 	
-	$entity->addProperty("Status", EdmType::STRING, "In progress"); // Added Status field.
+	$entity->addProperty("Status", EdmType::STRING, "In progress"); //Added Status.
 
 	try	{
 		$table_proxy->updateEntity("mytable", $entity);
@@ -335,6 +340,33 @@ An existing entity can be updated by using the **Entity->setProperty** and **Ent
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
+
+<h2 id="DeleteEntity">How to Delete an Entity</h2>
+
+To delete an entity, pass the table name, and the entity's `PartitionKey` and `RowKey` to the **ITable->deleteEntity** method.
+
+	require_once 'WindowsAzure.php';
+
+	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Common\ServiceException;
+
+	// Create table REST proxy.
+	$table_proxy = TableService::create($config);
+	
+	try	{
+		// Delete entity.
+		$table_proxy->deleteEntity("mytable", "tasksSeattle", "2");
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
+
+Note that for concurrency checks, you can set the Etag for an entity to be deleted by using the **DeleteEntityOptions->setEtag** method and passing the **DeleteEntityOptions** object to **deleteEntity** as a fourth parameter.
 
 <h2 id="BatchOperations">How to Batch Table Operations</h2>
 
@@ -355,7 +387,7 @@ The following example shows how to execute **insertEntity** and **deleteEntity**
 	use WindowsAzure\Table\Models\Entity;
 	use WindowsAzure\Table\Models\EdmType;
 	use WindowsAzure\Table\Models\BatchOperations;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
  	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -365,9 +397,11 @@ The following example shows how to execute **insertEntity** and **deleteEntity**
 	
 	$entity1 = new Entity();
 	$entity1->setPartitionKey("tasksSeattle");
-	$entity1->setRowKey("3");
+	$entity1->setRowKey("2");
 	$entity1->addProperty("Description", null, "Clean roof gutters.");
-	$entity1->addProperty("DueDate", EdmType::DATETIME, new DateTime("2012-11-05T08:15:00-08:00"));
+	$entity1->addProperty("DueDate", 
+						  EdmType::DATETIME, 
+						  new DateTime("2012-11-05T08:15:00-08:00"));
 	$entity1->addProperty("Location", EdmType::STRING, "Home");
 	
 	// Add operation to list of batch operations.
@@ -388,33 +422,7 @@ The following example shows how to execute **insertEntity** and **deleteEntity**
 		echo $code.": ".$error_message."<br />";
 	}
 
-For more information about batching Table operations, see [Performing Entity Group Transactions][entity-group-transactions]
-<h2 id="DeleteEntity">How to Delete an Entity</h2>
-
-To delete an entity, pass the table name, and the entity's `PartitionKey` and `RowKey` to the **ITable->deleteEntity** method.
-
-	require_once 'WindowsAzure.php';
-
-	use WindowsAzure\Table\TableService;
-	use WindowsAzure\Common\Internal\ServiceException;
-
-	// Create table REST proxy.
-	$table_proxy = TableService::create($config);
-	
-	try	{
-		// Delete entity.
-		$table_proxy->deleteEntity("mytable", "tasksSeattle", "2");
-	}
-	catch(ServiceException $e){
-		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
-		$code = $e->getCode();
-		$error_message = $e->getMessage();
-		echo $code.": ".$error_message."<br />";
-	}
-
-Note that for concurrency checks, you can set the Etag for an entity to be deleted by using the **DeleteEntityOptions->setEtag** method and passing the **DeleteEntityOptions** object to **deleteEntity** as a fourth parameter.
+For more information about batching Table operations, see [Performing Entity Group Transactions][entity-group-transactions].
 
 <h2 id="DeleteTable">How to Delete a Table</h2>
 
@@ -423,7 +431,7 @@ Finally, to delete a table, pass the table name to the **ITable->deleteTable** m
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\Table\TableService;
-	use WindowsAzure\Common\Internal\ServiceException;
+	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
 	$table_proxy = TableService::create($config);
@@ -448,8 +456,7 @@ Now that you’ve learned the basics of the Windows Azure Table Service, follow 
 - See the MSDN Reference: [Storing and Accessing Data in Windows Azure] []
 - Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
 
-[download]: http://this.link.does.not.exist/yet
-[Windows Azure Management Portal]: http://windows.azure.com/
+[download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
 [require_once]: http://php.net/require_once
 [table-service-timeouts]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894042.aspx
