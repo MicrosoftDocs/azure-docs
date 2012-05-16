@@ -29,7 +29,7 @@ The Tasklist application is a simple PHP application that allows you to add, mar
 
 To run the application locally, follow the steps below. Note that these steps assume you have PHP, SQL Server Express, and a web server set up on your local machine, and that you have enabled the [PDO extension for SQL Server][pdo-sqlsrv].
 
-1. Download the application files from Github here: [https://github.com/brian-swan/tasklist-sqlazure][tasklist-sqlazure-download]. Put the files in a folder called `tasklist` in your web server's root directory.
+1. Download the application files from Github here: [http://go.microsoft.com/fwlink/?LinkId=252504][tasklist-sqlazure-download]. Put the files in a folder called `tasklist` in your web server's root directory.
 2. Create a SQL Server database called `tasklist`. You can do this from the `sqlcmd` command prompt with these commands:
 
 		>sqlcmd -S <server name>\sqlexpress -U <user name> -P <password>
@@ -164,21 +164,21 @@ To publish changes to application, follow these steps:
 [install-git]: http://git-scm.com/
 [wpi]: http://www.microsoft.com/web/downloads/platform.aspx
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
-[tasklist-sqlazure-download]: https://github.com/brian-swan/tasklist-sqlazure
+[tasklist-sqlazure-download]: http://go.microsoft.com/fwlink/?LinkId=252504
 [localhost-createtable]: http://localhost/tasklist/createtable.php
 [localhost-index]: http://localhost/tasklist/index.php
-[running-app]: ./Media/running_app.jpg
+[running-app]: ../Media/running_app.jpg
 [new-website]: ../../Shared/Media/new_website.jpg
 [custom-create]: ../../Shared/Media/custom_create.jpg
-[website-details-sqlazure]: ./Media/website_details_sqlazure.jpg
-[database-settings]: ./Media/database_settings.jpg
-[create-server]: ./Media/create_server.jpg
+[website-details-sqlazure]: ../Media/website_details_sqlazure.jpg
+[database-settings]: ../Media/database_settings.jpg
+[create-server]: ../Media/create_server.jpg
 [go-to-dashboard]: ../../Shared/Media/go_to_dashboard.jpg
-[setup-git-publishing]: ./Media/setup_git_publishing.jpg
-[credentials]: ./Media/credentials.jpg
-[creating-repo]: ./Media/creating_repo.jpg
-[push-files]: ./Media/push_files.jpg
-[git-instructions]: ./Media/git_instructions.jpg
-[linked-resources]: ./Media/linked_resources.jpg
-[connection-string]: ./Media/connection_string.jpg
+[setup-git-publishing]: ../Media/setup_git_publishing.jpg
+[credentials]: ../Media/credentials.jpg
+[creating-repo]: ../Media/creating_repo.jpg
+[push-files]: ../Media/push_files.jpg
+[git-instructions]: ../Media/git_instructions.jpg
+[linked-resources]: ../Media/linked_resources.jpg
+[connection-string]: ../Media/connection_string.jpg
 [preview-portal]: https://manage.windowsazure.com/
