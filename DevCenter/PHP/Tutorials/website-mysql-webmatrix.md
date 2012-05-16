@@ -20,7 +20,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 ##Prerequisites
 
-1. Download the Tasklist application files from here: [https://github.com/brian-swan/tasklist-mysql][tasklist-mysql-download]. The Tasklist application is a simple PHP application that allows you to add, mark complete, and delete items from a task list. Task list items are stored in a MySQL database. The application consists of these files:
+1. Download the Tasklist application files from here: [http://go.microsoft.com/fwlink/?LinkId=252506][tasklist-mysql-download]. The Tasklist application is a simple PHP application that allows you to add, mark complete, and delete items from a task list. Task list items are stored in a MySQL database. The application consists of these files:
 
 * **index.php**: Displays tasks and provides a form for adding an item to the list.
 * **additem.php**: Adds an item to the list.
@@ -157,8 +157,8 @@ You can easily modify and republish your application. Here, you will make a simp
 
 
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
-[running-app]: ../../Shared/Media/running_app.jpg
-[tasklist-mysql-download]: https://github.com/brian-swan/tasklist-mysql
+[running-app]: ../Media/running_app.jpg
+[tasklist-mysql-download]: http://go.microsoft.com/fwlink/?LinkId=252506
 [install-webmatrix]: ../../Shared/Media/install_webmatrix_from_site_dashboard.jpg
 [launch-webmatrix]: ../../Shared/Media/launch_webmatrix.jpg
 [download-publish-profile]: ../../Shared/Media/download_publish_profile.jpg
