@@ -30,9 +30,7 @@
   to find an interesting replacement for <i>World</i>. The replacement will in turn be determined via a MySQL-backed Django <i>counter</i> app. As was the case for the Hello World sample, this Django application will again be hosted in a web role.</p>
 
   <p>The project files for this tutorial will be stored in <strong><em>C:\django\helloworld\*</em></strong> and the completed application will look similar to:</p>
-  <p>
-    <img src="../../../DevCenter/Python/Media/mysql_tutorial01.png" alt="Django MySQL application screenshot" />
-  </p>
+![][0]
   
   <h2>Setting up your development environment</h2>
   <p>Before you can begin developing your Windows Azure application, you need to get the tools and set up your development environment. For details about getting and installing the Windows Azure SDK for Python, see <a href="http://www.windowsazure.com/en-us/develop/python/tutorials/getting-started/#setup">Setup the Development Environment</a> in the Python "Hello World" Application tutorial.</p>
@@ -43,26 +41,21 @@
 <pre class="prettyprint">%SystemDrive%\Python27\python.exe -c "import MySQLdb"
 </pre>
 <p>The expected output is empty:</p>
-<img src="../../../DevCenter/Python/Media/mysql_tutorial01-1.png" alt="PyMySQL install check output" />
+![][1]
 
-<h2>Setting up a virtual machine to host MySQL</h2>
-<ol>
-  <li>
-    <p>Follow the instructions given <a style="color:red;" href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433121.aspx">here</a> to create and configure a Windows Server 2008 R2 VM through the Preview Portal</p>
-  </li>
-  <li>
-    <p style="color:red;">#TODO: "Open up TCP port for MySQL"<br>Status: to be written by dfugate; I'm sure we need to do something special to open up port 3771 to outside traffic in Windows Azure before this tutorial will work. Not quite sure how to make this happen yet...</p>
-  </li>
-  <li>
-    <p>Install the latest version of <a href="http://dev.mysql.com/downloads/">MySQL</a> for Windows on the virtual machine. Some useful hints are:
+## Setting up a virtual machine to host MySQL
+1.  Follow the instructions given <a style="color:red;" href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433121.aspx">here</a> to create and configure a Windows Server 2008 R2 VM through the Preview Portal.
+
+2.  <div style="color:red;">#TODO: "Open up TCP port for MySQL"<br>Status: to be written by dfugate; I'm sure we need to do something special to open up port 3771 to outside traffic in Windows Azure before this tutorial will work. Not quite sure how to make this happen yet...</div><br>
+
+3.  Install the latest version of <a href="http://dev.mysql.com/downloads/">MySQL</a> for Windows on the virtual machine. Some useful hints are:
     <ul>
       <li>Do a <i>Full</i> installation.</li>
       <li>Set the MySQL configuration as <i>Dedicated</i>.</li>
       <li>Enable TCP/IP Networking on port <i>3306</i> (the default).</li>
-    </ul></p>
-  </li>
-  <li>
-  <p>After MySQL has finished installing, click the Windows <i>Start</i> menu and run the freshly installed <i>MySQL 5.5 Command Line Client</i>.  Next, enter the following commands:<pre class="prettyprint">
+    </ul><br/>
+
+4. After MySQL has finished installing, click the Windows <i>Start</i> menu and run the freshly installed <i>MySQL 5.5 Command Line Client</i>.  Next, enter the following commands:<pre class="prettyprint">
 	CREATE USER 'testazureuser'@'%' IDENTIFIED BY 'testazure';
 	CREATE DATABASE djangoazure;
 	GRANT ALL ON djangoazure.* TO 'testazureuser'@'%';
@@ -70,13 +63,11 @@
 	
 	USE world;
 	SELECT name from country LIMIT 1;
-</pre>
-<p>You should now see this response:</p>
-      <img src="../../../DevCenter/Python/Media/mysql_tutorial01-2.png" alt="MySQL 5.5 Command Line Client output" />
-  </p>
-  </li>
-  <li>
-  <p>Give MySQL access through the Windows Firewall
+</pre><br/>
+You should now see this response:<br>
+![][2]
+
+5.  <p>Give MySQL access through the Windows Firewall
 	<ol>
 		<li>Click the Windows <i>Start</i> button and then the <i>Control Panel</i>.</li>
         <li>Click <i>Check Firewall Status</i>.</li>
@@ -84,14 +75,11 @@
         <li>Scroll down to <i>MySQL55</i> in the <i>Allowed programs and features</i> list and ensure that <b>both</b> <i>Home/Work (Private)</i> and <i>Public</i> are checked.</li>
 
 	</ol>
-<p>You should end up with this:</p>
-      <img src="../../../DevCenter/Python/Media/mysql_tutorial01-3.png" alt="FireWall Client with MySQL" />
+<br/>You should end up with this:
   </p>
-  </li>
-  
-</ol>
+![][3]
 
-  <h2>Extend the Django Hello World application</h2>
+## Extend the Django Hello World application
   <ol>
     <li>
       <p>Follow the instructions given in the <a href="TODO">Django Hello World</a> tutorial to create a trivial "Hello World" web application in Django.</p>
@@ -215,15 +203,15 @@ pushd C:\django\helloworld
 %SystemDrive%\Python27\python.exe manage.py runserver
 "%ProgramFiles%\Internet Explorer\iexplore.exe" http://localhost:<b style="color:orange;">8000</b>/hello
 </pre>
-<p>Note, that you might need to change port <b style="color:orange;">8000</b> to another port depending upon how Django configured your application locally.</p><p>You should see output similar to the following in your web browser:</p>
-  <img src="../../../DevCenter/Python/Media/mysql_tutorial01.png" alt="Local Django app" /></p>
+<p>Note, that you might need to change port <b style="color:orange;">8000</b> to another port depending upon how Django configured your application locally.</p>You should see output similar to the following in your web browser:<br>
+![][4] 
 <p>Refresh the web browser a few times and you should see the message change from "<i>Hello Aruba</i>" to "<i>Hello <em>&lt;some other country&gt;</em></i>".
   
   <h2>Running Your Application Locally in the Emulator</h2> 
 
   <p>Start the Windows Azure emulator and open the Django webpage exactly as you did in the <a href="TODO" style="color:red;">Django Hello World</a> tutorial</p>
   <p>The output should be essentially the same to what you saw with the locally hosted version:</p>
-  <img src="../../../DevCenter/Python/Media/mysql_tutorial01.png" alt="Emulated Django app" />
+![][5]
 
   <h2>Deploying the application to Windows Azure</h2>
   <p>From here, all you need to do is duplicate the steps performed in the <a href="TODO" style="color:red;">Django Hello World</a> tutorial to publish the MySQL derivation to Windows Azure.</p>
@@ -254,3 +242,11 @@ The following steps describe how to stop and delete your application.
 3.  When prompted, enter **Y** to delete the service.
 
     After the service has been deleted you will receive a message indicating that the service has been deleted.
+
+[0]: ../Media/mysql_tutorial01.png
+[1]: ../Media/mysql_tutorial01-1.png
+[2]: ../Media/mysql_tutorial01-2.png
+[3]: ../Media/mysql_tutorial01-3.png
+[4]: ../Media/mysql_tutorial01.png
+[5]: ../Media/mysql_tutorial01.png
+ 
