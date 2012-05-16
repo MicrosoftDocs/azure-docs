@@ -3,22 +3,22 @@
 # How to Use Powershell for Windows Azure
 
 This guide describes how to use Windows PowerShell cmdlets to create,
-test, deploy, and manage Node.js services in Windows Azure. The
+test, deploy, and manage Windows Azure Services. The
 scenarios covered include **importing your publishing settings**,
-**creating Windows Azure services to host Node.js applications**,
+**creating Windows Azure services to host applications**,
 **running a service in the Windows Azure compute emulator**, **deploying
-and updating hosted services**, **setting deployment options for a
+and updating a hosted service**, **setting deployment options for a
 service**, and **stopping, starting, and removing a service**.
 
-**Note** For a detailed description of each Node.js cmdlet, see the
-[Windows Azure PowerShell for Node.js Cmdlet Reference][].
+**Note** For a detailed description of each cmdlet, see the
+[Windows Azure PowerShell for Node.js Cmdlet Reference][]. (**TODO: Is this still relevant?**)
 
 ## Table of Contents
 
-[What is Windows Azure PowerShell for Node.js][]   
- [Get Started Using Windows Azure PowerShell for Node.js][]   
- [How to: Import Publishing Settings][]   
- [How to: Create a Windows Azure Service][]   
+[What is PowerShell for Windows Azure](#WhatIs)   
+ [Get Started Using PowerShell for Windows Azure](#GetStarted)  
+ [How to: Import Publishing Settings](#ImportPubSettings)   
+ [How to: Create a Windows Azure Service](#CreateService)  
  [How to: Test a Service Locally in the Windows Azure Emulators][]   
  [How to: Set Default Deployment Options for a Service][]   
  [How to: Use a Storage Account with More than One Service][]   
@@ -27,17 +27,17 @@ service**, and **stopping, starting, and removing a service**.
  [How to: Scale Out a Service][]   
  [How to: Stop, Start, and Remove a Service][]
 
-## <a id="_What_Is_Windows" name="_What_Is_Windows"> </a>What Is Windows Azure PowerShell for Node.js
+<h2 id="WhatIs">What Is PowerShell for Windows Azure</h2>
 
-Windows Azure PowerShell for Node.js provides a command-line environment
-for developing and deploying Node applications for Windows Azure through
+PowerShell for Windows Azure provides a command-line environment
+for developing and deploying applications for Windows Azure through
 a few Windows PowerShell cmdlets.
 
 The following tasks are supported:
 
 -   Import publishing settings to enable you to deploy services in
     Windows Azure.
--   Generate configuration files and a sample application for a Node
+-   Generate configuration files and a sample application for a
     hosted service. Create a Windows Azure service that contains web
     roles and worker roles.
 -   Test your service locally using the Windows Azure compute emulator.
@@ -47,10 +47,10 @@ The following tasks are supported:
 -   Enable and disable remote access to service role instances.
 -   Start, stop, and remove services.
 
-## <a id="_Get_Started_Using" name="_Get_Started_Using"> </a>Get Started Using Windows Azure PowerShell for Node.js
+<h2 id="GetStarted">Get Started Using Powershell for Windows Azure</h2>
 
-For requirements and installation instructions for Windows Azure
-PowerShell for Node.js, see the [Node.js Web Application][] tutorial.
+For requirements and installation instructions for 
+PowerShell for Windows Azure, see the [Node.js Web Application][] tutorial.
 
 ### Getting Started Using Windows PowerShell
 
@@ -140,14 +140,14 @@ can help you get started:
     </tbody>
     </table>
 
-### Getting Started Using Windows Azure PowerShell for Node.js
+### Getting Started Using PowerShell for Windows Azure
 
-The Node.js cmdlets have a few special requirements that are not common
+The PowerShell for Windows Azure cmdlets have a few special requirements that are not common
 to all Windows PowerShell components:
 
 -   To deploy your Node applications in Windows Azure, you must have a
-    Windows Azure subscription. Before you can deploy Node applications
-    by using a Node.js cmdlet, you must download your subscription
+    Windows Azure subscription. Before you can deploy applications
+    by using a cmdlet, you must download your subscription
     information (by using **Get-AzurePublishSettings**) and then import
     those settings (by using **Import-AzurePublishSettings**).
 
@@ -177,35 +177,35 @@ to all Windows PowerShell components:
     updates to the server.js and web.config files instantly.
 
 -   Although Windows Azure PowerShell cmdlets and parameters are not
-    case-sensitive, the following values that are entered for Node.js
+    case-sensitive, the following values that are entered for
     cmdlets are case-sensitive: service names, subscription names,
     storage account names, and deployment locations.
 
-### To open Windows Azure PowerShell for Node.js
+### To open PowerShell for Windows Azure
 
 -   On the **Start** menu, click **All Programs**, click **Windows Azure
     SDK for Node.js**, and then click **Windows PowerShell for
     Node.js**. Opening your Windows PowerShell environment this way
-    ensures that all of the Node command-line tools are available.
+    ensures that all of the Node command-line tools are available. (**TODO: How will cmdlets be delivered?**)
 
 ### Example Syntax Lines
 
 In the example syntax lines in this guide, all Node.js services are
-created from a C:\\node folder. A C:\\node folder is not required; you
+created from a C:\\app folder. A C:\\app folder is not required; you
 can create your Windows Azure services from any location. Most example
 syntax lines use a service named MyService, and cmdlets performed on the
 service are entered at the following command prompt:
 
-    C:\node\MyService> █
+    C:\app\MyService> █
 
-## <a id="_How_to_Import" name="_How_to_Import"> </a>How to: Import Publishing Settings
+<h2 id="ImportPubSettings">How to: Import Publishing Settings</h2>
 
-To deploy your Node applications in Windows Azure, you must have a
+To deploy your applications in Windows Azure, you must have a
 Windows Azure subscription. If you do not have a Windows Azure
 subscription, see [purchase options][] for Windows Azure for
 information.
 
-Before you can deploy Node applications by using a Node.js cmdlet, you
+Before you can deploy applications by using a PowerShell cmdlet, you
 must download your subscription information (by using
 [Get-AzurePublishSettings][]) and then import those settings (by using
 [Import-AzurePublishSettings][]).
@@ -253,10 +253,10 @@ about your subscriptions, you can get it from the [Windows Azure
 Platform Management Portal][] or the [Microsoft Online Services Customer
 Portal][].
 
-## <a id="_How_to_Create" name="_How_to_Create"> </a>How to: Create a Windows Azure Service
+<h2 id="CreateService">How to: Create a Windows Azure Service</h2>
 
 Use the [New-AzureService][] cmdlet to create the scaffolding for a
-hosted service for your Node.js application.
+hosted service for your application.
 
 The following example shows how to create a new hosted service named
 MyService.
