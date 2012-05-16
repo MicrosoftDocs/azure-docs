@@ -1,4 +1,4 @@
-<properties umbraconavihide="0" pagetitle="Web App with Storage" metakeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" metadescription="A tutorial that builds on the Web App with Express tutorial by adding Windows Azure Storage services and the Azure module." linkid="dev-nodejs-basic-web-app-with-storage" urldisplayname="Web App with Storage" headerexpose footerexpose disquscomments="1"></properties>
+﻿<properties umbraconavihide="0" pagetitle="Web App with Storage" metakeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" metadescription="A tutorial that builds on the Web App with Express tutorial by adding Windows Azure Storage services and the Azure module." linkid="dev-nodejs-basic-web-app-with-storage" urldisplayname="Web App with Storage" headerexpose footerexpose disquscomments="1"></properties>
 
 # Node.js Web Application using Storage
 
@@ -463,23 +463,15 @@ The following steps show you how to stop and delete your application.
   [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
   [The completed web page in internet explorer]: ../../../DevCenter/Node/Media/getting-started-1.png
   [The web.cloud.config file contents]: ../../../DevCenter/Node/Media/node37.png
-  [The server.js code with line 'var app = modules.exports =
-  express.createServer();' highlighted]: ../../../DevCenter/Node/Media/node38.png
-  [The server.js file with the lines containing //routes app.get('/',
-  routes.index); app.get('/home',function(req,res){ res.render('home', {
-  title: 'Home'});}); selected.]: ../../../DevCenter/Node/Media/node39.png
-  [Internet explorer displaying a 'My Tasklist' page with one item in a
-  table.]: ../../../DevCenter/Node/Media/node40.png
-  [The server.js file with the line containing app.get('/home',
-  home.showItems.bind(home)); highlighted.]: ../../../DevCenter/Node/Media/node41.png
+  [The server.js code with line 'var app = modules.exports = express.createServer();' highlighted]: ../../../DevCenter/Node/Media/node38.png
+  [The server.js file with the lines containing //routes app.get('/', routes.index); app.get('/home',function(req,res){ res.render('home', { title: 'Home'});}); selected.]: ../../../DevCenter/Node/Media/node39.png
+  [Internet explorer displaying a 'My Tasklist' page with one item in a table.]: ../../../DevCenter/Node/Media/node40.png
+  [The server.js file with the line containing app.get('/home', home.showItems.bind(home)); highlighted.]: ../../../DevCenter/Node/Media/node41.png
   [The home.js file with the line module.exports = Home highlighted.]: ../../../DevCenter/Node/Media/node42.png
   [The showresults: function is highlighted]: ../../../DevCenter/Node/Media/node43.png
-  [A web paged titled My Task List with a table containing tasks and
-  fields to add a new task.]: ../../../DevCenter/Node/Media/node44.png
-  [A web page titled My Task List with a table containing tasks, after
-  you have added a task to the list.]: ../../../DevCenter/Node/Media/node45.png
+  [A web paged titled My Task List with a table containing tasks and fields to add a new task.]: ../../../DevCenter/Node/Media/node44.png
+  [A web page titled My Task List with a table containing tasks, after you have added a task to the list.]: ../../../DevCenter/Node/Media/node45.png
   [the status messages displayed during deployment.]: ../../../DevCenter/Node/Media/node46.png
-  [A browser window displaying the My Task List page. The URL indicates
-  the page is now being hosted on Windows Azure.]: ../../../DevCenter/Node/Media/node47.png
+  [A browser window displaying the My Task List page. The URL indicates the page is now being hosted on Windows Azure.]: ../../../DevCenter/Node/Media/node47.png
   [Status messages indicating the service has stopped.]: ../../../DevCenter/Node/Media/node48.png
   [Status messages indicating the service has been deleted.]: ../../../DevCenter/Node/Media/node49.png
