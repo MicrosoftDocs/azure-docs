@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-mongodb" urldisplayname="Web App with MongoDB" headerexpose pagetitle="Node.js Web Application with Storage on MongoDB" metakeywords footerexpose metadescription umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-nodejs-mongodb" urldisplayname="Web App with MongoDB" headerexpose="" pagetitle="Node.js Web Application with Storage on MongoDB" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # Node.js Web Application with Storage on MongoDB
 

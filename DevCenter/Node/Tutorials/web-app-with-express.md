@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-basic-web-app-with-express" urldisplayname="Web App With Express" headerexpose pagetitle="Web App With Express" metakeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" footerexpose metadescription="An tutorial that builds on the Web app tutorial, and demonstrates how to use the Express module" umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-nodejs-basic-web-app-with-express" urldisplayname="Web App With Express" headerexpose="" pagetitle="Web App With Express" metakeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" footerexpose="" metadescription="An tutorial that builds on the Web app tutorial, and demonstrates how to use the Express module" umbraconavihide="0" disquscomments="1"></properties>
 
 # Node.js Web Application using Express
 
@@ -34,10 +34,9 @@ modules.
 Perform the following steps to add the Express module to the application
 you created through the [Node.js Web Application][] tutorial.
 
-1.  If it is not already open, start the Windows Azure PowerShell for
-    Node.js from the **Start** menu by expanding **All Programs, Windows
+1.  If it is not already open, start the Windows Azure PowerShell from the **Start** menu by expanding **All Programs, Windows
     Azure SDK Node.js - November 2011**, right-click **Windows Azure
-    PowerShell for Node.js**, and then select **Run As Administrator**.
+    PowerShell**, and then select **Run As Administrator**.
 
 2.  Change directories to the folder containing your application. For
     example, C:\\node\\tasklist\\WebRole1.
@@ -56,8 +55,7 @@ you created through the [Node.js Web Application][] tutorial.
     below. You can see the list of modules installed as well as any
     dependencies.
 
-    ![Windows PowerShell displaying the output of the npm install
-    express command.][]
+    ![Windows PowerShell displaying the output of the npm install express command.][]
 
 ## Generating an Express Application
 
@@ -231,29 +229,21 @@ As before, because you specified the **–launch** option, the browser
 opens and displays your application running in Windows Azure when
 publishing is completed.
 
-![A web browser displaying the Express page. The URL indicates it is now
-hosted on Windows Azure.][A web browser displaying Welcome to Express in
-Windows Azure]
+![A web browser displaying the Express page. The URL indicates it is now hosted on Windows Azure.][A web browser displaying Welcome to Express in Windows Azure]
 
   [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
   [A web browser displaying Welcome to Express in Windows Azure]: ../../../DevCenter/Node/Media/node36.png
-  [Windows PowerShell displaying the output of the npm install express
-  command.]: ../../../DevCenter/Node/Media/getting-started-16storage.png
+  [Windows PowerShell displaying the output of the npm install express command.]: ../../../DevCenter/Node/Media/getting-started-16storage.png
   [expressjs.com]: http://expressjs.com/
   [The output of the .\\node\_modules\\.bin\\express command.]: ../../../DevCenter/Node/Media/node23.png
   [Directory listing of the WebRole1 folder.]: ../../../DevCenter/Node/Media/getting-started-17.png
   [The output of the npm install command]: ../../../DevCenter/Node/Media/node26.png
-  [The contents of server.js with the app.listen(3000); and console.log
-  lines selected.]: ../../../DevCenter/Node/Media/node27.png
+  [The contents of server.js with the app.listen(3000); and console.log lines selected.]: ../../../DevCenter/Node/Media/node27.png
   [A web page containing welcome to express.]: ../../../DevCenter/Node/Media/node28.png
   [The contents of the index.jade file.]: ../../../DevCenter/Node/Media/getting-started-19.png
   [http://jade-lang.com]: http://jade-lang.com
-  [The index.jade file, the last line reads: p Welcome to \#{title} in
-  Windows Azure]: ../../../DevCenter/Node/Media/node31.png
-  [A browser window, the page contains Welcome to Express in Windows
-  Azure]: ../../../DevCenter/Node/Media/node32.png
-  [The server.js file, with the app.get('/', routes.index); line
-  highlighted]: ../../../DevCenter/Node/Media/node33.png
-  [The web browser displaying the home page, which states A work in
-  progress]: ../../../DevCenter/Node/Media/node34.png
+  [The index.jade file, the last line reads: p Welcome to \#{title} in Windows Azure]: ../../../DevCenter/Node/Media/node31.png
+  [A browser window, the page contains Welcome to Express in Windows Azure]: ../../../DevCenter/Node/Media/node32.png
+  [The server.js file, with the app.get('/', routes.index); line highlighted]: ../../../DevCenter/Node/Media/node33.png
+  [The web browser displaying the home page, which states A work in progress]: ../../../DevCenter/Node/Media/node34.png
   [The output of the publish command]: ../../../DevCenter/Node/Media/node35.png
