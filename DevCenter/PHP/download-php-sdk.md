@@ -6,7 +6,7 @@ The Windows Azure SDK for PHP includes components that allow you to develop, dep
 
 * **The PHP Client Libraries for Windows Azure**. These class libraries provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services.  
 * **The Windows Azure Command-Line Tools for Mac and Linux**. This is a set of command-line tools for deploying and managing Windows Azure services, such as Windows Azure Websites and Windows Azure Virtual Machines. These tools work on any platform, including Mac, Linux, and Windows.
-* **Powershell for Windows Azure (Windows Only)**. This is a set of Powershell cmdlets for deploying and managing Windows Azure Services, such as Cloud Services and Virtual Machines.
+* **PowerShell for Windows Azure (Windows Only)**. This is a set of PowerShell cmdlets for deploying and managing Windows Azure Services, such as Cloud Services and Virtual Machines.
 * **The Windows Azure Emulators (Windows Only)**. The compute and storage emulators are local emulators of Cloud Services and Cloud Storage that allow you to test an application locally. The Windows Azure Emulators run on Windows only.
 
 The sections below describe how to download and install the components described above. 
@@ -44,15 +44,15 @@ To download and install the PHP Client Libraries for Windows Azure manually, fol
 
 2. Copy the `WindowsAzure` directory of the downloaded archive to your application directory structure and reference classes from your application. Alternatively, put the `src` directory in your `include_path` and reference classes from your application.
 
-##Powershell for Windows Azure and Windows Azure Emulators
+##PowerShell for Windows Azure and Windows Azure Emulators
 
-Powershell for Windows Azure is a set of Powershell cmdlets for deploying and managing Windows Azure Services (such as Cloud Services and Virtual Machines). The Windows Azure Emulators are emulators of Cloud Services and Cloud Storage that allow you to test an application locally. These components are supported Windows only.
+PowerShell for Windows Azure is a set of PowerShell cmdlets for deploying and managing Windows Azure Services (such as Cloud Services and Virtual Machines). The Windows Azure Emulators are emulators of Cloud Services and Cloud Storage that allow you to test an application locally. These components are supported Windows only.
 
-The recommended way to install Powershell for Windows Azure and the Windows Azure Emulators is to use the [Microsoft Web Platform Installer][download-wpi]. After downloading the Web Platform Installer, select **TODO: What to select?**.
+The recommended way to install PowerShell for Windows Azure and the Windows Azure Emulators is to use the [Microsoft Web Platform Installer][download-wpi]. After downloading the Web Platform Installer, select **TODO: What to select?**.
 
 Note that you can also choose to install other development components, such as PHP, SQL Server, the Microsoft Drivers for SQL Server for PHP, and WebMatrix.
 
-For information about how to use Powershell for Windows Azure, see [How to Use Powershell for Windows Azure][powershell-tools].
+For information about how to use PowerShell for Windows Azure, see [How to Use PowerShell for Windows Azure][powershell-tools].
 
 ##Windows Azure Command-Line Tools for Mac and Linux
 
