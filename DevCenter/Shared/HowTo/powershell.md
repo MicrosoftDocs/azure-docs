@@ -1,6 +1,6 @@
 <properties linkid="dev-how-to-powershell" urldisplayname="PowerShell Cmdlets" headerexpose pagetitle="How to Use PowerShell for Windows Azure" metakeywords="Azure PowerShell, Node.js, PHP, Python, Azure PowerShell cmdlets" footerexpose metadescription="Learn Windows PowerShell fundamentals and details about how to use PowerShell for Windows Azure." umbraconavihide="0" disquscomments="1"></properties>
 
-# How to Use Powershell for Windows Azure
+# How to Use PowerShell for Windows Azure
 
 This guide describes how to use Windows PowerShell cmdlets to create,
 test, deploy, and manage Windows Azure Services. The
@@ -47,7 +47,7 @@ The following tasks are supported:
 -   Enable and disable remote access to service role instances.
 -   Start, stop, and remove services.
 
-<h2 id="GetStarted">Get Started Using Powershell for Windows Azure</h2>
+<h2 id="GetStarted">Get Started Using PowerShell for Windows Azure</h2>
 
 For requirements and installation instructions for 
 PowerShell for Windows Azure, see the [Node.js Web Application][] tutorial.
