@@ -1,5 +1,6 @@
 <properties linkid="dev-nodejs-enablestaging" urldisplayname="Staging Deployment" headerexpose="" pagetitle="Enable Staging Deployment - Node.js - Develop" metakeywords="Azure Node.js staging, Azure Node.js application staging, Azure Node.js test environment, Azure Node.js staging environment, Azure Node.js Virtual IP swap, Azure Node.js VIP swap" footerexpose="" metadescription="Deploy your Windows Azure Node.js application to a staging environment with an obfuscated URL, then use Virtual IP (VIP) swap to move to production." umbraconavihide="0" disquscomments="1"></properties>
 
+
 # Staging an Application in Windows Azure
 
 A packaged application can be deployed to the staging environment in
@@ -13,30 +14,32 @@ environment by performing a Virtual IP (VIP) swap.
 
 This task includes the following steps:
 
--   [Step 1: Stage an Application][]
--   [Step 2: Deploy an Application to Production by Swapping VIPs][]
+-   [Step 1: Stage an Application]
+-   [Step 2: Deploy an Application to Production by Swapping VIPs]
 
 ## Step 1: Stage an Application
 
 This task covers how to stage an application by using the **Windows
-Azure PowerShell for Node.js**.
+Azure PowerShell**.
 
 1.  When publishing a service, simply pass the **-Slot** parameter to
-    the **Publish-AzureService** cmdlet.
+    the **Publish-AzureServiceProject** cmdlet.
 
-    **Publish-AzureService -Slot staging**
+    **Publish-AzureServiceProject -Slot staging**
 
-2.  Log on to the [Windows Azure Management Portal][]. After the hosted
-    service is created and the deployment's status has been updated to
-    **Ready**, click on the deployment and note the values in the
-    **Properties** pane to the right. The DNS name is an obfuscated
-    internal ID that Windows Azure generated. Also, the environment is
-    set to **Staging**.
+2.  Log on to the [Windows Azure Management Portal] and select **Cloud Services**. After the cloud service is created and the **Staging** column status has been updated to **Running**, click on the service name.
 
-    ![][]
+	![portal displaying a running service][cloud-service]
 
-Now you can verify that the application is working correctly in the
-staging environment.
+3.  Select the **Dashboard**, and then select **Staging**.
+
+	![cloud service dashboard][cloud-service-dashboard]
+
+4. Note the value in the **Site URL** entry to the right. The DNS name is an obfuscated internal ID that Windows Azure generated.
+
+    ![site url][cloud-service-staging-url]
+
+Now you can verify that the application is working correctly in the staging environment by using the staging site URL.
 
 For an upgrade scenario, in which the staged application is an upgraded
 version of one that has already been deployed to production, you can
@@ -54,15 +57,13 @@ environments.
 application to production and staged the upgraded version of the
 application.
 
-1.  Log into the [Management Portal][Windows Azure Management Portal],
-    click **Hosted Services, Storage Accounts, & CDN**, and click
-    **Hosted Services**.
+1.  Log into the [Windows Azure Management Portal],
+    click **Cloud Services** and then select the service name.
 
-2.  Expand the hosted service that contains the deployment that you want
-    to upgrade, and then click **Swap VIP**. This opens the Swap VIPs
+2.  From the **Dashboard**, select **Staging**, and then click **Swap** at the bottom of the page. This opens the VIP Swap
     dialog.
 
-    ![][1]
+    ![vip swap dialog][vip-swap-dialog]
 
 3.  Review the information, and then click **OK**. The two deployments
     begin updating as the staging deployment switches to production and
@@ -74,15 +75,17 @@ deployment by swapping VIPs with the deployment in staging.
 ## Additional Resources
 
 [How to Deploy a Service Upgrade to Production by Swapping VIPs in
-Windows Azure][]
+Windows Azure]
 
-[Overview of Managing Deployments in Windows Azure][]
+[Overview of Managing Deployments in Windows Azure]
 
   [Step 1: Stage an Application]: #step1
   [Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
-  [Windows Azure Management Portal]: http://windows.azure.com
-  []: ../../../DevCenter/Shared/Media/staging-03.png
-  [1]: ../../../DevCenter/Shared/Media/staging-05.png
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
+[cloud-service]: ../../Shared/Media/staging-cloud-service-running.png
+[cloud-service-dashboard]: ../../Shared/Media/cloud-service-dashboard-staging.png
+  [cloud-service-staging-url]: ../../Shared/Media/cloud-service-staging-url
+  [vip-swap-dialog]: ../../Shared/Media/vip-swap-dialog.png
   [How to Deploy a Service Upgrade to Production by Swapping VIPs in
   Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx
   [Overview of Managing Deployments in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx
