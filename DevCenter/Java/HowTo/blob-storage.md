@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-net-how-to-use-blog-storage-service-java" urldisplayname="Blob Storage" headerexpose="" pagetitle="How to Use the Blob Storage Service from Java" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-how-to-use-blog-storage-service-java" urldisplayname="Blob Storage" headerexpose="" pagetitle="How to Use the Blob Storage Service from Java" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Use the Blob Storage Service from Java
 
@@ -50,7 +50,7 @@ The Blob service contains the following components:
 -   **URL format:** Blobs are addressable using the following URL
     format:   
      http://<*storage
-    account*\>.blob.core.windows.net/<*container*\>/<blob\>  
+    account*\>.blob.core.windows.net/<*container*>/<*blob*>  
     The following URL addresses one of the blobs in the diagram:  
     http://sally.blob.core.windows.net/movies/MOV1.AVI
 -   **Storage Account:**All access to Windows Azure Storage is done

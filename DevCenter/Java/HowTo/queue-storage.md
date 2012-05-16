@@ -1,4 +1,5 @@
-<properties linkid="dev-net-how-to-use-queue-storage-service-java" urldisplayname="Queue Service" headerexpose pagetitle="How to Use the Queue Storage Service from Java" metakeywords footerexpose metadescription umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-how-to-use-queue-storage-service-java" urldisplayname="Queue Service" headerexpose="" pagetitle="How to Use the Queue Storage Service from Java" metakeywords="Azure Queue Java" footerexpose="" metadescription="This guide will show you how to perform common scenarios using the
+Windows Azure Queue storage service with the Java programming language." umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Use the Queue Storage Service from Java
 
@@ -25,7 +26,7 @@ storage include:
 ## Table of Contents
 
 -   [Concepts][]
--   [Create a Windows Azure Storage Accoun][]t
+-   [Create a Windows Azure Storage Account][]
 -   [Create a Java Application][]
 -   [Configure Your Application to Access Queue Storage][]
 -   [Setup a Windows Azure Storage Connection String][]
@@ -357,7 +358,7 @@ to learn how to do more complex storage tasks.
   [Windows Azure SDK for Java]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=VS.103).aspx
   [Next Steps]: #bkmk_NextSteps
   [Concepts]: #bkmk_Concepts
-  [Create a Windows Azure Storage Accoun]: #bkmk_CreateWinAzure
+  [Create a Windows Azure Storage Account]: #bkmk_CreateWinAzure
   [Create a Java Application]: #bkmk_CreateJavaApp
   [Configure Your Application to Access Queue Storage]: #bkmk_ConfigApp
   [Setup a Windows Azure Storage Connection String]: #bkmk_SetupWinAzure

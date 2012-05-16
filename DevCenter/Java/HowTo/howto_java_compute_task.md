@@ -57,7 +57,7 @@ For purposes of this tutorial, a JDK will be installed from Oracle's site.
 5. Click the download executable for **Windows x64 (64-bit)**.
 6. Follow the prompts and respond as needed to install the JDK to your virtual machine. 
 
-Note that the Service Bus functionality requires the GTE CyberTrust Global Root certificate to be installed as part of your JRE's **cacerts** store. This certificate is automatically included in the JRE used by this tutorial. If you do not have this certificate in your JRE **cacerts** store, it can be installed by copying the certificate contents from <https://secure.omniroot.com/cacert/ct_root.der>, saving the contents to a **.cer** file, and adding it to the **cacerts** store via **keytool**. For more detailed instructions on adding a certificate to the **cacerts** store, see [Adding a Certificate to the Java CA Certificate Store][add_ca_cert].</p> 
+Note that the Service Bus functionality requires the GTE CyberTrust Global Root certificate to be installed as part of your JRE's **cacerts** store. This certificate is automatically included in the JRE used by this tutorial. If you do not have this certificate in your JRE **cacerts** store, it can be installed by copying the certificate contents from <https://secure.omniroot.com/cacert/ct_root.der>, saving the contents to a **.cer** file, and adding it to the **cacerts** store via **keytool**. For more detailed instructions on adding a certificate to the **cacerts** store, see [Adding a Certificate to the Java CA Certificate Store][add_ca_cert].
 
 ## How to create a service bus namespace
 
