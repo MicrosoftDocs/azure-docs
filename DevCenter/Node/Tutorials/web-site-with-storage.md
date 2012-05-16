@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-nodejs-website-storage" urldisplayname="Node.js Website with Storage" headerexpose="" pagetitle="Node.js Application using the Windows Azure Table Service" metakeywords="Azure Node.js tutorial table, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates deploying a Node.js application using the Windows Azure Table Service" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-website-storage" urldisplayname="Node.js Website with Storage" headerexpose="" pagetitle="Node.js Application using the Windows Azure Table Service" metakeywords="Azure Node.js tutorial table, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates deploying a Node.js application using the Windows Azure Table Service" umbraconavihide="0" disquscomments="1"></properties>
 # Node.js Web Application using the Windows Azure Table Service
 
 This tutorial shows you how to use Table service provided by Windows Azure Data Management to store and access data from a [node] application hosted on Windows Azure. This tutorial assumes that you have some prior experience using node and [Git].
@@ -75,9 +75,15 @@ In this section you will create a new Node application and use npm to add module
 
 		npm install express -g
 
+    **Note**: When using the '-g' parameter on some operating systems, you may receive an error of **Error: EPERM, chmod '/usr/local/bin/express'** and a request to try running the account as an administrator. If this occurs, use the [sudo] command to run npm at a higher privilege level.
+
     The output of this command should appear similar to the following:
 
-    ![npm install results][node-table-npm-results]
+		express@2.5.9 /usr/local/lib/node_modules/express
+		├── mime@1.2.4
+		├── mkdirp@0.3.0
+		├── qs@0.4.2
+		└── connect@1.8.7
 
 	**Note**: The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the **express** command to generate website scaffolding without having to type in additional path information.
 
@@ -85,9 +91,24 @@ In this section you will create a new Node application and use npm to add module
 
         express
 
-	When prompted to overwrite the destination, enter **y** or **yes**. The output of this command should appear similar to the following:
+The output of this command should appear similar to the following:
 
-    ![Express command output][node-table-express-results]
+		create : .
+   		create : ./package.json
+   		create : ./app.js
+   		create : ./public
+   		create : ./public/javascripts
+   		create : ./public/images
+   		create : ./public/stylesheets
+   		create : ./public/stylesheets/style.css
+   		create : ./routes
+   		create : ./routes/index.js
+   		create : ./views
+   		create : ./views/layout.jade
+   		create : ./views/index.jade
+		
+   		dont forget to install dependencies:
+   		$ cd . && npm install
 
 	After this command completes, you should have several new directories and files in the **tasklist** directory.
 
@@ -134,7 +155,27 @@ To add a requirement for additional modules used in this tutorial, perform the f
 
     The output of this command should appear as follows:
 
-    ![npm installing express modules output][node-tableservice-express-npm-results]
+		async@0.1.18 ./node_modules/async
+		node-uuid@1.3.3 ./node_modules/node-uuid
+		jade@0.26.0 ./node_modules/jade
+		├── commander@0.5.2
+		└── mkdirp@0.3.0
+		express@2.5.8 ./node_modules/express
+		├── qs@0.4.2
+		├── mime@1.2.4
+		├── mkdirp@0.3.0
+		└── connect@1.8.7
+		azure@0.5.3 ./node_modules/azure
+		├── dateformat@1.0.2-1.2.3
+		├── xmlbuilder@0.3.1
+		├── log@1.3.0
+		├── node-uuid@1.2.0
+		├── xml2js@0.1.14
+		├── mime@1.2.5
+		├── underscore@1.3.3
+		├── qs@0.5.0
+		├── underscore.string@2.2.0rc
+		└── sax@0.4.0
 
 ##Using the Table service in a node application
 
@@ -370,8 +411,6 @@ To test the application on your local machine, perform the following steps:
 
 4. Use the provided fields for **Item Name** and **Item Category** to enter information, and then click **Add item**.
 
-    ![An image of the add item field with populated values.][node-table-add-item]
-
 5. The page should update to display the item in the ToDo List table.
 
     ![An image of the new item in the list of tasks][node-table-list-items]
@@ -384,11 +423,11 @@ To test the application on your local machine, perform the following steps:
 
 In this section, you will install and use the Windows Azure command-line tools to create a new Windows Azure Website, and then use Git to deploy your application. To perform these steps you must have a Windows Azure subscription. If you do not already have a subscription, you can sign up for one [for free].
 
-###Install the Cross-Platform Tools for Windows Azure
+###Install the Windows Azure command-line tool for Mac and Linux
 
-**TBD**: Revisit once we have a clearer idea of the install story.
+To install the command-line tools, go to the [Windows Azure Developer Center] and select the download package for your operating system. For more information, see [Windows Azure command-line tool for Mac and Linux].
 
-To install the cross-platform tools, go to the [Windows Azure Developer Center] and select the download package for your operating system. If a package is not available for your system, you can clone the project from the [azure-sdk-for-node] repository, and then install the tools by using `npm install /path/to/azure-sdk-for-node -g`. For more information, see [Cross-Platform Tools for Windows Azure].
+**Note**: While the command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.
 
 ###Import publishing settings
 
@@ -432,7 +471,18 @@ Before using the command-line tools with Windows Azure, you must first download 
 	
 	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Website created at** contains the URL for the website.
 	
-	![output of the site create command][cmd-line-site-create-git]
+		info:   Executing command site create
+		help:   Need a site name
+		Name: TableTasklist
+		info:   Using location southcentraluswebspace
+		info:   Executing `git init`
+		info:   Creating default .gitignore file
+		info:   Creating a new web site
+		info:   Created website at  tabletasklist.azurewebsites.net
+		info:   Initializing repository
+		info:   Repository initialized
+		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
+		info:   site create command OK
 
 	**Note**: If this is the first Windows Azure Web Site for your subscription, you will be instructed to use the portal to create the website. For more information, see [Create and deploy a Node.js application to Windows Azure Web Sites].
 
@@ -444,18 +494,15 @@ Before using the command-line tools with Windows Azure, you must first download 
 
 		git add .
 		git commit -m "adding files"
-		
-	The output of these commands will be similar to the following:
-	
-	![output of git add. and git commit commands][git-add-commit]
 
 3. When pushing the latest Git repository changes to the Windows Azure Website, you must specify that the target branch is **master** as this is used for the website content.
 
 		git push azure master
 	
-	The output of this command will be similar to the following:
+	At the end of the deployment, you should see a statement similar to the following:
 	
-	![output of git push azure master][git-push-azure-master]
+		To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
+ 		 * [new branch]      master -> master
 
 4. Once the push operation has completed, browse to the website URL returned previously by the `azure create site` command to view your application.
 
@@ -486,13 +533,6 @@ While the steps in this article describe using the Table Service to store inform
 [async]: https://github.com/caolan/async
 [Windows Azure Portal]: http://windowsazure.com
 
-[node-table-finished]: ../media/todo_list_empty.png
-[node-table-npm-results]: ../media/npm_install_express_mongoose.png
-[node-table-express-results]: ../media/express_output.png
-[node-table-express-npm-results]: ../media/npm_install_after_express.png
-[node-table-add-items]: ../media/todo_add_item.png
-[node-table-list-items]: ../media/todo_list_items.png
-[download-publishing-settings]: /media/downloadpublish.png
-[cmd-line-site-create-git]: /media/cmd-line-site-create-git.png
-[git-add-commit]: /media/git-add-commit.png
-[git-push-azure-master]: /media/git-push-azure-master.png
+[node-table-finished]: ../media/table_todo_empty.png
+[node-table-list-items]: ../media/table_todo_items.png
+[download-publishing-settings]: ../../Shared/Media/downloadpublish.jpg
