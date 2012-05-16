@@ -1,9 +1,9 @@
-<properties linkid="dev-nodejs-how-to-service-bus-queues" urldisplayname="Queue Service" headerexpose="" pagetitle="Queue Service - How To - Node.js - Develop" metakeywords="Azure asynchronous processing Node.js, Azure queue Node.js, Azure queue storage Node.js" footerexpose="" metadescription="Learn how to use the Windows Azure queue storage service to create and delete queues and insert, peek, get, and delete queue messages from your Node.js application." umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-nodejs-how-to-service-bus-queues" urldisplayname="Queue Service" headerexpose="" pagetitle="Queue Service - How To - Node.js - Develop" metakeywords="Azure asynchronous processing Node.js, Azure queue Node.js, Azure queue storage Node.js" footerexpose="" metadescription="Learn how to use the Windows Azure queue service to create and delete queues and insert, peek, get, and delete queue messages from your Node.js application." umbraconavihide="0" disquscomments="1"></properties>
 
-# How to Use the Queue Storage Service from Node.js
+# How to Use the Queue Service from Node.js
 
 This guide shows you how to perform common scenarios using the Windows
-Azure Queue storage service. The samples are written using the Node.js
+Azure Queue service. The samples are written using the Node.js
 API. The scenarios covered include **inserting**, **peeking**,
 **getting**, and **deleting**queue messages, as well as **creating and
 deleting queues**. For more information on queues, refer to the [Next
@@ -114,12 +114,12 @@ communicate with the storage REST services.
     result in the following output:
 
         azure@0.5.0 ./node_modules/azure
-        ├── xmlbuilder@0.3.1
-        ├── mime@1.2.4
-        ├── xml2js@0.1.12
-        ├── qs@0.4.0
-        ├── log@1.2.0
-        └── sax@0.3.4
+        +-- xmlbuilder@0.3.1
+        +-- mime@1.2.4
+        +-- xml2js@0.1.12
+        +-- qs@0.4.0
+        +-- log@1.2.0
+        +-- sax@0.3.4
 
 3.  You can manually run the **ls** command to verify that a
     **node\_modules** folder was created. Inside that folder you will
@@ -580,8 +580,8 @@ to learn how to do more complex storage tasks.
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
   [Windows Azure Management Portal]: http://windows.azure.com
 
-  [plus-new]: ../../../DevCenter/Shared/Media/plus-new.png
-  [quick-create-storage]: ../../../DevCenter/Shared/Media/quick-storage.png
+  [plus-new]: ../../Shared/Media/plus-new.png
+  [quick-create-storage]: ../../Shared/Media/quick-storage.png
   [Blob2]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage2.png
   [Blob3]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage3.png
   [Blob4]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage4.png
