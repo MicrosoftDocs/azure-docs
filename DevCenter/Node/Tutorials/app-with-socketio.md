@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-worker-app-with-socketio" urldisplayname="App Using Socket.IO" headerexpose pagetitle="Node.js Application using Socket.io" metakeywords="Azure Node.js socket.io tutorial, Azure Node.js socket.io, Azure Node.js tutorial" footerexpose metadescription="A tutorial that demonstrates using socket.io in a node.js application hosted on Windows Azure" umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-nodejs-worker-app-with-socketio" urldisplayname="App Using Socket.IO" headerexpose="" pagetitle="Node.js Application using Socket.io" metakeywords="Azure Node.js socket.io tutorial, Azure Node.js socket.io, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates using socket.io in a node.js application hosted on Windows Azure" umbraconavihide="0" disquscomments="1"></properties>
 
 # Node.js Application using Socket.io
 
@@ -84,9 +84,8 @@ example in a Worker role.
 
 ### Create a Project
 
-1.  On the **Start** menu, click \_*All Programs, Windows Azure SDK
-    Node.js - November 2011*, right-click **Windows Azure PowerShell for
-    Node.js**, and then select **Run As Administrator**. Opening your
+1.  On the **Start** menu, click **All Programs, Windows Azure SDK
+    Node.js - November 2011**, right-click **Windows Azure PowerShell**, and then select **Run As Administrator**. Opening your
     Windows PowerShell environment this way ensures that all of the Node
     command-line tools are available. Running with elevated privileges
     avoids extra prompts when working with the Windows Azure Emulator.
@@ -133,15 +132,12 @@ and add it to the project you previously created.
     folder. Copy the contents of this folder to the
     C:\\node\\chatapp\\WorkerRole1 folder created earlier.
 
-    ![Explorer, displaying the contents of the examples\\chat folder
-    extracted from the archive][]
+    ![Explorer, displaying the contents of the examples\\chat folder extracted from the archive][]
 
     After the copy operation completes, the contents of the WorkerRole1
     folder should appear as follows:
 
-    ![Explorer, displaying the contents of the WorkerRole1 folder;
-    app.js, index.jade, node.exe, package.json, server.js,
-    setup\_worker.cmd and a public folder][]
+    ![Explorer, displaying the contents of the WorkerRole1 folder; app.js, index.jade, node.exe, package.json, server.js, setup\_worker.cmd and a public folder][]
 
 4.  In the C:\\node\\chatapp\\WorkerRole1 folder, delete the server.js
     file, and then rename the app.js file to server.js. This removes the
@@ -272,21 +268,14 @@ realtime communication between between your Node.js server and clients.
   [Windows Azure Considerations]: #windowsazureconsiderations
   [Hosting the Chat Example in a Worker Role]: #hostingthechatexampleinawebrole
   [Summary and Next Steps]: #summary
-  [The Windows start menu, expanded, selected on the Windows Azure
-  PowerShell for Node.js item]: ../../../DevCenter/Node/Media/node7.png
+  [The Windows start menu, expanded, selected on the Windows Azure PowerShell for Node.js item]: ../../../DevCenter/Node/Media/node7.png
   [A console prompt displaying mkdir c:\\node and then cd \\node]: ../../../DevCenter/Node/Media/getting-started-6.png
-  [The output of the new-azureservice and add-azurenodeworkerrole
-  cmdlets]: /media/nodejs/dev-nodejs-socketio-1.png
+  [The output of the new-azureservice and add-azurenodeworkerrole cmdlets]: /media/nodejs/dev-nodejs-socketio-1.png
   [chat example]: https://github.com/LearnBoost/socket.io/tree/master/examples/chat
-  [A browser window viewing
-  https://github.com/LearnBoost/socket.io/tree/master/examples/chat,
-  with the ZIP download icon highlighted]: ../../../DevCenter/Node/Media/socketio-2.PNG
+  [A browser window viewing https://github.com/LearnBoost/socket.io/tree/master/examples/chat, with the ZIP download icon highlighted]: ../../../DevCenter/Node/Media/socketio-2.PNG
   [The Extract Compressed (Zipped) Folders dialog]: ../../../DevCenter/Node/Media/socketio-3.PNG
-  [Explorer, displaying the contents of the examples\\chat folder
-  extracted from the archive]: ../../../DevCenter/Node/Media/socketio-4.PNG
-  [Explorer, displaying the contents of the WorkerRole1 folder; app.js,
-  index.jade, node.exe, package.json, server.js, setup\_worker.cmd and a
-  public folder]: /media/nodejs/dev-nodejs-socketio-5.png
+  [Explorer, displaying the contents of the examples\\chat folder extracted from the archive]: ../../../DevCenter/Node/Media/socketio-4.PNG
+  [Explorer, displaying the contents of the WorkerRole1 folder; app.js, index.jade, node.exe, package.json, server.js, setup\_worker.cmd and a public folder]: /media/nodejs/dev-nodejs-socketio-5.png
   [The output of the npm install command]: /media/nodejs/dev-nodejs-socketio-7.png
   [Two browser windows displaying chat messages from User1 and User2]: /media/nodejs/dev-nodejs-socketio-8.png
   [The output of the Publish-AzureService command]: /media/nodejs/dev-nodejs-socketio-9.png

@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-how-to-powershell" urldisplayname="PowerShell Cmdlets" headerexpose pagetitle="How to Use the Windows Azure PowerShell for Node.js" metakeywords="Azure PowerShell Node.js, Azure PowerShell Node.js cmdlet" footerexpose metadescription="Learn Windows PowerShell fundamentals and details about how to use the Windows Azure PowerShell for Node.js cmdlets." umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-nodejs-how-to-powershell" urldisplayname="PowerShell Cmdlets" headerexpose="" pagetitle="How to Use the Windows Azure PowerShell for Node.js" metakeywords="Azure PowerShell Node.js, Azure PowerShell Node.js cmdlet" footerexpose="" metadescription="Learn Windows PowerShell fundamentals and details about how to use the Windows Azure PowerShell for Node.js cmdlets." umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Use Windows Azure PowerShell for Node.js
 
@@ -196,7 +196,7 @@ can create your Windows Azure services from any location. Most example
 syntax lines use a service named MyService, and cmdlets performed on the
 service are entered at the following command prompt:
 
-    C:\node\MyService> █
+    C:\node\MyService> ¦
 
 ## <a id="_How_to_Import" name="_How_to_Import"> </a>How to: Import Publishing Settings
 
@@ -792,8 +792,7 @@ The following example removes the MyService service.
   [Get-AzurePublishSettings]: http://msdn.microsoft.com/en-us/library/windowsazure/hh757270(vs.103).aspx
   [Import-AzurePublishSettings]: http://msdn.microsoft.com/en-us/library/windowsazure/hh757264(vs.103).aspx
   [Microsoft Online Services Customer Portal]: https://mocp.microsoftonline.com/site/default.aspx
-  [How to Add and Remove Co-Administrators for Your Windows Azure
-  Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/gg456328.aspx
+  [How to Add and Remove Co-Administrators for Your Windows Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/gg456328.aspx
   [Windows Azure Platform Management Portal]: http://windows.azure.com/
   [New-AzureService]: http://msdn.microsoft.com/en-us/library/windowsazure/hh757269(vs.103).aspx
   [Add-AzureNodeWebRole]: http://msdn.microsoft.com/en-us/library/windowsazure/hh757267(vs.103).aspx

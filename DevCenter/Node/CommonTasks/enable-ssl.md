@@ -21,10 +21,9 @@ When a Node.js service is deployed to a Windows Azure web role, the
 server certificate and SSL connection are managed by Internet
 Information Services (IIS), so that the Node.js service can be written
 as if it were an http service. You can create a simple Node.js 'hello
-world' service using the Windows Azure PowerShell for Node.js using
-these steps:
+world' service using the Windows Azure PowerShell using these steps:
 
-1.  From the **Start** menu, select [**Windows Azure PowerShell for Node.js**].
+1.  From the **Start** menu, select [**Windows Azure PowerShell**].
 
     ![][0]
 
@@ -145,7 +144,7 @@ configuration files need to be updated.
         </Role>
 
 4.  To refresh your service configuration in the cloud, you must publish
-    your service again. At the Windows Azure PowerShell for Node.js
+    your service again. At the Windows Azure PowerShell
     prompt, type **Publish-AzureService** from the service directory.
 
     ![][6]
@@ -180,10 +179,10 @@ connect to it using HTTPS.
   [Step 3: Upload the SSL Certificate to the cloud]: #step3
   [Step 4: Modify the Service Definition and Configuration Files]: #step4
   [Step 5: Connect to the Role Instance by Using HTTPS]: #step5
-  [**Windows Azure PowerShell for Node.js**]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
- [add-certificate-dialog]: ../Media/add-certificate.png
-  [add-certificate]: ../Media/no-certificates.png
-  [cloud-services]: ../Media/cloud-services.png
+  [**Windows Azure PowerShell**]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
+  [add-certificate-dialog]: ../../Shared/Media/add-certificate.png
+  [add-certificate]: ../../Shared/Media/no-certificates.png
+  [cloud-services]: ../../Shared/Media/cloud-services.png
   [0]: ../../../DevCenter/Node/Media/enable-ssl-00.png
   [1]: ../../../DevCenter/Node/Media/enable-ssl-01.png
   [2]: ../../../DevCenter/Node/Media/enable-ssl-02.png

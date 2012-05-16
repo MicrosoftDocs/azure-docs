@@ -1,4 +1,4 @@
-<properties umbraconavihide="0" pagetitle="Node.js Deploying with Cloud9" metakeywords metadescription linkid="dev-nodejs-cloud9" urldisplayname="Deploying with Cloud9" headerexpose footerexpose disquscomments="1"></properties>
+<properties umbraconavihide="0" pagetitle="Node.js Deploying with Cloud9" metakeywords="" metadescription="" linkid="dev-nodejs-cloud9" urldisplayname="Deploying with Cloud9" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
 # Deploying a Windows Azure App from Cloud9
 
@@ -61,8 +61,8 @@ IDE].
 
     ![create new file in the Cloud9 project][]
 
-5.  A new tab titled **\*Untitled1** will be displayed. Enter the
-    following code on the **\*Untitled1** tab to create the Node
+5.  A new tab titled **Untitled1** will be displayed. Enter the
+    following code on the **Untitled1** tab to create the Node
     application:
 
         var http = require('http');
@@ -119,7 +119,6 @@ selecting **Free Trial** in the upper right corner.
 
 ## Create a Deployment
 
-<ol>
 1.  To create a new deployment, select **Deploy**, and then click **+**
     to create a deploy server.
 
@@ -175,7 +174,6 @@ selecting **Free Trial** in the upper right corner.
     **Note:** Selecting **Enable RDP** and providing a username and
     password will enable remote desktop for your deployment.
 
-</ol>
 
 ## Deploy to the Windows Azure Production Environment
 

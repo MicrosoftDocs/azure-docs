@@ -1,4 +1,4 @@
-<properties umbraconavihide="0" pagetitle="Service Bus Topics - How To - Node.js - Develop" metakeywords="Service Bus topics Node.js, getting started service bus topics node.js, getting started service bus subscriptions node.j" metadescription linkid="dev-nodejs-how-to-service-bus-topics" urldisplayname="Service Bus Topics" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties umbraconavihide="0" pagetitle="Service Bus Topics - How To - Node.js - Develop" metakeywords="Service Bus topics Node.js, getting started service bus topics node.js, getting started service bus subscriptions node.j" metadescription="" linkid="dev-nodejs-how-to-service-bus-topics" urldisplayname="Service Bus Topics" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
 # How to Use Service Bus Topics/Subscriptions
 

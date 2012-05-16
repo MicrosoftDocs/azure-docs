@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-getting-started" urldisplayname="Node.js Web Application" headerexpose pagetitle="Node.js Getting Started Guide" metakeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" footerexpose metadescription="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Windows Azure." umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-nodejs-getting-started" urldisplayname="Node.js Web Application" headerexpose="" pagetitle="Node.js Getting Started Guide" metakeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Windows Azure." umbraconavihide="0" disquscomments="1"></properties>
 
 # Node.js Web Application
 
@@ -353,12 +353,9 @@ Windows Azure Subscription][].
   [A browser window displaying Hello World]: ../../../DevCenter/Node/Media/node21.png
   [Get Tools and SDK]: http://go.microsoft.com/?linkid=9790229
   [Internet Explorer promoting to run a downloaded file]: ../../../DevCenter/Node/Media/getting-started-3.png
-  [Web Platform Installer screen for the Windows Azure SDK for Node.js.
-  The install button is highlighted.]: ../../../DevCenter/Node/Media/getting-started-4.png
-  [The Windows Start menu with the Windows Azure SDK Node.js entry
-  expanded]: ../../../DevCenter/Node/Media/node7.png
-  [A command prompt displaying the commands 'mkdir c:\\node' and 'cd
-  node'.]: ../../../DevCenter/Node/Media/getting-started-6.png
+  [Web Platform Installer screen for the Windows Azure SDK for Node.js. The install button is highlighted.]: ../../../DevCenter/Node/Media/getting-started-4.png
+  [The Windows Start menu with the Windows Azure SDK Node.js entry expanded]: ../../../DevCenter/Node/Media/node7.png
+  [A command prompt displaying the commands 'mkdir c:\\node' and 'cd node'.]: ../../../DevCenter/Node/Media/getting-started-6.png
   [The result of the New-AzureService tasklist command]: ../../../DevCenter/Node/Media/node9.png
   [A directory listing of the tasklist folder.]: ../../../DevCenter/Node/Media/getting-started-7.png
   [Overview of Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432976.aspx
@@ -366,14 +363,11 @@ Windows Azure Subscription][].
   [A directory listing of the WebRole1 folder]: ../../../DevCenter/Node/Media/getting-started-8.png
   [Notepad displaying the contents of server.js]: ../../../DevCenter/Node/Media/node13.png
   [A web browser displaying the Hello World web page]: ../../../DevCenter/Node/Media/node14.png
-  [The menu displayed when right-clicking the Windows Azure emulator
-  from the task bar.]: ../../../DevCenter/Node/Media/getting-started-11.png
+  [The menu displayed when right-clicking the Windows Azure emulator from the task bar.]: ../../../DevCenter/Node/Media/getting-started-11.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
-  [A browser window displaying http://www.windowsazure.com/ with the
-  Free Trial link highlighted]: ../../../DevCenter/dotNet/Media/getting-started-12.png
+  [A browser window displaying http://www.windowsazure.com/ with the Free Trial link highlighted]: ../../../DevCenter/dotNet/Media/getting-started-12.png
   [A browser window displaying the liveID sign in page]: ../../../DevCenter/Node/Media/getting-started-13.png
-  [Internet Explorer displaying the save as dialog for the
-  publishSettings file.]: ../../../DevCenter/Node/Media/getting-started-14.png
+  [Internet Explorer displaying the save as dialog for the publishSettings file.]: ../../../DevCenter/Node/Media/getting-started-14.png
   [The output of the Publish-AzureService command]: ../../../DevCenter/Node/Media/node19.png
   [The full status output of the Publish-AzureService command]: ../../../DevCenter/Node/Media/node20.png
   [The status of the Stop-AzureService command]: ../../../DevCenter/Node/Media/node48.png

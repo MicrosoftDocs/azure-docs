@@ -1,4 +1,4 @@
-﻿<properties umbraconavihide="0" pagetitle="How to Use the Table Storage Service - How To - Java - Develop" metakeywords="Get started Azure table Java, Azure nosql Java, Azure table storage Java, Azure table Java" metadescription="" linkid="dev-java-how-to-use-table-storage" urldisplayname="Table Service" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties umbraconavihide="0" pagetitle="How to Use the Table Storage Service - How To - Java - Develop" metakeywords="Get started Azure table Java, Azure nosql Java, Azure table storage Java, Azure table Java" metadescription="" linkid="dev-java-how-to-use-table-storage" urldisplayname="Table Service" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
 # How to Use the Table Storage Service
 
@@ -57,7 +57,7 @@ The Table service contains the following components:
 
 -   **URL format:** Code addresses tables in an account using this
     address format:   
-    http://<storage account\>.table.core.windows.net/<table\>  
+    http://<*storage account*>.table.core.windows.net/<*table*>  
       
     You can address Azure tables directly using this address with the
     OData protocol. For more information, see [OData.org][]

@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-how-to-sendgrid-email-service" urldisplayname="SendGrid Email Service" headerexpose pagetitle="SendGrid Email Service - How To - Node.js - Develop" metakeywords footerexpose metadescription umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-how-to-sendgrid-email-service" urldisplayname="SendGrid Email Service" headerexpose="" pagetitle="SendGrid Email Service - How To - Node.js - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Send Email Using SendGrid from Node.js
 

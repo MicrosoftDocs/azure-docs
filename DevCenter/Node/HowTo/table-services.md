@@ -1,4 +1,4 @@
-<properties umbraconavihide="0" pagetitle="Table Services - How To - Node.js - Develop" metakeywords="Azure nosql Node.js, Azure large structured data store Node.js, Azure table Node.js, Azure table storage Node.js" metadescription="Learn how to use the Windows Azure table storage service to create and delete tables and insert and query entities in a table from your Node.js application." linkid="dev-nodejs-how-to-table-services" urldisplayname="Table Service" headerexpose="" footerexpose="" disquscomments="1"></properties>
+﻿<properties umbraconavihide="0" pagetitle="Table Services - How To - Node.js - Develop" metakeywords="Azure nosql Node.js, Azure large structured data store Node.js, Azure table Node.js, Azure table storage Node.js" metadescription="Learn how to use the Windows Azure table storage service to create and delete tables and insert and query entities in a table from your Node.js application." linkid="dev-nodejs-how-to-table-services" urldisplayname="Table Service" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
 # How to Use the Table Storage Service from Node.js
 
@@ -129,12 +129,12 @@ communicate with the storage REST services.
     result in the following output:
 
         azure@0.5.0 ./node_modules/azure
-        ├── xmlbuilder@0.3.1
-        ├── mime@1.2.4
-        ├── xml2js@0.1.12
-        ├── qs@0.4.0
-        ├── log@1.2.0
-        └── sax@0.3.4
+        +-- xmlbuilder@0.3.1
+        +-- mime@1.2.4
+        +-- xml2js@0.1.12
+        +-- qs@0.4.0
+        +-- log@1.2.0
+        +-- sax@0.3.4
 
 3.  You can manually run the **ls** command to verify that a
     **node\_modules** folder was created. Inside that folder you will
@@ -639,8 +639,7 @@ The following code deletes a table from a storage account.
 Now that you’ve learned the basics of table storage, follow these links
 to learn how to do more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Windows
-    Azure][]
+-   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][]
 -   [Visit the Windows Azure Storage Team Blog][]
 
   [Next Steps]: #next-steps
