@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-how-to-service-bus-queues" urldisplayname="Queue Service" headerexpose pagetitle="Queue Service - How To - Node.js - Develop" metakeywords="Azure asynchronous processing Node.js, Azure queue Node.js, Azure queue storage Node.js" footerexpose metadescription="Learn how to use the Windows Azure queue storage service to create and delete queues and insert, peek, get, and delete queue messages from your Node.js application." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-how-to-service-bus-queues" urldisplayname="Queue Service" headerexpose="" pagetitle="Queue Service - How To - Node.js - Develop" metakeywords="Azure asynchronous processing Node.js, Azure queue Node.js, Azure queue storage Node.js" footerexpose="" metadescription="Learn how to use the Windows Azure queue storage service to create and delete queues and insert, peek, get, and delete queue messages from your Node.js application." umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Use the Queue Storage Service from Node.js
 

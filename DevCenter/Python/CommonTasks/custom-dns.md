@@ -1,2 +1,2 @@
 <properties linkid="dev-python-commons-tasks-custom-dns" urlDisplayName="Custom DNS" headerExpose="" pageTitle="Enable Custom DNS - Python - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
-<div chunk="../../Shared/Chunks/custom-dns.md">
+<div chunk="../../Shared/Chunks/custom-dns.md" />

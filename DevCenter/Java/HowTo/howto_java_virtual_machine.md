@@ -19,7 +19,7 @@ For purposes of this tutorial, an Apache Tomcat application server will be insta
 
 ## To create a virtual machine
 
-1. Log in to the Windows Azure Preview Management Portal. <!-- URL needed. This item occurs in multiple places in this documented. -->
+1. Log in to the Log in to the [Windows Azure Preview Management Portal](https://manage.windowsazure.com).
 2. Click **New**.
 3. Click **Virtual machine**.
 4. Click **Quick create**.
@@ -31,7 +31,7 @@ For purposes of this tutorial, an Apache Tomcat application server will be insta
 
 ## To remotely log in to your virtual machine
 
-1. Log in to the Preview Management Portal.
+1. Log in to the [Preview Management Portal](https://manage.windowsazure.com).
 2. Click **Virtual machines**.
 3. Click the name of the virtual machine that you want to log in to.
 4. Click **Connect**.
@@ -99,7 +99,7 @@ You should now see Tomcat running if you run the virtual machine's browser and o
 To see Tomcat running from external machines, you'll need to create an endpoint and open a port.
 
 ## To create an endpoint for your virtual machine
-1. Log in to the Preview Management Portal.
+1. Log in to the [Preview Management Portal](https://manage.windowsazure.com).
 2. Click **Virtual machines**.
 3. Click the name of the virtual machine that is running your Java application server.
 4. Click **Endpoints**.

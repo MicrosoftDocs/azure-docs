@@ -1,3 +1,4 @@
+<properties linkid="dev-nodejs-website-mongodb" urldisplayname="Node.js Website with MongoDB" headerexpose pagetitle="Node.js Application using MongoDB" metakeywords="Azure Node.js tutorial MongoDB, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates a Node.js application in a Windows Azure Website, that talks to MongoDB on an Azure VM" umbraconavihide="0" disquscomments="1"></properties>
 # Node.js Web Application with Storage on MongoDB
 
 This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on Windows Azure. This tutorial assumes that you have some prior experience using node, MongoDB, and [Git].
@@ -379,7 +380,7 @@ While the steps in this article describe using MongoDB to store information, you
 [Cross-Platform Tools for Windows Azure]: http://windowsazure.com
 [Create and deploy a Node.js application to Windows Azure Web Sites]: http://windowsazure.com
 [Publishing to Windows Azure Web Sites with Git]: http://windowsazure.com
-[Installing MongoDB on a Linux Virtual machine]: ../../../Shared/Tutorials/InstallMongoOnCentOSLinuxVM.md
+[Installing MongoDB on a Linux Virtual machine]: ../../Shared/Tutorials/InstallMongoOnCentOSLinuxVM.md
 [Node.js Web Application with the Windows Azure Table Service]: ./web-site-with-storage.html
 [sudo]: http://en.wikipedia.org/wiki/Sudo
 
