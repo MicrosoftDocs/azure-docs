@@ -1,9 +1,9 @@
-﻿<properties umbraconavihide="0" pagetitle="Table Services - How To - Node.js - Develop" metakeywords="Azure nosql Node.js, Azure large structured data store Node.js, Azure table Node.js, Azure table storage Node.js" metadescription="Learn how to use the Windows Azure table storage service to create and delete tables and insert and query entities in a table from your Node.js application." linkid="dev-nodejs-how-to-table-services" urldisplayname="Table Service" headerexpose="" footerexpose="" disquscomments="1"></properties>
+﻿<properties umbraconavihide="0" pagetitle="Table Services - How To - Node.js - Develop" metakeywords="Azure nosql Node.js, Azure large structured data store Node.js, Azure table Node.js, Azure table storage Node.js" metadescription="Learn how to use the Windows Azure table service to create and delete tables and insert and query entities in a table from your Node.js application." linkid="dev-nodejs-how-to-table-services" urldisplayname="Table Service" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
-# How to Use the Table Storage Service from Node.js
+# How to Use the Table Service from Node.js
 
 This guide shows you how to perform common scenarios using the Windows
-Azure Table storage service. The samples are written written using the
+Azure Table service. The samples are written written using the
 Node.js API. The scenarios covered include **creating and deleting a
 table, inserting and querying entities in a table**. For more
 information on tables, see the [Next Steps][] section.
@@ -29,7 +29,7 @@ information on tables, see the [Next Steps][] section.
 
 ## <a name="what-is"> </a>What is the Table Service?
 
-The Windows Azure Table storage service stores large amounts of
+The Windows Azure Table service stores large amounts of
 structured data. The service accepts authenticated calls from inside and
 outside the Windows Azure cloud. Windows Azure tables are ideal for
 storing structured, non-relational data. Common uses of Table services
@@ -154,7 +154,7 @@ If you are running against the storage emulator on the local machine,
 you do not need to configure a connection string, as it will be
 configured automatically. You can continue to the next section.
 
-If you are planning to run against the real cloud storage service, you
+If you are planning to run against the real cloud service, you
 need to modify your connection string to point at your cloud-based
 storage. You can store the storage connection string in a configuration
 file, rather than hard-coding it in code. In this tutorial you use the
@@ -503,8 +503,7 @@ The query in the following code only returns the **Descriptions** of
 entities in the table, note that in the program output, the **DueDate**
 will show as **undefined** because it was not sent by the server.
 
-*Please note that the following snippet only works against the cloud
-storage service, the **select** keyword is not supported by the Storage
+*Please note that the following snippet only works against the cloud service, the **select** keyword is not supported by the Storage
 Emulator.*
 
     var http = require('http');
@@ -663,11 +662,11 @@ to learn how to do more complex storage tasks.
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
   [Windows Azure Management Portal]: http://windows.azure.com
 
-  [plus-new]: ../../../DevCenter/Shared/Media/plus-new.png
-  [quick-create-storage]: ../../../DevCenter/Shared/Media/quick-storage.png
-  [Blob2]: ../../../DevCenter/dotNet/Media/blob2.png
-  [Blob3]: ../../../DevCenter/dotNet/Media/blob3.png
-  [Blob4]: ../../../DevCenter/dotNet/Media/blob4.png
+  [plus-new]: ../../Shared/Media/plus-new.png
+  [quick-create-storage]: ../../Shared/Media/quick-storage.png
+  [Blob2]: ../../dotNet/Media/blob2.png
+  [Blob3]: ../../dotNet/Media/blob3.png
+  [Blob4]: ../../dotNet/Media/blob4.png
   [Node.js Web Application]: {localLink:2221} "Web App with Express"
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Visit the Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

@@ -4,13 +4,10 @@
 
 This guide will show you how to perform common scenarios using the Windows Azure Blob service. The samples are written in PHP and use the [Windows Azure SDK for PHP] [download]. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#NextSteps) section.
 
-##What is the Windows Azure Blob Service
-
-	(TODO: Reference reusable "chunk".)
-
 ##Table of Contents
 
-* [Concepts](#Concepts)
+* [What is Blob Storage](#what-is)
+* [Concepts](#concepts)
 * [Create a Windows Azure Storage Account](#CreateAccount)
 * [Create a PHP Application](#CreateApplication)
 * [Configure your Application to Access the Blob Service](#ConfigureStorage)
@@ -23,9 +20,7 @@ This guide will show you how to perform common scenarios using the Windows Azure
 * [How to Delete a Blob Container](#DeleteContainer)
 * [Next Steps](#NextSteps)
 
-<h2 id="Concepts">Concepts</h2>
-
-	(TODO: Reference reusable "chunk".)
+<div chunk="../../Shared/Chunks/howto-blob-storage" />
 
 <h2 id="CreateAccount">Create a Windows Azure Storage Account</h2>
 
@@ -81,7 +76,7 @@ A **BlobService** object lets you create a blob container with the **createConta
 	use WindowsAzure\Common\ServiceException;
 
 	// Create blob REST proxy.
-	$blob_proxy = BlobService::create($config);
+	$blobRestProxy = BlobService::create($config);
 
 	// OPTIONAL: Set public access policy and metadata.
 	// Create container options object.
@@ -109,7 +104,7 @@ A **BlobService** object lets you create a blob container with the **createConta
 	
 	try	{
 		// Create container.
-		$blob_proxy->createContainer("mycontainer", $createContainerOptions);
+		$blobRestProxy->createContainer("mycontainer", $createContainerOptions);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -126,7 +121,7 @@ For more information about Blob service error codes, see [Blob Service Error Cod
 
 <h2 id="UploadBlob">How to Upload a Blob into a Container</h2>
 
-To upload a file as a blob, use the **IBlob->createBlockBlob** method. This operation will create the blob if it doesn’t exist, or overwrite it if it does. The code example below assumes that the container has already been created and uses [fopen][fopen] to open the file as a stream.
+To upload a file as a blob, use the **BlobRestProxy->createBlockBlob** method. This operation will create the blob if it doesn’t exist, or overwrite it if it does. The code example below assumes that the container has already been created and uses [fopen][fopen] to open the file as a stream.
 
 	require_once 'WindowsAzure.php';
 
@@ -134,14 +129,14 @@ To upload a file as a blob, use the **IBlob->createBlockBlob** method. This oper
 	use WindowsAzure\Common\ServiceException;
 
 	// Create blob REST proxy.
-	$blob_proxy = BlobService::create($config);
+	$blobRestProxy = BlobService::create($config);
 	
 	$content = fopen("c:\myfile.txt", "r");
 	$blob_name = "myblob";
 	
 	try	{
 		//Upload blob
-		$blob_proxy->createBlockBlob("mycontainer", $blob_name, $content);
+		$blobRestProxy->createBlockBlob("mycontainer", $blob_name, $content);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -156,7 +151,7 @@ Note that the example above uploads a blob as a stream. However, a blob can also
 
 <h2 id="ListBlobs">How to List the Blobs in a Container</h2>
 
-To list the blobs in a container, use the **IBlob->listBlobs** method with a **foreach** loop to loop through the result. The following code outputs the name of each blob in a container and its URI to the browser.
+To list the blobs in a container, use the **BlobRestProxy->listBlobs** method with a **foreach** loop to loop through the result. The following code outputs the name of each blob in a container and its URI to the browser.
 
 	require_once 'WindowsAzure.php';
 
@@ -164,11 +159,11 @@ To list the blobs in a container, use the **IBlob->listBlobs** method with a **f
 	use WindowsAzure\Common\ServiceException;
 
 	// Create blob REST proxy.
-	$blob_proxy = BlobService::create($config);
+	$blobRestProxy = BlobService::create($config);
 	
 	try	{
 		// List blobs.
-		$blob_list = $blob_proxy->listBlobs("mycontainer");
+		$blob_list = $blobRestProxy->listBlobs("mycontainer");
 		$blobs = $blob_list->getBlobs();
 		
 		foreach($blobs as $blob)
@@ -188,7 +183,7 @@ To list the blobs in a container, use the **IBlob->listBlobs** method with a **f
 
 <h2 id="DownloadBlob">How to Download a Blob</h2>
 
-To download a blob, call the **IBlob->getBlob** method, then call the **getContentStream** method on the resulting **GetBlobResult** object.
+To download a blob, call the **BlobRestProxy->getBlob** method, then call the **getContentStream** method on the resulting **GetBlobResult** object.
 
 	require_once 'WindowsAzure.php';
 
@@ -196,11 +191,11 @@ To download a blob, call the **IBlob->getBlob** method, then call the **getConte
 	use WindowsAzure\Common\ServiceException;
 
 	// Create blob REST proxy.
-	$blob_proxy = BlobService::create($config);
+	$blobRestProxy = BlobService::create($config);
 	
 	try	{
 		// Get blob.
-		$blob = $blob_proxy->getBlob("mycontainer", "myblob");
+		$blob = $blobRestProxy->getBlob("mycontainer", "myblob");
 		fpassthru($blob->getContentStream());
 	}
 	catch(ServiceException $e){
@@ -216,7 +211,7 @@ Note that the example above gets a blob as a stream resouce (the default behavio
 
 <h2 id="DeleteBlob">How to Delete a Blob</h2>
 
-To delete a blob, pass the container name and blob name to **IBlob->deleteBlob**. 
+To delete a blob, pass the container name and blob name to **BlobRestProxy->deleteBlob**. 
 
 	require_once 'WindowsAzure.php';
 
@@ -224,11 +219,11 @@ To delete a blob, pass the container name and blob name to **IBlob->deleteBlob**
 	use WindowsAzure\Common\ServiceException;
 
 	// Create blob REST proxy.
-	$blob_proxy = BlobService::create($config);
+	$blobRestProxy = BlobService::create($config);
 	
 	try	{
 		// Delete container.
-		$blob_proxy->deleteBlob("mycontainer", "myblob");
+		$blobRestProxy->deleteBlob("mycontainer", "myblob");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -241,7 +236,7 @@ To delete a blob, pass the container name and blob name to **IBlob->deleteBlob**
 
 <h2 id="DeleteContainer">How to Delete a Blob Container</h2>
 
-Finally, to delete a blob container, pass the container name to **IBlob->deleteContainer**.
+Finally, to delete a blob container, pass the container name to **BlobRestProxy->deleteContainer**.
 
 	require_once 'WindowsAzure.php';
 
@@ -249,11 +244,11 @@ Finally, to delete a blob container, pass the container name to **IBlob->deleteC
 	use WindowsAzure\Common\ServiceException;
 
 	// Create blob REST proxy.
-	$blob_proxy = BlobService::create($config);
+	$blobRestProxy = BlobService::create($config);
 	
 	try	{
 		// Delete container.
-		$blob_proxy->deleteContainer("mycontainer");
+		$blobRestProxy->deleteContainer("mycontainer");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.

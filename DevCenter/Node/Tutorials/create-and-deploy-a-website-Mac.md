@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-website" urldisplayname="Node.js Website" headerexpose="" pagetitle="Node.js Application using a Windows Azure Website" metakeywords="Azure Node.js tutorial, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates deploying a Node.js application to a Windows Azure Website" umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-nodejs-website" urldisplayname="Node.js Website" headerexpose="" pagetitle="Node.js Application using a Windows Azure Website" metakeywords="Azure Node.js tutorial, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates deploying a Node.js application to a Windows Azure Website" umbraconavihide="0" disquscomments="1"></properties>
 
 #Create and deploy a Node.js application to a Windows Azure Website
 
@@ -27,7 +27,7 @@ The instructions in this article have been tested on the following platforms:
 
 **Note**: This tutorial makes reference to the **helloworld** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/helloworld** or **c:\node\helloworld**
 
-**Note**: Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **cmd.exe** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
+**Note**: Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **cmd.exe**, **GitBash** (Windows,) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
 
 ##Prerequisites
 
@@ -43,9 +43,6 @@ To successfully complete the steps in this tutorial, you must have a working ins
 
 If a pre-compiled version is not listed for your operating system, you may be able to obtain one through your operating system's [package management system]. Alternatively, you can download and compile the source code from the download pages listed above.
 
-**Note**: When installing Git for Windows, you should ensure that the **git** command is available from the Windows command prompt (**cmd.exe**). This can be accomplished by selecting the **Run Git from the Windows Command Prompt** option during installation as illustrated below:
-
-![Run git from the windows command prompt][windows-git-setup-path]
 
 ##Build and test your application locally
 
@@ -84,19 +81,11 @@ Follow these steps to create a Windows Azure Website, and then enable Git publis
 
     ![The Quick Create dialog][portal-quick-create]
 
-4. When the website has been created, you will see the text **Creation of Web Site '[SITENAME]' completed successfully**. 
-
-	![The site created successfully message.][portal-website-created]
-
-5. Click on the name of the website in the list at the top of the page.
+4. Once the website status changes to **Running**, click on the name of the website to access the **Dashboard**
 
 	![The list of websites.][portal-website-list]
 
-	This will display the Dashboard for the selected website.
-
-	![The website dashboard.][portal-website-dashboard]
-
-6. At the bottom of the Dashboard, select **Set up Git Publishing**.
+6. At the bottom right of the Dashboard, select **Set up Git Publishing**.
 
 	![The dashboard, with Set up Git Publishing highlighted.][portal-website-dashboard-setup-git]
 
@@ -106,7 +95,7 @@ Follow these steps to create a Windows Azure Website, and then enable Git publis
 
 	**Note**: If you have previously enabled publishing for a Windows Azure Website, you will not be prompted for the user name or password. Instead, a Git repository will be created using the user name and password you previously specified.
 
-8. Once the Git repository is ready, you will be presented with instructions on initialize a repository for your local application. These instructions also include the commands to create a remote for your Windows Azure Website, and to push the files to the website.
+8. Once the Git repository is ready, click **Push my local files to Windows Azure** for instructions on the Git commands to use in order to setup a local repository and then push the files to Windows Azure.
 
 	![Git deployment instructions returned after creating a repository for the website.][portal-git-instructions]
 
@@ -154,7 +143,7 @@ Follow these steps to create a Windows Azure Website, and then enable Git publis
 
 4. Browse to **http://[your website url]/** and note that the updates have been applied.
 
-	![A web page displaying 'Hello Azure'][hello-azure]
+	![A web page displaying 'Hello Azure'][helloworld-completed]
 
 ##Stop and delete your application
 
@@ -192,16 +181,12 @@ While the steps in this article use the Windows Azure Portal to create, stop, an
 [Cross-Platform Tools for Windows Azure]: http://windowsazure.com
 [Publishing with Git]: http://windowsazure.com
 
-[windows-git-setup-path]: ../Media/
-[helloworld-completed]: ../Media/helloworld_completed.png
-[helloworld-localhost]: ../Media/helloworld_localhost.png
-[hello-azure]: ../Media/node_helloazure.png
-[portal-new-website]: ../Media/portal_new_website.png
-[portal-quick-create]: ../Media/portal_quick_create.png
-[portal-website-created]: ../Media/portal_quick_create.png
-[portal-website-list]: ../Media/portal_website_list.png
-[portal-website-dashboard]: ../Media/portal_website_dashboard.png
-[portal-website-dashboard-setup-git]: ../Media/portal-website-dashboard-setup-git.png
-[portal-git-username-password]: ../Media/portal_git_username_password.png
-[portal-git-instructions]: ../Media/portal_git_instructions.png
-[portal-website-stop-delete]: ../Media/portal_website_stop_delete.png
+[helloworld-completed]: ../Media/helloworldazure.png
+[helloworld-localhost]: ../Media/helloworldlocal.png
+[portal-new-website]: ../../Shared/Media/plus-new.png
+[portal-quick-create]: ../../Shared/Media/quick-create-website.png
+[portal-website-list]: ../Media/list-olf-websites.png
+[portal-website-dashboard-setup-git]: ../../Shared/Media/setup-git-publishing.png
+[portal-git-username-password]: ../../Shared/Media/git-deployment-credentials.png
+[portal-git-instructions]: ../../Shared/Media/git-steps.png
+[portal-website-stop-delete]: ../../Shared/Media/stop-delete-icons.png
