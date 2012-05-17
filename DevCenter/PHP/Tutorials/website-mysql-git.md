@@ -107,11 +107,11 @@ Before publishing the Tasklist application, the database connection information 
 2. Open the `.publishsettings` file in an XML editor. The `<databases>` element will look similar to this:
 
 		<databases>
-	      <add name="tasklist" 
-	           connectionString="Database=tasklist;Data Source=us-mm-azure-ord-01.cleardb.com;User Id=e02c62383bffdd;Password=0fc50b7e" 
-	           providerName="MySql.Data.MySqlClient" 
-	           type="MySql"/>
-	    </databases>
+			<add name="tasklist" 
+				connectionString="Database=tasklist;Data Source=us-mm-azure-ord-01.cleardb.com;User Id=e02c62383bffdd;Password=0fc50b7e" 
+				providerName="MySql.Data.MySqlClient" 
+				type="MySql"/>
+		</databases>
 	
 3. Make note of the `connectionString` attribute in the `<add>` element, in particular the values for `Database`, `Data Source`, `User Id`, and `Password`.
 
