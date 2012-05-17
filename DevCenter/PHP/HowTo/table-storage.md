@@ -4,13 +4,10 @@
 
 This guide will show you how to perform common scenarios using the Windows Azure Table service. The samples are written in PHP and use the [Windows Azure SDK for PHP][download]. The scenarios covered include **creating and deleting a table, and inserting, deleting, and querying entities in a table**. For more information on the Windows Azure Table service, see the [Next Steps](#NextSteps) section.
 
-##What is the Windows Azure Table Service
-
-	(TODO: Reference reusable content chunk.)
-
 ##Table of Contents
 
-* [Concepts](#Concepts)
+* [What is Table Storage](#what-is)
+* [Concepts](#concepts)
 * [Create a Windows Azure Storage Account](#CreateAccount)
 * [Create a PHP Application](#CreateApplication)
 * [Configure your Application to Access the Table Service](#ConfigureStorage)
@@ -26,9 +23,7 @@ This guide will show you how to perform common scenarios using the Windows Azure
 * [How to Delete a Table](#DeleteTable)
 * [Next Steps](#NextSteps)
 
-<h2 id="Concepts">Concepts</h2>
-
-	(TODO: Reference reusable content chunk.)
+<div chunk="../../Shared/Chunks/howto-table-storage" />
 
 <h2 id="CreateAccount">Create a Windows Azure Storage Account</h2>
 
@@ -83,11 +78,11 @@ An **ITable** object lets you create a table with the **createTable** method. Wh
 	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
-	$table_proxy = TableService::create($config);
+	$tableRestProxy = TableService::create($config);
 
 	try	{
 		// Create table.
-		$table_proxy->createTable("mytable");
+		$tableRestProxy->createTable("mytable");
 	}
 	catch(ServiceException $e){
 		$code = $e->getCode();
@@ -101,7 +96,7 @@ For information about restrictions on Table names, see [Understanding the Table 
 
 <h2 id="AddEntity">How to Add an Entity to a Table</h2>
 
-To add an entity to a table, create a new **Entity** object and pass it to **ITable->insertEntity**. Note that when you create an entity you must specify a `PartitionKey` and `RowKey`. These are the unique identifiers for an entity and are values that can be queried much faster than other entity properties. The system uses `PartitionKey` to automatically distribute the table’s entities over many storage nodes. Entities with the same `PartitionKey` are stored on the same node. (Operations on multiple entities stored on the same node will perform better than on entities stored across different nodes.) The `RowKey` is the unique ID of an entity within a partition.
+To add an entity to a table, create a new **Entity** object and pass it to **TableRestProxy->insertEntity**. Note that when you create an entity you must specify a `PartitionKey` and `RowKey`. These are the unique identifiers for an entity and are values that can be queried much faster than other entity properties. The system uses `PartitionKey` to automatically distribute the table’s entities over many storage nodes. Entities with the same `PartitionKey` are stored on the same node. (Operations on multiple entities stored on the same node will perform better than on entities stored across different nodes.) The `RowKey` is the unique ID of an entity within a partition.
 
 	require_once 'WindowsAzure.php';
 
@@ -111,7 +106,7 @@ To add an entity to a table, create a new **Entity** object and pass it to **ITa
 	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
-	$table_proxy = TableService::create($config);
+	$tableRestProxy = TableService::create($config);
 	
 	$entity = new Entity();
 	$entity->setPartitionKey("tasksSeattle");
@@ -123,7 +118,7 @@ To add an entity to a table, create a new **Entity** object and pass it to **ITa
 	$entity->addProperty("Location", EdmType::STRING, "Home");
 	
 	try{
-		$table_proxy->insertEntity("mytable", $entity);
+		$tableRestProxy->insertEntity("mytable", $entity);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -145,7 +140,7 @@ The **ITable** interface offers two alternative methods for inserting entities: 
 	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
-	$table_proxy = TableService::create($config);
+	$tableRestProxy = TableService::create($config);
 	
 	//Create new entity.
 	$entity = new Entity();
@@ -164,7 +159,7 @@ The **ITable** interface offers two alternative methods for inserting entities: 
 	try	{
 		// Calling insertOrReplaceEntity, instead of insertOrMergeEntity as shown,
 		// would simply replace the entity with PartitionKey "tasksSeattle" and RowKey "1".
-		$table_proxy->insertOrMergeEntity("mytable", $entity);
+		$tableRestProxy->insertOrMergeEntity("mytable", $entity);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -178,7 +173,7 @@ The **ITable** interface offers two alternative methods for inserting entities: 
 
 <h2 id="RetrieveEntity">How to Retrieve a Single Entity</h2>
 
-The **ITable->getEntity** method allows you to retrieve a single entity by querying for its `PartitionKey` and `RowKey`. In the example below, the partition key `tasksSeattle` and row key `1` are passed to the **getEntity** method.
+The **TableRestProxy->getEntity** method allows you to retrieve a single entity by querying for its `PartitionKey` and `RowKey`. In the example below, the partition key `tasksSeattle` and row key `1` are passed to the **getEntity** method.
 
 	require_once 'WindowsAzure.php';
 
@@ -186,10 +181,10 @@ The **ITable->getEntity** method allows you to retrieve a single entity by query
 	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
-	$table_proxy = TableService::create($config);
+	$tableRestProxy = TableService::create($config);
 	
 	try	{
-		$result = $table_proxy->getEntity("mytable", "tasksSeattle", 1);
+		$result = $tableRestProxy->getEntity("mytable", "tasksSeattle", 1);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -214,12 +209,12 @@ Entity queries are constructed using filters (for more information, see [Queryin
 	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
-	$table_proxy = TableService::create($config);
+	$tableRestProxy = TableService::create($config);
 	
 	$filter = "PartitionKey eq 'tasksSeattle'";
 	
 	try	{
-		$result = $table_proxy->queryEntities("mytable", $filter);
+		$result = $tableRestProxy->queryEntities("mytable", $filter);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -246,12 +241,12 @@ The same pattern used in the previous example can be used to retrieve any subset
 	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
-	$table_proxy = TableService::create($config);
+	$tableRestProxy = TableService::create($config);
 	
 	$filter = "Location eq 'Office' and DueDate lt '2012-11-5'";
 	
 	try	{
-		$result = $table_proxy->queryEntities("mytable", $filter);
+		$result = $tableRestProxy->queryEntities("mytable", $filter);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -270,7 +265,7 @@ The same pattern used in the previous example can be used to retrieve any subset
 
 <h2 id="RetPropertiesSubset">How to Retrieve a Subset of Entity Properties</h2>
 
-A query can retrieve a subset of entity properties. This technique, called *projection*, reduces bandwidth and can improve query performance, especially for large entities. To specify a property to be retrieved, pass the name of the property to the **Query->addSelectField** method. You can call this method multiple times to add more properties. After executing **ITable->queryEntities**, the returned entities will only have the selected properties. (If you want to return a subset of Table entities, use a filter as shown in the queries above.)
+A query can retrieve a subset of entity properties. This technique, called *projection*, reduces bandwidth and can improve query performance, especially for large entities. To specify a property to be retrieved, pass the name of the property to the **Query->addSelectField** method. You can call this method multiple times to add more properties. After executing **TableRestProxy->queryEntities**, the returned entities will only have the selected properties. (If you want to return a subset of Table entities, use a filter as shown in the queries above.)
 
 	require_once 'WindowsAzure.php';
 
@@ -279,13 +274,13 @@ A query can retrieve a subset of entity properties. This technique, called *proj
 	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
-	$table_proxy = TableService::create($config);
+	$tableRestProxy = TableService::create($config);
 	
 	$options = new QueryEntitiesOptions();
 	$options->addSelectField("Description");
 	
 	try	{
-		$result = $table_proxy->queryEntities("mytable", $options);
+		$result = $tableRestProxy->queryEntities("mytable", $options);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -307,7 +302,7 @@ A query can retrieve a subset of entity properties. This technique, called *proj
 
 <h2 id="UpdateEntity">How to Update an Entity</h2>
 
-An existing entity can be updated by using the **Entity->setProperty** and **Entity->addProperty** methods on the entity, and then calling **ITable->updateEntity**. The following example retrieves an entity, modifies one property, removes another property, and adds a new property. Note that removing a property is setting its value to **null**. 
+An existing entity can be updated by using the **Entity->setProperty** and **Entity->addProperty** methods on the entity, and then calling **TableRestProxy->updateEntity**. The following example retrieves an entity, modifies one property, removes another property, and adds a new property. Note that removing a property is setting its value to **null**. 
 
 	require_once 'WindowsAzure.php';
 	
@@ -317,9 +312,9 @@ An existing entity can be updated by using the **Entity->setProperty** and **Ent
 	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
-	$table_proxy = TableService::create($config);
+	$tableRestProxy = TableService::create($config);
 	
-	$result = $table_proxy->getEntity("mytable", "tasksSeattle", 1);
+	$result = $tableRestProxy->getEntity("mytable", "tasksSeattle", 1);
 	
 	$entity = $result->getEntity();
 	
@@ -330,7 +325,7 @@ An existing entity can be updated by using the **Entity->setProperty** and **Ent
 	$entity->addProperty("Status", EdmType::STRING, "In progress"); //Added Status.
 
 	try	{
-		$table_proxy->updateEntity("mytable", $entity);
+		$tableRestProxy->updateEntity("mytable", $entity);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -343,7 +338,7 @@ An existing entity can be updated by using the **Entity->setProperty** and **Ent
 
 <h2 id="DeleteEntity">How to Delete an Entity</h2>
 
-To delete an entity, pass the table name, and the entity's `PartitionKey` and `RowKey` to the **ITable->deleteEntity** method.
+To delete an entity, pass the table name, and the entity's `PartitionKey` and `RowKey` to the **TableRestProxy->deleteEntity** method.
 
 	require_once 'WindowsAzure.php';
 
@@ -351,11 +346,11 @@ To delete an entity, pass the table name, and the entity's `PartitionKey` and `R
 	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
-	$table_proxy = TableService::create($config);
+	$tableRestProxy = TableService::create($config);
 	
 	try	{
 		// Delete entity.
-		$table_proxy->deleteEntity("mytable", "tasksSeattle", "2");
+		$tableRestProxy->deleteEntity("mytable", "tasksSeattle", "2");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -370,7 +365,7 @@ Note that for concurrency checks, you can set the Etag for an entity to be delet
 
 <h2 id="BatchOperations">How to Batch Table Operations</h2>
 
-The **ITable->batch** method allows you to execute multiple operations in a single request. The pattern here involves adding operations to **BatchRequest** object and then passing the **BatchRequest** object to the **ITable->batch** method. To add an operation to a **BatchRequest** object, you can call any of the following methods multiple times:
+The **TableRestProxy->batch** method allows you to execute multiple operations in a single request. The pattern here involves adding operations to **BatchRequest** object and then passing the **BatchRequest** object to the **TableRestProxy->batch** method. To add an operation to a **BatchRequest** object, you can call any of the following methods multiple times:
 
 * **addInsertEntity** (adds an insertEntity operation)
 * **addUpdateEntity** (adds an updateEntity operation)
@@ -390,7 +385,7 @@ The following example shows how to execute **insertEntity** and **deleteEntity**
 	use WindowsAzure\Common\ServiceException;
 
  	// Create table REST proxy.
-	$table_proxy = TableService::create($config);
+	$tableRestProxy = TableService::create($config);
 	
 	// Create list of batch operation.
 	$operations = new BatchOperations();
@@ -411,7 +406,7 @@ The following example shows how to execute **insertEntity** and **deleteEntity**
 	$operations->addDeleteEntity("mytable", "tasksSeattle", "1");
 	
 	try	{
-		$table_proxy->batch($operations);
+		$tableRestProxy->batch($operations);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -426,7 +421,7 @@ For more information about batching Table operations, see [Performing Entity Gro
 
 <h2 id="DeleteTable">How to Delete a Table</h2>
 
-Finally, to delete a table, pass the table name to the **ITable->deleteTable** method.
+Finally, to delete a table, pass the table name to the **TableRestProxy->deleteTable** method.
 
 	require_once 'WindowsAzure.php';
 
@@ -434,11 +429,11 @@ Finally, to delete a table, pass the table name to the **ITable->deleteTable** m
 	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
-	$table_proxy = TableService::create($config);
+	$tableRestProxy = TableService::create($config);
 	
 	try	{
 		// Delete table.
-		$table_proxy->deleteTable("mytable");
+		$tableRestProxy->deleteTable("mytable");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
