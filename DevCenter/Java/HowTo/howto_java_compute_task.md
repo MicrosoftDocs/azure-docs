@@ -457,7 +457,7 @@ Run the compute-intensive application, first to create the queue, then to solve 
         java -jar TSPSolver.jar 8
 
  If you don't specify a number, it will run for 10 cities. The larger the number that you specify, the longer the solver will run.
- <p>At this point, the queue should be populated.
+ <p/>At this point, the queue should be populated.
 
 ### How to run the monitoring client application
 1. Log on to your machine where you will run the client application. This does not need to be the same machine running the **TSPSolver** application, although it can be.
