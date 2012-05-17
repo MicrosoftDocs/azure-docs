@@ -113,7 +113,7 @@ You can easily modify and republish your application. Here, you will make a simp
 [webmatrix-templates]: ../Media/webmatrix-templates.png
 [webmatrix-node-express]: ../Media/webmatrix-node-express-template.png
 [webmatrix-node-files]: ../Media/webmatrixnodefiles.png
-[download-publish-profile]: ../../../Shared/Media/download_publish_profile.jpg
+[download-publish-profile]: ../../Shared/Media/download_publish_profile.jpg
 [webmatrix-run-icon]: ../Media/webmatrix-runicon.png
 [webmatrix-publishicon]: ../Media/webmatrix-publishicon.png
 [webmatrix-import-settings]: ../Media/webmatrix-publishsettings.png
