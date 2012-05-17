@@ -129,7 +129,10 @@ Before publishing the Tasklist application, the database connection information 
 
 To publish your application with Git, follow the steps below:
 
-**Note**: These are the steps noted at the end of the **Create a Windows Azure Website and Set up Git Publishing** section.
+<div class="dev-callout">
+<b>Note</b>
+<p>These are the same steps noted at the end of the <b>Create a Windows Azure Website and Set up Git Publishing</b> section.</p>
+</div>
 
 1. Open GitBash (or a terminal, if Git is in your `PATH`), and run the following commands:
 
