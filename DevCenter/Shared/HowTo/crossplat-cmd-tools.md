@@ -51,7 +51,7 @@ To use the Windows Azure Command-Line Tools for Mac and Linux, you will need a W
 
 <h2 id="Account">How to Download and Import Publish Settings</h2>
 
-Downloading and importing your publish settings will allow you to use the tools to create and manage Azure Services. To download your publish settings, use the `account download` command:
+To get started, you need to first download and import your publish settings. This will allow you to use the tools to create and manage Azure Services. To download your publish settings, use the `account download` command:
 
 	azure account download
 
