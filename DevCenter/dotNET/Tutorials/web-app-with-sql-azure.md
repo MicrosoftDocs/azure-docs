@@ -22,8 +22,8 @@ You'll build a simple to-do list web application that is built on ASP.NET MVC 4 
 To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. (If you already have Visual Studio or Visual Web Developer, the SDK isn't required for this tutorial. It will be required later if you follow the suggestions for further learning at the end of the tutorial.) 
 
 1. To install the Windows Azure SDK for .NET, click the button that corresponds to the version of Visual Studio you are using. If you don't have Visual Studio installed yet, use the Visual Studio 2012 button.<br/>
-<a href="http://go.microsoft.com/fwlink/?LinkID=234939&clcid=0x409" class="site-arrowboxcta download-cta">Get Tools and SDK for Visual Studio 2012</a><br/>
-<a href="http://go.microsoft.com/fwlink/?LinkID=234939&clcid=0x409" class="site-arrowboxcta download-cta">Get Tools and SDK for Visual Studio 2010</a>
+<a href="http://go.microsoft.com/fwlink/?LinkID=252834" class="site-arrowboxcta download-cta">Get Tools and SDK for Visual Studio 2012</a><br/>
+<a href="http://go.microsoft.com/fwlink/?LinkID=252835" class="site-arrowboxcta download-cta">Get Tools and SDK for Visual Studio 2010</a>
 2. When you are prompted to run or save WindowsAzureSDKForNet.exe, click Run.<br/>
 ![run the WindowsAzureSDKForNet.exe file][Image002]
 3. In the Web Platform Installer window, click **Install** and proceed with the installation.<br/>
@@ -288,7 +288,7 @@ To learn more about how to use SQL Database, see the following resources:
 * [Data Migration to SQL Database: Tools and Techniques][SQLAzureDataMigration]
 * [Migrating a Database to SQL Database using SSDT][SQLAzureDataMigrationBlog]
 * [General Guidelines and Limitations (SQL Database)][SQLAzureGuidelines]
-* [SQL Database How-to Guide][SQLAzureHowTo]
+* [How to Use SQL Database][SQLAzureHowTo]
 * [Transact-SQL Reference (SQL Database)][TSQLReference]
 * [Minimizing Connection Pool errors in SQL Database][SQLAzureConnPoolErrors]
 
