@@ -46,13 +46,15 @@ Follow these steps to create a Windows Azure Website and a SQL Database:
 
 	![Create New Windows Azure Website][new-website]
 
-3. Click **Web Site**, then **Custom Create**. Enter a value for **URL**, select **Create a New SQL Azure Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
+3. Click **Web Site**, then **Custom Create**.
 
 	![Custom Create a new Website][custom-create]
 
+	Enter a value for **URL**, select **Create a New SQL Azure Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
+
 	![Fill in Website details][website-details-sqlazure]
 
-4. Enter a value for the **NAME** of your database, select the **EDITION** (WEB or BUSINESS), select the **MAX SIZE** for your database, choose the **COLLATION**, and select **NEW SQL Database server**. Click the arrow at the bottom of the dialog.
+4. Enter a value for the **NAME** of your database, select the **EDITION** [(WEB or BUSINESS)][sql-database-editions], select the **MAX SIZE** for your database, choose the **COLLATION**, and select **NEW SQL Database server**. Click the arrow at the bottom of the dialog.
 
 	![Fill in SQL Database settings][database-settings]
 
@@ -207,3 +209,4 @@ You can easily modify and republish your application. Here, you will make a simp
 [webmatrix-pubcompat-continue]: ../../Shared/Media/webmatrix_pubcompat_continue.jpg
 [webmatirx-pubpreview]: ../../Shared/Media/webmatrix_pubpreview.jpg
 [preview-portal]: https://manage.windowsazure.com
+[sql-database-editions]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx
