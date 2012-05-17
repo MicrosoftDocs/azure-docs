@@ -1,9 +1,8 @@
 Troubleshooting in Windows Azure
 
 *Troubleshooting* refers to the general task of locating and
-understanding unexpected application behavior so that you can correct
-it. When developing applications, developers try to test, run, and debug
-their applications before deploying them into their production
+understanding unexpected application behavior and correcting it. When developing applications, developers test, run, and debug
+their applications before deploying them into a production
 environment. This fact is true whether the application runs on a desktop
 computer or a server in the cloud. However, a widely distributed,
 multi-instance application designed for scale-out can be hard to debug,
@@ -13,20 +12,21 @@ For this reason, cloud applications should be designed with
 troubleshooting in mind. How you design troubleshooting support into
 your application depends first on where your application runs, and
 second on which languages or runtimes your application is built with or
-uses. If you are building an application that runs on a Windows Azure
-Virtual Machine -- whether the operating system is Windows Server or
-some other operating system -- approach troubleshooting design as well
+uses. 
+
+If you are building an application that runs on a Windows Azure
+Virtual Machine, in many cases, you can approach troubleshooting design as well
 as debugging as you would on the operating system if it were running on
 your own servers.
 
 Applications running on Windows Azure are widely distributed,
 multi-instance applications that can be hard to debug. These types of
-applications require more than standard tools and approaches. This topic
+applications require more than standard tools and approaches to troubleshooting. This topic
 discusses some proven troubleshooting practices and contains links to
 more intensive information on the practices described.
 
-**Note**: This topic assumes that you either designing your application
-or have successfully executed your Windows Azure application and that
+**Note**: This topic assumes you are either designing your application
+or have successfully deployed your Windows Azure application and that
 something unexpected is now occurring. It does not discuss how to deploy
 an application on Windows Azure. For more information about developing
 and deploying your Windows Azure application, see [https://www.windowsazure.com/en-us/develop/overview/].
@@ -41,46 +41,39 @@ model or language used.
 
 The following sections describe specific approaches for developing
 supportable Windows Azure applications regardless of the type of
-application: Web sites, Cloud Services, or Virtual Machines.
+application: Web Sites, Cloud Services, or Virtual Machines.
 
 Each section describes best practices at a high level, and contains
 pointers to resources that demonstrate best practices in detail or
 describe how to implement them.
 
-**Note**: This topic assumes that you have a basic understanding of the
-application development lifecycle of a Windows Azure application,
-including terminology and the various components of the Windows Azure
-development and runtime environment.
 
 ##In this Document
 
-Best Practices for Troubleshooting in Windows Azure
+[Best Practices for Troubleshooting in Windows Azure](BestPractices)
 
-Windows Azure Websites
+[Windows Azure Websites](Websites)
 
-Windows Azure Cloud Services
+[Windows Azure Cloud Services](CloudServices)
 
-Windows Azure Virtual Machines
+[Windows Azure Virtual Machines](Vms)
 
-Windows Azure Services: Service Bus, Cloud Directory, and So On.
+[Windows Azure Platform Services](PlatformServices)
 
-SQL Azure Troubleshooting
+[SQL Azure Troubleshooting](SQLTroubleshooting)
 
-##Best Practices for Troubleshooting in Windows Azure##
+<h2 id=BestPractices>Best Practices for Troubleshooting in Windows Azure</h2>
 
 This section describes best practices that apply to Windows Azure
 applications no matter which hosting model or language you use. It
-contains resources for more in-depth discussion of those practices, and
-discusses techniques for troubleshooting various Windows Azure Platform
-services including the Service Bus, Windows Azure Active Directory, and
-Caching.
+contains resources for more in-depth discussion of those practices.
 
 To build the foundation for efficient troubleshooting in Windows Azure,
-concentrate your design efforts in these three main areas:
+concentrate your efforts in these three main areas:
 
 -   Handling Failures Gracefully - *Each component service must be able
     to endure the failure of dependent services or infrastructure*.
--   Tracing and Logging - *Each component service must have the proper
+-   Tracing, Logging and Monitoring - *Each component service must have the proper
     debugging, tracing, event, and error logging.*
 -   Debug errors where you can – *Before promoting for production, but
     also at the component and network level when running.*
@@ -92,13 +85,11 @@ behavior when it occurs.
 ###Design to Handle Errors Gracefully
 
 Applications should handle error conditions gracefully if they can. This
-is even more important given the distributed nature of Windows Azure .
+is even more important given the distributed nature of Windows Azure.
 Effective troubleshooting begins with a good transient-failure handling
 design. Transient errors are one of the main areas in which cloud
 applications fail to behave as expected due to transient error
-conditions inherent to internet applications. In addition one aspect of
-handling errors gracefully is tracing and writing to the log so that
-later debugging is easier.
+conditions inherent to internet applications. 
 
 Transient errors are failures related to latencies and intermittent
 network connections inherent in shared resources on the internet. Some
@@ -107,9 +98,9 @@ examples are:
 -   Shared computer resources such as Windows Azure Cloud Services and
     SQL Azure (to give two examples) can be slightly less or more
     responsive from moment to moment.
--   Delays required providing durability for services. For example, SQL
+-   Responsiveness delays due to providing durability for services. For example, SQL
     Azure keeps multiple copies of databases consistent in order to
-    provide durability; this has an impact on responsiveness.
+    provide durability, this has an impact on responsiveness.
 -   Delays caused by HTTP or other protocol connections ending prior to
     completing work. For example, HTTP requests may not reach an
     endpoint and return prior to their timeout period.
@@ -126,7 +117,7 @@ applications should:
     categories of failures and can implement retry behavior for those
     failures based on some configurable retry policy.
 
-For .NET developers, one recommended troubleshooting library is the [Microsoft Enterprise Library 5.0 Integration Pack for Windows Azure].
+Calls to services should either build or use a transient error handling layer to detect common failure scenarios and retry the call based upon a configuration setting. For .NET developers, one recommended library is the [Microsoft Enterprise Library 5.0 Integration Pack for Windows Azure].
 Microsoft Enterprise Library is a collection of reusable application
 blocks that address common cross-cutting concerns in enterprise software
 development. The Microsoft Enterprise Library Integration Pack for
@@ -134,20 +125,17 @@ Windows Azure is an extension to Microsoft Enterprise Library 5.0 that
 can be used with the Windows Azure technology platform. It includes the
 Autoscaling Application Block, Transient Fault Handling Application
 Block, blob configuration source, protected configuration provider, and
-learning materials. Another, simpler library with fewer features is the
-Cloud Application Framework & Extensions (CloudFx). CloudFx offers a set
+learning materials. Another, simpler .NET library with fewer features is the
+[Cloud Application Framework & Extensions (CloudFx)]. CloudFx offers a set
 of production quality components and building blocks intended to
 jump-start the implementation of feature-rich, reliable, and extensible
 Windows Azure-based solutions and services.
 
-Calls to services should either build or use a transient- error handling
-layer to detect common failure scenarios and retry the call based upon
-some configuration
-
-###Do Appropriate Tracing and Logging
+###Perform Appropriate Tracing and Logging
 
 Because the complexity of distributed, scale-out applications,
-traditional debuggers that work against one process are of little use.
+traditional debuggers that work against one process are of mush less use 
+when investigating issues that are occuring while your application is running.
 Therefore tracing and logging are of upmost importance. The execution of
 your app and its data is shared across many services, which are hosted
 on many different machines. In a large scale distributed application, it
@@ -165,7 +153,8 @@ quickly without having to call Microsoft for support.
 impact; doing so intensively has a more profound one. Therefore the
 design of your application should include a configurable tracing and
 logging policy that can be adjusted at need. Ideally, the level of
-logging should be adjustable from the **ServiceConfiguration.cscfg** file so that it can be changed without having to redeploy.
+logging should be adjustable from the **ServiceConfiguration.cscfg** 
+file so that it can be changed without having to redeploy.
 
 Having volumes of logs does not guarantee speedy bug detection and
 repair; a large amount of data takes a long time to decipher, and
@@ -181,30 +170,17 @@ consider:
 -   Event Logging - Major events in program execution
 -   Error Logging - Exceptional or dangerous situation
 
-Non-Microsoft languages, application platforms, and operating systems
+Other languages, application platforms, and operating systems
 may have different terminology for tracing and logging. If you are using
-a non-Microsoft development platform on Windows Azure, use the
-equivalent strategy and tools for the language or the platform.
-
-However you write traces, log events, and errors in Windows Azure
-applications, you should use tracing and logging intensively. Windows
-Azure applications are widely distributed, service oriented
-applications. Debugging applications of this type cannot usually be done
-with standard debugging tools like IDE debuggers. The applications are
-compose of multiple services. Each of these services may be composed of
-multiple instances of web, worker, or stateless compute roles
-(previously called VM roles). All of these roles run on a shared
-execution platform. It is unlikely that you will be able to attach a
-debugger directly to a single misbehaving instance. Therefore, the use
-of local debuggers and remote desktop is largely limited to applications
-on Windows Azure Virtual Machines.
+one of these development platforms on Windows Azure, use the equivalent 
+strategy and tools for the language or the platform you are using.
 
 Mixed mode applications are applications executing in a combination of
-Windows Azure Virtual Machines, Websites, and worker rolls. When
+Windows Azure Virtual Machines, Websites, and Cloud Services. When
 building applications of this type, tracing and logging become even more
 important because they are more widely distributed. To troubleshoot
 these mixed-mode applications the overall data and execution flow must
-be followed in order to identify any problems.
+be followed in order to identify any problems. The mechanics of tracing and logging a mixed mode application depends upon the hosting model of the component. 
 
 ###Monitor Your Application
 
@@ -219,13 +195,13 @@ allows you to:
 -   Collect and monitor trace messages
 -   Monitor resource usage
 -   Monitor quality of service metrics
--   Capacity planning
--   Traffic Analysis (users, views, peak times)
--   Billing
--   Auditing
+-   Perform capacity planning
+-   Perform traffic analysis (users, views, peak times)
+-   Estimate billing
+-   Perform auditing
 
 Monitoring is accomplished with a tool or set of tools. Which tool you
-use depends on the platform and/or languages your application uses.
+use depends on the platform and/or languages your application uses and on your monitoring goals and requirements.
 
 ####Microsoft System Center Monitoring Pack for Windows Azure Applications
 
@@ -256,8 +232,7 @@ diagnostics data collected by applications running in Windows Azure. See
 [http://www.cerebrata.com] for more information on these products.
 
 Cloud Storage Studio 2 is a Windows (WPF) based client for managing
-Windows Azure Storage, an important component of Microsoft's Azure
-(Microsoft's Cloud) platform and Hosted Applications.
+Windows Azure Storage.
 
 Azure Management Cmdlets is a set of PowerShell Cmdlets for managing
 Windows Azure Storage, Hosted Services, SQL Azure databases and
@@ -311,23 +286,16 @@ status of the instance.
 
 Before deploying an app to Windows Azure, it is a best practice to debug
 your application locally. The Windows Azure SDK contains emulators that
-mimic the Windows Azure cloud environment, allowing to run your app and
+mimic the Windows Azure cloud environment, allowing you to run your app and
 do rudimentary tests without having to deploying your application. The
-debugging tools you use varies depending upon the language and the IDE
+debugging tools you use vary depending upon the programming language and the development tools
 you are using.
 
-After an application has been deployed, you can debug in the cloud. This
-approach has many drawbacks. You would need to deploy a debug build of
-your application, and possibly debugging tools to the cloud. You would
-also need to know which VM instance to attach a debugger. In most
-real-world cloud applications this would be difficult since a
-distributed app most likely contains many role instances.
+After an application has been deployed, you can debug in the cloud. You can debug in the cloud using a debugger like Visual Studio. The requires creating a debug build and deploying it to the cloud. In order to this type of cloud debugging you must connect to a specific role instance. If you have a complex application with multiple roles and role instances, it can be very difficult to determine to which role instance to connect. Visual Studio 2010 Ultimate supports IntelliTrace, which allows .NET roles to track debug information. When a problem occurs you can download this information and load it into Visual Studio. You can look at each role instance's IntelliTrace log to determine where the problem occured. While there are some drawbacks to debugging in the cloud, there are some circumstancesin which it is required. Not all Azure Platform Services have an emulator (for example Service Bus) and not all supported development tools (for example Mac and Linux) come with emulators. 
 
 **Once you have debugged your application locally you will most likely
 have to rely on the instrumentation built into your application to
-determine where problems are occurring. For more information about
-performing such tasks on Windows, see Designing More Supportable Windows
-Azure Services.**
+determine where problems are occurring. **
 
 ####Node.js Debugging
 
@@ -339,7 +307,7 @@ information see Jim Wang’s blog: [Debugging Node in the Azure Emulator].
 If you are debugging your application on Azure, install the full version
 of IISNode from [GitHub](https://github.com/windowsazure/iisnode/downloads) on your web role, worker role, or VM instance. As
 discussed earlier, this is not a recommended way to debug your
-application because you may not know to which role instance or VM to
+application when it is in production and scaled to multiple instances because you may not know to which role instance or VM to
 debug.
 
 To use Node-Inspector on a web role, install the package in the web role
@@ -364,8 +332,7 @@ Azure Cloud Services].
 [Fiddler] is a Web Debugging Proxy that logs all HTTP(S) traffic between
 your computer and the Internet. Fiddler allows you to inspect traffic,
 set breakpoints, and "fiddle" with incoming or outgoing data. Fiddler is
-especially helpful for troubleshooting Windows Azure Storage
-troubleshooting.
+especially helpful for troubleshooting Windows Azure Storage.
 
 To use Fiddler against the local development fabric, use ipv4.fiddler
 instead of 127.0.0.1:
@@ -385,6 +352,8 @@ string to:
 -   Launch Fiddler.
 -   Launch your service. Fiddler should trace any storage requests.
 
+##Troubleshooting and the Windows Azure Hosting Models##
+This section discusses best practices for debugging applications using the different Windows Azure hosting models.
 <h2 id="Websites">Windows Azure Websites</h2>
 
 When designing a supportable Windows Azure website, follow the
@@ -425,18 +394,16 @@ Because of the distributed nature of Windows Azure Cloud Services, it’s
 important to defend your application by making calls asynchronously and
 handling retries for transient failures, as described previously.
 
-Most importantly, you should write traces and log events and errors more
-aggressively than in other hosting models, because most of the debugging
-tools you can use when your application is local (remote desktop and IDE
-debuggers) cannot be used efficiently when your application is
-implemented by many services, role instances, and components. Windows
-Azure Diagnostics provides a mechanism to collect and manage trace and
-log information.
+The debugging technique used for Windows Azure Cloud Services depends on the type of problem you are experiencing. Problems involving a specific role or role instance, for example a role failing to start or cycling, are best investigated using Remote Desktop. In these cases you will know which role or role instance is problematic and you can connect to the affected role. When a problem occurs and you are not sure what role instance is causing the problem, tracing and logging is a better method for troubleshooting. Windows Azure Diagnostics provides a mechanism to collect and manage trace and log information.
 
-###Overview of Diagnostic Resources for Windows Azure
+Some new debugging features have been added to the Windows Azure SDK 1.7 including making it easier to find stack traces when exceptions occur and improvements in Remote Desktop connectivity. Stack traces are now included in the Windows Event Log, making it easier to see exactly what went wrong. In addition Remote Desktop connectivity has been improved. If your role is cycling or aborted you will be able to use Remote Desktop to connect to the problematic role and investigate the problem. 
+
+The windows Azure Portal provides access to monitoring data that helps IT professionals and developers anticpate and diagnose problems in Windows Azure Cloud Services. By default values such as “CPU Percentage”, “Data In”, “Data Out”, “Disk Read Throughput” and “Disk Write Throughput” are collected by the host VM. There is no configuration needed to enable these metrics for role instances and there is no cost impact to customers. Additional performance information can also be collected. To collect verbose diagnostic information you must have a valid diagnostics connection string as this information will be stored in Windows Azure Storage and will therefore incurr additional storage costs. When user enables verbose monitoring, the portal will remotely configure role instances to collect the default set of performance counters. 
+
+###Windows Azure Diagnostics 
 
 The original Windows Azure SDK 1.0 included functionality to collect
-diagnostics and store them in Windows Azure storage collectively known
+diagnostics data and store them in Windows Azure storage collectively known
 as Windows Azure Diagnostics (WAD). This software, built upon the Event
 Tracing for Windows (ETW) framework, fulfills two design requirements
 introduced by Windows Azure scale-out architecture:
@@ -446,14 +413,7 @@ introduced by Windows Azure scale-out architecture:
 -   Provide a central repository for diagnostics from multiple
     instances.
 
-The Microsoft.WindowsAzure.Diagnostic namespace extends the
-System.Diagnostics namespace so that you can use the ETW framework
-within a Windows Azure application.
-
-![diagnostics diagram][diagnostics-diagram]
-
-After including Windows Azure Diagnostics in the role
-(ServiceConfiguration.cscfg and ServiceDefinition.csdef), WAD collects
+After configuring Windows Azure Diagnostics in the role, WAD collects
 diagnostic data from all the instances of that particular role. The
 diagnostic data can be used for debugging and troubleshooting, measuring
 performance, monitoring resource usage, traffic analysis and capacity
@@ -500,7 +460,7 @@ many instances. Here are a few ways to minimize the financial impact:
 
 [Windows Azure PowerShell Cmdlets]
 
-The best way to remotely manager diagnostics is to use Windows Azure
+You can remotely manager diagnostics by using Windows Azure
 PowerShell Cmdlets. The cmdlets are based on the Windows Azure
 Management and Diagnostics APIs and the full source code is available
 through the [CodePlex] project so you can better understand the underlying
@@ -544,12 +504,12 @@ with the operating systems and platforms in use. For example:
     start with the product documentation, see [https://help.ubuntu.com/].
 -   CentOS 6.2 Linux. For more information, see [http://centos.org/].
 
-###Troubleshooting Windows Azure Platform Services
+<h2 id="PlatformServices">Troubleshooting Windows Azure Platform Services</h2>
 
-Many of the Windows Azure Services such as SQL Azure, Windows Azure
+Many of the Windows Azure Services such as Windows Azure SQL Database, Windows Azure
 Active Directory, and Windows Azure storage have troubleshooting advice
 that is specific to their use, regardless whether the application is
-executing on Windows Azure, what language or libraries it was built
+executing on Windows Azure, what programming language or libraries it was built
 with, or executing on a non-Microsoft operating system. The following
 information provides best practices specific to some of these services.
 
@@ -694,12 +654,12 @@ Troubleshooting
 -   ACS Service limitations:
     [http://msdn.microsoft.com/en-us/library/windowsazure/gg185909.aspx]
 
-##SQL Azure Troubleshooting
+<h2 id=SQLTroubleshooting>Windows Azure SQL Database Troubleshooting</h2>
 
-When interacting with a SQL Azure database extra care must be taken to
-deal with the distributed nature of Windows SQL Azure applications. This
+When interacting with a Windows Azure SQL database extra care must be taken to
+deal with the distributed nature of Windows Azure SQL Database applications. This
 section discusses several areas that warrant attention. This is by no
-means an exhaustive list. The key to writing supportable SQL Azure code
+means an exhaustive list. The key to writing supportable Windows Azure SQL Database code
 is to examine the return codes and make sure that you have solid retry
 code to handle failures.
 
@@ -709,7 +669,7 @@ successfully log in, either your credentials are not valid or the
 database you requested is not available.
 
 Your application must handle the service being inaccessible. If the
-server is already provisioned and the SQL Azure Database service is
+server is already provisioned and the Windows Azure SQL Database service is
 available (you can check this using the [Azure Health Status] page), the
 likely cause is configuration issues in your on-site installation. For
 instance, you may be unable to resolve the name (which can be tested
@@ -719,7 +679,7 @@ not configured properly. Use the same techniques to troubleshoot these
 difficulties that you would for SQL Server. For more information, see [SQL Azure Connectivity Troubleshooting Guide] and [Troubleshooting SQL Azure].
 
 Your application must handle general network errors. You may receive
-general network errors because SQL Azure Database might disconnect users
+general network errors because Windows Azure SQL Database might disconnect users
 under these circumstances:
 
 -   When a connection is idle for an extended period of time
@@ -727,7 +687,7 @@ under these circumstances:
     onto a transaction for an extended period of time
 -   If the server is too busy
 
-To improve performance in SQL Azure Database, use the same techniques
+To improve performance in Windows Azure SQL Database, use the same techniques
 you would use with SQL Server. For more information, see the following
 topics:
 
@@ -737,7 +697,7 @@ topics:
 -   [Improving Your I/O Performance]
 -   [System Center Monitoring Pack for SQL Azure]
 
-SQL Azure Database uses a subset of SQL Server error messages. For more
+Windows Azure SQL Database uses a subset of SQL Server error messages. For more
 information about SQL Server errors, see [Errors and Events Reference
 (Database Engine)] in SQL Server Books Online
 
@@ -765,9 +725,9 @@ the following links:
 -   [SQL Azure Retry Logic Sample]
 -   [The Transient Fault Handling Application Block]
 
-###SQL Azure Backup and Restore Strategy
+###Windows Azure SQL Backup and Restore Strategy
 
-SQL Azure requires its own backup-and-restore strategy because of the
+Windows Azure SQL Database requires its own backup-and-restore strategy because of the
 environment and tools available. In many ways the risks have been
 mediated by the database being in the Microsoft data centers. The tools
 that we have today cover the other risk factors, however better tools
@@ -798,6 +758,18 @@ following articles:
 -   This topic describes the business continuity capabilities provided
     by SQL Azure:
     [http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx]
+
+<h2 id="Cache">Windows Azure Cache Services</h2>
+Windows Azure Caching comes in two flavors: the Windows Azure Caching service, and Windows Azure Dedicated Caching (Preview Release). The Windows Azure Caching service is a Windows Azure service that provides caching services. Windows Azure Dedicated Caching (Preview Release) provides caching on role instances by using a portion of the memory from the virtual machines that host your role instances. To troubleshooting Windows Azure Cache Services, observe the behavior of the cache by checking error codes, catching exceptions, or when using Windows Azure Dedicating Cachine, performance counters. Caching problems generally fall into one of the following categories:
+
+- 	Quota-related errors - a quota has been exceeded
+- 	Throttling - occurs when there is not enough physical memory to support additional cached items
+- 	Eviction - items are forcibly evicted to make room for new items in a way that hurts application performance
+- 	Expiration - expiration times are set too short or long
+
+For more information on quota-related errors, see [Understanding Quotas] and [Troubleshooting Cache].
+
+
 
 [https://www.windowsazure.com/en-us/develop/overview/]: https://www.windowsazure.com/en-us/develop/overview/
 [http://social.technet.microsoft.com/wiki/contents/articles/1792.sql-azure-backup-and-restore-strategy.aspx]: http://social.technet.microsoft.com/wiki/contents/articles/1792.sql-azure-backup-and-restore-strategy.aspx
@@ -877,5 +849,7 @@ following articles:
 [The Transient Fault Handling Application Block]: http://msdn.microsoft.com/en-us/library/hh680934(PandP.50).aspx
 [Microsoft Enterprise Library 5.0 Integration Pack for Windows Azure]: http://msdn.microsoft.com/en-us/library/hh680918%28v=pandp.50%29.aspx
 [Take Control of Logging and Tracing in Windows Azure]: http://msdn.microsoft.com/en-us/magazine/ff714589.aspx
-
+[Cloud Application Framework & Extensions (CloudFx)]: http://nuget.org/packages/Microsoft.Experience.CloudFx
 [diagnostics-diagram]: ../Media/diagnosticsdiagram.png
+[Understanding Quotas]: http://msdn.microsoft.com/en-us/library/gg185683.aspx
+[Troubleshooting Cache]: http://go.microsoft.com/fwlink/?LinkId=252730 
