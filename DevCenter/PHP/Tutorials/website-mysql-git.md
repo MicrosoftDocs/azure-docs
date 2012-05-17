@@ -55,9 +55,11 @@ Follow these steps to create a Windows Azure Website and a MySQL database:
 
 	![Create New Windows Azure Website][new-website]
 
-3. Click **Web Site**, then **Custom Create**. Enter a value for **URL**, select **Create a New MySQL Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
+3. Click **Web Site**, then **Custom Create**.
 
 	![Custom Create a new Website][custom-create]
+	
+	Enter a value for **URL**, select **Create a New MySQL Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
 
 	![Fill in Website details][website-details]
 
@@ -127,7 +129,10 @@ Before publishing the Tasklist application, the database connection information 
 
 To publish your application with Git, follow the steps below.
 
-**Note**: These are the steps noted at the end of the **Create a Windows Azure Website and Set up Git Publishing** section.
+<div class="dev-callout>
+<b>Note</b>
+<p>These are the same steps noted at the end of the <b>Create a Windows Azure Website and Set up Git Publishing</b> section.</p>
+</div>
 
 1. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:
 
