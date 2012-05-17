@@ -2,10 +2,6 @@ To create a website with the Windows Azure Command-Line Tools for Mac and Linux,
 
 	azure site create [site name]
 
-This should return a response similar to the following:
-
-	**TODO: Screenshot**
-
 The default URL for your website will have the following format:
 
 	[site name].azurewebsites.net
