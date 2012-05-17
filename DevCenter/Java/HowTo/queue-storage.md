@@ -1,5 +1,4 @@
-<properties linkid="dev-net-how-to-use-queue-storage-service-java" urldisplayname="Queue Service" headerexpose="" pagetitle="How to Use the Queue Storage Service from Java" metakeywords="Azure Queue Java" footerexpose="" metadescription="This guide will show you how to perform common scenarios using the
-Windows Azure Queue storage service with the Java programming language." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-how-to-use-queue-storage-service-java" urldisplayname="Queue Service" headerexpose="" pagetitle="How to Use the Queue Storage Service from Java" metakeywords="Azure Queue Java" footerexpose="" metadescription="This guide will show you how to perform common scenarios using the Windows Azure Queue storage service with the Java programming language." umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Use the Queue Storage Service from Java
 

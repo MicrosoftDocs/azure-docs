@@ -1,5 +1,4 @@
-<properties umbraconavihide="0" pagetitle="On-Premise Application with Blob Storage - How To - Java - Develop" metakeywords="Azure Blob Storage Java" metadescription="The following example shows you how you can use Windows Azure storage to
-store images in Windows Azure using the Java programming language." linkid="dev-java-how-to-on-premise-application-with-blob-storage" urldisplayname="Application Using Blobs" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties umbraconavihide="0" pagetitle="On-Premise Application with Blob Storage - How To - Java - Develop" metakeywords="Azure Blob Storage Java" metadescription="The following example shows you how you can use Windows Azure storage to store images in Windows Azure using the Java programming language." linkid="dev-java-how-to-on-premise-application-with-blob-storage" urldisplayname="Application Using Blobs" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
 # On-Premise Application with Blob Storage
 
