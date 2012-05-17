@@ -70,12 +70,12 @@
 [MongoWindowsSvcOptions]: http://www.mongodb.org/display/DOCS/Windows+Service
 [MongoDocs]: http://www.mongodb.org/display/DOCS/Home
 
-[Image1]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinFirewall1.png
-[Image2]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinFirewall2.png
-[Image3]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinFirewall3.png
-[Image4]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinFirewall4.png
-[Image5]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinFirewall5.png
-[Image6]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinFirewall6.png
-[Image7]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinVmAddEndpoint.png
-[Image8]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinVmAddEndpoint2.png
-[Image9]: C:\Users\a-ryanwi\Desktop\InstallMongoOnWinVM\media\WinVmAddEndpoint3.png
+[Image1]: ../../Shared/Media/WinFirewall1.png
+[Image2]: ../../Shared/Media/WinFirewall2.png
+[Image3]: ../../Shared/Media/WinFirewall3.png
+[Image4]: ../../Shared/Media/WinFirewall4.png
+[Image5]: ../../Shared/Media/\WinFirewall5.png
+[Image6]: ../../Shared/Media/WinFirewall6.png
+[Image7]: ../../Shared/Media/WinVmAddEndpoint.png
+[Image8]: ../../Shared/Media/WinVmAddEndpoint2.png
+[Image9]: ../../Shared/Media/WinVmAddEndpoint3.png
