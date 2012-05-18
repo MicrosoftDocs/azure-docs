@@ -178,7 +178,7 @@ The default **mode** of the ASP.NET [customErrors][customErrors] configuration s
 
 2. Save the contents of this document to the root directory of your web site with the name "web.config":
 
-	![Save web.config to the root folder of your website](C:\Users\tracey\Dropbox\Azurewebdiag\AzureWebTshootArt\tshootwebconfig.png)
+	![Save web.config to the root folder of your website][savewebconfigtoroot]
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
@@ -266,7 +266,7 @@ Now that you have introduced an error condition on the website, you can download
 1.  Open the website's **Dashboard** management page and make note of the FTP site listed under **Diagnostics Logs** and the account listed under **Deployment User**. The FTP site is where the log files are located and the account listed under Deployment User is used to authenticate to the FTP site.
 2. Consider using an FTP client such as [FileZilla][filezilla] to connect to the FTP site. An FTP client provides greater ease of use for specifying credentials and viewing folders on an FTP site than is typically possible with a browser. The screenshot below was taken from the FileZilla FTP client when connecting to the FTP site where the log files for the AzureWebDiag website are stored. The FTP host name and deployment user credentials are highlighted in red. To copy the contents of the remote FTP folder on the right to the local folder on the left, click to select the folder on the left then right-click the folder on the right and select **Download** from the shortcut menu that is displayed:
 
-	![FileZilla FTP Client](C:\Users\tracey\Dropbox\Azurewebdiag\AzureWebTshootArt\tshootfilezilla.png)
+	![FileZilla FTP Client][filezillaclient]
 
 3. Open the folder on the left with Windows Explorer to access the local copy of the log files that you downloaded:
 

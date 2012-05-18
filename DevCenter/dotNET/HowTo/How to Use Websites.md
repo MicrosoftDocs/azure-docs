@@ -5,29 +5,18 @@ This guide will show you how to use Websites. The scenarios covered in this guid
 
 ## Table of Contents ##
 
-> - [What are Websites?](#whatarewebsites)
-
-> - [How to: Create, Deploy and Delete a Website](#howtocreatedeploydelete)
-
-> - [How to: Change Configuration Options for a Website](#howtochangeconfig)
-
-> - [How to: Manage a Website](#howtomanage)
-
-> - [How to: Monitor a Website](#howtomonitor)
-
-> - [How to: Configure Diagnostics and Download Logs for a Website](#howtoconfigdiagnostics)
-
-> - [How to: Configure a Website to Use Other Windows Azure Resources](#howtoconfigother)
-
-> - [How to: Scale a Website](#howtoscale)
-
-> - [How to: View Usage Quotas for a Website](#howtoviewusage)
-
-> - [How to: Create a Website from the Azure Gallery](#howtocreatefromgallery)
-
-> - [How to: Develop and Deploy a Website with Microsoft WebMatrix](#howtodevdepwebmatrix)
-
-> - [Next Steps](#nextsteps)
+ - [What are Websites?](#whatarewebsites)
+ - [How to: Create, Deploy and Delete a Website](#howtocreatedeploydelete)
+ - [How to: Change Configuration Options for a Website](#howtochangeconfig)
+ - [How to: Manage a Website](#howtomanage)
+ - [How to: Monitor a Website](#howtomonitor)
+ - [How to: Configure Diagnostics and Download Logs for a Website](#howtoconfigdiagnostics)
+ - [How to: Configure a Website to Use Other Windows Azure Resources](#howtoconfigother)
+ - [How to: Scale a Website](#howtoscale)
+ - [How to: View Usage Quotas for a Website](#howtoviewusage)
+ - [How to: Create a Website from the Azure Gallery](#howtocreatefromgallery)
+ - [How to: Develop and Deploy a Website with Microsoft WebMatrix](#howtodevdepwebmatrix)
+ - [Next Steps](#nextsteps)
 
 ##<a name="whatarewebsites"></a>What are Websites?
 Websites are web application hosts which support popular web application technologies such as .NET, Node.js and PHP without requiring any code changes to existing applications.  All of the common programming models and resources that .NET, Node.js and PHP developers use to access resources such as files and databases will continue to work as expected on websites deployed to Windows Azure.  Websites provide access to file and database resources and to  all of the standard configuration files (such as web.config, php.ini and config.js) used by web applications today. A website is the host for a web application running in the cloud that you can control and manage. 
@@ -58,15 +47,11 @@ Follow these steps to create a website in Windows Azure.
 
 7. The **Configure** management page exposes several configurable application settings in the following sections:
 
-> - **Framework** – Set the version of .NET framework or PHP required by your web application.
-
-> - **Diagnostics** – Set logging options for gathering diagnostic information for your website in this section.
-
-> - **App Settings** – Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be injected into your .NET configuration **AppSettings** at runtime, overriding existing settings. For PHP and Node sites these settings will be available as environment variables at runtime.
-
-> - **Connection Strings** – View connection strings for linked resources. For .NET sites, these connection strings will be injected into your .NET configuration **connectionStrings** settings at runtime, overriding existing entries where the key equals the linked database name. For PHP and Node sites these settings will be available as environment variables at runtime.
-
-> - **Default Documents** – Add your web application’s default document to this list if it is not already in the list. If your web application contains more than one of the files in the list then make sure your website’s default document appears at the top of the list.
+- **Framework** – Set the version of .NET framework or PHP required by your web application.
+- **Diagnostics** – Set logging options for gathering diagnostic information for your website in this section.
+- **App Settings** – Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be injected into your .NET configuration **AppSettings** at runtime, overriding existing settings. For PHP and Node sites these settings will be available as environment variables at runtime.
+- **Connection Strings** – View connection strings for linked resources. For .NET sites, these connection strings will be injected into your .NET configuration **connectionStrings** settings at runtime, overriding existing entries where the key equals the linked database name. For PHP and Node sites these settings will be available as environment variables at runtime.
+- **Default Documents** – Add your web application’s default document to this list if it is not already in the list. If your web application contains more than one of the files in the list then make sure your website’s default document appears at the top of the list.
 
 ###<a name="deployawebsite"></a>Deploy a Website to Windows Azure
 Windows Azure supports deploying websites from remote computers using WebDeploy, FTP, GIT or TFS. Many development tools provide integrated support for publication using one or more of these methods and may only require that you provide the necessary credentials, site URL and hostname or URL for your chosen deployment method. Credentials and deployment URLs for all enabled deployment methods are stored in the website’s publish profile, a file which can be downloaded from the **Quick Start** page or the **quick glance** section of the **Dashboard** page.</p>
@@ -197,69 +182,45 @@ You manage your websites with a set of Management pages.
 
 **QuickStart** – The **QuickStart** management page for Websites includes the following sections:
 
-> - **get the tools** – Provides links to [Install WebMatrix][mswebmatrix] and the [Azure SDK][azuresdk].
-
-> - **publish from local environment** – Provides links to download the website’s publishing profile and reset deployment credentials for the website.
-
-> - **publish from source control** – Includes links for setting up TFS publishing and GIT publishing.
+- **get the tools** – Provides links to [Install WebMatrix][mswebmatrix] and the [Azure SDK][azuresdk].
+- **publish from local environment** – Provides links to download the website’s publishing profile and reset deployment credentials for the website.
+- **publish from source control** – Includes links for setting up TFS publishing and GIT publishing.
 
 For more information about developing and deploying Websites see the following topics:
 
->- [How to: Create, Deploy and Delete Website](#howtocreatedeploydelete)
-
-> - [How to: Develop and Deploy a Website with Microsoft WebMatrix](#howtodevdepwebmatrix)
-
-> - [How to: Create a Website from the Azure Gallery](#howtocreatefromgallery)
-
+- [How to: Create, Deploy and Delete Website](#howtocreatedeploydelete)
+- [How to: Develop and Deploy a Website with Microsoft WebMatrix](#howtodevdepwebmatrix)
+- [How to: Create a Website from the Azure Gallery](#howtocreatefromgallery)
 
 #### Dashboard ####
 The **Dashboard** management page for a Website includes the following:
 
  - A chart which summarizes website usage as measurements of certain metrics.
-
-> - **CPU Time** – a measure of the website’s CPU usage.
-
-> - **Requests** – a count of all client requests to the website.
-
-> - **Data Out** – a measure of data sent by the website to clients.
-
-> -  **Data In** – a measure of data received by the website from clients.
-
-> - **Http Client Errors** – number of Http “4xx Client Error” messages sent.
-
-> - **Http Server Errors** – number of Http “5xx Server Error” messages sent.
+ - **CPU Time** – a measure of the website’s CPU usage.
+ - **Requests** – a count of all client requests to the website.
+ - **Data Out** – a measure of data sent by the website to clients.
+ -  **Data In** – a measure of data received by the website from clients.
+ - **Http Client Errors** – number of Http “4xx Client Error” messages sent.
+ - **Http Server Errors** – number of Http “5xx Server Error” messages sent.
 
 >	 **Note**<br/>
 >	 To see a chart with additional performance metrics, configure the chart displayed on the **Monitor** management page as described in [How to: Monitor a Website](#howtomonitor).
 
 - A list of all linked resources associated with this website or if no resources are associated, a hyperlink to the **Linked Resources** management page.
-
 - A **quick glance** section which includes the following summary information and links:
 
 > - **Download Publish Profile** – Link to the publish profile, a file which contains credentials and URLs required to publish to the website using any enabled publishing methods.
-
 > - **Reset Deployment Credentials** – Displays a dialog box where you provide unique credentials for use when publishing with GIT or FTP. If you wish to use GIT or FTP deployment then you must reset deployment credentials because authentication to an FTP host or GIT repository with Live ID credentials is not supported. Once you reset deployment credentials you can use these credentials for GIT or FTP publishing to any website in your subscription.
-
 > - **Set up TFS publishing** – Displays a dialog box where you can set up publishing from Team Foundation Service.
-
 > - **Set up Git publishing** – Creates a GIT repository for the website so that you can publish to the website using GIT.
-
 > - **Status** – Indicates whether the website is running or not.
-
 > - **Site Url** – Specifies the publicly accessibly address of the website on the internet.
-
 > - **Location** – Specifies the physical region of the datacenter that hosts the website.
-
 > - **Compute Mode** – Specifies whether the website is running in Reserved or Shared mode. For more information about website modes see [How to: Scale a Website](#howtoscale).
-
 > - **Subscription ID** – Specifies the actual unique subscription ID of the subscription that the website is associated with.
-
 > - **FTP Hostname** – Specifies the URL to use when publishing to the website over FTP.
-
 > - **Deployment User** – Indicates the account used when deploying the website to Windows Azure over FTP or GIT.
-
 > - **Diagnostic Logs** – Specifies the location of the website’s diagnostic logs if diagnostic logging is enabled on the **Configure** management page.
-
 > - **GIT Clone URL** – URL of the GIT repository for the website. For information about making a copy of a remote GIT repository see the **git clone** section of the [GIT Reference for Getting and Creating Projects][gitref].
 
  >	 **Note**<br/>
@@ -274,15 +235,11 @@ The **Monitor** management page provides a chart that displays usage information
 ####Configure####
 The **Configure** management page is used to set application specific settings including:
 
->- **Framework** – Set the version of .NET framework or PHP required by your web application.
-
->- **Diagnostics** – Set logging options for gathering diagnostic information for your website in this section. For more information about configuring diagnostics see [How to: Configure Diagnostics and Download Logs for a Website][howtoconfiganddownloadlogs].
-
->- **App Settings** – Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be injected into the website’s .NET configuration AppSettings at runtime, overriding existing settings. For PHP and Node websites, these settings will be available as environment variables at runtime.
-
->- **Connections Strings** – View connection strings to linked resources. For .NET sites, these connection strings will be injected into the website’s .NET configuration connectionStrings settings at runtime, overriding any existing entries where the key equals the linked database name. For PHP and Node websites, these settings will be available as environment variables at runtime.
-
->- **Default Documents** – Add your website’s default document to this list if it is not already in the list. If your website contains more than one of the files in the list then make sure your website’s default document appears at the top of the list by changing the order of the files in the list.
+- **Framework** – Set the version of .NET framework or PHP required by your web application.
+- **Diagnostics** – Set logging options for gathering diagnostic information for your website in this section. For more information about configuring diagnostics see [How to: Configure Diagnostics and Download Logs for a Website][howtoconfiganddownloadlogs].
+- **App Settings** – Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be injected into the website’s .NET configuration AppSettings at runtime, overriding existing settings. For PHP and Node websites, these settings will be available as environment variables at runtime.
+- **Connections Strings** – View connection strings to linked resources. For .NET sites, these connection strings will be injected into the website’s .NET configuration connectionStrings settings at runtime, overriding any existing entries where the key equals the linked database name. For PHP and Node websites, these settings will be available as environment variables at runtime.
+- **Default Documents** – Add your website’s default document to this list if it is not already in the list. If your website contains more than one of the files in the list then make sure your website’s default document appears at the top of the list by changing the order of the files in the list.
 
 For more information about how to configure a Website see [How to: Change Configuration Options for a Website](#howtochangeconfig).
 
@@ -323,27 +280,16 @@ To remove metrics from the **Monitor** page, select the metric that you want to 
 The following list describes the metrics which can be viewed in the chart on the **Monitor** page:
 
 - **CPUTime** – A measure of the web site’s CPU usage.
-
 - **Requests** – A count of client requests to the web site.
-
 - **Data Out** – A measure of data sent by the website to clients.
-
 - **Data In** – A measure of data received by the website from clients.
-
 - **Http Client Errors** – Number of Http “4xx Client Error” messages sent.
-
 - **Http Server Errors** – Number of Http “5xx Server Error” messages sent.
-
 - **Http Successes** – Number of Http “2xx Success” messages sent.
-
 - **Http Redirects** – Number of Http “3xx Redirection” messages sent.
-
 - **Http 401 errors** – Number of Http “401 Unauthorized” messages sent.
-
 - **Http 403 errors** – Number of Http “403 Forbidden” messages sent.
-
 - **Http 404 errors** – Number of Http “404 Not Found” messages sent.
-
 - **Http 406 errors** – Number of Http “406 Not Acceptable” messages sent.
 
 --------------------------------------------------------------------------------
@@ -357,9 +303,7 @@ Websites can be configured to capture and log diagnostic information from the we
 Diagnostics for a website is enabled on the **Configure** management page for the website. Under the **Diagnostics** section of **Configure** management page you can enable or disable the following logging or tracing options:
 
 - **Detailed Error Logging** – Turn on detailed error logging to capture all errors generated by your website.
-
 - **Failed Request Tracing** – Turn on failed request tracing to capture information for failed client requests.
-
 - **Web Server Logging** – Turn on Web Server logging to save website logs using the W3C extended log file format.
 
 After enabling diagnostics for a website, click the **Save** icon at the bottom of the **Configure** management page to apply the options that you have set.
@@ -385,18 +329,18 @@ Follow these steps to download log files for a website:
 
 The log files that are generated after you have enabled logging and / or tracing for a website vary depending on the level of logging / tracing that is set on the Configure management page for the website. The following table summarizes the location of the log files and how the log files may be analyzed:
 
-<table rules=all>
-<tr><th>Log File Type</th><th>Location</th><th>Read Files With</th></tr>
-<tr><td>Failed Request Tracing</td><td>/LogFiles/W3SVC#########/</td><td><strong>Internet Explorer</strong><br/><br/>
+<table cellpadding="0" cellspacing="0" width="900" rules="all" style="border: #000000 thin solid;">
+<tr style="background-color: silver; font-weight: bold;" valign="top"><th style="width: 160px">Log File Type</th><th style="width: 190px">Location</th><th style="width: 600px">Read Files With</th></tr>
+<tr><td>Failed Request Tracing</td><td>/LogFiles/W3SVC#########/</td><td><strong>Internet Explorer</strong><br/>
 <b>Important</b><br/>
 The /LogFiles/W3SVC#########/ folder contains an XSL file and one or more XML files. Ensure that you download the XSL file into the same directory as the XML file(s) because the XSL file provides functionality for formatting and filtering the contents of the XML file(s) when viewed in Internet Explorer.</td></tr>
-<tr><td>Detailed Error Logging</td><td>/LogFiles/DetailedErrors/</td><td><strong>Internet Explorer</strong><br/><br/>
-The /LogFiles/DetailedErrors/ folder contains one or more .htm files that provide extensive information for any HTTP errors that have occurred. The .htm files include the following sections:<br/><br/><ul>
-<li><strong>Detailed Error Information</strong> – Includes information about the error such as <em>Module</em>, <em>Handler</em>, <em>Error Code</em>, and <em>Requested URL</em>.<br/><br/></li>	
-<li><strong>Most likely causes:</strong> Lists several possible causes of the error.<br/><br/></li>
-<li><strong>Things you can try:</strong> Lists possible solutions for resolving the problem reported by the error.<br/><br/></li>
+<tr><td>Detailed Error Logging</td><td>/LogFiles/DetailedErrors/</td><td><strong>Internet Explorer</strong><br/>
+The /LogFiles/DetailedErrors/ folder contains one or more .htm files that provide extensive information for any HTTP errors that have occurred. The .htm files include the following sections:<br/><ul>
+<li><strong>Detailed Error Information</strong> – Includes information about the error such as <em>Module</em>, <em>Handler</em>, <em>Error Code</em>, and <em>Requested URL</em>.<br/></li>	
+<li><strong>Most likely causes:</strong> Lists several possible causes of the error.<br/></li>
+<li><strong>Things you can try:</strong> Lists possible solutions for resolving the problem reported by the error.<br/></li>
 <li><strong>Links and More Information</strong> – Provides additional summary information about the error and may also include links to other resources such as Microsoft Knowledge Base articles.</li></td></tr>
-<tr><td>Web Server Logging</td><td>/LogFiles/http/RawLogs</td><td><strong>Log Parser</strong><br/><br/>
+<tr><td>Web Server Logging</td><td>/LogFiles/http/RawLogs</td><td><strong>Log Parser</strong><br/>
 Used to parse and query IIS log files. Log Parser 2.2 is available on the Microsoft Download Center at <a href="http://go.microsoft.com/fwlink/?LinkId=246619">http://go.microsoft.com/fwlink/?LinkId=246619</a>.</td></tr>
 </table>
 
@@ -433,7 +377,7 @@ To configure a website to use a MySQL database you must create the website with 
 
 ##<a name="howtoscale"></a>How to: Scale a Website
 
-When a website is first created it runs in **Shared** mode and there is no charge associated with deploying or running the website. A website that is running in **Shared** mode will typically provide sufficient performance for development or proof of concept work. Once the website is live, the resources available to the website may not be sufficient to provide a satisfactory user experience. Before making the website live, estimate the load that the website will receive and consider scaling up / scaling out the website by configuring options on the **Scale** management page in the Windows Azure portal. This topic describes the options on the Scale management page and how to change them.
+When a website is first created it runs in **Shared** website mode meaning that it shares available with other subscribers that are also running websites in Shared website mode. A single instance of a website configured to run in Shared mode will provide somewhat limited performance when compared to other configurations but should still provides sufficient performance to complete development tasks or proof of concept work. If a website that is configured to run in a single instance using Shared website mode is put into production, the resources available to the website may prove to be inadequate as the average number of client requests increases over time. Before putting a website into production,  estimate the load that the website will be expected to handle and consider scaling up / scaling out the website by changing configuration options available on the website's **Scale** management page in the Windows Azure portal. This topic describes the options available on the Scale management page and how to change them.
 
 <strong>Warning</strong><br />Scale options applied to a website are also applied to all websites that meet the following conditions:
 <ol>
@@ -481,16 +425,13 @@ Since Windows Azure calculates usage quotas by measuring the sum total of resour
 
 > - As the number of websites configured to run in Shared mode is increased, so is the likelihood of exceeding usage quotas.
 Consider reducing the number of websites that are configured to run in Shared mode if usage quotas are being exceeded.
-
 > - Similarly, as the number of instances of any website configured to run in Shared mode is increased, so is the likelihood of exceeding usage quotas.
 Consider scaling back additional instances of websites configured to run in Shared mode if usage quotas are being exceeded.
 
 Windows Azure takes the following actions if usage quotas for a subscription are exceeded:
 
 > - **Data Out** – when this quota is exceeded Windows Azure stops all websites for the subscription that are configured to run in **Shared** mode for the remainder of the current quota interval. Windows Azure will start the websites at the beginning of the next quota interval.
-
 > - **CPU Time** – when this quota is exceeded Windows Azure stops all websites for the subscription that are configured to run in **Shared** mode for the remainder of the current quota interval. Windows Azure will start the websites at the beginning of the next quota interval.
-
 > - **File System Storage** – Windows Azure prevents deployment of any websites for the subscription that are configured to run in Shared mode if the deployment will cause the File System Storage usage quota to be exceeded.
 When the File System Storage resource has grown to the maximum size allowed by its quota, file system storage remains accessible for read operations but all write operations, including those required for normal website activity are blocked.
 When this occurs you could configure one or more websites running in Shared website mode to run in Reserved website mode and reduce usage of file system storage below the File System Storage usage quota.
@@ -617,7 +558,7 @@ For more information about Websites in see the following:
 [installwebmatrix]:../../../DevCenter/dotNet/Media/howtoinstallwebmatrix.png
 [webplatinstall]:../../../DevCenter/dotNet/Media/howtowebplatforminstallation.png
 [webplatdone]:../../../DevCenter/dotNet/Media/howtofinish.png
-[createnewsite]:../../../DevCenter/dotNet/Media/howtowebsitecreatenewsite.png
+[createnewsite]:../../../DevCenter/dotNet/Media/howtocreatenewsite.png
 [webmatrixcerterror]:../../../DevCenter/dotNet/Media/howtocertificateerror.png
 [publishcomplete]:../../../DevCenter/dotNet/Media/howtopublished.png
 [bakerysample]:../../../DevCenter/dotNet/Media/howtobakerysamplesite.png
