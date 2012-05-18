@@ -15,7 +15,7 @@ There are several flavors of Python - examples include:
 * IronPython - Python interpreter that runs on .Net/CLR
 * Jython - Python interpreter that runs on the JVM
 
-For the purposes of this release, only CPython is tested and supported.  We also recommend at least version 2.7.
+For the purposes of this release, only CPython is tested and supported.  We also recommend at least version 2.7.  IronPython support will be added in the near future as well.
 
 ### Where to get Python?
 
@@ -29,15 +29,21 @@ Unless you have a specific need, we recommend the first two options, as describe
 
 ## Installation on Windows
 
-For Windows you can use the provided WebPI installer to streamline the installation.  This will grab the Azure/Python SDK's, latest recommended versions of CPython, Django, various required dependencies and Python Tools for Visual Studio (optional):
+For Windows you can use the provided WebPI installer to streamline the installation:
 
 ![how-to-install-python-webpi-1.png][] 
 
 The WebPI installer provides everything you need to Python Azure apps as well specific support for Django apps:
 
+
+
 ![how-to-install-Python-webpi-2.png][]
 
-Using Python Tools for Visual Studio is optional, but is recommended as it gives you Project/Solution support, debugging, profiling, Template editing and Intellisense.  For more information, see [Python Tools for Visual Studio on CodePlex (free/OSS)][].
+
+Once finished, you should see this screen confirming your install choices:
+
+![how-to-install-python-webpi-3.png][]
+
 
 After installation is complete, type python at the prompt to make sure things went smoothly.  Depending on how you installed, you may need to set your "path" variable to find (the right version of) Python:
 
@@ -51,10 +57,18 @@ To see what Python packages are installed, enter the following:
 
 This will give a list what's been installed on your system.
 
+### Python Tools for Visual Studio
+
+Python Tools for Visual Studio is a free/OSS plugin from Microsoft which turn VS into a full-fledged Python IDE:
+
+![how-to-install-python-ptvs.png][]
+
+Using Python Tools for Visual Studio is optional, but is recommended as it gives you Python and Django Project/Solution support, debugging, profiling, Template editing and Intellisense, deployment to cloud, etc.  This add-in  works with your existing VS2010 install.  If you don't have VS2010, WebPI will install the free Integrated Shell + PTVS which essentially give you a "VS Python Express" IDE.  For more information, see [Python Tools for Visual Studio on CodePlex (free/OSS)][].  Also note that while PTVS is small, the Integrated Shell will increases your download times.
+
 
 ## Installation on Linux and MacOS
 
-Python is most likely already installed on your Dev machine.  You can check by:
+Python is most likely already installed on your Dev machine.  You can check by entering:
 
 ![how-to-install-python-linux-run.png][]
 
@@ -81,7 +95,7 @@ To find out more about using VM's, please see:
 
 	// TODO //
 
-
+ 
 ### Additional Software and Resources:
 
 [Enthought Python Distribution][]
@@ -121,6 +135,8 @@ To find out more about using VM's, please see:
 
 [how-to-install-python-webpi-1.png]: ../Media/how-to-install-python-webpi-1.png 
 [how-to-install-Python-webpi-2.png]: ../Media/how-to-install-Python-webpi-2.png
+[how-to-install-Python-webpi-3.png]: ../Media/how-to-install-Python-webpi-3.png
+[how-to-install-Python-ptvs.png]: ../Media/how-to-install-Python-ptvs.png
 [how-to-install-python-win-site.png]: ../Media/how-to-install-python-win-site.png 
 [how-to-install-python-win-run.png]: ../Media/how-to-install-python-win-run.png 
 [how-to-install-python-linux-run.png]: ../Media/how-to-install-python-linux-run.png
