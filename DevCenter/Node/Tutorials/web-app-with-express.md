@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-nodejs-basic-web-app-with-express" urldisplayname="Web App With Express" headerexpose="" pagetitle="Web App With Express" metakeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" footerexpose="" metadescription="An tutorial that builds on the Web app tutorial, and demonstrates how to use the Express module" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-basic-web-app-with-express" urldisplayname="Web App With Express" headerexpose="" pagetitle="Web App With Express" metakeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" footerexpose="" metadescription="An tutorial that builds on the Web app tutorial, and demonstrates how to use the Express module" umbraconavihide="0" disquscomments="1"></properties>
 
 # Node.js Web Application using Express
 
@@ -24,7 +24,7 @@ A screenshot of the complted application is below:
 
 Node modules can be installed using the node package manager. The
 command format used to install a module using the package manager is
-*npm install <module\_name\>*. Packages installed in this way are stored
+**npm install modulename**. Packages installed in this way are stored
 in the **node\_modules** folder in the directory the command is ran in.
 Node automatically looks for modules within the **node\_modules** folder
 in the application folder, so it is important that you run the npm
