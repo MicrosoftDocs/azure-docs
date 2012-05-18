@@ -17,12 +17,19 @@ For security reasons, certificates and keys that are used in ACS are guaranteed 
  
 
 
-It is good practice to upload a new certificate well in advance of the expiration of the current certificate. The high-level steps that should be involved are as follows:
+It is good practice to upload a new certificate well in advance of the expiration of the current certificate. 
 
-- Upload a new secondary certificate. 
-- Notify the partners that use the service of the upcoming change. Partners should update their certificate configuration for their relying parties (for example, a thumbprint of the certificate configured in web.config under trustedIssuers node in an ASP.NET web application) 
-- Switch signing over to the new certificate (mark it primary) while leaving the previous one in place for a reasonable grace period. 
-- After the grace period ends, remove the old certificate.  
+The high-level steps that should be involved are as follows:
+
+1. Upload a new secondary certificate. 
+
+2. Notify the partners that use the service of the upcoming change. 
+
+3. Partners should update their certificate configuration for their relying parties (for example, a thumbprint of the certificate configured in web.config under trustedIssuers node in an ASP.NET web application) 
+
+4. Switch signing over to the new certificate (mark it primary) while leaving the previous one in place for a reasonable grace period. 
+
+5. After the grace period ends, remove the old certificate.  
 
 
 Note: this procedure is similar but different for public keys versus private keys. Private keys (that are used for token signing and decryption) support a primary/secondary field that must be toggled. ACS can only sign with one key at a time. Public keys (such as identity provider and system identities keys) do not have primary/secondary fields. In the case of signing, public keys are used for signature validation and ACS will check all configured public keys for the given entity until one matches. 
@@ -53,7 +60,28 @@ The rest of this topic covers each certificate and key in detail.
 
 ## Token signing certificates ##
 
-ACS signs all security tokens it issues. X.509 certificates are used for signing when you build an application that consumes SAML tokens issued by ACS. You can manage token signing certificates via the Certificates and Key section of the ACS Management Portal. For more information, see [Certificates and Keys](http://msdn.microsoft.com/en-us/library/gg185932.aspx).
+ACS signs all security tokens it issues. X.509 certificates are used for signing when you build an application that consumes SAML tokens issued by ACS. 
+
+You can manage token signing certificates via the Certificates and Key section of the ACS Management Portal. 
+
+**To manage token signing certificates**
+
+1. Open an Internet browser and visit the Windows Azure Management Portal ([http://go.microsoft.com/fwlink/?LinkID=129428](http://go.microsoft.com/fwlink/?LinkID=129428)).
+
+2. Log on to the website using a Windows Live ID. If you do not have a Windows Live ID, click Sign up to create one for yourself.
+
+3. After you are signed in with your Windows Live ID, you are redirected to the Management Portal page. On the lower-left-hand side of this page, click **Service Bus and Access Control**.
+
+4. To launch the ACS Management Portal, click **Access Control** in the tree on the left-hand side, select the ACS service namespace that you want to configure, and then click the **Access Control Service** button from the toolbar at the top of the page. 
+ 
+5. To add new or manage existing certificates and keys, click **Certificates and Keys** in the tree on the left-hand side under the Service Settings section.
+
+6. Click the certificate that you want to roll over and on the **Edit Token Signing Certificate or Key** page, use the **Expiration date** field to roll the certificate.
+
+
+
+
+For more information, see [Certificates and Keys](http://msdn.microsoft.com/en-us/library/gg185932.aspx).
 
 When signing certificates expire you will receive the following errors when trying to request a token:
 
@@ -69,7 +97,25 @@ When signing certificates expire you will receive the following errors when tryi
 
 ## Token signing key ##
 
-ACS signs all security tokens it issues. 256-bit symmetric signing keys are used when you build an application that consumes SWT tokens issued by ACS. You can manage token signing keys via the Certificates and Key section of the ACS Management Portal. For more information, see [Certificates and Keys](http://msdn.microsoft.com/en-us/library/gg185932.aspx).
+ACS signs all security tokens it issues. 256-bit symmetric signing keys are used when you build an application that consumes SWT tokens issued by ACS. 
+
+You can manage token signing keys via the Certificates and Key section of the ACS Management Portal. 
+
+**To manage token signing keys**
+
+1. Open an Internet browser and visit the Windows Azure Management Portal (http://go.microsoft.com/fwlink/?LinkID=129428).
+
+2. Log on to the website using a Windows Live ID. If you do not have a Windows Live ID, click Sign up to create one for yourself.
+
+3. After you are signed in with your Windows Live ID, you are redirected to the Management Portal page. On the lower-left-hand side of this page, click Service Bus and Access Control.
+
+4. To launch the ACS Management Portal, click **Access Control** in the tree on the left-hand side, select the ACS service namespace that you want to configure, and then click the **Access Control Service** button from the toolbar at the top of the page. 
+ 
+5. To add new or manage existing certificates and keys, click **Certificates and Keys** in the tree on the left-hand side under the Service Settings section.
+
+6. Click the key that you want to roll over and on the **Edit Token Signing Certificate or Key** page, use the **Expiration date** field to roll the key.
+
+For more information, see [Certificates and Keys](http://msdn.microsoft.com/en-us/library/gg185932.aspx).
 
 When signing keys expire you will receive the following errors when trying to request a token:
 
@@ -85,7 +131,25 @@ When signing keys expire you will receive the following errors when trying to re
 
 ## Token encryption certificates ##
 
-Token encryption is required if a relying party application is a web service using proof-of-possession tokens over the WS-Trust protocol, in other cases token encryption is optional.  You can manage token encryption certificates via the Certificates and Key section of the ACS Management Portal. For more information, see [Certificates and Keys](http://msdn.microsoft.com/en-us/library/gg185932.aspx).
+Token encryption is required if a relying party application is a web service using proof-of-possession tokens over the WS-Trust protocol, in other cases token encryption is optional.  
+
+You can manage token encryption certificates via the Certificates and Key section of the ACS Management Portal. 
+
+**To manage token encryption certificates**
+
+1. Open an Internet browser and visit the Windows Azure Management Portal (http://go.microsoft.com/fwlink/?LinkID=129428).
+
+2. Log on to the website using a Windows Live ID. If you do not have a Windows Live ID, click Sign up to create one for yourself.
+
+3. After you are signed in with your Windows Live ID, you are redirected to the Management Portal page. On the lower-left-hand side of this page, click Service Bus and Access Control.
+
+4. To launch the ACS Management Portal, click **Access Control** in the tree on the left-hand side, select the ACS service namespace that you want to configure, and then click the **Access Control Service** button from the toolbar at the top of the page. 
+ 
+5. To add new or manage existing certificates and keys, click **Certificates and Keys** in the tree on the left-hand side under the Service Settings section.
+
+6. Click the certificate that you want to roll over and on the **Edit Token Encryption Certificate** page, use the **Expiration date** field to roll the certificate.
+
+For more information, see [Certificates and Keys](http://msdn.microsoft.com/en-us/library/gg185932.aspx).
 
 When encryption certificates expire you will receive the following errors when trying to request a token:
 
@@ -101,7 +165,26 @@ When encryption certificates expire you will receive the following errors when t
 
 ## Token decryption certificates ##
 
-ACS can accept encrypted tokens from WS-Federation identity providers (for example, AD FS 2.0). An X.509 certificate hosted in ACS is used for decryption. You can manage token decryption certificates via the Certificates and Key section of the ACS Management Portal. For more information, see [Certificates and Keys](http://msdn.microsoft.com/en-us/library/gg185932.aspx).
+ACS can accept encrypted tokens from WS-Federation identity providers (for example, AD FS 2.0). An X.509 certificate hosted in ACS is used for decryption. 
+
+
+You can manage token decryption certificates via the Certificates and Key section of the ACS Management Portal. 
+
+**To manage token decryption certificates**
+
+1. Open an Internet browser and visit the Windows Azure Management Portal (http://go.microsoft.com/fwlink/?LinkID=129428).
+
+2. Log on to the website using a Windows Live ID. If you do not have a Windows Live ID, click Sign up to create one for yourself.
+
+3. After you are signed in with your Windows Live ID, you are redirected to the Management Portal page. On the lower-left-hand side of this page, click Service Bus and Access Control.
+
+4. To launch the ACS Management Portal, click **Access Control** in the tree on the left-hand side, select the ACS service namespace that you want to configure, and then click the **Access Control Service** button from the toolbar at the top of the page. 
+ 
+5. To add new or manage existing certificates and keys, click **Certificates and Keys** in the tree on the left-hand side under the Service Settings section.
+
+6. Click the certificate that you want to roll over and on the **Edit Token Decryption Certificate** page, use the **Expiration date** field to roll the certificate.
+
+For more information, see [Certificates and Keys](http://msdn.microsoft.com/en-us/library/gg185932.aspx).
 
 When decryption certificates expire you will receive the following errors when trying to request a token:
 
@@ -118,7 +201,26 @@ When decryption certificates expire you will receive the following errors when t
 
 ## Service identity credentials ##
 
-Service identities are credentials that are configured globally for the ACS namespace that allow applications or clients to authenticate directly with ACS and receive a token. There are three credential types that an ACS service identity can be associated with Symmetric key, Password, and X.509 certificate. You can manage service identity credentials via the Service identities page of the ACS Management Portal. For more information, see [Service Identities](http://msdn.microsoft.com/en-us/library/gg185945.aspx).
+Service identities are credentials that are configured globally for the ACS namespace that allow applications or clients to authenticate directly with ACS and receive a token. There are three credential types that an ACS service identity can be associated with Symmetric key, Password, and X.509 certificate. 
+
+You can manage service identity credentials via the Service identities page of the ACS Management Portal. 
+
+**To manage service identity credentials**
+
+1. Open an Internet browser and visit the Windows Azure Management Portal (http://go.microsoft.com/fwlink/?LinkID=129428).
+
+2. Log on to the website using a Windows Live ID. If you do not have a Windows Live ID, click Sign up to create one for yourself.
+
+3. After you are signed in with your Windows Live ID, you are redirected to the Management Portal page. On the lower-left-hand side of this page, click Service Bus and Access Control.
+
+4. To launch the ACS Management Portal, click **Access Control** in the tree on the left-hand side, select the ACS service namespace that you want to configure, and then click the **Access Control Service** button from the toolbar at the top of the page. 
+ 
+5. To add new or manage existing service identities and service identity credentials, click **Service identities** in the tree on the left-hand side under the Service Settings section.
+
+6. Click the service identity the credential of which you want to edit, click that credential, and on the **Edit Credential** page, use the **Expiration date** field to roll the credential.
+
+
+For more information, see [Service Identities](http://msdn.microsoft.com/en-us/library/gg185945.aspx).
 
 Following are the exception that ACS will throw if the credentials are expired:
 
@@ -142,7 +244,26 @@ To verify and update expiration dates of symmetric keys or password, or to uploa
 
 ## Management Service Credentials ##
 
-The ACS Management Service is a key component of ACS that allows you to programmatically manage and configure settings in an ACS namespace. There are three credential types that the ACS Management service account can be associated with. These are symmetric key, password, and an X.509 certificate. You can manage the management service credentials via the Management service page of the ACS Management Portal. For more information, see [ACS Management Service](http://msdn.microsoft.com/en-us/library/gg185972.aspx).
+The ACS Management Service is a key component of ACS that allows you to programmatically manage and configure settings in an ACS namespace. There are three credential types that the ACS Management service account can be associated with. These are symmetric key, password, and an X.509 certificate. 
+
+You can manage the management service credentials via the Management service page of the ACS Management Portal. 
+
+**To manage management service credentials**
+
+1. Open an Internet browser and visit the Windows Azure Management Portal (http://go.microsoft.com/fwlink/?LinkID=129428).
+
+2. Log on to the website using a Windows Live ID. If you do not have a Windows Live ID, click Sign up to create one for yourself.
+
+3. After you are signed in with your Windows Live ID, you are redirected to the Management Portal page. On the lower-left-hand side of this page, click Service Bus and Access Control.
+
+4. To launch the ACS Management Portal, click **Access Control** in the tree on the left-hand side, select the ACS service namespace that you want to configure, and then click the **Access Control Service** button from the toolbar at the top of the page. 
+ 
+5. To add new or manage existing accounts or credentials for accessing the ACS Management Service, click **Management service** in the tree on the left-hand side under the Administration section.
+
+6. Click the management service account the credential of which you want to edit, click that credential, and on the **Edit Credential** page, use the **Expiration date** field to roll the credential.
+
+
+For more information, see [ACS Management Service](http://msdn.microsoft.com/en-us/library/gg185972.aspx).
 
 ACS will throw out the following exceptions if these credentials are expired:
 
