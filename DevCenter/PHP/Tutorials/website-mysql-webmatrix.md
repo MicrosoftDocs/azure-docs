@@ -57,31 +57,41 @@ Run the downloaded .exe file. This will install the Microsoft Web Platform Insta
 
 In the next few steps you will develop the Tasklist application by adding the files you downloaded earlier and making a few modifications. You could, however, add your own existing files or create new files.
 
-1. Launch WebMatrix by clicking the Windows **Start** button, then click **All Programs>Microsoft Web Matrix>Microsoft WebMatrix**:
+1. Launch WebMatrix by clicking the Windows **Start** button, then click **All Programs>Microsoft WebMatrix>Microsoft WebMatrix**:
 
 	![Launch Webmatrix][launch-webmatrix]
 
-2. Create a new project by clicking **Templates**, then **PHP** (in the left pane), and finally **Empty Site**. Fill in name of site (tasklist). Click **Next**.
+2. Create a new project by clicking **Templates**.
 
 	![WebMatrix - Select Templates][webmatrix-templates]
 
+3. Click **PHP** (in the left pane). 
+
 	![WebMatrix - Select PHP Template][webmatrix-php-template]
+
+4. Click **Empty Site**, fill in name of site (tasklist), and click **Next**.
 
 	![WebMatrix - Select PHP Empty Site][webmatrix-php-emptysite]
 
-	WebMatrix will open a new PHP website project.
+5. Click **Accept** to allow WebMatrix to install the Empty Site template.
 
-3. In the lower left corner, click **Files**, then delete `index.php` from the project.
+	![WebMatrix - Download Empty Site template][php-site-from-template]
+
+6. Click **OK** when the template has been installed.
+
+	![WebMatrix - Empty Site template installed][php-empty-site-template-installed]
+
+7. In the lower left corner, click **Files**, then delete `index.php` from the project.
 
 	![WebMatrix - Select Files][webmatrix-files]
 
 	![WebMatrix - Delete index.php][webmatrix-delete-indexphp]
 
-4. To import the files you downloaded earlier, click **Add Existing**, navigate to the directory where you saved the Tasklist application files, select them, and add them to the project.
+8. To import the files you downloaded earlier, click **Add Existing**, navigate to the directory where you saved the Tasklist application files, select them, and add them to the project.
 
 	![WebMatrix - Add existing files][webmatrix-add-existing]
 
-5. Next, you need to add your local MySQL database connection information to the `taskmodel.php` file. Open the  `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function. (**Note**: Jump [Publish Your Application](#Publish) if you do not want to test your application locally and want to instead publish directly to Windows Azure Websites.)
+9. Next, you need to add your local MySQL database connection information to the `taskmodel.php` file. Open the  `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function. (**Note**: Jump [Publish Your Application](#Publish) if you do not want to test your application locally and want to instead publish directly to Windows Azure Websites.)
 
 		// DB connection info
 		$host = "localhost";
@@ -91,11 +101,11 @@ In the next few steps you will develop the Tasklist application by adding the fi
 
 	Save the `taskmodel.php` file.
 
-6. For the application to run, the `items` table needs to be created. Right click the `createtable.php` file and select **Launch in browser**. This will launch `createtable.php` in your browser and execute code that creates the `items` table in the `tasklist` database.
+10. For the application to run, the `items` table needs to be created. Right click the `createtable.php` file and select **Launch in browser**. This will launch `createtable.php` in your browser and execute code that creates the `items` table in the `tasklist` database.
 
 	![WebMatrix - Launch createtable.php in browser][webmatrix-launchinbrowser]
 
-7. Now you can test the application locally. Right click the `index.php` file and select **Launch in browser**. Test the application by adding items, marking them complete, and deleting them.  
+11. Now you can test the application locally. Right click the `index.php` file and select **Launch in browser**. Test the application by adding items, marking them complete, and deleting them.  
 
 
 <h2 id="Publish">Publish Your Application</h2>
@@ -134,7 +144,7 @@ Before publishing your application to Windows Azure Websites, the database conne
 
 6. Click **Continue** on the **Publish Preview** dialog.
 
-	![Webmatrix - Publish Preview][webmatrix-pubpreview]
+	![Webmatrix - Publish Preview][webmatirx-pubpreview]
 
 	When the publishing is complete, you will see **Publishing - Complete** at the bottom of the WebMatrix screen.
 
@@ -166,7 +176,7 @@ You can easily modify and republish your application. Here, you will make a simp
 [webmatrix-php-template]: ../../Shared/Media/webmatrix_php_template.jpg
 [webmatrix-php-emptysite]: ../../Shared/Media/webmatrix_php_emptysite.jpg
 [webmatrix-files]: ../../Shared/Media/webmatrix_files.jpg
-[webmatrix-delete-indexphp]: ../../Shared/Media/webmatrix_files.jpg
+[webmatrix-delete-indexphp]: ../../Shared/Media/webmatrix_delete_indexphp.jpg
 [webmatrix-add-existing]: ../../Shared/Media/webmatrix_add_existing.jpg
 [webmatrix-launchinbrowser]: ../../Shared/Media/webmatrix_launchinbrowser.jpg
 [webmatrix-publish]: ../../Shared/Media/webmatrix_publish.jpg
@@ -174,3 +184,5 @@ You can easily modify and republish your application. Here, you will make a simp
 [webmatrix-pubcompat-continue]: ../../Shared/Media/webmatrix_pubcompat_continue.jpg
 [webmatirx-pubpreview]: ../../Shared/Media/webmatrix_pubpreview.jpg
 [preview-portal]: https://manage.windowsazure.com
+[php-site-from-template]: ../../Shared/Media/php_site_from_template.png
+[php-empty-site-template-installed]: ../../Shared/Media/php_empty_site_template_installed.png
