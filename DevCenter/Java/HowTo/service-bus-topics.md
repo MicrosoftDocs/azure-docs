@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-java-how-to-service-bus-topics" urldisplayname="Service Bus Topics" headerexpose="" pagetitle="Service Bus Topics - How To - Java - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-java-how-to-service-bus-topics" urldisplayname="Service Bus Topics" headerexpose="" pagetitle="Service Bus Topics - How To - Java - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Use Service Bus Topics/Subscriptions
 
@@ -271,8 +271,8 @@ The example below demonstrates how messages can be received and
 processed using **PeekLock** mode (not the default mode). The example
 below does an infinite loop and processes messages as they arrive to our
 "HighMessages" subscription. Note that the path to our "HighMessages"
-subscription is supplied in the form "<topic
-path\>/subscriptions/<subscription name\>".
+subscription is supplied in the form "&lt;topic
+path&gt;/subscriptions/&lt;subscription name&gt;".
 
       ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;  opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
       while(true)  { 

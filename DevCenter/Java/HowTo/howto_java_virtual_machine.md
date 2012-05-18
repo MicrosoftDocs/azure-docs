@@ -138,6 +138,6 @@ You'll need to start the service the first time, which you can do through the Se
 
 
 
-[virtual_machine_tomcat]: ../../media/WA_VirtualMachineRunningApacheTomcat.png
-[virtual_machine_new_eps]: ../../media/WA_NewEndpointDetails.png
-[service_automatic_startup]: ../../media/WA_TomcatServiceAutomaticStart.png
+[virtual_machine_tomcat]: ../media/WA_VirtualMachineRunningApacheTomcat.png
+[virtual_machine_new_eps]: ../media/WA_NewEndpointDetails.png
+[service_automatic_startup]: ../media/WA_TomcatServiceAutomaticStart.png
