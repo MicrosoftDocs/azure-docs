@@ -1,8 +1,8 @@
 # Publishing a website with Git
 
-Git is a popular, open source, distributed version control system. Windows Azure Websites allow you to enable a Git repository for your site, which allows you to quickly and easily push code changes to your site. In this article, you will learn how to use Git to publish to a Windows Azure Website.
+Git is a popular, open source, distributed version control system. Windows Azure Web Sites allow you to enable a Git repository for your site, which allows you to quickly and easily push code changes to your site. In this article, you will learn how to use Git to publish to a Windows Azure Web Site.
 
-**Note**: Many of the Git commands described in this article can be performed automatically when creating a Windows Azure Website using the [Cross-Platform Tools for Windows Azure]. For more information on using the cross-platform tools, see **TBD**
+**Note**: Many of the Git commands described in this article can be performed automatically when creating a Web Site using the [Windows Azure Command-Line Tools for Mac and Linux]. For more information on using the cross-platform tools, see **TBD**
 
 The task includes the following steps:
 
@@ -38,7 +38,7 @@ Perform the following tasks to create a new Git repository.
 
 <h2 id="Step3">Add a web page</h2>
 
-Windows Azure Websites support a web sites created in a variety of programming languages. For this example, you will use a static .html file. For information on publishing web sites in other programming languages to Windows Azure, see the [Windows Azure Developer Center].
+Windows Azure Web Sites support a applications created in a variety of programming languages. For this example, you will use a static .html file. For information on publishing web sites in other programming languages to Windows Azure, see the [Windows Azure Developer Center].
 
 1. Using a text editor, create a new file named **index.html** in the root of the Git repository. Add 'Hello Git!' as the contents, and then save the file.
 
@@ -129,46 +129,58 @@ The **remote** command adds a named reference to a remote repository, in this ca
 
 The following are errors or problems commonly encountered when using Git to publish to a Windows Azure Website:
 
-<hr>
+****
 
-**Symptom**: TBD
+**Symptom**: Couldn't resolve host 'hostname'
 
 **Cause**: This error can occur if the address information entered when creating the 'azure' remote was incorrect.
 
 **Resolution**: Use the `git remote -v` command to list all remotes, along with the associated URL. Verify that the URL for the 'azure' remote is correct. If needed, remove and recreate this remote using the correct URL.
 
-<hr>
+****
 
-**Symptom**: TBD
+**Symptom**: No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.
 
-**Cause**: This error occurs if you do not specify the master branch when deploying to a Windows Azure Website.
+**Cause**: This error can occur if you do not specify a branch when performing a git push operation, and have not set the push.default value used by Git.
 
 **Resolution**: Perform the push operation again, specifying the master branch. For example:
 
 	git push azure master
 
-<hr>
+****
 
-**Symptom**: TBD
+**Symptom**: src refspec [branchname] does not match any.
 
-**Cause**: This error can occur if the package.json file for your node application is malformed.
+**Cause**: This error can occur if you attempt to push to a branch other than master on the 'azure' remote.
 
-**Resolution**: Verify the formatting of your package.json file.
+**Resolution**: erform the push operation again, specifying the master branch. For example:
 
-<hr>
+	git push azure master
 
-**Symptom**: TBD
+****
 
-**Cause**: This error can occur if your package.json file specifies a native module that does not exist for the Windows operating system.
+**Symptom**: Error - Changes commited to remote repository but your website not updated.
 
+**Cause**: This error can occur if you are deploying a Node.js application containing a package.json file that specifies additional required modules.
 
+**Resolution**: Additional messages containing 'npm ERR!' should be logged prior to this error, and can provide additional context on the failure. The following are known causes of this error and the corresponding 'npm ERR!' message:
+
+* **Malformed package.json file**: npm ERR! Couldn't read dependencies.
+
+* **Native module that does not have a binary distribution for Windows**:
+
+	* npm ERR! \`cmd "/c" "node-gyp rebuild"\` failed with 1
+
+		OR
+
+	* npm ERR! [modulename@version] preinstall: \`make || gmake\`
 
 
 ## Additional Resources
 
 * [PowerShell for Windows Azure]
 
-* [Cross-Platform Tools for Windows Azure]
+* [Windows Azure Command-Line Tools for Mac and Linux]
 
 * [Git Documentation]
 
@@ -177,7 +189,7 @@ The following are errors or problems commonly encountered when using Git to publ
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [PowerShell for Windows Azure]: http://windowsazure.com
-[Cross-Platform Tools for Windows Azure]: http://windowsazure.com
+[Windows Azure Command-Line Tools for Mac and Linux]: http://windowsazure.com
 [Git Documentation]: http://git-scm.com/documentation
 
 [portal-select-website]: ../Media/git-select-website.png
