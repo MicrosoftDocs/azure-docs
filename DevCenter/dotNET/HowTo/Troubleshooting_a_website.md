@@ -310,7 +310,7 @@ For purposes of troubleshooting the error caused by renaming the file startersit
 ###<a name="tshootwitherrormessages"></a>Using detailed website errors to troubleshoot website problems
 Further troubleshooting efforts must now focus on the error messages displayed as a result of modifying the web.config file or possibly by analyzing the website's environment variables.
 
-If we look at the [detailed error message created on the website][viewdetailederr] it is apparent that an unhandled exception was thrown by the following method call in Line 2 of the file _AppStart.cshtml:
+If we look at the [detailed error message created on the website][detailedapperr] it is apparent that an unhandled exception was thrown by the following method call in Line 2 of the file _AppStart.cshtml:
 
 <pre>
 WebSecurity.InitializeDatabaseConnection("StarterSite", "UserProfile", "UserId", "Email", true); 
@@ -345,26 +345,26 @@ Based upon this information we should expect to see a file named startersite.sdf
 [initdbconnect]:http://go.microsoft.com/fwlink/?LinkId=252806
 [connecttosqlinwebmatrix]:http://go.microsoft.com/fwlink/?LinkId=208661
 
-[newsitefromtemplate]:../../../DevCenter/dotNet/Media/tshootSiteFromTemplate.png
-[newsiteinwebmatrix]:../../../DevCenter/dotNet/Media/tshootWebMatrixIDE.png
-[defaultpagenewsite]:../../../DevCenter/dotNet/Media/tshootDefaultWebPage.png
-[createnewwebsite]:../../../DevCenter/dotNet/Media/tshootCreateAzureWebSite.png
-[quickstartmgmtpage]:../../../DevCenter/dotNet/Media/tshootAzureWebDiagQuickStart.png
-[createdeploycreds]:../../../DevCenter/dotNet/Media/tshootdeploymentcredentials.png
-[verifydeployuser]:../../../DevCenter/dotNet/Media/tshootquickglanceborder.png
-[webunderconstruction]:../../../DevCenter/dotNet/Media/tshootUnderConstruction.png
-[webmatrixpubsettings]:../../../DevCenter/dotNet/Media/tshootPublishSettings.png
-[webmatrixpubpre]:../../../DevCenter/dotNet/Media/tshootPublishPreview.png
-[sitepublishtoazure]:../../../DevCenter/dotNet/Media/tshootPublishedSite.png
-[siteregpage]:../../../DevCenter/dotNet/Media/tshootregisteracct.png
-[loggedontosite]:../../../DevCenter/dotNet/Media/tshootloggedon.png
-[renamestartersite]:../../../DevCenter/dotNet/Media/tshootrenamestartersitesdf.png
-[savewebconfigtoroot]:../../../DevCenter/dotNet/Media/tshootwebconfig.png
-[genericapperror]:../../../DevCenter/dotNet/Media/tshootwebsiteerror1.png
-[webmatrixpubprev]:../../../DevCenter/dotNet/Media/tshootPublishPreview2.png
-[detailedapperr]:../../../DevCenter/dotNet/Media/tshootwebsiteerror2.png
-[filezillaclient]:../../../DevCenter/dotNet/Media/tshootfilezilla.png
-[viewlogfiles]:../../../DevCenter/dotNet/Media/tshootlogfiles.png
-[viewdetailederr]:../../../DevCenter/dotNet/Media/tshootdetailederrors.png
-[failedreqtrace]:../../../DevCenter/dotNet/Media/tshootfailedrequesttracing.png
-[logparsercmdwind]:../../../DevCenter/dotNet/Media/tshootlogparser.png                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+[newsitefromtemplate]: ..\Media\tshootSiteFromTemplate.png
+[newsiteinwebmatrix]: ..\Media\tshootWebMatrixIDE.png
+[defaultpagenewsite]: ..\Media\tshootDefaultWebPage.png
+[createnewwebsite]: ..\Media\tshootCreateAzureWebSite.png
+[quickstartmgmtpage]: ..\Media\tshootAzureWebDiagQuickStart.png
+[createdeploycreds]: ..\Media\tshootdeploymentcredentials.png
+[verifydeployuser]: ..\Media\tshootquickglanceborder.png
+[webunderconstruction]: ..\Media\tshootUnderConstruction.png
+[webmatrixpubsettings]: ..\Media\tshootPublishSettings.png
+[webmatrixpubpre]: ..\Media\tshootPublishPreview.png
+[sitepublishtoazure]: ..\Media\tshootPublishedSite.png
+[siteregpage]: ..\Media\tshootregisteracct.png
+[loggedontosite]: ..\Media\tshootloggedon.png
+[renamestartersite]: ..\Media\tshootrenamestartersitesdf.png
+[savewebconfigtoroot]: ..\Media\tshootwebconfig.png
+[genericapperror]: ..\Media\tshootwebsiteerror1.png
+[webmatrixpubprev]: ..\Media\tshootPublishPreview2.png
+[detailedapperr]: ..\Media\tshootwebsiteerror2.png
+[filezillaclient]: ..\Media\tshootfilezilla.png
+[viewlogfiles]: ..\Media\tshootlogfiles.png
+[viewdetailederr]: ..\Media\tshootdetailederrors.png
+[failedreqtrace]: ..\Media\tshootfailedrequesttracing.png
+[logparsercmdwind]: ..\Media\tshootlogparser.png                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
