@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-nodejs-how-to-powershell" urldisplayname="PowerShell Cmdlets" headerexpose="" pagetitle="How to Use the Windows Azure PowerShell for Node.js" metakeywords="Azure PowerShell Node.js, Azure PowerShell Node.js cmdlet" footerexpose="" metadescription="Learn Windows PowerShell fundamentals and details about how to use the Windows Azure PowerShell for Node.js cmdlets." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-how-to-powershell" urldisplayname="PowerShell Cmdlets" headerexpose="" pagetitle="How to Use the Windows Azure PowerShell for Node.js" metakeywords="Azure PowerShell Node.js, Azure PowerShell Node.js cmdlet" footerexpose="" metadescription="Learn Windows PowerShell fundamentals and details about how to use the Windows Azure PowerShell for Node.js cmdlets." umbraconavihide="0" disquscomments="1"></properties>
 
 
 # How to Use PowerShell for Windows Azure
@@ -70,11 +70,11 @@ can help you get started:
     <tbody>
     <tr align="left" valign="top">
     <td>
-    **Cmdlet Format**
+    <b>Cmdlet Format</b>
 
     </td>
     <td>
-    **Information Returned**
+    <b>Information Returned</b>
 
     </td>
     </tr>
@@ -84,7 +84,7 @@ can help you get started:
 
     </td>
     <td>
-    Displays a help topic about using the **Get-Help** cmdlet
+    Displays a help topic about using the <b>Get-Help</b> cmdlet
 
     </td>
     </tr>
@@ -100,7 +100,7 @@ can help you get started:
     </tr>
     <tr align="left" valign="top">
     <td>
-    get-help <*cmdlet*\>
+    get-help &lt;<b>cmdlet</b>&gt;
 
     </td>
     <td>
@@ -110,7 +110,7 @@ can help you get started:
     </tr>
     <tr align="left" valign="top">
     <td>
-    get-help <*cmdlet*\> -parameter \*
+    get-help &lt;<b>cmdlet</b>&gt; -parameter *
 
     </td>
     <td>
@@ -120,7 +120,7 @@ can help you get started:
     </tr>
     <tr align="left" valign="top">
     <td>
-    get-help <*cmdlet*\> -examples
+    get-help &lt;<b>cmdlet</b>&gt; -examples
 
     </td>
     <td>
@@ -346,11 +346,11 @@ deployed using the following settings:
 <tbody>
 <tr align="left" valign="top">
 <td valign="bottom">
-**Setting**
+<b>Setting</b>
 
 </td>
 <td valign="bottom">
-**Default Value**
+<b>Default Value</b>
 
 </td>
 </tr>
