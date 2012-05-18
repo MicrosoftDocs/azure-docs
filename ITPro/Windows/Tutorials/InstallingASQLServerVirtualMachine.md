@@ -115,7 +115,7 @@ Before you can connect to the instance of SQL Server from the internet, the foll
 
 5. In the console pane, click **SQL Server Services**.
 
-6. In the details pane, right-click **SQL Server (***instance name***)** (the default instance is **SQL Server (MSSQLSERVER)**), and then click **Restart**, to stop and restart the instance of SQL Server. 
+6. In the details pane, right-click **SQL Server (** *instance name* **)** (the default instance is **SQL Server (MSSQLSERVER)**), and then click **Restart**, to stop and restart the instance of SQL Server. 
 
     ![Restart Database Engine] [Image11]
 
@@ -167,7 +167,7 @@ The SQL Server Database Engine cannot use Windows Authentication without domain 
 
     ![Start SSMS] [Image18]
 
-2. When opening, Management Studio presents the **Connect to Server** dialog box. In the **Server name** box, type the name of the virtual machine to connect to the Database Engine  with the Object Explorer. (Instead of the virtual machine name you can also use **(local)** or a single period as the **Server name**. Select **Windows Authentication**, and leave *your_VM_name***\Administrator** in the **User name** box. Click **Connect**.
+2. When opening, Management Studio presents the **Connect to Server** dialog box. In the **Server name** box, type the name of the virtual machine to connect to the Database Engine  with the Object Explorer. (Instead of the virtual machine name you can also use **(local)** or a single period as the **Server name**. Select **Windows Authentication**, and leave *your_VM_name* **\Administrator** in the **User name** box. Click **Connect**.
 
     ![Connect to Server] [Image19]
 
