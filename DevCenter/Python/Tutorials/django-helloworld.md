@@ -26,13 +26,13 @@ TODO: import this shared section
 
 ## Creating a New Django Application
 
-The Windows Azure SDK for Django includes a Windows PowerShell environment that is configured for Windows Azure and Django development. It includes tools that you can use to create and publish Django applications.
+The Windows Azure SDK for Python includes a Windows PowerShell environment that is configured for Windows Azure and Python development. It includes tools that you can use to create and publish Django applications.
 
-1.  On the **Start** menu, click **All Programs, Windows Azure SDK
-    Django - June 2012**, right-click **Windows Azure PowerShell
-    for Django**, and then select **Run As Administrator**. Opening
+1.  On the **Start** menu, click **All Programs, Windows Azure SDK for
+    Python - June 2012**, right-click **Windows Azure PowerShell
+    for Python**, and then select **Run As Administrator**. Opening
     your Windows PowerShell environment this way ensures that all of the
-    Django command-line tools are available. Running with elevated
+    Python command-line tools are available. Running with elevated
     privileges avoids extra prompts when working with the Windows Azure
     Emulator.
     
@@ -50,7 +50,7 @@ The Windows Azure SDK for Django includes a Windows PowerShell environment that 
     ![The result of the New-AzureService command][]
 
     The **New-AzureService** cmdlet generates a basic structure for
-    creating a new Windows Azure Django application. It contains
+    creating a new Windows Azure Python application. It contains
     configuration files necessary for publishing to Windows Azure. The
     cmdlet also changes your working directory to the directory for the
     service.
@@ -71,13 +71,13 @@ The Windows Azure SDK for Django includes a Windows PowerShell environment that 
         the Windows Azure PowerShell deployment cmdlets.
 
 4.  Enter the following command to add a new web role using the
-    **Add-AzureDjangoWebRole cmdlet**:
+    **Add-AzureDjangoWebRole** cmdlet:
 
-        PS C:\django\helloworld> Add-AzureDjangoWebRole
+        PS C:\django\helloworld> Add-AzureDjangoWebRole hello_dj
 
     You will see the following response:
 
-    ![The output of the Add-AzureNodeWebRole command][]
+    ![The output of the Add-AzureDjangoWebRole command][]
 
     The **Add-AzureDjangoWebRole** cmdlet creates a new directory for your
     application and generates additional files that will be needed when
@@ -88,41 +88,52 @@ The Windows Azure SDK for Django includes a Windows PowerShell environment that 
     By default if you do not provide a role name, one will be created
     for you i.e. WebRole1. You can provide a name as the first parameter
     to **Add-AzureDjangoWebRole** to override i.e. **Add-AzureDjangoWebRole
-    MyRole**
+    hello_dj**
 
     Enter the following commands to change to the newly generated
     directory and view its contents:
 
-        PS C:\django\helloworld> cd WebRole1
-        PS C:\django\helloworld\WebRole1> ls
+        PS C:\django\helloworld> cd hello_dj
+        PS C:\django\helloworld\hello_dj> ls
 
     ![A directory listing of the webrole folder][]
+
+	Enter the following commands to change to the Django application
+	directory and view its contents:
+
+        PS C:\django\helloworld\hello_dj> cd hello_dj
+        PS C:\django\helloworld\hello_dj\hello_dj> ls
+
+    ![A directory listing of the django folder][]
 
     -   settings.py contains Django settings for your application.
     -   urls.py contains the mapping code between each url and its view.
 
-5.  Create a new file named views.py as a sibling to the urls.py file in the helloworld subdirectory. This will contain the view that renders the hello world page. Edit the contents of the new file in Notepad:
+<p></p>
+
+5.  Create a new file named **views.py** in the hello_dj subdirectory, as a sibling of urls.py. This will contain the view that renders the hello world page. 
+
+		PS C:\django\helloworld\hello_dj\hello_dj> notepad views.py
+
+	Edit the contents of the new file to the following:
 		
 		from django.http import HttpResponse
 		def hello(request):
-    		html = "<html><body>Hello World</body></html>"
+    		html = "<html><body>Hello World!</body></html>"
     		return HttpResponse(html)
 
-	![Notepad displaying the contents of views.py][]
 
-8.  Open the urls.py file in Notepad. Add the following import at the top of the file:
+8.  Open the **urls.py** file in Notepad.
 
-		from helloworld.views import hello
-	
-	Change the urlpatterns assignment:
+		PS C:\django\helloworld\hello_dj\hello_dj> notepad urls.py
 
-		urlpatterns = patterns(",
+	Change the contents of the file to the following:
+
+		from django.conf.urls.defaults import patterns, include, url
+		from hello_dj.views import hello
+		urlpatterns = patterns('',
 			(r'^$',hello),
 		)
-
-	The file should now have the following contents:
-
-	![Notepad displaying the contents of urls.py][]
 
 
 ## Running Your Application Locally in the Emulator
@@ -138,12 +149,12 @@ application without having to actually deploy it.
     Enter the following cmdlet to run your service in the emulator and
     launch a browser window:
 
-        PS C:\django\helloworld\WebRole1> Start-AzureEmulator -launch
+        PS C:\django\helloworld\hello_dj\hello_dj> Start-AzureEmulator -launch
 
     The **–launch** parameter specifies that the tools should
     automatically open a browser window and display the application once
     it is running in the emulator. A browser opens and displays “Hello
-    World” as shown in the screenshot below. This indicates that the
+    World!” as shown in the screenshot below. This indicates that the
     service is running in the compute emulator and is working correctly.
 
     ![A web browser displaying the Hello World web page on emulator][]
@@ -180,7 +191,7 @@ Windows PowerShell cmdlets.
 1.  From the Windows PowerShell window, launch the download page by
     running the following cmdlet:
 
-        PS C:\django\helloworld\WebRole1> Get-AzurePublishSettings
+        PS C:\django\helloworld\hello_dj\hello_dj> Get-AzurePublishSettings
 
     This launches the browser for you to log into the Windows Azure
     Management Portal with your Windows Live ID credentials.
@@ -198,7 +209,7 @@ Windows PowerShell cmdlets.
     configure the Windows PowerShell for Django cmdlets to use the
     Windows Azure publishing profile you downloaded:
 
-        PS C:\django\helloworld\WebRole1> Import-AzurePublishSettings c:\django\elvis.publishSettings
+        PS C:\django\helloworld\hello_dj\hello_dj> Import-AzurePublishSettings c:\django\elvis.publishSettings
 
     After importing the publish settings, consider deleting the
     downloaded .publishSettings as the file contains information that
@@ -211,7 +222,7 @@ Windows PowerShell cmdlets.
 
     -   **name** specifies the name for the service. The name must be
         unique across all other services in Windows Azure. For example,
-        below, “HelloWorldDjango” is suffixed with “Contoso,” the company name,
+        below, “HelloDJ” is suffixed with “Contoso,” the company name,
         to make the service name unique.
     -   **location** specifies the country/region for which the
         application should be optimized. You can expect faster loading
@@ -224,7 +235,7 @@ Windows PowerShell cmdlets.
 
     <!-- -->
 
-        PS C:\django\helloworld\WebRole1> Publish-AzureService –name HelloWorldDjangoContoso –location "North Central US” -launch
+        PS C:\django\helloworld\hello_dj\hello_dj> Publish-AzureService –name HelloDJContoso –location "North Central US” -launch
 
     Be sure to use a **unique name**, otherwise the publish process will
     fail. After publishing succeeds, you will see the following
@@ -243,8 +254,7 @@ Windows PowerShell cmdlets.
     3.  Creates a new hosted service if one does not already exist. A
         *hosted service* is the container in which your application is
         hosted when it is deployed to Windows Azure. For more
-        information, see [Overview of Creating a Hosted Service for
-        Windows Azure][].
+        information, see [Overview of Creating a Hosted Service for Windows Azure][].
     4.  Publishes the deployment package to Windows Azure.
 
     It can take 5–7 minutes for the application to deploy. Since this is
@@ -282,7 +292,7 @@ The following steps show you how to stop and delete your application.
 1.  In the Windows PowerShell window, stop the service deployment
     created in the previous section with the following cmdlet:
 
-        PS C:\django\helloworld\WebRole1> Stop-AzureService
+        PS C:\django\helloworld\hello_dj\hello_dj> Stop-AzureService
 
     Stopping the service may take several minutes. When the service is
     stopped, you receive a message indicating that it has stopped.
@@ -291,7 +301,7 @@ The following steps show you how to stop and delete your application.
 
 2.  To delete the service, call the following cmdlet:
 
-        PS C:\django\helloworld\WebRole1> Remove-AzureService
+        PS C:\django\helloworld\hello_dj\hello_dj> Remove-AzureService
 
 3.  When prompted, enter **Y** to delete the service.
 
@@ -313,10 +323,9 @@ deleting a storage account, see [How to Delete a Storage Account from a Windows 
 [The result of the New-AzureService command]: ../Media/django-helloworld-ps-new-azure-service.png
 [A directory listing of the service folder]: ../Media/django-helloworld-ps-service-dir.png
 [Overview of Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432976.aspx
-[The output of the Add-AzureNodeWebRole command]: ../Media/django-helloworld-ps-add-webrole.png
+[The output of the Add-AzureDjangoWebRole command]: ../Media/django-helloworld-ps-add-webrole.png
 [A directory listing of the webrole folder]: ../Media/django-helloworld-ps-webrole-dir.png
-[Notepad displaying the contents of views.py]: ../Media/django-helloworld-notepad-views.png
-[Notepad displaying the contents of urls.py]: ../Media/django-helloworld-notepad-urls.png
+[A directory listing of the django folder]: ../Media/django-helloworld-ps-django-dir.png
 [A web browser displaying the Hello World web page on emulator]: ../Media/django-helloworld-browser-emulator.png
 [The menu displayed when right-clicking the Windows Azure emulator from the task bar]: ../../../DevCenter/Node/Media/getting-started-11.png
 [http://www.windowsazure.com]: http://www.windowsazure.com
