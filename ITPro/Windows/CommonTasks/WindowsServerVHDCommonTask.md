@@ -7,21 +7,21 @@ The following resources must be available to complete this task:
 - **Server running the Windows Server operating system.** This task depends on using the Hyper-V Manager that is a part of the Hyper-V role in the Windows Server operating system.
 - **Window Server operating system media.** Before you start this task, you must make sure that you have access to an .ISO file that contains the Windows Server operating system. The following are supported Windows Server distributions:
 <P>
-  <TABLE BORDER=1 WIDTH=600>
-  <TR BGCOLOR=#E9E7E7>
+  <TABLE BORDER="1" WIDTH="600">
+  <TR BGCOLOR="#E9E7E7">
     <TH>OS</TH>
     <TH>SKU</TH>
     <TH>Service Pack</TH>
     <TH>Architecture</TH>
   </TR>
   <TR>
-    <TD>Windows Server 2012 RC (en_us)</TD>
+    <TD>Windows Server 2012 RC (en\_us)</TD>
     <TD>All editions</TD>
     <TD>N/A</TD>
     <TD>x64</TD>
   </TR>
   <TR>
-    <TD>Windows Server 2008 R2(en_us)</TD>
+    <TD>Windows Server 2008 R2(en\_us)</TD>
     <TD>All editions</TD>
     <TD>SP1</TD>
     <TD>x64</TD>

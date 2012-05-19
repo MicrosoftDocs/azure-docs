@@ -98,7 +98,7 @@ This tutorial shows you how to use the PuTTY program to access the virtual machi
 
 	![Enter the host name and port information] (../media/putty.png)
 
-4. Log on to the virtual machine using the NewUser1 account that you specified when the machine was created.</P>
+4. Log on to the virtual machine using the NewUser1 account that you specified when the machine was created.
 
 	![Log on to the new virtual machine] (../media/sshlogin.png)
 
@@ -206,7 +206,7 @@ All virtual machines that you create in Windows Azure can automatically communic
 
 	![Define the endpont] (../media/endpointtcpwindows.png)
 
-6. In **Name**, type **MyTCPEndpoint1**.</P>
+6. In **Name**, type **MyTCPEndpoint1**.
 
 7. In **Public Port** and **Private Port**, type **80**. These port numbers can be different. The public port is the entry point for communication from outside of Windows Azure and is used by the Windows Azure load balancer. You can use the private port and firewall rules on the virtual machine to redirect traffic in a way that is appropriate for your application. Linux images that are available in the Image Gallery may have their local firewall disabled. If the firewall is disabled, you must open the external endpoint to enable communication with the virtual machine.
 

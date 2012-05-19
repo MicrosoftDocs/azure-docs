@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-autoscaling" urldisplayname="Autoscaling" headerexpose pagetitle="Autoscaling - How To - .NET - Develop" metakeywords footerexpose metadescription umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-how-to-autoscaling" urldisplayname="Autoscaling" headerexpose="" pagetitle="Autoscaling - How To - .NET - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Use the Autoscaling Application Block
 

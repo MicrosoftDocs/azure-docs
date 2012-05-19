@@ -1,4 +1,4 @@
-<properties linkid="dev-net-e2e-multi-tier" urldisplayname="Multi-Tier Application" headerexpose pagetitle=".NET Multi-Tier Application" metakeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET Service Bus queue tutorial, Azure .NET queue tutorial, Azure .NET worker role tutorial, Azure C# Service Bus queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial " footerexpose metadescription="An end-to-end tutorial that helps you develop a multi-tier application in Windows Azure that includes web and worker roles and uses Service Bus queues to communicate between tiers." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-e2e-multi-tier" urldisplayname="Multi-Tier Application" headerexpose="" pagetitle=".NET Multi-Tier Application" metakeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET Service Bus queue tutorial, Azure .NET queue tutorial, Azure .NET worker role tutorial, Azure C# Service Bus queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop a multi-tier application in Windows Azure that includes web and worker roles and uses Service Bus queues to communicate between tiers." umbraconavihide="0" disquscomments="1"></properties>
 
 # .NET Multi-Tier Application Using Service Bus Queues
 
@@ -193,7 +193,7 @@ Queue and displaying status information about the queue.
 
     ![][8]
 
-2.  From **Installed Templates**, under **Visual C\#**, click Cloud and
+2.  From **Installed Templates**, under **Visual C#**, click Cloud and
     then click **Windows Azure Project**. Name the project
     **MultiTierApp**. Then click **OK**.
 
@@ -248,7 +248,7 @@ displays.
         }
 
 2.  In the **Solution Explorer**, double-click
-    **Controllers\\HomeController.cs**. Add the following **using**
+    **Controllers\HomeController.cs**. Add the following **using**
     statements at the top of the file to include the namespaces for the
     model you just created, as well as Service Bus:
 
@@ -325,18 +325,18 @@ displays.
 
 8.  Now, you will change the displayed name of your application. In the
     **Solution Explorer**, double-click the
-    **Views\\Shared\\\_Layout.cshtml**file to open it in the Visual
+    **Views\Shared\\_Layout.cshtml** file to open it in the Visual
     Studio editor.
 
-9.  Locate **<h1\>My MVC Application</h1\>**, and replace it with
-    **<h1\>LITWARE'S Awesome Products</h1\>**:
+9.  Locate **&lt;h1>My MVC Application&lt;/h1>**, and replace it with
+    **&lt;h1>LITWARE'S Awesome Products&lt;/h1>**:
 
     ![][16]
 
 10. Finally, tweak the submission page to include some information about
     the queue. In the **Solution Explorer**, double-click the
-    **Views\\Home\\Submit.cshtml** file to open it in the Visual Studio
-    editor. Add the following line after `<h2>Submit</h2>`. For now,
+    **Views\Home\Submit.cshtml** file to open it in the Visual Studio
+    editor. Add the following line after **&lt;h2>Submit&lt;/h2>**. For now,
     the **ViewBag.MessageCount** is empty. You will populate it later.
 
         <p>Current Number of Orders in Queue Waiting to be Processed: @ViewBag.MessageCount</p>
@@ -428,16 +428,16 @@ Service Bus Queue.
         }
 
 4.  Now, you will ensure your **Initialize** method gets called. In the
-    **Solution Explorer**, double-click **Global.asax\\Global.asax.cs**.
+    **Solution Explorer**, double-click **Global.asax\Global.asax.cs**.
 
-5.  Add the following line to the bottom of the **Application\_Start**
+5.  Add the following line to the bottom of the **Application_Start**
     method:
 
         QueueConnector.Initialize();
 
 6.  Finally, you will update your web code you created earlier, to
     submit items to the queue. In the **Solution Explorer**,
-    double-click **Controllers\\HomeController.cs** that you created
+    double-click **Controllers\HomeController.cs** that you created
     earlier.
 
 7.  Update the **Submit()** method as follows to get the message count
