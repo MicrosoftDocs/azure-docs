@@ -61,11 +61,11 @@ Before using Windows Azure SQL Database in Java code, you will need to create a 
 
 <h2 id="determine_connection_string">Determining the SQL Azure connection string</h2>
 
-1. Within the Windows Azure Management Portal, in the left-hand pane, click Database.
-2. Under Subscriptions, expand the subscription that owns the SQL Azure server.
+1. Within the [Windows Azure Management Portal](https://windows.azure.com), in the left-hand pane, click **Database**.
+2. Under **Subscriptions**, expand the subscription that owns the SQL Azure server.
 3. Click the SQL Azure server that you want to use.
-4. In the Properties pane, select the text for the Name field, right-click the text, and choose Copy.
-5. Use the value to create a connection string of the following form. Replace your_server (in two places) with the text you copied in the previous step, and replace your_user and your_password with the login ID and password values you specified when you created your SQL Azure account.
+4. In the **Properties** pane, select the text for the **Name** field, right-click the text, and choose **Copy**.
+5. Use the value to create a connection string of the following form. Replace *your_server* (in two places) with the text you copied in the previous step, and replace *your_user* and *your_password* with the login ID and password values you specified when you created your SQL Azure account.
 
         "jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
         "database=master" + ";" + 
@@ -91,7 +91,7 @@ Before using Windows Azure SQL Database in Java code, you will need to create a 
         import java.sql.*;
         import com.microsoft.sqlserver.jdbc.*;
 
-5. Specify your connection string. Following is an example. As above, replace *your\_server* (in two places), *your\_user* and *your\_password* with the values appropriate for your SQL Azure server.
+5. Specify your connection string. Following is an example. As above, replace *your_server* (in two places), *your_user* and *your_password* with the values appropriate for your SQL Azure server.
 
         String connectionString =
         "jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
@@ -107,10 +107,10 @@ The remainder of this topic shows examples that do the following:
 
 1. Connect to the SQL Azure server.
 2. Define a SQL statement, for example, to create or drop a database, create or drop a table, insert/select/delete rows, etc.
-3. Execute the SQL statement, either through a call to executeUpdate or executeQuery.
+3. Execute the SQL statement, either through a call to **executeUpdate** or **executeQuery**.
 4. Display query results, if appropriate.
 
-The following sections are intended to be read (sampled) in order. The first snippet is a complete sample; the others would rely on part of the framework in the complete sample, such as the import statements, class and main declaration, error handling and resource closing.
+The following sections are intended to be read (sampled) in order. The first snippet is a complete sample; the others would rely on part of the framework in the complete sample, such as the **import** statements, **class** and **main** declarations, error handling and resource closing.
 
 <h2 id="to_create_db">To create a database</h2>
 
@@ -737,7 +737,7 @@ To use SQL Azure in Java within a Windows Azure deployment, in addition to havin
 
 1. Within Eclipse’s Project Explorer, right-click your project and click **Properties**.
 2. In the left-hand pane of the **Properties** dialog, click **Deployment Assembly**, and then click **Add**.
-3. In the **New Assembly Directive** dialog, click** Java Build Path Entrie**s and then click **Next**.
+3. In the **New Assembly Directive** dialog, click **Java Build Path Entries** and then click **Next**.
 4. Select **Microsoft SQL Server JDBC Driver 3.0** and then click **Finish**.
 5. Click **OK** to close the **Properties** dialog.
 6. Export your project’s WAR file to your approot folder, and rebuild your Azure project, per the steps documented at [Creating a Hello World Application Using the Windows Azure Plugin for Eclipse with Java](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx). That topic also describes how to run your application in the compute emulator, and in Windows Azure.
