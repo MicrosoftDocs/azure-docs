@@ -139,7 +139,7 @@ First, create a file called **task1.txt** (arbitrary content is fine)
 and store it in the same directory as your Python file.
 
 	myblob = open(r'task1.txt', 'r').read()
-	blob_client.pub_blob('mycontainer', 'myblob', myblob, x_ms_blob_type='BlockBlob')
+	blob_client.put_blob('mycontainer', 'myblob', myblob, x_ms_blob_type='BlockBlob')
 
 ## <a name="list-blob"> </a>How to: List the Blobs in a Container
 

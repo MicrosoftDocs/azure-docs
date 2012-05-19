@@ -115,7 +115,7 @@ credentials for the namespace.
 
 The **ServiceBusService** object lets you work with topics. Add the following near the top of any Python file in which you wish to programmatically access Windows Azure Service Bus:
 
-	from windowsazure.servicebus.servicebusservice import *
+	from windowsazure.servicebus import *
 
 The following code creates a **ServiceBusService** object. Replace 'mynamespace', 'mykey' and 'myissuer' with the real namespace, key and issuer.
 
@@ -187,7 +187,7 @@ The example below creates a subscription named 'HighMessages' with a
 	rule.filter_expression = 'messagenumber > 3'
 
 	bus_service.create_rule('mytopic', 'HighMessages', 'HighMessageFilter', rule)
-	bus_service.delete_rule('mytopic', 'HighMessages', '$Default')
+	bus_service.delete_rule('mytopic', 'HighMessages', servicebus.DEFAULT_RULE_NAME)
 
 Similarly, the following example creates a subscription named
 'LowMessages' with a **SqlFilter** that only selects messages that have
@@ -200,7 +200,7 @@ a **messagenumber** property less than or equal to 3:
 	rule.filter_expression = 'messagenumber <= 3'
 
 	bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
-	bus_service.delete_rule('mytopic', 'LowMessages', '$Default')
+	bus_service.delete_rule('mytopic', 'LowMessages', servicebus.DEFAULT_RULE_NAME)
 
 When a message is now sent to 'mytopic', it will always be delivered to
 receivers subscribed to the 'AllMessages' topic subscription, and
@@ -210,7 +210,7 @@ selectively delivered to receivers subscribed to the 'HighMessages' and
 ## How to Send Messages to a Topic
 
 To send a message to a Service Bus topic, your application must use the
-**send\_message\_to\_topic** method of the **ServiceBusService** object.
+**send\_topic\_message** method of the **ServiceBusService** object.
 
 The following example demonstrates how to send five test messages to
 'mytopic'. Note that the **messagenumber** property value of each
@@ -219,7 +219,7 @@ subscriptions receive it):
 
 	for i in range(5):
 		msg = Message('Msg ' + str(i), custom_properties={'messagenumber':i})
-		bus_service.send_message_to_topic('mytopic', msg)
+		bus_service.send_topic_message('mytopic', msg)
 
 Service Bus topics support a maximum message size of 256 MB (the header,
 which includes the standard and custom application properties, can have
@@ -231,10 +231,16 @@ upper limit of 5 GB.
 ## How to Receive Messages from a Subscription
 
 Messages are received from a subscription using the
-**read\_and\_delete\_message\_from\_subscription** method on the **ServiceBusService**
-object. Messages are deleted from the subscription as they
+**receive\_subscription\_message** method on the **ServiceBusService**
+object:
+
+	msg = bus_service.receive_subscription_message('mytopic', 'LowMessages')
+	print(msg.body)
+
+Messages are deleted from the subscription as they
 are read; however, you can read (peek) and lock the message without
-deleting it from the subscription by using **peek\_lock\_message\_from\_subscription** instead.
+deleting it from the subscription by setting the
+optional parameter **peek\_lock** to **True**.
 
 The default behavior of reading and deleting the message as part of the
 receive operation is the simplest model, and works best for scenarios in
@@ -245,33 +251,30 @@ it. Because Service Bus will have marked the message as being consumed,
 then when the application restarts and begins consuming messages again,
 it will have missed the message that was consumed prior to the crash.
 
-	msg = bus_service.read_and_delete_message_from_subscription('mytopic', 'LowMessages')
-	print(msg.body)
-
-When using **peek\_lock\_message\_from\_subscription**, the receive becomes
+	
+If the **peek\_lock** parameter is set to **True**, the receive becomes
 a two stage operation, which makes it possible to support applications
 that cannot tolerate missing messages. When Service Bus receives a
 request, it finds the next message to be consumed, locks it to prevent
 other consumers receiving it, and then returns it to the application.
 After the application finishes processing the message (or stores it
 reliably for future processing), it completes the second stage of the
-receive process by calling **delete\_message\_from\_subscription** method and providing the
-message to be deleted as a parameter. The **delete\_message\_from\_subscription** method will
+receive process by calling **delete** method on the **Message** object. The **delete** method will
 mark the message as being consumed and remove it from the subscription.
 
-	msg = bus_service.peek_lock_message_from_subscription('mytopic', 'LowMessages')
+	msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
 	print(msg.body)
-
-	bus_service.delete_message_from_subscription('mytopic', 'LowMessages', msg.broker_properties['SequenceNumber'], msg.broker_properties['LockToken'])
-
+	
+	msg.delete()
+	
 
 ## How to Handle Application Crashes and Unreadable Messages
 
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
 receiver application is unable to process the message for some reason,
-then it can call the **unlock\_message\_from\_subscription** method on the
-**ServiceBusService** object. This will cause Service Bus to unlock the
+then it can call the **unlock** method on the
+**Message** object. This will cause Service Bus to unlock the
 message within the subscription and make it available to be received
 again, either by the same consuming application or by another consuming
 application.
@@ -283,7 +286,7 @@ Service Bus will unlock the message automatically and make it available
 to be received again.
 
 In the event that the application crashes after processing the message
-but before the **delete\_message\_from\_subscription** method is called, then the message will
+but before the **delete** method is called, then the message will
 be redelivered to the application when it restarts. This is often called
 **At Least Once Processing**, that is, each message will be processed at
 least once but in certain situations the same message may be

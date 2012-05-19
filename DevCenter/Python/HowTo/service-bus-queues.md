@@ -113,7 +113,7 @@ namespace.
 
 The **ServiceBusService** object lets you work with queues. Add the following near the top of any Python file in which you wish to programmatically access Windows Azure Service Bus:
 
-	from windowsazure.servicebus.servicebusservice import *
+	from windowsazure.servicebus import *
 
 The following code creates a **ServiceBusService** object. Replace 'mynamespace', 'mykey' and 'myissuer' with the real namespace, key and issuer.
 
@@ -135,13 +135,13 @@ maximum queue size to 5GB a time to live of 1 minute:
 ## <a name="send-messages"> </a>How to Send Messages to a Queue
 
 To send a message to a Service Bus queue, your application will call the
-**send_message\_to\_queue** method on the **ServiceBusService** object.
+**send\_queue\_message** method on the **ServiceBusService** object.
 
 The following example demonstrates how to send a test message to the
-queue named ‘taskqueue’ using **send\_message\_to\_queue**:
+queue named ‘taskqueue’ using **send\_queue\_message**:
 
 	msg = Message('Test Message')
-	bus_service.send_message_to_queue('taskqueue', msg)
+	bus_service.send_queue_message('taskqueue', msg)
 
 Service Bus queues support a maximum message size of 256 KB (the header,
 which includes the standard and custom application properties, can have
@@ -152,11 +152,16 @@ upper limit of 5 GB.
 
 ## <a name="receive-messages"> </a>How to Receive Messages from a Queue
 
-Messages are received from a queue using the **read\_and\_delete_message\_from\_queue**
-method on the **ServiceBusService** object. Messages are
+Messages are received from a queue using the **receive\_queue\_message**
+method on the **ServiceBusService** object:
+
+	msg = bus_service.receive_queue_message('taskqueue')
+	print(msg.body)
+
+Messages are
 deleted from the queue as they are read; however, you can read (peek)
-and lock the message without deleting it from the queue by using
-**peek\_lock\_message\_from\_queue** instead.
+and lock the message without deleting it from the queue by setting the
+optional parameter **peek\_lock** to **True**.
 
 The default behavior of reading and deleting the message as part of the
 receive operation is the simplest model, and works best for scenarios in
@@ -167,32 +172,29 @@ it. Because Service Bus will have marked the message as being consumed,
 then when the application restarts and begins consuming messages again,
 it will have missed the message that was consumed prior to the crash.
 
-	msg = bus_service.read_and_delete_message_from_queue('taskqueue')
-	print(msg.body)
 
-When using **peek\_lock\_message\_from\_queue**, the receive becomes
+If the **peek\_lock** parameter is set to **True**, the receive becomes
 a two stage operation, which makes it possible to support applications
 that cannot tolerate missing messages. When Service Bus receives a
 request, it finds the next message to be consumed, locks it to prevent
 other consumers receiving it, and then returns it to the application.
 After the application finishes processing the message (or stores it
 reliably for future processing), it completes the second stage of the
-receive process by calling **delete\_message\_from\_queue** method and providing the
-message to be deleted as a parameter. The **delete\_message\_from\_queue** method will
+receive process by calling the **delete** method on the **Message** object. The **delete** method will
 mark the message as being consumed and remove it from the queue.
 
-	msg = bus_service.peek_lock_message_from_queue('taskqueue')
+	msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
 	print(msg.body)
 
-	bus_service.delete_message_from_queue('taskqueue', msg.broker_properties['SequenceNumber'], msg.broker_properties['LockToken'])
+	msg.delete()
 
 ## <a name="handle-crashes"> </a>How to Handle Application Crashes and Unreadable Messages
 
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
 receiver application is unable to process the message for some reason,
-then it can call the **unlock\_message\_from\_queue** method on the
-**ServiceBusService** object. This will cause Service Bus to unlock the
+then it can call the **unlock** method on the
+**Message** object. This will cause Service Bus to unlock the
 message within the queue and make it available to be received again,
 either by the same consuming application or by another consuming
 application.
@@ -204,7 +206,7 @@ Bus will unlock the message automatically and make it available to be
 received again.
 
 In the event that the application crashes after processing the message
-but before the **delete\_message\_from\_queue** method is called, then the message will
+but before the **delete** method is called, then the message will
 be redelivered to the application when it restarts. This is often called
 **At Least Once Processing**, that is, each message will be processed at
 least once but in certain situations the same message may be
