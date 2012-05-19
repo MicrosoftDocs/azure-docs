@@ -1,4 +1,4 @@
-# How to manage SQL Databases on Windows Azure
+# How to Manage SQL Databases on Windows Azure
 
 This guide shows you how to perform administrative tasks for logical servers and database instances on Windows Azure SQL Database. 
 
@@ -51,7 +51,7 @@ In this guide, you'll create the server first. You might prefer this approach if
 
 7. Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you. Keeping your Windows Azure application and database in the same region saves you on egress bandwidth cost and data latency.
 
-8. Be sure to keep the **Allow Windows Azure Services to access this server** checkbox selected so that you can connect to this database using the Management Portal for SQL Database, Excel in Office 365, or Windows Azure SQL Reporting. You also need this option to use the Import and Export Wizard in SQL Server Management Studio to upload or download a database.
+8. Be sure to keep the **Allow Services** option selected so that you can connect to this database using the Management Portal for SQL Database, storage services, and other services on Windows Azure. 
 
 9. Click the checkmark at the bottom of the page when you are finished.
 
@@ -59,7 +59,7 @@ Notice that you did not specify a server name. SQL Database auto-generates the s
 
 In the next step, you will configure the firewall so that connections from applications running on your network are allowed access.
 
-<h3 id="configFW">Configure the firewall for the logical server</h3>
+<h3 id="configFWLogical">Configure the firewall for the logical server</h3>
 
 1. Click **SQL Databases**, click **Servers**, and then click on the server you just created.
 
@@ -85,15 +85,15 @@ You now have a logical server, a firewall rule that allows inbound connections f
 
 <h2 id="PreReq3">Connect using Management Studio</h2>
 
-Management Studio is an administrative tool that lets you manage multiple SQL Server instances and servers in a single workspace. If you already have an on-premise SQL Server instance, you can open a connection to both the on-premise instance and a logical server on Windows Azure to perform tasks side by side.
+Management Studio is an administrative tool that lets you manage multiple SQL Server instances and servers in a single workspace. If you already have an on-premises SQL Server instance, you can open a connection to both the on-premises instance and a logical server on Windows Azure to perform tasks side by side.
 
-Management Studio includes features that are not currently available in the management portal, such as a syntax checker and the ability to save scripts and named queries for reuse. SQL Database is just a tabular data stream (TDS) endpoint. Any tools that work with TDS, including Management Studio, are valid for SQL Database operations. Scripts that you develop for on-premise server will run on a SQL Database logical server. 
+Management Studio includes features that are not currently available in the management portal, such as a syntax checker and the ability to save scripts and named queries for reuse. SQL Database is just a tabular data stream (TDS) endpoint. Any tools that work with TDS, including Management Studio, are valid for SQL Database operations. Scripts that you develop for on-premises server will run on a SQL Database logical server. 
 
 In the following step, you'll use Management Studio to connect to a logical server on Windows Azure. This step requires you to have SQL Server Management Studio version 2008 R2 or 2012. If you need help downloading or connecting to  Management Studio, see [Managing SQL Database using Management Studio][] on this site.
 
 Before you can connect, it is sometimes necessary to create a firewall exception that allows outbound requests on port 1433 on your local system. Computers that are secure by default typically do not have port 1433 open. 
 
-<h3 id="configFW">Configure the firewall for an on-premise server</h3>
+<h3 id="configFWOnPremise">Configure the firewall for an on-premises server</h3>
 
 1. In Windows Firewall with Advanced Security, create a new outbound rule.
 
@@ -115,7 +115,7 @@ Before you can connect, it is sometimes necessary to create a firewall exception
 4. In Connect to database, specify **master**.
 
 
-<h3 id="premise">Connect to an on-premise server</h3>
+<h3 id="premise">Connect to an on-premises server</h3>
 
 1. In Management Studio, in Connect to Server, make sure that Database Engine is selected, then enter the name of a local instance in this format: *servername*\\*instancename*. If the server is local and a default instance, enter *localhost*.
 
@@ -124,17 +124,17 @@ Before you can connect, it is sometimes necessary to create a firewall exception
 
 <h2 id="HowTo1">Deploy a database to Windows Azure</h2>
 
-There are numerous approaches for moving an on-premise SQL Server database to Windows Azure. In this task, you'll use the Deploy Database to SQL Database wizard to upload a sample database.
+There are numerous approaches for moving an on-premises SQL Server database to Windows Azure. In this task, you'll use the Deploy Database to SQL Database wizard to upload a sample database.
 
 The School sample database is conveniently simple; all of its objects are compatible with SQL Database, eliminating the need to modify or prepare a database for migration. As a new administrator, try deploying a simple database first to learn the steps before using your own databases. 
 
-**Note:** Review the SQL Database Migration Guide for detailed instructions on how to prepare an on-premise database for migration to Windows Azure. Also, consider downloading the Windows Azure Training Kit. It includes a lab that shows an alternative approach to migrating an on-premise database.
+**Note:** Review the SQL Database Migration Guide for detailed instructions on how to prepare an on-premises database for migration to Windows Azure. Also, consider downloading the Windows Azure Training Kit. It includes a lab that shows an alternative approach to migrating an on-premises database.
 
-<h3 id="CreateDB">Create the school database on an on-premise server</h3>
+<h3 id="CreateDB">Create the school database on an on-premises server</h3>
 
-Scripts for creating this database can be found in the [Getting Started with SQL Database Administration][]. In this guide, you'll run these scripts in Management Studio to create an on-premise version of the school database.
+Scripts for creating this database can be found in the [Getting Started with SQL Database Administration][]. In this guide, you'll run these scripts in Management Studio to create an on-premises version of the school database.
 
-1. In Management Studio, connect to an on-premise server. Right-click **Databases**, click **New Database**, and enter *school*.
+1. In Management Studio, connect to an on-premises server. Right-click **Databases**, click **New Database**, and enter *school*.
 
 2. Right-click on *school*, click **New Query**. 
 
@@ -376,7 +376,7 @@ Scripts for creating this database can be found in the [Getting Started with SQL
 	ALTER TABLE [dbo].[OfficeAssignment] CHECK 
    	 CONSTRAINT [FK_OfficeAssignment_Person];
 	GO
-</pre></div><p/>
+</pre></div>
 
 Next, copy and execute the Insert Data script.
 
@@ -630,14 +630,14 @@ Next, copy and execute the Insert Data script.
 	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
 	VALUES (1061, 30, 4);
 	GO
-</pre></div><p/>
+</pre></div>
 
-   You now have an on-premise database that you can export to Windows Azure. Next, you'll run a wizard that creates a .bacpac file, loads it onto Windows Azure, and imports it into SQL Database.
+   You now have an on-premises database that you can export to Windows Azure. Next, you'll run a wizard that creates a .bacpac file, loads it onto Windows Azure, and imports it into SQL Database.
 
 
 <h3 id="DeployDB">Deploy to SQL Database</h3>
 
-1. In Management Studio, connect to an on-premise SQL Server instance that has a database you want to migrate.
+1. In Management Studio, connect to an on-premises SQL Server instance that has a database you want to migrate.
 
 2. Right-click the school database that you just created, point to **Tasks**, and click **Deploy Database to SQL Database**.
 
@@ -712,12 +712,12 @@ The second script assigns database user permissions. For this script, you will c
 <div style="width:auto; height:auto; overflow:auto"><pre>
     -- run on master, execute each line separately
     -- use this login to manage other logins on this server
-    CREATE LOGIN sqladmin WITH password='<ProvidePassword>'; 
+    CREATE LOGIN sqladmin WITH password='&lt;ProvidePassword&gt;'; 
     CREATE USER sqladmin FROM LOGIN sqladmin;
     EXEC sp_addrolemember 'loginmanager', 'sqladmin';
 
     -- use this login to create or copy a database
-    CREATE LOGIN sqlops WITH password='<ProvidePassword>';
+    CREATE LOGIN sqlops WITH password='&lt;ProvidePassword&gt;';
     CREATE USER sqlops FROM LOGIN sqlops;
     EXEC sp_addrolemember 'dbmanager', 'sqlops';
 </pre></div>
@@ -732,12 +732,12 @@ The second script assigns database user permissions. For this script, you will c
 <div style="width:auto; height:auto; overflow:auto"><pre>
     -- run on a regular database, execute each line separately
     -- use this login for read operations
-    CREATE LOGIN sqlreader WITH password='<ProvidePassword>';
+    CREATE LOGIN sqlreader WITH password='&lt;ProvidePassword&gt;';
     CREATE USER sqlreader FROM LOGIN sqlreader;
     EXEC sp_addrolemember 'db_datareader', 'sqlreader';
 
     -- use this login for write operations
-    CREATE LOGIN sqlwriter WITH password='<ProvidePassword>';
+    CREATE LOGIN sqlwriter WITH password='&lt;ProvidePassword&gt;';
     CREATE USER sqlwriter FROM LOGIN sqlwriter;
     EXEC sp_addrolemember 'db_datawriter', 'sqlwriter';
 
@@ -769,22 +769,22 @@ You have now created and tested several logins. For more information, see [Manag
 
 <h2 id="HowTo3">Monitor logical servers and database instances</h2>
 
-Monitoring tools and techniques that you might be accustomed to using on an on-premise server, such as auditing logins, running traces, and using performance counters, are not available for SQL Database. On Windows Azure, you use Data Management Views (DMVs) to monitor data capacity, query problems, and current connections. 
+Monitoring tools and techniques that you might be accustomed to using on an on-premises server, such as auditing logins, running traces, and using performance counters, are not available for SQL Database. On Windows Azure, you use Data Management Views (DMVs) to monitor data capacity, query problems, and current connections. 
 
 For more information, see [Monitoring SQL Database Using Dynamic Management Views][].
 
 
 <h2 id="HowTo4">Scale a SQL Database solution</h2>
 
-On Windows Azure, database scalability is synonymous with scale out, or redistribution of a workload across multiple commodity servers in a data center. Scale out is a strategy for addressing problems with data capacity or performance. A very large database that is on a high-growth trajectory will eventually require a scale out strategy, whether it is accessed by a few users or many users.
+On Windows Azure, database scalability is synonymous with scale out, where a workload is redistributed across multiple commodity servers in a data center. Scale out is a strategy for addressing problems with data capacity or performance. A very large database that is on a high-growth trajectory will eventually require a scale out strategy, whether it is accessed by a few users or many users.
 
-On Windows Azure, scale out is best achieved through federation. SQL Database federation is based on horizontal sharding, where the structures are available on all copies and just the data is parceled out.
+Scale out on Windows Azure is best achieved through federation. SQL Database federation is based on horizontal sharding, where one or more tables are split by row and portioned across multiple federation members. 
 
-Federation is not the only answer to every scalability problem. Sometimes, the characteristics of your data or application requirements point to simpler approaches. The following list presents potential solutions in order of complexity.
+Federation is not the only answer to every scalability problem. Sometimes the characteristics of your data or application requirements point to simpler approaches. The following list presents potential solutions in order of complexity.
 
 **Increase the size of the database**
 
-Databases are created at a fixed size subject to a maximum imposed by each edition. For the Web edition, you can increase a database to a maximum of 5 gigabytes. For Business edition, the maximum database size is 150 gigabytes. One solution to increasing data requirements is to change the edition and maximum size:
+Databases are created at a fixed size subject to a maximum imposed by each edition. For the Web edition, you can increase a database to a maximum of 5 gigabytes. For Business edition, the maximum database size is 150 gigabytes. The most obvious way to increase data capacity is to change the edition and maximum size:
 
      ALTER DATABASE school MODIFY (EDITION = 'Business', MAXSIZE=10GB);
 
