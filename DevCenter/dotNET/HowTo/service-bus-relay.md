@@ -1,13 +1,13 @@
-<properties umbraconavihide="0" pagetitle="Service Bus Relay - How To - .NET - Develop" metakeywords="get started azure Service Bus Relay, Azure relay, Azure Service Bus relay, Service Bus relay, Azure relay .NET, Azure Service Bus relay .NET, Service Bus relay .NET, Azure relay C#, Azure Service Bus relay C#, Service Busy relay C#" metadescription="Learn how to use the Windows Azure Service Bus relay service to connect two applications hosted in different locations." linkid="dev-net-how-to-service-bus-relay" urldisplayname="Service Bus Relay" headerexpose footerexpose disquscomments="1"></properties>
+<properties umbraconavihide="0" pagetitle="Service Bus Relay - How To - .NET - Develop" metakeywords="get started azure Service Bus Relay, Azure relay, Azure Service Bus relay, Service Bus relay, Azure relay .NET, Azure Service Bus relay .NET, Service Bus relay .NET, Azure relay C#, Azure Service Bus relay C#, Service Busy relay C#" metadescription="Learn how to use the Windows Azure Service Bus relay service to connect two applications hosted in different locations." linkid="dev-net-how-to-service-bus-relay" urldisplayname="Service Bus Relay" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
 # How to Use the Service Bus Relay Service
 
-<span>This guide will show you how to use the Service Bus relay service.
-The samples are written in C\# and use the Windows Communication
+This guide will show you how to use the Service Bus relay service.
+The samples are written in C# and use the Windows Communication
 Foundation API with extensions contained in the Service Bus assembly
 that is part of the .NET libraries for Windows Azure. For more
 information on the Service Bus relay, see the [Next Steps][]
-section.</span>
+section.
 
 ## Table of Contents
 
@@ -24,8 +24,8 @@ section.</span>
 The Service Bus **Relay** service enables you to build **hybrid
 applications** that run in both a Windows Azure datacenter and your
 own on-premises enterprise environment. The Service Bus relay facilitates
-this by enabling you to securely expose <span> Windows Communication
-Foundation (</span>WCF) services that reside within a corporate
+this by enabling you to securely expose Windows Communication
+Foundation (WCF) services that reside within a corporate
 enterprise network to the public cloud, without having to open up a
 firewall connection or requiring intrusive changes to a corporate
 network infrastructure.
@@ -105,13 +105,13 @@ credentials for the namespace.
 
 ## <a name="get_nuget_package"> </a>Get the Service Bus NuGet Package
 
-<span>The Service Bus**NuGet** package is the easiest way to get the
+The Service Bus **NuGet** package is the easiest way to get the
 Service Bus API and to configure your application with all of the
 Service Bus dependencies. The NuGet Visual Studio extension makes it
 easy to install and update libraries and tools in Visual Studio and
 Visual Web Developer. The Service Bus NuGet package is the easiest way
 to get the Service Bus API and to configure your application with all of
-the Service Bus dependencies.</span>
+the Service Bus dependencies.
 
 To install the NuGet package in your application, do the following:
 
@@ -125,17 +125,17 @@ To install the NuGet package in your application, do the following:
 
 ## <a name="how_soap"> </a>How to Use Service Bus to Expose and Consume a SOAP Web Service with TCP
 
-<span>To expose an existing WCF SOAP web service for external
+To expose an existing WCF SOAP web service for external
 consumption, you must make changes to the service bindings and
 addresses. This may require changes to your configuration file or it
 could require code changes, depending on how you have set up and
 configured your WCF services. Note that WCF allows you to have multiple
 network endpoints over the same service, so you can retain the existing
 internal endpoints while adding Service Bus endpoints for external
-access at the same time.</span>
+access at the same time.
 
-<span>In this task, you will build a simple WCF service and
-add a Service Bus listener to it. This exercise assumes some familiarity with Visual Studio 2010, and therefore does not walk through all the details of creating a project. Instead, it focuses on the code.</span>
+In this task, you will build a simple WCF service and
+add a Service Bus listener to it. This exercise assumes some familiarity with Visual Studio 2010, and therefore does not walk through all the details of creating a project. Instead, it focuses on the code.
 
 Before starting the steps below, complete the following procedure to set up
 your environment:
@@ -148,17 +148,17 @@ your environment:
 
 ### How to Create the Service
 
-<span>First, create the service itself. Any WCF service consists of at
-least three distinct parts: </span>
+First, create the service itself. Any WCF service consists of at
+least three distinct parts:
 
 -   Definition of a contract that describes what messages are
-    exchanged and what operations are to be invoked. </span>
--   Implementation of said contract.</span>
+    exchanged and what operations are to be invoked. 
+-   Implementation of said contract.
 -   Host that hosts that service and exposes a number of
-    endpoints. </span>
+    endpoints.
 
-<span>The code examples in this section address each of these
-components.</span>
+The code examples in this section address each of these
+components.
 
 The contract defines a single operation, **AddNumbers**, that adds
 two numbers and returns the result. The **IProblemSolverChannel**
@@ -190,14 +190,14 @@ With the contract in place, the implementation is trivial:
 
 **How to Configure a Service Host Programmatically**
 
-<span>With the contract and implementation in place, you can now host
+With the contract and implementation in place, you can now host
 the service. Hosting occurs inside a
 **System.ServiceModel.ServiceHost** object, which takes care of managing
 instances of the service and hosts the endpoints that listen for
 messages. The code below configures the service with both a regular
 local endpoint and a Service Bus endpoint to illustrate the appearance, side-by-side, of internal and external endpoints. Replace the
 string "\*\*namespace\*\*" with your namespace name and "\*\*key\*\*"
-with the issuer key that you obtained in the setup step above. </span>
+with the issuer key that you obtained in the setup step above. 
 
     ServiceHost sh = new ServiceHost(typeof(ProblemSolver));
 
@@ -216,7 +216,7 @@ with the issuer key that you obtained in the setup step above. </span>
     Console.ReadLine();
     sh.Close();
 
-<span>In the example, you create two endpoints that are on the same
+In the example, you create two endpoints that are on the same
 contract implementation. One is local and one is projected through the Service Bus. The key differences between them are the bindings;
 **NetTcpBinding** for the local one and **NetTcpRelayBinding** for the
 Service Bus endpoint and the addresses. The local endpoint has a local
@@ -226,7 +226,7 @@ the path "solver". This results in the URI
 "sb://[serviceNamespace].servicebus.windows.net/solver", identifying the service
 endpoint as a Service Bus TCP endpoint with a fully qualified external
 DNS name. If you place the code replacing the placeholders as explained
-above into the **Main** function of the "Service" application, you will have a functional service. If you want your service to listen exclusively on the Service Bus, remove the local endpoint declaration.</span>
+above into the **Main** function of the "Service" application, you will have a functional service. If you want your service to listen exclusively on the Service Bus, remove the local endpoint declaration.
 
 **How to Configure a Service Host in the App.config File**
 
@@ -266,13 +266,13 @@ Replace the placeholders with your Service Bus service namespace and key.
         </endpointBehaviors>
     </behaviors>
 
-After you make these changes, the service starts as it did before, but with two live endpoints: one local and one listening in the cloud.</span>
+After you make these changes, the service starts as it did before, but with two live endpoints: one local and one listening in the cloud.
 
 ### How to Create the Client
 
 **How to Configure a Client Programmatically**
 
-<span>To consume the service, you can construct a WCF client using a
+To consume the service, you can construct a WCF client using a
 **ChannelFactory** object. The Service Bus uses a claims-based security
 model implemented using the Access Control Service (ACS). The
 **TokenProvider** class represents a security token provider with
@@ -280,12 +280,12 @@ built-in factory methods that return some well-known token providers. The
 example below uses the **SharedSecretTokenProvider** to hold the shared
 secret credentials and handle the acquisition of the appropriate tokens
 from the Access Control Service. The name and key are those obtained
-from the portal as described in the previous section.</span>
+from the portal as described in the previous section.
 
-<span>First, reference or copy the **IProblemSolver** contract code from
-the service into your client project.</span>
+First, reference or copy the **IProblemSolver** contract code from
+the service into your client project.
 
-Then, replace the code in the **Main** method of the client, again replacing the placeholder text with your Service Bus service namespace and key:</span>
+Then, replace the code in the **Main** method of the client, again replacing the placeholder text with your Service Bus service namespace and key:
 
     var cf = new ChannelFactory<IProblemSolverChannel>(
         new NetTcpRelayBinding(), 
@@ -299,9 +299,9 @@ Then, replace the code in the **Main** method of the client, again replacing the
         Console.WriteLine(ch.AddNumbers(4, 5));
     }
 
-<span>You can now compile the client and the service, run
+You can now compile the client and the service, run
 them (run the service first), and the client will call the service and
-print "9". You can run the client and server on different machines, even across networks, and the communication will still work. The client code can also run in the cloud or locally.</span>
+print "9". You can run the client and server on different machines, even across networks, and the communication will still work. The client code can also run in the cloud or locally.
 
 **How to Configure a Client in the App.config File**
 

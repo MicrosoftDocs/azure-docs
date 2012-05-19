@@ -1,6 +1,6 @@
-<properties linkid="dev-net-commons-tasks-profiling" urldisplayname="Performance Profiling" headerexpose="" pagetitle="Enable Profiling - .NET - Develop" metakeywords="Azure performance counters, Azure performance profiling, Azure performance counters C#, Azure performance profiling C#" footerexpose="" metadescription="Learn how to enable and collect data from performance counters in Windows Azure applications. " umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-commons-tasks-profiling" urldisplayname="Performance Profiling" headerexpose="" pagetitle="Enable Profiling - .NET - Develop" metakeywords="Azure performance counters, Azure performance profiling, Azure performance counters C#, Azure performance profiling C#" footerexpose="" metadescription="Learn how to enable and collect data from performance counters in Windows Azure applications." umbraconavihide="0" disquscomments="1"></properties>
 
-# Using Performance Counters in Windows Azure
+# Using performance counters in Windows Azure
 
 You can use performance counters in a Windows Azure application to
 collect data that can help determine system bottlenecks and fine-tune
@@ -28,7 +28,7 @@ collect data from performance counters.
 1.  Open the source file for the role.
 
     **Note**: The code in the following steps is typically added to
-    the**OnStart** method of the role.
+    the **OnStart** method of the role.
 
 2.  Get an instance of the diagnostic monitor configuration. The
     following code example shows how to get the default diagnostic
@@ -146,7 +146,7 @@ create custom performance counters.
         DiagnosticMonitor.Start("Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString", config);
 
 8.  Update the counters within your application. The following example
-    updates a custom performance counter on **Button1****Click** events:
+    updates a custom performance counter on **Button1_Click** events:
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -248,8 +248,7 @@ available for reporting.
 
 [How to Use the Autoscaling Application Block][]
 
-  [Overview of Creating and Using Performance Counters in a Windows
-  Azure Application]: http://msdn.microsoft.com/en-us/library/windowsazure/hh411520.aspx
+  [Overview of Creating and Using Performance Counters in a Windows Azure Application]: http://msdn.microsoft.com/en-us/library/windowsazure/hh411520.aspx
   [Step 1: Collect data from performance counters]: #step1
   [Step 2: (Optional) Create custom performance counters]: #step2
   [Step 3: Query performance counter data]: #step3
