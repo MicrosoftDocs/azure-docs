@@ -103,7 +103,7 @@ We'll actually use this string later in this guide, for now you know the steps t
 6. Click **Configure**.
 7. Under **Allowed IP addresses**, enter the name of a new IP rule. Specify the beginning and ending range of the IP addresses. For your convenience, the current client IP address is shown. The following example allows in a single client IP address (your IP address will be different).
 
-![Allowed IP addresses dialog][allowed_ips_dialog]
+    ![Allowed IP addresses dialog][allowed_ips_dialog]
 
 8. Click the completion button. The IP addresses that you specify will now be allowed access to your database server.
 
