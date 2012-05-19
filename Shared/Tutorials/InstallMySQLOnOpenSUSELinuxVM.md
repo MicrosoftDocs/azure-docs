@@ -10,7 +10,7 @@ In this tutorial, you will learn:
 
 ## Create a Virtual Machine Running OpenSUSE Linux
 
-<div chunk=”././Shared/Chunks/create-and-configure-opensuse-vm-in-portal” />
+<div chunk="././Shared/Chunks/create-and-configure-opensuse-vm-in-portal" />
 
 ##Install and Run MySQL on the Virtual Machine
 
