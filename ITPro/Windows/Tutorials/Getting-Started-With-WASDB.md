@@ -48,7 +48,7 @@ To get started with a free account, click free trial in the upper right corner a
 
 * Use the default settings for edition, max size, and collation. 
 
-* Choose **New SQL Azure Server**. Selecting a new server adds a second page that we'll use to set the administrator account and region. 
+* Choose **New SQL Database Server**. Selecting a new server adds a second page that we'll use to set the administrator account and region. 
 
 * When you are through, click the arrow to go to next page.
 
@@ -77,7 +77,7 @@ In the next step, you will configure the firewall so that connections from appli
 
 To configure the firewall so that connections are allowed through, you'll enter information on the server page.
 
-**Note:** The SQL Database service is only available with TCP port 1433 used by the TDS protocol, so make sure that the firewall on your network and local computer allows outgoing TCP communication on port 1433. For more information, see [SQL Azure Firewall](http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-en-us.aspx).
+**Note:** The SQL Database service is only available with TCP port 1433 used by the TDS protocol, so make sure that the firewall on your network and local computer allows outgoing TCP communication on port 1433. For more information, see [SQL Database Firewall](http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-en-us.aspx).
 
 
 1. In the navigation pane on the left, click **SQL Databases**.
@@ -385,7 +385,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 </pre></div>
 
 
-<SPACER TYPE=VERTICAL SIZE=30>
+
 <h2 id="insertData">Insert data</h2>
 
 Open a new query window and then paste in the following script. Run the script to insert data. This script uses the [INSERT](http://msdn.microsoft.com/en-us/library/windowsazure/ee336284.aspx) statement to add values to each column.
@@ -642,7 +642,6 @@ Open a new query window and then paste in the following script. Run the script t
 	GO
 </pre></div>
 
-<SPACER TYPE=VERTICAL SIZE=30>
 <h2 id="QueryDBSysData">Query sample and system data in the Management Portal for SQL Database</h2>
 
 To check your work, run a query that returns the data you just entered. You can also run built-in stored procedures and data management views that provide information about the databases running on your SQL Database server.
@@ -705,7 +704,7 @@ A SQL Server authentication login is used for server connections. All users who 
 
 To create a login, you must first connect to the **master** database.
 
-<h4 id=CreateLogin>Create a SQL Server authentication login</h4>
+<h4 id="CreateLogin">Create a SQL Server authentication login</h4>
 
 1. Go back to the Windows Azure (Preview) Management Portal, select **SQL Databases**, click **Servers**, choose the server and then click the white arrow to open the
 server page. 
@@ -733,7 +732,7 @@ server page.
 7. Run the command to create a new SQL Server login named 'SQLDBLogin'.
 
 
-<h4 id=CreateDBuser>Create a database user and assign permissions</h4>
+<h4 id="CreateDBuser">Create a database user and assign permissions</h4>
 
 After you create a SQL Server authentication login, the next step is to assign the database and permission levels associated with the login. You do this by creating a **database user** on each database.
 
@@ -797,26 +796,26 @@ Using just Excel, you can import only one table at a time. A better approach is 
 
 <h2 id="NextSteps">Next steps</h2>
 
-Now that you are familiar with SQL Database and the management portals, you can move on to the next step by learning more about tools and techniques used by SQL Server database administrators.
+Now that you are familiar with SQL Database and the management portals, you can try out other tools and techniques used by SQL Server database administrators.
 
-To actively manage your new database, consider installing and using SQL Server Management Studio. Management Studio is the primary database administration tool for managing SQL Server databases, including those running on Windows Azure. Using Management Studio, you can save queries for future use, add new tables and stored procedures, and hone your Transact-SQL skills in a rich scripting environment that includes a syntax checker, intellisense, and templates. To get started, follow the instructions in [Managing SQL Azure Servers and Databases Using SQL Server Management Studio](http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/).
+To actively manage your new database, consider installing and using SQL Server Management Studio. Management Studio is the primary database administration tool for managing SQL Server databases, including those running on Windows Azure. Using Management Studio, you can save queries for future use, add new tables and stored procedures, and hone your Transact-SQL skills in a rich scripting environment that includes a syntax checker, intellisense, and templates. To get started, follow the instructions in [Managing SQL Databases Using SQL Server Management Studio](http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/).
 
 Fluency in the Transact-SQL query and data definition language is essential for database administrators. If you are new to Transact-SQL, start with the [Tutorial: Writing Transact-SQL Statements](http://msdn.microsoft.com/en-us/library/ms365303.aspx) to learn some basic skills.
 
 There are other methods for moving an on-premise database to SQL Database. If you have existing databases, or if you downloaded sample databases to practice with, try the following alternative approaches:
 
 * [Migrating Databases to SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ee730904.aspx)
-* [Copying Databases in SQL Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ff951624.aspx)
-* [How to Use SQL Azure Programmatically](http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/)
+* [Copying Databases in SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ff951624.aspx)
+* [How to Use SQL Database Programmatically](http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/)
 
 
 
 
-[Image1]: media/1NavPaneDBSelected_SQLTut.png
-[Image2]: media/2MainPageCustomCreateDB_SQLTut.png
-[Image3]: media/3DatabaseSettings_SQLTut.PNG
-[Image4]: media/4ServerSettings_SQLTut.png
-[Image5]: media/5DBPortalDatabasesServers_SQLTut.PNG
+[Image1]: Media/1NavPaneDBSelected_SQLTut.png
+[Image2]: Media/2MainPageCustomCreateDB_SQLTut.png
+[Image3]: Media/3DatabaseSettings_SQLTut.PNG
+[Image4]: Media/4ServerSettings_SQLTut.png
+[Image5]: Media/5DBPortalDatabasesServers_SQLTut.PNG
 [Image6]: media/6DBConfigFirewall_SQLTut.png
 [Image7]: media/7DBConfigFirewallSAVE_SQLTut.png
 [Image8]: media/8MainPageHome_SQLTut.PNG
