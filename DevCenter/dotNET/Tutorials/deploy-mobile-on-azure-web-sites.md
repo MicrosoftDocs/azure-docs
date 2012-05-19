@@ -310,7 +310,7 @@ As you just saw, the Speakers view is readable, but the links are small and are 
 
 4.	In the **&lt;ul&gt;** tag, add the data-filter attribute and set it to true. The code below shows the ul markup.
 
-    <ul data-role="listview" data-filter="true">
+<pre><code>&lt;ul data-role="listview" data-filter="true"&gt;</code></pre>
 
 The following image shows the search filter box at the top of the page that results from the data-filter attribute.
 
@@ -342,7 +342,7 @@ You can improve the Dates view like you improved the **Speakers** and **Tags** v
 2. Open the new file and remove the **&lt;h2&gt;** element.
 3. Add *data-role="listview"* to the &lt;ul&gt; tag, like this:
 
-     <ul data-role="listview">
+<pre><code>&lt;ul data-role="listview"&gt;</code></pre>
 
 The image below shows what the **Date** page looks like with the data-role attribute in place.
 
@@ -459,31 +459,31 @@ Refresh the mobile browser. The following image reflects the code changes that y
 1.	In your browser, open the Preview Management Portal.
 2.	In the **Web Sites** tab, click the name of the site you created earlier.
 
-	![][DeployApplication1]	
+	![][DeployApplication1]
 3.	Select the Quickstart tab and then click **Download publishing profile**.
 
-	![][DeployApplication2]	
+	![][DeployApplication2]
 	This step downloads a file that contains all of the settings that you need to deploy an application to your Web Site. You'll import this file into Visual Studio so you don't have to enter this information manually.
 4.	Save the .publishsettings file in a folder that you can access from Visual Studio.
 
 	![][DeployApplication3]
 5.	In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
 
-	![][DeployApplication4]	
+	![][DeployApplication4]
 
 	The **Publish Web** wizard opens.
 6.	In the **Profile** tab of the **Publish Web** wizard, click **Import**.
 
-	![][DeployApplication5]	
+	![][DeployApplication5]
 7.	Select the .publishsettings file you downloaded earlier, and then click **Open**.
 
-	![][DeployApplication6]	
+	![][DeployApplication6]
 8.	Click **Next**.
 
-	![][DeployApplication7]	
+	![][DeployApplication7]
 11.	In the Settings tab, click **Next**.
-	
-	![][DeployApplication8]	
+
+	![][DeployApplication8]
 12.	Click **Publish**.
 	Visual Studio begins the process of copying the files to the Windows Azure server.
 
@@ -528,7 +528,7 @@ This tutorial has introduced the new mobile features of ASP.NET MVC 4 Developer 
 [AppMainPage]: ../media/FinishedAPPMainScreen.png
 [PropertiesPopup]: ../media/propertiespopup.png
 [BrowseByTagWithCallout]:../media/BrowseByTagWithCallout.png
-[ASPNetPage]: ../media/ASPNetPage.png"
+[ASPNetPage]: ../media/ASPNetPage.png
 [Overrideviews1]: ../media/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p2m_layouttags_mobile_thumb.png
 [Overrideviews2]: ../media/Windows-Live-Writer_ASP_NET-MVC-4-Mobile-Features_D2FF_p2_layoutTagsDesktop_thumb.png
 [jquery1]: ../media/Windows-Live-Writer_ASP_NET-MVC-4-Mobile-Features_D2FF_p3_packageMgr_thumb.png
