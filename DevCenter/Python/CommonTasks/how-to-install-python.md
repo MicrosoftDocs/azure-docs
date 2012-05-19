@@ -22,7 +22,7 @@ For the purposes of this release, only CPython is tested and supported.  We also
 There are several ways to get CPython:
 
 * Directly from www.python.org
-* From a reputable distro such as www.enthought.com or www.ActivteState.com
+* From a reputable distro such as www.enthought.com or www.ActiveState.com
 * Build from source!
 
 Unless you have a specific need, we recommend the first two options, as described below.
@@ -72,7 +72,7 @@ Python is most likely already installed on your Dev machine.  You can check by e
 
 ![how-to-install-python-linux-run.png][]
 
-Here we see that Susue has 2.7.2 installed which is fine for running the Azure tutorials and Django samples. If you need to upgrade, follow your OS's recommended package upgrade instructions.  Note however, that in general it's better to leave the system Python alone (others may depend on that version) and install the newer version via [Virutalenv][].
+Here we see that Suse has CPython 2.7.2 installed which is fine for running the Azure tutorials and Django samples. If you need to upgrade, follow your OS's recommended package upgrade instructions.  Note however, that in general it's better to leave the system Python alone (others may depend on that version) and install the newer version via [Virtualenv][].
 
 There are two main scenarios supported for this Azure release:
 
@@ -112,6 +112,8 @@ To find out more about using VM's, please see:
 
 [Python Tools for Visual Studio on CodePlex (free/OSS)][]
 
+[Virtualenv][]
+
 
 [Enthought Python Distribution]: http://www.enthought.com 
 
@@ -129,7 +131,7 @@ To find out more about using VM's, please see:
 
 [Python Package Index (PyPI)]: http://pypi.python.org/pypi
 
-[Virutalenv]: http://pypi.python.org/pypi/virtualenv 
+[Virtualenv]: http://pypi.python.org/pypi/virtualenv 
 
 
 
