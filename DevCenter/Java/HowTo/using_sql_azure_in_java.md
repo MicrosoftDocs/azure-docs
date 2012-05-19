@@ -1,18 +1,22 @@
-<properties linkid="dev-java-how-to-sql-azure" urldisplayname="SQL Azure Database" headerexpose="" pagetitle="SQL Azure Database - How To - Java - Develop" metakeywords="" footerexpose="" metadescription="The following steps show you how to use SQL Azure Database within Java." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-java-how-to-sql-azure" urldisplayname="SQL Azure Database" headerexpose="" pagetitle="SQL Azure Database - How To - Java - Develop" metakeywords="" footerexpose="" metadescription="The following steps show you how to use SQL Azure Database with Java." umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Use Windows Azure SQL Database in Java
 
-The following steps show you how to use Windows Azure SQL Database. Command line examples are shown for simplicity, but highly similar steps would be appropriate for web applications, either hosted on-premise, within Windows Azure, or in other environments.
+The following steps show you how to use Windows Azure SQL Database with Java. Command line examples are shown for simplicity, but highly similar steps would be appropriate for web applications, either hosted on-premise, within Windows Azure, or in other environments. This guide covered creating a server and creating a database from the [Windows Azure Management Portal](https://windows.azure.com). For information about performing these tasks from the production portal, see [Using SQL Azure with Java](http://msdn.microsoft.com/en-us/library/windowsazure/hh749029.aspx).
 
+## What is Windows Azure SQL Database
+
+Windows Azure SQL Database provides a relational database management system for the Windows Azure platform, and is based on SQL Server technology. With a SQL Database instance, you can easily provision and deploy relational database solutions to the cloud, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing.
 
 ## Table of Contents
 
+-   [Concepts][]
 -   [Prerequisites][]
--   [Creating a Windows Azure SQL Database][]
+-   [Creating a Windows Azure SQL Server and Database][]
 -   [Determining the SQL Azure connection string][]
+-   [To allow access to a range of IP addresses][]
 -   [To use Windows Azure SQL Database in Java][]
 -   [Communicating with Windows Azure SQL Database from your code][]
--   [To create a database][]
 -   [To create a table][]
 -   [To create an index on a table][]
 -   [To insert rows][]
@@ -24,9 +28,13 @@ The following steps show you how to use Windows Azure SQL Database. Command line
 -   [To check whether a table exists][]
 -   [To drop an index][]
 -   [To drop a table][]
--   [To drop a database][]
 -   [Using SQL Azure in Java within a Windows Azure Deployment][]
--   [Additional resources][]
+-   [Next Steps][]
+
+<h2 id="concepts">Concepts</h2>
+Because Windows Azure SQL Database is built on SQL Server technologies, accessing SQL Azure Database from Java is very similar to accessing SQL Server from Java. You can develop an application locally (using SQL Server) and then connect to SQL Database by changing only the connection string. You can use a SQL Server JDBC driver for your application. However, there are some differences between SQL Database and SQL Server that could affect your application. For more information, see [Guidelines and Limitations (SQL Database)](http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx).
+
+For additional resources for SQL Azure Database, see the [Next Steps][] section.
 
 <h2 id="prerequisites">Prerequisites</h2>
 
@@ -48,29 +56,56 @@ The following are prerequisites if you intend to use SQL Azure with Java.
 
 Before using Windows Azure SQL Database in Java code, you will need to create a Windows Azure SQL Database server.
 
-1. Sign in at the [Windows Azure Management Portal](https://windows.azure.com).
-2. Click **New Database Server**.
-3. Click **Create a New SQL Azure** server.
-4. In the **Create Server** dialog, select the subscription for which the SQL Azure charges will be billed, and click **Next**.
-5. Select the region where the SQL Azure server will be hosted and click **Next**.
-6. Specify the login ID and password for the SQL Azure account. Confirm the password and click **Next**.<p/>Make a note of the login ID and the password, you will need them when you create your connection string later in this topic.
-7. If you intend to use your SQL Azure server with other Windows Azure services, check **Allow other Windows Azure services to access this server**. If you only want to access your SQL Server through non-Windows Azure services, you can leave this option unchecked.
-8. Click **Add** to add a new firewall rule.
-9. In the **Add Firewall Rule** dialog, enter a name for the fire wall rule, and specify the IP range start and IP range end values for the rule. To help you determine the IP range, the current IP address is displayed in the **Add Firewall Rule** dialog. Click **OK** when you have specified the values for your firewall rule.
-10. Click **Finish** to close the **Create Server** dialog, and the SQL Azure server will be created.
+1. Login to the [Windows Azure Preview Management Portal](https://manage.windowsazure.com).
+2. Click **New**.
+
+    ![Create new SQL database][create_new]
+
+3. Click **SQL database**, and then click **Custom create**.
+
+    ![Create custom SQL database][create_new_sql_db]
+
+4. In the **Database settings** dialog, specify your database name. For purposes of this guide, use **gettingstarted** as the database name.
+5. For **Server**, select **New SQL Database Server**. Use the default values for the other fields.
+
+    ![SQL database settings][create_database_settings]
+
+6. Click the next arrow.	
+7. In the **Server settings** dialog, specify a SQL Server login name. For purposes of this guide, **MySQLAdmin** was used. Specify and confirm a password. Specify a region, and ensure that **Allow Windows Azure Services to access the server** is checked.
+
+    ![SQL server settings][create_server_settings]
+
+8. Click the completion button.
 
 <h2 id="determine_connection_string">Determining the SQL Azure connection string</h2>
 
-1. Within the [Windows Azure Management Portal](https://windows.azure.com), in the left-hand pane, click **Database**.
-2. Under **Subscriptions**, expand the subscription that owns the SQL Azure server.
-3. Click the SQL Azure server that you want to use.
-4. In the **Properties** pane, select the text for the **Name** field, right-click the text, and choose **Copy**.
-5. Use the value to create a connection string of the following form. Replace *your_server* (in two places) with the text you copied in the previous step, and replace *your_user* and *your_password* with the login ID and password values you specified when you created your SQL Azure account.
+1. Login to the [Windows Azure Preview Management Portal](https://manage.windowsazure.com).
+2. Click **SQL Databases**.
+3. Click the database that you want to use.
+4. Click **Show connection strings**.
+5. Highlight the contents for the **JDBC** connection string.
 
-        "jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
-        "database=master" + ";" + 
-        "user=your_user@your_server" + ";" +  
-        "password=your_password";
+    ![Determine JDBC connection string][get_jdbc_connection_string]
+
+6. Right-click the highlighted contents of the **JDBC** connection string and click **Copy**.
+7. You can now paste this value into your code file to create a connection string of the following form. Replace *your_server* (in two places) with the text you copied in the previous step, and replace *your_password* with the password value you specified when you created your SQL Azure account. (Also replace the values assigned to **database=** and **user=** if you did not use **gettingstarted** and **MySQLAdmin**, respectively.) 
+
+	jdbc:sqlserver://*your_server*;database=gettingstarted;user=MySQLAdmin@*your_server*;password=*your_password*;encrypt=true;hostNameInCertificate=*.int.mscds.com;loginTimeout=30;
+
+We'll actually use this string later in this guide, for now you know the steps to determine the connection string. Also, depending on your application needs, you may not need to use the **encrypt** and **hostNameInCertificate** settings, and you may need to modify the **loginTimeout** setting.
+
+<h2 id="specify_allowed_ips">To allow access to a range of IP addresses</h2>
+1. Login to the [Preview Management Portal](https://manage.windowsazure.com).
+2. Click **SQL Databases**.
+3. Click **Servers**.
+4. Click the server that you want to use.
+5. Click **Manage**.
+6. Click **Configure**.
+7. Under **Allowed IP addresses**, enter the name of a new IP rule. Specify the beginning and ending range of the IP addresses. For your convenience, the current client IP address is shown. The following example allows in a single client IP address (your IP address will be different).
+
+![Allowed IP addresses dialog][allowed_ips_dialog]
+
+8. Click the completion button. The IP addresses that you specify will now be allowed access to your database server.
 
 <h2 id="use_sql_azure_in_java">To use Windows Azure SQL Database in Java</h2>
 
@@ -106,96 +141,11 @@ You're now ready to add in code that will communicate with your SQL Azure server
 The remainder of this topic shows examples that do the following:
 
 1. Connect to the SQL Azure server.
-2. Define a SQL statement, for example, to create or drop a database, create or drop a table, insert/select/delete rows, etc.
+2. Define a SQL statement, for example, to create or drop a table, insert/select/delete rows, etc.
 3. Execute the SQL statement, either through a call to **executeUpdate** or **executeQuery**.
 4. Display query results, if appropriate.
 
 The following sections are intended to be read (sampled) in order. The first snippet is a complete sample; the others would rely on part of the framework in the complete sample, such as the **import** statements, **class** and **main** declarations, error handling and resource closing.
-
-<h2 id="to_create_db">To create a database</h2>
-
-The following code shows you how to create a database. For purposes of this example, the name of the database is **gettingstarted**. Modify the placeholders to use your values. Note that this code example uses the **master** database in the connection string, since we need to use the **master** database to create another database.
-
-	import java.sql.*;
-	import com.microsoft.sqlserver.jdbc.*;
-	
-	public class HelloSQLAzure {
-	
-	    public static void main(String[] args) 
-	    {
-	       
-	        // Connection string for your SQL Azure server.
-	        // Change the values assigned to your_server, 
-	        // your_user@your_server,
-	        // and your_password.
-	        String connectionString = 
-	        "jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
-	        "database=master" + ";" + 
-	        "user=your_user@your_server" + ";" +  
-	        "password=your_password";
-	        
-	        // The types for the following variables are
-	        // defined in the java.sql library.
-	        Connection connection = null;  // For making the connection
-	        Statement statement = null;    // For the SQL statement 
-	        ResultSet resultSet = null;    // For the result set, if applicable 
-	        
-	        try
-	        {
-	            // Ensure the SQL Server driver class is available.
-	            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-	            
-	            // Establish the connection.
-	            connection = DriverManager.getConnection(connectionString);
-	
-	            // Define the SQL string.
-	            String sqlString = "CREATE DATABASE gettingstarted";
-	
-	            // Use the connection to create the SQL statement.
-	            statement = connection.createStatement();
-	
-	            // Execute the statement.
-	            statement.executeUpdate(sqlString);
-	
-	            // Provide a message when processing is complete.
-	            System.out.println("Processing complete.");
-	           
-	        }
-	        // Exception handling
-	        catch (ClassNotFoundException cnfe)  
-	        {
-	            
-	            System.out.println("ClassNotFoundException " +
-	                               cnfe.getMessage());
-	        }
-	        catch (Exception e)
-	        {
-	            System.out.println("Exception " + e.getMessage());
-	            e.printStackTrace();
-	        }
-	        finally
-	        {
-	            try
-	            {
-	                // Close resources.
-	                if (null != connection) connection.close();
-	                if (null != statement) statement.close();
-	                if (null != resultSet) resultSet.close();
-	            }
-	            catch (SQLException sqlException)
-	            {
-	                // No additional action if close() statements fail.
-	            }
-	        }
-	        
-	    }
-	
-	}
-
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>Most of the remaining steps in this tutorial use the <b>gettingstarted</b> database, which is reflected in the database value used in the connection string. Additionally, to keep the snippets brief, the exception handling and closing of resources is not shown; use the exception handling and closing of resources shown above to make the snippets complete.</p> 
-</div>
 
 <h2 id="to_create_table">To create a table</h2>
 
@@ -241,7 +191,36 @@ The following code shows you how to create a table named **Person**.
 	    System.out.println("Processing complete.");
 	
 	}
-	// Exception handling and resource closing not shown...
+	// Exception handling
+	        catch (ClassNotFoundException cnfe)  
+	        {
+	            
+	            System.out.println("ClassNotFoundException " +
+	                               cnfe.getMessage());
+	        }
+	        catch (Exception e)
+	        {
+	            System.out.println("Exception " + e.getMessage());
+	            e.printStackTrace();
+	        }
+	        finally
+	        {
+	            try
+	            {
+	                // Close resources.
+	                if (null != connection) connection.close();
+	                if (null != statement) statement.close();
+	                if (null != resultSet) resultSet.close();
+	            }
+	            catch (SQLException sqlException)
+	            {
+	                // No additional action if close() statements fail.
+	            }
+	        }
+	        
+	    }
+	
+	}
 	
 
 ## <h2 id="to_create_index"></h2>To create an index on a table
@@ -693,41 +672,6 @@ The following code shows you how to drop a table named **Person**.
 	}
 	// Exception handling and resource closing not shown...
 
- 
-<h2 id="to_drop_db">To drop a database</h2>
-
-The following code shows you how to drop the database named **gettingstarted**. Note that this code example uses the **master** database, since we need to use the **master** database to drop the **gettingstarted** database.
- 
-	// Connection string for your SQL Azure server.
-	// Change the values assigned to your_server, 
-	// your_user@your_server,
-	// and your_password.
-	String connectionString = 
-	"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
-	"database=master" + ";" + 
-	"user=your_user@your_server" + ";" +  
-	"password=your_password";
-	
-	// The types for the following variables are
-	// defined in the java.sql library.
-	Connection connection = null;  // For making the connection
-	Statement statement = null;    // For the SQL statement 
-	ResultSet resultSet = null;    // For the result set, if applicable 
-	
-	try
-	{
-	    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-	    
-	    connection = DriverManager.getConnection(connectionString);
-	
-	    String sqlString = "DROP DATABASE gettingstarted";
-	    statement = connection.createStatement();
-	    statement.executeUpdate(sqlString);
-	    System.out.println("Processing complete.");
-	   
-	}
-	// Exception handling and resource closing not shown...
-
 <h2 id="using_in_azure">Using SQL Azure in Java within a Windows Azure Deployment</h2>
 
 To use SQL Azure in Java within a Windows Azure deployment, in addition to having Microsoft SQL Server JDBC Driver 3.0 as a library in your class path as shown above, you’ll need to package it with your deployment.
@@ -746,16 +690,17 @@ To use SQL Azure in Java within a Windows Azure deployment, in addition to havin
 
 * Ensure the Microsoft SQL Server JDBC Driver 3.0 library is included within the same Azure role as your Java application, and added to the class path of your application.
 
-<h2 id="additional_resources">Additional resources</h2>
+<h2 id="nextsteps">Next Steps</h2>
 
-For more information about Microsoft JDBC Driver for SQL Server, see [Overview of the JDBC Driver](http://msdn.microsoft.com/en-us/library/ms378749.aspx). For more information about SQL Azure, see [SQL Azure Overview](http://msdn.microsoft.com/en-us/library/windowsazure/ee336241.aspx).
+To learn more about Microsoft JDBC Driver for SQL Server, see [Overview of the JDBC Driver](http://msdn.microsoft.com/en-us/library/ms378749.aspx). To learn more about SQL Azure, see [SQL Azure Overview](http://msdn.microsoft.com/en-us/library/windowsazure/ee336241.aspx).
 
+[Concepts]:#concepts
 [Prerequisites]:#prerequisites
-[Creating a Windows Azure SQL Database]:#create_db
+[Creating a Windows Azure SQL Server and Database]:#create_db
 [Determining the SQL Azure connection string]:#determine_connection_string
+[To allow access to a range of IP addresses]:#specify_allowed_ips
 [To use Windows Azure SQL Database in Java]:#use_sql_azure_in_java
 [Communicating with Windows Azure SQL Database from your code]:#communicate_from_code
-[To create a database]:#to_create_db
 [To create a table]:#to_create_table
 [To create an index on a table]:#to_create_index
 [To insert rows]:#to_insert_rows
@@ -767,6 +712,11 @@ For more information about Microsoft JDBC Driver for SQL Server, see [Overview o
 [To check whether a table exists]:#to_check_table_existence
 [To drop an index]:#to_drop_index
 [To drop a table]:#to_drop_table
-[To drop a database]:#to_drop_db
 [Using SQL Azure in Java within a Windows Azure Deployment]:#using_in_azure
-[Additional resources]:#additional_resources
+[Next Steps]:#nextsteps
+[create_new]: ../media/WA_New.png
+[create_new_sql_db]: ../media/WA_SQL_DB_Create.png
+[create_database_settings]: ../media/WA_CustomCreate_1.png
+[create_server_settings]: ../media/WA_CustomCreate_2.png
+[get_jdbc_connection_string]: ../media/WA_SQL_JDBC_ConnectionString.png
+[allowed_ips_dialog]: ../media/WA_Allowed_IPs.png
