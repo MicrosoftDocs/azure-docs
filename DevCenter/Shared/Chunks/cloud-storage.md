@@ -18,34 +18,20 @@ article. <a id="compare" name="compare"></a>
 
 ## Table of Contents
 
-<ul>
-<li>
-[Storing Data in Windows Azure][]
+- [Storing Data in Windows Azure][]
 
-</li>
-<li>
-[Windows Azure Blobs and Tables][]
+- [Windows Azure Blobs and Tables][]
+	 - [Blobs][]
+	 - [Tables][]
 
-</li>
--   [Blobs][]
--   [Tables][]
+- [SQL Azure][]
 
-<li>
-[SQL Azure][]
+- [Additional Storage Options for Applications Hosted in Windows Azure][]
+	- [Local Storage][]
+	- [Windows Azure Drives][]
 
-</li>
-<li>
-[Additional Storage Options for Applications Hosted in Windows Azure][]
+- [References][]
 
-</li>
--   [Local Storage][]
--   [Windows Azure Drives][]
-
-<li>
-[References][]
-
-</li>
-</ul>
 <a name="storing"> </a>
 
 ## Storing Data in Windows Azure
@@ -79,7 +65,7 @@ the machines running your application code.
 The figure below shows how client requests could be distributed to
 different machines all of which have access the same data storage.
 
-![[image]][]
+![image][img0]
 
 For example, let’s say that your application allows a client to place
 items into a shopping cart and later, the client purchases the items
@@ -185,7 +171,7 @@ the data center is free) and the number of I/O operations you perform.
 The pricing for SQL Azure if based on the size of each database and the
 number of bytes you transfer out of the data center. To understand the
 latest pricing of these various storage mechanisms, please see [Windows
-Azure Pricing][].
+Azure Pricing].
 
 <a name="blobsandtables"> </a>
 
@@ -195,8 +181,7 @@ Blobs and Tables reside within a Windows Azure Storage account. A single
 Windows Azure Storage account can hold up to 100 TB of data. If you need
 to store more data, then you can create additional storage accounts.
 Within a storage account, you can store data in Blobs and Tables. A
-storage account can also contain Queues (for more information see [How
-to Use the Queue Storage Service][]). Here is a brief description for
+storage account can also contain Queues (for more information see [How to Use the Queue Storage Service][]). Here is a brief description for
 Blobs and Tables (they are described in more detail in the following
 sections):
 
@@ -216,13 +201,12 @@ These abstractions are accessible via [HTTP(S) REST APIs][] (overs ports
 programming languages. To simplify making the web requests for software
 developers, you can use several *client libraries* targeting specific
 operating systems and programming languages. Libraries exist for .NET,
-Node.js, Java, and PHP, and are available at the [Windows Azure
-website][]. The term “client libraries” is used since your application
+Node.js, Java, and PHP, and are available at the [Windows Azure website][]. The term “client libraries” is used since your application
 is a client to the data storage servers. The figure below shows how your
 application code makes a call into a client library which, in turn,
 makes an HTTP(S) REST request to Blobs or Tables.
 
-![[image]][1]
+![image][img1]
 
 When you create a storage account, your account is assigned two 256-bit
 account keys. One of these two keys must be specified in a header that
@@ -290,8 +274,7 @@ Blob as a disk drive. This allows your application code to use standard
 FILE I/O APIs against the mounted drive letter and redirect the I/O
 operations to the backing blob. This feature is only available to
 applications running in Windows Azure because the VMs must have a
-special NTFS device driver installed on them. See [Windows Azure
-Drives][] for more details.<a id="Queue" name="Queue"></a>
+special NTFS device driver installed on them. See [Windows Azure Drives][] for more details.<a id="Queue" name="Queue"></a>
 
 <a name="tables"> </a>
 
@@ -599,7 +582,7 @@ The figure below shows how your application code makes a call into a SQL
 client library (such as ADO.NET) which, in turn, makes a TDS request
 over TCP to SQL Azure.
 
-![[image]][3] <a id="SQLAzure" name="SQLAzure"> </a>
+![image][img3] <a id="SQLAzure" name="SQLAzure"> </a>
 
 Since Windows Azure does not provide direct access to the underlying
 hardware, administration tasks that involve hardware access, such as
@@ -763,7 +746,7 @@ files).<a id="Ref" name="Ref"></a>
 
 ## References
 
--   [Windows Azure Pricing][] [][]
+-   [Windows Azure Pricing][]
 
 -   [Windows Azure Storage][]
 
@@ -795,21 +778,20 @@ files).<a id="Ref" name="Ref"></a>
   [Blobs]: #blobs
   [Tables]: #tables
   [SQL Azure]: #sql
-  [Additional Storage Options for Applications Hosted in Windows Azure]:
-    #additional
+  [Additional Storage Options for Applications Hosted in Windows Azure]: #additional
   [Local Storage]: #local
   [Windows Azure Drives]: #drives
   [References]: #references
-  [[image]]: ../../../DevCenter/Shared/Media/data-storage-offerings-3.jpg
+  [img0]: ../../../DevCenter/Shared/Media/data-storage-offerings-3.jpg
   [Windows Azure Pricing]: ../../../../pricing/calculator/
   [How to Use the Queue Storage Service]: ../../how-to-guides/queue-service/
   [HTTP(S) REST APIs]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355.aspx
   [Windows Azure website]: {localLink:1123} "Downloads"
-  [1]: ../../../DevCenter/Shared/Media/data-storage-offerings-4.jpg
+  [img1]: ../../../DevCenter/Shared/Media/data-storage-offerings-4.jpg
   [2]: {localLink:1145} "SQL Azure"
   [Windows Azure Tables]: #_Tables
-  [3]: ../../../DevCenter/Shared/Media/data-storage-offerings-5.jpg
-  []: http://www.windowsazure.com/en-us/pricing/calculator/
+  [img3]: ../../../DevCenter/Shared/Media/data-storage-offerings-5.jpg
+  [calculator]: http://www.windowsazure.com/en-us/pricing/calculator/
   [Windows Azure Storage]: ../../../../home/features/storage/
   [Windows Azure Storage Services REST API Reference]: http://msdn.microsoft.com/en-us/library/dd179355.aspx
   [Windows Azure Content Delivery Network (CDN)]: ../../../../home/features/cdn/
