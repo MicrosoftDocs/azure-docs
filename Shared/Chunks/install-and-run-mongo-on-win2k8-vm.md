@@ -57,7 +57,7 @@
 	Specify a name for the rule, such as "MongoPort", and click Finish.
 	![Windows Firewall][Image6]
 	
-12. Once the virtual machine is created you must configure an endpoint. In the Windows Azure portal, click **Virtual Machines**, then click the name of your new VM, then click **Endpoints**.
+12. Once MongoDB is installed you must configure an endpoint so that MongoDB can be accessed remotely. In the Management Portal, click **Virtual Machines**, then click the name of your new virtual machine, then click **Endpoints**.
 ![Endpoints][Image7]
 13. Click **Add Endpoint** at the bottom of the page.
 	![Endpoints][Image8]

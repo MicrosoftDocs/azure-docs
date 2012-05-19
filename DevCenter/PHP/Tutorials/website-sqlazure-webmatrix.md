@@ -46,13 +46,15 @@ Follow these steps to create a Windows Azure Website and a SQL Database:
 
 	![Create New Windows Azure Website][new-website]
 
-3. Click **Web Site**, then **Custom Create**. Enter a value for **URL**, select **Create a New SQL Azure Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
+3. Click **Web Site**, then **Custom Create**.
 
 	![Custom Create a new Website][custom-create]
 
+	Enter a value for **URL**, select **Create a New SQL Azure Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
+
 	![Fill in Website details][website-details-sqlazure]
 
-4. Enter a value for the **NAME** of your database, select the **EDITION** (WEB or BUSINESS), select the **MAX SIZE** for your database, choose the **COLLATION**, and select **NEW SQL Database server**. Click the arrow at the bottom of the dialog.
+4. Enter a value for the **NAME** of your database, select the **EDITION** [(WEB or BUSINESS)][sql-database-editions], select the **MAX SIZE** for your database, choose the **COLLATION**, and select **NEW SQL Database server**. Click the arrow at the bottom of the dialog.
 
 	![Fill in SQL Database settings][database-settings]
 
@@ -84,29 +86,41 @@ Run the downloaded .exe file. This will install the Microsoft Web Platform Insta
 
 In the next few steps you will develop the Tasklist application by adding the files you downloaded earlier and making a few modifications. You could, however, add your own existing files or create new files.
 
-1. Launch WebMatrix by clicking the Windows **Start** button, then click **All Programs>Microsoft Web Matrix>Microsoft WebMatrix**:
+1. Launch WebMatrix by clicking the Windows **Start** button, then click **All Programs>Microsoft WebMatrix>Microsoft WebMatrix**:
 
 	![Launch Webmatrix][launch-webmatrix]
 
-2. Create a new project by clicking **Templates**, then **PHP** (in the left pane), and finally **Empty Site**. Fill in name of site (tasklist), click **Next**.
+2. Create a new project by clicking **Templates**.
 
 	![WebMatrix - Select Templates][webmatrix-templates]
 
+3. Click **PHP** (in the left pane). 
+
 	![WebMatrix - Select PHP Template][webmatrix-php-template]
+
+4. Click **Empty Site**, fill in name of site (tasklist), and click **Next**.
 
 	![WebMatrix - Select PHP Empty Site][webmatrix-php-emptysite]
 
-3. In the lower left corner, click **Files**, then delete `index.php` from the project.
+5. Click **Accept** to allow WebMatrix to install the Empty Site template.
+
+	![WebMatrix - Download Empty Site template][php-site-from-template]
+
+6. Click **OK** when the template has been installed.
+
+	![WebMatrix - Empty Site template installed][php-empty-site-template-installed]
+
+7. In the lower left corner, click **Files**, then delete `index.php` from the project.
 
 	![WebMatrix - Select Files][webmatrix-files]
 
 	![WebMatrix - Delete index.php][webmatrix-delete-indexphp]
 
-4. To import the files you downloaded earlier, click **Add Existing**, navigate to the directory where you saved the Tasklist application files, select them, and add them to the project.
+8. To import the files you downloaded earlier, click **Add Existing**, navigate to the directory where you saved the Tasklist application files, select them, and add them to the project.
 
 	![WebMatrix - Add existing files][webmatrix-add-existing]
 
-5. Next, you need to add your local SQL Express database connection information to the `taskmodel.php` file. Open the  `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function. (**Note**: Jump [Publish Your Application](#Publish) if you do not want to test your application locally and want to instead publish directly to Windows Azure Websites.)
+9. Next, you need to add your local SQL Express database connection information to the `taskmodel.php` file. Open the  `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function. (**Note**: Jump [Publish Your Application](#Publish) if you do not want to test your application locally and want to instead publish directly to Windows Azure Websites.)
 
 		// DB connection info
 		$host = ".\sqlexpress";
@@ -116,11 +130,11 @@ In the next few steps you will develop the Tasklist application by adding the fi
 
 	Save the `taskmodel.php` file.
 
-6. For the application to run, the `items` table needs to be created. Right click the `createtable.php` file and select **Launch in browser**. This will launch `createtable.php` in your browser and execute code that creates the `items` table in the `tasklist` database.
+10. For the application to run, the `items` table needs to be created. Right click the `createtable.php` file and select **Launch in browser**. This will launch `createtable.php` in your browser and execute code that creates the `items` table in the `tasklist` database.
 
 	![WebMatrix - Launch createtable.php in browser][webmatrix-launchinbrowser]
 
-7. Now you can test the application locally. Right click the `index.php` file and select **Launch in browser**. Test the application by adding items, marking them complete, and deleting them.  
+11. Now you can test the application locally. Right click the `index.php` file and select **Launch in browser**. Test the application by adding items, marking them complete, and deleting them.  
 
 
 <h2 id="Publish">Publish Your Application</h2>
@@ -207,3 +221,4 @@ You can easily modify and republish your application. Here, you will make a simp
 [webmatrix-pubcompat-continue]: ../../Shared/Media/webmatrix_pubcompat_continue.jpg
 [webmatirx-pubpreview]: ../../Shared/Media/webmatrix_pubpreview.jpg
 [preview-portal]: https://manage.windowsazure.com
+[sql-database-editions]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx

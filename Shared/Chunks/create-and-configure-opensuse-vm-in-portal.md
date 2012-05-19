@@ -1,5 +1,5 @@
-1. Login to the Windows Azure Management Portal [http://windows.azure.com](http://windows.azure.com) using your account. If you do not have a Windows Azure account visit [Windows Azure 3 Month free trial](http://www.windowsazure.com/en-us/pricing/free-trial/).
-2. On the Windows Azure Management Portal, at the bottom left of the web page, click **+New**, click **Virtual Machine**, and then click **From Gallery**.
+1. Login to the [Windows Azure (Preview) Management Portal][AzurePreviewPortal] using your account. If you do not have a Windows Azure account visit [Windows Azure 3 Month free trial](http://www.windowsazure.com/en-us/pricing/free-trial/).
+2. In the Management Portal, at the bottom left of the web page, click **+New**, click **Virtual Machine**, and then click **From Gallery**.
 ![Create a New Virtual Machine][Image1]
 3. Select an OpenSUSE virtual machine image, and then click the next arrow at the bottom right of the page.
 4. On the **VM Configuration** page, provide the following information:
@@ -16,7 +16,7 @@
 	![VM Configuration] [Image2]
 5. On the **VM Mode** page, provide the following information:
 - Select **Standalone Virtual Machine**.
-- In the **DNS Name** box, type a valid DNS in the format **testlinuxvm.cloudapp.net**
+- In the **DNS Name** box, type a valid DNS address.  For example, "testlinuxvm.cloudapp.net".
 - In the **Region/Affinity Group/Virtual Network** box, select a region where this virtual image will be hosted.
 
    Click the next arrow to continue.
@@ -29,7 +29,7 @@
 ##Configure Endpoints
 Once the virtual machine is created you must configure endpoints in order to remotely connect.
 
-1. In the Windows Azure portal, click **Virtual Machines**, then click the name of your new VM, then click **Endpoints**.
+1. In the Management Portal, click **Virtual Machines**, then click the name of your new VM, then click **Endpoints**.
 
 2. Click **Edit Endpoint** at the bottom of the page, and edit the SSH endpoint so that its **Public Port** is 22.
 
@@ -51,18 +51,6 @@ If you are using a Windows computer, connect to the VM using PuTTY. PuTTY can be
 2. Enter "testlinuxvm.cloudapp.net" for the **Host Name** and "22" for the **Port**.
 ![PuTTY Screen][Image6]  
 
-3. If you provided an SSH key for authentication you will need to provide the appropiate ppk key to PuTTY. If you started with a PEM or PFX key you will need to translate these formats into the PuTTY ppk format. You can do this by using the PuTTY key generation tool, **puttygen.exe**, which you can download [here][PuTTYDownload]. Execute **puttygen.exe** and load the key you have by clicking the **Load** button. You can then save the key in ppk format.
-
-	![PuTTY Key Generator][Image9]
-
-	After saving the ppk key, navigate to *Connection/SSH/Auth* in PuTTY.  Browse to the .ppk key.
-
-	![PuTTY Configuration][Image8]
-
-4. Click **Open** and enter the username and password.
-
-	![PuTTY login][Image7]
-
 ##Update the Virtual Machine (optional)
 1. Once you've connected to the virtual machine, you can optionally install system updates and patches. Run:
 
@@ -73,12 +61,10 @@ If you are using a Windows computer, connect to the VM using PuTTY. PuTTY can be
 3. After installation is complete, select **Finish**.  Your system is now up to date.
 
 [PuTTYDownload]: http://www.puttyssh.org/download.html
+[AzurePreviewPortal]: http://manage.windowsazure.com
 
 [Image1]: ../../Shared/Media/CreateVM.png
 [Image2]: ../../Shared/Media/SUSEVmConfiguration1.png
 [Image3]: ../../Shared/Media/SUSEVmConfiguration2.png
 [Image4]: ../../Shared/Media/VmConfiguration3.png
 [Image6]: ../../Shared/Media/putty.png
-[Image7]: ../../Shared/Media/putty2suse.png
-[Image8]: ../../Shared/Media/putty3.png
-[Image9]: ../../Shared/Media/putty4.png

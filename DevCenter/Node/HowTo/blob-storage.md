@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-nodejs-how-to-blob-storage" urldisplayname="Blob Service" headerexpose="" pagetitle="How to Use the Blob Service from Node.js" metakeywords="Azure unstructured data Node.js, Azure unstructured storage Node.js, Azure blob Node.js, Azure blob storage Node.js" footerexpose="" metadescription="Learn how to use the Windows Azure blob service to upload, download, list, and delete blob content from your Node.js application." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-how-to-blob-storage" urldisplayname="Blob Service" headerexpose="" pagetitle="How to Use the Blob Service from Node.js" metakeywords="Azure unstructured data Node.js, Azure unstructured storage Node.js, Azure blob Node.js, Azure blob storage Node.js" footerexpose="" metadescription="Learn how to use the Windows Azure blob service to upload, download, list, and delete blob content from your Node.js application." umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Use the Blob Service from Node.js
 
@@ -49,8 +49,7 @@ The Blob service contains the following components:
 
 -   **URL format:** Blobs are addressable using the following URL
     format:   
-    http://<storage
-    account\>.blob.core.windows.net/<container\>/<blob\>  
+    http://storageaccount.blob.core.windows.net/container/blob  
       
     The following URL addresses one of the blobs in the diagram:  
     http://sally.blob.core.windows.net/movies/MOV1.AVI

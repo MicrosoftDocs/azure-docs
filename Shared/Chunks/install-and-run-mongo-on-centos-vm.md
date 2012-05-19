@@ -1,4 +1,4 @@
-1. Configure Package Management System (YUM) so that you can install MongoDB. Create a `/etc/yum.repos.d/10gen.repo` file to hold information about your repository and add the following:
+1. Configure the Package Management System (YUM) so that you can install MongoDB. Create a `/etc/yum.repos.d/10gen.repo` file to hold information about your repository and add the following:
 
 	`[10gen]`
 
@@ -51,7 +51,7 @@
 
 	The database is created by the insert.
 
-7. To configure the firewall to allow remote access to Mongo, run:
+7. To configure the firewall to allow remote access to MongoDB, run:
 
 	`$ sudo iptables -A INPUT -p tcp --dport 27017 -j ACCEPT`
 
@@ -67,6 +67,17 @@
 
 	`$ sudo /sbin/service iptables restart`
 
-11. Once MongoDB is installed you must configure an endpoint so that MongoDB can be accessed remotely. In the Windows Azure portal, click **Virtual Machines**, then click the name of your new VM, then click **Endpoints**.
+11. Once MongoDB is installed you must configure an endpoint so that MongoDB can be accessed remotely. In the Management Portal, click **Virtual Machines**, then click the name of your new virtual machine, then click **Endpoints**.
+	![Endpoints][Image7]
 
-12. Click **Add Endpoint** at the bottom of the page, and add an endpoint with name *mongo*, protocol *TCP*, and both *Public* and *Private* ports set to 27017. This will allow MongoDB to be accessed remotely.
+12. Click **Add Endpoint** at the bottom of the page.
+	![Endpoints][Image8]
+
+13. Add an endpoint with name "Mongo", protocol *TCP*, and both *Public* and *Private* ports set to "27017". This will allow MongoDB to be accessed remotely.
+	![Endpoints][Image9]
+
+[QuickStartUnix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
+
+[Image7]: ../../Shared/Media/LinuxVmAddEndpoint.png
+[Image8]: ../../Shared/Media/LinuxVmAddEndpoint2.png
+[Image9]: ../../Shared/Media/LinuxVmAddEndpoint3.png

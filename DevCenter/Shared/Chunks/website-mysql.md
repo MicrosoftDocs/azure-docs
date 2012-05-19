@@ -19,7 +19,10 @@ Follow these steps to create a Windows Azure Website and a MySQL database:
 
 	Next, you need to get the MySQL connection information.
 
-	**NOTE:** Obtaining the MySQL connection information from the `.publishsettings` file, as described in the following steps, is only necessary in the preview release of Windows Azure Websites.
+	<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>Obtaining the MySQL connection information from the `.publishsettings` file, as described in the following steps, is only necessary in the preview release of Windows Azure Websites.</p> 
+	</div>
 
 5. Click the name of the website displayed in the list of websites to open the website’s Quick Start dashboard.
 
@@ -40,10 +43,10 @@ Follow these steps to create a Windows Azure Website and a MySQL database:
 	
 8. The `connectionString` attribute in the `<add>` element contains your database connection information. The values for `Database`, `Data Source`, `User Id`, and `Password` are (respectively) the database name, server name, user name, and user password.
 
-[new-website]: ./Media/new_website.jpg
-[custom-create]: ./Media/custom_create.jpg
-[website-details]: ./Media/website_details.jpg
-[new-mysql-db]: ./Media/new_mysql_db.jpg
-[go-to-dashboard]: ./Media/go_to_dashboard.jpg
-[download-publish-profile]: ./Media/download_publish_profile.jpg
+[new-website]: ../Media/new_website.jpg
+[custom-create]: ../Media/custom_create.jpg
+[website-details]: ../Media/website_details.jpg
+[new-mysql-db]: ../Media/new_mysql_db.jpg
+[go-to-dashboard]: ../Media/go_to_dashboard.jpg
+[download-publish-profile]: ../Media/download_publish_profile.jpg
 [preview-portal]: https://manage.windowsazure.com

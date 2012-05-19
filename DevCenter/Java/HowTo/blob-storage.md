@@ -142,7 +142,7 @@ how you can declare a static field to hold the connection string:
 In an application running within a role in Windows Azure, this string
 can be stored in the service configuration file,
 ServiceConfiguration.cscfg, and can be accessed with a call to the
-**RoleEnvironment.getConfigurationSettings** method. Here’s an example
+**RoleEnvironment.getConfigurationSettings** method. Here's an example
 of getting the connection string from a **Setting** element named
 *StorageConnectionString* in the service configuration file:
 
@@ -164,7 +164,7 @@ and blobs. The following code creates a **CloudBlobClient** object.
 
 All blobs reside in a container. Use the **CloudBlobClient** object to
 get a reference to the container you want to use. You can create the
-container if it doesn’t exist with the **createIfNotExist** method,
+container if it doesn't exist with the **createIfNotExist** method,
 which will otherwise return the existing container. By default, the new
 container is private, so you must specify your storage account key (as
 you did above) to download blobs from this container.
@@ -176,7 +176,7 @@ you did above) to download blobs from this container.
     // Create the container if it does not exist
     container.createIfNotExist();
 
-If you want to make the files public, you can set the container’s
+If you want to make the files public, you can set the container's
 permissions.
 
     // Create a permissions object
@@ -196,7 +196,7 @@ access is limited to reading only.
 To upload a file to a blob, get a container reference and use it to get
 a blob reference. Once you have a blob reference, you can upload any
 stream by calling upload on the blob reference. This operation will
-create the blob if it doesn’t exist, or overwrite it if it does. This
+create the blob if it doesn't exist, or overwrite it if it does. This
 code sample shows this, and assumes that the container has already been
 created.
 
@@ -218,7 +218,7 @@ created.
 ## <a name="bkmk_ListBlobs"> </a>How to List the Blobs in a Container
 
 To list the blobs in a container, first get a container reference like
-you did to upload a blob. You can use the container’s **listBlobs**
+you did to upload a blob. You can use the container's **listBlobs**
 method with a for loop. The following code outputs the Uri of each blob
 in a container to the console.
 
@@ -327,13 +327,13 @@ call delete.
 
 ## <a name="bkmk_NextSteps"> </a>Next Steps
 
-Now that you’ve learned the basics of blob storage, follow these links
+Now that you've learned the basics of blob storage, follow these links
 to learn how to do more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Windows
-    Azure][]
+    Azure]
 -   Visit the Windows Azure Storage Team Blog:
-    [http://blogs.msdn.com/b/windowsazurestorage/][]
+    [http://blogs.msdn.com/b/windowsazurestorage/]
 
   [Windows Azure SDK for Java]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=vs.103).aspx
   [Next Steps]: #bkmk_NextSteps

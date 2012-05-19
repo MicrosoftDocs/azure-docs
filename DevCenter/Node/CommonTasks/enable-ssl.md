@@ -27,17 +27,15 @@ world' service using the Windows Azure PowerShell using these steps:
 
     ![][0]
 
-2.  Create a new service, using **New-AzureService** cmdlet provided
-    with a unique service name. This service name will determine the URL
-    of your service in Windows Azure:
+2.  Create a new service, using **New-AzureServiceProject** cmdlet provided with a unique service name. This service name will determine the URL of your service in Windows Azure.
 
-    ![][1]
+	![][1]
 
 3.  Add a web role to your service using **Add-AzureNodeWebRole** cmdlet:
 
     ![][2]
 
-4.  Publish your service to the cloud using **Publish-AzureService** cmdlet:
+4.  Publish your service to the cloud using **Publish-AzureServiceProject** cmdlet:
 
     ![][3]
 
@@ -145,7 +143,7 @@ configuration files need to be updated.
 
 4.  To refresh your service configuration in the cloud, you must publish
     your service again. At the Windows Azure PowerShell
-    prompt, type **Publish-AzureService** from the service directory.
+    prompt, type **Publish-AzureServiceProject** from the service directory.
 
     ![][6]
 
@@ -180,18 +178,18 @@ connect to it using HTTPS.
   [Step 4: Modify the Service Definition and Configuration Files]: #step4
   [Step 5: Connect to the Role Instance by Using HTTPS]: #step5
   [**Windows Azure PowerShell**]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
-  [add-certificate-dialog]: ../../Shared/Media/add-certificate.png
-  [add-certificate]: ../../Shared/Media/no-certificates.png
-  [cloud-services]: ../../Shared/Media/cloud-services.png
-  [0]: ../../../DevCenter/Node/Media/enable-ssl-00.png
-  [1]: ../../../DevCenter/Node/Media/enable-ssl-01.png
-  [2]: ../../../DevCenter/Node/Media/enable-ssl-02.png
-  [3]: ../../../DevCenter/Node/Media/enable-ssl-03.png
+  [add-certificate-dialog]: ../Media/add-certificate.png
+  [add-certificate]: ../Media/no-certificates.png
+  [cloud-services]: ../Media/cloud-services.png
+  [0]: ../Media/enable-ssl-00.png
+  [1]: ../Media/enable-ssl-01.png
+  [2]: ../Media/enable-ssl-02.png
+  [3]: ../Media/enable-ssl-03.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
-  [4]: ../../../DevCenter/Node/Media/enable-ssl-04.png
-  [5]: ../../../DevCenter/Node/Media/enable-ssl-05.png
+  [4]: ../Media/enable-ssl-04.png
+  [5]: ../Media/enable-ssl-05.png
   [How to Associate a Certificate with a Service]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
-  [6]: ../../../DevCenter/Node/Media/enable-ssl-06.png
+  [6]: ../Media/enable-ssl-06.png
   [site-url]: ../Media/site-url.png
-  [8]: ../../../DevCenter/Node/Media/enable-ssl-08.png
+  [8]: ../Media/enable-ssl-08.png
   [How to Configure an SSL Certificate on an HTTPS Endpoint]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
