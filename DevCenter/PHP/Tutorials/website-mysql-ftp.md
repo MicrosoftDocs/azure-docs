@@ -74,27 +74,16 @@ Follow these steps to create a Windows Azure Website and a MySQL database:
 	![Open website dashboard][go-to-dashboard]
 
 
-6. At the bottom of the **QUICKSTART** page, click **Set up Git publishing**. 
+6. At the bottom of the **QUICKSTART** page, click **Reset deployment credentials**. 
 
-	![Set up Git publishing][setup-git-publishing]
+	![Reset deployment credentials][reset-deployment-credentials]
 
-7. To enable Git publishing, you must provide a user name and password. Make a note of the user name and password you create. (If you have set up a Git repository before, this step will be skipped.)
+7. To enable FTP publishing, you must provide a user name and password. Make a note of the user name and password you create.
 
 	![Create publishing credentials][credentials]
 
-	It will take a few seconds to set up your repository.
 
-	![Creating Git repository][creating-repo]
-
-8. When your repository is ready, click **Push my local files to Windows Azure**.
-
-	![Get Git instructions for pushing files][push-files]
-
-	Make note of the instructions on the resulting page - they will be needed later.
-
-	![Git instructions][git-instructions]
-
-##Get MySQL Connection Information
+##Get FTP & MySQL Connection Information
 
 Before publishing the Tasklist application, the database connection information (in the **taskmodel.php** file) must be updated. To get MySQL connection information, follow these steps:
 
@@ -104,7 +93,9 @@ Before publishing the Tasklist application, the database connection information 
 
 	![Download publish profile][download-publish-profile]
 
-2. Open the `.publishsettings` file in an XML editor. The `<databases>` element will look similar to this:
+2. Open the `.publishsettings` file in an XML editor. 
+
+3. The `<databases>` element will look similar to this:
 
 		<databases>
 			<add name="tasklist" 
@@ -113,7 +104,7 @@ Before publishing the Tasklist application, the database connection information 
 				type="MySql"/>
 		</databases>
 	
-3. Make note of the `connectionString` attribute in the `<add>` element, in particular the values for `Database`, `Data Source`, `User Id`, and `Password`.
+Make note of the `connectionString` attribute in the `<add>` element, in particular the values for `Database`, `Data Source`, `User Id`, and `Password`.
 
 4. Open the **taskmodel.php** file in a text editor or IDE and update the database connection information in the `connect` function by copying the appropriate values from the previous step:
 
@@ -123,46 +114,29 @@ Before publishing the Tasklist application, the database connection information 
 		$pwd = "value of Password";
 		$db = "value of Database";
 
+3. Find the `<publishProfile >` element with `publishMethod="FTP"` that looks similar to this:
+
+		<publishProfile publishMethod="FTP" publishUrl="ftp://S2.ftp.antdf0.antares-test.windows-int.net/site/wwwroot" ftpPassiveMode="True" userName="[username]" userPWD="[password]" destinationAppUrl="http://[name].antdf0.antares-test.windows-int.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="http://windows.azure.com">
+			...
+		</publishProfile>
+	
+Make note of the `publishUrl`, `userName`, and `userPWD` attributes.
 
 
 ##Publish Your Application
 
-To publish your application with Git, follow the steps below.
+To publish your application with an FTP client, follow the steps below.
 
-<div class="dev-callout">
-<b>Note</b>
-<p>These are the same steps noted at the end of the <b>Create a Windows Azure Website and Set up Git Publishing</b> section.</p>
-</div>
+1. Open your FTP client of choice.
 
-1. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:
+2. Enter the host name portion from the `publishUrl` attribute you noted above into your FTP client.
 
-		git init
-		git add .
-		git commit -m "initial commit"
-		git remote add azure [URL for remote repository]
-		git push azure master
+3. Enter the `userName` and `userPWD` attributes you noted above unchanged into your FTP client.
 
-	You will be prompted for the password you created earlier.
+4. Establish a connection.
 
-2. Browse to **http://[your website domain]/createtable.php** to create the MySQL table for the application.
-3. Browse to **http://[your website domain]/index.php** to begin using the application.
-
-After you have published your application, you can begin making changes to it and use Git to publish them. 
-
-##Publish Changes to Your Application
-
-To publish changes to application, follow these steps:
-
-1. Make changes to your application locally.
-2. Open GitBash (or a terminal, it Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:
-
-		git add .
-		git commit -m "comment describing changes"
-		git push azure master
-
-	You will be prompted for the password you created earlier.
-
-3. Browse to **http://[your website domain]/index.php** to see your changes. 
+After you have connected you will be able to upload and download files as needed.
+ 
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
@@ -178,6 +152,7 @@ To publish changes to application, follow these steps:
 [new-mysql-db]: ../../Shared/Media/new_mysql_db.jpg
 [go-to-dashboard]: ../../Shared/Media/go_to_dashboard.jpg
 [setup-git-publishing]: ../Media/setup_git_publishing.jpg
+[reset-deployment-credentials]: ../Media/reset-deployment-credentials.png
 [credentials]: ../Media/credentials.jpg
 [creating-repo]: ../Media/creating_repo.jpg
 [push-files]: ../Media/push_files.jpg
