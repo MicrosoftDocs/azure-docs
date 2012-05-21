@@ -99,7 +99,7 @@ Before publishing the Tasklist application, the database connection information 
 
 		<databases>
 			<add name="tasklist" 
-				connectionString="Database=tasklist;Data Source=us-mm-azure-ord-01.cleardb.com;User Id=e02c62383bffdd;Password=0fc50b7e" 
+				connectionString="Database=tasklist;Data Source=us-mm-azure-ord-01.cleardb.com;User Id=[user_id];Password=[password]" 
 				providerName="MySql.Data.MySqlClient" 
 				type="MySql"/>
 		</databases>
