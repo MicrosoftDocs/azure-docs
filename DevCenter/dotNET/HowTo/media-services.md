@@ -155,12 +155,12 @@ This section contains general prerequisites for Media Services development using
 
 -   Operating Systems: Windows 7 or Windows 2008 R2. You can also use Windows 8, but this requires special setup steps. See the Windows Azure SDK prerequisite.
 -   .NET Framework 3.5 SP1, and .NET Framework 4. In the current release both versions need to be present on your machine for compatibility with all required SDK packages.
--   VS 2010 SP1 (Professional, Premium, or Ultimate). You can develop Media Services client applications by using the Media Services SDK with Windows 8, Visual Studio 2012, and .NET 4.  To do this, see the Windows Azure SDK prerequisite. 
+-   VS 2010 SP1 (Professional, Premium, or Ultimate). You can develop Media Services client applications by using the Media Services SDK with Windows 8, Visual Studio 2010, and .NET 4.  To do this, see the Windows Azure SDK prerequisite. 
 -   A Windows Azure account with Media Services enabled. See the section [Setting Up an Azure Account for Media Services][] in this document.
     - During the Media Services account setup process, you will install the [Windows Azure Media Services SDK for .NET][]. The Media Services SDK is required for SDK developers.
--   [Windows Azure SDK 1.6 for .NET][]
-    - Only the actual Azure SDK installer (x86 or x64) is required.  The other packages including the tooling are not required for the Media Services SDK. 
-    - Configure ASP.NET as a prerequisite for the Azure SDK setup, if it is not already configured on your computer.  A convenient way to configure ASP.NET is to install the [Web Platform Installer][], then open it, navigate to the Products | All tab, and install the IIS Recommended Configuration (which includes ASP.NET).  
+-   [Windows Azure SDK for .NET November 2011][]
+    - The link to the Windows Azure SDK enables you to install it from the Web Platform Installer. 
+    - Configure ASP.NET as a requirement for the Windows Azure SDK setup, if it is not already configured on your computer.  A convenient way to configure ASP.NET is to install the [Web Platform Installer][], then open it, navigate to the Products | All tab, and install the IIS Recommended Configuration (which includes ASP.NET).  
     - For Windows 8 development, see [Installing the Windows Azure SDK on Windows 8][].
 -   [WCF Data Services 5.0 for OData v3][]
 
@@ -174,7 +174,7 @@ This section shows you how to create a project in Visual Studio and set it up fo
    ![Visual Studio Project Setup][]
 
    2. In **Solution Explorer**, right-click on the project node, select **Properties**, and then in the **Application** properties, set the **Target Framework** setting to *.NET Framework 4*.
-   3. Add a project reference to the following Azure SDK storage client assembly. To add an assembly, in **Solution Explorer** right-click the **References** node for your project. Select **Add Reference**, then browse to the desired assembly (or assemblies), select, and click **OK**.
+   3. Add a project reference to the following Windows Azure SDK storage client assembly. To add an assembly, in **Solution Explorer** right-click the **References** node for your project. Select **Add Reference**, then browse to the desired assembly (or assemblies), select, and click **OK**.
    <br />
    Default installation path:  C:\Program Files\Windows Azure SDK\v1.6\bin\
    - Microsoft.WindowsAzure.StorageClient.dll
@@ -262,9 +262,9 @@ The following table provides the name and description of each available media pr
 
 <br />
 
-To create a media processor instance, create a method like the following example, and pass to it the server context and the string name of one of the listed media processors:
+To create a media processor instance, create a method like the following example, and pass to it the string name of one of the listed media processors. The code example assumes the use of a module-level variable named **_context** to reference the server context as described in the section [How to: Connect to Media Services Programmatically][].
 
-	private static IMediaProcessor GetMediaProcessor(CloudMediaContext cloudMediaContext, string mediaProcessor)
+	private static IMediaProcessor GetMediaProcessor(string mediaProcessor)
 	{
 	    // Query for a media processor to get a reference.
 	    var theProcessor =
@@ -635,7 +635,7 @@ Now that you have learned how to set up for Media Services development and perfo
   [Media Services Upcoming Releases:  Planned Feature Support]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/thread/431ef036-0939-4784-a939-0ecb31151ded
   [Media Services Preview Account Setup]: http://go.microsoft.com/fwlink/?linkid=247287
   [Windows Azure Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?LinkID=245171
-  [Windows Azure SDK 1.6 for .NET]: http://www.microsoft.com/en-us/download/details.aspx?id=28045
+  [Windows Azure SDK for .NET November 2011]: http://go.microsoft.com/fwlink/?LinkId=234531
   [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Installing the Windows Azure SDK on Windows 8]: http://www.windowsazure.com/en-us/develop/net/other-resources/windows-azure-on-windows-8/
   [Windows Azure Media Services Documentation]: http://go.microsoft.com/fwlink/?linkid=245437
