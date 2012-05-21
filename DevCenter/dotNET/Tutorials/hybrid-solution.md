@@ -189,7 +189,7 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
 
     ![][10]
 
-3.  From **Installed Templates**, under **Visual C\#**, click **Console
+3.  From **Installed Templates**, under **Visual C#**, click **Console
     Application**. In the **Name** box, type the name
     **ProductsServer**:
 
@@ -207,7 +207,7 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
 7.  In **Solution Explorer**, right-click **References**, then click
     **Manage NuGet Packages**...
 8.  Search for ‘**WindowsAzure.ServiceBus**’ and select the **Windows
-    Azure Service Bus** item. Click **Install**to complete the
+    Azure Service Bus** item. Click **Install** to complete the
     installation, then close this dialog.
 
     ![][13]
@@ -313,8 +313,8 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
         }
 
 13. In **Solution Explorer**, double click the **app.config**file to
-    open it in the **Visual Studio**editor. Replace the contents of
-    **<system.ServiceModel\>**with the following XML code. Be sure to
+    open it in the **Visual Studio** editor. Replace the contents of
+    **&lt;system.ServiceModel>** with the following XML code. Be sure to
     replace *yourServiceNamespace* with the name of your service
     namespace, and *yourIssuerSecret* with the key you retrieved earlier
     from the Windows Azure Management Portal:
@@ -366,7 +366,7 @@ display data retrieved from your product service.
     Visual Studio be launched with administrator privileges.
 2.  In Visual Studio, on the **File** menu, click **New**, and then
     click **Project**.
-3.  From **Installed Templates**, under **Visual C\#**, click **ASP.NET
+3.  From **Installed Templates**, under **Visual C#**, click **ASP.NET
     MVC 3 Web Application**. Name the project **ProductsPortal**. Then
     click **OK**.
 
@@ -421,13 +421,13 @@ display data retrieved from your product service.
             }
         }
 
-3.  In the **Solution Explorer**, expand Views\\Shared:
+3.  In the **Solution Explorer**, expand Views\Shared:
 
     ![][18]
 
 4.  Next, change the page title by replacing the header text in
-    \_Layout.cshtml with the text "LITWARE'S Products". Double-click
-    \_Layout.cshtml to open it in the Visual Studio editor.
+    _Layout.cshtml with the text "LITWARE'S Products". Double-click
+    _Layout.cshtml to open it in the Visual Studio editor.
 
 5.  Within the body tag, find the title of the page enclosed in h1 tags.
     Change the title text from My MVC Application to LITWARE's Products.
@@ -435,7 +435,7 @@ display data retrieved from your product service.
 
     ![][19]
 
-6.  In **Solution Explorer**, expand Views\\Home:
+6.  In **Solution Explorer**, expand Views\Home:
 
     ![][20]
 

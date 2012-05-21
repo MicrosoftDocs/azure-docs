@@ -70,7 +70,7 @@ Click **OK**.
 ![New Internet Application][Image1]
 
 ###Add References to the C# MongoDB drivers
-In **Solution Explorer**, right-click the *References* folder and select *Add Reference...*. Click *Browse* and then navigate to `C:\Program Files (x86)\MongoDB\CSharp Driver 1.x` (or the path that the drivers were installed to). Select `MongoDB.Driver.dll` and `MongoDB.Bson.dll` and click *OK*.
+In **Solution Explorer**, right-click the **References** folder and select **Add Reference...**. Click **Browse** and then navigate to `C:\Program Files (x86)\MongoDB\CSharp Driver 1.x` (or the path that the drivers were installed to). Select `MongoDB.Driver.dll` and `MongoDB.Bson.dll` and click **OK**.
 
 ![Add a reference to the C# MongoDB drivers][Image2]
 
@@ -83,7 +83,7 @@ In **Solution Explorer**, right-click the *References/MongoDB.Driver* file and s
 ![Set MongoDB.Driver Copy Local to True][Image2.2]
 
 ###Adding a Model
-In **Solution Explorer**, right-click the *Models* folder and **Add** a new class *TaskModel.cs*.  In *TaskModel.cs*, replace the existing code with the following code:
+In **Solution Explorer**, right-click the *Models* folder and **Add** a new **Class** *TaskModel.cs*.  In *TaskModel.cs*, replace the existing code with the following code:
 
 	using System;
 	using System.Collections.Generic;
@@ -116,7 +116,7 @@ In **Solution Explorer**, right-click the *Models* folder and **Add** a new clas
 	}
 
 ###Adding the Data Access Layer
-In **Solution Explorer**, right-click the *MyTaskListApp* project and **Add** a new folder named *DAL*.  Right-click the *DAL* folder and **Add** a new class file named *Dal.cs*.  In *Dal.cs*, replace the existing code with the following code:
+In **Solution Explorer**, right-click the *MyTaskListApp* project and **Add** a **New Folder** named *DAL*.  Right-click the *DAL* folder and **Add** a new class file named *Dal.cs*.  In *Dal.cs*, replace the existing code with the following code:
 
 	using System;
 	using System.Collections.Generic;
@@ -134,11 +134,14 @@ In **Solution Explorer**, right-click the *MyTaskListApp* project and **Add** a 
 	        private MongoDatabase database = null;
 	        private bool disposed = false;
 	
-	        // To do: update the connection string with the DNS name or IP address of your server. For example, "mongodb://testlinux.cloudapp.net"
+	        // To do: update the connection string with the DNS name
+			// or IP address of your server. 
+			//For example, "mongodb://testlinux.cloudapp.net"
 	        private string connectionString = "mongodb://<vm-dns-name>";
 	
-	        // This sample uses a database named "Tasks" and a collection named "TasksList".  The
-	        // database and collection will be automatically created if they don't already exist.
+	        // This sample uses a database named "Tasks" and a 
+			//collection named "TasksList".  The database and collection 
+			//will be automatically created if they don't already exist.
 	        private string dbName = "Tasks";
 	        private string collectionName = "TasksList";
 	
@@ -342,7 +345,7 @@ In order to set up the Task List menu, open the *\Views\Home\Index.cshtml* file 
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.Task())</div>
 
 
-To add the ability to create a new task, right-click the *Views\Home\\* folder and **Add** a view.  Name the view *Create*. Replace the code with the following:
+To add the ability to create a new task, right-click the *Views\Home\\* folder and **Add** a **View**.  Name the view *Create*. Replace the code with the following:
 
 	@model MyTaskListApp.Models.Task
 	
@@ -419,7 +422,7 @@ In this section you will create a Windows Azure website and deploy your Task Lis
 ### Create the Windows Azure Web Site
 In this section you will create a Windows Azure Website.
 
-1. Open a web browser and browse to the [Windows Azure Management Portal][WindowsAzure]. Sign in with your Windows Live ID and password. If you don't have a Windows Azure account, you can get started with a free account by clicking **Free trial** in the upper right corner. 
+1. Open a web browser and browse to the [Windows Azure (Preview) Management Portal][AzurePreviewPortal]. Sign in with your Windows Live ID and password. If you don't have a Windows Azure account, you can get started with a free account by clicking **Free trial** in the upper right corner. 
 2. At the bottom of the page, click **+New**, then **Web Site**, and finally **Quick Create**.
 3. Enter a unique prefix for the application's URL.
 4. Select a region.
@@ -437,16 +440,21 @@ In this section you will deploy the Task List application using Git.
 3. The Git repository should be created quickly.
 
 	![Git Repository is Ready][Image9]
-4. Select **Push my local files to Windows Azure** to display instructions on pushing your code to Windows Azure.
+4. Select **Push my local files to Windows Azure** to display instructions on pushing your code to Windows Azure. The instructions will look similar to the following:
 
 	![Push local files to Azure][Image10]
-5. Following these instructions, commit your local files, add the remote Azure repository, and push your files to the Azure website.
-6. Your Windows Azure Web Site is now available at <http://mytasklistapp.cloudapp.net>
+5. If you do not have Git installed, install it using the **Get it here** link in step 1.
+6. Following these instructions in step 2, commit your local files.
+7. Add the remote Azure repository and push your files to the Azure Web Site by following the instructions in step 3.
+8. When the deployment has completed you will see the following confirmation:
+	![Deployment Complete][Image11]
+9. Your Windows Azure Web Site is now available.  Check the **Dashboard** page for your site and the **Site URL** field to find the URL for your site. Following the procedures in this tutorial, your site would be available at <http://mytasklistapp.cloudapp.net>.
 
 ##Summary
 
 You have now successfully deployed your ASP.NET application to a Windows Azure web site.  To view the site, click the link in the **Site URL** field of the **Dashboard** page. For more information on developing C# applications against MongoDB, see [CSharp Language Center][MongoC#LangCenter]. 
 
+[AzurePreviewPortal]: http://manage.windowsazure.com
 [WindowsAzure]: http://www.windowsazure.com
 [ASP.NET]: http://www.asp.net
 [MVC3]: http://www.asp.net/mvc
@@ -471,3 +479,4 @@ You have now successfully deployed your ASP.NET application to a Windows Azure w
 [Image8]: ../../../DevCenter/dotNET/Media/Dashboard.png
 [Image9]: ../../../DevCenter/dotNET/Media/RepoReady.png
 [Image10]: ../../../DevCenter/dotNET/Media/GitInstructions.png
+[Image11]: ../../../DevCenter/dotNET/Media/GitDeploymentComplete.png
