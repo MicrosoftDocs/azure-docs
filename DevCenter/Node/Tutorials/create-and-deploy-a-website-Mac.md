@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-nodejs-website" urldisplayname="Node.js Website" headerexpose="" pagetitle="Node.js Application using a Windows Azure Website" metakeywords="Azure Node.js tutorial, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates deploying a Node.js application to a Windows Azure Website" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-website" urldisplayname="Node.js Website" headerexpose="" pagetitle="Node.js Application using a Windows Azure Website" metakeywords="Azure Node.js tutorial, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates deploying a Node.js application to a Windows Azure Website" umbraconavihide="0" disquscomments="1"></properties>
 
 #Create and deploy a Node.js application to a Windows Azure Website
 
@@ -161,31 +161,31 @@ The following steps show you how to stop and delete your application.
 
 ##Next steps
 
-While the steps in this article use the Windows Azure Portal to create, stop, and delete a website, you can also use the [Cross-Platform Tools for Windows Azure] to perform the these and other operations.
+While the steps in this article use the Windows Azure Portal to create, stop, and delete a website, you can also use the [Windows Azure Command-Line Tools for Mac and Linux] to perform the these and other operations.
 
 ##Additional Resources
 
-* [PowerShell for Windows Azure]
+* [Windows Azure PowerShell]
 
-* [Cross-Platform Tools for Windows Azure]
+* [Windows Azure Command-Line Tools for Mac and Linux]
 
-[PowerShell for Windows Azure]: http://windowsazure.com
+[Windows Azure PowerShell]: http://windowsazure.com
 [node]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [Windows Azure]: http://windowsazure.com
-[Windows Azure Portal]: http://windowsazure.com
+[Windows Azure Portal]: http://manage.windowsazure.com
 [for free]: http://windowsazure.com
 [git-scm.com download page]: http://git-scm.com/download
 [nodejs.org download page]: http://nodejs.org/#download
 [package management system]: http://en.wikipedia.org/wiki/List_of_software_package_management_systems
-[Cross-Platform Tools for Windows Azure]: http://windowsazure.com
-[Publishing with Git]: http://windowsazure.com
+[Windows Azure Command-Line Tools for Mac and Linux]: http://windowsazure.com
+[Publishing with Git]: ../CommonTasks/publishing-with-git
 
-[helloworld-completed]: ../Media/helloworldazure.png
+[helloworld-completed]: ../Media/helloazure.png
 [helloworld-localhost]: ../Media/helloworldlocal.png
 [portal-new-website]: ../../Shared/Media/plus-new.png
-[portal-quick-create]: ../../Shared/Media/quick-create-website.png
-[portal-website-list]: ../Media/list-olf-websites.png
+[portal-quick-create]: ../../Shared/Media/create-quick-website.png
+[portal-website-list]: ../Media/list-of-websites.png
 [portal-website-dashboard-setup-git]: ../../Shared/Media/setup-git-publishing.png
 [portal-git-username-password]: ../../Shared/Media/git-deployment-credentials.png
 [portal-git-instructions]: ../../Shared/Media/git-steps.png
