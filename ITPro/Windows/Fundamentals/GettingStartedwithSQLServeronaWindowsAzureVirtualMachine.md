@@ -16,6 +16,11 @@ The Windows Azure virtual machine gallery provides Windows Azure virtual machine
 - The **Guest** account is not enabled.
 - The **Windows Firewall with Advanced Security** (c:\Windows\System32\WF.msc) is turned on.
 - .NET Framework version 4 is installed.
+- The size of the virtual machine is specified during provisioning.
+    - Medium is the smallest size recommended for normal workloads. 
+    - Select Large or Extra Large when using SQL Server Enterprise Edition. 
+    - The size selected limits the number of disks you can configure. (Extra Small <= 1, Small <= 2, Medium <= 4, Large <= 8, Extra Large <= 16) 
+
 
 ##SQL Server
 This SQL Server installation contains the following components.
