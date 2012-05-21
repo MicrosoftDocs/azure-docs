@@ -1,13 +1,13 @@
-<properties umbracoNaviHide="0" pageTitle="Create a PHP-MySQL Windows Azure Website and Deploy Using Git" metaKeywords="Windows Azure, Windows Azure Websites, PHP, MySQL, Git" metaDescription="Learn how to create a PHP-MySQL website in Windows Azure, and deploy to it using Git." linkid="dev-php-tutorials-php-mysql-site-git" urlDisplayName="Create a PHP-MySQL Windows Azure Website and Deploy Using Git" headerExpose="" footerExpose="" disqusComments="1" />
+<properties umbracoNaviHide="0" pageTitle="Create a PHP-MySQL Windows Azure Website and Deploy Using FTP" metaKeywords="Windows Azure, Windows Azure Websites, PHP, MySQL, FTP" metaDescription="Learn how to create a PHP-MySQL website in Windows Azure, and deploy to it using FTP." linkid="dev-php-tutorials-php-mysql-site-ftp" urlDisplayName="Create a PHP-MySQL Windows Azure Website and Deploy Using FTP" headerExpose="" footerExpose="" disqusComments="1" />
 
 #Create a PHP-MySQL Windows Azure Website and Deploy Using FTP
 
-This tutorial shows you how to create a PHP-MySQL Windows Azure Website and how to deploy it using FTP. This tutorial assumes you have [PHP][install-php], [MySQL][install-mysql], a web server, and an FTP clientinstalled on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL website running in Windows Azure.
+This tutorial shows you how to create a PHP-MySQL Windows Azure Website and how to deploy it using FTP. This tutorial assumes you have [PHP][install-php], [MySQL][install-mysql], a web server, and an FTP client installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL website running in Windows Azure.
  
 You will learn:
 
 * How to create a Windows Azure Website and a MySQL database using the Preview Management Portal. Because PHP is enabled in Windows Azure Websites by default, nothing special is required to run your PHP code.
-* How to publish and re-publish your application to Windows Azure using Git.
+* How to publish your application to Windows Azure using FTP.
  
 By following this tutorial, you will build a simple Tasklist web application in PHP. The application will be hosted in a Windows Azure Website. A screenshot of the completed application is below:
 
@@ -44,9 +44,9 @@ To run the application locally, follow the steps below. Note that these steps as
 
 5. Browse to [http://localhost/tasklist/index.php][localhost-index] and begin adding items, marking them complete, and deleting them.
 
-After you have run the application locally, you are ready to create a Windows Azure Website and publish your code using Git.
+After you have run the application locally, you are ready to create a Windows Azure Website and publish your code using FTP.
 
-##Create a Windows Azure Website and Set up Git Publishing
+##Create a Windows Azure Website and Set up FTP Publishing
 
 Follow these steps to create a Windows Azure Website and a MySQL database:
 
@@ -67,7 +67,7 @@ Follow these steps to create a Windows Azure Website and a MySQL database:
 
 	![Create new MySQL database][new-mysql-db]
 
-	When the website has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfully**. Now, you can enable Git publishing.
+	When the website has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfully**. Now, you can enable FTP publishing.
 
 5. Click the name of the website displayed in the list of websites to open the website’s **QUICKSTART** dashboard.
 
@@ -140,7 +140,6 @@ After you have connected you will be able to upload and download files as needed
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
-[install-git]: http://git-scm.com/
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
 [tasklist-mysql-download]: http://go.microsoft.com/fwlink/?LinkId=252506
 [localhost-createtable]: http://localhost/tasklist/createtable.php
@@ -151,11 +150,9 @@ After you have connected you will be able to upload and download files as needed
 [website-details]: ../../Shared/Media/website_details.jpg
 [new-mysql-db]: ../../Shared/Media/new_mysql_db.jpg
 [go-to-dashboard]: ../../Shared/Media/go_to_dashboard.jpg
-[setup-git-publishing]: ../Media/setup_git_publishing.jpg
 [reset-deployment-credentials]: ../Media/reset-deployment-credentials.png
 [credentials]: ../Media/credentials.jpg
 [creating-repo]: ../Media/creating_repo.jpg
 [push-files]: ../Media/push_files.jpg
-[git-instructions]: ../Media/git_instructions.jpg
 [download-publish-profile]: ../../Shared/Media/download_publish_profile.jpg
 [preview-portal]: https://manage.windowsazure.com
