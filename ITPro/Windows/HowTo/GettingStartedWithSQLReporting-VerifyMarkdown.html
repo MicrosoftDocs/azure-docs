@@ -1,0 +1,248 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+<p>In this tutorial you will learn about how to manage an instance of SQL Reporting report server and other administrative tasks through SQL Reporting Management portal.</p>
+
+<h2>What is SQL Reporting?</h2>
+
+<p>Windows Azure SQL Reporting is a cloud-based reporting service built on Windows Azure and SQL Server Reporting Services technologies. By using SQL Reporting, you can easily provision and deploy reporting solutions to the cloud, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing.</p>
+
+<p>To get started with SQL Reporting, you must have a Windows Azure subscription. You can use an existing subscription, a new subscription, or the free trial subscription. For more information, see <a href="http://www.windowsazure.com/en-us/">Windows Azure Platform Offers</a>. </p>
+
+<h2>Table of Contents</h2>
+
+<ul>
+<li><a href="#CreateRSS">Create a report server</a></li>
+<li><a href="#CreateUser">Create a user and assign roles</a></li>
+<li><a href="#Upload">Upload a report</a></li>
+<li><a href="#DownloadReport">Download a report</a></li>
+<li><a href="#RunReportRS">Run a report : from report server</a></li>
+<li><a href="#RunReportRMP">Run a report : from SQL Reporting Management Portal</a></li>
+<li><a href="#CreateDS">Create a data source</a></li>
+<li><a href="#EditDS">Edit a shared data source</a></li>
+<li><a href="#CreateFolder">Create a folder</a></li>
+<li><a href="#EditPropFolder">Edit properties of a folder</a></li>
+<li><a href="#UpdatePerm">Update permissions on a Report item</a></li>
+<li><a href="#NextSteps">Next Steps</a></li>
+</ul>
+
+<h2 id="CreateRSS">Create a report server</h2>
+
+<p>Use the <strong>Create Server</strong> wizard to quickly and easily create a new report server in SQL Reporting. The wizard guides you though the steps to choose a subscription and region and provide the user name and password of the server administrator.</p>
+
+<ol>
+<li><p>On the taskbar, click <strong>Create</strong> in the <strong>Server</strong> category. The <strong>Create Server</strong> wizard opens. </p>
+
+<p><img src="media/CreateServer_button.png" alt="CreateServerOption" /></p></li>
+<li><p>On the <strong>Create a SQL Reporting server</strong> page, from the <strong>Subscription</strong> list select the subscription to which you want to add the report server. </p>
+
+<p><img src="media/CreateServer_dialog.png" alt="CreateServerDialog" /></p></li>
+<li><p>From the <strong>Region</strong> list, select a region. You can create only one report server in each region for each subscription. Click <strong>Next</strong>.</p></li>
+<li><p>On this page, type the user name of the report server administrator and in Password and Confirm Password type the administrator password. </p>
+
+<p>Be sure to keep this information in a safe place. You need it to access the report server. </p>
+
+<p><img src="media/CreateServer_Credentials.png" alt="CreateServerCred" /></p></li>
+<li><p>Click <strong>Finish</strong>.</p></li>
+</ol>
+
+<p>The report server is created using the specified subscription.
+The report server name is a 10 character GUID. If you do not see the server, expand the subscription in which you created it.</p>
+
+<h2 id="CreateUser">Create a user and assign roles</h2>
+
+<ol>
+<li><p>Click <strong>Manage</strong> in the <strong>User</strong> category of the taskbar. The <strong>Manage Users</strong> dialog box opens. </p>
+
+<p><img src="media/ManageUser_button.png" alt="ManageUserOption" /></p></li>
+<li><p>Optionally, review the list of existing users. To create a new user, Click <strong>Create User</strong> button. </p>
+
+<p><img src="media/ManagerUser_dialog.png" alt="ManageUserDialog" /></p></li>
+<li><p>The <strong>Create User</strong> dialog box opens. </p>
+
+<p><img src="media/CreateUser_Credentials.png" alt="CreateUserCred" /></p></li>
+<li><p>Enter user name and password, select an item role, and optionally assign a system role. Click OK.</p>
+
+<p><em>User names must be unique. If you provide a duplicate name, an error message displays and you cannot continue until you change the user name to one that is unique.</em></p></li>
+<li><p><strong>Create User</strong> dialog closes and you return to <strong>Manage Users</strong>.</p></li>
+<li>Click <strong>Close</strong> to end the operation, and return to SQL Reporting portal.</li>
+</ol>
+
+<h2 id="Upload">Upload a report</h2>
+
+<ol>
+<li><p>Open the SQL Reporting report server to which you want to upload a report. </p>
+
+<p><img src="media/UploadItem_button.png" alt="UploadReportOption" /></p></li>
+<li><p>If you do not want to upload the report to the root of the report server, navigate to the folder to which you want to upload the report. </p>
+
+<p><img src="media/UploadReport_dialog.png" alt="UploadReportDialog" /></p></li>
+<li><p>On the ribbon of the SQL Reporting portal, click <strong>Upload</strong> in the <strong>Report</strong> category.</p></li>
+<li><p>The <strong>Upload Report</strong> dialog box opens.</p></li>
+<li><p>Click the ellipsis (…) button to the right of the Definition file box and browse to the location of the report that you want to upload.</p></li>
+<li><p>Select the report and click Open.</p></li>
+<li><p>You return to the <strong>Upload Report</strong> dialog box. The name of the report shows in the Definition file and Name boxes.</p></li>
+<li><p>Optionally, rename the report by typing a different name in Name.</p>
+
+<p><em>The upload process does not overwrite an existing report with the same name; instead, the upload fails. If you previously uploaded the report to the root of the report server or the same folder, you must either first delete the existing report on the server or use a different name when you upload the report.</em></p>
+
+<p><em>The report server can host multiple reports with the same names when they are in different folders.</em> </p></li>
+<li><p>Optionally, type a description in the Description box.</p></li>
+<li><p>Click <strong>Upload</strong>.</p></li>
+</ol>
+
+<h2 id="DownloadReport">Download a report</h2>
+
+<ol>
+<li><p>Open the SQL Reporting report server from which you want to download a report.</p></li>
+<li><p>If the report is not in the root SQL Reporting server folder, navigate to the folder that contains the report.</p></li>
+<li><p>The server name, a 10 character identifier such as eny7ct1w32, represents the root folder of the server. It is always the first item in the bread crumbs at the bottom of the Server Home area of the portal.</p></li>
+<li><p>Click the report in the Report list, click the down arrow to the right of the report name, and then click <strong>download</strong>.</p></li>
+<li><p>The <strong>Download Report</strong> dialog box opens.</p></li>
+<li><p>Click the ellipsis (…) next to the Report box and browse to the location where you want to download the report.</p></li>
+<li><p>Type the name of the report, and click Save.</p></li>
+<li><p>You return to <strong>Download Report</strong> and the name of the report appears in Report.</p></li>
+<li><p>You cannot change the report name. If you want change the name, update the properties on the report. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh403965.aspx">How to: Update Permissions on Report Server Item (Windows Azure SQL Reporting)</a>. </p></li>
+<li>Click <strong>OK</strong>.</li>
+</ol>
+
+<h2 id="RunReportRS">Run a report : from report server</h2>
+
+<ol>
+<li><p>In the SQL Reporting portal, expand the subscriptions and click the report server to which you uploaded or deployed the report that you want to run. </p></li>
+<li><p>Click the link [Link] next to the Web service URL. </p>
+
+<p><img src="media/ServerHome.png" alt="ServerHome" /></p></li>
+<li><p>If you are not signed in to SQL Reporting, the sign in page opens.</p></li>
+<li><p>On the sign in page, enter the credentials of a user with permission to run reports.</p></li>
+<li><p>The report server opens.</p></li>
+<li><p>Navigate to the folder that contains the report that you want run.</p></li>
+<li><p>If you want to ascend the folder hierarchy, click To Parent Directory.</p>
+
+<p><em>The report server opens at the root folder. If you navigated to a folder, before you clicked [Link], you need to navigate to it again.</em> </p></li>
+<li><p>Click the report name. </p>
+
+<p><img src="media/ReportServer_page.png" alt="ReportServer" /></p></li>
+<li><p>Depending on the type of credentials that the report uses, you might be prompted for a user name and password to access the report data source.</p></li>
+<li><p>The report renders in the Report Viewer in a new browser window.</p></li>
+<li><p>If the report has parameters, select parameter values in the Report Viewer and click View Report. </p></li>
+<li>Optionally, explore the report by displaying different report pages, searching for values in the report, and exporting the report to a different format.</li>
+</ol>
+
+<h2 id="RunReportRMP">Run a report : from SQL Reporting Management Portal</h2>
+
+<ol>
+<li><p>In the SQL Reporting portal, expand the subscriptions and click the report server to which you uploaded or deployed the report that you want to run.</p></li>
+<li><p>If the report is not in the root folder of the report server, click through the folder hierarchy to the folder that contains the report. </p></li>
+<li><p>In the report server content pane, in the Report list, click the report name.</p></li>
+<li><p>The report renders in the Report Viewer in a new browser window.</p></li>
+<li><p>Depending on the type of credentials that the report uses, you might be prompted for a user name and password to access the report data source.</p></li>
+<li><p>If the report has parameters, select parameter values in the Report Viewer and click View Report.</p></li>
+<li><p>Optionally, explore the report by displaying different report pages, searching for values in the report, and exporting the report to a different format.</p></li>
+<li>For more information, see <a href="http://technet.microsoft.com/library/dd255286.aspx">Finding and Viewing Reports with a Browser (Report Builder and SSRS)</a>.</li>
+</ol>
+
+<h2 id="CreateDS">Create a data source</h2>
+
+<ol>
+<li><p>Open the SQL Reporting server on which you want to create a new shared data source. </p></li>
+<li><p>If you do not want the new data source in the root folder of the report server, navigate to the folder in which you want to create the data source. </p></li>
+<li><p>On the ribbon, click <strong>Create</strong> in the <strong>Data Source</strong> category on the toolbar. The <strong>Create Data Source</strong> dialog box opens. </p>
+
+<p><img src="media/CreateDS_button.png" alt="CreateDataSourceOption" /></p>
+
+<p><img src="media/CreateDS_dialog.png" alt="CreateDataSourceDialog" /></p></li>
+<li><p>Type a name in the <strong>Name</strong> box. Names of data sources in a folder must be unique. </p></li>
+<li><p>Optionally, type a description in <strong>Description</strong>.</p></li>
+<li><p>If you want the data source to be available to use in reports, select <strong>Enable</strong>. If you do not want to enable the data source when you first create it, you can do it later when you are ready to use it.</p></li>
+<li><p>Type or paste a connection string. The format of the connection string is: </p>
+
+<pre><code>Data Source= &lt;SQL Azure Database service&gt;; Initial Catalog= &lt;SQL Azure Database&gt;; Encrypt=True;
+</code></pre></li>
+<li><p>Choose how the data source connects to the Windows Azure SQL Database. You can use either of the following two authentication types:</p>
+
+<ul>
+<li><strong>Prompt for credentials</strong> to prompt users to provide a user name and password when they run the report. Optionally, update the default prompt text: <strong>Type the user name and password to use in order to access the data source:</strong>. </li>
+<li><strong>Credentials stored securely in the report server</strong> to provide a user name and a password that is stored on the report server, separately from the report.</li>
+</ul></li>
+<li>Click <strong>OK</strong>.</li>
+</ol>
+
+<h2 id="EditDS">Edit a shared data source</h2>
+
+<ol>
+<li><p>Open the SQL Reporting server on which you want to edit a shared data source.</p></li>
+<li><p>Navigate to the folder that contains the data source. </p></li>
+<li><p>In the <strong>Data Source</strong> list, click the data source, click the down arrow to the right of the data source name, and then click <strong>Properties</strong>. </p>
+
+<p><img src="media/EditDS.png" alt="EditDataSource" /></p></li>
+<li><p>The <strong>Edit Data Source</strong> dialog box opens.</p></li>
+<li><p>Edit options. </p></li>
+<li><p>Optionally, click <strong>Test Connection</strong> to verify that the updated connection works. </p></li>
+<li>Click <strong>OK</strong>.</li>
+</ol>
+
+<h2 id="CreateFolder">Create a folder</h2>
+
+<ol>
+<li>Navigate to the folder in which you want to create a new folder.</li>
+<li><p>Breadcrumbs provide a visual presentation of the path from the root folder to the current folder. </p>
+
+<p><img src="media/CreateFolder_button.png" alt="CreateFolderOption" /></p></li>
+<li><p>Click <strong>Create</strong> in the <strong>Folder</strong> category on the ribbon.</p>
+
+<p><img src="media/CreateFolder_button.png" alt="CreateFolderOption" /></p></li>
+<li><p>In <strong>Name</strong>, type the folder name.</p></li>
+<li><p>Optionally, in <strong>Description</strong>, type a description.</p></li>
+<li><p>The description is included in the folder entry in the folder list. </p></li>
+<li><p>Click <strong>OK</strong>.</p></li>
+<li><p>By default, a folder inherits the role assignments of its parent folder. After you create the folder, you can update its role assignments. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh403965.aspx">How to: Update Permissions on Report Server Item (Windows Azure SQL Reporting)</a>.</p></li>
+</ol>
+
+<h2 id="EditPropFolder">Edit properties of a folder</h2>
+
+<ol>
+<li><p>Open the SQL Reporting server on which you want to update folder properties. </p></li>
+<li><p>If the folder is not in the root of the report server, navigate to the folder that contains the folder that you want. </p>
+
+<p><em>To reverse the navigation, click the breadcrumbs at the bottom of the Server Home area of the portal. The server name, a 10 character identifier such as 8wr5mkxw8i, represents the root folder of the server. It is always the first bread crumb.</em></p>
+
+<p><img src="media/ServerHome_path.png" alt="ServerHomePath" /></p></li>
+<li><p>In the Folder list, click the folder, click the down arrow to the right of the folder name, and then click Properties.</p>
+
+<p><img src="media/FolderProperties.png" alt="FolderProperties" /></p></li>
+<li><p>The Edit Folder dialog box opens.</p></li>
+<li>Update the name and description and click OK. </li>
+</ol>
+
+<h2 id="UpdatePerm">Update permissions on a Report item</h2>
+
+<ol>
+<li><p>To update permissions on a report item, Click the row that contains the report items, click the down arrow to the right of the folder, and then click Permissions. The Manage Permissions dialog box opens.</p>
+
+<p><img src="media/FolderProperties.png" alt="FolderProperties" /></p>
+
+<p>To update permissions of a Folder, you can optionally click Permissions in the Folder category of the portal ribbon.</p>
+
+<p><img src="media/Permissions_button.png" alt="Permissions" /></p>
+
+<p>Roles assignments of an item are automatically inherited from the folder that contains the item.</p>
+
+<p>By default, the root folder has the permissions granted to the report server administrator. When you update permissions on a folder, permissions on its child folders are updated as well. </p>
+
+<p><em>Because the root folder has no physical folder for you to select, you can set permissions on the root folder of the server only by clicking Permissions in the Folder category on the toolbar.</em> </p></li>
+<li><p>Optionally, locate users by typing in the box next to the search icon or filter by role by selecting a role in the role list that is located to the right of the box.</p></li>
+<li><p>Click the user for whom you want to update role assignments on the selected folder.</p>
+
+<p><em>The user list includes the report server administrator. This user is grayed out and you cannot change its item roles. The administrator is automatically assigned the Content Manager and System Administrator roles when it is first created. These roles provide the highest permissions and you cannot lessen the administrator’s permissions by assigning item roles with lower permissions.</em></p></li>
+<li><p>Select and clear role assignments.</p></li>
+<li><p>Click <strong>OK</strong>.</p></li>
+</ol>
+
+<h2 id="NextSteps">Next Steps</h2>
+
+<p>Now that you've learned the basics of SQL Reporting administration, to learn more about SQL Reporting and usage, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg430130">Windows Azure SQL Reporting</a> on MSDN.</p>
+    </body>
+</html>
