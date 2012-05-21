@@ -104,7 +104,7 @@ Before you can deploy your web site from WebMatrix to Windows Azure you must fir
 1. Connect to the Windows Azure Portal and click **New**, **Web Site**, **Quick Create**.
 2. Enter a name for the URL (e.g. AzureWebDiag), select an appropriate Region and then click **Create Web Site**. 
  
-![Create a new web site][createnewwebsite]
+ ![Create a new web site][createnewwebsite]
 
 3. After the web site has been created click the name of the web site as it is listed in the **Name** column of the Azure Portal's web sites page, this will open the **QuickStart** management page for the web site:
 
@@ -288,6 +288,7 @@ When you  add the file **environment.aspx** to a .NET web application or the fil
 2. Click **Continue** to initiate transfer of these files to Windows Azure. 
 3. After publishing is complete click the link displayed under **Site URL** from the **Dashboard** management page to open the website from your browser. You should see a web page similar to the following:   
 
+	<a name="debugapperr"></a>
 	![Detailed Application Error][detailedapperr]
 
 ##<a name="downloadlogfiles"></a>Download diagnostic log files to your local computer
@@ -355,13 +356,13 @@ This section describes how someone might engage in troubleshooting a web site us
 
 ###<a name="tshootwithloggingandtracing"></a>Using logging and tracing information to troubleshoot Web Site problems
 
-For purposes of troubleshooting the error caused by renaming the file startersite.sdf file to startersite.bak,  Web Server logging, Detailed error messge logging and Failed request tracing do not provide a single definitive cause and resolution to the problem. The logging and tracing files did however rule out several  possible causes by clearly indicating that an HTTP Status code of **500 Internal Server Error** was generated on the website when clients connected to it. This provides a high level of confidence that the problem is unrelated to unsuitable authorization headers (**HTTP 401 Unauthorized**),  bad request syntax (**HTTP 400 Bad Request**) or numerous other HTTP 3xx, 4xx and 5xx status codes. According to [HTTP 1.1 Status Definitions][http11status], an HTTP Status code of **500 Internal Server Error** indicates that  "The server encountered an unexpected condition which prevented it from fulfilling the request".  
+For purposes of troubleshooting the error caused by renaming the file startersite.sdf file to startersite.bak,  web server logging, detailed error messge logging and failed request tracing do not provide a single definitive cause and resolution to the problem. The logging and tracing files did however rule out several  possible causes by clearly indicating that an HTTP Status code of **500 Internal Server Error** was generated on the website when clients connected to it. This provides a high level of confidence that the problem is unrelated to unsuitable authorization headers (**HTTP 401 Unauthorized**),  bad request syntax (**HTTP 400 Bad Request**) or numerous other HTTP 3xx, 4xx and 5xx status codes. According to [HTTP 1.1 Status Definitions][http11status], an HTTP Status code of **500 Internal Server Error** indicates that  "The server encountered an unexpected condition which prevented it from fulfilling the request".  
 
 ###<a name="tshootwitherrormessages"></a>Using detailed website errors to troubleshoot Web Site problems
 
 Addition troubleshooting should focus on the error messages displayed as a result of modifying the web.config file or possibly by analyzing the website's environment variables.
 
-If we look at the [detailed error message created on the website][detailedapperr] we can see that an unhandled exception was thrown by the following method call in Line 2 of the file _AppStart.cshtml:
+If we look at the [detailed error message created on the website](#debugapperr) we can see that an unhandled exception was thrown by the following method call in Line 2 of the file _AppStart.cshtml:
 
 <pre>
 WebSecurity.InitializeDatabaseConnection("StarterSite", "UserProfile", "UserId", "Email", true); 
@@ -379,11 +380,11 @@ Since the Exception details indicate that 'Connection string "StarterSite" was n
 
 **connectionStringName**
 Type: System.String<br />
-The name of the connection string for the database that contains user information. If you are using SQL Server Compact, *this can be the name of the database file (.sdf file) without the .sdf file name extension*.
+The name of the connection string for the database that contains user information. If you are using SQL Server Compact,  this can be the name of the database file (.sdf file) without the .sdf file name extension.
 
-This parameter definition provides a clue as to the cause of the error.  According to [Connecting to a SQL Server or MySQL Database in WebMatrix][connecttosqlinwebmatrix], "WebMatrix includes SQL Server Compact, which is a lightweight version of Microsoft SQL Server that lets you create databases for your websites. When you create a database, **it's added as an .sdf file in the App_Data folder of your website**." Since this web site *does* use SQL Server Compact and the value specified for the connectionStringName parameter is **StarterSite**, the InitializeDatabaseConnection() method is looking for the file StarterSite.sdf in the web site's \root\App_Data\ directory.  
+This parameter definition provides a clue as to the cause of the error.  According to [Connecting to a SQL Server or MySQL Database in WebMatrix][connecttosqlinwebmatrix], "WebMatrix includes SQL Server Compact, which is a lightweight version of Microsoft SQL Server that lets you create databases for your websites. When you create a database, **it's added as an .sdf file in the App\_Data folder of your website.**" Since this web site *does* use SQL Server Compact and the value specified for the connectionStringName parameter is **StarterSite**, the InitializeDatabaseConnection() method is looking for the file StarterSite.sdf in the web site's \root\App\_Data\ directory.  
 
-Checking the web site's \root\App_Data\ directory  we can verify that there is no file named StarterSite.sdf, since of course we renamed it to StarterSite.bak. After renaming this file back to startersite.sdf the InitializeDatabaseConnection() method is able to find the file that it was expecting and the web site works as expected. 
+Checking the web site's \root\App\_Data\ directory  we can verify that there is no file named StarterSite.sdf, since of course we renamed it to StarterSite.bak. After renaming this file back to startersite.sdf the InitializeDatabaseConnection() method is able to find the file that it was expecting and the web site works as expected. 
 
 
 
