@@ -79,7 +79,7 @@ Three exercises in this guide require special configurations before you export a
 
 - If you want to deploy a cloud service that uses Secure Sockets Layer (SSL) for data encryption, configure your application for SSL. For more information, see [How to Configure an SSL Certificate on an HTTPS Endpoint](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx).
 
-- If you want to configure Remote Desktop connections to role instances, configure the roles for Remote Desktop. For more information, see . For more information about preparing the service definition file for remote access, see [Overview of Setting Up a Remote Desktop Connection for a Role](http://msdn.microsoft.com/en-us/library/windowsazure/gg433010.aspx).
+- If you want to configure Remote Desktop connections to role instances, configure the roles for Remote Desktop. For more information about preparing the service definition file for remote access, see [Overview of Setting Up a Remote Desktop Connection for a Role](http://msdn.microsoft.com/en-us/library/windowsazure/gg433010.aspx).
 
 - If you want to configure verbose monitoring for your cloud service, enable Windows Azure Diagnostics for the cloud service. For more information, see [Enabling Diagnostics in Windows Azure](http://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/).
 
@@ -258,11 +258,11 @@ Windows Azure can only ensure 99.95 percent service availability during the conf
 - In monitoring settings, set the monitoring level to Verbose or Minimal, and configure the diagnostics connection strings that are required for verbose monitoring. For instructions, see [How to: Configure monitoring]().
 
 - For service roles (grouped by role), you can update the following settings:
->- **Settings**   Modify the values of miscellaneous configuration settings that are specified in the <ConfigurationSettings> elements of the service configuration (.cscfg) file.
+>- **Settings**   Modify the values of miscellaneous configuration settings that are specified in the &lt;ConfigurationSettings&gt; elements of the service configuration (.cscfg) file.
 
 >- **Certificates**   Change the certificate thumbprint that's being used in SSL encryption for a role. To change a certificate, you must first [upload the new certificate]() (on the **Certificates** page). Then update the thumbprint in the certificate string displayed in the role settings.
 
-- In **operating system settings**, you can change the operating system family or version for role instances (virtual machines), or choose **Auto** to resume automatic updates of the current OS version. 
+- In **operating system settings**, you can change the operating system family or version for role instances (virtual machines), or choose **Automatic** to resume automatic updates of the current OS version. The operating system settings apply to web roles and worker roles, but do not affect VM roles that were added to hosted services in the previous Windows Azure Management Portal.
 
 - When you deploy a new cloud service, you can choose either the Windows Server 2008 R2 or Windows Server 2008 with Service Pack 2 (SP2) operating system. During deployment, the most recent OS version is installed on all role instances, and the operating systems are updated automatically by default. 
 
@@ -364,7 +364,7 @@ Minimal monitoring does not require a storage account. The data for the metrics 
 Use the following procedures to configure verbose or minimal monitoring in the Preview Management Portal. You cannot turn on verbose monitoring until you enable Windows Azure Diagnostics and configure diagnostics connection strings to enable Windows Azure Diagnostics to access storage accounts to store the verbose monitoring data.
 ###Before you begin###
 
-- Create a storage account to store the monitoring data. You can use different storage accounts for different roles. For more information, see help for **Storage Accounts**, or see [Creating and Managing Storage Accounts in Windows Azure]().
+- Create a storage account to store the monitoring data. You can use different storage accounts for different roles. For more information, see help for **Storage Accounts**, or see [How To Create and Manage Storage Accounts in Windows Azure](http://go.microsoft.com/fwlink/?LinkId=248095/).
 
 - Enable Windows Azure Diagnostics for your cloud service roles. 
 
@@ -459,15 +459,11 @@ The example screens in the following procedure illustrate the metrics configurat
 
 ###To customize the metrics chart on the Monitor page###
 
-- In the metrics table, shown below, select up to 6 metrics to plot on the metrics chart. To select a metric, click the check box on its left side.
-- As you select metrics in the metrics table, the metrics are added to the headers of the metrics chart. On a narrow display, an **n more** drop-down list, as shown below, contains metric headers that won't fit the display.
+- In the metrics table, shown below, select up to 6 metrics to plot on the metrics chart. To select a metric, click the check box on its left side. To remove a metric from the metrics chart, clear its check box in the metrics table.
 
->- To plot a metric on the metrics chart, select the check box by the header. On a narrow display, click the down arrow by ***n* metrics** to plot a metric the chart header area can't display.
+ As you select metrics in the metrics table, the metrics are added to the metrics   chart. On a narrow display, an **n more** drop-down list, as shown below, contains metric headers that won't fit the display.
 
->- To remove a metric from the metrics chart, clear the check box by the chart header.
-
-![](Media\CloudServices_ChartMetricSelection)
-- File = Media\CloudServices_ ChartMetricSelection (graphic #21)
+    ![](Media\CloudServices_ChartMetricSelection)
 
 - To change the time range the metrics chart displays, select 1 hour, 24 hours, or 7 days at the top of the chart.
 
@@ -511,7 +507,7 @@ For example, the following tables would store verbose monitoring data aggregated
 
 WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRTable (hourly aggregations for the role)
 
-WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRTable (hourly aggregations for role instances)
+WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
 
 ##How to: Configure remote access to role instances##
 
@@ -525,7 +521,7 @@ On the **Configure** page, you can complete the Remote Desktop configuration or 
 
 - Before you deploy your cloud service, configure your application for Remote Desktop.
 
-- You must add <Import> elements to the service definition file (.csdef) to import the RemoteAccess and RemoteForwarder modules into the service model. When those modules are present, Windows Azure adds the configuration settings for Remote Desktop to the service configuration file. To complete the Remote Desktop configuration, you will need to import a certificate to Windows Azure, and specify the certificate in the service configuration file. For more information, see [Overview of Setting Up a Remote Desktop Connection for a Role](http://msdn.microsoft.com/en-us/library/windowsazure/gg433010.aspx).
+- You must add &lt;Import%gt; elements to the service definition file (.csdef) to import the RemoteAccess and RemoteForwarder modules into the service model. When those modules are present, Windows Azure adds the configuration settings for Remote Desktop to the service configuration file. To complete the Remote Desktop configuration, you will need to import a certificate to Windows Azure, and specify the certificate in the service configuration file. For more information, see [Overview of Setting Up a Remote Desktop Connection for a Role](http://msdn.microsoft.com/en-us/library/windowsazure/gg433010.aspx).
 
 ###To configure or modify Remote Access for role instances###
 
