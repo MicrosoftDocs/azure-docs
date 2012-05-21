@@ -45,8 +45,6 @@ Perform the following steps to create a storage account. This account will be us
 
 1. Open your web browser and go to the [Windows Azure Portal]. If prompted, login with your Windows Azure subscription information.
 
-	![Browser displaying the Windows Azure portal][windows-azure-portal]
-
 2. At the bottom of the portal, click **+ NEW** and then select **Storage Account**.
 
 	![+new][portal-new]
@@ -534,5 +532,10 @@ While the steps in this article describe using the Table Service to store inform
 [Windows Azure Portal]: http://windowsazure.com
 
 [node-table-finished]: ../media/table_todo_empty.png
-[node-table-list-items]: ../media/table_todo_items.png
+[node-table-list-items]: ../media/table_todo_list.png
 [download-publishing-settings]: ../../Shared/Media/downloadpublish.jpg
+[portal-new]: ../../Shared/Media/plus-new.png
+[portal-storage-account]: ../../Shared/Media/new-storage.png
+[portal-quick-create-storage]: ../../Shared/Media/quick-storage.png
+[portal-storage-access-keys]: ../../Shared/Media/manage-access-keys.png
+[portal-storage-manage-keys]: ../../Shared/Media/manage-keys-button.png
