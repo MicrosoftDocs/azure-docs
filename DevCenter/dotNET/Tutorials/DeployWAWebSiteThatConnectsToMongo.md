@@ -1,6 +1,6 @@
 #Create a Windows Azure Web Site that Connects to MongoDB Running in a Virtual Machine on Windows Azure
 
-Using Git, you can easily deploy an ASP.NET application to a Windows Azure Web Site. In this tutorial, you will build a simple front-end ASP.NET MVC task list application that connects to a MongoDB database running in a virtual machine in Windows Azure.  [MongoDB][MongoDB] is a popular open source, high performance NoSQL database. After running and testing the ASP.NET application locally, you will upload the application to a Windows Azure Web Site using Git.
+Using Git, you can easily deploy an ASP.NET application to a Windows Azure website. In this tutorial, you will build a simple front-end ASP.NET MVC task list application that connects to a MongoDB database running in a virtual machine in Windows Azure.  [MongoDB][MongoDB] is a popular open source, high performance NoSQL database. After running and testing the ASP.NET application on your development computer, you will upload the application to a Windows Azure website using Git.
 
 The ASP.NET application you'll build will look like this:
 ![My Task List Application][Image0]
@@ -10,8 +10,8 @@ The ASP.NET application you'll build will look like this:
 In this tutorial you will:
 
 *  Set up a virtual machine running Linux or Windows and install MongoDB
-*  Create and run the Task List ASP.NET application locally
-*  Create a Windows Azure Web Site
+*  Create and run the Task List ASP.NET application on your development computer
+*  Create a Windows Azure website
 *  Deploy the Task List ASP.NET application to the Windows Azure website using Git
 
 ## Background Knowledge
@@ -19,8 +19,8 @@ In this tutorial you will:
 Knowledge of the following is useful for this tutorial, though not required:
 
 * The C# driver for MongoDB. For more information on developing C# applications against MongoDB, see [CSharp Language Center][MongoC#LangCenter]. 
-* The ASP .NET web application framework. You can learn all about it at the [ASP.net web site][ASP.NET].
-* The ASP .NET MVC 3.0 web application framework. You can learn all about it at the [ASP.NET MVC 3 web site][MVC3].
+* The ASP .NET web application framework. You can learn all about it at the [ASP.net website][ASP.NET].
+* The ASP .NET MVC 3.0 web application framework. You can learn all about it at the [ASP.NET MVC 3 website][MVC3].
 * The Windows Azure Platform. You can get started reading at [Windows Azure][WindowsAzure].
 
 ## Preparation
@@ -52,7 +52,7 @@ MongoDB offers client-side support for C# applications through a driver, which y
 
 Download the .msi file and double-click it to run the setup program, which will install the C# driver DLLs to the `C:\Program Files (x86)\MongoDB\CSharp Driver 1.x` directory (the exact path may vary on your system).
 
-## Creating the Task List ASP.NET application and running it locally 
+## Creating the Task List ASP.NET application and running it  
 
 In this section you will create the Task List ASP.NET application using Visual Studio.  You will also run the application locally against the MongoDB instance you created in the virtual machine hosted on Windows Azure.
 
@@ -411,15 +411,15 @@ For more information on MongoDB connection strings, see [Connections][MongoConne
 
 ###Testing the local deployment
 
-To run your application locally, select **Start Debugging** from the **Debug** menu or hit **F5**. A development web server starts and a browser opens and launches the application's home page.  You can add a new task, which will be added to the MongoDB database running on your virtual machine in Windows Azure.
+To run your application on your development computer, select **Start Debugging** from the **Debug** menu or hit **F5**. A development web server starts and a browser opens and launches the application's home page.  You can add a new task, which will be added to the MongoDB database running on your virtual machine in Windows Azure.
 
 ![My Task List Application][Image4]
 
-## Deploy the ASP.NET application to a Windows Azure website
+## Deploy the ASP.NET application to a Windows Azure Website
 
 In this section you will create a Windows Azure website and deploy your Task List ASP.NET application using Git.
 
-### Create the Windows Azure Web Site
+### Create the Windows Azure website
 In this section you will create a Windows Azure Website.
 
 1. Open a web browser and browse to the [Windows Azure (Preview) Management Portal][AzurePreviewPortal]. Sign in with your Windows Live ID and password. If you don't have a Windows Azure account, you can get started with a free account by clicking **Free trial** in the upper right corner. 
@@ -448,7 +448,7 @@ In this section you will deploy the Task List application using Git.
 7. Add the remote Azure repository and push your files to the Azure Web Site by following the instructions in step 3.
 8. When the deployment has completed you will see the following confirmation:
 	![Deployment Complete][Image11]
-9. Your Windows Azure Web Site is now available.  Check the **Dashboard** page for your site and the **Site URL** field to find the URL for your site. Following the procedures in this tutorial, your site would be available at <http://mytasklistapp.cloudapp.net>.
+9. Your Windows Azure Web Site is now available.  Check the **Dashboard** page for your site and the **Site URL** field to find the URL for your site. Following the procedures in this tutorial, your site would be available at this URL: <a href="http://mytasklistapp.cloudapp.net">http://mytasklistapp.cloudapp.net</a>.
 
 ##Summary
 
@@ -466,6 +466,9 @@ You have now successfully deployed your ASP.NET application to a Windows Azure w
 [MongoC#LangCenter]: http://www.mongodb.org/display/DOCS/CSharp+Language+Center
 [MongoDB]: http://www.mongodb.org
 [MongoCSharpDriverDownload]: http://github.com/mongodb/mongo-csharp-driver/downloads
+[InstallMongoWinVM]: ../../../Shared/Tutorials/InstallMongoDbOnWin2k8VM
+[InstallMongoOnCentOSLinuxVM]: ../../../Shared/Tutorials/InstallMongoOnCentOSLinuxVM
+
 
 [Image0]: ../../../DevCenter/dotNET/Media/TaskListAppFull.png
 [Image00]: ../../../DevCenter/dotNET/Media/NewProject.png
