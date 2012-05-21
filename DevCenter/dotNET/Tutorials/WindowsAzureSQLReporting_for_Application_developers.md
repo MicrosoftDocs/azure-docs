@@ -1,20 +1,19 @@
 # Windows Azure SQL Reporting for Application developers #
-To get started with Windows Azure SQL Reporting, you must have a Windows Azure subscription. You can use an existing subscription, a new subscription, or the free trial subscription. For more information, see  [http://www.windowsazure.com/en-us/](http://www.windowsazure.com/en-us/).
-
 This topic provides information about deploying a report server project to Windows Azure SQL Reporting report server, and getting started information for application developers who integrate reports hosted by Windows Azure SQL Reporting in their applications, as well as develop management tools against SQL Azure Reporting report servers.
+
+To get started with Windows Azure SQL Reporting, you must have a Windows Azure subscription. You can use an existing subscription, a new subscription, or the free trial subscription. For more information, see  [http://www.windowsazure.com/en-us/](http://www.windowsazure.com/en-us/).
 
 This guide assumes that you have some prior experience developing custom applications using SQL Server Reporting Services. For more information, see [Developer's Guide (Reporting Services)][]. The guide also assumes that you have some knowledge on usage of ReportViewer controls. For an overview of ReportViewer controls, see [ReportViewer Controls (Visual Studio)][].
 
-
-## OBJECTIVES ##
+## Objectives ##
 In this tutorial you will learn how to:
 
-* Deploy a report server project to a SQL Reporting report server.
-* Render reports in ReportViewer Controls.
-* Programmatically access SQL Reporting using SOAP Management Endpoint
+- Deploy a report server project to a SQL Reporting report server.
+- Render reports in ReportViewer Controls.
+- Programmatically access SQL Reporting using SOAP Management Endpoint
 
 
-## Tutorials Segments ##
+##Tutorials Segments##
 1.	[Deploy a Report Project][]
 2.	[Access SQL Reporting Reports in ReportViewer Controls][]
 3.	[Programmatically access Reports using SOAP Management Endpoint][]
@@ -187,7 +186,7 @@ When accessing the SOAP management endpoint, you use the endpoint’s LogonUser(
 
 1.	In the browser, go to the path for your endpoint. For example: `https://<INSTANCE_NAME>.report.int.mscds.com/ReportServer/reportservice2010.asmx`
 2.	If prompted for credentials, type your SQL Reporting username and password and click Sign In. A WSDL file will be displayed in the browser.
-3.	Open the Visual Studio Command Prompt and run the wsdl.exe command to generate the proxy class. For example: wsdl /language:CS /n:"ReportServices2010" <WSDL_FILE_PATH> 
+3.	Open the Visual Studio Command Prompt and run the wsdl.exe command to generate the proxy class. For example: wsdl /language:CS /n:"ReportServices2010"&lt;WSDL\_FILE\_PATH&gt; 
 
 	You can also specify the file (or directory) to save the generated proxy code by specifying the parameter as `/o[ut]:filename or directoryname`. Else, the proxy file gets created under the default directory from where you are calling the wsdl.exe.
 
