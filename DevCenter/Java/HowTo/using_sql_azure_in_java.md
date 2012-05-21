@@ -116,11 +116,11 @@ We'll actually use this string later in this guide, for now you know the steps t
     1. Within Eclipse's Project Explorer, right-click the **HelloSQLAzure** project and click **Properties**.
     2. In the left-hand pane of the **Properties** dialog, click **Java Build Path**.
     3. Click the **Libraries** tab, and then click **Add Library**.
-    4. In the **Add Library** dialog, select **Microsoft JDBC Driver 3.0 for SQL Server**, click **Next**, and then click **Finish**.
+    4. In the **Add Library** dialog, select **Microsoft JDBC Driver 4.0 for SQL Server**, click **Next**, and then click **Finish**.
     5. Click **OK** to close the **Properties** dialog.
 
     <p/>If you are not using Eclipse
-    1. Add the Microsoft JDBC Driver 3.0 for SQL Server JAR to your class path. For related information, see [Using the JDBC Driver](http://msdn.microsoft.com/en-us/library/ms378526.aspx).
+    1. Add the Microsoft JDBC Driver 4.0 for SQL Server JAR to your class path. For related information, see [Using the JDBC Driver](http://msdn.microsoft.com/en-us/library/ms378526.aspx).
 4. Within your **HelloSQLAzure.java** code, add in `import` statements as shown in the following:
 
         import java.sql.*;
@@ -682,21 +682,21 @@ The following code shows you how to drop a table named **Person**.
 
 <h2 id="using_in_azure">Using SQL Azure in Java within a Windows Azure Deployment</h2>
 
-To use SQL Azure in Java within a Windows Azure deployment, in addition to having Microsoft SQL Server JDBC Driver 3.0 as a library in your class path as shown above, you’ll need to package it with your deployment.
+To use SQL Azure in Java within a Windows Azure deployment, in addition to having Microsoft JDBC Driver 4.0 for SQL Server as a library in your class path as shown above, you’ll need to package it with your deployment.
 
 
-**Packaging the Microsoft SQL Server JDBC Driver 3.0 if you are using Eclipse**
+**Packaging the Microsoft JDBC Driver 4.0 SQL Server if you are using Eclipse**
 
 1. Within Eclipse’s Project Explorer, right-click your project and click **Properties**.
 2. In the left-hand pane of the **Properties** dialog, click **Deployment Assembly**, and then click **Add**.
 3. In the **New Assembly Directive** dialog, click **Java Build Path Entries** and then click **Next**.
-4. Select **Microsoft SQL Server JDBC Driver 3.0** and then click **Finish**.
+4. Select **Microsoft JDBC Driver 4.0 SQL Server** and then click **Finish**.
 5. Click **OK** to close the **Properties** dialog.
 6. Export your project’s WAR file to your approot folder, and rebuild your Azure project, per the steps documented at [Creating a Hello World Application Using the Windows Azure Plugin for Eclipse with Java](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx). That topic also describes how to run your application in the compute emulator, and in Windows Azure.
 
-**Packaging the Microsoft SQL Server JDBC Driver 3.0 if you are not using Eclipse**
+**Packaging the Microsoft JDBC Driver 4.0 SQL Server if you are not using Eclipse**
 
-* Ensure the Microsoft SQL Server JDBC Driver 3.0 library is included within the same Azure role as your Java application, and added to the class path of your application.
+* Ensure the Microsoft JDBC Driver 4.0 SQL Server library is included within the same Azure role as your Java application, and added to the class path of your application.
 
 <h2 id="nextsteps">Next Steps</h2>
 
