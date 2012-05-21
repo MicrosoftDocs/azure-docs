@@ -46,11 +46,11 @@ The following are prerequisites if you intend to use SQL Azure with Java.
 
     * Eclipse IDE for Java EE Developers, Helios or later. This can be downloaded from <http://www.eclipse.org/downloads/>.
 
-    * The Windows Azure Plugin for Eclipse with Java. During installation of this plugin, ensure that Microsoft SQL Server JDBC Driver 3.0 is included. For more information, see Installing the Windows Azure Plugin for Eclipse with Java.
+    * The Windows Azure Plugin for Eclipse with Java. During installation of this plugin, ensure that Microsoft JDBC Driver 4.0 for SQL Server is included. For more information, see [Installing the Windows Azure Plugin for Eclipse with Java](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
 
 * If you are not using Eclipse:
 
-    * Microsoft SQL Server JDBC Driver 3.0, which you can download from <http://www.microsoft.com/download/en/details.aspx?id=19847>.
+    * Microsoft JDBC Driver 4.0 for SQL Server, which you can download from <http://www.microsoft.com/en-us/download/details.aspx?id=11774>.
 
 <h2 id="create_db">Creating a Windows Azure SQL Database</h2>
 
