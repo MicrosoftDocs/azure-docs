@@ -250,7 +250,7 @@ if it does not exist, or replaces the object if it does exist.
 
 By default items in the cache expire after 10 minutes.
 
-
+![RoleCache6][]
 
 If a longer or
 shorter timeout interval is desired, a specific duration can be
@@ -374,6 +374,7 @@ follow these links to learn how to do more complex caching tasks.
   [RoleCache3]: ../../../DevCenter/dotNet/Media/cache10.png
   [RoleCache4]: ../../../DevCenter/dotNet/Media/cache11.png
   [RoleCache5]: ../../../DevCenter/dotNet/Media/cache12.png
+  [RoleCache6]: ../../../DevCenter/dotNet/Media/cache13.png
   [Target a Supported .NET Framework Profile]: #prepare-vs-target-net
   [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx
   [Cache6]: ../../../DevCenter/dotNet/Media/cache6.png
