@@ -2,6 +2,11 @@
 
 The Windows Azure virtual machine gallery provides Windows Azure virtual machine images of Microsoft Windows Server 2008 R2, Service Pack 1 (64-bit) with  a complete 64-bit installation of SQL Server. A version of this virtual machine is available with SQL Server 2012 Evaluation (64-bit).
 
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>The evaluation edition is available for testing but cannot be upgraded to a per-hour  paid edition.</p> 
+</div>
+
 # About this Virtual Machine Image
 ##Windows Server 2008 R2
 - Remote Desktop is enabled for the Administrator account.
@@ -11,6 +16,11 @@ The Windows Azure virtual machine gallery provides Windows Azure virtual machine
 - The **Guest** account is not enabled.
 - The **Windows Firewall with Advanced Security** (c:\Windows\System32\WF.msc) is turned on.
 - .NET Framework version 4 is installed.
+- The size of the virtual machine is specified during provisioning.
+    - Medium is the smallest size recommended for normal workloads. 
+    - Select Large or Extra Large when using SQL Server Enterprise Edition. 
+    - The size selected limits the number of disks you can configure. (Extra Small <= 1, Small <= 2, Medium <= 4, Large <= 8, Extra Large <= 16) 
+
 
 ##SQL Server
 This SQL Server installation contains the following components.
@@ -75,6 +85,10 @@ Your existing database can be moved to this new instance of the Database Engine 
 - By using Copy Database Wizard in Management Studio.
 
 For more information about migrating a database to SQL Server on a Windows Azure virtual machine, see [Guide to Migrating Existing applications and Databases to Windows Azure Platform](http://go.microsoft.com/fwlink/?LinkId=249158) and migration steps near the end of [Deploying a SQL Server Virtual Machine on Windows Azure](http://go.microsoft.com/fwlink/?LinkId=251117).
+
+## Turn Off Write Caching ##
+
+For best performance, the Database Engine requires write caching to be OFF for both data and operating system disks. OFF is the default setting for data disks, for both read and write operations. However, ON is the default write caching setting for the operating system disk. New users who are evaluating performance on a simple single disk system should configure write caching to be OFF for the operating system disk. For instructions on configuring write caching, see How to Use PowerShell for Windows Azure.
 
 ## Create New Logins and Users ##
 Create new Windows users, SQL Server Windows Authentication logins, and database users as you would any on-premises database. If you intend to use SQL Server Authentication you must configure the Database Engine for mixed mode authentication. The sa account is currently disabled. For information about how to change the authentication mode and enable the sa account, see [Change Server Authentication Mode](http://msdn.microsoft.com/en-us/library/ms188670.aspx).
