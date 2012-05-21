@@ -1,6 +1,6 @@
 <properties umbracoNaviHide="0" pageTitle="Create a PHP-MySQL Windows Azure Website and Deploy Using Git" metaKeywords="Windows Azure, Windows Azure Websites, PHP, MySQL, Git" metaDescription="Learn how to create a PHP-MySQL website in Windows Azure, and deploy to it using Git." linkid="dev-php-tutorials-php-mysql-site-git" urlDisplayName="Create a PHP-MySQL Windows Azure Website and Deploy Using Git" headerExpose="" footerExpose="" disqusComments="1" />
 
-#Create a PHP-MySQL Windows Azure Website and Deploy Using Git
+#Create a PHP-MySQL Windows Azure Website and deploy using Git
 
 This tutorial shows you how to create a PHP-MySQL Windows Azure Website and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [MySQL][install-mysql], a web server, and [Git][install-git] installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL website running in Windows Azure.
  
@@ -13,7 +13,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 ![Windows Azure PHP Website][running-app]
 
-##Build and Test Your Application Locally
+##Build and test your application locally
 
 The Tasklist application is a simple PHP application that allows you to add, mark complete, and delete items from a task list. Task list items are stored in a MySQL database. The application consists of these files:
 
@@ -46,7 +46,7 @@ To run the application locally, follow the steps below. Note that these steps as
 
 After you have run the application locally, you are ready to create a Windows Azure Website and publish your code using Git.
 
-##Create a Windows Azure Website and Set up Git Publishing
+##Create a Windows Azure Website and set up Git publishing
 
 Follow these steps to create a Windows Azure Website and a MySQL database:
 
@@ -94,11 +94,15 @@ Follow these steps to create a Windows Azure Website and a MySQL database:
 
 	![Git instructions][git-instructions]
 
-##Get MySQL Connection Information
+##Get MySQL connection information
 
 Before publishing the Tasklist application, the database connection information (in the **taskmodel.php** file) must be updated. To get MySQL connection information, follow these steps:
 
-**NOTE:** These steps are only necessary in the Windows Azure Preview.
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>These steps are only necessary in the Windows Azure Preview.</p> 
+</div>
+
 
 1. From your website's dashboard, click the **Download publish profile** link at the bottom right corner of the page:
 
@@ -125,7 +129,7 @@ Before publishing the Tasklist application, the database connection information 
 
 
 
-##Publish Your Application
+##Publish your application
 
 To publish your application with Git, follow the steps below.
 
@@ -149,7 +153,7 @@ To publish your application with Git, follow the steps below.
 
 After you have published your application, you can begin making changes to it and use Git to publish them. 
 
-##Publish Changes to Your Application
+##Publish changes to your application
 
 To publish changes to application, follow these steps:
 
