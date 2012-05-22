@@ -129,9 +129,9 @@ To access a Windows Azure Caching (Preview) cache, the clients must be within th
 
 ![RoleCache4][]
 
-Select **Windows Azure Distributed Cache**, click **Install**, and then click **I Accept**.
+Select **Windows Azure Caching Preview**, click **Install**, and then click **I Accept**.
 
->If **Windows Azure Distributed Cache** does not appear in the list type Windows Azure Distributed Cache into the **Search Online** text box and select it from the results.
+>If **Windows Azure Caching Preview** does not appear in the list type Windows Azure Distributed Cache into the **Search Online** text box and select it from the results.
 
 ![RoleCache5][]
 
