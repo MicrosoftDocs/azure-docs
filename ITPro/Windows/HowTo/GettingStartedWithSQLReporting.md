@@ -1,4 +1,5 @@
 #Getting started with Windows Azure SQL Reporting#
+
 In this tutorial you will learn about how to manage an instance of SQL Reporting report server and other administrative tasks through SQL Reporting Management portal.
 
 ##What is SQL Reporting?
@@ -288,20 +289,20 @@ Now that you've learned the basics of SQL Reporting administration, to learn mor
 
 [How to: Update Permissions on Report Server Item (Windows Azure SQL Reporting)]: http://msdn.microsoft.com/en-us/library/windowsazure/hh403965.aspx
 
-[Permissions]: media/Permissions_button.png
-[FolderProperties]: media/FolderProperties.png
-[CreateFolderOption]: media/CreateFolder_button.png
-[ServerHomePath]: media/ServerHome_path.png
-[EditDataSource]: media/EditDS.png
-[CreateDataSourceDialog]: media/CreateDS_dialog.png
-[CreateDataSourceOption]: media/CreateDS_button.png
-[ReportServer]: media/ReportServer_page.png
-[ServerHome]: media/ServerHome.png
-[UploadReportDialog]: media/UploadReport_dialog.png
-[UploadReportOption]: media/UploadItem_button.png
-[CreateUserCred]: media/CreateUser_Credentials.png
-[ManageUserDialog]: media/ManagerUser_dialog.png
-[ManageUserOption]: media/ManageUser_button.png
-[CreateServerCred]: media/CreateServer_Credentials.png
-[CreateServerDialog]: media/CreateServer_dialog.png
-[CreateServerOption]: media/CreateServer_button.png
+[Permissions]: ../media/Permissions_button.png
+[FolderProperties]: ../media/FolderProperties.png
+[CreateFolderOption]: ../media/CreateFolder_button.png
+[ServerHomePath]: ../media/ServerHome_path.png
+[EditDataSource]: ../media/EditDS.png
+[CreateDataSourceDialog]: ../media/CreateDS_dialog.png
+[CreateDataSourceOption]: ../media/CreateDS_button.png
+[ReportServer]: ../media/ReportServer_page.png
+[ServerHome]: ../media/ServerHome.png
+[UploadReportDialog]: ../media/UploadReport_dialog.png
+[UploadReportOption]: ../media/UploadItem_button.png
+[CreateUserCred]: ../media/CreateUser_Credentials.png
+[ManageUserDialog]: ../media/ManagerUser_dialog.png
+[ManageUserOption]: ../media/ManageUser_button.png
+[CreateServerCred]: ../media/CreateServer_Credentials.png
+[CreateServerDialog]: ../media/CreateServer_dialog.png
+[CreateServerOption]: ../media/CreateServer_button.png
