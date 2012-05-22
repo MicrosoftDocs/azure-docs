@@ -213,8 +213,7 @@ Azure emulator:
     multi-user functionality, open additional browser windows using the
     same URL and enter different nicknames.
 
-    ![Two browser windows displaying chat messages from User1 and
-    User2][]
+    ![Two browser windows displaying chat messages from User1 and User2][]
 
 3.  After testing the application, stop the emulator by issuing the
     following command:
@@ -230,7 +229,7 @@ Azure emulator:
     fail. After publishing is complete, you should see the following
     response.
 
-    ![The output of the Publish-AzureService command][]
+    ![The output of the Publish-AzureService command][completed-app]
 
     After the deployment has completed, the browser will open and
     navigate to the deployed service.
@@ -273,5 +272,5 @@ realtime communication between between your Node.js server and clients.
   [workerrole-folder]: ../Media/socketio-4.PNG
   [chat-contents]: ../media/socketio-5.png
   [The output of the npm install command]: ../media/socketio-7.png
-  [Two browser windows displaying chat messages from User1 and User2]: /media/nodejs/dev-nodejs-socketio-8.png
+  [Two browser windows displaying chat messages from User1 and User2]: ../media/socketio-8.png
   [The output of the Publish-AzureService command]: ../media/socketio-9.png
