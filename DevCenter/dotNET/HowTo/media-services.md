@@ -2,14 +2,14 @@
 
 #How to Use Media Services
 
-This guide shows you how to start programming with Windows Azure Media Services. The guide includes a technical overview of Media Services, steps to configure your Azure account for Media Services, a setup guide for development, and topics that show how to accomplish typical programming tasks.  The samples are written in C# and use the Media Services SDK for .NET.
+This guide shows you how to start programming with Windows Azure Media Services. The guide includes a technical overview of Media Services, steps to configure your Windows Azure account for Media Services, a setup guide for development, and topics that show how to accomplish typical programming tasks.  The samples are written in C# and use the Media Services SDK for .NET.
 
-You can also program Media Services using the OData-based REST APIs. You can build an application making REST API calls to Media Services from .NET languages or other programming languages. For a full documentation series on programming with the Media Services REST API, see [Building Applications with the Windows Azure Media Services REST API](http://go.microsoft.com/fwlink/?linkid=252967). To start programming with REST, first enable your Azure account for Media Services as described in the section [Setting Up an Azure Account for Media Services](#setup-account).
+You can also program Media Services using the OData-based REST APIs. You can build an application making REST API calls to Media Services from .NET languages or other programming languages. For a full documentation series on programming with the Media Services REST API, see [Building Applications with the Windows Azure Media Services REST API](http://go.microsoft.com/fwlink/?linkid=252967). To start programming with REST, first enable your Windows Azure account for Media Services as described in the section [Setting Up a Windows Azure Account for Media Services][].
 
 ## Table of Contents
 
 -   [What Are Media Services?][]
--   [Setting Up an Azure Account for Media Services][]
+-   [Setting Up a Windows Azure Account for Media Services][]
 -   [Setting up for Media Services Development][]
 -   [How to: Connect to Media Services Programmatically][]
 -   [How to: Create an Encrypted Asset and Upload to Storage][]
@@ -141,7 +141,7 @@ For more information about Media Services features and development scenarios, se
 -   [Media Services Upcoming Releases:  Planned Feature Support][]
 
 
-## <a name="setup-account"> </a>Setting Up an Azure Account for Media Services
+## <a name="setup-account"> </a>Setting Up a Windows Azure Account for Media Services
 
 The Media Services Preview account setup process will be a partly manual process. For documentation on the account setup process, see the Media Services forum:
 
@@ -155,12 +155,11 @@ This section contains general prerequisites for Media Services development using
 
 -   Operating Systems: Windows 7 or Windows 2008 R2. You can also use Windows 8, but this requires special setup steps. See the Windows Azure SDK prerequisite.
 -   .NET Framework 3.5 SP1, and .NET Framework 4. In the current release both versions need to be present on your machine for compatibility with all required SDK packages.
--   VS 2010 SP1 (Professional, Premium, or Ultimate). You can develop Media Services client applications by using the Media Services SDK with Windows 8, Visual Studio 2012, and .NET 4.  To do this, see the Windows Azure SDK prerequisite. 
--   A Windows Azure account with Media Services enabled. See the section [Setting Up an Azure Account for Media Services][] in this document.
+-   VS 2010 SP1 (Professional, Premium, or Ultimate). You can develop Media Services client applications by using the Media Services SDK with Windows 8, Visual Studio 2010, and .NET 4.  To do this, see the Windows Azure SDK prerequisite. 
+-   A Windows Azure account with Media Services enabled. See the section [Setting Up a Windows Azure Account for Media Services][]  in this document.
     - During the Media Services account setup process, you will install the [Windows Azure Media Services SDK for .NET][]. The Media Services SDK is required for SDK developers.
--   [Windows Azure SDK 1.6 for .NET][]
-    - Only the actual Azure SDK installer (x86 or x64) is required.  The other packages including the tooling are not required for the Media Services SDK. 
-    - Configure ASP.NET as a prerequisite for the Azure SDK setup, if it is not already configured on your computer.  A convenient way to configure ASP.NET is to install the [Web Platform Installer][], then open it, navigate to the Products | All tab, and install the IIS Recommended Configuration (which includes ASP.NET).  
+-   [Windows Azure SDK for .NET November 2011][]
+    - The link to the Windows Azure SDK enables you to install it from the Web Platform Installer.  
     - For Windows 8 development, see [Installing the Windows Azure SDK on Windows 8][].
 -   [WCF Data Services 5.0 for OData v3][]
 
@@ -174,7 +173,7 @@ This section shows you how to create a project in Visual Studio and set it up fo
    ![Visual Studio Project Setup][]
 
    2. In **Solution Explorer**, right-click on the project node, select **Properties**, and then in the **Application** properties, set the **Target Framework** setting to *.NET Framework 4*.
-   3. Add a project reference to the following Azure SDK storage client assembly. To add an assembly, in **Solution Explorer** right-click the **References** node for your project. Select **Add Reference**, then browse to the desired assembly (or assemblies), select, and click **OK**.
+   3. Add a project reference to the following Windows Azure SDK storage client assembly. To add an assembly, in **Solution Explorer** right-click the **References** node for your project. Select **Add Reference**, then browse to the desired assembly (or assemblies), select, and click **OK**.
    <br />
    Default installation path:  C:\Program Files\Windows Azure SDK\v1.6\bin\
    - Microsoft.WindowsAzure.StorageClient.dll
@@ -262,9 +261,9 @@ The following table provides the name and description of each available media pr
 
 <br />
 
-To create a media processor instance, create a method like the following example, and pass to it the server context and the string name of one of the listed media processors:
+To create a media processor instance, create a method like the following example, and pass to it the string name of one of the listed media processors. The code example assumes the use of a module-level variable named **_context** to reference the server context as described in the section [How to: Connect to Media Services Programmatically][].
 
-	private static IMediaProcessor GetMediaProcessor(CloudMediaContext cloudMediaContext, string mediaProcessor)
+	private static IMediaProcessor GetMediaProcessor(string mediaProcessor)
 	{
 	    // Query for a media processor to get a reference.
 	    var theProcessor =
@@ -452,7 +451,7 @@ To list all assets that you have available on the server, you can use code simil
 
 ## <a name="download-asset"> </a>How to: Deliver an Asset by Download
 
-This section shows options for delivering media assets that you have previously added to Media Services. You can deliver Media Services content in numerous application scenarios. You can download media assets, or access them by using locator URLs (these are the delivery scenarios described in this topic). You can send media content to another application or to another content provider. For improved performance and scalability, you can also deliver content by using a Content Delivery Network (CDN), such as the Azure CDN.
+This section shows options for delivering media assets that you have previously added to Media Services. You can deliver Media Services content in numerous application scenarios. You can download media assets, or access them by using locator URLs (these are the delivery scenarios described in this topic). You can send media content to another application or to another content provider. For improved performance and scalability, you can also deliver content by using a Content Delivery Network (CDN), such as the Windows Azure CDN.
 
 The code example in this section shows how to download media assets from Media Services. You can pass in an existing job reference, and then access its **OutputMediaAssets** collection (which is the set of one or more output media assets that results from running a job). This code example shows how to download output media assets from a job, but you can apply the same approach to download other assets.
 
@@ -578,17 +577,17 @@ You can use a Content Delivery Network (CDN) to improve performance, scalability
 
 ###Prerequisites
 
-You must have an Azure CDN configured for an existing Windows Azure Storage account.  See the following topic:  [Getting Started with the Windows Azure CDN][]. 
+You must have a Windows Azure CDN configured for an existing Windows Azure Storage account.  See the following topic:  [Getting Started with the Windows Azure CDN][]. 
 
 
-###Enabling an Azure CDN for Media Services
+###Enabling a Windows Azure CDN for Media Services
 
-*After you follow these setup steps, expect a two to three-week delay before your Azure CDN endpoint is enabled.  You will receive a confirmation email when the endpoint is enabled.  For updates on the status of Media Services including the Azure CDN capability, see the [Media Services Forum][].*
+*After you follow these setup steps, expect a two to three-week delay before your Windows Azure CDN endpoint is enabled.  You will receive a confirmation email when the endpoint is enabled.  For updates on the status of Media Services including the Windows Azure CDN capability, see the [Media Services Forum][].*
 
-To enable your Azure CDN endpoint with a Media Services origin, send email to [MediaServices@Microsoft.com][] and include the following information:
+To enable your Windows Azure CDN endpoint with a Media Services origin, send email to [MediaServices@Microsoft.com][] and include the following information:
 
--   Your Media Services account name (you created this account when you followed the directions in the section [Setting Up an Azure Account for Media Services][]).
--   Your Azure CDN endpoint that has been configured against an existing Windows Azure Storage account.   You can get your endpoint by following these steps:
+-   Your Media Services account name (you created this account when you followed the directions in the section [Setting Up a Windows Azure Account for Media Services][]).
+-   Your Windows Azure CDN endpoint that has been configured against an existing Windows Azure Storage account.   You can get your endpoint by following these steps:
     1. Log into the [Windows Azure Management Portal][].
     2. In the navigation pane, click the option for **Hosted Services, Storage Accounts & CDN**. 
     3. In the upper part of the navigation pane, click **CDN** (you may have to scroll to find this option). 
@@ -611,7 +610,7 @@ Now that you have learned how to set up for Media Services development and perfo
 
   <!-- Anchors. -->
   [What Are Media Services?]: #what-are
-  [Setting Up an Azure Account for Media Services]: #setup-account
+  [Setting Up a Windows Azure Account for Media Services]: #setup-account
   [Setting up for Media Services Development]: #setup-dev
   [How to: Connect to Media Services Programmatically]: #connect
   [How to: Create an Encrypted Asset and Upload to Storage]: #create-asset
@@ -635,7 +634,7 @@ Now that you have learned how to set up for Media Services development and perfo
   [Media Services Upcoming Releases:  Planned Feature Support]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/thread/431ef036-0939-4784-a939-0ecb31151ded
   [Media Services Preview Account Setup]: http://go.microsoft.com/fwlink/?linkid=247287
   [Windows Azure Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?LinkID=245171
-  [Windows Azure SDK 1.6 for .NET]: http://www.microsoft.com/en-us/download/details.aspx?id=28045
+  [Windows Azure SDK for .NET November 2011]: http://go.microsoft.com/fwlink/?LinkId=234531
   [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Installing the Windows Azure SDK on Windows 8]: http://www.windowsazure.com/en-us/develop/net/other-resources/windows-azure-on-windows-8/
   [Windows Azure Media Services Documentation]: http://go.microsoft.com/fwlink/?linkid=245437

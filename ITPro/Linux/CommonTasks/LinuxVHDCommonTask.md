@@ -118,37 +118,93 @@ A storage account represents the highest level of the namespace for accessing th
 
 ## <a id="prepimage"> </a>Step 4: Prepare the image to be uploaded ##
 
-Before the image can be uploaded to Windows Azure, it must be prepared by loading drivers and by being deprovisioned using the Windows Azure Linux Agent.
+### Prepare the CentOS operating system ###
 
-### Install the drivers for the Linux Integration Services ###
+You must complete specific configuration steps in the operating system for the virtual machine to run in Windows Azure.
 
-1. Obtain the .iso file that contains the drivers for the Linux Integration Services from [Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=28188).
+1. In the center pane of Hyper-V Manager, select the virtual machine.
 
-2. In Hyper-V Manager, in the **Actions** pane, click **Settings**.
+2. Click **Connect** to open the window for the virtual machine.
+
+3. Uninstall NetworkManager by running the following command:
+
+	`rpm -e --nodeps NetworkManager`
+
+	**Note:** If the package is not already installed, this command will fail with an error message. This is expected.
+
+4.	Create a file named **network** in the `/etc/sysconfig/` directory that contains the following text:
+
+	`NETWORKING=yes`
+
+	`HOSTNAME=localhost.localdomain`
+
+5.	Create a file named **ifcfg-eth0** in the `/etc/sysconfig/network-scripts/` directory that contains the following text:
+
+	`DEVICE=eth0`
+
+	`ONBOOT=yes`
+
+	`DHCP=yes`
+
+	`BOOTPROTO=dhcp`
+
+	`TYPE=Ethernet`
+
+	`USERCTL=no`
+
+	`PEERDNS=yes`
+
+	`IPV6INIT=no`
+
+6. Enable the network service by running the following command:
+
+	`chkconfig network on`
+
+7. Install the drivers for the Linux Integration Services.
+	
+	a) Obtain the .iso file that contains the drivers for the Linux Integration Services from [Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=28188).
+
+	b) In Hyper-V Manager, in the **Actions** pane, click **Settings**.
 
 	![Open Hyper-V settings] (../media/settings.png)
 
-3. In the **Hardware** pane, click **IDE Controller 1**.
+	c) In the **Hardware** pane, click **IDE Controller 1**.
 
 	![Add DVD drive with install media] (../media/installiso.png)
 
-4. In the **IDE Controller** box, click **DVD Drive**, and then click **Add**.
+	d) In the **IDE Controller** box, click **DVD Drive**, and then click **Add**.
 
-5. Select **Image file**, browse to **Linux IC v3.2.iso**, and then click **Open**.
+	e) Select **Image file**, browse to **Linux IC v3.2.iso**, and then click **Open**.
 
-6. In the **Settings** page, click **OK**.
+	f) In the **Settings** page, click **OK**.
 
-7. In the **Actions** pane, click **Start**.
+	g) Click **Connect** to open the window for the virtual machine.
 
-8. Click **Connect** to open the window for the virtual machine.
-
-9. In the Command Prompt window, type the following commands:
+	h) In the Command Prompt window, type the following commands:
 
 	`mount /dev/cdrom /media`
     
 	`/media/install.sh`
 
 	`reboot`
+
+8. Install python-pyasn1 by running the following command:
+
+	`yum install python-pyasn1`
+
+9.	Download the [Windows Azure Linux Agent](http://) and then install it by running the following command:
+
+	`rpm –ivh WALinuxAgent-1.0-1.noarch.rpm`
+
+10.	Run the following commands to deprovision the virtual machine:
+
+	`waagent –force –deprovision`
+
+	`export HISTSIZE=0`
+
+	`logout`
+
+11. Click **Shutdown** in Hyper-V Manager.
 
 ## <a id="upload"> </a>Step 5: Upload the image to Windows Azure ##
 

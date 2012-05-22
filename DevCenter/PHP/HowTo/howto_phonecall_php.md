@@ -1,3 +1,5 @@
+<properties umbracoNaviHide="1" pageTitle="How to Make a Phone Call Using Twilio in a PHP Application on Windows Azure" metaKeywords="Windows Azure, Azure, Twilio, Telephony, PHP" metaDescription="Learn how to use Twilio and PHP to make a phone call from Windows Azure." linkid="dev-php-howto-twilio-phone-call" urlDisplayName="Twilio Phone Call" headerExpose="" footerExpose="" disqusComments="1" />
+
 # How to Make a Phone Call Using Twilio in a PHP Application on Windows Azure 
 
 The following example shows you how you can use Twilio to make a call from a PHP web page hosted in Windows Azure. The resulting application will prompt the user for phone call values, as shown in the following screen shot.

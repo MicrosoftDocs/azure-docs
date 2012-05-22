@@ -66,7 +66,7 @@ Command Line Reference][].
     If Visual Studio 2010 is not installed on the build server, open a
     command prompt and make sure that MSBuild.exe is accessible on the
     path. MSBuild is installed with the .NET Framework in the path   
-    %WINDIR%\\Microsoft.NET\\Framework\\*<Version\>*. For example, to
+    %WINDIR%\\Microsoft.NET\\Framework\\*&lt;Version&gt;*. For example, to
     add MSBuild.exe to the PATH environment variable when you have .NET
     Framework 4 installed, type the following command at the command
     prompt:
@@ -95,12 +95,12 @@ Command Line Reference][].
 
 4.  Locate the output. By default, this command creates a directory in
     relation to the root folder for the project, such as
-    *<ProjectDir\>*\\bin\\*<Configuration\>*\\app.publish\\. When you
+    *&lt;ProjectDir&gt;*\\bin\\*&lt;Configuration&gt;*\\app.publish\\. When you
     build a Windows Azure project, you generate two files, the package
     file itself and the accompanying configuration file:
 
     -   Project.cspkg
-    -   ServiceConfiguration.*<TargetProfile\>*.cscfg
+    -   ServiceConfiguration.*&lt;TargetProfile&gt;*.cscfg
 
     By default, each Windows Azure project includes one
     service-configuration file (.cscfg file) for local (debugging)
@@ -118,7 +118,7 @@ Command Line Reference][].
         MSBuild /t:Publish /p:TargetProfile=ServiceConfiguration.Cloud.cscfg
 
 6.  Specify the location for the output. Set the path by using the
-    /p:PublishDir=*<Directory\>*\\ option, including the trailing
+    /p:PublishDir=*&lt;Directory&gt;*\\ option, including the trailing
     backslash separator, as in the following example:
 
         MSBuild /target:Publish /p:PublishDir=\\myserver\drops\

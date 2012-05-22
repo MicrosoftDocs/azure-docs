@@ -1,22 +1,30 @@
-# Deploying a SQL Server Virtual Machine on Windows Azure #
+# Provisioning a SQL Server Virtual Machine on Windows Azure #
 
-The Windows Azure virtual machine gallery provides Windows Azure virtual machine images of Microsoft Windows Server 2008 R2, Service Pack 1 (64-bit) with a complete 64-bit installation of SQL Server. You can select one of the virtual machine images from the Windows Azure gallery and with a few clicks you can deploy the virtual machine to your Windows Azure environment.
+The Windows Azure virtual machine gallery provides Windows Azure virtual machine images of Microsoft Windows Server 2008 R2, Service Pack 1 (64-bit) with a complete 64-bit installation of SQL Server. You can select one of the virtual machine images from the Windows Azure gallery and with a few clicks you can provision the virtual machine to your Windows Azure environment.
 
-In this tutorial you will learn:
+To upload your own virtual machine image instead of using an image from the gallery, see [Creating and Uploading a Virtual Hard Drive that Contains the Windows Server Operating System](http://go.microsoft.com/fwlink/?LinkId=252920).
 
-- How to use the Windows Azure Management Portal to select and install a virtual machine from the gallery.
-- How to connect to the virtual machine using Remote Desktop.
-- How to connect to SQL Server on the virtual machine using SQL Server Management Studio or your application.
+In this tutorial you will:
 
-## Connect to the Windows Azure Management Portal and Provision a Virtual Machine Image ##
+- [Connect to the Windows Azure Management Portal and Provision a Virtual Machine from the Gallery](#Provision)
+- [Open the Virtual Machine Using Remote Desktop and Complete Setup](#RemoteDesktop)
+- [Complete Configuration Steps to Connect to the Virtual Machine Using SQL Server Management Studio on Another Computer](#SSMS)
+- [Optional Next Steps](#Optional)
 
-1. Login to the Windows Azure Management Portal [http://windows.azure.com](http://windows.azure.com) using your account. (If you do not have a Windows Azure account, visit [Windows Azure 3 Month free trial](http://www.windowsazure.com/en-us/pricing/free-trial/)).
+<h2 id="Provision">Connect to the Windows Azure Management Portal and Provision a Virtual Machine from the Gallery</h2>
+
+1. Login to the Windows Azure Management Portal [https://manage.windowsazure.com](https://manage.windowsazure.com) using your account. (If you do not have a Windows Azure account, visit [Windows Azure 3 Month free trial](http://www.windowsazure.com/en-us/pricing/free-trial/)).
 	![Connect to Portal] [Image1]
 2. On the Windows Azure Management Portal, at the bottom left of the web page, click **+NEW**, click **VIRTUAL MACHINE**, and then click **FROM GALLERY**.
 
 	![Open the gallery] [Image2]
 
-3. Select a virtual machine image containing SQL Server, and then click the next arrow at the bottom right of the page. (If you want to upload your own virtual machine image instead of using an image from the gallery, see [Uploading VHDs for a VM Role in Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg671909.aspx), [How to Upload a VHD to Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg465385.aspx), and [CSUpload Command-Line Tool](http://msdn.microsoft.com/en-us/library/windowsazure/gg466228.aspx).) For information about licensing, see [License Mobility Through Software Assurance](http://www.microsoft.com/licensing/software-assurance/license-mobility.aspx).
+3. Select a virtual machine image containing SQL Server, and then click the next arrow at the bottom right of the page. For information about licensing, see [License Mobility Through Software Assurance](http://www.microsoft.com/licensing/software-assurance/license-mobility.aspx).
+
+    <div class="dev-callout"> 
+    <b>Note</b> 
+    <p>The evaluation edition is available for testing but cannot be upgraded to a per-hour paid edition.</p> 
+    </div>
 
 	![Open the gallery] [Image3]
 
@@ -26,11 +34,23 @@ In this tutorial you will learn:
 - Leave the **NEW USER NAME** box as Administrator.
 - In the **NEW PASSWORD** box, type a strong password. [Strong Passwords](http://msdn.microsoft.com/en-us/library/ms161962.aspx)
 - In the **CONFIRM PASSWORD** box, retype the password.
-- Select the appropriate **SIZE** from the drop down list. Medium is the smallest size recommended for production workloads. 
+- Select the appropriate **SIZE** from the drop down list. 
+
+    <div class="dev-callout"> 
+    <b>Note</b> 
+    <p>Considerations related to size:
+- Medium is the smallest size recommended for production workloads. 
+- Select Large or Extra Large when using SQL Server Enterprise Edition.
+- The size selected limits the number of disks you can configure. (Extra Small <= 1, Small <= 2, Medium <= 4, Large <= 8, Extra Large <= 16)
+    </p> 
+    </div>
 
    Click the next arrow in the bottom left (->) to continue.
 
 	![VM Configuration] [Image4]
+
+
+
 5. On **VM Mode** page, provide the following information:
 - Select **Standalone Virtual Machine**.
 - In the **DNS NAME** box, provide the first portion of the DNS name, so that it completes a name in the format **TESTNAME.cloudapp.net**
@@ -52,7 +72,7 @@ In this tutorial you will learn:
 
 	![VM Options] [Image7]
 
-## Open the Virtual Machine Using Remote Desktop and Complete Setup ##
+<h2 id="RemoteDesktop">Open the Virtual Machine Using Remote Desktop and Complete Setup</h2>
 
 1. On the Windows Azure Management Portal, select your virtual machine, and select the DASHBOARD page.
 
@@ -68,7 +88,7 @@ In this tutorial you will learn:
 
 Once you are connected to the virtual machine with Windows Remote Desktop, the virtual machine works much like any other computer. Connect to the default instance of SQL Server with SQL Server Management Studio (running on the virtual machine) in the normal way. If you need additional training on connecting to the Database Engine, see [Tutorial: Getting Started with the Database Engine](http://msdn.microsoft.com/en-us/library/ms345318.aspx).
 
-## Connecting to the Virtual Machine Using SQL Server Management Studio or Your Application ##
+<h2 id="SSMS">Complete Configuration Steps to Connect to the Virtual Machine Using SQL Server Management Studio on Another Computer</h2>
 
 Before you can connect to the instance of SQL Server from the internet, the following tasks must be completed:
 
@@ -95,7 +115,7 @@ Before you can connect to the instance of SQL Server from the internet, the foll
 
 5. In the console pane, click **SQL Server Services**.
 
-6. In the details pane, right-click **SQL Server (***instance name***)** (the default instance is **SQL Server (MSSQLSERVER)**), and then click **Restart**, to stop and restart the instance of SQL Server. 
+6. In the details pane, right-click **SQL Server (** *instance name* **)** (the default instance is **SQL Server (MSSQLSERVER)**), and then click **Restart**, to stop and restart the instance of SQL Server. 
 
     ![Restart Database Engine] [Image11]
 
@@ -147,7 +167,7 @@ The SQL Server Database Engine cannot use Windows Authentication without domain 
 
     ![Start SSMS] [Image18]
 
-2. When opening, Management Studio presents the **Connect to Server** dialog box. In the **Server name** box, type the name of the virtual machine to connect to the Database Engine  with the Object Explorer. (Instead of the virtual machine name you can also use **(local)** or a single period as the **Server name**. Select **Windows Authentication**, and leave *your_VM_name***\Administrator** in the **User name** box. Click **Connect**.
+2. When opening, Management Studio presents the **Connect to Server** dialog box. In the **Server name** box, type the name of the virtual machine to connect to the Database Engine  with the Object Explorer. (Instead of the virtual machine name you can also use **(local)** or a single period as the **Server name**. Select **Windows Authentication**, and leave *your_VM_name* **\Administrator** in the **User name** box. Click **Connect**.
 
     ![Connect to Server] [Image19]
 
@@ -273,7 +293,7 @@ If you can connect to an instance of SQL Server running on a Windows Azure virtu
 
 - [How to Troubleshoot Connecting to the SQL Server Database Engine](http://social.technet.microsoft.com/wiki/contents/articles/how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx)
 
-## Optional Next Steps ##
+<h2 id="Optional">Optional Next Steps</h2>
 
 ### Migrating an Existing Database ###
 
@@ -291,11 +311,17 @@ Small files (database backups or DACPAC files) can be copied to the virtual mach
 
 - Upload the file to BLOB storage in the same datacenter as the virtual machine, and then RDP to the virtual machine and download the file from BLOB storage. For more information, see [Windows Azure Storage](http://www.windowsazure.com/en-us/home/features/storage/).
 
+- Transfer files to a file system share after configuring a Windows Azure Virtual Network. For more information, see [Overview of Windows Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=251117). 
+
 - Transfer the file using FTP. There are multiple steps to using FTP, including configuring IIS, configuring an account in FTP, configuring a certificate for SSL, etc. For more information about FTP, see the Windows documentation for the [FTP Publishing Service](http://www.iis.net/download/FTP).
 
 - Use a web browser to download a database from the Internet, such as downloading Adventure Works from codeplex [Download an AdventureWorks database](http://msftdbprodsamples.codeplex.com/).
 
 For more information about migrating a database to the Windows Azure Platform, see [Guide to Migrating Existing applications and Databases to Windows Azure Platform](http://go.microsoft.com/fwlink/?LinkId=249158).
+
+### Turn Off Write Caching ###
+
+For best performance, the Database Engine requires write caching to be OFF for both data and operating system disks. OFF is the default setting for data disks, for both read and write operations. However, ON is the default write caching setting for the operating system disk. New users who are evaluating performance on a simple single disk system should configure write caching to be OFF for the operating system disk. For instructions on configuring write caching, see How to Use PowerShell for Windows Azure.
 
 ### Creating Database Users ###
 

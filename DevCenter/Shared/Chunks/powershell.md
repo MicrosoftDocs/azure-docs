@@ -1,36 +1,39 @@
-<properties linkid="dev-fundamentals-how-to-powershell" urldisplayname="PowerShell Cmdlets" headerexpose="" pagetitle="How to Use PowerShell for Windows Azure" metakeywords="Azure PowerShell, Azure PowerShell cmdlet, PHP, Node.js, Python, .NET" footerexpose="" metadescription="Learn Windows PowerShell fundamentals and details about how to use the PowerShell for Windows Azure cmdlets." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-fundamentals-how-to-powershell" urldisplayname="PowerShell Cmdlets" headerexpose="" pagetitle="How to Use Windows Azure PowerShell" metakeywords="Azure PowerShell, Azure PowerShell cmdlet, PHP, Node.js, Python" footerexpose="" metadescription="Learn Windows PowerShell fundamentals and details about how to use the Windows Azure PowerShell cmdlets." umbraconavihide="0" disquscomments="1"></properties>
 
-
-# How to Use PowerShell for Windows Azure
+# How to use Windows Azure PowerShell
 
 This guide describes how to use Windows PowerShell cmdlets to create,
 test, deploy, and manage Windows Azure Services. The
 scenarios covered include **importing your publishing settings**,
 **creating Windows Azure services to host applications**,
 **running a service in the Windows Azure compute emulator**, **deploying
-and updating a hosted service**, **setting deployment options for a
+and updating a cloud service**, **setting deployment options for a
 service**, and **stopping, starting, and removing a service**.
 
-**Note** For a detailed description of each cmdlet, see the
-[Windows Azure PowerShell for Node.js Cmdlet Reference][]. (**TODO: Will this be updated?**)
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>For a detailed description of each cmdlet, see the
+[Windows Azure PowerShell for Node.js Cmdlet Reference][]. (<b>TODO: Will this be updated?</b>)</p> 
+</div>
 
-## Table of Contents
 
-[What is PowerShell for Windows Azure](#WhatIs)   
- [Get Started Using PowerShell for Windows Azure](#GetStarted)  
- [How to: Import Publishing Settings](#ImportPubSettings)   
- [How to: Create a Windows Azure Service](#CreateService)  
- [How to: Test a Service Locally in the Windows Azure Emulators][]   
- [How to: Set Default Deployment Options for a Service][]   
- [How to: Use a Storage Account with More than One Service][]   
- [How to: Deploy a Hosted Service to Windows Azure][]   
- [How to: Update a Deployed Service][]   
- [How to: Scale Out a Service][]   
- [How to: Stop, Start, and Remove a Service][]
+## Table of contents
 
-<h2 id="WhatIs">What Is PowerShell for Windows Azure</h2>
+[What is Windows Azure PowerShell](#WhatIs)   
+ [Get started using Windows Azure PowerShell](#GetStarted)  
+ [How to: Import publishing settings](#ImportPubSettings)   
+ [How to: Create a Windows Azure service](#CreateService)  
+ [How to: Test a service locally in the Windows Azure Emulators][]   
+ [How to: Set default deployment options for a service][]   
+ [How to: Use a storage account with more than one service][]   
+ [How to: Deploy a cloud service to Windows Azure][]   
+ [How to: Update a deployed service][]   
+ [How to: Scale out a service][]   
+ [How to: Stop, start, and remove a service][]
 
-PowerShell for Windows Azure provides a command-line environment
+<h2 id="WhatIs">What is Windows Azure PowerShell</h2>
+
+Windows Azure PowerShell provides a command-line environment
 for developing and deploying applications for Windows Azure through
 a few Windows PowerShell cmdlets.
 
@@ -39,7 +42,7 @@ The following tasks are supported:
 -   Import publishing settings to enable you to deploy services in
     Windows Azure.
 -   Generate configuration files and a sample application for a
-    hosted service. Create a Windows Azure service that contains web
+    cloud service. Create a Windows Azure service that contains web
     roles and worker roles.
 -   Test your service locally using the Windows Azure compute emulator.
 -   Deploy your service to the Windows Azure staging or production
@@ -48,12 +51,12 @@ The following tasks are supported:
 -   Enable and disable remote access to service role instances.
 -   Start, stop, and remove services.
 
-<h2 id="GetStarted">Get Started Using PowerShell for Windows Azure</h2>
+<h2 id="GetStarted">Get started using Windows Azure PowerShell</h2>
 
 For requirements and installation instructions for 
-PowerShell for Windows Azure, see the [Node.js Web Application][] tutorial.
+Windows Azure Powershell, see the [Node.js Web Application][] tutorial.
 
-### Getting Started Using Windows PowerShell
+### Getting started using Windows PowerShell
 
 If you have not used Windows PowerShell before, the following resources
 can help you get started:
@@ -94,7 +97,7 @@ can help you get started:
 
     </td>
     <td>
-    Lists all cmdlets in the PowerShell for Windows Azure snap-in
+    Lists all cmdlets in the Windows Azure PowerShell snap-in
 
     </td>
     </tr>
@@ -141,9 +144,9 @@ can help you get started:
     </tbody>
     </table>
 
-### Getting Started Using PowerShell for Windows Azure
+### Getting started using Windows Azure PowerShell
 
-The PowerShell for Windows Azure cmdlets have a few special requirements that are not common
+The Windows Azure PowerShell cmdlets have a few special requirements that are not common
 to all Windows PowerShell components:
 
 -   To deploy your Node applications in Windows Azure, you must have a
@@ -152,22 +155,22 @@ to all Windows PowerShell components:
     information (by using **Get-AzurePublishSettingsFile**) and then import
     those settings (by using **Import-AzurePublishSettingsFile**).
 
--   You must run cmdlets that act on a hosted service from within the
+-   You must run cmdlets that act on a cloud service from within the
     service directory.
 
-    When you create a new hosted service, a service directory is created
+    When you create a new cloud service, a service directory is created
     in the current directory, and the focus of the Windows PowerShell
     command prompt moves to the service directory. From the service
     directory, you can add web roles and worker roles to the service.
     All other cmdlets for the service can be run from any child
     directory of the service directory.
 
--   After you create and configure a new hosted service, or after you
+-   After you create and configure a new cloud service, or after you
     run any cmdlet that updates the configuration of a deployed service,
     you must run the **Publish-AzureServiceProject** cmdlet to publish the
     updates to the cloud service deployment. For example, after you run
     **Set-AzureServiceProjectRole** with the **-Instances** parameter to add additional web role instances
- to a service configuration, run **Publish-AzureServiceProject** to scale out the hosted service.
+ to a service configuration, run **Publish-AzureServiceProject** to scale out the cloud service.
 
     If you are running the deployment locally in the Windows Azure
     compute emulator, you must run **Start-AzureEmulator** again after
@@ -180,14 +183,14 @@ to all Windows PowerShell components:
     cmdlets are case-sensitive: service names, subscription names,
     storage account names, and deployment locations.
 
-### To open PowerShell for Windows Azure
+### To open Windows Azure PowerShell
 
 -   On the **Start** menu, click **All Programs**, click **Windows Azure
     SDK for Node.js**, and then click **Windows PowerShell for
     Node.js**. Opening your Windows PowerShell environment this way
     ensures that all of the Node command-line tools are available. (**TODO: How will cmdlets be delivered?**)
 
-### Example Syntax Lines
+### Example syntax lines
 
 In the example syntax lines in this guide, all services are
 created from a C:\\app folder. A C:\\app folder is not required; you
@@ -197,7 +200,7 @@ service are entered at the following command prompt:
 
     C:\app\MyService>
 
-<h2 id="ImportPubSettings">How to: Import Publishing Settings</h2>
+<h2 id="ImportPubSettings">How to: Import publishing settings</h2>
 
 To deploy your applications in Windows Azure, you must have a
 Windows Azure subscription. If you do not have a Windows Azure
@@ -215,7 +218,7 @@ download the publishing profile. You will need to log on to the Customer
 Portal using the credentials for your Windows Azure account.
 
 **Note** For information about the contents of the publishing profile,
-see the **Get-AzurePublishingSettings** cmdlet in the [Windows Azure PowerShell for Node.js Cmdlet Reference][].
+see the **Get-AzurePublishingSettingsFile** cmdlet in the [Windows Azure PowerShell for Node.js Cmdlet Reference][].
 
 When you download the publishing profile, note the path and the name of
 your settings file. You must provide this information when you use
@@ -243,20 +246,23 @@ settings. For information about adding co-administrators to help manage
 services for a subscription, see [How to Add and Remove
 Co-Administrators for Your Windows Azure Subscription][].
 
-**Important** You should delete the publishing profile that you
+<div class="dev-callout"> 
+<b>Important</b> 
+<p>You should delete the publishing profile that you
 downloaded using **Get-AzurePublishSettingsFile** after you import those
 settings. The downloaded profile contains a management certificate that
 should not be accessed by unauthorized users. If you need information
-about your subscriptions, you can get it from the [Windows Azure
-Platform Management Portal][] or the [Microsoft Online Services Customer
-Portal][].
+about your subscriptions, you can get it from the <a href="http://windows.azure.com/">Windows Azure
+Platform Management Portal</a> or the <a href="https://mocp.microsoftonline.com/site/default.aspx">Microsoft Online Services Customer Portal</a>.</p> 
+</div>
 
-<h2 id="CreateService">How to: Create a Windows Azure Service</h2>
+
+<h2 id="CreateService">How to: Create a Windows Azure service</h2>
 
 Use the **New-AzureServiceProject** cmdlet to create the scaffolding for a
-hosted service for your application.
+cloud service for your application.
 
-The following example shows how to create a new hosted service named
+The following example shows how to create a new cloud service named
 MyService.
 
     PS C:\app> New-AzureServiceProject MyService
@@ -275,7 +281,7 @@ web role or worker role for the service.
 * Add-AzurePHPWorkerRole
 * Add-AzurePythonWebRole 
 
-When your application is deployed as a hosted service in Windows Azure,
+When your application is deployed as a cloud service in Windows Azure,
 it runs as one or more *roles.* A *role* simply refers to the
 application files and configuration. You can define one or more roles
 for your application, each with its own set of application files and its
@@ -298,9 +304,9 @@ The following example shows how to use the **Add-AzureNodeWebRole**
 cmdlet to create a new web role named **MyWebRole** that has two
 instances.
 
-    PS C:\app\MyService> Add-AzureNodeWebRole MyWorkerRole -I 2
+    PS C:\app\MyService> Add-AzureNodeWebRole MyWebRole -I 2
 
-## <a id="_How_to_Test" name="_How_to_Test"> </a>How to: Test a Service Locally in the Windows Azure Emulators
+## <a id="_How_to_Test" name="_How_to_Test"> </a>How to: Test a service locally in the Windows Azure Emulators
 
 The [Start-AzureEmulator][] cmdlet starts the service in the Windows
 Azure compute emulator and also starts the Windows Azure storage
@@ -326,7 +332,7 @@ the emulator.
 
     PS C:\app\MyService> Stop-AzureEmulator
 
-## <a id="_How_to_Set" name="_How_to_Set"> </a>How to: Set Default Deployment Options for a Service
+## <a id="_How_to_Set" name="_How_to_Set"> </a>How to: Set default deployment options for a service
 
 You can use the **Set-AzureServiceProject** cmdlet with the **-Location**, **-Slot**, **-Subscription** and **-Storage** parameters to set the default deployment location, slot (Staging or Production), Windows Azure subscription, and
 storage account to use when you deploy a service. The default options
@@ -405,7 +411,7 @@ to use for the service.
 In the following example, the default deployment location for the
 MyService service is set to Southeast Asia:
 
-     PS C:\app\MyService> Set-AzureServiceProject "Southeast Asia"
+     PS C:\app\MyService> Set-AzureServiceProject -location "Southeast Asia"
 
 By default a service is published to a production slot, where it is
 assigned a friendly URL based on the service name
@@ -429,7 +435,7 @@ default subscription to use for the MyService service.
 
     PS C:\app\MyService> Set-AzureServiceProject -Subscription Contoso_Finance
 
-## <a id="_How_to_Use" name="_How_to_Use"> </a>How to: Use a Storage Account with More Than One Service
+## <a id="_How_to_Use" name="_How_to_Use"> </a>How to: Use a storage account with more than one service
 
 When you deploy a new service, by default, a new storage account is
 created in the deployment location, and the application package and
@@ -451,8 +457,12 @@ co-administrator for more than one subscription, use the
 the storage information for. The cmdlet retrieves the storage account
 name and access keys for each storage account.
 
-**Note** For information about creating, managing, and deleting storage
-accounts, [How to: Manage Storage Accounts for a Windows Azure Subscription][].
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>For information about creating, managing, and deleting storage
+accounts, <a = href=" http://msdn.microsoft.com/en-us/library/windowsazure/hh531567.aspx">How to: Manage Storage Accounts for a Windows Azure Subscription</a>.</p> 
+</div>
+
 
 In the following example, a service co-administrator retrieves storage
 account information for the subscription with Id fy877xxx-7zz7-4139-9x15-444b3y4z7f8x.
@@ -472,16 +482,16 @@ service directory.
 
     PS C:\app\MyService> Set-AzureServiceProject -Storage ContosoUS
 
-## <a id="_How_to_Deploy" name="_How_to_Deploy"> </a>How to: Deploy a Hosted Service to Windows Azure
+## <a id="_How_to_Deploy" name="_How_to_Deploy"> </a>How to: Deploy a cloud service to Windows Azure
 
 When you are ready to deploy your service to Windows Azure, use the
-**Publish-AzureServiceProject** cmdlet. When you deploy a new hosted service,
+**Publish-AzureServiceProject** cmdlet. When you deploy a new cloud service,
 Windows Azure performs the following tasks:
 
 1.  Packages the source and configuration files into a service package
     (.cspkg file).
 
-2.  Creates a new hosted service.
+2.  Creates a new cloud service.
 
 3.  If no storage account is specified, creates a new storage account if
     needed.
@@ -489,7 +499,7 @@ Windows Azure performs the following tasks:
 4.  Copies the service package and configuration files to the Windows
     Azure blob store for the storage account.
 
-5.  Creates the hosted service and deployment using the uploaded service
+5.  Creates the cloud service and deployment using the uploaded service
     package.
 
 Use the following parameters to specify deployment options for the
@@ -507,10 +517,13 @@ change, but the service will be known in Windows Azure as MyService01.
 
     PS C:\app\MyService> Publish-AzureServiceProject -Name MyService01
 
-**Note** If you specify a service name that is not unique in Windows
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>If you specify a service name that is not unique in Windows
 Azure, the service deployment fails, and you will see the following
 error: "Publish-AzureServiceProject : The remote server returned an unexpected
-response: (409) Conflict."
+response: (409) Conflict."</p> 
+</div>
 
 ### Setting a subscription for this deployment
 
@@ -549,38 +562,7 @@ In the following example, the Contoso\_Finance subscription is used to
 deploy the MyService service.
 
     PS C:\app\MyService> Publish-AzureServiceProject -Subscription Contoso_Finance
-      
 
-### Specifying the location for this deployment
-
-Use the **-Location** parameter to specify a geographic region for the
-service deployment. If you have not set a default deployment location
-for the service, and you do not specify a location using this parameter,
-the service is assigned randomly to either to North Central US or South
-Central US.
-
-To get a list of available locations, run the following cmdlet.
-
-     Get-Help Publish-AzureServiceProject -Parameter location 
-
-      -Location <String>
-      The region in which the application will be hosted. Possible values are: An
-      ywhere Asia, Anywhere Europe, Anywhere US, East Asia, North Central US, Nor
-      th Europe, South Central US, Southeast Asia, West Europe. If no Location i
-      s specified, the location specified in the last call to Set-AzureDeployment
-      Location will be used. If no Location was ever specified, the Location wil
-      l be randomly chosen from 'North Central US' and 'South Central US' locatio
-      ns.
-      
-
-The **-Location** value is case-sensitive, and, because the location
-values have multiple words, you must enclose the location in quotation
-marks.
-
-In the following example, the MyService service is deployed to the
-Anywhere US location.
-
-    PS C:\app\MyService> Publish-AzureServiceProject -Location "Anywhere US"
 
 ### Using an existing storage account
 
@@ -619,8 +601,11 @@ Windows Azure staging environment.
 
     PS C:\app\MyService> Publish-AzureServiceProject -Slot Staging
 
-**Note** For more information about managing staging and production
-deployments, see [Overview of Managing Deployments in Windows Azure][].
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>For more information about managing staging and production
+deployments, see <a = href="http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx">Overview of Managing Deployments in Windows Azure</a>.</p> 
+</div>
 
 ### Opening the web role in a browser
 
@@ -659,11 +644,9 @@ the current service deployment.
 
     PS C:\app\MyService> Publish-AzureServiceProject -Subscription ContosoFinance -Sl staging -L "North Central US"
 
-## <a id="_How_To:_Update" name="_How_To:_Update"> </a>How To: Update a Deployed Service
+## <a id="_How_To:_Update" name="_How_To:_Update"> </a>How To: Update a deployed service
 
-When you use
-
-Publish-AzureServiceProject on a deployed service, the service is either
+When you use **Publish-AzureServiceProject** on a deployed service, the service is either
 updated in place or a new deployment is created. The update method
 depends on the types of changes that you make.
 
@@ -689,10 +672,10 @@ The following types of update initiate a new service deployment:
     first deployment.
 
 In the following example, the MyService service is updated in place
-after a second service role instance is added to the WebRole1 service
+after a second service role instance is added to the MyWebRole service
 role.
 
-    PS C:\app\MyService> Update-AzureInstances MyWebRole 2
+    PS C:\app\MyService> Set-AzureServiceProjectRole -RoleName MyWebRole -Instances 2
     PS C:\app\MyService> Publish-AzureServiceProject
 
 The following example shows how you would publish a new service
@@ -709,7 +692,7 @@ location is used.
 
     PS C:\app\MyService> Publish-AzureServiceProject -Location "North Europe" -StorageAccountName NorthEuropeStore
 
-## <a id="_How_to:_Scale" name="_How_to:_Scale"> </a>How to: Scale Out a Service
+## <a id="_How_to:_Scale" name="_How_to:_Scale"> </a>How to: Scale out a service
 
 After you deploy your service, you can run the **Set-AzureServiceProjectRole**
 cmdlet with the **-Instances** parameter to scale the service out or in by adding or removing instances to
@@ -719,14 +702,14 @@ The following example shows how to update the MyService service
 configuration to deploy two instances of the existing web role named
 MyWebRole when you next publish the service.
 
-    PS C:\app\MyService> Update-AzureInstances MyWebRole 2
+    PS C:\app\MyService> Set-AzureServiceProjectRole MyWebRole 2
 
 To deploy the change to the role instances, you must run the
 **Publish-AzureServiceProject** cmdlet. Note that a change to the number of
 role instances causes the virtual machines to be rebuilt, and you will
 lose any data that is stored locally on the role instances.
 
-## <a id="_How_to:_Stop," name="_How_to:_Stop,"> </a>How to: Stop, Start, and Remove a Service
+## <a id="_How_to:_Stop," name="_How_to:_Stop,"> </a>How to: Stop, start, and remove a service
 
 A deployed application, even if it is not running, continues to accrue
 billable time for your subscription. Therefore, it is important that you
@@ -763,7 +746,7 @@ The following example removes the MyService service.
 
     PS C:\app\MyService> Remove-AzureService
 
-## Additional Resources
+## Additional resources
 
 [Windows Azure PowerShell for Node.js Cmdlet Reference][]   
  [Node.js Web Application][1]   
@@ -779,7 +762,7 @@ The following example removes the MyService service.
   [How to: Test a Service Locally in the Windows Azure Emulators]: #_How_to_Test
   [How to: Set Default Deployment Options for a Service]: #_How_to_Set
   [How to: Use a Storage Account with More than One Service]: #_How_to_Use
-  [How to: Deploy a Hosted Service to Windows Azure]: #_How_to_Deploy
+  [How to: Deploy a cloud service to Windows Azure]: #_How_to_Deploy
   [How to: Update a Deployed Service]: #_How_To:_Update
   [How to: Scale Out a Service]: #_How_to:_Scale
   [How to: Stop, Start, and Remove a Service]: #_How_to:_Stop,

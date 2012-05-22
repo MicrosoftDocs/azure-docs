@@ -1,11 +1,21 @@
-# Installing Python
+# Installing Python and the SDK
 
 Python is pretty easy to setup on Windows and comes pre-installed on Mac and Linux.  This guide walks you through installation and getting your machine ready for use with Azure.
 
 
+* What's in the SDK?
 * Which Python & which version?
 * Installation on Windows
 * Installation on Mac and Linux
+
+### The Python Azure SDK
+
+The Windows Azure SDK for Python includes components that allow you to develop, deploy, and mangage PHP applications for Windows Azure. Specifically, the Windows Azure SDK for Python includes the following:
+
+* **The Python Client Libraries for Windows Azure**. These class libraries provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services.  
+* **The Windows Azure Command-Line Tools for Mac and Linux**. This is a set of command-line tools for deploying and managing Windows Azure services, such as Windows Azure Websites and Windows Azure Virtual Machines. These tools work on any platform, including Mac, Linux, and Windows.
+* **PowerShell for Windows Azure (Windows Only)**. This is a set of PowerShell cmdlets for deploying and managing Windows Azure Services, such as Cloud Services and Virtual Machines.
+* **The Windows Azure Emulators (Windows Only)**. The compute and storage emulators are local emulators of Cloud Services and Cloud Storage that allow you to test an application locally. The Windows Azure Emulators run on Windows only.
 
 ### Which Python and which version?
 
@@ -77,23 +87,14 @@ Here we see that Suse has CPython 2.7.2 installed which is fine for running the 
 There are two main scenarios supported for this Azure release:
 
 1. Authoring Cloud apps by using the Python Azure Client Libraries
+
 2. Running your app in a Linux VM
 
 The Cloud App scenario enables you to author rich web apps that take advantage of the Azure PaaS capabilities such as blob storage, queues, etc. via Pythonic wrappers for the Azure REST API's.  These work identically on Windows, Mac and Linux.  See the Tutorials and How To Guides for examples.
 
-For the VM scenario, you simply start a Linux VM of your choice (Ubuntu, CentOS, Suse) and run/manage what you like.
+For the VM scenario, you simply start a Linux VM of your choice (Ubuntu, CentOS, Suse) and run/manage what you like.  As an example, you can run [IPython](http://www.ipython.org) REPL/notebook on your Windows/Mac/Linux machine and point your browser to a Linux or Windows multi-proc VM running the IPython Engine on Azure. For more information on IPython installation please see its tutorial.
 
-To install the SDK's for Mac/Linux enter:
-
-	// TODO //
-
-Verify the installation:
-
-	// TODO //
-
-To find out more about using VM's, please see: 
-
-	// TODO //
+Please see the article "How to Use the Windows Azure Command-Line Tools for Mac and Linux" for details on support and usage.
 
  
 ### Additional Software and Resources:
