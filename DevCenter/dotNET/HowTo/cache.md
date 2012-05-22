@@ -156,7 +156,7 @@ This new section includes a reference to a **dataCacheClients** element. This **
       </dataCacheClient>
     </dataCacheClients>
 
-Replace **[cache cluster role name]** with the name of the role that hosts the cache cluster.
+After the configuration is added, replace **[cache cluster role name]** with the name of the role that hosts the cache cluster.
 
 The NuGet package also adds references to the following assemblies:
 
@@ -304,7 +304,7 @@ provider, see [Session State Provider for Windows Azure Caching][].
 The Output Cache Provider for Windows Azure Caching is an out-of-process storage mechanism for output cache data. This data is specifically for full HTTP
 responses (page output caching). The provider plugs into the new output
 cache provider extensibility point that was introduced in ASP.NET 4. To
-use the output cache provider, first ensure that your ASP.NET application is configured to access the desired cache, as described in [Getting Started with Windows Azure Caching (Preview)][]. Once these steps are completed, a **caching** section can be added to the web.config file. To configure your ASP.NET application to use the output cache provider, paste this snippet into your web.config file. In this example, the default cache is specified. To use a different cache, specify the desired cache in the **cacheName** attribute.
+use the output cache provider, first ensure that your ASP.NET application is configured to access the desired cache, as described in [Getting Started with Windows Azure Caching (Preview)][]. Then, configure your ASP.NET application for page output caching, as described in [How to: Set the Cacheability of an ASP.NET Page Declaratively][] or [How to: Set a Page's Cacheability Programmatically][]. Once these steps are completed, a **caching** section can be added to the web.config file. To configure your ASP.NET application to use the output cache provider, paste this snippet into your web.config file. In this example, the default cache is specified. To use a different cache, specify the desired cache in the **cacheName** attribute.
 
     <!-- If output cache content needs to be saved in a Windows Azure
          cache, add the following to web.config inside system.web. -->
@@ -373,3 +373,5 @@ follow these links to learn how to do more complex caching tasks.
   [How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
   [Windows Azure Caching (Preview) Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=252651
   [Windows Azure Caching (Preview)]: http://go.microsoft.com/fwlink/?LinkId=252658
+  [How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/en-us/library/zd1ysf1y.aspx
+  [How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/en-us/library/z852zf6b.aspx
