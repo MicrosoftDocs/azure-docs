@@ -45,9 +45,6 @@ The Windows Azure SDK for Python includes a Windows PowerShell environment that 
 
 3.  Enter the following cmdlet to create a new solution:
 
-        PS C:\django> New-AzureService helloworld
-
-    You will see the following response:
 
     ![The result of the New-AzureService command][]
 
@@ -60,7 +57,6 @@ The Windows Azure SDK for Python includes a Windows PowerShell environment that 
     Enter the following command to see a listing of the files that were
     generated:
 
-        PS C:\django\helloworld> ls
 
     ![A directory listing of the service folder][]
 
@@ -92,20 +88,12 @@ The Windows Azure SDK for Python includes a Windows PowerShell environment that 
     to **Add-AzureDjangoWebRole** to override i.e. **Add-AzureDjangoWebRole
     hello_dj**
 
-    Enter the following commands to change to the newly generated
-    directory and view its contents:
-
-        PS C:\django\helloworld> cd hello_dj
-        PS C:\django\helloworld\hello_dj> ls
+    Change to the **hello_dj** directory and list its files:
 
     ![A directory listing of the webrole folder][]
 
-	Enter the following commands to change to the Django application
-	directory and view its contents:
-
-        PS C:\django\helloworld\hello_dj> cd hello_dj
-        PS C:\django\helloworld\hello_dj\hello_dj> ls
-
+    Again change to the **hello_dj** directory and list its files:
+	
     ![A directory listing of the django folder][]
 
     -   settings.py contains Django settings for your application.
@@ -113,11 +101,7 @@ The Windows Azure SDK for Python includes a Windows PowerShell environment that 
 
 <p></p>
 
-5.  Create a new file named **views.py** in the hello_dj subdirectory, as a sibling of urls.py. This will contain the view that renders the hello world page. 
-
-		PS C:\django\helloworld\hello_dj\hello_dj> notepad views.py
-
-	Edit the contents of the new file to the following:
+5.  Create a new file named **views.py** in the hello_dj subdirectory, as a sibling of **urls.py**. This will contain the view that renders the "hello world" page. Start your editor and enter the following:
 		
 		from django.http import HttpResponse
 		def hello(request):
@@ -125,11 +109,7 @@ The Windows Azure SDK for Python includes a Windows PowerShell environment that 
     		return HttpResponse(html)
 
 
-8.  Open the **urls.py** file in Notepad.
-
-		PS C:\django\helloworld\hello_dj\hello_dj> notepad urls.py
-
-	Change the contents of the file to the following:
+8.  Now enter the following into the **urls.py** file:
 
 		from django.conf.urls.defaults import patterns, include, url
 		from hello_dj.views import hello

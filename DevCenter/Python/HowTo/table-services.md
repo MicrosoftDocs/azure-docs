@@ -115,7 +115,7 @@ The **CloudTableClient** object lets you work with table services. The
 following code creates a **CloudTableClient** object. Add the following near
 the top of any Python file in which you wish to programmatically access Windows Azure Storage:
 
-    from windowsazure.storages.cloudtableclient import *
+	from windowsazure.storages.cloudtableclient import *
 
 The following code creates a **CloudTableClient** object using the storage account name and account key.  Replace 'myaccount' and 'mykey' with the real account and key.
 
@@ -199,8 +199,8 @@ This example finds all tasks in Seattle based on the **PartitionKey**.
 
 	tasks = table_client.query_entities('tasktable', "PartitionKey eq 'tasksSeattle'", '')
 	for task in tasks:
-	    print(task.description)
-	    print(task.priority)
+		print(task.description)
+		print(task.priority)
 
 ## <a name="query-entity-properties"> </a>How to Query a Subset of Entity Properties
 
@@ -219,7 +219,7 @@ Emulator.*
 
 	tasks = table_client.query_entities('tasktable', "partitionkey eq 'tasksSeattle'", 'description')
 	for task in tasks:
-	    print(task.description)
+		print(task.description)
 
 ## <a name="delete-entity"> </a>How to Delete an Entity
 
