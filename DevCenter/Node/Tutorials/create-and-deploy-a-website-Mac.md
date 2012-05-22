@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-nodejs-website" urldisplayname="Node.js Website" headerexpose="" pagetitle="Node.js Application using a Windows Azure Website" metakeywords="Azure Node.js tutorial, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates deploying a Node.js application to a Windows Azure Website" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-website" urldisplayname="Node.js Website" headerexpose="" pagetitle="Node.js Application using a Windows Azure Website" metakeywords="Azure Node.js tutorial, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates deploying a Node.js application to a Windows Azure Website" umbraconavihide="0" disquscomments="1"></properties>
 
 #Create and deploy a Node.js application to a Windows Azure Website
 
@@ -20,14 +20,9 @@ A screenshot of the completed application is below:
 
 ![A browser displaying the 'Hello World' message.][helloworld-completed]
 
-The instructions in this article have been tested on the following platforms:
-
-* Windows 7
-* Mac OS X 10.7.3
-
 **Note**: This tutorial makes reference to the **helloworld** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/helloworld** or **c:\node\helloworld**
 
-**Note**: Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **cmd.exe**, **GitBash** (Windows,) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
+**Note**: Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **Windows PowerShell**, **cmd.exe**, **GitBash** (Windows,) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
 
 ##Prerequisites
 
@@ -45,6 +40,8 @@ If a pre-compiled version is not listed for your operating system, you may be ab
 
 
 ##Build and test your application locally
+
+In this section, you will create a **server.js** file containing the 'hello world' example from [nodejs.org]. This example has been modified from the original example by adding process.env.port as the port to listen on when running in a Windows Azure Web Site.
 
 1. Using a text editor, create a new file named **server.js** in the **helloworld** directory. If the **helloworld** directory does not exist, create it.
 
@@ -89,19 +86,17 @@ Follow these steps to create a Windows Azure Website, and then enable Git publis
 
 	![The dashboard, with Set up Git Publishing highlighted.][portal-website-dashboard-setup-git]
 
-7. To enable Git publishing, you must provide a user name and password. Make a note of the user name and password, as they will be used for Git publishing to all Windows Azure Websites you create.
+7. To enable Git publishing, you must provide a user name and password. If you have previously enabled publishing for a Windows Azure Website, you will not be prompted for the user name or password. Instead, a Git repository will be created using the user name and password you previously specified. Make a note of the user name and password, as they will be used for Git publishing to all Windows Azure Websites you create.
 
 	![The dialog prompting for user name and password.][portal-git-username-password]
-
-	**Note**: If you have previously enabled publishing for a Windows Azure Website, you will not be prompted for the user name or password. Instead, a Git repository will be created using the user name and password you previously specified.
 
 8. Once the Git repository is ready, click **Push my local files to Windows Azure** for instructions on the Git commands to use in order to setup a local repository and then push the files to Windows Azure.
 
 	![Git deployment instructions returned after creating a repository for the website.][portal-git-instructions]
 
-##Publish your application
+	**Note**: Save the instructions returned by the **Push my local files to Windows Azure** link, as they will be used in the next section.
 
-**Note**: The steps below are based on the instructions returned at the end of the **Create a Windows Azure Website and Set up Git Publishing** section. For more information on using Git to publish to Windows Azure, see [Publishing with Git].
+##Publish your application
 
 1. From the command-line, change directories to the **helloworld** directory and enter the following commands to initialize a local Git repository. If you have already initialized a local repository for this application, skip this step.
 
@@ -161,31 +156,32 @@ The following steps show you how to stop and delete your application.
 
 ##Next steps
 
-While the steps in this article use the Windows Azure Portal to create, stop, and delete a website, you can also use the [Cross-Platform Tools for Windows Azure] to perform the these and other operations.
+While the steps in this article use the Windows Azure Portal to create, stop, and delete a website, you can also use the [Windows Azure Command-Line Tools for Mac and Linux] to perform the these and other operations.
 
 ##Additional Resources
 
-* [PowerShell for Windows Azure]
+* [Windows Azure PowerShell]
 
-* [Cross-Platform Tools for Windows Azure]
+* [Windows Azure Command-Line Tools for Mac and Linux]
 
-[PowerShell for Windows Azure]: http://windowsazure.com
+[Windows Azure PowerShell]: http://windowsazure.com
 [node]: http://nodejs.org/
+[nodejs.org]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [Windows Azure]: http://windowsazure.com
-[Windows Azure Portal]: http://windowsazure.com
+[Windows Azure Portal]: http://manage.windowsazure.com
 [for free]: http://windowsazure.com
 [git-scm.com download page]: http://git-scm.com/download
 [nodejs.org download page]: http://nodejs.org/#download
 [package management system]: http://en.wikipedia.org/wiki/List_of_software_package_management_systems
-[Cross-Platform Tools for Windows Azure]: http://windowsazure.com
-[Publishing with Git]: http://windowsazure.com
+[Windows Azure Command-Line Tools for Mac and Linux]: http://windowsazure.com
+[Publishing with Git]: ../CommonTasks/publishing-with-git
 
-[helloworld-completed]: ../Media/helloworldazure.png
+[helloworld-completed]: ../Media/helloazure.png
 [helloworld-localhost]: ../Media/helloworldlocal.png
 [portal-new-website]: ../../Shared/Media/plus-new.png
-[portal-quick-create]: ../../Shared/Media/quick-create-website.png
-[portal-website-list]: ../Media/list-olf-websites.png
+[portal-quick-create]: ../../Shared/Media/create-quick-website.png
+[portal-website-list]: ../Media/list-of-websites.png
 [portal-website-dashboard-setup-git]: ../../Shared/Media/setup-git-publishing.png
 [portal-git-username-password]: ../../Shared/Media/git-deployment-credentials.png
 [portal-git-instructions]: ../../Shared/Media/git-steps.png

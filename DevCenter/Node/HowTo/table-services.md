@@ -1,9 +1,9 @@
 <properties umbraconavihide="0" pagetitle="Table Services - How To - Node.js - Develop" metakeywords="Azure nosql Node.js, Azure large structured data store Node.js, Azure table Node.js, Azure table storage Node.js" metadescription="Learn how to use the Windows Azure table storage service to create and delete tables and insert and query entities in a table from your Node.js application." linkid="dev-nodejs-how-to-table-services" urldisplayname="Table Service" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
-# How to Use the Table Storage Service from Node.js
+# How to Use the Table Service from Node.js
 
 This guide shows you how to perform common scenarios using the Windows
-Azure Table storage service. The samples are written written using the
+Azure Table service. The samples are written written using the
 Node.js API. The scenarios covered include **creating and deleting a
 table, inserting and querying entities in a table**. For more
 information on tables, see the [Next Steps][] section.
@@ -29,7 +29,7 @@ information on tables, see the [Next Steps][] section.
 
 ## <a name="what-is"> </a>What is the Table Service?
 
-The Windows Azure Table storage service stores large amounts of
+The Windows Azure Table service stores large amounts of
 structured data. The service accepts authenticated calls from inside and
 outside the Windows Azure cloud. Windows Azure tables are ideal for
 storing structured, non-relational data. Common uses of Table services
