@@ -63,10 +63,8 @@
 		CREATE DATABASE djangoazure;
 		GRANT ALL ON djangoazure.* TO 'testazureuser'@'%';
 		GRANT ALL ON world.* TO 'testazureuser'@'%';
-
 		USE world;
 		SELECT name from country LIMIT 1;
-
 
 You should now see this response: 
 
@@ -95,7 +93,6 @@ You should end up with this:
     </li>
     <li>
       <p>Open <strong><em>C:\django\helloworld\hello_dj\hello_dj\settings.py</em></strong> in your favorite text editor.  Modify the <b><i>DATABASES</i></b> global dictionary to read: </p>
-
 <pre>	
 		DATABASES = {
 		    'default': {
@@ -256,13 +253,13 @@ The following steps describe how to stop and delete your application.
 1.  In the Windows PowerShell window, call the **Stop-AzureService**
     command to stop the service deployment created in the previous section:
 
-        PS C:\django\helloworld> Stop-AzureService
+		PS C:\django\helloworld> Stop-AzureService
 
     Stopping the service may take several minutes. When the service is stopped, you will receive a message indicating that it has stopped.
 
 2.  To delete the service, call the **Remove-AzureService** command:
 
-        PS C:\django\helloworld> Remove-AzureService
+    	PS C:\django\helloworld> Remove-AzureService
               
 
 3.  When prompted, enter **Y** to delete the service.

@@ -27,7 +27,7 @@ A screenshot of the completed application will be similar as below (the added ta
 
 ## <a id="setup"> </a>Setting Up the Development Environment
 
-To set up your Python and Django environments, please see the [Installation Guide][] for more information.
+please see the [Installation Guide][] for information on how to set up your Python, Django and Azure environments.
 
 
 *Note for Windows*: if you used the Windows WebPI installer, you already have Django and the Client Libs installed.
@@ -59,39 +59,39 @@ Here are the steps for creating the app:
 -   Add a new Django template file **mytasks.html** to project template folder and add following code to it:
  
 <pre>
-	&lt;html&gt;<br>
-	&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;<br>
-	&lt;body&gt;<br>
-	&lt;h2&gt;My Tasks&lt;/h2&gt; &lt;br&gt;<br>
+	&lt;html&gt;
+	&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;
+	&lt;body&gt;
+	&lt;h2&gt;My Tasks&lt;/h2&gt; &lt;br&gt;
 	&lt;table border="1"&gt; 
-	&lt;tr&gt;<br>
-	&lt;td&gt;Name&lt;/td&gt;&lt;td&gt;Category&lt;/td&gt;&lt;td&gt;Date&lt;/td&gt;&lt;td&gt;Complete&lt;/td&gt;&lt;td&gt;Action&lt;/td&gt;&lt;/tr&gt;<br>
-	{% for entity in entities %}<br>
-	&lt;form action=&quot;update_task&quot; method=&quot;GET&quot;&gt;<br>
-	&lt;tr&gt;&lt;td&gt;{{entity.name}} &lt;input type=&quot;hidden&quot; name='name' value=&quot;{{entity.name}}&quot;&gt;&lt;/td&gt;<br>
-	&lt;td&gt;{{entity.category}} &lt;input type=&quot;hidden&quot; name='category' value=&quot;{{entity.category}}&quot;&gt;&lt;/td&gt;<br>
-	&lt;td&gt;{{entity.date}} &lt;input type=&quot;hidden&quot; name='date' value=&quot;{{entity.date}}&quot;&gt;&lt;/td&gt;<br>
-	&lt;td&gt;{{entity.complete}} &lt;input type=&quot;hidden&quot; name='complete' value=&quot;{{entity.complete}}&quot;&gt;&lt;/td&gt;<br>
-	{% if entity.complete == &quot;Yes&quot; %}<br>
-	&lt;td&gt;&lt;input type=&quot;submit&quot; value=&quot;Complete&quot;&gt;&lt;/td&gt;<br>
-	{% else %}<br>
-	&lt;td&gt;&lt;input type=&quot;submit&quot; value=&quot;Complete&quot;&gt;&lt;/td&gt;<br>
-	{% endif %}<br>
-	&lt;/tr&gt;<br>
-	&lt;/form&gt;<br>
-	{% endfor %}<br>
-	&lt;/table&gt;<br>
-	&lt;br&gt;<br>
-	&lt;hr&gt;<br>
-	&lt;table border=&quot;1&quot;&gt;<br>
-	&lt;form action=&quot;add_task&quot; method=&quot;GET&quot;&gt;<br>
-	&lt;tr&gt;&lt;td&gt;Name:&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;name&quot;&gt;&lt;/input&gt;&lt;/td&gt;&lt;/tr&gt;<br>
-	&lt;tr&gt;&lt;td&gt;Category:&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;category&quot;&gt;&lt;/input&gt;&lt;/td&gt;&lt;/tr&gt;<br>
-	&lt;tr&gt;&lt;td&gt;Item Date:&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;date&quot;&gt;&lt;/input&gt;&lt;/td&gt;&lt;/tr&gt;<br>
+	&lt;tr&gt;
+	&lt;td&gt;Name&lt;/td&gt;&lt;td&gt;Category&lt;/td&gt;&lt;td&gt;Date&lt;/td&gt;&lt;td&gt;Complete&lt;/td&gt;&lt;td&gt;Action&lt;/td&gt;&lt;/tr&gt;
+	{% for entity in entities %}
+	&lt;form action=&quot;update_task&quot; method=&quot;GET&quot;&gt;
+	&lt;tr&gt;&lt;td&gt;{{entity.name}} &lt;input type=&quot;hidden&quot; name='name' value=&quot;{{entity.name}}&quot;&gt;&lt;/td&gt;
+	&lt;td&gt;{{entity.category}} &lt;input type=&quot;hidden&quot; name='category' value=&quot;{{entity.category}}&quot;&gt;&lt;/td&gt;
+	&lt;td&gt;{{entity.date}} &lt;input type=&quot;hidden&quot; name='date' value=&quot;{{entity.date}}&quot;&gt;&lt;/td&gt;
+	&lt;td&gt;{{entity.complete}} &lt;input type=&quot;hidden&quot; name='complete' value=&quot;{{entity.complete}}&quot;&gt;&lt;/td&gt;
+	{% if entity.complete == &quot;Yes&quot; %}
+	&lt;td&gt;&lt;input type=&quot;submit&quot; value=&quot;Complete&quot;&gt;&lt;/td&gt;
+	{% else %}
+	&lt;td&gt;&lt;input type=&quot;submit&quot; value=&quot;Complete&quot;&gt;&lt;/td&gt;
+	{% endif %}
+	&lt;/tr&gt;
+	&lt;/form&gt;
+	{% endfor %}
+	&lt;/table&gt;
+	&lt;br&gt;
+	&lt;hr&gt;
+	&lt;table border=&quot;1&quot;&gt;
+	&lt;form action=&quot;add_task&quot; method=&quot;GET&quot;&gt;
+	&lt;tr&gt;&lt;td&gt;Name:&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;name&quot;&gt;&lt;/input&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;Category:&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;category&quot;&gt;&lt;/input&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;Item Date:&lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;date&quot;&gt;&lt;/input&gt;&lt;/td&gt;&lt;/tr&gt;
 	&lt;tr&gt;&lt;td&gt;&lt;input type=&quot;submit&quot; value=&quot;add task&quot;&gt;&lt;/input&gt;&lt;/td&gt;&lt;/tr&gt;
-	&lt;/form&gt;<br>
-	&lt;/table&gt;<br>
-	&lt;/body&gt;<br>
+	&lt;/form&gt;
+	&lt;/table&gt;
+	&lt;/body&gt;
 	&lt;/html&gt;    
 
 </pre> 

@@ -153,7 +153,7 @@ subscription's virtual queue. The following example creates a
 subscription named 'AllMessages' and uses the default **MatchAll**
 filter.
 
-    bus_service.create_subscription('mytopic', 'AllMessages')
+	bus_service.create_subscription('mytopic', 'AllMessages')
 
 ### Create Subscriptions with Filters
 
@@ -180,7 +180,7 @@ The example below creates a subscription named 'HighMessages' with a
 **SqlFilter** that only selects messages that have a custom
 **messagenumber** property greater than 3:
 
-    bus_service.create_subscription('mytopic', 'HighMessages')
+	bus_service.create_subscription('mytopic', 'HighMessages')
 
 	rule = Rule()
 	rule.filter_type = 'SqlFilter'
@@ -193,7 +193,7 @@ Similarly, the following example creates a subscription named
 'LowMessages' with a **SqlFilter** that only selects messages that have
 a **messagenumber** property less than or equal to 3:
 
-    bus_service.create_subscription('mytopic', 'LowMessages')
+	bus_service.create_subscription('mytopic', 'LowMessages')
 
 	rule = Rule()
 	rule.filter_type = 'SqlFilter'
@@ -309,7 +309,7 @@ with the topic. Subscriptions can also be deleted independently. The
 following code demonstrates how to delete a subscription named
 'HighMessages' from the 'mytopic' topic:
 
-    bus_service.delete_subscription('mytopic', 'HighMessages')
+	bus_service.delete_subscription('mytopic', 'HighMessages')
 
 ## Next Steps
 

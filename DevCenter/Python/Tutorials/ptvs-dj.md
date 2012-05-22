@@ -117,8 +117,6 @@ When running in the compute emulator you can rapidly iterate on your application
 
 Now you're ready to deploy the project to Windows Azure.  The first step is to create the package to be deployed.  This is achieved by right clicking the Azure deployment project in Solution Explorer and **selecting Package**:
 
-**TODO: We need to explain the other way to deploy by referencing a Python runtime**
-
 ![Package App Menu](../Media/ptvs-dj-PackageApp.png)
 
 After selecting Package you will get some options which can be configured:
