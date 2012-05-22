@@ -1,9 +1,9 @@
-﻿<properties umbraconavihide="0" pagetitle="Web App with Storage" metakeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" metadescription="A tutorial that builds on the Web App with Express tutorial by adding Windows Azure Storage services and the Azure module." linkid="dev-nodejs-basic-web-app-with-storage" urldisplayname="Web App with Storage" headerexpose footerexpose disquscomments="1"></properties>
+<properties umbraconavihide="0" pagetitle="Web App with Storage" metakeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" metadescription="A tutorial that builds on the Web App with Express tutorial by adding Windows Azure Storage services and the Azure module." linkid="dev-nodejs-basic-web-app-with-storage" urldisplayname="Web App with Storage" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
 # Node.js Web Application using Storage
 
 In this tutorial, you will extend the application created in the
-[Node.js Web Application using Express][] tutorial by using the Windows
+[Node.js Web Application using Express] tutorial by using the Windows
 Azure Client Libraries for Node.js to work with storage services. You
 will extend your application to create a web-based task-list application
 that you can deploy to Windows Azure. The task list allows a user to
@@ -15,11 +15,10 @@ highly available. Windows Azure Storage includes several data structures
 where you can store and access data, and you can leverage the storage
 services from the APIs included in the Windows Azure SDK for Node.js or
 via REST APIs. For more information, see [Storing and Accessing Data in
-Windows Azure][].
+Windows Azure].
 
 This tutorial assumes that you have completed the [Node.js Web
-Application][] and [Node.js with Express][Node.js Web Application using
-Express] tutorials.
+Application] and [Node.js with Express][Node.js Web Application using Express] tutorials.
 
 You will learn:
 
@@ -106,7 +105,7 @@ these modules in your application:
     shortly.
 
     ![The server.js code with line 'var app = modules.exports =
-    express.createServer();' highlighted][]
+    express.createServer();' highlighted][server.js-code]
 
         var uuid = require('node-uuid');
         var Home = require('./home');
@@ -150,7 +149,7 @@ these modules in your application:
 
     ![The server.js file with the lines containing //routes app.get('/',
     routes.index); app.get('/home',function(req,res){ res.render('home',
-    { title: 'Home'});}); selected.][]
+    { title: 'Home'});}); selected.][server.js-routes]
 
         var home = new Home(client);
         app.get('/', home.showItems.bind(home));
@@ -276,8 +275,7 @@ items:
     Your browser displays the following page, showing the task item that
     was retrieved from Windows Azure Storage:
 
-    ![Internet explorer displaying a 'My Tasklist' page with one item in
-    a table.][]
+    ![Internet explorer displaying a 'My Tasklist' page with one item in a table.][]
 
 ## Adding New Task Functionality
 
@@ -289,8 +287,7 @@ items.
 In the server.js file, add the following line after the last route entry
 for**/home**, and then save the file.
 
-![The server.js file with the line containing app.get('/home',
-home.showItems.bind(home)); highlighted.][]
+![The server.js file with the line containing app.get('/home', home.showItems.bind(home)); highlighted.][]
 
         app.post('/home/newitem', home.newItem.bind(home));
 
@@ -389,8 +386,7 @@ remove any of the spacing below.
 
     The browser opens and displays the following page:
 
-    ![A web paged titled My Task List with a table containing tasks and
-    fields to add a new task.][]image
+    ![A web paged titled My Task List with a table containing tasks and fields to add a new task.][]
 
 2.  Enter for **Item Name:** "New task functionality", **Item
     Category:** "Site work"?, and for **Item Date:** "12/02/2011". Then
@@ -399,8 +395,7 @@ remove any of the spacing below.
     The item is added to your tasks table in Windows Azure Storage and
     displayed as shown in the screenshot below.
 
-![A web page titled My Task List with a table containing tasks, after
-you have added a task to the list.][]image
+![A web page titled My Task List with a table containing tasks, after you have added a task to the list.][]
 
 ## Re-Publishing the Application to Windows Azure
 
@@ -421,8 +416,7 @@ updating the deployment to the existing hosted service.
     opens and displays your application running in Windows Azure when
     publishing is completed.
 
-    ![A browser window displaying the My Task List page. The URL
-    indicates the page is now being hosted on Windows Azure.][]
+    ![A browser window displaying the My Task List page. The URL indicates the page is now being hosted on Windows Azure.][]
 
 ## Stopping and Deleting Your Application
 
@@ -461,17 +455,17 @@ The following steps show you how to stop and delete your application.
   [Node.js Web Application using Express]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
-  [The completed web page in internet explorer]: ../../../DevCenter/Node/Media/getting-started-1.png
-  [The web.cloud.config file contents]: ../../../DevCenter/Node/Media/node37.png
-  [The server.js code with line 'var app = modules.exports = express.createServer();' highlighted]: ../../../DevCenter/Node/Media/node38.png
-  [The server.js file with the lines containing //routes app.get('/', routes.index); app.get('/home',function(req,res){ res.render('home', { title: 'Home'});}); selected.]: ../../../DevCenter/Node/Media/node39.png
-  [Internet explorer displaying a 'My Tasklist' page with one item in a table.]: ../../../DevCenter/Node/Media/node40.png
-  [The server.js file with the line containing app.get('/home', home.showItems.bind(home)); highlighted.]: ../../../DevCenter/Node/Media/node41.png
-  [The home.js file with the line module.exports = Home highlighted.]: ../../../DevCenter/Node/Media/node42.png
-  [The showresults: function is highlighted]: ../../../DevCenter/Node/Media/node43.png
-  [A web paged titled My Task List with a table containing tasks and fields to add a new task.]: ../../../DevCenter/Node/Media/node44.png
-  [A web page titled My Task List with a table containing tasks, after you have added a task to the list.]: ../../../DevCenter/Node/Media/node45.png
-  [the status messages displayed during deployment.]: ../../../DevCenter/Node/Media/node46.png
-  [A browser window displaying the My Task List page. The URL indicates the page is now being hosted on Windows Azure.]: ../../../DevCenter/Node/Media/node47.png
-  [Status messages indicating the service has stopped.]: ../../../DevCenter/Node/Media/node48.png
-  [Status messages indicating the service has been deleted.]: ../../../DevCenter/Node/Media/node49.png
+  [The completed web page in internet explorer]: ../Media/getting-started-1.png
+  [The web.cloud.config file contents]: ../Media/node37.png
+  [server.js-code]: ../Media/node38.png
+  [server.js-routes]: ../Media/node39.png
+  [Internet explorer displaying a 'My Tasklist' page with one item in a table.]: ../Media/node40.png
+  [The server.js file with the line containing app.get('/home', home.showItems.bind(home)); highlighted.]: ../Media/node41.png
+  [The home.js file with the line module.exports = Home highlighted.]: ../Media/node42.png
+  [The showresults: function is highlighted]: ../Media/node43.png
+  [A web paged titled My Task List with a table containing tasks and fields to add a new task.]: ../Media/node44.png
+  [A web page titled My Task List with a table containing tasks, after you have added a task to the list.]: ../Media/node45.png
+  [the status messages displayed during deployment.]: ../Media/node46.png
+  [A browser window displaying the My Task List page. The URL indicates the page is now being hosted on Windows Azure.]: ../Media/node47.png
+  [Status messages indicating the service has stopped.]: ../Media/node48.png
+  [Status messages indicating the service has been deleted.]: ../Media/node49.png

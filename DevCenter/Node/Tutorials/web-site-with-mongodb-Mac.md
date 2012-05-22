@@ -19,15 +19,9 @@ The project files for this tutorial will be stored in a directory named **taskli
 
 ![A web page displaying an empty tasklist][node-mongo-finished]
 
-The instructions in this article have been tested on the following platforms:
-
-* Windows 7
-
-* Mac OS X 10.7.3
-
 **Note**: This tutorial makes reference to the **tasklist** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/tasklist** or **c:\node\tasklist**
 
-**Note**: Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **cmd.exe** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
+**Note**: Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **Windows PowerShell** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
 
 ##Prerequisites
 
@@ -401,11 +395,9 @@ While the steps in this article describe using MongoDB to store information, you
 
 ##Additional resources
 
-* [Cross-Platform Tools for Windows Azure]
-
-* [Create and deploy a Node.js application to Windows Azure Web Sites]
-
-* [Publishing to Windows Azure Web Sites with Git]
+[Windows Azure command-line tool for Mac and Linux]    
+[Create and deploy a Node.js application to Windows Azure Web Sites]    
+[Publishing to Windows Azure Web Sites with Git]    
 
 
 [node]: http://nodejs.org
