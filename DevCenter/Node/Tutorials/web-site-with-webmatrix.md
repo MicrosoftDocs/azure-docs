@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-nodejs-website-webmatrix" urldisplayname="Node.js Website with WebMatrix" headerexpose="" pagetitle="Node.js Application using a WebMatrix" metakeywords="Azure Node.js tutorial WebMatrix, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates creating and deploying a Node.js application using WebMatrix" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-website-webmatrix" urldisplayname="Node.js Website with WebMatrix" headerexpose="" pagetitle="Node.js Application using a WebMatrix" metakeywords="Azure Node.js tutorial WebMatrix, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates creating and deploying a Node.js application using WebMatrix" umbraconavihide="0" disquscomments="1"></properties>
 #Create and deploy a Node.js Windows Azure Website using WebMatrix
 
 This tutorial shows you how to use WebMatrix to develop and deploy a node application to a Windows Azure Website. WebMatrix is a free web development tool from Microsoft that includes everything you need for website development. WebMatrix supports node and includes code completion for node development.
@@ -103,8 +103,8 @@ You can easily modify and republish your application. Here, you will make a simp
 
 * [Publishing a Windows Azure Website using Git]
 
-[Windows Azure Portal]: http://windowsazure.com
-[Publishing a Windows Azure Website using Git]: http://windowsazure.com
+[Windows Azure Portal]: http://manage.windowsazure.com
+[Publishing a Windows Azure Website using Git]: ../CommonTasks/publishing-with-git
 
 [webmatrix-node-completed]: ../Media/webmatrix-node-complete.png
 [install-webmatrix]: ../../Shared/Media/install_webmatrix_from_site_dashboard.jpg

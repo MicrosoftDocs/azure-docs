@@ -10,9 +10,9 @@ see the [Next Steps][] section.
 
 ## Table of Contents
 
-[What is the Blob Service?][]   
- [Concepts][]   
- [Create a Windows Azure Storage Account][]   
+ [What is the Blob Service?][]    
+ [Concepts][]    
+ [Create a Windows Azure Storage Account]   
  [Create a Node.js Application][]   
  [Configure your Application to Access Storage][]   
  [Setup a Windows Azure Storage Connection String][]   
@@ -426,12 +426,11 @@ Finally, to delete a blob, call **deleteBlob**.
 Now that you’ve learned the basics of blob storage, follow these links
 to learn how to do more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Windows
-    Azure][]
+-   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][]
 -   Visit the [Windows Azure Storage Team Blog][]
 
   [Next Steps]: #next-steps
-  [What is Blob Storage?]: #what-is
+  [What is the Blob Service?]: #what-is
   [Concepts]: #concepts
   [Create a Windows Azure Storage Account]: #create-account
   [Create a Node.js Application]: #create-app

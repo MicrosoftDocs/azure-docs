@@ -524,8 +524,8 @@ While the steps in this article describe using the Table Service to store inform
 [Git remote]: http://gitref.org/remotes/
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [Cross-Platform Tools for Windows Azure]: http://windowsazure.com
-[Create and deploy a Node.js application to Windows Azure Web Sites]: http://windowsazure.com
-[Publishing to Windows Azure Web Sites with Git]: http://windowsazure.com
+[Create and deploy a Node.js application to Windows Azure Web Sites]: ./web-site-with-mongodb-Mac
+[Publishing to Windows Azure Web Sites with Git]: ../CommonTasks/publishing-with-git
 [azure]: https://github.com/WindowsAzure/azure-sdk-for-node
 [node-uuid]: https://github.com/broofa/node-uuid
 [async]: https://github.com/caolan/async
@@ -533,7 +533,7 @@ While the steps in this article describe using the Table Service to store inform
 
 [node-table-finished]: ../media/table_todo_empty.png
 [node-table-list-items]: ../media/table_todo_list.png
-[download-publishing-settings]: ../../Shared/Media/downloadpublish.jpg
+[download-publishing-settings]: ../../Shared/Media/azure-account-download.png
 [portal-new]: ../../Shared/Media/plus-new.png
 [portal-storage-account]: ../../Shared/Media/new-storage.png
 [portal-quick-create-storage]: ../../Shared/Media/quick-storage.png

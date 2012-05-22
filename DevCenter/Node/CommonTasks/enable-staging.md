@@ -84,7 +84,7 @@ Windows Azure]
   [Windows Azure Management Portal]: http://manage.windowsazure.com
 [cloud-service]: ../../Shared/Media/staging-cloud-service-running.png
 [cloud-service-dashboard]: ../../Shared/Media/cloud-service-dashboard-staging.png
-  [cloud-service-staging-url]: ../../Shared/Media/cloud-service-staging-url
+  [cloud-service-staging-url]: ../../Shared/Media/cloud-service-staging-url.png
   [vip-swap-dialog]: ../../Shared/Media/vip-swap-dialog.png
   [How to Deploy a Service Upgrade to Production by Swapping VIPs in
   Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx
