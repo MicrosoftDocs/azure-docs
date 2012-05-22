@@ -22,7 +22,9 @@ A screenshot of the completed application is below:
 
 ## <a id="setup"> </a>Setting Up the Development Environment
 
-TODO: import this shared section
+To set up your Python and Django environments, please see the [Installation Guide][] for more information.
+
+*Note for Windows*: if you used the Windows WebPI installer, you already have Django and the Client Libs installed.
 
 ## Creating a New Django Application
 
@@ -336,3 +338,5 @@ deleting a storage account, see [How to Delete a Storage Account from a Windows 
 [The status of the Stop-AzureService command]: ../Media/django-helloworld-ps-stop.png
 [The status of the Remove-AzureService command]: ../Media/django-helloworld-ps-remove.png
 [How to Delete a Storage Account from a Windows Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx
+
+[Installation Guide]: /develop/python/commontasks/how-to-install-python

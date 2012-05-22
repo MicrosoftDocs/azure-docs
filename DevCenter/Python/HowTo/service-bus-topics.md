@@ -187,7 +187,7 @@ The example below creates a subscription named 'HighMessages' with a
 	rule.filter_expression = 'messagenumber > 3'
 
 	bus_service.create_rule('mytopic', 'HighMessages', 'HighMessageFilter', rule)
-	bus_service.delete_rule('mytopic', 'HighMessages', servicebus.DEFAULT_RULE_NAME)
+	bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
 
 Similarly, the following example creates a subscription named
 'LowMessages' with a **SqlFilter** that only selects messages that have
@@ -200,7 +200,7 @@ a **messagenumber** property less than or equal to 3:
 	rule.filter_expression = 'messagenumber <= 3'
 
 	bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
-	bus_service.delete_rule('mytopic', 'LowMessages', servicebus.DEFAULT_RULE_NAME)
+	bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 
 When a message is now sent to 'mytopic', it will always be delivered to
 receivers subscribed to the 'AllMessages' topic subscription, and

@@ -34,7 +34,7 @@
   
   <h2>Setting up your development environment</h2>
   <p>Before you can begin developing your Windows Azure application, you need to get the tools and set up your development environment. For details about getting and installing the Windows Azure SDK for Python, see <a href="http://www.windowsazure.com/en-us/develop/python/tutorials/getting-started/#setup">Setup the Development Environment</a> in the Python "Hello World" Application tutorial.</p>
-  <p><b>NOTE</b><br>This tutorial requires Python 2.7 and Django 1.4. These versions are included in the current Windows Azure SDK for Python; however if you have installed a previous version you will need to <a href="http://www.windowsazure.com/en-us/develop/python/tutorials/getting-started/#setup">upgrade to the latest version</a>.</p>
+  <p><b>NOTE: </b>This tutorial requires Python 2.7 and Django 1.4. These versions are included in the current Windows Azure SDK for Python; however if you have installed a previous version you will need to <a href="http://www.windowsazure.com/en-us/develop/python/tutorials/getting-started/#setup">upgrade to the latest version</a>.</p>
 
 <h2>Install the MySQL Python package</h2>
 <p>You must download and install the MySQL Python package, in addition to installing the Windows Azure SDK for Python. You can install it directly <a href="http://www.codegood.com/download/10/">from this link</a>. Once completed, run the following command to verify your installation:</p>
@@ -44,39 +44,48 @@
 ![][1]
 
 ## Setting up a virtual machine to host MySQL
-1.  Follow the instructions given <a style="color:red;" href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433121.aspx">here</a> to create and configure a Windows Server 2008 R2 VM through the Preview Portal.
+- Follow the instructions given <a style="color:red;" href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433121.aspx">here</a> to create and configure a Windows Server 2008 R2 VM through the Preview Portal.
 
-2.  <div style="color:red;">#TODO: "Open up TCP port for MySQL"<br>Status: to be written by dfugate; I'm sure we need to do something special to open up port 3771 to outside traffic in Windows Azure before this tutorial will work. Not quite sure how to make this happen yet...</div><br>
+- **TODO**: "Open up TCP port for MySQL". Status: to be written by dfugate; I'm sure we need to do something special to open up port 3771 to outside traffic in Windows Azure before this tutorial will work. Not quite sure how to make this happen yet...
 
-3.  Install the latest version of <a href="http://dev.mysql.com/downloads/">MySQL</a> for Windows on the virtual machine. Some useful hints are:
+- Install the latest version of <a href="http://dev.mysql.com/downloads/">MySQL</a> for Windows on the virtual machine. Some useful hints are:
     <ul>
       <li>Do a <i>Full</i> installation.</li>
       <li>Set the MySQL configuration as <i>Dedicated</i>.</li>
       <li>Enable TCP/IP Networking on port <i>3306</i> (the default).</li>
-    </ul><br/>
+    </ul>
 
-4. After MySQL has finished installing, click the Windows <i>Start</i> menu and run the freshly installed <i>MySQL 5.5 Command Line Client</i>.  Next, enter the following commands:<pre class="prettyprint">
-	CREATE USER 'testazureuser'@'%' IDENTIFIED BY 'testazure';
-	CREATE DATABASE djangoazure;
-	GRANT ALL ON djangoazure.* TO 'testazureuser'@'%';
-	GRANT ALL ON world.* TO 'testazureuser'@'%';
-	
-	USE world;
-	SELECT name from country LIMIT 1;
-</pre><br/>
-You should now see this response:<br>
+
+- After MySQL has finished installing, click the Windows <i>Start</i> menu and run the freshly installed <i>MySQL 5.5 Command Line Client</i>.  Next, enter the following commands:
+
+
+		CREATE USER 'testazureuser'@'%' IDENTIFIED BY 'testazure';
+		CREATE DATABASE djangoazure;
+		GRANT ALL ON djangoazure.* TO 'testazureuser'@'%';
+		GRANT ALL ON world.* TO 'testazureuser'@'%';
+
+		USE world;
+		SELECT name from country LIMIT 1;
+
+
+You should now see this response: 
+
+
 ![][2]
 
-5.  <p>Give MySQL access through the Windows Firewall
+- Give MySQL access through the Windows Firewall
+
 	<ol>
 		<li>Click the Windows <i>Start</i> button and then the <i>Control Panel</i>.</li>
         <li>Click <i>Check Firewall Status</i>.</li>
         <li>Click <i>Allow a program or feature through Windows Firewall</i>.</li>
         <li>Scroll down to <i>MySQL55</i> in the <i>Allowed programs and features</i> list and ensure that <b>both</b> <i>Home/Work (Private)</i> and <i>Public</i> are checked.</li>
-
 	</ol>
-<br/>You should end up with this:
-  </p>
+
+You should end up with this:
+ 
+
+
 ![][3]
 
 ## Extend the Django Hello World application
@@ -85,29 +94,39 @@ You should now see this response:<br>
       <p>Follow the instructions given in the <a href="TODO">Django Hello World</a> tutorial to create a trivial "Hello World" web application in Django.</p>
     </li>
     <li>
-      <p>Open <strong><em>C:\django\helloworld\helloworld\settings.py</em></strong> in your favorite text editor.  Modify the <b><i>DATABASES</i></b> global dictionary to read:<pre class="prettyprint">
-DATABASES = {
-    'default': {
-        'ENGINE': <b style="color:orange;">'django.db.backends.mysql'</b>,
-        'NAME': <b style="color:orange;">'djangoazure'</b>,               
-        'USER': <b style="color:orange;">'testazureuser'</b>,  
-        'PASSWORD': <b style="color:orange;">'testazure'</b>,
-        'HOST': <b style="color:red;">'127.0.0.1'</b>, 
-        'PORT': <b style="color:orange;">'3306'</b>,
-    }
-}
+      <p>Open <strong><em>C:\django\helloworld\hello_dj\hello_dj\settings.py</em></strong> in your favorite text editor.  Modify the <b><i>DATABASES</i></b> global dictionary to read: </p>
+
+<pre>	
+		DATABASES = {
+		    'default': {
+		        'ENGINE': <b style="color:orange;">'django.db.backends.mysql'</b>
+				'NAME': <b style="color:orange;">'djangoazure'</b>,               
+			    'USER': <b style="color:orange;">'testazureuser'</b>,  
+			    'PASSWORD': <b style="color:orange;">'testazure'</b>,
+			    'HOST': <b style="color:red;">'127.0.0.1'</b>, 
+			    'PORT': <b style="color:orange;">'3306'</b>,
+			    }
+			}
 </pre>
-As you can see, we've just given Django instructions on where to find our MySQL database. <br><br><b>IMPORTANT NOTE</b><br>You <b style="color:red;">must</b> change the <i>HOST</i> key to match your Windows Azure (MySQL) VM's <b>permanent</b> IP address. At this point, <i>HOST</i> should be set to whatever the <i>ipconfig</i> Windows command reports it as being.
-<br><br>After you've modified <i>HOST</i> to match the MySQL VM's IP address, please save this file and close it.</p>
+
+<p>
+
+As you can see, we've just given Django instructions on where to find our MySQL database. 
+</p>
+
+**IMPORTANT NOTE:**You <b style="color:red;">must</b> change the <i>HOST</i> key to match your Windows Azure (MySQL) VM's <b>permanent</b> IP address. At this point, <i>HOST</i> should be set to whatever the <i>ipconfig</i> Windows command reports it as being.
+
+<p>After you've modified <i>HOST</i> to match the MySQL VM's IP address, please save this file and close it.</p>
+
     </li>
     <li>
       <p>Now that we've referenced our <i>djangoazure</i> database, let's do something useful with it! To this end, we'll create a model for a trivial <i>counter</i> app.  To instruct Django to create this, run the following commands:<pre class="prettyprint">
-cd C:\django\helloworld
+cd C:\django\helloworld\hello_dj\hello_dj
 %SystemDrive%\Python27\python.exe manage.py startapp counter
 </pre>If Django doesn't report any output from the final command above, it succeeded.</p>
     </li>
     <li>
-      <p>Append the following text to <strong><em>C:\django\helloworld\helloworld\counter\models.py</em></strong>:<pre class="prettyprint">class Counter(models.Model):
+      <p>Append the following text to <strong><em>C:\django\helloworld\hello_dj\hello_dj\counter\models.py</em></strong>:<pre class="prettyprint">class Counter(models.Model):
     count = models.IntegerField()
     def __unicode__(self):
         return u'%s' % (self.count)</pre>All we've done here is defined a subclass of Django's <i>Model</i> class named <i>Counter</i> with a single integer field, <i>count</i>. This trivial counter model will end up recording the number of hits to our Django application.</p>
@@ -115,11 +134,11 @@ cd C:\django\helloworld
     <li>
       <p>Next we make Django aware of <i>Counter</i>'s existence:
 		<ol>
-			<li>Edit <strong><em>C:\django\helloworld\helloworld\settings.py</em></strong> again. Add <i>'counter'</i> to the <i>INSTALLED_APPS</i> tuple.</li>
-			<li>From a command prompt, please run:<pre class="prettyprint">cd C:\django\helloworld
+			<li>Edit <strong><em>C:\django\helloworld\hello_dj\hello_dj\settings.py</em></strong> again. Add <i>'counter'</i> to the <i>INSTALLED_APPS</i> tuple.</li>
+			<li>From a command prompt, please run:<pre class="prettyprint">cd C:\django\hello_dj\hello_dj
 %SystemDrive%\Python27\python manage.py sql counter
 %SystemDrive%\Python27\python manage.py syncdb
-</pre>These commands store the <i>Counter</i> model in the live Django database, and result in output similar to the following:<pre>C:\django\helloworld> %SystemDrive%\Python27\python manage.py sql counter
+</pre>These commands store the <i>Counter</i> model in the live Django database, and result in output similar to the following:<pre>C:\django\helloworld\hello_dj\hello_dj> %SystemDrive%\Python27\python manage.py sql counter
 BEGIN;
 CREATE TABLE `counter_counter` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -128,7 +147,7 @@ CREATE TABLE `counter_counter` (
 ;
 COMMIT;
 
-C:\django\helloworld> %SystemDrive%\Python27\python manage.py syncdb
+C:\django\helloworld\hello_dj\hello_dj> %SystemDrive%\Python27\python manage.py syncdb
 Creating tables ...
 Creating table auth_permission
 Creating table auth_group_permissions
@@ -150,7 +169,7 @@ Installed 0 object(s) from 0 fixture(s)</pre></li>
 </p>
     </li>
     <li>
-      <p>Replace the contents of <strong><em>C:\django\helloworld\helloworld\views.py</em></strong>. The new implementation of the <i>hello</i> function below uses our <i>Counter</i> model in conjunction with a separate sample database, <i>world</i> (distributed with MySQL), to generate a suitable replacement for the "<i>World</i>" string:</p>
+      <p>Replace the contents of <strong><em>C:\django\helloworld\hello_dj\hello_dj\views.py</em></strong>. The new implementation of the <i>hello</i> function below uses our <i>Counter</i> model in conjunction with a separate sample database, <i>world</i> (distributed with MySQL), to generate a suitable replacement for the "<i>World</i>" string:</p>
       <pre class="prettyprint">
 from django.http import HttpResponse
 
@@ -199,13 +218,18 @@ def hello(request):
 
 <h2>Running Your Application Locally</h2> 
   <p>Before running your application in the Windows Azure emulator, let's run it as a normal Django application to ensure everything's working properly:<pre class="prettyprint">
-pushd C:\django\helloworld
+pushd C:\django\helloworld\hello_dj\hello_dj
 %SystemDrive%\Python27\python.exe manage.py runserver
 "%ProgramFiles%\Internet Explorer\iexplore.exe" http://localhost:<b style="color:orange;">8000</b>/hello
 </pre>
-<p>Note, that you might need to change port <b style="color:orange;">8000</b> to another port depending upon how Django configured your application locally.</p>You should see output similar to the following in your web browser:<br>
+
+<p>Note, that you might need to change port <b style="color:orange;">8000</b> to another port depending upon how Django configured your application locally.</p>You should see output similar to the following in your web browser:
+</p>
+
 ![][4] 
+
 <p>Refresh the web browser a few times and you should see the message change from "<i>Hello Aruba</i>" to "<i>Hello <em>&lt;some other country&gt;</em></i>".
+</p>
   
   <h2>Running Your Application Locally in the Emulator</h2> 
 
@@ -213,13 +237,15 @@ pushd C:\django\helloworld
   <p>The output should be essentially the same to what you saw with the locally hosted version:</p>
 ![][5]
 
-  <h2>Deploying the application to Windows Azure</h2>
-  <p>From here, all you need to do is duplicate the steps performed in the <a href="TODO" style="color:red;">Django Hello World</a> tutorial to publish the MySQL derivation to Windows Azure.</p>
-  <p style="color:red;">#TODO: "Recap the steps from the Django Hello World tutorial here!"<br>
+
+##Deploying the application to Windows Azure
+  From here, all you need to do is duplicate the steps performed in the <a href="TODO" style="color:red;">Django Hello World</a> tutorial to publish the MySQL derivation to Windows Azure.
+  <p style="color:red;">TODO: "Recap the steps from the Django Hello World tutorial here!"
 Status: to be written by dfugate; waiting for the original tutorial to be finalized (or chunk'ed)
 </p>
 
-<p style="color:red">TODO - this next section is just a guess at what our PS cmdlet story is going to look like.<br /><br />Also need to throw something in here about shutting down the MySQL VM.</p>
+<p style="color:red">TODO - this next section is just a guess at what our PS cmdlet story is going to look like. Also need to throw something in here about shutting down the MySQL VM.</p>
+
 ## Stop and Delete the Application
 
 Windows Azure bills role instances per hour of server time consumed, and server time is consumed while your application is deployed, even if the instances are not running and are in the stopped state. With your web role plus one instance of the MySQL VM, your application
