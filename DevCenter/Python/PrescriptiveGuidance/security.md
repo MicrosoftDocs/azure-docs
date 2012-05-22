@@ -1,0 +1,2 @@
+<properties linkid="dev-python-best-practices-security" urlDisplayName="Security" headerExpose="" pageTitle="Windows Azure Python Best Practices - Security" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<div chunk="../../../Shared/Chunks/SecurityRX.md" />

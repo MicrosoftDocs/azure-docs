@@ -1,4 +1,4 @@
-<properties umbraconavihide="0" pagetitle="SQL Azure - How To - .NET - Develop" metakeywords="Get started SQL Azure, Getting started SQL Azure, SQL Azure database connection, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" metadescription="Get started with SQL Azure. Learn how to create a SQL Azure database and connect to it using ADO.NET, ODBC, and EntityClient Provider." linkid="dev-net-how-to-sql-azure" urldisplayname="SQL Azure" headerexpose footerexpose disquscomments="1"></properties>
+<properties umbraconavihide="0" pagetitle="SQL Azure - How To - .NET - Develop" metakeywords="Get started SQL Azure, Getting started SQL Azure, SQL Azure database connection, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" metadescription="Get started with SQL Azure. Learn how to create a SQL Azure database and connect to it using ADO.NET, ODBC, and EntityClient Provider." linkid="dev-net-how-to-sql-azure" urldisplayname="SQL Azure" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
 # How to Use SQL Azure
 
