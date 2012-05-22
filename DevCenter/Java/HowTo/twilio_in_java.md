@@ -1,6 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="Twilio Voice and SMS Service" metaKeywords="Azure Twilio Java" 
-metaDescription="This guide demonstrates how to perform common programming tasks with the Twilio API service on Windows Azure." 
-linkid="develop-java-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" headerExpose="" footerExpose="" disqusComments="1" />
+<properties umbracoNaviHide="0" pageTitle="Twilio Voice and SMS Service" metaKeywords="Azure Twilio Java" metaDescription="This guide demonstrates how to perform common programming tasks with the Twilio API service on Windows Azure." linkid="develop-java-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" headerExpose="" footerExpose="" disqusComments="1" />
 
 # How to Use Twilio for Voice and SMS Capabilities in Java
 <div chunk="././Shared/Chunks/how_to_use_twilio_opening_and_common_toc" />
