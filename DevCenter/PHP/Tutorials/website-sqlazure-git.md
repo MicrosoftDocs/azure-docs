@@ -1,11 +1,15 @@
 <properties umbracoNaviHide="0" pageTitle="Create a PHP Website with a SQL Database and Deploy Using Git" metaKeywords="Windows Azure, Windows Azure Websites, SQL Database, PHP, Git, Git deploy" metaDescription="Learn how to create a Windows Azure PHP website with a SQL Database and deploy to it using Git." linkid="dev-php-tutorials-php-site-sql-database-git" urlDisplayName="Create a PHP Website with a SQL Database and Deploy Using Git" headerExpose="" footerExpose="" disqusComments="1" />
 
-#Create a PHP Website with a SQL Database and Deploy Using Git
+#Create a PHP website with a SQL Database and deploy using Git
 
 This tutorial shows you how to create a PHP Windows Azure Website with a Windows Azure SQL Database and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [SQL Server Express][install-SQLExpress], the [Microsoft Drivers for SQL Server for PHP][install-drivers], a web server, and [Git][install-git] installed on your computer. Upon completing this guide, you will have a PHP-SQL Database website running in Windows Azure.
 
-**Note**: You can install and configure PHP, SQL Server Express, the Microsoft Drivers for SQL Server for PHP, and Internet Information Services (IIS) using the [Microsoft Web Platform Installer][wpi].
- 
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>You can install and configure PHP, SQL Server Express, the Microsoft Drivers for SQL Server for PHP, and Internet Information Services (IIS) using the <a href="http://www.microsoft.com/web/downloads/platform.aspx">Microsoft Web Platform Installer</a>.</p> 
+</div>
+
+
 You will learn:
 
 * How to create a Windows Azure Website and a SQL Database using the Preview Management Portal. Because PHP is enabled in Windows Azure Websites by default, nothing special is required to run your PHP code.
@@ -15,7 +19,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 ![Windows Azure PHP Website][running-app]
 
-##Build and Test Your Application Locally
+##Build and test your application locally
 
 The Tasklist application is a simple PHP application that allows you to add, mark complete, and delete items from a task list. For testing purposes, task list items are stored locally in a SQL Server Express database. The application consists of these files:
 
@@ -51,7 +55,7 @@ To run the application locally, follow the steps below. Note that these steps as
 
 After you have run the application locally, you are ready to create a Windows Azure Website and publish your code using Git.
 
-##Create a Windows Azure Website and Set up Git Publishing
+##Create a Windows Azure Website and set up Git publishing
 
 Follow these steps to create a Windows Azure Website and a SQL Database:
 
@@ -103,7 +107,7 @@ Follow these steps to create a Windows Azure Website and a SQL Database:
 
 	![Git instructions][git-instructions]
 
-##Get SQL Database Connection Information
+##Get SQL Database connection information
 
 Before publishing the Tasklist application, the database connection information (in the **taskmodel.php** file) must be updated. To get SQL Database connection information, follow these steps:
 
@@ -125,7 +129,7 @@ Before publishing the Tasklist application, the database connection information 
 		$pwd = "the SQL password you created earlier";
 		$db = "value of Database";
 
-##Publish Your Application
+##Publish your application
 
 To publish your application with Git, follow the steps below:
 
@@ -147,7 +151,7 @@ To publish your application with Git, follow the steps below:
 2. Browse to **http://[your website domain]/createtable.php** to create the SQL Database table for the application.
 3. Browse to **http://[your website domain/index.php** to begin using the application. 
 
-##Publish Changes to Your Application
+##Publish changes to your application
 
 To publish changes to application, follow these steps:
 

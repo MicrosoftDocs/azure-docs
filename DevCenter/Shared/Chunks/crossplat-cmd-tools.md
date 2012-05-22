@@ -1,14 +1,14 @@
-#How to Use the Windows Azure Command-Line Tools for Mac and Linux
+#How to use the Windows Azure Command-Line Tools for Mac and Linux
 
 This guide describes how to use the Windows Azure Command-Line Tools for Mac and Linux to create and manage services in Windows Azure. The scenarios covered include **installing the tools**, **importing your publishing settings**, **creating and managing Windows Azure Websites**, and **creating and managing Windows Azure Virtual Machines**. For comprehensive reference documentation, see [Windows Azure command-line tool for Mac and Linux Documentation][reference-docs]. 
 
-##Table of Contents
+##Table of contents
 * [What are the Windows Azure Command-Line Tools for Mac and Linux](#Overview)
-* [How to Install the Windows Azure Command-Line Tools for Mac and Linux](#Download)
-* [How to Create a Windows Azure Account](#CreateAccount)
-* [How to Download and Import Publish Settings](#Account)
-* [How to Create and Manage a Windows Azure Web Site](#WebSites)
-* [How to Create and Manage a Virtual Machine](#VMs)
+* [How to install the Windows Azure Command-Line Tools for Mac and Linux](#Download)
+* [How to create a Windows Azure account](#CreateAccount)
+* [How to download and import publish settings](#Account)
+* [How to create and manage a Windows Azure Web Site](#WebSites)
+* [How to create and manage a Windows Azure Virtual Machine](#VMs)
 
 
 <h2 id="Overview">What are the Windows Azure Command-Line Tools for Mac and Linux</h2>
@@ -23,7 +23,7 @@ The supported tasks include the following:
 
 For a complete list of supported commands, type `azure -help` at the command line after installing the tools, or see the [reference documentation][reference-docs].
 
-<h2 id="Download">How to Install the Windows Azure Command-Line Tools for Mac and Linux</h2>
+<h2 id="Download">How to install the Windows Azure Command-Line Tools for Mac and Linux</h2>
 
 The following list contains information for installing the command-line tools, depending on your operating system:
 
@@ -32,22 +32,26 @@ The following list contains information for installing the command-line tools, d
 * **Linux** and **Windows**: Install the latest version of [Node.js][nodejs-org] (see [Install Node.js via Package Manager][install-node-linux]), then run the following command:
 
 		npm install azure -g
-	
-	**Note**: On Linux, uou may need to run this command with elevated privileges:
+
+	<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>On Linux, uou may need to run this command with elevated privileges:
 
 		sudo npm install azure -g
 
 	On Windows, you may need to run the command from a prompt with elevated privileges.
+	</p> 
+	</div>
 
 To test the installation, type `azure` at the command prompt. If the installation was successful, you will see a list of all the available `azure` commands.
 
-<h2 id="CreateAccount">How to Create a Windows Azure Account</h2>
+<h2 id="CreateAccount">How to create a Windows Azure account</h2>
 
 To use the Windows Azure Command-Line Tools for Mac and Linux, you will need a Windows Azure account.
 
-	**TODO: Reference content chunk**
+<div chunk="./create-azure-account" />
 
-<h2 id="Account">How to Download and Import Publish Settings</h2>
+<h2 id="Account">How to download and import publish settings</h2>
 
 To get started, you need to first download and import your publish settings. This will allow you to use the tools to create and manage Azure Services. To download your publish settings, use the `account download` command:
 
@@ -59,9 +63,12 @@ Next, import the `.publishsettings` file by running the following command, repla
 
 	azure account import <path to .publishsettings file>
 
-**Note**: You can remove all of the information stored by the `import` command by using the `account clear` command:
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>You can remove all of the information stored by the `import` command by using the `account clear` command:
 
-	azure account clear
+	azure account clear</p> 
+</div>
 
 To see a list of options for `account` commands, use the `-help` option:
 
@@ -71,7 +78,7 @@ After downloading your publish settings, you should delete the `.publishsettings
 
 You are now ready to being creating and managing Windows Azure Websites and Windows Azure Virtual Machines.  
 
-<h2 id="WebSites">How to Create and Manage a Windows Azure Web Site</h2>
+<h2 id="WebSites">How to create and manage a Windows Azure Web Site</h2>
 
 To create a Windows Azure Website, you first need to change directories to your local application directory. This is necessary because the tools will write files and subdirectories that contain information for managing a site to the directory from which the `site create` command is executed. After you have changed directories, run the following command to create a site called `MySite`:
 
@@ -106,17 +113,17 @@ To see a complete list of `site` commands, use the `-help` option:
 
 	azure site -help 
 
-<h2 id="VMs">How to Create and Manage a Virtual Machine</h2>
+<h2 id="VMs">How to create and manage a Windows Azure Virtual Machine</h2>
 
 A Windows Azure Virtual Machine is created from a virtual machine image (a .vhd file) that you provide or that is available in the Image Gallery. To see images that are available, use the `vm image list` command:
 
 	azure vm image list
 
-You can provision and start a VM from one of the available images with the `vm create` command. The following example shows how to create a Linux virtual machine (called `myVM`) from an image in the Image Gallery (CentOS 6.2). The root user name and password for the VM are `myusername` and `Mypassw0rd` respectively. (Note that the `--location` parameter specifies the data center in which the VM is created. If you omit the `--location` parameter, you will be prompted to choose a location.)
+You can provision and start a virtual machine from one of the available images with the `vm create` command. The following example shows how to create a Linux virtual machine (called `myVM`) from an image in the Image Gallery (CentOS 6.2). The root user name and password for the virtual machine are `myusername` and `Mypassw0rd` respectively. (Note that the `--location` parameter specifies the data center in which the virtual machine is created. If you omit the `--location` parameter, you will be prompted to choose a location.)
 
 	azure vm create myVM OpenLogic__OpenLogic-CentOS-62-en-us-30GB myusername Mypassw0rd --location "West US"
 
-If you would rather provision a VM from a custom image, you can create an image from a .vhd file with the `vm image create` command, then use the `vm create` command to provision the VM. The following example shows how to create a Linux image (called `myImage`) from a local .vhd file. (The `--location` parameter specifies the data in which the image is stored.)
+If you would rather provision a virtual machine from a custom image, you can create an image from a .vhd file with the `vm image create` command, then use the `vm create` command to provision the virtual machine. The following example shows how to create a Linux image (called `myImage`) from a local .vhd file. (The `--location` parameter specifies the data in which the image is stored.)
 
 	azure vm image create myImage /path/to/myImage.vhd --os linux --location "West US"
 
@@ -124,19 +131,19 @@ Instead of creating an image from a local .vhd, you can create an image from a .
 
 	azure vm image create myImage --blob-url <url to .vhd in Blob Storage> --os linux
 
-After creating an image, you can provision a VM from the image by using `vm create`. The command below creates a VM called `myVM` from the image created above (`myImage`).
+After creating an image, you can provision a virtual machine from the image by using `vm create`. The command below creates a virtual machine called `myVM` from the image created above (`myImage`).
 
 	azure vm create myVM myImage myusername Mypassw0rd --location "West US"
 
-After you have provisioned a VM, you may want to create endpoints to allow remote access to your VM (for example). The following example uses the `vm create endpoint` command to open external port 22 and local port 22 on `myVM`:
+After you have provisioned a virtual machine, you may want to create endpoints to allow remote access to your virtual machine (for example). The following example uses the `vm create endpoint` command to open external port 22 and local port 22 on `myVM`:
 
 	azure vm endpoint create myVM 22 22
 
-You can get detailed information about a VM (including IP address, DNS name, and endpoint information) with the `vm show` command:
+You can get detailed information about a virtual machine (including IP address, DNS name, and endpoint information) with the `vm show` command:
 
 	azure vm show myVM
 
-To shutdown, start, or restart the VM, use one of the following commands (respectively):
+To shutdown, start, or restart the virtual machine, use one of the following commands (respectively):
 
 	azure vm shutdown myVM
 	azure vm start myVM

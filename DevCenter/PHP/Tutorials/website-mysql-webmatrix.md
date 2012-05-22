@@ -1,6 +1,6 @@
 <properties umbracoNaviHide="0" pageTitle="PHP-MySQL Windows Azure Website using WebMatrix" metaKeywords="Windows Azure deployment, Azure deployment, Windows Azure Websites, MySQL, PHP, WebMatrix" metaDescription="Learn how to create and deploy a PHP-MySQL website to Windows Azure using WebMatrix." linkid="dev-php-tutorials-mysql-website-webmatrix" urlDisplayName="Create and Deploy a PHP-MySQL Windows Azure Website Using WebMatrix" headerExpose="" footerExpose="" disqusComments="1" />
 
-#Create and Deploy a PHP-MySQL Windows Azure Website Using WebMatrix
+#Create and deploy a PHP-MySQL Windows Azure Website using WebMatrix
 
 This tutorial shows you how to use WebMatrix to develop and deploy a PHP-MySQL application to a Windows Azure Website. WebMatrix is a free web development tool from Microsoft that includes everything you need for website development. WebMatrix supports PHP and includes intellisense for PHP development.
 
@@ -36,10 +36,14 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 	This step is only necessary if you want to test your application locally.
 
-<h2 id="CreateWebsite">Create a Windows Azure Website and MySQL Database</h2>
+<h2 id="CreateWebsite">Create a Windows Azure Website and MySQL database</h2>
 Windows Azure Websites allows you to easily create a website and provision a MySQL Database.
 
-**Note**: In the preview release of Windows Azure Websites, you cannot create a MySQL Database for a website *after* creating the website. You must create a website and a MySQL database as described in the steps below.
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>In the preview release of Windows Azure Websites, you cannot create a MySQL Database for a website *after* creating the website. You must create a website and a MySQL database as described in the steps below.</p> 
+</div>
+
 
 <div chunk="../../Shared/Chunks/website-mysql" />
 
@@ -53,7 +57,7 @@ You can install WebMatrix from the [Preview Management Portal][preview-portal]. 
 
 Run the downloaded .exe file. This will install the Microsoft Web Platform Installer, launch it, and select WebMatrix for installation. Follow the prompts to complete the installation.
 
-##Develop Your Application
+##Develop your application
 
 In the next few steps you will develop the Tasklist application by adding the files you downloaded earlier and making a few modifications. You could, however, add your own existing files or create new files.
 
@@ -108,7 +112,7 @@ In the next few steps you will develop the Tasklist application by adding the fi
 11. Now you can test the application locally. Right click the `index.php` file and select **Launch in browser**. Test the application by adding items, marking them complete, and deleting them.  
 
 
-<h2 id="Publish">Publish Your Application</h2>
+<h2 id="Publish">Publish your application</h2>
 
 Before publishing your application to Windows Azure Websites, the database connection information in `taskmodel.php` needs to be updated with the connection information you obtained earlier (in the [Create a Windows Azure Website and MySQL Database](#CreateWebsite) section).
 
@@ -152,7 +156,7 @@ Before publishing your application to Windows Azure Websites, the database conne
 
 8. Lastly, navigate to http://[your website name].windows.net/index.php to being using the running application.
 	
-##Modify and Republish Your Application
+##Modify and republish your application
 
 You can easily modify and republish your application. Here, you will make a simple change to the heading in in the `index.php` file, and republish the application.
 

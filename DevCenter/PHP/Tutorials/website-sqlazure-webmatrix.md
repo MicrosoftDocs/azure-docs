@@ -1,6 +1,6 @@
 <properties umbracoNaviHide="0" pageTitle="PHP-MySQL Windows Azure Website using WebMatrix" metaKeywords="Windows Azure deployment, Azure deployment, Windows Azure Websites, Windows Azure SQL Database, SQL Database, PHP, WebMatrix" metaDescription="Learn how to create and deploy a PHP website and a SQL Database to Windows Azure using WebMatrix." linkid="dev-php-tutorials-sql-database-website-webmatrix" urlDisplayName="Create and Deploy a PHP Website and SQL Database Using WebMatrix" headerExpose="" footerExpose="" disqusComments="1" />
 
-#Create and Deploy a PHP Website and SQL Database Using WebMatrix
+#Create and Deploy a PHP Website and SQL Database using WebMatrix
 
 This tutorial shows you how to use WebMatrix to develop and deploy a PHP application that uses a Windows Azure SQL Database to a Windows Azure Website. WebMatrix is a free web development tool from Microsoft that includes everything you need for website development. WebMatrix supports PHP and includes intellisense for PHP development. 
 
@@ -64,11 +64,11 @@ Follow these steps to create a Windows Azure Website and a SQL Database:
 
 	When the website has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfully**. Next, you will get the database connection information.
 
-1. Click the the website's name, then click **LINKED RESOURCES**, then the database's name.
+6. Click the the website's name, then click **LINKED RESOURCES**, then the database's name.
 
 	![Linked Resources][linked-resources]
 
-2. Click **Connection String**.
+7. Click **Connection String**.
 
 	![Connection string][connection-string]
 	
@@ -82,7 +82,7 @@ You can install WebMatrix from the Preview Management Portal. From your website'
 
 Run the downloaded .exe file. This will install the Microsoft Web Platform Installer, launch it, and select WebMatrix for installation. Follow the prompts to complete the installation.
 
-##Develop Your Application
+##Develop your application
 
 In the next few steps you will develop the Tasklist application by adding the files you downloaded earlier and making a few modifications. You could, however, add your own existing files or create new files.
 
@@ -120,7 +120,7 @@ In the next few steps you will develop the Tasklist application by adding the fi
 
 	![WebMatrix - Add existing files][webmatrix-add-existing]
 
-9. Next, you need to add your local SQL Express database connection information to the `taskmodel.php` file. Open the  `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function. (**Note**: Jump [Publish Your Application](#Publish) if you do not want to test your application locally and want to instead publish directly to Windows Azure Websites.)
+9. Next, you need to add your local SQL Express database connection information to the `taskmodel.php` file. Open the  `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function. (**Note**: Jump to [Publish Your Application](#Publish) if you do not want to test your application locally and want to instead publish directly to Windows Azure Websites.)
 
 		// DB connection info
 		$host = ".\sqlexpress";
@@ -137,7 +137,7 @@ In the next few steps you will develop the Tasklist application by adding the fi
 11. Now you can test the application locally. Right click the `index.php` file and select **Launch in browser**. Test the application by adding items, marking them complete, and deleting them.  
 
 
-<h2 id="Publish">Publish Your Application</h2>
+<h2 id="Publish">Publish your application</h2>
 
 Before publishing your application to Windows Azure Websites, the database connection information in `taskmodel.php` needs to be updated with the connection information you obtained earlier (in the [Create a Windows Azure Website and SQL Database](#CreateWebsite) section).
 
@@ -181,7 +181,7 @@ Before publishing your application to Windows Azure Websites, the database conne
 
 8. Lastly, navigate to http://[your website name].windows.net/index.php to being using the running application.
 	
-##Modify and Republish Your Application
+##Modify and republish your application
 
 You can easily modify and republish your application. Here, you will make a simple change to the heading in in the `index.php` file, and republish the application.
 
@@ -222,3 +222,5 @@ You can easily modify and republish your application. Here, you will make a simp
 [webmatirx-pubpreview]: ../../Shared/Media/webmatrix_pubpreview.jpg
 [preview-portal]: https://manage.windowsazure.com
 [sql-database-editions]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx
+[php-site-from-template]: ../../Shared/Media/php_site_from_template.png
+[php-empty-site-template-installed]: ../../Shared/Media/php_empty_site_template_installed.png
