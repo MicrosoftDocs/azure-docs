@@ -44,8 +44,7 @@ The Blob service contains the following components:
 
 -   **URL format:** Blobs are addressable using the following URL
     format:   
-    http://<storage
-    account\>.blob.core.windows.net/<container\>/<blob\>  
+    http://storageaccount.blob.core.windows.net/container/blob  
       
     The following URL addresses one of the blobs in the diagram:  
     http://sally.blob.core.windows.net/movies/MOV1.AVI
