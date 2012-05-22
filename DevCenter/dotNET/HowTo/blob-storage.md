@@ -86,7 +86,7 @@ to retrieve your storage connection-string and storage account
 information from the Windows Azure service configuration:
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
 A **CloudBlobClient** type allows you to retrieve objects that represent
 containers and blobs stored within the Blob Storage Service. The
@@ -103,7 +103,7 @@ to use. You can create the container if it doesn't exist:
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the blob client 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -137,7 +137,7 @@ that the container was already created.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the blob client
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -163,7 +163,7 @@ the **Uri** of each blob in a container:
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the blob client
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -203,7 +203,7 @@ or **DownloadText** methods.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the blob client
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -227,7 +227,7 @@ Finally, to delete a blob, get a blob reference, and then call the
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the blob client
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();

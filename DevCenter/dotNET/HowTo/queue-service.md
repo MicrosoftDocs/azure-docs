@@ -108,7 +108,7 @@ documentation for details.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -132,7 +132,7 @@ doesn't exist) and inserts the message 'Hello, World'.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -154,7 +154,7 @@ from the queue by calling the **PeekMessage** method.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -182,7 +182,7 @@ that triggers an application error each time it is processed.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -211,7 +211,7 @@ has been processed.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -240,7 +240,7 @@ will become visible again.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -266,7 +266,7 @@ property returns the last value retrieved by the
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -287,7 +287,7 @@ To delete a queue and all the messages contained in it, call the
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
