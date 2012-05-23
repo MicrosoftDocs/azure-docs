@@ -88,7 +88,6 @@ You should now see a response similar to the following:
 </pre>
 
 <p>
-
 As you can see, we've just given Django instructions on where to find our MySQL database. 
 </p>
 
@@ -146,7 +145,7 @@ Installed 0 object(s) from 0 fixture(s)</pre></li>
 		</ol>
     </li>
     <li>
-      <p>Replace the contents of <strong><em>C:\django\helloworld\hello_dj\hello_dj\views.py</em></strong>. The new implementation of the <i>hello</i> function below uses our <i>Counter</i> model in conjunction with a separate sample database we previously installed, <i>world</i>, to generate a suitable replacement for the "<i>World</i>" string:</p>
+      Replace the contents of <strong><em>C:\django\helloworld\hello_dj\hello_dj\views.py</em></strong>. The new implementation of the <i>hello</i> function below uses our <i>Counter</i> model in conjunction with a separate sample database we previously installed, <i>world</i>, to generate a suitable replacement for the "<i>World</i>" string:
       <pre class="prettyprint">
 from django.http import HttpResponse
 
@@ -207,8 +206,7 @@ You should see output similar to the following in your web browser:
 
 ![][4] 
 
-<p>Refresh the web browser a few times and you should see the message change from "<i>Hello <em>&lt;country abc&gt;</em></i>" to "<i>Hello <em>&lt;some other country&gt;</em></i>".
-</p>
+Refresh the web browser a few times and you should see the message change from "<i>Hello <em>&lt;country abc&gt;</em></i>" to "<i>Hello <em>&lt;some other country&gt;</em></i>".
   
 ##Running Your Application Locally in the Emulator##
 Start the Windows Azure emulator and open the Django webpage exactly as you did in the [Django Hello World] [djangohelloworld] tutorial.
