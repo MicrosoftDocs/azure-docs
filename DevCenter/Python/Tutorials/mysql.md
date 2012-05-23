@@ -55,9 +55,9 @@ The expected output is empty:
 
 
 		CREATE world;
-		USE world;
-		SOURCE C:\Users\Administrator\Desktop\world.sql
-		CREATE USER 'testazureuser'@'%' IDENTIFIED BY 'testazure';
+        USE world;
+        SOURCE C:\Users\Administrator\Desktop\world.sql
+        CREATE USER 'testazureuser'@'%' IDENTIFIED BY 'testazure';
 		CREATE DATABASE djangoazure;
 		GRANT ALL ON djangoazure.* TO 'testazureuser'@'%';
 		GRANT ALL ON world.* TO 'testazureuser'@'%';
@@ -98,19 +98,19 @@ As you can see, we've just given Django instructions on where to find our MySQL 
 
     </li>
     <li>
-      <p>Now that we've referenced our <i>djangoazure</i> database, let's do something useful with it! To this end, we'll create a model for a trivial <i>counter</i> app.  To instruct Django to create this, run the following commands:<pre class="prettyprint">
+      Now that we've referenced our <i>djangoazure</i> database, let's do something useful with it! To this end, we'll create a model for a trivial <i>counter</i> app.  To instruct Django to create this, run the following commands:<pre class="prettyprint">
 cd C:\django\helloworld\hello_dj\hello_dj
 C:\Python27\python.exe manage.py startapp counter
-</pre>If Django doesn't report any output from the final command above, it succeeded.</p>
+</pre>If Django doesn't report any output from the final command above, it succeeded.
     </li>
     <li>
-      <p>Append the following text to <strong><em>C:\django\helloworld\hello_dj\hello_dj\counter\models.py</em></strong>:<pre class="prettyprint">class Counter(models.Model):
+      Append the following text to <strong><em>C:\django\helloworld\hello_dj\hello_dj\counter\models.py</em></strong>:<pre class="prettyprint">class Counter(models.Model):
     count = models.IntegerField()
     def __unicode__(self):
-        return u'%s' % (self.count)</pre>All we've done here is defined a subclass of Django's <i>Model</i> class named <i>Counter</i> with a single integer field, <i>count</i>. This trivial counter model will end up recording the number of hits to our Django application.</p>
+        return u'%s' % (self.count)</pre>All we've done here is defined a subclass of Django's <i>Model</i> class named <i>Counter</i> with a single integer field, <i>count</i>. This trivial counter model will end up recording the number of hits to our Django application.
     </li>
     <li>
-      <p>Next we make Django aware of <i>Counter</i>'s existence:
+      Next we make Django aware of <i>Counter</i>'s existence:
 		<ol>
 			<li>Edit <strong><em>C:\django\helloworld\hello_dj\hello_dj\settings.py</em></strong> again. Add <i>'counter'</i> to the <i>INSTALLED_APPS</i> tuple.</li>
 			<li>From a command prompt, please run:<pre class="prettyprint">cd C:\django\helloworld\hello_dj\hello_dj
@@ -144,7 +144,6 @@ Installing custom SQL ...
 Installing indexes ...
 Installed 0 object(s) from 0 fixture(s)</pre></li>
 		</ol>
-</p>
     </li>
     <li>
       <p>Replace the contents of <strong><em>C:\django\helloworld\hello_dj\hello_dj\views.py</em></strong>. The new implementation of the <i>hello</i> function below uses our <i>Counter</i> model in conjunction with a separate sample database we previously installed, <i>world</i>, to generate a suitable replacement for the "<i>World</i>" string:</p>
@@ -195,11 +194,12 @@ def hello(request):
   </ol>
 
 ## Running Your Application Locally ##
-  <p>Before running your application in the Windows Azure emulator, let's run it as a normal Django application to ensure everything's working properly:<pre class="prettyprint">
+Before running your application in the Windows Azure emulator, let's run it as a normal Django application to ensure everything's working properly:
+
+<pre class="prettyprint">
 pushd C:\django\helloworld\hello_dj\hello_dj
 C:\Python27\python.exe manage.py runserver
-"%ProgramFiles%\Internet Explorer\iexplore.exe" http://localhost:<b style="color:orange;">8000</b>
-</pre>
+"%ProgramFiles%\Internet Explorer\iexplore.exe" http://localhost:<b style="color:orange;">8000</b></pre>
 
 **Note:** You might need to change port <b style="color:orange;">8000</b> to another port depending upon how Django configured your application locally.
 
