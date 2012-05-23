@@ -19,6 +19,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 In order to use the Windows Azure storage services, you must first download the client libraries. They are available as a ZIP file, PEAR package, and a Composer package [todo: link to download doc]. Composer provides a way to install the client libraries and all their dependencies in one go and with no prior installation work:
 
 * Create a file named **composer.json** in the root of your project and add the following code to it:
+
 	{
 		"require": {
 			"microsoft/windowsazure": "1.0"
