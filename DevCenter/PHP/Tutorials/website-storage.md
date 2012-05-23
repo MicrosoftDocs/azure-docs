@@ -33,7 +33,7 @@ In order to use the Windows Azure storage services, you must first download the 
 		php composer.phar install
 
 
-##Getting strted with the client libraries
+##Getting started with the client libraries
 
 There are four basic steps that have to be performed before you can make a call to a Windows Azure API wen using the libraries. You will create an initialization script that will perform these steps.
 
