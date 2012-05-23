@@ -1,3 +1,5 @@
+<properties umbracoNaviHide="0" pageTitle="Traffic Manager" metaKeywords="Azure Traffic Manager Hosted Services" metaDescription="This guide demonstrates how to configure Windows Azure Traffic Manager." linkid="manage-how-to-traffic-manager" urlDisplayName="Traffic Manager" headerExpose="" footerExpose="" disqusComments="1" />
+
 #How to Configure Traffic Manager Settings#
 Windows Azure Traffic Manager enables you to control the distribution of user traffic to Windows Azure hosted services. 
 
