@@ -19,15 +19,9 @@ The project files for this tutorial will be stored in a directory named **taskli
 
 ![A web page displaying an empty tasklist][node-mongo-finished]
 
-The instructions in this article have been tested on the following platforms:
-
-* Windows 7
-
-* Mac OS X 10.7.3
-
 **Note**: This tutorial makes reference to the **tasklist** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/tasklist** or **c:\node\tasklist**
 
-**Note**: Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **cmd.exe** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
+**Note**: Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **Windows PowerShell** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
 
 ##Prerequisites
 
@@ -322,9 +316,7 @@ To install the command-line tools, go to the [Windows Azure Developer Center] an
 
 Before using the command-line tools with Windows Azure, you must first download a file containing information about your subscription. Perform the following steps to download and import this file.
 
-1. From the command-line, change directories to the **tasklist** directory.
-
-2. Enter the following command to launch the browser and navigate to the download page. If prompted, login with the account associated with your subscription.
+1. From the command-line, enter the following command to launch the browser and navigate to the download page. If prompted, login with the account associated with your subscription.
 
 		azure account download
 	
@@ -338,7 +330,14 @@ Before using the command-line tools with Windows Azure, you must first download 
 		
 	Specify the path and file name of the publishing settings file you downloaded in the previous step. Once the command completes, you should see output similar to the following:
 	
-	![The output of the import command][import-publishing-settings]
+		info:   Executing command account import
+		info:   Found subscription: subscriptionname
+		info:   Setting default subscription to: subscriptionname
+		warn:   The '/Users/user1/.azure/publishSettings.xml' file contains sensitive information.
+		warn:   Remember to delete it now that it has been imported.
+		info:   Account publish settings imported successfully
+		info:   account iomport command OK
+
 
 4. Once the import has completed, you should delete the publish settings file as it is no longer needed and contains sensitive information regarding your Windows Azure subscription.
 
@@ -346,31 +345,29 @@ Before using the command-line tools with Windows Azure, you must first download 
 
 1. From the command-line, change directories to the **tasklist** directory.
 
-2. Use the following command to create a new Windows Azure Website
+2. Use the following command to create a new Windows Azure Web Site. Replace 'myuniquesitename' with a unique site name for your website. This value is used as part of the URL for the resulting website.
 
-		azure site create --git
+		azure site create myuniquesitename --git
 		
-	You will be prompted for the website name and the datacenter that it will be located in. Provide a unique name and select the datacenter geographically close to your location.
+	You will be prompted for the datacenter that the site will be located in. Select the datacenter geographically close to your location.
 	
-	The `--git` parameter will create a Git repository on Windows Azure for this website. It will also initialize a Git repository in the current directory if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Windows Azure. Finally, it will create a **web.config** file, which contains settings used by Windows Azure to host node applications.
+	The `--git` parameter will create a Git repository locally in the **tasklist** folder if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Windows Azure. Finally, it will create a **web.config** file, which contains settings used by Windows Azure to host node applications.
 	
 	**Note**: If this command is ran from a directory that already contains a Git repository, it will not re-initialize the directory.
 	
 	**Note**: If the `--git` parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.
 	
 	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created website at** contains the URL for the website.
-	
+
 		info:   Executing command site create
-		help:   Need a site name
-		Name: MongoDBTasklist
 		info:   Using location southcentraluswebspace
 		info:   Executing `git init`
-		info:   Creating default .gitignore file
+		info:   Creating default web.config file
 		info:   Creating a new web site
 		info:   Created website at  mongodbtasklist.azurewebsites.net
 		info:   Initializing repository
 		info:   Repository initialized
-		info:   Executing `git remote add azure https://username@mongodbtasklist.azurewebsites.net/MongoDBTasklist.git`
+		info:   Executing `git remote add azure http://username@mongodbtasklist.azurewebsites.net/mongodbtasklist.git`
 		info:   site create command OK
 
 	**Note**: If this is the first Windows Azure Web Site for your subscription, you will be instructed to use the portal to create the website. For more information, see [Create and deploy a Node.js application to Windows Azure Web Sites].
@@ -401,11 +398,9 @@ While the steps in this article describe using MongoDB to store information, you
 
 ##Additional resources
 
-* [Cross-Platform Tools for Windows Azure]
-
-* [Create and deploy a Node.js application to Windows Azure Web Sites]
-
-* [Publishing to Windows Azure Web Sites with Git]
+[Windows Azure command-line tool for Mac and Linux]    
+[Create and deploy a Node.js application to Windows Azure Web Sites]    
+[Publishing to Windows Azure Web Sites with Git]    
 
 
 [node]: http://nodejs.org
@@ -429,3 +424,4 @@ While the steps in this article describe using MongoDB to store information, you
 [node-mongo-add-item]: ../media/todo_add_item.png
 [node-mongo-list-items]: ../media/todo_list_items.png
 [download-publishing-settings]: ../../Shared/Media/azure-account-download.png
+[import-publishing-settings]: ../media/azureimport.png

@@ -101,7 +101,7 @@ You can easily modify and republish your application. Here, you will make a simp
 
 ##Additional resources
 
-* [Publishing a Windows Azure Website using Git]
+[Publishing a Windows Azure Website using Git]
 
 [Windows Azure Portal]: http://manage.windowsazure.com
 [Publishing a Windows Azure Website using Git]: ../CommonTasks/publishing-with-git

@@ -9,19 +9,13 @@ You will learn:
 
 * How to work with the Windows Azure Table service
 
-* How to use the Cross-Platform Tools for Windows Azure to create a Windows Azure Website
+* How to use the Windows Azure command-line tool for Mac and Linux to create a Windows Azure Website
 
 By following this tutorial, you will build a simple web-based task-management application that allows creating, retrieving and completing tasks. The tasks are stored in the Table service.
  
 The project files for this tutorial will be stored in a directory named **tasklist** and the completed application will look similar to the following:
 
 ![A web page displaying an empty tasklist][node-table-finished]
-
-The instructions in this article have been tested on the following platforms:
-
-* Windows 7
-
-* Mac OS X 10.7.3
 
 **Note**: This tutorial makes reference to the **tasklist** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/tasklist** or **c:\node\tasklist**
 
@@ -510,11 +504,9 @@ While the steps in this article describe using the Table Service to store inform
 
 ##Additional resources
 
-* [Cross-Platform Tools for Windows Azure]
-
-* [Create and deploy a Node.js application to Windows Azure Web Sites]
-
-* [Publishing to Windows Azure Web Sites with Git]
+[Windows Azure command-line tool for Mac and Linux]    
+[Create and deploy a Node.js application to Windows Azure Web Sites]    
+[Publishing to Windows Azure Web Sites with Git]
 
 
 [node]: http://nodejs.org
@@ -523,7 +515,8 @@ While the steps in this article describe using the Table Service to store inform
 [for free]: http://windowsazure.com
 [Git remote]: http://gitref.org/remotes/
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
-[Cross-Platform Tools for Windows Azure]: http://windowsazure.com
+[Node.js Web Application with MongoDB]: ./web-site-with-mongodb-Mac
+[Windows Azure command-line tool for Mac and Linux]: http://windowsazure.com
 [Create and deploy a Node.js application to Windows Azure Web Sites]: ./web-site-with-mongodb-Mac
 [Publishing to Windows Azure Web Sites with Git]: ../CommonTasks/publishing-with-git
 [azure]: https://github.com/WindowsAzure/azure-sdk-for-node

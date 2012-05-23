@@ -658,16 +658,16 @@ to learn how to do more complex storage tasks.
   [How To: Query a Subset of Entity Properties]: #query-entity-properties
   [How To: Delete an Entity]: #delete-entity
   [How To: Delete a Table]: #delete-table
-  [Table1]: ../../../DevCenter/dotNet/Media/table1.png
+  [Table1]: ../../dotNet/Media/table1.png
   [OData.org]: http://www.odata.org/
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
   [Windows Azure Management Portal]: http://windows.azure.com
 
-  [plus-new]: ../../../DevCenter/Shared/Media/plus-new.png
-  [quick-create-storage]: ../../../DevCenter/Shared/Media/quick-storage.png
-  [Blob2]: ../../../DevCenter/dotNet/Media/blob2.png
-  [Blob3]: ../../../DevCenter/dotNet/Media/blob3.png
-  [Blob4]: ../../../DevCenter/dotNet/Media/blob4.png
+  [plus-new]: ../../Shared/Media/plus-new.png
+  [quick-create-storage]: ../../Shared/Media/quick-storage.png
+  [Blob2]: ../../dotNet/Media/blob2.png
+  [Blob3]: ../../dotNet/Media/blob3.png
+  [Blob4]: ../../dotNet/Media/blob4.png
   [Node.js Web Application]: {localLink:2221} "Web App with Express"
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Visit the Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

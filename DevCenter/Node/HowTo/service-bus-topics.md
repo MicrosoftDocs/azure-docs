@@ -521,13 +521,13 @@ links to learn more.
   [How to: Handle Application Crashes and Unreadable Messages]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
   [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
   [1]: #Next_Steps
-  [Topic Concepts]: ../../../DevCenter/dotNet/Media/sb-topics-01.png
+  [Topic Concepts]: ../../dotNet/Media/sb-topics-01.png
   [Windows Azure Management Portal]: http://windows.azure.com
-  [image]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
-  [2]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
-  [3]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
-  [4]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
-  [5]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
+  [image]: ../../dotNet/Media/sb-queues-03.png
+  [2]: ../../dotNet/Media/sb-queues-04.png
+  [3]: ../../dotNet/Media/sb-queues-05.png
+  [4]: ../../dotNet/Media/sb-queues-06.png
+  [5]: ../../dotNet/Media/sb-queues-07.png
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
