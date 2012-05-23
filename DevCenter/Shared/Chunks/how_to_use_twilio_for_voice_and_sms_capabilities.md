@@ -1,4 +1,3 @@
-<!-- Language-specific TOC entries go here -->
 <h2 id="WhatIs">What is Twilio?</h2>
 Twilio is a telephony web-service API that lets you use your existing web languages and skills to build voice and SMS applications. Twilio is a third-party service (not a Windows Azure feature and not a Microsoft product).
 
