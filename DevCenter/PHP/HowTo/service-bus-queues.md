@@ -11,14 +11,13 @@ messages**, and **deleting queues**.
 
 -   [What are Service Bus Queues?](#WhatAreQueues)
 -   [Create a Service Namespace](#CreateNamespace)
--   [Obtain the Default Management Credentials for the Namespace][]
--   [Configure Your Application to Use Service Bus][]
--   [How to: Create a Security Token Provider][]
--   [How to: Create a Queue][How to: Create a Security Token Provider]
--   [How to: Send Messages to a Queue][]
--   [How to: Receive Messages from a Queue][]
--   [How to: Handle Application Crashes and Unreadable Messages][]
--   [Next Steps][]
+-   [Obtain the Default Management Credentials for the Namespace](#GetDefaultCredentials)
+-   [Configure Your Application to Use Service Bus](#ConfigureApp)
+-   [How to: Create a Queue](#CreateQueue)
+-   [How to: Send Messages to a Queue](#SendMessages)
+-   [How to: Receive Messages from a Queue](#ReceiveMessages)
+-   [How to: Handle Application Crashes and Unreadable Messages](#HandleCrashes)
+-   [Next Steps](#NextSteps)
 
 <h2 id="WhatAreQueues">What are Service Bus Queues?</h2>
 
@@ -85,7 +84,7 @@ To create a service namespace:
     and takes a moment to activate. Wait until the status is **Active**
     before moving on.
 
-## <a name="bkmk_ObtainDefaultMngmntCredentials"> </a>Obtain the Default Management Credentials for the Namespace
+<h2 id="GetDefaultCredentials">Obtain the Default Management Credentials for the Namespace</h2>
 
 In order to perform management operations, such as creating a queue, on
 the new namespace, you need to obtain the management credentials for the
@@ -108,113 +107,141 @@ namespace.
     will use this information below to perform operations with the
     namespace.
 
-## <a name="bkmk_ConfigApp"> </a>Configure Your Application to Use Service Bus
+<h2 id="ConfigureApp">Configure Your Application to Use Service Bus</h2>
 
-Add the following import statements to the top of the Java file:
+The only requirement for creating a PHP application that accesses the Windows Azure Blob service is the referencing of classes in the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
-      // Include the following imports to use service bus APIs  import com.microsoft.windowsazure.services.serviceBus.*;  import com.microsoft.windowsazure.services.serviceBus.models.*;  import com.microsoft.windowsazure.services.core.*;  import javax.xml.datatype.*;
+In this guide, you will use service features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site. We assume you have downloaded and installed PHP, followed the instructions in [Download the Windows Azure SDK for PHP] [download-sdk], and have created a Windows Azure Service Bus namespace in your Windows Azure subscription.
 
-## <a name="bkmk_HowToCreateQueue"> </a>How to Create a Queue
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>In addition to the dependencies noted in <a href="http://go.microsoft.com/fwlink/?LinkId=252473">Download the Windows Azure SDK for PHP</a>, your PHP installation must also have the <a href="http://php.net/openssl">OpenSSL extension</a> installed and enabled.</p> 
+</div>
+
+
+To use the Windows Azure Service Bus queue APIs, you need to:
+
+1. Reference the `WindowsAzure.php` file (from the Windows Azure SDK for PHP) using the [require_once][require_once] statement, and
+2. Reference any classes you might use.
+
+The following example shows how to include the `WindowsAzure.php` file and reference the **BlobService** class:
+
+	require_once 'WindowsAzure.php';
+
+	use WindowsAzure\ServiceBus\ServiceBusService;
+
+
+In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
+
+<h2 id="CreateQueue">How to Create a Queue</h2>
 
 Management operations for Service Bus queues can be performed via the
-**ServiceBusContract** class. A **ServiceBusContract** object is
-constructed with an appropriate configuration that encapsulates the
-token permissions to manage it, and the **ServiceBusContract** class is
-the sole point of communication with Azure.
+**ServiceBusRestProxy** class. A **ServiceBusRestProxy** object is
+constructed via the **ServiceBusService::create** method with an appropriate configuration that encapsulates the
+token permissions to manage it.
 
-The **ServiceBusService** class provides methods to create, enumerate,
-and delete queues. The example below shows how a **ServiceBusService**
-can be used to create a queue named "TestQueue" within a "HowToSample"
-service namespace:
+The example below shows how create a **Configuration** object, instantiate **ServiceBusRestProxy** via the **ServiceBusService::create** method, and call **ServiceBusRestProxy->createQueue** to create a queue named `myqueue` within a `MySBNamespace` service namespace:
 
-      String issuer = "<obtained from portal>";
-      String key = "<obtained from portal>";
-      Configuration config = 
-      ServiceBusConfiguration.configureWithWrapAuthentication(“HowToSample”, issuer, 
-    key);
-      ServiceBusContract service = ServiceBusService.create(config);
-      QueueInfo queueInfo = new QueueInfo("TestQueue");
-      try
-      {     CreateQueueResult result = service.createQueue(queueInfo);
-      } catch (ServiceException e) {     System.out.print("ServiceException encountered: ");
-         System.out.println(e.getMessage());
-         System.exit(-1);
-      }
+    require_once 'WindowsAzure.php';
 
-There are methods on QueueInfo that allow properties of the queue to be
-tuned (for example: to set the default "time-to-live" value to be
-applied to messages sent to the queue). The following example shows how
-to create a queue named "TestQueue" with a maximum size of 5GB:
+	use WindowsAzure\Common\Configuration;
+	use WindowsAzure\Common\ServiceException;
+	use WindowsAzure\ServiceBus\ServiceBusSettings;
+	use WindowsAzure\ServiceBus\ServiceBusService;
+	use WindowsAzure\ServiceBus\Models\QueueInfo;
 
-      long maxSizeInMegabytes = 5120;
-      QueueInfo queueInfo = new QueueInfo("TestQueue");
-      queueInfo.setMaxSizeInMegabytes(maxSizeInMegabytes); 
-      CreateQueueResult result = service.createQueue(queueInfo);
+	$issuer = "<obtained from portal>";
+	$key = "<obtained from portal>";
 
-**Note:**You can use the **listQueues** method on **ServiceBusContract**
-objects to check if a queue with a specified name already exists within
-a service namespace.
+	// Create configuration object.
+	$config = new Configuration();
+	ServiceBusSettings::configureWithWrapAuthentication( $config,
+														 "MySBNamespace",
+														 $issuer,
+														 $key);
 
-## <a name="bkmk_HowToSendMsgs"> </a>How to Send Messages to a Queue
+	// Create Service Bus REST proxy.
+	$serviceBusRestProxy = ServiceBusService::create($config);
+	
+	try	{
+		$queueInfo = new QueueInfo("myqueue");
+		
+		// Create queue.
+		$serviceBusRestProxy->createQueue($queueInfo);
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 
-To send a message to a Service Bus Queue, your application will obtain a
-**ServiceBusContract** object. The below code demonstrates how to send a
-message for the "TestQueue" queue we created above within our
-"HowToSample" service namespace:
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>You can use the <b>listQueues</b> method on <b>ServiceBusRestProxy</b> objects to check if a queue with a specified name already exists within a service namespace.</p> 
+</div>
 
-      String issuer = "<obtained from portal>";
-      String key = "<obtained from portal>";
-      Configuration config = 
-      ServiceBusConfiguration.configureWithWrapAuthentication(“HowToSample”, issuer, 
-    key);
-      ServiceBusContract service = ServiceBusService.create(config);
-      QueueInfo queueInfo = new QueueInfo("TestQueue");
-      try
-      {
-         CreateQueueResult result = service.createQueue(queueInfo);
-         BrokeredMessage message = new BrokeredMessage("sendMessageWorks");
-         service.sendQueueMessage("TestQueue", message);
-      } catch (ServiceException e) {
-         System.out.print("ServiceException encountered: ");
-         System.out.println(e.getMessage());
-         System.exit(-1);
-      }
+<h2 id="SendMessages">How to Send Messages to a Queue</h2>
+
+To send a message to a Service Bus queue, your application will call the **ServiceBusRestProxy->sendMessage** method. The below code demonstrates how to send a message for the "myqueue" queue we created above within the
+"MySBNamespace" service namespace. Note that first parameter of the **sendMessage** method is `myqueue/messages`, the path to which the message is sent.
+
+	require_once 'WindowsAzure.php';
+
+	use WindowsAzure\Common\Configuration;
+	use WindowsAzure\Common\ServiceException;
+	use WindowsAzure\ServiceBus\ServiceBusSettings;
+	use WindowsAzure\ServiceBus\ServiceBusService;
+	use WindowsAzure\ServiceBus\Models\BrokeredMessage;
+
+	$issuer = "<obtained from portal>";
+	$key = "<obtained from portal>";
+
+	// Create configuration object.
+	$config = new Configuration();
+	ServiceBusSettings::configureWithWrapAuthentication( $config,
+														 "MySBNamespace",
+														 $issuer,
+														 $key);	
+
+	// Create Service Bus REST proxy.
+	$serviceBusRestProxy = ServiceBusService::create($config);
+	
+	$message = new BrokeredMessage();
+	$message->setBody("my message");
+		
+	try	{
+		// Send message.
+		$serviceBusRestProxy->sendMessage("myqueue/messages", $message);
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/hh780775
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 
 Messages sent to (and received from ) Service Bus queues are instances
 of the **BrokeredMessage** class. **BrokeredMessage** objects have a set
 of standard methods (such as **getLabel**, **getTimeToLive**,
-**setLabel**, and **setTimeToLive**), a dictionary that is used to hold
+**setLabel**, and **setTimeToLive**) and properties that are used to hold
 custom application specific properties, and a body of arbitrary
-application data. An application can set the body of the message by
-passing any serializable object into the constructor of the
-**BrokeredMessage**, and the appropriate serializer will then be used to
-serialize the object. Alternatively, a **java.IO.InputStream** can be
-provided.
-
-The following example demonstrates how to send five test messages to the
-"TestQueue" **MessageSender** we obtained in the code snippet above:
-
-      for (int i=0; i<5; i++)
-      {
-         // Create message, passing a string message for the body
-         BrokeredMessage message = new BrokeredMessage("Test message " + i);
-         // Set some additional custom app-specific property
-         message.setProperty("TestProperty", "TestValue" + i); 
-         // Send message to the queue
-         service.sendQueueMessage("TestQueue", message);
-      }
+application data.
 
 Service Bus queues support a maximum message size of 256 KB (the header,
 which includes the standard and custom application properties, can have
 a maximum size of 64 KB). There is no limit on the number of messages
 held in a queue but there is a cap on the total size of the messages
-held by a queue. This queue size is defined at creation time, with an
-upper limit of 5 GB.
+held by a queue. This upper limit on queue size is 5 GB.
 
-## <a name="bkmk_HowToReceiveMsgs"> </a>How to Receive Messages from a Queue
+<h2 id="ReceiveMessages">How to Receive Messages from a Queue</h2>
 
 The primary way to receive messages from a queue is to use a
-**ServiceBusContract** object. Received messages can work in two
+**ServiceBusRestProxy->receiveMessage** method. Received messages can work in two
 different modes: **ReceiveAndDelete** and **PeekLock**.
 
 When using the **ReceiveAndDelete** mode, receive is a single-shot
@@ -235,48 +262,61 @@ messages. When Service Bus receives a request, it finds the next message
 to be consumed, locks it to prevent other consumers receiving it, and
 then returns it to the application. After the application finishes
 processing the message (or stores it reliably for future processing), it
-completes the second stage of the receive process by calling **Delete**
-on the received message. When Service Bus sees the **Delete** call, it
+completes the second stage of the receive process by calling **deleteMessage**
+on the received message. When Service Bus sees the **deleteMessage** call, it
 will mark the message as being consumed and remove it from the queue.
 
-The example below demonstrates how messages can be received and
-processed using **PeekLock** mode (not the default mode). The example
-below does an infinite loop and processes messages as they arrive into
-our "TestQueue":
+The example below demonstrates how a message can be received and
+processed using **PeekLock** mode (not the default mode).
 
-      ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
-      opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
-      while(true)
-      { 
-         ReceiveQueueMessageResult resultQM = service.receiveQueueMessage("TestQueue", opts);
-         BrokeredMessage message = resultQM.getValue(); 
-         if (message != null && message.getMessageId() != null)
-         {
-            try 
-            {
-               System.out.println("Body: " + message.toString());
-               System.out.println("MessageID: " + message.getMessageId());
-               System.out.println("Custom Property: " + message.getProperty("TestProperty"));
-               // Remove message from queue
-               System.out.println("Deleting this message.");
-               service.deleteMessage(message);
-            }
-            catch (Exception ex)
-            {
-               // Indicate a problem, unlock message in queue
-               System.out.println("Inner exception encountered!");
-               service.unlockMessage(message);
-            }
-         }
-         else
-         {
-            System.out.println("Finishing up - no more messages.");
-            break; // Added to handle no more messages in the queue.
-            // Could instead wait for more messages to be added.
-         }
-      }
+	require_once 'WindowsAzure.php';
 
-## <a name="bkmk_HowToHandleAppCrashes"> </a>How to Handle Application Crashes and Unreadable Messages
+	use WindowsAzure\Common\Configuration;
+	use WindowsAzure\Common\ServiceException;
+	use WindowsAzure\ServiceBus\ServiceBusSettings;
+	use WindowsAzure\ServiceBus\ServiceBusService;
+	use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
+
+	$issuer = "<obtained from portal>";
+	$key = "<obtained from portal>";
+
+	// Create configuration object.
+	$config = new Configuration();
+	ServiceBusSettings::configureWithWrapAuthentication( $config,
+														 "MySBNamespace",
+														 $issuer,
+														 $key);	
+
+	// Create Service Bus REST proxy.
+	$serviceBusRestProxy = ServiceBusService::create($config);
+	
+	$options = new ReceiveMessageOptions();
+	$options->setIsPeekLock(true);
+		
+	try	{
+		// Get message.
+		$message = $serviceBusRestProxy->receiveMessage("myqueue/messages/head", $options);
+		echo "Body: ".$message->getBody()."<br />";
+		echo "MessageID: ".$message->getMessageId()."<br />";
+		
+		/*---------------------------
+			Process message here.
+		----------------------------*/
+		
+		// Delete message.
+		echo "Deleting message...<br />";
+		$serviceBusRestProxy->deleteMessage($message);
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here:
+		// http://msdn.microsoft.com/en-us/library/windowsazure/hh780735
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
+
+<h2 id="HandleCrashes">How to Handle Application Crashes and Unreadable Messages</h2>
 
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
@@ -304,7 +344,7 @@ application to handle duplicate message delivery. This is often achieved
 using the **getMessageId** method of the message, which will remain
 constant across delivery attempts.
 
-## <a name="bkmk_NextSteps"> </a>Next Steps
+<h2 id="NextSteps">Next Steps</h2>
 
 Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Queues, Topics, and Subscriptions][] for more information.
@@ -319,3 +359,4 @@ topic [Queues, Topics, and Subscriptions][] for more information.
 [Properties Pane screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_06_PropertiesPane.jpg
 [Default Key screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_07_DefaultKey.jpg
 [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+[require_once]: http://php.net/require_once
