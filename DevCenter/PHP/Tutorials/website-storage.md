@@ -78,7 +78,7 @@ Just like in MySQL, before you can store data you first have to create a contain
 
 		require_once "init.php";
 
-* Then, make a call to createTable passing in the name of the table. Similarly to other NoSQL table stores, no schema is required for Azure Tables.
+* Then, make a call to **createTable** passing in the name of the table. Similarly to other NoSQL table stores, no schema is required for Azure Tables.
 	
 		try	{
 			$tableRestProxy->createTable('tasks');
@@ -91,6 +91,156 @@ Just like in MySQL, before you can store data you first have to create a contain
 
 	Error codes and message scan be found here: [http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx][msdn-errors]
 
+
+##Querying a Table
+
+* Create a file named `index.php` and insert the following HTML and PHP code which will form the header of the page:
+	
+		<html>
+		<head>
+			<title>Index</title>
+		</head>
+		<body>
+		<h1>My ToDo List <font color="grey" size="5">(powered by PHP and Azure Tables) </font></h1>
+		<?php
+		require_once "init.php";
+
+* To query Azure Tables for all entities stored in the **tasks** table you call the **queryEntities** method:
+
+		try {
+		    $result = $tableRestProxy->queryEntities('tasks');
+		}
+		catch(ServiceException $e){
+		    $code = $e->getCode();
+		    $error_message = $e->getMessage();
+		    echo $code.": ".$error_message."<br />";
+		}
+		
+* To iterate on the entities in the result set:
+
+		$entities = $result->getEntities();
+			
+		for ($i = 0; $i < count($entities); $i++) {
+			if ($i == 0) {
+				echo "<table border='1'>
+				<tr>
+					<td>Name</td>
+					<td>Category</td>
+					<td>Date</td>
+					<td>Mark Complete?</td>
+					<td>Delete?</td>
+				</tr>";
+			}
+			echo "
+				<tr>
+					<td>".$entities[$i]->getProperty('name')->getValue()."</td>
+					<td>".$entities[$i]->getProperty('category')->getValue()."</td>
+					<td>".$entities[$i]->getProperty('date')->getValue()."</td>";
+					if ($entities[$i]->getProperty('complete')->getValue() == false)
+						echo "<td><a href='markitem.php?complete=true&pk=".$entities[$i]->getPartitionKey()."&rk=".$entities[$i]->getRowKey()."'>Mark Complete</a></td>";
+					else
+						echo "<td><a href='markitem.php?complete=false&pk=".$entities[$i]->getPartitionKey()."&rk=".$entities[$i]->getRowKey()."'>Unmark Complete</a></td>";
+					echo "
+					<td><a href='deleteitem.php?pk=".$entities[$i]->getPartitionKey()."&rk=".$entities[$i]->getRowKey()."'>Delete</a></td>
+				</tr>";
+		}
+	
+		if ($i > 0)
+			echo "</table>";
+		else
+			echo "<h3>No items on list.</h3>";
+		?>
+
+
+## Inserting Entities into a Table
+
+Your application can now read all items stored in the table. Since there won't be any, let's add a function that inserts into the DB.
+
+* Create a file named `additem.php`
+
+* Add the following header to the file:
+
+		<?php
+		
+		require_once "init.php";
+		
+		use WindowsAzure\Table\Models\Entity;
+		use WindowsAzure\Table\Models\EdmType;
+		
+* The first step of inserting an entity is instantiating an `Entity` object and setting the properties on it:
+		
+		$entity = new Entity();
+		$entity->setPartitionKey('p1');
+		$entity->setRowKey((string) microtime(true));
+		$entity->addProperty('name', EdmType::STRING, $_POST['itemname']);
+		$entity->addProperty('category', EdmType::STRING, $_POST['category']);
+		$entity->addProperty('date', EdmType::STRING, $_POST['date']);
+		$entity->addProperty('complete', EdmType::BOOLEAN, false);
+
+* Then you can pass the `$entity` to the `insertEntity` method:
+
+		try{
+			$tableRestProxy->insertEntity('tasks', $entity);
+		}
+		catch(ServiceException $e){
+			$code = $e->getCode();
+			$error_message = $e->getMessage();
+		}
+
+* Last, to make the page return to the home page after inserting the entity:
+
+		header('Location: index.php');
+		
+		?>
+	
+## Updating an Entity
+
+* The first step to updating an entity is fetching it from the Table:
+		
+		<?php
+		
+		require_once "init.php";
+		
+		$result = $tableRestProxy->queryEntities(TABLE_NAME, 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');
+		
+		$entities = $result->getEntities();
+		
+		$entity = $entities[0];
+
+* Then you can change any properties:
+
+		$entity->setPropertyValue('complete', ($_GET['complete'] == 'true') ? true : false);
+
+* And the `updateEntity` method performs the update:
+
+		try{
+			$result = $tableRestProxy->updateEntity(TABLE_NAME, $entity);
+		}
+		catch(ServiceException $e){
+			$code = $e->getCode();
+			$error_message = $e->getMessage();
+		}
+
+* To make the page return to the home page after inserting the entity:
+
+		header('Location: index.php');
+		
+		?>
+
+
+## Deleting an Entity
+
+Deleting an item is accomplished with a single call `deleteItem`. The passed in values are the **PartitionKey** and the **RowKey**, which together make up the primary key of the entity:
+
+		<?php
+		
+		require_once "init.php";
+		
+		$tableRestProxy->deleteEntity(TABLE_NAME, $_GET['pk'], $_GET['rk']);
+		
+		header('Location: index.php');
+		
+		?>
 
 
 [install-php]: http://www.php.net/manual/en/install.php
