@@ -1,174 +1,113 @@
-<properties umbraconavihide="0" pagetitle="SQL Azure - How To - .NET - Develop" metakeywords="Get started SQL Azure, Getting started SQL Azure, SQL Azure database connection, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" metadescription="Get started with SQL Azure. Learn how to create a SQL Azure database and connect to it using ADO.NET, ODBC, and EntityClient Provider." linkid="dev-net-how-to-sql-azure" urldisplayname="SQL Azure" headerexpose footerexpose disquscomments="1"></properties>
+<properties umbraconavihide="0" pagetitle="SQL Database - How To - .NET - Develop" metakeywords="Get started SQL Azure, Getting started SQL Azure, SQL Azure database connection, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" metadescription="Get started with SQL Azure. Learn how to create a SQL Azure database and connect to it using ADO.NET, ODBC, and EntityClient Provider." linkid="dev-net-how-to-sql-azure" urldisplayname="SQL Azure" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
-# How to Use SQL Azure
+# How to Use SQL Database in .NET applications
 
-This guide shows you how to create a SQL Azure database and connect to
-it using the following .NET Framework data provider technologies:
+This guide shows you how to create a logical server and database instance on Windows Azure SQL Database and connect to
+the database using the following .NET Framework data provider technologies:
 ADO.NET, ODBC, and EntityClient Provider.
+
+<h2 id="Whatis">What is SQL Database?</h2>
+
+SQL Database provides relational database management services on Windows Azure, and is based on SQL Server technology. With SQL Database, you can easily provision and deploy database instances, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing. 
 
 ## Table of Contents
 
--   [What is SQL Azure?][]
--   [Create a SQL Azure Server][]
--   [Configure Access to the SQL Azure Server][]
--   [Create a SQL Azure Database][]
--   [Connect to the SQL Azure Database][]
-    -   [Using ADO.NET][]
-    -   [Using ODBC][]
-    -   [Using EntityClient Provider][]
+* [Sign in to Windows Azure][] 
+* [Create and Configure SQL Database][]
+* [Connect to SQL Database][]
+* [Connect Using ADO.NET][]
+* [Connect Using ODBC][]
+* [Connect Using EntityClient Provider][]
+* [Next Steps][]
 
--   [Next Steps][]
 
-## <a name="what-is"> </a>What is SQL Azure?
+<h2 id="PreReq1">Sign in to Windows Azure</h2>
 
-SQL Azure provides a relational database management system for the
-Windows Azure platform, and is based on SQL Server technology. With a
-SQL Azure database, you can easily provision and deploy relational
-database solutions to the cloud, and take advantage of a distributed
-data center that provides enterprise-class availability, scalability,
-and security with the benefits of built-in data protection and
-self-healing.
+SQL Database provides relational data storage, access, and management services on Windows Azure. To use it, you'll need a Windows Azure subscription.
 
-## <a name="create-sql"> </a>Create a SQL Azure Server
+1. Open a web browser, and browse to [http://www.windowsazure.com](http://www.windowsazure.com). To get started with a free account, click free trial in the upper right corner and follow the steps.
 
-Before you can use SQL Azure, you must first create a Windows Azure
-account, which allows you to access all the Windows Azure services,
-including SQL Azure. For information, see [Windows Azure Free Trial][].
+2. Your account is now created. You are ready to get started.
 
-After you have signed up, you can use Windows Azure Management Portal to
-create and manage your SQL Azure server.
 
-1.  Log into the [Windows Azure Management Portal][].
-2.  In the navigation pane on the left, click **Database**.   
-    At the top of the navigation pane, expand **Subscriptions**, click
-    the subscription in which you want to create the database server,
-    and then click **Create**. This opens the Create Server wizard.
+<h2 id="PreReq2">Create and configure SQL Database</h2>
 
-    ![][]
+Next, you'll create and configure a database and server. In the new Windows Azure (Preview) Management Portal, revised workflows let you create the database first, and follow up with server provisioning. 
 
-3.  Select a region in which you want to host your SQL Azure server, and
-    then click **Next**. Typically, you want to choose a region that is
-    closer to your location to reduce network latency.
-4.  Type the Administrator login name and the password, and then click
-    **Next**.  
-    **Note:** SQL Azure only supports SQL Authentication; Windows
-    authentication is not supported.
-5.  Click **Finish**. You will configure the firewall rules in the
-    [Configure Access to the SQL Azure Server][] section.
-6.  In the navigation pane, expand the subscription in which you created
-    the database server, and then click the newly created SQL Azure
-    server.
+<h3 id="createsrvr">Create a database instance and logical server</h3>
 
-    ![][1]
+1. Sign in at [http://www.windowsazure.com](http://www.windowsazure.com),
 
-    In the Properties pane on the right, it lists the Fully Qualified
-    DNS Name (FQDN) and other properties of the SQL Azure server. You
-    will need the FQDN to build your connection string. In the middle
-    pane, it lists the master database that is created when the SQL
-    Azure server is created.
+2. Click **+NEW** at the bottom of the page.
 
-    **Note:** Because the SQL Azure server must be accessible worldwide,
-    SQL Azure configures the appropriate DNS entries when the server is
-    created. The generated name ensures that there are no name
-    collisions with other DNS entries. You cannot change the name of
-    your SQL Azure server.
+3. Click **SQL Database**.
 
-For more information, see [How to Create a SQL Azure Server][]. Next,
-configure access to the SQL Azure server by creating firewall rules.
+4. Click **Custom Create**. 
 
-## <a name="config-access"> </a>Configure Access to the SQL Azure Server
+5. In Name, enter a database name.
 
-SQL Azure firewall prevents all access to your SQL Azure server until
-you specify which computers and services have permission to access it.
-The firewall grants access based on the originating IP address of each
-request. You must create firewall rules to allow access from the client
-computers, including your development computer so you can test your
-application.
+6. Choose an edition, maximum size, and collation. For the purposes of this guide, you can use the default values. 
 
-1.  At the top of the navigation pane, expand **Subscriptions**, expand
-    the subscription, and then click the SQL Azure server you created in
-    the previous procedure.
-2.  In the middle pane, click **Firewall Rules**.
-3.  Select **Allow other Windows Azure services to access this server**.
-    A firewall rule called MicrosoftServices is added to the firewall
-    rule list by default. This setting enables other Windows Azure
-    services including [Management Portal for SQL Azure][] to access the
-    SQL Azure server. You will use the Management Portal for SQL Azure
-    in the [Create a SQL Azure Database][] section.
-4.  Click **Add** to create another firewall rule.
-5.  Enter a rule name, and an IP range, and then click **OK**. The rule
-    name must be unique. The IP address of your computer is listed on
-    the bottom of the dialog. If this is your development computer, you
-    can enter the IP address in both the IP range start box and the IP
-    range end box.  
-    Note: There can be up as much as a five-minute delay for changes to
-    the firewall settings to take effect.
+ SQL Database provides two database editions. Web Edition grows up to a size of 5 GB. Business Edition grows up to a size of 50 GB.
 
-The SQL Azure Database service is only available with TCP port 1433 used
-by the TDS protocol, so make sure that the firewall on your network and
-local computer allows outgoing TCP communication on port 1433. For more
-information, see [SQL Azure Firewall][].
-
-## <a name="create-db"> </a>Create a SQL Azure Database
-
-To create a new database, you must connect to the master database. The
-following steps show you how to create a database using the Management
-Portal for SQL Azure.
-
-1.  At the top of the navigation pane, expand **Subscriptions**, expand
-    the subscription, expand the SQL Azure server you created, click
-    **master**, and then click **Manage**.
-
-    ![][2]
-
-    This opens the Management Portal for SQL Azure logon screen.
-
-    ![][3]
-
-2.  Enter the user name and the password that you specified when you
-    created the SQL Azure server, and then click **Log on**. This opens
-    the Management Portal for SQL Azure in a different browser tab or a
-    new browser window.  
-    **Note:** If an error occurs, it displays a message saying "There
-    was an error connecting to the server" beneath the Password textbox.
-    You can click on the message to see the error details. A common
-    error is the firewall rule not created for the client computer.
-3.  In the Management Portal for SQL Azure, click **New Query**. ![][4]
-4.  In the query window, copy and paste the following Transact-SQL
-    script using your own name for the database in place of
-    database\_name:
-
-        CREATE DATABASE database_name;
-
-5.  Click **Execute**. Make sure the result pane showing **Command(s)
-    completed successfully.**
-6.  Click **Log off** on the upper right corner, and then click Log off
-    again to confirm logging off without saving the query.
-7.  Switch back to the Windows Azure Management Portal.
-8.  From the View ribbon, click **Refresh**. The new database is listed
-    in the navigation pane.
-
-SQL Azure Database provides two database editions:
-
--   Web Edition - Grows up to a size of 5 GB
--   Business Edition - Grows up to a size of 50 GB.
-
-The MAXSIZE is specified when the database is first created and can
+ The MAXSIZE is specified when the database is first created and can
 later be changed using ALTER DATABASE. MAXSIZE provides the ability to
 limit the size of the database.
 
-You can also use SQL Server Management Studio 2008 R2 (SSMS) to create a
-SQL Azure database. For a list of supported tools and utilities, see
-[Tools and Utilities Support (SQL Azure Database)][]. For more
-information on creating SQL Azure database, see [How to Create a SQL
-Azure database][].
-
-For each database created on SQL Azure, there are actually three
+ For each SQL database created on Windows Azure, there are actually three
 replicas of that database. This is done to ensure high availability.
 Failover is transparent and part of the service. The [Service Level
-Agreement][] provides 99.9% uptime for SQL Azure.
+Agreement][] provides 99.9% uptime for SQL Database.
 
-## <a name="connect-db"> </a>Connect to the SQL Azure Database
+7. In Server, select **New SQL Database Server**. 
+
+8. Click the arrow to go on to the next page.
+
+9. In Server Settings, enter a SQL Server authentication login name.
+
+  SQL Database uses SQL Authentication over an encrypted connection. A new SQL Server authentication login assigned to the sysadmin fixed server role will be created using the name you provide. 
+
+  The login cannot be an email address, Windows user account, or a Windows Live ID. Neither Claims nor Windows authentication is supported on SQL Database.
+
+6. Provide a strong password that is over eight characters, using a combination of upper and lower case values, and a number or symbol.
+
+7. Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you. Keeping your Windows Azure application and database in the same region saves you on egress bandwidth cost and data latency.
+
+8. Be sure to keep the **Allow Windows Azure Services to access the server** option selected so that you can connect to this database using the Management Portal for SQL Database, storage services, and other services on Windows Azure. 
+
+9. Click the checkmark at the bottom of the page when you are finished.
+
+Notice that you did not specify a server name. SQL Database auto-generates the server name to ensure there are no duplicate DNS entries. The server name is a ten-character alphanumeric string. You cannot change the name of your SQL Database server.
+
+After the database is created, click on it to open its dashboard. The dashboard provides connection strings that you can copy and use in application code. It also shows the management URL that you'll need to specify if you are connecting to the database from Management Studio or other administrative tool.
+
+![Image1] []
+
+In the next step, you will configure the firewall so that connections from applications running on your network are allowed access.
+
+<h3 id="configFWLogical">Configure the firewall for the logical server</h3>
+
+1. Click **SQL Databases**, click **Servers** at the top of the page, and then click on the server you just created.
+
+2. Click **Configure**. 
+
+3. Copy the current client IP address. If you are connecting from a network, this is the IP address that your  router or proxy server is listening on. SQL Database detects the IP address used by the current connection so that you can create a firewall rule to accept connection requests from this device. 
+
+4. Paste the IP address into both the beginning and end range. Later, if you encounter connection errors indicating that the range is too narrow, you can edit this rule to widen the range.
+
+  If client computers use dynamically assigned IP addresses, you must specify a range that is broad enough to include IP addresses assigned to computers in your network. Start with a narrow range, and then expand it only if you need to.
+
+5. Enter a name for the firewall rule, such as the name of your computer or company.
+
+6. Click the checkmark next to the rule to save it.
+
+7. Click **Save** at the bottom of the page to complete the step. If you do not see **Save**, refresh the browser page.
+
+You now have a database instance, logical server, a firewall rule that allows inbound connections from your IP address, and an administrator login. You are now ready to connect to the database programmatically.
+
+
+
+<h2 id="Connect-DB">Connect to SQL Database</h2>
 
 This section shows how to connect to SQL Azure database using different
 .NET Framework data providers.
@@ -179,10 +118,10 @@ additional tools or SDKs needed to be installed on the development
 computer. You can just start developing your application.
 
 You can use all of the same designer tools in Visual Studio to work with
-SQL Azure as you can to work with SQL Server. The Server Explorer allows
+SQL Database as you can to work with SQL Server. The Server Explorer allows
 you to view (but not edit) database objects. The Visual Studio Entity
 Data Model Designer is fully functional and you can use it to create
-models against SQL Azure for working with Entity Framework.
+models against SQL Database for working with Entity Framework.
 
 ### <a name="using-sql-server"> </a>Using .NET Framework Data Provider for SQL Server
 
@@ -285,33 +224,33 @@ Framework][].
 ## <a name="next-steps"> </a>Next Steps
 
 Now that you have learned the basics of connecting to SQL Azure, see the
-following resources to learn more about SQL Azure.
+following resources to learn more about SQL Database.
 
--   [Development: How-to Topics (SQL Azure Database)][]
--   [SQL Azure Database][]
+-   [Development: How-to Topics (SQL Database)][]
+-   [SQL Database][]
 
-  [What is SQL Azure?]: #what-is
-  [Create a SQL Azure Server]: #create-sql
-  [Configure Access to the SQL Azure Server]: #config-access
-  [Create a SQL Azure Database]: #create-db
-  [Connect to the SQL Azure Database]: #connect-db
-  [Using ADO.NET]: #using-sql-server
-  [Using ODBC]: #using-ODBC
-  [Using EntityClient Provider]: #using-entity
+
+  [What is SQL Database?]: #WhatIs
+  [Sign in to Windows Azure]: #PreReq1
+  [Create and Configure SQL Database]: #PreReq2
+  [Connect to SQL Database]: #connect-db
+  [Connect Using ADO.NET]: #using-sql-server
+  [Connect Using ODBC]: #using-ODBC
+  [Connect Using EntityClient Provider]: #using-entity
   [Next Steps]: #next-steps
   [Windows Azure Free Trial]: {localLink:2187} "Free Trial"
   [Windows Azure Management Portal]: http://windows.azure.com
-  []: ../../../DevCenter/dotNet/Media/sql-01.png
-  [1]: ../../../DevCenter/dotNet/Media/sql-02.png
-  [How to Create a SQL Azure Server]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-server.aspx
-  [Management Portal for SQL Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx
-  [SQL Azure Firewall]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-firewall.aspx
-  [2]: ../../../DevCenter/dotNet/Media/sql-03.png
-  [3]: ../../../DevCenter/dotNet/Media/sql-04.png
-  [4]: ../../../DevCenter/dotNet/Media/sql-05.png
+
+
+[Image1]: ../Media/SQLDbDashboard.png
+
+
+  [How to Create a SQL Database Server]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-server.aspx
+  [Management Portal for SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx
+  [SQL Database Firewall]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-firewall.aspx
   [Tools and Utilities Support (SQL Azure Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621784.aspx
-  [How to Create a SQL Azure database]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-database.aspx
+  [How to Create a SQL Database on Windows Azure]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-database.aspx
   [Service Level Agreement]: {localLink:1132} "SLA"
   [EntityClient Provider for the Entity Framework]: http://msdn.microsoft.com/en-us/library/bb738561.aspx
-  [Development: How-to Topics (SQL Azure Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621787.aspx
-  [SQL Azure Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx
+  [Development: How-to Topics (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621787.aspx
+  [SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx

@@ -1,6 +1,4 @@
-<properties umbracoNaviHide="1" pageTitle="How to Make a Phone Call from Twilio in Java" metaKeywords="Azure Twilio Java" 
-metaDescription="The following example shows you how you can use Twilio to make a call from a web page hosted in Windows Azure." 
-linkid="develop-java-how-to-twilio-phone-call" urlDisplayName="Twilio Phone Call" headerExpose="" footerExpose="" disqusComments="1" />
+<properties umbracoNaviHide="1" pageTitle="How to Make a Phone Call from Twilio in Java" metaKeywords="Azure Twilio Java" metaDescription="The following example shows you how you can use Twilio to make a call from a web page hosted in Windows Azure." linkid="develop-java-how-to-twilio-phone-call" urlDisplayName="Twilio Phone Call" headerExpose="" footerExpose="" disqusComments="1" />
 
 # How to Make a Phone Call Using Twilio in a Java Application on Windows Azure 
 

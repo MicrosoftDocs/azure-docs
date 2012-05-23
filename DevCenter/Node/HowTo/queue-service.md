@@ -11,7 +11,7 @@ Steps][] section.
 
 ## Table of Contents
 
-[What is Queue Storage?][]   
+ [What is the Queue Service?][]   
  [Concepts][]   
  [Create a Windows Azure Storage Account][]   
  [Create a Node.js Application][]   
@@ -27,14 +27,14 @@ Steps][] section.
  [How To: Delete a Queue][]   
  [Next Steps][]
 
-## <a name="what-is"> </a>What is Queue Storage?
+## <a name="what-is"> </a>What is the Queue Service?
 
-Windows Azure Queue storage is a service for storing large numbers of
+The Windows Azure Queue service is a service for storing large numbers of
 messages that can be accessed from anywhere in the world via
 authenticated calls using HTTP or HTTPS. A single queue message can be
 up to 64KB in size, a queue can contain millions of messages, up to the
-100TB total capacity limit of a storage account. Common uses of Queue
-storage include:
+100TB total capacity limit of a storage account. Common uses of the Queue
+service include:
 
 -   <span>Creating a backlog of work to process asynchronously</span>
 -   Passing messages from a Windows Azure web role to a worker role
@@ -557,12 +557,11 @@ To delete a queue and all the messages contained in it, call the
 Now that you’ve learned the basics of queue storage, follow these links
 to learn how to do more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Windows
-    Azure][]
+-   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][]
 -   Visit the [Windows Azure Storage Team Blog][]
 
   [Next Steps]: #next-steps
-  [What is Queue Storage?]: #what-is
+  [What is the Queue Service?]: #what-is
   [Concepts]: #concepts
   [Create a Windows Azure Storage Account]: #create-account
   [Create a Node.js Application]: #create-app

@@ -419,13 +419,13 @@ While the steps in this article describe using MongoDB to store information, you
 [Windows Azure command-line tool for Mac and Linux]: http://windowsazure.com
 [Windows Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/
 [Create and deploy a Node.js application to Windows Azure Web Sites]: http://windowsazure.com
-[Publishing to Windows Azure Web Sites with Git]: http://windowsazure.com
-[Installing MongoDB on a Linux Virtual machine]: ../../Shared/Tutorials/InstallMongoOnCentOSLinuxVM.md
+[Publishing to Windows Azure Web Sites with Git]: ../CommonTasks/publishing-with-git
+[Installing MongoDB on a Linux Virtual machine]: ../../Shared/Tutorials/InstallMongoOnCentOSLinuxVM
 [Node.js Web Application with the Windows Azure Table Service]: ./web-site-with-storage.html
 [sudo]: http://en.wikipedia.org/wiki/Sudo
 
 [node-mongo-finished]: ../media/todo_list_empty.png
 [node-mongo-express-results]: ../media/express_output.png
-[node-mongo-add-items]: ../media/todo_add_item.png
+[node-mongo-add-item]: ../media/todo_add_item.png
 [node-mongo-list-items]: ../media/todo_list_items.png
 [download-publishing-settings]: ../../Shared/Media/azure-account-download.png

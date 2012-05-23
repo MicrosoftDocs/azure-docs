@@ -123,7 +123,7 @@ from the queue by calling the **peek\_messages** method. By default,
 
 	messages = queue_client.peek_messages('taskqueue')
 	for message in messages:
-    	print(message.message_text)
+		print(message.message_text)
 
 
 ## <a name="get-message"> </a>How To: Dequeue the Next Message
@@ -141,7 +141,7 @@ after the message has been processed.
 
 	messages = queue_client.get_messages('taskqueue')
 	for message in messages:
-    	print(message.message_text)
+		print(message.message_text)
 		queue_client.delete_message('taskqueue', message.message_id, message.pop_receipt)
 
 
@@ -155,7 +155,6 @@ method to update a message.
 	messages = queue_client.get_messages('taskqueue')
 	for message in messages:
 		queue_client.update_message('taskqueue', message.message_id, 'Hello World Again', message.pop_receipt, 0)
-
 
 ## <a name="advanced-get"> </a>How To: Additional Options for Dequeuing Messages
 
@@ -172,7 +171,6 @@ five minutes for each message.
 		print(message.message_text)
 		queue_client.delete_message('taskqueue', message.message_id, message.pop_receipt)
 
-
 ## <a name="get-queue-length"> </a>How To: Get the Queue Length
 
 You can get an estimate of the number of messages in a queue. The
@@ -184,7 +182,6 @@ queue service responds to your request.
 
 	queue_metadata = queue_client.get_queue_metadata('taskqueue')
 	count = queue_metadata.x_ms_approximate_messages_count
-
 
 ## <a name="delete-queue"> </a>How To: Delete a Queue
 

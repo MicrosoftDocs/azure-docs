@@ -1,4 +1,5 @@
 # Windows Azure SQL Reporting for Application developers #
+
 This topic provides information about deploying a report server project to Windows Azure SQL Reporting report server, and getting started information for application developers who integrate reports hosted by Windows Azure SQL Reporting in their applications, as well as develop management tools against SQL Azure Reporting report servers.
 
 To get started with Windows Azure SQL Reporting, you must have a Windows Azure subscription. You can use an existing subscription, a new subscription, or the free trial subscription. For more information, see  [http://www.windowsazure.com/en-us/](http://www.windowsazure.com/en-us/).
@@ -114,6 +115,7 @@ For more information about the use of ReportViewer in a Windows Azure website th
 
 	The following example shows how to implement the IReportServerCredentials:
 
+		
 		/// <summary>
 		/// Implementation of IReportServerCredentials to supply forms credentials to SQL Reporting using GetFormsCredentials() 
 		/// </summary>
@@ -203,11 +205,11 @@ When accessing the SOAP management endpoint, you use the endpoint’s LogonUser(
 
 The following code shows how to authenticate and authorize with the ReportingServices2010 management endpoint and perform the ReportingService2010.ListChildren() operation. Note that the CookieContainer property is set to a new instance of the CookieContainer class before the LogonUser() method runs. This ensures that the authentication cookie that is returned by the Web response of LogonUser() is saved and used in later Web service calls.
 	 
-		ReportingService2010 rs = new ReportingService2010();
-		rs.Url = String.Format("https://{0}:443/ReportServer/ReportService2010.asmx", ConfigurationManager.AppSettings["SERVER_NAME"]);
-		rs.CookieContainer = new CookieContainer();
-		rs.LogonUser(ConfigurationManager.AppSettings["USERNAME"], ConfigurationManager.AppSettings["PASSWORD"], ConfigurationManager.AppSettings["SERVER_NAME"]);
-		CatalogItem[] items = rs.ListChildren("/", true);
+	ReportingService2010 rs = new ReportingService2010();
+	rs.Url = String.Format("https://{0}:443/ReportServer/	ReportService2010.asmx", ConfigurationManager.AppSettings["SERVER_NAME"]);
+	rs.CookieContainer = new CookieContainer();
+	rs.LogonUser(ConfigurationManager.AppSettings["USERNAME"], ConfigurationManager.AppSettings["PASSWORD"], ConfigurationManager.AppSettings["SERVER_NAME"]);
+	CatalogItem[] items = rs.ListChildren("/", true);
 
 Then, in the Web.config or App.config file, specify the application settings in the `<appSettings>` element. The following example shows how the `<appSettings>` element might look like. (Consider specifying the values as per your SQL Reporting report server.)
 	 
@@ -271,12 +273,11 @@ Now you are familiar with SQL Reporting and how to integrate reports hosted by S
 [Programmatically access Reports using SOAP Management Endpoint]: #Programmatically_Access
 [Next Steps]: #NextSteps
 
-
-[ReportServerProperties]: media/ReportProject_PropertiesDialog.png
-[LoginDialog]: media/ReportProject_LoginDialog.png
-[VSNewProject]: media/VS_NewProject.png
-[NewProjectDialog]: media/VS_NewProjectDialog.png
-[NewAzureProjectDialog]: media/VS_NewAzureProjectDialog.png
-[SolutionExplorer]: media/SolutionExplorer.png
-[Toolbox]: media/Toolbox.png
-[CmdPrompt]: media/VS_CMDPrompt.png
+[ReportServerProperties]: ../media/ReportProject_PropertiesDialog.png
+[LoginDialog]: ../media/ReportProject_LoginDialog.png
+[VSNewProject]: ../media/VS_NewProject.png
+[NewProjectDialog]: ../media/VS_NewProjectDialog.png
+[NewAzureProjectDialog]: ../media/VS_NewAzureProjectDialog.png
+[SolutionExplorer]: ../media/SolutionExplorer.png
+[Toolbox]: ../media/Toolbox.png
+[CmdPrompt]: ../media/VS_CMDPrompt.png
