@@ -5,7 +5,7 @@ This tutorial describes how to use MySQL to access data from a Windows Azure Clo
 
 In this tutorial, you will learn how to:
 
-* Setup a Windows Azure virtual machine to host MySQL.
+* Setup a Windows Azure virtual machine to host MySQL. While this tutorial explains how to accomplish this in Windows Server 2008 R2, the same could also be done with a Linux VM hosted in Windows Azure.
 * Install a [MySQL driver] [mysqlpy] for Python.
 * Configure an existing Django application to use a MySQL database.
 * Use MySQL directly from Python.
@@ -24,11 +24,6 @@ Before you can begin developing your Windows Azure application, you need to get 
 
 ## Install the MySQL Python package ##
 You must download and install the MySQL Python package, in addition to installing the Windows Azure SDK for Python. You can install it directly [from this link] [mysqlpydl]. Once completed, run the following command to verify your installation:
-
-<pre class="prettyprint">C:\Python27\python.exe -c "import MySQLdb"
-</pre>
-
-The expected output is empty:
 
 ![][1]
 
@@ -55,9 +50,9 @@ The expected output is empty:
 
 
 		CREATE world;
-        USE world;
-        SOURCE C:\Users\Administrator\Desktop\world.sql
-        CREATE USER 'testazureuser'@'%' IDENTIFIED BY 'testazure';
+		USE world;
+		SOURCE C:\Users\Administrator\Desktop\world.sql
+		CREATE USER 'testazureuser'@'%' IDENTIFIED BY 'testazure';
 		CREATE DATABASE djangoazure;
 		GRANT ALL ON djangoazure.* TO 'testazureuser'@'%';
 		GRANT ALL ON world.* TO 'testazureuser'@'%';
