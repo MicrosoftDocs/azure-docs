@@ -121,7 +121,7 @@ configuration. There are also other ways to create
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -172,7 +172,7 @@ sends the new entity to the table service when the
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -210,7 +210,7 @@ operations:
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -253,7 +253,7 @@ each entity in the query results to the console.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -288,7 +288,7 @@ this time (Ben and Denise Smith); Jeff Smith is not included.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -324,7 +324,7 @@ Table service.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -353,7 +353,7 @@ system.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -388,7 +388,7 @@ code runs only when using an account on the table service.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -430,7 +430,7 @@ and insert-or-merge in this [blog post][].
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -463,7 +463,7 @@ retrieves and deletes a customer entity.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -490,7 +490,7 @@ period of time following the deletion.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
