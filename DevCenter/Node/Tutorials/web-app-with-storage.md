@@ -43,15 +43,14 @@ will use the storage emulator.
 Perform the following steps to retrieve the storage account credentials
 and add them to the web.config settings:
 
-1.  If it is not already open, start the Windows Azure PowerShell for
-    Node.js from the **Start** menu by expanding **All Programs, Windows
-    Azure SDK Node.js - November 2011**, right-click **Windows Azure
-    PowerShell for Node.js**, and then select **Run As Administrator**.
+1.  If it is not already open, start the Windows Azure PowerShell from the **Start** menu by expanding **All Programs, Windows
+    Azure**, right-click **Windows Azure
+    PowerShell**, and then select **Run As Administrator**.
 
 2.  Change directories to the folder containing your application. For
     example, C:\\node\\tasklist\\WebRole1.
 
-3.  From the Windows Powershell window enter the following cmdlet to
+3.  From the Windows Azure Powershell window enter the following cmdlet to
     retrieve the storage account information:
 
         PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
@@ -59,7 +58,7 @@ and add them to the web.config settings:
     This retrieves the list of storage accounts and account keys
     associated with your hosted service.
 
-    **Note**: Since the Windows Azure SDK for Node.js creates a storage
+    **Note**: Since the Windows Azure SDK creates a storage
     account when you deploy a service, a storage account should already
     exist from deploying your application in the previous guides.
 
@@ -406,7 +405,7 @@ updating the deployment to the existing hosted service.
     redeploy your hosted service to Windows Azure. Your storage settings
     and location were previous saved and do not need to be re-entered.
 
-        PS C:\node\tasklist\WebRole1> Publish-AzureService -launch
+        PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -launch
 
     After the deployment is complete, the following response appears:
 

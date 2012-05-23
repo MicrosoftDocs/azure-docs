@@ -6,7 +6,7 @@ This guide will show you how to use Service Bus queues. The samples are
 written in JavaScript and use the Node.js Azure module. The scenarios
 covered include **creating queues, sending and receiving messages**, and
 **deleting queues**. For more information on queues, see the [Next
-Steps][] section.
+Steps] section.
 
 ## Table of Contents
 
@@ -355,12 +355,12 @@ links to learn more.
   [How to: Send Messages to a Queue]: #send-messages
   [How to: Receive Messages from a Queue]: #receive-messages
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
-  [Queue Concepts]: ../../../DevCenter/dotNet/Media/sb-queues-08.png
+  [Queue Concepts]: ../../dotNet/Media/sb-queues-08.png
   [Windows Azure Management Portal]: http://windows.azure.com
-  [image]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
-  [1]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
-  [2]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
-  [3]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
-  [4]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
+  [image]: ../../dotNet/Media/sb-queues-03.png
+  [1]: ../../dotNet/Media/sb-queues-04.png
+  [2]: ../../dotNet/Media/sb-queues-05.png
+  [3]: ../../dotNet/Media/sb-queues-06.png
+  [4]: ../../dotNet/Media/sb-queues-07.png
   [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
   [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
