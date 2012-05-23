@@ -13,11 +13,11 @@ subscriptions. The samples are written in PHP and use the [Windows Azure SDK for
 -   [Configure Your Application to Use Service Bus](#ConfigureApp)
 -   [How to: Create a Topic](#CreateTopic)
 -   [How to: Create a Subscription](#CreateSubscription)
--   [How to: Send Messages to a Topic][]
+-   [How to: Send Messages to a Topic](#SendMessage)
 -   [How to: Receive Messages from a Subscription][]
--   [How to: Handle Application Crashes and Unreadable Messages][]
+-   [How to: Handle Application Crashes and Unreadable Messages](#HandleCrashes)
 -   [How to: Delete Topics and Subscriptions][]
--   [Next Steps][]
+-   [Next Steps](#NextSteps)
 
 <h2 id="WhatAreTopicsAndSubscriptions">What are Service Bus Topics and Subscriptions?</h2>
 
@@ -240,40 +240,58 @@ message content).
 
 <h2 id="SendMessage">How to Send Messages to a Topic</h2>
 
-To send a message to a Service Bus Topic, your application will obtain a
-**ServiceBusContract** object. The below code demonstrates how to send a
-message for the "TestTopic" topic we created above within our
-"HowToSample" service namespace:
+To send a message to a Service Bus topic, your application will call the **ServiceBusRestProxy->sendMessage** method. The code below demonstrates how to send a message to the "mytopic" topic we created above within the
+"MySBNamespace" service namespace. Note that first parameter of the **sendMessage** method is `mytopic/messages`, the path to which the message is sent.
 
-    String issuer = "<obtained from portal>"; String key = "<obtained from portal>"; Configuration config = ServiceBusConfiguration.configureWithWrapAuthentication (“HowToSample”, issuer, key); ServiceBusContract service = ServiceBusService.create(config); TopicInfo topicInfo = new TopicInfo("TestTopic"); try { CreateTopicResult result = service.createTopic(topicInfo); BrokeredMessage message = new BrokeredMessage("sendMessageWorks"); service.sendTopicMessage("TestTopic", message); } catch (ServiceException e) { System.out.print("ServiceException encountered: "); System.out.println(e.getMessage()); System.exit(-1); }
+	require_once 'WindowsAzure.php';
 
-Messages sent to Service Bus Topics are instances of the
-**BrokeredMessage** class. **BrokeredMessage** objects have a set of
-standard methods (such as **setLabel** and **TimeToLive**), a dictionary
-that is used to hold custom application specific properties, and a body
-of arbitrary application data. An application can set the body of the
-message by passing any serializable object into the constructor of the
-**BrokeredMessage**, and the appropriate **DataContractSerializer** will
-then be used to serialize the object. Alternatively, a
-**java.io.InputStream** can be provided.
+	use WindowsAzure\Common\Configuration;
+	use WindowsAzure\Common\ServiceException;
+	use WindowsAzure\ServiceBus\ServiceBusSettings;
+	use WindowsAzure\ServiceBus\ServiceBusService;
+	use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 
-The following example demonstrates how to send five test messages to the
-"TestTopic" **MessageSender** we obtained in the code snippet above.
-Note how the **MessageNumber** property value of each message varies on
-the iteration of the loop (this will determine which subscriptions
-receive it):
+	$issuer = "<obtained from portal>";
+	$key = "<obtained from portal>";
 
-      for (int i=0; i<5; i++)  {
-         // Create message, passing a string message for the body     BrokeredMessage message = new BrokeredMessage("Test message " + i);
-         // Set some additional custom app-specific property     message.setProperty("TestProperty", "TestValue" + i); 
-         // Send message to the topic     service.sendTopicMessage("TestTopic", message);  }
+	// Create configuration object.
+	$config = new Configuration();
+	ServiceBusSettings::configureWithWrapAuthentication( $config,
+														 "MySBNamespace",
+														 $issuer,
+														 $key);	
 
-Service Bus topics support a maximum message size of 256 MB (the header,
+	// Create Service Bus REST proxy.
+	$serviceBusRestProxy = ServiceBusService::create($config);
+	
+	$message = new BrokeredMessage();
+	$message->setBody("my message");
+		
+	try	{
+		// Send message.
+		$serviceBusRestProxy->sendMessage("mytopic/messages", $message);
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/hh780775
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
+
+Messages sent to Service Bus topics are instances
+of the **BrokeredMessage** class. **BrokeredMessage** objects have a set
+of standard methods (such as **getLabel**, **getTimeToLive**,
+**setLabel**, and **setTimeToLive**) and properties that are used to hold
+custom application specific properties, and a body of arbitrary
+application data.
+
+Service Bus queues support a maximum message size of 256 KB (the header,
 which includes the standard and custom application properties, can have
-a maximum size of 64 MB). There is no limit on the number of messages
-held in a topic but there is a cap on the total size of the messages
-held by a topic. This topic size is defined at creation time, with an
-upper limit of 5 GB.
+a maximum size of 64 KB). There is no limit on the number of messages
+held in a queue but there is a cap on the total size of the messages
+held by a queue. This upper limit on queue size is 5 GB.
 
 ## <a name="bkmk_HowToReceiveMsgs"> </a>How to Receive Messages from a Subscription
 
@@ -321,19 +339,19 @@ path&gt;/subscriptions/&lt;subscription name&gt;".
                   // Remove message from topic              System.out.println("Deleting this message.");              service.deleteMessage(message);
             }        catch (Exception ex)        {              // Indicate a problem, unlock message in topic              System.out.println("Inner exception encountered!");              service.unlockMessage(message);        }  }  else  {        System.out.println("Finishing up - no more messages.");        break; // Added to handle no more messages in the topic.        // Could instead wait for more messages to be added.  }} 
 
-## <a name="bkmk_HowToHandleAppCrash"> </a>How to Handle Application Crashes and Unreadable Messages
+<h2 id="HandleCrashes">How to Handle Application Crashes and Unreadable Messages</h2>
 
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
 receiver application is unable to process the message for some reason,
 then it can call the **unlockMessage** method on the received message
 (instead of the **deleteMessage** method). This will cause Service Bus
-to unlock the message within the topic and make it available to be
+to unlock the message within the queue and make it available to be
 received again, either by the same consuming application or by another
 consuming application.
 
 There is also a timeout associated with a message locked within the
-topic, and if the application fails to process the message before the
+queue, and if the application fails to process the message before the
 lock timeout expires (e.g., if the application crashes), then Service
 Bus will unlock the message automatically and make it available to be
 received again.
@@ -361,7 +379,7 @@ different modes: **ReceiveAndDelete** and **PeekLock**
 Deleting a topic will also delete any subscriptions that are registered
 with the topic. Subscriptions can also be deleted independently.
 
-# <a name="bkmk_NextSteps"> </a>Next Steps
+<h2 id="NextSteps">Next Steps</h2>
 
 Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Queues, Topics, and Subscriptions][] for more information.
