@@ -7,16 +7,18 @@ This tutorial shows you how to create a PHP website and use the Windows Azure Ta
 You will learn:
 
 * How to install the Windows Azure client libraries and include them into your application.
-* How to use the client libraries for creating tables, creating, querying and deleting table entities.
-* How to create a Windows Azure Storage Account and retrieve its credentials.
+* How to use the client libraries for creating tables, and for creating, querying and deleting table entities.
+* How to create a Windows Azure Storage Account and set up your application to use it.
+* How to create a Windows Azure website and deploy to it using Git
  
-By following this tutorial, you will build a simple Tasklist web application in PHP. A screenshot of the completed application is below:
+You will build a simple Tasklist web application in PHP. A screenshot of the completed application is below:
 
 ![Windows Azure PHP Website][ws-storage-app]
 
+
 ##Installing the Windows Azure client libraries
 
-In order to use the Windows Azure storage services, you must first download the client libraries. They are available as a ZIP file, PEAR package, and a Composer package [todo: link to download doc]. Composer provides a way to install the client libraries and all their dependencies in one go and with no prior installation work:
+In order to use the Windows Azure storage services, you must first download the client libraries. They are available as a ZIP file, PEAR package, and a Composer package. Composer provides a way to install the client libraries and all their dependencies in one go and with no prior installation work:
 
 *  Create a file named **composer.json** in the root of your project and add the following code to it:
 
@@ -37,13 +39,13 @@ In order to use the Windows Azure storage services, you must first download the 
 
 There are four basic steps that have to be performed before you can make a call to a Windows Azure API wen using the libraries. You will create an initialization script that will perform these steps.
 
-* Create a file called **init.php** and perform the steps below within it.
+* Create a file called **init.php**.
 
 * First, include the autoloader script:
 
 		require_once "azure-sdk-for-php/WindowsAzure/WindowsAzure.php"; 
 	
-* Then request the namespaces yo are going to use.
+* Include the namespaces you are going to use.
 
 	Since the third step is creating a configuration object containing the account credentials you need to include `Configuration` namespace:
 
@@ -54,7 +56,7 @@ There are four basic steps that have to be performed before you can make a call 
 		use WindowsAzure\Table\TableService;
 		use WindowsAzure\Table\TableSettings;
 	
-* To create a `Configuration` class pass in your authentication information:
+* Objects of the `Configuration` class carry your authentication information and are required for instantiating any Azure REST call wrapper.  If you do not have a storage account you can copy this code as is and create one in the section for that near the end of this guide.
 
 		$config = new Configuration();
 		$config->setProperty(TableSettings::ACCOUNT_NAME, '[YOUR_STORAGE_ACCOUNT_NAME]');
@@ -76,6 +78,8 @@ Before you can store data you first have to create a container for it, the Table
 
 * First, include the initialization script you just created. You will be including this script in every file accessing Azure:
 
+		<?php
+
 		require_once "init.php";
 
 * Then, make a call to *createTable* passing in the name of the table. Similarly to other NoSQL table stores, no schema is required for Azure Tables.
@@ -88,6 +92,8 @@ Before you can store data you first have to create a container for it, the Table
 			$error_message = $e->getMessage();
 		    echo $code.": ".$error_message."<br />";
 		}
+
+		?>
 
 	Error codes and message scan be found here: [http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx][msdn-errors]
 
@@ -105,9 +111,10 @@ The home page of the Tasklist application should list all existing tasks and all
 		<body>
 		<h1>My ToDo List <font color="grey" size="5">(powered by PHP and Azure Tables) </font></h1>
 		<?php
+		
 		require_once "init.php";
 
-* To query Azure Tables for **all entities** stored in the *tasks* table you call the *queryEntities* method passing only the name of the table. In the **Updating an Entity** section below you will also pass a filter querying for a specific entity.
+* To query Azure Tables for **all entities** stored in the *tasks* table you call the *queryEntities* method passing only the name of the table. In the **Updating an Entity** section below you will also see how to pass a filter querying for a specific entity.
 
 		try {
 		    $result = $tableRestProxy->queryEntities('tasks');
@@ -124,7 +131,7 @@ The home page of the Tasklist application should list all existing tasks and all
 			
 		for ($i = 0; $i < count($entities); $i++) {
 
-* Once you get an `Entity` the model for reading data is `Entity->getProperty('[name]')->getValue()`:
+* Once you get an `Entity`, the model for reading data is `Entity->getProperty('[name]')->getValue()`:
 
 			if ($i == 0) {
 				echo "<table border='1'>
@@ -156,7 +163,7 @@ The home page of the Tasklist application should list all existing tasks and all
 			echo "<h3>No items on list.</h3>";
 		?>
 
-* Last, you must insert the form that feeds data into the task insertion script and finish the file:
+* Last, you must insert the form that feeds data into the task insertion script and complete the HTML:
 
 			<hr/>
 			<form action="additem.php" method="post">
@@ -240,6 +247,8 @@ The task list app has the ability to mark an item as complete as well as to unma
 		
 		$entity = $entities[0];
 
+	As you can see the passed in query filter is of the form `Key eq 'Value'`. A full description of the query syntax is available [here][msdn-table-query-syntax].
+
 * Then you can change any properties:
 
 		$entity->setPropertyValue('complete', ($_GET['complete'] == 'true') ? true : false);
@@ -264,7 +273,7 @@ The task list app has the ability to mark an item as complete as well as to unma
 
 ## Deleting an Entity
 
-Deleting an item is accomplished with a single call `deleteItem`. The passed in values are the **PartitionKey** and the **RowKey**, which together make up the primary key of the entity. Create a file called **deleteitem.php** and insert the following code:
+Deleting an item is accomplished with a single call to `deleteItem`. The passed in values are the **PartitionKey** and the **RowKey**, which together make up the primary key of the entity. Create a file called **deleteitem.php** and insert the following code:
 
 		<?php
 		
@@ -279,7 +288,7 @@ Deleting an item is accomplished with a single call `deleteItem`. The passed in 
 
 ## Create a Windows Azure Storage Account
 
-To make your application store data into the cloud you need to first create a storage account in Windows Azure and then set the proper authentication information within your app.
+To make your application store data into the cloud you need to first create a storage account in Windows Azure and then pass the proper authentication information to the *Configuration* class.
 
 1. Login to the [Preview Management Portal][preview-portal].
 
@@ -297,7 +306,7 @@ To make your application store data into the cloud you need to first create a st
 
 	When the storage account has been created you will see the text **Creation of Storage Account ‘[NAME]’ completed successfully**.
 
-4. Ensure the **Storage** tab is selected and then selec the storage account you just created from the list.
+4. Ensure the **Storage** tab is selected and then select the storage account you just created from the list.
 
 5. Click on **Manage Keys** from the app bar on the bottom.
 
@@ -374,7 +383,7 @@ To publish your application with Git, follow the steps below.
 
 	You will be prompted for the password you created earlier.
 
-2. Browse to **http://[your website domain]/createtable.php** to create the MySQL table for the application.
+2. Browse to **http://[your website domain]/createtable.php** to create the table for the application.
 3. Browse to **http://[your website domain]/index.php** to begin using the application.
 
 After you have published your application, you can begin making changes to it and use Git to publish them. 
@@ -401,6 +410,7 @@ To publish changes to application, follow these steps:
 [tasklist-mysql-download]: http://go.microsoft.com/fwlink/?LinkId=252506
 [localhost-createtable]: http://localhost/tasklist/createtable.php
 [localhost-index]: http://localhost/tasklist/index.php
+[msdn-table-query-syntax]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx
 [ws-storage-app]: ../Media/ws-storage-app.png
 [preview-portal]: https://manage.windowsazure.com
 [new-website]: ../../Shared/Media/new_website.jpg
