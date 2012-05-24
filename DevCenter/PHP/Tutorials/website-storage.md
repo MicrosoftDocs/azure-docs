@@ -59,7 +59,7 @@ There are four basic steps that have to be performed before you can make a call 
 		$config = new Configuration();
 		$config->setProperty(TableSettings::ACCOUNT_NAME, '[YOUR_STORAGE_ACCOUNT_NAME]');
 		$config->setProperty(TableSettings::ACCOUNT_KEY, '[YOUR_STORAGE_ACCOUNT_KEY]');
-		$config->setProperty(TableSettings::URI, 'http://' . '[YOUR_STORAGE_ACCOUNT_NAME]' . '.table.core.windows.net');
+		$config->setProperty(TableSettings::URI, 'http://' . '[YOUR_STORAGE_ACCOUNT_NAME]' . '.table.core.azure-preview.com');
 
 * Use the `TableService` factory to instantiate a wrapper around Table service calls.
 
@@ -279,7 +279,7 @@ Deleting an item is accomplished with a single call `deleteItem`. The passed in 
 
 ## Create a Windows Azure Storage Account
 
-To make your application store data into the cloud you need to first create a storage account in Windows Azure.
+To make your application store data into the cloud you need to first create a storage account in Windows Azure and then set the proper authentication information within your app.
 
 1. Login to the [Preview Management Portal][preview-portal].
 
@@ -409,6 +409,7 @@ To publish changes to application, follow these steps:
 [storage-quick-create]: ../../Shared/Media/storage-quick-create.png
 [storage-quick-create-details]: ../../Shared/Media/storage-quick-create-details.png
 [storage-manage-keys]: ../../Shared/Media/storage-manage-keys.png
+[storage-access-keys]: ../../Shared/Media/storage-access-keys.png
 [website-details]: ../../Shared/Media/website_details.jpg
 [go-to-dashboard]: ../../Shared/Media/go_to_dashboard.jpg
 [setup-git-publishing]: ../Media/setup_git_publishing.jpg
