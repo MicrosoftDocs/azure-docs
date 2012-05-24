@@ -16,7 +16,7 @@ This guide shows you how to create and configure a virtual machine in Windows Az
 
 ## <a id="virtualmachine"> </a>What is a virtual machine in Windows Azure ##
 
-A virtual machine in Windows Azure is a server in the cloud that you can control and manage. After you create a virtual machine in Windows Azure, you can delete and recreate it whenever you need to, and you can log on to the virtual machine just as you do with any other server. Virtual hard drive (VHD) files are used to create a virtual machine. The following types of VHDs are used for a virtual machine in Windows Azure:
+A virtual machine in Windows Azure is a server in the cloud that you can control and manage. After you create a virtual machine in Windows Azure, you can delete and recreate it whenever you need to, and you can log on to the virtual machine just as you do with any other server. Virtual hard disk (VHD) files are used to create a virtual machine. The following types of VHDs are used for a virtual machine in Windows Azure:
 
 - **Image -** A VHD that is used as a template to create a new virtual machine. An image is a template because it doesn’t have specific settings like a running virtual machine, such as the computer name and user account settings. If you create a virtual machine using an image, an operating system disk is automatically created for the new virtual machine.
 - **Disk -** A VHD that can be booted and mounted as a running version of an operating system. A disk is a runnable version of an image. Any VHD that is attached to virtualized hardware and running as part of a service is a disk. After an image is provisioned, it becomes a disk and a disk is always created when you use an image to create a virtual machine.
@@ -26,8 +26,8 @@ The following options are available for using images to create a virtual machine
 - Create a virtual machine by using an image that is provided in the Image Gallery of the Windows Azure Management Portal.
 - Create and upload a VHD file that contains an image to Windows Azure, and then create a virtual machine using the image. For more information about creating and uploading a custom image, see the following topics:
 <UL>
-<LI>[Creating and Uploading a Virtual Hard Drive that Contains the Linux Operating System](http://)</LI>
-<LI>[Creating and Uploading a Virtual Hard Drive that Contains the Windows Server Operating System](http://)</LI>
+<LI>[Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](http://)</LI>
+<LI>[Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System](http://)</LI>
 </UL>
 
 ## <a id="quickcreate"> </a>How to quickly create a virtual machine ##
@@ -240,9 +240,38 @@ This procedure shows you how to use the PuTTY program to access the virtual mach
 
 ## <a id="attachdisk"> </a>How to attach a data disk to a virtual machine ##
 
-You can attach a data disk to a virtual machine to store application data. A data disk is a Virtual Hard Drive (VHD) that you can create either locally with your own computer or in the cloud with Windows Azure. You manage data disks in the virtual machine the same way you do on a server in your office.
+You can attach a data disk to a virtual machine to store application data. A data disk is a Virtual Hard Disk (VHD) that you can create either locally with your own computer or in the cloud with Windows Azure. You manage data disks in the virtual machine the same way you do on a server in your office.
 
-You can upload and attach a data disk that already contains data to the virtual machine, or you can attach an empty disk to the machine. The virtual machine is not stopped to add the disk.
+You can upload and attach a data disk that already contains data to the virtual machine, or you can attach an empty disk to the machine. The virtual machine is not stopped to add the disk. You are limited in the number of disks that you can attach to a virtual machine based on the size of the machine. The following table lists the number of attached disks that are allowed for each size of virtual machine.
+
+<P>
+  <TABLE BORDER="1" WIDTH="300">
+  <TR BGCOLOR="#E9E7E7">
+    <TH>Size</TH>
+    <TH>Data Disk Limit</TH>
+  </TR>
+  <TR>
+    <TD>Extra Small</TD>
+    <TD>1</TD>
+  </TR>
+  <TR>
+    <TD>Small</TD>
+    <TD>2</TD>
+  </TR>
+  <TR>
+    <TD>Medium</TD>
+    <TD>4</TD>
+  </TR>
+  <TR>
+    <TD>Large</TD>
+    <TD>8</TD>
+  </TR>
+  <TR>
+    <TD>Extra Large</TD>
+    <TD>16</TD>
+  </TR>
+  </TABLE>
+</P>
 
 ### Attach an existing disk ###
 
@@ -406,7 +435,7 @@ Each endpoint defined for a virtual machine is assigned a public and private por
 
 ## <a id="capture"> </a>How to capture an image of a virtual machine ##
 
-You can use images from the Image Gallery to easily create virtual machines, or you can capture and use your own images to create customized virtual machines. An image is a virtual hard drive (VHD) file that is used as a template for creating a virtual machine. An image is a template because it doesn’t have specific settings like a configured virtual machine, such as the computer name and user account settings. If you want to create multiple virtual machines that are set up the same way, you can capture an image of a configured virtual machine and use that image as a template.
+You can use images from the Image Gallery to easily create virtual machines, or you can capture and use your own images to create customized virtual machines. An image is a virtual hard disk (VHD) file that is used as a template for creating a virtual machine. An image is a template because it doesn’t have specific settings like a configured virtual machine, such as the computer name and user account settings. If you want to create multiple virtual machines that are set up the same way, you can capture an image of a configured virtual machine and use that image as a template.
 
 ### Capture an image of a virtual machine running Windows Server 2008 R2 ###
 

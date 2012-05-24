@@ -1,4 +1,4 @@
-# Creating and Uploading a Virtual Hard Drive that Contains the Linux Operating System #
+# Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System #
 
 A virtual machine that you create in Windows Azure runs the operating system that you choose from the supported operating system versions. You can customize the operating system settings of the virtual machine to facilitate running your application. The configuration that you set is stored on disk. You create a virtual machine in Windows Azure by using a virtual hard disk (VHD) file. You can choose to create a virtual machine by using a VHD file that is supplied for you in the Image Gallery, or you can choose to create your own image and upload it to Windows Azure in a VHD file.
 
@@ -45,7 +45,7 @@ Multiple tools exist to create VHD files. In this task, you use Hyper-V Manager 
 
 ## <a id="createimage"> </a>Step 2: Create the image ##
 
-An image is a virtual hard drive (VHD) file that you can use as a template to create a new virtual machine. An image is a template because it doesn’t have specific settings like a configured virtual machine, such as the computer name and user account settings. The VHD contains the operating system, any operating system customizations, and your applications. You can create the VHD by completing the following steps in Hyper-V.
+An image is a virtual hard disk (VHD) file that you can use as a template to create a new virtual machine. An image is a template because it doesn’t have specific settings like a configured virtual machine, such as the computer name and user account settings. The VHD contains the operating system, any operating system customizations, and your applications. You can create the VHD by completing the following steps in Hyper-V.
 
 1. On your server, click **Start**, click **All Programs**, click **Administrative Tools**, and then click **Hyper-V Manager**.
 
@@ -55,7 +55,7 @@ An image is a virtual hard drive (VHD) file that you can use as a template to cr
 
 3. In the New Virtual Machine Wizard, provide a name and a location for the virtual machine, the amount of memory that you want the virtual machine to use, and the network adapter that you want the virtual machine to use.
 
-	You will be asked to provide information for the virtual hard drive that is used for creating the virtual machine.
+	You will be asked to provide information for the virtual hard disk that is used for creating the virtual machine.
 
 	![Enter virtual machine details] (../media/newvhd.png)
 
