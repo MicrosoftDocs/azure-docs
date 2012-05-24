@@ -9,17 +9,17 @@ messages**, and **deleting queues**.
 
 ## Table of Contents
 
--   [What are Service Bus Queues?](#WhatAreQueues)
--   [Create a Service Namespace](#CreateNamespace)
--   [Obtain the Default Management Credentials for the Namespace](#GetDefaultCredentials)
--   [Configure Your Application to Use Service Bus](#ConfigureApp)
--   [How to: Create a Queue](#CreateQueue)
--   [How to: Send Messages to a Queue](#SendMessages)
--   [How to: Receive Messages from a Queue](#ReceiveMessages)
--   [How to: Handle Application Crashes and Unreadable Messages](#HandleCrashes)
--   [Next Steps](#NextSteps)
+-   [What are Service Bus queues?](#WhatAreQueues)
+-   [Create a service namespace](#CreateNamespace)
+-   [Obtain the default management credentials for the namespace](#GetDefaultCredentials)
+-   [Configure your application to use Service Bus](#ConfigureApp)
+-   [How to: Create a queue](#CreateQueue)
+-   [How to: Send messages to a queue](#SendMessages)
+-   [How to: Receive messages from a queue](#ReceiveMessages)
+-   [How to: Handle application crashes and unreadable messages](#HandleCrashes)
+-   [Next steps](#NextSteps)
 
-<h2 id="WhatAreQueues">What are Service Bus Queues?</h2>
+<h2 id="WhatAreQueues">What are Service Bus queues?</h2>
 
 Service Bus Queues support a **brokered messaging communication** model.
 When using queues, components of a distributed application do not
@@ -51,7 +51,7 @@ a wide variety of scenarios:
 Using queues can enable you to scale out your applications better, and
 enable more resiliency to your architecture.
 
-<h2 id="CreateNamespace">Create a Service Namespace</h2>
+<h2 id="CreateNamespace">Create a service namespace</h2>
 
 To begin using Service Bus queues in Windows Azure, you must first
 create a service namespace. A service namespace provides a scoping
@@ -84,7 +84,7 @@ To create a service namespace:
     and takes a moment to activate. Wait until the status is **Active**
     before moving on.
 
-<h2 id="GetDefaultCredentials">Obtain the Default Management Credentials for the Namespace</h2>
+<h2 id="GetDefaultCredentials">Obtain the default management credentials for the namespace</h2>
 
 In order to perform management operations, such as creating a queue, on
 the new namespace, you need to obtain the management credentials for the
@@ -109,7 +109,7 @@ namespace.
 
 5.  Make a note of the **Default Issuer** and the **Default Key** as you will use this information below to perform operations with the  namespace.
 
-<h2 id="ConfigureApp">Configure Your Application to Use Service Bus</h2>
+<h2 id="ConfigureApp">Configure your application to use Service Bus</h2>
 
 The only requirement for creating a PHP application that accesses the Windows Azure Blob service is the referencing of classes in the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
@@ -135,7 +135,7 @@ The following example shows how to include the `WindowsAzure.php` file and refer
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
-<h2 id="CreateQueue">How to Create a Queue</h2>
+<h2 id="CreateQueue">How to: Create a queue</h2>
 
 Management operations for Service Bus queues can be performed via the
 **ServiceBusRestProxy** class. A **ServiceBusRestProxy** object is
@@ -185,7 +185,7 @@ The example below shows how create a **Configuration** object, instantiate **Ser
 <p>You can use the <b>listQueues</b> method on <b>ServiceBusRestProxy</b> objects to check if a queue with a specified name already exists within a service namespace.</p> 
 </div>
 
-<h2 id="SendMessages">How to Send Messages to a Queue</h2>
+<h2 id="SendMessages">How to: Send messages to a queue</h2>
 
 To send a message to a Service Bus queue, your application will call the **ServiceBusRestProxy->sendMessage** method. The code below demonstrates how to send a message to the "myqueue" queue we created above within the
 "MySBNamespace" service namespace. Note that first parameter of the **sendMessage** method is `myqueue/messages`, the path to which the message is sent.
@@ -240,7 +240,7 @@ a maximum size of 64 KB). There is no limit on the number of messages
 held in a queue but there is a cap on the total size of the messages
 held by a queue. This upper limit on queue size is 5 GB.
 
-<h2 id="ReceiveMessages">How to Receive Messages from a Queue</h2>
+<h2 id="ReceiveMessages">How to: Receive messages from a queue</h2>
 
 The primary way to receive messages from a queue is to use a **ServiceBusRestProxy->receiveMessage** method. Received messages can work in two different modes: **ReceiveAndDelete** and **PeekLock**.
 
@@ -298,7 +298,7 @@ The example below demonstrates how a message can be received and processed using
 		echo $code.": ".$error_message."<br />";
 	}
 
-<h2 id="HandleCrashes">How to Handle Application Crashes and Unreadable Messages</h2>
+<h2 id="HandleCrashes">How to: Handle application crashes and unreadable messages</h2>
 
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
@@ -326,7 +326,7 @@ application to handle duplicate message delivery. This is often achieved
 using the **getMessageId** method of the message, which will remain
 constant across delivery attempts.
 
-<h2 id="NextSteps">Next Steps</h2>
+<h2 id="NextSteps">Next steps</h2>
 
 Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Queues, Topics, and Subscriptions][] for more information.

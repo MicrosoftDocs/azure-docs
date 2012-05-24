@@ -19,7 +19,7 @@ subscriptions. The samples are written in PHP and use the [Windows Azure SDK for
 -   [How to: Delete Topics and Subscriptions](#DeleteTopicsAndSubscriptions)
 -   [Next Steps](#NextSteps)
 
-<h2 id="WhatAreTopicsAndSubscriptions">What are Service Bus Topics and Subscriptions?</h2>
+<h2 id="WhatAreTopicsAndSubscriptions">What are Service Bus topics and subscriptions?</h2>
 
 Service Bus topics and subscriptions support a **publish/subscribe
 messaging communication** model. When using topics and subscriptions,
@@ -46,7 +46,7 @@ Service Bus topics and subscriptions enable you to scale to process a
 very large number of messages across a very large number of users and
 applications.
 
-<h2 id="CreateNamespace">Create a Service Namespace</h2>
+<h2 id="CreateNamespace">Create a service namespace</h2>
 
 To begin using Service Bus queues in Windows Azure, you must first
 create a service namespace. A service namespace provides a scoping
@@ -79,7 +79,7 @@ To create a service namespace:
     and takes a moment to activate. Wait until the status is **Active**
     before moving on.
 
-<h2 id="GetDefaultCredentials">Obtain the Default Management Credentials for the Namespace</h2>
+<h2 id="GetDefaultCredentials">Obtain the default management credentials for the namespace</h2>
 
 In order to perform management operations, such as creating a queue, on
 the new namespace, you need to obtain the management credentials for the
@@ -104,7 +104,7 @@ namespace.
 5.  Make a note of the **Default Issuer** and the **Default Key** as you will use this information below to perform operations with the
     namespace.
 
-<h2 id="ConfigureApp">Configure Your Application to Use Service Bus</h2>
+<h2 id="ConfigureApp">Configure your application to use Service Bus</h2>
 
 The only requirement for creating a PHP application that accesses the Windows Azure Blob service is the referencing of classes in the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
@@ -128,7 +128,7 @@ The following example shows how to include the `WindowsAzure.php` file and refer
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
-<h2 id="CreateTopic">How to Create a Topic</h2>
+<h2 id="CreateTopic">How to: Create a topic</h2>
 
 Management operations for Service Bus topics can be performed via the
 **ServiceBusRestProxy** class. A **ServiceBusRestProxy** object is
@@ -177,11 +177,11 @@ The example below shows how create a **Configuration** object, instantiate **Ser
 <p>You can use the <b>listTopics</b> method on <b>ServiceBusRestProxy</b> objects to check if a topic with a specified name already exists within a service namespace.</p> 
 </div>
 
-<h2 id="CreateSubscription">How to Create a Subscription</h2>
+<h2 id="CreateSubscription">How to: Create a subscription</h2>
 
 Topic subscriptions are also created with the **ServiceBusRestProxy->createTopic** method. Subscriptions are named and can have an optional filter that restricts the set of messages passed to the subscription's virtual queue.
 
-### Create a Subscription with the default (MatchAll) Filter
+### Create a subscription with the default (MatchAll) filter
 
 The **MatchAll** filter is the default filter that is used if no filter is specified when a new subscription is created. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named "mysubscription" and uses the default **MatchAll** filter.
 
@@ -221,13 +221,11 @@ The **MatchAll** filter is the default filter that is used if no filter is speci
 		echo $code.": ".$error_message."<br />";
 	}
 
-### Create Subscriptions with Filters
+### Create subscriptions with filters
 
-You can also setup filters that allow you to scope which messages sent to a topic should show up within a specific topic subscription.
+You can also setup filters that allow you to scope which messages sent to a topic should show up within a specific topic subscription. The most flexible type of filter supported by subscriptions is the **SqlFilter**, which implements a subset of SQL92. SQL filters operate on the properties of the messages that are published to the topic. For more information about SqlFilters, see [SqlFilter.SqlExpression Property][sqlfilter].
 
-The most flexible type of filter supported by subscriptions is the **SqlFilter**, which implements a subset of SQL92. SQL filters operate on the properties of the messages that are published to the topic.
-
-The example below creates a subscription named "HighMessages" with a **SqlFilter** that only selects messages that have a custom **MessageNumber** property greater than 3:
+The example below creates a subscription named "HighMessages" with a **SqlFilter** that only selects messages that have a custom **MessageNumber** property greater than 3 (see [How to: Send messages to a topic](#SendMessage) for information about adding custom properties to messages):
 
       **TODO: Example here**
 
@@ -237,7 +235,7 @@ Similarly, the following example creates a subscription named "LowMessages" with
 
 When a message is now sent to the `mytopic` topic, it will always be delivered to receivers subscribed to the `mysubscription` subscription, and selectively delivered to receivers subscribed to the "HighMessages" and "LowMessages" subscriptions (depending upon the message content).
 
-<h2 id="SendMessage">How to Send Messages to a Topic</h2>
+<h2 id="SendMessage">How to: Send messages to a topic</h2>
 
 To send a message to a Service Bus topic, your application will call the **ServiceBusRestProxy->sendMessage** method. The code below demonstrates how to send a message to the "mytopic" topic we created above within the
 "MySBNamespace" service namespace. Note that first parameter of the **sendMessage** method is `mytopic/messages`, the path to which the message is sent.
@@ -283,7 +281,7 @@ Messages sent to Service Bus topics are instances of the **BrokeredMessage** cla
 
 Service Bus queues support a maximum message size of 256 KB (the header, which includes the standard and custom application properties, can have a maximum size of 64 KB). There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This upper limit on queue size is 5 GB.
 
-<h2 id="ReceiveMessages">How to Receive Messages from a Subscription</h2>
+<h2 id="ReceiveMessages">How to: Receive messages from a subscription</h2>
 
 The primary way to receive messages from a queue is to use a **ServiceBusRestProxy->receiveMessage** method. Received messages can work in two different modes: **ReceiveAndDelete** and **PeekLock**.
 
@@ -340,7 +338,7 @@ path&gt;/subscriptions/&lt;subscription name&gt;".
 		echo $code.": ".$error_message."<br />";
 	}
 
-<h2 id="HandleCrashes">How to Handle Application Crashes and Unreadable Messages</h2>
+<h2 id="HandleCrashes">How to: Handle application crashes and unreadable messages</h2>
 
 Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message. If a receiver application is unable to process the message for some reason, then it can call the **unlockMessage** method on the received message (instead of the **deleteMessage** method). This will cause Service Bus to unlock the message within the queue and make it available to be received again, either by the same consuming application or by another consuming application.
 
@@ -386,42 +384,11 @@ The following example shows how to delete a topic (`mytopic`) and its registered
 		echo $code.": ".$error_message."<br />";
 	}
 
-The following example shows how to delete a subscription (`mysubscription`) independently:
+My using the **deleteSubscription** method, you can delete a subscription independently:
 
-	require_once 'WindowsAzure.php';
+	$serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 
-	use WindowsAzure\Common\Configuration;
-	use WindowsAzure\Common\ServiceException;
-	use WindowsAzure\ServiceBus\ServiceBusSettings;
-	use WindowsAzure\ServiceBus\ServiceBusService;
-
-	$issuer = "<obtained from portal>";
-	$key = "<obtained from portal>";
-
-	// Create configuration object.
-	$config = new Configuration();
-	ServiceBusSettings::configureWithWrapAuthentication( $config,
-														 "MySBNamespace",
-														 $issuer,
-														 $key);
-	// Create Service Bus REST proxy.
-	$serviceBusRestProxy = ServiceBusService::create($config);
-	
-	try	{		
-		// Delete subscription.
-		$serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
-	}
-	catch(ServiceException $e){
-		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
-		$code = $e->getCode();
-		$error_message = $e->getMessage();
-		echo $code.": ".$error_message."<br />";
-	}
-
-
-<h2 id="NextSteps">Next Steps</h2>
+<h2 id="NextSteps">Next steps</h2>
 
 Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Queues, Topics, and Subscriptions][] for more information.
@@ -447,3 +414,4 @@ topic [Queues, Topics, and Subscriptions][] for more information.
 [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
 [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
 [Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
+[sqlfilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
