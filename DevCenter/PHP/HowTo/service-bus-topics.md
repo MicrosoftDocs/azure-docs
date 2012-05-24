@@ -119,7 +119,7 @@ To use the Windows Azure Service Bus topic APIs, you need to:
 1. Reference the `WindowsAzure.php` file (from the Windows Azure SDK for PHP) using the [require_once][require_once] statement, and
 2. Reference any classes you might use.
 
-The following example shows how to include the `WindowsAzure.php` file and reference the **BlobService** class:
+The following example shows how to include the `WindowsAzure.php` file and reference the **ServiceBusService** class:
 
 	require_once 'WindowsAzure.php';
 
@@ -177,29 +177,49 @@ The example below shows how create a **Configuration** object, instantiate **Ser
 <p>You can use the <b>listTopics</b> method on <b>ServiceBusRestProxy</b> objects to check if a topic with a specified name already exists within a service namespace.</p> 
 </div>
 
-<h2 id="CreateSubscription">How to Create Subscriptions</h2>
+<h2 id="CreateSubscription">How to Create a Subscription</h2>
 
-Topic subscriptions are also created with the **ServiceBusService**
-class. Subscriptions are named and can have an optional filter that
-restricts the set of messages passed to the subscription's virtual
-queue.
+Topic subscriptions are also created with the **ServiceBusRestProxy->createTopic** method. Subscriptions are named and can have an optional filter that restricts the set of messages passed to the subscription's virtual queue.
 
 ### Create a Subscription with the default (MatchAll) Filter
 
-The **MatchAll** filter is the default filter that is used if no filter
-is specified when a new subscription is created. When the **MatchAll**
-filter is used, all messages published to the topic are placed in the
-subscription's virtual queue. The following example creates a
-subscription named "AllMessages" and uses the default **MatchAll**
-filter.
+The **MatchAll** filter is the default filter that is used if no filter is specified when a new subscription is created. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named "mysubscription" and uses the default **MatchAll** filter.
 
-      String issuer = "<obtained from portal>";  String key = "<obtained from portal>";
-      Configuration config = 
-      ServiceBusConfiguration.configureWithWrapAuthentication(“HowToSample”, issuer, 
-    key);
-      ServiceBusContract service = ServiceBusService.create(config);
-      try  {     TopicInfo topicInfo = new TopicInfo("TestTopic");     CreateTopicResult result = service.createTopic(topicInfo);     SubscriptionInfo subInfo = new SubscriptionInfo("AllMessages");     CreateSubscriptionResult result = service.createSubscription("TestTopic", 
-    subInfo);  } catch (ServiceException e) {  System.out.print("ServiceException encountered: ");  System.out.println(e.getMessage());  System.exit(-1);  }
+	require_once 'WindowsAzure.php';
+
+	use WindowsAzure\Common\Configuration;
+	use WindowsAzure\Common\ServiceException;
+	use WindowsAzure\ServiceBus\ServiceBusSettings;
+	use WindowsAzure\ServiceBus\ServiceBusService;
+	use WindowsAzure\ServiceBus\Models\SubscriptionInfo;
+
+	$issuer = "<obtained from portal>";
+	$key = "<obtained from portal>";
+
+	// Create configuration object.
+	$config = new Configuration();
+	ServiceBusSettings::configureWithWrapAuthentication( $config,
+														 "MySBNamespace",
+														 $issuer,
+														 $key);
+
+	// Create Service Bus REST proxy.
+	$serviceBusRestProxy = ServiceBusService::create($config);
+	
+	try	{		
+		// Create subscription.
+		$subscriptionInfo = new SubscriptionInfo();
+		$subscriptionInfo->setName("mysubscription");
+		$serviceBusRestProxy->createSubscription("mytopic", $subscriptionInfo);
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 
 ### Create Subscriptions with Filters
 
@@ -369,15 +389,77 @@ constant across delivery attempts.
 
 ## <a name="bkmk_HowToDeleteTopics"> </a>How to Delete Topics and Subscriptions
 
-The primary way to delete topics and subscriptions is to use a
-**ServiceBusContract** object. Received messages can work in two
-different modes: **ReceiveAndDelete** and **PeekLock**
+To delete a topic or a subscription, use the **ServiceBusRestProxy->deleteTopic** or **ServiceBusRestProxyMethod->deleteSubscripton** methods respectively. Note that deleting a topic will also delete any subscriptions that are registered
+with the topic.
 
-      // Delete Topic  service.deleteTopic("TestTopic");
-      // Delete subscription  service.deleteSubscription("TestTopic", "HighMessages");
+The following example shows how to delete a topic (`mytopic`) and its registered subscriptions.
 
-Deleting a topic will also delete any subscriptions that are registered
-with the topic. Subscriptions can also be deleted independently.
+    require_once 'WindowsAzure.php';
+
+	use WindowsAzure\Common\Configuration;
+	use WindowsAzure\Common\ServiceException;
+	use WindowsAzure\ServiceBus\ServiceBusSettings;
+	use WindowsAzure\ServiceBus\ServiceBusService;
+
+	$issuer = "<obtained from portal>";
+	$key = "<obtained from portal>";
+
+	// Create configuration object.
+	$config = new Configuration();
+	ServiceBusSettings::configureWithWrapAuthentication( $config,
+														 "MySBNamespace",
+														 $issuer,
+														 $key);
+	// Create Service Bus REST proxy.
+	$serviceBusRestProxy = ServiceBusService::create($config);
+	
+	try	{		
+		// Delete topic.
+		$serviceBusRestProxy->deleteTopic("mytopic");
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
+
+The following example shows how to delete a subscription (`mysubscription`) independently:
+
+	require_once 'WindowsAzure.php';
+
+	use WindowsAzure\Common\Configuration;
+	use WindowsAzure\Common\ServiceException;
+	use WindowsAzure\ServiceBus\ServiceBusSettings;
+	use WindowsAzure\ServiceBus\ServiceBusService;
+
+	$issuer = "<obtained from portal>";
+	$key = "<obtained from portal>";
+
+	// Create configuration object.
+	$config = new Configuration();
+	ServiceBusSettings::configureWithWrapAuthentication( $config,
+														 "MySBNamespace",
+														 $issuer,
+														 $key);
+	// Create Service Bus REST proxy.
+	$serviceBusRestProxy = ServiceBusService::create($config);
+	
+	try	{		
+		// Delete topic.
+		$serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
+
 
 <h2 id="NextSteps">Next Steps</h2>
 

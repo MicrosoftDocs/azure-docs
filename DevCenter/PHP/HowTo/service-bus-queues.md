@@ -124,7 +124,7 @@ To use the Windows Azure Service Bus queue APIs, you need to:
 1. Reference the `WindowsAzure.php` file (from the Windows Azure SDK for PHP) using the [require_once][require_once] statement, and
 2. Reference any classes you might use.
 
-The following example shows how to include the `WindowsAzure.php` file and reference the **BlobService** class:
+The following example shows how to include the `WindowsAzure.php` file and reference the **ServiceBusService** class:
 
 	require_once 'WindowsAzure.php';
 
