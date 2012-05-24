@@ -95,17 +95,19 @@ namespace.
  
     ![Available Namespaces screenshot][]
 
-2.  Select the namespace you just created from the list shown:   
+2.  Select the namespace you just created from the list shown: 
+  
     ![Namespace List screenshot][]
-3.  The right-hand **Properties** pane will list the properties for the
-    new namespace:   
+
+3.  The right-hand **Properties** pane will list the properties for the new namespace:   
+
     ![Properties Pane screenshot][]
-4.  The **Default Key** is hidden. Click the **View** button to display
-    the security credentials:   
+
+4.  The **Default Key** is hidden. Click the **View** button to display the security credentials:  
+ 
     ![Default Key screenshot][]
-5.  Make a note of the **Default Issuer** and the **Default Key** as you
-    will use this information below to perform operations with the
-    namespace.
+
+5.  Make a note of the **Default Issuer** and the **Default Key** as you will use this information below to perform operations with the  namespace.
 
 <h2 id="ConfigureApp">Configure Your Application to Use Service Bus</h2>
 
@@ -240,34 +242,14 @@ held by a queue. This upper limit on queue size is 5 GB.
 
 <h2 id="ReceiveMessages">How to Receive Messages from a Queue</h2>
 
-The primary way to receive messages from a queue is to use a
-**ServiceBusRestProxy->receiveMessage** method. Received messages can work in two
-different modes: **ReceiveAndDelete** and **PeekLock**.
+The primary way to receive messages from a queue is to use a **ServiceBusRestProxy->receiveMessage** method. Received messages can work in two different modes: **ReceiveAndDelete** and **PeekLock**.
 
-When using the **ReceiveAndDelete** mode, receive is a single-shot
-operation - that is, when Service Bus receives a read request for a
-message in a queue, it marks the message as being consumed and returns
-it to the application. **ReceiveAndDelete** mode (which is the default
-mode) is the simplest model and works best for scenarios in which an
-application can tolerate not processing a message in the event of a
-failure. To understand this, consider a scenario in which the consumer
-issues the receive request and then crashes before processing it.
-Because Service Bus will have marked the message as being consumed, then
-when the application restarts and begins consuming messages again, it
-will have missed the message that was consumed prior to the crash.
+When using the **ReceiveAndDelete** mode, receive is a single-shot operation - that is, when Service Bus receives a read request for a message in a queue, it marks the message as being consumed and returns it to the application. **ReceiveAndDelete** mode (which is the default mode) is the simplest model and works best for scenarios in which an
+application can tolerate not processing a message in the event of a failure. To understand this, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus will have marked the message as being consumed, then when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.
 
-In **PeekLock** mode, receive becomes a two stage operation, which makes
-it possible to support applications that cannot tolerate missing
-messages. When Service Bus receives a request, it finds the next message
-to be consumed, locks it to prevent other consumers receiving it, and
-then returns it to the application. After the application finishes
-processing the message (or stores it reliably for future processing), it
-completes the second stage of the receive process by calling **deleteMessage**
-on the received message. When Service Bus sees the **deleteMessage** call, it
-will mark the message as being consumed and remove it from the queue.
+In **PeekLock** mode, receive becomes a two stage operation, which makes it possible to support applications that cannot tolerate missing messages. When Service Bus receives a request, it finds the next message to be consumed, locks it to prevent other consumers receiving it, and then returns it to the application. After the application finishes processing the message (or stores it reliably for future processing), it completes the second stage of the receive process by passing the received message to **ServiceBusRestProxy->deleteMessage**. When Service Bus sees the **deleteMessage** call, it will mark the message as being consumed and remove it from the queue.
 
-The example below demonstrates how a message can be received and
-processed using **PeekLock** mode (not the default mode).
+The example below demonstrates how a message can be received and processed using **PeekLock** mode (not the default mode).
 
 	require_once 'WindowsAzure.php';
 

@@ -14,9 +14,9 @@ subscriptions. The samples are written in PHP and use the [Windows Azure SDK for
 -   [How to: Create a Topic](#CreateTopic)
 -   [How to: Create a Subscription](#CreateSubscription)
 -   [How to: Send Messages to a Topic](#SendMessage)
--   [How to: Receive Messages from a Subscription][]
+-   [How to: Receive Messages from a Subscription](#ReceiveMessages)
 -   [How to: Handle Application Crashes and Unreadable Messages](#HandleCrashes)
--   [How to: Delete Topics and Subscriptions][]
+-   [How to: Delete Topics and Subscriptions](#DeleteTopicsAndSubscriptions)
 -   [Next Steps](#NextSteps)
 
 <h2 id="WhatAreTopicsAndSubscriptions">What are Service Bus Topics and Subscriptions?</h2>
@@ -85,21 +85,23 @@ In order to perform management operations, such as creating a queue, on
 the new namespace, you need to obtain the management credentials for the
 namespace.
 
-1.  In the left navigation pane, click the **Service Bus** node, to
-    display the list of available namespaces:  
+1.  In the left navigation pane, click the **Service Bus** node, to display the list of available namespaces:  
  
     ![Available Namespaces screenshot][]
 
-2.  Select the namespace you just created from the list shown:   
+2.  Select the namespace you just created from the list shown:
+   
     ![Namespace List screenshot][]
-3.  The right-hand **Properties** pane will list the properties for the
-    new namespace:   
+
+3.  The right-hand **Properties** pane will list the properties for the new namespace: 
+  
     ![Properties Pane screenshot][]
-4.  The **Default Key** is hidden. Click the **View** button to display
-    the security credentials:   
+
+4.  The **Default Key** is hidden. Click the **View** button to display the security credentials: 
+  
     ![Default Key screenshot][]
-5.  Make a note of the **Default Issuer** and the **Default Key** as you
-    will use this information below to perform operations with the
+
+5.  Make a note of the **Default Issuer** and the **Default Key** as you will use this information below to perform operations with the
     namespace.
 
 <h2 id="ConfigureApp">Configure Your Application to Use Service Bus</h2>
@@ -113,7 +115,6 @@ In this guide, you will use service features which can be called within a PHP ap
 <p>In addition to the dependencies noted in <a href="http://go.microsoft.com/fwlink/?LinkId=252473">Download the Windows Azure SDK for PHP</a>, your PHP installation must also have the <a href="http://php.net/openssl">OpenSSL extension</a> installed and enabled.</p> 
 </div>
 
-
 To use the Windows Azure Service Bus topic APIs, you need to:
 
 1. Reference the `WindowsAzure.php` file (from the Windows Azure SDK for PHP) using the [require_once][require_once] statement, and
@@ -124,7 +125,6 @@ The following example shows how to include the `WindowsAzure.php` file and refer
 	require_once 'WindowsAzure.php';
 
 	use WindowsAzure\ServiceBus\ServiceBusService;
-
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
@@ -223,40 +223,19 @@ The **MatchAll** filter is the default filter that is used if no filter is speci
 
 ### Create Subscriptions with Filters
 
-You can also setup filters that allow you to scope which messages sent
-to a topic should show up within a specific topic subscription.
+You can also setup filters that allow you to scope which messages sent to a topic should show up within a specific topic subscription.
 
-The most flexible type of filter supported by subscriptions is the
-**SqlFilter**, which implements a subset of SQL92. SQL filters operate
-on the properties of the messages that are published to the topic. For
-more details about the expressions that can be used with a SQL filter,
-review the SqlFilter.SqlExpression syntax.
+The most flexible type of filter supported by subscriptions is the **SqlFilter**, which implements a subset of SQL92. SQL filters operate on the properties of the messages that are published to the topic.
 
-The example below creates a subscription named "HighMessages" with a
-**SqlFilter** that only selects messages that have a custom
-**MessageNumber** property greater than 3:
+The example below creates a subscription named "HighMessages" with a **SqlFilter** that only selects messages that have a custom **MessageNumber** property greater than 3:
 
-      // Create a "HighMessages" filtered subscription  SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
-      CreateSubscriptionResult result = service.createSubscription("TestTopic", 
-    subInfo);  RuleInfo ruleInfo = new RuleInfo();  ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber > 3");  CreateRuleResult ruleResult = service.createRule("TestTopic", "HighMessages", 
-    ruleInfo);
+      **TODO: Example here**
 
-Similarly, the following example creates a subscription named
-"LowMessages" with   
- a SqlFilter that only selects messages that have a MessageNumber
-property less   
- than or equal to 3:
+Similarly, the following example creates a subscription named "LowMessages" with a SqlFilter that only selects messages that have a MessageNumber property less than or equal to 3:
 
-      // Create a "LowMessages" filtered subscription  SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");  CreateSubscriptionResult result = service.createSubscription("TestTopic", 
-    subInfo);
-      RuleInfo ruleInfo = new RuleInfo();  ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber <= 3");  CreateRuleResult ruleResult = service.createRule("TestTopic", "HighMessages", 
-    ruleInfo);
+	**TODO: Example here**
 
-When a message is now sent to the "TestTopic", it will always be
-delivered to receivers subscribed to the "AllMessages" topic
-subscription, and selectively delivered to receivers subscribed to the
-"HighMessages" and "LowMessages" topic subscriptions (depending upon the
-message content).
+When a message is now sent to the `mytopic` topic, it will always be delivered to receivers subscribed to the `mysubscription` subscription, and selectively delivered to receivers subscribed to the "HighMessages" and "LowMessages" subscriptions (depending upon the message content).
 
 <h2 id="SendMessage">How to Send Messages to a Topic</h2>
 
@@ -300,97 +279,78 @@ To send a message to a Service Bus topic, your application will call the **Servi
 		echo $code.": ".$error_message."<br />";
 	}
 
-Messages sent to Service Bus topics are instances
-of the **BrokeredMessage** class. **BrokeredMessage** objects have a set
-of standard methods (such as **getLabel**, **getTimeToLive**,
-**setLabel**, and **setTimeToLive**) and properties that are used to hold
-custom application specific properties, and a body of arbitrary
-application data.
+Messages sent to Service Bus topics are instances of the **BrokeredMessage** class. **BrokeredMessage** objects have a set of standard methods (such as **getLabel**, **getTimeToLive**, **setLabel**, and **setTimeToLive**) and properties that are used to hold custom application specific properties, and a body of arbitrary application data.
 
-Service Bus queues support a maximum message size of 256 KB (the header,
-which includes the standard and custom application properties, can have
-a maximum size of 64 KB). There is no limit on the number of messages
-held in a queue but there is a cap on the total size of the messages
-held by a queue. This upper limit on queue size is 5 GB.
+Service Bus queues support a maximum message size of 256 KB (the header, which includes the standard and custom application properties, can have a maximum size of 64 KB). There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This upper limit on queue size is 5 GB.
 
-## <a name="bkmk_HowToReceiveMsgs"> </a>How to Receive Messages from a Subscription
+<h2 id="ReceiveMessages">How to Receive Messages from a Subscription</h2>
 
-The primary way to receive messages from a subscription is to use a
-**ServiceBusContract** object. Received messages can work in two
-different modes: **ReceiveAndDelete** and **PeekLock**.
+The primary way to receive messages from a queue is to use a **ServiceBusRestProxy->receiveMessage** method. Received messages can work in two different modes: **ReceiveAndDelete** and **PeekLock**.
 
-When using the **ReceiveAndDelete** mode, receive is a single-shot
-operation - that is, when Service Bus receives a read request for a
-message, it marks the message as being consumed and returns it to the
-application. **ReceiveAndDelete** mode is the simplest model and works
-best for scenarios in which an application can tolerate not processing a
-message in the event of a failure. To understand this, consider a
-scenario in which the consumer issues the receive request and then
-crashes before processing it. Because Service Bus will have marked the
-message as being consumed, then when the application restarts and begins
-consuming messages again, it will have missed the message that was
-consumed prior to the crash.
+When using the **ReceiveAndDelete** mode, receive is a single-shot operation - that is, when Service Bus receives a read request for a message in a queue, it marks the message as being consumed and returns it to the application. **ReceiveAndDelete** mode (which is the default mode) is the simplest model and works best for scenarios in which an
+application can tolerate not processing a message in the event of a failure. To understand this, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus will have marked the message as being consumed, then when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.
 
-In **PeekLock** mode, receive becomes a two stage operation, which makes
-it possible to support applications that cannot tolerate missing
-messages. When Service Bus receives a request, it finds the next message
-to be consumed, locks it to prevent other consumers receiving it, and
-then returns it to the application. After the application finishes
-processing the message (or stores it reliably for future processing), it
-completes the second stage of the receive process by calling **Delete**
-on the received message. When Service Bus sees the **Delete** call, it
-will mark the message as being consumed and remove it from the topic.
+In **PeekLock** mode, receive becomes a two stage operation, which makes it possible to support applications that cannot tolerate missing messages. When Service Bus receives a request, it finds the next message to be consumed, locks it to prevent other consumers receiving it, and then returns it to the application. After the application finishes processing the message (or stores it reliably for future processing), it completes the second stage of the receive process by passing the received message to **ServiceBusRestProxy->deleteMessage**. When Service Bus sees the **deleteMessage** call, it will mark the message as being consumed and remove it from the queue.
 
-The example below demonstrates how messages can be received and
-processed using **PeekLock** mode (not the default mode). The example
-below does an infinite loop and processes messages as they arrive to our
-"HighMessages" subscription. Note that the path to our "HighMessages"
-subscription is supplied in the form "&lt;topic
+The example below demonstrates how a message can be received and processed using **PeekLock** mode (not the default mode). Note that the path to the `mysubscription` subscription is supplied in the form "&lt;topic
 path&gt;/subscriptions/&lt;subscription name&gt;".
 
-      ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;  opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
-      while(true)  { 
-         ReceiveTopicMessageResult resultQM = service.receiveTopicMessage("TestTopic", 
-    opts);     BrokeredMessage message = resultQM.getValue(); 
-         if (message != null && message.getMessageId() != null)
-         {        try 
-            {              System.out.println("Body: " + message.toString());              System.out.println("MessageID: " + message.getMessageId());
-                  System.out.println("Custom Property: " + message.getProperty("TestProperty"));
-                  // Remove message from topic              System.out.println("Deleting this message.");              service.deleteMessage(message);
-            }        catch (Exception ex)        {              // Indicate a problem, unlock message in topic              System.out.println("Inner exception encountered!");              service.unlockMessage(message);        }  }  else  {        System.out.println("Finishing up - no more messages.");        break; // Added to handle no more messages in the topic.        // Could instead wait for more messages to be added.  }} 
+	require_once 'WindowsAzure.php';
+
+	use WindowsAzure\Common\Configuration;
+	use WindowsAzure\Common\ServiceException;
+	use WindowsAzure\ServiceBus\ServiceBusSettings;
+	use WindowsAzure\ServiceBus\ServiceBusService;
+	use WindowsAzure\ServiceBus\Models\BrokeredMessage;
+
+	$issuer = "<obtained from portal>";
+	$key = "<obtained from portal>";
+
+	// Create configuration object.
+	$config = new Configuration();
+	ServiceBusSettings::configureWithWrapAuthentication( $config,
+														 "MySBNamespace",
+														 $issuer,
+														 $key);
+	
+	// Create Service Bus REST proxy.
+	$serviceBusRestProxy = ServiceBusService::create($config);
+	
+	$options = new ReceiveMessageOptions();
+	$options->setIsPeekLock(true);
+		
+	try	{
+		// Get message.
+		$message = $serviceBusRestProxy->receiveMessage("mytopic/subscriptions/mysubscription", $options);
+		
+		/*---------------------------
+			Process message here.
+		----------------------------*/
+		
+		// Delete message.
+		echo "Deleting message...<br />";
+		$serviceBusRestProxy->deleteMessage($message);
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here:
+		// http://msdn.microsoft.com/en-us/library/windowsazure/hh780735
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
 
 <h2 id="HandleCrashes">How to Handle Application Crashes and Unreadable Messages</h2>
 
-Service Bus provides functionality to help you gracefully recover from
-errors in your application or difficulties processing a message. If a
-receiver application is unable to process the message for some reason,
-then it can call the **unlockMessage** method on the received message
-(instead of the **deleteMessage** method). This will cause Service Bus
-to unlock the message within the queue and make it available to be
-received again, either by the same consuming application or by another
-consuming application.
+Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message. If a receiver application is unable to process the message for some reason, then it can call the **unlockMessage** method on the received message (instead of the **deleteMessage** method). This will cause Service Bus to unlock the message within the queue and make it available to be received again, either by the same consuming application or by another consuming application.
 
-There is also a timeout associated with a message locked within the
-queue, and if the application fails to process the message before the
-lock timeout expires (e.g., if the application crashes), then Service
-Bus will unlock the message automatically and make it available to be
-received again.
+There is also a timeout associated with a message locked within the queue, and if the application fails to process the message before the lock timeout expires (e.g., if the application crashes), then Service Bus will unlock the message automatically and make it available to be received again.
 
-In the event that the application crashes after processing the message
-but before the **deleteMessage** request is issued, then the message
-will be redelivered to the application when it restarts. This is often
-called **At Least Once Processing**, that is, each message will be
-processed at least once but in certain situations the same message may
-be redelivered. If the scenario cannot tolerate duplicate processing,
-then application developers should add additional logic to their
-application to handle duplicate message delivery. This is often achieved
-using the **getMessageId** method of the message, which will remain
-constant across delivery attempts.
+In the event that the application crashes after processing the message but before the **deleteMessage** request is issued, then the message will be redelivered to the application when it restarts. This is often called **At Least Once Processing**, that is, each message will be processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This is often achieved using the **getMessageId** method of the message, which will remain constant across delivery attempts.
 
-## <a name="bkmk_HowToDeleteTopics"> </a>How to Delete Topics and Subscriptions
+<h2 id="DeleteTopicsAndSubscriptions">How to Delete Topics and Subscriptions</h2>
 
-To delete a topic or a subscription, use the **ServiceBusRestProxy->deleteTopic** or **ServiceBusRestProxyMethod->deleteSubscripton** methods respectively. Note that deleting a topic will also delete any subscriptions that are registered
-with the topic.
+To delete a topic or a subscription, use the **ServiceBusRestProxy->deleteTopic** or the **ServiceBusRestProxy->deleteSubscripton** methods respectively. Note that deleting a topic will also delete any subscriptions that are registered with the topic.
 
 The following example shows how to delete a topic (`mytopic`) and its registered subscriptions.
 
@@ -448,7 +408,7 @@ The following example shows how to delete a subscription (`mysubscription`) inde
 	$serviceBusRestProxy = ServiceBusService::create($config);
 	
 	try	{		
-		// Delete topic.
+		// Delete subscription.
 		$serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 	}
 	catch(ServiceException $e){
@@ -481,8 +441,9 @@ topic [Queues, Topics, and Subscriptions][] for more information.
 [Service Bus Topics diagram]: ../../../DevCenter/Java/Media/SvcBusTopics_01_FlowDiagram.jpg
 [Windows Azure Management Portal]: http://windows.azure.com/
 [Service Bus Node screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
-[Create a New Namespace ]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
+[Create a New Namespace screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
 [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
 [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
 [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
 [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+[Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
