@@ -169,7 +169,7 @@ If your role is an ASP.NET Web Role, the following assembly reference is also ad
 
 -	Microsoft.Web.DistributedCache.dll.
 
->These assemblies are located in the C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\2012-06\ref\ folder.
+>These assemblies are located in the C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\2012-06\ref\CachingPreview\ folder.
 
 Once your client project is configured for caching, you can use the techniques described in the following sections for working with your cache.
 
