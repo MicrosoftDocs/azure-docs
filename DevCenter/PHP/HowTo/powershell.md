@@ -1,2 +1,2 @@
-<properties linkid="dev-php-how-to-guides-powershell" urlDisplayName="PowerShell Cmdlets" headerExpose="" pageTitle="Using Windows Azure PowerShell - PHP - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="dev-fundamentals-how-to-powershell" urldisplayname="PowerShell Cmdlets" headerexpose="" pagetitle="How to Use Windows Azure PowerShell" metakeywords="Azure PowerShell, Azure PowerShell cmdlet, PHP, Node.js, Python" footerexpose="" metadescription="Learn Windows PowerShell fundamentals and details about how to use the Windows Azure PowerShell cmdlets." umbraconavihide="0" disquscomments="1"></properties>
 <div chunk="../../Shared/Chunks/powershell.md" />
