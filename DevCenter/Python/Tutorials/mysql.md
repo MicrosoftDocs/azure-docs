@@ -72,8 +72,16 @@ You should now see a response similar to the following:
 <pre>	
 		DATABASES = {
 		    'default': {
-		        'ENGINE': <b style="color:orange;">'django.db.backends.mysql'</b>,
-				'NAME': <b style="color:orange;">'djangoazure'</b>,               
+			    'ENGINE': <b style="color:orange;">'django.db.backends.mysql'</b>,
+			    'NAME': <b style="color:orange;">'djangoazure'</b>,               
+			    'USER': <b style="color:orange;">'testazureuser'</b>,  
+			    'PASSWORD': <b style="color:orange;">'testazure'</b>,
+			    'HOST': <b style="color:red;">'127.0.0.1'</b>, 
+			    'PORT': <b style="color:orange;">'3306'</b>,
+			    },
+		    'world': {
+			    'ENGINE': <b style="color:orange;">'django.db.backends.mysql'</b>,
+			    'NAME': <b style="color:orange;">'world'</b>,               
 			    'USER': <b style="color:orange;">'testazureuser'</b>,  
 			    'PASSWORD': <b style="color:orange;">'testazure'</b>,
 			    'HOST': <b style="color:red;">'127.0.0.1'</b>, 
@@ -143,28 +151,20 @@ Installed 0 object(s) from 0 fixture(s)</pre></li>
       Replace the contents of <strong><em>C:\django\helloworld\hello_dj\hello_dj\views.py</em></strong>. The new implementation of the <i>hello</i> function below uses our <i>Counter</i> model in conjunction with a separate sample database we previously installed, <i>world</i>, to generate a suitable replacement for the "<i>World</i>" string:
       <pre class="prettyprint">
 from django.http import HttpResponse
+import django.db
 
-from MySQLdb import connect
-from settings import DATABASES
 from counter.models import Counter
 
 def getCountry(intId):
     #Connect to the MySQL sample database 'world'
-    connection = connect(db='world',
-                         user=DATABASES['default']['USER'],
-                         passwd=DATABASES['default']['PASSWORD'],
-                         host=DATABASES['default']['HOST'],  
-                         port=int(DATABASES['default']['PORT']))
-    cur = connection.cursor()
+    cur = django.db.connections['world'].cursor()
 
     #Execute a trivial SQL query which returns the name of 
     #all countries contained in 'world'
     cur.execute("SELECT name from country")
     tmp = cur.fetchall()
-    
     #Clean-up after ourselves
     cur.close()
-    connection.close()
 
     if intId >= len(tmp):
         return "countries exhausted"
@@ -175,10 +175,9 @@ def hello(request):
         #when the database corresponding to 'helloworld.counter' is 
         #initially empty...
         c = Counter(count=0)
-        c.save()
     else:
         c = Counter.objects.all()[0]
-    c.count += 1
+        c.count += 1
     c.save()
    
     world = getCountry(int(c.count))
