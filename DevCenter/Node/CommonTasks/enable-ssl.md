@@ -181,7 +181,7 @@ connect to it using HTTPS.
   [add-certificate-dialog]: ../Media/add-certificate.png
   [add-certificate]: ../Media/no-certificates.png
   [cloud-services]: ../Media/cloud-services.png
-  [0]: ../Media/enable-ssl-00.png
+  [0]: ../../Shared/Media/azure-powershell-menu.png
   [1]: ../Media/enable-ssl-01.png
   [2]: ../Media/enable-ssl-02.png
   [3]: ../Media/enable-ssl-03.png
@@ -189,7 +189,7 @@ connect to it using HTTPS.
   [4]: ../Media/enable-ssl-04.png
   [5]: ../Media/enable-ssl-05.png
   [How to Associate a Certificate with a Service]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
-  [6]: ../Media/enable-ssl-06.png
+  [6]: ../Media/enable-ssl-03.png
   [site-url]: ../Media/site-url.png
   [8]: ../Media/enable-ssl-08.png
   [How to Configure an SSL Certificate on an HTTPS Endpoint]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
