@@ -277,7 +277,18 @@ To send a message to a Service Bus topic, your application will call the **Servi
 		echo $code.": ".$error_message."<br />";
 	}
 
-Messages sent to Service Bus topics are instances of the **BrokeredMessage** class. **BrokeredMessage** objects have a set of standard methods (such as **getLabel**, **getTimeToLive**, **setLabel**, and **setTimeToLive**) and properties that are used to hold custom application specific properties, and a body of arbitrary application data.
+Messages sent to Service Bus topics are instances of the **BrokeredMessage** class. **BrokeredMessage** objects have a set of standard properties and methods (such as **getLabel**, **getTimeToLive**, **setLabel**, and **setTimeToLive**), as well as properties that can be used to hold custom application specific properties. The following example demonstrates how to send five test messages to the `mytopic` topic we created earlier. The **setProperty** method is used to add a custom property (`MessageNumber`) to each message. Note how the `MessageNumber` property value varies on each message (this can be used to determine which subscriptions receive it, as shown in the [How to: Create a Subscription](#CreateSubscription) section above):
+
+	for($i = 0; $i < 5; $i++){
+		// Create message.
+		$message = new BrokeredMessage();
+		$message->setBody("my message ".$i);
+		
+		// Set custom property.
+		$message->setProperty("MessageNumber", $i);
+
+		$serviceBusRestProxy->sendMessage("mytopic/messages", $message);
+	}
 
 Service Bus queues support a maximum message size of 256 KB (the header, which includes the standard and custom application properties, can have a maximum size of 64 KB). There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This upper limit on queue size is 5 GB.
 
