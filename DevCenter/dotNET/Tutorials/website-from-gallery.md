@@ -1,0 +1,2 @@
+<properties linkid="dev-php-tutorials-website-from-gallery" urlDisplayName="Website from Gallery" headerExpose="" pageTitle="Website from Gallery - PHP - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<div chunk="../../../Shared/Chunks/website-from-gallery.md" />
