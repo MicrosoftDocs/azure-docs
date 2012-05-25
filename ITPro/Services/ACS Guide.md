@@ -14,25 +14,28 @@ For more information about ACS, see [Access Control Service 2.0](http://msdn.mic
 ## Certificates and Keys Management Guidelines ##
 
 For security reasons, certificates and keys that are used in ACS are guaranteed to expire. It is important to keep track of the expiration dates so these certificates and keys can be renewed.
+
+The high-level steps for rolling over a token signing (symmetric key or X.509 certificate) or token decryption certificate are:
+
+1.	Configure the new certificate or key in ACS as a “secondary” key, alongside the existing certificate or key that will expire.
+2.	Notify the partners that use the service that they need to update their corresponding keys before a certain deadline.
+3.	Partners should update the corresponding certificate or key for their relying parties or identity providers. For example, import the updated WS-Federation metadata for the ACS namespace that contains the new token signature validation certificate, or manually configure the symmetric key in the application config.
+4.	After all applications have been updated (or after a deadline has elapsed), mark the new certificate or key as primary in the ACS configuration. 
+5.	After a reasonable grace period, remove the old certificate or key from the ACS configuration.
+
+The high-level steps for rolling over token encryption certifcates are:
+
+1.	You (or your partners) update the corresponding certificate or key that is used for token decryption in the relying party applications.
+2.	Configure the new encryption certificate in ACS, alongside the existing certificate that will expire.
+3.	Remove the old encryption certificate.
+
+The high-level steps for rolling over service identity or management service keys:
+
+1.	Configure the new certificate or key in ACS, alongside the existing certificate or key that will expire.
+2.	You (or your partners) update the corresponding certificate or key that is used for token requests in the client applications.
+3.	After all clients have been updated (or after a reasonable grace period), remove the old certificate or key.
+
  
-
-
-It is good practice to upload a new certificate well in advance of the expiration of the current certificate. 
-
-The high-level steps that should be involved are as follows:
-
-1. Upload a new secondary certificate. 
-
-2. Notify the partners that use the service of the upcoming change. 
-
-3. Partners should update their certificate configuration for their relying parties (for example, a thumbprint of the certificate configured in web.config under trustedIssuers node in an ASP.NET web application) 
-
-4. Switch signing over to the new certificate (mark it primary) while leaving the previous one in place for a reasonable grace period. 
-
-5. After the grace period ends, remove the old certificate.  
-
-
-Note: this procedure is similar but different for public keys versus private keys. Private keys (that are used for token signing and decryption) support a primary/secondary field that must be toggled. ACS can only sign with one key at a time. Public keys (such as identity provider and system identities keys) do not have primary/secondary fields. In the case of signing, public keys are used for signature validation and ACS will check all configured public keys for the given entity until one matches. 
 
 When a certificate or a key expires, ACS will fail issuing tokens preventing your relying party from operating normally. Expired certificates and keys will be ignored by ACS, effectively causing exceptions as if no certificate or key was configured in first place. In the following sections you will find information for each certificate and key managed by ACS, how to renew it and how to recognize if it is expired and needs to be renewed. 
 
@@ -85,14 +88,21 @@ You can manage token signing certificates via the Certificates and Key section o
 5. Click **Certificates and Keys** in the tree on the left-hand side under the Service Settings section.
 
     ![ACS4](./Media/ACS4.png)
-
-6. Under the **Token Signing** section, click the signing certificate that you want to roll over. 
+   
+    At this point, your screen should look like this:
 
     ![ACS5](./Media/ACS5.png)
 
-7. On the **Edit Token Signing Certificate or Key** page, use the **Expiration date** field to roll the certificate.
+6. Under the Token Signing section, use the Add button to configure the new certificate in ACS as a “secondary” key, alongside the existing certificate that will expire.
 
-    ![ACS6](./Media/ACS6.png)
+7. Notify the partners that use the service that they need to update their corresponding keys before a certain deadline.
+
+8. Partners should update the corresponding certificate for their relying parties or identity providers. For example, import the updated WS-Federation metadata for the ACS namespace that contains the new token signature validation certificate, or manually configure the symmetric key in the application config.
+
+9. After all applications have been updated (or after a deadline has elapsed), mark the new certificate as primary in the ACS configuration. 
+
+10. After a reasonable grace period, use the Delete button under the Token Signing section of the Certificates and Keys page to remove the old certificate from the ACS configuration.
+
 
 For more information, see [Certificates and Keys](http://msdn.microsoft.com/en-us/library/gg185932.aspx).
 
@@ -135,13 +145,20 @@ You can manage token signing keys via the Certificates and Key section of the AC
 5. Click **Certificates and Keys** in the tree on the left-hand side under the Service Settings section.
 
     ![ACS4](./Media/ACS4.png)
-6. Under the **Token Signing** section, click the signing key that you want to roll over. 
+    
+    At this point, your screen should look like this:
 
     ![ACS5](./Media/ACS5.png)
 
-7. On the **Edit Token Signing Certificate or Key** page, use the **Expiration date** field to roll the key.
+6. Under the Token Signing section, use the Add button to configure the new key in ACS as a “secondary” key, alongside the existing key that will expire.
 
-    ![ACS6](./Media/ACS6.png)
+7. Notify the partners that use the service that they need to update their corresponding keys before a certain deadline.
+
+8. Partners should update the corresponding key for their relying parties or identity providers. For example, import the updated WS-Federation metadata for the ACS namespace that contains the new token signature validation certificate, or manually configure the symmetric key in the application config.
+
+9. After all applications have been updated (or after a deadline has elapsed), mark the new key as primary in the ACS configuration. 
+
+10. After a reasonable grace period, use the Delete button under the Token Signing section of the Certificates and Keys page to remove the old key from the ACS configuration.
 
 For more information, see [Certificates and Keys](http://msdn.microsoft.com/en-us/library/gg185932.aspx).
 
@@ -181,13 +198,19 @@ You can manage token encryption certificates via the Certificates and Key sectio
 
 	![ACS3](./Media/ACS3.png)
 
-5. Under the **Token encryption** section, click the certificate that you want to roll over.
+5. Click **Certificates and Keys** in the tree on the left-hand side under the Service Settings section.
+
+    ![ACS4](./Media/ACS4.png)
+
+    At this point, your screen should look like this:
 
     ![ACS7](./Media/ACS7.png)
 
-6. On the **Edit Encryption Certificate** page, use the **Expiration date** field to roll the certificate.
+6. You (or your partners) update the corresponding certificate or key that is used for token decryption in the relying party applications
+7. Use the Add button to configure the new encryption certificate in ACS, alongside the existing certificate that will expire.
+8. Use the Delete to remove the old encryption certificate.
 
-    ![ACS8](./Media/ACS8.png)
+
 
 For more information, see [Certificates and Keys](http://msdn.microsoft.com/en-us/library/gg185932.aspx).
 
@@ -227,13 +250,23 @@ You can manage token decryption certificates via the Certificates and Key sectio
 
 	![ACS3](./Media/ACS3.png)
 
-5. Under the **Token decryption** section, click the certificate that you want to roll over.
+5. Click **Certificates and Keys** in the tree on the left-hand side under the Service Settings section.
+
+    ![ACS4](./Media/ACS4.png)
+
+    At this point, your screen should look like this:
 
     ![ACS9](./Media/ACS9.png)
 
-6. On the **Edit Token Decryption Certificate** page, use the **Expiration date** field to roll the certificate.
+6. Under the Token decryption section, use the Add bu tton to configure the new certificate in ACS as a “secondary” key, alongside the existing certificate that will expire.
 
-	![ACS10](./Media/ACS10.png)
+7. Notify the partners that use the service that they need to update their corresponding keys before a certain deadline.
+
+8. Partners should update the corresponding certificate for their relying parties or identity providers. For example, import the updated WS-Federation metadata for the ACS namespace that contains the new token signature validation certificate, or manually configure the symmetric key in the application config.
+
+9. After all applications have been updated (or after a deadline has elapsed), mark the new certificate as primary in the ACS configuration. 
+
+10. After a reasonable grace period, use the Delete button under the Token Signing section of the Certificates and Keys page to remove the old certificate from the ACS configuration.
 
 For more information, see [Certificates and Keys](http://msdn.microsoft.com/en-us/library/gg185932.aspx).
 
@@ -278,13 +311,16 @@ You can manage service identity credentials via the Service identities page of t
 
     ![ACS11](./Media/ACS11.png)
 
-6. Click the service identity which you want to edit and on the **Edit Service Identity** page, click that credential that you want to roll.
+6. Click the service identity which you want to edit.
 
-    ![ACS12](./Media/ACS12.png)
+    ![ACS112](./Media/ACS112.png)
 
-7. On the **Edit Credential** page, use the **Expiration date** field to roll the credential.
+7.	In the Credentials section, use the Add button to configure the new certificate or key in ACS, alongside the existing certificate or key that will expire.
 
-	![ACS13](./Media/ACS13.png)
+8.	You (or your partners) update the corresponding certificate or key that is used for token requests in the client applications.
+
+9.	After all clients have been updated (or after a reasonable grace period), use the Delete button to remove the old certificate or key.
+
 
 For more information, see [Service Identities](http://msdn.microsoft.com/en-us/library/gg185945.aspx).
 
@@ -336,13 +372,16 @@ You can manage the management service credentials via the Management service pag
 
     ![ACS14](./Media/ACS14.png)
         
-6. Click the management service account the credential of which you want to edit and then click that credential. 
+6. Click the management service account.
 
     ![ACS15](./Media/ACS15.png)
 
-7. On the **Edit Credential** page, use the **Expiration date** field to roll the credential.
-	
-    ![ACS16](./Media/ACS16.png)
+7. In the Credentials section, use the Add button to configure the new certificate or key in ACS, alongside the existing certificate or key that will expire.
+
+8.	You (or your partners) update the corresponding certificate or key that is used for token requests in the client applications.
+
+9.	After all clients have been updated (or after a reasonable grace period), use the delete button to remove the old certificate or key.
+
 
 For more information, see [ACS Management Service](http://msdn.microsoft.com/en-us/library/gg185972.aspx).
 
