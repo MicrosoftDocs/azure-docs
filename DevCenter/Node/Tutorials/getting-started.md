@@ -319,9 +319,9 @@ The following steps show you how to stop and delete your application.
 
 2.  To delete the service, call the following cmdlet:
 
-        PS C:\node\tasklist\WebRole1> Remove-AzureService
+        PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
 
-3.  When prompted, enter **Y** to delete the service.
+	When prompted, enter **Y** to delete the service.
 
     Deleting the service may take several minutes. After the service has
     been deleted you receive a message indicating that the service was

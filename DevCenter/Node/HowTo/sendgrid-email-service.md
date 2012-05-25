@@ -58,7 +58,7 @@ about additional services provided by SendGrid, see
 The SendGrid module for Node.js can be installed through the node
 package manager (npm) by using the following command:
 
-    PS C:> npm install sendgrid-nodejs
+    npm install sendgrid-nodejs
 
 After installation, you can require the module in your application by
 using the following code:
