@@ -45,7 +45,7 @@ Unless you have a specific need, we recommend the first two options, as describe
 
 ## Installation on Windows
 
-For Windows you can use the provided WebPI installer to streamline the installation:
+For Windows you can use the provided WebPI installer to streamline the installation (it will grab CPython from www.python.org):
 
 ![how-to-install-python-webpi-1.png][] 
 
@@ -73,9 +73,10 @@ To see what Python packages are installed, enter the following:
 
 This will give a list what's been installed on your system.
 
-After the installation you should have Python, Django, the Client Libraries available:
+After the installation you should have Python, Django, the Client Libraries available at the default location:
 
-TODO Location
+		C:\Python27\Lib\site-packages\windowsazure
+		C:\Python27\Lib\site-packages\django
 
 ### Python Tools for Visual Studio
 
@@ -94,11 +95,15 @@ Python is most likely already installed on your Dev machine.  You can check by e
 
 Here we see that this Azure Suse VM has CPython 2.7.2 installed which is fine for running the Azure tutorials and Django samples. If you need to upgrade, follow your OS's recommended package upgrade instructions.  Note however, that in general it's better to leave the system Python alone (others may depend on that version) and install the newer version via [Virtualenv][].
 
-To install the Python Azure Client Libraries, use *easy_install* to grab it from *PyPI*:
+To install the Python Azure Client Libraries, use **pip** to grab it from **PyPI**:
 
-	TODO: $ easy_install windowsazure 
+	curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | sudo python
+	
+The command above will silently prompt for the root password. Type it and press Enter.  Next:
+	
+	/usr/local/bin/pip-2.7 install windowsazure
 
-You should now see  the client libraries installed here:
+You should now see the client libraries installed:
 
 	TODO: pic of location
 
@@ -108,30 +113,34 @@ When developing from mac/linux, there are two main scenarios supported for this 
 
 2. Running your app in a Linux VM
 
-The first scenario enables you to author rich web apps that take advantage of the Azure PaaS capabilities such as blob storage, queues, etc. via Pythonic wrappers for the Azure REST API's.  These work identically on Windows, Mac and Linux.  See the Tutorials and How To Guides for examples.  You can also use the client libraries from within a Linux VM.
+The first scenario enables you to author rich web apps that take advantage of the Azure PaaS capabilities such as blob storage, queues, etc. via Pythonic wrappers for the Azure REST API's.  These work identically on Windows, Mac and Linux.  See the Tutorials and How To Guides for examples.  You can also use these client libraries from within a Linux VM.
 
 For the VM scenario, you simply start a Linux VM of your choice (Ubuntu, CentOS, Suse) and run/manage what you like.  As an example, you can run [IPython](http://www.ipython.org) REPL/notebook on your Windows/Mac/Linux machine and point your browser to a Linux or Windows multi-proc VM running the IPython Engine on Azure. For more information on IPython installation please see its tutorial.
 
-Please see the article "How to Use the Windows Azure Command-Line Tools for Mac and Linux" for details on support and usage.
+Please see the article 
+[How to use the Windows Azure Command-Line Tools for Mac and Linux] (http://www.windowsazure.com/en-us/develop/shared/chunks/crossplt-cmd-tools) for details on managing/deploying services.
 
  
+
 ## Additional Software and Resources:
 
-[Enthought Python Distribution][]
+* [Enthought Python Distribution][]
 
-[ActiveState Python Distribution][]
+* [ActiveState Python Distribution][]
 
-[SciPy - A suite of Scientific Python libraries][]
+* [SciPy - A suite of Scientific Python libraries][]
 
-[NumPy - A numerics library for Python][]
+* [NumPy - A numerics library for Python][]
 
-[Django Project - A mature web framework/CMS][]
+* [Django Project - A mature web framework/CMS][]
 
-[IPython - an advanced REPL/Notebook for Python][]
+* [IPython - an advanced REPL/Notebook for Python][]
 
-[Python Tools for Visual Studio on CodePlex (free/OSS)][]
+* [IPython on Azure][]
 
-[Virtualenv][]
+* [Python Tools for Visual Studio on CodePlex (free/OSS)][]
+
+* [Virtualenv][]
 
 
 [Enthought Python Distribution]: http://www.enthought.com 
@@ -145,6 +154,8 @@ Please see the article "How to Use the Windows Azure Command-Line Tools for Mac 
 [Django Project - A mature web framework/CMS]: http://www.djangoproject.com 
 
 [IPython - an advanced REPL/Notebook for Python]: http://ipython.org
+
+[IPython on Azure]: http://www.windowsazure.com/en-us/develop/python/tutorials/azure-ipython
 
 [Python Tools for Visual Studio on CodePlex (free/OSS)]: http://pytools.codeplex.com 
 
