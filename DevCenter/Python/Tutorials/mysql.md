@@ -72,8 +72,16 @@ You should now see a response similar to the following:
 <pre>	
 		DATABASES = {
 		    'default': {
-		        'ENGINE': <b style="color:orange;">'django.db.backends.mysql'</b>,
-				'NAME': <b style="color:orange;">'djangoazure'</b>,               
+			    'ENGINE': <b style="color:orange;">'django.db.backends.mysql'</b>,
+			    'NAME': <b style="color:orange;">'djangoazure'</b>,               
+			    'USER': <b style="color:orange;">'testazureuser'</b>,  
+			    'PASSWORD': <b style="color:orange;">'testazure'</b>,
+			    'HOST': <b style="color:red;">'127.0.0.1'</b>, 
+			    'PORT': <b style="color:orange;">'3306'</b>,
+			    },
+		    'world': {
+			    'ENGINE': <b style="color:orange;">'django.db.backends.mysql'</b>,
+			    'NAME': <b style="color:orange;">'world'</b>,               
 			    'USER': <b style="color:orange;">'testazureuser'</b>,  
 			    'PASSWORD': <b style="color:orange;">'testazure'</b>,
 			    'HOST': <b style="color:red;">'127.0.0.1'</b>, 
@@ -101,7 +109,7 @@ C:\Python27\python.exe manage.py startapp counter
       Append the following text to <strong><em>C:\django\helloworld\hello_dj\hello_dj\counter\models.py</em></strong>:<pre class="prettyprint">class Counter(models.Model):
     count = models.IntegerField()
     def __unicode__(self):
-        return u'%s' % (self.count)</pre>All we've done here is defined a subclass of Django's <i>Model</i> class named <i>Counter</i> with a single integer field, <i>count</i>. This trivial counter model will end up recording the number of hits to our Django application.
+        return u'%s' % (self.count)</pre>All we've done here is defined a subclass of Django's <i>Model</i> class named <i>Counter</i> with a single integer field, <i>count</i>. This trivial counter model will end up recording the number of hits to our Django application. 
     </li>
     <li>
       Next we make Django aware of <i>Counter</i>'s existence:
@@ -143,28 +151,20 @@ Installed 0 object(s) from 0 fixture(s)</pre></li>
       Replace the contents of <strong><em>C:\django\helloworld\hello_dj\hello_dj\views.py</em></strong>. The new implementation of the <i>hello</i> function below uses our <i>Counter</i> model in conjunction with a separate sample database we previously installed, <i>world</i>, to generate a suitable replacement for the "<i>World</i>" string:
       <pre class="prettyprint">
 from django.http import HttpResponse
+import django.db
 
-from MySQLdb import connect
-from settings import DATABASES
 from counter.models import Counter
 
 def getCountry(intId):
     #Connect to the MySQL sample database 'world'
-    connection = connect(db='world',
-                         user=DATABASES['default']['USER'],
-                         passwd=DATABASES['default']['PASSWORD'],
-                         host=DATABASES['default']['HOST'],  
-                         port=int(DATABASES['default']['PORT']))
-    cur = connection.cursor()
+    cur = django.db.connections['world'].cursor()
 
     #Execute a trivial SQL query which returns the name of 
     #all countries contained in 'world'
     cur.execute("SELECT name from country")
     tmp = cur.fetchall()
-    
     #Clean-up after ourselves
     cur.close()
-    connection.close()
 
     if intId >= len(tmp):
         return "countries exhausted"
@@ -175,10 +175,9 @@ def hello(request):
         #when the database corresponding to 'helloworld.counter' is 
         #initially empty...
         c = Counter(count=0)
-        c.save()
     else:
         c = Counter.objects.all()[0]
-    c.count += 1
+        c.count += 1
     c.save()
    
     world = getCountry(int(c.count))
@@ -211,7 +210,13 @@ The output should be basically the same to what you saw with the locally hosted 
 ![][5]
 
 ##Deploying the application to Windows Azure
-From here, all you need to do is duplicate the steps performed in the [Django Hello World] [djangohelloworld] tutorial to publish the MySQL derivation to Windows Azure.
+From here, you need to duplicate the steps performed in the [Django Hello World] [djangohelloworld] tutorial to publish the MySQL derivation to Windows Azure.  
+
+Additionally, you'll need to bundle MySQLdb with your app as this is not installed with the Windows Azure SDK for Python.  An easy way to accomplish this is:<pre class="prettyprint">
+cd C:\django\helloworld\hello\_dj
+copy -recurse C:\Python27\Lib\site-packages\MySQLdb .
+copy -recurse C:\Python27\Lib\site-packages\\_mysql* .
+</pre>
 
 ## Stopping and Deleting Your Application
 
