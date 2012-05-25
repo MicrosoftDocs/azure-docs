@@ -12,7 +12,7 @@ You will learn:
 
 ## <a id="virtualmachine"> </a>What is a virtual machine in Windows Azure ##
 
-A virtual machine in Windows Azure is a server in the cloud that you can control and manage. After you create a virtual machine in Windows Azure, you can delete and recreate it whenever you need to, and you can access the virtual machine just as you do with any other server. Virtual hard drive (VHD) files are used to create a virtual machine. The following types of VHDs are used for a virtual machine:
+A virtual machine in Windows Azure is a server in the cloud that you can control and manage. After you create a virtual machine in Windows Azure, you can delete and recreate it whenever you need to, and you can access the virtual machine just as you do with any other server. Virtual hard disk (VHD) files are used to create a virtual machine. The following types of VHDs are used for a virtual machine:
 
 - **Image** - A VHD that is used as a template to create a new virtual machine. An image is a template because it doesn’t have specific settings like a running virtual machine, such as the computer name and user account settings. If you create a virtual machine using an image, an operating system disk is automatically created for the new virtual machine.
 - **Disk** - A VHD that can be booted and mounted as a running version of an operating system. A disk is a runnable version of an image. Any VHD that is attached to virtualized hardware and running as part of a service is a disk. After an image is provisioned, it becomes a disk and a disk is always created when you use an image to create a virtual machine.
@@ -20,7 +20,7 @@ A virtual machine in Windows Azure is a server in the cloud that you can control
 The following options are available for using images to create a virtual machine:
 
 - Create a virtual machine by using an image that is provided in the Image Gallery of the Windows Azure Management Portal.
-- Create and upload a VHD file that contains an image to Windows Azure, and then create a virtual machine using the image. For more information about creating and uploading a custom image, see [Creating and Uploading a Virtual Hard Drive that Contains the Windows Server Operating System](http://).
+- Create and upload a VHD file that contains an image to Windows Azure, and then create a virtual machine using the image. For more information about creating and uploading a custom image, see [Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System](http://).
 
 ## <a id="custommachine"> </a>How to create a custom virtual machine running the Windows Server operating system by using the Management Portal ##
 
@@ -104,7 +104,7 @@ You can log on to the virtual machine that you created to manage the settings of
 
 7. Click **Yes** to verify the identity of the virtual machine.
 
-	![Verify the identity of the machine] (../media/connectverify.png)</P>
+	![Verify the identity of the machine] (../media/connectverify.png)
 
 	You can now work with the virtual machine just as you would with a server in your office.
 
@@ -148,7 +148,7 @@ The data disk that you just attached to the virtual machine is offline and not i
 
 	![Start initialization] (../media/initializedisk.png)
 
-4. Click **OK** to start the initialization process.</P>
+4. Click **OK** to start the initialization process.
 
 5. Right-click the space allocation area for Disk 2, click **New Simple Volume**, and then finish the wizard with the default values.
 
@@ -162,7 +162,7 @@ The data disk that you just attached to the virtual machine is offline and not i
 
 All virtual machines that you create in Windows Azure can automatically communicate with other virtual machines in the same cloud service or virtual network. However, you need to add an endpoint to a machine for other resources on the Internet or other virtual networks to communicate with it. You can associate specific ports and a protocol to endpoints.
 
-1. If you have not already done so, sign in to the Windows Azure Management Portal.</P>
+1. If you have not already done so, sign in to the Windows Azure Management Portal.
 
 2. Click **Virtual Machines**, and then select the **MyTestVM1** virtual machine that you previously created.
 
