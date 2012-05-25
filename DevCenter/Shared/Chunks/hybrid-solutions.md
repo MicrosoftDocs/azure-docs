@@ -289,7 +289,7 @@ are also tunable.
 ![image][4]   
  **Figure 4-SQL Database Data Sync**
 
-For more information on SQL Database Data Sync: see:
+For more information on SQL Database Data Sync, see:
 
 -   [SQL Database Data (MSDN Library)][]
 -   [SQL Database][]
