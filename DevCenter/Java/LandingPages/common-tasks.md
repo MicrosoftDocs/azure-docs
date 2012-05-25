@@ -24,8 +24,8 @@ Describes how to use the Content Delivery Network (CDN) to optimize the delivery
 
 Discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
 
-[add_ca_cert]: ..\howto\add_ca_cert.md 
-[manage_sql]: ..\CommonTasks\sql-azure-management.md
-[custom_domain_name]: ..\CommonTasks\custom-dns.md
-[cdn]: ..\CommonTasks\cdn.md
-[ssl]: ..\CommonTasks\enable-ssl.md
+[add_ca_cert]: ../howto/add_ca_cert.md 
+[manage_sql]: ../CommonTasks/sql-azure-management.md
+[custom_domain_name]: ../CommonTasks/custom-dns.md
+[cdn]: ../CommonTasks/cdn.md
+[ssl]: ../CommonTasks/enable-ssl.md

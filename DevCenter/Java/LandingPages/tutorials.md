@@ -12,6 +12,6 @@ Describes how you can use a virtual machine to handle compute-intensive tasks; f
 
 Describes how to create a virtual machine running on Windows Azure and configure it to run a Java application server.
 
-[on_premise_storage]: ..\tutorials\on-premise-app-with-blob-storage.md
-[compute_intensive]: ..\howto\howto_java_compute_task.md
-[java_application_server]: ..\howto\howto_java_virtual_machine.md
+[on_premise_storage]: ../tutorials/on-premise-app-with-blob-storage.md
+[compute_intensive]: ../howto/howto_java_compute_task.md
+[java_application_server]: ../howto/howto_java_virtual_machine.md

@@ -40,12 +40,12 @@ Windows Azure applications can use SendGrid to include email functionality.
 
 Windows Azure applications can use Twilio to incorporate phone call and Short Message Service (SMS) message functionality.
 
-[blob_service]: ..\howto\blob-storage.md
-[service_bus_queues]: ..\howto\service-bus-queues.md
-[service_bus_topics]: ..\howto\service-bus-topics.md
-[queue_service]: ..\howto\queue-storage.md
-[table_service]: ..\howto\table-storage.md
-[sql_database]: ..\howto\using_sql_azure_in_java.md
+[blob_service]: ../howto/blob-storage.md
+[service_bus_queues]: ../howto/service-bus-queues.md
+[service_bus_topics]: ../howto/service-bus-topics.md
+[queue_service]: ../howto/queue-storage.md
+[table_service]: ../howto/table-storage.md
+[sql_database]: ../howto/using_sql_azure_in_java.md
 [service_runtime]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690948.aspx
-[sendgrid]: ..\howto\sendgrid-email-service.md
-[twilio]: ..\howto\twilio_in_java.md
+[sendgrid]: ../howto/sendgrid-email-service.md
+[twilio]: ../howto/twilio_in_java.md
