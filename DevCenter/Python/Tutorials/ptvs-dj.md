@@ -20,15 +20,15 @@ virtual machine (VM).
 
 A screenshot of the completed application is below:
 
-![A browser window displaying Hello World][]
+![](../Media/ptvs-dj-FirstAppInCloud.png)
 
 
 ## <a id="setup"> </a>Setting Up the Development Environment
 
-Before you can begin developing your Windows Azure application, you need to get the tools and set up your development environment. For details about getting and installing the Windows Azure SDK for Python, see [Setup the Development Environment](http://www.windowsazure.com/en-us/develop/python/tutorials/getting-started/#setup) in the Python "Hello World" Application tutorial.
+Before you can begin developing your Windows Azure application, you need to get the tools and set up your development environment. For details about getting and installing the Windows Azure SDK for Python, see [Setup the Development Environment](http://www.windowsazure.com/en-us/develop/python/commontasks/how-to-install-python).
 
 NOTE
-This tutorial requires Python 2.7 and Django 1.4. These versions are included in the current Windows Azure SDK for Python; however if you have installed a previous version you will need to [upgrade to the latest version](http://www.windowsazure.com/en-us/develop/python/tutorials/getting-started/#setup).
+This tutorial requires Python 2.7 and Django 1.4. These versions are included in the current Windows Azure SDK for Python.
 
 ## Creating a New Django Application
 

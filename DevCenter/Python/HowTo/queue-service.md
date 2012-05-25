@@ -98,7 +98,7 @@ create a storage account [using the REST API][].)
 
 The **CloudQueueClient** object lets you work with queue storage services. The following code creates a **CloudQueueClient** object. Add the following near the top of any Python file in which you wish to programmatically access Windows Azure Storage:
 
-	from windowsazure.storages.cloudqueueclient import *
+	from windowsazure.storage.cloudqueueclient import *
 
 The following code creates a **CloudQueueClient** object using the storage account name and account key. Replace 'myaccount' and 'mykey' with the real account and key.
 
@@ -175,13 +175,12 @@ five minutes for each message.
 
 You can get an estimate of the number of messages in a queue. The
 **get\_queue\_metadata** method asks the queue service to return metadata
-about the queue, and the **x\_ms\_approximate\_messages\_count** property of the
-response contains a count of how many messages are in a queue. The count
-is only approximate because messages can be added or removed after the
+about the queue, and the **x-ms-approximate-messages-count** should be used as the index into the returned dictionary to find the count.
+The result is only approximate because messages can be added or removed after the
 queue service responds to your request.
 
 	queue_metadata = queue_client.get_queue_metadata('taskqueue')
-	count = queue_metadata.x_ms_approximate_messages_count
+	count = queue_metadata['x-ms-approximate-messages-count']
 
 ## <a name="delete-queue"> </a>How To: Delete a Queue
 

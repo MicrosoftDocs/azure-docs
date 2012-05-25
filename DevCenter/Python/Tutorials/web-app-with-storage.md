@@ -3,7 +3,7 @@
 # Python Web Application using Storage
 
 In this tutorial, you will learn how to create an application using the Windows
-Azure Client Libraries for Python with storage services. If this is your first Python Azure app, you may wish to take a look at **"Django Hello World Web Application"** first.
+Azure Client Libraries for Python with storage services. If this is your first Python Azure app, you may wish to take a look at [Django Hello World Web Application][] first.
 
 For this guide, you will create a web-based task-list application
 that you can deploy to Windows Azure. The task list allows a user to
@@ -100,7 +100,7 @@ Here are the steps for creating the app:
 ## Import windowsazure storage module
 Add following code on the top of **views.py** just after Django imports
 
-        from windowsazure.storages.cloudtableclient import CloudTableClient
+        from windowsazure.storage.cloudtableclient import CloudTableClient
 
 ## Get storage account name and account key
 Add the following code to **views.py** just after the windowsazure import, and replace  'youraccount' and 'yourkey' with your real account name and key. You can get an account name and key from azure management portal. 
@@ -108,7 +108,7 @@ Add the following code to **views.py** just after the windowsazure import, and r
         account_name = 'youraccount'
         account_key = 'yourkey'
 
-## Create StorageServiceManager
+## Create CloudTableClient
 Add following code after “account_name …”
 
 		cloud_table_client = CloudTableClient(account_name=account_name, account_key=account_key)
@@ -187,4 +187,5 @@ Now that you’ve learned the basics of the Windows Azure Table service, follow 
 [container-acl]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
 
-[Installation Guide]: /develop/python/commontasks/how-to-install-python
+[Installation Guide]: http://www.windowsazure.com/en-us/develop/python/commontasks/how-to-install-python
+[Django Hello World Web Application]: http://www.windowsazure.com/en-us/develop/python/tutorials/django-helloworld

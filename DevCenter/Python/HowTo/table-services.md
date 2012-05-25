@@ -115,7 +115,7 @@ The **CloudTableClient** object lets you work with table services. The
 following code creates a **CloudTableClient** object. Add the following near
 the top of any Python file in which you wish to programmatically access Windows Azure Storage:
 
-	from windowsazure.storages.cloudtableclient import *
+	from windowsazure.storage.cloudtableclient import *
 
 The following code creates a **CloudTableClient** object using the storage account name and account key.  Replace 'myaccount' and 'mykey' with the real account and key.
 

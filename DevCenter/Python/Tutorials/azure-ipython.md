@@ -1,25 +1,26 @@
 # IPython Notebook on Windows Azure
 
-The IPython project (http://ipython.org) provides a collection of tools for 
-scientific computing that include powerful interactive shells, high-performance 
-and easy to use parallel libraries and a web-based environment called the 
-IPython Notebook. The Notebook provides a working environment for interactive 
-scientific computing that combines code execution with the creation of a live 
-computational document. These notebook files can contain arbitrary text, 
-mathematical formulas, input code, results, graphics, videos and any other kind 
+The [IPython project](http://ipython.org) provides a collection of tools for
+scientific computing that include powerful interactive shells, high-performance
+and easy to use parallel libraries and a web-based environment called the
+IPython Notebook. The Notebook provides a working environment for interactive
+computing that combines code execution with the creation of a live
+computational document. These notebook files can contain arbitrary text,
+mathematical formulas, input code, results, graphics, videos and any other kind
 of media that a modern web browser is capable of displaying.
 
-Whether you're absolutely new to Python and want to learn it in a fun, 
-interactive environment or do some serious parallel/technical computing, the 
-IPython Notebook is a great choice. As an illustration of its capabilities, the 
-following screenshot shows the IPython Notebook being used for spectral 
-analysis:
+Whether you're absolutely new to Python and want to learn it in a fun,
+interactive environment or do some serious parallel/technical computing, the
+IPython Notebook is a great choice. As an illustration of its capabilities, the
+following screenshot shows the IPython Notebook being used, in combination with
+the SciPy and matplotlib packages, to analyze the structure of a sound
+recording:
 
 ![Screenshot](../Media/ipy-notebook-spectral.png)
 
-This document shows how the IPython Notebook can be run on Microsoft Azure
-using Linux or Windows virtual machines (VMs).  By using the IPython Notebook
-on Azure, you can easily deploy a web-accessible interface to
+This document will show you how to deploy the IPython Notebook on Microsoft
+Azure, using Linux or Windows virtual machines (VMs).  By using the IPython
+Notebook on Azure, you can easily provide a web-accessible interface to
 scalable computational resources with all the power of Python and its many
 libraries.  Since all installation is done in the cloud, users can access these
 resources without the need for any local configuration beyond a modern web
@@ -211,7 +212,7 @@ has at least the following content:
      # And if using a Windows VM:
      c.NotebookApp.certfile = r'C:\Users\Administrator\.ipython\profile_nbserver\mycert.pem'
 
-     # Create your own password as indicated above (do NOT reuse that one!)
+     # Create your own password as indicated above
      c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
 
      # Network and browser details. We use a fixed port (9999) so it matches
@@ -257,6 +258,8 @@ automatically, you can even produce figures, for example:
 
 ![Screenshot](../Media/ipy-notebook-004.png)
 
+## A powerful paradigm: live computational documents with rich media
+
 The notebook itself should feel very natural to anyone who has used Python and
 a word processor, because it is in some ways a mix of both: you can execute
 blocks of Python code, but you can also keep notes and other text by changing
@@ -265,25 +268,67 @@ toolbar:
 
 ![Screenshot](../Media/ipy-notebook-005.png)
 
+
+But this is much more than a word processor, as the IPython notebook allows the
+mixing of computation and rich media (text, graphics, video and virtually
+anything a modern web browser can display). For example, you can mix
+explanatory videos with computation for educational purposes:
+
+![Screenshot](../Media/ipy-notebook-006.png)
+
+or embed external websites that remain live and usable, inside of a notebook
+file:
+
+![Screenshot](../Media/ipy-notebook-007.png)
+
+And with the power of Python's many excellent libraries for scientific and
+technical computing, a simple calculation can be performed with the same ease
+than a complex network analysis, all in one environment:
+
+![Screenshot](../Media/ipy-notebook-008.png)
+
+This paradigm of mixing the power of the modern web with live computation
+offers many possibilities, and is ideally suited for the cloud; the Notebook
+can be used:
+
+* as a computational scratchpad to record exploratory work on a problem,
+
+* to share results with colleagues, either in 'live' computational form or in
+  hardcopy formats (HTML, PDF),
+
+* to distribute and present live teaching materials that involve computation,
+  so students can immediately experiment with the real code, modify it and
+  re-execute it interactively,
+
+* to provide "executable papers" that present the results of research in a way
+  that can be immediately reproduced, validated and extended by others,
+
+* as a platform for collaborative computing: multiple users can log into the
+  same notebook server to share a live computational session,
+
+* and more...
+
 If you go to the IPython source code repository, you will find an entire
 directory with [notebook
 examples](https://github.com/ipython/ipython/tree/master/docs/examples/notebooks)
 which you can download and then experiment with on your own Azure IPython VM.
-Simply download the `.ipynb` files from the site and upload 
+Simply download the `.ipynb` files from the site and upload them onto the
+dashboard of your notebook Azure VM (or download them directly into the VM).
 
-### Conclusion
+## Conclusion
 
-The IPython Notebook provides a powerful interface for working interactively
-with Python on Windows Azure.  It cover a wide range of usage cases including
-simple exploration and learning Python, data analysis and visualization, simulation,
-parallel computing and domain specific computations. The Notebook documents contain
-a complete record of the computations that are performed and can be distributed
-to other IPython users.
+The IPython Notebook provides a powerful interface for accessing interactively
+the power of the Python ecosystem on Windows Azure.  It covers a wide range of
+usage cases including simple exploration and learning Python, data analysis and
+visualization, simulation and parallel computing. The resulting Notebook
+documents contain a complete record of the computations that are performed and
+can be shared with other IPython users.  The IPython Notebook can be used as a
+local application, but it is ideally suited for cloud deployments on Azure
 
 The core features of IPython are also available inside Visual Studio via the 
-Python Tools for Visual Studio (PTVS). PTVS is a free and open-source plug-in 
+[Python Tools for Visual Studio](http://pytools.codeplex.com) (PTVS). PTVS is a free and open-source plug-in 
 from Microsoft that turns Visual Studio into an advanced Python development 
-environment that includes an advanced editor with intellisense, debugging, 
+environment that includes an advanced editor with IntelliSense, debugging, 
 profiling and parallel computing integration.
 
 

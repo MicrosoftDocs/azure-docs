@@ -8,16 +8,22 @@ Python is pretty easy to setup on Windows and comes pre-installed on Mac and Lin
 * Installation on Windows
 * Installation on Mac and Linux
 
-### The Python Azure SDK
+## The Python Azure SDK
 
-The Windows Azure SDK for Python includes components that allow you to develop, deploy, and mangage PHP applications for Windows Azure. Specifically, the Windows Azure SDK for Python includes the following:
+The Windows Azure SDK for Python includes components that allow you to develop, deploy, and mangage Python applications for Windows Azure. Specifically, the Windows Azure SDK for Python includes the following:
 
 * **The Python Client Libraries for Windows Azure**. These class libraries provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services.  
 * **The Windows Azure Command-Line Tools for Mac and Linux**. This is a set of command-line tools for deploying and managing Windows Azure services, such as Windows Azure Websites and Windows Azure Virtual Machines. These tools work on any platform, including Mac, Linux, and Windows.
 * **PowerShell for Windows Azure (Windows Only)**. This is a set of PowerShell cmdlets for deploying and managing Windows Azure Services, such as Cloud Services and Virtual Machines.
 * **The Windows Azure Emulators (Windows Only)**. The compute and storage emulators are local emulators of Cloud Services and Cloud Storage that allow you to test an application locally. The Windows Azure Emulators run on Windows only.
 
-### Which Python and which version?
+
+The core scenarios for this release are:
+
+* **Windows**: Cloud Service -- for example Django using Webroles
+* **Mac/Linux**: IaaS -- Run what you like in a VM; Consume Azure Services throught Python
+
+## Which Python and which version?
 
 There are several flavors of Python - examples include:
 
@@ -27,7 +33,7 @@ There are several flavors of Python - examples include:
 
 For the purposes of this release, only CPython is tested and supported.  We also recommend at least version 2.7.  IronPython support will be added in the near future as well.
 
-### Where to get Python?
+## Where to get Python?
 
 There are several ways to get CPython:
 
@@ -67,6 +73,10 @@ To see what Python packages are installed, enter the following:
 
 This will give a list what's been installed on your system.
 
+After the installation you should have Python, Django, the Client Libraries available:
+
+TODO Location
+
 ### Python Tools for Visual Studio
 
 Python Tools for Visual Studio is a free/OSS plugin from Microsoft which turn VS into a full-fledged Python IDE:
@@ -82,22 +92,30 @@ Python is most likely already installed on your Dev machine.  You can check by e
 
 ![how-to-install-python-linux-run.png][]
 
-Here we see that Suse has CPython 2.7.2 installed which is fine for running the Azure tutorials and Django samples. If you need to upgrade, follow your OS's recommended package upgrade instructions.  Note however, that in general it's better to leave the system Python alone (others may depend on that version) and install the newer version via [Virtualenv][].
+Here we see that this Azure Suse VM has CPython 2.7.2 installed which is fine for running the Azure tutorials and Django samples. If you need to upgrade, follow your OS's recommended package upgrade instructions.  Note however, that in general it's better to leave the system Python alone (others may depend on that version) and install the newer version via [Virtualenv][].
 
-There are two main scenarios supported for this Azure release:
+To install the Python Azure Client Libraries, use *easy_install* to grab it from *PyPI*:
 
-1. Authoring Cloud apps by using the Python Azure Client Libraries
+	TODO: $ easy_install windowsazure 
+
+You should now see  the client libraries installed here:
+
+	TODO: pic of location
+
+When developing from mac/linux, there are two main scenarios supported for this release:
+
+1. Consuming Windows Azure Services by using the client libraries for Python
 
 2. Running your app in a Linux VM
 
-The Cloud App scenario enables you to author rich web apps that take advantage of the Azure PaaS capabilities such as blob storage, queues, etc. via Pythonic wrappers for the Azure REST API's.  These work identically on Windows, Mac and Linux.  See the Tutorials and How To Guides for examples.
+The first scenario enables you to author rich web apps that take advantage of the Azure PaaS capabilities such as blob storage, queues, etc. via Pythonic wrappers for the Azure REST API's.  These work identically on Windows, Mac and Linux.  See the Tutorials and How To Guides for examples.  You can also use the client libraries from within a Linux VM.
 
 For the VM scenario, you simply start a Linux VM of your choice (Ubuntu, CentOS, Suse) and run/manage what you like.  As an example, you can run [IPython](http://www.ipython.org) REPL/notebook on your Windows/Mac/Linux machine and point your browser to a Linux or Windows multi-proc VM running the IPython Engine on Azure. For more information on IPython installation please see its tutorial.
 
 Please see the article "How to Use the Windows Azure Command-Line Tools for Mac and Linux" for details on support and usage.
 
  
-### Additional Software and Resources:
+## Additional Software and Resources:
 
 [Enthought Python Distribution][]
 
