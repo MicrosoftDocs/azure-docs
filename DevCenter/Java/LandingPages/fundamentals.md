@@ -19,8 +19,8 @@ Describes Windows Azure networking offerings, including Virtual Networks, Traffi
 ### [Hybrid Solutions][hybrid_solutions]
 
 Describes how you can use Windows Azure features like Service Bus to build applications that span across online and on-premises locations.
-[intro]: http://tbd
-[compute]: http://tbd
-[storage]: http://tbd
-[networking]: http://tbd
-[hybrid_solutions]: http://tbd
+[intro]: ../Fundamentals/intro-to-windows-azure.md
+[compute]: ../Fundamentals/application-model.md
+[storage]: ../Fundamentals/cloud-storage.md
+[networking]: ../Fundamentals/tbd.md
+[hybrid_solutions]: ../Fundamentals/hybrid-solutions.md
