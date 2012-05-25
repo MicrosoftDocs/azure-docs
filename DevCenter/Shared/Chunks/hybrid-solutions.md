@@ -8,7 +8,7 @@ with on-premises resources. <a id="compare" name="compare"></a>
 -   [The Benefits of Hybrid][]
 -   [Service Bus Relay][]
 -   [Service Bus Queues and Topics][]
--   [SQL Azure Data Sync][]
+-   [SQL Database Data Sync][]
 -   [Access Control Service (ACS) paired with Active Directory Federation Services (AD FS)][]
 -   [Windows Azure Connect][]
 -   [Conclusion][]
@@ -260,15 +260,14 @@ For more information on Service Bus Queues and Topics, see:
 
 <a name="sql"> </a>
 
-## SQL Azure Data Sync
+## SQL Database Data Sync
 
-The SQL Azure Data Sync service can be used to keep on-premises SQL
-Server database synchronized with one or more SQL Azure databases in the
+The SQL Database Data Sync service can be used to keep on-premises SQL
+Server database synchronized with one or more SQL Database instances in the
 cloud. There are a myriad of application scenarios where this capability
 proves itself useful.
 
-For example, this service can be used to keep two or more SQL Azure
-databases synchronized when you want to improve performance by
+For example, this service can be used to keep two or more SQL Database instances synchronized when you want to improve performance by
 geographically collocating application data with your customers. You can
 use the SQL Data Sync service to accomplish this objective.
 Synchronization can also be useful when you want to assure that your
@@ -288,12 +287,12 @@ resolution for two-way synchronizations and synchronization frequency
 are also tunable.
 
 ![image][4]   
- **Figure 4-SQL Azure Data Sync**
+ **Figure 4-SQL Database Data Sync**
 
-For more information on SQL Azure Data Sync: see:
+For more information on SQL Database Data Sync: see:
 
--   [SQL Azure Data (MSDN Library)][]
--   [SQL Azure][]
+-   [SQL Database Data (MSDN Library)][]
+-   [SQL Database][]
 
 <a id="_ACS_paired_with" name="_ACS_paired_with"> </a> <a name="acs">
 </a>
@@ -530,7 +529,7 @@ additionally provide your existing applications with load leveling and
 balancing and offer resilience to failures and downtime for maintenance
 and software upgrades.
 
-SQL Azure Data Sync in the cloud can be used to synchronize your
+SQL Database Data Sync in the cloud can be used to synchronize your
 on-premises and cloud databases, enabling on-premises and cloud
 applications to share data, or allowing data to be geo-located via
 replication to better service customers.
@@ -563,7 +562,7 @@ Azure.
   [The Benefits of Hybrid]: #benefits
   [Service Bus Relay]: #relay
   [Service Bus Queues and Topics]: #queues
-  [SQL Azure Data Sync]: #sql
+  [SQL Database Data Sync]: #sql
   [Access Control Service (ACS) paired with Active Directory Federation Services (AD FS)]: #acs
   [Windows Azure Connect]: #connect
   [Conclusion]: #conclusion
@@ -579,8 +578,8 @@ Azure.
   [How To Use Service Bus Queues]: ../../how-to-guides/service-bus-queues/
   [How To Use Service Bus Topics/Subscriptions]: ../../how-to-guides/service-bus-topics/
   [4]: ../../../DevCenter/Shared/Media/building-hybrid-solutions-4.jpg
-  [SQL Azure Data (MSDN Library)]: http://msdn.microsoft.com/en-us/library/windowsazure/hh456371.aspx
-  [SQL Azure]: {localLink:1145} "SQL Azure"
+  [SQL Database Data (MSDN Library)]: http://msdn.microsoft.com/en-us/library/windowsazure/hh456371.aspx
+  [SQL Database]: {localLink:1145} "SQL Database"
   [5]: ../../../DevCenter/Shared/Media/building-hybrid-solutions-5.jpg
   [Access Control]: ../../../../home/features/access-control/
   [Access Control Service (MSDN library)]: http://msdn.microsoft.com/en-us/library/windowsazure/hh147631.aspx
