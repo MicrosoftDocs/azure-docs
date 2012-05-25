@@ -242,7 +242,7 @@ The following steps show you how to stop and delete your application.
 
 2.  To delete the service, call the following cmdlet:
 
-        PS C:\django\helloworld\hello_dj\hello_dj> Remove-AzureService
+        PS C:\django\helloworld\hello_dj\hello_dj> Remove-AzureServiceProject
 
 3.  When prompted, enter **Y** to delete the service.
 
