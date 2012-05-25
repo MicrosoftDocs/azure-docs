@@ -42,7 +42,7 @@ to get the tools and set up your development environment.
 3.  Click **Install** in the installer window and proceed with the
     installation:
 
-    ![Web Platform Installer screen for the Windows Azure SDK. The install button is highlighted.][]
+    ![Web Platform Installer screen for the Windows Azure SDK. The install button is highlighted.][install-button]
 
 Once the installation is complete, you have everything necessary to
 start developing. The following components are installed:
@@ -61,9 +61,7 @@ environment that is configured for Windows Azure and Node development.
 It includes tools that you can use to create and publish Node
 applications.
 
-1.  On the **Start**menu, click **All Programs, Windows Azure SDK
-    Node.js - November 2011**, right-click **Windows Azure PowerShell
-    for Node.js**, and then select **Run As Administrator**. Opening
+1.  On the **Start** menu, click **All Programs, Windows Azure**, right-click **Windows Azure PowerShells**, and then select **Run As Administrator**. Opening
     your Windows PowerShell environment this way ensures that all of the
     Node command-line tools are available. Running with elevated
     privileges avoids extra prompts when working with the Windows Azure
@@ -177,11 +175,9 @@ application without having to actually deploy it.
 
     ![A web browser displaying the Hello World web page][]
 
-2.  To stop the compute emulator, you can access it (as well as the
-    storage emulator, which you will leverage later in this tutorial)
-    from the Windows taskbar as shown in the screenshot below:
+2.  To stop the compute emulator, use the **Stop-AzureEmulator** command:
 
-    ![The menu displayed when right-clicking the Windows Azure emulator from the task bar.][]
+		PS C:\node\tasklist\WebRole1> Stop-AzureEmulator
 
 ## Deploying the Application to Windows Azure
 
@@ -343,7 +339,7 @@ deleting a storage account, see [How to Delete a Storage Account from a Windows 
   [A browser window displaying Hello World]: ../Media/node21.png
   [Get Tools and SDK]: http://go.microsoft.com/?linkid=9790229
   [Internet Explorer promoting to run a downloaded file]: ../Media/getting-started-3.png
-  [Web Platform Installer screen for the Windows Azure SDK for Node.js. The install button is highlighted.]: ../Media/getting-started-4.png
+  [install-button]: ../Media/getting-started-4.png
   [The Windows Start menu with the Windows Azure SDK Node.js entry expanded]: ../../Shared/Media/azure-powershell-menu.png
   [mkdir]: ../Media/getting-started-6.png
   [The result of the New-AzureService tasklist command]: ../Media/node9.png
