@@ -45,7 +45,7 @@ Windows Azure Websites allows you to easily create a website and provision a MyS
 </div>
 
 
-<div chunk="../../Shared/Chunks/website-mysql" />
+<div chunk="../../Shared/Chunks/website-mysql.md" />
 
 Make note of the database connection information as it will be needed later.
 
