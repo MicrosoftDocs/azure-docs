@@ -232,8 +232,8 @@ The example below creates a subscription named "HighMessages" with a **SqlFilter
    	$serviceBusRestProxy->createSubscription("mytopic", $subscriptionInfo);
 
   	$ruleInfo = new RuleInfo();
-   	$ruleInfo->withSqlExpressionFilter(“MessageNumber > 3”);
-   	$ruleResult = $serviceBusRestProxy->(“mytopic”, “mysubscription”, $ruleInfo);
+   	$ruleInfo->withSqlExpressionFilter("MessageNumber > 3");
+   	$ruleResult = $serviceBusRestProxy->createRule("mytopic", "mysubscription", $ruleInfo);
 
 Note that the code above requires the use of an additional namespace: `WindowsAzure\ServiceBus\Models\SubscriptionInfo`.
 
@@ -244,8 +244,8 @@ Similarly, the following example creates a subscription named "LowMessages" with
    	$serviceBusRestProxy->createSubscription("mytopic", $subscriptionInfo);
 
   	$ruleInfo = new RuleInfo();
-   	$ruleInfo->withSqlExpressionFilter(“MessageNumber <= 3”);
-   	$ruleResult = $serviceBusRestProxy->(“mytopic”, “mysubscription”, $ruleInfo);
+   	$ruleInfo->withSqlExpressionFilter("MessageNumber <= 3");
+   	$ruleResult = $serviceBusRestProxy->createRule("mytopic", "mysubscription", $ruleInfo);
 
 When a message is now sent to the `mytopic` topic, it will always be delivered to receivers subscribed to the `mysubscription` subscription, and selectively delivered to receivers subscribed to the "HighMessages" and "LowMessages" subscriptions (depending upon the message content).
 
@@ -308,9 +308,9 @@ Service Bus queues support a maximum message size of 256 KB (the header, which i
 
 <h2 id="ReceiveMessages">How to: Receive messages from a subscription</h2>
 
-The primary way to receive messages from a queue is to use a **ServiceBusRestProxy->receiveMessage** method. Received messages can work in two different modes: **ReceiveAndDelete** and **PeekLock**.
+The primary way to receive messages from a subscription is to use a **ServiceBusRestProxy->receiveSubscriptionMessage** method. Received messages can work in two different modes: **ReceiveAndDelete** and **PeekLock**.
 
-When using the **ReceiveAndDelete** mode, receive is a single-shot operation - that is, when Service Bus receives a read request for a message in a queue, it marks the message as being consumed and returns it to the application. **ReceiveAndDelete** mode (which is the default mode) is the simplest model and works best for scenarios in which an
+When using the **ReceiveAndDelete** mode, receive is a single-shot operation - that is, when Service Bus receives a read request for a message in a subscription, it marks the message as being consumed and returns it to the application. **ReceiveAndDelete** mode (which is the default mode) is the simplest model and works best for scenarios in which an
 application can tolerate not processing a message in the event of a failure. To understand this, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus will have marked the message as being consumed, then when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.
 
 In **PeekLock** mode, receive becomes a two stage operation, which makes it possible to support applications that cannot tolerate missing messages. When Service Bus receives a request, it finds the next message to be consumed, locks it to prevent other consumers receiving it, and then returns it to the application. After the application finishes processing the message (or stores it reliably for future processing), it completes the second stage of the receive process by passing the received message to **ServiceBusRestProxy->deleteMessage**. When Service Bus sees the **deleteMessage** call, it will mark the message as being consumed and remove it from the queue.
@@ -344,7 +344,7 @@ path&gt;/subscriptions/&lt;subscription name&gt;".
 		
 	try	{
 		// Get message.
-		$message = $serviceBusRestProxy->receiveMessage("mytopic/subscriptions/mysubscription", $options);
+		$message = $serviceBusRestProxy->receiveSubscriptionMessage("mytopic", "mysubscription", $options);
 		
 		/*---------------------------
 			Process message here.

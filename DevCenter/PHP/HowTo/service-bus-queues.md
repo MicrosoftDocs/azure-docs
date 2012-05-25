@@ -187,8 +187,8 @@ The example below shows how create a **Configuration** object, instantiate **Ser
 
 <h2 id="SendMessages">How to: Send messages to a queue</h2>
 
-To send a message to a Service Bus queue, your application will call the **ServiceBusRestProxy->sendMessage** method. The code below demonstrates how to send a message to the "myqueue" queue we created above within the
-"MySBNamespace" service namespace. Note that first parameter of the **sendMessage** method is `myqueue/messages`, the path to which the message is sent.
+To send a message to a Service Bus queue, your application will call the **ServiceBusRestProxy->sendQueueMessage** method. The code below demonstrates how to send a message to the "myqueue" queue we created above within the
+"MySBNamespace" service namespace. Note that first parameter of the **sendQueueMessage** method is `myqueue/messages`, the path to which the message is sent.
 
 	require_once 'WindowsAzure.php';
 
@@ -216,7 +216,7 @@ To send a message to a Service Bus queue, your application will call the **Servi
 		
 	try	{
 		// Send message.
-		$serviceBusRestProxy->sendMessage("myqueue/messages", $message);
+		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -242,7 +242,7 @@ held by a queue. This upper limit on queue size is 5 GB.
 
 <h2 id="ReceiveMessages">How to: Receive messages from a queue</h2>
 
-The primary way to receive messages from a queue is to use a **ServiceBusRestProxy->receiveMessage** method. Received messages can work in two different modes: **ReceiveAndDelete** and **PeekLock**.
+The primary way to receive messages from a queue is to use a **ServiceBusRestProxy->receiveQueueMessage** method. Received messages can work in two different modes: **ReceiveAndDelete** and **PeekLock**.
 
 When using the **ReceiveAndDelete** mode, receive is a single-shot operation - that is, when Service Bus receives a read request for a message in a queue, it marks the message as being consumed and returns it to the application. **ReceiveAndDelete** mode (which is the default mode) is the simplest model and works best for scenarios in which an
 application can tolerate not processing a message in the event of a failure. To understand this, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus will have marked the message as being consumed, then when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.
@@ -277,7 +277,7 @@ The example below demonstrates how a message can be received and processed using
 		
 	try	{
 		// Get message.
-		$message = $serviceBusRestProxy->receiveMessage("myqueue/messages/head", $options);
+		$message = $serviceBusRestProxy->receiveQueueMessage("myqueue", $options);
 		echo "Body: ".$message->getBody()."<br />";
 		echo "MessageID: ".$message->getMessageId()."<br />";
 		
