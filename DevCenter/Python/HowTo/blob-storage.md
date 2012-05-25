@@ -109,7 +109,7 @@ The **CloudBlobClient** object lets you work with containers and blobs. The
 following code creates a **CloudBlobClient** object. Add the following near
 the top of any Python file in which you wish to programmatically access Windows Azure Storage:
 
-	from windowsazure.storages.cloudblobclient import *
+	from windowsazure.storage.cloudblobclient import *
 
 The following code creates a **CloudBlobClient** object using the storage account name and account key.  Replace 'myaccount' and 'mykey' with the real account and key.
 
