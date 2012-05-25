@@ -84,7 +84,7 @@ must be updated to include the thumbprint of the certificate.
 
 3.  The service configuration file also requires the thumbprint of the
     .pfx certificate you created earlier. Add a certificate entry to the
-    <Certificates\> section as shown, replacing the sample thumbprint
+    `<Certificates>` section as shown, replacing the sample thumbprint
     value below with your own:
 
         <Role name="Deployment>

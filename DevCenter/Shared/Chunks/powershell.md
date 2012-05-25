@@ -130,7 +130,7 @@ can help you get started:
     </tr>
     <tr align="left" valign="top">
     <td>
-    get-help <cmdlet\> -full
+    get-help &lt;<b>cmdlet</b>&gt; -full
 
     </td>
     <td>
@@ -572,10 +572,10 @@ that is used to access the service. Use the staging environment to test
 a service before deploying it to production, where a friendlier URL is
 assigned:
 
--   Staging URL format: <ServiceID\>.cloudapp.net  
+-   Staging URL format: `<ServiceID>`.cloudapp.net  
      Example: http://b8f3dd0c084a4add81e1c3345eb0af87.cloudapp.net/
 
--   Production URL format: <ServiceName\>.cloudapp.net  
+-   Production URL format: `<ServiceName>`.cloudapp.net  
      Example: http://MyService.cloudapp.net
 
 In the following example, the MyService service is deployed to the

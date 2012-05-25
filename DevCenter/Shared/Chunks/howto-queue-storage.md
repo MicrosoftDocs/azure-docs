@@ -19,7 +19,7 @@ The Queue service contains the following components:
 
 -   **URL format:** Queues are addressable using the following URL
     format:   
-    http://<storage account\>.queue.core.windows.net/<queue\>  
+    http://`<storage account>`.queue.core.windows.net/`<queue>` 
       
     The following URL addresses one of the queues in the diagram:  
     http://myaccount.queue.core.windows.net/imagesToDownload
