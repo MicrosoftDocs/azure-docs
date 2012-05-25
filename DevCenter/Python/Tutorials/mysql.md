@@ -109,7 +109,7 @@ C:\Python27\python.exe manage.py startapp counter
       Append the following text to <strong><em>C:\django\helloworld\hello_dj\hello_dj\counter\models.py</em></strong>:<pre class="prettyprint">class Counter(models.Model):
     count = models.IntegerField()
     def __unicode__(self):
-        return u'%s' % (self.count)</pre>All we've done here is defined a subclass of Django's <i>Model</i> class named <i>Counter</i> with a single integer field, <i>count</i>. This trivial counter model will end up recording the number of hits to our Django application.
+        return u'%s' % (self.count)</pre>All we've done here is defined a subclass of Django's <i>Model</i> class named <i>Counter</i> with a single integer field, <i>count</i>. This trivial counter model will end up recording the number of hits to our Django application. 
     </li>
     <li>
       Next we make Django aware of <i>Counter</i>'s existence:
@@ -210,7 +210,13 @@ The output should be basically the same to what you saw with the locally hosted 
 ![][5]
 
 ##Deploying the application to Windows Azure
-From here, all you need to do is duplicate the steps performed in the [Django Hello World] [djangohelloworld] tutorial to publish the MySQL derivation to Windows Azure.
+From here, you need to duplicate the steps performed in the [Django Hello World] [djangohelloworld] tutorial to publish the MySQL derivation to Windows Azure.  
+
+Additionally, you'll need to bundle MySQLdb with your app as this is not installed with the Windows Azure SDK for Python.  An easy way to accomplish this is:<pre class="prettyprint">
+cd C:\django\helloworld\hello\_dj
+copy -recurse C:\Python27\Lib\site-packages\MySQLdb .
+copy -recurse C:\Python27\Lib\site-packages\\_mysql* .
+</pre>
 
 ## Stopping and Deleting Your Application
 
