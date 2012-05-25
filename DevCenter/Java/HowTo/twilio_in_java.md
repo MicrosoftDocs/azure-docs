@@ -1,7 +1,7 @@
 <properties umbracoNaviHide="0" pageTitle="Twilio Voice and SMS Service" metaKeywords="Azure Twilio Java" metaDescription="This guide demonstrates how to perform common programming tasks with the Twilio API service on Windows Azure." linkid="develop-java-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" headerExpose="" footerExpose="" disqusComments="1" />
 
 # How to Use Twilio for Voice and SMS Capabilities in Java
-<div chunk="././Shared/Chunks/how_to_use_twilio_opening_and_common_toc" />
+<div chunk="../../Shared/Chunks/how_to_use_twilio_opening_and_common_toc.md" />
 
 * [Create a Java Application](#create_app)
 * [Configure Your Application to Use Twilio Libraries](#configure_app)
@@ -9,7 +9,7 @@
 * [How to: Send an SMS message](#howto_send_sms)
 * [How to: Provide TwiML Responses from your own Web site](#howto_provide_twiml_responses)
 
-<div chunk="././Shared/Chunks/how_to_use_twilio_for_voice_and_sms_capabilities" />
+<div chunk="../../Shared/Chunks/how_to_use_twilio_for_voice_and_sms_capabilities.md" />
 
 <h2 id="create_app">Create a Java Application</h2>
 1. Obtain the Twilio JAR and add it to your Java build path and your WAR deployment assembly. At [https://github.com/twilio/twilio-java][twilio_java], you can download the GitHub sources and create your own JAR, or download a pre-built JAR (with or without dependencies).
@@ -141,7 +141,7 @@ Another option for responding with TwiML is via the **TwiMLResponse** class, whi
 
 For additional information about using Twilio in Windows Azure with Java, see [How to Make a Phone Call Using Twilio in a Java Application on Windows Azure][howto_phonecall_java].
 
-<div chunk="././Shared/Chunks/twilio_additional_services_and_next_steps" />
+<div chunk="../../Shared/Chunks/twilio_additional_services_and_next_steps.md" />
 
 [twilio_java]: https://github.com/twilio/twilio-java
 [twilio_api_service]: https://api.twilio.com
