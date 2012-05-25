@@ -227,11 +227,25 @@ You can also setup filters that allow you to scope which messages sent to a topi
 
 The example below creates a subscription named "HighMessages" with a **SqlFilter** that only selects messages that have a custom **MessageNumber** property greater than 3 (see [How to: Send messages to a topic](#SendMessage) for information about adding custom properties to messages):
 
-      **TODO: Example here**
+	$subscriptionInfo = new SubscriptionInfo();
+	$subscriptionInfo->setName("HighMessages");
+   	$serviceBusRestProxy->createSubscription("mytopic", $subscriptionInfo);
+
+  	$ruleInfo = new RuleInfo();
+   	$ruleInfo->withSqlExpressionFilter(“MessageNumber > 3”);
+   	$ruleResult = $serviceBusRestProxy->(“mytopic”, “mysubscription”, $ruleInfo);
+
+Note that the code above requires the use of an additional namespace: `WindowsAzure\ServiceBus\Models\SubscriptionInfo`.
 
 Similarly, the following example creates a subscription named "LowMessages" with a SqlFilter that only selects messages that have a MessageNumber property less than or equal to 3:
 
-	**TODO: Example here**
+	$subscriptionInfo = new SubscriptionInfo();
+	$subscriptionInfo->setName("LowMessages");
+   	$serviceBusRestProxy->createSubscription("mytopic", $subscriptionInfo);
+
+  	$ruleInfo = new RuleInfo();
+   	$ruleInfo->withSqlExpressionFilter(“MessageNumber <= 3”);
+   	$ruleResult = $serviceBusRestProxy->(“mytopic”, “mysubscription”, $ruleInfo);
 
 When a message is now sent to the `mytopic` topic, it will always be delivered to receivers subscribed to the `mysubscription` subscription, and selectively delivered to receivers subscribed to the "HighMessages" and "LowMessages" subscriptions (depending upon the message content).
 
