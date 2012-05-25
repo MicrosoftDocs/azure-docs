@@ -1,4 +1,4 @@
-# Data Storage Offerings in Windows Azure
+# Storage
 
 This article describes the Windows Azure data storage offerings: Blobs,
 Tables, and SQL Database. These offerings are hosted in Windows Azure data

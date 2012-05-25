@@ -1,26 +1,5 @@
-# Java Developer Center - Fundamentals
+<properties linkid="devnav-java-fundamentals" urlDisplayName="Fundamentals" headerExpose="" pageTitle="Windows Azure Java Fundamentals" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
 
-### [Intro to Windows Azure][intro]
+Java Developer Center - Fundamentals
 
-Provides an overview of the Windows Azure platform and services.
-
-### [Compute][compute]
-
-Describes the three compute models available on Windows Azure: Web Sites, Cloud Services, and Virtual Machines.
-
-### [Storage][storage]
-
-Provides details about the storage offerings available on Windows Azure, including blobs, tables and queues, SQL Database, MySQL, Hadoop on Windows Azure, and more.
-
-### [Networking][networking]
-
-Describes Windows Azure networking offerings, including Virtual Networks, Traffic Manager, and Connect.
-
-### [Hybrid Solutions][hybrid_solutions]
-
-Describes how you can use Windows Azure features like Service Bus to build applications that span across online and on-premises locations.
-[intro]: ../Fundamentals/intro-to-windows-azure.md
-[compute]: ../Fundamentals/application-model.md
-[storage]: ../Fundamentals/cloud-storage.md
-[networking]: ../Fundamentals/tbd.md
-[hybrid_solutions]: ../Fundamentals/hybrid-solutions.md
+<div chunk="../../../Shared/Chunks/fundamentals-landing.md" />
