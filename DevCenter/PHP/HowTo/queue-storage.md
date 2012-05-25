@@ -22,11 +22,11 @@ This guide will show you how to perform common scenarios using the Windows Azure
 * [How to: Delete a queue](#delete-queue)
 * [Next steps](#next-steps)
 
-<div chunk="../../Shared/Chunks/howto-queue-storage" />
+<div chunk="../../Shared/Chunks/howto-queue-storage.md" />
 
 <h2 id="create-account">Create a Windows Azure storage account</h2>
 
-<div chunk="../../Shared/Chunks/create-storage-account" />
+<div chunk="../../Shared/Chunks/create-storage-account.md" />
 
 <h2 id="create-app">Create a PHP application</h2>
 

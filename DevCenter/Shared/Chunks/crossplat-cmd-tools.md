@@ -49,7 +49,23 @@ To test the installation, type `azure` at the command prompt. If the installatio
 
 To use the Windows Azure Command-Line Tools for Mac and Linux, you will need a Windows Azure account.
 
-<div chunk="./create-azure-account" />
+1. Open a web browser and browse to [http://www.windowsazure.com][] and click **free trial** in the upper right corner.
+
+	![Windows Azure Website][]
+
+	Follow the instructions for creating an account.
+
+2. After you have signed up for an account, click **preview features** to enable the Windows Azure Web Sites and Windows Azure Virtual Machines features on your account.
+	
+	![open preview features tab][]
+
+2. Select a feature to try and click **try it now**.
+
+	![select a preview feature][]
+
+3. Select your subscription and click the checkmark.
+
+	![select subscription][]
 
 <h2 id="Account">How to download and import publish settings</h2>
 
@@ -163,3 +179,8 @@ For a complete list of commands for creating and managing virtual machines, use 
 [download-wpi]: http://www.microsoft.com/web/downloads/platform.aspx
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
+[http://www.windowsazure.com]: http://www.windowsazure.com
+[Windows Azure Website]: ../media/create-account-01.png
+[open preview features tab]: ../media/antares-iaas-preview-01.png
+[select a preview feature]: ../media/antares-iaas-preview-02.png
+[select subscription]: ../media/antares-iaas-preview-03.png

@@ -1,7 +1,7 @@
 <properties umbracoNaviHide="0" pageTitle="How to Use Twilio for Voice and SMS Capabilities in PHP" metaKeywords="Windows Azure, Azure, Twilio, Telephony, PHP" metaDescription="Learn how to use Twilio for voice and SMS messages from PHP in Windows Azure." linkid="dev-php-howto-twilio-voice-and-sms-service" urlDisplayName="Twilio Voice/SMS Service" headerExpose="" footerExpose="" disqusComments="1" />
 
 # How to Use Twilio for Voice and SMS Capabilities in PHP
-<div chunk="././Shared/Chunks/how_to_use_twilio_opening_and_common_toc" />
+<div chunk="../../Shared/Chunks/how_to_use_twilio_opening_and_common_toc.md" />
 
 * [Create a PHP Application](#create_app)
 * [Configure Your Application to Use Twilio Libraries](#configure_app)
@@ -166,7 +166,7 @@ Once you have your PHP page set up to provide TwiML responses, use the URL of th
 
 For additional information about using Twilio in Windows Azure with PHP, see [How to Make a Phone Call Using Twilio in a PHP Application on Windows Azure][howto_phonecall_php].
 
-<div chunk="././Shared/Chunks/twilio_additional_services_and_next_steps" />
+<div chunk="../../Shared/Chunks/twilio_additional_services_and_next_steps.md" />
 
 [twilio_php]: https://github.com/twilio/twilio-php
 [twilio_lib_docs]: http://readthedocs.org/docs/twilio-php/en/latest/index.html
