@@ -439,12 +439,6 @@ The following steps show you how to stop and delete your application.
 
     ![Status messages indicating the service has stopped.][]
 
-2.  To delete the deployment, use the following cmdlet:
-
-		PS C:\node\tasklist\WebRole1> remove-azuredeployment -servicename contosotasklist -slot deployment
-
-	When prompted, enter **Y** to delete the deployment.
-
 3.  To delete the service, call the following cmdlet:
 
         PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist

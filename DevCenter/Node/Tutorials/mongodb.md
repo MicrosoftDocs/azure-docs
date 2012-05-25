@@ -646,7 +646,7 @@ If this is the first Node.js application that you are deploying to
 Windows Azure, you will need to install publishing settings to your
 machine before deploying. For details about downloading and installing
 Windows Azure publishing settings, see [Downloading the Windows Azure
-Publishing Settings][] in the Node.js Web Application tutorial.
+Publishing Settings] in the Node.js Web Application tutorial.
 
 ### Publish the Application
 
