@@ -114,279 +114,282 @@ namespace.
 
 1. On your development machine (which does not have to be the virtual machine that you created), download the [Windows Azure SDK for Java](http://www.windowsazure.com/en-us/develop/java/java-home/download-the-windows-azure-sdk-for-java/). Include the dependencies.
 2. Create a Java console application using the following Java program. For purposes of this tutorial, we'll use **TSPSolver.java** as the Java file name. Modify the **your\_service\_bus\_namespace**, **your\_service\_bus\_owner**, and **your\_service\_bus\_key** placeholders to use your service bus **namespace**, **Default Issuer** and **Default Key** values, respectively.
+3. Use the following contents for **TSPSolver.java**. After coding, export the application to a runnable Java archive (JAR), and package the required libraries into the generated JAR. For purposes of this tutorial, we'll use **TSPSolver.jar** as the generated JAR name.
 
-        import com.microsoft.windowsazure.services.core.Configuration;
-        import com.microsoft.windowsazure.services.core.ServiceException;
-        import com.microsoft.windowsazure.services.serviceBus.*;
-        import com.microsoft.windowsazure.services.serviceBus.models.*;
-        import java.io.*;
-        import java.text.DateFormat;
-        import java.text.SimpleDateFormat;
-        import java.util.ArrayList;
-        import java.util.Date;
-        import java.util.List;
-        
-        
-        public class TSPSolver {
-        
-            //  Value specifying how often to provide an update to the console.
-            private static long loopCheck = 100000000;  
-            
-            private static long nTimes = 0, nLoops=0;
-        
-            
-            private static double[][] distances;
-            private static String[] cityNames;
-            private static int[] bestOrder;
-            private static double minDistance;
-            private static ServiceBusContract service;
-            
-            private static void buildDistances(String fileLocation, int numCities){
-                try{
-                    BufferedReader file = new BufferedReader(new InputStreamReader(new DataInputStream(new FileInputStream(new File(fileLocation)))));
-                    double[][] cityLocs = new double[numCities][2];
-                    for (int i = 0; i<numCities; i++){
-                        String[] line = file.readLine().split(", ");
-                        cityNames[i] = line[0];
-                        cityLocs[i][0] = Double.parseDouble(line[1]);
-                        cityLocs[i][1] = Double.parseDouble(line[2]);               
-                    }
-                    for (int i = 0; i<numCities; i++){
-                        for (int j = i; j<numCities; j++){
-                            distances[i][j] = Math.hypot(Math.abs(cityLocs[i][0] - cityLocs[j][0]), Math.abs(cityLocs[i][1] - cityLocs[j][1]));
-                            distances[j][i] = distances[i][j];
-                        }
-                    }
-                } catch (Exception e){
-                    System.err.println("Error: "+e.getMessage());
-                }
-            }
-            
-            private static void permutation(List<Integer> startCities, double distSoFar, List<Integer> restCities){
-        
-                nTimes++;
-                if (nTimes == loopCheck)
-                {
-                    nLoops++;
-                    nTimes = 0;
-                    DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-                    Date date = new Date();
-                    System.out.print("Current time is " + dateFormat.format(date) + ". ");
-                    System.out.println(  "Completed " + nLoops + " iterations of size of " + loopCheck + ".");
-                }
-                
-                if ((restCities.size() == 1) && ((minDistance == -1) || (distSoFar + distances[restCities.get(0)][startCities.get(0)] + distances[restCities.get(0)][startCities.get(startCities.size()-1)] < minDistance))){
-                    startCities.add(restCities.get(0));
-                    newBestDistance(startCities, distSoFar + distances[restCities.get(0)][startCities.get(0)] + distances[restCities.get(0)][startCities.get(startCities.size()-2)]);
-                    startCities.remove(startCities.size()-1);
-                }
-                else{
-                    for (int i=0; i<restCities.size(); i++){
-                        startCities.add(restCities.get(0));
-                        restCities.remove(0);
-                        permutation(startCities, distSoFar + distances[startCities.get(startCities.size()-1)][startCities.get(startCities.size()-2)],restCities);
-                        restCities.add(startCities.get(startCities.size()-1));
-                        startCities.remove(startCities.size()-1);
-                    }
-                }
-            }
-            
-            private static void newBestDistance(List<Integer> cities, double distance){
-                minDistance = distance;
-                String cityList = "Shortest distance is "+minDistance+", with route: " ;
-                for (int i = 0; i<bestOrder.length; i++){
-                    bestOrder[i] = cities.get(i);
-                    cityList += cityNames[bestOrder[i]];
-                    if (i != bestOrder.length -1)
-                        cityList += ", ";
-                }
-                System.out.println(cityList);       
-                try 
-                {
-                    service.sendQueueMessage("TSPQueue", new BrokeredMessage(cityList));
-                } 
-                catch (ServiceException e) 
-                {
-                    e.printStackTrace();
-                }
-            }
-            
-            public static void main(String args[]){
-                
-                try {
-                    
-                    Configuration config = ServiceBusConfiguration.configureWithWrapAuthentication(
-                            "your_service_bus_namespace", "your_service_bus_owner", "your_service_bus_key");
-                    
-                    service = ServiceBusService.create(config);
-            
-                    int numCities = 10;  // Use as the default, if no value is specified at command line. 
-                    if (args.length != 0) 
-                    {
-                        if (args[0].toLowerCase().compareTo("createqueue")==0)
-                        {
-                            // No processing to occur other than creating the queue.
-                            QueueInfo queueInfo = new QueueInfo("TSPQueue");
-        
-                            service.createQueue(queueInfo);
-                            
-                            System.out.println("Queue named TSPQueue was created.");
-                            
-                            System.exit(0);
-                        }
-                        
-                        if (args[0].toLowerCase().compareTo("deletequeue")==0)
-                        {
-                            // No processing to occur other than deleting the queue.
-                            service.deleteQueue("TSPQueue");
-                            
-                            System.out.println("Queue named TSPQueue was deleted.");
-                            
-                            System.exit(0);
-                        }
-                        
-                        // Neither creating or deleting a queue.
-                        // Assume the value passed in is the number of cities to solve.
-                        numCities = Integer.valueOf(args[0]);  
-                    }
-                    
-                    System.out.println("Running for " + numCities + " cities.");
-                    
-                    List<Integer> startCities = new ArrayList<Integer>();
-                    List<Integer> restCities = new ArrayList<Integer>();
-                    startCities.add(0);
-                    for(int i = 1; i<numCities; i++)
-                        restCities.add(i);
-                    distances = new double[numCities][numCities];
-                    cityNames = new String[numCities];
-                    buildDistances("c:\\TSP\\cities.txt", numCities);
-                    minDistance = -1;
-                    bestOrder = new int[numCities];
-                    permutation(startCities, 0, restCities);
-                    System.out.println("Final Solution Found!!");
-                    service.sendQueueMessage("TSPQueue", new BrokeredMessage("Complete"));
-                } 
-                catch (ServiceException e) 
-                {
-                    e.printStackTrace();
-                }
-            }
-            
-        }
+<p/>
 
-3. Export the application to a runnable Java archive (JAR), and package the required libraries into the generated JAR. For purposes of this tutorial, we'll use **TSPSolver.jar** as the generated JAR name.
+    // TSPSolver.java
+
+	import com.microsoft.windowsazure.services.core.Configuration;
+	import com.microsoft.windowsazure.services.core.ServiceException;
+	import com.microsoft.windowsazure.services.serviceBus.*;
+	import com.microsoft.windowsazure.services.serviceBus.models.*;
+	import java.io.*;
+	import java.text.DateFormat;
+	import java.text.SimpleDateFormat;
+	import java.util.ArrayList;
+	import java.util.Date;
+	import java.util.List;
+	
+	public class TSPSolver {
+	
+	    //  Value specifying how often to provide an update to the console.
+	    private static long loopCheck = 100000000;  
+	    
+	    private static long nTimes = 0, nLoops=0;
+	
+	    private static double[][] distances;
+	    private static String[] cityNames;
+	    private static int[] bestOrder;
+	    private static double minDistance;
+	    private static ServiceBusContract service;
+	    
+	    private static void buildDistances(String fileLocation, int numCities){
+	        try{
+	            BufferedReader file = new BufferedReader(new InputStreamReader(new DataInputStream(new FileInputStream(new File(fileLocation)))));
+	            double[][] cityLocs = new double[numCities][2];
+	            for (int i = 0; i<numCities; i++){
+	                String[] line = file.readLine().split(", ");
+	                cityNames[i] = line[0];
+	                cityLocs[i][0] = Double.parseDouble(line[1]);
+	                cityLocs[i][1] = Double.parseDouble(line[2]);               
+	            }
+	            for (int i = 0; i<numCities; i++){
+	                for (int j = i; j<numCities; j++){
+	                    distances[i][j] = Math.hypot(Math.abs(cityLocs[i][0] - cityLocs[j][0]), Math.abs(cityLocs[i][1] - cityLocs[j][1]));
+	                    distances[j][i] = distances[i][j];
+	                }
+	            }
+	        } catch (Exception e){
+	            System.err.println("Error: "+e.getMessage());
+	        }
+	    }
+	    
+	    private static void permutation(List<Integer> startCities, double distSoFar, List<Integer> restCities){
+	
+	        nTimes++;
+	        if (nTimes == loopCheck)
+	        {
+	            nLoops++;
+	            nTimes = 0;
+	            DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+	            Date date = new Date();
+	            System.out.print("Current time is " + dateFormat.format(date) + ". ");
+	            System.out.println(  "Completed " + nLoops + " iterations of size of " + loopCheck + ".");
+	        }
+	        
+	        if ((restCities.size() == 1) && ((minDistance == -1) || (distSoFar + distances[restCities.get(0)][startCities.get(0)] + distances[restCities.get(0)][startCities.get(startCities.size()-1)] < minDistance))){
+	            startCities.add(restCities.get(0));
+	            newBestDistance(startCities, distSoFar + distances[restCities.get(0)][startCities.get(0)] + distances[restCities.get(0)][startCities.get(startCities.size()-2)]);
+	            startCities.remove(startCities.size()-1);
+	        }
+	        else{
+	            for (int i=0; i<restCities.size(); i++){
+	                startCities.add(restCities.get(0));
+	                restCities.remove(0);
+	                permutation(startCities, distSoFar + distances[startCities.get(startCities.size()-1)][startCities.get(startCities.size()-2)],restCities);
+	                restCities.add(startCities.get(startCities.size()-1));
+	                startCities.remove(startCities.size()-1);
+	            }
+	        }
+	    }
+	    
+	    private static void newBestDistance(List<Integer> cities, double distance){
+	        minDistance = distance;
+	        String cityList = "Shortest distance is "+minDistance+", with route: " ;
+	        for (int i = 0; i<bestOrder.length; i++){
+	            bestOrder[i] = cities.get(i);
+	            cityList += cityNames[bestOrder[i]];
+	            if (i != bestOrder.length -1)
+	                cityList += ", ";
+	        }
+	        System.out.println(cityList);       
+	        try 
+	        {
+	            service.sendQueueMessage("TSPQueue", new BrokeredMessage(cityList));
+	        } 
+	        catch (ServiceException e) 
+	        {
+	            e.printStackTrace();
+	        }
+	    }
+	    
+	    public static void main(String args[]){
+	        
+	        try {
+	            
+	            Configuration config = ServiceBusConfiguration.configureWithWrapAuthentication(
+	                    "your_service_bus_namespace", "your_service_bus_owner", "your_service_bus_key");
+	            
+	            service = ServiceBusService.create(config);
+	    
+	            int numCities = 10;  // Use as the default, if no value is specified at command line. 
+	            if (args.length != 0) 
+	            {
+	                if (args[0].toLowerCase().compareTo("createqueue")==0)
+	                {
+	                    // No processing to occur other than creating the queue.
+	                    QueueInfo queueInfo = new QueueInfo("TSPQueue");
+	
+	                    service.createQueue(queueInfo);
+	                    
+	                    System.out.println("Queue named TSPQueue was created.");
+	                    
+	                    System.exit(0);
+	                }
+	                
+	                if (args[0].toLowerCase().compareTo("deletequeue")==0)
+	                {
+	                    // No processing to occur other than deleting the queue.
+	                    service.deleteQueue("TSPQueue");
+	                    
+	                    System.out.println("Queue named TSPQueue was deleted.");
+	                    
+	                    System.exit(0);
+	                }
+	                
+	                // Neither creating or deleting a queue.
+	                // Assume the value passed in is the number of cities to solve.
+	                numCities = Integer.valueOf(args[0]);  
+	            }
+	            
+	            System.out.println("Running for " + numCities + " cities.");
+	            
+	            List<Integer> startCities = new ArrayList<Integer>();
+	            List<Integer> restCities = new ArrayList<Integer>();
+	            startCities.add(0);
+	            for(int i = 1; i<numCities; i++)
+	                restCities.add(i);
+	            distances = new double[numCities][numCities];
+	            cityNames = new String[numCities];
+	            buildDistances("c:\\TSP\\cities.txt", numCities);
+	            minDistance = -1;
+	            bestOrder = new int[numCities];
+	            permutation(startCities, 0, restCities);
+	            System.out.println("Final Solution Found!!");
+	            service.sendQueueMessage("TSPQueue", new BrokeredMessage("Complete"));
+	        } 
+	        catch (ServiceException e) 
+	        {
+	            e.printStackTrace();
+	        }
+	    }
+	    
+	}
 
 ## How to create a Java application that monitors the progress of the compute-intensive task
 
-1. On your development machine, create a Java console application using the following Java program. For purposes of this tutorial, we'll use **TSPClient.java** as the Java file name. As above, modify the **your\_service\_bus\_namespace**, **your\_service\_bus\_owner**, and **your\_service\_bus\_key** placeholders to use your service bus **namespace**, **Default Issuer** and **Default Key** values, respectively.service bus **Namespace**,  **Default Issuer** and **Default Key** values, respectively.
-  
-        import java.util.Date;
-        import java.text.DateFormat;
-        import java.text.SimpleDateFormat;
-        import com.microsoft.windowsazure.services.serviceBus.*;
-        import com.microsoft.windowsazure.services.serviceBus.models.*;
-        import com.microsoft.windowsazure.services.core.*;
-        
-        public class TSP_Client 
-        {
-
-            public static void main(String[] args) 
-            {
-                    try
-                    {
-                        
-                        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-                        Date date = new Date();
-                        System.out.println("Starting at " + dateFormat.format(date) + ".");
-
-                        String namespace = "your_service_bus_namespace";
-                        String issuer = "your_service_bus_owner";
-                        String key = "your_service_bus_key";
-                        
-                        Configuration config;
-                        config = ServiceBusConfiguration.configureWithWrapAuthentication(
-                                namespace, issuer, key);
-                        
-                        ServiceBusContract service = ServiceBusService.create(config);
-                        
-                        BrokeredMessage message;
-        
-                        int waitMinutes = 3;  // Use as the default, if no value is specified at command line. 
-                        if (args.length != 0) 
-                        {
-                            waitMinutes = Integer.valueOf(args[0]);  
-                        }
-                        
-                        String waitString;
-                        
-                        waitString = (waitMinutes == 1) ? "minute." : waitMinutes + " minutes."; 
-                        
-                        // This queue must have previously been created.
-                        service.getQueue("TSPQueue");
-                        
-                        int numRead;
-                        
-                        String s = null;
-                        
-                        while (true)
-                        {
-                            
-                            ReceiveQueueMessageResult resultQM = service.receiveQueueMessage("TSPQueue");
-                            message = resultQM.getValue();
-                            
-                            if (null != message && null != message.getMessageId())
-                            {                        
-                                
-                                // Display the queue message.
-                                byte[] b = new byte[200];
-        
-                                System.out.print("From queue: ");
-        
-                                s = null;
-                                numRead = message.getBody().read(b);
-                                while (-1 != numRead)
-                                {
-                                    s = new String(b);
-                                    s = s.trim();
-                                    System.out.print(s);
-                                    numRead = message.getBody().read(b);
-                                }
-                                System.out.println();
-                                if (s.compareTo("Complete") == 0)
-                                {
-                                    // No more processing to occur.
-                                    date = new Date();
-                                    System.out.println("Finished at " + dateFormat.format(date) + ".");
-                                    break;
-                                }
-                            }
-                            else
-                            {
-                                // The queue is empty.
-                                System.out.println("Queue is empty. Sleeping for another " + waitString);
-                                Thread.sleep(60000 * waitMinutes);
-                            }
-                        } 
-                        
-                }
-                catch (ServiceException serviceException)
-                {
-                    // Take action as needed.
-                    System.out.println("ServiceException encountered: " + serviceException.getMessage());
-                }
-                catch (Exception exception)
-                {
-                    // Take action as needed.
-                    System.out.println("Exception encountered: " + exception.getMessage());
-                }
-        
-            }
-        
-        }
-  
-
+1. On your development machine, create a Java console application using the example code at the end of this section. For purposes of this tutorial, we'll use **TSPClient.java** as the Java file name. As above, modify the **your\_service\_bus\_namespace**, **your\_service\_bus\_owner**, and **your\_service\_bus\_key** placeholders to use your service bus **namespace**, **Default Issuer** and **Default Key** values, respectively.service bus **Namespace**,  **Default Issuer** and **Default Key** values, respectively.
 2. Export the application to a runnable Java archive (JAR), and package the required libraries into the generated JAR. For purposes of this tutorial, we'll use **TSPClient.jar** as the generated JAR name.
 
+<p/>
+
+    // TSPClient.java
+
+    import java.util.Date;
+    import java.text.DateFormat;
+    import java.text.SimpleDateFormat;
+    import com.microsoft.windowsazure.services.serviceBus.*;
+    import com.microsoft.windowsazure.services.serviceBus.models.*;
+    import com.microsoft.windowsazure.services.core.*;
+    
+    public class TSP_Client 
+    {
+
+        public static void main(String[] args) 
+        {
+                try
+                {
+                    
+                    DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+                    Date date = new Date();
+                    System.out.println("Starting at " + dateFormat.format(date) + ".");
+
+                    String namespace = "your_service_bus_namespace";
+                    String issuer = "your_service_bus_owner";
+                    String key = "your_service_bus_key";
+                    
+                    Configuration config;
+                    config = ServiceBusConfiguration.configureWithWrapAuthentication(
+                            namespace, issuer, key);
+                    
+                    ServiceBusContract service = ServiceBusService.create(config);
+                    
+                    BrokeredMessage message;
+    
+                    int waitMinutes = 3;  // Use as the default, if no value is specified at command line. 
+                    if (args.length != 0) 
+                    {
+                        waitMinutes = Integer.valueOf(args[0]);  
+                    }
+                    
+                    String waitString;
+                    
+                    waitString = (waitMinutes == 1) ? "minute." : waitMinutes + " minutes."; 
+                    
+                    // This queue must have previously been created.
+                    service.getQueue("TSPQueue");
+                    
+                    int numRead;
+                    
+                    String s = null;
+                    
+                    while (true)
+                    {
+                        
+                        ReceiveQueueMessageResult resultQM = service.receiveQueueMessage("TSPQueue");
+                        message = resultQM.getValue();
+                        
+                        if (null != message && null != message.getMessageId())
+                        {                        
+                            
+                            // Display the queue message.
+                            byte[] b = new byte[200];
+    
+                            System.out.print("From queue: ");
+    
+                            s = null;
+                            numRead = message.getBody().read(b);
+                            while (-1 != numRead)
+                            {
+                                s = new String(b);
+                                s = s.trim();
+                                System.out.print(s);
+                                numRead = message.getBody().read(b);
+                            }
+                            System.out.println();
+                            if (s.compareTo("Complete") == 0)
+                            {
+                                // No more processing to occur.
+                                date = new Date();
+                                System.out.println("Finished at " + dateFormat.format(date) + ".");
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            // The queue is empty.
+                            System.out.println("Queue is empty. Sleeping for another " + waitString);
+                            Thread.sleep(60000 * waitMinutes);
+                        }
+                    } 
+                    
+            }
+            catch (ServiceException serviceException)
+            {
+                // Take action as needed.
+                System.out.println("ServiceException encountered: " + serviceException.getMessage());
+            }
+            catch (Exception exception)
+            {
+                // Take action as needed.
+                System.out.println("Exception encountered: " + exception.getMessage());
+            }
+    
+        }
+    
+    }
+  
 ## How to run the Java applications
 Run the compute-intensive application, first to create the queue, then to solve the Traveling Saleseman Problem, hich will add the current best route to the service bus queue. While the compute-intensive application is running (or afterwards), run the client to display results frm the service bus queue.
 
