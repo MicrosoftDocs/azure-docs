@@ -405,9 +405,9 @@ updating the deployment to the existing hosted service.
     redeploy your hosted service to Windows Azure. Your storage settings
     and location were previous saved and do not need to be re-entered.
 
-        PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -launch
+        PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -location datacentername -launch
 
-    After the deployment is complete, the following response appears:
+    After the deployment is complete, you should see a response similar to the following:
 
     ![the status messages displayed during deployment.][]
 
@@ -439,11 +439,17 @@ The following steps show you how to stop and delete your application.
 
     ![Status messages indicating the service has stopped.][]
 
-2.  To delete the service, call the following cmdlet:
+2.  To delete the deployment, use the following cmdlet:
 
-        PS C:\node\tasklist\WebRole1> Remove-AzureService
+		PS C:\node\tasklist\WebRole1> remove-azuredeployment -servicename contosotasklist -slot deployment
 
-3.  When prompted, enter **Y** to delete the service.
+	When prompted, enter **Y** to delete the deployment.
+
+3.  To delete the service, call the following cmdlet:
+
+        PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
+
+	When prompted, enter **Y** to delete the service.
 
     Deleting the service may take several minutes. After the service has
     been deleted you receive a message indicating that the service was
@@ -464,7 +470,7 @@ The following steps show you how to stop and delete your application.
   [The showresults: function is highlighted]: ../Media/node43.png
   [A web paged titled My Task List with a table containing tasks and fields to add a new task.]: ../Media/node44.png
   [A web page titled My Task List with a table containing tasks, after you have added a task to the list.]: ../Media/node45.png
-  [the status messages displayed during deployment.]: ../Media/node46.png
+  [the status messages displayed during deployment.]: ../Media/node35.png
   [A browser window displaying the My Task List page. The URL indicates the page is now being hosted on Windows Azure.]: ../Media/node47.png
   [Status messages indicating the service has stopped.]: ../Media/node48.png
   [Status messages indicating the service has been deleted.]: ../Media/node49.png

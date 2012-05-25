@@ -6,7 +6,7 @@ This tutorial describes how to use MongoDB to store and access data from
 a Windows Azure application written in Node.js. This guide assumes that
 you have some prior experience using Windows Azure and Node.js. For an
 introduction to Windows Azure and Node.js, see [Node.js Web
-Application][]. The guide also assumes that you have some knowledge of
+Application]. The guide also assumes that you have some knowledge of
 MongoDB. For an overview of MongoDB, see the [MongoDB website][].
 
 In this tutorial, you will learn how to:
@@ -706,27 +706,27 @@ The following steps describe how to stop and delete your application.
 
   [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
   [MongoDB website]: http://www.mongodb.org/
-  [task list application screenshot]: ../../../DevCenter/Node/Media/mongo_tutorial01.png
+  [task list application screenshot]: ../Media/mongo_tutorial01.png
   [Setup the Development Environment]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/#setup
   [AzureMongoDeploymentCmdlets]: http://downloads.mongodb.org/azure/AzureMongoDeploymentCmdlets.msi
-  [Windows Azure Tools for MongoDB and Node.js Installer]: ../../../DevCenter/Node/Media/mongo_tutorial02.png
-  [launch PowerShell environment]: ../../../DevCenter/Node/Media/node7.png
-  [Get-AzureMongoDBBinaries output]: ../../../DevCenter/Node/Media/mongo_tutorial01-1.png
-  [create directory]: ../../../DevCenter/Node/Media/getting-started-6.png
-  [New-AzureService cmdlet response]: ../../../DevCenter/Node/Media/mongo_tutorial06.png
-  [task list application]: ../../../DevCenter/Node/Media/mongo_tutorial07.png
-  [Add-AzureMongoWorkerRole cmdlet response]: ../../../DevCenter/Node/Media/mongo_tutorial08.png
-  [Join-AzureNodeRoleToMongoRole cmdlet response]: ../../../DevCenter/Node/Media/mongo_tutorial09.png
-  [application running in emulator]: ../../../DevCenter/Node/Media/mongo_tutorial10.png
-  [linstalling express module]: ../../../DevCenter/Node/Media/mongo_tutorial11.png
-  [server.js snippet]: ../../../DevCenter/Node/Media/mongo_tutorial12.png
-  [1]: ../../../DevCenter/Node/Media/mongo_tutorial13.png
-  [2]: ../../../DevCenter/Node/Media/node27.png
-  [screenshot of app running in emulator]: ../../../DevCenter/Node/Media/mongo_tutorial14.png
-  [3]: ../../../DevCenter/Node/Media/mongo_tutorial15.png
-  [home.js snippet]: ../../../DevCenter/Node/Media/mongo_tutorial16.png
-  [home.js snippet 2]: ../../../DevCenter/Node/Media/mongo_tutorial17.png
-  [screenshot of task list application in emulator]: ../../../DevCenter/Node/Media/mongo_tutorial18.png
-  [task list application running in emulator]: ../../../DevCenter/Node/Media/mongo_tutorial19.png
+  [Windows Azure Tools for MongoDB and Node.js Installer]: ../Media/mongo_tutorial02.png
+  [launch PowerShell environment]: ../../Shared/Media/azure-powershell-menu.png
+  [Get-AzureMongoDBBinaries output]: ../Media/mongo_tutorial01-1.png
+  [create directory]: ../Media/getting-started-6.png
+  [New-AzureService cmdlet response]: ../Media/mongo_tutorial06.png
+  [task list application]: ../Media/mongo_tutorial07.png
+  [Add-AzureMongoWorkerRole cmdlet response]: ../Media/mongo_tutorial08.png
+  [Join-AzureNodeRoleToMongoRole cmdlet response]: ../Media/mongo_tutorial09.png
+  [application running in emulator]: ../Media/mongo_tutorial10.png
+  [linstalling express module]: ../Media/mongo_tutorial11.png
+  [server.js snippet]: ../Media/mongo_tutorial12.png
+  [1]: ../Media/mongo_tutorial13.png
+  [2]: ../Media/node27.png
+  [screenshot of app running in emulator]: ../Media/mongo_tutorial14.png
+  [3]: ../Media/mongo_tutorial15.png
+  [home.js snippet]: ../Media/mongo_tutorial16.png
+  [home.js snippet 2]: ../Media/mongo_tutorial17.png
+  [screenshot of task list application in emulator]: ../Media/mongo_tutorial18.png
+  [task list application running in emulator]: ../Media/mongo_tutorial19.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [Downloading the Windows Azure Publishing Settings]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/#download_publishing_settings

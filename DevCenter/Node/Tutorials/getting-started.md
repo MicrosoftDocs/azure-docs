@@ -42,7 +42,7 @@ to get the tools and set up your development environment.
 3.  Click **Install** in the installer window and proceed with the
     installation:
 
-    ![Web Platform Installer screen for the Windows Azure SDK. The install button is highlighted.][]
+    ![Web Platform Installer screen for the Windows Azure SDK. The install button is highlighted.][platforminstaller]
 
 Once the installation is complete, you have everything necessary to
 start developing. The following components are installed:
@@ -321,11 +321,17 @@ The following steps show you how to stop and delete your application.
 
     ![The status of the Stop-AzureService command][]
 
-2.  To delete the service, call the following cmdlet:
+2.  To delete the deployment, use the following cmdlet:
 
-        PS C:\node\tasklist\WebRole1> Remove-AzureService
+		PS C:\node\tasklist\WebRole1> remove-azuredeployment -servicename contosotasklist -slot deployment
 
-3.  When prompted, enter **Y** to delete the service.
+	When prompted, enter **Y** to delete the deployment.
+
+3.  To delete the service, call the following cmdlet:
+
+        PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
+
+	When prompted, enter **Y** to delete the service.
 
     Deleting the service may take several minutes. After the service has
     been deleted you receive a message indicating that the service was
@@ -343,7 +349,7 @@ deleting a storage account, see [How to Delete a Storage Account from a Windows 
   [A browser window displaying Hello World]: ../Media/node21.png
   [Get Tools and SDK]: http://go.microsoft.com/?linkid=9790229
   [Internet Explorer promoting to run a downloaded file]: ../Media/getting-started-3.png
-  [Web Platform Installer screen for the Windows Azure SDK for Node.js. The install button is highlighted.]: ../Media/getting-started-4.png
+  [platforminstaller]: ../Media/getting-started-4.png
   [The Windows Start menu with the Windows Azure SDK Node.js entry expanded]: ../../Shared/Media/azure-powershell-menu.png
   [mkdir]: ../Media/getting-started-6.png
   [The result of the New-AzureService tasklist command]: ../Media/node9.png
