@@ -133,11 +133,24 @@ To build and run the application locally, follow the steps below. Note that thes
 
 4. Open a web browser and browse to [http://localhost/registration/createtable.php][localhost-createtable]. This will create the `registration_tbl` table in the database.
 
-5. Open the **index.php** file in a text editor or IDE and add the basic HTML code for the page (the PHP code will be added in later steps).
+5. Open the **index.php** file in a text editor or IDE and add the basic HTML and CSS code for the page (the PHP code will be added in later steps).
 
 		<html>
 		<head>
 		<Title>Registration Form</Title>
+		<style type="text/css">
+			body { background-color: #fff; border-top: solid 10px #000;
+			    color: #333; font-size: .85em; margin: 20; padding: 20;
+			    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+			}
+			h1, h2, h3,{ color: #000; margin-bottom: 0; padding-bottom: 0; }
+			h1 { font-size: 2em; }
+			h2 { font-size: 1.75em; }
+			h3 { font-size: 1.2em; }
+			table { margin-top: 0.75em; }
+			th { font-size: 1.2em; text-align: left; border: none 0px; padding-left: 0; }
+			td { padding: 0.25em 2em 0.25em 0em; border: 0 none; }
+		</style>
 		</head>
 		<body>
 		<h1>Register here!</h1>
