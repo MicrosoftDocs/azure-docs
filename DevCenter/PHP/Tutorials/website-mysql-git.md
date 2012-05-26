@@ -9,42 +9,9 @@ You will learn:
 * How to create a Windows Azure Website and a MySQL database using the Preview Management Portal. Because PHP is enabled in Windows Azure Websites by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Windows Azure using Git.
  
-By following this tutorial, you will build a simple Tasklist web application in PHP. The application will be hosted in a Windows Azure Website. A screenshot of the completed application is below:
+By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in a Windows Azure Website. A screenshot of the completed application is below: (**TODO: Update screenshot**)
 
 ![Windows Azure PHP Website][running-app]
-
-##Build and test your application locally
-
-The Tasklist application is a simple PHP application that allows you to add, mark complete, and delete items from a task list. Task list items are stored in a MySQL database. The application consists of these files:
-
-* **index.php**: Displays tasks and provides a form for adding an item to the list.
-* **additem.php**: Adds an item to the list.
-* **getitems.php**: Gets all items in the database.
-* **markitemcomplete.php**: Changes the status of an item to complete.
-* **deleteitem.php**: Deletes an item.
-* **taskmodel.php**: Contains functions that add, get, update, and delete items from the database.
-* **createtable.php**: Creates the MySQL table for the application. This file will only be called once.
-
-To run the application locally, follow the steps below. Note that these steps assume you have PHP, MySQL, and a web server set up on your local machine, and that you have enabled the [PDO extension for MySQL][pdo-mysql].
-
-1. Download the application files from Github here: [http://go.microsoft.com/fwlink/?LinkId=252506][tasklist-mysql-download]. Put the files in a folder called `tasklist` in your web server's root directory.
-2. Create a MySQL database called `tasklist`. You can do this from the MySQL command prompt with this command:
-
-		mysql> create database tasklist;
-
-3. Open the **taskmodel.php** file in a text editor or IDE and provide the database connection information by providing values for `$host`, `$user`, `$pwd`, and `$db` variables in the `connect` function:
-
-		// DB connection info
-		$host = "localhost";
-		$user = "your_mysql_user_name";
-		$pwd = "mysql_user_password";
-		$db = "tasklist";
-
-4. Open a web browser and browse to [http://localhost/tasklist/createtable.php][localhost-createtable]. This will create the `items` table that stores task list work items.
-
-5. Browse to [http://localhost/tasklist/index.php][localhost-index] and begin adding items, marking them complete, and deleting them.
-
-After you have run the application locally, you are ready to create a Windows Azure Website and publish your code using Git.
 
 ##Create a Windows Azure Website and set up Git publishing
 
@@ -96,7 +63,7 @@ Follow these steps to create a Windows Azure Website and a MySQL database:
 
 ##Get MySQL connection information
 
-Before publishing the Tasklist application, the database connection information (in the **taskmodel.php** file) must be updated. To get MySQL connection information, follow these steps:
+To connect to the MySQL database that is running in Windows Azure Websites, your will need the connection information. To get MySQL connection information, follow these steps:
 
 <div class="dev-callout"> 
 <b>Note</b> 
@@ -119,19 +86,150 @@ Before publishing the Tasklist application, the database connection information 
 	
 3. Make note of the `connectionString` attribute in the `<add>` element, in particular the values for `Database`, `Data Source`, `User Id`, and `Password`.
 
-4. Open the **taskmodel.php** file in a text editor or IDE and update the database connection information in the `connect` function by copying the appropriate values from the previous step:
+##Build and test your application locally
+
+The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a MySQL database. The application consists of two files:
+
+* **index.php**: Displays a form for registration and a table containing registrant information.
+* **createtable.php**: Creates the MySQL table for the application. This file will only be used once.
+
+To build and run the application locally, follow the steps below. Note that these steps assume you have PHP, MySQL, and a web server set up on your local machine, and that you have enabled the [PDO extension for MySQL][pdo-mysql].
+
+1. Create a MySQL database called `registration`. You can do this from the MySQL command prompt with this command:
+
+		mysql> create database registration;
+
+2. In your web server's root directory, create a folder called `registration` and create two files in it - one called `createtable.php` and one called `index.php`.
+
+3. Open the `createtable.php` file in a text editor or IDE and add the code below. This code will be used to create the `registration_tbl` table in the `registration` database.
+
+		<?php
+		// DB connection info
+		$host = "localhost";
+		$user = "user name";
+		$pwd = "password";
+		$db = "registration";
+		try{
+			$conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
+			$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+			$sql = "CREATE TABLE registration_tbl(
+						id INT NOT NULL AUTO_INCREMENT, 
+						PRIMARY KEY(id),
+						name VARCHAR(30),
+						email VARCHAR(30),
+						date DATE)";
+			$conn->query($sql);
+		}
+		catch(Exception $e){
+			die(print_r($e));
+		}
+		echo "<h3>Table created.</h3>";
+		?>
+
+	<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>You will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.</p> 
+	</div>
+
+4. Open a web browser and browse to [http://localhost/registration/createtable.php][localhost-createtable]. This will create the `registration_tbl` table in the database.
+
+5. Open the **index.php** file in a text editor or IDE and add the basic HTML code for the page (the PHP code will be added in later steps).
+
+		<html>
+		<head>
+		<Title>Registration Form</Title>
+		</head>
+		<body>
+		<h1>Register here!</h1>
+		<p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
+		<form method="post" action="index.php" enctype="multipart/form-data" >
+		      Name  <input type="text" name="name" id="name"/></br>
+		      Email <input type="text" name="email" id="email"/></br>
+		      <input type="submit" name="submit" value="Submit" />
+		</form>
+		<?php
+
+		?>
+		</body>
+		</html>
+
+6. Within the PHP tags, add PHP code for connecting to the database.
 
 		// DB connection info
-		$host = "value of Data Source";
-		$user = "value of User Id";
-		$pwd = "value of Password";
-		$db = "value of Database";
+		$host = "localhost";
+		$user = "user name";
+		$pwd = "password";
+		$db = "registration";
+		// Connect to database.
+		try {
+			$conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
+			$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+		}
+		catch(Exception $e){
+			die(var_dump($e));
+		}
 
+	<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.</p> 
+	</div>
 
+7. Following the database connection code, add code for adding registration information to the database.
+
+		if(!empty($_POST)) {
+		try {
+			$name = $_POST['name'];
+			$email = $_POST['email'];
+			$date = date("Y-m-d");
+			// Insert data
+			$sql_insert = "INSERT INTO registration_tbl (name, email, date) 
+						   VALUES (?,?,?)";
+			$stmt = $conn->prepare($sql_insert);
+			$stmt->bindValue(1, $name);
+			$stmt->bindValue(2, $email);
+			$stmt->bindValue(3, $date);
+			$stmt->execute();
+		}
+		catch(Exception $e) {
+			die(var_dump($e));
+		}
+		echo "<h3>Your're registered!</h3>";
+		}
+
+8. Finally, following the code above, add code for retrieving data from the database.
+
+		$sql_select = "SELECT * FROM registration_tbl";
+		$stmt = $conn->query($sql_select);
+		$registrants = $stmt->fetchAll(); 
+		if(count($registrants) > 0) {
+			echo "<h2>People who are registered:</h2>";
+			echo "<table>";
+			echo "<tr><th>Name</th>";
+			echo "<th>Email</th>";
+			echo "<th>Date</th></tr>";
+			foreach($registrants as $registrant) {
+				echo "<tr><td>".$registrant['name']."</td>";
+				echo "<td>".$registrant['email']."</td>";
+				echo "<td>".$registrant['date']."</td></tr>";
+		    }
+		 	echo "</table>";
+		} else {
+			echo "<h3>No one is currently registered.</h3>";
+		}
+
+You can now browse to [http://localhost/registration/index.php][localhost-index] to test the application.
 
 ##Publish your application
 
-To publish your application with Git, follow the steps below.
+After you have tested your application locally, you can publish it to your Windows Azure Website using Git. However, you first need to update the database connection information in the application. Using the database connection information you obtained earlier (in the **Get MySQL connection information** section), update the following information in **both** the `createdatabase.php` and `index.php` files with the appropriate values:
+
+	// DB connection info
+	$host = "value of Data Source";
+	$user = "value of User Id";
+	$pwd = "value of Password";
+	$db = "value of Database";
+
+Now, you are ready to set up Git publishing and publish the application.
 
 <div class="dev-callout">
 <b>Note</b>
@@ -148,8 +246,8 @@ To publish your application with Git, follow the steps below.
 
 	You will be prompted for the password you created earlier.
 
-2. Browse to **http://[your website domain]/createtable.php** to create the MySQL table for the application.
-3. Browse to **http://[your website domain]/index.php** to begin using the application.
+2. Browse to **http://[site name].azurewebsites.net/createtable.php** to create the MySQL table for the application.
+3. Browse to **http://[site name].azurewebsites.net/index.php** to begin using the application.
 
 After you have published your application, you can begin making changes to it and use Git to publish them. 
 
@@ -166,15 +264,14 @@ To publish changes to application, follow these steps:
 
 	You will be prompted for the password you created earlier.
 
-3. Browse to **http://[your website domain]/index.php** to see your changes. 
+3. Browse to **http://[site name].azurewebsites.net/index.php** to see your changes. 
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
 [install-git]: http://git-scm.com/
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
-[tasklist-mysql-download]: http://go.microsoft.com/fwlink/?LinkId=252506
-[localhost-createtable]: http://localhost/tasklist/createtable.php
-[localhost-index]: http://localhost/tasklist/index.php
+[localhost-createtable]: http://localhost/registration/createtable.php
+[localhost-index]: http://localhost/registration/index.php
 [running-app]: ../Media/running_app.jpg
 [new-website]: ../../Shared/Media/new_website.jpg
 [custom-create]: ../../Shared/Media/custom_create.jpg
