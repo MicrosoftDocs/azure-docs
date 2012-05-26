@@ -9,7 +9,7 @@ You will learn:
 * How to create a Windows Azure Website and a MySQL database using the Preview Management Portal. Because PHP is enabled in Windows Azure Websites by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Windows Azure using Git.
  
-By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in a Windows Azure Website. A screenshot of the completed application is below: (**TODO: Update screenshot**)
+By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in a Windows Azure Website. A screenshot of the completed application is below:
 
 ![Windows Azure PHP Website][running-app]
 
@@ -285,7 +285,7 @@ To publish changes to application, follow these steps:
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
 [localhost-createtable]: http://localhost/registration/createtable.php
 [localhost-index]: http://localhost/registration/index.php
-[running-app]: ../Media/running_app.jpg
+[running-app]: ../Media/running_app_2.png
 [new-website]: ../../Shared/Media/new_website.jpg
 [custom-create]: ../../Shared/Media/custom_create.jpg
 [website-details]: ../../Shared/Media/website_details.jpg
