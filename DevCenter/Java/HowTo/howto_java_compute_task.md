@@ -271,7 +271,7 @@ namespace.
 	            minDistance = -1;
 	            bestOrder = new int[numCities];
 	            permutation(startCities, 0, restCities);
-	            System.out.println("Final solution Found!");
+	            System.out.println("Final solution found!");
 	            service.sendQueueMessage("TSPQueue", new BrokeredMessage("Complete"));
 	        } 
 	        catch (ServiceException se) 
