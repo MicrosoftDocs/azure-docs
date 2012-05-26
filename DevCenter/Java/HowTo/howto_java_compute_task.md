@@ -80,8 +80,7 @@ To create a service namespace:
     country or region in which your namespace should be hosted, and then click the **Create Namespace** button.  
       
     The namespace you created will then appear in the Management Portal
-    and takes a moment to activate. Wait until the status is **Active**
-    before continuing with the next step.
+    and takes a moment to activate. Wait until the status is **Active** before continuing with the next step.
 
 ## Obtain the Default Management Credentials for the Namespace
 
