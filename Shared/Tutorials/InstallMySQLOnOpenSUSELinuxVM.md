@@ -1,23 +1,23 @@
-# Create a Virtual Machine Running OpenSUSE Linux and Install MySQL
+# Install MySQL on a virtual machine running OpenSUSE Linux in Windows Azure
 
-[MySQL][MySQL] is a popular open source, SQL database.  Using the Windows Azure Management Portal, you can create a virtual machine running OpenSUSE Linux from the Image Gallery.  You can then install and configure a MySQL database on the virtual machine.
+[MySQL][MySQL] is a popular open source, SQL database.  Using the Windows Azure (Preview) Management Portal, you can create a virtual machine running OpenSUSE Linux from the Image Gallery.  You can then install and configure a MySQL database on the virtual machine.
 
 In this tutorial, you will learn:
 
-- How to use the Windows Azure Management Portal to create an OpenSUSE Linux virtual machine from the gallery.
+- How to use the Preview Management Portal to create an OpenSUSE Linux virtual machine from the gallery.
 - How to connect to the virtual machine using SSH or PuTTY.
 - How to install MySQL on the virtual machine.
 
-## Create a Virtual Machine Running OpenSUSE Linux
+## Create a virtual machine running OpenSUSE Linux
 
-<div chunk="././Shared/Chunks/create-and-configure-opensuse-vm-in-portal" />
+<div chunk="../Chunks/create-and-configure-opensuse-vm-in-portal.md" />
 
-##Install and Run MySQL on the Virtual Machine
+##Install and run MySQL on the virtual machine
 
-<div chunk="././Shared/Chunks/install-and-run-mysql-on-opensuse-vm" />
+<div chunk="../Chunks/install-and-run-mysql-on-opensuse-vm.md" />
 
 ##Summary
-In this tutorial you learned how to create an OpenSUSE Linux virtual machine and remotely connect to it using SSH or PuTTY.  You also learned how to install and configure MySQL on the Linux virtual machine.  For more information on MySQL, see the [MySQL Documentation][MySQLDocs].
+In this tutorial you learned how to create a virtual machine running OpenSUSE Linux and remotely connect to it using SSH or PuTTY.  You also learned how to install and configure MySQL on the Linux virtual machine.  For more information on MySQL, see the [MySQL Documentation][MySQLDocs].
 
 
 
