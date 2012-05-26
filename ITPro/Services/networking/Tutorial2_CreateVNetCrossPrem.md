@@ -229,30 +229,30 @@ If you’d like, you can continue with the following tutorials:
 [ConfigVPN]: #ConfigVPN
 
 
-[CreateNew]: ../Tutorials//media/VNTut1_00_New.png
+[CreateNew]: ../media/VNTut1_00_New.png
 
-[CustomCreate]: ../Tutorials/media/VNTut1_01_Network_CustomCreate.png
+[CustomCreate]: ../media/VNTut1_01_Network_CustomCreate.png
 
-[VNDetails]: ../Tutorials/media/VNTut1_02_VNDetails.png
+[VNDetails]: ../media/VNTut1_02_VNDetails.png
 
-[AddressSpace]:	../Tutorials/media/VNTut2_03b_AddressSpaceAndSubnet_CrossPrem.png
+[AddressSpace]:	../media/VNTut2_03b_AddressSpaceAndSubnet_CrossPrem.png
 
-[DNSServer]:	../Tutorials/media/VNTut2_04_DNSServersAndLocalNetworks_CrossPrem.png
+[DNSServer]:	../media/VNTut2_04_DNSServersAndLocalNetworks_CrossPrem.png
 
-[CreateLocal]:	../Tutorials/media/VNTut2_05_CreateLocalNetwork.png
+[CreateLocal]:	../media/VNTut2_05_CreateLocalNetwork.png
 
-[VNCreated]:	../Tutorials/media/VNTut2_06_VNStatus_Created.png
+[VNCreated]:	../media/VNTut2_06_VNStatus_Created.png
 
-[ViewDash]:	../Tutorials/media/VNTut2_06b_VNStatus_ViewDashboard.png
+[ViewDash]:	../media/VNTut2_06b_VNStatus_ViewDashboard.png
 
-[CreateGW]:	../Tutorials/media/VNTut2_07_CreateGateway.png
+[CreateGW]:	../media/VNTut2_07_CreateGateway.png
 
-[GWCreating]:	../Tutorials/media/VNTut2_09_GatewayBeingCreated.png
+[GWCreating]:	../media/VNTut2_09_GatewayBeingCreated.png
 
-[GWIP]:	../Tutorials/media/VNTut2_10_GatewayIPAddress.png
+[GWIP]:	../media/VNTut2_10_GatewayIPAddress.png
 
-[SharedKey]:	../Tutorials/media/VNTut2_11_SharedKey.png
+[SharedKey]:	../media/VNTut2_11_SharedKey.png
 
-[DwnldVPN]:	../Tutorials/media/VNTut2_12_DownloadVPNFile.png
+[DwnldVPN]:	../media/VNTut2_12_DownloadVPNFile.png
 
-[DwnldVPNConfig]: ../Tutorials/media/VNTut2_13_DownloadVPNDeviceScript.png
+[DwnldVPNConfig]: ../media/VNTut2_13_DownloadVPNDeviceScript.png
