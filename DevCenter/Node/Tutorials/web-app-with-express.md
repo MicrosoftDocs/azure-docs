@@ -206,7 +206,7 @@ completed. For now, the view just has a static placeholder.
 Now that we augmented the Hello World application to use Express, you
 can publish it to Windows Azure by updating the deployment to the
 existing hosted service. In the Windows Azure PowerShell window, call the
-**Publish-AzureService** cmdlet to redeploy your hosted service to
+**Publish-AzureServiceProject** cmdlet to redeploy your hosted service to
 Windows Azure.
 
     PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -launch

@@ -76,7 +76,7 @@ applications.
 
 3.  Enter the following cmdlet to create a new solution:
 
-        PS C:\node> New-AzureService tasklist
+        PS C:\node> New-AzureServiceProject tasklist
 
     You will see the following response:
 
@@ -205,7 +205,7 @@ Windows PowerShell cmdlets.
 1.  From the Windows PowerShell window, launch the download page by
     running the following cmdlet:
 
-        PS C:\node\tasklist\WebRole1> Get-AzurePublishSettings
+        PS C:\node\tasklist\WebRole1> Get-AzurePublishSettingsFile
 
     This launches the browser for you to log into the Windows Azure
     Management Portal with your Windows Live ID credentials.
@@ -215,15 +215,15 @@ Windows PowerShell cmdlets.
 2.  Log into the Management Portal. This takes you to the page to
     download your Windows Azure publishing settings.
 
-3.  Save the profile to a file at **c:\\node\\elvis.publishSettings**:
+3.  Save the profile to a file location you can easily access:
 
     ![Internet Explorer displaying the save as dialog for the publishSettings file.][]
 
-4.  In the Windows PowerShell window, use the following cmdlet to
+4.  In the Windows Azure PowerShell window, use the following cmdlet to
     configure the Windows PowerShell for Node.js cmdlets to use the
     Windows Azure publishing profile you downloaded:
 
-        PS C:\node\tasklist\WebRole1> Import-AzurePublishSettings c:\node\elvis.publishSettings
+        PS C:\node\tasklist\WebRole1> Import-AzurePublishSettingsFile [path to file]
 
     After importing the publish settings, consider deleting the
     downloaded .publishSettings as the file contains information that
@@ -231,25 +231,25 @@ Windows PowerShell cmdlets.
 
 ### Publishing the Application
 
-1.  Publish the application using the **Publish-AzureService** cmdlet,
+1.  Publish the application using the **Publish-AzureServiceProject** cmdlet,
     as shown below.
 
-    -   **name**specifies the name for the service. The name must be
+    -   **name** specifies the name for the service. The name must be
         unique across all other services in Windows Azure. For example,
         below, “TaskList” is suffixed with “Contoso,” the company name,
         to make the service name unique.
-    -   **location**specifies the country/region for which the
+    -   **location** specifies the country/region for which the
         application should be optimized. You can expect faster loading
         times for users accessing it from this region. Examples of the\\
         available regions include: North Central US, Anywhere US,
         Anywhere Asia, Anywhere Europe, North Europe, South Central US,
         and Southeast Asia.
-    -   **launch**specifies to open the browser at the location of the
+    -   **launch** specifies to open the browser at the location of the
         hosted service after publishing has completed.
 
     <!-- -->
 
-        PS C:\node\tasklist\WebRole1> Publish-AzureService –name TaskListContoso –location "North Central US” -launch
+        PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject –name TaskListContoso –location "North Central US” -launch
 
     Be sure to use a **unique name**, otherwise the publish process will
     fail. After publishing succeeds, you will see the following
@@ -257,7 +257,7 @@ Windows PowerShell cmdlets.
 
     ![The output of the Publish-AzureService command][]
 
-    The **Publish-AzureService** cmdlet performs the following steps:
+    The **Publish-AzureServiceProject** cmdlet performs the following steps:
 
     1.  Creates a package that will be deployed to Windows Azure. The
         package contains all the files in your node.js application

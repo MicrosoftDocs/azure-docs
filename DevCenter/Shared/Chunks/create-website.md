@@ -14,9 +14,9 @@ Follow these steps to create a Windows Azure Website, and then enable Git publis
 
 	![The site created successfully message.][portal-website-created]
 
-[for free]: http://windowsazure.com
-[Windows Azure Portal] http://manage.windowsazure.com
-[portal-new-website]: ../Media/portal_new_website.png
-[portal-quick-create]: ../Media/portal_quick_create.png
-[portal-website-created]: ../Media/portal_quick_create.png
+[for free]: /en-us/pricing/free-trial/
+[Windows Azure Portal]: http://manage.windowsazure.com
+[portal-new-website]: ../../Shared/Media/plus-new.png
+[portal-quick-create]: ../../Shared/Media/create-quick-website.png
+[portal-website-created]: ../../Shared/Media/portal_website_created.png
 ctions.png
