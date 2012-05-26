@@ -75,23 +75,23 @@ You can manage token signing certificates via the Certificates and Key section o
 
 3. After you are signed in with your Windows Live ID, you are redirected to the Management Portal page. On the lower-left-hand side of this page, click **Service Bus and Access Control**.
 
-	![ACS1](./Media/ACS1.png)
+	![][ACS1]
 
 4. To launch the ACS Management Portal, click **Access Control** in the tree on the left-hand side, select the ACS service namespace that you want to configure, and then click the **Access Control Service** button from the toolbar at the top of the page. 
 
-	![ACS2](./Media/ACS2.png)
+	![][ACS2]
 
 	At this point your screen should look like this:
 
-	![ACS3](./Media/ACS3.png)
+	![][ACS3]
 
 5. Click **Certificates and Keys** in the tree on the left-hand side under the Service Settings section.
 
-    ![ACS4](./Media/ACS4.png)
+    ![][ACS4]
    
     At this point, your screen should look like this:
 
-    ![ACS5](./Media/ACS5.png)
+    ![][ACS5]
 
 6. Under the Token Signing section, use the Add button to configure the new certificate in ACS as a “secondary” key, alongside the existing certificate that will expire.
 
@@ -132,23 +132,23 @@ You can manage token signing keys via the Certificates and Key section of the AC
 
 3. After you are signed in with your Windows Live ID, you are redirected to the Management Portal page. On the lower-left-hand side of this page, click **Service Bus and Access Control**.
 
-	![ACS1](./Media/ACS1.png)
+	![][ACS1]
 
 4. To launch the ACS Management Portal, click **Access Control** in the tree on the left-hand side, select the ACS service namespace that you want to configure, and then click the **Access Control Service** button from the toolbar at the top of the page. 
 
-	![ACS2](./Media/ACS2.png)
+	![][ACS2]
 
 	At this point your screen should look like this:
 
-	![ACS3](./Media/ACS3.png)
+	![][ACS3]
 
 5. Click **Certificates and Keys** in the tree on the left-hand side under the Service Settings section.
 
-    ![ACS4](./Media/ACS4.png)
+    ![][ACS4]
     
     At this point, your screen should look like this:
 
-    ![ACS5](./Media/ACS5.png)
+    ![][ACS5]
 
 6. Under the Token Signing section, use the Add button to configure the new key in ACS as a “secondary” key, alongside the existing key that will expire.
 
@@ -188,23 +188,23 @@ You can manage token encryption certificates via the Certificates and Key sectio
 
 3. After you are signed in with your Windows Live ID, you are redirected to the Management Portal page. On the lower-left-hand side of this page, click **Service Bus and Access Control**.
 
-	![ACS1](./Media/ACS1.png)
+	![][ACS1]
 
 4. To launch the ACS Management Portal, click **Access Control** in the tree on the left-hand side, select the ACS service namespace that you want to configure, and then click the **Access Control Service** button from the toolbar at the top of the page. 
 
-	![ACS2](./Media/ACS2.png)
+	![][ACS2]
 
 	At this point your screen should look like this:
 
-	![ACS3](./Media/ACS3.png)
+	![][ACS3]
 
 5. Click **Certificates and Keys** in the tree on the left-hand side under the Service Settings section.
 
-    ![ACS4](./Media/ACS4.png)
+    ![][ACS4]
 
     At this point, your screen should look like this:
 
-    ![ACS7](./Media/ACS7.png)
+    ![][ACS7]
 
 6. You (or your partners) update the corresponding certificate or key that is used for token decryption in the relying party applications
 7. Use the Add button to configure the new encryption certificate in ACS, alongside the existing certificate that will expire.
@@ -240,23 +240,23 @@ You can manage token decryption certificates via the Certificates and Key sectio
 
 3. After you are signed in with your Windows Live ID, you are redirected to the Management Portal page. On the lower-left-hand side of this page, click **Service Bus and Access Control**.
 
-	![ACS1](./Media/ACS1.png)
+	![][ACS1]
 
 4. To launch the ACS Management Portal, click **Access Control** in the tree on the left-hand side, select the ACS service namespace that you want to configure, and then click the **Access Control Service** button from the toolbar at the top of the page. 
 
-	![ACS2](./Media/ACS2.png)
+	![][ACS2]
 
 	At this point your screen should look like this:
 
-	![ACS3](./Media/ACS3.png)
+	![][ACS3]
 
 5. Click **Certificates and Keys** in the tree on the left-hand side under the Service Settings section.
 
-    ![ACS4](./Media/ACS4.png)
+    ![][ACS4]
 
     At this point, your screen should look like this:
 
-    ![ACS9](./Media/ACS9.png)
+    ![][ACS9]
 
 6. Under the Token decryption section, use the Add bu tton to configure the new certificate in ACS as a “secondary” key, alongside the existing certificate that will expire.
 
@@ -297,23 +297,23 @@ You can manage service identity credentials via the Service identities page of t
 
 3. After you are signed in with your Windows Live ID, you are redirected to the Management Portal page. On the lower-left-hand side of this page, click **Service Bus and Access Control**.
 
-	![ACS1](./Media/ACS1.png)
+	![][ACS1]
 
 4. To launch the ACS Management Portal, click **Access Control** in the tree on the left-hand side, select the ACS service namespace that you want to configure, and then click the **Access Control Service** button from the toolbar at the top of the page. 
 
-	![ACS2](./Media/ACS2.png)
+	![][ACS2]
 
 	At this point your screen should look like this:
 
-	![ACS3](./Media/ACS3.png)
+	![][ACS3]
 
 5.  Click **Service identities** in the tree on the left-hand side under the Service Settings section.
 
-    ![ACS11](./Media/ACS11.png)
+    ![][ACS11]
 
 6. Click the service identity which you want to edit.
 
-    ![ACS112](./Media/ACS112.png)
+    ![][ACS112]
 
 7.	In the Credentials section, use the Add button to configure the new certificate or key in ACS, alongside the existing certificate or key that will expire.
 
@@ -358,23 +358,23 @@ You can manage the management service credentials via the Management service pag
 
 3. After you are signed in with your Windows Live ID, you are redirected to the Management Portal page. On the lower-left-hand side of this page, click **Service Bus and Access Control**.
 
-	![ACS1](./Media/ACS1.png)
+	![][ACS1]
 
 4. To launch the ACS Management Portal, click **Access Control** in the tree on the left-hand side, select the ACS service namespace that you want to configure, and then click the **Access Control Service** button from the toolbar at the top of the page. 
 
-	![ACS2](./Media/ACS2.png)
+	![][ACS2]
 
 	At this point your screen should look like this:
 
-	![ACS3](./Media/ACS3.png)
+	![][ACS3]
 
 5. Click **Management service** in the tree on the left-hand side under the Administration section.
 
-    ![ACS14](./Media/ACS14.png)
+    ![][ACS14]
         
 6. Click the management service account.
 
-    ![ACS15](./Media/ACS15.png)
+    ![][ACS15]
 
 7. In the Credentials section, use the Add button to configure the new certificate or key in ACS, alongside the existing certificate or key that will expire.
 
@@ -423,3 +423,14 @@ Following are the exceptions that ACS will throw if the certificate is expired:
 <tr><td>ACS50006</td><td>Signature verification failed. (There may be more details in the message.)</td></tr>
 </table> 
 
+[ACS1]:../Media/ACS1.png
+[ACS2]:../Media/ACS2.png
+[ACS3]:../Media/ACS3.png
+[ACS4]:../Media/ACS4.png
+[ACS5]:../Media/ACS5.png
+[ACS7]:../Media/ACS7.png
+[ACS9]:../Media/ACS9.png
+[ACS11]:../Media/ACS11.png
+[ACS112]:../Media/ACS112.png
+[ACS14]:../Media/ACS14.png
+[ACS15]:../Media/ACS15.png
