@@ -31,9 +31,6 @@ In this tutorial, learn how to use npm to install the popular [Express] module, 
 ### [Cloud Service with Storage]
 The [Windows Azure Table Service] is a NoSQL storage service that is useful for working key/value pairs. Learn how to use this service by creating a Node.js 'task list' style application that uses the azure module to store data in the Table service.
 
-### [Cloud Service with MongoDB]
-[MongoDB] is a popular document-oriented NoSQL solution. In this tutorial you will learn how to create a Cloud Service that encapsulates both MongoDB and your Node.JS application as a deployment package.
-
 ### [Cloud Service with Socket.IO]
 [Socket.io] provides real-time communication between your Node.js application and client browsers. In this tutorial you will learn how to create a Cloud Service based on the 'chat' example provided with Socket.io.
 
