@@ -1,0 +1,2 @@
+<properties linkid="manage-windows-best-practices-troubleshooting-virtual-machines" urlDisplayName="Troubleshooting VMs" headerExpose="" pageTitle="Windows Azure Best Practices - Troubleshooting Virtual Machines" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<div chunk="../../../Shared/Chunks/troubleshooting-virtual-machines.md" />

@@ -1,0 +1,2 @@
+<properties umbracoNaviHide="0" pageTitle="How to Create a Custom Virtual Machine" metaKeywords="" metaDescription="" linkid="manage-linux-howto-custom-create-vm" urlDisplayName="Custom create a VM" headerExpose="" footerExpose="" disqusComments="1" />
+<div chunk="../../Shared/Chunks/howto-custom-create-vm.md" />
