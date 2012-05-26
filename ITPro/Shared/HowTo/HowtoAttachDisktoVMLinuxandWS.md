@@ -48,7 +48,7 @@ You can upload and attach a data disk that already contains data to the virtual 
 <h2 id="attachexisting">How to: Attach an existing disk</h2>
 
 
-1. If you have not already done so, sign in to the Windows Azure Management Portal.
+1. If you have not already done so, sign in to the [Windows Azure Management Portal](http://manage.windowsazure.com).
 
 2. Click **Virtual Machines**, and then select the virtual machine to which you want to attach the disk.
 

@@ -12,7 +12,7 @@ You must install an SSH client on your computer that you want to use to log on t
 
 This procedure shows you how to use the PuTTY program to access the virtual machine.
 
-1. Find the **Host Name** and **Port information** from the Management Portal. You can find the information that you need from the dashboard of the virtual machine. Click the virtual machine name and look for the **SSH Details** in the **Quick Glance** section of the dashboard.
+1. Find the **Host Name** and **Port information** from the [Management Portal](http://manage.windowsazure.com). You can find the information that you need from the dashboard of the virtual machine. Click the virtual machine name and look for the **SSH Details** in the **Quick Glance** section of the dashboard.
 
 	![Obtain SSH details] (../media/sshdetails.png)
 

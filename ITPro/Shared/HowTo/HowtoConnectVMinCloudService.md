@@ -8,7 +8,7 @@ You must first create a virtual machine with a new cloud service, and then you c
 
 1. Create a virtual machine using the steps in [How to create a custom virtual machine] [].
 
-2. After you create the first custom virtual machine, on the command bar, click **New**.
+2. After you create the first custom virtual machine, on the [Management Portal](http://manage.windowsazure.com) command bar, click **New**.
 
 	![Create a new virtual machine][Create a new virtual machine]
 

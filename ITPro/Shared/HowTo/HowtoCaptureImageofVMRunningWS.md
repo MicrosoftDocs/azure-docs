@@ -24,7 +24,7 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 
 6.	Click **OK**.
 
-7.	The sysprep command shuts down the virtual machine, which changes the status of the machine in the Management Portal to **Stopped**.
+7.	The sysprep command shuts down the virtual machine, which changes the status of the machine in the [Management Portal](http://manage.windowsazure.com) to **Stopped**.
 
 	![The virtual machine is stopped][The virtual machine is stopped]
 

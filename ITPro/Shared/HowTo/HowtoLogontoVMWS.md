@@ -7,7 +7,7 @@
 
 For a virtual machine that is running the Windows Server 2008 R2 operating system, you use the Connect button in the Management Portal to start a Remote Desktop Connection. 
 
-1. If you have not already done so, sign in to the Windows Azure Management Portal.
+1. If you have not already done so, sign in to the [Windows Azure Management Portal](http://manage.windowsazure.com).
 
 2. Click **Virtual Machines**, and then select the virtual machine that you want to log onto.
 

@@ -6,7 +6,7 @@ All virtual machines that you create in Windows Azure can automatically communic
 
 Each endpoint defined for a virtual machine is assigned a public and private port for communication. The private port is defined for setting up communication rules on the virtual machine and the public port is used by the Windows Azure load balancer to communicate with the virtual machine from external resources.
 
-1. If you have not already done so, sign in to the [Windows Azure Management Portal](http://preview.azure.com).
+1. If you have not already done so, sign in to the [Windows Azure Management Portal](http://manage.windowsazure.com).
 
 2. Click **Virtual Machines**, and then select the virtual machine that you want to configure.
 

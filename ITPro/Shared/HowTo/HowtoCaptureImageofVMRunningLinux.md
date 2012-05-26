@@ -18,7 +18,7 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 
 4. Type **Exit** to close the SSH client.
 
-5. In the Management Portal, select the virtual machine, and then click **Shutdown**.
+5. In the [Management Portal](http://manage.windowsazure.com), select the virtual machine, and then click **Shutdown**.
 
 	![Shutdown the virtual machine][Shutdown the virtual machine]
 

@@ -8,7 +8,7 @@ You can create a custom virtual machine by providing advanced options, such as s
 
 Before you create a virtual machine, you should decide how it will be used. If you have a need for only one virtual machine in your application, you choose to create a stand-alone virtual machine. If you need multiple virtual machines in the same cloud service that can communicate with each other and act as a load-balanced application, you choose to connect the new virtual machine to an existing virtual machine.
 
-1. Sign  in to the Windows Azure Management Portal.
+1. Sign  in to the [Windows Azure Management Portal](http://manage.windowsazure.com).
 
 2. On the command bar, click **New**.
 
