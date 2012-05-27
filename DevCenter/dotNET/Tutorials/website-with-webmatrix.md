@@ -72,7 +72,7 @@ If you need to delete the web site to avoid usage charges use the **Delete** ico
 [runorsavewebmatrix]: ../../../Shared/Media/howtorunorsavewebmatrix.png
 [installwebmatrix]: ../../../Shared/media/howtoinstallwebmatrix.png
 [webplatinstall]: ../../../Shared/media/howtowebplatforminstallation.png
-[webplatdone]: ../../../Shared/howtofinish.png
+[webplatdone]: ../../../Shared/media/howtofinish.png
 [createnewsite]: ../../../Shared/media/howtocreatenewsite.png
 [webmatrixcerterror]: ../../../Shared/media/howtocertificateerror.png
 [publishcomplete]: ../../../Shared/media/howtopublished.png
