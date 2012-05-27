@@ -185,7 +185,7 @@ connect to it using HTTPS.
   [2]: ../../../DevCenter/Shared/Media/ssl-03.png
   [3]: ../../../DevCenter/Shared/Media/ssl-04.png
   [How to Configure an SSL Certificate on an HTTPS Endpoint]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
-  [new-cloud-service]: ../../Shared/Media/cloud-service-new-custom-create.png
+  [new-cloud-service]: ../Media/cloud-service-new-custom-create.png
   [custom-create-page1]: ../../Shared/Media/cloud-service-custom-create.png
-  [custom-create-page2]: ../../Shared/Media/cloud-service-custom-package-certificate.png
+  [custom-create-page2]: ../../Shared/Media/cloud-service-custom-create-package.png
   [custom-create-page3]: ../../Shared/Media/cloud-service-custom-created-add-cert.png

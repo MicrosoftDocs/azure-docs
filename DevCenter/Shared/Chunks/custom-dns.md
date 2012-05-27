@@ -2,11 +2,11 @@
 
 When you create an application in Windows Azure, Windows Azure provides
 a friendly subdomain on the cloudapp.net domain so your users can access
-your application on a URL like http://<*myapp*\>.cloudapp.net.
+your application on a URL like http://<*myapp*>.cloudapp.net.
 Similarly, when you create a storage account, Windows Azure provides a
 friendly subdomain on the core.windows.net domain so your users can
 access your data on a URL like
-https://<*mystorageaccount*\>.blob.core.windows.net. However, you can
+https://<*mystorageaccount*>.blob.core.windows.net. However, you can
 also expose your application and data on your own domain name, such as
 contoso.com.
 
@@ -25,9 +25,9 @@ registrar to point to your Windows Azure hosted service:
 1.  **CNAME or Alias record (preferred)**
 
     With a CNAME, you map a *specific* domain, such as www.contoso.com
-    or myblog.contoso.com, to the <*myapp*\>.cloudapp.net domain name of
+    or myblog.contoso.com, to the <*myapp*>.cloudapp.net domain name of
     your Windows Azure hosted application. The lifetime of the
-    <*myapp*\>.cloudapp.net domain name required to implement this
+    <*myapp*>.cloudapp.net domain name required to implement this
     solution is the lifetime of your hosted service and persists even if
     your hosted service does not contain any deployments.
 
@@ -82,16 +82,22 @@ is the same.
     CNAME record forwards all traffic from **www.contoso.com** to
     **contoso.cloudapp.net**, the DNS name of our deployed application:
 
-      ----------- ----------------------
-      **Alias**   **Host name**
-      www         contoso.cloudapp.net
-      ----------- ----------------------
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tr>
+<td><strong>Alias</strong></td>
+<td><strong>Host name</strong></td>
+</tr>
+<tr>
+<td>www</td>
+<td>contoso.cloudapp.net</td>
+</tr>
+</table>
 
 A visitor of **www.contoso.com** will never see the true host
 (contoso.cloudapp.net), so the forwarding process is invisible to the
 end user.
 
-**Note:**The example above only applies to traffic at the **www**
+**Note:** The example above only applies to traffic at the **www**
 subdomain. You cannot specify a root CNAME record that directs all
 traffic from a custom domain to your cloudapp.net address, so additional
 alias records must be added. If you want to direct all traffic from a
@@ -108,15 +114,15 @@ Windows Azure storage account. When you complete the tasks in this
 section, your users (assuming they have sufficient access rights) will
 be able to access blobs within this storage account as follows:
 
-<table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 <tr>
 <td style="width: 100px;">
-**Resource Type**
+<strong>Resource Type</strong>
 
 </td>
-<td style="width: 500px;">
-**URL Formats**
+<td>
+<strong>URL Formats</strong>
 
 </td>
 </tr>
@@ -126,9 +132,9 @@ Storage account
 
 </td>
 <td>
-**Default format:** http://<*mystorageaccount*\>.blob.core.windows.net
-
-**Custom domain format:** http://<*custom.sub.domain*\>
+<strong>Default format:</strong> http://&lt;<em>mystorageaccount</em>&gt;.blob.core.windows.net
+<br />
+<strong>Custom domain format:</strong> http://&lt;<em>custom.sub.domain</em>&gt;
 
 </td>
 </tr>
@@ -138,11 +144,11 @@ Blob
 
 </td>
 <td>
-**Default format:**
-http://<*mystorageaccount*\>.blob.core.windows.net/<*mycontainer*\>/<*myblob*\>
-
-**Custom domain format:**
-http://<*custom.sub.domain*\>/<*mycontainer*\>/<*myblob*\>
+<strong>Default format:</strong>
+http://&lt;<em>mystorageaccount</em>&gt;.blob.core.windows.net/&lt;<em>mycontainer</em>&gt;/&lt;<em>myblob</em>&gt;
+<br />
+<strong>Custom domain format:</strong>
+http://&lt;<em>custom.sub.domain</em>&gt;/&lt;<em>mycontainer</em>&gt;/&lt;<em>myblob</em>&gt;
 
 </td>
 </tr>
@@ -152,27 +158,28 @@ Root container
 
 </td>
 <td>
-**Default format:**
+<strong>Default format:</strong>
 
-http://<*mystorageaccount*\>.blob.core.windows.net/<*myblob*\>, or
+http://&lt;<em>mystorageaccount</em>&gt;.blob.core.windows.net/&lt;<em>myblob</em>&gt;
+<br/>or
+<br />
+http://&lt;<em>mystorageaccount</em>&gt;.blob.core.windows.net/$root/&lt;<em>myblob</em>&gt;
+<br />
+<strong>Custom domain format:</strong>
 
-http://<*mystorageaccount*\>.blob.core.windows.net/$root/<*myblob*\>
-
-**Custom domain format:**
-
-http://<*custom.sub.domain*\>/<*myblob*\>, or
-
-http://<*custom.sub.domain*\>/$root/<*myblob*\>
+http://&lt;<em>custom.sub.domain</em>&gt;/&lt;<em>myblob</em>&gt;
+<br/>or
+<br />
+http://&lt;<em>custom.sub.domain</em>&gt;/$root/&lt;<em>myblob</em>&gt;
 
 </td>
 </tr>
 </tbody>
 </table>
-**Note:**The tasks in this section use a DNS feature called CNAME, where
+**Note:** The tasks in this section use a DNS feature called CNAME, where
 a source domain points to a destination domain. Most domain registrars
-support specifying a subdomain (e.g., www.contoso.com or
-data.contoso.com) but not root domain (e.g., contoso.com) as the source
-domain. Accordingly, a subdomain is used as the example below.
+support specifying a subdomain (for example www.contoso.com or
+data.contoso.com) but not root domain (for example contoso.com) as the source domain. Accordingly, a subdomain is used as the example below.
 
 ### Task Overview
 
@@ -180,14 +187,44 @@ Configuring a custom domain for a Windows Azure storage account involves
 several tasks, some of which you will perform in the Windows Azure
 Management Portal and others in your domain registrar's portal.
 
-  ------------------------------------------------------------------------------------- ------------------
-  **Task**                                                                              **Portal**
-  1. [Configure a custom domain for the storage account][]                              Windows Azure
-  2. [Create a CNAME record to use for domain validation in Windows Azure][]            Domain Registrar
-  3. [Validate the subdomain in Windows Azure][]                                        Windows Azure
-  4. [Create a CNAME record that associates the subdomain with the storage account][]   Domain Registrar
-  5. [Verify the subdomain references the Blob service][]                               Web Browser
-  ------------------------------------------------------------------------------------- ------------------
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tr>
+<td>
+<strong>Task</strong>  
+</td>
+<td>                                                                           
+<strong>Portal</strong>
+</td>
+</tr>
+<tr>
+<td>
+1. <a href=" #configure-domain">Configure a custom domain for the storage account</a></td>
+<td>Windows Azure</td>
+</tr>
+<tr>
+<td>
+2. <a href="#create-cname">Create a CNAME record to use for domain validation in Windows Azure</a></td>
+<td>Domain Registrar</td>
+</tr>
+<tr>
+<td>
+3. <a href="#validate-subdomain">Validate the subdomain in Windows Azure</a>
+</td>
+<td>Windows Azure</td>
+</tr>
+<tr>
+<td>
+4. <a href="#associate-subdomain">Create a CNAME record that associates the subdomain with the storage account</a></td>
+<td>Domain Registrar</td>
+</tr>
+<tr>
+<td>
+5. <a href="#verify-subdomain">Verify the subdomain references the Blob service</a>
+</td>
+<td>                              
+Web Browser</td>
+</tr>
+</table>
 
 <a name="configure-domain"> </a>
 
@@ -207,7 +244,7 @@ Management Portal and others in your domain registrar's portal.
 
     The **Add a Custom Domain** dialog box opens.
 
-6.  In the **Custom domain name**field, enter the subdomain that you
+6.  In the **Custom domain name** field, enter the subdomain that you
     will use to reference blob containers for the storage account (for
     example, data.contoso.com), and then click **OK**.
 
@@ -245,17 +282,8 @@ Management Portal and others in your domain registrar's portal.
         0e6cd138-82b8-4136-adae-91dbaa369576.data.contoso.com
     -   **Points to host name:** verify.azure.com
 
-    <table border="0">
-    <tbody>
-    <tr>
-    <th class="style1" align="left">
-    **Note:**Different domain registrars use different names for the two
-    parameters in the CNAME record.
+    <strong>Note:</strong> Different domain registrars use different names for the two parameters in the CNAME record.
 
-    </th>
-    </tr>
-    </tbody>
-    </table>
 2.  Allow time for the CNAME record to propagate to all name servers on
     the Internet. Propagation can take 12 hours or longer.
 
@@ -277,26 +305,14 @@ Management Portal and others in your domain registrar's portal.
     If the validation is successful, the status of the custom subdomain
     changes to **Allowed**.
 
-    <table border="0">
-    <tbody>
-    <tr>
-    <th class="style1" align="left">
-    **Note:**If the validation is not successful, the **Validate Custom
+    **Note:** If the validation is not successful, the **Validate Custom
     Domain** dialog box displays a validation status of **Validation
     Failed**, and the items list shows the custom subdomain status as
     **Forbidden**. In that case, you might need to wait awhile longer to
     allow the updated domain record to finish propagating to all name
     servers on the Internet.
 
-    </th>
-    </tr>
-    </tbody>
-    </table>
-    <table border="0">
-    <tbody>
-    <tr>
-    <th class="style1" align="left">
-    **Important:**Windows Azure only validates that a CNAME record for
+    **Important:** Windows Azure only validates that a CNAME record for
     the domain corresponds to the alias that you copied from the
     **Validate Custom Domain** dialog box. (In the **Properties** pane
     for the custom domain, this alias is displayed under **CName
@@ -304,11 +320,6 @@ Management Portal and others in your domain registrar's portal.
     a subdomain for the custom domain. If you did not use a subdomain
     for the custom domain, you will not be able to access your blobs
     using the custom domain name, even if validation succeeds.
-
-    </th>
-    </tr>
-    </tbody>
-    </table>
 
 <a name="associate-subdomain"> </a>
 
@@ -321,9 +332,9 @@ Management Portal and others in your domain registrar's portal.
     For example, if your validated subdomain is data.contoso.com, create
     a CNAME record with the following entries:
 
-    -   **Alias name:**data.contoso.com
+    -   **Alias name:** data.contoso.com
     -   **Points to host
-        name:**<*mystorageaccount*\>.blob.core.windows.net
+        name:** <*mystorageaccount*>.blob.core.windows.net
 
 2.  Allow time for the CNAME record to propagate to all name servers on
     the Internet.
@@ -339,7 +350,7 @@ the storage account.
 In a web browser, use a URI in the following format to access a blob in
 a public container:
 
--   http://<*custom.sub.domain*\>/<*mycontainer*\>/<*myblob*\>
+-   http://<*custom.sub.domain*>/<*mycontainer*>/<*myblob*>
 
 For example, you might type the following URI to access a web form via a
 data.contoso.com custom subdomain that maps to a blob in your
@@ -356,13 +367,8 @@ data.contoso.com custom subdomain that maps to a blob in your
   [Expose Your Application on a Custom Domain]: #access-app
   [Expose Your Data on a Custom Domain]: #access-data
   [VIP swaps]: http://msdn.microsoft.com/en-us/library/ee517253.aspx
-  [Configure a custom domain for the storage account]: #configure-domain
-  [Create a CNAME record to use for domain validation in Windows Azure]:
+  [Create a CNAME record that associates the subdomain with the storage account]:
     #create-cname
-  [Validate the subdomain in Windows Azure]: #validate-subdomain
-  [Create a CNAME record that associates the subdomain with the storage
-  account]: #associate-subdomain
-  [Verify the subdomain references the Blob service]: #verify-subdomain
   [Windows Azure Management Portal]: http://windows.azure.com
   [Validate Custom Domain dialog box]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
   [How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx

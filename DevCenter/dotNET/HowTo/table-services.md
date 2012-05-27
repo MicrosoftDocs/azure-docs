@@ -245,7 +245,7 @@ operations:
 To query a table for entities in a partition, you can use a LINQ query.
 Call **serviceContext.CreateQuery** to create a query from your data
 source. The following code specifies a filter for entities where 'Smith'
-is the partition key. Call **AsTableServiceQuery<CustomerEntity\>** on
+is the partition key. Call **AsTableServiceQuery&lt;CustomerEntity&gt;** on
 the result of the LINQ query to finish creating the **CloudTableQuery**
 object. You can then use the **partitionQuery** object you created in a
 **foreach** loop to consume the results. This code prints the fields of
@@ -278,7 +278,7 @@ each entity in the query results to the console.
 
 If you don't want to query all the entities in a partition, you can
 specify a range by using the **CompareTo** method instead of using the
-usual greater-than (\>) and less-than (<) operators. This is because the
+usual greater-than (&gt;) and less-than (&lt;) operators. This is because the
 latter will result in improper query construction. The following code
 uses two filters to get all entities in partition 'Smith' where the row
 key (first name) starts with a letter up to 'E' in the alphabet. Then it

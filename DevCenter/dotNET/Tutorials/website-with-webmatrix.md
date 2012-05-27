@@ -4,7 +4,7 @@ This topic describes how to use Microsoft WebMatrix on a development computer to
 
 ###<a name="howtocreateanddeployfromwebmatrix"></a>How to: Create and Deploy a Website from Microsoft WebMatrix to Windows Azure
 
-**Note**<br>
+**Note**<br />
 Microsoft WebMatrix must be installed on the development computer to complete the steps in this topic. Complete the steps in the following section to install Microsoft WebMatrix on your development computer.
 
 <h4 id="installwebmatrix">Install Microsoft WebMatrix on your Development Computer</h4>
@@ -68,12 +68,12 @@ The URL for the website can also be found in the Windows Azure portal by clickin
 If you need to delete the web site to avoid usage charges use the **Delete** icon as described in [Delete a Website in Windows Azure](#deleteawebsite).
 
 
-[installwebplat3]: ..\Media\howtoWebPI3installer.png
-[runorsavewebmatrix]: ..\Media\howtorunorsavewebmatrix.png
-[installwebmatrix]: ..\Media\howtoinstallwebmatrix.png
-[webplatinstall]: ..\Media\howtowebplatforminstallation.png
-[webplatdone]: ..\Media\howtofinish.png
-[createnewsite]: ..\Media\howtocreatenewsite.png
-[webmatrixcerterror]: ..\Media\howtocertificateerror.png
-[publishcomplete]: ..\Media\howtopublished.png
-[bakerysample]: ..\Media\howtobakerysamplesite.png
+[installwebplat3]: ../../../Shared/Media/howtoWebPI3installer.png
+[runorsavewebmatrix]: ../../../Shared/Media/howtorunorsavewebmatrix.png
+[installwebmatrix]: ../../../Shared/media/howtoinstallwebmatrix.png
+[webplatinstall]: ../../../Shared/media/howtowebplatforminstallation.png
+[webplatdone]: ../../../Shared/media/howtofinish.png
+[createnewsite]: ../../../Shared/media/howtocreatenewsite.png
+[webmatrixcerterror]: ../../../Shared/media/howtocertificateerror.png
+[publishcomplete]: ../../../Shared/media/howtopublished.png
+[bakerysample]: ../../../Shared/media/howtobakerysamplesite.png

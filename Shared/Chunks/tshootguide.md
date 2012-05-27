@@ -62,7 +62,7 @@ describe how to implement them.
 
 [SQL Azure Troubleshooting](SQLTroubleshooting)
 
-<h2 id=BestPractices>Best Practices for Troubleshooting in Windows Azure</h2>
+<h2 id="BestPractices">Best Practices for Troubleshooting in Windows Azure</h2>
 
 This section describes best practices that apply to Windows Azure
 applications no matter which hosting model or language you use. It
@@ -654,7 +654,7 @@ Troubleshooting
 -   ACS Service limitations:
     [http://msdn.microsoft.com/en-us/library/windowsazure/gg185909.aspx]
 
-<h2 id=SQLTroubleshooting>Windows Azure SQL Database Troubleshooting</h2>
+<h2 id="SQLTroubleshooting">Windows Azure SQL Database Troubleshooting</h2>
 
 When interacting with a Windows Azure SQL database extra care must be taken to
 deal with the distributed nature of Windows Azure SQL Database applications. This

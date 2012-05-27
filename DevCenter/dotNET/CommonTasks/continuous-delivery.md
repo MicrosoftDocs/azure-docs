@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-net-common-tasks-continuous-delivery" urldisplayname="Continuous Delivery" headerexpose pagetitle="Continuous Delivery for Cloud Applications in Windows Azure" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-common-tasks-continuous-delivery" urldisplayname="Continuous Delivery" headerexpose="" pagetitle="Continuous Delivery for Cloud Applications in Windows Azure" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # Continuous Delivery for Cloud Applications in Windows Azure
 
@@ -149,7 +149,7 @@ steps:
     Team Explorer window, expand the **Builds**node, right-click **All
     Build Definitions**, and then click **New Build Definition**:
 
-    ![][]
+    ![][0]
 
 2.  Click the **Process**tab. On the Process tab, choose the default
     template, and expand the **Advanced**section in the grid.
@@ -164,7 +164,7 @@ steps:
     **Note:** Copying the files to a public share makes it easier to
     manually deploy the packages from your development computer.
 
-4.  Click the **Trigger**tab, and specify the desired conditions for
+4.  Click the **Trigger** tab, and specify the desired conditions for
     when you want the package to be built. For example, specify
     **Continuous Integration** to build the package whenever a source
     control check-in occurs.
@@ -817,13 +817,13 @@ piped into the standard build output.
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [Understanding the Team Foundation Build System]: http://go.microsoft.com/fwlink/?LinkId=238798
   [Configure a Build Machine]: http://go.microsoft.com/fwlink/?LinkId=238799
-  []: ../../../DevCenter/dotNet/Media/tfs-01.png
+  [0]: ../../../DevCenter/dotNet/Media/tfs-01.png
   [2]: ../../../DevCenter/dotNet/Media/tfs-02.png
   [Windows Azure PowerShell Cmdlets]: http://go.microsoft.com/fwlink/?LinkId=242478
   [the .publishsettings file]: https://windows.azure.com/download/publishprofile.aspx?wa=wsignin1.0
   [end of this article]: #script
   [http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx
-  [3]: /media/net/common-task-tfs-03.png
-  [4]: /media/net/common-task-tfs-04.png
-  [5]: /media/net/common-task-tfs-05.png
-  [6]: /media/net/common-task-tfs-06.png
+  [3]: ../media/common-task-tfs-03.png
+  [4]: ../media/common-task-tfs-04.png
+  [5]: ../media/common-task-tfs-05.png
+  [6]: ../media/common-task-tfs-06.png
