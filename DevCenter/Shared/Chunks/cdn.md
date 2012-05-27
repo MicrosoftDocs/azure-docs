@@ -4,7 +4,7 @@ The Windows Azure Content Delivery Network (CDN) offers developers a
 global solution for delivering high-bandwidth content by caching blobs
 and static content of compute instances at physical nodes in the United
 States, Europe, Asia, Australia and South America. For a current list of
-CDN node locations, see [Windows Azure CDN Node Locations.]
+CDN node locations, see [Windows Azure CDN Node Locations].
 
 The benefits of using CDN to cache Windows Azure data include:
 
@@ -45,10 +45,10 @@ Windows Azure Service Management API, see the [Create Storage Account] reference
     This value becomes the host name within the URI that is used to
     address Blob, Queue, or Table resources for the subscription. To
     address a container resource in the Blob service, you would use a
-    URI in the following format, where *<StorageAccountLabel\>* refers
+    URI in the following format, where *&lt;StorageAccountLabel>* refers
     to the value you typed in **Enter a URL**:
 
-    http://<StorageAcountLabel\>.blob.core.windows.net/<mycontainer\>
+    http://&lt;StorageAcountLabel>.blob.core.windows.net/&lt;mycontainer>
 
     **Important:** The URL label forms the subdomain of the storage
     account URI and must be unique among all hosted services in Windows
@@ -72,10 +72,8 @@ The CDN caches static content at strategically placed locations around
 the world to provide superior performance and availability. The benefits
 of using CDN to cache static content include:
 
--   Better performance and user experience for end users who are far
-    from a content source, and are using applications where many ‘internet trips’ are required to load content
--   Large distributed scale to better handle instantaneous high load,
-    say, at the start of an event such as a product launch
+* Better performance and user experience for end users who are far from a content source, and are using applications where many ‘internet trips’ are required to load content.
+* Large distributed scale to better handle instantaneous high load, say, at the start of an event such as a product launch.
 
 Once you enable CDN access to a storage account or hosted service, all
 publicly available objects are eligible for CDN edge caching. If you
@@ -129,8 +127,7 @@ when the cached content time-to-live period expires.
 
 To access the content on the CDN, go to:
 
-http://
-<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
+http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
 
 ## Step 4: Delete your CDN content
 
@@ -163,7 +160,7 @@ CDN.
 -   [How to Map CDN Content to a Custom Domain]
 
   [Create Storage Account]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
-  [Windows Azure CDN Node Locations.]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680302.aspx
+  [Windows Azure CDN Node Locations]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680302.aspx
   [Windows Azure Management Portal]: https://manage.windowsazure.com/
   [billing plan]: /en-us/pricing/calculator/advanced/
   [Using the Windows Azure Storage Services]: http://msdn.microsoft.com/en-us/library/windowsazure/ee924681.aspx

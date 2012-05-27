@@ -139,14 +139,14 @@ Agreement][] provides 99.9% uptime for SQL Azure.
 
 [Windows Azure Free Trial]: {localLink:2187} "Free Trial"
   [Windows Azure Management Portal]: http://windows.azure.com
-  [0]: ../../../DevCenter/dotNet/Media/sql-01.png
-  [1]: ../../../DevCenter/dotNet/Media/sql-02.png
+  [0]: ../../DevCenter/dotNet/Media/sql-01.png
+  [1]: ../../DevCenter/dotNet/Media/sql-02.png
   [How to Create a SQL Azure Server]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-server.aspx
   [Management Portal for SQL Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx
   [SQL Azure Firewall]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-firewall.aspx
-  [2]: ../../../DevCenter/dotNet/Media/sql-03.png
-  [3]: ../../../DevCenter/dotNet/Media/sql-04.png
-  [4]: ../../../DevCenter/dotNet/Media/sql-05.png
+  [2]: ../../DevCenter/dotNet/Media/sql-03.png
+  [3]: ../../DevCenter/dotNet/Media/sql-04.png
+  [4]: ../../DevCenter/dotNet/Media/sql-05.png
   [Tools and Utilities Support (SQL Azure Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621784.aspx
   [How to Create a SQL Azure database]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-database.aspx
   [Service Level Agreement]: {localLink:1132} "SLA"
