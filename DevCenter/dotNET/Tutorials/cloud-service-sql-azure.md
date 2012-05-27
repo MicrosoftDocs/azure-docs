@@ -605,7 +605,7 @@ that is hosted on Windows Azure and stores data in SQL Azure.
     knowledge about Windows Azure by creating a website that leverages a
     background worker role to process data.
 
-  [0]: /media/net/dev-net-getting-started-1.png
+  [0]: ../media/dev-net-getting-started-1.png
   [Setting Up the Development Environment]: #setup
   [Creating an ASP.NET MVC 3 Application]: #creating
   [Making your Application Ready to Deploy to Windows Azure]: #making
@@ -615,48 +615,48 @@ that is hosted on Windows Azure and stores data in SQL Azure.
   [Stopping and Deleting your Application]: #stopping
   [Summary and Next Steps]: #summary
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkID=234939
-  [1]: /media/net/dev-net-getting-started-3.png
-  [2]: /media/net/dev-net-getting-started-4.png
-  [3]: /media/net/dev-net-getting-started-5.png
-  [4]: /media/net/dev-net-getting-started-6.png
-  [5]: /media/net/dev-net-getting-started-7.png
-  [6]: /media/net/dev-net-getting-started-8.png
-  [7]: /media/net/dev-net-getting-started-9.png
-  [8]: /media/net/dev-net-getting-started-10.png
-  [9]: /media/net/dev-net-getting-started-27-1.png
-  [10]: /media/net/dev-net-getting-started-27-2.png
-  [11]: /media/net/dev-net-getting-started-10a.png
-  [12]: /media/net/dev-net-getting-started-11.png
+  [1]: ../Media/dev-net-getting-started-3.png
+  [2]: ../media/dev-net-getting-started-4.png
+  [3]: ../media/dev-net-getting-started-5.png
+  [4]: ../media/dev-net-getting-started-6.png
+  [5]: ../media/dev-net-getting-started-7.png
+  [6]: ../media/dev-net-getting-started-8.png
+  [7]: ../media/dev-net-getting-started-9.png
+  [8]: ../media/dev-net-getting-started-10.png
+  [9]: ../media/dev-net-getting-started-27-1.png
+  [10]: ../media/dev-net-getting-started-27-2.png
+  [11]: ../media/dev-net-getting-started-10a.png
+  [12]: ../media/dev-net-getting-started-11.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
-  [13]: /media/net/dev-net-getting-started-12.png
-  [14]: /media/net/dev-net-getting-started-13.png
-  [15]: /media/net/dev-net-getting-started-14.png
-  [16]: /media/net/dev-net-getting-started-15.png
-  [17]: /media/net/dev-net-getting-started-16.png
-  [18]: /media/net/dev-net-getting-started-17.png
-  [19]: /media/net/dev-net-getting-started-18.png
-  [20]: /media/net/dev-net-getting-started-19.png
-  [21]: /media/net/dev-net-getting-started-20.png
-  [22]: /media/net/dev-net-getting-started-21.png
-  [23]: /media/net/dev-net-getting-started-23.png
-  [24]: /media/net/dev-net-getting-started-24.png
-  [25]: /media/net/dev-net-getting-started-25.png
+  [13]: ../media/dev-net-getting-started-12.png
+  [14]: ../media/dev-net-getting-started-13.png
+  [15]: ../media/dev-net-getting-started-14.png
+  [16]: ../media/dev-net-getting-started-15.png
+  [17]: ../media/dev-net-getting-started-16.png
+  [18]: ../media/dev-net-getting-started-17.png
+  [19]: ../media/dev-net-getting-started-18.png
+  [20]: ../media/dev-net-getting-started-19.png
+  [21]: ../media/dev-net-getting-started-20.png
+  [22]: ../media/dev-net-getting-started-21.png
+  [23]: ../media/dev-net-getting-started-23.png
+  [24]: ../media/dev-net-getting-started-24.png
+  [25]: ../media/dev-net-getting-started-25.png
   [Data Storage Offerings on the Windows Azure Platform.]: http://social.technet.microsoft.com/wiki/contents/articles/data-storage-offerings-on-the-windows-azure-platform.aspx
-  [26]: /media/net/dev-net-getting-started-26.png
-  [27]: /media/net/dev-net-getting-started-27.png
-  [28]: /media/net/dev-net-getting-started-28.png
-  [29]: /media/net/dev-net-getting-started-29.png
-  [30]: /media/net/dev-net-getting-started-30.png
-  [31]: /media/net/dev-net-getting-started-31.png
+  [26]: ../media/dev-net-getting-started-26.png
+  [27]: ../media/dev-net-getting-started-27.png
+  [28]: ../media/dev-net-getting-started-28.png
+  [29]: ../media/dev-net-getting-started-29.png
+  [30]: ../media/dev-net-getting-started-30.png
+  [31]: ../media/dev-net-getting-started-31.png
   [Security Guidelines for SQL Azure]: http://social.technet.microsoft.com/wiki/contents/articles/security-guidelines-for-sql-azure.aspx
-  [32]: /media/net/dev-net-getting-started-32.png
-  [33]: /media/net/dev-net-getting-started-33.png
+  [32]: ../media/net/dev-net-getting-started-32.png
+  [33]: ../media/net/dev-net-getting-started-33.png
   [Adding Users to Your SQL Azure Database]: http://blogs.msdn.com/b/sqlazure/archive/2010/06/21/10028038.aspx
-  [34]: /media/net/dev-net-getting-started-35.png
-  [35]: /media/net/dev-net-getting-started-36.png
-  [36]: /media/net/dev-net-getting-started-37.png
-  [37]: /media/net/dev-net-getting-started-38.png
-  [38]: /media/net/dev-net-getting-started-39.png
-  [39]: /media/net/dev-net-getting-started-40.png
+  [34]: ../media/dev-net-getting-started-35.png
+  [35]: ../media/dev-net-getting-started-36.png
+  [36]: ../media/dev-net-getting-started-37.png
+  [37]: ../media/dev-net-getting-started-38.png
+  [38]: ../media/dev-net-getting-started-39.png
+  [39]: ../media/dev-net-getting-started-40.png
   [SQL Azure How-to Guide]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
   [Multi-tier Application Tutorial]: http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-application/
