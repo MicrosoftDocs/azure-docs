@@ -649,8 +649,8 @@ that is hosted on Windows Azure and stores data in SQL Azure.
   [30]: ../media/dev-net-getting-started-30.png
   [31]: ../media/dev-net-getting-started-31.png
   [Security Guidelines for SQL Azure]: http://social.technet.microsoft.com/wiki/contents/articles/security-guidelines-for-sql-azure.aspx
-  [32]: ../media/net/dev-net-getting-started-32.png
-  [33]: ../media/net/dev-net-getting-started-33.png
+  [32]: ../media/dev-net-getting-started-32.png
+  [33]: ../media/dev-net-getting-started-33.png
   [Adding Users to Your SQL Azure Database]: http://blogs.msdn.com/b/sqlazure/archive/2010/06/21/10028038.aspx
   [34]: ../media/dev-net-getting-started-35.png
   [35]: ../media/dev-net-getting-started-36.png
