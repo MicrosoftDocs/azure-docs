@@ -310,7 +310,8 @@ As you just saw, the Speakers view is readable, but the links are small and are 
 
 4.	In the **&lt;ul&gt;** tag, add the data-filter attribute and set it to true. The code below shows the ul markup.
 
-    <ul data-role="listview" data-filter="true">
+		<ul data-role="listview" data-filter="true">
+
 The following image shows the search filter box at the top of the page that results from the data-filter attribute.
 
 ![][MobileSpeakersView2]
@@ -340,7 +341,8 @@ You can improve the Dates view like you improved the **Speakers** and **Tags** v
 2. Open the new file and remove the **&lt;h2&gt;** element.
 3. Add *data-role="listview"* to the &lt;ul&gt; tag, like this:
 
-     <ul data-role="listview">
+		<ul data-role="listview">
+
 The image below shows what the **Date** page looks like with the data-role attribute in place.
 
 ![][DatesList1]
