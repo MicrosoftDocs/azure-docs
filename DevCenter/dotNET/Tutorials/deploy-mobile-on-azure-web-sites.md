@@ -21,6 +21,7 @@ Before you start, make sure you've installed the prerequisites listed below.
 
 - [Visual Studio Web Developer Express SP1 prerequisites][VSWDExpresPrerequites]
 - [ASP.NET MVC 4 Developer Preview][MVC4DeveloperPreview]
+- [Windows Azure SDK for .NET - June 2012][WebDeployUpdate]
 
 Apply the following update to Visual Studio 2010
 
@@ -43,7 +44,6 @@ This tutorial shows code in C#. However, the starter project and completed proje
 - [Create a Windows Azure web site][]
 - [Setup the starter Project][]
 - [Override the Views, Layouts, and Partial Views][]
-- [Browser-Specific Views][]
 - [Use jQuery Mobile to define the mobile broswer interface][]
 - [Improve the Speakers List][]
 - [Create a Mobile Speakers View][]
@@ -144,11 +144,9 @@ In each **Html.ActionLink** call, remove "Browse by" in each link ActionLink. Th
             </div>
         </div>
     </body>
-
 Copy the *Views\Home\AllTags.cshtml* file to *Views\Home\AllTags.Mobile.cshtml*. Open the new file and change the &lt;h2&gt; element from "Tags" to "Tags (M)":
 
      <h2>Tags (M)</h2>
-
 Browse to the tags page using a desktop browser and using mobile browser emulator. The mobile browser emulator shows the two changes you made.
 
 ![Show changes to tags page][Overrideviews1]
@@ -195,9 +193,13 @@ The jQuery.Mobile.MVC NuGet package installs the following:
 
 The installation process also upgrades jQuery from version 1.62 to 1.63. The starter application uses jQuery 1.63. If you create a new ASP.NET MVC project, you'll have to manually change the script references from jQuery version 1.62 to 1.63 in the layout file.
 
-	Verify that the jQuery and jQuery Mobile version numbers in the layout file match the version numbers in your project. If the NuGet package updates a new ASP.NET MVC 4 project you create, you will have to change *MvcMobile\Views\Shared\_Layout.Mobile.cshtml* to reference 1.6.3 instead of 1.6.2.
 
-Open the *MvcMobile\Views\Shared\_Layout.Mobile.cshtml* file and add the following markup directly after the *Html.Partial *call:
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>Verify that the jQuery and jQuery Mobile version numbers in the layout file match the version numbers in your project. If the NuGet package updates a new ASP.NET MVC 4 project you create, you will have to change *MvcMobile\Views\Shared\_Layout.Mobile.cshtml* to reference 1.6.3 instead of 1.6.2..</p> 
+</div>
+
+Open the *MvcMobile\Views\Shared\_Layout.Mobile.cshtml* file and add the following markup directly after the *Html.Partial* call:
 
 	<div data-role="header" align="center">
 	    @Html.ActionLink("Home", "Index", "Home")
@@ -205,7 +207,6 @@ Open the *MvcMobile\Views\Shared\_Layout.Mobile.cshtml* file and add the followi
 	    @Html.ActionLink("Speaker", "AllSpeakers")
 	    @Html.ActionLink("Tag", "AllTags")
 	</div>
-
 The complete body section looks like this:
 
 	<body>
@@ -226,12 +227,14 @@ The complete body section looks like this:
 	        </div>
 	    </div>
 	</body>
-
 Build the application, and in your mobile browser emulator browse to the AllTags view. You see the following:
 
 ![After install jquery through nuget.][jquery3]
 
-	aIf your mobile browser doesn't display the **Home**, **Speaker**, **Tag**, and **Date** links as buttons, the reference to the jQuery Mobile script file is probably not correct. Verify that the jQuery Mobile file version referenced in the mobile layout file matches the version in the Scripts folder.
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>If your mobile browser doesn't display the **Home**, **Speaker**, **Tag**, and **Date** links as buttons, the reference to the jQuery Mobile script file is probably not correct. Verify that the jQuery Mobile file version referenced in the mobile layout file matches the version in the Scripts folder.</p> 
+</div>
 
 In addition to the style changes, you see **Displaying mobile view** and a link that lets you switch from mobile view to desktop view. Choose the **Desktop view link**, and the desktop view is displayed.
 
@@ -240,7 +243,9 @@ In addition to the style changes, you see **Displaying mobile view** and a link 
 The desktop view doesn't provide a way to directly navigate back to the mobile view. You'll fix that now. Open the *Views\Shared\_Layout.cshtml* file. Just under the page div element, add the following code, which renders the view-switcher widget:
 
     @Html.Partial("_ViewSwitcher")
-    Here's the completed code:
+
+Here's the completed code:
+
      <body>
         <div class="page">
             @Html.Partial("_ViewSwitcher")
@@ -250,8 +255,6 @@ The desktop view doesn't provide a way to directly navigate back to the mobile v
             </div>
         </div>
     </body>
-
-
 Refresh the **AllTags** view is the mobile browser. You can now navigate between desktop and mobile views.
 
 ![Navigate to mobile views.][jquery5]
@@ -274,7 +277,6 @@ You can globally disable a default (non-mobile) view from rendering inside a mob
         Layout = "~/Views/Shared/_Layout.cshtml";
         DisplayModes.RequireConsistentDisplayMode = true;
     }
-
 When RequireConsistentDisplayMode is set to true, the mobile layout (*_Layout.Mobile.cshtml*) is used only for mobile views. (That is, the view file is of the form ViewName.Mobile.cshtml.) You might want to set RequireConsistentDisplayMode to true if your mobile layout doesn't work well with your non-mobile views. The screenshot below shows how the Speakers page renders when RequireConsistentDisplayMode is set to true.
 
 ![][SpeakerList4]
@@ -286,7 +288,6 @@ You can disable consistent display mode in a view by setting RequireConsistentDi
         ViewBag.Title = "All speakers";
         DisplayModes.RequireConsistentDisplayMode = false;
     }
-
 ## <a name="bkmk_mobilespeakersview"></a>Create a Mobile Speakers View
 
 As you just saw, the Speakers view is readable, but the links are small and are difficult to tap on a mobile device. In this section, you'll create a mobile-specific Speakers view that looks like a modern mobile application — it displays large, easy-to-tap links and contains a search box to quickly find speakers.
@@ -303,15 +304,13 @@ As you just saw, the Speakers view is readable, but the links are small and are 
 	            <li>@Html.ActionLink(speaker, "SessionsBySpeaker", new { speaker })</li>
 	        }
 	    </ul>
-
 3.	Refresh the mobile browser. The updated view looks like this:
 
 	![][MobileSpeakersView1]
 
 4.	In the **&lt;ul&gt;** tag, add the data-filter attribute and set it to true. The code below shows the ul markup.
 
-<pre><code>&lt;ul data-role="listview" data-filter="true"&gt;</code></pre>
-
+    <ul data-role="listview" data-filter="true">
 The following image shows the search filter box at the top of the page that results from the data-filter attribute.
 
 ![][MobileSpeakersView2]
@@ -329,7 +328,6 @@ Like the default Speakers view, the Tags view is readable, but the links are sma
 2. Add the data-role and data-filter attributes to the **&lt;ul&gt;** tag, as shown here:
 
 		<ul data-role="listview" data-filter="true">
-
 The image below shows the tags page filtering on the letter J.
 
 ![][TagsList1]
@@ -342,8 +340,7 @@ You can improve the Dates view like you improved the **Speakers** and **Tags** v
 2. Open the new file and remove the **&lt;h2&gt;** element.
 3. Add *data-role="listview"* to the &lt;ul&gt; tag, like this:
 
-<pre><code>&lt;ul data-role="listview"&gt;</code></pre>
-
+     <ul data-role="listview">
 The image below shows what the **Date** page looks like with the data-role attribute in place.
 
 ![][DatesList1]
@@ -364,7 +361,6 @@ Replace the contents of the *Views\Home\AllDates.Mobile.cshtml* file with the fo
             <li>@Html.ActionLink(date.ToString("h:mm tt"), "SessionsByDate", new { date })</li>
         }
     </ul>
-
 This code groups all sessions by days. It creates a list divider for each new day, and it lists all the sessions for each day under a divider. Here's what it looks like when this code runs:
 
 ![][DatesList2]
@@ -385,7 +381,7 @@ As you can see, the display is difficult to read on a mobile browser. The date c
 
     @using MvcMobile.Models
     @model IEnumerable<Session>
-
+	
     <ul data-role="listview">
         @foreach(var session in Model) {
             <li>
@@ -397,7 +393,6 @@ As you can see, the display is difficult to read on a mobile browser. The date c
             </li>
         }
     </ul>
-
 The code removes the room and tags columns, and formats the title, speaker, and date vertically, so that all this information is readable on a mobile browser. The image below reflects the code changes.
 
 ![][SessionView3]
@@ -422,7 +417,7 @@ Copy the *Views\Home\SessionByCode.cshtml* to *Views\Home\SessionByCode.Mobile.c
 
 
     @model MvcMobile.Models.Session
-
+	
     @{
         ViewBag.Title = "Session details";
     }
@@ -430,14 +425,14 @@ Copy the *Views\Home\SessionByCode.cshtml* to *Views\Home\SessionByCode.Mobile.c
     <p>
         <strong>@Model.DateText</strong> in <strong>@Model.Room</strong>
     </p>
-
+	
     <ul data-role="listview" data-inset="true">
         <li data-role="list-divider">Speakers</li>
         @foreach (var speaker in Model.Speakers) {
             <li>@Html.ActionLink(speaker, "SessionsBySpeaker", new { speaker })</li>
         }
     </ul>
-
+	
     <p>@Model.Description</p>
     <h4>Code: @Model.Code</h4>
 
@@ -447,7 +442,6 @@ Copy the *Views\Home\SessionByCode.cshtml* to *Views\Home\SessionByCode.Mobile.c
             <li>@Html.ActionLink(tag, "SessionsByTag", new { tag })</li>
         }
     </ul>
-
 The new markup uses the **data-role** attribute to improve the layout of the view.
 
 Refresh the mobile browser. The following image reflects the code changes that you just made:
@@ -459,31 +453,31 @@ Refresh the mobile browser. The following image reflects the code changes that y
 1.	In your browser, open the Preview Management Portal.
 2.	In the **Web Sites** tab, click the name of the site you created earlier.
 
-	![][DeployApplication1]
+	![][DeployApplication1]	
 3.	Select the Quickstart tab and then click **Download publishing profile**.
 
-	![][DeployApplication2]
+	![][DeployApplication2]	
 	This step downloads a file that contains all of the settings that you need to deploy an application to your Web Site. You'll import this file into Visual Studio so you don't have to enter this information manually.
 4.	Save the .publishsettings file in a folder that you can access from Visual Studio.
 
 	![][DeployApplication3]
 5.	In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
 
-	![][DeployApplication4]
+	![][DeployApplication4]	
 
 	The **Publish Web** wizard opens.
 6.	In the **Profile** tab of the **Publish Web** wizard, click **Import**.
 
-	![][DeployApplication5]
+	![][DeployApplication5]	
 7.	Select the .publishsettings file you downloaded earlier, and then click **Open**.
 
-	![][DeployApplication6]
+	![][DeployApplication6]	
 8.	Click **Next**.
 
-	![][DeployApplication7]
+	![][DeployApplication7]	
 11.	In the Settings tab, click **Next**.
-
-	![][DeployApplication8]
+	
+	![][DeployApplication8]	
 12.	Click **Publish**.
 	Visual Studio begins the process of copying the files to the Windows Azure server.
 
@@ -492,34 +486,20 @@ Refresh the mobile browser. The following image reflects the code changes that y
 
 15.The default browser automatically opens to the URL of the deployed site.
  The application you created is now running in the cloud.
-
 	![][DeployApplication10]
-
-## Wrapup and Review
-
-This tutorial has introduced the new mobile features of ASP.NET MVC 4 Developer Preview. The mobile features include:
- •The ability to override layout, views, and partial views, both globally and for an individual view.
-•Control over layout and partial override enforcement using the RequireConsistentDisplayMode property.
-•A view-switcher widget for mobile views than can also be displayed in desktop views.
-•Support for supporting specific browsers, such as the iPhone browser.
-
-
-
 
 
 [Create a Windows Azure web site]: #bkmk_createaccount
-[Setup the starter Project]: #
-[Overriding Views, Layouts, and Partial Views]: #
-[Browser-Specific Views]: #
-[Using jQuery Mobile ]: #
-[Improve the Speakers List]: #
-[Creating a Mobile Speakers View]: #
-[Improve the Tags List]: #
-[Improve the Dates List]: #
-[Improve the SessionsTable View]: #
-[Improve the SessionByCode View]: #
-[Deploy the Applciation to the Windows Azure Web Site]: #
-
+[Setup the starter Project]: #bbkmk_setupstarterproject
+[Overriding Views, Layouts, and Partial Views]: #bkmk_overrideviews
+[Using jQuery Mobile ]: #bkmk_usejquerymobile
+[Improve the Speakers List]: #bkmk_Improvespeakerslis
+[Creating a Mobile Speakers View]: #bkmk_mobilespeakersview
+[Improve the Tags List]: #bkmk_improvetags
+[Improve the Dates List]: #bkmk_improvedates
+[Improve the SessionsTable View]: #bkmk_improvesessionstable
+[Improve the SessionByCode View]: #bkmk_improvesessionbycode
+[Deploy the Applciation to the Windows Azure Web Site]: #bkmk_deployapplciation
 
 [CreateWebSite1]: ../media/depoly_mobile_new_website_1.png
 [CreateWebSite2]: ../media/depoly_mobile_new_website_2.png
@@ -565,22 +545,9 @@ This tutorial has introduced the new mobile features of ASP.NET MVC 4 Developer 
 [DeployApplication9]: ../media/depoly_mobile_new_website_14.png
 [DeployApplication10]: ../media/depoly_mobile_new_website_15.png
 
-[Create a Windows Azure web site]: #bkmk_createaccount
-[Setup the starter Project]: #setupstarterproject
-[Override the Views, Layouts, and Partial Views]: #overrideviews
-[Browser-Specific Views]: #browserspecificviews
-[Use jQuery Mobile to define the mobile broswer interface]: #usejquerymobile
-[Improve the Speakers List]: #Improvespeakerslist
-[Create a Mobile Speakers View]: #mobilespeakersview
-[Improve the Tags List]: #improvetags
-[Improve the Dates List]: #improvedates
-[Improve the SessionsTable View]: #improvesessionstable
-[Improve the SessionByCode View]: #improvesessionbycode
-[Deploy the Applciation to the Windows Azure Web Site]: #deployapplciation
-
 [VSWDExpresPrerequites]: http://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack
 [MVC4DeveloperPreview]: http://www.asp.net/mvc/mvc4
-[WebDeployUpdate]:
+[WebDeployUpdate]: http://www.windowsazure.com/en-us/develop/net/
 
 [MVC4StarterProject]: http://go.microsoft.com/fwlink/?LinkId=228307
 [FinishedProject]: http://go.microsoft.com/fwlink/?LinkId=228306

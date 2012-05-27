@@ -42,7 +42,7 @@ to get the tools and set up your development environment.
 3.  Click **Install** in the installer window and proceed with the
     installation:
 
-    ![Web Platform Installer screen for the Windows Azure SDK. The install button is highlighted.][]
+    ![Web Platform Installer screen for the Windows Azure SDK. The install button is highlighted.][install-button]
 
 Once the installation is complete, you have everything necessary to
 start developing. The following components are installed:
@@ -61,9 +61,7 @@ environment that is configured for Windows Azure and Node development.
 It includes tools that you can use to create and publish Node
 applications.
 
-1.  On the **Start**menu, click **All Programs, Windows Azure SDK
-    Node.js - November 2011**, right-click **Windows Azure PowerShell
-    for Node.js**, and then select **Run As Administrator**. Opening
+1.  On the **Start** menu, click **All Programs, Windows Azure**, right-click **Windows Azure PowerShells**, and then select **Run As Administrator**. Opening
     your Windows PowerShell environment this way ensures that all of the
     Node command-line tools are available. Running with elevated
     privileges avoids extra prompts when working with the Windows Azure
@@ -78,7 +76,7 @@ applications.
 
 3.  Enter the following cmdlet to create a new solution:
 
-        PS C:\node> New-AzureService tasklist
+        PS C:\node> New-AzureServiceProject tasklist
 
     You will see the following response:
 
@@ -177,11 +175,9 @@ application without having to actually deploy it.
 
     ![A web browser displaying the Hello World web page][]
 
-2.  To stop the compute emulator, you can access it (as well as the
-    storage emulator, which you will leverage later in this tutorial)
-    from the Windows taskbar as shown in the screenshot below:
+2.  To stop the compute emulator, use the **Stop-AzureEmulator** command:
 
-    ![The menu displayed when right-clicking the Windows Azure emulator from the task bar.][]
+		PS C:\node\tasklist\WebRole1> Stop-AzureEmulator
 
 ## Deploying the Application to Windows Azure
 
@@ -209,7 +205,7 @@ Windows PowerShell cmdlets.
 1.  From the Windows PowerShell window, launch the download page by
     running the following cmdlet:
 
-        PS C:\node\tasklist\WebRole1> Get-AzurePublishSettings
+        PS C:\node\tasklist\WebRole1> Get-AzurePublishSettingsFile
 
     This launches the browser for you to log into the Windows Azure
     Management Portal with your Windows Live ID credentials.
@@ -219,15 +215,15 @@ Windows PowerShell cmdlets.
 2.  Log into the Management Portal. This takes you to the page to
     download your Windows Azure publishing settings.
 
-3.  Save the profile to a file at **c:\\node\\elvis.publishSettings**:
+3.  Save the profile to a file location you can easily access:
 
     ![Internet Explorer displaying the save as dialog for the publishSettings file.][]
 
-4.  In the Windows PowerShell window, use the following cmdlet to
+4.  In the Windows Azure PowerShell window, use the following cmdlet to
     configure the Windows PowerShell for Node.js cmdlets to use the
     Windows Azure publishing profile you downloaded:
 
-        PS C:\node\tasklist\WebRole1> Import-AzurePublishSettings c:\node\elvis.publishSettings
+        PS C:\node\tasklist\WebRole1> Import-AzurePublishSettingsFile [path to file]
 
     After importing the publish settings, consider deleting the
     downloaded .publishSettings as the file contains information that
@@ -235,25 +231,25 @@ Windows PowerShell cmdlets.
 
 ### Publishing the Application
 
-1.  Publish the application using the **Publish-AzureService** cmdlet,
+1.  Publish the application using the **Publish-AzureServiceProject** cmdlet,
     as shown below.
 
-    -   **name**specifies the name for the service. The name must be
+    -   **name** specifies the name for the service. The name must be
         unique across all other services in Windows Azure. For example,
         below, “TaskList” is suffixed with “Contoso,” the company name,
         to make the service name unique.
-    -   **location**specifies the country/region for which the
+    -   **location** specifies the country/region for which the
         application should be optimized. You can expect faster loading
         times for users accessing it from this region. Examples of the\\
         available regions include: North Central US, Anywhere US,
         Anywhere Asia, Anywhere Europe, North Europe, South Central US,
         and Southeast Asia.
-    -   **launch**specifies to open the browser at the location of the
+    -   **launch** specifies to open the browser at the location of the
         hosted service after publishing has completed.
 
     <!-- -->
 
-        PS C:\node\tasklist\WebRole1> Publish-AzureService –name TaskListContoso –location "North Central US” -launch
+        PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject –name TaskListContoso –location "North Central US” -launch
 
     Be sure to use a **unique name**, otherwise the publish process will
     fail. After publishing succeeds, you will see the following
@@ -261,7 +257,7 @@ Windows PowerShell cmdlets.
 
     ![The output of the Publish-AzureService command][]
 
-    The **Publish-AzureService** cmdlet performs the following steps:
+    The **Publish-AzureServiceProject** cmdlet performs the following steps:
 
     1.  Creates a package that will be deployed to Windows Azure. The
         package contains all the files in your node.js application
@@ -323,9 +319,9 @@ The following steps show you how to stop and delete your application.
 
 2.  To delete the service, call the following cmdlet:
 
-        PS C:\node\tasklist\WebRole1> Remove-AzureService
+        PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
 
-3.  When prompted, enter **Y** to delete the service.
+	When prompted, enter **Y** to delete the service.
 
     Deleting the service may take several minutes. After the service has
     been deleted you receive a message indicating that the service was
@@ -343,7 +339,7 @@ deleting a storage account, see [How to Delete a Storage Account from a Windows 
   [A browser window displaying Hello World]: ../Media/node21.png
   [Get Tools and SDK]: http://go.microsoft.com/?linkid=9790229
   [Internet Explorer promoting to run a downloaded file]: ../Media/getting-started-3.png
-  [Web Platform Installer screen for the Windows Azure SDK for Node.js. The install button is highlighted.]: ../Media/getting-started-4.png
+  [install-button]: ../Media/getting-started-4.png
   [The Windows Start menu with the Windows Azure SDK Node.js entry expanded]: ../../Shared/Media/azure-powershell-menu.png
   [mkdir]: ../Media/getting-started-6.png
   [The result of the New-AzureService tasklist command]: ../Media/node9.png

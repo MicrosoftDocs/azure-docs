@@ -140,26 +140,26 @@ If you’d like to connect to Active Directory, you can continue with the follow
 
 <!-- IMAGES -->
 
-[NewStorAcct]:	../Tutorials/media/VNTut3_01_NewStorageAccount.png
+[NewStorAcct]:	../media/VNTut3_01_NewStorageAccount.png
 
-[QuickCreate]:	../Tutorials/media/VNTut3_02_StorageAcct_QuickCreate.png
+[QuickCreate]:	../media/VNTut3_02_StorageAcct_QuickCreate.png
 
-[CreateNewAcct]:	../Tutorials/media/VNTut3_03_CreateNewStorageAccount.png
+[CreateNewAcct]:	../media/VNTut3_03_CreateNewStorageAccount.png
 
-[NewStorAcctCreated]:	../Tutorials/media/VNTut3_04_NewStorageAcctCreated.png
+[NewStorAcctCreated]:	../media/VNTut3_04_NewStorageAcctCreated.png
 
-[NewVM]:	../Tutorials/media/VNTut3_05_NewVM.png
+[NewVM]:	../media/VNTut3_05_NewVM.png
 
-[FromGallery]:	../Tutorials/media/VNTut3_06_VM_FromGallery.png
+[FromGallery]:	../media/VNTut3_06_VM_FromGallery.png
 
-[VMOS]:	../Tutorials/media/VNTut3_07_VMOSSelect_Win2008R2.png
+[VMOS]:	../media/VNTut3_07_VMOSSelect_Win2008R2.png
 
-[VMConfig]:	../Tutorials/media/VNTut3_08_VMConfig.png
+[VMConfig]:	../media/VNTut3_08_VMConfig.png
 
-[VMMode]:	../Tutorials/media/VNTut3_09_VMMode.png
+[VMMode]:	../media/VNTut3_09_VMMode.png
 
-[VMOptions]:	../Tutorials/media/VNTut3_10_VMOptions.png
+[VMOptions]:	../media/VNTut3_10_VMOptions.png
 
-[VMInstances]:	../Tutorials/media/VNTut3_11_VMInstances.png
+[VMInstances]:	../media/VNTut3_11_VMInstances.png
 
-[AllTab]:	../Tutorials/media/VNTut3_12_AllTab.png
+[AllTab]:	../media/VNTut3_12_AllTab.png

@@ -108,10 +108,9 @@ create a storage account [using the REST API][].)
 
 ## <a name="create-app"> </a>Create a Node.js Application
 
-Create a blank tasklist application using the **Windows PowerShell for
-Node.js** command window at the location **c:\\node\\tasklist**. For
+Create a blank Node.js application. For
 instructions on how to use the PowerShell commands to create a blank
-application, see the [Node.js Web Application][].
+application, see the [Node.js Cloud Service]. For instructions on how to use WebMatrix, see [Web Site with WebMatrix].
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
@@ -121,20 +120,18 @@ communicate with the storage REST services.
 
 ### Use Node Package Manager (NPM) to obtain the package
 
-1.  Use the **Windows PowerShell for Node.js** command window to
-    navigate to the **c:\\node\\tasklist\\WebRole1** folder where you
-    created your sample application.
+1.  Use a command-line interface such as **PowerShell** (Windows,) **Terminal** (Mac,) or **Bash** (Unix), navigate to the folder where you created your sample application.
 
 2.  Type **npm install azure** in the command window, which should
     result in the following output:
 
         azure@0.5.0 ./node_modules/azure
-        +-- xmlbuilder@0.3.1
-        +-- mime@1.2.4
-        +-- xml2js@0.1.12
-        +-- qs@0.4.0
-        +-- log@1.2.0
-        +-- sax@0.3.4
+		├── xmlbuilder@0.3.1
+		├── mime@1.2.4
+		├── xml2js@0.1.12
+		├── qs@0.4.0
+		├── log@1.2.0
+		└── sax@0.3.4
 
 3.  You can manually run the **ls** command to verify that a
     **node\_modules** folder was created. Inside that folder you will
@@ -154,12 +151,10 @@ If you are running against the storage emulator on the local machine,
 you do not need to configure a connection string, as it will be
 configured automatically. You can continue to the next section.
 
-If you are planning to run against the real cloud storage service, you
-need to modify your connection string to point at your cloud-based
-storage. You can store the storage connection string in a configuration
-file, rather than hard-coding it in code. In this tutorial you use the
-Web.cloud.config file, which is created when you create a Windows Azure
-web role.
+If you are planning to run against the real Windows Azure storage
+service, you need to specify connection information to point at your
+Windows Azure Storage Account. You can store the connection information in your code, or in an external configuration file. In this how-to,
+you use the Web.cloud.config file, which is created when you use the Windows Azure Powershell to create a new Cloud Service Project.
 
 1.  Use a text editor to open
     **c:\\node\\tasklist\\WebRole1\\Web.cloud.config**
@@ -668,6 +663,7 @@ to learn how to do more complex storage tasks.
   [Blob2]: ../../dotNet/Media/blob2.png
   [Blob3]: ../../dotNet/Media/blob3.png
   [Blob4]: ../../dotNet/Media/blob4.png
-  [Node.js Web Application]: {localLink:2221} "Web App with Express"
+  [Node.js Cloud Service]: {localLink:2221} "Web App with Express"
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Visit the Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/

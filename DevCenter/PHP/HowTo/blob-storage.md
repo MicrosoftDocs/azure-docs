@@ -20,11 +20,11 @@ This guide will show you how to perform common scenarios using the Windows Azure
 * [How to: Delete a Blob container](#DeleteContainer)
 * [Next steps](#NextSteps)
 
-<div chunk="../../Shared/Chunks/howto-blob-storage" />
+<div chunk="../../Shared/Chunks/howto-blob-storage.md" />
 
 <h2 id="CreateAccount">Create a Windows Azure storage account</h2>
 
-<div chunk="../../Shared/Chunks/create-storage-account" />
+<div chunk="../../Shared/Chunks/create-storage-account.md" />
 
 <h2 id="CreateApplication">Create a PHP application</h2>
 

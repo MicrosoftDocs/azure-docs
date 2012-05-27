@@ -9,7 +9,7 @@ You will learn:
 
 * How to work with the Windows Azure Table service
 
-* How to use the Windows Azure command-line tool for Mac and Linux to create a Windows Azure Website
+* How to use the Windows Azure command-line tool for Mac and Linux to create a Windows Azure Web Site
 
 By following this tutorial, you will build a simple web-based task-management application that allows creating, retrieving and completing tasks. The tasks are stored in the Table service.
  
@@ -32,6 +32,12 @@ Before following the instructions in this article, you should ensure that you ha
 * A text editor
 
 * A web browser
+
+##Enable the Windows Azure Web Site feature
+
+If you do not already have a Windows Azure subscription, you can sign up [for free]. After signing up, follow these steps to enable the Windows Azure Web Site feature.
+
+<div chunk="../../Shared/Chunks/antares-iaas-signup.md"></div>
 
 ##Create a storage account
 
@@ -67,7 +73,7 @@ In this section you will create a new Node application and use npm to add module
 
 		npm install express -g
 
-    **Note**: When using the '-g' parameter on some operating systems, you may receive an error of **Error: EPERM, chmod '/usr/local/bin/express'** and a request to try running the account as an administrator. If this occurs, use the [sudo] command to run npm at a higher privilege level.
+    **Note**: When using the '-g' parameter on some operating systems, you may receive an error of **Error: EPERM, chmod '/usr/local/bin/express'** and a request to try running the account as an administrator. If this occurs, use the **sudo** command to run npm at a higher privilege level.
 
     The output of this command should appear similar to the following:
 
@@ -77,7 +83,7 @@ In this section you will create a new Node application and use npm to add module
 		├── qs@0.4.2
 		└── connect@1.8.7
 
-	**Note**: The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the **express** command to generate website scaffolding without having to type in additional path information.
+	**Note**: The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the **express** command to generate web site scaffolding without having to type in additional path information.
 
 4. To create the scaffolding which will be used for this application, use the **express** command:
 
@@ -413,11 +419,19 @@ To test the application on your local machine, perform the following steps:
 
 ##Deploy your application to Windows Azure
 
-In this section, you will install and use the Windows Azure command-line tools to create a new Windows Azure Website, and then use Git to deploy your application. To perform these steps you must have a Windows Azure subscription. If you do not already have a subscription, you can sign up for one [for free].
+The steps in this section use the Windows Azure command-line tools to create a new Windows Azure Web Site, and then use Git to deploy your application. To perform these steps you must have a Windows Azure subscription. If you do not already have a subscription, you can sign up for one [for free].
+
+**Note**: These steps can also be performed by using the Windows Azure portal. For steps on using the Windows Azure portal to deploy a Node.js application, see [Create and deploy a Node.js application to a Windows Azure Web Site].
+
+**Note**: If this is the first Windows Azure Web Site you have created, you must use the Windows Azure portal to deploy this application.
 
 ###Install the Windows Azure command-line tool for Mac and Linux
 
-To install the command-line tools, go to the [Windows Azure Developer Center] and select the download package for your operating system. For more information, see [Windows Azure command-line tool for Mac and Linux].
+To install the command-line tools, use the following command:
+	
+	npm install azure -g
+
+**Note**: If you have already installed the **Windows Azure SDK for Node.js** from the [Windows Azure Developer Center], then the command-line tools should already be installed. For more information, see [Windows Azure command-line tool for Mac and Linux].
 
 **Note**: While the command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.
 
@@ -445,23 +459,23 @@ Before using the command-line tools with Windows Azure, you must first download 
 
 4. Once the import has completed, you should delete the publish settings file as it is no longer needed and contains sensitive information regarding your Windows Azure subscription.
 
-###Create a Windows Azure Website
+###Create a Windows Azure Web Site
 
 1. From the command-line, change directories to the **tasklist** directory.
 
-2. Use the following command to create a new Windows Azure Website
+2. Use the following command to create a new Windows Azure Web Site
 
 		azure site create --git
 		
-	You will be prompted for the website name and the datacenter that it will be located in. Provide a unique name and select the datacenter geographically close to your location.
+	You will be prompted for the web site name and the datacenter that it will be located in. Provide a unique name and select the datacenter geographically close to your location.
 	
-	The `--git` parameter will create a Git repository on Windows Azure for this website. It will also initialize a Git repository in the current directory if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Windows Azure. Finally, it will create a **web.config** file, which contains settings used by Windows Azure to host node applications.
+	The `--git` parameter will create a Git repository on Windows Azure for this web site. It will also initialize a Git repository in the current directory if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Windows Azure. Finally, it will create a **web.config** file, which contains settings used by Windows Azure to host node applications.
 	
 	**Note**: If this command is ran from a directory that already contains a Git repository, it will not re-initialize the directory.
 	
 	**Note**: If the `--git` parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.
 	
-	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Website created at** contains the URL for the website.
+	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Website created at** contains the URL for the web site.
 	
 		info:   Executing command site create
 		help:   Need a site name
@@ -476,7 +490,7 @@ Before using the command-line tools with Windows Azure, you must first download 
 		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
 		info:   site create command OK
 
-	**Note**: If this is the first Windows Azure Web Site for your subscription, you will be instructed to use the portal to create the website. For more information, see [Create and deploy a Node.js application to Windows Azure Web Sites].
+	**Note**: If this is the first Windows Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see [Create and deploy a Node.js application to a Windows Azure Web Site].
 
 ###Publish the application
 
@@ -487,7 +501,7 @@ Before using the command-line tools with Windows Azure, you must first download 
 		git add .
 		git commit -m "adding files"
 
-3. When pushing the latest Git repository changes to the Windows Azure Website, you must specify that the target branch is **master** as this is used for the website content.
+3. When pushing the latest Git repository changes to the Windows Azure Web Site, you must specify that the target branch is **master** as this is used for the web site content.
 
 		git push azure master
 	
@@ -496,7 +510,7 @@ Before using the command-line tools with Windows Azure, you must first download 
 		To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
  		 * [new branch]      master -> master
 
-4. Once the push operation has completed, browse to the website URL returned previously by the `azure create site` command to view your application.
+4. Once the push operation has completed, browse to the web site URL returned previously by the `azure create site` command to view your application.
 
 ##Next steps
 
@@ -505,9 +519,9 @@ While the steps in this article describe using the Table Service to store inform
 ##Additional resources
 
 [Windows Azure command-line tool for Mac and Linux]    
-[Create and deploy a Node.js application to Windows Azure Web Sites]    
-[Publishing to Windows Azure Web Sites with Git]
-
+[Create and deploy a Node.js application to Windows Azure Web Sites]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+[Publishing to Windows Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
+[Windows Azure Developer Center]: /en-us/develop/nodejs/
 
 [node]: http://nodejs.org
 [Git]: http://git-scm.com
@@ -517,12 +531,13 @@ While the steps in this article describe using the Table Service to store inform
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [Node.js Web Application with MongoDB]: ./web-site-with-mongodb-Mac
 [Windows Azure command-line tool for Mac and Linux]: http://windowsazure.com
-[Create and deploy a Node.js application to Windows Azure Web Sites]: ./web-site-with-mongodb-Mac
+[Create and deploy a Node.js application to a Windows Azure Web Site]: ./web-site-with-mongodb-Mac
 [Publishing to Windows Azure Web Sites with Git]: ../CommonTasks/publishing-with-git
 [azure]: https://github.com/WindowsAzure/azure-sdk-for-node
 [node-uuid]: https://github.com/broofa/node-uuid
 [async]: https://github.com/caolan/async
 [Windows Azure Portal]: http://windowsazure.com
+
 
 [node-table-finished]: ../media/table_todo_empty.png
 [node-table-list-items]: ../media/table_todo_list.png

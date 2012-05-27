@@ -172,10 +172,9 @@ After saving the changes to server.js, use the following steps to
 install required modules, and then test the application in the Windows
 Azure emulator:
 
-1.  If it is not already open, start the **Windows Azure PowerShell for
-    Node.js** from the Start menu by expanding **All Programs, Windows
-    Azure SDK Node.js - November 2011**, right-click **Windows Azure
-    PowerShell for Node.js**, and then select **Run As Administrator**.
+1.  If it is not already open, start the **Windows Azure PowerShell** from the Start menu by expanding **All Programs, Windows
+    Azure**, right-click **Windows Azure
+    PowerShell**, and then select **Run As Administrator**.
 
 2.  Change directories to the folder containing your application. For
     example, C:\\node\\chatapp\\WorkerRole1.

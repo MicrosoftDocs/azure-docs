@@ -93,9 +93,9 @@ If you’d like, you can continue with the following tutorials:
 [Link2]: ..Tutorial2_CreateVNetCrossPrem 
 [Link3]: ..Tutorial3_AddVMachineToVNet
 
-[Image1]: ../Tutorials//media/VNTut1_00_New.png
-[Image2]: ../Tutorials/media/VNTut1_01_Network_CustomCreate.png
-[Image3]: ../Tutorials//media/VNTut1_02_VNDetails.png
-[Image4]: ../Tutorials//media/VNTut1_03_AddressSpaceAndSubnets.png
-[Image5]: ../Tutorials//media/VNTut1_04_DNSServersAndLocalNetworks_CloudOnly.png
-[Image6]: ../Tutorials//media/VNTut1_06_VNStatus_Created.png
+[Image1]: ../media/VNTut1_00_New.png
+[Image2]: ../media/VNTut1_01_Network_CustomCreate.png
+[Image3]: ..//media/VNTut1_02_VNDetails.png
+[Image4]: ..//media/VNTut1_03_AddressSpaceAndSubnets.png
+[Image5]: ../media/VNTut1_04_DNSServersAndLocalNetworks_CloudOnly.png
+[Image6]: ../media/VNTut1_06_VNStatus_Created.png

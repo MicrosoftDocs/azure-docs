@@ -1,4 +1,4 @@
-# The Windows Azure Application Model
+# Compute
 
 Windows Azure enables you to deploy and monitor your application code
 running inside a Microsoft data center. When you create an application

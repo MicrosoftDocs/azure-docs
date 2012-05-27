@@ -33,7 +33,7 @@ The best way to test your policy is to set up a number of clients and then bring
 
 - **Know the IP addresses of the Windows Azure hosted services** in the policy you are testing. You can obtain this information from the Windows Azure Management Portal. Click on the Production Deployment of your service. In the properties pane on the right, the last entry will be the VIP, which is the virtual IP address of that hosted service.
 
-![Hosted service IP location](Media\hosted_service_IP_location)
+![hosted service IP location][0]
 
 **Figure 1** -  hosted service IP location
 
@@ -57,7 +57,7 @@ The best way to test your policy is to set up a number of clients and then bring
 >> - The Traffic Manager domain name you typed on the command line after "nslookup" and the IP address that Traffic Manager domain resolves to. 
 The second IP address is the important one to check. It should match a VIP for one of the hosted services in the Traffic Manager policy you are testing.
 
->>![nslookup command example](Media\nslookup_command_example)
+>>![nslookup command example][1]
 
 >>**Figure 2** – nslookup command example
 
@@ -166,8 +166,10 @@ For more information on the different load balancing methods that Traffic Manage
 2. **Log into the Traffic Manager area in the Management Portal** at [http://windows.azure.com](http://windows.azure.com). Click **Virtual Network** in the lower left of the portal pages and then choose **Traffic Manager** from the options in the left pane.
 
 3. **Choose Policies and click "Create".** Choose the folder **Policies** from the left navigation tree to enable **Create** in the top toolbar. Choose **Create**. The **Create Traffic Manager policy** dialog will appear.
-![Create button for policies](Media\Create_button_for_policies)
-**Figure 1** - Create button for policies
+
+	![Create button for policies][2]
+
+	**Figure 1** - Create button for policies
 
 4. **Choose a subscription.** Policies and domains are associated with single subscription.
 
@@ -183,7 +185,9 @@ For more information about the effect of this setting, see [Overview of Windows 
 
 
 The **Create Traffic Manager policy** dialog box should be similar to the example below.
-![Dialog box for Round Robin load balancing method](Media\Dialog_box_for_Round_Robin_load_balancing_method) 
+
+![Dialog box for Round Robin load balancing method][3] 
+
 **Figure 2** – Dialog box for Round Robin load balancing method
 
 9. **Test the Traffic Manager domain and policy.** For instructions, see  [How to: Test a Windows Azure Traffic Manager Policy](#howto_test). 
@@ -204,8 +208,10 @@ For more information on the different load balancing methods that Traffic Manage
 2. **Log into the Traffic Manager area in the Management Portal** at [http://windows.azure.com](http://windows.azure.com). Click **Virtual Network** in the lower left of the portal pages and then choose **Traffic Manager** from the options in the left pane.
 
 3. **Choose Policies and click "Create".** Choose the folder **Policies** from the left navigation tree to enable **Create** in the top toolbar. Choose **Create**. The **Create Traffic Manager policy** dialog will appear.
-![Create button for policies](Media\Create_button_for_policies)
-**Figure 1** – Create button for policies
+
+	![Create button for policies][4]
+
+	**Figure 1** – Create button for policies
 
 4. **Choose a subscription.** Policies and domains are associated with single subscription.
 
@@ -220,7 +226,9 @@ For more information, see [Overview of Windows Azure Traffic Manager](http://msd
 For more information about the effect of this setting, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to "Best practices for hosted services and policies when using Windows Azure Traffic Manager."
  
 The **Create Traffic Manager policy** dialog box should look similar to the example below. 
-![Dialog box for Failover load balancing method](Media\Dialog_box_for_Failover_load_balancing_method)
+
+![Dialog box for Failover load balancing method][5]
+
 **Figure 2** – Dialog box for Failover load balancing method
 
 9. **Test the Traffic Manager domain and policy.** For more information, see [How to: Test a Windows Azure Traffic Manager Policy](#howto_test). 
@@ -242,7 +250,7 @@ Also refer to "Best practices for hosted services and policies" in the [Overview
 2. **Log into the Traffic Manager area in the Management Portal** at [http://windows.azure.com](http://windows.azure.com). Click **Virtual Network** in the lower left of the portal pages and then choose **Traffic Manager** from the options in the left pane.
 
 3. **Choose Policies and click "Create".** Choose the folder **Policies** from the left navigation tree to enable **Create** in the top toolbar. Choose **Create**. The **Create Traffic Manager policy** dialog will appear. 
-![Create button for policies](Media\Create_button_for_policies)
+![Create button for policies][6]
 **Figure 1** – Create button for policies
 
 4. **Choose a subscription.** Policies and domains are associated with single subscription. 
@@ -258,7 +266,7 @@ For more information, see [Overview of Windows Azure Traffic Manager](http://msd
 For more information about the effect of this setting, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to "Best practices for hosted services and policies when using Windows Azure Traffic Manager."
  
 The **Create Traffic Manager policy** dialog box should look something like the example below. 
-![Dialog box for Performance load balancing method](Media\Dialog_box_for_Performance_load_balancing_method)
+![Dialog box for Performance load balancing method][7]
 **Figure 2** – Dialog box for Performance load balancing method
 
 9. **Test the Traffic Manager domain and policy.** For more information about testing, see [How to: Test a Windows Azure Traffic Manager Policy](#howto_test).
@@ -268,13 +276,11 @@ For example, the following command routes all traffic going to **www.contoso.com
 ``www.contoso.com IN CNAME contoso.trafficmanager.net``
 For more information, see [How to: Point a Company Internet Domain to a Windows Azure Traffic Manager Domain](#howto_point_company).
 
-[0]: ..\Media\hosted_service_IP_location.png
-[1]: ..\Media\nslookup_command_example.png
-[2]: ..\Media\Create_button_for_policies.png
-[3]: ..\Media\Dialog_box_for_Round_Robin_load_balancing_method.png
-[4]: ..\Media\Create_button_for_policies.png
-
-[5]: ..\Media\Dialog_box_for_Failover_load_balancing_method.png
-[6]: ..\Media\Create_button_for_policies.png
-
-[7]: ..\Media\Dialog_box_for_Performance_load_balancing_method.png
+[0]: ../Media/hosted_service_IP_location.png
+[1]: ../Media/nslookup_command_example.png
+[2]: ../Media/Create_button_for_policies.png
+[3]: ../Media/Dialog_box_for_Round_Robin_load_balancing_method.png
+[4]: ../Media/Create_button_for_policies.png
+[5]: ../Media/Dialog_box_for_Failover_load_balancing_method.png
+[6]: ../Media/Create_button_for_policies.png
+[7]: ../Media/Dialog_box_for_Performance_load_balancing_method.png

@@ -1,0 +1,2 @@
+<properties umbracoNaviHide="0" pageTitle="How to Quickly Create a Virtual Machine" metaKeywords="" metaDescription="" linkid="manage-windows-howto-quick-create-vm" urlDisplayName="Quick create a VM" headerExpose="" footerExpose="" disqusComments="1" />
+<div chunk="../../Shared/Chunks/howto-quick-create-vm.md" />

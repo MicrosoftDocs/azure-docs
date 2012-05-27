@@ -2,17 +2,17 @@
 
 Git is a popular, open source, distributed version control system. Windows Azure Web Sites allow you to enable a Git repository for your site, which allows you to quickly and easily push code changes to your site. In this article, you will learn how to use Git to publish to a Windows Azure Web Site.
 
-**Note**: Many of the Git commands described in this article can be performed automatically when creating a Web Site using the [Windows Azure Command-Line Tools for Mac and Linux]. For more information on using the cross-platform tools, see **TBD**
+**Note**: Many of the Git commands described in this article are performed automatically when creating a Web Site using the [Windows Azure Command-Line Tools for Mac and Linux].
 
 The task includes the following steps:
 
-* [Install Git] (#Step1)
-* [Create a local repository] (#Step2)
-* [Add a web page] (#Step3)
-* [Enable the web site repository] (#Step4)
-* [Add the web site as a remote repository] (#Step5)
-* [Publish and re-publish the web site] (#Step6)
-* [Troubleshooting] (#Step7)
+* [Install Git](#Step1)
+* [Create a local repository](#Step2)
+* [Add a web page](#Step3)
+* [Enable the web site repository](#Step4)
+* [Add the web site as a remote repository](#Step5)
+* [Publish and re-publish the web site](#Step6)
+* [Troubleshooting](#Step7)
 
 <h2 id="Step1">Installing Git</h2>
 
@@ -189,7 +189,7 @@ The following are errors or problems commonly encountered when using Git to publ
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [PowerShell for Windows Azure]: http://windowsazure.com
-[Windows Azure Command-Line Tools for Mac and Linux]: http://windowsazure.com
+[Windows Azure Command-Line Tools for Mac and Linux]: /DevCenter/Node/CommonTasks/crossplat-cmd-tools.md
 [Git Documentation]: http://git-scm.com/documentation
 
 [portal-select-website]: ../Media/git-select-website.png

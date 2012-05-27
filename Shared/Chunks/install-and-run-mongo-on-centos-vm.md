@@ -21,7 +21,7 @@
 
 	`$ sudo mkdir -p /data/db/`
 
-	`$ sudo chown `id -u` /data/db`
+	`$ sudo chown 'id -u' /data/db`
 
 	For more information on installing MongoDB on Linux, see [Quickstart Unix][QuickstartUnix].
 

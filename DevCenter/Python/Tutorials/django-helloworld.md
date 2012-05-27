@@ -28,11 +28,9 @@ To set up your Python and Django environments, please see the [Installation Guid
 
 ## Creating a New Django Application
 
-The Windows Azure SDK for Python includes a Windows PowerShell environment that is configured for Windows Azure and Python development. It includes tools that you can use to create and publish Django applications.
+The Windows Azure SDK includes a Windows PowerShell environment that is configured for Windows Azure and Python development. It includes tools that you can use to create and publish Django applications.
 
-1.  On the **Start** menu, click **All Programs, Windows Azure SDK for
-    Python - June 2012**, right-click **Windows Azure PowerShell
-    for Python**, and then select **Run As Administrator**. Opening
+1.  On the **Start** menu, click **All Programs, Windows Azure**, right-click **Windows Azure PowerShell**, and then select **Run As Administrator**. Opening
     your Windows PowerShell environment this way ensures that all of the
     Python command-line tools are available. Running with elevated
     privileges avoids extra prompts when working with the Windows Azure
@@ -48,7 +46,7 @@ The Windows Azure SDK for Python includes a Windows PowerShell environment that 
 
     ![The result of the New-AzureService command][]
 
-    The **New-AzureService** cmdlet generates a basic structure for
+    The **New-AzureServiceProject** cmdlet generates a basic structure for
     creating a new Windows Azure Python application. It contains
     configuration files necessary for publishing to Windows Azure. The
     cmdlet also changes your working directory to the directory for the
@@ -173,7 +171,7 @@ Windows PowerShell cmdlets.
 1.  From the Windows PowerShell window, launch the download page by
     running the following cmdlet:
 
-        PS C:\django\helloworld\hello_dj\hello_dj> Get-AzurePublishSettings
+        PS C:\django\helloworld\hello_dj\hello_dj> Get-AzurePublishSettingsFile
 
     This launches the browser for you to log into the Windows Azure
     Management Portal with your Windows Live ID credentials.
@@ -191,7 +189,7 @@ Windows PowerShell cmdlets.
     configure the Windows PowerShell for Django cmdlets to use the
     Windows Azure publishing profile you downloaded:
 
-        PS C:\django\helloworld\hello_dj\hello_dj> Import-AzurePublishSettings c:\django\elvis.publishSettings
+        PS C:\django\helloworld\hello_dj\hello_dj> Import-AzurePublishSettingsFile c:\django\elvis.publishSettings
 
     After importing the publish settings, consider deleting the
     downloaded .publishSettings as the file contains information that
@@ -199,7 +197,7 @@ Windows PowerShell cmdlets.
 
 ### Publishing the Application
 
-1.  Publish the application using the **Publish-AzureService** cmdlet,
+1.  Publish the application using the **Publish-AzureServiceProject** cmdlet,
     as shown below.
 
     -   **name** specifies the name for the service. The name must be
@@ -217,7 +215,7 @@ Windows PowerShell cmdlets.
 
     <!-- -->
 
-        PS C:\django\helloworld\hello_dj\hello_dj> Publish-AzureService –name HelloDJContoso –location "North Central US” -launch
+        PS C:\django\helloworld\hello_dj\hello_dj> Publish-AzureServiceProject –name HelloDJContoso –location "North Central US” -launch
 
     Be sure to use a **unique name**, otherwise the publish process will
     fail. After publishing succeeds, you will see the following
@@ -225,7 +223,7 @@ Windows PowerShell cmdlets.
 
     ![The output of the Publish-AzureService command][]
 
-    The **Publish-AzureService** cmdlet performs the following steps:
+    The **Publish-AzureServiceProject** cmdlet performs the following steps:
 
     1.  Creates a package that will be deployed to Windows Azure. The
         package contains all the files in your Django application
@@ -283,7 +281,7 @@ The following steps show you how to stop and delete your application.
 
 2.  To delete the service, call the following cmdlet:
 
-        PS C:\django\helloworld\hello_dj\hello_dj> Remove-AzureService
+        PS C:\django\helloworld\hello_dj\hello_dj> Remove-AzureServiceProject
 
 3.  When prompted, enter **Y** to delete the service.
 
@@ -319,4 +317,4 @@ deleting a storage account, see [How to Delete a Storage Account from a Windows 
 [The status of the Remove-AzureService command]: ../Media/django-helloworld-ps-remove.png
 [How to Delete a Storage Account from a Windows Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx
 
-[Installation Guide]: /develop/python/commontasks/how-to-install-python
+[Installation Guide]: http://www.windowsazure.com/en-us/develop/python/commontasks/how-to-install-python

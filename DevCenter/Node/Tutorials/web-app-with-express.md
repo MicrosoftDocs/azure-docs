@@ -6,10 +6,10 @@ Node.js includes a minimal set of functionality in the core runtime.
 Developers often use 3rd party modules to provide additional
 functionality when developing a Node.js application. In this tutorial
 you will extend the application created in the [Node.js Web
-Application][] tutorial by using modules.
+Application] tutorial by using modules.
 
 This tutorial assumes that you have completed the [Node.js Web
-Application][] tutorial.
+Application] tutorial.
 
 You will learn:
 
@@ -151,7 +151,7 @@ Windows Azure”.
 4.  Refresh your browser and you will see your changes.
 
     ![A browser window, the page contains Welcome to Express in Windows
-    Azure][]
+    Azure][express-page]
 
 ## Creating a New View
 
@@ -206,7 +206,7 @@ completed. For now, the view just has a static placeholder.
 Now that we augmented the Hello World application to use Express, you
 can publish it to Windows Azure by updating the deployment to the
 existing hosted service. In the Windows Azure PowerShell window, call the
-**Publish-AzureService** cmdlet to redeploy your hosted service to
+**Publish-AzureServiceProject** cmdlet to redeploy your hosted service to
 Windows Azure.
 
     PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -launch
@@ -236,7 +236,7 @@ publishing is completed.
   [The contents of the index.jade file.]: ../Media/getting-started-19.png
   [http://jade-lang.com]: http://jade-lang.com
   [The index.jade file, the last line reads: p Welcome to \#{title} in Windows Azure]: ../Media/node31.png
-  [A browser window, the page contains Welcome to Express in Windows Azure]: ../Media/node32.png
+  [express-page]: ../Media/node32.png
   [The server.js file, with the app.get('/', routes.index); line highlighted]: ../Media/node33.png
   [The web browser displaying the home page, which states A work in progress]: ../Media/node34.png
   [The output of the publish command]: ../Media/node35.png

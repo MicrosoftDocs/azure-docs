@@ -140,5 +140,5 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 [twilio_docs]: http://www.twilio.com/docs
 [twilio_say]: http://www.twilio.com/docs/api/twiml/say
 [ssl_validation]: http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html
-[twilio_php]: ./media/WA_TwilioPHPCallForm.jpg
-[twilio_php_response]: ./media/WA_TwilioPHPMakeCall.jpg
+[twilio_php]: ../Media/WA_TwilioPHPCallForm.jpg
+[twilio_php_response]: ../Media/WA_TwilioPHPMakeCall.jpg
