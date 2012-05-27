@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-net-common-tasks-continuous-delivery" urldisplayname="Continuous Delivery" headerexpose pagetitle="Continuous Delivery for Cloud Applications in Windows Azure" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-common-tasks-continuous-delivery" urldisplayname="Continuous Delivery" headerexpose="" pagetitle="Continuous Delivery for Cloud Applications in Windows Azure" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # Continuous Delivery for Cloud Applications in Windows Azure
 
