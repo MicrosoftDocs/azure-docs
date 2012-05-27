@@ -10,11 +10,11 @@ In this tutorial, you will learn:
 
 ## Create a virtual machine running Windows Server 2008 R2
 
-<div chunk="../Chunks/create-and-configure-windows-server-2008-vm-in-portal.md"/>
+<div chunk="../../../Shared/Chunks/create-and-configure-windows-server-2008-vm-in-portal.md"/>
 
 ## Install and run MongoDB on the virtual machine 
 
-<div chunk="../Chunks/install-and-run-mongo-on-win2k8-vm.md"/>
+<div chunk="../../../Shared/Chunks/install-and-run-mongo-on-win2k8-vm.md"/>
 
 ##Summary
 In this tutorial you learned how to create a Windows Server 2008 R2 SP1 virtual machine and remotely connect to it.  You also learned how to install and configure MongoDB on the Windows virtual machine. For more information on MongoDB, see the [MongoDB Documentation][MongoDocs].
