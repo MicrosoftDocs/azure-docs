@@ -151,8 +151,8 @@ Windows Azure]
   [Publishing Applications to Windows Azure from Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460772.aspx
 [cloud-service]: ../../Shared/Media/staging-cloud-service-running.png
 [cloud-service-dashboard]: ../../Shared/Media/cloud-service-dashboard-staging.png
-[cloud-service-staging-url]: ../../Shared/Media/cloud-service-staging-url
+[cloud-service-staging-url]: ../../Shared/Media/cloud-service-staging-url.png
 [vip-swap-dialog]: ../../Shared/Media/vip-swap-dialog.png
 [new-cloud-service]: ../../Shared/Media/cloud-service-new-custom-create.png
 [custom-create-page1]: ../../Shared/Media/cloud-service-custom-create.png
-[custom-create-page2]: ../../Shared/Media/cloud-service-custom-create-package
+[custom-create-page2]: ../../Shared/Media/cloud-service-custom-create-package.png
