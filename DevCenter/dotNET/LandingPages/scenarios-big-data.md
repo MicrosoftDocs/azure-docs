@@ -1,6 +1,6 @@
 <h1>Big Data Scenarios</h1>
 <p>Windows Azure supports a variety of structured and unstructured data storage options, along with tools to help you analyze and extract BI from data of any size.</p> 
-<span>&nbsp;</span> 
+<span><br/></span> 
 
 
 <div class="dev-articles">
@@ -29,10 +29,10 @@
 </div>
 
 <div class="content-blocks">
-<div class="col"><a href="../web/" class="blue-box"><span class="blue-arrow">&nbsp;</span><span>web</span><span class="icon1">&nbsp;</span></a>
+<div class="col"><a href="../web/" class="blue-box"><span class="blue-arrow"></span><span>web</span><span class="icon1"></span></a>
 </div>
-<div class="col"><a href="../line-of-business/" class="green-box"><span class="green-arrow">&nbsp;</span><span>line of<br/>business</span><span class="icon1">&nbsp;</span></a>
+<div class="col"><a href="../line-of-business/" class="green-box"><span class="green-arrow"></span><span>line of<br/>business</span><span class="icon1"></span></a>
 </div>
-<div class="col"><a href="../mobile/" class="pink-box"><span class="pink-arrow">&nbsp;</span><span>mobile</span><span class="icon1">&nbsp;</span></a>
+<div class="col"><a href="../mobile/" class="pink-box"><span class="pink-arrow"></span><span>mobile</span><span class="icon1"></span></a>
 </div>
 </div>
