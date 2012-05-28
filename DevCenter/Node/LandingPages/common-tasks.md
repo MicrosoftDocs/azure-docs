@@ -3,24 +3,24 @@
 ## Deployment
 
 ### [Publishing with Git]
-Describes how to use Git to publish an application to a Windows Azure Web Site.
+Git is a popular, open source, distributed version control system. Windows Azure Web Sites allow you to enable a Git repository for your site, which allows you to quickly and easily push code changes to your site. This common task provides details about how to get started using Git with Windows Azure
 
 ### [Staging a Cloud Service]
-Describes how to stage a new version of an application to a Windows Azure Cloud Service, and then deploy from staging to production.
+Learn how to stage a new version of an application to a Windows Azure Cloud Service, and then deploy from staging to production.
 
 ## Configuration
 
 ### [Configuring a Custom Domain Name in Windows Azure]
-Shows how to expose your Windows Azure application or storage data on a custom domain.
+By default, Windows Azure applications and storage accounts can be accessed through friendly subdomains, for example, http://&lt;myapp&gt;.cloudapp.net and https://&lt;mydata&gt;.blob.core.windows.net. This article shows you you can explose your application and data on yoru own custom domain, such as http://&lt;myapp&gt;.com.  
 
 ### [Enabling Remote Desktop in Windows Azure with Visual Studio]
-Describes how to configure Remote Desktop connections and connect to role instances. This topic applies only for Cloud Services.
+Remote Desktop enables you to access the desktop of a role instance running in Windows Azure. You can use a remote desktop connection to configure the virtual machine or troubleshoot problems with your application. **Note:** This topic applies only for Cloud Services.
 
 ### [Configuring SSL for an Application in Windows Azure]
-Discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
+Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
 
 ### [Using CDN for Windows Azure]
-Describes how to use the Content Delivery Network (CDN) to optimize the delivery of static content.
+The Windows Azure Content Delivery Network (CDN) offers a global solution for delivering high-bandwidth content by caching blobs and static content at physical nodes around the world. This common task describes how to enable CDN and add, access, and delete content.
 
 
 [Publishing with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/

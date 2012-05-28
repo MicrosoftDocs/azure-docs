@@ -1,16 +1,17 @@
 <h1>Web Scenarios</h1>
 
-<p>With Windows Azure, you can quickly and easily deploy websites to a highly scalable cloud environment.  Our web tutorials show you how to get started developing Windows Azure Web Sites and Cloud Services using a variety of development tools and deployment options including FTP, Git, and TFS.</p>
+<p>With Windows Azure, you can quickly and easily deploy web sites to a highly scalable cloud environment.  Our web tutorials show you how to get started developing Windows Azure Web Sites and Cloud Services using a variety of development tools and deployment options including FTP, Git, and TFS.</p>
 
 <p>Before you get started, read our brief <a href="en-us/develop/net/fundamentals/compute/">Windows Azure Compute fundamentals</a> article to learn about the differences between Web Sites and Cloud Services and the benefits of each hosting model.</p>
 
 <div class="dev-articles">
-<h2>Create your first application</h2>
+<h2>Windows Azure Web Sites</h2>
+For small and medium-sized web apps with a simple web architecture 
+
 <div class="article red">
 <h3><a href="../../tutorials/web-site-with-sql-database/">ASP.NET MVC website with SQL Database</a></h3>
 <p>Implement a simple website using ASP.NET MVC that supports creating, editing, and listing to-do items from a database. You will learn the basics of creating a Windows Azure website, deploying an application to Windows Azure, and storing data in SQL Azure.</p>
 </div>
-<h2>More with Windows Azure Web Sites</h2>
 <div class="article blue">
 <h3><a href="../../tutorials/website-through-the-portal/">Create a website from the Windows Azure Gallery</a></h3>
 <p>Learn how to create a new website through the Windows Azure Gallery and immediately deploy it. You will have a new Wordpress site up-and-running in less than five minutes.</p>
@@ -25,6 +26,7 @@
 </div>
 
 <h2>Windows Azure Cloud Services</h2>
+For multi-environment, multi-tier web applications that require greater control of the hosting environment.
 
 <div class="article blue">
 <h3><a href="./tutorials/cloud-service-with-sql-database/">ASP.NET MVC web application with SQL Database</a></h3>

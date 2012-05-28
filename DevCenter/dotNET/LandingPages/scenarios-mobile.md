@@ -17,8 +17,8 @@
 <div class="content-blocks">
 <div class="col"><a href="../web/" class="blue-box"><span class="blue-arrow">&nbsp;</span><span>web</span><span class="icon1">&nbsp;</span></a>
 </div>
-<div class="col"><a href="../big-data/" class="green-box"><span class="green-arrow">&nbsp;</span><span>line of<br/>business</span><span class="icon1">&nbsp;</span></a>
+<div class="col"><a href="../big-data/" class="green-box"><span class="green-arrow">&nbsp;</span><span>big<br/>data</span><span class="icon1">&nbsp;</span></a>
 </div>
-<div class="col"><a href="../line-of-business/" class="pink-box"><span class="pink-arrow">&nbsp;</span><span>mobile</span><span class="icon1">&nbsp;</span></a>
+<div class="col"><a href="../line-of-business/" class="pink-box"><span class="pink-arrow">&nbsp;</span><span>line of<br />business</span><span class="icon1">&nbsp;</span></a>
 </div>
 </div>

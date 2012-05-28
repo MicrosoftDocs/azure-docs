@@ -54,7 +54,8 @@ The [Windows Azure Table Service] is a NoSQL storage service that is useful for 
 [MongoDB]: http://www.mongodb.org/
 [Socket.io]: http://socket.io/
 [Express]: http://expressjs.com/
-[WebMatrix]:
+[WebMatrix]: /en-us/develop/downloads/webmatrix-overview/
 [Git]: http://git-scm.com/
 [Windows Azure Cross-Platform Tools for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Windows Azure PowerShell]: /en-us/develop/nodejs/how-to-guides/powershell-cmdlets/
+[Windows Azure Table Service]: /en-us/develop/nodejs/how-to-guides/table-services/
