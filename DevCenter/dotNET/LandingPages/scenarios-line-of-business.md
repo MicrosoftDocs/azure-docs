@@ -13,6 +13,7 @@
 <h3><a href="../../tutorials/hybrid-solution/">Hybrid application</a></h3>
 <p>Build a hybrid application that is hosted in the cloud and access data that is stored on-premises. You will learn how to communicate between on-premises and the cloud using Service Bus Relay.</p>
 </div>
+</div>
 
 <div class="content-blocks">
 <div class="col"><a href="../web/" class="blue-box"><span class="blue-arrow"></span><span>web</span><span class="icon1"></span></a>
