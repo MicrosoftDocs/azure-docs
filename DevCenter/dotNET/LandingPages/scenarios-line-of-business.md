@@ -18,7 +18,7 @@
 </div>
 <div class="col"><a href="../big-data/" class="green-box"><span class="green-arrow">&nbsp;</span><span>big<br/>data</span><span class="icon1">&nbsp;</span></a>
 </div>
-<div class="col"><a href="../mobile/" class="pink-box"><span class="pink-arrow">&nbsp;</span><span>mobile</span><span class="icon1">&nbps;</span></a>
+<div class="col"><a href="../mobile/" class="pink-box"><span class="pink-arrow">&nbsp;</span><span>mobile</span><span class="icon1">&nbsp;</span></a>
 </div>
 </div>
 

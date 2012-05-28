@@ -11,7 +11,7 @@
 </div>
 <div class="article blue">
 <h3><a href="../../tutorials/website-with-mongodb-vm/">Website with MongoDB on a virtual machine</a></h3>
-<p>Create an ASP.NET MVC website that connects to a MongoDB instance running on a Windows Azure virtual machine. You will learn how to leverage virtual machines to host unstructured data in MongoDB.</p>
+<p>Create an ASP.NET MVC web site that connects to a MongoDB instance running on a Windows Azure virtual machine. You will learn how to leverage virtual machines to host unstructured data in MongoDB.</p>
 </div>
 <h2>Additional scenarios</h2>
 <div class="article green">
