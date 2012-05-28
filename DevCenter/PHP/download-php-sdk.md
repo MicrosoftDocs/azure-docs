@@ -15,7 +15,7 @@ The instructions in this topic assume that you have [PHP][install-php] installed
 
 ##PHP client libraries for Windows Azure
 
-The PHP Client Libraries for Windows Azure are PHP class libraries that provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services, from any operating system. These libraries can be installed as a PEAR package, using Composer, or manually.
+The PHP Client Libraries for Windows Azure are PHP class libraries that provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services, from any operating system. These libraries can be installed as a PEAR package or manually.
 
 For information about how to use the PHP Client Libraries for Windows Azure, see [How to Use the Blob Service from PHP][blob-service], [How to Use the Table Service from PHP][table-service], and [How to Use the Queue Service from PHP][queue-service].
 
@@ -24,15 +24,15 @@ For information about how to use the PHP Client Libraries for Windows Azure, see
 To install the PHP Client Libraries for Windows Azure as a PEAR package, follow these steps:
 
 1. [Install PEAR][install-pear].
-2. Run the following command from a command prompt:
+2. Add the Windows Azure channel:
 
-		pear install **TODO: need name for package**
+		pear channel-discover pear.windowsazure.com
+
+3. Install the PEAR package:
+
+		pear install WindowsAzure
 
 After the installation completes, you can reference class libraries from your application.
-
-###Install using Composer
-
-	**TODO: Get help with this. I've never used composer.**
 
 ###Install manually
 
