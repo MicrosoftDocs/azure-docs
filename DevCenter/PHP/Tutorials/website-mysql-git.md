@@ -61,31 +61,6 @@ Follow these steps to create a Windows Azure Website and a MySQL database:
 
 	![Git instructions][git-instructions]
 
-##Get MySQL connection information
-
-To connect to the MySQL database that is running in Windows Azure Websites, your will need the connection information. To get MySQL connection information, follow these steps:
-
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>These steps are only necessary in the Windows Azure Preview.</p> 
-</div>
-
-
-1. From your website's dashboard, click the **Download publish profile** link at the bottom right corner of the page:
-
-	![Download publish profile][download-publish-profile]
-
-2. Open the `.publishsettings` file in an XML editor. The `<databases>` element will look similar to this:
-
-		<databases>
-			<add name="registration" 
-				connectionString="Database=registration;Data Source=us-mm-azure-ord-01.cleardb.com;User Id=e02c62383bffdd;Password=0fc50b7e" 
-				providerName="MySql.Data.MySqlClient" 
-				type="MySql"/>
-		</databases>
-	
-3. Make note of the `connectionString` attribute in the `<add>` element, in particular the values for `Database`, `Data Source`, `User Id`, and `Password`.
-
 ##Build and test your application locally
 
 The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a MySQL database. The application consists of two files:
@@ -232,6 +207,16 @@ To build and run the application locally, follow the steps below. Note that thes
 
 You can now browse to [http://localhost/registration/index.php][localhost-index] to test the application.
 
+##Get remote MySQL connection information
+
+To connect to the MySQL database that is running in Windows Azure Websites, your will need the connection information. To get MySQL connection information, follow these steps:
+
+1. From your website's dashboard, click the **View connection strings** link on the right side of the page:
+
+	![Get database connection information][connection-string-info]
+	
+2. Make note of the values for `Database`, `Data Source`, `User Id`, and `Password`.
+
 ##Publish your application
 
 After you have tested your application locally, you can publish it to your Windows Azure Website using Git. However, you first need to update the database connection information in the application. Using the database connection information you obtained earlier (in the **Get MySQL connection information** section), update the following information in **both** the `createdatabase.php` and `index.php` files with the appropriate values:
@@ -242,7 +227,7 @@ After you have tested your application locally, you can publish it to your Windo
 	$pwd = "value of Password";
 	$db = "value of Database";
 
-Now, you are ready to set up Git publishing and publish the application.
+Now, you are ready to initialize your local Git repository and publish the application.
 
 <div class="dev-callout">
 <b>Note</b>
@@ -296,5 +281,5 @@ To publish changes to application, follow these steps:
 [creating-repo]: ../Media/creating_repo.jpg
 [push-files]: ../Media/push_files.jpg
 [git-instructions]: ../Media/git_instructions.jpg
-[download-publish-profile]: ../../Shared/Media/download_publish_profile.jpg
+[connection-string-info]: ../../Shared/Media/connection_string_info.png
 [preview-portal]: https://manage.windowsazure.com
