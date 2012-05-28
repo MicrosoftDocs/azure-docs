@@ -1,4 +1,8 @@
-# How to: Scale a SQL Database solution
+<properties umbracoNaviHide="0" pageTitle="How to Scale a SQL Database Solution" metaKeywords="Windows Azure SQL database, SQL database, scale sql database" metaDescription="Learn how to scale a Windows Azure SQL database solution." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" />
+
+
+<h1 id="scale">How to Scale a SQL Database Solution</h1>
+
 
 On Windows Azure, database scalability is synonymous with scale out, where a workload is redistributed across multiple commodity servers in a data center. Scale out is a strategy for addressing problems with data capacity or performance. A very large database that is on a high-growth trajectory will eventually require a scale out strategy, whether it is accessed by a few users or many users.
 

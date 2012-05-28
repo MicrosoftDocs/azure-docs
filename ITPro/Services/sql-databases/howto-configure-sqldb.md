@@ -1,12 +1,19 @@
-#How to: Create and configure SQL Database
+<properties umbracoNaviHide="0" pageTitle="How to Create and Configure SQL Database" metaKeywords="Windows Azure SQL database, SQL database, create sql database, configure sql database" metaDescription="Learn how to manage Windows Azure SQL database." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" />
 
-In this guide, you'll step through logical server creation and configuration. In the new Windows Azure (Preview) Management Portal, revised workflows let you create a database first, and then create a server. 
 
-However in this guide, you'll create the server first. You might prefer this approach if you have existing SQL Server databases that you want to upload.
+<h1 id="configLogical">How to Create and Configure SQL Database</h1>
 
-##Create a logical server
+In this topic, you'll step through logical server creation and configuration. In the new Windows Azure (Preview) Management Portal, revised workflows let you create a database first, and then create a server. 
 
-1. Sign in at [http://www.windowsazure.com](http://www.windowsazure.com),
+However in this topic, you'll create the server first. You might prefer this approach if you have existing SQL Server databases that you want to upload.
+
+##Table of Contents##
+* [How to: Create a logical server](#configLogical)
+* [How to: Configure the firewall for the logical server](#configFWLogical)
+
+<h2 id="configLogical">How to: Create a logical server</h2>
+
+1. Sign in to the [Management Portal](http://manage.windowsazure.com).
 
 2. Click **SQL Database** and then click **SERVERS** on the SQL Database home page.
 
@@ -30,9 +37,9 @@ Notice that you did not specify a server name. SQL Database auto-generates the s
 
 In the next step, you will configure the firewall so that connections from applications running on your network are allowed access.
 
-<h3 id="configFWLogical">Configure the firewall for the logical server</h3>
+<h2 id="configFWLogical">How to: Configure the firewall for the logical server</h2>
 
-1. Click **SQL Databases**, click **Servers**, and then click on the server you just created.
+1. In the [Management Portal](http://manage.windowsazure.com), click **SQL Databases**, click **Servers**, and then click on the server you just created.
 
 2. Click **Configure**. 
 

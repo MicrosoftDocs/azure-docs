@@ -1,36 +1,158 @@
-<properties umbracoNaviHide="0" pageTitle="How to Deploy a Database to Windows Azure" metaKeywords="Windows Azure SQL database, SQL database, deploy sql database" metaDescription="Learn how to deploy a database to Windows Azure." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" />
+<h1 id="SQLAzureTutorialITPro"> Getting Started with Windows Azure SQL Database</h1>
+
+Learn the fundamentals of Windows Azure SQL Database administration using just the Windows Azure (Preview) Management portal and the instructions in this tutorial. If you are new to database administration, you can follow these lessons to learn essential skills in about 30 minutes. 
+
+This tutorial does not assume prior experience with SQL Server or Windows Azure SQL Database. Upon completing this tutorial, you will have a sample database on Windows Azure and an understanding of how to perform basic administration tasks using the Management Portal.
+
+You will learn:
+
+* How to create a database and server using the portal.
+* How to add data to the database using script.
+* How to query sample and system data.
+* How to create a database login and assign permissions.
+* How to connect to the database from Excel.
 
 
-<h1 id="howtodeploySQLdb">How to Deploy a Database to Windows Azure</h1>
+You will create and provision a sample database on Windows Azure and query system and user data using Excel and other applications.
 
-There are several different ways you can move an on-premises SQL Server database to Windows Azure. In this task, you'll use the Deploy Database to SQL Database wizard to upload a sample database.
+<h2 id="Subscribe">Create a Windows Azure Account</h2>
 
-The School sample database is conveniently simple; all of its objects are compatible with SQL Database, eliminating the need to modify or prepare a database for migration. As a new administrator, try deploying a simple database first to learn the steps before using your own databases. 
+1. Open a web browser, and browse to [http://www.windowsazure.com](http://www.windowsazure.com).
+To get started with a free account, click free trial in the upper right corner and follow the steps.
 
-**Note:** Review the SQL Database Migration Guide for detailed instructions on how to prepare an on-premises database for migration to Windows Azure. Also, consider downloading the Windows Azure Training Kit. It includes a lab that shows an alternative approach to migrating an on-premises database.
+2. Your account is now created. You are ready to get started.
 
-##Table of Contents##
-* [How to: Create the school database on an on-premises server](#schooldb)
-* [How to: Deploy to SQL Database](#deploydb)
-* [How to: Verify database deployment](#verify)
 
-<h2 id="schooldb">How to: Create the school database on an on-premises server</h2>
+<h2 id="Connect">Connect to Windows Azure and create a database</h2>
 
-Scripts for creating this database can be found in the [Getting Started with SQL Database Administration][]. In this guide, you'll run these scripts in Management Studio to create an on-premises version of the school database.
 
-1. In Management Studio, connect to an on-premises server. Right-click **Databases**, click **New Database**, and enter *school*.
+1. Connect to Windows Azure at [http://www.windowsazure.com](http://www.windowsazure.com) and sign in to the Management Portal. You should see a navigation pane that looks like this. 
 
-2. Right-click on *school*, click **New Query**. 
+    ![Image1] []
 
-3. Copy and then execute the Create Schema script from the tutorial. 
+2. Click **New** at the bottom of the page. When you click **New**, a list rolls up the screen showing things you can create.
 
-<div style="width:auto; height:300px; overflow:auto"><pre>
+3. Click **SQL Database** and then click **Custom Create**. 
+
+    ![Image2] []
+
+    Choosing this option lets you create a new server at the same time, with you as the administrator. As the system administrator, you can perform more tasks, including connecting to the Management Portal for SQL Database, which you will do later in this tutorial.  
+
+4.  The Database Settings page appears when you click **Custom Create**. In this page, you provide basic information that creates an empty database on the server. Adding tables and data will come in a later step. 
+
+    Fill out the Database Settings page as follows:
+
+    ![Image3] []
+
+* Enter **School** for the database name. 
+
+* Use the default settings for edition, max size, and collation. 
+
+* Choose **New SQL Database Server**. Selecting a new server adds a second page that we'll use to set the administrator account and region. 
+
+* When you are through, click the arrow to go to next page.
+
+
+7. Fill out the Server Settings as follows: 
+
+    ![Image4] []
+
+* Enter an administrator name as one word with no spaces. SQL Database uses SQL Authentication over an encrypted connection to validate user identity. A new SQL Server authentication login that has administrator permissions will be created using the name you provide. The administrator name cannot be a Windows user, nor should it be a Windows Live ID. Windows authentication is not supported on SQL Database.
+
+* Provide a strong password that is over eight characters, using a combination of upper and lower case values, and a number or symbol.
+
+* Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you. Keeping your Windows Azure application and database in the same region saves you on egress bandwidth cost and data latency.
+
+* Be sure to keep the **Allow Windows Azure Services to access this server**  checkbox selected so that you can connect to this database using the Management Portal for SQL Database, Excel in Office 365, or Windows Azure SQL Reporting.
+
+* Click the checkmark at the bottom of the page when you are finished.
+
+Notice that you did not specify a server name. Because the SQL Database server must be accessible worldwide, SQL Database configures the appropriate DNS entries when the server is created. The generated name ensures that there are no name collisions with other DNS entries. You cannot change the name of your SQL Database server.
+
+In the next step, you will configure the firewall so that connections from applications running on your computer are allowed to access the databases on your SQL Database server.
+
+
+
+<h2 id="ConfigFirewall">Configure the firewall</h2>
+
+To configure the firewall so that connections are allowed through, you'll enter information on the server page.
+
+**Note:** The SQL Database service is only available with TCP port 1433 used by the TDS protocol, so make sure that the firewall on your network and local computer allows outgoing TCP communication on port 1433. For more information, see [SQL Database Firewall](http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-en-us.aspx).
+
+
+1. In the navigation pane on the left, click **SQL Databases**.
+
+2. Click **Servers** at the top of the page. Next, click on the server you just created so that you see a white arrow to the right. Click on the arrow to open the server page.
+
+    ![Image5] []
+
+3. On the server page, click **Configure** to open the firewall configuration settings and specify the rule as follows: 
+
+    ![Image6] []
+
+* Copy the current client IP address. This is the IP address that your  router or proxy server is listening on. SQL Database detects the IP address used by the current connection so that you can create a firewall rule to accept connection requests from this device. 
+
+* Paste the IP address into both the beginning and end range. Later, if you encounter connection errors indicating that the range is too narrow, you can edit this rule to widen the range.
+
+* Enter a name for the firewall rule, such as the name of your computer or company.
+
+* Click the checkmark to save the rule.
+
+    After you save the rule, your page will look similar to the following screenshot.
+
+    ![Image7] []
+
+4. Click **Save** at the bottom of the page to complete the step. If you do not see **Save**, refresh the browser page.
+
+You now have a SQL Database server on Windows Azure, a firewall rule that enables access to the server, a database object, and an administrator login. But you still don't have a working database that you can query. To do that, your database must have a schema and actual data.
+
+Because this tutorial uses just the tools at hand, you'll use the query window in the Management Portal for SQL Database to run Transact-SQL script that builds a predefined database.
+
+As your skills increase, you will want to explore additional ways of creating a database, including programmatic approaches or the designer in SQL Server Data Tools. If you already have an existing SQL Server database that runs on a local server, you can easily migrate that database to the Windows Azure server that you just set up. Use the links at the end of this tutorial to find out how. 
+
+
+
+<h2 id="AddData">Add data and a schema using Transact-SQL script</h2>
+
+In this step, you run two scripts. The first one creates a schema that defines tables, columns, and relationships. The second script adds the data. Each step is performed independently on a separate connection. If you've built databases in SQL Server before, one of the differences you'll notice in SQL Database is that CREATE and INSERT commands must run in separate batches. SQL Database imposes this requirement to minimize attacks against the data while it is in transit. 
+
+**Note:** The schema and data values are taken from this [MSDN article](http://msdn.microsoft.com/en-us/library/windowsazure/ee621790.aspx "MSDN article") and have been modified to work with SQL Database.
+
+1. Go to the home page. In the Management Portal, the **School** database appears in the list of items on the home page. 
+
+   ![Image8] []
+
+
+2. Click on **School** so that you see a white arrow to the right. Click on the arrow to open the database page.
+
+   ![Image9] []
+
+3. Click **Manage** at the bottom of the page. If it is not visible, refresh the browser window. This will open the Management Portal for SQL Database. This portal is separate from the Windows Azure (Preview) Management Portal. You'll use this portal to run Transact-SQL commands and queries. 
+
+	![Image10] []
+
+4. Enter the administrator login name and password. This is the administrator login that you specified when you created the server.
+
+	![Image11] []
+
+5. Click **New Query** in Management Portal for SQL Database. An empty query window opens in the workspace. In the next step, you will use this window to copy in a series of predefined scripts that will add structure and data to your empty database.
+
+	![Image12] []
+	
+
+<h2 id="createschema">Create the schema</h2>
+
+In this step, you will create the schema using the following script. The script first checks for an existing table of the same name to ensure there won't be a name collision, and creates the table using the [CREATE TABLE](http://msdn.microsoft.com/en-us/library/windowsazure/ee336258.aspx) statement. Further on, this script uses the [ALTER TABLE](http://msdn.microsoft.com/en-us/library/windowsazure/ee336286.aspx) statement to specify the primary key and table relationships.
+
+Copy the script and paste it into the query window. Click **Run** at the top of the window to execute the script.
+
+<div style="width:auto; height:600px; overflow:auto"><pre>
 	-- Create the Department table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
-	   	WHERE object_id = OBJECT_ID(N'[dbo].[Department]') 
-	  	AND type in (N'U'))
+		WHERE object_id = OBJECT_ID(N'[dbo].[Department]') 
+		AND type in (N'U'))
    	BEGIN
-    CREATE TABLE [dbo].[Department](
+  	CREATE TABLE [dbo].[Department](
 		[DepartmentID] [int] NOT NULL,
 		[Name] [nvarchar](50) NOT NULL,
 		[Budget] [money] NOT NULL,
@@ -262,9 +384,13 @@ Scripts for creating this database can be found in the [Getting Started with SQL
 	GO
 </pre></div>
 
-Next, copy and execute the Insert Data script.
 
-<div style="width:auto; height:300px; overflow:auto"><pre>
+
+<h2 id="insertData">Insert data</h2>
+
+Open a new query window and then paste in the following script. Run the script to insert data. This script uses the [INSERT](http://msdn.microsoft.com/en-us/library/windowsazure/ee336284.aspx) statement to add values to each column.
+
+<div style="width:auto; height:600px; overflow:auto"><pre>
 	-- Insert data into the Person table.
 	SET IDENTITY_INSERT dbo.Person ON;
 	GO
@@ -516,46 +642,14 @@ Next, copy and execute the Insert Data script.
 	GO
 </pre></div>
 
-   You now have an on-premises database that you can export to Windows Azure. Next, you'll run a wizard that creates a .bacpac file, loads it onto Windows Azure, and imports it into SQL Database.
+<h2 id="QueryDBSysData">Query sample and system data in the Management Portal for SQL Database</h2>
 
+To check your work, run a query that returns the data you just entered. You can also run built-in stored procedures and data management views that provide information about the databases running on your SQL Database server.
 
-<h2 id="deploydb">How to: Deploy to SQL Database</h2>
+<h4 id="QueryDB">Query sample data</h4>
 
-1. In Management Studio, connect to an on-premises SQL Server instance that has a database you want to migrate.
+In a new query window, copy and run the following Transact-SQL script to retrieve some of the data you just added.
 
-2. Right-click the school database that you just created, point to **Tasks**, and click **Deploy Database to SQL Database**.
-
-3. In Deployment Settings, enter a name for the database, such as *school*. 
-
-4. Click **Connect**.
-
-5. In Server name, enter the 10-character server name, followed by .databases.windows.net.
-
-6. In Authentication, choose **SQL Server Authentication**.
-
-7. Enter the administrator login name and password that you provisioned when creating the SQL Database logical server.
-
-8. Click **Options**.
-
-9. In Connection Properties, in Connect to database, type **master**.
-
-10. Click **Connect**. This step concludes the connection specification and takes you back to the wizard.
-
-
-11. Click **Next** and click **Finish** to run the wizard.
-
-
-<h2 id="verify">How to: Verify database deployment</h2>
-
-1. In Management Studio, connect to the logical server. If you already have a connection open, you can close it and open a new one. The existing connection shows only those databases that were running at the time the connection was made.
-
-   For instructions on how to connect to a logical server, see [How to: Connect using Management Studio][] in this document. 
-
-2. Expand the Databases folder. You should see the school database in the list.
-
-3. Right-click on the school database and click **New Query**.
-
-4. Execute the following query to verify that data is accessible.
 
 <div style="width:auto; height:auto; overflow:auto"><pre>
 	SELECT
@@ -576,5 +670,165 @@ Next, copy and execute the Insert Data script.
  	 INNER JOIN OnsiteCourse
 		ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
 </pre></div>
-[Getting Started with SQL Database Administration]: http://www.windowsazure.com/en-us/manage/tutorials/sql-azure-management/  
-[How to: Connect using Management Studio]: ./howto-connect-sqldb/
+
+You should see a result set that looks like the following illustration.
+
+![Image13] []
+
+
+<h4 id="QuerySys">Query system data</h4>
+
+You can also use system views and built-in stored procedures to get information from the server. For the purposes of this tutorial, you will try out just a few commands.
+
+Run the following command to find out which databases are available on the server. 
+
+	SELECT * FROM sys.databases  
+
+Run this command to return a list of users currently connected to the server.
+
+	SELECT user_name(),suser_sname()
+
+Run this stored procedure to return a list of all of the objects in the **School** database.
+
+	EXEC SP_help
+
+Do not close the portal connection to the **School** database. You will need it again in a few minutes.
+
+
+
+<h2 id="DBLogin">Create a database login and assign permissions</h2>
+
+In SQL Database, you can create logins and grant permissions using Transact-SQL. In this lesson, using Transact-SQL, you will do three things: create a SQL Server authentication login, create  a database user, and grant permissions via role membership.
+
+A SQL Server authentication login is used for server connections. All users who access a database on a SQL Database server do so by providing a SQL Server authentication login name and password. 
+
+To create a login, you must first connect to the **master** database.
+
+<h4 id="CreateLogin">Create a SQL Server authentication login</h4>
+
+1. Go back to the Windows Azure (Preview) Management Portal, select **SQL Databases**, click **Servers**, choose the server and then click the white arrow to open the
+server page. 
+
+    ![Image5] []
+
+2. On the Quick Start page, click **Manage Server** to open a new connection to the Management Portal for SQL Database. 
+
+3. Enter the administrator name and password. This is the administrator login that you specified when you created the server.
+
+    ![Image20] []
+
+4. The SQL Database management portal opens in a new browser window. Click **Select a Database** at the top, and click **master**.
+
+	![Image14] []
+
+5. If you see an error on the page similar to the following, ignore it. Click **New Query** to open a query window that lets you execute Transact-SQL commands on the **master** database.
+
+	![Image15] []
+
+6. Copy and paste the following command into the query window.
+
+        CREATE LOGIN SQLDBLogin WITH password='Password1';
+
+7. Run the command to create a new SQL Server login named 'SQLDBLogin'.
+
+
+<h4 id="CreateDBuser">Create a database user and assign permissions</h4>
+
+After you create a SQL Server authentication login, the next step is to assign the database and permission levels associated with the login. You do this by creating a **database user** on each database.
+
+1. Go back to the SQL Database management portal page that connects to the **School** database. If you closed the browser window, start a new connection to **School** database using the steps from the previous lesson, "Add data and a schema using Transact-SQL script". 
+
+	On the SQL Database management portal page, the **School** database name is visible in the top left corner.
+
+	![Image12] []
+
+2. Click **New Query** to open a new query window and copy in the following statement. 
+
+	    CREATE USER SQLDBUser FROM LOGIN SQLDBLogin;
+
+3. Run the script. This script creates a new database user based on the login.
+
+   Next, you'll assign permissions using the db_datareader role. Database users assigned to this role can read all data from all user tables in the database. 
+
+4. Open a new query window and then enter and run the next statement. This statement runs a built-in stored procedure that assigns the db_datareader role to the new user you just created. 
+
+        EXEC sp&#95;addrolemember 'db&#95;datareader', 'SQLDBUser';
+
+You now have a new SQL Server authentication login that has read-only permission to the **School** database. Using these steps, you can create other SQL Server authentication logins to allow different levels of access to your data.
+
+
+
+
+<h2 id="ClientConnection">Connect from other applications</h2>
+
+Now that you have an operational database, you can connect to it from an Excel workbook.
+
+<h4>Connect from Excel</h4>
+
+
+If Excel 2010 is installed on your computer, you can use the following steps to connect to your sample database.
+
+1. In Excel, on the Data tab, click **From Other Sources**, and then click **From SQL Server**.
+
+2. In the Data Connection wizard, enter the fully-qualified domain name of your SQL Database server, followed by a SQL Server authentication login that has permission to access the database. 
+
+  The server name can be found on the Windows Azure management portal, on SQL Database, on Server page, on the Dashboard, in **Manage URL**. The server name consists of a series of letters and numbers, followed by '.database.windows.net'. Specify this name in the Database Connection wizard. Do not include the http:// or https:// prefix when specifying the name.
+
+  Enter a SQL Server authentication login. For testing purposes, you can use the administrator login that you created when you set up the server. For regular data access, use a database user login similar to the one you just created.
+
+    ![Image16] []
+
+3.  On the next page, choose the **School** database, and then choose **Course**. Click **Finish**.
+
+	![Image17] []
+
+4. The Import Data dialog box appears that prompts you to select how and where to import your data. With the default options selected, click **OK**.
+
+	![Image19] []
+
+
+5. In the worksheet, you should see a table similar to the following. 
+	
+	![Image18] []
+
+Using just Excel, you can import only one table at a time. A better approach is to use the PowerPivot for Excel add-in, which lets you import and work with multiple tables as a single data set. Working with PowerPivot is beyond the scope of this tutorial, but you can get more information on this [Microsoft web site](http://www.microsoft.com/en-us/bi/powerpivot.aspx).
+
+
+<h2 id="NextSteps">Next steps</h2>
+
+Now that you are familiar with SQL Database and the management portals, you can try out other tools and techniques used by SQL Server database administrators.
+
+To actively manage your new database, consider installing and using SQL Server Management Studio. Management Studio is the primary database administration tool for managing SQL Server databases, including those running on Windows Azure. Using Management Studio, you can save queries for future use, add new tables and stored procedures, and hone your Transact-SQL skills in a rich scripting environment that includes a syntax checker, intellisense, and templates. To get started, follow the instructions in [Managing SQL Databases Using SQL Server Management Studio](http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/).
+
+Fluency in the Transact-SQL query and data definition language is essential for database administrators. If you are new to Transact-SQL, start with the [Tutorial: Writing Transact-SQL Statements](http://msdn.microsoft.com/en-us/library/ms365303.aspx) to learn some basic skills.
+
+There are other methods for moving an on-premise database to SQL Database. If you have existing databases, or if you downloaded sample databases to practice with, try the following alternative approaches:
+
+* [Migrating Databases to SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ee730904.aspx)
+* [Copying Databases in SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ff951624.aspx)
+* [How to Use SQL Database Programmatically](http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/)
+
+
+
+
+[Image1]: Media/1NavPaneDBSelected_SQLTut.png
+[Image2]: Media/2MainPageCustomCreateDB_SQLTut.png
+[Image3]: Media/3DatabaseSettings_SQLTut.PNG
+[Image4]: Media/4ServerSettings_SQLTut.png
+[Image5]: Media/5DBPortalDatabasesServers_SQLTut.PNG
+[Image6]: media/6DBConfigFirewall_SQLTut.png
+[Image7]: media/7DBConfigFirewallSAVE_SQLTut.png
+[Image8]: media/8MainPageHome_SQLTut.PNG
+[Image9]: media/9dblistschool_SQLTut.png
+[Image10]: media/10dbportalmanagebutton_SQLTut.png
+[Image11]: media/11ManageDatabaseLogin_SQLTut.png
+[Image12]: media/12DBPortalNewQuery_SQLTut.png
+[Image13]: media/13DBQueryResults_SQLTut.png
+[Image14]: media/14DBPortalConnectMaster_SQLTut.PNG
+[Image15]: media/15DBPortalConnectMasterErr_SQLTut.PNG
+[Image16]: media/16ExcelConnect_SQLTut.png
+[Image17]: media/17ExcelSelect_SQLTut.png
+[Image18]: media/18ExcelTable_SQLTut.png
+[Image19]: media/19ExcelImport_SQLTut.png
+[Image20]: media/11ManageDatabaseLogin_SQLTut.png
+
