@@ -1,2 +1,2 @@
 <properties umbracoNaviHide="0" pageTitle="Manage SQL Database - Manage Center - Windows Azure" metaKeywords="Windows Azure, Azure,SQL Database" metaDescription="Learn how to manage SQL Database using the SQL Server Management Studio." linkid="manage-services-sql-database-manage-sqlDB" urlDisplayName="Manage SQL Database" headerExpose="" footerExpose="" disqusComments="1" />
-<div chunk="../../../Shared/Chunks/sql-azure-management.md" />
+<div chunk="../../../DevCenter/Shared/Chunks/sql-azure-management.md" />

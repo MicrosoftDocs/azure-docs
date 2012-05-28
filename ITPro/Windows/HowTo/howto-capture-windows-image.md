@@ -1,4 +1,4 @@
-
+﻿
 <properties umbracoNaviHide="0" pageTitle="How to Capture an Image of a Virtual Machine Running Windows Server 2008 R2" metaKeywords="Windows Azure virtual machine, Azure virtual machine, Azure image, capture an image, image" metaDescription="Learn how to capture your own images to create customized virtual machines." linkid="manage-windows-how-to-guide-virtual-machines" urlDisplayName="How to: virtual machines" headerExpose="" footerExpose="" disqusComments="1" />
 
 # <a id="capture"> </a>How to Capture an Image of a Virtual Machine Running Windows Server 2008 R2 #
@@ -59,6 +59,6 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 [Enter Sysprep.exe options]:../media/sysprepgeneral.png
 [The virtual machine is stopped]:../media/sysprepstopped.png
 [Capture an image of the virtual machine]:../media/capturevm.png
-[Enter the image name]:(../media/capture.png
+[Enter the image name]:../media/capture.png
 [Image capture successful]:../media/capturesuccess.png
 [Use the captured image]:../media/myimagesWindows.png
