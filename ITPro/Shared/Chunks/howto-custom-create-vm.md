@@ -1,8 +1,6 @@
 
 <properties umbracoNaviHide="0" pageTitle="How to Create a Custom Virtual Machine" metaKeywords="Windows Azure virtual machine, Azure virtual machine, connect virtual machines, multiple virtual machines, custom virtual machines" metaDescription="Learn how to create a custom virtual machine ." linkid="manage-windows-how-to-guide-virtual-machines" urlDisplayName="How to: virtual machines" headerExpose="" footerExpose="" disqusComments="1" />
-
-
-# <a id="customcreate"> </a>How to Create a Custom Virtual Machine #
+#How to Create a Custom Virtual Machine
 
 You can create a custom virtual machine by providing advanced options, such as size, connected resources, DNS name, and network connection. You must use this option if you want to connect virtual machines or if you want to use a custom image to create the machine. 
 

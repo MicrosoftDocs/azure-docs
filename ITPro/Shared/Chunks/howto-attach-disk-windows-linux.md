@@ -1,7 +1,5 @@
 <properties umbracoNaviHide="0" pageTitle="How to Attach a Data Disk to a Virtual Machine" metaKeywords="Windows Azure virtual machine, Azure virtual machine, Azure disks, Azure data disks, data disks, linux data disks, initialize a new disk, initialize an empty disk" metaDescription="Learn how to attach an existing or empty data disk to a virtual machine." linkid="manage-windows-how-to-guide-virtual-machines" urlDisplayName="How to: virtual machines" headerExpose="" footerExpose="" disqusComments="1" />
-
-
-# <a id="attachdisk"> </a>How to Attach a Data Disk to a Virtual Machine #
+#How to Attach a Data Disk to a Virtual Machine
 
 
 * [Concepts](#concepts)
