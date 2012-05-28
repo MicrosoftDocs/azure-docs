@@ -1,5 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="How To Manage Storage Accounts" metaKeywords="Windows Azure storage, storage service, service, storage account, account, manage storage account, manage, geo-replication, regenerate storage account keys" metaDescription="Learn how to manage Windows Azure storage accounts." 
-linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties umbracoNaviHide="0" pageTitle="How To Manage Storage Accounts" metaKeywords="Windows Azure storage, storage service, service, storage account, account, manage storage account, manage, geo-replication, regenerate storage account keys" metaDescription="Learn how to manage Windows Azure storage accounts." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
 
 
 <h1 id="managestorageaccounts">How To Manage Storage Accounts</h1>

@@ -1,4 +1,4 @@
-# Managing Your ACS Namespace #
+﻿# Managing Your ACS Namespace #
 
 This topic outlines management tasks that it is recommended you perform regularly so that your applications that use the Windows Azure Acccess Control Service (ACS) continue to function properly and without interruptions. These management tasks are as follows:
 
@@ -337,7 +337,7 @@ Following are the exception that ACS will throw if the credentials are expired:
 </tr>
 <tr><td>X.509 Certificate</td>
 <td>ACS50016</td>
-<td>X509Certificate with subject '<Certificate subject name>' and thumbprint '<Certificate thumbprint>' does not match any configured certificate.</td>
+<td>X509Certificate with subject '&lt;Certificate subject name&gt;' and thumbprint '&lt;Certificate thumbprint&gt;' does not match any configured certificate.</td>
 <td>Ensure that the requested certificate has been uploaded to ACS.</td>
 </tr>
 </table> 
@@ -398,7 +398,7 @@ ACS will throw out the following exceptions if these credentials are expired:
 </tr>
 <tr><td>X.509 Certificate</td>
 <td>ACS50016</td>
-<td>X509Certificate with subject '<Certificate subject name>' and thumbprint '<Certificate thumbprint>' does not match any configured certificate.</td>
+<td>X509Certificate with subject '&lt;Certificate subject name&gt;' and thumbprint '&lt;Certificate thumbprint&gt;' does not match any configured certificate.</td>
 <td>Ensure that the requested certificate has been uploaded to ACS.</td>
 </tr>
 </table> 

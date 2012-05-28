@@ -821,24 +821,24 @@ There are other methods for moving an on-premise database to SQL Database. If yo
 
 
 
-[Image1]: Media/1NavPaneDBSelected_SQLTut.png
-[Image2]: Media/2MainPageCustomCreateDB_SQLTut.png
-[Image3]: Media/3DatabaseSettings_SQLTut.PNG
-[Image4]: Media/4ServerSettings_SQLTut.png
-[Image5]: Media/5DBPortalDatabasesServers_SQLTut.PNG
-[Image6]: media/6DBConfigFirewall_SQLTut.png
-[Image7]: media/7DBConfigFirewallSAVE_SQLTut.png
-[Image8]: media/8MainPageHome_SQLTut.PNG
-[Image9]: media/9dblistschool_SQLTut.png
-[Image10]: media/10dbportalmanagebutton_SQLTut.png
-[Image11]: media/11ManageDatabaseLogin_SQLTut.png
-[Image12]: media/12DBPortalNewQuery_SQLTut.png
-[Image13]: media/13DBQueryResults_SQLTut.png
-[Image14]: media/14DBPortalConnectMaster_SQLTut.PNG
-[Image15]: media/15DBPortalConnectMasterErr_SQLTut.PNG
-[Image16]: media/16ExcelConnect_SQLTut.png
-[Image17]: media/17ExcelSelect_SQLTut.png
-[Image18]: media/18ExcelTable_SQLTut.png
-[Image19]: media/19ExcelImport_SQLTut.png
-[Image20]: media/11ManageDatabaseLogin_SQLTut.png
+[Image1]: ../media/1NavPaneDBSelected_SQLTut.png
+[Image2]: ../media/2MainPageCustomCreateDB_SQLTut.png
+[Image3]: ../media/3DatabaseSettings_SQLTut.PNG
+[Image4]: ../media/4ServerSettings_SQLTut.png
+[Image5]: ../media/5DBPortalDatabasesServers_SQLTut.PNG
+[Image6]: ../media/6DBConfigFirewall_SQLTut.png
+[Image7]: ../media/7DBConfigFirewallSAVE_SQLTut.png
+[Image8]: ../media/8MainPageHome_SQLTut.PNG
+[Image9]: ../media/9dblistschool_SQLTut.png
+[Image10]: ../media/10dbportalmanagebutton_SQLTut.png
+[Image11]: ../media/11ManageDatabaseLogin_SQLTut.png
+[Image12]: ../media/12DBPortalNewQuery_SQLTut.png
+[Image13]: ../media/13DBQueryResults_SQLTut.png
+[Image14]: ../media/14DBPortalConnectMaster_SQLTut.PNG
+[Image15]: ../media/15DBPortalConnectMasterErr_SQLTut.PNG
+[Image16]: ../media/16ExcelConnect_SQLTut.png
+[Image17]: ../media/17ExcelSelect_SQLTut.png
+[Image18]: ../media/18ExcelTable_SQLTut.png
+[Image19]: ../media/19ExcelImport_SQLTut.png
+[Image20]: ../media/11ManageDatabaseLogin_SQLTut.png
 

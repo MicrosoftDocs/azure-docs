@@ -1,4 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="How to Monitor Websites" metaKeywords="Windows Azure Websites, Azure deployment, Azure configuration changes, Azure deployment update, Windows Azure .NET deployment, Azure .NET deployment" metaDescription="Learn how to monitor Websites in Windows Azure." linkid="itpro-windows-howto-configure-websites" urlDisplayName="How to Configure Websites" headerExpose="" footerExpose="" disqusComments="1" />
+﻿<properties umbracoNaviHide="0" pageTitle="How to Monitor Websites" metaKeywords="Windows Azure Websites, Azure deployment, Azure configuration changes, Azure deployment update, Windows Azure .NET deployment, Azure .NET deployment" metaDescription="Learn how to monitor Websites in Windows Azure." linkid="itpro-windows-howto-configure-websites" urlDisplayName="How to Configure Websites" headerExpose="" footerExpose="" disqusComments="1" />
 
 #<a name="howtomonitor"></a>How to Monitor Websites
 
@@ -131,7 +131,7 @@ The /LogFiles/DetailedErrors/ folder contains one or more .htm files that provid
 <li><strong>Detailed Error Information</strong> – Includes information about the error such as <em>Module</em>, <em>Handler</em>, <em>Error Code</em>, and <em>Requested URL</em>.<br/></li>	
 <li><strong>Most likely causes:</strong> Lists several possible causes of the error.<br/></li>
 <li><strong>Things you can try:</strong> Lists possible solutions for resolving the problem reported by the error.<br/></li>
-<li><strong>Links and More Information</strong> – Provides additional summary information about the error and may also include links to other resources such as Microsoft Knowledge Base articles.</li></td></tr>
+<li><strong>Links and More Information</strong> – Provides additional summary information about the error and may also include links to other resources such as Microsoft Knowledge Base articles.</li></ul></td></tr>
 <tr><td>Web Server Logging</td><td>/LogFiles/http/RawLogs</td><td><strong>Log Parser</strong><br/>
 Used to parse and query IIS log files. Log Parser 2.2 is available on the Microsoft Download Center at <a href="http://go.microsoft.com/fwlink/?LinkId=246619">http://go.microsoft.com/fwlink/?LinkId=246619</a>.</td></tr>
 </table>

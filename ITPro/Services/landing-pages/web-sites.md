@@ -1,4 +1,5 @@
 # Web Sites articles
+
 A Web Site is a web application host on Windows Azure that supports popular web application technologies such as .NET, Node.js and PHP without requiring any code changes to existing applications. All of the common programming models and resources that .NET, Node.js and PHP developers use to access resources such as files and databases will continue to work as expected on instances of a Web Site deployed to Windows Azure. 
 
 ## How to guides
