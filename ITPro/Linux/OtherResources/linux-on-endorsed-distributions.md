@@ -1,11 +1,10 @@
 <properties umbracoNaviHide="0" pageTitle="How to Create Management Certificates for Linux" metaKeywords="Windows Azure virtual machine, Azure virtual machine, certificates, management certificates" metaDescription="Learn how to create management certificates for Linux on Windows Azure." linkid="manage-linux-how-to-guide-virtual-machines" urlDisplayName="How To Guides" headerExpose="" footerExpose="" disqusComments="1" />
-
-<h1 id="endorseddistribution">Linux on Windows Azure Endorsed Distributions </h1>
+#Linux on Windows Azure-Endorsed Distributions
 
 The following matrix shows the different distribution versions, LIS drivers and Agent Versions that have been tested to work on Windows Azure.
 
-<table border>
-	<tr>
+<table border="1" width="600">
+  <tr bgcolor="#E9E7E7">
 		<th>Distribution</th>		
 	    <th>Version</th>
 	    <th>Last Verified</th>

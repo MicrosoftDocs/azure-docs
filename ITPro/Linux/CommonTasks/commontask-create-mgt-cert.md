@@ -1,7 +1,5 @@
 <properties umbracoNaviHide="0" pageTitle="How to Create Management Certificates for Linux" metaKeywords="Windows Azure virtual machine, Azure virtual machine, certificates, management certificates" metaDescription="Learn how to create management certificates for Linux on Windows Azure." linkid="manage-linux-how-to-guide-virtual-machines" urlDisplayName="How To Guides" headerExpose="" footerExpose="" disqusComments="1" />
-
-
-<h1 id="createcertificates">How to Create Management Certificates for Linux</h1>
+#Create Management Certificates for Linux
 
 A management certificate is needed anytime that you want to use the Service Management API to interact with the Windows Azure image platform. 
 
@@ -13,10 +11,7 @@ There is already documentation on how to create and manage these certificates at
 * [How to: Create and upload a management certificate](#createcert)
 * [How to: Create a management certificate using the Windows Azure Platform Management Portal](#silverlight)
 
-
-
 <h2 id="createcert">How to: Create and upload a management certificate</h2>
-
 
 We have created an easy way for you to create a management certificate for Windows Azure by visiting: [https://windows.azure-preview.com/download/publishprofile.aspx](https://login.live-int.com/login.srf?wa=wsignin1.0&rpsnv=46&ct=1338199035&rver=6.1.6206.0&wp=MBI_SSL&wreply=https:%2F%2Fwindows.azure-preview.com%2Flanding%3Ftarget%3D%252fdownload%252fpublishprofile.aspx&lc=1033&id=273891)
 
@@ -24,10 +19,9 @@ This website will ask you to login using your portal credentials and then genera
 
 ![linuxcredentials](../media/linuxcredentials.png)
 
-Make sure you save this file in safe place as you will not be able to recover it and will need to generate a new management cert. (There is a limit for the total number of certs that you can use in the system. See the appropriate section on this website to confirm this.)
-You can then use this certificate in multiple ways:
+Make sure you save this file in safe place as you will not be able to recover it and will need to generate a new management cert. (There is a limit for the total number of certs that you can use in the system. See the appropriate section on this website to confirm this.) You can then use this certificate in multiple ways:
 
-### In visual Studio###
+###In Visual Studio###
 
 ![VSpublish](../media/VSpublish.png)
 
@@ -36,10 +30,10 @@ You can then use this certificate in multiple ways:
 
 You can import the certificate so that you can use it by running the Windows Azure account import command:
 
-
 ![cmdlinepublish](../media/cmdlinepublish.png)
 
 With any other partner or software where you need the tool you will need to extract the management cert from within the file itself and Base 64 decode it. Some partners such as ScaleXtreme and SUSE Studio will consume the file directly in their current form. 
+
 In order to extract the management cert you will need to follow this procedure.
 
 You will need to extract from that file the base 64 encoded content between the  quotes after ManagementCertificate.
@@ -113,7 +107,7 @@ You also need the ID of your subscription to upload the VHD file.
 
 ###Providing this information to tools if  you generated your own key###
 
-###For CSUPLOAD###
+####For CSUPLOAD
 
 1.	Open a Windows Azure SDK Command Prompt window as an administrator.
 2.	Set the connection string by using the following command and replacing **Subscriptionid** and **CertThumbprint** with the values that you obtained earlier:
@@ -121,7 +115,7 @@ You also need the ID of your subscription to upload the VHD file.
 
 		csupload Set-Connection "SubscriptionID=<Subscriptionid>;CertificateThumbprint=<Thumbprint>;ServiceManagementEndpoint=https://management-preview.core.windows-int.net"
 
-###For Linux Azure command line tools###
+####For Linux Azure command line tools
 
 You will need to base 64 encode the  PFX file you created using openssl with command:
 
@@ -143,5 +137,3 @@ You will then need to merge your subscription ID and the base64 encoded pfx into
 		
 Where xxxxx is the contents of the [enconded file] you will use to provide the details to the Linux Windwos Azure Command Line Tools with the commands:
 Azure account import (File)
-
-

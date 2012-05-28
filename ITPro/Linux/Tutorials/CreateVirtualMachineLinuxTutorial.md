@@ -1,4 +1,5 @@
-#Create a Virtual Machine Running Linux#
+<properties umbracoNaviHide="0" pageTitle="Create a Virtual Machine Running Linux" metaKeywords="Windows Azure virtual machine, Azure virtual machine, create a VM, VM" metaDescription="Learn how to create a virtual machine running Linux in Windows Azure." linkid="manage-linux-tutorial-create-a-virtual-machine" urlDisplayName="Create a virtual machine" headerExpose="" footerExpose="" disqusComments="1" />
+#Create a Virtual Machine Running Linux 
 
 Creating a virtual machine that is running the Linux operating system is easy when you use the Image Gallery in the Windows Azure Management Portal. This guide assumes that you have no prior experience using Windows Azure. In less than 20 minutes, you can create a virtual machine running the Linux operating system in the cloud that you can access and customize.
 

@@ -1,6 +1,5 @@
 <properties umbracoNaviHide="0" pageTitle="How to Create Management Certificates for Linux" metaKeywords="Windows Azure virtual machine, Azure virtual machine, certificates, management certificates" metaDescription="Learn how to create management certificates for Linux on Windows Azure." linkid="manage-linux-how-to-guide-virtual-machines" urlDisplayName="How To Guides" headerExpose="" footerExpose="" disqusComments="1" />
-
-<h1 id="sshwithlinux">How to Use SSH with Linux on Windows Azure</h1>
+#How to Use SSH with Linux on Windows Azure
 
 This topic describes the steps to generate SSH keys compatible with Windows Azure.
 
@@ -9,9 +8,9 @@ The current version of the Windows Azure Management Portal only accepts SSH publ
 ## Get OpenSSL on Linux ##
 To get openssl on a Linux machine, use the native package management solution for your Linux distribution:
 
-*  Redhat/CentOS – `yum install openssl`
-*  Debian – `apt-get install openssl`
-*  Ubuntu – `apt-get install openssl`
+*  Redhat/CentOS: `yum install openssl`
+*  Debian: `apt-get install openssl`
+*  Ubuntu: `apt-get install openssl`
 
 ## Generate Windows Azure Compatible Keys in Linux ##
 
@@ -31,7 +30,7 @@ To get openssl on a Linux machine, use the native package management solution fo
 Every Linux virtual machine is provisioned with SSH in a particular port that may be different from the standard port used so you 
 
 1.	Find the port you will use to connect to the Linux virtual machine from the Management Portal.
-2.	Connect to the Linux virtual machine using `ssh`. You will be prompted to accept the fingerprint of the host’s public key the first time you log in.
+2.	Connect to the Linux virtual machine using `ssh`. You will be prompted to accept the fingerprint of the host's public key the first time you log in.
 
 		ssh -i  myPrivateKey.key -p <port> username@servicename.cloudapp.net
 3.	(Optional) You may copy `myPrivateKey.key` to `~/.ssh/id_rsa` so that your openssh client can automatically pick this up without the use of the `-i` option.
@@ -60,8 +59,8 @@ Every Linux virtual machine is provisioned with SSH in a particular port that ma
 2.	Type in the following command:
 
 		openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
-3.	Your screen should look like the following:
 
+3.	Your screen should look like the following:
 
 	![linuxwelcomegit](../media/linuxwelcomegit.png)
 
@@ -76,7 +75,7 @@ Every Linux virtual machine is provisioned with SSH in a particular port that ma
 1.	Download and install puttygen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2.	Run `puttygen.exe`
 3.	Click the menu: File > Load a Private Key
-4.	Find your private key, which we named `myPrivateKey.key`. You will need to change the file filter to show “All Files (*.*)”
+4.	Find your private key, which we named `myPrivateKey.key`. You will need to change the file filter to show **All Files (\*.*)**
 5.	Click **Open**. You will receive a prompt which should look like this:
 
 	![linuxgoodforeignkey](../media/linuxgoodforeignkey.png)
@@ -85,7 +84,6 @@ Every Linux virtual machine is provisioned with SSH in a particular port that ma
 7.	Click **Save Private Key**, which is highlighted in the screenshot below:
 
 	![linuxputtyprivatekey](../media/linuxputtyprivatekey.png)
- 
 
 8.	Save the file as a PPK.
 
@@ -102,4 +100,3 @@ Every Linux virtual machine is provisioned with SSH in a particular port that ma
 	![linuxputtyprivatekey](../media/linuxputtyprivatekey.png)
 
 5.	Click **Open** to connect to your virtual machine.
-
