@@ -3,6 +3,21 @@
 <table border="1" cellspacing="0" cellpadding="10" style="border: #000000 0px solid;">
 <tbody>
 <tr>
+<td style="width: 200px;">November 2011 (Version 1.6)</td>
+<td style="width: 400px;">
+<ul>
+<li><a href="http://download.microsoft.com/download/D/F/4/DF442AB0-FAAE-44FF-A04E-F41E72FE6B6F/WindowsAzureTools.VS100.exe" target="_blank">Windows Azure Tools for Visual Studio</a></li>
+<li><a href="http://download.microsoft.com/download/D/F/4/DF442AB0-FAAE-44FF-A04E-F41E72FE6B6F/WindowsAzureSDK-x64.msi" target="_blank">Windows Azure SDK x64</a></li>
+<li><a href="http://download.microsoft.com/download/D/F/4/DF442AB0-FAAE-44FF-A04E-F41E72FE6B6F/WindowsAzureSDK-x86.msi" target="_blank">Windows Azure SDK x86</a></li>
+<li><a href="http://download.microsoft.com/download/D/F/4/DF442AB0-FAAE-44FF-A04E-F41E72FE6B6F/WindowsAzureEmulator-x64.exe" target="_blank">Windows Azure Emulators x64</a></li>
+<li><a href="http://download.microsoft.com/download/D/F/4/DF442AB0-FAAE-44FF-A04E-F41E72FE6B6F/WindowsAzureEmulator-x86.exe" target="_blank">Windows Azure Emulators x86</a></li>
+<li><a href="http://download.microsoft.com/download/D/F/4/DF442AB0-FAAE-44FF-A04E-F41E72FE6B6F/WindowsAzureLibsForNet-x64.msi" target="_blank">Windows Azure Libraries for .NET x64</a></li>
+<li><a href="http://download.microsoft.com/download/D/F/4/DF442AB0-FAAE-44FF-A04E-F41E72FE6B6F/WindowsAzureLibsForNet-x86.msi" target="_blank">Windows Azure Libraries for .NET x86</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh552718" target="_blank">SDK Release Notes</a></li>
+</ul>
+</td>
+</tr>
+<tr>
 <td style="width: 200px;">September 2011 (Version 1.5)</td>
 <td style="width: 400px;">
 <ul>
