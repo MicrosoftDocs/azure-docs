@@ -1,5 +1,4 @@
 <properties umbracoNaviHide="0" pageTitle="How to Capture an Image of a Virtual Machine Running Linux" metaKeywords="Windows Azure virtual machine, Azure virtual machine, Azure image, capture an image, image" metaDescription="Learn how to capture your own images to create customized virtual machines." linkid="manage-linux-how-to-guide-virtual-machines" urlDisplayName="Virtual Machines" headerExpose="" footerExpose="" disqusComments="1" />
-
 # How to Capture an Image of a Virtual Machine Running Linux ##
 
 You can use images from the Image Gallery to easily create virtual machines, or you can capture and use your own images to create customized virtual machines. An image is a virtual hard disk (VHD) file that is used as a template for creating a virtual machine. An image is a template because it doesn’t have specific settings like a configured virtual machine, such as the computer name and user account settings. If you want to create multiple virtual machines that are set up the same way, you can capture an image of a configured virtual machine and use that image as a template.
@@ -56,7 +55,7 @@ Now that you have learned the basics of creating a virtual machine, follow these
 [Deprovision the virtual machine]: ../media/linuxdeprovision.png
 [Deprovision of virtual machine successful]:../media/linuxdeprovision2.png
 [Shutdown the virtual machine]:../media/shutdownvm.png
-[Capture an image of the virtual machine]:../media/capturevm.png
-[Capture an image of the virtual machine]:../media/capturevm.png
-[Image capture successful]:../media/capturesuccess.png
+[Capture an image of the virtual machine]:../../windows/media/capturevm.png
+[Enter the details of the capture]:../media/capturelinux.png
+[Image capture successful]:../../windows//media/capturesuccess.png
 [Use the captured image]:../media/myimageslinux.png
