@@ -78,8 +78,8 @@ To connect to the MySQL database that is running in Windows Azure Websites, your
 2. Open the `.publishsettings` file in an XML editor. The `<databases>` element will look similar to this:
 
 		<databases>
-			<add name="tasklist" 
-				connectionString="Database=tasklist;Data Source=us-mm-azure-ord-01.cleardb.com;User Id=e02c62383bffdd;Password=0fc50b7e" 
+			<add name="registration" 
+				connectionString="Database=registration;Data Source=us-mm-azure-ord-01.cleardb.com;User Id=e02c62383bffdd;Password=0fc50b7e" 
 				providerName="MySql.Data.MySqlClient" 
 				type="MySql"/>
 		</databases>
