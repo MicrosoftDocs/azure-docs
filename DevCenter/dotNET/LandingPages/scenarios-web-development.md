@@ -3,6 +3,7 @@
 <p>With Windows Azure, you can quickly and easily deploy web sites to a highly scalable cloud environment.  Our web tutorials show you how to get started developing Windows Azure Web Sites and Cloud Services using a variety of development tools and deployment options including FTP, Git, and TFS.</p>
 
 <p>Before you get started, read our brief <a href="en-us/develop/net/fundamentals/compute/">Windows Azure Compute fundamentals</a> article to learn about the differences between Web Sites and Cloud Services and the benefits of each hosting model.</p>
+<span><br /></span>
 
 <div class="dev-articles">
 <h2>Windows Azure Web Sites</h2>
@@ -39,10 +40,10 @@ For multi-environment, multi-tier web applications that require greater control 
 </div>
 
 <div class="content-blocks">
-<div class="col"><a href="../big-data/" class="blue-box"><span class="blue-arrow">&nbsp;</span><span>big<br/>data</span><span class="icon1">&nbsp;</span></a>
+<div class="col"><a href="../big-data/" class="blue-box"><span class="blue-arrow"></span><span>big<br/>data</span><span class="icon1"></span></a>
 </div>
-<div class="col"><a href="../line-of-business/" class="green-box"><span class="green-arrow">&nbsp;</span><span>line of<br/>business</span><span class="icon1">&nbsp;</span></a>
+<div class="col"><a href="../line-of-business/" class="green-box"><span class="green-arrow"></span><span>line of<br/>business</span><span class="icon1"></span></a>
 </div>
-<div class="col"><a href="../mobile/" class="pink-box"><span class="pink-arrow">&nbsp;</span><span>mobile</span><span class="icon1">&nbsp;</span></a>
+<div class="col"><a href="../mobile/" class="pink-box"><span class="pink-arrow"></span><span>mobile</span><span class="icon1"></span></a>
 </div>
 </div>
