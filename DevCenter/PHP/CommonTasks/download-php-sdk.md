@@ -54,7 +54,7 @@ To download and install the PHP Client Libraries for Windows Azure manually, fol
 
 Windows Azure PowerShell is a set of PowerShell cmdlets for deploying and managing Windows Azure Services (such as Cloud Services and Virtual Machines). The Windows Azure Emulators are emulators of Cloud Services and Cloud Storage that allow you to test an application locally. These components are supported Windows only.
 
-The recommended way to install Windows Azure PowerShell and the Windows Azure Emulators is to use the [Microsoft Web Platform Installer][download-wpi]. After downloading the Web Platform Installer, select **TODO: What to select?**.
+The recommended way to install Windows Azure PowerShell and the Windows Azure Emulators is to use the [Microsoft Web Platform Installer][download-wpi]. After downloading the Web Platform Installer, select **TODO: What to select?** and follow the prompts to complete the installation.
 
 Note that you can also choose to install other development components, such as PHP, SQL Server, the Microsoft Drivers for SQL Server for PHP, and WebMatrix.
 
@@ -89,7 +89,7 @@ For information about how to use the Windows Azure Command-Line Tools for Mac an
 [install-pear]: http://pear.php.net/manual/en/installation.php
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
-[download-wpi]: http://www.microsoft.com/web/downloads/platform.aspx
+[download-wpi]: http://go.microsoft.com/fwlink/?LinkId=253447
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [blob-service]: http://go.microsoft.com/fwlink/?LinkId=252714
 [table-service]: http://go.microsoft.com/fwlink/?LinkId=252715
