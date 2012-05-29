@@ -1,2 +1,2 @@
 <properties umbracoNaviHide="0" pageTitle="How to Connect Virtual Machines in a Cloud Service" metaKeywords="" metaDescription="" linkid="manage-linux-howto-connect-cloud-service" urlDisplayName="Networking" headerExpose="" footerExpose="" disqusComments="1" />
-<div chunk="../../Shared/Chunks/how-to-connect-vm-cloud-service.md" />
+<div chunk="../../Shared/Chunks/howto-connect-vm-cloud-service.md" />

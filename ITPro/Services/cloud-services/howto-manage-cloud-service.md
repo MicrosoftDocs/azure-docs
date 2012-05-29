@@ -1,4 +1,3 @@
-
 <properties umbracoNaviHide="0" pageTitle="How to Manage Cloud Services" metaKeywords="Windows Azure cloud services, cloud service, manage cloud service, swap cloud service, link cloud service, delete cloud service, update cloud service" metaDescription="Learn how to manage Windows Azure cloud services." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" />
 
 

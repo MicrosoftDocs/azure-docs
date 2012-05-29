@@ -1,4 +1,3 @@
-
 <properties umbracoNaviHide="0" pageTitle="How to Create and Deploy a Cloud Service" metaKeywords="Windows Azure cloud services, cloud service, deploy cloud service, create cloud service" metaDescription="Learn how to create and deploy Windows Azure cloud services." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" />
 
 <h1 id="createdeploycloudservice">How to Create and Deploy a Cloud Service</h1>

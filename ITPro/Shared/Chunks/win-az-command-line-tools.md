@@ -99,7 +99,7 @@ Note that the **vm create** command, like the Windows Azure portal, only creates
 
 When you create a new virtual machine, you will need to specify the physical location (i.e., data center) where the virtual machine will reside. You can specify a location through the --location parameter, or specify an affinity group through the --affinity-group parameter. If neither is provided, you will be prompted to provide one from a list of valid locations.
 
-The supplied password must be 8-123 characters long and meet the password complexity requirements of the operating system that you are using for this virtual machine.</br />
+The supplied password must be 8-123 characters long and meet the password complexity requirements of the operating system that you are using for this virtual machine.
 
 If you anticipate the need to use SSH to manage a deployed Linux virtual machine (as is usually the case), you must enable SSH via the -s option when you create the virtual machine. It is not possible to enable SSH after the virtual machine has been created.
 
@@ -420,7 +420,8 @@ List Azure certificates
 
 ###service cert create &lt;dns-prefix> &lt;file> [password]
 
-Upload certificate</br />
+Upload certificate
+
 Leave password prompt blank for non-password protected certificates
 
 	~$ azure service cert create nghinazz ~/publishSet.pfx
