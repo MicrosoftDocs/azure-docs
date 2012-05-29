@@ -20,7 +20,7 @@ The project files for this tutorial will be stored in <strong><em>C:\django\hell
 ## Setting up your development environment ##
 Before you can begin developing your Windows Azure application, you need to get the tools and set up your development environment. For details about getting and installing the Windows Azure SDK for Python, see [Setup the Development Environment] [wapstarted] in the Python "Hello World" Application tutorial.
 
-<b>Note:</b> This tutorial requires Python 2.7 and Django 1.4. These versions are included in the current Windows Azure SDK for Python; however if you have installed a previous version you will need to [upgrade to the latest version] [wapstarted].
+**Note:** This tutorial requires Python 2.7 and Django 1.4. These versions are included in the current Windows Azure SDK for Python; however if you have installed a previous version you will need to [upgrade to the latest version] [wapstarted].
 
 ## Install the MySQL Python package ##
 You must download and install the MySQL Python package, in addition to installing the Windows Azure SDK for Python. You can install it directly [from this link] [mysqlpydl]. Once completed, run the following command to verify your installation:
@@ -41,7 +41,7 @@ You must download and install the MySQL Python package, in addition to installin
 1. Run the *Windows (x86, 64-bit), MSI Installer* link <a href="http://dev.mysql.com/downloads/mysql/">here</a> and download the appropriate MSI installer from the download mirror nearest you. Helpful hints are:
  * Select a *Complete* Setup Type.
  * Select a *Detailed Configuration* within the Configuration Wizard.
- * <b>Make sure you enable TCP/IP Networking on Port Number 3306 and add a firewall exception for the port</b>
+ * **Make sure you enable TCP/IP Networking on Port Number 3306 and add a firewall exception for the port**
  * Set a root password and enable root access from remote machines.
 1. Install a sample <a href="http://dev.mysql.com/doc/index-other.html">"world" database</a> (MyISAM version):
  * Download <a href="http://downloads.mysql.com/docs/world.sql.zip">this</a> zip file on the Windows Azure Virtual Machine.
@@ -68,24 +68,24 @@ You should now see a response similar to the following:
       Follow the instructions given in the <a href="../Tutorials/web-app-with-django">Django Hello World</a> tutorial to create a trivial "Hello World" web application in Django.
     </li>
     <li>
-      Open <strong><em>C:\django\helloworld\hello_dj\hello_dj\settings.py</em></strong> in your favorite text editor.  Modify the <b>*DATABASES*</b> global dictionary to read:
+      Open <strong><em>C:\django\helloworld\hello_dj\hello_dj\settings.py</em></strong> in your favorite text editor.  Modify the **DATABASES** global dictionary to read:
 <pre>	
 		DATABASES = {
 		    'default': {
-			    'ENGINE': <b style="color:orange;">'django.db.backends.mysql'</b>,
-			    'NAME': <b style="color:orange;">'djangoazure'</b>,               
-			    'USER': <b style="color:orange;">'testazureuser'</b>,  
-			    'PASSWORD': <b style="color:orange;">'testazure'</b>,
-			    'HOST': <b style="color:red;">'127.0.0.1'</b>, 
-			    'PORT': <b style="color:orange;">'3306'</b>,
+			    'ENGINE': 'django.db.backends.mysql',
+			    'NAME': 'djangoazure',               
+			    'USER': 'testazureuser',  
+			    'PASSWORD': 'testazure',
+			    'HOST': '127.0.0.1', 
+			    'PORT': '3306',
 			    },
 		    'world': {
-			    'ENGINE': <b style="color:orange;">'django.db.backends.mysql'</b>,
-			    'NAME': <b style="color:orange;">'world'</b>,               
-			    'USER': <b style="color:orange;">'testazureuser'</b>,  
-			    'PASSWORD': <b style="color:orange;">'testazure'</b>,
-			    'HOST': <b style="color:red;">'127.0.0.1'</b>, 
-			    'PORT': <b style="color:orange;">'3306'</b>,
+			    'ENGINE': 'django.db.backends.mysql',
+			    'NAME': 'world',               
+			    'USER': 'testazureuser',  
+			    'PASSWORD': 'testazure',
+			    'HOST': '127.0.0.1', 
+			    'PORT': '3306',
 			    }
 			}
 </pre>
@@ -94,7 +94,7 @@ You should now see a response similar to the following:
 As you can see, we've just given Django instructions on where to find our MySQL database. 
 </p>
 
-<b>Note:</b> You <b style="color:red;">must</b> change the *HOST* key to match your Windows Azure (MySQL) VM's <b>permanent</b> IP address. At this point, *HOST* should be set to whatever the *ipconfig* Windows command reports it as being.
+**Note:** You **must** change the *HOST* key to match your Windows Azure (MySQL) VM's **permanent** IP address. At this point, *HOST* should be set to whatever the *ipconfig* Windows command reports it as being.
 
 <p>After you've modified *HOST* to match the MySQL VM's IP address, please save this file and close it.</p>
 
@@ -192,9 +192,9 @@ Before running your application in the Windows Azure emulator, let's run it as a
 <pre class="prettyprint">
 pushd C:\django\helloworld\hello_dj\hello_dj
 C:\Python27\python.exe manage.py runserver
-"%ProgramFiles%\Internet Explorer\iexplore.exe" http://localhost:<b style="color:orange;">8000</b></pre>
+"%ProgramFiles%\Internet Explorer\iexplore.exe" http://localhost:8000</pre>
 
-**Note:** You might need to change port <b style="color:orange;">8000</b> to another port depending upon how Django configured your application locally.
+**Note:** You might need to change port **8000** to another port depending upon how Django configured your application locally.
 
 You should see output similar to the following in your web browser:
 
