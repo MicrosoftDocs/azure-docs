@@ -51,7 +51,7 @@ Make note of the database connection information as it will be needed later.
 
 ##Install WebMatrix
 
-You can install WebMatrix from the [Preview Management Portal][preview-portal]. After logging in, navigate to your website's **DASHBOARD**,  click **QUICKSTART** near the top of the page, then click **Install WebMatrix**.
+You can install WebMatrix from the [Preview Management Portal][preview-portal]. After logging in, navigate to your website's **DASHBOARD**,  click the cloud icon near the top of the page, then click **Install WebMatrix**.
 
 ![Install WebMatrix][install-webmatrix]
 

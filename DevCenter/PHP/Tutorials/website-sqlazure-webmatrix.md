@@ -46,29 +46,29 @@ Follow these steps to create a Windows Azure Website and a SQL Database:
 
 	![Create New Windows Azure Website][new-website]
 
-3. Click **Web Site**, then **Custom Create**.
+3. Click **WEB SITE**, then **CREATE WITH DATABASE**.
 
 	![Custom Create a new Website][custom-create]
 
-	Enter a value for **URL**, select **Create a New SQL Azure Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
+	Enter a value for **URL**, select **Create a New SQL Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
 
 	![Fill in Website details][website-details-sqlazure]
 
-4. Enter a value for the **NAME** of your database, select the **EDITION** [(WEB or BUSINESS)][sql-database-editions], select the **MAX SIZE** for your database, choose the **COLLATION**, and select **NEW SQL Database server**. Click the arrow at the bottom of the dialog.
+4. Enter a value for the **NAME** of your database, select the **EDITION** [(WEB or BUSINESS)][sql-database-editions], select the **MAXIMUM SIZE** for your database, choose the **COLLATION**, and select **NEW SQL Database server**. Click the arrow at the bottom of the dialog.
 
 	![Fill in SQL Database settings][database-settings]
 
-5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Database server will be created, and check the `Allow Windows Azure Services to access this server` box.
+5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Database server will be created, and check the `Allow Windows Azure Services to access the server` box.
 
 	![Create new SQL Database server][create-server]
 
 	When the website has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfully**. Next, you will get the database connection information.
 
-6. Click the the website's name, then click **LINKED RESOURCES**, then the database's name.
+6. Click **LINKED RESOURCES**, then the database's name.
 
 	![Linked Resources][linked-resources]
 
-7. Click **Connection String**.
+7. Click **View connection strings**.
 
 	![Connection string][connection-string]
 	
@@ -76,7 +76,7 @@ From the **PHP** section of the resulting dialog, make note of the values for `U
 
 ##Install WebMatrix
 
-You can install WebMatrix from the Preview Management Portal. From your website's dashboard, click **QUICKSTART** near the top of the page, then click **Install WebMatrix**.
+You can install WebMatrix from the Preview Management Portal. From your website's dashboard, click the cloud icon near the top of the page, then click **Install WebMatrix**.
 
 ![Install WebMatrix][install-webmatrix]
 
@@ -177,9 +177,9 @@ Before publishing your application to Windows Azure Websites, the database conne
 
 	When the publishing is complete, you will see **Publishing - Complete** at the bottom of the WebMatrix screen.
 
-7. Navigate to http://[your website name].windows.net/createtable.php to create the `items` table.
+7. Navigate to http://[your website name].azurewebsites.net/createtable.php to create the `items` table.
 
-8. Lastly, navigate to http://[your website name].windows.net/index.php to being using the running application.
+8. Lastly, navigate to http://[your website name].azurewebsites.net/index.php to begin using the running application.
 	
 ##Modify and republish your application
 
@@ -191,7 +191,7 @@ You can easily modify and republish your application. Here, you will make a simp
 
 3. Click the **Publish** icon, the click **Continue** in the **Publish Preview** dialog.
 
-4. When publishing has completed, navigate to http://[your website name].windows.net/index.php to see the published changes.
+4. When publishing has completed, navigate to http://[your website name].azurewebsites.net/index.php to see the published changes.
 
 [install-SQLExpress]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
 [running-app]: ../Media/tasklist_app_windows.png
