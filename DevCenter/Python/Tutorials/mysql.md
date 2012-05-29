@@ -5,14 +5,14 @@ This tutorial describes how to use MySQL to access data from a Windows Azure Clo
 
 In this tutorial, you will learn how to:
 
-* Setup a Windows Azure virtual machine to host MySQL. While this tutorial explains how to accomplish this in Windows Server 2008 R2, the same could also be done with a Linux VM hosted in Windows Azure.
+* Setup a Windows Azure virtual machine to host MySQL. While this tutorial explains how to accomplish this under Windows Server 2008 R2, the same could also be done with a Linux VM hosted in Windows Azure.
 * Install a [MySQL driver] [mysqlpy] for Python.
 * Configure an existing Django application to use a MySQL database.
 * Use MySQL directly from Python.
 * Run your MySQL Django application locally using the Windows Azure compute emulator.
 * Publish your MySQL Django application to Windows Azure.
 
-You will expand upon the [Django Hello World] [djangohelloworld] sample by utilizing a MySQL database, hosted in a Windows Azure VM, to find an interesting replacement for <i>World</i>. The replacement will in turn be determined via a MySQL-backed Django <i>counter</i> app. As was the case for the Hello World sample, this Django application will again be hosted in a web role.
+You will expand upon the [Django Hello World] [djangohelloworld] sample by utilizing a MySQL database, hosted in a Windows Azure VM, to find an interesting replacement for *World*. The replacement will in turn be determined via a MySQL-backed Django *counter* app. As was the case for the Hello World sample, this Django application will again be hosted in a web role.
 
 The project files for this tutorial will be stored in <strong><em>C:\django\helloworld\*</em></strong> and the completed application will look similar to:
 ![][0]
@@ -29,24 +29,24 @@ You must download and install the MySQL Python package, in addition to installin
 
 ## Setting up a virtual machine to host MySQL
 - Open up a TCP port for MySQL transactions on the virtual machine:
- 1. Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the <i>ENDPOINTS</i> tab.
- 1. Click <i>ADD ENDPOINT</i> button at the bottom of the screen.
+ 1. Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
+ 1. Click *ADD ENDPOINT* button at the bottom of the screen.
 ![][6]
 
- 1. Open up the <i>TCP</i> protocol's <i>PUBLIC PORT</i> **3306** as <i>PRIVATE PORT</i> **3306**.
+ 1. Open up the *TCP* protocol's *PUBLIC PORT* **3306** as *PRIVATE PORT* **3306**.
 ![][8]
 
 - Install the latest version of <a href="http://dev.mysql.com/downloads/mysql/">MySQL Community Server</a> for Windows on the virtual machine:
 1. Install .NET version 4.0 from <a href="http://go.microsoft.com/fwlink/?LinkId=181012">here</a>.
-1. Run the <i>Windows (x86, 64-bit), MSI Installer</i> link <a href="http://dev.mysql.com/downloads/mysql/">here</a> and download the appropriate MSI installer from the download mirror nearest you. Helpful hints are:
- * Select a <i>Complete</i> Setup Type.
- * Select a <i>Detailed Configuration</i> within the Configuration Wizard.
+1. Run the *Windows (x86, 64-bit), MSI Installer* link <a href="http://dev.mysql.com/downloads/mysql/">here</a> and download the appropriate MSI installer from the download mirror nearest you. Helpful hints are:
+ * Select a *Complete* Setup Type.
+ * Select a *Detailed Configuration* within the Configuration Wizard.
  * <b>Make sure you enable TCP/IP Networking on Port Number 3306 and add a firewall exception for the port</b>
  * Set a root password and enable root access from remote machines.
 1. Install a sample <a href="http://dev.mysql.com/doc/index-other.html">"world" database</a> (MyISAM version):
  * Download <a href="http://downloads.mysql.com/docs/world.sql.zip">this</a> zip file on the Windows Azure Virtual Machine.
- * <b>Unzip it to <i>C:\Users\Administrator\Desktop\world.sql</i></b>.
-- After installing MySQL, click the Windows <i>Start</i> menu and run the freshly installed <i>MySQL 5.5 Command Line Client</i>.  Issue the following commands:
+ * **Unzip it to *C:\Users\Administrator\Desktop\world.sql*.**
+- After installing MySQL, click the Windows *Start* menu and run the freshly installed *MySQL 5.5 Command Line Client*.  Issue the following commands:
 
 
 		CREATE world;
@@ -68,7 +68,7 @@ You should now see a response similar to the following:
       Follow the instructions given in the <a href="../Tutorials/web-app-with-django">Django Hello World</a> tutorial to create a trivial "Hello World" web application in Django.
     </li>
     <li>
-      Open <strong><em>C:\django\helloworld\hello_dj\hello_dj\settings.py</em></strong> in your favorite text editor.  Modify the <b><i>DATABASES</i></b> global dictionary to read:
+      Open <strong><em>C:\django\helloworld\hello_dj\hello_dj\settings.py</em></strong> in your favorite text editor.  Modify the <b>*DATABASES*</b> global dictionary to read:
 <pre>	
 		DATABASES = {
 		    'default': {
@@ -94,13 +94,13 @@ You should now see a response similar to the following:
 As you can see, we've just given Django instructions on where to find our MySQL database. 
 </p>
 
-<b>Note:</b> You <b style="color:red;">must</b> change the <i>HOST</i> key to match your Windows Azure (MySQL) VM's <b>permanent</b> IP address. At this point, <i>HOST</i> should be set to whatever the <i>ipconfig</i> Windows command reports it as being.
+<b>Note:</b> You <b style="color:red;">must</b> change the *HOST* key to match your Windows Azure (MySQL) VM's <b>permanent</b> IP address. At this point, *HOST* should be set to whatever the *ipconfig* Windows command reports it as being.
 
-<p>After you've modified <i>HOST</i> to match the MySQL VM's IP address, please save this file and close it.</p>
+<p>After you've modified *HOST* to match the MySQL VM's IP address, please save this file and close it.</p>
 
     </li>
     <li>
-      Now that we've referenced our <i>djangoazure</i> database, let's do something useful with it! To this end, we'll create a model for a trivial <i>counter</i> app.  To instruct Django to create this, run the following commands:<pre class="prettyprint">
+      Now that we've referenced our *djangoazure* database, let's do something useful with it! To this end, we'll create a model for a trivial *counter* app.  To instruct Django to create this, run the following commands:<pre class="prettyprint">
 cd C:\django\helloworld\hello_dj\hello_dj
 C:\Python27\python.exe manage.py startapp counter
 </pre>If Django doesn't report any output from the final command above, it succeeded.
@@ -109,16 +109,16 @@ C:\Python27\python.exe manage.py startapp counter
       Append the following text to <strong><em>C:\django\helloworld\hello_dj\hello_dj\counter\models.py</em></strong>:<pre class="prettyprint">class Counter(models.Model):
     count = models.IntegerField()
     def __unicode__(self):
-        return u'%s' % (self.count)</pre>All we've done here is defined a subclass of Django's <i>Model</i> class named <i>Counter</i> with a single integer field, <i>count</i>. This trivial counter model will end up recording the number of hits to our Django application. 
+        return u'%s' % (self.count)</pre>All we've done here is defined a subclass of Django's *Model* class named *Counter* with a single integer field, *count*. This trivial counter model will end up recording the number of hits to our Django application. 
     </li>
     <li>
-      Next we make Django aware of <i>Counter</i>'s existence:
+      Next we make Django aware of *Counter*'s existence:
 		<ol>
-			<li>Edit <strong><em>C:\django\helloworld\hello_dj\hello_dj\settings.py</em></strong> again. Add <i>'counter'</i> to the <i>INSTALLED_APPS</i> tuple.</li>
+			<li>Edit <strong><em>C:\django\helloworld\hello_dj\hello_dj\settings.py</em></strong> again. Add *'counter'* to the *INSTALLED_APPS* tuple.</li>
 			<li>From a command prompt, please run:<pre class="prettyprint">cd C:\django\helloworld\hello_dj\hello_dj
 C:\Python27\python manage.py sql counter
 C:\Python27\python manage.py syncdb
-</pre>These commands store the <i>Counter</i> model in the live Django database, and result in output similar to the following:<pre>C:\django\helloworld\hello_dj\hello_dj> C:\Python27\python manage.py sql counter
+</pre>These commands store the *Counter* model in the live Django database, and result in output similar to the following:<pre>C:\django\helloworld\hello_dj\hello_dj> C:\Python27\python manage.py sql counter
 BEGIN;
 CREATE TABLE `counter_counter` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -148,7 +148,7 @@ Installed 0 object(s) from 0 fixture(s)</pre></li>
 		</ol>
     </li>
     <li>
-      Replace the contents of <strong><em>C:\django\helloworld\hello_dj\hello_dj\views.py</em></strong>. The new implementation of the <i>hello</i> function below uses our <i>Counter</i> model in conjunction with a separate sample database we previously installed, <i>world</i>, to generate a suitable replacement for the "<i>World</i>" string:
+      Replace the contents of <strong><em>C:\django\helloworld\hello_dj\hello_dj\views.py</em></strong>. The new implementation of the *hello* function below uses our *Counter* model in conjunction with a separate sample database we previously installed, *world*, to generate a suitable replacement for the "*World*" string:
       <pre class="prettyprint">
 from django.http import HttpResponse
 import django.db
@@ -200,7 +200,7 @@ You should see output similar to the following in your web browser:
 
 ![][4] 
 
-Refresh the web browser a few times and you should see the message change from "<i>Hello <em>&lt;country abc&gt;</em></i>" to "<i>Hello <em>&lt;some other country&gt;</em></i>".
+Refresh the web browser a few times and you should see the message change from "*Hello <em>&lt;country abc&gt;</em>*" to "*Hello <em>&lt;some other country&gt;</em>*".
   
 ##Running Your Application Locally in the Emulator##
 Start the Windows Azure emulator and open the Django webpage exactly as you did in the [Django Hello World] [djangohelloworld] tutorial.
@@ -271,7 +271,7 @@ deleting a storage account, see [How to Delete a Storage Account from a Windows 
 [9]: ../Media/mysql_tutorial03-1.png
 [10]: ../Media/mysql_tutorial03-2.png 
 
-[djangohelloworld]: ../Tutorials/web-app-with-django
+[djangohelloworld]: ../web-app-with-django
 [mysqldoc]: http://dev.mysql.com/doc/
 [mysqlpy]: http://pypi.python.org/pypi/MySQL-python/1.2.3
 [wapstarted]: ../commontasks/how-to-install-python
