@@ -1,4 +1,4 @@
-#How to Create and Deploy a Website
+﻿#How to Create and Deploy a Website
 
 Just as you can quickly create and deploy a web application created from the Azure Gallery, you can also deploy a website created on a workstation with traditional developer tools from Microsoft or other companies. 
 
@@ -38,11 +38,11 @@ Follow these steps to create a website in Windows Azure.
 5. Click the name of the website displayed in the list of websites to open the website’s **Quick Start** management page.
 6. On the **Quick Start** page you are provided with options to set up TFS or GIT publishing if you would like to deploy your finished website to Windows Azure using these methods. FTP publishing is set up by default for websites and the FTP Host name is displayed under **FTP Hostname** on the **Quick Start** and **Dashboard** pages. Before publishing with FTP or GIT choose the option to **Reset deployment credentials** on the **Dashboard** page. Then specify the new credentials (username and password) to authenticate against the FTP Host or the Git Repository when deploying content to the website.
 7. The **Configure** management page exposes several configurable application settings in the following sections:
-> - **Framework** – Set the version of .NET framework or PHP required by your web application.
-> - **Diagnostics** – Set logging options for gathering diagnostic information for your website in this section.
-> - **App Settings** – Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be injected into your .NET configuration **AppSettings** at runtime, overriding existing settings. For PHP and Node sites these settings will be available as environment variables at runtime.
-> - **Connection Strings** – View connection strings for linked resources. For .NET sites, these connection strings will be injected into your .NET configuration **connectionStrings** settings at runtime, overriding existing entries where the key equals the linked database name. For PHP and Node sites these settings will be available as environment variables at runtime.
-> - **Default Documents** – Add your web application’s default document to this list if it is not already in the list. If your web application contains more than one of the files in the list then make sure your website’s default document appears at the top of the list.
+ - **Framework** – Set the version of .NET framework or PHP required by your web application.
+ - **Diagnostics** – Set logging options for gathering diagnostic information for your website in this section.
+ - **App Settings** – Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be injected into your .NET configuration **AppSettings** at runtime, overriding existing settings. For PHP and Node sites these settings will be available as environment variables at runtime.
+ - **Connection Strings** – View connection strings for linked resources. For .NET sites, these connection strings will be injected into your .NET configuration **connectionStrings** settings at runtime, overriding existing entries where the key equals the linked database name. For PHP and Node sites these settings will be available as environment variables at runtime.
+ - **Default Documents** – Add your web application’s default document to this list if it is not already in the list. If your web application contains more than one of the files in the list then make sure your website’s default document appears at the top of the list.
 
 
 ##<a name="deployawebsite"></a>How to: Deploy a Website from Git
@@ -78,17 +78,17 @@ The following procedures below will walk you through creating a new repository o
   		git remote add azure http://azure@microsoft.com.antdf0.windows-int.net/azureweb.git
 		git push azure master
  
->	 **Note**<br/>
->	 The commands above will vary depending upon the name of the website for which you have created the Git repository.
+	 **Note**
+	 The commands above will vary depending upon the name of the website for which you have created the Git repository.
  
 ### Clone a website to my computer ###
 1. Install the Git client. ([Download Git][getgit]) if you have not already.
 2. Clone your website.
 3. Open a command prompt, change directories to the directory where you want your files, and type:
 
-		git clone -b master <GitRepositoryURL>
+		git clone -b master GitRepositoryURL
  
-	where <em>GitRepositoryURL</em> is the URL for the Git repository that you want to clone.
+	where _GitRepositoryURL_ is the URL for the Git repository that you want to clone.
 
 4. Commit changes, and push the repository's contents back to Windows Azure.
 

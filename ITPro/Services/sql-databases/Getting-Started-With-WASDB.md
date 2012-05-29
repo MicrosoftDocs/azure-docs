@@ -1,21 +1,30 @@
-<h1 id="SQLAzureTutorialITPro"> Getting Started with Windows Azure SQL Database</h1>
+<properties umbracoNaviHide="0" pageTitle="Getting Started with Windows Azure SQL Database" metaKeywords="Windows Azure database, tutorial" metaDescription="Learn how to use Windows Azure SQL Database." 
+linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
 
-Learn the fundamentals of Windows Azure SQL Database administration using just the Windows Azure (Preview) Management portal and the instructions in this tutorial. If you are new to database administration, you can follow these lessons to learn essential skills in about 30 minutes. 
+
+<h1 id="SQLAzureTutorialITPro">Getting Started with Windows Azure SQL Database</h1>
+
+In this tutorial you will learn the fundamentals of Windows Azure SQL Database administration using the Windows Azure (Preview) Management portal. If you are new to database administration, you can follow these lessons to learn essential skills in about 30 minutes. 
 
 This tutorial does not assume prior experience with SQL Server or Windows Azure SQL Database. Upon completing this tutorial, you will have a sample database on Windows Azure and an understanding of how to perform basic administration tasks using the Management Portal.
 
-You will learn:
-
-* How to create a database and server using the portal.
-* How to add data to the database using script.
-* How to query sample and system data.
-* How to create a database login and assign permissions.
-* How to connect to the database from Excel.
-
-
 You will create and provision a sample database on Windows Azure and query system and user data using Excel and other applications.
 
-<h2 id="Subscribe">Create a Windows Azure Account</h2>
+
+##Table of Contents##
+
+* [Step 1: Create a Windows Azure account](#Subscribe)
+* [Step 2: Connect to Windows Azure and create a database](#Subscribe)
+* [Step 3: Configure the firewall](#ConfigFirewall)
+* [Step 4: Add data and a schema using Transact-SQL script](#AddData)
+* [Step 5: Create the schema](#createschema)
+* [Step 6: Insert data](#insertData)
+* [Step 7: Query sample and system data in the Management Portal for SQL Database](#QueryDBSysData)
+* [Step 8: Create a database login and assign permissions](#DBLogin)
+* [Step 9: Connect from other applications](#ClientConnection)
+
+
+<h2 id="Subscribe">Step 1: Create a Windows Azure account</h2>
 
 1. Open a web browser, and browse to [http://www.windowsazure.com](http://www.windowsazure.com).
 To get started with a free account, click free trial in the upper right corner and follow the steps.
@@ -23,10 +32,10 @@ To get started with a free account, click free trial in the upper right corner a
 2. Your account is now created. You are ready to get started.
 
 
-<h2 id="Connect">Connect to Windows Azure and create a database</h2>
+<h2 id="Connect">Step 2: Connect to Windows Azure and create a database</h2>
 
 
-1. Connect to Windows Azure at [http://www.windowsazure.com](http://www.windowsazure.com) and sign in to the Management Portal. You should see a navigation pane that looks like this. 
+1. Sign in to the [Management Portal](http://manage.windowsazure.com). You should see a navigation pane that looks like this. 
 
     ![Image1] []
 
@@ -73,7 +82,7 @@ In the next step, you will configure the firewall so that connections from appli
 
 
 
-<h2 id="ConfigFirewall">Configure the firewall</h2>
+<h2 id="ConfigFirewall">Step 3: Configure the firewall</h2>
 
 To configure the firewall so that connections are allowed through, you'll enter information on the server page.
 
@@ -112,13 +121,13 @@ As your skills increase, you will want to explore additional ways of creating a 
 
 
 
-<h2 id="AddData">Add data and a schema using Transact-SQL script</h2>
+<h2 id="AddData">Step 4: Add data and a schema using Transact-SQL script</h2>
 
 In this step, you run two scripts. The first one creates a schema that defines tables, columns, and relationships. The second script adds the data. Each step is performed independently on a separate connection. If you've built databases in SQL Server before, one of the differences you'll notice in SQL Database is that CREATE and INSERT commands must run in separate batches. SQL Database imposes this requirement to minimize attacks against the data while it is in transit. 
 
 **Note:** The schema and data values are taken from this [MSDN article](http://msdn.microsoft.com/en-us/library/windowsazure/ee621790.aspx "MSDN article") and have been modified to work with SQL Database.
 
-1. Go to the home page. In the Management Portal, the **School** database appears in the list of items on the home page. 
+1. Go to the home page. In the [Management Portal](http://manage.windowsazure.com), the **School** database appears in the list of items on the home page. 
 
    ![Image8] []
 
@@ -140,7 +149,7 @@ In this step, you run two scripts. The first one creates a schema that defines t
 	![Image12] []
 	
 
-<h2 id="createschema">Create the schema</h2>
+<h2 id="createschema">Step 5: Create the schema</h2>
 
 In this step, you will create the schema using the following script. The script first checks for an existing table of the same name to ensure there won't be a name collision, and creates the table using the [CREATE TABLE](http://msdn.microsoft.com/en-us/library/windowsazure/ee336258.aspx) statement. Further on, this script uses the [ALTER TABLE](http://msdn.microsoft.com/en-us/library/windowsazure/ee336286.aspx) statement to specify the primary key and table relationships.
 
@@ -386,7 +395,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 
 
 
-<h2 id="insertData">Insert data</h2>
+<h2 id="insertData">Step 6: Insert data</h2>
 
 Open a new query window and then paste in the following script. Run the script to insert data. This script uses the [INSERT](http://msdn.microsoft.com/en-us/library/windowsazure/ee336284.aspx) statement to add values to each column.
 
@@ -642,7 +651,8 @@ Open a new query window and then paste in the following script. Run the script t
 	GO
 </pre></div>
 
-<h2 id="QueryDBSysData">Query sample and system data in the Management Portal for SQL Database</h2>
+
+<h2 id="QueryDBSysData">Step 7: Query sample and system data in the Management Portal for SQL Database</h2>
 
 To check your work, run a query that returns the data you just entered. You can also run built-in stored procedures and data management views that provide information about the databases running on your SQL Database server.
 
@@ -696,7 +706,7 @@ Do not close the portal connection to the **School** database. You will need it 
 
 
 
-<h2 id="DBLogin">Create a database login and assign permissions</h2>
+<h2 id="DBLogin">Step 8: Create a database login and assign permissions</h2>
 
 In SQL Database, you can create logins and grant permissions using Transact-SQL. In this lesson, using Transact-SQL, you will do three things: create a SQL Server authentication login, create  a database user, and grant permissions via role membership.
 
@@ -706,7 +716,7 @@ To create a login, you must first connect to the **master** database.
 
 <h4 id="CreateLogin">Create a SQL Server authentication login</h4>
 
-1. Go back to the Windows Azure (Preview) Management Portal, select **SQL Databases**, click **Servers**, choose the server and then click the white arrow to open the
+1. In the [Management Portal](http://manage.windowsazure.com), select **SQL Databases**, click **Servers**, choose the server and then click the white arrow to open the
 server page. 
 
     ![Image5] []
@@ -759,7 +769,7 @@ You now have a new SQL Server authentication login that has read-only permission
 
 
 
-<h2 id="ClientConnection">Connect from other applications</h2>
+<h2 id="ClientConnection">Step 9: Connect from other applications</h2>
 
 Now that you have an operational database, you can connect to it from an Excel workbook.
 
@@ -811,24 +821,24 @@ There are other methods for moving an on-premise database to SQL Database. If yo
 
 
 
-[Image1]: Media/1NavPaneDBSelected_SQLTut.png
-[Image2]: Media/2MainPageCustomCreateDB_SQLTut.png
-[Image3]: Media/3DatabaseSettings_SQLTut.PNG
-[Image4]: Media/4ServerSettings_SQLTut.png
-[Image5]: Media/5DBPortalDatabasesServers_SQLTut.PNG
-[Image6]: media/6DBConfigFirewall_SQLTut.png
-[Image7]: media/7DBConfigFirewallSAVE_SQLTut.png
-[Image8]: media/8MainPageHome_SQLTut.PNG
-[Image9]: media/9dblistschool_SQLTut.png
-[Image10]: media/10dbportalmanagebutton_SQLTut.png
-[Image11]: media/11ManageDatabaseLogin_SQLTut.png
-[Image12]: media/12DBPortalNewQuery_SQLTut.png
-[Image13]: media/13DBQueryResults_SQLTut.png
-[Image14]: media/14DBPortalConnectMaster_SQLTut.PNG
-[Image15]: media/15DBPortalConnectMasterErr_SQLTut.PNG
-[Image16]: media/16ExcelConnect_SQLTut.png
-[Image17]: media/17ExcelSelect_SQLTut.png
-[Image18]: media/18ExcelTable_SQLTut.png
-[Image19]: media/19ExcelImport_SQLTut.png
-[Image20]: media/11ManageDatabaseLogin_SQLTut.png
+[Image1]: ../media/1NavPaneDBSelected_SQLTut.png
+[Image2]: ../media/2MainPageCustomCreateDB_SQLTut.png
+[Image3]: ../media/3DatabaseSettings_SQLTut.PNG
+[Image4]: ../media/4ServerSettings_SQLTut.png
+[Image5]: ../media/5DBPortalDatabasesServers_SQLTut.PNG
+[Image6]: ../media/6DBConfigFirewall_SQLTut.png
+[Image7]: ../media/7DBConfigFirewallSAVE_SQLTut.png
+[Image8]: ../media/8MainPageHome_SQLTut.PNG
+[Image9]: ../media/9dblistschool_SQLTut.png
+[Image10]: ../media/10dbportalmanagebutton_SQLTut.png
+[Image11]: ../media/11ManageDatabaseLogin_SQLTut.png
+[Image12]: ../media/12DBPortalNewQuery_SQLTut.png
+[Image13]: ../media/13DBQueryResults_SQLTut.png
+[Image14]: ../media/14DBPortalConnectMaster_SQLTut.PNG
+[Image15]: ../media/15DBPortalConnectMasterErr_SQLTut.PNG
+[Image16]: ../media/16ExcelConnect_SQLTut.png
+[Image17]: ../media/17ExcelSelect_SQLTut.png
+[Image18]: ../media/18ExcelTable_SQLTut.png
+[Image19]: ../media/19ExcelImport_SQLTut.png
+[Image20]: ../media/11ManageDatabaseLogin_SQLTut.png
 

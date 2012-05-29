@@ -1,17 +1,24 @@
 # Java Developer Center - Tutorials
 
-### [On-Premise Application with Blob Storage][on_premise_storage]
+### [How to run a Java application server on a virtual machine][java_application_server]
 
-Describes how you can use Windows Azure storage to store images in Windows Azure.
+Create a virtual machine running on Windows Azure and configure it to run Tomcat, a Java application server. You will learn how to use Windows Azure Virtual Machines to host Java applications.
 
 ### [How to run a compute-intensive task in Java on a virtual machine][compute_intensive]
 
-Describes how you can use a virtual machine to handle compute-intensive tasks; for example, a virtual machine could handle tasks and deliver results to client machines or mobile applications.
+Learn how to use a virtual machine to handle compute-intensive tasks; for example, a virtual machine could handle tasks and deliver results to client machines or mobile applications.
 
-### [How to run a Java application server on a virtual machine][java_application_server]
+### [On-Premise Application with Blob Storage][on_premise_storage]
 
-Describes how to create a virtual machine running on Windows Azure and configure it to run a Java application server.
+Create an application that stores images in Windows Azure blob storage. You will learn how to use the Windows Azure Client Libraries for Java and how to work with Windows Azure storage. 
 
-[on_premise_storage]: ../tutorials/on-premise-app-with-blob-storage.md
-[compute_intensive]: ../howto/howto_java_compute_task.md
-[java_application_server]: ../howto/howto_java_virtual_machine.md
+### [Hello World web application using Eclipse][eclipse-app]
+
+Use the Eclipse plugin to create a "Hello World" application hosted in Tomcat, test it in the Compute emulator, and finally deploy it to Windows Azure.
+
+
+
+[on_premise_storage]: /en-us/develop/java/tutorials/application-with-blob-storage/
+[compute_intensive]: /en-us/develop/java/tutorials/tomcat-on-virtual-machine/
+[java_application_server]: /en-us/develop/java/tutorials/app-on-virtual-machine/
+[eclipse-app]: http://go.microsoft.com/fwlink/?LinkID=234493&clcid=0x409

@@ -11,4 +11,3 @@
 
 <h3><a href="/en-us/develop/net/scenarios/mobile/">Mobile</a></h3>
 <p>Windows Azure provides a flexible platform for hosting and scaling apps for mobile devices. The tutorials in this section demonstrate how you can easily create web applications hosted on Windows Azure that are optimized for rendering on mobile devices.</p>
-</div>

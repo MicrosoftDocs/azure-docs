@@ -1,4 +1,4 @@
-# Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System #
+# Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System 
 
 A virtual machine that you create in Windows Azure runs the operating system that you choose from the supported operating system versions. You can customize the operating system settings of the virtual machine to facilitate running your application. The configuration that you set is stored on disk. You create a virtual machine in Windows Azure by using a virtual hard disk (VHD) file. You can choose to create a virtual machine by using a VHD file that is supplied for you in the Image Gallery, or you can choose to create your own image and upload it to Windows Azure in a VHD file.
 
@@ -128,37 +128,29 @@ You must complete specific configuration steps in the operating system for the v
 
 3. Uninstall NetworkManager by running the following command:
 
-	`rpm -e --nodeps NetworkManager`
+		rpm -e --nodeps NetworkManager
 
 	**Note:** If the package is not already installed, this command will fail with an error message. This is expected.
 
 4.	Create a file named **network** in the `/etc/sysconfig/` directory that contains the following text:
 
-	`NETWORKING=yes`
-
-	`HOSTNAME=localhost.localdomain`
+		NETWORKING=yes
+		HOSTNAME=localhost.localdomain
 
 5.	Create a file named **ifcfg-eth0** in the `/etc/sysconfig/network-scripts/` directory that contains the following text:
 
-	`DEVICE=eth0`
-
-	`ONBOOT=yes`
-
-	`DHCP=yes`
-
-	`BOOTPROTO=dhcp`
-
-	`TYPE=Ethernet`
-
-	`USERCTL=no`
-
-	`PEERDNS=yes`
-
-	`IPV6INIT=no`
+		DEVICE=eth0
+		ONBOOT=yes
+		DHCP=yes
+		BOOTPROTO=dhcp
+		TYPE=Ethernet
+		USERCTL=no
+		PEERDNS=yes
+		IPV6INIT=no
 
 6. Enable the network service by running the following command:
 
-	`chkconfig network on`
+		chkconfig network on
 
 7. Install the drivers for the Linux Integration Services.
 	
@@ -182,27 +174,23 @@ You must complete specific configuration steps in the operating system for the v
 
 	h) In the Command Prompt window, type the following commands:
 
-	`mount /dev/cdrom /media`
-    
-	`/media/install.sh`
-
-	`reboot`
+		mount /dev/cdrom /media
+		/media/install.sh`
+		reboot
 
 8. Install python-pyasn1 by running the following command:
 
-	`yum install python-pyasn1`
+		yum install python-pyasn1
 
 9.	Download the [Windows Azure Linux Agent](http://) and then install it by running the following command:
 
-	`rpm –ivh WALinuxAgent-1.0-1.noarch.rpm`
+		rpm –ivh WALinuxAgent-1.0-1.noarch.rpm
 
 10.	Run the following commands to deprovision the virtual machine:
 
-	`waagent –force –deprovision`
-
-	`export HISTSIZE=0`
-
-	`logout`
+		waagent –force –deprovision
+		export HISTSIZE=0
+		logout
 
 11. Click **Shutdown** in Hyper-V Manager.
 
@@ -258,7 +246,7 @@ You must set the connection string that is used to access the subscription. The 
 
 2. Set the connection string by using the following command and replacing **Subscriptionid** and **CertThumbprint** with the values that you obtained earlier:
 
-	`csupload Set-Connection "SubscriptionID=<Subscriptionid>;CertificateThumbprint=<Thumbprint>;ServiceManagementEndpoint=https://management-preview.core.windows-int.net"`
+		csupload Set-Connection "SubscriptionID=<Subscriptionid>;CertificateThumbprint=<Thumbprint>;ServiceManagementEndpoint=https://management-preview.core.windows-int.net"
 
 ### Upload the VHD file ###
 
@@ -268,7 +256,7 @@ For this task, you upload the VHD file to be used as an image for creating virtu
 
 2. Set the connection string by using the following command and replacing **Subscriptionid** and **CertThumbprint** with the values that you obtained earlier:
 
-	`csupload Add-PersistentVMImage –Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>" -Label <VHDName> -LiteralPath <PathToVHDFile> -OS Windows`
+		csupload Add-PersistentVMImage –Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>" -Label <VHDName> -LiteralPath <PathToVHDFile> -OS Windows
 
 	Where **BlobStorageURL** is the URL for the storage account that you created earlier. You can place the VHD file anywhere within your Blog storage. **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the VHD. **PathToVHDFile** is the full path and name of the VHD file.
 
