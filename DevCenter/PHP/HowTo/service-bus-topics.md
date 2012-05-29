@@ -106,7 +106,7 @@ namespace.
 
 <h2 id="ConfigureApp">Configure your application to use Service Bus</h2>
 
-The only requirement for creating a PHP application that accesses the Windows Azure Blob service is the referencing of classes in the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
+The only requirement for creating a PHP application that accesses the Windows Azure Blob service is the referencing of classes in the [Windows Azure client libraries for PHP][client-libs] from within your code. You can use any development tools to create your application, including Notepad.
 
 In this guide, you will use service features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site. We assume you have downloaded and installed PHP, followed the instructions in [Download the Windows Azure SDK for PHP] [download-sdk], and have created a Windows Azure Service Bus namespace in your Windows Azure subscription.
 
@@ -340,7 +340,7 @@ path&gt;/subscriptions/&lt;subscription name&gt;".
 	$serviceBusRestProxy = ServiceBusService::create($config);
 	
 	$options = new ReceiveMessageOptions();
-	$options->setIsPeekLock(true);
+	$options->setPeekLock(true);
 		
 	try	{
 		// Get message.
@@ -409,7 +409,7 @@ The following example shows how to delete a topic (`mytopic`) and its registered
 		echo $code.": ".$error_message."<br />";
 	}
 
-My using the **deleteSubscription** method, you can delete a subscription independently:
+By using the **deleteSubscription** method, you can delete a subscription independently:
 
 	$serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 
@@ -440,3 +440,4 @@ topic [Queues, Topics, and Subscriptions][] for more information.
 [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
 [Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
 [sqlfilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+[client-libs]: http://go.microsoft.com/fwlink/?LinkId=252719
