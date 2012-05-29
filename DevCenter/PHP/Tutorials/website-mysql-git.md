@@ -22,7 +22,7 @@ Follow these steps to create a Windows Azure Website and a MySQL database:
 
 	![Create New Windows Azure Website][new-website]
 
-3. Click **Web Site**, then **Custom Create**.
+3. Click **WEB SITE**, then **CREATE WITH DATABASE**.
 
 	![Custom Create a new Website][custom-create]
 	
@@ -36,16 +36,16 @@ Follow these steps to create a Windows Azure Website and a MySQL database:
 
 	When the website has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfully**. Now, you can enable Git publishing.
 
-5. Click the name of the website displayed in the list of websites to open the website’s **QUICKSTART** dashboard.
+6. Click the name of the website displayed in the list of websites to open the website’s **QUICKSTART** dashboard.
 
 	![Open website dashboard][go-to-dashboard]
 
 
-6. At the bottom of the **QUICKSTART** page, click **Set up Git publishing**. 
+7. At the bottom of the **QUICKSTART** page, click **Set up Git publishing**. 
 
 	![Set up Git publishing][setup-git-publishing]
 
-7. To enable Git publishing, you must provide a user name and password. Make a note of the user name and password you create. (If you have set up a Git repository before, this step will be skipped.)
+8. To enable Git publishing, you must provide a user name and password. Make a note of the user name and password you create. (If you have set up a Git repository before, this step will be skipped.)
 
 	![Create publishing credentials][credentials]
 
@@ -53,11 +53,7 @@ Follow these steps to create a Windows Azure Website and a MySQL database:
 
 	![Creating Git repository][creating-repo]
 
-8. When your repository is ready, click **Push my local files to Windows Azure**.
-
-	![Get Git instructions for pushing files][push-files]
-
-	Make note of the instructions on the resulting page - they will be needed later.
+9. When your repository is ready, you will see instructions for pushing your application files to the repository. Make note of these instruction - they will be needed later.
 
 	![Git instructions][git-instructions]
 
