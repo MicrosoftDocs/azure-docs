@@ -194,7 +194,7 @@ You can easily modify and republish your application. Here, you will make a simp
 4. When publishing has completed, navigate to http://[your website name].windows.net/index.php to see the published changes.
 
 [install-SQLExpress]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
-[running-app]: ../Media/running_app.jpg
+[running-app]: ../Media/tasklist_app_windows.png
 [tasklist-sqlazure-download]: http://go.microsoft.com/fwlink/?LinkId=252504
 [install-webmatrix]: ../../Shared/Media/install_webmatrix_from_site_dashboard.jpg
 [launch-webmatrix]: ../../Shared/Media/launch_webmatrix.jpg

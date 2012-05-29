@@ -6,8 +6,8 @@
 <div class="dev-articles">
 <h2>Create your first application</h2>
 <div class="article red">
-<h3><a href="../../tutorials/running-hadoop-jobs/">Running simple Hadoop jobs</a></h3>
-<p>Walk through step-by-step instructions for running simple jobs on Hadoop on Windows Azure.</p>
+<h3><a href="../../tutorials/hadoop-and-data/">Working with Hadoop and data</a></h3>
+<p>Use Windows Azure Storage in MapReduce, uploading data files to HDFS using FTPS, and importing SQL Server Data with Sqoop.</p>
 </div>
 <div class="article blue">
 <h3><a href="../../tutorials/website-with-mongodb-vm/">Website with MongoDB on a virtual machine</a></h3>
@@ -15,9 +15,8 @@
 </div>
 <h2>Additional scenarios</h2>
 <div class="article green">
-<h3><a href="../../tutorials/hadoop-and-data/">Working with Hadoop and data</a></h3>
-<p>Use Windows Azure Storage in MapReduce, uploading data files to HDFS using FTPS, and importing SQL Server Data with Sqoop.</p>
-</div>
+<h3><a href="/en-us/develop/net/tutorials/hadoop-recommendation-engine/">Create a Mahout a Recommendation Engine</a></h3>
+<p>Create a simple recommendation engine using a Mahout item-based algorithm.</p>
 <div class="article red">
 <h3><a href="../../tutorials/hadoop-social-web-data/">Hadoop with social web data</a></h3>
 <p>Demo and process Twitter movie data using Hadoop on Windows Azure.</p>

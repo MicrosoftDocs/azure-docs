@@ -1,4 +1,5 @@
-1. After you have signed up for an account, click **preview features** to enable the Windows Azure Web Sites and Windows Azure Virtual Machines features on your account.
+1. Navigate to the [https://account.windowsazure.com/]() and sign in with your Windows Azure account.
+2. click **preview features** to enable the Windows Azure Web Sites or Windows Azure Virtual Machines feature on your account.
 ![open preview features tab][]
 2. Select a feature to try and click **try it now**.
 ![select a preview feature][]

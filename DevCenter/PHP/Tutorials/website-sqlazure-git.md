@@ -292,9 +292,10 @@ To publish changes to application, follow these steps:
 [install-git]: http://git-scm.com/
 [wpi]: http://www.microsoft.com/web/downloads/platform.aspx
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
-[localhost-createtable]: http://localhost/registration/createtable.php
-[localhost-index]: http://localhost/registration/index.php
-[running-app]: ../Media/running_app_3.png
+[tasklist-sqlazure-download]: http://go.microsoft.com/fwlink/?LinkId=252504
+[localhost-createtable]: http://localhost/tasklist/createtable.php
+[localhost-index]: http://localhost/tasklist/index.php
+[running-app]: ../Media/tasklist_app_windows.png
 [new-website]: ../../Shared/Media/new_website.jpg
 [custom-create]: ../../Shared/Media/custom_create.jpg
 [website-details-sqlazure]: ../Media/website_details_sqlazure.jpg

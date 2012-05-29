@@ -1,5 +1,9 @@
 # Python Developer Center - Common tasks
 
+
+### [Installing Python and the SDK][]
+Python is easy to setup on Windows and comes pre-installed on Mac and Linux.  This guide walks you through installation and getting your machine ready for use with Windows Azure.
+
 ### [Managing Windows Azure SQL Database using SQL Server Management Studio][]
 You can use SQL Server Management Studio to manage SQL Database logical servers and databases. This article includes details about creating and managing databases, creating and managing logins, and monitoring using Dynamic Management Views.
 
@@ -15,7 +19,7 @@ Secure Socket Layer (SSL) encryption is the most commonly used method of securin
 ### [Using CDN for Windows Azure][]
 The Windows Azure Content Delivery Network (CDN) offers a global solution for delivering high-bandwidth content by caching blobs and static content at physical nodes around the world. This common task describes how to enable CDN and add, access, and delete content.
 
-
+[Installing Python and the SDK]: /en-us/develop/python/common-tasks/install-python/
 [Managing Windows Azure SQL Database using SQL Server Management Studio]: /en-us/develop/python/common-tasks/sql-azure-management/
 [Configuring a Custom Domain Name in Windows Azure]: /en-us/develop/python/common-tasks/custom-dns/
 [Enabling Remote Desktop in Windows Azure with Visual Studio]: /en-us/develop/python/common-tasks/remote-desktop/

@@ -194,63 +194,59 @@ You begin by creating a simple data model in code.
 ![Add Class in Models folder context menu][adddb001]
 2. In the **Add New Item** dialog box, name the new class file Contact.cs, and then click **Add**.<br/>
 ![Add New Item dialog box][adddb002]
-3. Replace the contents of the Contacts.cs file with the following code.<pre class="prettyprint">
-using System.Globalization;
-namespace ContactManager.Models
-{
-    public class Contact
-    {
-        public int ContactId { get; set; }
+3. Replace the contents of the Contacts.cs file with the following code.
 
-        public string Name { get; set; }
-
-        public string Address { get; set; }
-
-        public string City { get; set; }
-
-        public string State { get; set; }
-
-        public string Zip { get; set; }
-
-        public string Email { get; set; }
-
-        public string Twitter { get; set; }
-
-        public string Self
-        {
-            get { return string.Format(CultureInfo.CurrentCulture, "api/contacts/{0}", this.ContactId); }
-            set { }
-        }
-    }
-}</pre>
+		using System.Globalization;
+		namespace ContactManager.Models
+		{
+    		public class Contact
+   			{
+        		public int ContactId { get; set; }
+				public string Name { get; set; }
+				public string Address { get; set; }
+	        	public string City { get; set; }
+				public string State { get; set; }
+				public string Zip { get; set; }
+				public string Email { get; set; }
+				public string Twitter { get; set; }
+				public string Self
+        		{
+            		get { return string.Format(CultureInfo.CurrentCulture,
+				         "api/contacts/{0}", this.ContactId); }
+            		set { }
+        		}
+    		}
+		}
 The **Contacts** class defines the data that you want to store for each contact, plus a primary key that is needed by the database.
-4. Add another class file named ContactManagerContext.cs and replace the contents of the file with the following code.<pre class="prettyprint">
-using System.Data.Entity;
-namespace ContactManager.Models
-{
-    public class ContactManagerContext : DbContext
-    {
-        // You can add custom code to this file. Changes will not be overwritten.
-        //
-        // If you want Entity Framework to drop and regenerate your database
-        // automatically whenever you change your model schema, add the following
-        // code to the Application_Start method in your Global.asax file.
-        // Note: this will destroy and re-create your database with every model change.
-        //
-        // System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<ContactManager.Models.ContactManagerContext>());
-        public ContactManagerContext() : base("name=ContactManagerContext")
-        {
-        }
-        public DbSet&lt;Contact> Contacts { get; set; }
-	}
-}
-</pre>
+4. Add another class file named ContactManagerContext.cs and replace the contents of the file with the following code.
+
+		using System.Data.Entity;
+		namespace ContactManager.Models
+		{
+    		public class ContactManagerContext : DbContext
+    		{
+        		// You can add custom code to this file. Changes will not be overwritten.
+        		//
+        		// If you want Entity Framework to drop and regenerate your database
+        		// automatically whenever you change your model schema, add the following
+        		// code to the Application_Start method in your Global.asax file.
+        		// Note: this will destroy and re-create your database with every model change.
+        		//
+        		// System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<ContactManager.Models.ContactManagerContext>());
+        		public ContactManagerContext() : base("name=ContactManagerContext")
+       			{
+        		}
+        		public DbSet<Contact> Contacts { get; set; }
+			}
+		}
+
 The **ContactManagerContext** class lets the Entity Framework know that you want to use **Contacts** objects as entities in an entity set.  An entity set in the Entity Framework corresponds to a table in a database. This is all the information the Entity Framework needs in order to create the database for you.
 5. Build the project. For example, you can press F6.<br/>
 Visual Studio compiles the data model classes that you created and makes them available for the following procedures that enable Code First Migrations and use MVC scaffolding.
 6. Open the Web.config file.
-7. In the connectionstrings section of the configuration add the ContactManagerContext Connection string.<pre class="prettyprint">
- 	&lt;add name="ContactManagerContext" providerName="System.Data.SqlClient" connectionString="Data Source=.\SQLEXPRESS; Initial Catalog=ContactManagerContext-20120515141224; Integrated Security=True; MultipleActiveResultSets=True" /></pre>
+7. In the connectionstrings section of the configuration add the ContactManagerContext Connection string.
+
+		<add name="ContactManagerContext" providerName="System.Data.SqlClient" connectionString="Data Source=.\SQLEXPRESS; Initial Catalog=ContactManagerContext-20120515141224; Integrated Security=True; MultipleActiveResultSets=True" />
 
 ### Enable Migrations and create the database
 
@@ -285,165 +281,168 @@ The MVC template created a default home page for your application, and you are r
 ![Add Controller message box][addcode003] <br/>
 Visual Studio creates a controller and views for each of the four main database operations (create, read, update, delete) for **Contacts** objects.
 4. Expand the Views\Shared folder and open the Index.cshtml file.<br/>![Modify index.cshtml in views\home folder context menu][addcode004]
-5. Replace the contents of the file with the following code.<pre class="prettyprint">@model IEnumerable&lt;ContactManager.Models.Contact>
-	@{
-	    ViewBag.Title = "Home";
-	}
-	@section Scripts {
-	    @Scripts.Render("~/bundles/jquerytmpl")
-	    &lt;script type="text/javascript">
-	        $(function () {
-	            // POST
-	            $("#addContact").submit(function () {
-	                $.post(
-	                "api/contacts",
-	                $("#addContact").serialize(),
-	                function (value) {
-	                    $("#contactTemplate").tmpl(value).appendTo("#contacts");
-	                },
-	                "json"
-	            );
-	                return false;
-	            });
+5. Replace the contents of the file with the following code.
 
-	            // DELETE
-	            $(".removeContact").live("click", function () {
-	                $.ajax({
-	                    type: "DELETE",
-	                    url: $(this).attr("href"),
-	                    context: this,
-	                    success: function () {
-	                        $(this).closest("li").remove();
-	                    }
-	                });
-	                return false;
-	            });
-	        });
-	    </script>
-	    <script id="contactTemplate" type="text/html">
-	            <li class="ui-widget-content ui-corner-all">
-	                <h1 class="ui-widget-header">${ Name }</h1>
-	                <p>${ Address }, <br />${ City } ${ State } ${ Zip }<br />
-	                   <a href="mailto:${ Email }">${ Email }</a><br/>
-	                   <a href="http://twitter.com/${ Twitter }">@@${ Twitter }</a></p>
-	                <p><a href="${ Self }.png" class="viewImage ui-state-default ui-corner-all" target="_blank">Image</a>
-	                   <a href="${ Self }" class="removeContact ui-state-default ui-corner-all">Remove</a></p>
+		@model IEnumerable<ContactManager.Models.Contact>
+		@{
+	    	ViewBag.Title = "Home";
+		}
+		@section Scripts {
+	    	@Scripts.Render("~/bundles/jquerytmpl")
+	    	<script type="text/javascript">
+	        	$(function () {
+	            	// POST
+	            	$("#addContact").submit(function () {
+	                	$.post(
+	                	"api/contacts",
+	                	$("#addContact").serialize(),
+	                	function (value) {
+	                    	$("#contactTemplate").tmpl(value).appendTo("#contacts");
+	               	 	},
+	                	"json"
+	            	);
+	                	return false;
+	            	});
+	            	// DELETE
+	           	 	$(".removeContact").live("click", function () {
+	                	$.ajax({
+	                    	type: "DELETE",
+	                    	url: $(this).attr("href"),
+	                    	context: this,
+	                    	success: function () {
+	                        	$(this).closest("li").remove();
+	                    	}
+	                	});
+	                	return false;
+	            	});
+	        	});
+	    	</script>
+	    	<script id="contactTemplate" type="text/html">
+	            	<li class="ui-widget-content ui-corner-all">
+	                	<h1 class="ui-widget-header">${ Name }</h1>
+	               	 	<p>${ Address }, <br />${ City } ${ State } ${ Zip }<br />
+	                   	<a href="mailto:${ Email }">${ Email }</a><br/>
+	                   	<a href="http://twitter.com/${ Twitter }">@@${ Twitter }</a></p>
+	                	<p><a href="${ Self }.png" class="viewImage ui-state-default ui-corner-all" target="_blank">Image</a>
+	                   	<a href="${ Self }" class="removeContact ui-state-default ui-corner-all">Remove</a></p>
+	           	 	</li>
+	    	</script>
+		}
+		<ul id="contacts">
+	    	@foreach (var contact in Model)
+	    	{
+	        	<li class="ui-widget-content ui-corner-all">
+	           	<h1 class="ui-widget-header">@contact.Name</h1>
+	           	<p>@contact.Address, <br />@contact.City @contact.State @contact.Zip<br />
+	                	<a href="mailto:@contact.Email">@contact.Email</a><br/>
+	                	<a href="http://twitter.com/@contact.Twitter">@@@contact.Twitter</a></p>
+	            	<p><a href="@contact.Self" class="removeContact ui-state-default ui-corner-all">Remove</a></p>
+	        	</li>
+	    	}
+		</ul>
+		<form method="post" id="addContact">
+	    <fieldset>
+	        <legend>Add New Contact</legend>
+	        <ol>
+	            <li>
+	                <label for="Name">Name</label>
+	                <input type="text" name="Name" />
 	            </li>
-	    </script>
-	}
-	&lt;ul id="contacts">
-	    @foreach (var contact in Model)
-	    {
-	        &lt;li class="ui-widget-content ui-corner-all">
-	           &lt;h1 class="ui-widget-header">@contact.Name</h1>
-	           &lt;p>@contact.Address, &lt;br />@contact.City @contact.State @contact.Zip&lt;br />
-	                &lt;a href="mailto:@contact.Email">@contact.Email&lt;/a>&lt;br/>
-	                &lt;a href="http://twitter.com/@contact.Twitter">@@@contact.Twitter&lt;/a>&lt;/p>
-	            &lt;p>&lt;a href="@contact.Self" class="removeContact ui-state-default ui-corner-all">Remove&lt;/a>&lt;/p>
-	        &lt;/li>
-	    }
-	&lt;/ul>
-	&lt;form method="post" id="addContact">
-	    &lt;fieldset>
-	        &lt;legend>Add New Contact&lt;/legend>
-	        &lt;ol>
-	            &lt;li>
-	                &lt;label for="Name">Name&lt;/label>
-	                &lt;input type="text" name="Name" />
-	            &lt;/li>
-	             &lt;li>
-	                &lt;label for="Address">Address&lt;/label>
-	                &lt;input type="text" name="Address" />
-	            &lt;/li>
-	             &lt;li>
-	                &lt;label for="City">City&lt;/label>
-	                &lt;input type="text" name="City" />
-	            &lt;/li>
-	             &lt;li>
-	                &lt;label for="State">State&lt;/label>
-	                &lt;input type="text" name="State" />
-	            &lt;/li>
-	             &lt;li>
-	                &lt;label for="Zip">Zip&lt;/label>
-	                &lt;input type="text" name="Zip" />
-	            &lt;/li>
-	             &lt;li>
-	                &lt;label for="Email">E-mail&lt;/label>
-	                &lt;input type="text" name="Email" />
-	            &lt;/li>
-	             &lt;li>
-	                &lt;label for="Twitter">Twitter&lt;/label>
-	                &lt;input type="text" name="Twitter" />
-	            &lt;/li>
-	        &lt;/ol>
-	        &lt;input type="submit" value="Add" />
-	    &lt;/fieldset>
-	&lt;/form></pre>
+	             <li>
+	                <label for="Address">Address</label>
+	                <input type="text" name="Address" />
+	            </li>
+	             <li>
+	                <label for="City">City</label>
+	                <input type="text" name="City" />
+	            </li>
+	             <li>
+	                <label for="State">State</label>
+	                <input type="text" name="State" />
+	            </li>
+	             <li>
+	                <label for="Zip">Zip</label>
+	                <input type="text" name="Zip" />
+	            </li>
+	             <li>
+	                <label for="Email">E-mail</label>
+	                <input type="text" name="Email" />
+	            </li>
+	             <li>
+	                <label for="Twitter">Twitter</label>
+	                <input type="text" name="Twitter" />
+	            </li>
+	        </ol>
+	        <input type="submit" value="Add" />
+	    	</fieldset>
+		</form>
+
 6. Right-click the Content folder and click **Add**, and then click **New Item...**.<br/>![Add style sheet in Content folder context menu][addcode005]
 7. In the **Add New Item** dialog box, expand C# and select Web under Installed Templates and then select **Style Sheet**.<br/>![Add New Item dialog box][addcode006]
-8. Name the file **Contacts.css** and click **Add**. Replace the contents of the file with the following code.<pre class="prettyprint">.column
-	{
-	    float: left;
-	    width: 50%;
-	    padding: 0;
-	    margin: 5px 0;
-	}
+8. Name the file **Contacts.css** and click **Add**. Replace the contents of the file with the following code.
 
-	form ol {
-	    list-style-type: none;
-	    padding: 0;
-	    margin: 0;
-	}
+		.column {
+	    	float: left;
+	    	width: 50%;
+	    	padding: 0;
+	    	margin: 5px 0;
+		}
 
-	form li {
-	    padding: 1px;
-	    margin: 3px;
-	}
+		form ol {
+	    	list-style-type: none;
+	    	padding: 0;
+	    	margin: 0;
+		}
 
-	form input[type="text"]
-	{
-	    width: 100%;
-	}
+		form li {
+	    	padding: 1px;
+	    	margin: 3px;
+		}
 
-	#addContact {
-	    width: 300px;
-	    float: left;
-	    width:30%;
-	}
+		form input[type="text"] {
+	    	width: 100%;
+		}
 
-	#contacts {
-	    list-style-type: none;
-	    margin: 0;
-	    padding: 0;
-	    float:left;
-	    width: 70%;
-	}
+		#addContact {
+	    	width: 300px;
+	    	float: left;
+	    	width:30%;
+		}
 
-	#contacts li {
-	    margin: 3px 3px 3px 0;
-	    padding: 1px;
-	    float: left;
-	    width: 300px;
-	    text-align: center;
-	    background-image: none;
-	    background-color: #F5F5F5;
-	}
+		#contacts {
+	    	list-style-type: none;
+	    	margin: 0;
+	    	padding: 0;
+	    	float:left;
+	    	width: 70%;
+		}
 
-	#contacts li h1
-	{
-	    padding: 0;
-	    margin: 0;
-	    background-image: none;
-	    background-color: Orange;
-	    color: White;
-	    font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
-	}
+		#contacts li {
+	    	margin: 3px 3px 3px 0;
+	    	padding: 1px;
+	    	float: left;
+	    	width: 300px;
+	    	text-align: center;
+	    	background-image: none;
+	    	background-color: #F5F5F5;
+		}
 
-	.removeContact, .viewImage
-	{
-	    padding: 3px;
-	    text-decoration: none;
-}</pre>
+		#contacts li h1
+		{
+	    	padding: 0;
+	    	margin: 0;
+	    	background-image: none;
+	    	background-color: Orange;
+	    	color: White;
+	    	font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+		}
+
+		.removeContact, .viewImage
+		{
+	   	 	padding: 3px;
+	    	text-decoration: none;
+		}
+
 9. Expand the App\_Start folder and open the BundleConfig.cs file.<br/>![Modify BundleConfig.cs in App_Start folder context menu][addcode007]
 13. Add the following statement to register the jQuery templating plugin that you installed from nuGet.
 
