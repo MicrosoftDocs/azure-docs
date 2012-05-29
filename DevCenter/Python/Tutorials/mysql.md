@@ -36,15 +36,15 @@ You must download and install the MySQL Python package, in addition to installin
  1. Open up the *TCP* protocol's *PUBLIC PORT* **3306** as *PRIVATE PORT* **3306**.
 ![][8]
 
-- Install the latest version of <a href="http://dev.mysql.com/downloads/mysql/">MySQL Community Server</a> for Windows on the virtual machine:
-1. Install .NET version 4.0 from <a href="http://go.microsoft.com/fwlink/?LinkId=181012">here</a>.
-1. Run the *Windows (x86, 64-bit), MSI Installer* link <a href="http://dev.mysql.com/downloads/mysql/">here</a> and download the appropriate MSI installer from the download mirror nearest you. Helpful hints are:
+- Install the latest version of [MySQL Community Server] [mysqlcommunity] for Windows on the virtual machine:
+1. Install .NET version 4.0 from [here][dotnetfour].
+1. Run the *Windows (x86, 64-bit), MSI Installer* link [here] [mysqlcommunity] and download the appropriate MSI installer from the download mirror nearest you. Helpful hints are:
  * Select a *Complete* Setup Type.
  * Select a *Detailed Configuration* within the Configuration Wizard.
  * **Make sure you enable TCP/IP Networking on Port Number 3306 and add a firewall exception for the port**
  * Set a root password and enable root access from remote machines.
-1. Install a sample <a href="http://dev.mysql.com/doc/index-other.html">"world" database</a> (MyISAM version):
- * Download <a href="http://downloads.mysql.com/docs/world.sql.zip">this</a> zip file on the Windows Azure Virtual Machine.
+1. Install a sample ["world" database] [mysqlworld] (MyISAM version):
+ * Download [this] [mysqlworlddl] zip file on the Windows Azure Virtual Machine.
  * **Unzip it to *C:\Users\Administrator\Desktop\world.sql*.**
 - After installing MySQL, click the Windows *Start* menu and run the freshly installed *MySQL 5.5 Command Line Client*.  Issue the following commands:
 
@@ -65,7 +65,7 @@ You should now see a response similar to the following:
 ## Extend the Django Hello World application
   <ol>
     <li>
-      Follow the instructions given in the <a href="../Tutorials/web-app-with-django">Django Hello World</a> tutorial to create a trivial "Hello World" web application in Django.
+      Follow the instructions given in the [Django Hello World] [djangohelloworld] tutorial to create a trivial "Hello World" web application in Django.
     </li>
     <li>
       Open **C:\django\helloworld\hello_dj\hello_dj\settings.py** in your favorite text editor.  Modify the **DATABASES** global dictionary to read:
@@ -276,6 +276,10 @@ deleting a storage account, see [How to Delete a Storage Account from a Windows 
 [mysqlpy]: http://pypi.python.org/pypi/MySQL-python/1.2.3
 [wapstarted]: ../commontasks/how-to-install-python
 [mysqlpydl]: http://www.codegood.com/download/10/
+[mysqlcommunity]:http://dev.mysql.com/downloads/mysql/
+[dotnetfour]:http://go.microsoft.com/fwlink/?LinkId=181012
+[mysqlworld]:http://dev.mysql.com/doc/index-other.html
+[mysqlworlddl]:http://downloads.mysql.com/docs/world.sql.zip
 
 [The status of the Stop-AzureService command]: ../Media/django-helloworld-ps-stop.png
 [The status of the Remove-AzureService command]: ../Media/django-helloworld-ps-remove.png
