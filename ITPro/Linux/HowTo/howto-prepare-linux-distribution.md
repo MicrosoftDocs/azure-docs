@@ -1,5 +1,5 @@
 <properties umbracoNaviHide="0" pageTitle="How to Prepare a Linux Distribution for Running in Windows Azure" metaKeywords="Windows Azure virtual machine, Azure virtual machine, linux, centos, ubuntu, suse, opensuse" metaDescription="Learn how to use the service management api." linkid="manage-linux-how-to-guide-virtual-machines" urlDisplayName="How To Guides" headerExpose="" footerExpose="" disqusComments="1" />
-#How to Use Linux Agent to Prepare a Distribution for Windows Azure
+#How to Prepare a Linux Distribution for Windows Azure
 
 This topic describes the steps needed to customize and create images for the different distributions that our partners have tested.
 

@@ -1,4 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="How to Create Management Certificates for Linux" metaKeywords="Windows Azure virtual machine, Azure virtual machine, certificates, management certificates" metaDescription="Learn how to create management certificates for Linux on Windows Azure." linkid="manage-linux-how-to-guide-virtual-machines" urlDisplayName="How To Guides" headerExpose="" footerExpose="" disqusComments="1" />
+<properties umbracoNaviHide="0" pageTitle="How to Use SSH with Linux on Windows Azure" metaKeywords="Windows Azure virtual machine, Azure virtual machine, SSH" metaDescription="" linkid="manage-linux-how-to-guide-ssh" urlDisplayName="How To Guides" headerExpose="" footerExpose="" disqusComments="1" />
 #How to Use SSH with Linux on Windows Azure
 
 This topic describes the steps to generate SSH keys compatible with Windows Azure.
