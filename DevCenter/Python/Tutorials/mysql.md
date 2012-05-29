@@ -41,13 +41,12 @@ You must download and install the MySQL Python package, in addition to installin
 1. Run the *Windows (x86, 64-bit), MSI Installer* link [here] [mysqlcommunity] and download the appropriate MSI installer from the download mirror nearest you. Helpful hints are:
  * Select a *Complete* Setup Type.
  * Select a *Detailed Configuration* within the Configuration Wizard.
- * **Make sure you enable TCP/IP Networking on Port Number 3306 and add a firewall exception for the port**
+ * **Make sure you enable TCP/IP Networking on Port Number 3306 and add a firewall exception for the port.**
  * Set a root password and enable root access from remote machines.
 1. Install a sample ["world" database] [mysqlworld] (MyISAM version):
  * Download [this] [mysqlworlddl] zip file on the Windows Azure Virtual Machine.
  * **Unzip it to *C:\Users\Administrator\Desktop\world.sql*.**
 - After installing MySQL, click the Windows *Start* menu and run the freshly installed *MySQL 5.5 Command Line Client*.  Issue the following commands:
-
 
 		CREATE world;
 		USE world;
@@ -65,8 +64,8 @@ You should now see a response similar to the following:
 ## Extend the Django Hello World application
 * Follow the instructions given in the [Django Hello World] [djangohelloworld] tutorial to create a trivial "Hello World" web application in Django.
 
-* Open **C:\django\helloworld\hello_dj\hello_dj\settings.py** in your favorite text editor.  Modify the **DATABASES** global dictionary to read:
-<pre class="prettyprint">	
+* Open **C:\django\helloworld\hello\_dj\hello\_dj\settings.py** in your favorite text editor.  Modify the **DATABASES** global dictionary to read:
+
 		DATABASES = {
 		    'default': {
 			    'ENGINE': 'django.db.backends.mysql',
@@ -85,93 +84,104 @@ You should now see a response similar to the following:
 			    'PORT': '3306',
 			    }
 			}
-</pre>  As you can see, we've just given Django instructions on where to find our MySQL database. 
-**Important Note:** you **must** change the *HOST* key to match your Windows Azure (MySQL) VM's **permanent** IP address. At this point, *HOST* should be set to whatever the *ipconfig* Windows command reports it as being. After you've modified *HOST* to match the MySQL VM's IP address, please save this file and close it.
 
-* Now that we've referenced our *djangoazure* database, let's do something useful with it! To this end, we'll create a model for a trivial *counter* app.  To instruct Django to create this, run the following commands:<pre class="prettyprint">
-cd C:\django\helloworld\hello_dj\hello_dj
-C:\Python27\python.exe manage.py startapp counter
-</pre>If Django doesn't report any output from the final command above, it succeeded.
+  As you can see, we've just given Django instructions on where to find our MySQL database.
+ 
+  **Note:** you **must** change the *HOST* key to match your Windows Azure (MySQL) VM's **permanent** IP address. At this point, *HOST* should be set to whatever the *ipconfig* Windows command reports it as being. 
 
-* Append the following text to **C:\django\helloworld\hello_dj\hello_dj\counter\models.py**:<pre class="prettyprint">class Counter(models.Model):
-    count = models.IntegerField()
-    def __unicode__(self):
-        return u'%s' % (self.count)</pre>All we've done here is defined a subclass of Django's *Model* class named *Counter* with a single integer field, *count*. This trivial counter model will end up recording the number of hits to our Django application. 
+  After you've modified *HOST* to match the MySQL VM's IP address, please save this file and close it.
+
+* Now that we've referenced our *djangoazure* database, let's do something useful with it! To this end, we'll create a model for a trivial *counter* app.  To instruct Django to create this, run the following commands:
+
+		cd C:\django\helloworld\hello_dj\hello_dj
+		C:\Python27\python.exe manage.py startapp counter
+
+  If Django doesn't report any output from the final command above, it succeeded.
+
+* Append the following text to **C:\django\helloworld\hello\_dj\hello\_dj\counter\models.py**:
+
+		class Counter(models.Model):
+		    count = models.IntegerField()
+		    def __unicode__(self):
+		        return u'%s' % (self.count)
+
+  All we've done here is defined a subclass of Django's *Model* class named *Counter* with a single integer field, *count*. This trivial counter model will end up recording the number of hits to our Django application. 
 
 * Next we make Django aware of *Counter*'s existence:
- 1. Edit **C:\django\helloworld\hello_dj\hello_dj\settings.py** again. Add *'counter'* to the *INSTALLED_APPS* tuple.
- 1. From a command prompt, please run:<pre class="prettyprint">cd C:\django\helloworld\hello_dj\hello_dj
-C:\Python27\python manage.py sql counter
-C:\Python27\python manage.py syncdb
-</pre>These commands store the *Counter* model in the live Django database, and result in output similar to the following:<pre>C:\django\helloworld\hello_dj\hello_dj> C:\Python27\python manage.py sql counter
-BEGIN;
-CREATE TABLE `counter_counter` (
-    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    `count` integer NOT NULL
-)
-;
-COMMIT;
-C:\django\helloworld\hello_dj\hello_dj> C:\Python27\python manage.py syncdb
-Creating tables ...
-Creating table auth_permission
-Creating table auth_group_permissions
-Creating table auth_group
-Creating table auth_user_user_permissions
-Creating table auth_user_groups
-Creating table auth_user
-Creating table django_content_type
-Creating table django_session
-Creating table django_site
-Creating table counter_counter
-You just installed Django's auth system, which means you don't have any superusers defined.
-Would you like to create one now? (yes/no): no
-Installing custom SQL ...
-Installing indexes ...
-Installed 0 object(s) from 0 fixture(s)</pre>
+ 1. Edit **C:\django\helloworld\hello\_dj\hello\_dj\settings.py** again. Add *'counter'* to the *INSTALLED_APPS* tuple.
+ 1. From a command prompt, please run:
 
-* Replace the contents of **C:\django\helloworld\hello_dj\hello_dj\views.py**. The new implementation of the *hello* function below uses our *Counter* model in conjunction with a separate sample database we previously installed, *world*, to generate a suitable replacement for the "*World*" string:
-      <pre class="prettyprint">
-from django.http import HttpResponse
-import django.db
+			cd C:\django\helloworld\hello_dj\hello_dj
+			C:\Python27\python manage.py sql counter
+			C:\Python27\python manage.py syncdb
 
-from counter.models import Counter
+    These commands store the *Counter* model in the live Django database, and result in output similar to the following:
 
-def getCountry(intId):
-    #Connect to the MySQL sample database 'world'
-    cur = django.db.connections['world'].cursor()
+		C:\django\helloworld\hello_dj\hello_dj> C:\Python27\python manage.py sql counter
+		BEGIN;
+		CREATE TABLE `counter_counter` (
+    		`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+		    `count` integer NOT NULL
+		)
+		;
+		COMMIT;
+		
+		C:\django\helloworld\hello_dj\hello_dj> C:\Python27\python manage.py syncdb
+		Creating tables ...
+		Creating table auth_permission
+		Creating table auth_group_permissions
+		Creating table auth_group
+		Creating table auth_user_user_permissions
+		Creating table auth_user_groups
+		Creating table auth_user
+		Creating table django_content_type
+		Creating table django_session
+		Creating table django_site
+		Creating table counter_counter
+		
+		You just installed Django's auth system, which means you don't have any superusers defined.
+		Would you like to create one now? (yes/no): no
+		Installing custom SQL ...
+		Installing indexes ...
+		Installed 0 object(s) from 0 fixture(s)
 
-    #Execute a trivial SQL query which returns the name of 
-    #all countries contained in 'world'
-    cur.execute("SELECT name from country")
-    tmp = cur.fetchall()
-    #Clean-up after ourselves
-    cur.close()
+* Replace the contents of **C:\django\helloworld\hello\_dj\hello\_dj\views.py**. The new implementation of the *hello* function below uses our *Counter* model in conjunction with a separate sample database we previously installed, *world*, to generate a suitable replacement for the "*World*" string:
 
-    if intId >= len(tmp):
-        return "countries exhausted"
-    return tmp[intId][0]
-
-def hello(request):
-    if len(Counter.objects.all())==0:
-        #when the database corresponding to 'helloworld.counter' is 
-        #initially empty...
-        c = Counter(count=0)
-    else:
-        c = Counter.objects.all()[0]
-        c.count += 1
-    c.save()
-   
-    world = getCountry(int(c.count))
-    return HttpResponse("&lt;html&gt;&lt;body&gt;Hello &lt;em&gt;" + world + "&lt;/em&gt;&lt;/body&gt;&lt;/html&gt;")
-</pre>
+		from django.http import HttpResponse
+		import django.db
+		from counter.models import Counter
+		
+		def getCountry(intId):
+		    #Connect to the MySQL sample database 'world'
+		    cur = django.db.connections['world'].cursor()
+		    #Execute a trivial SQL query which returns the name of 
+		    #all countries contained in 'world'
+		    cur.execute("SELECT name from country")
+		    tmp = cur.fetchall()
+		    #Clean-up after ourselves
+		    cur.close()
+		    if intId >= len(tmp):
+		        return "countries exhausted"
+		    return tmp[intId][0]
+		
+		def hello(request):
+		    if len(Counter.objects.all())==0:
+		        #when the database corresponding to 'helloworld.counter' is 
+		        #initially empty...
+		        c = Counter(count=0)
+		    else:
+		        c = Counter.objects.all()[0]
+		        c.count += 1
+		    c.save()	   
+		    world = getCountry(int(c.count))
+		    return HttpResponse("<html><body>Hello <em>" + world + "</em></body></html>")
 
 ## Running Your Application Locally ##
 Before running your application in the Windows Azure emulator, let's run it as a normal Django application to ensure everything's working properly:
 
-<pre class="prettyprint">
-pushd C:\django\helloworld\hello_dj\hello_dj
-C:\Python27\python.exe manage.py runserver
-"%ProgramFiles%\Internet Explorer\iexplore.exe" http://localhost:8000</pre>
+		pushd C:\django\helloworld\hello_dj\hello_dj
+		C:\Python27\python.exe manage.py runserver
+		"%ProgramFiles%\Internet Explorer\iexplore.exe" http://localhost:8000
 
 **Note:** You might need to change port **8000** to another port depending upon how Django configured your application locally.
 
@@ -191,11 +201,11 @@ The output should be basically the same to what you saw with the locally hosted 
 ##Deploying the application to Windows Azure
 From here, you need to duplicate the steps performed in the [Django Hello World] [djangohelloworld] tutorial to publish the MySQL derivation to Windows Azure.  
 
-Additionally, you'll need to bundle MySQLdb with your app as this is not installed with the Windows Azure SDK for Python.  An easy way to accomplish this is:<pre class="prettyprint">
-cd C:\django\helloworld\hello\_dj
-copy -recurse C:\Python27\Lib\site-packages\MySQLdb .
-copy -recurse C:\Python27\Lib\site-packages\\_mysql* .
-</pre>
+Additionally, you'll need to bundle MySQLdb with your app as this is not installed with the Windows Azure SDK for Python.  An easy way to accomplish this is:
+
+		cd C:\django\helloworld\hello_dj
+		copy -recurse C:\Python27\Lib\site-packages\MySQLdb .
+		copy -recurse C:\Python27\Lib\site-packages\_mysql* .
 
 ## Stopping and Deleting Your Application
 
@@ -253,7 +263,7 @@ deleting a storage account, see [How to Delete a Storage Account from a Windows 
 [djangohelloworld]: ../web-app-with-django
 [mysqldoc]: http://dev.mysql.com/doc/
 [mysqlpy]: http://pypi.python.org/pypi/MySQL-python/1.2.3
-[wapstarted]: ../commontasks/how-to-install-python
+[wapstarted]: ../commontasks/how-to-install-python.md
 [mysqlpydl]: http://www.codegood.com/download/10/
 [mysqlcommunity]:http://dev.mysql.com/downloads/mysql/
 [dotnetfour]:http://go.microsoft.com/fwlink/?LinkId=181012
