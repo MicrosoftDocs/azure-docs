@@ -1,4 +1,4 @@
-#Windows Azure command-line tool for Mac and Linux Documentation
+#Windows Azure command-line tool for Mac and Linux
 
 This tool provides functionality for creating, deploying and managing virtual machines and web sites from Mac and Linux desktops. This functionality is similar to that provided by the PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS and PHP.
 
@@ -14,7 +14,7 @@ In addition to command-specific optional parameters documented below, there are 
 
 **Table of Contents:**
 
-* [Manage your account information and publish settings](#Manage_your_account_information_and_publish_settings)
+* [Commands to manage your account information and publish settings](#Manage_your_account_information_and_publish_settings)
 * [Commands to manage your Azure virtual machines](#Commands_to_manage_your_Azure_virtual_machines)
 * [Commands to manage your Azure virtual machine endpoints](#Commands_to_manage_your_Azure_virtual_machine_endpoints)
 * [Commands to manage your Azure virtual machine images](#Commands_to_manage_your_Azure_virtual_machine_images)
@@ -24,10 +24,10 @@ In addition to command-specific optional parameters documented below, there are 
 * [Commands to manage your web sites](#Commands_to_manage_your_web_sites)
 * [Manage tool local settings](#Manage_tool_local_settings)
 
-<h2 id="Manage_your_account_information_and_publish_settings">Manage your account information and publish settings</h2>
+<h2 id="Manage_your_account_information_and_publish_settings">Commands to manage your account information and publish settings</h2>
 Your Windows Azure subscription information is used by the tool to connect to your account. This information can be obtained from the Windows Azure portal in a *publish settings* file as described below. The publish settings file can then be imported as a persistent local config setting that will be used by the tool for subsequent operations. You only need to import your publish settings once. 
 
-**account download [options]**
+###account download [options]
 
 Launch a browser to download your .publishsettings file from the Windows Azure portal:
 
@@ -38,7 +38,7 @@ Launch a browser to download your .publishsettings file from the Windows Azure p
 	help:     account import &lt;file>
 	info:   account download command OK
 
-**account import [options] &lt;file>**
+###account import [options] &lt;file>
 
 This command imports a publishsettings file or certificate so that it can be used by the tool going forward.
 
@@ -51,7 +51,7 @@ This command imports a publishsettings file or certificate so that it can be use
 	warn:   Remember to delete it now that it has been imported.
 	info:   Account publish settings imported successfully
 
-**account clear [options]**
+###account clear [options]
 
 This command will remove the stored publish settings that have been imported. Use this command if you're finished using the tool on this machine and want to assure that the tool can not be used with your account going forward.
 
@@ -59,7 +59,7 @@ This command will remove the stored publish settings that have been imported. Us
 	Clearing account info.
 	info:   OK
 
-**account location list [options]**
+###account location list [options]
 
 This command lists all available Azure account locations.
 
@@ -71,7 +71,7 @@ This command lists all available Azure account locations.
 	info:   account location list command OK
 
 
-**account affinity-group list [options]**
+###account affinity-group list [options]
 
 This command lists your Windows Azure affinity groups.
 
@@ -86,15 +86,12 @@ Affinity-groups can be set when a group of virtual machines spans multiple physi
 <h2 id="Commands_to_manage_your_Azure_virtual_machines">Commands to manage your Windows Azure virtual machines</h2>
 The diagram below shows how Windows Azure virtual machines are hosted in the production deployment environment of a Windows Azure cloud service. 
 
-![Architecture Diagram](http://ArchitectureDiagram.jpg)
-
-
-
+![Architecture Diagram](../media/ArchitectureDiagram.jpg)
 
 // create-new creates the drive in blob storage (i.e., e:\ in the diagram); "attach" attaches an already created but unattached disk to a VM
 
 
-**vm create &lt;dns-prefix> &lt;image> &lt;userName> [password] [optional parameters]**
+###vm create &lt;dns-prefix> &lt;image> &lt;userName> [password] [optional parameters]*
 
 This command creates a new Windows Azure virtual machine. By default, each virtual machine is created in its own cloud service, however you can specify that a virtual machine should be added to an existing cloud service through use of the **-c** option as documented below.
 
@@ -122,14 +119,14 @@ The following optional parameters are supported for this command:
 		Enter VM 'my-vm-name' password: ************                                     
 		info:   vm create command OK`
 
-**vm create-from &lt;dns-prefix> &lt;role-file>**
+###vm create-from &lt;dns-prefix> &lt;role-file>
 
 Create a new Azure virtual machine from json role file
 
 	~$ azure vm create-from foo.json
 	info:   OK
 
-**vm list [options]**
+###vm list [options]
 
 List Azure virtual machines
 
@@ -140,7 +137,7 @@ List Azure virtual machines
 	data:   my-vm.cloudapp-preview.net        my-vm        ReadyRole
 	info:   vm list command OK
 
-**vm show [options] &lt;name>**
+###vm show [options] &lt;name>
 
 Show details about an Azure virtual machine
 
@@ -170,7 +167,7 @@ Show details about an Azure virtual machine
 	data:   }
 	info:   vm show command OK
 
-**vm delete [options] &lt;name>**
+###vm delete [options] &lt;name>
 
 Delete Azure virtual machine
 
@@ -178,7 +175,7 @@ Delete Azure virtual machine
 	info:   Executing command vm delete
 	info:   vm delete command OK
 
-**vm start [options] &lt;name>**
+###vm start [options] &lt;name>
 
 Start Azure virtual machine
 
@@ -186,7 +183,7 @@ Start Azure virtual machine
 	info:   Executing command vm start
 	info:   vm start command OK
 
-**vm restart [options] &lt;name>**
+###vm restart [options] &lt;name>
 
 Restart Azure virtual machine
 
@@ -194,7 +191,7 @@ Restart Azure virtual machine
 	info:   Executing command vm restart
 	info:   vm restart command OK
 
-**vm shutdown [options] &lt;name>**
+###vm shutdown [options] &lt;name>
 
 Shutdown Azure virtual machine
 
@@ -202,7 +199,7 @@ Shutdown Azure virtual machine
 	info:   Executing command vm shutdown
 	info:   vm shutdown command OK  
 
-**vm capture &lt;vm-name> &lt;target-image-name>**
+###vm capture &lt;vm-name> &lt;target-image-name>
 
 Capture Azure virtual machine image
 
@@ -218,25 +215,25 @@ Capturing a virtual machine cannot be done while it's state is RoleStateStarted.
 
 The following diagram shows the architecture of a typical deployment of multiple instances of a virtual machine. Note that in this example port 3389 is open on each virtual machine (for RDP access), and there is also an internal IP address (e.g., 168.55.11.1) on each virtual machine that is used by the load balancer to route traffic to the virtual machine.
 
-![Network Endpoint Diagram](http://networkdiagram.jpg)
+![Network Endpoint Diagram](../media/networkdiagram.jpg)
 
 External requests to virtual machines go through a load balancer and as such requests cannot be specified against a particular virtual machine on deployments with multiple virtual machines. For deployments with multiple virtual machines, port mapping must be configured between the virtual machines (vm-port) and the load balancer (lb-port).
  
-**vm endpoint create &lt;vm-name> &lt;lb-port> [vm-port]**
+###vm endpoint create &lt;vm-name> &lt;lb-port> [vm-port]
 
 Create a virtual machine endpoint
 
 	~$ azure vm endpoint create my-vm 8888 8888
 	info:   OK
 
-**vm endpoint delete &lt;vm-name> &lt;lb-port>**
+###vm endpoint delete &lt;vm-name> &lt;lb-port>
 
 Delete a virtual machine endpoint
 
 	~$ azure vm endpoint delete my-vm 8888
 	info:   OK
 
-**vm endpoint list &lt;vm-name>**
+###vm endpoint list &lt;vm-name>
 
 List all virtual machine endpoints
 
@@ -248,7 +245,7 @@ List all virtual machine endpoints
 <h2 id="Commands_to_manage_your_Azure_virtual_machine_images">Commands to manage your Azure VM images</h2>
 Virtual machine images are captures of already configured virtual machines that can be replicated as required.
 
-**vm image show [options] &lt;name>**
+###vm image show [options] &lt;name>
 
 Show status of a virtual machine image
 
@@ -266,7 +263,7 @@ Show status of a virtual machine image
 	data:   }
 	info:   vm image show command OK
 
-**vm image list [options]**
+###vm image list [options]
 
 Get a list of virtual machine images
 
@@ -278,7 +275,7 @@ Get a list of virtual machine images
 	data:   my-vm-1-my-vm-2-201242418259             undefined
 	info:   vm image list command OK
 
-**vm image delete [options] &lt;name>**
+###vm image delete [options] &lt;name>
 
 Delete a virtual machine image
 
@@ -287,7 +284,7 @@ Delete a virtual machine image
 	info:   VM image deleted: my-vm-image                                         
 	info:   vm image delete command OK
 
-**vm image create &lt;name> [source-path]**
+###vm image create &lt;name> [source-path]
 
 Create a virtual machine image
 Location and OS parameters are required
@@ -305,7 +302,7 @@ Location and OS parameters are required
 
 Data disks are .vhd files in blob storage that can be used by a virtual machine. See the Windows Azure technical diagram above for an overview of how data disks are deployed to blob storage.
 
-**vm disk show [options] &lt;name>**
+###vm disk show [options] &lt;name>
 
 Show details about an Azure disk
 
@@ -321,7 +318,7 @@ Show details about an Azure disk
 	data:   }
 	info:   vm disk show command OK
 
-**vm disk list [options] [vm-name]**
+###vm disk list [options] [vm-name]
 
 List Azure disk images, or disks attached to a specified virtual machine
 
@@ -332,7 +329,7 @@ List Azure disk images, or disks attached to a specified virtual machine
 	data:   1    30        my-vm-my-vm-2012-04-19.vhd
 	info:   vm disk list command OK
 
-**vm disk delete [options] &lt;name>**
+###vm disk delete [options] &lt;name>
 
 Delete Azure disk image from personal repository
 Disk must be detached from virtual machine prior to deletion
@@ -342,7 +339,7 @@ Disk must be detached from virtual machine prior to deletion
 	info:   Disk deleted: my-vm-my-vm-3-2012426221035                  
 	info:   vm disk delete command OK
 
-**vm disk create &lt;name> [source-path]**
+###vm disk create &lt;name> [source-path]
 
 Upload and register Azure disk image
 --blob-url, --location, or --affinity-group must be specified
@@ -355,7 +352,7 @@ Upload and register Azure disk image
 	info:   http://account.blob.core.azure.com/disks/test.vhd is uploaded successfully
 	info:   vm disk create command OK
 
-**vm disk attach &lt;vm-name> &lt;disk-image-name>**
+###vm disk attach &lt;vm-name> &lt;disk-image-name>
 
 This command attaches an existing disk in blob storage to an existing virtual machine deployed in a cloud service.
 
@@ -364,7 +361,7 @@ This command attaches an existing disk in blob storage to an existing virtual ma
 	info:   Executing command vm disk attach
 	info:   vm disk attach command OK
 
-**vm disk attach-new &lt;vm-name> &lt;size-in-gb> [blob-url]**
+###vm disk attach-new &lt;vm-name> &lt;size-in-gb> [blob-url]
 
 Attaches data-disk to Azure virtual machine
 
@@ -372,7 +369,7 @@ Attaches data-disk to Azure virtual machine
 	info:   Executing command vm disk attach-new
 	info:   vm disk attach-new command OK
 
-**vm disk detach &lt;vm-name> &lt;lun>**
+###vm disk detach &lt;vm-name> &lt;lun>
 
 Detaches a data-disk attached to an Azure virtual machine
 
@@ -384,7 +381,7 @@ Detaches a data-disk attached to an Azure virtual machine
 
 Windows Azure *cloud services* are applications and services hosted on web roles and worker roles. The following commands can be used to manage Windows Azure cloud services.
    
-**service list [options]**
+###service list [options]
 
 List Azure cloud services
 
@@ -396,7 +393,7 @@ List Azure cloud services
 	data:   service2     Created
 	info:   service list command OK
 
-**service delete [options] &lt;name>**
+###service delete [options] &lt;name>
 
 Delete Azure cloud service
 
@@ -408,7 +405,7 @@ Delete Azure cloud service
 
 Azure certificates are cerificates (i.e. SSL certificates) connected to your Azure account.
 
-**service cert list [options]**
+###service cert list [options]
 
 List Azure certificates
 
@@ -421,7 +418,7 @@ List Azure certificates
 	data:   mysrvice  262DBF95B5E61375FA27F1E74AC7D9EAE842916C  sha1     
 	info:   service cert list command OK
 
-**service cert create &lt;dns-prefix> &lt;file> [password]**
+###service cert create &lt;dns-prefix> &lt;file> [password]
 
 Upload certificate</br />
 Leave password prompt blank for non-password protected certificates
@@ -432,7 +429,7 @@ Leave password prompt blank for non-password protected certificates
 	+ Creating certificate                                                         
 	info:   service cert create command OK
 
-**service cert delete [options] &lt;thumbprint>**
+###service cert delete [options] &lt;thumbprint>
 
 Delete certificate
 
@@ -446,7 +443,7 @@ Delete certificate
 
 A Windows Azure *web site* is a web configuration accessible by uri. Web sites are hosted in virtual machines, but you do not need to think about the details of creating and deploying the virtual machine yourself. Those details are handled for you by Windows Azure.
 
-**site list [options]** 
+###site list [options]
 
 List your web sites
 
@@ -459,7 +456,7 @@ List your web sites
 	data:   mydrupalsite36  Running  mydrupalsite36.antdf0.antares.windows.net
 	info:   site list command OK
 
-**site create [options] [name]**
+###site create [options] [name]
 
 Create a new web site and local directory. Note that the site name must be unique. You can not create a site with the same DNS name as an existing site.
 
@@ -472,7 +469,7 @@ Create a new web site and local directory. Note that the site name must be uniqu
 	info:   Repository initialized
 	info:   site create command OK
 
-**site portal [options] [name]**
+###site portal [options] [name]
 
 Opens the portal in a browser to manage your web sites
 
@@ -481,7 +478,7 @@ Opens the portal in a browser to manage your web sites
 	info:   Launching browser to https://windows.azure.net/#Workspaces/WebsiteExtension/Website/mysite/dashboard
 	info:   site portal command OK
 
-**site browse [options] [name]**
+###site browse [options] [name]
 
 Open your web site in a browser
 
@@ -490,7 +487,7 @@ Open your web site in a browser
 	info:   Launching browser to http://mysite.antdf0.antares-test.windows-int.net
 	info:   site browse command OK
 
-**site show [options] [name]**
+###site show [options] [name]
 
 Show details for a web site
 
@@ -520,7 +517,7 @@ Show details for a web site
 	data:   Repository https://mysite.scm.antdf0.antares-test.windows-int.net/
 	info:   site show command OK
 
-**site delete [options] [name]**
+###site delete [options] [name]
 
 Delete a web site
 
@@ -530,7 +527,7 @@ Delete a web site
 	info:   Site mysite has been deleted
 	info:   site delete command OK
 
-**site start [options] [name]**
+###site start [options] [name]
 
 Start a web site
 
@@ -540,7 +537,7 @@ Start a web site
 	info:   Site mysite has been started
 	info:   site start command OK
 
-**site stop [options] [name]**
+###site stop [options] [name]
 
 Stop a web site
 
@@ -553,7 +550,7 @@ Stop a web site
 <h2 id="Manage_tool_local_settings">Manage tool local settings</h2>
 Local settings are your subscription ID and Default Storage Account Name.
 
-**config list [options]**
+###config list [options]
 
 Display config settings
 
@@ -564,7 +561,7 @@ Display config settings
 	data:   subscription           32-digit-subscription-key
 	data:   defaultStorageAccount  name
 
-**config set [options] &lt;name>,&lt;value>**
+###config set [options] &lt;name>,&lt;value>
 
 Change a config setting
 
