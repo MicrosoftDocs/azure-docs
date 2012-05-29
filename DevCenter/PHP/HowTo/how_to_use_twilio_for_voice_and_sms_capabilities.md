@@ -223,7 +223,17 @@ Once you have your PHP page set up to provide TwiML responses, use the URL of th
 
 For additional information about using Twilio in Windows Azure with PHP, see [How to Make a Phone Call Using Twilio in a PHP Application on Windows Azure][howto_phonecall_php].
 
-<div chunk="../../Shared/Chunks/twilio_additional_services_and_next_steps.md" />
+<h2 id="AdditionalServices">How to: Use Additional Twilio Services</h2>
+In addition to the examples shown here, Twilio offers web-based APIs that you can use to leverage additional Twilio functionality from your Windows Azure application. For full details, see the [Twilio API documentation] [twilio_api_documentation].
+
+<h2 id="NextSteps">Next Steps</h2>
+Now that you’ve learned the basics of the Twilio service, follow these links to learn more:
+
+* [Twilio Security Guidelines] [twilio_security_guidelines]
+* [Twilio HowTo’s and Example Code] [twilio_howtos]
+* [Twilio Quickstart Tutorials][twilio_quickstarts] 
+* [Twilio on GitHub] [twilio_on_github]
+* [Talk to Twilio Support] [twilio_support]
 
 [twilio_php]: https://github.com/twilio/twilio-php
 [twilio_lib_docs]: http://readthedocs.org/docs/twilio-php/en/latest/index.html
@@ -245,3 +255,9 @@ For additional information about using Twilio in Windows Azure with PHP, see [Ho
 [try_twilio]: https://www.twilio.com/try-twilio
 [twilio_account]:  https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
+[twilio_api_documentation]: http://www.twilio.com/api
+[twilio_security_guidelines]: http://www.twilio.com/docs/security
+[twilio_howtos]: http://www.twilio.com/docs/howto
+[twilio_on_github]: https://github.com/twilio
+[twilio_support]: http://www.twilio.com/help/contact
+[twilio_quickstarts]: http://www.twilio.com/docs/quickstart
