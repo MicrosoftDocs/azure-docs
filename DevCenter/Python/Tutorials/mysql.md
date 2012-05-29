@@ -63,13 +63,10 @@ You should now see a response similar to the following:
 ![][2]
 
 ## Extend the Django Hello World application
-  <ol>
-    <li>
-      Follow the instructions given in the [Django Hello World] [djangohelloworld] tutorial to create a trivial "Hello World" web application in Django.
-    </li>
-    <li>
-      Open **C:\django\helloworld\hello_dj\hello_dj\settings.py** in your favorite text editor.  Modify the **DATABASES** global dictionary to read:
-<pre>	
+* Follow the instructions given in the [Django Hello World] [djangohelloworld] tutorial to create a trivial "Hello World" web application in Django.
+
+* Open **C:\django\helloworld\hello_dj\hello_dj\settings.py** in your favorite text editor.  Modify the **DATABASES** global dictionary to read:
+<pre class="prettyprint">	
 		DATABASES = {
 		    'default': {
 			    'ENGINE': 'django.db.backends.mysql',
@@ -88,34 +85,22 @@ You should now see a response similar to the following:
 			    'PORT': '3306',
 			    }
 			}
-</pre>
+</pre>  As you can see, we've just given Django instructions on where to find our MySQL database. 
+**Important Note:** you **must** change the *HOST* key to match your Windows Azure (MySQL) VM's **permanent** IP address. At this point, *HOST* should be set to whatever the *ipconfig* Windows command reports it as being. After you've modified *HOST* to match the MySQL VM's IP address, please save this file and close it.
 
-<p>
-As you can see, we've just given Django instructions on where to find our MySQL database. 
-</p>
-
-**Note:** You **must** change the *HOST* key to match your Windows Azure (MySQL) VM's **permanent** IP address. At this point, *HOST* should be set to whatever the *ipconfig* Windows command reports it as being.
-
-<p>After you've modified *HOST* to match the MySQL VM's IP address, please save this file and close it.</p>
-
-    </li>
-    <li>
-      Now that we've referenced our *djangoazure* database, let's do something useful with it! To this end, we'll create a model for a trivial *counter* app.  To instruct Django to create this, run the following commands:<pre class="prettyprint">
+* Now that we've referenced our *djangoazure* database, let's do something useful with it! To this end, we'll create a model for a trivial *counter* app.  To instruct Django to create this, run the following commands:<pre class="prettyprint">
 cd C:\django\helloworld\hello_dj\hello_dj
 C:\Python27\python.exe manage.py startapp counter
 </pre>If Django doesn't report any output from the final command above, it succeeded.
-    </li>
-    <li>
-      Append the following text to **C:\django\helloworld\hello_dj\hello_dj\counter\models.py**:<pre class="prettyprint">class Counter(models.Model):
+
+* Append the following text to **C:\django\helloworld\hello_dj\hello_dj\counter\models.py**:<pre class="prettyprint">class Counter(models.Model):
     count = models.IntegerField()
     def __unicode__(self):
         return u'%s' % (self.count)</pre>All we've done here is defined a subclass of Django's *Model* class named *Counter* with a single integer field, *count*. This trivial counter model will end up recording the number of hits to our Django application. 
-    </li>
-    <li>
-      Next we make Django aware of *Counter*'s existence:
-		<ol>
-			<li>Edit **C:\django\helloworld\hello_dj\hello_dj\settings.py** again. Add *'counter'* to the *INSTALLED_APPS* tuple.</li>
-			<li>From a command prompt, please run:<pre class="prettyprint">cd C:\django\helloworld\hello_dj\hello_dj
+
+* Next we make Django aware of *Counter*'s existence:
+ 1. Edit **C:\django\helloworld\hello_dj\hello_dj\settings.py** again. Add *'counter'* to the *INSTALLED_APPS* tuple.
+ 1. From a command prompt, please run:<pre class="prettyprint">cd C:\django\helloworld\hello_dj\hello_dj
 C:\Python27\python manage.py sql counter
 C:\Python27\python manage.py syncdb
 </pre>These commands store the *Counter* model in the live Django database, and result in output similar to the following:<pre>C:\django\helloworld\hello_dj\hello_dj> C:\Python27\python manage.py sql counter
@@ -126,7 +111,6 @@ CREATE TABLE `counter_counter` (
 )
 ;
 COMMIT;
-
 C:\django\helloworld\hello_dj\hello_dj> C:\Python27\python manage.py syncdb
 Creating tables ...
 Creating table auth_permission
@@ -139,16 +123,13 @@ Creating table django_content_type
 Creating table django_session
 Creating table django_site
 Creating table counter_counter
-
 You just installed Django's auth system, which means you don't have any superusers defined.
 Would you like to create one now? (yes/no): no
 Installing custom SQL ...
 Installing indexes ...
-Installed 0 object(s) from 0 fixture(s)</pre></li>
-		</ol>
-    </li>
-    <li>
-      Replace the contents of **C:\django\helloworld\hello_dj\hello_dj\views.py**. The new implementation of the *hello* function below uses our *Counter* model in conjunction with a separate sample database we previously installed, *world*, to generate a suitable replacement for the "*World*" string:
+Installed 0 object(s) from 0 fixture(s)</pre>
+
+* Replace the contents of **C:\django\helloworld\hello_dj\hello_dj\views.py**. The new implementation of the *hello* function below uses our *Counter* model in conjunction with a separate sample database we previously installed, *world*, to generate a suitable replacement for the "*World*" string:
       <pre class="prettyprint">
 from django.http import HttpResponse
 import django.db
@@ -183,8 +164,6 @@ def hello(request):
     world = getCountry(int(c.count))
     return HttpResponse("&lt;html&gt;&lt;body&gt;Hello &lt;em&gt;" + world + "&lt;/em&gt;&lt;/body&gt;&lt;/html&gt;")
 </pre>
-    </li>
-  </ol>
 
 ## Running Your Application Locally ##
 Before running your application in the Windows Azure emulator, let's run it as a normal Django application to ensure everything's working properly:
