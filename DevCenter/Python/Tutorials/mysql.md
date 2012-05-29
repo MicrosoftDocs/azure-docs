@@ -14,7 +14,7 @@ In this tutorial, you will learn how to:
 
 You will expand upon the [Django Hello World] [djangohelloworld] sample by utilizing a MySQL database, hosted in a Windows Azure VM, to find an interesting replacement for *World*. The replacement will in turn be determined via a MySQL-backed Django *counter* app. As was the case for the Hello World sample, this Django application will again be hosted in a web role.
 
-The project files for this tutorial will be stored in <strong><em>C:\django\helloworld\*</em></strong> and the completed application will look similar to:
+The project files for this tutorial will be stored in **C:\django\helloworld** and the completed application will look similar to:
 ![][0]
   
 ## Setting up your development environment ##
@@ -68,7 +68,7 @@ You should now see a response similar to the following:
       Follow the instructions given in the <a href="../Tutorials/web-app-with-django">Django Hello World</a> tutorial to create a trivial "Hello World" web application in Django.
     </li>
     <li>
-      Open <strong><em>C:\django\helloworld\hello_dj\hello_dj\settings.py</em></strong> in your favorite text editor.  Modify the **DATABASES** global dictionary to read:
+      Open **C:\django\helloworld\hello_dj\hello_dj\settings.py** in your favorite text editor.  Modify the **DATABASES** global dictionary to read:
 <pre>	
 		DATABASES = {
 		    'default': {
@@ -106,7 +106,7 @@ C:\Python27\python.exe manage.py startapp counter
 </pre>If Django doesn't report any output from the final command above, it succeeded.
     </li>
     <li>
-      Append the following text to <strong><em>C:\django\helloworld\hello_dj\hello_dj\counter\models.py</em></strong>:<pre class="prettyprint">class Counter(models.Model):
+      Append the following text to **C:\django\helloworld\hello_dj\hello_dj\counter\models.py**:<pre class="prettyprint">class Counter(models.Model):
     count = models.IntegerField()
     def __unicode__(self):
         return u'%s' % (self.count)</pre>All we've done here is defined a subclass of Django's *Model* class named *Counter* with a single integer field, *count*. This trivial counter model will end up recording the number of hits to our Django application. 
@@ -114,7 +114,7 @@ C:\Python27\python.exe manage.py startapp counter
     <li>
       Next we make Django aware of *Counter*'s existence:
 		<ol>
-			<li>Edit <strong><em>C:\django\helloworld\hello_dj\hello_dj\settings.py</em></strong> again. Add *'counter'* to the *INSTALLED_APPS* tuple.</li>
+			<li>Edit **C:\django\helloworld\hello_dj\hello_dj\settings.py** again. Add *'counter'* to the *INSTALLED_APPS* tuple.</li>
 			<li>From a command prompt, please run:<pre class="prettyprint">cd C:\django\helloworld\hello_dj\hello_dj
 C:\Python27\python manage.py sql counter
 C:\Python27\python manage.py syncdb
@@ -148,7 +148,7 @@ Installed 0 object(s) from 0 fixture(s)</pre></li>
 		</ol>
     </li>
     <li>
-      Replace the contents of <strong><em>C:\django\helloworld\hello_dj\hello_dj\views.py</em></strong>. The new implementation of the *hello* function below uses our *Counter* model in conjunction with a separate sample database we previously installed, *world*, to generate a suitable replacement for the "*World*" string:
+      Replace the contents of **C:\django\helloworld\hello_dj\hello_dj\views.py**. The new implementation of the *hello* function below uses our *Counter* model in conjunction with a separate sample database we previously installed, *world*, to generate a suitable replacement for the "*World*" string:
       <pre class="prettyprint">
 from django.http import HttpResponse
 import django.db
@@ -200,7 +200,7 @@ You should see output similar to the following in your web browser:
 
 ![][4] 
 
-Refresh the web browser a few times and you should see the message change from "*Hello <em>&lt;country abc&gt;</em>*" to "*Hello <em>&lt;some other country&gt;</em>*".
+Refresh the web browser a few times and you should see the message change from *"Hello **&lt;country abc&gt;**"* to *"Hello **&lt;some other country&gt;**"*.
   
 ##Running Your Application Locally in the Emulator##
 Start the Windows Azure emulator and open the Django webpage exactly as you did in the [Django Hello World] [djangohelloworld] tutorial.
