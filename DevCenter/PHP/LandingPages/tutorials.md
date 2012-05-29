@@ -1,10 +1,10 @@
 #PHP Developer Center - Tutorials
 
-###[Wordpress  web site through the Gallery](/en-us/develop/php/tutorials/website-from-gallery/)
-Learn how to create a new web site through the Windows Azure Gallery and immediately deploy it. You will have a new Wordpress site up-and-running in less than five minutes.
-
 ###[PHP web site with MySQL using Git](/en-us/develop/php/tutorials/website-w-mysql-and-git/)
 Implement a simple web site that allows retrieving and creating to-do items stored in a MySQL database. Use the text editor of your choice and then upload your application using Git.
+
+###[Wordpress  web site through the Gallery](/en-us/develop/php/tutorials/website-from-gallery/)
+Learn how to create a new web site through the Windows Azure Gallery and immediately deploy it. You will have a new Wordpress site up-and-running in less than five minutes.
 
 ###[PHP web site with SQL Database using Git](/en-us/develop/php/tutorials/website-w-sql-database-and-git/)
 Implement a simple web site that allows retrieving and creating to-do items stored in a Windows Azure SQL Database instance. Use the text editor of your choice and then upload your application using Git.
