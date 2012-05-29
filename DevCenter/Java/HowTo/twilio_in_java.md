@@ -2,7 +2,6 @@
 
 # How to Use Twilio for Voice and SMS Capabilities in Java
 <div chunk="../../Shared/Chunks/how_to_use_twilio_opening_and_common_toc.md" />
-
 * [Create a Java Application](#create_app)
 * [Configure Your Application to Use Twilio Libraries](#configure_app)
 * [How to: Make an outgoing call](#howto_make_call)
