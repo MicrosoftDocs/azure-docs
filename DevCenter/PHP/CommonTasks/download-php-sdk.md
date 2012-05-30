@@ -40,8 +40,6 @@ To download and install the PHP Client Libraries for Windows Azure manually, fol
 
 1. Download a .zip archive that contains the libraries from Github: [http://go.microsoft.com/fwlink/?LinkId=252719][php-sdk-github]. Alternatively, fork the repository and clone it to your local machine. (The latter option requires a Github account and having Git installed locally.)
 
-	**Note**: 
-
 	<div class="dev-callout"> 
 	<b>Note</b> 
 	<p>The PHP Client Libraries for Windows Azure have a dependency on the <a href="http://pear.php.net/package/HTTP_Request2">HTTP\_Request2</a>, <a href="http://pear.php.net/package/Mail_mime">Mail\_mime</a>, and <a href="http://pear.php.net/package/Mail_mimeDecode">Mail\_mimeDecode</a> PEAR packages. The recommended way to resolve these dependencies is to install these packages using the <a href="http://pear.php.net/manual/en/installation.php">PEAR package manager</a>.</p> 
