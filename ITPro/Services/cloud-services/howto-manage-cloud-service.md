@@ -17,7 +17,7 @@
 
 If you need to update your application code, use **Update** on the dashboard, **Cloud Services** page, or **Instances** page. You can update a single role or all roles. You'll need to upload a new service package and service configuration file.
 
-1. On the dashboard, **Cloud Services** page, or **Instances** page, click **Update**.
+1. In the [Windows Azure Management Portal](https://manage.windowsazure.com/), on the dashboard, **Cloud Services** page, or **Instances** page, click **Update**.
 
  **Update Deployment** opens.
 
@@ -50,7 +50,7 @@ Use **Swap** to promote a staging deployment to production. When you decide to d
 
 You can swap deployments from the **Cloud Services** page or the dashboard.
 
-1. In the [Windows Azure Management Portal](https://manage.windowsazure.com/), click **Cloud Services**.
+1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**.
 
 2. In the list of cloud services, click the cloud service to select it.
 
