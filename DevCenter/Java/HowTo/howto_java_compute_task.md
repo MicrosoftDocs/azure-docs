@@ -15,6 +15,7 @@ You will learn:
 * How to create a Java application that performs a compute-intensive task.
 * How to create a Java application that monitors the progress of the compute-intensive task.
 * How to run the Java applications.
+* How to stop the Java applications.
 
 This tutorial will use the Traveling Salesman Problem for the compute-intensive task. The following is an example of the Java application running the compute-intensive task:
 
@@ -477,10 +478,12 @@ Run the compute-intensive application, first to create the queue, then to solve 
 
         java -jar TSPSolver.jar 8
 
- If you don't specify a number, it will run for 10 cities. 
-  <p/>Note that the larger the number that you specify, the longer the solver will run. For example, running for 14 cities could take several minutes, and 15 cities could take several hours. Running for 16 or more cities could result in days of runtime (eventually weeks, months, and years). This is due to the rapid increase in the number of permutations evaluated by the solver as the number of cities increases.
- <p/>At this point, the queue should be populated.
-
+ If you don't specify a number, it will run for 10 cities. As the solver finds current shortest routes, it will add them to the queue.
+    <div class="dev-callout"> 
+    <b>Note</b> 
+    <p>The larger the number that you specify, the longer the solver will run. For example, running for 14 cities could take several minutes, and running for 15 cities could take several hours. Increasing to 16 or more cities could result in days of runtime (eventually weeks, months, and years). This is due to the rapid increase in the number of permutations evaluated by the solver as the number of cities increases.</p>
+</div>
+ 
 ### How to run the monitoring client application
 1. Log on to your machine where you will run the client application. This does not need to be the same machine running the **TSPSolver** application, although it can be.
 2. Create a folder where you will run your application. For example, **c:\TSP**.
@@ -499,7 +502,10 @@ Run the compute-intensive application, first to create the queue, then to solve 
 
         java -jar TSPSolver.jar deletequeue
 
-    The solver will run until it finishes examining all routes. For both the solver and client applications, you can press **Ctrl+C** to exit if you want to end prior to normal completion.
+    The solver will run until it finishes examining all routes. 
+
+## How to stop the Java applications
+For both the solver and client applications, you can press **Ctrl+C** to exit if you want to end prior to normal completion.
 
 
 [solver_output]: ../media/WA_JavaTSPSolver.png
