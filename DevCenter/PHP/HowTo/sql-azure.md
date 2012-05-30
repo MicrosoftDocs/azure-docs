@@ -2,7 +2,7 @@
 
 #How to Access Windows Azure SQL Database from PHP
 
-This guide will show you the basics of using Windows Azure SQL Database from PHP. The samples are written in PHP. The scenarios covered include **creating a SQL Database** and **connecting to a database**. This guide covers creating a SQL Database from the [Preview Management Portal][preview-portal]. For information about performing these tasks from the production portal, see [Getting Started with PHP and SQL Azure][prod-portal-instructions]. For more information, see the [Next Steps](#NextSteps) section.
+This guide will show you the basics of using Windows Azure SQL Database from PHP. The samples are written in PHP. The scenarios covered include **creating a SQL Database** and **connecting to a SQL Database**. This guide covers creating a SQL Database from the [Preview Management Portal][preview-portal]. For information about performing these tasks from the production portal, see [Getting Started with PHP and SQL Azure][prod-portal-instructions]. For more information, see the [Next Steps](#NextSteps) section.
 
 ##What is Windows Azure SQL Database
 
@@ -57,16 +57,28 @@ To see server and database information, click **SQL Databases** in the Preview M
 
 ![View server and database information][sql-dbs-servers]
 
+<h2 id="ConnectionInfo">How to: Get SQL Database connection information</h2>
+
+To get SQL Database connection information, click on **SQL DATBASES** in the portal, then click on the name of the database.
+
+![View database information][go-to-db-info]
+
+Then, click on **Show connection strings**.
+
+![Show connection strings][show-connection-string]
+
+In the PHP section of the resulting window, make note of the values for **SERVER**, **DATABASE**, and **USERNAME**. Your password will be the password you used when creating the SQL Database.
+
 <h2 id="Connect">How to: Connect to a SQL Database instance</h2>
 
-The following examples show how to use the **SQLSRV** and **PDO_SQLSRV** extensions to connect to an existing SQL Database instance called `tasklist`. (You will need information obtained from the section above.)Replace `SERVER_ID` with your 10-digit server ID, and assign the correct values (your user name and password) to the `$user` and `$pwd` variables.
+The following examples show how to use the **SQLSRV** and **PDO_SQLSRV** extensions to connect to an existing SQL Database instance called `testdb`. You will need information obtained from the section above. Replace `SERVER_ID` with your 10-digit server ID (which is the fist 10 characters from the SERVER value obtained in the section above), and assign the correct values (your user name and password) to the `$user` and `$pwd` variables.
 
 #####SQLSRV
 
-	$server = "tcp:SERVER_ID.database.windows.net, 1433";
-	$user = "user";
+	$server = "tcp:<value of SERVER from section above>";
+	$user = "<value of USERNAME from section above>"@SERVER_ID;
 	$pwd = "password";
-	$db = "tasklist";
+	$db = "testdb";
 
 	$conn = sqlsrv_connect($server, array("UID"=>$user, "PWD"=>$pwd, "Database"=>$db));
 
@@ -76,10 +88,10 @@ The following examples show how to use the **SQLSRV** and **PDO_SQLSRV** extensi
 
 #####PDO_SQLSRV
 
-	$server = "tcp:SERVER_ID.database.windows.net, 1433";
-	$user = "user";
+	$server = "tcp:<value of SERVER from section above>";
+	$user = "<value of USERNAME from section above>"@SERVER_ID;
 	$pwd = "password";
-	$db = "tasklist";
+	$db = "testdb";
 
 	try{
 		$conn = new PDO( "sqlsrv:Server= $server ; Database = $db ", $user, $pwd);
@@ -112,3 +124,6 @@ As mentioned earlier, using SQL Database is very similar to using SQL Server. On
 [go-to-conn-info]: ../../Shared/Media/go_to_conn_info.jpg
 [connection-string]: ../Media/connection_string.jpg
 [wpi-installer]: http://go.microsoft.com/fwlink/?LinkId=253447
+[go-to-db-info]: ../Media/go-to-db-info.png
+[show-connection-string]: ../Media/show-connection-string.png
+
