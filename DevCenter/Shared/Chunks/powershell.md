@@ -216,7 +216,7 @@ your settings file. You must provide this information when you use
 **Import-AzurePublishSettingsFile** to import the settings. The default
 location and file name format is:
 
-C:\\Users\\<MyAccount\>\\Downloads\\[*MySubscription*-…]-*downloadDate*-credentials.publishsettings
+C:\\Users\&lt;MyAccount&gt;\\Downloads\\[*MySubscription*-…]-*downloadDate*-credentials.publishsettings
 
 The following example shows how to download publishing settings for your
 Windows Azure account.
@@ -451,7 +451,7 @@ name and access keys for each storage account.
 <div class="dev-callout"> 
 <b>Note</b> 
 <p>For information about creating, managing, and deleting storage
-accounts, <a = href=" http://msdn.microsoft.com/en-us/library/windowsazure/hh531567.aspx">How to: Manage Storage Accounts for a Windows Azure Subscription</a>.</p> 
+accounts, <a href=" http://msdn.microsoft.com/en-us/library/windowsazure/hh531567.aspx">How to: Manage Storage Accounts for a Windows Azure Subscription</a>.</p> 
 </div>
 
 
@@ -586,7 +586,7 @@ Windows Azure staging environment.
 <div class="dev-callout"> 
 <b>Note</b> 
 <p>For more information about managing staging and production
-deployments, see <a = href="http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx">Overview of Managing Deployments in Windows Azure</a>.</p> 
+deployments, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx">Overview of Managing Deployments in Windows Azure</a>.</p> 
 </div>
 
 ### Opening the web role in a browser
