@@ -1,6 +1,6 @@
 <properties linkid="dev-java-how-to-use-blog-storage-service-java" urldisplayname="Blob Storage" headerexpose="" pagetitle="How to Use the Blob Storage Service from Java" metakeywords="Azure Blob Storage Java" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
-# How to Use Blob Storage from Java
+# How to use Blob Storage from Java
 
 This guide will show you how to perform common scenarios using the
 Windows Azure Blob storage service. The samples are written in Java and

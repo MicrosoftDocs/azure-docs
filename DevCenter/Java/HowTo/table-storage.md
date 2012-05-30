@@ -1,6 +1,6 @@
 <properties umbraconavihide="0" pagetitle="How to Use the Table Storage Service - How To - Java - Develop" metakeywords="Get started Azure table Java, Azure nosql Java, Azure table storage Java, Azure table Java" metadescription="" linkid="dev-java-how-to-use-table-storage" urldisplayname="Table Service" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
-# How to Use the Table Storage Service
+# How to use the Table storage service from Java
 
 This guide will show you how to perform common scenarios using the
 Windows Azure Table storage service. The samples are written in Java
