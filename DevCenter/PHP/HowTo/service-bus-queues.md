@@ -188,7 +188,7 @@ The example below shows how create a **Configuration** object, instantiate **Ser
 <h2 id="SendMessages">How to: Send messages to a queue</h2>
 
 To send a message to a Service Bus queue, your application will call the **ServiceBusRestProxy->sendQueueMessage** method. The code below demonstrates how to send a message to the "myqueue" queue we created above within the
-"MySBNamespace" service namespace. Note that first parameter of the **sendQueueMessage** method is `myqueue/messages`, the path to which the message is sent.
+"MySBNamespace" service namespace.
 
 	require_once 'WindowsAzure.php';
 
