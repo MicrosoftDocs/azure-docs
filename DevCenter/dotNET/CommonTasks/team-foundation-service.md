@@ -1,4 +1,4 @@
-<properties linkid="dev-net-common-tasks-team-foundation-service" urldisplayname="Team Foundation Service" headerexpose pagetitle="Continuous Delivery of a Cloud Service by Using Team Foundation Service" metakeywords footerexpose metadescription umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-common-tasks-team-foundation-service" urldisplayname="Team Foundation Service" headerexpose="" pagetitle="Continuous Delivery of a Cloud Service by Using Team Foundation Service" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # Continuous Delivery of a Cloud Service by Using Team Foundation Service Preview
 
@@ -19,7 +19,7 @@ To set up a cloud service to automatically build and deploy to Windows Azure by 
 4. When project creation is done, click the “Navigate to Project” button.<br>
 ![][3]
 
-5. Click the “Open new instance in Visual Studio” link to automatically launch Visual Studio connected to your team project.<br>
+5. Click the “Open new instance in Visual Studio” link to automatically launch Visual Studio connected to your team project. If any security dialog boxes appear, choose Allow.<br>
 ![][4]
 
 6. In Visual Studio, open the Windows Azure Application solution for your cloud service.
