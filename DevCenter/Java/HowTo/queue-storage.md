@@ -1,94 +1,39 @@
 <properties linkid="dev-net-how-to-use-queue-storage-service-java" urldisplayname="Queue Service" headerexpose="" pagetitle="How to Use the Queue Storage Service from Java" metakeywords="Azure Queue Java" footerexpose="" metadescription="This guide will show you how to perform common scenarios using the Windows Azure Queue storage service with the Java programming language." umbraconavihide="0" disquscomments="1"></properties>
 
-# How to Use the Queue Storage Service from Java
+# How to use the Queue storage service from Java
 
 This guide will show you how to perform common scenarios using the
 Windows Azure Queue storage service. The samples are written in Java and
 use the [Windows Azure SDK for Java][]. The scenarios covered include
 inserting, peeking, getting, and deleting queue messages, as well as
 creating and deleting queues. For more information on queues, refer to
-the [Next Steps][] section.
+the [Next steps](#NextSteps) section.
 
-## What is Queue Storage
+## <a name="Contents"> </a>Table of Contents
 
-Windows Azure Queue storage is a service for storing large numbers of
-messages that can be accessed from anywhere in the world via
-authenticated calls using HTTP or HTTPS. A single queue message can be
-up to 64KB in size, a queue can contain millions of messages, up to the
-100TB total capacity limit of a storage account. Common uses of Queue
-storage include:
+* [What is Blob Storage](#what-is)
+* [Concepts](#Concepts)
+* [Create a Windows Azure storage account](#CreateAccount)
+* [Create a Java application](#CreateApplication)
+* [Configure your application to access queue storage](#ConfigureStorage)
+* [Setup a Windows Azure storage connection string](#ConnectionString)
+* [How to: Create a queue](#create-queue)
+* [How to: Add a message to a queue](#add-message)
+* [How to: Peek at the next message](#peek-message)
+* [How to: Dequeue the next message](#dequeue-message)
+* [How to: Change the contents of a queued message](#change-message)
+* [Additional options for dequeuing messages](#additional-options)
+* [How to: Get the queue length](#get-queue-length)
+* [How to: Delete a queue](#delete-queue)
+* [Next steps](#NextSteps)
 
--   Creating a backlog of work to process asynchronously
--   Passing messages from a Windows Azure Web role to a Windows Azure
-    Worker role
+<div chunk="../../Shared/Chunks/howto-queue-storage" />
 
-## Table of Contents
+<h2 id="CreateAccount">Create a Windows Azure storage account</h2>
 
--   [Concepts][]
--   [Create a Windows Azure Storage Account][]
--   [Create a Java Application][]
--   [Configure Your Application to Access Queue Storage][]
--   [Setup a Windows Azure Storage Connection String][]
--   [How to Create a Queue][]
--   [How to Insert a Message into a Queue][]
--   [How to Peek at the Next Message][]
--   [How to Dequeue the Next Message][]
--   [How to Change the Contents of a Queued Message][]
--   [Additional Options for Dequeuing Messages][]
--   [How to Get the Queue Length][]
--   [How to Delete a Queue][]
--   [Next Steps][]
+<div chunk="../../Shared/Chunks/create-storage-account" />
 
-## <a name="bkmk_Concepts"> </a>Concepts
-
-The Queue service contains the following components:  
-![Queue Service Components][]
-
-1.  **URL format:**Queues are addressable using the following URL
-    format:   
-     http://<*storage account*\>.queue.core.windows.net/<*queue*\>  
-     The following URL addresses one of the queues in the diagram:  
-     http://myaccount.queue.core.windows.net/imagesToDownload
-2.  **Storage Account:**All access to Windows Azure Storage is done
-    through a storage account. A storage account is the highest level of
-    the namespace for accessing queues. The total size of blob, table,
-    and queue contents in a storage account cannot exceed 100TB.
-3.  **Queue:**A queue contains a set of messages. All messages must be
-    in a queue.
-4.  **Message:**A message, in any format, of up to 64KB.
-
-## <a name="bkmk_CreateWinAzure"> </a>Create a Windows Azure Storage Account
-
-To use storage operations, you need a Windows Azure storage account. You
-can create a storage account by following these steps. (You can also
-create a storage account using the REST API.)
-
-### <a name="bkmk_CreateStorageAcct"> </a>How to Create a Storage Account using the Management Portal
-
-1.  Log into the [Windows Azure Management Portal][].
-2.  In the navigation pane, click **Hosted Services, Storage Accounts &
-    CDN**.
-3.  At the top of the navigation pane, click **Storage Accounts**.
-4.  On the ribbon, in the **Storage** group, click **New Storage
-    Account**.  
-    ![New Storage Account screenshot][]  
-     The **Create a New Storage Account** dialog box opens.  
-    ![Create New Storage Account screenshot][]
-5.  In **Choose a Subscription**, select the subscription that the
-    storage account will be used with.
-6.  In **Enter a URL**, type a subdomain name to use in the URI for the
-    storage account. The entry can contain from 3-24 lowercase letters
-    and numbers. This value becomes the host name within the URI that is
-    used to address Blob, Queue, or Table resources for the
-    subscription.
-7.  Choose a region or an affinity group in which to locate the storage.
-    If you will be using storage from your Windows Azure application,
-    select the same region where you will deploy your application.
-8.  Finally, take note of your **Primary access key** in the right-hand
-    column. You will need this in subsequent steps to access storage.  
-    ![Properties screenshot][]
-
-## <a name="bkmk_CreateJavaApp"> </a>Create a Java Application
+## <a name="CreateApplication"> </a>Create a Java application
 
 In this guide, you will use storage features which can be run within a
 Java application locally, or in code running within a web role or worker
@@ -101,7 +46,7 @@ subscription. You can use any development tools to create your
 application, including Notepad. All you need is the ability to compile a
 Java project and reference the Windows Azure Libraries for Java.
 
-## <a name="bkmk_ConfigApp"> </a>Configure Your Application to Access Queue Storage
+## <a name="ConfigureStorage"> </a>Configure your application to access queue storage
 
 Add the following import statements to the top of the Java file where
 you want to use Windows Azure storage APIs to access queues:
@@ -110,7 +55,7 @@ you want to use Windows Azure storage APIs to access queues:
     import com.microsoft.windowsazure.services.core.storage.*;
     import com.microsoft.windowsazure.services.queue.client.*;
 
-## <a name="bkmk_SetupWinAzure"> </a>Setup a Windows Azure Storage Connection String
+## <a name="ConnectionString"> </a>Setup a Windows Azure storage connection string
 
 A Windows Azure storage client uses a storage connection string to store
 endpoints and credentials for accessing storage services. When running
@@ -137,7 +82,7 @@ getting the connection string from a **Setting** element named
     String storageConnectionString = 
         RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 
-## <a name="bkmk_CreateQueue"> </a>How to Create a Queue
+## <a name="create-queue"> </a>How to: Create a queue
 
 A CloudQueueClient object lets you get reference objects for queues. The
 following code creates a CloudQueueClient object.
@@ -163,7 +108,7 @@ to use. You can create the queue if it doesn’t exist.
     // Create the queue if it doesn't already exist
     queue.createIfNotExist();
 
-## <a name="bkmk_InsertMessage"> </a>How to Insert a Message into a Queue
+## <a name="add-message"> </a>How to: Add a message to a queue
 
 To insert a message into an existing queue, first create a new
 CloudQueueMessage. Next, call the addMessage method. A CloudQueueMessage
@@ -188,7 +133,7 @@ message “Hello, World”.
     CloudQueueMessage message = new CloudQueueMessage("Hello, World");
     queue.addMessage(message);
 
-## <a name="bkmk_PeekAtNextMsg"> </a>How to Peek at the Next Message
+## <a name="peek-message"> </a>How to: Peek at the next message
 
 You can peek at the message in the front of a queue without removing it
 from the queue by calling peekMessage.
@@ -206,7 +151,7 @@ from the queue by calling peekMessage.
     // Peek at the next message
     CloudQueueMessage peekedMessage = queue.peekMessage();
 
-## <a name="bkmk_DequeueNxtMsg"> </a>How to Dequeue the Next Message
+## <a name="dequeue-message"> </a>How to: Dequeue the next message
 
 Your code dequeues a message from a queue in two steps. When you call
 retrieveMessage, you get the next message in a queue. A message returned
@@ -235,7 +180,7 @@ processed.
     // Process the message in less than 30 seconds, and then delete the message.
     queue.deleteMessage(retrievedMessage);
 
-## <a name="bkmk_ChangeContents"> </a>How to Change the Contents of a Queued Message
+## <a name="change-message"> </a>How to: Change the contents of a queued message
 
 You can change the contents of a message in-place in the queue. If the
 message represents a work task, you could use this feature to update the
@@ -269,7 +214,7 @@ triggers an application error each time it is processed.
         EnumSet.of(MessageUpdateFields.CONTENT, MessageUpdateFields.VISIBILITY);
     queue.updateMessage(message, 60, updateFields, null, null);
 
-## <a name="bkmk_AddOptions"> </a>Additional Options for Dequeuing Messages
+## <a name="additional-options"> </a>Additional options for dequeuing messages
 
 There are two ways you can customize message retrieval from a queue.
 First, you can get a batch of messages (up to 32). Second, you can set a
@@ -301,7 +246,7 @@ become visible again.
         queue.deleteMessage(message);
     }
 
-## <a name="bkmk_GetQueueLength"> </a>How to Get the Queue Length
+## <a name="get-queue-length"> </a>How to: Get the queue length
 
 You can get an estimate of the number of messages in a queue. The
 downloadAttributes method asks the Queue service for several current
@@ -327,7 +272,7 @@ downloadAttributes, without calling the Queue service.
     // Retrieve the newly cached approximate message count
     long cachedMessageCount = queue.getApproximateMessageCount();
 
-## <a name="bkmk_DeleteQueue"> </a>How to Delete a Queue
+## <a name="delete-queue"> </a>How to: Delete a queue
 
 To delete a queue and all the messages contained in it, call the delete
 method on the queue object.
@@ -345,34 +290,14 @@ method on the queue object.
     // Delete the queue
     queue.delete();
 
-## <a name="bkmk_NextSteps"> </a>Next Steps
+## <a name="NextSteps"> </a>Next steps
 
 Now that you’ve learned the basics of queue storage, follow these links
 to learn how to do more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Windows
-    Azure][]
--   Visit the [Windows Azure Storage Team Blog][]
+    Azure]
+-   Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
 
-  [Windows Azure SDK for Java]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=VS.103).aspx
-  [Next Steps]: #bkmk_NextSteps
-  [Concepts]: #bkmk_Concepts
-  [Create a Windows Azure Storage Account]: #bkmk_CreateWinAzure
-  [Create a Java Application]: #bkmk_CreateJavaApp
-  [Configure Your Application to Access Queue Storage]: #bkmk_ConfigApp
-  [Setup a Windows Azure Storage Connection String]: #bkmk_SetupWinAzure
-  [How to Create a Queue]: #bkmk_CreateQueue
-  [How to Insert a Message into a Queue]: #bkmk_InsertMessage
-  [How to Peek at the Next Message]: #bkmk_PeekAtNextMsg
-  [How to Dequeue the Next Message]: #bkmk_DequeueNxtMsg
-  [How to Change the Contents of a Queued Message]: #bkmk_ChangeContents
-  [Additional Options for Dequeuing Messages]: #bkmk_AddOptions
-  [How to Get the Queue Length]: #bkmk_GetQueueLength
-  [How to Delete a Queue]: #bkmk_DeleteQueue
-  [Queue Service Components]: ../../../DevCenter/Java/Media/WA_HowToQueueStorage1.png
-  [Windows Azure Management Portal]: http://windows.azure.com/
-  [New Storage Account screenshot]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage2.png
-  [Create New Storage Account screenshot]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage3.png
-  [Properties screenshot]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage4.png
-  [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Windows Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/java-home/download-the-windows-azure-sdk-for-java/
+[Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
