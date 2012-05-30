@@ -1,8 +1,8 @@
 1. After you've connected to the virtual machine using Remote Desktop, open Internet Explorer from the **Start** menu.
-2. Select the **Tools** button in the upper right corner.  In **Internet Options**, select the **Security** tab, and then select the **Trusted Sites** icon, and finally click the **Sites** button. Add `http://*.mongodb.org` to the list of trusted sites.
+2. Select the **Tools** button in the upper right corner.  In **Internet Options**, select the **Security** tab, and then select the **Trusted Sites** icon, and finally click the **Sites** button. Add *http://*.mongodb.org* to the list of trusted sites.
 3. Go to [Downloads- MongoDB] [MongoDownloads].
 4. Find the most recent release in the **Production Release (Recommended)** section and click the ***2008+** link in the Windows 64-bit column.  Click **Save As** and save the zip file to the desktop.
-5. Right-click on the zip file and select **Extract All...**  Specify `C:\` and click **Extract**.  After the files have been extracted, you may wish to rename the install folder to something simpler.  "MongoDB", for example.
+5. Right-click on the zip file and select **Extract All...**  Specify "C:\" and click **Extract**.  After the files have been extracted, you may wish to rename the install folder to something simpler.  "MongoDB", for example.
 6. Create a data directory.  By default, MongoDB stores data in the `\data\db` directory but you must manually create the directory.  From **Start**, select **Command Prompt** to open a command prompt window.  Enter:
 
 	`C:\> cd /`
@@ -54,15 +54,15 @@
 	Click **Next** again.
 	![Windows Firewall][Image5]
 
-	Specify a name for the rule, such as "MongoPort", and click Finish.
+	Specify a name for the rule, such as "MongoPort", and click **Finish**.
 	![Windows Firewall][Image6]
 	
 12. Once MongoDB is installed you must configure an endpoint so that MongoDB can be accessed remotely. In the Management Portal, click **Virtual Machines**, then click the name of your new virtual machine, then click **Endpoints**.
 ![Endpoints][Image7]
-13. Click **Add Endpoint** at the bottom of the page.
+13. Click **Add Endpoint** at the bottom of the page. Select **Add Endpoint** and click **Next**.
 	![Endpoints][Image8]
 
-	Add an endpoint with name "Mongo", protocol *TCP*, and both *Public* and *Private* ports set to "27017". This will allow MongoDB to be accessed remotely.
+14. Add an endpoint with name "Mongo", protocol **TCP**, and both **Public** and **Private** ports set to "27017". This will allow MongoDB to be accessed remotely.
 ![Endpoints][Image9]
 
 [MongoDownloads]: http://www.mongodb.org/downloads

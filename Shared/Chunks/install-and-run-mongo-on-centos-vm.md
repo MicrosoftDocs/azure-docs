@@ -1,4 +1,4 @@
-1. Configure the Package Management System (YUM) so that you can install MongoDB. Create a `/etc/yum.repos.d/10gen.repo` file to hold information about your repository and add the following:
+1. Configure the Package Management System (YUM) so that you can install MongoDB. Create a */etc/yum.repos.d/10gen.repo* file to hold information about your repository and add the following:
 
 	`[10gen]`
 
@@ -17,7 +17,7 @@
 	`$ sudo yum install mongo-10gen mongo-10gen-server`
 
 	Wait while MongoDB downloads and installs.
-4. Create a data directory. By default MongoDB stores data in the `/data/db` directory, but you must create that directory. To create it, run:
+4. Create a data directory. By default MongoDB stores data in the */data/db* directory, but you must create that directory. To create it, run:
 
 	`$ sudo mkdir -p /data/db/`
 
@@ -73,10 +73,11 @@
 12. Click **Add Endpoint** at the bottom of the page.
 	![Endpoints][Image8]
 
-13. Add an endpoint with name "Mongo", protocol *TCP*, and both *Public* and *Private* ports set to "27017". This will allow MongoDB to be accessed remotely.
+13. Add an endpoint with name "Mongo", protocol **TCP**, and both **Public** and **Private** ports set to "27017". This will allow MongoDB to be accessed remotely.
 	![Endpoints][Image9]
 
 [QuickStartUnix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
+[AzurePreviewPortal]: http://manage.windowsazure.com
 
 [Image7]: ../../Shared/Media/LinuxVmAddEndpoint.png
 [Image8]: ../../Shared/Media/LinuxVmAddEndpoint2.png

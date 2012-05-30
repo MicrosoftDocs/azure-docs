@@ -29,9 +29,7 @@ In this section you will learn how to create a virtual machine in Windows Azure 
 
 ###Create a virtual machine and install MongoDB
 
-This tutorial assumes you have created a virtual machine in Windows Azure running either Windows Server 2008 R2 or Linux. After createing the virtual machine you need to install MongoDB on the virtual machine.
-
-To create a Windows Server 2008 R2 SP virtual machine and install MongoDB, see [Install MongoDB on a virtual machine running Windows Server 2008 R2 in Windows Azure][InstallMongoWinVM].
+This tutorial assumes you have created a virtual machine in Windows Azure running Linux. After createing the virtual machine you need to install MongoDB on the virtual machine.
 
 To create a Linux virtual machine and install MongoDB, see [Install MongoDB on a virtual machine running CentOS Linux in Windows Azure][InstallMongoOnCentOSLinuxVM].
 
@@ -50,7 +48,7 @@ If you're using Visual Web Developer 2010 instead of Visual Studio 2010, install
 
 MongoDB offers client-side support for C# applications through a driver, which you need to install on your local development computer. The C# driver is hosted at github.com. You can download the most recent binary builds in .msi format from: [Downloads][MongoCSharpDriverDownload].
 
-Download the .msi file and double-click it to run the setup program, which will install the C# driver DLLs to the `C:\Program Files (x86)\MongoDB\CSharp Driver 1.x` directory (the exact path may vary on your system).
+Download the .msi file and double-click it to run the setup program, which will install the C# driver DLLs to the *C:\Program Files (x86)\MongoDB\CSharp Driver 1.x* directory (the exact path may vary on your system).
 
 ## Create the Task List ASP.NET application and run it  
 
@@ -70,7 +68,7 @@ Click **OK**.
 ![New Internet Application][Image1]
 
 ###Add references to the C# MongoDB drivers
-In **Solution Explorer**, right-click the **References** folder and select **Add Reference...**. Click **Browse** and then navigate to `C:\Program Files (x86)\MongoDB\CSharp Driver 1.x` (or the path that the drivers were installed to). Select `MongoDB.Driver.dll` and `MongoDB.Bson.dll` and click **OK**.
+In **Solution Explorer**, right-click the **References** folder and select **Add Reference...**. Click **Browse** and then navigate to *C:\Program Files (x86)\MongoDB\CSharp Driver 1.x* (or the path that the drivers were installed to). Select **MongoDB.Driver.dll** and **MongoDB.Bson.dll** and click **OK**.
 
 ![Add a reference to the C# MongoDB drivers][Image2]
 
@@ -467,7 +465,7 @@ You have now successfully deployed your ASP.NET application to a Windows Azure w
 [MongoDB]: http://www.mongodb.org
 [MongoCSharpDriverDownload]: http://github.com/mongodb/mongo-csharp-driver/downloads
 [InstallMongoWinVM]: ../../../Shared/Tutorials/InstallMongoDbOnWin2k8VM.md
-[InstallMongoOnCentOSLinuxVM]: ../../../Shared/Tutorials/InstallMongoOnCentOSLinuxVM.md
+[InstallMongoOnCentOSLinuxVM]: ../../../manage/linux/common-tasks/mongodb-virtual-machine/
 
 
 [Image0]: ../../../DevCenter/dotNET/Media/TaskListAppFull.png
