@@ -98,7 +98,11 @@ We recommend using Windows PowerShell for developing your Windows Azure applicat
 
 ## Deploying the Django website publically
 
-Simply repeat step *1* from **Running your Django website locally in the virtual machine** without ever pressing CTRL-C.  Yes, it's really that easy!  You could also make step *1* automated each time the virtual machine starts by using the [Windows Task Scheduler].
+Simply repeat step *1* from **Running your Django website locally in the virtual machine** without ever pressing CTRL-C.  Yes, it's really that easy! You could also make step *1* automated each time the virtual machine starts by using the [Windows Task Scheduler].
+
+Now from your local web browser, open http://yourVmName.cloudapp.net (where *yourVmName* is whatever name you used in the virtual machine creation step).  You should again see "Hello World!":
+
+![A web browser displaying the Hello World web page on emulator][]
 
 ## Shutting down your Windows Azure virtual machine
 
