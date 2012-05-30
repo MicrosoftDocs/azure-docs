@@ -50,17 +50,17 @@ describe how to implement them.
 
 ##In this Document
 
-[Best Practices for Troubleshooting in Windows Azure](BestPractices)
+[Best Practices for Troubleshooting in Windows Azure](#BestPractices)
 
-[Windows Azure Websites](Websites)
+[Windows Azure Websites](#Websites)
 
-[Windows Azure Cloud Services](CloudServices)
+[Windows Azure Cloud Services](#CloudServices)
 
-[Windows Azure Virtual Machines](Vms)
+[Windows Azure Virtual Machines](#Vms)
 
-[Windows Azure Services](PlatformServices)
+[Windows Azure Services](#PlatformServices)
 
-[SQL Database Troubleshooting](SQLTroubleshooting)
+[SQL Database Troubleshooting](#SQLTroubleshooting)
 
 <h2 id="BestPractices">Best Practices for Troubleshooting in Windows Azure</h2>
 
