@@ -58,12 +58,9 @@
 
 	`quit`
 
-<<<<<<< HEAD
 11. Once MySQL is installed you must configure an endpoint so that MySQL can be accessed remotely. Log in to the [Windows Azure Management Portal][AzurePreviewPortal]. In the Windows Azure portal, click **Virtual Machines**, then click the name of your new VM, then click **Endpoints**.
-=======
-11. Once MySQL is installed you must configure an endpoint so that MySQL can be accessed remotely. In the Management Portal, click **Virtual Machines**, then click the name of your new virtual machine, then click **Endpoints**.
+
 	![Endpoints][Image7]
->>>>>>> 002e9fbf7841243dfaf6d1acaa65d0e9a1bc6fc4
 
 12. Click **Add Endpoint** at the bottom of the page.
 	![Endpoints][Image8]
