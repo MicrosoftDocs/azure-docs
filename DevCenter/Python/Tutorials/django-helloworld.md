@@ -85,19 +85,22 @@ We recommend using Windows PowerShell for developing your Windows Azure applicat
 1.  Close Notepad and switch back to the Windows PowerShell window.
     Enter the following command to run your Django website:
 
-        PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver 8000
+        PS C:\django\helloworld> $ipPort = [System.Net.Dns]::GetHostEntry("127.0.0.1")
+        PS C:\django\helloworld> $ipPort = [string]$ipPort.AddressList[1]
+        PS C:\django\helloworld> $ipPort += ":8000"
+        PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
 
     The **runserver** parameter instructs Django to run our *helloworld* website on TCP port *8000*. The results of this command should be similar to:
 
-        PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver 8000
+        PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
         Validating models...
         
         0 errors found
         Django version 1.4, using settings 'helloworld.settings'
-        Development server is running at http://127.0.0.1:8000
+        Development server is running at http://123.34.56.78:8000
         Quit the server with CTRL-BREAK.
  
-    Now simply open *Internet Explorer* in the virtual machine and navigate to **http://127.0.0.1:8000**. You should see “Hello World!” displayed as shown in the screenshot below. This indicates that Django is running in the virtual machine and is working correctly.
+    Now simply open *Internet Explorer* in the virtual machine and navigate to *http://**$ipPort**.* You should see “Hello World!” displayed as shown in the screenshot below. This indicates that Django is running in the virtual machine and is working correctly.
 
     ![A web browser displaying the Hello World web page on emulator][]
 
@@ -109,7 +112,7 @@ Simply repeat step *1* from **Running your Django website locally in the virtual
 
 Now from your local web browser, open http://yourVmName.cloudapp.net (where *yourVmName* is whatever name you used in the virtual machine creation step).  You should again see "Hello World!":
 
-![A web browser displaying the Hello World web page on emulator][]
+![A browser window displaying the hello world page on Windows Azure][]
 
 ## Shutting down your Windows Azure virtual machine
 
