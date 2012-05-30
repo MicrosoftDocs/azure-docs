@@ -29,6 +29,12 @@ tables, see the [Next steps](#NextSteps) section.
 * [How to: Delete a table](#DeleteTable)
 * [Next steps](#NextSteps)
 
+<div chunk="../../Shared/Chunks/howto-table-storage" />
+
+<h2 id="CreateAccount">Create a Windows Azure storage account</h2>
+
+<div chunk="../../Shared/Chunks/create-storage-account" />
+
 ## <a name="CreateApplication"> </a>Create a Java application
 
 In this guide, you will use storage features which can be run within a
