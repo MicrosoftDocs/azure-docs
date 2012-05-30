@@ -1,4 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="How to Manage Websites" metaKeywords="Windows Azure Websites, Azure deployment, Azure configuration changes, Azure deployment update, Windows Azure .NET deployment, Azure .NET deployment" metaDescription="Learn how to configure Websites in Windows Azure to use a SQL or MySQL database, and learn how to configure diagnostics and download logs." linkid="itpro-windows-howto-configure-websites" urlDisplayName="How to Configure Websites" headerExpose="" footerExpose="" disqusComments="1" />
+<properties umbracoNaviHide="0" pageTitle="How to Manage Websites" metaKeywords="Windows Azure Websites, deployment, configuration changes, deployment update, Windows Azure .NET deployment, .NET deployment" metaDescription="Learn how to configure Websites in Windows Azure to use a SQL or MySQL database, and learn how to configure diagnostics and download logs." linkid="itpro-windows-howto-configure-websites" urlDisplayName="How to Configure Websites" headerExpose="" footerExpose="" disqusComments="1" />
 
 
 #<a name="howtomanage"></a>How to Manage Websites
@@ -18,7 +18,7 @@ For more information about developing and deploying Websites see the following t
 
 - [How to: Create, Deploy and Delete Website](#howtocreatedeploydelete)
 - [How to: Develop and Deploy a Website with Microsoft WebMatrix](#howtodevdepwebmatrix)
-- [How to: Create a Website from the Azure Gallery](#howtocreatefromgallery)
+- [How to: Create a Website from the Gallery](#howtocreatefromgallery)
 
 #### Dashboard ####
 The **Dashboard** management page includes the following:

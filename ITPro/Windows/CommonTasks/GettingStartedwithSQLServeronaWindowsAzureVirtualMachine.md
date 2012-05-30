@@ -91,7 +91,7 @@ Your existing database can be moved to this new instance of the Database Engine 
 - Create scripts of the source database, and execute the scripts on this new instance of SQL Server.
 - By using Copy Database Wizard in Management Studio.
 
-For more information about migrating a database to SQL Server on a Windows Azure virtual machine, see [Guide to Migrating Existing applications and Databases to Windows Azure Platform](http://go.microsoft.com/fwlink/?LinkId=249158) and migration steps near the end of [Deploying a SQL Server Virtual Machine on Windows Azure](http://go.microsoft.com/fwlink/?LinkId=251117).
+For more information about migrating a database to SQL Server on a Windows Azure virtual machine, see [Guide to Migrating Existing applications and Databases to Windows Azure](http://go.microsoft.com/fwlink/?LinkId=249158) and migration steps near the end of [Deploying a SQL Server Virtual Machine on Windows Azure](http://go.microsoft.com/fwlink/?LinkId=251117).
 
 ### Turn Off Write Caching
 

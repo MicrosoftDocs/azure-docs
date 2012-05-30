@@ -302,7 +302,7 @@ If you can connect to an instance of SQL Server running on a Windows Azure virtu
 Your existing database can be moved to this new instance of the Database Engine by using any of the following methods.
 
 - Copy a database backup file to the virtual machine and then restore the database. For more information, see [Back Up and Restore of SQL Server Databases](http://msdn.microsoft.com/en-us/library/ms187048(SQL.90).aspx).
-- By using a data-tier application (DAC). Either deploy a data-tier application with just the database schema or import a database along with the database data by using a BACPAC file. For more information, see [Deploy a Data-tier Application](http://msdn.microsoft.com/en-us/library/ee210569.aspx), [Import a BACPAC File to Create a New User Database](http://msdn.microsoft.com/en-us/library/hh710052.aspx), and [How to Use Data-Tier Application Import and Export with SQL Azure (en-US)](http://social.technet.microsoft.com/wiki/contents/articles/2639.how-to-use-data-tier-application-import-and-export-with-sql-azure-en-us.aspx).
+- By using a data-tier application (DAC). Either deploy a data-tier application with just the database schema or import a database along with the database data by using a BACPAC file. For more information, see [Deploy a Data-tier Application](http://msdn.microsoft.com/en-us/library/ee210569.aspx), [Import a BACPAC File to Create a New User Database](http://msdn.microsoft.com/en-us/library/hh710052.aspx), and [How to Use Data-Tier Application Import and Export with SQL Database (en-US)](http://social.technet.microsoft.com/wiki/contents/articles/2639.how-to-use-data-tier-application-import-and-export-with-sql-azure-en-us.aspx).
 - Copy the **mdf**, **ndf**, and **ldf** files to a folder on the virtual machine, and then attach the database. For more information, see [Attach a Database](http://msdn.microsoft.com/en-us/library/ms190209.aspx).
 - Create scripts of the source database, and execute the scripts on this new instance of SQL Server. For more information, see [Generate and Publish Scripts Wizard](http://msdn.microsoft.com/en-us/library/bb895179.aspx).
 - By using [Copy Database Wizard](http://msdn.microsoft.com/en-us/library/ms188664.aspx) in Management Studio.
@@ -319,7 +319,7 @@ Small files (database backups or DACPAC files) can be copied to the virtual mach
 
 - Use a web browser to download a database from the Internet, such as downloading Adventure Works from codeplex [Download an AdventureWorks database](http://msftdbprodsamples.codeplex.com/).
 
-For more information about migrating a database to the Windows Azure Platform, see [Guide to Migrating Existing applications and Databases to Windows Azure Platform](http://go.microsoft.com/fwlink/?LinkId=249158).
+For more information about migrating a database to Windows Azure, see [Guide to Migrating Existing applications and Databases to Windows Azure](http://go.microsoft.com/fwlink/?LinkId=249158).
 
 ### Turn off write caching ###
 
