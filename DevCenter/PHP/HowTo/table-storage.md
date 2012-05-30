@@ -6,7 +6,7 @@ This guide will show you how to perform common scenarios using the Windows Azure
 
 ##Table of contents
 
-* [What is Table Storage](#what-is)
+* [What is the Table Service](#what-is)
 * [Concepts](#concepts)
 * [Create a Windows Azure storage account](#CreateAccount)
 * [Create a PHP application](#CreateApplication)
