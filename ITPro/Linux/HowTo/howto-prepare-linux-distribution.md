@@ -182,7 +182,7 @@ All of your VHDs for the OS must have sizes that are multiples of 1 MB.
 2.	Install Opensuse 12.1 64 bit. We recommend not creating a SWAP partition at installation time. SWAP space may be configured using the Windows Azure Linux Agent.
 3.	Update to latest kernel:
 
-	**Note:** As of today the SLES kernel update doesn’t have and important fix on the kernel to improve storage performance and we expect it to land shortly after release. We recommend that you use an Azure image from the [http://www.susestudio.com](http://susestudio.com/)  gallery to take advantage of all the functionality in azure
+	**Note:** As of today the SLES kernel update doesn’t have and important fix on the kernel to improve storage performance and we expect it to land shortly after release. We recommend that you use a Windows Azure image from the [http://www.susestudio.com](http://susestudio.com/)  gallery to take advantage of all the functionality in azure
 
 4.	 Disable legacy ATA driver by adding the following to kernel command line in /boot/grub/menu.lst: reserve=0x1f0, 0x8. 
 (This option reserves this I/O region and prevents ata_piix from loading)

@@ -50,7 +50,7 @@ The user account that is specified during virtual machine instance deployment on
 
 <h2 id="firewallconfiguration"> Firewall Configuration </h2>
 
-The Windows Azure platform provides an inbound packet filter that restricts connectivity to ports specified in the Management Portal. By default, the only allowed port is SSH. You may open up access to additional ports on your Linux virtual machine by adding rules in the Management Portal.
+Windows Azure provides an inbound packet filter that restricts connectivity to ports specified in the Management Portal. By default, the only allowed port is SSH. You may open up access to additional ports on your Linux virtual machine by adding rules in the Management Portal.
 
 The Linux images in the Windows Azure gallery do not enable the iptables firewall inside the Linux virtual machines. If desired, the IPtables firewall may be configured to provide additional capabilities.
 
@@ -60,7 +60,7 @@ When you initially deploy an instance of a Linux image, you are required to prov
 
 <h2 id="virtualmachine"> Virtual Machine Image Capture </h2>
 
-The Windows Azure platform provides the ability to capture the state of an existing virtual machine into an image that can be subsequently be used to deploy additional virtual machine instances. The Windows Azure Linux Agent may be used to rollback some of the customization that was performed during the provisioning process. You may follow the steps below to capture a virtual machine as an image:
+Windows Azure provides the ability to capture the state of an existing virtual machine into an image that can be subsequently be used to deploy additional virtual machine instances. The Windows Azure Linux Agent may be used to rollback some of the customization that was performed during the provisioning process. You may follow the steps below to capture a virtual machine as an image:
 
 1. Run **waagent -deprovision** to undo provisioning customization. Or **waagent -deprovision+user** to optionally, delete the user account specified during provisioning and all associated data.
 

@@ -9,7 +9,7 @@ There is already documentation on how to create and manage these certificates at
 ##Table of Contents##
 
 * [How to: Create and upload a management certificate](#createcert)
-* [How to: Create a management certificate using the Windows Azure Platform Management Portal](#silverlight)
+* [How to: Create a management certificate using the Windows Azure Management Portal](#silverlight)
 
 <h2 id="createcert">How to: Create and upload a management certificate</h2>
 
@@ -77,11 +77,11 @@ Generating a new cert is not enough since all 10 certificates are valid and your
 
 At some point after preview you will be able to use the new portal to get access to all the management cert functionality.
 
-<h2 id="servicemanagement">How to: Create a management certificate using the Windows Azure Platform Management Portal</h2>
+<h2 id="servicemanagement">How to: Create a management certificate using the Windows Azure Management Portal</h2>
 
 You can read more on how to create the certificate at [http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx) or you can also use OpenSSL to create the management certificate.  For more information, see [OpenSSL](http://openssl.org).  After you create the certificate, you must add it to your subscription in Windows Azure. 
 
-1.	Sign in to the Windows Azure Platform Management Portal.
+1.	Sign in to the Windows Azure Management Portal.
 2.	In the upper-left corner of the Management Portal, click **Preview**, and then click **Previous Management Portal**.
 
 	![preview](../media/preview.png)
