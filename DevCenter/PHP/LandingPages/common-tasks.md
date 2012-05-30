@@ -1,5 +1,8 @@
 #PHP Developer Center - Common tasks
 
+### [Downloading the Windows Azure SDK for PHP][]
+The Windows Azure SDK for PHP includes everything you need to build PHP applications for Windows Azure. This task provides details about how to install the components of the Windows Azure SDK for PHP: the **PHP client libraries for Windows Azure**, the **Windows Azure Command-Line Tools for Mac and Linux**, the **Windows Azure PowerShell cmdlets**, and the **Windows Azure Emulators**.
+
 ### [Publishing with Git][]
 Git is a popular, open source, distributed version control system. Windows Azure Web Sites allow you to enable a Git repository for your site, which allows you to quickly and easily push code changes to your site. This common task provides details about how to get started using Git with Windows Azure
 
@@ -19,6 +22,7 @@ Secure Socket Layer (SSL) encryption is the most commonly used method of securin
 The Windows Azure Content Delivery Network (CDN) offers a global solution for delivering high-bandwidth content by caching blobs and static content at physical nodes around the world. This common task describes how to enable CDN and add, access, and delete content.
 
 
+[Downloading the Windows Azure SDK for PHP]: en-us/develop/php/common-tasks/download-php-sdk/
 [Publishing with Git]: /en-us/develop/php/common-tasks/publishing-with-git/
 [Managing Windows Azure SQL Database using SQL Server Management Studio]: /en-us/develop/php/common-tasks/sql-azure-management/
 [Configuring a Custom Domain Name in Windows Azure]: /en-us/develop/php/common-tasks/custom-dns/
