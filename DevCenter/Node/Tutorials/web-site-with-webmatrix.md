@@ -14,17 +14,20 @@ By following this tutorial, you will build a simple node web application. The ap
 
 ![Windows Azure node Website][webmatrix-node-completed]
 
-##Enable the Windows Azure Web Site feature
+##Set up your development environment
+The steps in this section will walk you through enabling the new Windows Azure Web Site feature, creating a blank web site, and installing WebMatrix 2.
+
+###Enable the Windows Azure Web Site feature
 
 If you do not already have a Windows Azure subscription, you can sign up [for free]. After signing up, follow these steps to enable the Windows Azure Web Site feature.
 
 <div chunk="../../Shared/Chunks/antares-iaas-signup.md"></div>
 
-##Create a Windows Azure Web Site
+###Create a Windows Azure Web Site
 
 <div chunk="../../Shared/Chunks/create-website.md" />
 
-##Install WebMatrix
+###Install WebMatrix
 
 You can install WebMatrix from the [Windows Azure Portal]. From your web site's dashboard, click **QUICKSTART** near the top of the page, then click **Install WebMatrix**.
 
