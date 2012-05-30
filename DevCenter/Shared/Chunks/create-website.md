@@ -1,4 +1,4 @@
-Follow these steps to create a Windows Azure Website, and then enable Git publishing for the website. If you do not already have a Windows Azure subscription, you can sign up [for free].
+Follow these steps to create a Windows Azure Web site and then enable Git publishing for the website. If you do not already have a Windows Azure subscription, you can sign up [for free].
 
 1. Login to the [Windows Azure Portal].
 
@@ -6,11 +6,11 @@ Follow these steps to create a Windows Azure Website, and then enable Git publis
 
     ![The Windows Azure Portal with the +NEW link highlighted.][portal-new-website]
 
-3. Click **WEB SITE**, then **QUICK CREATE**. Enter a value for **URL** and select the datacenter for your website in the **REGION** dropdown. Click the checkmark at the bottom of the dialog.
+3. Click **WEB SITE**, then **QUICK CREATE**. Enter a value for **URL** and select the datacenter for your web site in the **REGION** dropdown. Click the checkmark at the bottom of the dialog.
 
     ![The Quick Create dialog][portal-quick-create]
 
-4. When the website has been created, you will see the text **Creation of Web Site '[SITENAME]' completed successfully**. 
+4. When the web site has been created, you will see the text **Creation of Web Site '[SITENAME]' completed successfully**. 
 
 	![The site created successfully message.][portal-website-created]
 
@@ -19,4 +19,3 @@ Follow these steps to create a Windows Azure Website, and then enable Git publis
 [portal-new-website]: ../../Shared/Media/plus-new.png
 [portal-quick-create]: ../../Shared/Media/create-quick-website.png
 [portal-website-created]: ../../Shared/Media/portal_website_created.png
-ctions.png

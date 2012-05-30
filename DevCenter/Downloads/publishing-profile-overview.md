@@ -34,13 +34,13 @@ This tutorial walks you through how to import a publish profile in WebMatrix. [C
 
 	![open site][8]
 
-[1]: media/webmatrix-pubgprofile-install-01.png
-[2]: media/webmatrix-pubgprofile-install-02.png
-[3]: media/webmatrix-pubgprofile-install-03.png
-[4]: media/webmatrix-pubgprofile-install-04.png
-[5]: media/webmatrix-pubgprofile-install-05.png
-[6]: media/webmatrix-pubgprofile-install-06.png
-[7]: media/webmatrix-pubgprofile-install-07.png
-[8]: media/webmatrix-pubgprofile-install-08.png
+[1]: media/webmatrix-pubprofile-install-01.png
+[2]: media/webmatrix-pubprofile-install-02.png
+[3]: media/webmatrix-pubprofile-install-03.png
+[4]: media/webmatrix-pubprofile-install-04.png
+[5]: media/webmatrix-pubprofile-install-05.png
+[6]: media/webmatrix-pubprofile-install-06.png
+[7]: media/webmatrix-pubprofile-install-07.png
+[8]: media/webmatrix-pubprofile-install-08.png
 
 
