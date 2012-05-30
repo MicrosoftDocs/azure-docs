@@ -140,7 +140,7 @@ The Service Bus uses a storage connection string to store endpoints and credenti
 
 	<ConfigurationSettings>
     …
-    	<Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedSecretIssuer=<issuerName>;SharedSecretValue=<yourDefaultKey>" />
+    	<Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=[issuerName];SharedSecretValue=[yourDefaultKey]" />
 	</ConfigurationSettings>
 
 Use the issuer and key values retrieved from the Management Portal as
@@ -154,7 +154,7 @@ Management operations for Service Bus queues can be performed via the
 In this example, a **NamespaceManager** object is constructed by using the Windows Azure **AzureConfigurationManager** class
 with a connection string consisting of the base address of a Service Bus namespace and the appropriate
 credentials with permissions to manage it. This connection string is of the form
-"Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedSecretIssuer=<issuerName>;SharedSecretValue=<yourDefaultKey>"". For example, given the configuration settings in the previous section:
+"Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=[issuerName];SharedSecretValue=[yourDefaultKey]"". For example, given the configuration settings in the previous section:
 
 	// Create the queue if it does not exist already
 	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
