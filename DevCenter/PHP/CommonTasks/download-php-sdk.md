@@ -13,6 +13,12 @@ The sections below describe how to download and install the components described
 
 The instructions in this topic assume that you have [PHP][install-php] installed.
 
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>You must have PHP 5.3 or higher to use the PHP client libraries for Windows Azure.</p> 
+</div>
+
+
 ##PHP client libraries for Windows Azure
 
 The PHP Client Libraries for Windows Azure are PHP class libraries that provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services, from any operating system. These libraries can be installed as a PEAR package or manually.
@@ -42,7 +48,7 @@ To download and install the PHP Client Libraries for Windows Azure manually, fol
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
-	<p>The PHP Client Libraries for Windows Azure have a dependency on the <a href="http://pear.php.net/package/HTTP_Request2">HTTP\_Request2</a>, <a href="http://pear.php.net/package/Mail_mime">Mail\_mime</a>, and <a href="http://pear.php.net/package/Mail_mimeDecode">Mail\_mimeDecode</a> PEAR packages. The recommended way to resolve these dependencies is to install these packages using the <a href="http://pear.php.net/manual/en/installation.php">PEAR package manager</a>.</p> 
+	<p>The PHP Client Libraries for Windows Azure have a dependency on the <a href="http://pear.php.net/package/HTTP_Request2">HTTP_Request2</a>, <a href="http://pear.php.net/package/Mail_mime">Mail_mime</a>, and <a href="http://pear.php.net/package/Mail_mimeDecode">Mail_mimeDecode</a> PEAR packages. The recommended way to resolve these dependencies is to install these packages using the <a href="http://pear.php.net/manual/en/installation.php">PEAR package manager</a>.</p> 
 	</div>
 
 
