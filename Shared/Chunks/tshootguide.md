@@ -404,7 +404,7 @@ The windows Azure Portal provides access to monitoring data that helps IT profes
 
 The original Windows Azure SDK 1.0 included functionality to collect
 diagnostics data and store them in Windows Azure storage collectively known
-as Windows Azure Diagnostics (WAD). This software, built upon the Event
+as Windows Azure Diagnostics. This software, built upon the Event
 Tracing for Windows (ETW) framework, fulfills two design requirements
 introduced by Windows Azure scale-out architecture:
 
@@ -413,7 +413,7 @@ introduced by Windows Azure scale-out architecture:
 -   Provide a central repository for diagnostics from multiple
     instances.
 
-After configuring Windows Azure Diagnostics in the role, WAD collects
+After configuring Diagnostics in the role, Diagnostics collects
 diagnostic data from all the instances of that particular role. The
 diagnostic data can be used for debugging and troubleshooting, measuring
 performance, monitoring resource usage, traffic analysis and capacity
@@ -433,7 +433,7 @@ ways:
 
 Cost is of particular importance because one of the key benefits of
 Windows Azure is cost reduction. The only way to eliminate the
-cost of using WAD today is to leave the data on the virtual machine.
+cost of using Diagnostics today is to leave the data on the virtual machine.
 This may work in a small deployment, but is impractical where there are
 many instances. Here are a few ways to minimize the financial impact:
 
@@ -455,7 +455,7 @@ many instances. Here are a few ways to minimize the financial impact:
 -   Control the collection and extent of diagnostic data by implementing
     an on-demand switch in your application.
 -   Utilize the logging level (Verbose, Info, Warning, Error) so that
-    all information is available, then utilize the post-deploy WAD
+    all information is available, then utilize the post-deploy Diagnostics
     config to selectively gather data.
 
 [Windows Azure PowerShell Cmdlets]
@@ -539,7 +539,7 @@ tracing or logging work.
 
 There are a number of ways to explore Windows Azure storage. The Windows
 Azure Storage team came up with a [list of storage explorers]. Any of
-these will allow you to see WAD files and Windows Azure Storage
+these will allow you to see Diagnostics files and Windows Azure Storage
 Analytics files. Cloudberry Lab's [Explorer for Azure Blob Storage] provides a user interface to enable Storage Analytics directly in the
 application by clicking **Storage Settings**.
 

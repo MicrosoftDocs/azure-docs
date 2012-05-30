@@ -46,7 +46,7 @@ In the Management Portal, you can add or modify the diagnostics connection strin
 
 ###To configure diagnostics connections strings for verbose monitoring###
 
-1. In the [Management Portal](https://manage.windowsazure.com/), copy a storage account key for the storage account that you'll use to store the verbose monitoring data. Use **Manage Keys** on the **Storage Accounts** page. For more information, see help for the **Storage Accounts** page. 
+1. In the [Management Portal](https://manage.windowsazure.com/), copy a storage access key for the storage account that you'll use to store the verbose monitoring data. Use **Manage Keys** on the **Storage Accounts** page. For more information, see help for the **Storage Accounts** page. 
 
 2. Open **Cloud Services**. Then, to open the dashboard, click the name of the cloud service you want to configure.
 
@@ -64,7 +64,7 @@ In the Management Portal, you can add or modify the diagnostics connection strin
 
  for which you want verbose monitoring. Then click **Save**.
 
- The connection strings have the following format. To update a connection string, enter the storage account name and a storage account key.
+ The connection strings have the following format. To update a connection string, enter the storage account name and a storage access key.
 
          DefaultEndpointsProtocol=https;AccountName=StorageAccountName;AccountKey=StorageAccountKey
 

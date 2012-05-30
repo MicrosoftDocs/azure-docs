@@ -1,6 +1,6 @@
 <properties umbracoNaviHide="0" pageTitle="Intro to Linux on Windows Azure" metaKeywords="" metaDescription="" linkid="manage-linux-fundamentals-intro-to-linux" urlDisplayName="Intro to Linux" headerExpose="" footerExpose="" disqusComments="1" />
 #Introduction to Linux on Windows Azure
-This topic provides an overview of some aspects of using Linux virtual machines in the Windows Azure cloud. Deploying a Linux virtual machine is a straightforward process when using a pre-existing image in the Windows Azure gallery. For a tutorial, see Create a Linux virtual machine. 
+This topic provides an overview of some aspects of using Linux virtual machines in the Windows Azure cloud. Deploying a Linux virtual machine is a straightforward process when using a pre-existing image in the gallery. For a tutorial, see Create a Linux virtual machine. 
 
 ## Table of Contents ##
 
@@ -52,7 +52,7 @@ The user account that is specified during virtual machine instance deployment on
 
 Windows Azure provides an inbound packet filter that restricts connectivity to ports specified in the Management Portal. By default, the only allowed port is SSH. You may open up access to additional ports on your Linux virtual machine by adding rules in the Management Portal.
 
-The Linux images in the Windows Azure gallery do not enable the iptables firewall inside the Linux virtual machines. If desired, the IPtables firewall may be configured to provide additional capabilities.
+The Linux images in the gallery do not enable the iptables firewall inside the Linux virtual machines. If desired, the IPtables firewall may be configured to provide additional capabilities.
 
 <h2 id="hostnamechanges"> Hostname Changes </h2>
 
