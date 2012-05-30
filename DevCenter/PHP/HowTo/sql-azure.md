@@ -12,7 +12,7 @@ Windows Azure SQL Database provides a relational database management system for 
 
 * [Concepts](#Concepts)
 * [How to: Setup your environment](#Setup)
-* [How to: Create aSQL Database](#CreateServer)
+* [How to: Create a SQL Database](#CreateServer)
 * [How to: Get SQL Database connection information](#ConnectionInfo)
 * [How to: Connect to a SQL Database instance](#Connect)
 * [Next steps](#NextSteps)
