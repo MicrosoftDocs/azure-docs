@@ -477,7 +477,8 @@ Run the compute-intensive application, first to create the queue, then to solve 
 
         java -jar TSPSolver.jar 8
 
- If you don't specify a number, it will run for 10 cities. The larger the number that you specify, the longer the solver will run.
+ If you don't specify a number, it will run for 10 cities. 
+  <p/>Note that the larger the number that you specify, the longer the solver will run. For example, running for 14 cities could take several minutes, and 15 cities could take several hours. Running for 16 or more cities could result in days of runtime (eventually weeks, months, and years). This is due to the rapid increase in the number of permutations evaluated by the solver as the number of cities increases.
  <p/>At this point, the queue should be populated.
 
 ### How to run the monitoring client application
