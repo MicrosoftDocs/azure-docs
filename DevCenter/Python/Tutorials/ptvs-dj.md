@@ -25,7 +25,7 @@ A screenshot of the completed application is below:
 
 ## <a id="setup"> </a>Setting Up the Development Environment
 
-Before you can begin developing your Windows Azure application, you need to get the tools and set up your development environment. For details about getting and installing the Windows Azure SDK for Python, see [Setup the Development Environment](http://www.windowsazure.com/en-us/develop/python/commontasks/how-to-install-python).
+Before you can begin developing your Windows Azure application, you need to get the tools and set up your development environment. For details about getting and installing the Windows Azure SDK for Python, see [How to Install Python][].
 
 NOTE
 This tutorial requires Python 2.7 and Django 1.4. These versions are included in the current Windows Azure SDK for Python.
@@ -129,7 +129,7 @@ a folder will be opened containing the resulting package file:
 
 ![New Hosted Service](../Media/ptvs-dj-PackageCreated.png)
 
-From here you can sign into the [Windows Azure Portal](https://windows.azure.com/default.aspx)
+From here you can sign into the [Windows Azure Portal](https://www.windowsazure.com)
 with your Windows Azure account and deplopy the package.  First **click on the New Hosted Service** button:
 
 
@@ -153,3 +153,5 @@ you can click on the link below DNS Name to view your web site running in the cl
 
 
 ![Your Django app in the cloud](../Media/ptvs-dj-FirstAppInCloud.png)
+
+[How to Install Python]: ../commontasks/how-to-install-python.md 

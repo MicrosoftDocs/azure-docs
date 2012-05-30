@@ -317,4 +317,4 @@ deleting a storage account, see [How to Delete a Storage Account from a Windows 
 [The status of the Remove-AzureService command]: ../Media/django-helloworld-ps-remove.png
 [How to Delete a Storage Account from a Windows Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx
 
-[Installation Guide]: http://www.windowsazure.com/en-us/develop/python/commontasks/how-to-install-python
+[Installation Guide]: ../commontasks/how-to-install-python.md
