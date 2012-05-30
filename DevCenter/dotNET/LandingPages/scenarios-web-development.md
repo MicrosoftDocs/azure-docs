@@ -14,7 +14,7 @@ For small and medium-sized web apps with a simple web architecture
 <p>Implement a simple web site using ASP.NET MVC that supports creating, editing, and listing to-do items from a database. You will learn the basics of creating a Windows Azure web site, deploying an application to Windows Azure, and storing data in SQL Azure.</p>
 </div>
 <div class="article blue">
-<h3><a href="../../tutorials/website-through-the-portal/">Create a website from the Windows Azure Gallery</a></h3>
+<h3><a href="../../tutorials/website-from-gallery/">Create a website from the Windows Azure Gallery</a></h3>
 <p>Learn how to create a new web site through the Windows Azure Gallery and immediately deploy it. You will have a new Wordpress site up-and-running in less than five minutes.</p>
 </div>
 <div class="article green">
