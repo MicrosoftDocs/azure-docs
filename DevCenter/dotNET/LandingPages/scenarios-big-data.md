@@ -1,13 +1,14 @@
 <h1>Big Data Scenarios</h1>
-<p>Windows Azure supports a variety of structured and unstructured data storage options, along with tools to help you analyze and extract BI from data of any size.</p> 
-<span><br/></span> 
 
+<p>Windows Azure supports a variety of structured and unstructured data storage options, along with tools to help you analyze and extract BI from data of any size.</p>
+
+<span><br/></span> 
 
 <div class="dev-articles">
 <h2>Create your first application</h2>
 <div class="article red">
 <h3><a href="../../tutorials/hadoop-and-data/">Working with Hadoop and data</a></h3>
-<p>Use Windows Azure Storage in MapReduce, uploading data files to HDFS using FTPS, and importing SQL Server Data with Sqoop.</p>
+<p>Use Windows Azure Storage in MapReduce, upload data files to HDFS using FTPS, and import SQL Server Data with Sqoop.</p>
 </div>
 <div class="article blue">
 <h3><a href="../../tutorials/website-with-mongodb-vm/">Website with MongoDB on a virtual machine</a></h3>
