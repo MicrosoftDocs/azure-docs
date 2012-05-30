@@ -1,4 +1,4 @@
-﻿# Provisioning a SQL Server Virtual Machine on Windows Azure #
+# Deploy a SQL Server Virtual Machine on Windows Azure #
 
 The Windows Azure virtual machine gallery provides Windows Azure virtual machine images of Microsoft Windows Server 2008 R2, Service Pack 1 (64-bit) with a complete 64-bit installation of SQL Server. You can select one of the virtual machine images from the Windows Azure gallery and with a few clicks you can provision the virtual machine to your Windows Azure environment.
 
