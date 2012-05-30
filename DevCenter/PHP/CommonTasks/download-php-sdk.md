@@ -46,7 +46,7 @@ To download and install the PHP Client Libraries for Windows Azure manually, fol
 	</div>
 
 
-2. Copy the `WindowsAzure` directory of the downloaded archive to your application directory structure and reference classes from your application. Alternatively, put the `src` directory in your `include_path` and reference classes from your application.
+2. Copy the `WindowsAzure` directory of the downloaded archive to your application directory structure and reference classes from your application. Alternatively, put the `WindowsAzure` directory in your `include_path` and reference classes from your application.
 
 ##Windows Azure PowerShell and Windows Azure Emulators
 
