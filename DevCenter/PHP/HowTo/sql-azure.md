@@ -2,18 +2,17 @@
 
 #How to Access Windows Azure SQL Database from PHP
 
-This guide will show you the basics of using Windows Azure SQL Database from PHP. The samples are written in PHP. The scenarios covered include **creating a server**, **creating a database**, and **connecting to a database**. This guide covers creating a server and creating a database from the [Preview Management Portal][preview-portal]. For information about performing these tasks from the production portal, see [Getting Started with PHP and SQL Azure][prod-portal-instructions]. For more information, see the [Next Steps](#NextSteps) section.
+This guide will show you the basics of using Windows Azure SQL Database from PHP. The samples are written in PHP. The scenarios covered include **creating a SQL Database** and **connecting to a SQL Database**. This guide covers creating a SQL Database from the [Preview Management Portal][preview-portal]. For information about performing these tasks from the production portal, see [Getting Started with PHP and SQL Azure][prod-portal-instructions]. For more information, see the [Next Steps](#NextSteps) section.
 
 ##What is Windows Azure SQL Database
 
-Windows Azure SQL Database provides a relational database management system for the Windows Azure platform, and is based on SQL Server technology. With a SQL Database instance, you can easily provision and deploy relational database solutions to the cloud, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing.
+Windows Azure SQL Database provides a relational database management system for the Windows Azure platform, and is based on SQL Server technology. With SQL Database, you can easily provision and deploy relational database solutions to the cloud, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing.
 
 ##Table of contents
 
 * [Concepts](#Concepts)
 * [How to: Setup your environment](#Setup)
-* [How to: Create a SQL Database server](#CreateServer)
-* [How to: Create a SQL Database instance](#CreateDatabase)
+* [How to: Create a SQL Database](#CreateServer)
 * [How to: Get SQL Database connection information](#ConnectionInfo)
 * [How to: Connect to a SQL Database instance](#Connect)
 * [Next steps](#NextSteps)
@@ -21,7 +20,7 @@ Windows Azure SQL Database provides a relational database management system for 
 <h2 id="Concepts">Concepts</h2>
 Because Windows Azure SQL Database is built on SQL Server technologies, accessing SQL Database from PHP is very similar to accessing SQL Server from PHP. You can develop an application locally (using SQL Server) and then connect to SQL Database by changing only the connection string. However, there are some differences between SQL Database and SQL Server that could affect your application. For more information, see [Guidelines and Limitations (SQL Database)][limitations].
 
-For accessing SQL Database from Windows, the recommended approach is to use the [Microsoft Drivers for PHP for SQL Server][download-drivers]. (The examples in this article will use these drivers.) For accessing SQL Database from Linux and other non-Windows platforms, using an ODBC driver for SQL Server and the [ODBC extension for PHP][odbc-php] is recommended. For more information, see the [Next Steps](#NextSteps) section.
+The recommended approach for accessing SQL Database from PHP is to use the [Microsoft Drivers for PHP for SQL Server][download-drivers]. (The examples in this article will use these drivers.) The Microsoft Drivers for PHP for SQL Server work on Windows only.
 
 <h2 id="Setup">How to: Setup your environment</h2>
 
@@ -33,7 +32,7 @@ Alternatively, you can set up your environment manually:
 * Download and install SQL Server Express: [http://www.microsoft.com/en-us/download/details.aspx?id=29062][install-sql-express]
 * Download and install the Microsoft Drivers for PHP for SQL Server: [http://php.net/manual/en/sqlsrv.requirements.php][install-drivers].
 
-<h2 id="CreateServer">How to: Create a SQL Database server</h2>
+<h2 id="CreateServer">How to: Create a SQL Database</h2>
 
 Follow these steps to create a Windows Azure SQL Database:
 
@@ -46,51 +45,40 @@ Follow these steps to create a Windows Azure SQL Database:
 
 	![Custom Create a new SQL Database][custom-create]
 
-4. Enter a value for the **NAME** of your database, select the **EDITION** (WEB or BUSINESS), select the **MAX SIZE** for your database, choose the **COLLATION**, and select **NEW SQL Database server**. Click the arrow at the bottom of the dialog.
+4. Enter a value for the **NAME** of your database, select the **EDITION** (WEB or BUSINESS), select the **MAX SIZE** for your database, choose the **COLLATION**, and select **NEW SQL Database Server**. Click the arrow at the bottom of the dialog. (Note that if you have created a SQL Database before, you can choose an existing server from the **Choose a server** dropdown.)
 
 	![Fill in SQL Database settings][database-settings]
 
-5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Database server will be created, and check the `Allow Windows Azure Services to access this server` box.
+5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Database will be created, and check the `Allow Windows Azure Services to access the server` box.
 
 	![Create new SQL Database server][create-server]
 
-Note that the steps above create a new SQL Database server _and_ a new database. To see server and database information, click **SQL Databases** in the Preview Management Portal. You can then click on **databases** or **servers** to see relevant information.
+To see server and database information, click **SQL Databases** in the Preview Management Portal. You can then click on **DATABASES** or **SERVERS** to see relevant information.
 
 ![View server and database information][sql-dbs-servers]
 
-To add another database to an existing server, see the next section.
-
-<h2 id="CreateDatabase">How to: Create a SQL Database instance</h2>
-
-The steps in the section above explain how to create a SQL Database server _and_ a database. To add a new database to an existing server, follow the same steps, but choose an existing server in step 4. (Note that step 5 will not be necessary. Your administrator name and password will be valid for the new database.)
-
-![Create new database on existing server][new-db-existing-server]
-
-
 <h2 id="ConnectionInfo">How to: Get SQL Database connection information</h2>
 
-To get SQL Database connection information, follow these steps:
+To get SQL Database connection information, click on **SQL DATBASES** in the portal, then click on the name of the database.
 
-1. From the Preview Management Portal, click **SQL DATABASES**, then click on the name of the database you want to connect to.
+![View database information][go-to-db-info]
 
-	![SQL Databases][go-to-conn-info]
+Then, click on **Show connection strings**.
 
-2. Click **Connection String**.
+![Show connection strings][show-connection-string]
 
-	![Connection string][connection-string]
-	
-3. From the **PHP** section of the resulting dialog, make note of the values for `UID`, `PWD`, `Database`, and `$serverName`. Note that if you are using the **SQLSRV** extension, the code shown can be copied and pasted into your application.
+In the PHP section of the resulting window, make note of the values for **SERVER**, **DATABASE**, and **USERNAME**. Your password will be the password you used when creating the SQL Database.
 
 <h2 id="Connect">How to: Connect to a SQL Database instance</h2>
 
-The following examples show how to use the **SQLSRV** and **PDO_SQLSRV** extensions to connect to an existing SQL Database instance called `tasklist`. (You will need information obtained from the section above.)Replace `SERVER_ID` with your 10-digit server ID, and assign the correct values (your user name and password) to the `$user` and `$pwd` variables.
+The following examples show how to use the **SQLSRV** and **PDO_SQLSRV** extensions to connect to an existing SQL Database instance called `testdb`. You will need information obtained from the section above. Replace `SERVER_ID` with your 10-digit server ID (which is the fist 10 characters from the SERVER value obtained in the section above), and assign the correct values (your user name and password) to the `$user` and `$pwd` variables.
 
 #####SQLSRV
 
-	$server = "tcp:SERVER_ID.database.windows.net, 1433";
-	$user = "user";
+	$server = "tcp:<value of SERVER from section above>";
+	$user = "<value of USERNAME from section above>"@SERVER_ID;
 	$pwd = "password";
-	$db = "tasklist";
+	$db = "testdb";
 
 	$conn = sqlsrv_connect($server, array("UID"=>$user, "PWD"=>$pwd, "Database"=>$db));
 
@@ -100,10 +88,10 @@ The following examples show how to use the **SQLSRV** and **PDO_SQLSRV** extensi
 
 #####PDO_SQLSRV
 
-	$server = "tcp:SERVER_ID.database.windows.net, 1433";
-	$user = "user";
+	$server = "tcp:<value of SERVER from section above>";
+	$user = "<value of USERNAME from section above>"@SERVER_ID;
 	$pwd = "password";
-	$db = "tasklist";
+	$db = "testdb";
 
 	try{
 		$conn = new PDO( "sqlsrv:Server= $server ; Database = $db ", $user, $pwd);
@@ -115,10 +103,7 @@ The following examples show how to use the **SQLSRV** and **PDO_SQLSRV** extensi
 
 
 <h2 id="NextSteps">Next steps</h2>
-As mentioned earlier, using SQL Database is very similar to using SQL Server. Once you have established a connection to a SQL Database (as shown above), you can then use the **SQLSRV** or **PDO\_SQLSRV** APIs for inserting, retrieving, updating, and deleting data. For information about the **SQLSRV** and **PDO\_SQLSRV** APIs, see the [Microsoft Drivers for PHP for SQL Server documentation][driver-docs]. There are, however, some differences between SQL Database and SQL Server that could affect your application. For more information, see [Guidelines and Limitations (SQL Azure Database)][limitations]. 
-
-For accessing SQL Database from Linux and other non-Windows platforms, using an ODBC driver for SQL Server and the [ODBC extension for PHP][odbc-php] is recommended. For more information, see [Installing and Using the Microsoft SQL Server ODBC Driver for Linux][install-linux-driver], [Download the Microsoft SQL Server ODBC Driver for Linux][download-linux-driver], and [Accessing SQL Azure from PHP][access-php-odbc].
-
+As mentioned earlier, using SQL Database is very similar to using SQL Server. Once you have established a connection to a SQL Database (as shown above), you can then use the **SQLSRV** or **PDO\_SQLSRV** APIs for inserting, retrieving, updating, and deleting data. For information about the **SQLSRV** and **PDO\_SQLSRV** APIs, see the [Microsoft Drivers for PHP for SQL Server documentation][driver-docs]. There are, however, some differences between SQL Database and SQL Server that could affect your application. For more information, see [Guidelines and Limitations (SQL Azure Database)][limitations].
 
 [download-drivers]: http://www.microsoft.com/download/en/details.aspx?id=20098
 [limitations]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx
@@ -126,18 +111,19 @@ For accessing SQL Database from Linux and other non-Windows platforms, using an 
 [manual-config]: http://php.net/manual/en/install.windows.iis7.php
 [install-drivers]: http://php.net/manual/en/sqlsrv.requirements.php
 [driver-docs]: http://msdn.microsoft.com/en-us/library/dd638075(SQL.10).aspx
-[install-linux-driver]: http://strangenut.com/blogs/dacrowlah/archive/2012/04/13/installing-and-using-the-microsoft-sql-server-odbc-driver-for-linux.aspx
 [access-php-odbc]: http://social.technet.microsoft.com/wiki/contents/articles/accessing-sql-azure-from-php.aspx
-[download-linux-driver]: http://www.microsoft.com/download/en/details.aspx?id=28160
 [install-sql-express]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
 [preview-portal]: https://manage.windowsazure.com
 [prod-portal-instructions]: http://blogs.msdn.com/b/brian_swan/archive/2010/02/12/getting-started-with-php-and-sql-azure.aspx
 [new-website]: ../../Shared/Media/new_website.jpg
 [custom-create]: ../../Shared/Media/create_custom_sql_db.jpg
-[database-settings]: ../Media/database_settings.jpg
-[create-server]: ../Media/create_server.jpg
-[sql-dbs-servers]: ../../Shared/Media/sql_dbs_servers.jpg
+[database-settings]: ../Media/new-sql-db.png
+[create-server]: ../Media/db-server-settings.png
+[sql-dbs-servers]: ../Media/sql-dbs-portal.png
 [new-db-existing-server]: ../../Shared/Media/new_db_existing_server.jpg
 [go-to-conn-info]: ../../Shared/Media/go_to_conn_info.jpg
 [connection-string]: ../Media/connection_string.jpg
-[wpi-installer]: http://www.microsoft.com/web/downloads/platform.aspx
+[wpi-installer]: http://go.microsoft.com/fwlink/?LinkId=253447
+[go-to-db-info]: ../Media/go-to-db-info.png
+[show-connection-string]: ../Media/show-connection-string.png
+
