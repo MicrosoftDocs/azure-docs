@@ -29,11 +29,11 @@ tables, see the [Next steps](#NextSteps) section.
 * [How to: Delete a table](#DeleteTable)
 * [Next steps](#NextSteps)
 
-<div chunk="../../Shared/Chunks/howto-table-storage" />
+<div chunk="../../Shared/Chunks/howto-table-storage.md" />
 
 <h2 id="CreateAccount">Create a Windows Azure storage account</h2>
 
-<div chunk="../../Shared/Chunks/create-storage-account" />
+<div chunk="../../Shared/Chunks/create-storage-account.md" />
 
 ## <a name="CreateApplication"> </a>Create a Java application
 
