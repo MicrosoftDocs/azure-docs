@@ -1,105 +1,36 @@
 <properties linkid="dev-java-how-to-use-blog-storage-service-java" urldisplayname="Blob Storage" headerexpose="" pagetitle="How to Use the Blob Storage Service from Java" metakeywords="Azure Blob Storage Java" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
-# How to Use the Blob Storage Service from Java
+# How to Use Blob Storage from Java
 
 This guide will show you how to perform common scenarios using the
 Windows Azure Blob storage service. The samples are written in Java and
 use the [Windows Azure SDK for Java][]. The scenarios covered include
 **uploading**, **listing**, **downloading**, and **deleting** blobs. For
-more information on blobs, see the [Next Steps][] section.
+more information on blobs, see the [Next Steps](#NextSteps) section.
 
-## <a name="bkmk_WhatIsBlobSvc"> </a>What is Blob Storage
+## <a name="Contents"> </a>Table of Contents
 
-Windows Azure Blob storage is a service for storing large amounts of
-unstructured data that can be accessed from anywhere in the world via
-HTTP or HTTPS. A single blob can be hundreds of gigabytes in size, and a
-single storage account can contain up to 100TB of blobs. Common uses of
-Blob storage include:
+* [What is Blob Storage](#what-is)
+* [Concepts](#Concepts)
+* [Create a Windows Azure storage account](#CreateAccount)
+* [Create a Java application](#CreateApplication)
+* [Configure your application to access Blob Storage](#ConfigureStorage)
+* [Setup a Windows Azure storage connection string](#ConnectionString)
+* [How to: Create a container](#CreateContainer)
+* [How to: Upload a blob into a container](#UploadBlob)
+* [How to: List the blobs in a container](#ListBlobs)
+* [How to: Download a blob](#DownloadBlob)
+* [How to: Delete a blob](#DeleteBlob)
+* [How to: Delete a blob container](#DeleteContainer)
+* [Next steps](#NextSteps)
 
--   Serving images or documents directly to a browser
--   Storing files for distributed access
--   Streaming video and audio
--   Performing secure backup and disaster recovery
--   Storing data for analysis by an on-premise or Windows Azure-hosted
-    service
+<div chunk="../../Shared/Chunks/howto-blob-storage" />
 
-You can use Blob storage to expose data publicly to the world or
-privately for internal application storage.
+<h2 id="CreateAccount">Create a Windows Azure storage account</h2>
 
-## <a name="bkmk_Contents"> </a>Table of Contents
+<div chunk="../../Shared/Chunks/create-storage-account" />
 
--   [Concepts][]
--   [Create a Windows Azure Storage Account][]
--   [Create a Java Application][]
--   [Configure your Application to Access Blob Storage][]
--   [Setup a Windows Azure Storage Connection String][]
--   [How to Create a Container][]
--   [How to Upload a Blob into a Container][]
--   [How to List the Blobs in a Container][]
--   [How to Download Blobs][]
--   [How to Delete a Blob][]
--   [How to Delete a Blob Container][]
--   [Next Steps][]
-
-## <a name="bkmk_Concepts"> </a>Concepts
-
-The Blob service contains the following components:
-
-![Blob Service Components][]
-
--   **URL format:** Blobs are addressable using the following URL
-    format:   
-     http://<*storage
-    account*\>.blob.core.windows.net/<*container*>/<*blob*>  
-    The following URL addresses one of the blobs in the diagram:  
-    http://sally.blob.core.windows.net/movies/MOV1.AVI
--   **Storage Account:**All access to Windows Azure Storage is done
-    through a storage account. This is the highest level of the
-    namespace for accessing blobs. An account can contain an unlimited
-    number of containers, as long as their total size is under 100TB.
--   **Container:**A container provides a grouping of a set of blobs. All
-    blobs must be in a container. An account can contain an unlimited
-    number of containers. A container can store an unlimited number of
-    blobs.
--   **Blob:** A file of any type and size. There are two types of blobs
-    that can be stored in Windows Azure Storage. Most files are block
-    blobs. A single block blob can be up to 200GB in size. This tutorial
-    uses block blobs. Page blobs, another blob type, can be up to 1TB in
-    size, and are more efficient when ranges of bytes in a file are
-    modified frequently
-
-## <a name="bkmk_CreateWinAzureStorAcct"> </a>Create a Windows Azure Storage Account
-
-To use storage operations, you need a Windows Azure storage account. You
-can create a storage account by following these steps. (You can also
-create a storage account using the REST API.)
-
-**How to Create a Storage Account using the Management Portal**
-
-1.  Log into the [Windows Azure Management Portal][].
-2.  In the navigation pane, click **Hosted Services, Storage Accounts &
-    CDN**.
-3.  At the top of the navigation pane, click **Storage Accounts**.
-4.  On the ribbon, in the **Storage** group, click **New Storage
-    Account**.  
-    ![New Storage Account screenshot][]  
-     The **Create a New Storage Account** dialog box opens.  
-    ![Create New Storage Account screenshot][]
-5.  In **Choose a Subscription**, select the subscription that the
-    storage account will be used with.
-6.  In **Enter a URL**, type a subdomain name to use in the URI for the
-    storage account. The entry can contain from 3-24 lowercase letters
-    and numbers. This value becomes the host name within the URI that is
-    used to address Blob, Queue, or Table resources for the
-    subscription.
-7.  Choose a region or an affinity group in which to locate the storage.
-    If you will be using storage from your Windows Azure application,
-    select the same region where you will deploy your application.
-8.  Finally, take note of your **Primary access key** in the right-hand
-    column. You will need this in subsequent steps to access storage.  
-    ![Properties screenshot][]
-
-## <a name="bkmk_CreateJavaApp"> </a>Create a Java Application
+## <a name="CreateApplication"> </a>Create a Java application
 
 In this guide, you will use storage features which can be run within a
 Java application locally, or in code running within a web role or worker
@@ -114,7 +45,7 @@ You can use any development tools to create your application, including
 Notepad. All you need is the ability to compile a Java project and
 reference the Windows Azure Libraries for Java.
 
-## <a name="bkmk_ConfigApp"> </a>Configure your Application to Access Blob Storage
+## <a name="ConfigureStorage"> </a>Configure your application to access Blob Storage
 
 Add the following import statements to the top of the Java file where
 you want to use Windows Azure storage APIs to access blobs:
@@ -123,7 +54,7 @@ you want to use Windows Azure storage APIs to access blobs:
     import com.microsoft.windowsazure.services.core.storage.*;
     import com.microsoft.windowsazure.services.blob.client.*;
 
-## <a name="bkmk_SetupConnectString"> </a>Setup a Windows Azure Storage Connection String
+## <a name="ConnectionString"> </a>Setup a Windows Azure storage connection string
 
 A Windows Azure storage client uses a storage connection string to store
 endpoints and credentials for accessing storage services. When running
@@ -150,7 +81,7 @@ of getting the connection string from a **Setting** element named
     String storageConnectionString = 
         RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 
-## <a name="bkmk_CreateContainer"> </a>How to Create a Container
+## <a name="CreateContainer"> </a>How to: Create a container
 
 A CloudBlobClient object lets you get reference objects for containers
 and blobs. The following code creates a **CloudBlobClient** object.
@@ -191,7 +122,7 @@ permissions.
 Anyone on the internet can see blobs in a public container, but public
 access is limited to reading only.
 
-## <a name="bkmk_UploadBlobToContainer"> </a>How to Upload a Blob into a Container
+## <a name="UploadBlob"> </a>How to: Upload a blob into a container
 
 To upload a file to a blob, get a container reference and use it to get
 a blob reference. Once you have a blob reference, you can upload any
@@ -215,7 +146,7 @@ created.
     File source = new File("c:\\myimages\\myimage.jpg");
     blob.upload(new FileInputStream(source), source.length());
 
-## <a name="bkmk_ListBlobs"> </a>How to List the Blobs in a Container
+## <a name="ListBlobs"> </a>How to: List the blobs in a container
 
 To list the blobs in a container, first get a container reference like
 you did to upload a blob. You can use the container's **listBlobs**
@@ -258,7 +189,7 @@ every blob being returned, regardless of directory. For more
 information, see CloudBlobContainer.listBlobs in the Javadocs
 documentation.
 
-## <a name="bkmk_DownloadBlobs"> </a>How to Download Blobs
+## <a name="DownloadBlob"> </a>How to: Download a blob
 
 To download blobs, follow the same steps as you did for uploading a blob
 in order to get a blob reference. In the uploading example, you called
@@ -287,7 +218,7 @@ file.
         }
     }
 
-## <a name="bkmk_DeleteBlob"> </a>How to Delete a Blob
+## <a name="DeleteBlob"> </a>How to: Delete a blob
 
 To delete a blob, get a blob reference, and call **delete**.
 
@@ -307,7 +238,7 @@ To delete a blob, get a blob reference, and call **delete**.
     // Delete the blob
     blob.delete();
 
-## <a name="bkmk_DeleteBlobContainer"> </a>How to Delete a Blob Container
+## <a name="DeleteContainer"> </a>How to: Delete a blob container
 
 Finally, to delete a blob container, get a blob container reference, and
 call delete.
@@ -325,33 +256,15 @@ call delete.
     // Delete the blob container
     container.delete();
 
-## <a name="bkmk_NextSteps"> </a>Next Steps
+## <a name="NextSteps"> </a>Next steps
 
 Now that you've learned the basics of blob storage, follow these links
 to learn how to do more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Windows
     Azure]
--   Visit the Windows Azure Storage Team Blog:
-    [http://blogs.msdn.com/b/windowsazurestorage/]
+-   Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
 
-  [Windows Azure SDK for Java]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=vs.103).aspx
-  [Next Steps]: #bkmk_NextSteps
-  [Concepts]: #bkmk_Concepts
-  [Create a Windows Azure Storage Account]: #bkmk_CreateWinAzureStorAcct
-  [Create a Java Application]: #bkmk_CreateJavaApp
-  [Configure your Application to Access Blob Storage]: #bkmk_ConfigApp
-  [Setup a Windows Azure Storage Connection String]: #bkmk_SetupConnectString
-  [How to Create a Container]: #bkmk_CreateContainer
-  [How to Upload a Blob into a Container]: #bkmk_UploadBlobToContainer
-  [How to List the Blobs in a Container]: #bkmk_ListBlobs
-  [How to Download Blobs]: #bkmk_DownloadBlobs
-  [How to Delete a Blob]: #bkmk_DeleteBlob
-  [How to Delete a Blob Container]: #bkmk_DeleteBlobContainer
-  [Blob Service Components]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage.png
-  [Windows Azure Management Portal]: http://windows.azure.com/
-  [New Storage Account screenshot]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage2.png
-  [Create New Storage Account screenshot]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage3.png
-  [Properties screenshot]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage4.png
-  [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [http://blogs.msdn.com/b/windowsazurestorage/]: http://blogs.msdn.com/b/windowsazurestorage/
+
+[Windows Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/java-home/download-the-windows-azure-sdk-for-java/
+[Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
