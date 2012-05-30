@@ -216,7 +216,7 @@ The metrics chart displays metrics for gauging the performance of your cloud ser
 
 **Note**   If you're viewing the dashboard for a cloud service that was created by connecting two or more virtual machines, be aware that the actions you can perform in the **Cloud Services** section of the Management Portal are limited. We recommend managing virtual machines in the **Virtual Machines** section. While you can view the virtual machines as a cloud service, the functionality in the **Cloud Services** section for virtual machines is limited.
 
-These restrictions do not apply to legacy stateless virtual machines (known as *VM roles*) for cloud services (known earlier as *hosted services*) created in the earlier Windows Azure Platform Management Portal.
+These restrictions do not apply to legacy stateless virtual machines (known as *VM roles*) for cloud services (known earlier as *hosted services*) created in the earlier Windows Azure Management Portal.
 ###To open the cloud service dashboard###
 - In the Preview Management Portal, click **Cloud Services**.
 
@@ -372,7 +372,7 @@ Use the following procedures to configure verbose or minimal monitoring in the P
 
 In the Preview Management Portal, you can add or modify the diagnostics connection strings that Windows Azure Diagnostics uses to access the storage accounts that store verbose monitoring data, and you can set the level of monitoring to verbose or minimal. Because verbose monitoring stores data in a storage account, you must configure the diagnostics connection strings before you set the monitoring level to verbose.
 ###To configure diagnostics connections strings for verbose monitoring###
-- Copy a storage account key for the storage account that you'll use to store the verbose monitoring data. Use **Manage Keys** on the **Storage Accounts** page. For more information, see help for the **Storage Accounts** page. 
+- Copy a storage access key for the storage account that you'll use to store the verbose monitoring data. Use **Manage Keys** on the **Storage Accounts** page. For more information, see help for the **Storage Accounts** page. 
 
 - Open **Cloud Services**. Then, to open the dashboard, click the name of the cloud service you want to configure.
 
@@ -392,7 +392,7 @@ In the Preview Management Portal, you can add or modify the diagnostics connecti
 
 - for which you want verbose monitoring. Then click **Save**.
 
-- The connection strings have the following format. To update a connection string, enter the storage account name and a storage account key.
+- The connection strings have the following format. To update a connection string, enter the storage account name and a storage access key.
 
          DefaultEndpointsProtocol=https;AccountName=StorageAccountName;AccountKey=StorageAccountKey
 - **Note**   Monitoring data for a cloud service is stored for 10 days. You can't change the data retention policy.

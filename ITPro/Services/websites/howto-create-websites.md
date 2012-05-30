@@ -1,6 +1,6 @@
-﻿#How to Create and Deploy a Website
+#How to Create and Deploy a Website
 
-Just as you can quickly create and deploy a web application created from the Azure Gallery, you can also deploy a website created on a workstation with traditional developer tools from Microsoft or other companies. 
+Just as you can quickly create and deploy a web application created from the gallery, you can also deploy a website created on a workstation with traditional developer tools from Microsoft or other companies. 
 
 
 ## Table of Contents ##
@@ -10,7 +10,7 @@ Just as you can quickly create and deploy a web application created from the Azu
 - [Deployment Options](#deployoptions)
 - [How to: Create a Website Using the Management Portal](#createawebsiteportal)
 - [How to: Deploy a Website from Git](#deployawebsite)
-- [How to: Create a Website from the Azure Gallery](#howtocreatefromgallery)
+- [How to: Create a Website from the Gallery](#howtocreatefromgallery)
 - [How to: Develop and Deploy a Website with Microsoft WebMatrix](#howtodevdepwebmatrix)
 - [Next Steps](#nextsteps)
 
@@ -104,7 +104,7 @@ After deployment begins, you can monitor the deployment status on the **Deployme
 Websites are deleted using the **Delete** icon in the Windows Azure Portal. The **Delete** icon is available in the Windows Azure Portal when you click **Web Sites** to list all of your websites and at the bottom of each of the website management pages.
 
 
-##<a name="howtocreatefromgallery"></a>How to: Create a Website from the Azure Gallery
+##<a name="howtocreatefromgallery"></a>How to: Create a Website from the Gallery
 
 <div chunk="../../../Shared/Chunks/website-from-gallery.md" />
 

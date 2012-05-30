@@ -806,7 +806,7 @@ Remember that Windows Azure supports multiple forms of data storage, including t
 
 Now that you've learned the basics of SQL Database administration, follow these links to learn how to do more complex administative tasks.
 
-* See [SQL Azure Database][] on MSDN
+* See [SQL Database][] on MSDN
 * Visit the [SQL Database TechNet WIKI][]
 
 
@@ -820,7 +820,7 @@ Now that you've learned the basics of SQL Database administration, follow these 
 [Scale a SQL Database solution]: #HowTo4
 [Next Steps]: #NextSteps
 
-[SQL Azure Database]: http://msdn.microsoft.com/en-us/library/windowsazure/gg619386
+[SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/gg619386
 
 [SQL Database TechNet WIKI]: http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-en-us.aspx
 
@@ -836,8 +836,8 @@ Now that you've learned the basics of SQL Database administration, follow these 
 [Getting Started with SQL Database Administration]: http://www.windowsazure.com/en-us/manage/tutorials/sql-azure-management/  
 [Managing Databases and Logins in SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336235.aspx
 [How to use the blob storage service]: https://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/
-[DAC SQL Azure Import Export Service Client v 1.5]: http://sqldacexamples.codeplex.com/releases/view/85948
+[DAC SQL Database Import Export Service Client v 1.5]: http://sqldacexamples.codeplex.com/releases/view/85948
 
 
-[Adventure Works for SQL Azure]: http://msftdbprodsamples.codeplex.com/releases/view/37304
+[Adventure Works for SQL Database]: http://msftdbprodsamples.codeplex.com/releases/view/37304
 
