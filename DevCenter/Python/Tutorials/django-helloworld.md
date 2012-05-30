@@ -19,7 +19,15 @@ A screenshot of the completed application is below:
 ## Creating and configuring a Windows Azure virtual machine to host Django
 
 * Follow the instructions given [here][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Windows Server 2008 R2* flavor.
-* Open up a TCP port for Django on the virtual machine:
+* Open up TCP port **8000** on the virtual machine:
+ 1. From the **Start** menu, select **Administrator Tools** and then **Windows Firewall with Advanced Security**. 
+ 1. In the left pane, select **Inbound Rules**.  In the **Actions** pane on the right, select **New Rule...**.
+ 1. In the **New Inbound Rule Wizard**, select **Port** and then click **Next**.
+ 1. Select **TCP** and then **Specific local ports**.  Specify a port of "8000" (the port Django listens on) and click **Next**.
+ 1. Select **Allow the connection** and click **Next**.
+ 1. Click **Next** again.
+ 1. Specify a name for the rule, such as "DjangoPort", and click Finish.
+* Instruct Windows Azure to redirect port **80** traffic from the web to port **8000** on the virtual machine:
  1. Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
  1. Click *ADD ENDPOINT* button at the bottom of the screen.
 ![][add endpoint]
