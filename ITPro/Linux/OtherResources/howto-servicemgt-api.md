@@ -101,7 +101,7 @@ All the APIs have a required callback argument. Completion of the request is sig
 
 -	serviceName is a required string name of the hosted service.
 -	callback is required.
--	The response object will contain storage account keys if successful.
+-	The response object will contain storage access keys if successful.
 
 **iaasClient.GetDeployment(serviceName, deploymentName, callback)**
 

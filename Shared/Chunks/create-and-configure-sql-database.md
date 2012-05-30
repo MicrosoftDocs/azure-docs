@@ -85,7 +85,7 @@ following steps show you how to create an instance using the Management
 Portal for SQL Database.
 
 1.  At the top of the navigation pane, expand **Subscriptions**, expand
-    the subscription, expand the SQL Azure server you created, click
+    the subscription, expand the SQL Database server you created, click
     **master**, and then click **Manage**.
 
     ![][2]
