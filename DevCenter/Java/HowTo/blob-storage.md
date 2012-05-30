@@ -24,11 +24,11 @@ more information on blobs, see the [Next Steps](#NextSteps) section.
 * [How to: Delete a blob container](#DeleteContainer)
 * [Next steps](#NextSteps)
 
-<div chunk="../../Shared/Chunks/howto-blob-storage" />
+<div chunk="../../Shared/Chunks/howto-blob-storage.md" />
 
 <h2 id="CreateAccount">Create a Windows Azure storage account</h2>
 
-<div chunk="../../Shared/Chunks/create-storage-account" />
+<div chunk="../../Shared/Chunks/create-storage-account.md" />
 
 ## <a name="CreateApplication"> </a>Create a Java application
 
