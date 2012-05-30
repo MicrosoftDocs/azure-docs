@@ -51,7 +51,7 @@ The following tasks are supported:
 
 <h2 id="GetStarted">Get started using Windows Azure PowerShell</h2>
 
-The recommended way to install the Windows Azure PowerShell cmdlets is via the [Microsoft Web Platform Installer][wpi-installer]. After installing and launching the Web Platform Installer, select **Windows Azure PowerShell - June 2012** and follow the prompts to install the cmdlets. The Web Platform Installer will install all dependencies for the Windows Azure PowerShell cmdlets.
+The recommended way to install the Windows Azure PowerShell cmdlets is via the [Microsoft Web Platform Installer][wpi-installer]. After installing and launching the Web Platform Installer, select **Windows Azure PowerShell - June 2012** and follow the prompts to install the cmdlets. The Web Platform Installer will install all dependencies for the Windows Azure PowerShell cmdlets. Note that you can also select **Windows Azure SDK for Node.js - June 2012** or **Windows Azure SDK for PHP - June 2012** as these SDKs will include the Windows Azure PowerShell cmdlets.
 
 ### Getting started with Windows PowerShell
 
@@ -216,7 +216,7 @@ your settings file. You must provide this information when you use
 **Import-AzurePublishSettingsFile** to import the settings. The default
 location and file name format is:
 
-C:\Users\&lt;MyAccount&gt;\Downloads\[*MySubscription*-…]-*downloadDate*-credentials.publishsettings
+C:\\Users\\<MyAccount\>\\Downloads\\[*MySubscription*-…]-*downloadDate*-credentials.publishsettings
 
 The following example shows how to download publishing settings for your
 Windows Azure account.
@@ -451,7 +451,7 @@ name and access keys for each storage account.
 <div class="dev-callout"> 
 <b>Note</b> 
 <p>For information about creating, managing, and deleting storage
-accounts, <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh531567.aspx">How to: Manage Storage Accounts for a Windows Azure Subscription</a>.</p> 
+accounts, <a = href=" http://msdn.microsoft.com/en-us/library/windowsazure/hh531567.aspx">How to: Manage Storage Accounts for a Windows Azure Subscription</a>.</p> 
 </div>
 
 
@@ -586,7 +586,7 @@ Windows Azure staging environment.
 <div class="dev-callout"> 
 <b>Note</b> 
 <p>For more information about managing staging and production
-deployments, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx">Overview of Managing Deployments in Windows Azure</a>.</p> 
+deployments, see <a = href="http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx">Overview of Managing Deployments in Windows Azure</a>.</p> 
 </div>
 
 ### Opening the web role in a browser
@@ -713,13 +713,13 @@ the MyService service.
 
     PS C:\app\MyService> Start-AzureService -Slot production
 
-To remove a service, you must first remove all deployments (production and staging) associated wtih the service by using the **Remove-AzureDeployment** cmdlet. The following example shows how to remove the production deployment for the MyService service.
+To remove a service, use the **Remove-AzureService** cmdlet. If a service has associated deployments, this cmdlet will prompt you to delete the deployments.
 
-	PS C:\app\MyService> Remove-AzureDeployment -ServiceName MyService -Slot Production
+	PS C:\app\MyService> Remove-AzureService -ServiceName MyService
 
-After all deployments for a service have been removed, the service can be removed with the **Remove-AzureService** cmdlet:
+You can bypass the prompt by using the **-Force** option with the **Remove-AzureService** cmdlet. The following example shows how to delete all deployments associated with the MyService service, and the service itself.
 
-    PS C:\app\MyService> Remove-AzureService -ServiceName MyService
+    PS C:\app\MyService> Remove-AzureService -ServiceName MyService -Force 
 
 ## Additional resources
 
