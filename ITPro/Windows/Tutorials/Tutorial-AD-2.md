@@ -11,8 +11,7 @@ This tutorial walks you through the steps to create a new Active Directory fores
 * [Prerequisites](#Prerequisites)
 * [Step 1: Sign on to Windows Azure, attach data disks, and connect to the VM](#Step1)
 * [Step 2: Install Active Directory Domain Services](#Step2)
-* [Step 3: alidate the installation](#Step3)
-* [Step 4: Provision domain-joined VMs](#Step4)
+* [Step 3: Validate the installation](#Step3)
 * [Step 5: Backup the domain controller](#Step5)
 * [Step 6: Provisioning a Virtual Machine that is Domain Joined on Boot](#Step6)
 
@@ -21,27 +20,32 @@ This tutorial walks you through the steps to create a new Active Directory fores
 
 Before you begin, make sure the following prerequisites are complete:
 
-- Cloud service deployed
+- Create Affinity Group
 
-- Affinity service deployed, and Affinity group created
+- Create Virtual Network
 
-- Virtual Network created
+- Create Cloud Service in the virtual network
 
-- Two VMs (YourVMachine and YourVMachine2) deployed on Virtual Network. One VM must be size L or greater in order to attach two data disks to it. The data disks are needed to store:
+- Two virtual machines (YourVMachine and YourVMachine2) deployed on Virtual Network. One virtual machine must be size L or greater in order to attach two data disks to it. The data disks are needed to store:
+
+	
 >- The Active Directory database, logs, and SYSVOL.
+	
 >- System state backups.
+
 - Domain Name System (DNS) infrastructure deployed if you need to have external users resolve names for accounts in Active Directory. In this case, you should create a DNS zone delegation before you install DNS server on the domain controller, or allow the Active Directory Domain Services Installation Wizard create the delegation. For more information about creating a DNS zone delegation, see [Create a Zone Delegation](http://technet.microsoft.com/en-us/library/cc753500.aspx).
 
 **Note**
->You need to provide your own DNS infrastructure to support AD DS on Windows Azure Virtual Network. The Windows Azure-provided DNS infrastructure for this release does not support some features that AD DS requires, such as SRV resource record registration or dynamic DNS. 
+>You need to provide your own DNS infrastructure to support AD DS on Windows Azure Virtual Network. The DNS infrastructure provided by Windows Azure for this release does not support some features that AD DS requires, such as SRV resource record registration or dynamic DNS. 
 
 **Note**
->If you already completed the steps in [Install a replica Active Directory domain controller in Windows Azure Virtual Network](), you might need to remove AD DS from the domain controller on the Windows Azure virtual network before you begin this tutorial. For more information about how to remove AD DS, see [Removing a Domain Controller from a Domain]().
+>If you already completed the steps in [Install a replica Active Directory domain controller in Windows Azure Virtual Network](../../../manage/windows/tutorials/tutorial-AD-1/), you might need to remove AD DS from the domain controller on the Windows Azure virtual network before you begin this tutorial. For more information about how to remove AD DS, see [Removing a Domain Controller from a Domain](http://technet.microsoft.com/en-us/library/cc771844(v=WS.10).aspx).
 
 
 <h2 id="Step1">Step 1: Sign on to Windows Azure, attach data disks, and connect to the VM</h2>
 
 **Sign on to Windows Azure, attach data disks, and connect to the VM**
+
 1.	Sign on to Windows Azure.
 
 	![Sign1] (../media/Sign1.png)
@@ -65,6 +69,7 @@ Before you begin, make sure the following prerequisites are complete:
 5.	Repeat steps 3 and 4 to attach a second data disk.
 
 6.	Click **Connect**.
+
 	![Sign5] (../media/Sign5.png)
 
 
@@ -93,7 +98,7 @@ Before you begin, make sure the following prerequisites are complete:
 
 	![InstallDC1] (../media/InstallDC1.png)
 
-2.	In the console tree, click Computer Management (Local), click Storage, and then click Disk Management.
+2.	In the console tree, click Computer Management (Local), click **Storage**, and then click **Disk Management**.
  
 3.	Right-click the disk you want to initialize, and then click **Initialize Disk**.
 
@@ -138,8 +143,9 @@ If you choose a different value, you also need to select a value for the domain 
 
 12.	On the Static IP assignment warning, click **Yes, the computer will use an IP address automatically assigned by a DHCP server (not recommended)** 
 
-**Important**
-Although the IP address on the Windows Azure Virtual Network is dynamic, its lease lasts for the duration of the VM. Therefore, you do not need to set a static IP address on the domain controller that you install on the virtual network. Setting a static IP address in the VM will cause communication failures. 
+	**Important**
+
+	Although the IP address on the Windows Azure Virtual Network is dynamic, its lease lasts for the duration of the VM. Therefore, you do not need to set a static IP address on the domain controller that you install on the virtual network. Setting a static IP address in the VM will cause communication failures. 
 
 	![InstallDC9] (../media/InstallDC9.png)
 
@@ -177,22 +183,9 @@ Although the IP address on the Windows Azure Virtual Network is dynamic, its lea
 
 3.	Type the following command and press ENTER:
 
-	`Dcdiag /c /v`
+	'Dcdiag /c /v'
 
 4.	Verify that the tests ran successfully. 
-
-
-<h2 id="Step4">Step 4: Provision domain-joined VMs</h2>
-
-1.	Connect to YourVMachine2. 
-
-2.	Type the IP address of YourVMachine as Preferred DNS server. 
-
-3.	In Server Manager, click **Change System Properties**, and click **Change**.
-
-4.	Click **Domain** and type the name of the domain you want to join (for example, HQ), and click **OK**.
-
-5.	At the Welcome dialog, click **OK** and then click **Restart** to restart the computer. 
 
 
 <h2 id="Step5">Step 5: Backup the domain controller</h2>
@@ -223,51 +216,14 @@ The next step explains how you can automatically provision new virtual machines 
 
 <h2 id="Step6">Step 6: Provisioning a Virtual Machine that is Domain Joined on Boot</h2>
 
-1.	The Add-WaProvisioningConfig also takes a -MachineObjectOU parameter which if specified (requires the full distinguished name in Active Directory) allows for setting group policy settings on all of the virtual machines in that container. Ensure that you replace storageaccountname with your storage account name.
+1.	The Add-AzureProvisioningConfig also takes a -MachineObjectOU parameter which if specified (requires the full distinguished name in Active Directory) allows for setting group policy settings on all of the virtual machines in that container. Ensure that you replace storageaccountname with your storage account name.
 
-
-		#------------------------------------------------------------------------------
-		#Load PS Snapin and set subscription details
-		#------------------------------------------------------------------------------
-		Cls
-		if ((Get-PSSnapin | ?{$_.Name -eq "WAPPSCmdlets"}) -eq $null) {
-		Add-PSSnapin WAPPSCmdlets   
-		}
+		# # Point to IP Address of Domain Controller Created Earlier  
+		$dns1 = New-AzureDns -Name 'dc-name' -IPAddress 'IP ADDRESS'
 		
-		# Your account details
-		$subid = "enter your subscription ID here"
-		$certThumbprint = "YOUR_CERT_THUMBPRINT_IN_CAPS"
-		$cert = Get-Item cert:\CurrentUser\My\$certThumbprint
-		$svcEP = "Windows Azure Management endpoint"
+		# Configuring VM to Automatically Join Domain 
+		$advm1 = New-AzureVMConfig -Name 'advm1' -InstanceSize Small -ImageName $imgname | Add-AzureProvisioningConfig -WindowsDomain -Password '[YOUR-PASSWORD]' ` -Domain 'contoso' -DomainPassword '[YOUR-PASSWORD]' ` -DomainUserName 'administrator' -JoinDomain 'contoso.com' | Set-AzureSubnet -SubnetNames 'AppSubnet' 
 		
-		Set-WaSubscription -SubscriptionName "mysub" -Certificate $cert -SubscriptionId $subid -ServiceEndpoint $svcEP
-		Select-WaSubscription -SubscriptionName "mysub"
+		# New Cloud Service with VNET and DNS settings
+		New-AzureVM –ServiceName 'someuniqueappname' -AffinityGroup 'adag' ` -VMs $advm1 -DnsSettings $dns1 -VNetName 'ADVNET'
 		
-		#------------------------------------------------------------------------------
-		#Service Details
-		#------------------------------------------------------------------------------
-		$vnet = 'your_VNet_Name_Here'     # Refer your Network Configuration for VNetName
-		$affinityGroup = 'Affinity_Group_Name_Here'
-		$storageName =  'storage_account_name_here_all_lower_case'
-		
-		# Create the cloud service
-		$serviceName = 'your_cloud_service_name_here'
-		New-WaCloudService -ServiceName $serviceName -AffinityGroup $affinityGroup -Label $serviceName
-		
-		# Create new Windows VM New-Deployment from platform image
-		$vmname = "vm_name"
-		$adminPassword = 'passwordhere'
-		$vmlocation = "http://" + $storageName + ".blob.core.azure-preview.com/vhds/" + $vmname + ".vhd"
-		$subnet = "subnet_name"
-		$imageName = 'ImageName' # run Get-WaOSImage | ft ImageName and pick up the right image you want to use
-		
-		$CLOUD_DNSIP = '10.4.2.4'
-		$CLOUD_DNSName = 'CloudDC'
-		$CLOUD_DNSSetting = New-WaDnsSetting -Name $CLOUD_DNSName -IPAddress $CLOUD_DNSIP
-		
-		New-WaVirtualMachineConfig -Name $vmname -InstanceSize 'Small' | 
-		    Add-WaOSDisk -ImageName $imageName -MediaLocation $vmlocation |
-		       Add-WaProvisioningConfig -Windows -Password $password |
-		       Set-WaSubnet -SubnetNames $subnet |
-		       New-WAVirtualMachineDeployment -VirtualNetworkName $vnet  -ServiceName $serviceName  -DNSSettings $ONPREM_DNSSetting, $CLOUD_DNSSetting
-

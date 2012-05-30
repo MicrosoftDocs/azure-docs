@@ -51,14 +51,14 @@ This tutorial walks you through the steps to install an additional domain contro
 
 5.	Verify that the server is assigned a static IP address. 
 
-	![VerifystaticIPaddressfo_yourPrimaryDC1] (../media/Verify_static_IP_address_for_yourPrimaryDC-1.png)
+	![VerifystaticIPaddressyourPrimaryDC1] (../media/VerifystaticIP.png)
 
 
 <h2 id="installforest">Step 2: Install Corp forest</h2>
 
 1.	In the RDP session for the VM, click **Start**, type **dcpromo**, and press ENTER.
 
-	![InstallCorpForest1](../media/InstallCorpForest1.png)
+	![InstallCorpForest1] (../media/InstallCorpForest1.png)
 
 
 2.	On the Welcome page, click **Next**.
@@ -190,8 +190,9 @@ This tutorial walks you through the steps to install an additional domain contro
 
 9.	On the Static IP assignment warning, click **Yes, the computer will use an IP address automatically assigned by a DHCP server (not recommended)**
 
-**Important** 
-> Although the IP address on the Windows Azure Virtual Network is dynamic, its lease lasts for the duration of the VM. Therefore, you do not need to set a static IP address on the domain controller that you install on the virtual network. Setting a static IP address in the VM will cause communication failures.
+	**Important** 
+
+ Although the IP address on the Windows Azure Virtual Network is dynamic, its lease lasts for the duration of the VM. Therefore, you do not need to set a static IP address on the domain controller that you install on the virtual network. Setting a static IP address in the VM will cause communication failures.
 
 	![AddDC9](../media/AddDC9.png)
 
@@ -219,13 +220,11 @@ This tutorial walks you through the steps to install an additional domain contro
 
 <h2 id="validate">Step 5: Validate the installation</h2>
 
-
 1.	Reconnect to the VM.
 
 2.	Click **Start**, right-click **Command Prompt** and click **Run as Administrator**. 
 
-3.	Type the following command and press ENTER:
-`Dcdiag /c /v`
+3.	Type the following command and press ENTER:  'Dcdiag /c /v'
 
 4.	Verify that the tests ran successfully. 
 
@@ -236,57 +235,17 @@ The example below demonstrates how you can automatically provision new virtual m
 
 <h2 id="provisionvm">Step 6: Provisioning a Virtual Machine that is Domain Joined on Boot</h2>
 
-1.	The Add-WaProvisioningConfig also takes a -MachineObjectOU parameter which if specified (requires the full distinguished name in Active Directory) allows for setting group policy settings on all of the virtual machines in that container. Ensure that you replace storageaccountname with your storage account name.
+1.	The Add-AzureProvisioningConfig also takes a -MachineObjectOU parameter which if specified (requires the full distinguished name in Active Directory) allows for setting group policy settings on all of the virtual machines in that container. Ensure that you replace storageaccountname with your storage account name.
 
-		#------------------------------------------------------------------------------
-		#Load PS Snapin and set subscription details
-		#------------------------------------------------------------------------------
-		Cls
-		if ((Get-PSSnapin | ?{$_.Name -eq "WAPPSCmdlets"}) -eq $null) {
-		Add-PSSnapin WAPPSCmdlets   
-		}
+		# # Point to IP Address of Domain Controller Created Earlier  
+		$dns1 = New-AzureDns -Name 'dc-name' -IPAddress 'IP ADDRESS'
 		
-		# Your account details
-		$subid = "enter your subscription ID here"
-		$certThumbprint = "YOUR_CERT_THUMBPRINT_IN_CAPS"
-		$cert = Get-Item cert:\CurrentUser\My\$certThumbprint
-		$svcEP = "Windows Azure Management endpoint"
+		# Configuring VM to Automatically Join Domain 
+		$advm1 = New-AzureVMConfig -Name 'advm1' -InstanceSize Small -ImageName $imgname | Add-AzureProvisioningConfig -WindowsDomain -Password '[YOUR-PASSWORD]' ` -Domain 'contoso' -DomainPassword '[YOUR-PASSWORD]' ` -DomainUserName 'administrator' -JoinDomain 'contoso.com' | Set-AzureSubnet -SubnetNames 'AppSubnet' 
 		
-		Set-WaSubscription -SubscriptionName "mysub" -Certificate $cert -SubscriptionId $subid -ServiceEndpoint $svcEP
-		Select-WaSubscription -SubscriptionName "mysub"
+		# New Cloud Service with VNET and DNS settings
+		New-AzureVM –ServiceName 'someuniqueappname' -AffinityGroup 'adag' ` -VMs $advm1 -DnsSettings $dns1 -VNetName 'ADVNET'
 		
-		#------------------------------------------------------------------------------
-		#Service Details
-		#------------------------------------------------------------------------------
-		$vnet = 'your_VNet_Name_Here'     # Refer your Network Configuration for VNetName
-		$affinityGroup = 'Affinity_Group_Name_Here'
-		$storageName =  'storage_account_name_here_all_lower_case'
-		
-		# Create the cloud service
-		$serviceName = 'your_cloud_service_name_here'
-		New-WaCloudService -ServiceName $serviceName -AffinityGroup $affinityGroup -Label $serviceName
-		
-		# Create new Windows VM New-Deployment from platform image
-		$vmname = "vm_name"
-		$adminPassword = 'passwordhere'
-		$vmlocation = "http://" + $storageName + ".blob.core.azure-preview.com/vhds/" + $vmname + ".vhd"
-		$subnet = "subnet_name"
-		$imageName = 'ImageName' # run Get-WaOSImage | ft ImageName and pick up the right image you want to use
-		
-		$ONPREM_DNSIP = '10.1.0.4'
-		$ONPREM_DNSName = 'MyOnPremDC'
-		$ONPREM_DNSSetting = New-WaDnsSetting -Name $ONPREM_DNSName -IPAddress $ONPREM_DNSIP
-		
-		$CLOUD_DNSIP = '10.4.2.4'
-		$CLOUD_DNSName = 'CloudDC'
-		$CLOUD_DNSSetting = New-WaDnsSetting -Name $CLOUD_DNSName -IPAddress $CLOUD_DNSIP
-		
-		New-WaVirtualMachineConfig -Name $vmname -InstanceSize 'Small' | 
-		    Add-WaOSDisk -ImageName $imageName -MediaLocation $vmlocation |
-		       Add-WaProvisioningConfig -Windows -Password $password |
-		       Set-WaSubnet -SubnetNames $subnet |
-		       New-WAVirtualMachineDeployment -VirtualNetworkName $vnet  -ServiceName $serviceName  -DNSSettings $ONPREM_DNSSetting, $CLOUD_DNSSetting
-
 
 <h2 id="backup">Step 7: Backup the domain controller</h2>
 
