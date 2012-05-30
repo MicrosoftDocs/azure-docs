@@ -18,4 +18,7 @@ Implement a simple web site that allows retrieving and creating to-do items stor
 ###[PHP web site with SQL Database using WebMatrix](/en-us/develop/php/tutorials/website-w-sql-database-and-webmatrix/)
 Implement a simple web site that allows retrieving and creating to-do items stored in a Windows Azure SQL Database instance. Use the [WebMatrix IDE][] to build and deploy your application.
 
+###[PHP web site using Windows Azure Storage](/en-us/develop/php/tutorials/website-with-storage/)
+Create a web site that stores and accesses data in Windows Azure Table storage.  You will learn how to create and use a Windows Azure Storage account and how to use the PHP client libraries to create, query, and delete table entities.
+
 [WebMatrix IDE]: /en-us/develop/downloads/webmatrix-overview/
