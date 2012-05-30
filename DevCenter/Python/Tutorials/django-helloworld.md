@@ -1,11 +1,11 @@
 # Django Hello World Web Application
 
 This tutorial describes how to host a Django-based website in Windows 
-Azure using a Windows Server 2008 R2 virtual machine. This tutorial assumes you have no prior experience using Windows Azure. On completing this guide, you will have a Django-based application up and running in the cloud.
+Azure using a Windows Server 2008 R2 virtual machine. This tutorial assumes you have no prior experience using Windows Azure. Upon completing this guide, you will have a Django-based application up and running in the cloud.
 
 You will learn how to:
 
-* Setup a Windows Azure virtual machine to host Django. While this tutorial explains how to accomplish this under Windows Server 2008 R2, the same could also be done with a Linux VM hosted in Windows Azure. 
+* Setup a Windows Azure virtual machine to host Django. While this tutorial explains how to accomplish this under **Windows Server 2008 R2**, the same could also be done with a Linux VM hosted in Windows Azure. 
 * Create a new Django application from Windows.
 
 By following this tutorial, you will build a simple Hello World web
@@ -15,8 +15,10 @@ A screenshot of the completed application is below:
 
 ![A browser window displaying the hello world page on Windows Azure][]
 
-## Setting up a Windows Azure virtual machine to host Django
-* From the [Preview Management Portal][preview-portal], create a new Windows Server 2008 R2 <b style="color:red;">TODO.  Need to talk about preview portal here</b>
+
+## Creating and configuring a Windows Azure virtual machine to host Django
+
+* Follow the instructions given [here][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Windows Server 2008 R2* flavor.
 * Open up a TCP port for Django on the virtual machine:
  1. Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
  1. Click *ADD ENDPOINT* button at the bottom of the screen.
@@ -99,7 +101,8 @@ We recommend using Windows PowerShell for developing your Windows Azure applicat
 Simply repeat step *1* from **Running your Django website locally in the virtual machine** without ever pressing CTRL-C.  Yes, it's really that easy!  You could also make step *1* automated each time the virtual machine starts by using the [Windows Task Scheduler].
 
 ## Shutting down your Windows Azure virtual machine
-<b style="color:red;">TODO - we should look over WA's tutorials and see if they bring this up anywhere.</b>
+
+When you're done with this tutorial, shutdown and/or remove your newly created Windows Azure virtual machine to free up resources for other tutorials and avoid incurring Windows Azure usage charges.
 
 [A browser window displaying the hello world page on Windows Azure]: ../Media/django-helloworld-browser-azure.png
 [A command prompt displaying the django directory creation]: ../Media/django-helloworld-ps-create-dir.png
@@ -123,5 +126,6 @@ Simply repeat step *1* from **Running your Django website locally in the virtual
 [add endpoint]: ../Media/mysql_tutorial02-1.png
 [port80]: ../Media/django-helloworld-port80.png
 [preview-portal]: https://manage.windowsazure.com
+[preview-portal-vm]: /manage/windows/tutorials/virtual-machine-from-gallery/
 
 [Installation Guide]: ../commontasks/how-to-install-python.md
