@@ -111,7 +111,7 @@ A CloudBlobClient object lets you get reference objects for containers and blobs
 	// Create the blob client
 	CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-All blobs reside in a container. Use the **CloudBlobClient** object to get a reference to the container you want to use. You can create the container if it doesn’t exist with the **createIfNotExist** method, which will otherwise return the existing container. By default, the new container is private, so you must specify your storage account key (as you did above) to download blobs from this container.
+All blobs reside in a container. Use the **CloudBlobClient** object to get a reference to the container you want to use. You can create the container if it doesn’t exist with the **createIfNotExist** method, which will otherwise return the existing container. By default, the new container is private, so you must specify your storage access key (as you did above) to download blobs from this container.
 
 	// Get a reference to a container
 	// The container name must be lower case

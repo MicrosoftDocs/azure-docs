@@ -139,7 +139,7 @@ List Azure virtual machines
 
 ###vm show [options] &lt;name>
 
-Show details about an Azure virtual machine
+Show details about a Windows Azure virtual machine
 
 	~$ azure vm show my-vm
 	info:   Executing command vm show
@@ -304,7 +304,7 @@ Data disks are .vhd files in blob storage that can be used by a virtual machine.
 
 ###vm disk show [options] &lt;name>
 
-Show details about an Azure disk
+Show details about a Windows Azure disk
 
 	~$ azure vm disk show my-vm-my-vm-2-201242418259
 	info:   Executing command vm disk show
@@ -363,7 +363,7 @@ This command attaches an existing disk in blob storage to an existing virtual ma
 
 ###vm disk attach-new &lt;vm-name> &lt;size-in-gb> [blob-url]
 
-Attaches data-disk to Azure virtual machine
+Attaches a data-disk to a Windows Azure virtual machine
 
 	~$ azure vm disk attach-new nick-test36 20 http://nghinazz.blob.core.azure-preview.com/vhds/vmdisk1.vhd
 	info:   Executing command vm disk attach-new
@@ -371,7 +371,7 @@ Attaches data-disk to Azure virtual machine
 
 ###vm disk detach &lt;vm-name> &lt;lun>
 
-Detaches a data-disk attached to an Azure virtual machine
+Detaches a data-disk attached to a Windows Azure virtual machine
 
 	~$ azure vm disk detach my-vm 2
 	info:   Executing command vm disk detach
