@@ -19,7 +19,7 @@ Until you configure monitoring for your storage account, no monitoring data is c
 
 <h2 id="configurestoragemonitoring">How to: Configure monitoring for a storage account</h2>
 
-1. In the [Management Portal](manage.windowsazure.com), click **Storage**, and then click the storage account name to open the dashboard.
+1. In the [Management Portal](https://manage.windowsazure.com/), click **Storage**, and then click the storage account name to open the dashboard.
 
 2. Click **Configure**, and scroll down to the **monitoring** settings for the Blob, Table, and Queue services, shown below.
 
@@ -49,7 +49,7 @@ After you set the monitoring levels and retention policies, you can choose which
 
 On the dashboard, you can choose up to six metrics to plot on the metrics chart from nine available metrics. For each service (Blob, Table, and Queue), the Availability, Success Percentage, and Total Requests metrics are available. The metrics available on the dashboard are the same for minimal or verbose monitoring.
 
-1. In the [Management Portal](manage.windowsazure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
+1. In the [Management Portal](https://manage.windowsazure.com/), click **Storage**, and then click the name of the storage account to open the dashboard.
 
 2. To change the metrics that are plotted on the chart, take one of the following actions:
 - To add a new metric to the chart, click the check box by the metric header. In a narrow display, click ***n* more** to access headers that can't be displayed in the header area.
@@ -66,7 +66,7 @@ On the dashboard, you can choose up to six metrics to plot on the metrics chart 
 
 <h2 id="customizemonitorpage">How to: Customize the Monitor page</h2>
 
-In the [Management Portal](manage.windowsazure.com), on the **Monitor** page, you can view the full set of metrics for your storage account. 
+In the [Management Portal](https://manage.windowsazure.com/), on the **Monitor** page, you can view the full set of metrics for your storage account. 
 
 - If your storage account has minimal monitoring configured, metrics such as ingress/egress, availability, latency, and success percentages are aggregated from the Blob, Table, and Queue services.
 
@@ -77,9 +77,9 @@ You can add and remove metrics from the metrics table, and you can choose metric
 
 <h2 id="addmonitoringmetrics">How to: Add metrics to the metrics table</h2>
 
-Use the following procedures to choose which storage metrics to view in the metrics charts and table that are displayed in the Preview Management Portal. These settings do not affect the collection, aggregation, and storage of monitoring data in the storage account
+Use the following procedures to choose which storage metrics to view in the metrics charts and table that are displayed in the Management Portal. These settings do not affect the collection, aggregation, and storage of monitoring data in the storage account.
 
-1. In the [Management Portal](manage.windowsazure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
+1. In the [Management Portal](https://manage.windowsazure.com/), click **Storage**, and then click the name of the storage account to open the dashboard.
 
 2. Click **Monitor**.
 
@@ -101,7 +101,7 @@ Use the following procedures to choose which storage metrics to view in the metr
 	![AddMetricsScrollbar] (../media/Storage_AddMetrics_Scrollbar.png)
 
 
-5. Click the down arrow by a metric to expand a list of operations the metric is scoped to include. Select each operation that you want to view in the metrics table in the portal.
+5. Click the down arrow by a metric to expand a list of operations the metric is scoped to include. Select each operation that you want to view in the metrics table in the Management Portal.
 
  In the following illustration, the AUTHORIZATION ERROR PERCENTAGE metric has been expanded.
 
@@ -120,7 +120,7 @@ On the **Monitor** page, you can select any six metrics in the metrics table to 
 
 <h2 id="customizemetricschart">How to: Customize the metrics chart</h2>
 
-1. In the [Management Portal](manage.windowsazure.com), on the **Monitor** page for the storage account, in the metrics table, select up to 6 metrics to plot on the metrics chart. To select a metric, click the check box on its left side. To remove a metric from the chart, clear the check box.
+1. In the [Management Portal](https://manage.windowsazure.com/), on the **Monitor** page for the storage account, in the metrics table, select up to 6 metrics to plot on the metrics chart. To select a metric, click the check box on its left side. To remove a metric from the chart, clear the check box.
 
 2. To change the time range the metrics chart displays, select **6 hours**, **24 hours**, or **7 days** at the top of the chart.
 
@@ -130,7 +130,7 @@ On the **Monitor** page, you can select any six metrics in the metrics table to 
 
 For each of the storage services available with your storage account (Blob, Table, and Queue), you can save diagnostics logs for Read Requests, Write Requests, and/or Delete Requests, and can set the data retention policy for each of the services.
 
-1. In the [Management Portal](manage.windowsazure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
+1. In the [Management Portal](https://manage.windowsazure.com/), click **Storage**, and then click the name of the storage account to open the dashboard.
 
 2. Click **Configure**, and use the Down arrow on the keyboard to scroll down to **logging** (shown below).
 

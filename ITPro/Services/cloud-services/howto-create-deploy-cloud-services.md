@@ -1,3 +1,4 @@
+
 <properties umbracoNaviHide="0" pageTitle="How to Create and Deploy a Cloud Service" metaKeywords="Windows Azure cloud services, cloud service, deploy cloud service, create cloud service" metaDescription="Learn how to create and deploy Windows Azure cloud services." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" />
 
 <h1 id="createdeploycloudservice">How to Create and Deploy a Cloud Service</h1>
@@ -6,7 +7,7 @@ The Windows Azure (Preview) Management Portal provides two ways for you to creat
 
 This topic explains how to use the Quick Create method to create a new cloud service and then use **Upload** to upload and deploy a cloud service package in Windows Azure. When you use this method, the Windows Azure (Preview) Management Portal makes available convenient links for completing all requirements as you go. If you're ready to deploy your cloud service when you create it, you can do both at the same time using **Custom Create**. 
 
-**Note**   If you plan to publish your cloud service from Windows Team Foundation Services (TFS), use Quick Create, and then set up TFS publishing from **Quick Start** or the dashboard. For more information, see help for the **Quick Start** page, or see [[How to publish a Windows Azure cloud service from TFS[FWLINK REQUESTED]]]().
+**Note**   If you plan to publish your cloud service from Windows Team Foundation Services (TFS), use Quick Create, and then set up TFS publishing from **Quick Start** or the dashboard. For more information, see help for the **Quick Start** page.
 
 ##Table of Contents##
 
@@ -53,96 +54,98 @@ There are three tasks that require special configurations before you export a se
 
 <h2 id="quick">How to: Create a Cloud Service using Quick Create</h2>
 
-- In the Management Portal, click **New**, click **Cloud Service**, and then click **Quick Create**.
+1. In the [Management Portal](https://manage.windowsazure.com/), click **New**, click **Cloud Service**, and then click **Quick Create**.
 
-	![](../Media/CloudServices_QuickCreate.png)
+ ![CloudServices_QuickCreate](../Media/CloudServices_QuickCreate.png)
 
-- In **URL**, enter a subdomain name to use in the public URL for accessing your cloud service in production deployments. The URL format for production deployments is: [http://*myURL*.cloudapp.net](http://myURL.cloudapp.net).
+2. In **URL**, enter a subdomain name to use in the public URL for accessing your cloud service in production deployments. The URL format for production deployments is: [http://*myURL*.cloudapp.net](http://myURL.cloudapp.net).
 
-- In **Region/Affinity Group**, select the geographic region or affinity group to deploy the cloud service to. Select an affinity group if you want to deploy your cloud service to the same location as other Windows Azure services within a region.
+3. In **Region/Affinity Group**, select the geographic region or affinity group to deploy the cloud service to. Select an affinity group if you want to deploy your cloud service to the same location as other Windows Azure services within a region.
 
-**Note**   To create an affinity group, open the **Networks** area of the Management Portal, click **Affinity Groups**, and then click either **Create a new affinity group** or **Create**. You can use affinity groups that you created in the earlier Windows Azure Management Portal. And you can create and manage affinity groups using the Windows Azure Service Management API. For more information, see [Operations on Affinity Groups](http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx).
+ **Note**   To create an affinity group, open the **Networks** area of the Management Portal, click **Affinity Groups**, and then click either **Create a new affinity group** or **Create**. You can use affinity groups that you created in the earlier Windows Azure Management Portal. And you can create and manage affinity groups using the Windows Azure Service Management API. For more information, see [Operations on Affinity Groups](http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx).
 
-- Click **Create Cloud Service**.
+4. Click **Create Cloud Service**.
 
 You can monitor the status of the process in the message area at the bottom of the window.
 
 The **Cloud Services** area opens, with the new cloud service displayed. When the status changes to Created, cloud service creation has completed successfully.
 
-![](../Media/CloudServices_CloudServicesPage.png)
+>![CloudServices_CloudServicesPage](../Media/CloudServices_CloudServicesPage.png)
+
 
 If any roles in the cloud service require a certificate for Secure Sockets Layer (SSL) data encryption, and the certificate has not been uploaded to Windows Azure, you must upload the certificate before you deploy the cloud service. After you upload a certificate, any Windows applications that are running in the role instances can access the certificate.
 
 
 <h2 id="uploadcertificate">How to: Upload a Certificate for a Cloud Service</h2>
 
-- In the Management Portal, click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
+1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
 
-	![](../Media/CloudServices_EmptyDashboard.png)
+ ![CloudServices_EmptyDashboard](../Media/CloudServices_EmptyDashboard.png)
 
-- Click **Certificates** to open the **Certificates** page, shown below.
+2. Click **Certificates** to open the **Certificates** page, shown below.
 
-	![](../Media/CloudServices_CertificatesPage.png)
+ ![CloudServices_CertificatesPage](../Media/CloudServices_CertificatesPage.png)
 
-- Click either **Add new certificate** or **Upload**.
+3. Click either **Add new certificate** or **Upload**.
+ **Add a Certificate** opens.
 
-- **Add a Certificate** opens.
+ ![CloudServices_AddaCertificate](../Media/CloudServices_AddaCertificate.png)
 
-	![](../Media/CloudServices_AddaCertificate.png)
+4. In **Certificate file**, use **Browse** to select the certificate (.pfx file) to use.
 
-- In **Certificate file**, use **Browse** to select the certificate (.pfx file) to use.
+5. In **Password**, enter the private key for the certificate.
 
-- In **Password**, enter the private key for the certificate.
-
-- Click OK (checkmark).
+6. Click OK (checkmark).
 
 You can watch the progress of the upload in the message area, shown below. When the upload completes, the certificate is added to the table. In the message area, click the down arrow to close the message, or click X to remove the message.
 
-![](../Media/CloudServices_CertificateProgress.png)
+>![CloudServices_CertificateProgress](../Media/CloudServices_CertificateProgress.png)
 
 You can deploy your cloud service from the dashboard or from **Quick Start**.
 
 <h2 id="deploy">How to: Deploy a Cloud Service</h2>
 
-- In the Management Portal, click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
+1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
 
-- Click **Quick Start** to open the **Quick Start** page, shown below. (You can also deploy your cloud service by using **Upload** on the dashboard.)
+2. Click **Quick Start** to open the **Quick Start** page, shown below. (You can also deploy your cloud service by using **Upload** on the dashboard.)
 
-	![](../Media/CloudServices_QuickStartPage.png)
+ ![CloudServices_QuickStartPage](../Media/CloudServices_QuickStartPage.png)
 
-- If you haven’t installed the Windows Azure SDK, click **Install Azure SD**K to open the [Windows Azure Downloads page](http://www.windowsazure.com/en-us/develop/downloads/), and then download the SDK for the language in which you prefer to develop your code.
+3. If you haven’t installed the Windows Azure SDK, click **Install Azure SD**K to open the [Windows Azure Downloads page](http://www.windowsazure.com/en-us/develop/downloads/), and then download the SDK for the language in which you prefer to develop your code.
 
-- On the downloads page, you can also install client libraries and source code for developing web apps in Node.js, Java, PHP, and other languages, which you can deploy as scalable Windows Azure cloud services.
+ On the downloads page, you can also install client libraries and source code for developing web apps in Node.js, Java, PHP, and other languages, which you can deploy as scalable Windows Azure cloud services.
 
-- **Note**   For cloud services created earlier (known earlier as *hosted services*), you'll need to make sure the guest operating systems on the virtual machines (role instances) are compatible with the Windows Azure SDK version you install. For more information, see the [Windows Azure SDK release notes](http://msdn.microsoft.com/en-us/library/windowsazure/hh552718.aspx).
+ **Note**   For cloud services created earlier (known earlier as *hosted services*), you'll need to make sure the guest operating systems on the virtual machines (role instances) are compatible with the Windows Azure SDK version you install. For more information, see the [Windows Azure SDK release notes](http://msdn.microsoft.com/en-us/library/windowsazure/hh552718.aspx).
 
-- Click either **New Production Deployment** or **New Staging Deployment**. 
+4. Click either **New Production Deployment** or **New Staging Deployment**. 
 
-- If you'd like to test your cloud service in Windows Azure before deploying it to production, you can deploy to staging. In the staging environment, the cloud service's globally unique identifier (GUID) identifies the cloud service in URLs (*GUID*.cloudapp.net). In the production environment, the friendlier DNS prefix that you assign is used (for example, *myservice*.cloudapp.net). When you're ready to promote your staged cloud service to production, use **Swap** to redirect client requests to that deployment.
+ If you'd like to test your cloud service in Windows Azure before deploying it to production, you can deploy to staging. In the staging environment, the cloud service's globally unique identifier (GUID) identifies the cloud service in URLs (*GUID*.cloudapp.net). In the production environment, the friendlier DNS prefix that you assign is used (for example, *myservice*.cloudapp.net). When you're ready to promote your staged cloud service to production, use **Swap** to redirect client requests to that deployment.
 
-- **Upload a Package** opens.
+ **Upload a Package** opens.
 
-	![](..\Media\CloudServices_UploadaPackage.png)
+ ![CloudServices_UploadaPackage](../Media/CloudServices_UploadaPackage.png)
 
-- In **Deployment name**, enter a name for the new deployment - for example, MyCloudServicev1.
+5. In **Deployment name**, enter a name for the new deployment - for example, MyCloudServicev1.
 
-- In **Package**, use **Browse** to select the service package file (.cspkg) to use.
+6. In **Package**, use **Browse** to select the service package file (.cspkg) to use.
 
-- In **Configuration**, use **Browse** to select the service configure file (.cscfg) to use.
+7. In **Configuration**, use **Browse** to select the service configure file (.cscfg) to use.
 
-- If the cloud service will include any roles with only one instance, select the **Deploy even if one or more roles contain a single instance** check box to enable the deployment to proceed.
+8. If the cloud service will include any roles with only one instance, select the **Deploy even if one or more roles contain a single instance** check box to enable the deployment to proceed.
 
-- Windows Azure can only guarantee 99.95 percent access to the cloud service during maintenance and service updates if every role has at least two instances. If needed, you can add additional role instances on the **Scale** page after you deploy the cloud service. For more information, see [Service Level Agreements](http://www.windowsazure.com/en-us/support/legal/sla/).
+ Windows Azure can only guarantee 99.95 percent access to the cloud service during maintenance and service updates if every role has at least two instances. If needed, you can add additional role instances on the **Scale** page after you deploy the cloud service. For more information, see [Service Level Agreements](http://www.windowsazure.com/en-us/support/legal/sla/).
 
-- Click OK (checkmark) to begin the cloud service deployment.
+9. Click OK (checkmark) to begin the cloud service deployment.
 
-- You can monitor the status of the deployment in the message area. Click the down arrow to hide the message.
+ You can monitor the status of the deployment in the message area. Click the down arrow to hide the message.
 
-	![](..\Media\CloudServices_UploadProgress.png)
+ ![CloudServices_UploadProgress](../Media/CloudServices_UploadProgress.png)
 
 ###To verify that your deployment completed successfully###
-- Click **Dashboard**.
 
-- Under **quick glance**, click the site URL to open your cloud service in a web browser.
+1. Click **Dashboard**.
 
-	![](..\Media\CloudServices_QuickGlance.png)	
+2. Under **quick glance**, click the site URL to open your cloud service in a web browser.
+
+ ![CloudServices_QuickGlance](../Media/CloudServices_QuickGlance.png)
+
