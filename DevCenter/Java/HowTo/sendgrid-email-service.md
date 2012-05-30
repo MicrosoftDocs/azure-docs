@@ -1,4 +1,4 @@
-<properties linkid="dev-java-how-to-access-control" urldisplayname="SendGrid Email Service" headerexpose="" pagetitle="SendGrid Email Service - How To - Java - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-java-how-to-sendgrid-email-service" urldisplayname="SendGrid Email Service" headerexpose="" pagetitle="SendGrid Email Service - How To - Java - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Send Email Using SendGrid from Java
 
