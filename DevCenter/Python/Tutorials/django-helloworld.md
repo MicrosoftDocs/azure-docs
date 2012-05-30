@@ -31,7 +31,6 @@ A screenshot of the completed application is below:
  1. Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
  1. Click *ADD ENDPOINT* button at the bottom of the screen.
 ![][add endpoint]
-
  1. Open up the *TCP* protocol's *PUBLIC PORT* **80** as *PRIVATE PORT* **8000**.
 ![][port80]
 * Use Windows *Remote Desktop* to remotely log into the newly created Windows Azure virtual machine.  
