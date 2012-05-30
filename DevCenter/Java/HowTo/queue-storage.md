@@ -11,7 +11,7 @@ the [Next steps](#NextSteps) section.
 
 ## <a name="Contents"> </a>Table of Contents
 
-* [What is Blob Storage](#what-is)
+* [What is Queue Storage](#what-is)
 * [Concepts](#Concepts)
 * [Create a Windows Azure storage account](#CreateAccount)
 * [Create a Java application](#CreateApplication)
