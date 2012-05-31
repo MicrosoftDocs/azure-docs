@@ -306,6 +306,8 @@ then submitted to Windows Azure AD Access Control and reissued back to
 the agent. The agent uses the token to submit request to the WCF (SOAP)
 service.
 
+![AzureADAccessControl][05]
+
 Refer to the following resources to implement this scenario:
 
 -   [How To: Add Service Identities with an X.509 Certificate, Password,
