@@ -1,4 +1,4 @@
-<properties linkid="dev-net-common-tasks-team-foundation-service" urldisplayname="Team Foundation Service" headerexpose pagetitle="Continuous Delivery of a Cloud Service by Using Team Foundation Service" metakeywords footerexpose metadescription umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-net-common-tasks-team-foundation-service" urldisplayname="Team Foundation Service" headerexpose="" pagetitle="Continuous Delivery of a Cloud Service by Using Team Foundation Service" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # Continuous Delivery of a Cloud Service by Using Team Foundation Service Preview
 
