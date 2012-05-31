@@ -30,8 +30,8 @@ browser.
 
 The first step is to create a Virtual Machine (VM) instance running on Azure.
 This VM is a complete operating system in the cloud and will be used to
-run the IPython Notebook. Azure is capable of running both Linux and Windows
-VMs and we will cover the setup of IPython on both types of VMs.
+run the IPython Notebook. Windows Azure is capable of running both Linux and Windows
+virtual machines, and we will cover the setup of IPython on both types of virtual machines.
 
 ### Linux VM
 
@@ -83,8 +83,8 @@ file simply open it in Remote Desktop to connect to the VM.
 
 This step applies to both the Linux and Windows VM. Later on we will configure
 IPython to run its notebook server on port 9999. To make this port publicly
-available, we must create an endpoint in the Azure Management Portal. This
-endpoint opens up a port in the Azure firewall and maps the public port (HTTPS,
+available, we must create an endpoint in the Windows Azure Management Portal. This
+endpoint opens up a port in the Windows Azure firewall and maps the public port (HTTPS,
 443) to the private port on the VM (9999).
 
 To create an endpoint, go to the VM dashboard, click "Endpoints", then "Add

@@ -106,7 +106,7 @@ Before you can deploy your web site from WebMatrix to Windows Azure you must fir
  
  ![Create a new web site][createnewwebsite]
 
-3. After the web site has been created click the name of the web site as it is listed in the **Name** column of the Azure Portal's web sites page, this will open the **QuickStart** management page for the web site:
+3. After the web site has been created click the name of the web site as it is listed in the **Name** column of the Windows Azure portal's web sites page, this will open the **QuickStart** management page for the web site:
 
 	![QuickStart management page][quickstartmgmtpage]
 

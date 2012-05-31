@@ -11,11 +11,11 @@ For small and medium-sized web apps with a simple web architecture
 
 <div class="article red">
 <h3><a href="/en-us/develop/net/tutorials/web-site-with-sql-database/">ASP.NET MVC web site with SQL Database</a></h3>
-<p>Implement a simple web site using ASP.NET MVC that supports creating, editing, and listing to-do items from a database. You will learn the basics of creating a Windows Azure web site, deploying an application to Windows Azure, and storing data in SQL Azure.</p>
+<p>Implement a simple web site using ASP.NET MVC that supports creating, editing, and listing to-do items from a database. You will learn the basics of creating a Windows Azure web site, deploying an application to Windows Azure, and storing data in SQL Database.</p>
 </div>
 <div class="article blue">
-<h3><a href="/en-us/develop/net/tutorials/website-from-gallery/">Create a web site from the Windows Azure Gallery</a></h3>
-<p>Learn how to create a new web site through the Windows Azure Gallery and immediately deploy it. You will have a new Wordpress site up-and-running in less than five minutes.</p>
+<h3><a href="/en-us/develop/net/tutorials/website-from-gallery/">Create a web site from the gallery</a></h3>
+<p>Learn how to create a new web site through the gallery and immediately deploy it. You will have a new Wordpress site up-and-running in less than five minutes.</p>
 </div>
 <div class="article green">
 <h3><a href="/en-us/develop/net/tutorials/website-with-webmatrix/">Create and deploy a web site with WebMatrix</a></h3>
@@ -31,7 +31,7 @@ For multi-environment, multi-tier web applications that require greater control 
 
 <div class="article blue">
 <h3><a href="/en-us/develop/tutorials/cloud-service-with-sql-database/">ASP.NET MVC web application with SQL Database</a></h3>
-<p>Implement a simple web application using ASP.NET MVC that supports creating, editing, and listing to-do items from a database. You will learn the basics of deploying an application to Windows Azure and storing data in SQL Azure.</p>
+<p>Implement a simple web application using ASP.NET MVC that supports creating, editing, and listing to-do items from a database. You will learn the basics of deploying an application to Windows Azure and storing data in SQL Database.</p>
 </div>
 <div class="article green">
 <h3><a href="/en-us/develop/tutorials/web-app-with-sql-azure/">Multi-tier application</a></h3>

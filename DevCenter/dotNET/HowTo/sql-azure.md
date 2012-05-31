@@ -1,4 +1,4 @@
-<properties umbraconavihide="0" pagetitle="SQL Database - How To - .NET - Develop" metakeywords="Get started SQL Azure, Getting started SQL Azure, SQL Azure database connection, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" metadescription="Get started with SQL Azure. Learn how to create a SQL Azure database and connect to it using ADO.NET, ODBC, and EntityClient Provider." linkid="dev-net-how-to-sql-azure" urldisplayname="SQL Azure" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties umbraconavihide="0" pagetitle="SQL Database - How To - .NET - Develop" metakeywords="Get started SQL Database, Getting started SQL Database, SQL Database instance connection, SQL Database ADO.NET, SQL Database ODBC, SQL Database EntityClient" metadescription="Get started with SQL Database. Learn how to create a SQL Database instance and connect to it using ADO.NET, ODBC, and EntityClient Provider." linkid="dev-net-how-to-sql-azure" urldisplayname="SQL Database" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
 # How to Use SQL Database in .NET applications
 
@@ -109,7 +109,7 @@ You now have a database instance, logical server, a firewall rule that allows in
 
 <h2 id="Connect-DB">Connect to SQL Database</h2>
 
-This section shows how to connect to SQL Azure database using different
+This section shows how to connect to SQL Database instance using different
 .NET Framework data providers.
 
 If you choose to use Visual Studio 2010 and your configuration doesn't
@@ -164,7 +164,7 @@ To retrieve the connection string in a configuration file, you use the
 
     SqlConnectionStringBuilder csBuilder;
     csBuilder = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-    After you have built your connection string, you can use the SQLConnection class to connect the SQL Azure server:
+    After you have built your connection string, you can use the SQLConnection class to connect the SQL Database server:
     SqlConnection conn = new SqlConnection(csBuilder.ToString());
     conn.Open();
 
@@ -223,7 +223,7 @@ Framework][].
 
 ## <a name="next-steps"> </a>Next Steps
 
-Now that you have learned the basics of connecting to SQL Azure, see the
+Now that you have learned the basics of connecting to SQL Database, see the
 following resources to learn more about SQL Database.
 
 -   [Development: How-to Topics (SQL Database)][]
@@ -248,7 +248,7 @@ following resources to learn more about SQL Database.
   [How to Create a SQL Database Server]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-server.aspx
   [Management Portal for SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx
   [SQL Database Firewall]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-firewall.aspx
-  [Tools and Utilities Support (SQL Azure Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621784.aspx
+  [Tools and Utilities Support (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621784.aspx
   [How to Create a SQL Database on Windows Azure]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-database.aspx
   [Service Level Agreement]: {localLink:1132} "SLA"
   [EntityClient Provider for the Entity Framework]: http://msdn.microsoft.com/en-us/library/bb738561.aspx

@@ -1,4 +1,4 @@
-# .NET Web Application with SQL Azure
+# .NET Web Application with SQL Database
 
 <span>Developing for Windows Azure is easy using Visual Studio 2010 and
 the free Windows Azure SDK for .NET. If you do not already have Visual
@@ -9,7 +9,7 @@ Azure. On completing this guide, you will have an application that uses
 multiple Windows Azure resources up and running in the cloud.</span>
 
 You will build a to-do list web application that runs in Windows Azure
-and stores its data in SQL Azure. The application is hosted in an
+and stores its data in SQL Database. The application is hosted in an
 instance of a Web role that, when running in the cloud, is itself hosted
 in a dedicated virtual machine (VM). A screenshot of the completed
 application is below:
@@ -24,7 +24,7 @@ In this tutorial you will learn how to:
     download and install
 -   Create and modify a Visual Studio ASP.NET MVC 3 project so it can
     run on Windows Azure
--   Use a SQL Azure database to store data in the cloud
+-   Use a SQL Database instance to store data in the cloud
 -   Deploy and update your application to Windows Azure
 
 ## TUTORIAL SEGMENTS
@@ -268,24 +268,24 @@ machine to publish packages to Windows Azure using Visual Studio.
 
 ## <a name="adding"></a>ADDING SQL DATABASE SUPPORT
 
-The Windows Azure platform offers two primary storage options:
+Windows Azure offers two primary storage options:
 
 -   Windows Azure Storage Services provide non-relational data storage
     in the form of blobs and tables. It is fault-tolerant, highly
     available, and will scale automatically to provide practically
     unlimited storage.
 
--   SQL Azure provides a cloud-based relational database service that is
+-   SQL Database provides a cloud-based relational database service that is
     built on SQL Server technologies. It is also fault-tolerant and
     highly available. It is designed so the tools and applications that
-    work with SQL Server also work with SQL Azure. A SQL Azure database
+    work with SQL Server also work with SQL Database. A SQL Database instance
     can be up to 100GB in size, and you can create any number of
-    databases.
+    instances.
 
-This guide uses a SQL Azure database to store data, however the
+This guide uses a SQL Database instance to store data, however the
 application could also be constructed using Windows Azure Storage. For
-more information about SQL Azure and Windows Azure Storage, see [Data
-Storage Offerings on the Windows Azure Platform.][]
+more information about SQL Database and Windows Azure Storage, see [Data
+Storage Offerings on the Windows Azure.][]
 
 ### CREATING CLASSES FOR THE DATA MODEL
 
@@ -385,14 +385,14 @@ that uses the model and data context you created earlier to perform CRUD
 ### SET-UP SQL AZURE
 
 1.  The next step is to configure your application to store data in the
-    cloud. First, you must create a SQL Azure server. Login to the
-    Windows Azure Platform Management Portal, http://windows.azure.com,
+    cloud. First, you must create a SQL Database server. Login to the
+    Windows Azure Management Portal, http://windows.azure.com,
     and click on Database:
 
     ![][29]
 
 2.  On the top of the left pane, click the subscription associated with
-    your SQL Azure account:
+    your SQL Database account:
 
     ![][30]
 
@@ -418,7 +418,7 @@ that uses the model and data context you created earlier to perform CRUD
     IP addresses that are able to communicate directly with your SQL
     Azure server. Add a new rule by clicking Add. In the Add Firewall
     Rule dialog, enter the values shown in the table below. This will
-    enable your local application to communicate with SQL Azure, but
+    enable your local application to communicate with SQL Database, but
     will block other IP addresses from communicating directly with your
     server.
 
@@ -470,14 +470,14 @@ that uses the model and data context you created earlier to perform CRUD
 8.  Click OK.
 
 9.  Select the Allow other Windows Azure services to access this server
-    check box, Note: SQL Azure has two types of access control: firewall
-    and SQL authentication. You must configure the SQL Azure firewall
+    check box, Note: SQL Database has two types of access control: firewall
+    and SQL authentication. You must configure the SQL Database firewall
     settings to allow connections from your computer(s).
 
-10. **Important:** In addition to configuring the SQL Azure server-side
+10. **Important:** In addition to configuring the SQL Database server-side
     firewall, you must also configure your client-side environment to
     allow outbound TCP connections over TCP port 1433. For more
-    information, see [Security Guidelines for SQL Azure][].
+    information, see [Security Guidelines for SQL Database][].
 
     ![][32]
 
@@ -491,9 +491,8 @@ that uses the model and data context you created earlier to perform CRUD
     Where &lt;ServerName> identifies the server. Write down the server
     name; you will need it later in the tutorial.
 
-You can use either SQL Server Management Studio or Windows Azure
-Platform Management Portal to manage your SQL Azure database. To connect
-to SQL Azure from SQL Server Management Studio, you must provide the
+You can use either SQL Server Management Studio or the Windows Azure Management Portal to manage your SQL Database instance. To connect
+to SQL Database from SQL Server Management Studio, you must provide the
 fully qualified domain name of the server:
 &lt;ServerName>.database.windows.net.
 
@@ -503,7 +502,7 @@ Often times, you want to use a different database locally that you use
 in production. Visual Studio makes this easy. You can have your
 Web.config vary between your development machine and cloud deployment by
 creating a transform in Web.Release.config. In this guide, you will edit
-the Web.Release.config to use SQL Azure instead of your local SQL Server
+the Web.Release.config to use SQL Database instead of your local SQL Server
 when deployed to the cloud:
 
 1.  Back in Visual Studio or Visual Web Developer, in Solution Explorer,
@@ -524,21 +523,21 @@ when deployed to the cloud:
         </connectionStrings>
 
     **Note:** The administrative user has access to all the databases on
-    the server. To create a SQL Azure user with more restricted
-    pemissions, follow the steps in [Adding Users to Your SQL Azure
-    Database][]. Then, modify the above connection string to use the
+    the server. To create a SQL Database user with more restricted
+    pemissions, follow the steps in [Adding Users to Your SQL Database
+    Instance][]. Then, modify the above connection string to use the
     newly created user and password instead of the administrative user
     and password.
 
 ## <a name="running"></a>RUNNING YOUR APPLICATION IN THE CLOUD
 
 Now, for the final step, you will test your app both living in the
-Windows Azure cloud and accessing the SQL Azure cloud database. You will
+Windows Azure cloud and accessing the SQL Database cloud instance. You will
 redeploy your application to Windows Azure:
 
 1.  Confirm that the correct publishing profile is still selected and
     click Publish. In particular, ensure that the Build Configuration is
-    set to Release, so you pick up the SQL Azure connection string from
+    set to Release, so you pick up the SQL Database connection string from
     the Web.Release.Config that you edited earlier.
 
     ![][34]
@@ -555,7 +554,7 @@ redeploy your application to Windows Azure:
 
     ![][36] ![][37]
 
-4.  The application is now fully running in the cloud. It uses SQL Azure
+4.  The application is now fully running in the cloud. It uses SQL Database
     to store its data, and it is running on one small web role instance.
     One of the benefits the cloud provides over running this application
     under standard web hosting is the ability to dynamically scale the
@@ -579,7 +578,7 @@ server time for hosting these web role instances.
 
 The following steps show you how to stop and delete your application.
 
-1.  Login to the Windows Azure Platform Management Portal,
+1.  Login to the Windows Azure Management Portal,
     http://windows.azure.com, and click on Hosted Sevices, Storage
     Accounts & CDN, then Hosted Services:
 
@@ -595,12 +594,12 @@ The following steps show you how to stop and delete your application.
 ## <a name="summary"></a>SUMMARY AND NEXT STEPS
 
 In this tutorial you learned how to create and deploy a web application
-that is hosted on Windows Azure and stores data in SQL Azure.
+that is hosted on Windows Azure and stores data in SQL Database.
 
 ### NEXT STEPS
 
--   Review the [SQL Azure How-to Guide][] to learn more about using SQL
-    Azure.
+-   Review the [SQL Database How-to Guide][] to learn more about using SQL
+    Database.
 -   Complete the [Multi-tier Application Tutorial][] to further your
     knowledge about Windows Azure by creating a website that leverages a
     background worker role to process data.
@@ -641,22 +640,22 @@ that is hosted on Windows Azure and stores data in SQL Azure.
   [23]: ../media/dev-net-getting-started-23.png
   [24]: ../media/dev-net-getting-started-24.png
   [25]: ../media/dev-net-getting-started-25.png
-  [Data Storage Offerings on the Windows Azure Platform.]: http://social.technet.microsoft.com/wiki/contents/articles/data-storage-offerings-on-the-windows-azure-platform.aspx
+  [Data Storage Offerings on Windows Azure.]: http://social.technet.microsoft.com/wiki/contents/articles/data-storage-offerings-on-the-windows-azure-platform.aspx
   [26]: ../media/dev-net-getting-started-26.png
   [27]: ../media/dev-net-getting-started-27.png
   [28]: ../media/dev-net-getting-started-28.png
   [29]: ../media/dev-net-getting-started-29.png
   [30]: ../media/dev-net-getting-started-30.png
   [31]: ../media/dev-net-getting-started-31.png
-  [Security Guidelines for SQL Azure]: http://social.technet.microsoft.com/wiki/contents/articles/security-guidelines-for-sql-azure.aspx
+  [Security Guidelines for SQL Database]: http://social.technet.microsoft.com/wiki/contents/articles/security-guidelines-for-sql-azure.aspx
   [32]: ../media/dev-net-getting-started-32.png
   [33]: ../media/dev-net-getting-started-33.png
-  [Adding Users to Your SQL Azure Database]: http://blogs.msdn.com/b/sqlazure/archive/2010/06/21/10028038.aspx
+  [Adding Users to Your SQL Database Instance]: http://blogs.msdn.com/b/sqlazure/archive/2010/06/21/10028038.aspx
   [34]: ../media/dev-net-getting-started-35.png
   [35]: ../media/dev-net-getting-started-36.png
   [36]: ../media/dev-net-getting-started-37.png
   [37]: ../media/dev-net-getting-started-38.png
   [38]: ../media/dev-net-getting-started-39.png
   [39]: ../media/dev-net-getting-started-40.png
-  [SQL Azure How-to Guide]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
+  [SQL Database How-to Guide]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
   [Multi-tier Application Tutorial]: http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-application/

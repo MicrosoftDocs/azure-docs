@@ -1,14 +1,13 @@
 # Building Hybrid Solutions with Windows Azure
 
-This article describes using the Windows Azure platform in conjunction
-with on-premises resources. <a id="compare" name="compare"></a>
+This article describes how to use Windows Azure together with on-premises resources. <a id="compare" name="compare"></a>
 
 ## Table of Contents
 
 -   [The Benefits of Hybrid][]
 -   [Service Bus Relay][]
 -   [Service Bus Queues and Topics][]
--   [SQL Database Data Sync][]
+-   [SQL Data Sync][]
 -   [Access Control Service (ACS) paired with Active Directory Federation Services (AD FS)][]
 -   [Windows Azure Connect][]
 -   [Conclusion][]
@@ -260,9 +259,9 @@ For more information on Service Bus Queues and Topics, see:
 
 <a name="sql"> </a>
 
-## SQL Database Data Sync
+## SQL Data Sync
 
-The SQL Database Data Sync service can be used to keep on-premises SQL
+The SQL Data Sync service can be used to keep on-premises SQL
 Server database synchronized with one or more SQL Database instances in the
 cloud. There are a myriad of application scenarios where this capability
 proves itself useful.
@@ -287,9 +286,9 @@ resolution for two-way synchronizations and synchronization frequency
 are also tunable.
 
 ![image][4]   
- **Figure 4-SQL Database Data Sync**
+ **Figure 4-SQL Data Sync**
 
-For more information on SQL Database Data Sync, see:
+For more information on SQL Data Sync, see:
 
 -   [SQL Database Data (MSDN Library)][]
 -   [SQL Database][]
@@ -529,7 +528,7 @@ additionally provide your existing applications with load leveling and
 balancing and offer resilience to failures and downtime for maintenance
 and software upgrades.
 
-SQL Database Data Sync in the cloud can be used to synchronize your
+SQL Data Sync in the cloud can be used to synchronize your
 on-premises and cloud databases, enabling on-premises and cloud
 applications to share data, or allowing data to be geo-located via
 replication to better service customers.
@@ -562,7 +561,7 @@ Azure.
   [The Benefits of Hybrid]: #benefits
   [Service Bus Relay]: #relay
   [Service Bus Queues and Topics]: #queues
-  [SQL Database Data Sync]: #sql
+  [SQL Data Sync]: #sql
   [Access Control Service (ACS) paired with Active Directory Federation Services (AD FS)]: #acs
   [Windows Azure Connect]: #connect
   [Conclusion]: #conclusion

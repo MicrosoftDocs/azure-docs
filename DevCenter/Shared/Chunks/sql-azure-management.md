@@ -338,7 +338,7 @@ using Dynamic Management Views][].
   [SSMS Installer - Select features]: /media/installer_feature_selection.png
   [SSMS Installer - Installation complete]: /media/installer_completed.png
   [Windows Azure Management Portal]: http://windows.azure.com/
-  [Get SQL Azure server name from Management Portal]: /media/portal_get_database_name.png
+  [Get SQL Database server name from Management Portal]: /media/portal_get_database_name.png
   [Connect to SSMS]: /media/ssms_connect.png
   [Connect to SSMS -- properties]: /media/ssms_connect_properties.png
   [Transact-SQL Reference (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336281.aspx

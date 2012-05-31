@@ -116,7 +116,7 @@ to use. You can create the container if it doesn't exist:
     container.CreateIfNotExist();
 
 By default, the new container is private, so you must specify your
-storage account key (as you did above) to download blobs from this
+storage access key (as you did above) to download blobs from this
 container. If you want to make the files within the container available
 to everyone, you can set the container to be public using the following
 code:

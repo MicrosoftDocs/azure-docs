@@ -282,7 +282,7 @@ To learn how to deploy an application to a Windows Azure Cloud Service, see [The
 * You want administrator permissions on the web server that the application runs on.
 * You want to use Remote Desktop Connection to access the web server that the application runs on. 
 
-Another way to store data in a Windows Azure application is to use Windows Azure Storage Services, which provides non-relational data storage in the form of blobs and tables. The to-do list application could have been designed to use Windows Azure Storage instead of SQL Database. For more information about both SQL Database and Windows Azure Storage, see [Data Storage Offerings on the Windows Azure Platform][WindowsAzureDataStorageOfferings].
+Another way to store data in a Windows Azure application is to use Windows Azure Storage Services, which provides non-relational data storage in the form of blobs and tables. The to-do list application could have been designed to use Windows Azure Storage instead of SQL Database. For more information about both SQL Database and Windows Azure Storage, see [Data Storage Offerings on Windows Azure][WindowsAzureDataStorageOfferings].
 
 To learn more about how to use SQL Database, see the following resources:
 

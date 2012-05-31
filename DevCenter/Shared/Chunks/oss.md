@@ -30,7 +30,7 @@
 </div>
 <div class="article green">
 <h3><a href="">Doctrine</a></h3>
-<p>The Doctrine Project is a set of PHP libraries that provide persistence services, object relational mapping, and related functionality. Doctrine supports sharding on SQL Azure, for highly scalable performance and availability.</p>
+<p>The Doctrine Project is a set of PHP libraries that provide persistence services, object relational mapping, and related functionality. Doctrine supports sharding on SQL Database, for highly scalable performance and availability.</p>
 <a href="http://go.microsoft.com/fwlink/?LinkID=253289">learn more</a> | <a href="http://go.microsoft.com/fwlink/?LinkID=253789">how to use</a> | <a href="http://go.microsoft.com/fwlink/?LinkID=253827">sign up</a>
 </div>
 <div class="article red">
