@@ -1,6 +1,6 @@
 # Mobile-friendly REST service using ASP.NET Web API and SQL Database
 
-This tutorial shows how to deploy an ASP.NET web application that uses the ASP.NET Web API to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2010. Visual Studio 2012 RC or Visual Studio 2012 for Web Express RC. If you prefer, you can follow the tutorial steps by using Visual Web Developer Express 2010, Visual Studio 2012 RC or Visual Studio 2012 for Web Express RC.
+This tutorial shows how to deploy an ASP.NET web application that uses the ASP.NET Web API to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2010. If you prefer, you can follow the tutorial steps by using Visual Web Developer Express 2010, Visual Studio 2012 RC or Visual Studio 2012 for Web Express RC.
 
 You can open a Windows Azure account for free, and if you don't already have Visual Studio 2010, the SDK automatically installs Visual Studio 2012 for Web Express. So you can start developing for Windows Azure entirely for free.
 
@@ -107,14 +107,9 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 6. In the **View Engine** drop-down list make sure that **Razor** is selected, and then click **OK**.<br/>
 	![New ASP.NET MVC 4 Project dialog box][newapp003]
 
-### Add the jQuery templating plugin
-
-1. In the **Tools** menu, select **Library Package Manager** and then **Manage NuGet Packages for Solution...**.<br/>![NuGet in Tools menu][newapp006]
-2. In the **Manage NuGet Packages** dialog, type jQuery in the search box, select **jQuery Templates (Beta)** and click **Install**.<br/>![NuGet manage package dialog][newapp007]
-3. In the **Select Project**s dialog, make sure the ContactsManager project is selected and click **OK**.
-4. Click **Close**.
-
 ### Set the page header and footer
+
+First you will configure the initial layout and view elements for the application.
 
 1. In **Solution Explorer**, expand the Views\Shared folder and open the &#95;Layout.cshtml file.<br/>![_Layout.cshtml in Solution Explorer][newapp004]
 2. In the **&lt;title&gt;** element, change "My ASP.NET MVC Application" to "Contact Manager".
@@ -130,15 +125,44 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
                 <div class="float-left">
                     <p class="site-title">@Html.ActionLink("Contact Manager", "Index", "Home")</p>
                 </div>
-4. In the **&lt;footer&gt;** element, change "My ASP.NET MVC Application" to "Contact Manager".
+
+4. In the **&lt;header&gt;** element, remove following code.
+
+        <div class="float-right">
+            <section id="login">
+                @Html.Partial("_LoginPartial")
+            </section>
+            <nav>
+                <ul id="menu">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </nav>
+        </div>
+5. In the **&lt;footer&gt;** element, change "My ASP.NET MVC Application" to "Contact Manager".
 
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
                     <p>&copy; @DateTime.Now.Year - Contact Manager</p>
                 </div>
+6. In the **&lt;footer&gt;** element, remove following code.
+
+        <div class="float-right">
+            <ul id="social">
+                <li><a href="http://facebook.com" class="facebook">Facebook</a></li>
+                <li><a href="http://twitter.com" class="twitter">Twitter</a></li>
+            </ul>
+        </div>
+
+7. Right-click the &#95LoginPartial.cshtml file and click **Delete**.<br/>![Delete contexte menu for _logingpartial.cshtml][newapp004.1]
+8. Expand the Views\Home folder and delete the About.cshtml and Contact.cshtml files.
+9. Right-click the Account folder under views and click **Delete**.<br/>![Delete contexte menu for the accounts folder][newapp004.2]
 
 ### Run the application locally
+
+Run the application locally to see the inital layout of the contact manager page.
 
 1. Press CTRL+F5 to run the application.
 The application home page appears in the default browser.<br/>
@@ -150,7 +174,7 @@ This is all you need to do for now to create the application that you'll deploy 
 
 1. In your browser, open the Windows Azure Management Portal.
 2. In the **Web Sites** tab, click the name of the site you created earlier.<br/>
-![todolistapp in Management Portal Web Sites tab][setup009]
+![Contact manager application in Management Portal Web Sites tab][setup009]
 3. Near the right corner of the window, click **Download publish profile**.<br/>
 ![Quickstart tab and Download Publishing Profile button][firsdeploy001]<br/>
 This step downloads a file that contains all of the settings that you need in order to deploy an application to your Web Site. You'll import this file into Visual Studio so you don't have to enter this information manually.
@@ -179,7 +203,7 @@ Visual Studio begins the process of copying the files to the Windows Azure serve
 13. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
 14. The default browser automatically opens to the URL of the deployed site.<br/>
 The application you created is now running in the cloud.<br/>
-![To Do List home page running in Windows Azure][newapp005]<br/>
+![To Do List home page running in Windows Azure][newapp005]
 
 <h2><a name="bkmk_addadatabase"></a>Add a database to the application</h2>
 
@@ -191,7 +215,8 @@ You begin by creating a simple data model in code.
 
 1. In **Solution Explorer**, right-click the Models folder, click **Add**, and then **Class**.<br/>
 ![Add Class in Models folder context menu][adddb001]
-2. In the **Add New Item** dialog box, name the new class file Contact.cs, and then click **Add**.<br/>
+
+3. In the **Add New Item** dialog box, name the new class file Contact.cs, and then click **Add**.<br/>
 ![Add New Item dialog box][adddb002]
 3. Replace the contents of the Contacts.cs file with the following code.
 
@@ -216,49 +241,8 @@ You begin by creating a simple data model in code.
         		}
     		}
 		}
-The **Contacts** class defines the data that you want to store for each contact, plus a primary key that is needed by the database.
-4. Add another class file named ContactManagerContext.cs and replace the contents of the file with the following code.
-
-		using System.Data.Entity;
-		namespace ContactManager.Models
-		{
-    		public class ContactManagerContext : DbContext
-    		{
-				System.Data.Entity.DropCreateDatabaseIfModelChanges<ContactManager.
-						Models.ContactManagerContext>());
-        		public ContactManagerContext() : base("name=ContactManagerContext")
-       			{
-        		}
-        		public DbSet<Contact> Contacts { get; set; }
-			}
-		}
-
-	The **ContactManagerContext** class lets the Entity Framework know that you want to use **Contacts** objects as entities in an entity set.  An entity set in the Entity Framework corresponds to a table in a database. This is all the information the Entity Framework needs in order to create the database for you.
-5. Build the project. For example, you can press F6.<br/>
-Visual Studio compiles the data model classes that you created and makes them available for the following procedures that enable Code First Migrations and use MVC scaffolding.
-6. Open the Web.config file.
-7. In the connectionstrings section of the configuration add the ContactManagerContext Connection string.
-
-		<add name="ContactManagerContext" providerName="System.Data.SqlClient" connectionString="Data Source=.\SQLEXPRESS; Initial Catalog=ContactManagerContext-20120515141224; Integrated Security=True; MultipleActiveResultSets=True" />
-
-### Enable Migrations and create the database
-
-The next task is to enable the Code First Migrations feature in order to create the database based on the data model you created.
-
-1. In the **Tools** menu, select **Library Package Manager** and then **Package Manager Console**.<br/>
-![Package Manager Console in Tools menu][migrations001]
-2. In the **Package Manager Console** window, enter the following commands:<br/>
-enable-migrations<br/>
-add-migration Initial<br/>
-update-database<br/>
-![Package Manager Console commands][migrations002]
-
-The **enable-migrations** command creates a Migrations folder and a **Configuration** class that the Entity Framework uses to control database updates.<br/>
-The **add-migration Initial** command generates a class named **Initial** that creates the database. You can see the new class files in **Solution Explorer**.<br/>
-![Migrations folder in Solution Explorer][migrations003]<br/>
-In the **Initial** class, the **Up** method creates the Contacts table, and the **Down** method (used when you want to return to the previous state) drops it:<br/>
-![Initial Migration class][migrations004]<br/>
-Finally, **update-database** runs this first migration which creates the database. The database is created as a SQL Server Express database.
+The **Contacts** class defines the data that you want to store for each contact, plus a primary key, ContactID, that is needed by the database. 
+4. Expand the Models folder and delete the AccountModels.cs file.
 
 ### Create web pages that enable app users to work with the contacts
 
@@ -266,113 +250,168 @@ In ASP.NET MVC the scaffolding feature can automatically generate code that perf
 
 <h2><a name="bkmk_addcontroller"></a>Add a Controller and a view for the data</h2>
 
-1. In **Solution Explorer**, right-click Controllers and click **Add**, and then click **Controller...**.<br/>![Add Controller in Controllers folder context menu][addcode001]
-2. In the **Add Controller** dialog box, enter "HomeController" as your controller name, and select the **MVC Controller with read/write actions and views, using Entity Framework** template.
-3. Select **Contacts** as your model class and **ContactsMangerContext** as your data context class, and then click **Add**.<br/>
-![Add Controller dialog box][addcode002]
-The MVC template created a default home page for your application, and you are replacing the default functionality with the contact list read and update functionality.
+1. In **Solution Explorer**, right-click Controllers and expand the folder.
+2. Delete the AccountController.cs file.
+3. Build the project. For example, you can press F6.<br/>
+Visual Studio compiles the data model classes that you created and makes them available for the following steps that enable Code First Migrations and use MVC scaffolding.
+4. Right-click the Controllers folder and click **Add**, and then click **Controller...**.<br/>![Add Controller in Controllers folder context menu][addcode001]
+5. In the **Add Controller** dialog box, enter "HomeController" as your controller name, and select the **MVC Controller with read/write actions and views, using Entity Framework** template.
+6. Select **Contacts** as your model class and **&lt;New data context...>** as your data context class.<br/>![Add Controller dialog box][addcode002]
+7. On the **New Data Context** dialog box, click OK.<br/>![Add Controller dialog box][addcode002.1]
+8. on the **Add Controller** dialog box, and then click **Add**.<br/>
+The MVC template created a default home page for your application, and you are replacing the default functionality with the contact list read and update functionality.<br/>
+9. On the **Add Controller** overwrite dialog, make sure all options are checked and click **OK**.<br/>
 ![Add Controller message box][addcode003] <br/>
 Visual Studio creates a controller and views for each of the four main database operations (create, read, update, delete) for **Contacts** objects.
-4. Expand the Views\Shared folder and open the Index.cshtml file.<br/>![Modify index.cshtml in views\home folder context menu][addcode004]
-5. Replace the contents of the file with the following code.
+
+## Add sample data and a data initializer
+
+1. Right-click the Models folder, click **Add**, and then **Class**.
+2. In the **Add New Item** dialog box, name the new class file ContactManagerDatabaseInitializer.cs, and then click **Add**		
+3. Replace the contents of the ContactManagerDatabaseInitializer.cs file with the following code.
+
+		using System;
+		using System.Data.Entity;
+		
+		namespace ContactManager.Models
+		{
+		    public class ContactManagerDatabaseInitializer : DropCreateDatabaseAlways<ContactManagerContext>
+		    {
+		        static Contact[] sampleContacts = new Contact[] 
+                    {
+                        new Contact { Name = "Debra Garcia", Address = "1234 Main St", City = "Redmond", State = "WA", Zip = "10999", Email = "debra@example.com", Twitter = "debra_example" },
+                        new Contact { Name = "Thorsten Weinrich", Address = "5678 1st Ave W", City = "Redmond", State = "WA", Zip = "10999", Email = "thorsten@example.com", Twitter = "thorsten_example" },
+                        new Contact { Name = "Yuhong Li", Address = "9012 State st", City = "Redmond", State = "WA", Zip = "10999", Email = "yuhong@example.com", Twitter = "yuhong_example" },
+                        new Contact { Name = "Jon Orton", Address = "3456 Maple St", City = "Redmond", State = "WA", Zip = "10999", Email = "jon@example.com", Twitter = "jon_example" },
+                        new Contact { Name = "Diliana Alexieva-Bosseva", Address = "7890 2nd Ave E", City = "Redmond", State = "WA", Zip = "10999", Email = "diliana@example.com", Twitter = "diliana_example" },
+                    };
+		
+		        protected override void Seed(ContactManagerContext context)
+		        {
+		            base.Seed(context);
+		
+		            foreach (var contact in sampleContacts)
+		            {
+		                context.Contacts.Add(contact);
+		            }
+		        }
+		    }
+		}
+
+	This will define an initializer to provide sample contacts to seed the database with.
+4. Open the Global.asax file.<br/>![Add Controller message box][addcode003.1]
+5. Add the following namespaces.
+
+		using ContactManager.Models;
+		using System.Data.Entity;
+	The ContactManager.Models allows access to the contacts model you defined. The System.Data.Entity provides the SetInitializer method to initialize the database.
+6. Add the following statement to the beginning of the Application_Start() method.
+
+        Database.SetInitializer(new ContactManagerDatabaseInitializer());
+
+7. Build the solution by pressing F6.
+
+<h2><a name="bkmk_addview"></a>Add a view for the data</h2>
+
+1. Expand the Views\Shared folder and open the Index.cshtml file.<br/>![Modify index.cshtml in views\home folder context menu][addcode004]
+2. Replace the contents of the file with the following code.
 
 		@model IEnumerable<ContactManager.Models.Contact>
+		
 		@{
-	    	ViewBag.Title = "Home";
+		    ViewBag.Title = "Home";
 		}
+		
 		@section Scripts {
-	    	@Scripts.Render("~/bundles/jquerytmpl")
-	    	<script type="text/javascript">
-	        	$(function () {
-	            	// POST
-	            	$("#addContact").submit(function () {
-	                	$.post(
-	                	"api/contacts",
-	                	$("#addContact").serialize(),
-	                	function (value) {
-	                    	$("#contactTemplate").tmpl(value).appendTo("#contacts");
-	               	 	},
-	                	"json"
-	            	);
-	                	return false;
-	            	});
-	            	// DELETE
-	           	 	$(".removeContact").live("click", function () {
-	                	$.ajax({
-	                    	type: "DELETE",
-	                    	url: $(this).attr("href"),
-	                    	context: this,
-	                    	success: function () {
-	                        	$(this).closest("li").remove();
-	                    	}
-	                	});
-	                	return false;
-	            	});
-	        	});
-	    	</script>
-	    	<script id="contactTemplate" type="text/html">
-	            	<li class="ui-widget-content ui-corner-all">
-	                	<h1 class="ui-widget-header">${ Name }</h1>
-	               	 	<p>${ Address }, <br />${ City } ${ State } ${ Zip }<br />
-	                   	<a href="mailto:${ Email }">${ Email }</a><br/>
-	                   	<a href="http://twitter.com/${ Twitter }">@@${ Twitter }</a></p>
-	                	<p><a href="${ Self }.png" class="viewImage ui-state-default ui-corner-all" target="_blank">Image</a>
-	                   	<a href="${ Self }" class="removeContact ui-state-default ui-corner-all">Remove</a></p>
-	           	 	</li>
-	    	</script>
+		    @Scripts.Render("~/bundles/knockout")
+		    <script type="text/javascript">
+		        function ContactsViewModel() {
+		            var self = this;
+		            self.contacts = ko.observableArray([]);
+		            self.addContact = function () {
+		                $.post("api/contacts",
+		                    $("#addContact").serialize(),
+		                    function (value) {
+		                        self.contacts.push(value);
+		                    },
+		                    "json");
+		            }
+		            self.removeContact = function (contact) {
+		                $.ajax({
+		                    type: "DELETE",
+		                    url: contact.Self,
+		                    success: function () {
+		                        self.contacts.remove(contact);
+		                    }
+		                });
+		            }
+		
+		            $.getJSON("api/contacts", function (data) {
+		                self.contacts(data);
+		            });
+		        }
+		
+		        ko.applyBindings(new ContactsViewModel());
+		    </script>
 		}
-		<ul id="contacts">
-	    	@foreach (var contact in Model)
-	    	{
-	        	<li class="ui-widget-content ui-corner-all">
-	           	<h1 class="ui-widget-header">@contact.Name</h1>
-	           	<p>@contact.Address, <br />@contact.City @contact.State @contact.Zip<br />
-	                	<a href="mailto:@contact.Email">@contact.Email</a><br/>
-	                	<a href="http://twitter.com/@contact.Twitter">@@@contact.Twitter</a></p>
-	            	<p><a href="@contact.Self" class="removeContact ui-state-default ui-corner-all">Remove</a></p>
-	        	</li>
-	    	}
+		
+		<ul id="contacts" data-bind="foreach: contacts">
+		    <li class="ui-widget-content ui-corner-all">
+		        <h1 data-bind="text: Name" class="ui-widget-header"></h1>
+		        <div><span data-bind="text: $data.Address || 'Address?'"></span></div>
+		        <div>
+		            <span data-bind="text: $data.City || 'City?'"></span>,
+		            <span data-bind="text: $data.State || 'State?'"></span>
+		            <span data-bind="text: $data.Zip || 'Zip?'"></span>
+		        </div>
+		        <div data-bind="if: $data.Email"><a data-bind="attr: { href: 'mailto:' + Email }, text: Email"></a></div>
+		        <div data-bind="ifnot: $data.Email"><span>Email?</span></div>
+		        <div data-bind="if: $data.Twitter"><a data-bind="attr: { href: 'http://twitter.com/' + Twitter }, text: '@@' + Twitter"></a></div>
+		        <div data-bind="ifnot: $data.Twitter"><span>Twitter?</span></div>
+		        <p><a data-bind="attr: { href: Self }, click: $root.removeContact" class="removeContact ui-state-default ui-corner-all">Remove</a></p>
+		    </li>
 		</ul>
-		<form method="post" id="addContact">
-	    <fieldset>
-	        <legend>Add New Contact</legend>
-	        <ol>
-	            <li>
-	                <label for="Name">Name</label>
-	                <input type="text" name="Name" />
-	            </li>
-	             <li>
-	                <label for="Address">Address</label>
-	                <input type="text" name="Address" />
-	            </li>
-	             <li>
-	                <label for="City">City</label>
-	                <input type="text" name="City" />
-	            </li>
-	             <li>
-	                <label for="State">State</label>
-	                <input type="text" name="State" />
-	            </li>
-	             <li>
-	                <label for="Zip">Zip</label>
-	                <input type="text" name="Zip" />
-	            </li>
-	             <li>
-	                <label for="Email">E-mail</label>
-	                <input type="text" name="Email" />
-	            </li>
-	             <li>
-	                <label for="Twitter">Twitter</label>
-	                <input type="text" name="Twitter" />
-	            </li>
-	        </ol>
-	        <input type="submit" value="Add" />
-	    	</fieldset>
+		
+		<form id="addContact" data-bind="submit: addContact">
+		    <fieldset>
+		        <legend>Add New Contact</legend>
+		        <ol>
+		            <li>
+		                <label for="Name">Name</label>
+		                <input type="text" name="Name" />
+		            </li>
+		            <li>
+		                <label for="Address">Address</label>
+		                <input type="text" name="Address" >
+		            </li>
+		            <li>
+		                <label for="City">City</label>
+		                <input type="text" name="City" />
+		            </li>
+		            <li>
+		                <label for="State">State</label>
+		                <input type="text" name="State" />
+		            </li>
+		            <li>
+		                <label for="Zip">Zip</label>
+		                <input type="text" name="Zip" />
+		            </li>
+		            <li>
+		                <label for="Email">E-mail</label>
+		                <input type="text" name="Email" />
+		            </li>
+		            <li>
+		                <label for="Twitter">Twitter</label>
+		                <input type="text" name="Twitter" />
+		            </li>
+		        </ol>
+		        <input type="submit" value="Add" />
+		    </fieldset>
 		</form>
 
-6. Right-click the Content folder and click **Add**, and then click **New Item...**.<br/>![Add style sheet in Content folder context menu][addcode005]
-7. In the **Add New Item** dialog box, expand C# and select Web under Installed Templates and then select **Style Sheet**.<br/>![Add New Item dialog box][addcode006]
-8. Name the file **Contacts.css** and click **Add**. Replace the contents of the file with the following code.
+3. Right-click the Content folder and click **Add**, and then click **New Item...**.<br/>![Add style sheet in Content folder context menu][addcode005]
+4. In the **Add New Item** dialog box, expand C# and select Web under Installed Templates and then select **Style Sheet**.<br/>![Add New Item dialog box][addcode006]
+5. Name the file **Contacts.css** and click **Add**. Replace the contents of the file with the following code.
 
 		.column {
 	    	float: left;
@@ -436,12 +475,14 @@ Visual Studio creates a controller and views for each of the four main database 
 	    	text-decoration: none;
 		}
 
-9. Expand the App\_Start folder and open the BundleConfig.cs file.<br/>![Modify BundleConfig.cs in App_Start folder context menu][addcode007]
-13. Add the following statement to register the jQuery templating plugin that you installed from nuGet.
+6. Expand the App\_Start folder and open the BundleConfig.cs file.<br/>![Modify BundleConfig.cs in App_Start folder context menu][addcode007]
+7. Add the following statement to register the knockout plugin.
+		
+		bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
+		            "~/Scripts/knockout-2.0.0.js"));
+	This sample using knockout to simplify dynamic JavaScript code that handles the screen templates.
 
-		bundles.Add(new ScriptBundle("~/bundles/jquerytmpl").Include(
-                        "~/Scripts/jQuery.tmpl*"));
-14. Modify the contents/css entry to register the contacts.css style sheet.
+8. Modify the contents/css entry to register the contacts.css style sheet.
 
         bundles.Add(new StyleBundle("~/Content/css").Include(
                     "~/Content/site.css",
@@ -454,16 +495,58 @@ Visual Studio creates a controller and views for each of the four main database 
 2. Enter "Apis" and the press the **Enter** key.
 3. Right-click on the Apis folder and click **Add**, and then click **Controller...**.<br/>
 ![Add class in  folder context menu][addwebapi002]
-4. In the **Add Controller** dialog box, enter "ContactsController" as your controller name, and select the **API controller with empty read/write actions** template. Click **Add**.<br/>
-![Add controller dialog box for web api][addwebapi003]
+4. In the **Add Controller** dialog box, enter "ContactsController" as your controller name, select the **API controller with empty read/write actions** template
+5. In **Model Class** select Contact (ContactManager.Models) and it **Data Context Class** select ContactManagerContext (ContactManager.Models).
+6. Click **Add**.<br/>![Add controller dialog box for web api][addwebapi003]
+7. Right-click the App\_Start folder and click **Add**, and then click **Class**.
+8. In the **Add New Item** dialog type WebApiConfig.cs and then click **Add**.
+9. Replace the code with
+
+		using System;
+		using System.Collections.Generic;
+		using System.Linq;
+		using System.Web;
+		using System.Web.Http;
+		using ContactManager.Models;
+		using System.Net.Http.Formatting;
+		using System.Net.Http;
+		
+		namespace ContactManager
+		{
+		    public static class WebApiConfig
+		    {
+		        public static void Configure(HttpConfiguration config)
+		        {
+		            // Filters
+		            config.Filters.Add(new QueryableAttribute());
+		
+		            config.Routes.MapHttpRoute(
+		                name: "DefaultApi",
+		                routeTemplate: "api/{controller}/{id}",
+		                defaults: new { id = RouteParameter.Optional }
+		            );
+		        }
+		    }
+		}
+	This defined the HTTP routing for the RESTful API call. When a 
+10. Open the RouteConfig.cs and remove the the following code.
+
+        routes.MapHttpRoute(
+            name: "DefaultApi",
+            routeTemplate: "api/{controller}/{id}",
+            defaults: new { id = RouteParameter.Optional }
+        );
+11. Open Global.asax file add 
+
+		WebApiConfig.Configure(GlobalConfiguration.Configuration);
 
 ### Run the application locally
 
 1. Press CTRL+F5 to run the application.<br/>
 ![Index page][intro001]
-2. Enter a contact and click **Add**. The app returns to the home page and displays the item you entered.<br/>
+2. Enter a contact and click **Add**. The app returns to the home page and displays the contact you entered.<br/>
 ![Index page with to-do list items][addwebapi004]
-3. Copy the URL from the address bar. Open a new browser window and paste the URL into the address bar.<br/>![Index page with to-do list items][addwebapi005]
+3. Copy the URL from the address bar. Open a new browser window and paste the URL into the address bar and add /api/contacts to the URL.<br/>![Index page with to-do list items][addwebapi005]<br/>
 The RESTful web API you added returns the stored contacts.<br/>![Web API save dialog][addwebapi006]
 You can open the returned contacts in notepad or a broswer.
 This output can be consumed by another application such as mobile web page or application.<br/>![Web API save dialog][addwebapi007]
@@ -572,9 +655,12 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [newapp002]: ../Media/dntutmobile-createapp-002.png
 [newapp003]: ../Media/dntutmobile-createapp-003.png
 [newapp004]: ../Media/dntutmobile-createapp-004.png
+[newapp004.1]: ../Media/dntutmobile-createapp-004.1.png
+[newapp004.2]: ../Media/dntutmobile-createapp-004.2.png
 [newapp005]: ../Media/dntutmobile-createapp-005.png
 [newapp006]: ../Media/dntutmobile-setup-add-nuget-jquery-package.png
 [newapp007]: ../Media/dntutmobile-setup-manage-nuget-package.png
+[newapp008]: ../Media/dntutmobile-setup-manage-nuget-package-2.png
 [firsdeploy001]: ../Media/dntutmobile-deploy1-download-profile.png
 [firsdeploy002]: ../Media/dntutmobile-deploy1-save-profile.png
 [firsdeploy003]: ../Media/dntutmobile-deploy1-publish-001.png
@@ -585,6 +671,7 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [firsdeploy008]: ../Media/dntutmobile-deploy1-publish-006.png
 [firsdeploy009]: ../Media/dntutmobile-deploy1-publish-007.png
 [adddb001]: ../Media/dntutmobile-adddatabase-001.png
+[adddb001.1]: ../Media/dntutmobile-adddatabase-001.1.png
 [adddb002]: ../Media/dntutmobile-adddatabase-002.png
 [migrations001]: ../Media/dntutmobile-migrations-tools-context.png
 [migrations002]: ../Media/dntutmobile-migrations-output.png
@@ -592,7 +679,9 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [migrations004]: ../Media/dntutmobile-migrations-code-output.png
 [addcode001]: ../Media/dntutmobile-controller-add-context-menu.png
 [addcode002]: ../Media/dntutmobile-controller-add-controller-dialog.png
+[addcode002.1]: ../Media/dntutmobile-controller-002.1.png
 [addcode003]: ../Media/dntutmobile-controller-add-controller-override-dialog.png
+[addcode003.1]: ../Media/dntutmobile-controller-explorer-globalasas-file.png
 [addcode004]: ../Media/dntutmobile-controller-modify-index-context.png
 [addcode005]: ../Media/dntutmobile-controller-add-contents-context-menu.png
 [addcode006]: ../Media/dntutmobile-controller-add-new-item-style-sheet.png
