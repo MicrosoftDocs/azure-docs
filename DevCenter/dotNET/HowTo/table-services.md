@@ -29,7 +29,6 @@ information on tables, see the [Next Steps][] section.
 -   [How To: Delete a Table][]
 -   [Next Steps][]
 
-## <a name="what-is"> </a>What is the Table Service
 <div chunk="../../Shared/Chunks/howto-table-storage.md" />
 
 ## <a name="create-account"> </a>Create a Windows Azure Storage Account

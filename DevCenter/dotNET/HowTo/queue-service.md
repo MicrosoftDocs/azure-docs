@@ -27,7 +27,6 @@ to the [Next Steps][] section.
 -   [How To: Delete a Queue][]
 -   [Next Steps][]
 
-## <a name="what-is"> </a>What is Queue Storage
 <div chunk="../../Shared/Chunks/howto-queue-storage.md" />
 
 ## <a name="create-account"> </a>Create a Windows Azure Storage Account
