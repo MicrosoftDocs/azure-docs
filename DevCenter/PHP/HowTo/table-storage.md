@@ -6,7 +6,7 @@ This guide will show you how to perform common scenarios using the Windows Azure
 
 ##Table of contents
 
-* [What is Table Storage](#what-is)
+* [What is the Table Service](#what-is)
 * [Concepts](#concepts)
 * [Create a Windows Azure storage account](#CreateAccount)
 * [Create a PHP application](#CreateApplication)
@@ -70,7 +70,7 @@ You will pass this `Configuration` instance (`$config`) to other objects when us
 
 <h2 id="CreateTable">How to: create a table</h2>
 
-An **ITable** object lets you create a table with the **createTable** method. When creating a table, you can set the Table Service timeout. (For more information about the table service timeout, see [Setting Timeouts for Table Service Operations][table-service-timeouts].) If you attempt to create a table that already exists, an exception will be thrown and should be handled appropriately. (For more information about error codes, see [Table Service Error Codes][table-error-codes].)
+An **TableRestProxy** object lets you create a table with the **createTable** method. When creating a table, you can set the Table Service timeout. (For more information about the table service timeout, see [Setting Timeouts for Table Service Operations][table-service-timeouts].) If you attempt to create a table that already exists, an exception will be thrown and should be handled appropriately. (For more information about error codes, see [Table Service Error Codes][table-error-codes].)
 
 	require_once 'WindowsAzure.php';
 
@@ -130,7 +130,7 @@ To add an entity to a table, create a new **Entity** object and pass it to **Tab
 
 For information about Table properties and types, see [Understanding the Table Service Data Model][table-data-model].
 
-The **ITable** interface offers two alternative methods for inserting entities: **insertOrMergeEntity** and **insertOrReplaceEntity**. To use these methods, create a new **Entity** and pass it as a parameter to either method. Each method will insert the entity if it does not exist. If the entity already exists, **insertOrMergeEntity** will update property values if the properties already exist and add new properties if they do not exist, while **insertOrReplaceEntity** completely replaces an existing entity. The following example shows how to use **insertOrMergeEntity**. If the entity with `PartitionKey` "tasksSeattle" and `RowKey` "1" does not already exist, it will be inserted. However, if it has previously been inserted (as shown in the example above), the `DueDate` property will be updated and the `Status` property will be added. The `Description` and `Location` properties are also updated, but with values that effectively leave them unchanged. If these latter two properties were not added as shown in the example, but existed on the target entity, their existing values would remain unchanged.
+The **TableRestProxy** class offers two alternative methods for inserting entities: **insertOrMergeEntity** and **insertOrReplaceEntity**. To use these methods, create a new **Entity** and pass it as a parameter to either method. Each method will insert the entity if it does not exist. If the entity already exists, **insertOrMergeEntity** will update property values if the properties already exist and add new properties if they do not exist, while **insertOrReplaceEntity** completely replaces an existing entity. The following example shows how to use **insertOrMergeEntity**. If the entity with `PartitionKey` "tasksSeattle" and `RowKey` "1" does not already exist, it will be inserted. However, if it has previously been inserted (as shown in the example above), the `DueDate` property will be updated and the `Status` property will be added. The `Description` and `Location` properties are also updated, but with values that effectively leave them unchanged. If these latter two properties were not added as shown in the example, but existed on the target entity, their existing values would remain unchanged.
 
 	require_once 'WindowsAzure.php';
 
