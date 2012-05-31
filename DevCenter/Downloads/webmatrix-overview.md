@@ -30,7 +30,7 @@ Read more</a>
 
 With a single click to import
 a publish settings file from Azure, you can publish any website you’ve built
-straight to the cloud. No complicated settings or additional work required!<
+straight to the cloud. No complicated settings or additional work required!
 
 ![picture 6][3]
 
@@ -41,10 +41,9 @@ Read more</a>
 
 ##Use top languages and web standards
 
-<p>
 You can create and edit sites
 built on ASP.NET, PHP, Node.js and HTML5, along with support for CSS3, JQuery
-and more!</p>
+and more!
 
 ![image 4][4]
 
@@ -54,10 +53,10 @@ Read more</a>
 
 ##Use popular open source applications
 
-<p>Start from dozens of open
+Start from dozens of open
 source applications and take advantage of all the built-in features, such as
 getting started links, app-specific code completion and even custom features
-built by the community for WebMatrix.</p>
+built by the community for WebMatrix.
 
 ![image5][5]
 
