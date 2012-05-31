@@ -48,47 +48,47 @@ Before you begin, make sure the following prerequisites are complete:
 
 1.	Sign on to Windows Azure.
 
-	![Sign1] (../media/Sign1.png)
+	![Sign1] (./media/Sign1.png)
 
 
 2.	Click **YourVMachine**.
 
-	![Sign2] (../media/Sign2.png)
+	![Sign2] (./media/Sign2.png)
 
 
 3.	Click **Attach** and then click **Attach Data Disk**.
 
-	![Sign3] (../media/Sign3.png)
+	![Sign3] (./media/Sign3.png)
 
 
 4. Select the disk and click **OK**. 
 
-	![Sign4] (../media/Sign4.png)
+	![Sign4] (./media/Sign4.png)
 
 
 5.	Repeat steps 3 and 4 to attach a second data disk.
 
 6.	Click **Connect**.
 
-	![Sign5] (../media/Sign5.png)
+	![Sign5] (./media/Sign5.png)
 
 
 7.	Click **Open**.
 
-	![Sign6] (../media/Sign6.png)
+	![Sign6] (./media/Sign6.png)
 
 8.	In RDP connection dialog, click **Don’t ask me again for connections to this computer**, and click **Connect**.
 
-	![Sign7] (../media/Sign7.png)
+	![Sign7] (./media/Sign7.png)
 
 9.	Type your credentials.
 
-	![Sign8] (../media/Sign8.png)
+	![Sign8] (./media/Sign8.png)
 
 
 10. In Remote Desktop Connection, click **Yes**.
 
-	![Sign9] (../media/Sign9.png)
+	![Sign9] (./media/Sign9.png)
 
 
 
@@ -96,7 +96,7 @@ Before you begin, make sure the following prerequisites are complete:
 
 1.	In the RDP session for YourVMachine, Click **Start**, right-click **Computer** and click **Manage**. 
 
-	![InstallDC1] (../media/InstallDC1.png)
+	![InstallDC1] (./media/InstallDC1.png)
 
 2.	In the console tree, click Computer Management (Local), click **Storage**, and then click **Disk Management**.
  
@@ -106,31 +106,31 @@ Before you begin, make sure the following prerequisites are complete:
 
 5.	Click **Start**, type **dcpromo**, and press ENTER.
 
-	![InstallDC2] (../media/InstallDC2.png)
+	![InstallDC2] (./media/InstallDC2.png)
 
 
 6.	On the Welcome page, click **Next**.
 
-	![InstallDC3] (../media/InstallDC3.png)
+	![InstallDC3] (./media/InstallDC3.png)
 
 
 7.	On the Operating System Compatibility page, click **Next**.
 
-	![InstallDC4] (../media/InstallDC4.png)
+	![InstallDC4] (./media/InstallDC4.png)
 
 
 8.	On the Choose a Deployment Configuration page, click **Create a new domain in a new forest**, and click **Next**.
 
-	![InstallDC5] (../media/InstallDC5.png)
+	![InstallDC5] (./media/InstallDC5.png)
 
 9.	On the Name the Forest Root Domain page, type the fully qualified domain name (FQDN) of the forest root domain (for example, hq.liwareinc.com) and click **Next**.  
 
-	![InstallDC6] (../media/InstallDC6.png)
+	![InstallDC6] (./media/InstallDC6.png)
 
 
 10.	On the Set Forest Functional level page, click **Windows Server 2008 R2** and then click **Next**.
 
-	![InstallDC7] (../media/InstallDC7.png)
+	![InstallDC7] (./media/InstallDC7.png)
 
 
 **Note** 
@@ -138,7 +138,7 @@ If you choose a different value, you also need to select a value for the domain 
 
 11.	On the Additional Domain Controller Options page, make sure **DNS server** is selected and click **Next**.
 
-	![InstallDC8] (../media/InstallDC8.png)
+	![InstallDC8] (./media/InstallDC8.png)
 
 
 12.	On the Static IP assignment warning, click **Yes, the computer will use an IP address automatically assigned by a DHCP server (not recommended)** 
@@ -147,32 +147,32 @@ If you choose a different value, you also need to select a value for the domain 
 
 	Although the IP address on the Windows Azure Virtual Network is dynamic, its lease lasts for the duration of the VM. Therefore, you do not need to set a static IP address on the domain controller that you install on the virtual network. Setting a static IP address in the VM will cause communication failures. 
 
-	![InstallDC9] (../media/InstallDC9.png)
+	![InstallDC9] (./media/InstallDC9.png)
 
 
 13.	When prompted about the DNS delegation warning, click **Yes**.
 
-	![InstallDC10] (../media/InstallDC10.png)
+	![InstallDC10] (./media/InstallDC10.png)
 
 
 14.	On the Location for Active Directory database, log files and SYSVOL page, click Browse and type or select a location on the data disk for the Active Directory files and click **Next**. 
 
-	![InstallDC11] (../media/InstallDC11.png)
+	![InstallDC11] (./media/InstallDC11.png)
 
 
 15.	On the Directory Services Restore Administrator page, type and confirm the DSRM password and click **Next**. 
 
-	![InstallDC12] (../media/InstallDC12.png)
+	![InstallDC12] (./media/InstallDC12.png)
 
 
 16.	 On the Summary page, confirm your selections and click **Next**.
 
-	![InstallDC13] (../media/InstallDC13.png)
+	![InstallDC13] (./media/InstallDC13.png)
 
 
 17.	 After the Active Directory Installation Wizard finishes, click **Finish** and then click **Restart Now** to complete the installation. 
 
-	![InstallDC14] (../media/InstallDC14.png)
+	![InstallDC14] (./media/InstallDC14.png)
 
 
 <h2 id="Step3">Step 3: Validate the installation</h2>
@@ -205,7 +205,7 @@ If you choose a different value, you also need to select a value for the domain 
 7.	Select the destination drive that does not host the operating system files or the Active Directory database, and click Next.
 
 
-	![BackupDC] (../media/BackupDC.png)
+	![BackupDC] (./media/BackupDC.png)
 
 8.	Click OK if necessary to confirm if the destination volume is included in the backup and then click Backup. 
 
