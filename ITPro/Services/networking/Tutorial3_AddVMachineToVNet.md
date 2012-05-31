@@ -2,6 +2,9 @@
 
 <!--SOMEWHERE IN THIS TUTORIAL I NEED TO XREF TO THE OTHER VMACHINE TUTORIAL -->
 
+
+<div chunk="../../../Shared/Chunks/disclaimer.md" />
+
 This tutorial walks you through the steps to create a Windows Azure storage account and virtual machine that you add to a virtual network.
 
 This tutorial assumes you have no prior experience using Windows Azure.
@@ -117,12 +120,12 @@ In this tutorial you will learn:
  
 	![VMInstances] []
 
-8.	In the navigation pane, click **ALL ITEMS**. All your objects you’ve created will be displayed with their current status.
+8.	In the navigation pane, click **ALL ITEMS**. All your objects you've created will be displayed with their current status.
  
 	![AllTab] []
 
 ## Next Steps ##
-If you’d like to connect to Active Directory, you can continue with the following tutorials:
+If you'd like to connect to Active Directory, you can continue with the following tutorials:
 	<!-- UPDATE THE FOLLOWING LIST ONCE WE HAVE THE LINKS FOR TUTORIALS 4 & 5 -->
 	
 -	New Active Directory Forest in the Cloud

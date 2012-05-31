@@ -3,10 +3,13 @@
 
 <h1 id="scale">How to Scale a Cloud Service and Linked Resources</h1>
 
+
+<div chunk="../../../Shared/Chunks/disclaimer.md" />
+
 On the **Scale** page of the Windows Azure (Preview) Management Portal, you can scale your cloud service by adding or removing role instances. If you link a SQL Database to your cloud service (using **Link** on **Linked Resources**), you can scale the database also.
 
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
+1. In the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
 
 2. Click **Scale**.
 

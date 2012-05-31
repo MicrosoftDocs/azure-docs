@@ -3,6 +3,8 @@
 
 #<a name="howtomanage"></a>How to Manage Websites
 
+<div chunk="../../../Shared/Chunks/disclaimer.md" />
+
 You manage your websites with a set of Management pages.
 
 **Windows Azure Portal Website Management Pages** – Each Website management page is described below.
