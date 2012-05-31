@@ -22,7 +22,6 @@ more information on blobs, see the [Next Steps][] section.
 -   [How To: Delete a Blob][]
 -   [Next Steps][]
 
-## <a name="what-is"> </a>What is Blob Storage
 <div chunk="../../Shared/Chunks/howto-blob-storage.md" />
 
 ## <a name="create-account"> </a>Create a Windows Azure Storage Account
