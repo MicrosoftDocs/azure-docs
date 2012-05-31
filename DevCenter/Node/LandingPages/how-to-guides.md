@@ -3,7 +3,7 @@
 ## Service management ##
 
 ### [PowerShell for Windows Azure]
-PowerShell for Windows Azure provides a command-line environment for developing and deploying applications for Windows Azure through a  Windows PowerShell cmdlets. This guide describes how to use Windows PowerShell cmdlets to create, test, deploy, and manage Windows Azure Services. 
+Windows PowerShell for Windows Azure provides a command-line environment for developing and deploying applications for Windows Azure through a  Windows PowerShell cmdlets. This guide describes how to use Windows PowerShell cmdlets to create, test, deploy, and manage Windows Azure Services. 
 
 ### [Command-Line Tools for Mac and Linux](/develop/nodejs/how-to-guides/command-line-tools/ "Command-Line Tools for Mac and Linux")
 The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Windows Azure services. Use the command-line tools to create and manage websites and virtual machines in Windows Azure. 
@@ -24,7 +24,7 @@ Windows Azure Queues store large numbers of messages that can be accessed from a
 Service Bus Queues offer simple first in, first out guaranteed message delivery and support a range of standard protocols (REST, AMQP, WS*) and APIs to put and pull messages on and off a queue.
 
 ### [Service Bus Topics]
-Service Bus Topics provide a publish/subscribe messaging model to support one-to-many communication. You can optionally register filter rules for a topic on a per-subscription basis, which allows you to estrict which messages to a topic are received by which topic subscriptions.
+Service Bus Topics provide a publish/subscribe messaging model to support one-to-many communication. You can optionally register filter rules for a topic on a per-subscription basis, which allows you to restrict which messages to a topic are received by which topic subscriptions.
 
 ## Additional Guides ##
 

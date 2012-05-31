@@ -124,7 +124,7 @@ Command Line Reference][].
         MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
 
     Once you've constructed and tested an appropriate MSBuild command
-    line to build your projects and combine them into an Azure package,
+    line to build your projects and combine them into a Windows Azure package,
     you can add this command line to your build scripts. If your build
     server uses custom scripts, this process will depend on the
     specifics of your build custom process. If you are using TFS as a

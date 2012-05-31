@@ -174,7 +174,7 @@ All blobs reside in a container. The call to
 **createContainerIfNotExists** on the **BlobService** object will return
 the specified container if it exists or create a new container with the
 specified name if it does not already exist. By default, the new
-container is private, so you must specify your storage account key (as
+container is private, so you must specify your storage access key (as
 you did above) to download blobs from this container. Modify the
 existing call to **createServer** as follows:
 

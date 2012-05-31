@@ -13,7 +13,7 @@ This guide will show you how to use Web Sites. The scenarios covered in this gui
 - [How to: Configure a Web Site to Use Other Windows Azure Resources](#howtoconfigother)
 - [How to: Scale a Web Site](#howtoscale)
 - [How to: View Usage Quotas for a Web Site](#howtoviewusage)
-- [How to: Create a Web Site from the Azure Gallery](#howtocreatefromgallery)
+- [How to: Create a Web Site from the Gallery](#howtocreatefromgallery)
 - [How to: Develop and Deploy a Web Site with Microsoft WebMatrix](#howtodevdepwebmatrix)
 - [Next Steps](#nextsteps)
 
@@ -24,7 +24,7 @@ A Web Site is a web application host on Windows Azure that supports popular web 
 
 ##<a name="howtocreatedeploydelete"></a>How to: Create, Deploy and Delete a Web Site
 
-Just as you can quickly create and deploy a web application created from the Azure Gallery, you can also deploy a Web Site created on a workstation with traditional developer tools from Microsoft or other companies. This topic describes how to [Create a Web Site in Windows Azure](#createaweb_site), deploy a Web Site as described in [Deploy a Web Site to Windows Azure](#deployaweb_site) and delete a Web Site in [Delete a Web Site in Windows Azure](#deleteaweb_site).
+Just as you can quickly create and deploy a web application created from the gallery, you can also deploy a Web Site created on a workstation with traditional developer tools from Microsoft or other companies. This topic describes how to [Create a Web Site in Windows Azure](#createaweb_site), deploy a Web Site as described in [Deploy a Web Site to Windows Azure](#deployaweb_site) and delete a Web Site in [Delete a Web Site in Windows Azure](#deleteaweb_site).
 
 ### Development Tools for Creating a Web Application to run in a Website ###
 Some development tools available from Microsoft include [Microsoft Visual Studio 2010][VS2010], [Microsoft Expression Studio 4][msexpressionstudio] and [Microsoft WebMatrix][mswebmatrix], a free web development tool from Microsoft which provides essential functionality for web application development. 
@@ -165,7 +165,7 @@ For more information about developing and deploying Web Sites see the following 
 
 - [How to: Create, Deploy and Delete a Web Site](#howtocreatedeploydelete)
 - [How to: Develop and Deploy a Web Site with Microsoft WebMatrix](#howtodevdepwebmatrix)
-- [How to: Create a Web Site from the Azure Gallery](#howtocreatefromgallery)
+- [How to: Create a Web Site from the Gallery](#howtocreatefromgallery)
 
 ####<a name="dashboard"></a>Dashboard####
 
@@ -422,13 +422,13 @@ Windows Azure takes the following actions if a subscription's resource usage quo
 
 --------------------------------------------------------------------------------
 
-##<a name="howtocreatefromgallery"></a>How to: Create a Web Site from the Azure Gallery
+##<a name="howtocreatefromgallery"></a>How to: Create a Web Site from the Gallery
 
-The Azure Gallery makes available a wide range of popular web applications developed by Microsoft, third party companies and open source software initiatives. Web applications created from the Azure Gallery do not require installation of any software other than the browser used to connect to the Windows Azure portal. When creating Web Sites from the Azure Gallery you should be able to create, deploy, and have a fully operational Web Site running in 3 to 5 minutes.
+The gallery makes available a wide range of popular web applications developed by Microsoft, third party companies and open source software initiatives. Web applications created from the gallery do not require installation of any software other than the browser used to connect to the Windows Azure portal. When creating Web Sites from the gallery you should be able to create, deploy, and have a fully operational Web Site running in 3 to 5 minutes.
 
-This topic describes how to create and publish a WordPress blog Web Site from the Azure Gallery to a Web Site.
+This topic describes how to create and publish a WordPress blog Web Site from the gallery to a Web Site.
 
-###Create and Publish a Web Site from the Azure Gallery to Windows Azure###
+###Create and Publish a Web Site from the gallery to Windows Azure###
 Follow these steps to create, deploy and run a WordPress blog Web Site on Windows Azure:
 
 1. Login to the Windows Azure portal.
