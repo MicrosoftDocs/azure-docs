@@ -117,7 +117,7 @@ In this guide, you will use service features which can be called within a PHP ap
 
 To use the Windows Azure Service Bus topic APIs, you need to:
 
-1. Reference the `WindowsAzure.php` file (from the Windows Azure SDK for PHP) using the [require_once][require_once] statement, and
+1. Reference the `WindowsAzure.php` file (from the Windows Azure SDK for PHP) using the [require\_once][require-once] statement, and
 2. Reference any classes you might use.
 
 The following example shows how to include the `WindowsAzure.php` file and reference the **ServiceBusService** class:
@@ -251,8 +251,8 @@ When a message is now sent to the `mytopic` topic, it will always be delivered t
 
 <h2 id="SendMessage">How to: Send messages to a topic</h2>
 
-To send a message to a Service Bus topic, your application will call the **ServiceBusRestProxy->sendMessage** method. The code below demonstrates how to send a message to the "mytopic" topic we created above within the
-"MySBNamespace" service namespace. Note that first parameter of the **sendMessage** method is `mytopic/messages`, the path to which the message is sent.
+To send a message to a Service Bus topic, your application will call the **ServiceBusRestProxy->sendTopicMessage** method. The code below demonstrates how to send a message to the "mytopic" topic we created above within the
+"MySBNamespace" service namespace.
 
 	require_once 'WindowsAzure.php';
 
@@ -280,7 +280,7 @@ To send a message to a Service Bus topic, your application will call the **Servi
 		
 	try	{
 		// Send message.
-		$serviceBusRestProxy->sendMessage("mytopic/messages", $message);
+		$serviceBusRestProxy->sendTopicMessage("mytopic", $message);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -441,3 +441,4 @@ topic [Queues, Topics, and Subscriptions][] for more information.
 [Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
 [sqlfilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [client-libs]: http://go.microsoft.com/fwlink/?LinkId=252719
+[require-once]: http://php.net/require_once
