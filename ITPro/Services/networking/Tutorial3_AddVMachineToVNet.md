@@ -1,4 +1,7 @@
-# Tutorial 3: Adding a Virtual Machine to a Virtual Network #
+<properties umbracoNaviHide="0" pageTitle="Tutorial 3: Adding a Virtual Machine to a Virtual Network" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Learn how to configure Windows Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+
+
+<h1 id="vnet3">Tutorial 3: Adding a Virtual Machine to a Virtual Network</h1>
 
 <!--SOMEWHERE IN THIS TUTORIAL I NEED TO XREF TO THE OTHER VMACHINE TUTORIAL -->
 
