@@ -97,10 +97,9 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 ### Create the project
 
 1. Start Visual Studio 2010 .
-2. From the **File** menu click **New** and select **Project**.
-	![New Project in File menu][newapp001]
+2. From the **File** menu click **New** and select **Project**.<br/>![New Project in File menu][newapp001]
 3. In the **New Project** dialog box, expand **Visual C#** and select **Web** under **Installed Templates** and then select **ASP.NET MVC 4 Web Application**.
-3. In the **.NET Framework** make sure **.NET Framework 4** is selected.a
+3. In the **.NET Framework** make sure **.NET Framework 4** is selected.
 4. Name the application **ContactManager** and click **OK**.<br/>
 	![New Project dialog box][newapp002]
 5. In the **New ASP.NET MVC 4 Project** dialog box, select the **Internet Application** template.
@@ -162,7 +161,7 @@ First you will configure the initial layout and view elements for the applicatio
 
 ### Run the application locally
 
-Run the application locally to see the inital layout of the contact manager page.
+Run the application locally to see the initial layout of the contact manager page.
 
 1. Press CTRL+F5 to run the application.
 The application home page appears in the default browser.<br/>
@@ -529,7 +528,7 @@ Visual Studio creates a controller and views for each of the four main database 
 		    }
 		}
 	This defined the HTTP routing for the RESTful API call. When a
-10. Open the RouteConfig.cs and remove the the following code.
+10. Open the RouteConfig.cs and remove the following code.
 
         routes.MapHttpRoute(
             name: "DefaultApi",
@@ -548,8 +547,8 @@ Visual Studio creates a controller and views for each of the four main database 
 ![Index page with to-do list items][addwebapi004]
 3. Copy the URL from the address bar. Open a new browser window and paste the URL into the address bar and add /api/contacts to the URL.<br/>![Index page with to-do list items][addwebapi005]<br/>
 The RESTful web API you added returns the stored contacts.<br/>![Web API save dialog][addwebapi006]
-You can open the returned contacts in notepad or a broswer.
-This output can be consumed by another application such as mobile web page or application.<br/>![Web API save dialog][addwebapi007]
+	You can open the returned contacts in notepad or a browser.
+	This output can be consumed by another application such as mobile web page or application.<br/>![Web API save dialog][addwebapi007]
 
 <h2><a name="bkmk_deploydatabaseupdate"></a>Publish the application update to Windows Azure and SQL Database</h2>
 
