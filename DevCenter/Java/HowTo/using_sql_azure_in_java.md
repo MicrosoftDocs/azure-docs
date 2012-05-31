@@ -1,4 +1,4 @@
-<properties linkid="dev-java-how-to-sql-azure" urldisplayname="SQL Azure Database" headerexpose="" pagetitle="SQL Azure Database - How To - Java - Develop" metakeywords="" footerexpose="" metadescription="The following steps show you how to use SQL Azure Database with Java." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-java-how-to-sql-azure" urldisplayname="SQL Database" headerexpose="" pagetitle="SQL Database - How To - Java - Develop" metakeywords="" footerexpose="" metadescription="The following steps show you how to use SQL Database with Java." umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Use Windows Azure SQL Database in Java
 
