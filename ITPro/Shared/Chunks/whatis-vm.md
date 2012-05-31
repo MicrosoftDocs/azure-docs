@@ -1,4 +1,3 @@
-<properties umbracoNaviHide="0" pageTitle="What is a virtual machine in Windows Azure" metaKeywords="Windows Azure virtual machine, Azure virtual machine, Azure disks, Azure data disks, data disks, linux data disks, image, " metaDescription="Learn about virtual machines." linkid="manage-windows-how-to-guide-virtual-machines" urlDisplayName="How to: virtual machines" headerExpose="" footerExpose="" disqusComments="1" />
 #What is a virtual machine in Windows Azure?
 
 A virtual machine in Windows Azure is a server in the cloud that you can control and manage. After you create a virtual machine in Windows Azure, you can delete and recreate it whenever you need to, and you can log on to the virtual machine just as you do with any other server. Virtual hard disk (VHD) files are used to create a virtual machine. The following types of VHDs are used for a virtual machine in Windows Azure:

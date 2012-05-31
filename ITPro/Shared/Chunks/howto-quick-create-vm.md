@@ -1,4 +1,3 @@
-<properties umbracoNaviHide="0" pageTitle="How to Quickly Create a Virtual Machine" metaKeywords="Windows Azure virtual machine, Azure virtual machine, create virtual machines" metaDescription="Learn how to quickly create a virtual machine from the Management Portal." linkid="manage-windows-how-to-guide-virtual-machines" urlDisplayName="How to: virtual machines" headerExpose="" footerExpose="" disqusComments="1" />
 #How to Quickly Create a Virtual Machine
 
 You use the **Quick Create** method to quickly create a virtual machine in the Management Portal. When you create this machine, all you need to provide is the name of the machine, the image that is used to create the machine, and the password for the user account that is used to manage the machine.
