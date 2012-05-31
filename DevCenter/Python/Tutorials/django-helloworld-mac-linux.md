@@ -18,15 +18,15 @@ A screenshot of the completed application is below:
 
 ## Creating and configuring a Windows Azure virtual machine to host Django
 
-* Follow the instructions given [here][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Ubuntu Server 12.04* flavor.
+1. Follow the instructions given [here][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Ubuntu Server 12.04* flavor.
 
-**Note:** you *only* need to create the virtual machine. Stop at the section titled *How to log on to the virtual machine after you create it*.
+  **Note:** you *only* need to create the virtual machine. Stop at the section titled *How to log on to the virtual machine after you create it*.
 
-* Instruct Windows Azure to direct port **80** traffic from the web to port **80** on the virtual machine:
- 1. Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
- 1. Click *ADD ENDPOINT* button at the bottom of the screen.
+1. Instruct Windows Azure to direct port **80** traffic from the web to port **80** on the virtual machine:
+ * Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
+ * Click *ADD ENDPOINT* button at the bottom of the screen.
 ![][add endpoint]
- 1. Open up the *TCP* protocol's *PUBLIC PORT 80* as *PRIVATE PORT 80*.
+ * Open up the *TCP* protocol's *PUBLIC PORT 80* as *PRIVATE PORT 80*.
 ![][port80]
 
 ## <a id="setup"> </a>Setting up the development environment

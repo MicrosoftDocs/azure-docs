@@ -17,39 +17,39 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 ![][0]
 
 ## Setting up a virtual machine to host MySQL and Django
-- Follow the instructions given [here][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Windows Server 2008 R2* flavor.
+1. Follow the instructions given [here][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Windows Server 2008 R2* flavor.
 
-- Open up a TCP port for MySQL transactions on the virtual machine:
- 1. Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
- 1. Click *ADD ENDPOINT* button at the bottom of the screen.
+1. Open up a TCP port for MySQL transactions on the virtual machine:
+ * Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
+ * Click *ADD ENDPOINT* button at the bottom of the screen.
   ![][6]
- 1. Open up the *TCP* protocol's *PUBLIC PORT* **3306** as *PRIVATE PORT* **3306**.
+ * Open up the *TCP* protocol's *PUBLIC PORT* **3306** as *PRIVATE PORT* **3306**.
   ![][8]
 
-- Duplicate the previous *ENDPOINT* addition, this time opening up *TCP*'s *PUBLIC PORT 80* as *PRIVATE PORT 80*.  This redirects external Internet requests to the port Django runs on, namely *80*.
+1. Duplicate the previous *ENDPOINT* addition, this time opening up *TCP*'s *PUBLIC PORT 80* as *PRIVATE PORT 80*.  This redirects external Internet requests to the port Django runs on, namely *80*.
 
-- Use Windows *Remote Desktop* to remotely log into the newly created Windows Azure virtual machine.
+1. Use Windows *Remote Desktop* to remotely log into the newly created Windows Azure virtual machine.
 
-- Open up TCP port **80** on the virtual machine:
- 1. From the **Start** menu, select **Administrator Tools** and then **Windows Firewall with Advanced Security**. 
- 1. In the left pane, select **Inbound Rules**.  In the **Actions** pane on the right, select **New Rule...**.
- 1. In the **New Inbound Rule Wizard**, select **Port** and then click **Next**.
- 1. Select **TCP** and then **Specific local ports**.  Specify a port of "80" (the port Django listens on) and click **Next**.
- 1. Select **Allow the connection** and click **Next**.
- 1. Click **Next** again.
- 1. Specify a name for the rule, such as "DjangoPort", and click Finish.
+1. Open up TCP port **80** on the virtual machine:
+ * From the **Start** menu, select **Administrator Tools** and then **Windows Firewall with Advanced Security**. 
+ * In the left pane, select **Inbound Rules**.  In the **Actions** pane on the right, select **New Rule...**.
+ * In the **New Inbound Rule Wizard**, select **Port** and then click **Next**.
+ * Select **TCP** and then **Specific local ports**.  Specify a port of "80" (the port Django listens on) and click **Next**.
+ * Select **Allow the connection** and click **Next**.
+ * Click **Next** again.
+ * Specify a name for the rule, such as "DjangoPort", and click Finish.
 
-- Install the latest version of [MySQL Community Server] [mysqlcommunity] for Windows on the virtual machine:
-1. Install .NET version 4.0 from [here][dotnetfour].
-1. Run the *Windows (x86, 64-bit), MSI Installer* link [here] [mysqlcommunity] and download the appropriate MSI installer from the download mirror nearest you. Helpful hints are:
- * Select a *Complete* Setup Type.
- * Select a *Detailed Configuration* within the Configuration Wizard.
- * **Make sure you enable TCP/IP Networking on Port Number 3306 and add a firewall exception for the port.**
- * Set a root password and enable root access from remote machines.
-1. Install a sample ["world" database] [mysqlworld] (MyISAM version):
- * Download [this] [mysqlworlddl] zip file on the Windows Azure Virtual Machine.
- * **Unzip it to *C:\Users\Administrator\Desktop\world.sql*.**
-- After installing MySQL, click the Windows *Start* menu and run the freshly installed *MySQL 5.5 Command Line Client*.  Issue the following commands:
+1. Install the latest version of [MySQL Community Server] [mysqlcommunity] for Windows on the virtual machine:
+ * Install .NET version 4.0 from [here][dotnetfour].
+ * Run the *Windows (x86, 64-bit), MSI Installer* link [here] [mysqlcommunity] and download the appropriate MSI installer from the download mirror nearest you. Helpful hints are:
+     * Select a *Complete* Setup Type.
+     * Select a *Detailed Configuration* within the Configuration Wizard.
+     * **Make sure you enable TCP/IP Networking on Port Number 3306 and add a firewall exception for the port.**
+     * Set a root password and enable root access from remote machines.
+ * Install a sample ["world" database] [mysqlworld] (MyISAM version):
+     * Download [this] [mysqlworlddl] zip file on the Windows Azure Virtual Machine.
+     * **Unzip it to *C:\Users\Administrator\Desktop\world.sql*.**
+1. After installing MySQL, click the Windows *Start* menu and run the freshly installed *MySQL 5.5 Command Line Client*.  Issue the following commands:
 
 		CREATE world;
 		USE world;
@@ -64,19 +64,19 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 
   ![][2]
 
-- Before you can begin developing your Django application, we of course need to install Python+Django on the virtual machine.  To that effect, follow the [Setup the Development Environment] [wapstarted] guide in the Python "Hello World" Application tutorial.  
+1. Before you can begin developing your Django application, we of course need to install Python+Django on the virtual machine.  To that effect, follow the [Setup the Development Environment] [wapstarted] guide in the Python "Hello World" Application tutorial.  
 
   **Note:** you merely need to install the *Django* product from WebPI to get this tutorial working.  You do **not** need *Python Tools for Visual Studio* or even the Windows Azure Python SDK installed for our purposes.
 
-- Install the MySQL Python client package. You can install it directly [from this link] [mysqlpydl]. Once completed, run the following command to verify your installation:
+1. Install the MySQL Python client package. You can install it directly [from this link] [mysqlpydl]. Once completed, run the following command to verify your installation:
 
   ![][1]
 
 
 ## Extend the Django Hello World application
-* Follow the instructions given in the [Django Hello World] [djangohelloworld] tutorial to create a trivial "Hello World" web application in Django.
+1. Follow the instructions given in the [Django Hello World] [djangohelloworld] tutorial to create a trivial "Hello World" web application in Django.
 
-* Open **C:\django\helloworld\helloworld\settings.py** in your favorite text editor.  Modify the **DATABASES** global dictionary to read:
+1. Open **C:\django\helloworld\helloworld\settings.py** in your favorite text editor.  Modify the **DATABASES** global dictionary to read:
 
 		DATABASES = {
 		    'default': {
@@ -103,14 +103,14 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 
   After you've modified *HOST* to match the MySQL VM's IP address, please save this file and close it.
 
-* Now that we've referenced our *djangoazure* database, let's do something useful with it! To this end, we'll create a model for a trivial *counter* app.  To instruct Django to create this, run the following commands:
+1. Now that we've referenced our *djangoazure* database, let's do something useful with it! To this end, we'll create a model for a trivial *counter* app.  To instruct Django to create this, run the following commands:
 
 		cd C:\django\helloworld
 		C:\Python27\python.exe manage.py startapp counter
 
   If Django doesn't report any output from the final command above, it succeeded.
 
-* Append the following text to **C:\django\helloworld\counter\models.py**:
+1. Append the following text to **C:\django\helloworld\counter\models.py**:
 
 		class Counter(models.Model):
 		    count = models.IntegerField()
@@ -119,9 +119,9 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 
   All we've done here is defined a subclass of Django's *Model* class named *Counter* with a single integer field, *count*. This trivial counter model will end up recording the number of hits to our Django application. 
 
-* Next we make Django aware of *Counter*'s existence:
- 1. Edit **C:\django\helloworld\helloworld\settings.py** again. Add *'counter'* to the *INSTALLED_APPS* tuple.
- 1. From a command prompt, please run:
+1. Next we make Django aware of *Counter*'s existence:
+ * Edit **C:\django\helloworld\helloworld\settings.py** again. Add *'counter'* to the *INSTALLED_APPS* tuple.
+ * From a command prompt, please run:
 
 			cd C:\django\helloworld
 			C:\Python27\python manage.py sql counter
@@ -157,7 +157,7 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 		Installing indexes ...
 		Installed 0 object(s) from 0 fixture(s)
 
-* Replace the contents of **C:\django\helloworld\helloworld\views.py**. The new implementation of the *hello* function below uses our *Counter* model in conjunction with a separate sample database we previously installed, *world*, to generate a suitable replacement for the "*World*" string:
+1. Replace the contents of **C:\django\helloworld\helloworld\views.py**. The new implementation of the *hello* function below uses our *Counter* model in conjunction with a separate sample database we previously installed, *world*, to generate a suitable replacement for the "*World*" string:
 
 		from django.http import HttpResponse
 		import django.db
