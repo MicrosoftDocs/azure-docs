@@ -21,7 +21,7 @@ Knowledge of the following is useful for this tutorial, though not required:
 * The C# driver for MongoDB. For more information on developing C# applications against MongoDB, see [CSharp Language Center][MongoC#LangCenter]. 
 * The ASP .NET web application framework. You can learn all about it at the [ASP.net website][ASP.NET].
 * The ASP .NET MVC 3.0 web application framework. You can learn all about it at the [ASP.NET MVC 3 website][MVC3].
-* The Windows Azure Platform. You can get started reading at [Windows Azure][WindowsAzure].
+* Windows Azure. You can get started reading at [Windows Azure][WindowsAzure].
 
 ## Preparation
 
@@ -440,10 +440,10 @@ In this section you will deploy the Task List application using Git.
 	![Git Repository is Ready][Image9]
 4. Select **Push my local files to Windows Azure** to display instructions on pushing your code to Windows Azure. The instructions will look similar to the following:
 
-	![Push local files to Azure][Image10]
+	![Push local files to Windows Azure][Image10]
 5. If you do not have Git installed, install it using the **Get it here** link in step 1.
 6. Following these instructions in step 2, commit your local files.
-7. Add the remote Azure repository and push your files to the Azure web site by following the instructions in step 3.
+7. Add the remote Windows Azure repository and push your files to the Windows Azure web site by following the instructions in step 3.
 8. When the deployment has completed you will see the following confirmation:
 	![Deployment Complete][Image11]
 9. Your Windows Azure web site is now available.  Check the **Dashboard** page for your site and the **Site URL** field to find the URL for your site. Following the procedures in this tutorial, your site would be available at this URL: <a href="http://mytasklistapp.cloudapp.net">http://mytasklistapp.cloudapp.net</a>.
