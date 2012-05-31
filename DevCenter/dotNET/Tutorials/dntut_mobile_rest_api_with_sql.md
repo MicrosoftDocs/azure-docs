@@ -111,11 +111,11 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 First you will configure the initial layout and view elements for the application.
 
-1. In **Solution Explorer**, expand the Views\Shared folder and open the &#95;Layout.cshtml file.<br/>![_Layout.cshtml in Solution Explorer][newapp004]
+1. In **Solution Explorer**, expand the Views\Shared folder and open the \_Layout.cshtml file.<br/>![_Layout.cshtml in Solution Explorer][newapp004]
 2. In the **&lt;title&gt;** element, change "My ASP.NET MVC Application" to "Contact Manager".
 
 	    <head>
-	        <meta charset="utf-8" />	
+	        <meta charset="utf-8" />
 	        <title>@ViewBag.Title - Contact Manager</title>
 	        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 3. In the **&lt;header&gt;** element, change "your logo here." to "Contact Manager".
@@ -156,9 +156,9 @@ First you will configure the initial layout and view elements for the applicatio
             </ul>
         </div>
 
-7. Right-click the &#95LoginPartial.cshtml file and click **Delete**.<br/>![Delete contexte menu for _logingpartial.cshtml][newapp004.1]
+7. Right-click the \_LoginPartial.cshtml file and click **Delete**.<br/>![Delete context menu for _logingpartial.cshtml][newapp004.1]
 8. Expand the Views\Home folder and delete the About.cshtml and Contact.cshtml files.
-9. Right-click the Account folder under views and click **Delete**.<br/>![Delete contexte menu for the accounts folder][newapp004.2]
+9. Right-click the Account folder under views and click **Delete**.<br/>![Delete context menu for the accounts folder][newapp004.2]
 
 ### Run the application locally
 
@@ -241,7 +241,7 @@ You begin by creating a simple data model in code.
         		}
     		}
 		}
-The **Contacts** class defines the data that you want to store for each contact, plus a primary key, ContactID, that is needed by the database. 
+The **Contacts** class defines the data that you want to store for each contact, plus a primary key, ContactID, that is needed by the database.
 4. Expand the Models folder and delete the AccountModels.cs file.
 
 ### Create web pages that enable app users to work with the contacts
@@ -267,17 +267,17 @@ Visual Studio creates a controller and views for each of the four main database 
 ## Add sample data and a data initializer
 
 1. Right-click the Models folder, click **Add**, and then **Class**.
-2. In the **Add New Item** dialog box, name the new class file ContactManagerDatabaseInitializer.cs, and then click **Add**		
+2. In the **Add New Item** dialog box, name the new class file ContactManagerDatabaseInitializer.cs, and then click **Add**
 3. Replace the contents of the ContactManagerDatabaseInitializer.cs file with the following code.
 
 		using System;
 		using System.Data.Entity;
-		
+
 		namespace ContactManager.Models
 		{
 		    public class ContactManagerDatabaseInitializer : DropCreateDatabaseAlways<ContactManagerContext>
 		    {
-		        static Contact[] sampleContacts = new Contact[] 
+		        static Contact[] sampleContacts = new Contact[]
                     {
                         new Contact { Name = "Debra Garcia", Address = "1234 Main St", City = "Redmond", State = "WA", Zip = "10999", Email = "debra@example.com", Twitter = "debra_example" },
                         new Contact { Name = "Thorsten Weinrich", Address = "5678 1st Ave W", City = "Redmond", State = "WA", Zip = "10999", Email = "thorsten@example.com", Twitter = "thorsten_example" },
@@ -285,11 +285,11 @@ Visual Studio creates a controller and views for each of the four main database 
                         new Contact { Name = "Jon Orton", Address = "3456 Maple St", City = "Redmond", State = "WA", Zip = "10999", Email = "jon@example.com", Twitter = "jon_example" },
                         new Contact { Name = "Diliana Alexieva-Bosseva", Address = "7890 2nd Ave E", City = "Redmond", State = "WA", Zip = "10999", Email = "diliana@example.com", Twitter = "diliana_example" },
                     };
-		
+
 		        protected override void Seed(ContactManagerContext context)
 		        {
 		            base.Seed(context);
-		
+
 		            foreach (var contact in sampleContacts)
 		            {
 		                context.Contacts.Add(contact);
@@ -317,11 +317,11 @@ Visual Studio creates a controller and views for each of the four main database 
 2. Replace the contents of the file with the following code.
 
 		@model IEnumerable<ContactManager.Models.Contact>
-		
+
 		@{
 		    ViewBag.Title = "Home";
 		}
-		
+
 		@section Scripts {
 		    @Scripts.Render("~/bundles/knockout")
 		    <script type="text/javascript">
@@ -345,16 +345,16 @@ Visual Studio creates a controller and views for each of the four main database 
 		                    }
 		                });
 		            }
-		
+
 		            $.getJSON("api/contacts", function (data) {
 		                self.contacts(data);
 		            });
 		        }
-		
+
 		        ko.applyBindings(new ContactsViewModel());
 		    </script>
 		}
-		
+
 		<ul id="contacts" data-bind="foreach: contacts">
 		    <li class="ui-widget-content ui-corner-all">
 		        <h1 data-bind="text: Name" class="ui-widget-header"></h1>
@@ -371,7 +371,7 @@ Visual Studio creates a controller and views for each of the four main database 
 		        <p><a data-bind="attr: { href: Self }, click: $root.removeContact" class="removeContact ui-state-default ui-corner-all">Remove</a></p>
 		    </li>
 		</ul>
-		
+
 		<form id="addContact" data-bind="submit: addContact">
 		    <fieldset>
 		        <legend>Add New Contact</legend>
@@ -467,7 +467,7 @@ Visual Studio creates a controller and views for each of the four main database 
 	    	background-color: Orange;
 	    	color: White;
 	    	font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
-		}	
+		}
 
 		.removeContact, .viewImage
 		{
@@ -477,7 +477,7 @@ Visual Studio creates a controller and views for each of the four main database 
 
 6. Expand the App\_Start folder and open the BundleConfig.cs file.<br/>![Modify BundleConfig.cs in App_Start folder context menu][addcode007]
 7. Add the following statement to register the knockout plugin.
-		
+
 		bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
 		            "~/Scripts/knockout-2.0.0.js"));
 	This sample using knockout to simplify dynamic JavaScript code that handles the screen templates.
@@ -510,7 +510,7 @@ Visual Studio creates a controller and views for each of the four main database 
 		using ContactManager.Models;
 		using System.Net.Http.Formatting;
 		using System.Net.Http;
-		
+
 		namespace ContactManager
 		{
 		    public static class WebApiConfig
@@ -519,7 +519,7 @@ Visual Studio creates a controller and views for each of the four main database 
 		        {
 		            // Filters
 		            config.Filters.Add(new QueryableAttribute());
-		
+
 		            config.Routes.MapHttpRoute(
 		                name: "DefaultApi",
 		                routeTemplate: "api/{controller}/{id}",
@@ -528,7 +528,7 @@ Visual Studio creates a controller and views for each of the four main database 
 		        }
 		    }
 		}
-	This defined the HTTP routing for the RESTful API call. When a 
+	This defined the HTTP routing for the RESTful API call. When a
 10. Open the RouteConfig.cs and remove the the following code.
 
         routes.MapHttpRoute(
@@ -536,7 +536,7 @@ Visual Studio creates a controller and views for each of the four main database 
             routeTemplate: "api/{controller}/{id}",
             defaults: new { id = RouteParameter.Optional }
         );
-11. Open Global.asax file add 
+11. Open Global.asax file add
 
 		WebApiConfig.Configure(GlobalConfiguration.Configuration);
 
@@ -668,7 +668,7 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [firsdeploy008]: ../Media/dntutmobile-deploy1-publish-006.png
 [firsdeploy009]: ../Media/dntutmobile-deploy1-publish-007.png
 [adddb001]: ../Media/dntutmobile-adddatabase-001.png
-[adddb001.1]: ../Media/dntutmobile-adddatabase-001.1.png
+[newapp004.1]: ../Media/dntutmobile-adddatabase-001.1.png
 [adddb002]: ../Media/dntutmobile-adddatabase-002.png
 [addcode001]: ../Media/dntutmobile-controller-add-context-menu.png
 [addcode002]: ../Media/dntutmobile-controller-add-controller-dialog.png
