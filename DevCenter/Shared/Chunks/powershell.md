@@ -146,7 +146,7 @@ can help you get started:
 The Windows Azure PowerShell cmdlets have a few special requirements that are not common
 to all Windows PowerShell components:
 
--   To deploy your Node applications in Windows Azure, you must have a
+-   To deploy your applications in Windows Azure, you must have a
     Windows Azure subscription. Before you can deploy applications
     by using a cmdlet, you must download your subscription
     information (by using **Get-AzurePublishSettingsFile**) and then import
@@ -256,7 +256,7 @@ cloud service for your application.
 The following example shows how to create a new cloud service named
 MyService.
 
-    PS C:\app> New-AzureServiceProject MyService
+    PS C:\app> New-AzureServiceProject -ServiceName MyService
 
 The cmdlet creates a service subdirectory on your local computer, adds
 service configuration files to the service directory, and changes the
@@ -506,7 +506,7 @@ In the following example, the service name is changed to MyService01
 when the service is deployed. The name of the service directory does not
 change, but the service will be known in Windows Azure as MyService01.
 
-    PS C:\app\MyService> Publish-AzureServiceProject -Name MyService01
+    PS C:\app\MyService> Publish-AzureServiceProject -ServiceName MyService01
 
 <div class="dev-callout"> 
 <b>Note</b> 
