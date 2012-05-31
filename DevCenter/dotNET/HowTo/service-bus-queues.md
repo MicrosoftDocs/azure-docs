@@ -151,13 +151,13 @@ described in the previous section.
 Management operations for Service Bus queues can be performed via the
 **NamespaceManager** class. The **NamespaceManager** class provides methods to create, enumerate, and delete queues. 
 
-In this example, a **NamespaceManager** object is constructed by using the Windows Azure **AzureConfigurationManager** class
+In this example, a **NamespaceManager** object is constructed by using the Windows Azure **CloudConfigurationManager** class
 with a connection string consisting of the base address of a Service Bus namespace and the appropriate
 credentials with permissions to manage it. This connection string is of the form
 "Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=[issuerName];SharedSecretValue=[yourDefaultKey]"". For example, given the configuration settings in the previous section:
 
 	// Create the queue if it does not exist already
-	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	string connectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
     if (!namespaceManager.QueueExists(QueueName))
     {
@@ -177,7 +177,7 @@ maximum size of 5GB and a default message time-to-live of 1 minute:
     qd.DefaultMessageTimeToLive = new TimeSpan(0, 1, 0);
 
 	// Create a new Queue with custom settings
-	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	string connectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
     if (!namespaceManager.QueueExists("TestQueue"))
     {
@@ -198,7 +198,7 @@ appropriate credentials (the connection string).
 The code below demonstrates how to create a **MessageSender** object
 for the "TestQueue" queue created above:
 
-	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	string connectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
 	MessagingFactory factory = MessagingFactory.CreateFromConnectionString(connectionString);
 
@@ -270,7 +270,7 @@ consumed and removes it from the queue.
 The example below demonstrates how messages can be received and
 processed using the default **PeekLock** mode. The example creates an infinite loop and processes messages as they arrive into the "TestQueue":
 
-	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	string connectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
     MessagingFactory factory = MessagingFactory.CreateFromConnectionString(connectionString);
 
