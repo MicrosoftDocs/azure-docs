@@ -217,7 +217,7 @@ Now that you’ve learned the basics of the Twilio service, follow these links t
 
 [twilio_java]: https://github.com/twilio/twilio-java
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: add_ca_cert.md
+[add_ca_cert]: ../CommonTasks/add_ca_cert.md
 [howto_phonecall_java]: howto_phonecall_java.md
 [twilio_voice_request]: https://www.twilio.com/docs/api/twiml/twilio_request
 [twilio_sms_request]: https://www.twilio.com/docs/api/twiml/sms/twilio_request
