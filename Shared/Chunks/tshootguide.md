@@ -734,7 +734,7 @@ that we have today cover the other risk factors, however better tools
 are coming to make the job much easier. Red-gate recently published a
 free tool for SQL Database backup and restore which can be found here: [http://www.red-gate.com/products/dba/sql-azure-backup/].
 
-SQL Database Data Sync enables you to easily create and schedule
+SQL Data Sync enables you to easily create and schedule
 bi-directional synchronizations from within the Data Sync web site
 without the need to write a single line of code. You can find more
 information here:
