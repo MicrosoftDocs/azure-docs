@@ -215,7 +215,7 @@ To connect to the MySQL database that is running in Windows Azure Websites, your
 
 ##Publish your application
 
-After you have tested your application locally, you can publish it to your Windows Azure Website using Git. However, you first need to update the database connection information in the application. Using the database connection information you obtained earlier (in the **Get MySQL connection information** section), update the following information in **both** the `createdatabase.php` and `index.php` files with the appropriate values:
+After you have tested your application locally, you can publish it to your Windows Azure Website using Git. However, you first need to update the database connection information in the application. Using the database connection information you obtained earlier (in the **Get MySQL connection information** section), update the following information in **both** the `createtable.php` and `index.php` files with the appropriate values:
 
 	// DB connection info
 	$host = "value of Data Source";
