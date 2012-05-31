@@ -156,7 +156,9 @@ For details on managing/deploying services, please see [How to use the Windows A
 
 [IPython - an advanced REPL/Notebook for Python]: http://ipython.org
 
-[IPython on Azure]: ../tutorials/azure-ipython.md
+
+[IPython on Azure]: ../tutorials/azure-ipython
+
 
 [Python Tools for Visual Studio on CodePlex]: http://pytools.codeplex.com 
 
@@ -166,9 +168,9 @@ For details on managing/deploying services, please see [How to use the Windows A
 
 
 
-[Setting up a Linux VM via the Azure portal]: ../../../shared/chunks/create-and-configure-opensuse-vm-in-portal.md
+[Setting up a Linux VM via the Azure portal]: ../../../shared/chunks/create-and-configure-opensuse-vm-in-portal
 
-[How to use the Windows Azure Command-Line Tools for Mac and Linux]: ../../shared/chunks/crossplat-cmd-tools.md
+[How to use the Windows Azure Command-Line Tools for Mac and Linux]: ../../shared/chunks/crossplat-cmd-tools
 
 [how-to-install-python-webpi-1.png]: ../Media/how-to-install-python-webpi-1.png 
 [how-to-install-Python-webpi-2.png]: ../Media/how-to-install-Python-webpi-2.png
