@@ -31,7 +31,7 @@ A screenshot of the completed application is below:
  1. Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
  1. Click *ADD ENDPOINT* button at the bottom of the screen.
 ![][add endpoint]
- 1. Open up the *TCP* protocol's *PUBLIC PORT* **80** as *PRIVATE PORT* **8000**.
+ 1. Open up the *TCP* protocol's *PUBLIC PORT 80* as *PRIVATE PORT 8000*.
 ![][port80]
 * Use Windows *Remote Desktop* to remotely log into the newly created Windows Azure virtual machine.  
 
@@ -39,9 +39,9 @@ A screenshot of the completed application is below:
 
 ## <a id="setup"> </a>Setting up the development environment
 
-To set up your Python and Django environments, please see the [Installation Guide][] for more information.
+To set up your Python and Django environments, please see the [Installation Guide][] for more information.  
 
-*Note for Windows*: if you used the Windows WebPI installer, you already have Django and the Client Libs installed.
+**Note:** you *only* need to install the **Django** product from the Windows WebPI installer on the Windows Azure virtual machine to get *this* particular tutorial operational.
 
 ## Creating a new Django application
 
@@ -100,9 +100,9 @@ We recommend using Windows PowerShell for developing your Windows Azure applicat
         Development server is running at http://123.34.56.78:8000
         Quit the server with CTRL-BREAK.
  
-    From your local web browser, open **http://*yourVmName*.cloudapp.net** (where *yourVmName* is whatever name you used in the virtual machine creation step). You should see “Hello World!” displayed as shown in the screenshot below. This indicates that Django is running in the virtual machine and is working correctly.
+1. From your local web browser, open **http://*yourVmName*.cloudapp.net** (where *yourVmName* is whatever name you used in the virtual machine creation step). You should see “Hello World!” displayed as shown in the screenshot below. This indicates that Django is running in the virtual machine and is working correctly.
 
-    ![A web browser displaying the Hello World web page on emulator][]
+    ![A browser window displaying the hello world page on Windows Azure][]
 
 1.  To stop Django from hosting the website, simply switch to the PowerShell window and press **CTRL-C**.
 
@@ -134,7 +134,7 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [add endpoint]: ../Media/mysql_tutorial02-1.png
 [port80]: ../Media/django-helloworld-port80.png
 [preview-portal]: https://manage.windowsazure.com
-[preview-portal-vm]: /manage/windows/tutorials/virtual-machine-from-gallery/
+[preview-portal-vm]: /en-us/manage/windows/tutorials/virtual-machine-from-gallery/
 
 
 [Installation Guide]: ../commontasks/how-to-install-python
