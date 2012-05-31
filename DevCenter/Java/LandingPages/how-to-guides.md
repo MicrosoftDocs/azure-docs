@@ -12,7 +12,7 @@ Service Bus Queues offer simple first in, first out guaranteed message delivery 
 
 ### [Service Bus Topics][service_bus_topics]
 
-Service Bus Topics provide a publish/subscribe messaging model to support one-to-many communication. You can optionally register filter rules for a topic on a per-subscription basis, which allows you to estrict which messages to a topic are received by which topic subscriptions.
+Service Bus Topics provide a publish/subscribe messaging model to support one-to-many communication. You can optionally register filter rules for a topic on a per-subscription basis, which allows you to restrict which messages to a topic are received by which topic subscriptions.
 
 ### [Queue Service][queue_service]
 

@@ -141,7 +141,7 @@ More information about TwiML can be found at [http://www.twilio.com/docs/api/twi
 ## Next steps
 This code was provided to show you basic functionality using Twilio in an ASP.NET web role on Windows Azure. Before deploying to Windows Azure in production, you may want to add more error handling or other features. For example:
 
-* Instead of using a web form, you could use Windows Azure storage blobs or SQL Azure to store phone numbers and call text. For information about using Windows Azure storage blobs, see [How to Use the Blob Storage Service][howto_blob_storage_dotnet]. For information about using SQL Azure, see [How to Use SQL Azure][howto_sql_azure_dotnet].
+* Instead of using a web form, you could use Windows Azure storage blobs or SQL Database to store phone numbers and call text. For information about using Windows Azure storage blobs, see [How to Use the Blob Storage Service][howto_blob_storage_dotnet]. For information about using SQL Database, see [How to Use SQL Database][howto_sql_azure_dotnet].
 * You could use RoleEnvironment.getConfigurationSettings to retrieve the Twilio account ID and authentication token from your deployment’s configuration settings, instead of hard-coding the values in your form. For information about the RoleEnvironment class, see [Microsoft.WindowsAzure.ServiceRuntime Namespace][azure_runtime_ref_dotnet].
 * Read the Twilio security guidelines at [https://www.twilio.com/docs/security][twilio_docs_security].
 

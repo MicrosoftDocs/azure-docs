@@ -25,7 +25,7 @@ The [Apache Hadoop software library](http://hadoop.apache.org/) is a framework t
 Service Bus Queues offer simple first in, first out guaranteed message delivery and support a range of standard protocols (REST, AMQP, WS*) and APIs to put and pull messages on and off a queue.
 
 ### [Service Bus Topics](/en-us/develop/net/how-to-guides/service-bus-topics/ "Service Bus Topics") ###
-Service Bus Topics provide a publish/subscribe messaging model to support one-to-many communication. You can optionally register filter rules for a topic on a per-subscription basis, which allows you to estrict which messages to a topic are received by which topic subscriptions.
+Service Bus Topics provide a publish/subscribe messaging model to support one-to-many communication. You can optionally register filter rules for a topic on a per-subscription basis, which allows you to restrict which messages to a topic are received by which topic subscriptions.
 
 ### [Queue Service](/en-us/develop/net/how-to-guides/queue-service/ "Queue Service") ###
 Windows Azure Queues store large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. Common uses of Queue storage include creating a backlog of work to process asynchronously, and passing messages from a Windows Azure Web role to a Windows Azure Worker role.

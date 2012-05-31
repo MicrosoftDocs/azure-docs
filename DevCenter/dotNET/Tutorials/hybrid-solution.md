@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-net-tutorials-hybrid-solution" urldisplayname="Hybrid Application" headerexpose="" pagetitle="Hybrid On-Premise /Cloud Application" metakeywords="Azure Service Bus tutorial, Azure Service Bus relay tutorial, Azure hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop an application that uses the Windows Azure Service Bus relay to connect between two applications." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-tutorials-hybrid-solution" urldisplayname="Hybrid Application" headerexpose="" pagetitle="Hybrid On-Premise /Cloud Application" metakeywords="Azure Service Bus tutorial, Azure Service Bus relay tutorial, Azure hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop an application that uses the Windows Azure Service Bus relay to connect between two applications." umbraconavihide="0" disquscomments="1"></properties>
 
 # .NET On-Premises/Cloud Hybrid Application Using Service Bus Relay
 
@@ -717,7 +717,7 @@ Run the application to verify that it works.
     The following steps show you how to stop and delete your
     application.
 
-    1.  Login to the Windows Azure Platform Management Portal,
+    1.  Login to the Windows Azure Management Portal,
         http://windows.azure.com, and click on Hosted Sevices, Storage
         Accounts & CDN, then Hosted Services:
 
