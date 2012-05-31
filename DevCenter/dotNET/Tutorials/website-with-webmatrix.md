@@ -66,7 +66,7 @@ You will learn:
 
 	The URL for the web site can also be found in the Windows Azure portal by clicking **Web Sites** to display all web sites created by the logged on account. The URL for each web site is displayed in the URL column on the web sites page.
 
-
+[webmatrix]: http://www.microsoft.com/web/webmatrix/
 
 [installwebplat3]: ../../../Shared/Media/howtoWebPI3installer.png
 [runorsavewebmatrix]: ../../../Shared/Media/howtorunorsavewebmatrix.png
