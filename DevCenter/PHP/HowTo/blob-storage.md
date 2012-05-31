@@ -66,7 +66,7 @@ You will pass this `Configuration` instance (`$config`) to other objects when us
 
 <h2 id="CreateContainer">How to: Create a container</h2>
 
-A **BlobService** object lets you create a blob container with the **createContainer** method. When creating a container, you can set options on the container, but doing so is not required. (The example below shows how to set the container ACL and container metadata.)
+A **BlobRestProxy** object lets you create a blob container with the **createContainer** method. When creating a container, you can set options on the container, but doing so is not required. (The example below shows how to set the container ACL and container metadata.)
 
 	require_once 'WindowsAzure.php';
 
@@ -207,7 +207,7 @@ To download a blob, call the **BlobRestProxy->getBlob** method, then call the **
 		echo $code.": ".$error_message."<br />";
 	}
 
-Note that the example above gets a blob as a stream resouce (the default behavior). However, you can use the [stream\_get\_contents][stream-get-contents] function to convert the returned stream to a string.
+Note that the example above gets a blob as a stream resource (the default behavior). However, you can use the [stream\_get\_contents][stream-get-contents] function to convert the returned stream to a string.
 
 <h2 id="DeleteBlob">How to: Delete a Blob</h2>
 

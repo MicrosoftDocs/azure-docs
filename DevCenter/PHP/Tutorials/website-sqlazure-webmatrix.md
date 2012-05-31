@@ -187,7 +187,7 @@ You can easily modify and republish your application. Here, you will make a simp
 
 1. Open the `index.php` file by double-clicking it.
 
-2. Change 'My ToDo List` to `My Task List` in the `h1` tag and save the file.
+2. Change **My ToDo List** to **My Task List** in the **h1** tag and save the file.
 
 3. Click the **Publish** icon, the click **Continue** in the **Publish Preview** dialog.
 

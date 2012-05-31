@@ -53,7 +53,7 @@ Follow these steps to create a Windows Azure Website and a MySQL database:
 
 	![Creating Git repository][creating-repo]
 
-9. When your repository is ready, you will see instructions for pushing your application files to the repository. Make note of these instruction - they will be needed later.
+9. When your repository is ready, you will see instructions for pushing your application files to the repository. Make note of these instructions - they will be needed later.
 
 	![Git instructions][git-instructions]
 
@@ -119,7 +119,7 @@ To build and run the application locally, follow the steps below. Note that thes
 			h2 { font-size: 1.75em; }
 			h3 { font-size: 1.2em; }
 			table { margin-top: 0.75em; }
-			th { font-size: 1.2em; text-align: left; border: none 0px; padding-left: 0; }
+			th { font-size: 1.2em; text-align: left; border: none; padding-left: 0; }
 			td { padding: 0.25em 2em 0.25em 0em; border: 0 none; }
 		</style>
 		</head>
@@ -158,7 +158,7 @@ To build and run the application locally, follow the steps below. Note that thes
 	<p>Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.</p> 
 	</div>
 
-7. Following the database connection code, add code for adding registration information to the database.
+7. Following the database connection code, add code for inserting registration information into the database.
 
 		if(!empty($_POST)) {
 		try {

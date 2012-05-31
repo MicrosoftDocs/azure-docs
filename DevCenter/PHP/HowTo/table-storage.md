@@ -43,7 +43,7 @@ To use the Windows Azure Table service APIs to access Tables, you need to:
 1. Reference the `WindowsAzure.php` file (from the Windows Azure SDK for PHP) using the [require_once][require_once] statement, and
 2. Reference any classes you might use.
 
-The following example shows how to include the `WindowsAzure.php` file and reference the TableService class:
+The following example shows how to include the `WindowsAzure.php` file and reference the **TableService** class:
 
 	require_once 'WindowsAzure.php';
 
@@ -70,7 +70,7 @@ You will pass this `Configuration` instance (`$config`) to other objects when us
 
 <h2 id="CreateTable">How to: create a table</h2>
 
-An **TableRestProxy** object lets you create a table with the **createTable** method. When creating a table, you can set the Table Service timeout. (For more information about the table service timeout, see [Setting Timeouts for Table Service Operations][table-service-timeouts].) If you attempt to create a table that already exists, an exception will be thrown and should be handled appropriately. (For more information about error codes, see [Table Service Error Codes][table-error-codes].)
+A **TableRestProxy** object lets you create a table with the **createTable** method. When creating a table, you can set the Table Service timeout. (For more information about the table service timeout, see [Setting Timeouts for Table Service Operations][table-service-timeouts].)
 
 	require_once 'WindowsAzure.php';
 
@@ -291,7 +291,8 @@ A query can retrieve a subset of entity properties. This technique, called *proj
 		echo $code.": ".$error_message."<br />";
 	}
 	
-	// All entities in the table are returned, regardless of whether they have the Description field.
+	// All entities in the table are returned, regardless of whether 
+	// they have the Description field.
 	// To limit the results returned, use a filter.
 	$entities = $result->getEntities();
 
@@ -302,7 +303,7 @@ A query can retrieve a subset of entity properties. This technique, called *proj
 
 <h2 id="UpdateEntity">How to: Update an entity</h2>
 
-An existing entity can be updated by using the **Entity->setProperty** and **Entity->addProperty** methods on the entity, and then calling **TableRestProxy->updateEntity**. The following example retrieves an entity, modifies one property, removes another property, and adds a new property. Note that removing a property is setting its value to **null**. 
+An existing entity can be updated by using the **Entity->setProperty** and **Entity->addProperty** methods on the entity, and then calling **TableRestProxy->updateEntity**. The following example retrieves an entity, modifies one property, removes another property, and adds a new property. Note that removing a property is done by setting its value to **null**. 
 
 	require_once 'WindowsAzure.php';
 	
