@@ -154,4 +154,6 @@ you can click on the link below DNS Name to view your web site running in the cl
 
 ![Your Django app in the cloud](../Media/ptvs-dj-FirstAppInCloud.png)
 
-[How to Install Python]: ../commontasks/how-to-install-python.md 
+
+[How to Install Python]: ../commontasks/how-to-install-python
+

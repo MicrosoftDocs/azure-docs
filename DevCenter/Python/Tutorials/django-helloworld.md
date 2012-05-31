@@ -142,4 +142,5 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [preview-portal]: https://manage.windowsazure.com
 [preview-portal-vm]: /manage/windows/tutorials/virtual-machine-from-gallery/
 
-[Installation Guide]: ../commontasks/how-to-install-python.md
+
+[Installation Guide]: ../commontasks/how-to-install-python
