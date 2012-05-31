@@ -51,66 +51,66 @@ This tutorial walks you through the steps to install an additional domain contro
 
 5.	Verify that the server is assigned a static IP address. 
 
-	![VerifystaticIPaddressyourPrimaryDC1] (../media/VerifystaticIP.png)
+	![VerifystaticIPaddressyourPrimaryDC1] (./media/VerifystaticIP.png)
 
 
 <h2 id="installforest">Step 2: Install Corp forest</h2>
 
 1.	In the RDP session for the VM, click **Start**, type **dcpromo**, and press ENTER.
 
-	![InstallCorpForest1] (../media/InstallCorpForest1.png)
+	![InstallCorpForest1] (./media/InstallCorpForest1.png)
 
 
 2.	On the Welcome page, click **Next**.
 
-	![InstallCorpForest2](../media/InstallCorpForest2.png)
+	![InstallCorpForest2](./media/InstallCorpForest2.png)
 
 
 
 3.	On the Operating System Compatibility page, click **Next**.
 
-	![InstallCorpForest3](../media/InstallCorpForest3.png)
+	![InstallCorpForest3](./media/InstallCorpForest3.png)
 
 4.	On the Choose a Deployment Configuration page, click **Create a new domain in a new forest**, and click **Next**. 
 
-	![InstallCorpForest4](../media/InstallCorpForest4.png)
+	![InstallCorpForest4](./media/InstallCorpForest4.png)
 
 
 5.	On the Name the Forest Root Domain page, type **corp.contoso.com** the fully qualified domain name (FQDN) of the forest root domain and click **Next**. 
 
-	![InstallCorpForest5](../media/InstallCorpForest5.png)
+	![InstallCorpForest5](./media/InstallCorpForest5.png)
 
 
 6.	On the Set Forest Functional level page, click **Windows Server 2008 R2** and then click **Next**.
 
-	![InstallCorpForest6](../media/InstallCorpForest6.png)
+	![InstallCorpForest6](./media/InstallCorpForest6.png)
 
 7.	On the Additional Domain Controller Options page, click **DNS server** and click **Next**.
 
-	![InstallCorpForest7](../media/InstallCorpForest7.png)
+	![InstallCorpForest7](./media/InstallCorpForest7.png)
 
 8.	If the following DNS delegation warning appears, click **Yes**.
 
-	![InstallCorpForest8](../media/InstallCorpForest8.png)
+	![InstallCorpForest8](./media/InstallCorpForest8.png)
 
 
 9.	On the Location for Active Directory database, log files and SYSVOL page, type or select the location for the files and click **Next**.
 
-	![InstallCorpForest9](../media/InstallCorpForest9.png)
+	![InstallCorpForest9](./media/InstallCorpForest9.png)
 
 
 10.	On the Directory Services Restore Administrator page, type and confirm the DSRM password and click **Next**.
 
-	![InstallCorpForest10](../media/InstallCorpForest10.png)
+	![InstallCorpForest10](./media/InstallCorpForest10.png)
 
 
 11.	On the Summary page, confirm your selections and click **Next**. 
 
-	![InstallCorpForest11](../media/InstallCorpForest11.png)
+	![InstallCorpForest11](./media/InstallCorpForest11.png)
 
 12.	After the Active Directory Installation Wizard finishes, click **Finish** and then click **Restart Now** to complete the installation. 
 
-	![InstallCorpForest12](../media/InstallCorpForest12.png)
+	![InstallCorpForest12](./media/InstallCorpForest12.png)
 
 
 
@@ -119,73 +119,73 @@ This tutorial walks you through the steps to install an additional domain contro
 1.	On YourPrimaryDC, click Start, click Administrative Tools and then click Active Directory Sites and Services.
 2.	Click **Sites**, right-click **Subnets**, and then click **New Subnet**.
 
-	![CreateSubnetsandSites1](../media/CreateSubnetsandSites1.png)
+	![CreateSubnetsandSites1](./media/CreateSubnetsandSites1.png)
 
 3.	In **Prefix::**, type **10.1.0.0/24**, select the **Default-First-Site-Name** site object and click **OK**.
 
-	![CreateSubnetsandSites2](../media/CreateSubnetsandSites2.png)
+	![CreateSubnetsandSites2](./media/CreateSubnetsandSites2.png)
 
 
 4.	Right-click **Sites** and click **New Site**.
 
-	![CreateSubnetsandSites3](../media/CreateSubnetsandSites3.png)
+	![CreateSubnetsandSites3](./media/CreateSubnetsandSites3.png)
 
 
 5.	In Name:, type **CloudSite**, select **DEFAULTIPSITELINK** and click **OK**. 
 
-	![CreateSubnetsandSites4](../media/CreateSubnetsandSites4.png)
+	![CreateSubnetsandSites4](./media/CreateSubnetsandSites4.png)
 
 
 6.	Click **OK** to confirm the site was created. 
 
-	![CreateSubnetsandSites5](../media/CreateSubnetsandSites5.png)
+	![CreateSubnetsandSites5](./media/CreateSubnetsandSites5.png)
 
 7.	Right-click **Subnets**, and then click **New Subnet**.
 
-	![CreateSubnetsandSites6](../media/CreateSubnetsandSites6.png)
+	![CreateSubnetsandSites6](./media/CreateSubnetsandSites6.png)
 
 8.	In **Prefix::**, type **10.4.2.0/24**, select the **CloudSite** site object and click **OK**.
 
-	![CreateSubnetsandSites7](../media/CreateSubnetsandSites7.png)
+	![CreateSubnetsandSites7](./media/CreateSubnetsandSites7.png)
 
 
 <h2 id="cloudsite">Step 4: Install an additional domain controller in the CloudSite</h2>
 
 1.	Log on to YourVMachine, click **Start**, type **dcpromo**, and press ENTER.
 
-	![AddDC1](../media/AddDC1.png)
+	![AddDC1](./media/AddDC1.png)
 
 2.	On the Welcome page, click **Next**.
 
-	![AddDC2](../media/AddDC2.png)
+	![AddDC2](./media/AddDC2.png)
 
 
 3.	On the Operating System Compatibility page, click **Next**.
 
-	![AddDC3](../media/AddDC3.png)
+	![AddDC3](./media/AddDC3.png)
 
 4.	On Choose a Deployment Configuration page, click **Existing forest**, click **Add a domain controller to an existing domain**, and click **Next**.
 
-	![AddDC4](../media/AddDC4.png)
+	![AddDC4](./media/AddDC4.png)
 
 
 5.	On the Network Credentials page, make sure you are installing the domain controller in **corp.contoso.com** domain and type credentials of a member of the Domain Admins group (or use corp\administrator credentials). 
 
-	![AddDC5](../media/AddDC5.png)
+	![AddDC5](./media/AddDC5.png)
 
 
 6.	On the Select a Domain page, click **Next**. 
 
-	![AddDC6](../media/AddDC6.png)
+	![AddDC6](./media/AddDC6.png)
 
 
 7.	On the Select a Site page, make sure that CloudSite is selected and click **Next**.
 
-	![AddDC7](../media/AddDC7.png)
+	![AddDC7](./media/AddDC7.png)
 
 8.	On the Additional Domain Controller Options page, click **Next**. 
 
-	![AddDC8](../media/AddDC8.png)
+	![AddDC8](./media/AddDC8.png)
 
 
 9.	On the Static IP assignment warning, click **Yes, the computer will use an IP address automatically assigned by a DHCP server (not recommended)**
@@ -194,28 +194,28 @@ This tutorial walks you through the steps to install an additional domain contro
 
  Although the IP address on the Windows Azure Virtual Network is dynamic, its lease lasts for the duration of the VM. Therefore, you do not need to set a static IP address on the domain controller that you install on the virtual network. Setting a static IP address in the VM will cause communication failures.
 
-	![AddDC9](../media/AddDC9.png)
+	![AddDC9](./media/AddDC9.png)
 
 10.	When prompted about the DNS delegation warning, click **Yes**.
 
-	![AddDC10](../media/AddDC10.png)
+	![AddDC10](./media/AddDC10.png)
 
 
 11.	On the Location for Active Directory database, log files and SYSVOL page, click Browse and type or select a location on the data disk for the Active Directory files and click **Next**. 
 
-	![AddDC11](../media/AddDC11.png)
+	![AddDC11](./media/AddDC11.png)
 
 12.	On the Directory Services Restore Administrator page, type and confirm the DSRM password and click **Next**.
 
-	![AddDC12](../media/AddDC12.png)
+	![AddDC12](./media/AddDC12.png)
 
 13.	On the Summary page, click **Next**.
 
-	![AddDC13](../media/AddDC13.png)
+	![AddDC13](./media/AddDC13.png)
 
 14.	After the Active Directory Installation Wizard finishes, click **Finish** and then click **Restart Now** to complete the installation. 
 
-	![AddDC14](../media/AddDC14.png)
+	![AddDC14](./media/AddDC14.png)
 
 
 <h2 id="validate">Step 5: Validate the installation</h2>
@@ -264,7 +264,7 @@ The example below demonstrates how you can automatically provision new virtual m
 
 7.	Select the destination drive that does not host the operating system files or the Active Directory database, and click Next.
 
-	![BackupDC](../media/BackupDC.png)
+	![BackupDC](./media/BackupDC.png)
 
 
 8.	Click OK if necessary to confirm if the destination volume is included in the backup and then click Backup.
