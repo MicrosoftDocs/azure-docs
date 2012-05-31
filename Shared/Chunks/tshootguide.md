@@ -1,4 +1,4 @@
-Troubleshooting in Windows Azure
+#Troubleshooting in Windows Azure
 
 *Troubleshooting* refers to the general task of locating and
 understanding unexpected application behavior and correcting it. When developing applications, developers test, run, and debug
