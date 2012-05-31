@@ -1,10 +1,10 @@
-<properties linkid="dev-net-common-tasks-team-foundation-service" urldisplayname="Team Foundation Service" headerexpose pagetitle="Continuous Delivery of a Cloud Service by Using Team Foundation Service" metakeywords footerexpose metadescription umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-net-common-tasks-team-foundation-service" urldisplayname="Team Foundation Service" headerexpose="" pagetitle="Continuous Delivery of a Cloud Service by Using Team Foundation Service" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # Continuous Delivery of a Cloud Service by Using Team Foundation Service Preview
 
 Microsoft Team Foundation Service Preview is a cloud-hosted service version of Microsoft’s popular Team Foundation Server (TFS) software that provides highly customizable source code and build management, agile development and team process workflow, issue and work item tracking, and more.  You can configure your Team Foundation Service team projects to automatically build and deploy to Windows Azure websites or cloud services.  
 
-This tutorial assumes you have Visual Studio 2012 RC installed. If you don’t already have Visual Studio 2012 RC, download it [here](http://www.microsoft.com/visualstudio/11/en-us/downloads).
+This tutorial assumes you have Visual Studio 2012 RC and the Windows Azure SDK installed. If you don’t already have Visual Studio 2012 RC, download it [here](http://www.microsoft.com/visualstudio/11/en-us/downloads). You can use Visual Studio 2010, but you must have SP1 installed and you must install the [Compatibility GDR](http://www.microsoft.com/en-us/download/details.aspx?Id=29082).  Install the Windows Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 To set up a cloud service to automatically build and deploy to Windows Azure by using Team Foundation Service Preview, follow these steps:
 
@@ -22,7 +22,12 @@ To set up a cloud service to automatically build and deploy to Windows Azure by 
 5. Click the **Open new instance in Visual Studio** link to automatically launch Visual Studio connected to your team project. If you see any security dialog boxes, choose Allow.<br/>
 ![][4]
 
-6. In Visual Studio, open the Windows Azure Application (Cloud Service) solution for your cloud service. Or, create a new Windows Azure Cloud Service project that targets .NET Framework 4. Add an ASP.NET MVC 4 web role, choose **Internet Application**, and a worker role.
+6. In Visual Studio, open the solution you want to deploy, or create a new one.
+You can deploy a website or a cloud service (Windows Azure Application) by following the steps in this walkthrough.
+If you want to create a new solution, you can either create a new Windows Azure Cloud Service project,
+or a new ASP.NET MVC4 project. If you create a new cloud service, make sure that it targets .NET Framework 4,
+and add an ASP.NET MVC 4 web role and a worker role. When prompted, choose **Internet Application**.
+If you want to create a website, choose the ASP.NET MVC4 Application project template.
 
 7. Open the shortcut menu for the solution, and select **Add Solution to Source Control**.<br/>
 ![][5]
@@ -39,7 +44,7 @@ To set up a cloud service to automatically build and deploy to Windows Azure by 
 Note the options to include or exclude specific changes when you check in. If desired changes are excluded, choose the **Include All** link.<br/>
 ![][9]
 
-11. Now that you have a TFS team project with some source code in it, you are ready to connect your team project to Windows Azure.  In the [Windows Azure Preview Portal](http://preview.azure.com), select your cloud service or create a new one by selecting the + icon at the bottom left and choosing **Cloud Service** and then **Quick Create**. Choose the **Set up Visual Studio Team Foundation Server publishing** link.<br/>
+11. Now that you have a TFS team project with some source code in it, you are ready to connect your team project to Windows Azure.  In the [Windows Azure Preview Portal](http://manage.windowsazure.com), select your cloud service or web site, or create a new one by selecting the + icon at the bottom left and choosing **Cloud Service** or **Web Site** and then **Quick Create**. Choose the **Set up Visual Studio Team Foundation Server publishing** link.<br/>
 ![][10]
 
 12. In the wizard, type the name of your TFS account in the textbox and click the **Authorize Now** link.<br/>
@@ -90,7 +95,7 @@ The Team Explorer shows that a build has been triggered for your check-in.<br/>
 In the **Trigger** tab, you will see that the build definition is set to build on every check-in by default.<br/>
 ![][26]
 <br/>
-In the **Process** tab, you can see the deployment environment is set to the name of your cloud service.<br/>
+In the **Process** tab, you can see the deployment environment is set to the name of your cloud service or web site.<br/>
 ![][27]
 
 25.	By this time, your build should be completed successfully.<br/>
@@ -99,10 +104,10 @@ In the **Process** tab, you can see the deployment environment is set to the nam
 26. If you double-click the build name, Visual Studio shows a **Build Summary**, including any test results from associated unit test projects.<br/>
 ![][29]
 
-27. In the [Windows Azure Preview Portal](http://preview.azure.com), you can view the associated deployment.<br/>
+27. In the [Windows Azure Preview Portal](http://manage.windowsazure.com), you can view the associated deployment.<br/>
 ![][30]
 
-28.	Choose the URL in the **Quick Glance** section of the **Dashboard** page that shows the Staging environment. Deployments from continuous integration are published to the staging environment.<br/>
+28.	Choose the URL in the **Quick Glance** section of the **Dashboard** page that shows the web site or the Staging environment for a cloud service. Deployments from continuous integration for cloud services are published to the Staging environment by default. <br/>
 ![][31]
 <br/>
 A new browser tab will open to reveal your running site.<br/>
@@ -114,11 +119,11 @@ A new browser tab will open to reveal your running site.<br/>
 30. Select an earlier deployment and click the **Redeploy** button to rewind your site to an earlier check-in.  Note that this will trigger a new build in TFS, and create a new entry in your deployment history.<br/>
 ![][34]
 
-31. When you are ready, you can promote the staging environment to the production environment by choosing the Swap button. The newly deployed Staging environment is promoted to Production, and the previous Production enviroment, if any, becomes a Staging environment.<br/>
+31. This step applies only to cloud services, not web sites. When you are ready, you can promote the Staging environment to the production environment by choosing the Swap button. The newly deployed Staging environment is promoted to Production, and the previous Production enviroment, if any, becomes a Staging environment.<br/>
 ![][35]
 
 For more information, see [Team Foundation Service](http://go.microsoft.com/fwlink/?LinkId=253861).
-For information on how to set up a continuous build and deploy system using an on-premises Team Foundation Server, see [Continuous Delivery for Cloud Applications in Windows Azure](http://www.windowsazure.com/en-us/develop/net/common-tasks/continuous-delivey/).
+For information on how to set up a continuous build and deploy system using an on-premises Team Foundation Server, see [Continuous Delivery for Cloud Applications in Windows Azure](http://www.windowsazure.com/en-us/develop/net/common-tasks/continuous-delivery/).
 
 [1]: ../../../DevCenter/dotNet/Media/tfs1.png
 [2]: ../../../DevCenter/dotNet/Media/tfs2.png
