@@ -1,5 +1,5 @@
 <properties linkid="dev-python-mysql" urlDisplayName="Web App with MySQL" headerExpose="" pageTitle="Django Hello World - MySQL Edition" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
-# Django Hello World - MySQL Edition #
+# Django Hello World - MySQL Windows Edition #
   
 This tutorial describes how to use MySQL in conjunction with Django on a single Windows Azure virtual machine. This guide assumes that you have some prior experience using Windows Azure and Django. For an introduction to Windows Azure and Django, see [Django Hello World] [djangohelloworld]. The guide also assumes that you have some knowledge of MySQL. For an overview of MySQL, see the [MySQL website][mysqldoc].
 
@@ -18,13 +18,13 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 
 ## Setting up a virtual machine to host MySQL and Django
 - Follow the instructions given [here][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Windows Server 2008 R2* flavor.
+
 - Open up a TCP port for MySQL transactions on the virtual machine:
  1. Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
  1. Click *ADD ENDPOINT* button at the bottom of the screen.
-![][6]
-
+  ![][6]
  1. Open up the *TCP* protocol's *PUBLIC PORT* **3306** as *PRIVATE PORT* **3306**.
-![][8]
+  ![][8]
 
 - Duplicate the previous *ENDPOINT* addition, this time opening up *TCP*'s *PUBLIC PORT 80* as *PRIVATE PORT 8000*.  This redirects external Internet requests to the default port Django runs on, namely *8000*.
 
@@ -189,27 +189,24 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 		    return HttpResponse("<html><body>Hello <em>" + world + "</em></body></html>")
 
 
-
-
-
 ## Deploying and running your Django website
 
 1.  Switch back to a Windows PowerShell window, and type the following commands to deploy your Django website publically:
 
-        PS C:\django\helloworld> $ipPort = [System.Net.Dns]::GetHostEntry("127.0.0.1")
-        PS C:\django\helloworld> $ipPort = [string]$ipPort.AddressList[1]
-        PS C:\django\helloworld> $ipPort += ":8000"
-        PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
+		PS C:\django\helloworld> $ipPort = [System.Net.Dns]::GetHostEntry("127.0.0.1")
+		PS C:\django\helloworld> $ipPort = [string]$ipPort.AddressList[1]
+		PS C:\django\helloworld> $ipPort += ":8000"
+		PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
 
     The **runserver** parameter instructs Django to run our *helloworld* website on TCP port *8000*. The results of this command should be similar to:
 
-        PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
-        Validating models...
-        
-        0 errors found
-        Django version 1.4, using settings 'helloworld.settings'
-        Development server is running at http://123.34.56.78:8000
-        Quit the server with CTRL-BREAK.
+		PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
+		Validating models...
+		
+		0 errors found
+		Django version 1.4, using settings 'helloworld.settings'
+		Development server is running at http://123.34.56.78:8000
+		Quit the server with CTRL-BREAK.
  
 1. From your local web browser, open **http://*yourVmName*.cloudapp.net** (where *yourVmName* is whatever name you used in the virtual machine creation step). You should see “Hello World!” displayed as shown in the screenshot below. This indicates that Django is running in the virtual machine and is working correctly.
 
