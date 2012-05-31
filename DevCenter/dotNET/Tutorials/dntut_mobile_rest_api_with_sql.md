@@ -590,7 +590,7 @@ Here are some things to be aware of when you plan and develop an ASP.NET applica
 
 You've seen how to deploy a web application that implements RESTful web API to a Windows Azure Web Site. To learn more about how to configure, manage, and scale Windows Azure Web Sites, see the how-to topics on the [Common Tasks][CommonTasks] page.
 
-Another way to store data in a Windows Azure application is to use Windows Azure Storage Services, which provides non-relational data storage in the form of blobs and tables. The Contact Manager application could have been designed to use Windows Azure Storage instead of SQL Database. For more information about both SQL Database and Windows Azure Storage, see [Data Storage Offerings on the Windows Azure Platform][WindowsAzureDataStorageOfferings].
+Another way to store data in a Windows Azure application is to use Windows Azure Storage Services, which provides non-relational data storage in the form of blobs and tables. The Contact Manager application could have been designed to use Windows Azure Storage instead of SQL Database. For more information about both SQL Database and Windows Azure Storage, see [Data Storage Offerings on the Windows Azure][WindowsAzureDataStorageOfferings].
 
 To learn more about how to use SQL Database, see the following resources:
 
@@ -658,9 +658,6 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [newapp004.1]: ../Media/dntutmobile-createapp-004.1.png
 [newapp004.2]: ../Media/dntutmobile-createapp-004.2.png
 [newapp005]: ../Media/dntutmobile-createapp-005.png
-[newapp006]: ../Media/dntutmobile-setup-add-nuget-jquery-package.png
-[newapp007]: ../Media/dntutmobile-setup-manage-nuget-package.png
-[newapp008]: ../Media/dntutmobile-setup-manage-nuget-package-2.png
 [firsdeploy001]: ../Media/dntutmobile-deploy1-download-profile.png
 [firsdeploy002]: ../Media/dntutmobile-deploy1-save-profile.png
 [firsdeploy003]: ../Media/dntutmobile-deploy1-publish-001.png
@@ -673,10 +670,6 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [adddb001]: ../Media/dntutmobile-adddatabase-001.png
 [adddb001.1]: ../Media/dntutmobile-adddatabase-001.1.png
 [adddb002]: ../Media/dntutmobile-adddatabase-002.png
-[migrations001]: ../Media/dntutmobile-migrations-tools-context.png
-[migrations002]: ../Media/dntutmobile-migrations-output.png
-[migrations003]: ../Media/dntutmobile-migrations-solution-explorer-migrations-folder.png
-[migrations004]: ../Media/dntutmobile-migrations-code-output.png
 [addcode001]: ../Media/dntutmobile-controller-add-context-menu.png
 [addcode002]: ../Media/dntutmobile-controller-add-controller-dialog.png
 [addcode002.1]: ../Media/dntutmobile-controller-002.1.png
