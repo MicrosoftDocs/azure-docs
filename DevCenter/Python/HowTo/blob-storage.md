@@ -119,7 +119,7 @@ All storage blobs reside in a container. You can use a **CloudBlobClient** objec
 
 	blob_client.create_container('mycontainer')
 
-By default, the new container is private, so you must specify your storage account key (as you did above) to download blobs from this container. If you want to make the files within the container available to everyone, you can create the container and pass the public access level using the following code:
+By default, the new container is private, so you must specify your storage access key (as you did above) to download blobs from this container. If you want to make the files within the container available to everyone, you can create the container and pass the public access level using the following code:
 
 	blob_client.create_container('mycontainer', x_ms_blob_public_access='container') 
 

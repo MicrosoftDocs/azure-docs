@@ -93,7 +93,7 @@ This will start your Python interpreter running Django's manage.py to run the te
 
 ![Debugger stopped at a template breakpoint](../Media/ptvs-dj-TemplateBreakpoint.png)
 
-You can now **click the stop button** and move onto running in the Azure compute emulator.
+You can now **click the stop button** and move onto running in the Windows Azure compute emulator.
 
 ## Running Your Application Locally in the Emulator	
 
@@ -115,7 +115,7 @@ When running in the compute emulator you can rapidly iterate on your application
 
 ## Deploying the Application to Windows Azure
 
-Now you're ready to deploy the project to Windows Azure. To do this all you need to do is right clicking the Azure deployment project in Solution Explorer and **selecting Publish**:
+Now you're ready to deploy the project to Windows Azure. To do this all you need to do is right clicking the Windows Azure deployment project in Solution Explorer and **selecting Publish**:
 
 ![Package App Menu](../Media/ptvs-dj-publish1.png)
 
