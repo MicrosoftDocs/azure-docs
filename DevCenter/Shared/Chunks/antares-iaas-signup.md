@@ -13,7 +13,7 @@
 
 [open preview features tab]: ../media/antares-iaas-preview-01.png
 [select a preview feature]: ../media/antares-iaas-preview-02.png
-[select subscription]: ../media/antares-iaas-preview-03.png
+[select subscription]: ../media/antares-iaas-preview-04.png
 
 
 
