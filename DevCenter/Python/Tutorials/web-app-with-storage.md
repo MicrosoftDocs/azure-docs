@@ -23,7 +23,7 @@ You will learn:
 
 A screenshot of the completed application will be similar as below (the added tasks items will be different):
 
-![](../media/web-app-with-storage-Finaloutput.png)
+![](../media/web-app-with-storage-Finaloutput-mac.png)
 
 ## <a id="setup"> </a>Setting Up the Development Environment
 
