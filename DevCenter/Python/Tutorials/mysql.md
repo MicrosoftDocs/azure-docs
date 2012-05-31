@@ -26,15 +26,15 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
  1. Open up the *TCP* protocol's *PUBLIC PORT* **3306** as *PRIVATE PORT* **3306**.
   ![][8]
 
-- Duplicate the previous *ENDPOINT* addition, this time opening up *TCP*'s *PUBLIC PORT 80* as *PRIVATE PORT 8000*.  This redirects external Internet requests to the default port Django runs on, namely *8000*.
+- Duplicate the previous *ENDPOINT* addition, this time opening up *TCP*'s *PUBLIC PORT 80* as *PRIVATE PORT 80*.  This redirects external Internet requests to the port Django runs on, namely *80*.
 
 - Use Windows *Remote Desktop* to remotely log into the newly created Windows Azure virtual machine.
 
-- Open up TCP port **8000** on the virtual machine:
+- Open up TCP port **80** on the virtual machine:
  1. From the **Start** menu, select **Administrator Tools** and then **Windows Firewall with Advanced Security**. 
  1. In the left pane, select **Inbound Rules**.  In the **Actions** pane on the right, select **New Rule...**.
  1. In the **New Inbound Rule Wizard**, select **Port** and then click **Next**.
- 1. Select **TCP** and then **Specific local ports**.  Specify a port of "8000" (the port Django listens on) and click **Next**.
+ 1. Select **TCP** and then **Specific local ports**.  Specify a port of "80" (the port Django listens on) and click **Next**.
  1. Select **Allow the connection** and click **Next**.
  1. Click **Next** again.
  1. Specify a name for the rule, such as "DjangoPort", and click Finish.
@@ -195,17 +195,17 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 
 		PS C:\django\helloworld> $ipPort = [System.Net.Dns]::GetHostEntry("127.0.0.1")
 		PS C:\django\helloworld> $ipPort = [string]$ipPort.AddressList[1]
-		PS C:\django\helloworld> $ipPort += ":8000"
+		PS C:\django\helloworld> $ipPort += ":80"
 		PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
 
-    The **runserver** parameter instructs Django to run our *helloworld* website on TCP port *8000*. The results of this command should be similar to:
+    The **runserver** parameter instructs Django to run our *helloworld* website on TCP port *80*. The results of this command should be similar to:
 
 		PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
 		Validating models...
 		
 		0 errors found
 		Django version 1.4, using settings 'helloworld.settings'
-		Development server is running at http://123.34.56.78:8000
+		Development server is running at http://123.34.56.78:80
 		Quit the server with CTRL-BREAK.
  
 1. From your local web browser, open **http://*yourVmName*.cloudapp.net** (where *yourVmName* is whatever name you used in the virtual machine creation step). You should see “Hello World!” displayed as shown in the screenshot below. This indicates that Django is running in the virtual machine and is working correctly.
