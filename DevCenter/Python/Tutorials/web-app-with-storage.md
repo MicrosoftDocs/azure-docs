@@ -1,4 +1,4 @@
-<properties umbraconavihide="0" pagetitle="Web App with Storage" metakeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" metadescription="A tutorial that builds on the Web App with Express tutorial by adding Windows Azure Storage services and the Azure module." linkid="dev-nodejs-basic-web-app-with-storage" urldisplayname="Web App with Storage" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties umbraconavihide="0" pagetitle="Web App with Storage" metakeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" metadescription="A tutorial that builds on the Web App with Express tutorial by adding Windows Azure Storage services and the Windows Azure module." linkid="dev-nodejs-basic-web-app-with-storage" urldisplayname="Web App with Storage" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
 # Python Web Application using Storage
 
@@ -36,7 +36,7 @@ please see the [Installation Guide][] for information on how to set up your Pyth
 
 <div chunk="../../Shared/Chunks/create-azure-account.md" />
 
-## Create A Storage Account In Azure
+## Create A Storage Account In Windows Azure
 
 <div chunk="../../Shared/Chunks/create-storage-account.md" />
 
@@ -172,7 +172,7 @@ You can now click "Add Task" to create one and then click the "Complete" button 
 
 ## Running the Application in the Compute Emulator, Publishing and Stopping/Deleting your Application
 
-Now that you've successfully run your app on the built-in Django server, you can test it out further by deploying it to the Azure emulator (Windows only) and then publishing to Azure.  For general instructions on how to do this, please refer to the article **"Django Hello World Web Application"** which discusses these steps in detail.
+Now that you've successfully run your app on the built-in Django server, you can test it out further by deploying it to the Windows Azure emulator (Windows only) and then publishing to Windows Azure.  For general instructions on how to do this, please refer to the article **"Django Hello World Web Application"** which discusses these steps in detail.
 
 
 <h2 id="NextSteps">Next Steps</h2>
