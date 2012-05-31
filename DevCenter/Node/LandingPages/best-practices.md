@@ -19,7 +19,7 @@ This topic provides an overview of performance considerations for cloud-based ap
 These articles provide guidance based on real-world solutions, and walk you through the entire software development lifecycle. 
 
 ### [Patterns and Practices][]
-This content provides recommendations on how to design and develop custom applications using the Windows Azure platform.
+This content provides recommendations on how to design and develop custom applications using Windows Azure.
 
 [GitHub]: http://github.com/windowsazure/azure-content/
 [Troubleshooting in Windows Azure]: /en-us/develop/nodejs/best-practices/troubleshooting/
