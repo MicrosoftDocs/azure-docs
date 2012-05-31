@@ -1,302 +1,122 @@
 # Django Hello World Web Application
 
-Developing for Windows Azure is easy when using the available tools.
-This tutorial assumes you have no prior experience using Windows Azure.
-On completing this guide, you will have an application that uses
-multiple Windows Azure resources up and running in the cloud.
+This tutorial describes how to host a Django-based website in Windows 
+Azure using a Windows Server 2008 R2 virtual machine. This tutorial assumes you have no prior experience using Windows Azure. Upon completing this guide, you will have a Django-based application up and running in the cloud.
 
-You will learn:
+You will learn how to:
 
-* How to create a new Windows Azure Django application using the Windows PowerShell tools.
-* How to run your Django application locally using the Windows Azure compute emulator.
-* How to publish and re-publish your application to Windows Azure.
+* Setup a Windows Azure virtual machine to host Django. While this tutorial explains how to accomplish this under **Windows Server 2008 R2**, the same could also be done with a Linux VM hosted in Windows Azure. 
+* Create a new Django application from Windows.
 
 By following this tutorial, you will build a simple Hello World web
-application. The application will be hosted in an instance of a web role
-that, when running in Windows Azure, is itself hosted in a dedicated
-virtual machine (VM).
+application. The application will be hosted in a Windows Azure Preview Portal virtual machine.
 
 A screenshot of the completed application is below:
 
 ![A browser window displaying the hello world page on Windows Azure][]
 
-## <a id="setup"> </a>Setting Up the Development Environment
+
+## Creating and configuring a Windows Azure virtual machine to host Django
+
+* Follow the instructions given [here][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Windows Server 2008 R2* flavor.
+* Open up TCP port **8000** on the virtual machine:
+ 1. From the **Start** menu, select **Administrator Tools** and then **Windows Firewall with Advanced Security**. 
+ 1. In the left pane, select **Inbound Rules**.  In the **Actions** pane on the right, select **New Rule...**.
+ 1. In the **New Inbound Rule Wizard**, select **Port** and then click **Next**.
+ 1. Select **TCP** and then **Specific local ports**.  Specify a port of "8000" (the port Django listens on) and click **Next**.
+ 1. Select **Allow the connection** and click **Next**.
+ 1. Click **Next** again.
+ 1. Specify a name for the rule, such as "DjangoPort", and click Finish.
+* Instruct Windows Azure to redirect port **80** traffic from the web to port **8000** on the virtual machine:
+ 1. Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
+ 1. Click *ADD ENDPOINT* button at the bottom of the screen.
+![][add endpoint]
+ 1. Open up the *TCP* protocol's *PUBLIC PORT* **80** as *PRIVATE PORT* **8000**.
+![][port80]
+* Use Windows *Remote Desktop* to remotely log into the newly created Windows Azure virtual machine.  
+
+**Important Note:** all instructions below assume you logged into the virtual machine correctly and are issuing commands there rather than your local machine! 
+
+## <a id="setup"> </a>Setting up the development environment
 
 To set up your Python and Django environments, please see the [Installation Guide][] for more information.
 
 *Note for Windows*: if you used the Windows WebPI installer, you already have Django and the Client Libs installed.
 
-## Creating a New Django Application
+## Creating a new Django application
 
-The Windows Azure SDK includes a Windows PowerShell environment that is configured for Windows Azure and Python development. It includes tools that you can use to create and publish Django applications.
+We recommend using Windows PowerShell for developing your Windows Azure applications:
 
-1.  On the **Start** menu, click **All Programs, Windows Azure**, right-click **Windows Azure PowerShell**, and then select **Run As Administrator**. Opening
-    your Windows PowerShell environment this way ensures that all of the
-    Python command-line tools are available. Running with elevated
-    privileges avoids extra prompts when working with the Windows Azure
-    Emulator.
+1.  On the **Start** menu, click **Accessories** => **Windows PowerShell** => and then right-click on **Windows PowerShell** and select **Run As Administrator**. Opening
+    your Windows PowerShell environment this way avoids extra prompts later on.
     
-2.  Create a new **django** directory on your C drive, and change to the
+1.  Create a new **django** directory on your C drive, and change to the
     c:\\django directory:
 
     ![A command prompt displaying the django directory creation][]
 
-3.  Enter the following cmdlet to create a new solution:
-
+1.  Enter the following command to create a new Django project:
 
     ![The result of the New-AzureService command][]
 
-    The **New-AzureServiceProject** cmdlet generates a basic structure for
-    creating a new Windows Azure Python application. It contains
-    configuration files necessary for publishing to Windows Azure. The
-    cmdlet also changes your working directory to the directory for the
-    service.
+    The **django-admin.py** script generates a basic structure for Django-based websites:
+    -   manage.py helps you to start hosting and stop hosting your Django-based website
+    -   helloworld\settings.py contains Django settings for your application.
+    -   helloworld\urls.py contains the mapping code between each url and its view.
 
-    Enter the following command to see a listing of the files that were
-    generated:
-
-
-    ![A directory listing of the service folder][]
-
-    -   ServiceConfiguration.Cloud.cscfg,
-        ServiceConfiguration.Local.cscfg and ServiceDefinition.csdef are
-        Windows Azure-specific files necessary for publishing your
-        application. For more information about these files, see
-        [Overview of Creating a Hosted Service for Windows Azure][].
-    -   deploymentSettings.json stores local settings that are used by
-        the Windows Azure PowerShell deployment cmdlets.
-
-4.  Enter the following command to add a new web role using the
-    **Add-AzureDjangoWebRole** cmdlet:
-
-        PS C:\django\helloworld> Add-AzureDjangoWebRole hello_dj
-
-    You will see the following response:
-
-    ![The output of the Add-AzureDjangoWebRole command][]
-
-    The **Add-AzureDjangoWebRole** cmdlet creates a new directory for your
-    application and generates additional files that will be needed when
-    your application is published. In Windows Azure, *roles* define
-    components that can run in the Windows Azure execution environment.
-    A *web role* is customized for web application programming.
-
-    By default if you do not provide a role name, one will be created
-    for you i.e. WebRole1. You can provide a name as the first parameter
-    to **Add-AzureDjangoWebRole** to override i.e. **Add-AzureDjangoWebRole
-    hello_dj**
-
-    Change to the **hello_dj** directory and list its files:
-
-    ![A directory listing of the webrole folder][]
-
-    Again change to the **hello_dj** directory and list its files:
-	
-    ![A directory listing of the django folder][]
-
-    -   settings.py contains Django settings for your application.
-    -   urls.py contains the mapping code between each url and its view.
-
-<p></p>
-
-5.  Create a new file named **views.py** in the hello_dj subdirectory, as a sibling of **urls.py**. This will contain the view that renders the "hello world" page. Start your editor and enter the following:
+1.  Create a new file named **views.py** in the *helloworld* subdirectory of *C:\django\helloworld*, as a sibling of **urls.py**. This will contain the view that renders the "hello world" page. Start your editor and enter the following:
 		
 		from django.http import HttpResponse
 		def hello(request):
     		html = "<html><body>Hello World!</body></html>"
     		return HttpResponse(html)
 
-
-8.  Now enter the following into the **urls.py** file:
+1.  Now replace the contents of the **urls.py** file with the following:
 
 		from django.conf.urls.defaults import patterns, include, url
-		from hello_dj.views import hello
+		from helloworld.views import hello
 		urlpatterns = patterns('',
 			(r'^$',hello),
 		)
 
 
-## Running Your Application Locally in the Emulator
-
-One of the tools installed by the Windows Azure SDK is the Windows Azure
-compute emulator, which allows you to test your application locally. The
-compute emulator simulates the environment your application will run in
-when it is deployed to the cloud, including providing access to services
-like Windows Azure Table Storage. This means you can test your
-application without having to actually deploy it.
+## Running your Django website locally in the virtual machine
 
 1.  Close Notepad and switch back to the Windows PowerShell window.
-    Enter the following cmdlet to run your service in the emulator and
-    launch a browser window:
+    Enter the following command to run your Django website:
 
-        PS C:\django\helloworld\hello_dj\hello_dj> Start-AzureEmulator -launch
+        PS C:\django\helloworld> $ipPort = [System.Net.Dns]::GetHostEntry("127.0.0.1")
+        PS C:\django\helloworld> $ipPort = [string]$ipPort.AddressList[1]
+        PS C:\django\helloworld> $ipPort += ":8000"
+        PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
 
-    The **–launch** parameter specifies that the tools should
-    automatically open a browser window and display the application once
-    it is running in the emulator. A browser opens and displays “Hello
-    World!” as shown in the screenshot below. This indicates that the
-    service is running in the compute emulator and is working correctly.
+    The **runserver** parameter instructs Django to run our *helloworld* website on TCP port *8000*. The results of this command should be similar to:
+
+        PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
+        Validating models...
+        
+        0 errors found
+        Django version 1.4, using settings 'helloworld.settings'
+        Development server is running at http://123.34.56.78:8000
+        Quit the server with CTRL-BREAK.
+ 
+    Now simply open *Internet Explorer* in the virtual machine and navigate to *http://**$ipPort**.* You should see “Hello World!” displayed as shown in the screenshot below. This indicates that Django is running in the virtual machine and is working correctly.
 
     ![A web browser displaying the Hello World web page on emulator][]
 
-2.  To stop the compute emulator, you can access it (as well as the
-    storage emulator, which you will leverage later in this tutorial)
-    from the Windows taskbar as shown in the screenshot below:
+1.  To stop Django from hosting the website, simply switch to the PowerShell window and press **CTRL-C**.
 
-    ![The menu displayed when right-clicking the Windows Azure emulator from the task bar][]
+## Deploying the Django website publically
 
-## Deploying the Application to Windows Azure
+Simply repeat step *1* from **Running your Django website locally in the virtual machine** without ever pressing CTRL-C.  Yes, it's really that easy! You could also make step *1* automated each time the virtual machine starts by using the [Windows Task Scheduler].
 
-In order to deploy your application to Windows Azure, you need an
-account. If you do not have one you can create a free trial account.
-Once you are logged in with your account, you can download a Windows
-Azure publishing profile. The publishing profile authorizes your
-computer to publish deployment packages to Windows Azure using the
-Windows PowerShell cmdlets.
+Now from your local web browser, open http://yourVmName.cloudapp.net (where *yourVmName* is whatever name you used in the virtual machine creation step).  You should again see "Hello World!":
 
-### Creating a Windows Azure Account
+![A browser window displaying the hello world page on Windows Azure][]
 
-1.  Open a web browser, and browse to [http://www.windowsazure.com][].
+## Shutting down your Windows Azure virtual machine
 
-    To get started with a free account, click on **Free Trial** in the
-    upper right corner and follow the steps.
-
-    ![A browser window displaying http://www.windowsazure.com/ with the Free Trial link highlighted][]
-
-2.  Your account is now created. You are ready to deploy your
-    application to Windows Azure!
-
-### <a id="download_publishing_settings"> </a>Downloading the Windows Azure Publishing Settings
-
-1.  From the Windows PowerShell window, launch the download page by
-    running the following cmdlet:
-
-        PS C:\django\helloworld\hello_dj\hello_dj> Get-AzurePublishSettingsFile
-
-    This launches the browser for you to log into the Windows Azure
-    Management Portal with your Windows Live ID credentials.
-
-    ![A browser window displaying the liveID sign in page][]
-
-2.  Log into the Management Portal. This takes you to the page to
-    download your Windows Azure publishing settings.
-
-3.  Save the profile to a file at **c:\\django\\elvis.publishSettings**:
-
-    ![Internet Explorer displaying the save as dialog for the publishSettings file.][]
-
-4.  In the Windows PowerShell window, use the following cmdlet to
-    configure the Windows PowerShell for Django cmdlets to use the
-    Windows Azure publishing profile you downloaded:
-
-        PS C:\django\helloworld\hello_dj\hello_dj> Import-AzurePublishSettingsFile c:\django\elvis.publishSettings
-
-    After importing the publish settings, consider deleting the
-    downloaded .publishSettings as the file contains information that
-    can be used by others to access your account.
-
-### Publishing the Application
-
-1.  Publish the application using the **Publish-AzureServiceProject** cmdlet,
-    as shown below.
-
-    -   **name** specifies the name for the service. The name must be
-        unique across all other services in Windows Azure. For example,
-        below, “HelloDJ” is suffixed with “Contoso,” the company name,
-        to make the service name unique.
-    -   **location** specifies the country/region for which the
-        application should be optimized. You can expect faster loading
-        times for users accessing it from this region. Examples of the\\
-        available regions include: North Central US, Anywhere US,
-        Anywhere Asia, Anywhere Europe, North Europe, South Central US,
-        and Southeast Asia.
-    -   **launch** specifies to open the browser at the location of the
-        hosted service after publishing has completed.
-
-    <!-- -->
-
-        PS C:\django\helloworld\hello_dj\hello_dj> Publish-AzureServiceProject –name HelloDJContoso –location "North Central US” -launch
-
-    Be sure to use a **unique name**, otherwise the publish process will
-    fail. After publishing succeeds, you will see the following
-    response:
-
-    ![The output of the Publish-AzureService command][]
-
-    The **Publish-AzureServiceProject** cmdlet performs the following steps:
-
-    1.  Creates a package that will be deployed to Windows Azure. The
-        package contains all the files in your Django application
-        folder.
-    2.  Creates a new storage account if one does not exist. The Windows
-        Azure storage account is used in the next section of the
-        tutorial for storing and accessing data.
-    3.  Creates a new hosted service if one does not already exist. A
-        *hosted service* is the container in which your application is
-        hosted when it is deployed to Windows Azure. For more
-        information, see [Overview of Creating a Hosted Service for Windows Azure][].
-    4.  Publishes the deployment package to Windows Azure.
-
-    It can take 5–7 minutes for the application to deploy. Since this is
-    the first time you are publishing, Windows Azure provisions a
-    virtual machine (VM), performs security hardening, creates a web
-    role on the VM to host your application, deploys your code to that
-    web role, and finally configures the load balancer and networking so
-    you application is available to the public.
-
-    The browser also opens to the URL for your service and display a web
-    page that calls your service.
-
-    ![A browser window displaying the hello world page on Windows Azure][]
-
-    Your application is now running on Windows Azure! The hosted service
-    contains the web role you created earlier. You can easily scale your
-    application by changing the number of instances allocated to each
-    role in the ServiceConfiguration.Cloud.cscfg file. You may want to
-    use only one instance when deploying for development and test
-    purposes, but multiple instances when deploying a production
-    application.
-
-## Stopping and Deleting Your Application
-
-After deploying your application, you may want to disable it so you can
-avoid costs or build and deploy other applications within the free trial
-time period.
-
-Windows Azure bills web role instances per hour of server time consumed.
-Server time is consumed once your application is deployed, even if the
-instances are not running and are in the stopped state.
-
-The following steps show you how to stop and delete your application.
-
-1.  In the Windows PowerShell window, stop the service deployment
-    created in the previous section with the following cmdlet:
-
-        PS C:\django\helloworld\hello_dj\hello_dj> Stop-AzureService
-
-    Stopping the service may take several minutes. When the service is
-    stopped, you receive a message indicating that it has stopped.
-
-    ![The status of the Stop-AzureService command][]
-
-2.  To delete the service, call the following cmdlet:
-
-        PS C:\django\helloworld\hello_dj\hello_dj> Remove-AzureServiceProject
-
-3.  When prompted, enter **Y** to delete the service.
-
-    Deleting the service may take several minutes. After the service has
-    been deleted you receive a message indicating that the service was
-    deleted.
-
-    ![The status of the Remove-AzureService command][]
-
-**Note**: Deleting the service does not delete the storage account that
-was created when the service was initially published, and you will
-continue to be billed for storage used. Since storage accounts can be
-used by multiple deployments, be sure that no other deployed service is
-using the storage account before you delete it. For more information on
-deleting a storage account, see [How to Delete a Storage Account from a Windows Azure Subscription][].
+When you're done with this tutorial, shutdown and/or remove your newly created Windows Azure virtual machine to free up resources for other tutorials and avoid incurring Windows Azure usage charges.
 
 [A browser window displaying the hello world page on Windows Azure]: ../Media/django-helloworld-browser-azure.png
 [A command prompt displaying the django directory creation]: ../Media/django-helloworld-ps-create-dir.png
@@ -316,5 +136,10 @@ deleting a storage account, see [How to Delete a Storage Account from a Windows 
 [The status of the Stop-AzureService command]: ../Media/django-helloworld-ps-stop.png
 [The status of the Remove-AzureService command]: ../Media/django-helloworld-ps-remove.png
 [How to Delete a Storage Account from a Windows Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx
+[windows task scheduler]:http://msdn.microsoft.com/en-us/library/windows/desktop/aa383614(v=vs.85).aspx
+[add endpoint]: ../Media/mysql_tutorial02-1.png
+[port80]: ../Media/django-helloworld-port80.png
+[preview-portal]: https://manage.windowsazure.com
+[preview-portal-vm]: /manage/windows/tutorials/virtual-machine-from-gallery/
 
 [Installation Guide]: ../commontasks/how-to-install-python.md
