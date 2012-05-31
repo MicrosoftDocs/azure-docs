@@ -146,7 +146,7 @@ can help you get started:
 The Windows Azure PowerShell cmdlets have a few special requirements that are not common
 to all Windows PowerShell components:
 
--   To deploy your Node applications in Windows Azure, you must have a
+-   To deploy your applications in Windows Azure, you must have a
     Windows Azure subscription. Before you can deploy applications
     by using a cmdlet, you must download your subscription
     information (by using **Get-AzurePublishSettingsFile**) and then import
