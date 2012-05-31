@@ -115,7 +115,7 @@ credentials for the namespace.
 
 The **ServiceBusService** object lets you work with topics. Add the following near the top of any Python file in which you wish to programmatically access Windows Azure Service Bus:
 
-	from windowsazure.servicebus import *
+	from azure.servicebus import *
 
 The following code creates a **ServiceBusService** object. Replace 'mynamespace', 'mykey' and 'myissuer' with the real namespace, key and issuer.
 

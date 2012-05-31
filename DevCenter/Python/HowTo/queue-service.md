@@ -21,90 +21,22 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
  [How To: Delete a Queue][]   
  [Next Steps][]
 
-## <a name="what-is"> </a>What is Queue Storage?
-
-Windows Azure Queue storage is a service for storing large numbers of
-messages that can be accessed from anywhere in the world via
-authenticated calls using HTTP or HTTPS. A single queue message can be
-up to 64KB in size, a queue can contain millions of messages, up to the
-100TB total capacity limit of a storage account. Common uses of Queue
-storage include:
-
--   <span>Creating a backlog of work to process asynchronously</span>
--   Passing messages from a Windows Azure web role to a worker role
-
-## <a name="concepts"> </a>Concepts
-
-The Queue service contains the following components:
-
-![Queue1][]
-
--   **URL format:** Queues are addressable using the following URL
-    format:   
-    http://storageaccount.queue.core.windows.net/queue  
-      
-    The following URL addresses one of the queues in the diagram:  
-    http://myaccount.queue.core.windows.net/imagesToDownload
-
--   **Storage Account:** All access to Windows Azure Storage is done
-    through a storage account. A storage account is the highest level of
-    the namespace for accessing queues. The total size of blob, table,
-    and queue contents in a storage account cannot exceed 100TB.
-
--   **Queue:** A queue contains a set of messages. All messages must be
-    in a queue.
-
--   **Message:** A message, in any format, of up to 64KB.
+<div chunk="../../Shared/Chunks/howto-queue-storage.md" />
 
 ## <a name="create-account"> </a>Create a Windows Azure Storage Account
-
-To use storage operations, you need a Windows Azure storage account. You
-can create a storage account by following these steps. (You can also
-create a storage account [using the REST API][].)
-
-1.  Log into the [Windows Azure Management Portal][].
-
-2.  In the navigation pane, click **Hosted Services, Storage Accounts & CDN**.
-
-3.  At the top of the navigation pane, click **Storage Accounts**.
-
-4.  On the ribbon, in the Storage group, click **New Storage Account**.
-      
-    ![Blob2][]  
-      
-    The **Create a New Storage Account** dialog box opens.   
-    ![Blob3][]
-
-5.  In **Choose a Subscription**, select the subscription that the
-    storage account will be used with.
-
-6.  In Enter a URL, type a subdomain name to use in the URI for the
-    storage account. The entry can contain from 3-24 lowercase letters
-    and numbers. This value becomes the host name within the URI that is
-    used to address Blob, Queue, or Table resources for the
-    subscription.
-
-7.  Choose a country/region or an affinity group in which to locate the
-    storage. If you will be using storage from your Windows Azure
-    application, select the same region where you will deploy your
-    application.
-
-8.  Finally, take note of your **Primary access key** in the right-hand
-    column. You will need this in subsequent steps to access storage.   
-    ![Blob4][]
-
+<div chunk="../../Shared/Chunks/create-storage-account.md" />
 
 ## <a name="create-queue"> </a>How To: Create a Queue
 
-The **CloudQueueClient** object lets you work with queue storage services. The following code creates a **CloudQueueClient** object. Add the following near the top of any Python file in which you wish to programmatically access Windows Azure Storage:
+The **QueueService** object lets you work with queue storage services. The following code creates a **QueueService** object. Add the following near the top of any Python file in which you wish to programmatically access Windows Azure Storage:
 
-	from windowsazure.storage.cloudqueueclient import *
+	from azure.storage import *
 
-The following code creates a **CloudQueueClient** object using the storage account name and account key. Replace 'myaccount' and 'mykey' with the real account and key.
+The following code creates a **QueueService** object using the storage account name and account key. Replace 'myaccount' and 'mykey' with the real account and key.
 
-	queue_client = CloudQueueClient(account_name='myaccount', account_key='mykey')
+	queue_service = QueueService(account_name='myaccount', account_key='mykey')
 
-	queue_client.create_queue('taskqueue')
+	queue_service.create_queue('taskqueue')
 
 
 ## <a name="insert-message"> </a>How To: Insert a Message into a Queue
@@ -112,7 +44,7 @@ The following code creates a **CloudQueueClient** object using the storage accou
 To insert a message into a queue, use the **put\_message** method to
 create a new message and add it to the queue.
 
-	queue_client.put_message('taskqueue', 'Hello World')
+	queue_service.put_message('taskqueue', 'Hello World')
 
 
 ## <a name="peek-message"> </a>How To: Peek at the Next Message
@@ -121,7 +53,7 @@ You can peek at the message in the front of a queue without removing it
 from the queue by calling the **peek\_messages** method. By default,
 **peek\_messages** peeks at a single message.
 
-	messages = queue_client.peek_messages('taskqueue')
+	messages = queue_service.peek_messages('taskqueue')
 	for message in messages:
 		print(message.message_text)
 
@@ -139,10 +71,10 @@ hardware or software failure, another instance of your code can get the
 same message and try again. Your code calls **delete\_message** right
 after the message has been processed.
 
-	messages = queue_client.get_messages('taskqueue')
+	messages = queue_service.get_messages('taskqueue')
 	for message in messages:
 		print(message.message_text)
-		queue_client.delete_message('taskqueue', message.message_id, message.pop_receipt)
+		queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)
 
 
 ## <a name="change-contents"> </a>How To: Change the Contents of a Queued Message
@@ -152,9 +84,9 @@ message represents a work task, you could use this feature to update the
 status of the work task. The code below uses the **update\_message**
 method to update a message.
 
-	messages = queue_client.get_messages('taskqueue')
+	messages = queue_service.get_messages('taskqueue')
 	for message in messages:
-		queue_client.update_message('taskqueue', message.message_id, 'Hello World Again', message.pop_receipt, 0)
+		queue_service.update_message('taskqueue', message.message_id, 'Hello World Again', message.pop_receipt, 0)
 
 ## <a name="advanced-get"> </a>How To: Additional Options for Dequeuing Messages
 
@@ -166,10 +98,10 @@ time to fully process each message. The following code example uses the
 each message using a for loop. It also sets the invisibility timeout to
 five minutes for each message.
 
-	messages = queue_client.get_messages('taskqueue', numofmessages=16, visibilitytimeout=5*60)
+	messages = queue_service.get_messages('taskqueue', numofmessages=16, visibilitytimeout=5*60)
 	for message in messages:
 		print(message.message_text)
-		queue_client.delete_message('taskqueue', message.message_id, message.pop_receipt)
+		queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)
 
 ## <a name="get-queue-length"> </a>How To: Get the Queue Length
 
@@ -179,7 +111,7 @@ about the queue, and the **x-ms-approximate-messages-count** should be used as t
 The result is only approximate because messages can be added or removed after the
 queue service responds to your request.
 
-	queue_metadata = queue_client.get_queue_metadata('taskqueue')
+	queue_metadata = queue_service.get_queue_metadata('taskqueue')
 	count = queue_metadata['x-ms-approximate-messages-count']
 
 ## <a name="delete-queue"> </a>How To: Delete a Queue
@@ -187,7 +119,7 @@ queue service responds to your request.
 To delete a queue and all the messages contained in it, call the
 **delete\_queue** method.
 
-	queue_client.delete_queue('taskqueue')
+	queue_service.delete_queue('taskqueue')
 
 ## <a name="next-steps"> </a>Next Steps
 
@@ -209,11 +141,5 @@ to learn how to do more complex storage tasks.
   [How To: Additional Options for Dequeuing Messages]: #advanced-get
   [How To: Get the Queue Length]: #get-queue-length
   [How To: Delete a Queue]: #delete-queue
-  [Queue1]: ../../../DevCenter/dotNet/Media/queue1.png
-  [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
-  [Windows Azure Management Portal]: http://windows.azure.com
-  [Blob2]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage2.png
-  [Blob3]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage3.png
-  [Blob4]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage4.png
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
