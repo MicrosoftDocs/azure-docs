@@ -20,11 +20,13 @@ A screenshot of the completed application is below:
 
 * Follow the instructions given [here][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Ubuntu Server 12.04* flavor.
 
+**Note:** you *only* need to create the virtual machine. Stop at the section titled *How to log on to the virtual machine after you create it*.
+
 * Instruct Windows Azure to redirect port **80** traffic from the web to port **8000** on the virtual machine:
  1. Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
  1. Click *ADD ENDPOINT* button at the bottom of the screen.
 ![][add endpoint]
- 1. Open up the *TCP* protocol's *PUBLIC PORT* **80** as *PRIVATE PORT* **8000**.
+ 1. Open up the *TCP* protocol's *PUBLIC PORT 80* as *PRIVATE PORT 8000*.
 ![][port80]
 
 ## <a id="setup"> </a>Setting up the development environment
@@ -73,7 +75,7 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
 		)
 
 
-## Running your Django website
+## Deploying and running your Django website
 
 1.  Enter the following command to find out the public ip address for your VM:
 
@@ -119,5 +121,5 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [add endpoint]: ../Media/mac-linux-django-helloworld-add-endpoint.png
 [port80]: ../Media/mac-linux-django-helloworld-port80.png
 [preview-portal]: https://manage.windowsazure.com
-[preview-portal-vm]: /manage/windows/tutorials/virtual-machine-from-gallery/
+[preview-portal-vm]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/
 [The result of the ifconfig command]: ../Media/mac-linux-django-helloworld-ifconfig.png
