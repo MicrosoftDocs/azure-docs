@@ -24,7 +24,7 @@ The recommended approach for accessing SQL Database from PHP is to use the [Micr
 
 <h2 id="Setup">How to: Setup your environment</h2>
 
-The recommended way to set up your development environment is to use the [Microsoft Web Platform Installer][wpi-installer]. The Web Platform Installer will allow you to choose elements of your web development platform and automatically install and configure them. By downloading the Web Platform Installer and choosing to install WebMatrix, PHP for WebMatrix, SQL Server Express, a complete development environment will be set up for you.
+The recommended way to set up your development environment is to use the [Microsoft Web Platform Installer][wpi-installer]. The Web Platform Installer will allow you to choose elements of your web development platform and automatically install and configure them. By downloading the Web Platform Installer and choosing to install WebMatrix, PHP for WebMatrix, and SQL Server Express, a complete development environment will be set up for you.
 
 Alternatively, you can set up your environment manually:
 
@@ -59,7 +59,7 @@ To see server and database information, click **SQL Databases** in the Preview M
 
 <h2 id="ConnectionInfo">How to: Get SQL Database connection information</h2>
 
-To get SQL Database connection information, click on **SQL DATBASES** in the portal, then click on the name of the database.
+To get SQL Database connection information, click on **SQL DATABASES** in the portal, then click on the name of the database.
 
 ![View database information][go-to-db-info]
 
@@ -71,7 +71,7 @@ In the PHP section of the resulting window, make note of the values for **SERVER
 
 <h2 id="Connect">How to: Connect to a SQL Database instance</h2>
 
-The following examples show how to use the **SQLSRV** and **PDO_SQLSRV** extensions to connect to an existing SQL Database instance called `testdb`. You will need information obtained from the section above. Replace `SERVER_ID` with your 10-digit server ID (which is the fist 10 characters from the SERVER value obtained in the section above), and assign the correct values (your user name and password) to the `$user` and `$pwd` variables.
+The following examples show how to use the **SQLSRV** and **PDO_SQLSRV** extensions to connect to a SQL Database called `testdb`. You will need information obtained from the section above. Replace `SERVER_ID` with your 10-digit server ID (which is the fist 10 characters from the SERVER value obtained in the section above), and assign the correct values (your user name and password) to the `$user` and `$pwd` variables.
 
 #####SQLSRV
 

@@ -69,7 +69,7 @@ You will pass this `Configuration` instance (`$config`) to other objects when us
 
 <h2 id="create-queue">How to: Create a queue</h2>
 
-A **QueueService** object lets you create a queue with the **createQueue** method. When creating a queue, you can set options on the queue, but doing so is not required. (The example below shows how to set metadata on a queue.)
+A **QueueRestProxy** object lets you create a queue with the **createQueue** method. When creating a queue, you can set options on the queue, but doing so is not required. (The example below shows how to set metadata on a queue.)
 
 	require_once 'WindowsAzure.php';
 
