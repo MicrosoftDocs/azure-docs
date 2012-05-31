@@ -125,7 +125,7 @@ Configuration options are of three types : Boolean, String or Integer.
 The Boolean configuration options can be specified as "y" or "n". 
 The special keyword "None" may be used for some string type configuration entries as detailed below.
 
-####Role.StateConsumer:
+**Role.StateConsumer:**
 
 Type: String  
 Default: None
@@ -135,35 +135,35 @@ If a path to an executable program is specified, the program is invoked at two e
 1. When the waagent has provisioned the image and the “Ready” state is about to be reported to the Fabric. The argument specified to the program  will be “Ready”. waagent will not wait for the program to return before  continuing.
 2. When the waagent has received a shutdown request from the Fabric and is about to shutdown the virtual machine. The argument specified to the program will be “Shutdown”.   waagent will wait for the program to return before initiating the shutdown process.
 
-####Role.ConfigurationConsumer:
+**Role.ConfigurationConsumer:**
 
 Type: String  
 Default: None
 
 If a path to an executable program is specified, the program is invoked when the Fabric indicates that a configuration file is available for the virtual machine. The path to the XML configuration file is provided as an argument to the executable. This may be invoked multiple times whenever the configuration file changes. A sample file is provided in the Appendix. The current path of this file is /var/lib/waagent/HostingEnvironmentConfig.xml.
 
-####Role.TopologyConsumer:
+**Role.TopologyConsumer:**
 
 Type: String  
 Default: None
 
 If a path to an executable program is specified, the program is invoked when the Fabric indicates that a new network topology layout is available for the virtual machine.The path to the XML configuration file is provided as an argument to the executable. This may be invoked multiple times whenever the network topology changes (due to service healing for example). A sample file is provided in the Appendix. The current location of this file is /var/lib/waagent/SharedConfig.xml.
 
-####Provisioning.Enabled: 
+**Provisioning.Enabled:**
 
 Type: Boolean  
 Default: y
 
 This allows the user to enable or disable the provisioning functionality in the agent. Valid values are “y” or “n”. If provisioning is disabled, SSH host and user keys in the image are preserved and any configuration specified in the Windows Azure provisioning API is ignored.
 
-####Provisioning.DeleteRootPassword: 
+**Provisioning.DeleteRootPassword:**
 
 Type: Boolean  
 Default: n
 
 If set, the root password in the /etc/shadow file is erased during the provisioning process.
 
-####Provisioning.RegenerateSshHostKeyPair: 
+**Provisioning.RegenerateSshHostKeyPair:**
 
 Type: Boolean  
 Default: y
@@ -172,77 +172,77 @@ If set, all SSH host key pairs (ecdsa, dsa and rsa) are deleted during the provi
 
 The encryption type for the fresh key pair is configurable by the Provisioning.SshHostKeyPairType entry. Please note that some distributions will re-create SSH key pairs for any missing encryption types when the SSH daemon is restarted (for example, upon a reboot).
 
-####Provisioning.SshHostKeyPairType: 
+**Provisioning.SshHostKeyPairType:**
 
 Type: String  
 Default: rsa
 
 This can be set to an encryption algorithm type that is supported by the SSH daemon on the virtual machine. The typically supported values are “rsa”, “dsa” and “ecdsa”. Note that “putty.exe” on Windows does not support “ecdsa”. So, if you intend to use putty.exe on Windows to connect to a Linux deployment, please use “rsa” or “dsa”.
 
-####Provisioning.MonitorHostName: 
+**Provisioning.MonitorHostName:**
 
 Type: Boolean  
 Default: y
 
 If set, waagent will monitor the Linux virtual machine for hostname changes (as returned by the “hostname” command) and automatically update the networking configuration in the image to reflect the change. In order to push the name change to the DNS servers, networking will be restarted in the virtual machine. This will result in brief loss of Internet connectivity.
 
-####ResourceDisk.Format: 
+**ResourceDisk.Format:**
 
 Type: Boolean  
 Default: y
 
 If set, the resource disk provided by the platform will be formatted and mounted by waagent if the filesystem type requested by the user in "ResourceDisk.Filesystem" is anything other than "ntfs". A single partition of type Linux (83) will be made available on the disk. Note that this partition will not be formatted if it can be successfully mounted.
 
-####ResourceDisk.Filesystem: 
+**ResourceDisk.Filesystem:**
 
 Type: String  
 Default: ext4
 
 This specifies the filesystem type for the resource disk. Supported values vary by Linux distribution. If the string is X, then mkfs.X should be present on the Linux image.
 
-####ResourceDisk.MountPoint: 
+**ResourceDisk.MountPoint:**
 
 Type: String  
 Default: /mnt/resource 
 
 This specifies the path at which the resource disk is mounted.
 
-####ResourceDisk.EnableSwap: 
+**ResourceDisk.EnableSwap:**
 
 Type: Boolean  
 Default: n 
 
 If set, a swap file (/swapfile) is created on the resource disk and added to the system swap space.
 
-####ResourceDisk.SwapSizeMB:
+**ResourceDisk.SwapSizeMB:**
 
 Type: Integer  
 Default: 0
 
 The size of the swap file in megabytes.
 
-####LBProbeResponder: 
+**LBProbeResponder:**
 
 Type: Boolean  
 Default: y
 
 If set, waagent will respond to load balancer probes from the platform (if present).
 
-####Logs.Verbose: 
+**Logs.Verbose:**
 
 Type: Boolean  
 Default: n
 
 If set, log verbosity is boosted. Waagent logs to /var/log/waagent.log and leverages the system logrotate functionality to rotate logs.
 
-####OS.RootDeviceScsiTimeout: 
+**OS.RootDeviceScsiTimeout:**
 
 Type: Integer  
 Default: 300
 
 This configures the SCSI timeout in seconds on the root device. If not set, the system defaults are used.
 
-####OS.OpensslPath:
+**OS.OpensslPath:**
 
 Type: String  
 Default: None
