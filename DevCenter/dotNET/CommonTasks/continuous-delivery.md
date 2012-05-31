@@ -1,4 +1,4 @@
-<properties linkid="dev-net-common-tasks-continuous-delivery" urldisplayname="Continuous Delivery" headerexpose pagetitle="Continuous Delivery for Cloud Applications in Windows Azure" metakeywords footerexpose metadescription umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-net-common-tasks-continuous-delivery" urldisplayname="Continuous Delivery" headerexpose pagetitle="Continuous Delivery for Cloud Applications in Windows Azure" metakeywords footerexpose metadescription umbraconavihide="0" disquscomments="1"></properties>
 
 # Continuous Delivery for Cloud Applications in Windows Azure
 
@@ -14,6 +14,8 @@ it also demonstrates how to optionally configure Visual Studio Team
 Foundation Server - Team Build definitions to use the MSBuild commands
 and PowerShell scripts. The process is customizable for your build
 environment and Windows Azure target environments.
+
+You can also use Team Foundation Service, a version of TFS that is hosted in Windows Azure, to do this more easily. For more information, see [Continuous Delivery to Windows Azure by Using Team Foundation Service][].
 
 This task includes the following steps:
 
@@ -817,6 +819,7 @@ piped into the standard build output.
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [Understanding the Team Foundation Build System]: http://go.microsoft.com/fwlink/?LinkId=238798
   [Configure a Build Machine]: http://go.microsoft.com/fwlink/?LinkId=238799
+  [Continuous Delivery to Windows Azure by Using Team Foundation Service]: http://go.microsoft.com/fwlink//LinkId=254237
   []: ../../../DevCenter/dotNet/Media/tfs-01.png
   [2]: ../../../DevCenter/dotNet/Media/tfs-02.png
   [Windows Azure PowerShell Cmdlets]: http://go.microsoft.com/fwlink/?LinkId=242478
