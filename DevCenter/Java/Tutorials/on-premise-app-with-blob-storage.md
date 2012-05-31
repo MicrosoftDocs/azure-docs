@@ -55,7 +55,7 @@ Declare a class named **StorageSample**, and include the open bracket,
 
 Within the **StorageSample** class, declare a string variable that will
 contain the default endpoint protocol, your storage account name, and
-your storage account key, as specified in your Windows Azure storage
+your storage access key, as specified in your Windows Azure storage
 account. Replace the placeholder values **your\_account\_name** and
 **your\_account\_key** with your own account name and account key,
 respectively.
