@@ -3,6 +3,8 @@
 
 <h1 id="createdeploycloudservice">How to Create and Deploy a Cloud Service</h1>
 
+<div chunk="../../../Shared/Chunks/disclaimer.md" />
+
 The Windows Azure (Preview) Management Portal provides two ways for you to create and deploy a cloud service: **Quick Create** and **Custom Create**. 
 
 This topic explains how to use the Quick Create method to create a new cloud service and then use **Upload** to upload and deploy a cloud service package in Windows Azure. When you use this method, the Windows Azure (Preview) Management Portal makes available convenient links for completing all requirements as you go. If you're ready to deploy your cloud service when you create it, you can do both at the same time using **Custom Create**. 
@@ -54,7 +56,7 @@ There are three tasks that require special configurations before you export a se
 
 <h2 id="quick">How to: Create a Cloud Service using Quick Create</h2>
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click **New**, click **Cloud Service**, and then click **Quick Create**.
+1. In the [Management Portal](http://manage.windowsazure.com/), click **New**, click **Cloud Service**, and then click **Quick Create**.
 
  ![CloudServices_QuickCreate](../Media/CloudServices_QuickCreate.png)
 
@@ -78,7 +80,7 @@ If any roles in the cloud service require a certificate for Secure Sockets Layer
 
 <h2 id="uploadcertificate">How to: Upload a Certificate for a Cloud Service</h2>
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
+1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
 
  ![CloudServices_EmptyDashboard](../Media/CloudServices_EmptyDashboard.png)
 
@@ -105,13 +107,13 @@ You can deploy your cloud service from the dashboard or from **Quick Start**.
 
 <h2 id="deploy">How to: Deploy a Cloud Service</h2>
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
+1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
 
 2. Click **Quick Start** to open the **Quick Start** page, shown below. (You can also deploy your cloud service by using **Upload** on the dashboard.)
 
  ![CloudServices_QuickStartPage](../Media/CloudServices_QuickStartPage.png)
 
-3. If you haven’t installed the Windows Azure SDK, click **Install Azure SD**K to open the [Windows Azure Downloads page](http://www.windowsazure.com/en-us/develop/downloads/), and then download the SDK for the language in which you prefer to develop your code.
+3. If you haven't installed the Windows Azure SDK, click **Install Azure SD**K to open the [Windows Azure Downloads page](http://www.windowsazure.com/en-us/develop/downloads/), and then download the SDK for the language in which you prefer to develop your code.
 
  On the downloads page, you can also install client libraries and source code for developing web apps in Node.js, Java, PHP, and other languages, which you can deploy as scalable Windows Azure cloud services.
 

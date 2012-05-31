@@ -1,6 +1,12 @@
-# Tutorial 3: Adding a Virtual Machine to a Virtual Network #
+<properties umbracoNaviHide="0" pageTitle="Tutorial 3: Adding a Virtual Machine to a Virtual Network" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Learn how to configure Windows Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+
+
+<h1 id="vnet3">Tutorial 3: Adding a Virtual Machine to a Virtual Network</h1>
 
 <!--SOMEWHERE IN THIS TUTORIAL I NEED TO XREF TO THE OTHER VMACHINE TUTORIAL -->
+
+
+<div chunk="../../../Shared/Chunks/disclaimer.md" />
 
 This tutorial walks you through the steps to create a Windows Azure storage account and virtual machine that you add to a virtual network.
 
@@ -117,12 +123,12 @@ In this tutorial you will learn:
  
 	![VMInstances] []
 
-8.	In the navigation pane, click **ALL ITEMS**. All your objects you’ve created will be displayed with their current status.
+8.	In the navigation pane, click **ALL ITEMS**. All your objects you've created will be displayed with their current status.
  
 	![AllTab] []
 
 ## Next Steps ##
-If you’d like to connect to Active Directory, you can continue with the following tutorials:
+If you'd like to connect to Active Directory, you can continue with the following tutorials:
 	<!-- UPDATE THE FOLLOWING LIST ONCE WE HAVE THE LINKS FOR TUTORIALS 4 & 5 -->
 	
 -	New Active Directory Forest in the Cloud

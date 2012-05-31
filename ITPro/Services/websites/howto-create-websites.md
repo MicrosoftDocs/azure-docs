@@ -1,10 +1,13 @@
+<properties umbracoNaviHide="0" pageTitle="How to Create and Deploy a Website" metaKeywords="Windows Azure Websites, deployment, configuration changes, deployment update, Windows Azure .NET deployment, .NET deployment" metaDescription="Learn how to configure Websites in Windows Azure to use a SQL or MySQL database, and learn how to configure diagnostics and download logs." linkid="itpro-windows-howto-configure-websites" urlDisplayName="How to Configure Websites" headerExpose="" footerExpose="" disqusComments="1" />
+
 #How to Create and Deploy a Website
+
+<div chunk="../../../Shared/Chunks/disclaimer.md" />
 
 Just as you can quickly create and deploy a web application created from the gallery, you can also deploy a website created on a workstation with traditional developer tools from Microsoft or other companies. 
 
 
 ## Table of Contents ##
-
 
 - [Development Tools for Creating a Website](#tools)
 - [Deployment Options](#deployoptions)
@@ -23,7 +26,7 @@ Some development tools available from Microsoft include [Microsoft Visual Studio
 
 Windows Azure supports deploying websites from remote computers using WebDeploy, FTP, GIT or TFS. Many development tools provide integrated support for publication using one or more of these methods and may only require that you provide the necessary credentials, site URL and hostname or URL for your chosen deployment method. 
 
-Credentials and deployment URLs for all enabled deployment methods are stored in the website’s publish profile, a file which can be downloaded in the Management Portal from the **Quick Start** page or the **quick glance** section of the **Dashboard** page. 
+Credentials and deployment URLs for all enabled deployment methods are stored in the website’s publish profile, a file which can be downloaded in the Windows Azure (Preview) Management Portal from the **Quick Start** page or the **quick glance** section of the **Dashboard** page. 
 
 If you prefer to deploy your website with a separate client application, high quality open source GIT and FTP clients are available for download on the Internet for this purpose.
 
@@ -31,8 +34,8 @@ If you prefer to deploy your website with a separate client application, high qu
 
 Follow these steps to create a website in Windows Azure.
 	
-1. Login to the Windows Azure portal.
-2. Click the **Create New** icon on the bottom left of the Windows Azure portal.
+1. Login to the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com/).
+2. Click the **Create New** icon on the bottom left of the Management Portal.
 3. Click the **Web Site** icon, click the **Quick Create** icon, enter a value for URL and then click the check mark next to create web site on the bottom right corner of the page.
 4. When the website has been created you will see the text **Creation of Web Site '[SITENAME]'  Completed**.
 5. Click the name of the website displayed in the list of websites to open the website’s **Quick Start** management page.

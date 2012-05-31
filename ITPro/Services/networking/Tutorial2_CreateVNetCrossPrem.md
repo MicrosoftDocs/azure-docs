@@ -1,6 +1,10 @@
-# Tutorial 2: Creating a Virtual Network for Cross-Premises Connectivity
+<properties umbracoNaviHide="0" pageTitle="Tutorial 2: Creating a Virtual Network for Cross-Premises Connectivity" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Learn how to configure Windows Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
 
-This tutorial walks you through the steps to create a Windows Azure virtual network that connects to your company’s network using the Management Portal. After completing this tutorial, you will have a virtual network that communicates with your company’s network to which you can deploy your Windows Azure services.
+<h1 id="vnettut1">Tutorial 2: Creating a Virtual Network for Cross-Premises Connectivity</h1>
+
+<div chunk="../../../Shared/Chunks/disclaimer.md" />
+
+This tutorial walks you through the steps to create a Windows Azure virtual network that connects to your company's network using the Management Portal. After completing this tutorial, you will have a virtual network that communicates with your company's network to which you can deploy your Windows Azure services.
 
 This tutorial assumes you have no prior experience using Windows Azure.
 
@@ -22,7 +26,7 @@ In this tutorial you will learn:
 
 -  How to setup a basic Windows Azure virtual network to which you can add Windows Azure services.
 
--  How to configure the virtual network to communicate with your company’s network.
+-  How to configure the virtual network to communicate with your company's network.
 
 -  How to configure your VPN device to communicate with your Windows Azure virtual network.
 
@@ -50,9 +54,9 @@ In this tutorial you will learn:
 
 ##  <a name="CreateVN">Create a Virtual Network</a>
 
-**To create a virtual network that connects to your company’s network:**
+**To create a virtual network that connects to your company's network:**
 
-1.	Log in to the [Windows Azure Management Portal][wa_com].
+1.	Log in to the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com/).
 2.	In the lower left-hand corner of the screen, click **New**. 
 
 	![CreateNew][]
@@ -105,7 +109,7 @@ In this tutorial you will learn:
 
 	![CreateLocal] []
 
-8.  You now have a virtual network in Windows Azure, which you can see on the portal’s **Virtual Network** tab.
+8.  You now have a virtual network in Windows Azure, which you can see on the portal's **Virtual Network** tab.
 
 	![VNCreated] []
 
@@ -145,7 +149,7 @@ In this tutorial you will learn:
 
 	![DwnldVPN] []
  
-8.	On the **Download VPN Device Config Script** dialog, select the vendor, platform, and os for your company’s VPN device. Click the check button and save the file.
+8.	On the **Download VPN Device Config Script** dialog, select the vendor, platform, and os for your company's VPN device. Click the check button and save the file.
 
 	![DwnldVPNConfig] []
 
@@ -209,7 +213,7 @@ This procedure assumes the following:
 
 
 ##  Next Steps
-If you’d like, you can continue with the following tutorials:
+If you'd like, you can continue with the following tutorials:
 
 <!-- UPDATE THE FOLLOWING LIST ONCE WE HAVE THE LINKS FOR TUTORIALS 4 & 5 -->
 

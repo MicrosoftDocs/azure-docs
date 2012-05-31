@@ -5,6 +5,8 @@
 <h1 id="swap">How to Manage Cloud Services</h1>
 
 
+<div chunk="../../../Shared/Chunks/disclaimer.md" />
+
 ##Table of Contents##
 
 * [How to: Update a cloud service role or deployment](#updaterole)
@@ -17,7 +19,7 @@
 
 If you need to update your application code, use **Update** on the dashboard, **Cloud Services** page, or **Instances** page. You can update a single role or all roles. You'll need to upload a new service package and service configuration file.
 
-1. In the [Windows Azure Management Portal](https://manage.windowsazure.com/), on the dashboard, **Cloud Services** page, or **Instances** page, click **Update**.
+1. In the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com/), on the dashboard, **Cloud Services** page, or **Instances** page, click **Update**.
 
  **Update Deployment** opens.
 
@@ -80,7 +82,7 @@ The following procedure describes how to link a new SQL Database, deployed on a 
 
 ###To link a SQL Database to a cloud service###
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
+1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
 
 2. Click **Linked Resources**.
 
@@ -98,7 +100,7 @@ The following procedure describes how to link a new SQL Database, deployed on a 
 
 4. Click **Create a new resource** or **Link an existing resource**.
 
-5. Choose the type of resource to link. In the [Management Portal](https://manage.windowsazure.com/), click **SQL Database**. (The Customer Technical Preview of the Management Portal does not support linking a storage account to a cloud service.)
+5. Choose the type of resource to link. In the [Management Portal](http://manage.windowsazure.com/), click **SQL Database**. (The Customer Technical Preview of the Management Portal does not support linking a storage account to a cloud service.)
 
 6. To complete the database configuration, follow instructions in help for the **SQL Databases** area of the Management Portal.
 
@@ -107,12 +109,12 @@ You can follow the progress of the linking operation in the message area.
 ![Link Progress](../media/CloudServices_LinkedResources_LinkProgress.png)
 
 
-When linking is complete, you can monitor the status of the linked resource on the cloud service dashboard. For information about scaling a linked SQL Database, see [How to Scale a Cloud Service and Linked Resources](../../../manage/services/cloud-services/howto-scale-cloud-service/).
+When linking is complete, you can monitor the status of the linked resource on the cloud service dashboard. For information about scaling a linked SQL Database, see [How to Scale a Cloud Service and Linked Resources](howto-scale-cloud-service).
 
 
 ###To unlink a linked resource###
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
+1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
 
 2. Click **Linked Resources**, and then select the resource.
 
@@ -130,7 +132,7 @@ To save compute costs, you can delete your staging deployment after you verify t
 
 Use the following procedure to delete a deployment or your cloud service. 
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**.
+1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**.
 
 2. Select the cloud service, and then click **Delete**. (To select a cloud service without opening the dashboard, click anywhere except the name in the cloud service entry.)
 
@@ -145,4 +147,4 @@ Use the following procedure to delete a deployment or your cloud service.
 
 5. To delete the cloud service, click **Delete cloud service**. Then, at the confirmation prompt, click **Yes**.
 
-**Note**   If verbose monitoring is configured for your cloud service, Windows Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For more information, see [How to Monitor Cloud Services](../../../manage/services/cloud-services/howto-monitor-cloud-service/).
+**Note**   If verbose monitoring is configured for your cloud service, Windows Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For more information, see [How to Monitor Cloud Services](howto-monitor-cloud-service).

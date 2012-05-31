@@ -3,7 +3,10 @@
 
 # How to Scale Websites #
 
-You use the Management Portal to scale your websites, and to specify whether you want to run them in Shared website mode or Reserved website mode.  
+<div chunk="../../../Shared/Chunks/disclaimer.md" />
+
+
+You use the Windows Azure (Preview) Management Portal to scale your websites, and to specify whether you want to run them in Shared website mode or Reserved website mode.  
 
 ## Table of Contents ##
 
@@ -43,7 +46,7 @@ Before switching a website from **Shared** website mode to **Reserved** website 
 ##<a name="howtochangescale"></a>How to: Change Scale Options for a Website
 A website that is configured to run in **Shared** website mode has access to the resources associated with an **ExtraSmall** Virtual Machine Size described in the table at [How to: Configure Virtual Machine Sizes][configvmsizes]. 
 
-To change scale options for a Website, in the Management Portal open the website’s **Scale** management page to configure the following scaling options:
+To change scale options for a Website, in the Management Portal open the website's **Scale** management page to configure the following scaling options:
 
 - **WebSite Mode** - Set to **Shared** by default.  When you change the **WebSite Mode** from **Shared** to **Reserved** the website is scaled up to run in a Small compute instance on a single dedicated core with access to additional memory, disk space and bandwidth. For more information, see [How to: Configure Virtual Machine Sizes][configvmsizes]. 
 
