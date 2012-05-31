@@ -4,7 +4,7 @@
 
 Microsoft Team Foundation Service Preview is a cloud-hosted service version of Microsoft’s popular Team Foundation Server (TFS) software that provides highly customizable source code and build management, agile development and team process workflow, issue and work item tracking, and more.  You can configure your Team Foundation Service team projects to automatically build and deploy to Windows Azure websites or cloud services.  
 
-This tutorial assumes you have Visual Studio 2012 RC installed. If you don’t already have Visual Studio 2012 RC, download it [here](http://www.microsoft.com/visualstudio/11/en-us/downloads).
+This tutorial assumes you have Visual Studio 2012 RC and the Windows Azure SDK installed. If you don’t already have Visual Studio 2012 RC, download it [here](http://www.microsoft.com/visualstudio/11/en-us/downloads). You can use Visual Studio 2010, but you must have SP1 installed and you must install the [Compatibility GDR](http://www.microsoft.com/en-us/download/details.aspx?Id=29082).  Install the Windows Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 To set up a cloud service to automatically build and deploy to Windows Azure by using Team Foundation Service Preview, follow these steps:
 
@@ -95,7 +95,7 @@ The Team Explorer shows that a build has been triggered for your check-in.<br/>
 In the **Trigger** tab, you will see that the build definition is set to build on every check-in by default.<br/>
 ![][26]
 <br/>
-In the **Process** tab, you can see the deployment environment is set to the name of your cloud service.<br/>
+In the **Process** tab, you can see the deployment environment is set to the name of your cloud service or web site.<br/>
 ![][27]
 
 25.	By this time, your build should be completed successfully.<br/>
@@ -107,7 +107,7 @@ In the **Process** tab, you can see the deployment environment is set to the nam
 27. In the [Windows Azure Preview Portal](http://manage.windowsazure.com), you can view the associated deployment.<br/>
 ![][30]
 
-28.	Choose the URL in the **Quick Glance** section of the **Dashboard** page that shows the Staging environment. Deployments from continuous integration are published to the Staging environment.<br/>
+28.	Choose the URL in the **Quick Glance** section of the **Dashboard** page that shows the web site or the Staging environment for a cloud service. Deployments from continuous integration for cloud services are published to the Staging environment by default. <br/>
 ![][31]
 <br/>
 A new browser tab will open to reveal your running site.<br/>
@@ -119,7 +119,7 @@ A new browser tab will open to reveal your running site.<br/>
 30. Select an earlier deployment and click the **Redeploy** button to rewind your site to an earlier check-in.  Note that this will trigger a new build in TFS, and create a new entry in your deployment history.<br/>
 ![][34]
 
-31. When you are ready, you can promote the Staging environment to the production environment by choosing the Swap button. The newly deployed Staging environment is promoted to Production, and the previous Production enviroment, if any, becomes a Staging environment.<br/>
+31. This step applies only to cloud services, not web sites. When you are ready, you can promote the Staging environment to the production environment by choosing the Swap button. The newly deployed Staging environment is promoted to Production, and the previous Production enviroment, if any, becomes a Staging environment.<br/>
 ![][35]
 
 For more information, see [Team Foundation Service](http://go.microsoft.com/fwlink/?LinkId=253861).
