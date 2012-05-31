@@ -31,7 +31,7 @@ In this tutorial:
 
 <h2><a name="bkmk_setupdevenv"></a>Set up the development environment</h2>
 
-To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. (If you already have Visual Studio or Visual Web Developer, the SDK isn't required for this tutorial. It will be required later if you follow the suggestionsaa for further learning at the end of the tutorial.)
+To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. (If you already have Visual Studio or Visual Web Developer, the SDK isn't required for this tutorial. It will be required later if you follow the suggestions for further learning at the end of the tutorial.)
 
 1. To install the Windows Azure SDK for .NET, click the button that corresponds to the version of Visual Studio you are using. If you don't have Visual Studio installed yet, use the Visual Studio 2012 button.<br/>
 <a href="http://go.microsoft.com/fwlink/?LinkID=252834" class="site-arrowboxcta download-cta">Get Tools and SDK for Visual Studio 2012</a><br/>
@@ -87,7 +87,7 @@ Keeping the web server and the database server in the same region gives you the 
 This option is selected by default. It creates a firewall rule that allows your Windows Azure website to access this database.
 13. Click the check mark at the bottom of the box to indicate you're finished.
 ![Create a Server step of New Web Site - Create with Database wizard][setup008]
-The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears in the **Web Sites** icon, and the number of databases appears in the **SQL Databases** icon.<br/>
+The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon, and the number of databases appears next to the **SQL Databases** icon.<br/>
 ![Web Sites page of Management Portal, website created][setup009]
 
 <h2><a name="bkmk_createmvc4app"></a>Create an ASP.NET MVC 4 application</h2>
@@ -120,7 +120,7 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 2. In the **&lt;title&gt;** element, change "My ASP.NET MVC Application" to "Contact Manager".
 
 	    <head>
-	        <meta charset="utf-8" />
+	        <meta charset="utf-8" />	
 	        <title>@ViewBag.Title - Contact Manager</title>
 	        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 3. In the **&lt;header&gt;** element, change "your logo here." to "Contact Manager".
@@ -130,12 +130,12 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
                 <div class="float-left">
                     <p class="site-title">@Html.ActionLink("Contact Manager", "Index", "Home")</p>
                 </div>
-4. In the **&lt;footer&gt;** element, change "Contact Manager" to "Contact Managert".
+4. In the **&lt;footer&gt;** element, change "My ASP.NET MVC Application" to "Contact Manager".
 
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                    <p>&copy; @DateTime.Now.Year - Contact Manager</p>
                 </div>
 
 ### Run the application locally
@@ -151,34 +151,33 @@ This is all you need to do for now to create the application that you'll deploy 
 1. In your browser, open the Windows Azure Management Portal.
 2. In the **Web Sites** tab, click the name of the site you created earlier.<br/>
 ![todolistapp in Management Portal Web Sites tab][setup009]
-1. Near the right corner of the windo, click **Download publishing profile**.<br/>
+3. Near the right corner of the window, click **Download publish profile**.<br/>
 ![Quickstart tab and Download Publishing Profile button][firsdeploy001]<br/>
 This step downloads a file that contains all of the settings that you need in order to deploy an application to your Web Site. You'll import this file into Visual Studio so you don't have to enter this information manually.
-1. Save the .publishsettings file in a folder that you can access from Visual Studio.<br/>
+4. Save the .publishsettings file in a folder that you can access from Visual Studio.<br/>
 ![saving the .publishsettings file][firsdeploy002]
-1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
+5. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
 ![Publish in project context menu][firsdeploy003]<br/>
 The **Publish Web** wizard opens.
-1. In the **Profile** tab of the **Publish Web** wizard, click **Import**.<br/>
+6. In the **Profile** tab of the **Publish Web** wizard, click **Import**.<br/>
 ![Import button in Publish Web wizard][firsdeploy004]
-1. Select the .publishsettings file you downloaded earlier, and then click **Open**.<br/>
+7. Select the .publishsettings file you downloaded earlier, and then click **Open**.<br/>
 ![Import Publish Settings dialog box][firsdeploy005]
-1. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.<br/>
+8. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.<br/>
 ![Connection tab of Publish Web wizard][firsdeploy006]<br/>
 When the connection has been validated, a green check mark is shown next to the **Validate Connection** button.
-1. Click **Next**.<br/>
+9. Click **Next**.<br/>
 ![connection successful icon and Next button in Connection tab][firsdeploy007]
-1. In the **Settings** tab, click **Next**.<br/>
+10. In the **Settings** tab, click **Next**.<br/>
 You can accept all of the default settings on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server. The **DefaultConnection** entry under **Databases** is for the ASP.NET membership (log on) functionality built into the default MVC 4 project template. You aren't using that membership functionality for this tutorial, so you don't need to enter any settings for **DefaultConnection**.<br/>
-![Settings tab of the Publish Web wizard][firsdeploy007]
-1. In the **Preview** tab, click **Start Preview**.<br/>
+![Settings tab of the Publish Web wizard][firsdeploy008]
+12. In the **Preview** tab, click **Start Preview**.<br/>
 The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed.<br/>
-![StartPreview button in the Preview tab][firsdeploy008]<br/>
-1. Click **Publish**.<br/>
-Visual Studio begins the process of copying the files to the Windows Azure server.<br/>
-![Publish button in the Preview tab][firsdeploy009]
-1. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
-1. The default browser automatically opens to the URL of the deployed site.<br/>
+![StartPreview button in the Preview tab][firsdeploy009]<br/>
+12. Click **Publish**.<br/>
+Visual Studio begins the process of copying the files to the Windows Azure server.
+13. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
+14. The default browser automatically opens to the URL of the deployed site.<br/>
 The application you created is now running in the cloud.<br/>
 ![To Do List home page running in Windows Azure][newapp005]<br/>
 
@@ -225,14 +224,8 @@ The **Contacts** class defines the data that you want to store for each contact,
 		{
     		public class ContactManagerContext : DbContext
     		{
-        		// You can add custom code to this file. Changes will not be overwritten.
-        		//
-        		// If you want Entity Framework to drop and regenerate your database
-        		// automatically whenever you change your model schema, add the following
-        		// code to the Application_Start method in your Global.asax file.
-        		// Note: this will destroy and re-create your database with every model change.
-        		//
-        		// System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<ContactManager.Models.ContactManagerContext>());
+				System.Data.Entity.DropCreateDatabaseIfModelChanges<ContactManager.
+						Models.ContactManagerContext>());
         		public ContactManagerContext() : base("name=ContactManagerContext")
        			{
         		}
@@ -240,7 +233,7 @@ The **Contacts** class defines the data that you want to store for each contact,
 			}
 		}
 
-The **ContactManagerContext** class lets the Entity Framework know that you want to use **Contacts** objects as entities in an entity set.  An entity set in the Entity Framework corresponds to a table in a database. This is all the information the Entity Framework needs in order to create the database for you.
+	The **ContactManagerContext** class lets the Entity Framework know that you want to use **Contacts** objects as entities in an entity set.  An entity set in the Entity Framework corresponds to a table in a database. This is all the information the Entity Framework needs in order to create the database for you.
 5. Build the project. For example, you can press F6.<br/>
 Visual Studio compiles the data model classes that you created and makes them available for the following procedures that enable Code First Migrations and use MVC scaffolding.
 6. Open the Web.config file.
@@ -265,7 +258,7 @@ The **add-migration Initial** command generates a class named **Initial** that c
 ![Migrations folder in Solution Explorer][migrations003]<br/>
 In the **Initial** class, the **Up** method creates the Contacts table, and the **Down** method (used when you want to return to the previous state) drops it:<br/>
 ![Initial Migration class][migrations004]<br/>
-Finally, **update-database** runs this first migration which creates the database. By default, the database is created as a SQL Server Express adatabase. (Unless you have SQL Server Express installed, in which case the database is created using the SQL Server Express instance.)
+Finally, **update-database** runs this first migration which creates the database. The database is created as a SQL Server Express database.
 
 ### Create web pages that enable app users to work with the contacts
 
@@ -435,7 +428,7 @@ Visual Studio creates a controller and views for each of the four main database 
 	    	background-color: Orange;
 	    	color: White;
 	    	font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
-		}
+		}	
 
 		.removeContact, .viewImage
 		{
@@ -461,7 +454,7 @@ Visual Studio creates a controller and views for each of the four main database 
 2. Enter "Apis" and the press the **Enter** key.
 3. Right-click on the Apis folder and click **Add**, and then click **Controller...**.<br/>
 ![Add class in  folder context menu][addwebapi002]
-4. In the **Add Controller** dialog box, enter "ContactsController" as your controller name, and select the **API contorller with empty read/write actions** template. Click **Add**.<br/>
+4. In the **Add Controller** dialog box, enter "ContactsController" as your controller name, and select the **API controller with empty read/write actions** template. Click **Add**.<br/>
 ![Add controller dialog box for web api][addwebapi003]
 
 ### Run the application locally
@@ -471,7 +464,7 @@ Visual Studio creates a controller and views for each of the four main database 
 2. Enter a contact and click **Add**. The app returns to the home page and displays the item you entered.<br/>
 ![Index page with to-do list items][addwebapi004]
 3. Copy the URL from the address bar. Open a new browser window and paste the URL into the address bar.<br/>![Index page with to-do list items][addwebapi005]
-The RESTful web API you added returns the the stored contacts.<br/>![Web API save dialog][addwebapi006]
+The RESTful web API you added returns the stored contacts.<br/>![Web API save dialog][addwebapi006]
 You can open the returned contacts in notepad or a broswer.
 This output can be consumed by another application such as mobile web page or application.<br/>![Web API save dialog][addwebapi007]
 
@@ -486,17 +479,17 @@ To publish the application, you repeat the procedure you followed earlier, addin
 You're importing the .publishsettings file again because it has the SQL Database connection string you need for configuring database publishing.
 5. Click the **Settings** tab.
 6. In the connection string box for the **Contacts** database, select the SQL Database connection string that was provided in the .publishsettings file.<br/>
-7. Select **Execute Code First Migrations (runs on application start)**.<br/>
+7. Select **Apply Code First Migrations (runs on application start)**.<br/>
 ![Settings tab of Publish Web wizard][lastdeploy001]<br/>
 (As was noted earlier, the **DefaultConnection** database is for the ASP.NET membership system. You are not using membership functionality in this tutorial, so you aren't configuring this database for deployment.)
 8. Click **Publish**.<br/>
 After the deployment completes, the browser opens to the home page of the application.<br/>
-![Index page with no to-do list items][intro001]<br/>
+![Index page with no contacts][intro001]<br/>
 The Visual Studio publish process automatically configured the connection string in the deployed Web.config file to point to the SQL database. It also configured Code First Migrations to automatically upgrade the database to the latest version the first time the application accesses the database after deployment.
 As a result of this configuration, Code First created the database by running the code in the **Initial** class that you created earlier. It did this the first time the application tried to access the database after deployment.
-9. Enter a to-do list item as you did when you ran the app locally, to verify that database deployment succeeded.
-When you see that the item you enter is saved and appears on the Index page, you know that it has been stored in the database.<br/>
-![Index page with to-do list items][addwebapi004]
+9. Enter a contact as you did when you ran the app locally, to verify that database deployment succeeded.
+When you see that the item you enter is saved and appears on the contact manager page, you know that it has been stored in the database.<br/>
+![Index page with contacts][addwebapi004]
 
 The application is now running in the cloud, using SQL Database to store its data.
 
@@ -514,12 +507,7 @@ Here are some things to be aware of when you plan and develop an ASP.NET applica
 
 You've seen how to deploy a web application that implements RESTful web API to a Windows Azure Web Site. To learn more about how to configure, manage, and scale Windows Azure Web Sites, see the how-to topics on the [Common Tasks][CommonTasks] page.
 
-To learn how to deploy an application to a Windows Azure Cloud Service, see [The Cloud Service version of this tutorial][NetAppWithSqlAzure]. Some reasons for choosing to run an ASP.NET web application in a Windows Azure Cloud Service rather than a Windows Azure Web Site include the following:
-
-* You want administrator permissions on the web server that the application runs on.
-* You want to use Remote Desktop Connection to access the web server that the application runs on.
-
-Another way to store data in a Windows Azure application is to use Windows Azure Storage Services, which provides non-relational data storage in the form of blobs and tables. The to-do list application could have been designed to use Windows Azure Storage instead of SQL Database. For more information about both SQL Database and Windows Azure Storage, see [Data Storage Offerings on the Windows Azure Platform][WindowsAzureDataStorageOfferings].
+Another way to store data in a Windows Azure application is to use Windows Azure Storage Services, which provides non-relational data storage in the form of blobs and tables. The Contact Manager application could have been designed to use Windows Azure Storage instead of SQL Database. For more information about both SQL Database and Windows Azure Storage, see [Data Storage Offerings on the Windows Azure Platform][WindowsAzureDataStorageOfferings].
 
 To learn more about how to use SQL Database, see the following resources:
 

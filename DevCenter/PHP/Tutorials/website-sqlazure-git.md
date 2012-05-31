@@ -28,7 +28,7 @@ Follow these steps to create a Windows Azure Website and a SQL Database:
 
 	![Create New Windows Azure Website][new-website]
 
-3. Click **Web Site**, then **Custom Create**.
+3. Click **WEB SITE**, then **CREATE WITH DATABASE**.
 
 	![Custom Create a new Website][custom-create]
 
@@ -36,26 +36,26 @@ Follow these steps to create a Windows Azure Website and a SQL Database:
 
 	![Fill in Website details][website-details-sqlazure]
 
-4. Enter a value for the **NAME** of your database, select the **EDITION** [(WEB or BUSINESS)][sql-database-editions], select the **MAX SIZE** for your database, choose the **COLLATION**, and select **NEW SQL Azure server**. Click the arrow at the bottom of the dialog.
+4. Enter a value for the **NAME** of your database, select the **EDITION** [(WEB or BUSINESS)][sql-database-editions], select the **MAX SIZE** for your database, choose the **COLLATION**, and select **NEW SQL Database server**. Click the arrow at the bottom of the dialog.
 
 	![Fill in SQL Database settings][database-settings]
 
-5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Database server will be created, and check the `Allow Windows Azure Services to access this server` box.
+5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Database server will be created, and check the `Allow Windows Azure Services to access the server` box.
 
 	![Create new SQL Database server][create-server]
 
 	When the website has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfully**. Now, you can enable Git publishing.
 
-5. Click the name of the website displayed in the list of websites to open the website’s Quick Start dashboard.
+6. Click the name of the website displayed in the list of websites to open the website’s Quick Start dashboard.
 
 	![Open website dashboard][go-to-dashboard]
 
 
-6. At the bottom of the Quick Start page, click **Set up Git publishing**. 
+7. At the bottom of the Quick Start page, click **Set up Git publishing**. 
 
 	![Set up Git publishing][setup-git-publishing]
 
-7. To enable Git publishing, you must provide a user name and password. Make a note of the user name and password you create. (If you have set up a Git repository before, this step will be skipped.)
+8. To enable Git publishing, you must provide a user name and password. Make a note of the user name and password you create. (If you have set up a Git repository before, this step will be skipped.)
 
 	![Create publishing credentials][credentials]
 
@@ -63,11 +63,7 @@ Follow these steps to create a Windows Azure Website and a SQL Database:
 
 	![Creating Git repository][creating-repo]
 
-8. When your repository is ready, click **Push my local files to Windows Azure**.
-
-	![Get Git instructions for pushing files][push-files]
-
-	Make note of the instructions on the resulting page - they will be needed later.
+9. When your repository is ready, you will see instructions for pushing your application files to the repository. Make note of these instructions - they will be needed later.
 
 	![Git instructions][git-instructions]
 
@@ -79,7 +75,7 @@ To connect to the SQL Database instance that is running in Windows Azure Website
 
 	![Linked Resources][linked-resources]
 
-2. Click **Connection String**.
+2. Click **View connection strings**.
 
 	![Connection string][connection-string]
 	

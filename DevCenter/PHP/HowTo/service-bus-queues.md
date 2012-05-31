@@ -111,7 +111,7 @@ namespace.
 
 <h2 id="ConfigureApp">Configure your application to use Service Bus</h2>
 
-The only requirement for creating a PHP application that accesses the Windows Azure Blob service is the referencing of classes in the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
+The only requirement for creating a PHP application that accesses the Windows Azure Blob service is the referencing of classes in the [Windows Azure client libraries for PHP][client-libs] from within your code. You can use any development tools to create your application, including Notepad.
 
 In this guide, you will use service features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site. We assume you have downloaded and installed PHP, followed the instructions in [Download the Windows Azure SDK for PHP] [download-sdk], and have created a Windows Azure Service Bus namespace in your Windows Azure subscription.
 
@@ -188,7 +188,7 @@ The example below shows how create a **Configuration** object, instantiate **Ser
 <h2 id="SendMessages">How to: Send messages to a queue</h2>
 
 To send a message to a Service Bus queue, your application will call the **ServiceBusRestProxy->sendQueueMessage** method. The code below demonstrates how to send a message to the "myqueue" queue we created above within the
-"MySBNamespace" service namespace. Note that first parameter of the **sendQueueMessage** method is `myqueue/messages`, the path to which the message is sent.
+"MySBNamespace" service namespace.
 
 	require_once 'WindowsAzure.php';
 
@@ -273,7 +273,7 @@ The example below demonstrates how a message can be received and processed using
 	$serviceBusRestProxy = ServiceBusService::create($config);
 	
 	$options = new ReceiveMessageOptions();
-	$options->setIsPeekLock(true);
+	$options->setPeekLock(true);
 		
 	try	{
 		// Get message.
@@ -342,3 +342,4 @@ topic [Queues, Topics, and Subscriptions][] for more information.
 [Default Key screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_07_DefaultKey.jpg
 [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
 [require_once]: http://php.net/require_once
+[client-libs]: http://go.microsoft.com/fwlink/?LinkId=252719

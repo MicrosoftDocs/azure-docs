@@ -115,7 +115,7 @@ A **BlobService** object lets you create a blob container with the **createConta
 		echo $code.": ".$error_message."<br />";
 	}
 
-Calling **setPublicAccess(CONTAINER\_AND\_BLOBS)** makes the container and blob data accessible via anonymous requests. Calling **setPublicAccess(BLOBS_ONLY)** makes only blob data accessible via anonymous requests. For more information about container ACLs, see [Set Container ACL (REST API)][container-acl].
+Calling **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)** makes the container and blob data accessible via anonymous requests. Calling **setPublicAccess(PublicAccessType::BLOBS_ONLY)** makes only blob data accessible via anonymous requests. For more information about container ACLs, see [Set Container ACL (REST API)][container-acl].
 
 For more information about Blob service error codes, see [Blob Service Error Codes][error-codes].
 

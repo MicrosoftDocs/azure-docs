@@ -62,11 +62,11 @@ Perform the following steps to enable a Git repository for your web site by usin
 
 1. Login to the [Windows Azure portal].
 
-2. On the left of the page, select **Web Sites**, and then select the web site for which you want to enable a repository. If you have not yet created a web site, see **TBD**.
+2. On the left of the page, select **Web Sites**, and then select the web site for which you want to enable a repository.
 
 	![An image displaying a selected web site][portal-select-website]
 
-3. At the bottom of the page, select **Setup Git publishing**.
+3. At the bottom of the page, select **Setup Git publishing** from the **quick glance** section.
 
 	![The Setup Git Publishing link][portal-setup-git]
 
@@ -74,7 +74,7 @@ Perform the following steps to enable a Git repository for your web site by usin
 
 	![Deployment credentials prompt][portal-deployment-credentials]
 
-4. After a short delay, you should be presented with a message that your repository is ready. Below this message, click the **Push my local files to Windows Azure** for a list of commands that can be used to push your local files to Windows Azure.
+4. After a short delay, you should be presented with a message that your repository is ready. Below this message, in the **Push my local files to Windows Azure** section, there will be a list of commands that can be used to push your local files to Windows Azure.
 
 	![Repository ready][portal-repository-ready]
 

@@ -169,7 +169,7 @@ To upload an image contained in a VHD file to Windows Azure, you must:
 
 You can create a management certificate in a variety of ways.  For more information about creating certificates, see [How to Create a Certificate for a Role](http://msdn.microsoft.com/en-us/library/gg432987.aspx).  After you create the certificate, you must add it to your subscription in Windows Azure. 
 
-1. Sign in to the Windows Azure Platform Management Portal.
+1. Sign in to the Windows Azure Management Portal.
 
 2. In the upper-left corner of the Management Portal, click **Preview**, and then click **Previous Management Portal**.
 

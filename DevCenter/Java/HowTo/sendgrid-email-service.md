@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-java-how-to-access-control" urldisplayname="SendGrid Email Service" headerexpose="" pagetitle="SendGrid Email Service - How To - Java - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-java-how-to-sendgrid-email-service" urldisplayname="SendGrid Email Service" headerexpose="" pagetitle="SendGrid Email Service - How To - Java - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Send Email Using SendGrid from Java
 
@@ -7,20 +7,20 @@ SendGrid email service on Windows Azure. The samples are written in
 Java. The scenarios covered include **constructing email**, **sending
 email**, **adding attachments**, **using filters**, and **updating
 properties**. For more information on SendGrid and sending email, see
-the [Next Steps][] section.
+the [Next steps][] section.
 
 ## Table of Contents
 
 -   [What is the SendGrid Email Service?][]
--   [Create a SendGrid Account][]
+-   [Create a SendGrid account][]
 -   [How to: Use the javax.mail libraries][]
--   [How to: Create an Email][]
--   [How to: Send an Email][]
--   [How to: Add an Attachment][]
--   [How to: Use Filters to Enable Footers, Tracking, and Analytics][]
--   [How to: Update Email Properties][]
--   [How to: Use Additional SendGrid Services][]
--   [Next Steps][]
+-   [How to: Create an email][]
+-   [How to: Send an email][]
+-   [How to: Add an attachment][]
+-   [How to: Use filters to enable footers, tracking, and analytics][]
+-   [How to: Update email properties][]
+-   [How to: Use additional SendGrid services][]
+-   [Next steps][]
 
 ## <a name="bkmk_WhatIsSendGrid"> </a>What is the SendGrid Email Service?
 
@@ -39,7 +39,7 @@ include:
 
 For more information, see [http://sendgrid.com][].
 
-## <a name="bkmk_CreateSendGridAcct"> </a>Create a SendGrid Account
+## <a name="bkmk_CreateSendGridAcct"> </a>Create a SendGrid account
 
 To get started with SendGrid, evaluate pricing and sign up here:
 [http://sendgrid.com/pricing.html][]. Windows Azure customers receive a
@@ -97,14 +97,13 @@ to send email using SMTP is to do the following:
         Session mailSession = Session.getDefaultInstance(properties, auth);
 
 4.  Create your message and assign **To**, **From**, **Subject** and
-    content values. This is shown in the [How To: Create an Email][How
-    to: Create an Email] section.
+    content values. This is shown in the [How To: Create an Email](#bkmk_HowToCreateEmail) section.
 5.  Send the message through a
     <span class="auto-style1">javax.mail.Transport</span> object. This
     is shown in the [How To: Send an Email][How to: Send an Email]
     section.
 
-## <a name="bkmk_HowToCreateEmail"> </a>How to: Create an Email
+## <a name="bkmk_HowToCreateEmail"> </a>How to: Create an email
 
 The following shows how to specify values for an email.
 
@@ -126,7 +125,7 @@ The following shows how to specify values for an email.
     message.setSubject("Your recent order");
     message.setContent(multipart);
 
-## <a name="bkmk_HowToSendEmail"> </a>How to: Send an Email
+## <a name="bkmk_HowToSendEmail"> </a>How to: Send an email
 
 The following shows how to send an email.
 
@@ -139,7 +138,7 @@ The following shows how to send an email.
     // Close the connection.
     transport.close();
 
-## <a name="bkmk_HowToAddAttachment"> </a>How to: Add an Attachment
+## <a name="bkmk_HowToAddAttachment"> </a>How to: Add an attachment
 
 The following code shows you how to add an attachment.
 
@@ -156,7 +155,7 @@ The following code shows you how to add an attachment.
     attachmentPart.setFileName(attachmentName);
     multipart.addBodyPart(attachmentPart);
 
-## <a name="bkmk_HowToUseFilters"> </a>How to: Use Filters to Enable Footers, Tracking, and Analytics
+## <a name="bkmk_HowToUseFilters"> </a>How to: Use filters to enable footers, tracking, and analytics
 
 SendGrid provides additional email functionality through the use of
 *filters*. These are settings that can be added to an email message to
@@ -184,7 +183,7 @@ see [Filter Settings][].
         message.addHeader("X-SMTPAPI", "{\"filters\": {\"clicktrack\": {\"settings\": 
         {\"enable\":1}}}}");
 
-## <a name="bkmk_HowToUpdateEmail"> </a>How to: Update Email Properties
+## <a name="bkmk_HowToUpdateEmail"> </a>How to: Update email properties
 
 Some email properties can be overwritten using **set*Property*** or
 appended using **add*Property***.
@@ -200,24 +199,20 @@ To add a **Cc** recipient, use the following:
     message.addRecipient(Message.RecipientType.CC, new 
     InternetAddress("john@contoso.com"));
 
-## <a name="bkmk_HowToUseAdditionalSvcs"> </a>How to: Use Additional SendGrid Services
+## <a name="bkmk_HowToUseAdditionalSvcs"> </a>How to: Use additional SendGrid services
 
 SendGrid offers web-based APIs that you can use to leverage additional
 SendGrid functionality from your Windows Azure application. For full
 details, see the [SendGrid API documentation][].
 
-## <a name="bkmk_NextSteps"> </a>Next Steps
+## <a name="bkmk_NextSteps"> </a>Next steps
 
 Now that you’ve learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
--   SendGrid Java information:
-    [http://docs.sendgrid.com/documentation/get-started/integrate/examples/java-email-example-using-smtp/][]
--   SendGrid API documentation:
-    [http://docs.sendgrid.com/documentation/api/][SendGrid API
-    documentation]
--   SendGrid special offer for Windows Azure customers:
-    [http://sendgrid.com/azure.html][]
+-   SendGrid Java information: <http://docs.sendgrid.com/documentation/get-started/integrate/examples/java-email-example-using-smtp/>
+-   SendGrid API documentation: <http://docs.sendgrid.com/documentation/api/>
+-   SendGrid special offer for Windows Azure customers: <http://sendgrid.com/azure.html>
 
   [Next Steps]: #bkmk_NextSteps
   [What is the SendGrid Email Service?]: #bkmk_WhatIsSendGrid

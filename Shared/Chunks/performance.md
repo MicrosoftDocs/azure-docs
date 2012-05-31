@@ -83,15 +83,15 @@ One common design pattern where you can consider Table Storage involves a table 
 For more discussion of Table Storage, see: 
 
 * [Azure Table Storage Performance Considerations](http://go.microsoft.com/fwlink/?LinkId=252663). 
-* [SQL Azure and Windows Azure Table Storage](http://go.microsoft.com/fwlink/?LinkId=252664) 
+* [SQL Database and Windows Azure Table Storage](http://go.microsoft.com/fwlink/?LinkId=252664) 
 * [Improving Performance by Batching Azure Table Storage Inserts](http://go.microsoft.com/fwlink/?LinkID=252665), which discusses some performance results. 
-* [SQL Azure Performance and Elasticity Guide](http://go.microsoft.com/fwlink/?LinkId=221876) 
+* [SQL Database Performance and Elasticity Guide](http://go.microsoft.com/fwlink/?LinkId=221876) 
 
 #### Data Partitioning ####
 
-One of the most frequently partitioned resources is data. If you are creating a Windows Azure Cloud Service, then you should consider the use of SQL Azure’s built-in sharding available via Federations. Be sure to build a proof of concept to determine that Federations provides the needed partitioning for your application. 
+One of the most frequently partitioned resources is data. If you are creating a Windows Azure Cloud Service, then you should consider the use of SQL Database’s built-in sharding available via Federations. Be sure to build a proof of concept to determine that Federations provides the needed partitioning for your application. 
 
-If SQL Azure Federations does not meet your scalability requirements, there are numerous examples of “do-it-yourself” partitioning that you can consider adopting. 
+If SQL Database Federations does not meet your scalability requirements, there are numerous examples of “do-it-yourself” partitioning that you can consider adopting. 
 
 ##### Federations Limitations and Scalability Tradeoffs #####
 
@@ -101,16 +101,16 @@ Federations is easiest to implement for new development, and for existing applic
 
 Your “proof of concept” application may encounter limitations in Federations ability to scale. When you partition a group of tables, rows that contain a key within a specified range occupy one of a number of Federation members, each of which is a separate database. Currently Federations scales well up to about 6 federation members. If you require more partitions, you may wish to consider “do-it-yourself” partitioning. 
 
-Another major trade off is that the transaction model becomes that of “eventual consistency”, because each Federation member is a separate database, and SQL Azure does not support cross-database joins. 
+Another major trade off is that the transaction model becomes that of “eventual consistency”, because each Federation member is a separate database, and SQL Database does not support cross-database joins. 
 
-One consequence of this is that if you need to do a fan-out query that crosses federation member boundaries (for example, get all Orders made this month), you will need to use logic in the application layer to support it. This blog post describes the basics of doing this: [Introduction to Fan-out Queries for Federations in SQL Azure (Part 1): Scalable Queries over Multiple Federation Members, MapReduce Style!](http://go.microsoft.com/fwlink/?LinkID=252667) 
+One consequence of this is that if you need to do a fan-out query that crosses federation member boundaries (for example, get all Orders made this month), you will need to use logic in the application layer to support it. This blog post describes the basics of doing this: [Introduction to Fan-out Queries for Federations in SQL Database (Part 1): Scalable Queries over Multiple Federation Members, MapReduce Style!](http://go.microsoft.com/fwlink/?LinkID=252667) 
 
 
 Another limitation to consider is hybrid applications where you have portions of the database located in the cloud, and part on premises. If the federated part of the data exists in both places, then you will have to maintain two versions of the application code, since Federations is not implemented on premises. 
 
 ##### SQL Federations #####
 
-For an overview of SQL Azure Federations, see [Federations in SQL Azure]( http://go.microsoft.com/fwlink/?LinkId=252668). 
+For an overview of SQL Database Federations, see [Federations in SQL Database]( http://go.microsoft.com/fwlink/?LinkId=252668). 
 
 Federating for scalability requires some modifications to your already well-designed database schema. There are two major issues: 
 
@@ -122,7 +122,7 @@ In order to decide what to federate on, you need to examine your database schema
 
 For example, in the well-known AdventureWorks sample database, one possible aggregate is the set {Customer, Order, OrderLine, and possibly a few more}. Another possible aggregate is {Supplier, Product, OrderLine, Order}. 
 
-Each aggregate is a candidate for federating. You must evaluate where you expect growth in size, and also examine your application’s work load: queries that “align well” with the federating scheme, i.e. which don’t require data from more than one federation member, will run well. Those that don’t align well will require logic in the application layer, because SQL Azure does not currently support cross-database joins. 
+Each aggregate is a candidate for federating. You must evaluate where you expect growth in size, and also examine your application’s work load: queries that “align well” with the federating scheme, i.e. which don’t require data from more than one federation member, will run well. Those that don’t align well will require logic in the application layer, because SQL Database does not currently support cross-database joins. 
 
 To see an example of a design analysis that examines the AdventureWorks database in order to federate it, and shows you step-by-step the considerations involved in the design, see [Scale-First Approach to Database Design with Federations: Part 1 – Picking Federations and Picking the Federation Key](http://go.microsoft.com/fwlink/?LinkId=252671). 
 
@@ -138,28 +138,28 @@ If your application uses a relational database, then good database design is alw
 * [Stairway to Database Design](http://go.microsoft.com/fwlink/?LinkId=252676) 
 * [Database Design](http://go.microsoft.com/fwlink/?LinkId=252677) 
 
-Use of SQL Azure Federations in a Windows Azure Cloud Service requires some modification of classic design principles. However, most things true of good design for an on-premises SQL Server database are a necessary starting point for converting to SQL Azure Federations. If you are considering changing an application that uses a SQL database over to use Federations, validate the existing schema design. Implementing Federations assumes that the original database is well-designed. 
+Use of SQL Database Federations in a Windows Azure Cloud Service requires some modification of classic design principles. However, most things true of good design for an on-premises SQL Server database are a necessary starting point for converting to SQL Database Federations. If you are considering changing an application that uses a SQL database over to use Federations, validate the existing schema design. Implementing Federations assumes that the original database is well-designed. 
 
 
 ##### Do-It-Yourself Partitioning #####
 
-There are a number of samples that show ways of partitioning data. If you decide not to use Federations to partition your SQL Azure database, you must choose a method of partitioning that is appropriate to your application. Here are some examples: 
+There are a number of samples that show ways of partitioning data. If you decide not to use Federations to partition your SQL Database instance, you must choose a method of partitioning that is appropriate to your application. Here are some examples: 
 
-* A comprehensive account written before the release of Federations is [How to Shard with SQL Azure](http://go.microsoft.com/fwlink/?LinkId=252678). 
-* [SQL Server and SQL Azure Shard Library]( http://go.microsoft.com/fwlink/?LinkId=252679) 
+* A comprehensive account written before the release of Federations is [How to Shard with SQL Database](http://go.microsoft.com/fwlink/?LinkId=252678). 
+* [SQL Server and SQL Database Shard Library]( http://go.microsoft.com/fwlink/?LinkId=252679) 
 
 ##### Partitioning Other Resources #####
 
-You can partition other resources besides SQL Azure. For example you might wish to partition application servers and dedicate them to specific databases. Let’s assume your application contained N app servers, and also N databases. If each app server is allowed to access each database, that will consume N squared database connections which in some cases may hit a hard Windows Azure limit. But if you restrict each app server to only a few databases, then you will significantly reduce the number of connections used. 
+You can partition other resources besides SQL Database. For example you might wish to partition application servers and dedicate them to specific databases. Let’s assume your application contained N app servers, and also N databases. If each app server is allowed to access each database, that will consume N squared database connections which in some cases may hit a hard Windows Azure limit. But if you restrict each app server to only a few databases, then you will significantly reduce the number of connections used. 
 
 Depending on your application you may be able to apply similar reasoning to other resources. 
 
 
 #### Caching ####
 
-The Windows Azure Caching Service provides distributed elastic memory for caching things like ASP.net session state, or commonly referenced values from SQL Azure reference tables. Because the objects are in distributed memory, there is a considerable performance gain possible. Because Windows Azure handles the caching infrastructure, there is little development cost in implementing it. 
+The Windows Azure Caching Service provides distributed elastic memory for caching things like ASP.net session state, or commonly referenced values from SQL Database reference tables. Because the objects are in distributed memory, there is a considerable performance gain possible. Because Windows Azure handles the caching infrastructure, there is little development cost in implementing it. 
 
-Plan to provide enough caching capacity so that you can cache frequently accessed objects. In SQL Azure there are frequently reference tables used to convert numeric codes into longer descriptive character strings. These tables often include data such as Country and City names, valid Postal Code values, names of Departments within your company, etc. For smaller tables it may make sense to store the entire table in cache, for others you might only store the most frequently used values. The performance gain comes in multi-join queries that involve this data: for each value that is found in the cache, several disk accesses are saved. A good introduction and discussion of performance and caching in Windows Azure is [Introducing the Windows Azure Caching Service (http://go.microsoft.com/fwlink/?LinkId=252680)](http://go.microsoft.com/fwlink/?LinkId=252680). A more recent blog post on the subject is at [Windows #Azure Caching Performance Considerations (http://go.microsoft.com/fwlink/?LinkId=252681)](http://go.microsoft.com/fwlink/?LinkId=252681). 
+Plan to provide enough caching capacity so that you can cache frequently accessed objects. In SQL Database there are frequently reference tables used to convert numeric codes into longer descriptive character strings. These tables often include data such as Country and City names, valid Postal Code values, names of Departments within your company, etc. For smaller tables it may make sense to store the entire table in cache, for others you might only store the most frequently used values. The performance gain comes in multi-join queries that involve this data: for each value that is found in the cache, several disk accesses are saved. A good introduction and discussion of performance and caching in Windows Azure is [Introducing the Windows Azure Caching Service (http://go.microsoft.com/fwlink/?LinkId=252680)](http://go.microsoft.com/fwlink/?LinkId=252680). A more recent blog post on the subject is at [Windows #Azure Caching Performance Considerations (http://go.microsoft.com/fwlink/?LinkId=252681)](http://go.microsoft.com/fwlink/?LinkId=252681). 
 
 #### Scenario: Using Queuing in Windows Azure Applications ####
 
@@ -261,7 +261,7 @@ Windows Azure is designed to run multiple concurrent applications, replicated fo
 
 * Physical location of services 
 
-These considerations apply to all application architectures, because they are determined by the physical infrastructure of Windows Azure data centers. For detailed discussion, see the [SQL Azure Performance and Elasticity Guide](http://go.microsoft.com/fwlink/?LinkID=252666). 
+These considerations apply to all application architectures, because they are determined by the physical infrastructure of Windows Azure data centers. For detailed discussion, see the [SQL Database Performance and Elasticity Guide](http://go.microsoft.com/fwlink/?LinkID=252666). 
 
 ### Network latency ###
 
@@ -273,11 +273,11 @@ Take into account that there probably will be more, since the cloud data center 
 
 If possible, co-locate different nodes or application layers within the same data center. Otherwise network latency and cost will be greater. 
 
-For example, locate the web application in the same data center as the SQL Azure database that it accesses, rather than in a different data center, or on-premises. 
+For example, locate the web application in the same data center as the SQL Database instance that it accesses, rather than in a different data center, or on-premises. 
 
 ### Transient connections ###
 
-Your application MUST be able to handle dropped connections. Dropped connections are inevitable and intrinsic to the cloud architecture (e.g. ops like replacing a dead node, splitting a Federation member in SQL Azure, etc). The best framework for doing this right now is [The Transient Fault Handling Application Block](http://go.microsoft.com/fwlink/?LinkID=236901). 
+Your application MUST be able to handle dropped connections. Dropped connections are inevitable and intrinsic to the cloud architecture (e.g. ops like replacing a dead node, splitting a Federation member in SQL Database, etc). The best framework for doing this right now is [The Transient Fault Handling Application Block](http://go.microsoft.com/fwlink/?LinkID=236901). 
 
 ### Throttling ###
 
@@ -325,16 +325,16 @@ Being able to trouble shoot performance problems at runtime requires up-front wo
 
 There are tools available for monitoring the on-going performance of every Windows Azure service. In addition logging facilities should be built into applications that provide detailed information needed for trouble-shooting and resolving performance issues. 
 
-### SQL Azure ###
+### SQL Database ###
 
 Note that the SQL Profiler is not currently available in Windows Azure. There are several work-arounds to gain the needed performance information.One alternative during development is to do initial testing in an on-premises version of the database, where SQL Profiler is available. 
 
-You can also use the SET STATISTICS Transact-SQL command, and use SQL Server Management Studio to view the execution plan generated by a query, since coding efficient queries is a key to performance. For a detailed discussion, and a step-by-step explanation of how to do this, see [Gaining Performance Insight into SQL Azure](http://go.microsoft.com/fwlink/?LinkId=252877). Another interesting approach is at Analyze performance between [SQL Azure and SQL Server on premise](http://go.microsoft.com/fwlink/?LinkId=252878). 
+You can also use the SET STATISTICS Transact-SQL command, and use SQL Server Management Studio to view the execution plan generated by a query, since coding efficient queries is a key to performance. For a detailed discussion, and a step-by-step explanation of how to do this, see [Gaining Performance Insight into SQL Database](http://go.microsoft.com/fwlink/?LinkId=252877). Another interesting approach is at Analyze performance between [SQL Database and SQL Server on premise](http://go.microsoft.com/fwlink/?LinkId=252878). 
 
 Two topics about Dynamic Management Views are: 
 
-* [Monitoring SQL Azure Using Dynamic Management Views](http://go.microsoft.com/fwlink/?LinkId=236195) 
-* [Useful DMV’s for SQL Azure to analyze if you miss SQL Profiler](http://go.microsoft.com/fwlink/?LinkId=252879) 
+* [Monitoring SQL Database Using Dynamic Management Views](http://go.microsoft.com/fwlink/?LinkId=236195) 
+* [Useful DMV’s for SQL Database to analyze if you miss SQL Profiler](http://go.microsoft.com/fwlink/?LinkId=252879) 
 
 ### Analysis Resources and Tools ###
 
@@ -342,12 +342,12 @@ A number of third-party non-Microsoft tools are available for analyzing Windows 
 
 - [Cerebrata](http://go.microsoft.com/fwlink/?LinkId=252880) 
 
-- [SQL Server and SQL Azure Performance Testing: Enzo SQL Baseline](http://enzosqlbaseline.codeplex.com/) 
+- [SQL Server and SQL Database Performance Testing: Enzo SQL Baseline](http://enzosqlbaseline.codeplex.com/) 
 
 Other Resources 
 
-* [SQL Azure Performance and Elasticity Guide](http://go.microsoft.com/fwlink/?LinkID=252666) 
-* [SQL Azure](http://go.microsoft.com/fwlink/?LinkId=246930) 
+* [SQL Database Performance and Elasticity Guide](http://go.microsoft.com/fwlink/?LinkID=252666) 
+* [SQL Database](http://go.microsoft.com/fwlink/?LinkId=246930) 
 * [Storage](http://go.microsoft.com/fwlink/?LinkId=246933) 
 * [Networking]( http://go.microsoft.com/fwlink/?LinkId=252882) 
 * [Service Bus]( http://go.microsoft.com/fwlink/?LinkId=246934) 

@@ -1,7 +1,8 @@
 1. Login to the [Windows Azure (Preview) Management Portal][AzurePreviewPortal] using your account. If you do not have a Windows Azure account visit [Windows Azure 3 Month free trial](http://www.windowsazure.com/en-us/pricing/free-trial/).
 2. In the Management Portal, at the bottom left of the web page, click **+New**, click **Virtual Machine**, and then click **From Gallery**.
 ![Create a New Virtual Machine][Image1]
-3. Select an OpenSUSE virtual machine image, and then click the next arrow at the bottom right of the page.
+3. Select an OpenSUSE virtual machine image from **Platform Images**, and then click the next arrow at the bottom right of the page.
+	![VM Configuration] [Image21]
 4. On the **VM Configuration** page, provide the following information:
 
 - Provide a **Virtual Machine Name**, such as "testlinuxvm".
@@ -9,21 +10,20 @@
 - In the **New Password** box, type a [strong password](http://msdn.microsoft.com/en-us/library/ms161962.aspx).
 - In the **Confirm Password** box, retype the password.
 - Select the appropriate **Size** from the drop down list.
-- Select the **Secure Using SSH Key**, click the **Browse** button, and specify a certificate.  This certificate will be used to authenticate the SSH connection.
 
 	Click the next arrow to continue.
 
 	![VM Configuration] [Image2]
 5. On the **VM Mode** page, provide the following information:
 - Select **Standalone Virtual Machine**.
-- In the **DNS Name** box, type a valid DNS address.  For example, "testlinuxvm.cloudapp.net".
+- In the **DNS Name** box, type a valid DNS address.  For example, "testlinuxvm".
 - In the **Region/Affinity Group/Virtual Network** box, select a region where this virtual image will be hosted.
 
    Click the next arrow to continue.
 
 	![VM Configuration] [Image3]
-6. On the **VM Options** page, select **(none)** in the **Availability Set** box.
-7. Click the check mark to continue.
+6. On the **VM Options** page, select **(none)** in the **Availability Set** box. Click the check mark to continue.
+	![VM Configuration] [Image4]
 8. Wait while Windows Azure prepares your virtual machine.
 
 ##Configure Endpoints
@@ -64,6 +64,7 @@ If you are using a Windows computer, connect to the VM using PuTTY. PuTTY can be
 [AzurePreviewPortal]: http://manage.windowsazure.com
 
 [Image1]: ../../Shared/Media/CreateVM.png
+[Image21]: ../../Shared/Media/SUSEVmConfiguration0.png
 [Image2]: ../../Shared/Media/SUSEVmConfiguration1.png
 [Image3]: ../../Shared/Media/SUSEVmConfiguration2.png
 [Image4]: ../../Shared/Media/VmConfiguration3.png

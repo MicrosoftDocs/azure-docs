@@ -5,11 +5,13 @@ A virtual machine that you create in Windows Azure runs the operating system tha
 The following resources must be available to complete this task:
 
 - **Server running the Windows Server operating system.** This task depends on using the Hyper-V Manager that is a part of the Hyper-V role in the Windows Server operating system.
-- **Linux operating system media.** Before you start this task, you must make sure that you have access to an media that contains the Linux operating system. The following are supported Linux distributions:
-	- Open SUSE
-	- CentOS
-	- Ubuntu
-- **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. To download the SDK and the tools, see [Windows Azure Downloads](https://www.windowsazure.com/en-us/develop/downloads/).
+- **Linux operating system media.** Before you start this task, you must make sure that you have access to media that contains the Linux operating system. The following are supported Linux distributions:
+	- Open SUSE 12.1
+	- SLES 11 SP2
+	- CentOS 6.2
+	- Ubuntu 12.04
+- **Linux Azure command-line tool.** If you are using a Linux operating system to create your image, you use this tool to upload the VHD file. To download the tool, see [Windows Azure Command-Line Tools for Linux and Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409).
+- **CSUpload command-line tool.** If you are using a Windows Server operating system to create your image, you use this tool to set the connection to Windows Azure and upload the VHD file. To download the SDK and the tools, see [Windows Azure Downloads](https://www.windowsazure.com/en-us/develop/downloads/).
 
 This task includes the following steps:
 
@@ -82,7 +84,9 @@ After the virtual machine is created it is not started by default. You must star
 
 	![Connect to the virtual machine] (../media/connect.png)
 
-4. Finish the installation of the operating system. For more information about installing the operating system, see the documentation provided by the Linux distributor.
+4. Finish the installation of the operating system. For more information about installing the operating system, see the documentation provided by the Linux distributor. You must also prepare the image by completing specific steps for the distribution that you are using. You do this in [Step 4: Prepare the image to be uploaded] []. 
+
+	**Note:** It is recommended that you do not create a SWAP partition at installation time. You may configure SWAP space by using the Windows Azure Linux Agent. It is also not recommended to use the mainstream Linux kernel with a Windows Azure virtual machine without the patch available at the [Microsoft web site](http://go.microsoft.com/fwlink/?LinkID=253692&clcid=0x409).
 
 ## <a id="createstorage"> </a>Step 3: Create a storage account in Windows Azure ##
 
@@ -118,7 +122,7 @@ A storage account represents the highest level of the namespace for accessing th
 
 ## <a id="prepimage"> </a>Step 4: Prepare the image to be uploaded ##
 
-### Prepare the CentOS operating system ###
+### Prepare the CentOS 6.2 operating system ###
 
 You must complete specific configuration steps in the operating system for the virtual machine to run in Windows Azure.
 
@@ -182,7 +186,7 @@ You must complete specific configuration steps in the operating system for the v
 
 		yum install python-pyasn1
 
-9.	Download the [Windows Azure Linux Agent](http://) and then install it by running the following command:
+9.	Download the [Windows Azure Linux Agent](http://go.microsoft.com/fwlink/?LinkID=251942&clcid=0x409) and then install it by running the following command:
 
 		rpm –ivh WALinuxAgent-1.0-1.noarch.rpm
 
@@ -193,6 +197,100 @@ You must complete specific configuration steps in the operating system for the v
 		logout
 
 11. Click **Shutdown** in Hyper-V Manager.
+
+### Prepare the Ubunutu 12.04 operating system ###
+
+1. In the center pane of Hyper-V Manager, select the virtual machine.
+
+2. Click **Connect** to open the window for the virtual machine.
+
+3. Update the operating system to the latest kernel by running the following commands:
+
+		apt-get update
+		apt-get install linux-image-virtual
+		apt-get install linux-headers-virtual
+
+4. Disable the legacy ATA driver by adding the following to the kernel command line in /boot/grub/grub.cfg: 
+
+		ata_piix.disable_driver
+
+	**Note:** this kernel option was only recently added by  Canonical to its kernel tree and might not have been released by the time you are attempting this. You can put the following to the kernel command line in /boot/grub/grub.cfg: reserve=0x1f0, 0x8. (This option reserves this I/O region and prevents ata_piix from loading).
+
+5.	Download the [Windows Azure Linux Agent](http://go.microsoft.com/fwlink/?LinkID=251942&clcid=0x409) and then install it by running the following command:
+
+		rpm –ivh WALinuxAgent-1.0-1.noarch.rpm
+
+6.	Fix the Grub timeout. Ubuntu waits at Grub for user input after a system crash. To prevent this, complete the following steps:
+
+	a) Open the /etc/grub.d/00_header file.
+
+	b) In the function **make_timeout()**, search for **if [“\${recordfail}” = 1 ]; then**
+
+	c) Change the statement below this line to **set timeout=5**.
+
+	d) Run update-grub.
+
+7.	Run the following commands to deprovision the virtual machine:
+
+		waagent –force –deprovision
+		export HISTSIZE=0
+		logout
+
+8. Click **Shutdown** in Hyper-V Manager.
+
+### Prepare the SUSE Linux Enterprise Server 11 SP2 operating system ###
+
+1. In the center pane of Hyper-V Manager, select the virtual machine.
+
+2. Click **Connect** to open the window for the virtual machine.
+
+3. Update the operating system to the latest kernel.
+
+	**Note:** The SLES kernel update does not currently contain an important fix on the kernel to improve storage performance. It is expected that this fix will be available soon after release. It is recommended that you use an image from the [SUSE Studio gallery]( http://www.susestudio.com) to take advantage of all the functionality in Windows Azure.
+
+4. Disable the legacy ATA driver by completing the following steps:
+
+	a) Create a file named modprobe.d in /etc that contains the text: **install ata_piix  { /sbin/modprobe hv_storvsc 2>&1 || /sbin/modprobe --ignore-install ata_piix; }**
+
+	b) Run mkinitrd.
+
+5.	Disable automatic DVD ROM probing.
+
+6.	Download the [Windows Azure Linux Agent](http://go.microsoft.com/fwlink/?LinkID=251942&clcid=0x409) and then install it by running the following command:
+
+		rpm –ivh WALinuxAgent-1.0-1.noarch.rpm
+
+7.	Run the following commands to deprovision the virtual machine:
+
+		waagent –force –deprovision
+		export HISTSIZE=0
+		logout
+
+8. Click **Shutdown** in Hyper-V Manager.
+
+### Prepare the OpenSuse 12.1 operating system ###
+
+1. In the center pane of Hyper-V Manager, select the virtual machine.
+
+2. Click **Connect** to open the window for the virtual machine.
+
+3. Update the operating system to the latest kernel.
+
+	**Note:** The SLES kernel update does not currently contain an important fix on the kernel to improve storage performance. It is expected that this fix will be available soon after release. It is recommended that you use an image from the [SUSE Studio gallery]( http://www.susestudio.com) to take advantage of all the functionality in Windows Azure.
+
+4. Disable the legacy ATA driver by adding **reserve=0x1f0, 0x8** to the kernel command line in **/boot/grub/menu.lst**.
+
+5.	Download the [Windows Azure Linux Agent](http://go.microsoft.com/fwlink/?LinkID=251942&clcid=0x409) and then install it by running the following command:
+
+		rpm –ivh WALinuxAgent-1.0-1.noarch.rpm
+
+6.	Run the following commands to deprovision the virtual machine:
+
+		waagent –force –deprovision
+		export HISTSIZE=0
+		logout
+
+7. Click **Shutdown** in Hyper-V Manager.
 
 ## <a id="upload"> </a>Step 5: Upload the image to Windows Azure ##
 
@@ -205,30 +303,13 @@ To upload an image contained in a VHD file to Windows Azure, you must:
 
 ### Create and install the management certificate ###
 
-You can create a management certificate in a variety of ways.  For more information about creating certificates, see [How to Create a Certificate for a Role](http://msdn.microsoft.com/en-us/library/gg432987.aspx).  After you create the certificate, you must add it to your subscription in Windows Azure. 
-
-1. Sign in to the Windows Azure Platform Management Portal.
-2. In the upper-left corner of the Management Portal, click **Preview**, and then click **Previous Management Portal**.
-
-	**Note:** Using the Previous Management Portal requires the use of Silverlight in a browser on a Windows operating system.
-
-	![Open Previous Management Portal] (../media/preview.png)
-
-3. In the navigation pane, click **Hosted Services, Storage Accounts & CDN**.
-
-4. At the top of the navigation pane, click **Management Certificates**.
-
-5. On the ribbon, in the **Certificates** group, click **Add Certificate**.
-
-6. In **Choose a subscription**, select the Windows Azure subscription to which you want to add the management certificate.
-
-7. In **Certificate file**, browse to the certificate file, and then click **OK**.
+You need a management certificate uploaded to Windows Azure before you can upload a VHD.  For more information about creating certificates, see [Create Management Certificates for Linux](http://go.microsoft.com/fwlink/?LinkID=253693&clcid=0x409).
 
 ### Obtain the thumbprint of the certificate and the subscription ID ###
 
 You need the thumbprint of the management certificate that you added and you need the subscription ID to be able to upload the VHD file to Windows Azure.
 
-1.	While still in the Previous Management Portal, click **Hosted Services, Storage Accounts & CDN**, and then click **Management Certificates**.
+1.	In the Previous Management Portal, click **Hosted Services, Storage Accounts & CDN**, and then click **Management Certificates**.
 
 2.	In the center pane, click your certificate, and then record the thumbprint from the **Properties** pane by copying and pasting it to a location where you can retrieve it later.
 
@@ -238,7 +319,13 @@ You also need the ID of your subscription to upload the VHD file.
 
 2.	In the center pane, select your subscription, and then record the subscription ID from the **Properties** pane by copying and pasting it to a location where you can retrieve it later.
 
-### Set the connection ###
+### Use the Linux command-line tool to upload the image ###
+
+You can upload an image by using the following command:
+
+		Azure vm image create --location <Location of the data center> --OS Linux <Sourcepath to the vhd>
+
+### Use the CSUpload command-line tool to upload the image ###
 
 You must set the connection string that is used to access the subscription. The CSUpload Command-Line Tool is used to set the connection string that is used. For more information, see [CSUpload Command-Line Tool](http://msdn.microsoft.com/en-us/library/gg466228.aspx).
 
@@ -248,9 +335,7 @@ You must set the connection string that is used to access the subscription. The 
 
 		csupload Set-Connection "SubscriptionID=<Subscriptionid>;CertificateThumbprint=<Thumbprint>;ServiceManagementEndpoint=https://management-preview.core.windows-int.net"
 
-### Upload the VHD file ###
-
-For this task, you upload the VHD file to be used as an image for creating virtual machines. You use the CSUpload command-line tool be used to upload a VHD file to the Image Gallery in Windows Azure.
+After the connection string is set, you use the CSUpload command-line tool to upload a VHD file to the Image Gallery in Windows Azure.
 
 1. Use the Windows Azure SDK Command Prompt window that you opened to set the connection string.
 

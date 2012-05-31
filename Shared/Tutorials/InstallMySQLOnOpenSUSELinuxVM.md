@@ -1,6 +1,6 @@
 # Install MySQL on a virtual machine running OpenSUSE Linux in Windows Azure
 
-[MySQL][MySQL] is a popular open source, SQL database.  Using the Windows Azure (Preview) Management Portal, you can create a virtual machine running OpenSUSE Linux from the Image Gallery.  You can then install and configure a MySQL database on the virtual machine.
+[MySQL][MySQL] is a popular open source, SQL database.  Using the [Windows Azure (Preview) Management Portal][AzurePreviewPortal], you can create a virtual machine running OpenSUSE Linux from the Image Gallery.  You can then install and configure a MySQL database on the virtual machine.
 
 In this tutorial, you will learn:
 
@@ -23,4 +23,4 @@ In this tutorial you learned how to create a virtual machine running OpenSUSE Li
 
 [MySQLDocs]: http://dev.mysql.com/doc/
 [MySQL]: http://www.mysql.com
-
+[AzurePreviewPortal]: http://manage.windowsazure.com

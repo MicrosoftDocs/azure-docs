@@ -8,13 +8,12 @@ After completing this tutorial, you will have a virtual network to which you can
 
 For information about creating a virtual network with cross-premises connectivity (i.e., connecting to Active Directory or SharePoint located at your company), see the following tutorials:
 
-<!-- UPDATE THE FOLLOWING LIST ONCE WE HAVE THE LINKS FOR TUTORIALS 4 & 5 -->
 
-*  [Tutorial 2: Creating a Virtual Network for cross-premises connectivity] [Link2]
+*  [Tutorial 2: Creating a Virtual Network for cross-premises connectivity](../../../manage/services/networking/Tutorial2_CreateVNetCrossPrem/)
 
-*  Active Directory Replica Domain Controller with cross-premises connectivity
+*  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](../../../manage/windows/tutorials/tutorial-AD-1/)
 
-*  New Active Directory Forest in the Cloud
+*  [Install a new Active Directory forest in Windows Azure](../../../manage/windows/tutorials/tutorial-AD-2/)
 
 ##  Objectives
 
@@ -32,14 +31,14 @@ In this tutorial you will learn:
 
 **To create a cloud-only virtual network:**
 
-1.	Log in to the [Windows Azure Management Portal][Link1].
+1.	Log in to the [Windows Azure Management Portal](http://manage.windowsazure.com/).
 2.	In the lower left-hand corner of the screen, click **New**. 
 
 	![Image1][]
 
 3.	In the navigation pane, click **Network**, and then click **Custom Create**.
 
-	![Image2] []
+	![Image2][]
 
 4.	On the **Virtual Network Details** screen, enter the following information, and then click the next arrow.
 
@@ -68,7 +67,7 @@ In this tutorial you will learn:
 	Your virtual network will now be created.
 
 
- 	**Note:** You only need to enter DNS server or local network information if you plan to connect to your company’s network. For more information, see [Tutorial 2: Creating a Virtual Network for Cross-Premises Connectivity] [Link2].
+ 	**Note:** You only need to enter DNS server or local network information if you plan to connect to your company’s network. For more information, see [Tutorial 2: Creating a Virtual Network for cross-premises connectivity](../../../manage/services/networking/Tutorial2_CreateVNetCrossPrem/).
  
 	![Image5] []
 
@@ -81,17 +80,13 @@ In this tutorial you will learn:
 ##  Next Steps
 If you’d like, you can continue with the following tutorials:
 
-<!-- UPDATE THE FOLLOWING LIST ONCE WE HAVE THE LINKS FOR TUTORIALS 4 & 5 -->
 
-- [Tutorial 3: Adding a Virtual Machine to a Virtual Network] [Link3]
+- [Tutorial 3: Adding a Virtual Machine to a Virtual Network](../../../manage/services/networking/tutorial-AD-2/)
 
-- New Active Directory Forest in the Cloud
+*  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](../../../manage/windows/tutorials/tutorial-AD-1/)
 
-- Active Directory Replica Domain Controller with cross-premises connectivity
+*  [Install a new Active Directory forest in Windows Azure](../../../manage/windows/tutorials/Tutorial3_AddVMachineToVNet/)
 
-[Link1]: http://windows.azure.com/
-[Link2]: ..Tutorial2_CreateVNetCrossPrem 
-[Link3]: ..Tutorial3_AddVMachineToVNet
 
 [Image1]: ../media/VNTut1_00_New.png
 [Image2]: ../media/VNTut1_01_Network_CustomCreate.png

@@ -13,9 +13,15 @@ The sections below describe how to download and install the components described
 
 The instructions in this topic assume that you have [PHP][install-php] installed.
 
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>You must have PHP 5.3 or higher to use the PHP client libraries for Windows Azure.</p> 
+</div>
+
+
 ##PHP client libraries for Windows Azure
 
-The PHP Client Libraries for Windows Azure are PHP class libraries that provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services, from any operating system. These libraries can be installed as a PEAR package, using Composer, or manually.
+The PHP Client Libraries for Windows Azure are PHP class libraries that provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services, from any operating system. These libraries can be installed as a PEAR package or manually.
 
 For information about how to use the PHP Client Libraries for Windows Azure, see [How to Use the Blob Service from PHP][blob-service], [How to Use the Table Service from PHP][table-service], and [How to Use the Queue Service from PHP][queue-service].
 
@@ -24,15 +30,15 @@ For information about how to use the PHP Client Libraries for Windows Azure, see
 To install the PHP Client Libraries for Windows Azure as a PEAR package, follow these steps:
 
 1. [Install PEAR][install-pear].
-2. Run the following command from a command prompt:
+2. Add the Windows Azure channel:
 
-		pear install **TODO: need name for package**
+		pear channel-discover pear.windowsazure.com
+
+3. Install the PEAR package:
+
+		pear install WindowsAzure
 
 After the installation completes, you can reference class libraries from your application.
-
-###Install using Composer
-
-	**TODO: Get help with this. I've never used composer.**
 
 ###Install manually
 
@@ -40,21 +46,19 @@ To download and install the PHP Client Libraries for Windows Azure manually, fol
 
 1. Download a .zip archive that contains the libraries from Github: [http://go.microsoft.com/fwlink/?LinkId=252719][php-sdk-github]. Alternatively, fork the repository and clone it to your local machine. (The latter option requires a Github account and having Git installed locally.)
 
-	**Note**: 
-
 	<div class="dev-callout"> 
 	<b>Note</b> 
-	<p>The PHP Client Libraries for Windows Azure have a dependency on the <a href="http://pear.php.net/package/HTTP_Request2">HTTP\_Request2</a>, <a href="http://pear.php.net/package/Mail_mime">Mail\_mime</a>, and <a href="http://pear.php.net/package/Mail_mimeDecode">Mail\_mimeDecode</a> PEAR packages. The recommended way to resolve these dependencies is to install these packages using the <a href="http://pear.php.net/manual/en/installation.php">PEAR package manager</a>.</p> 
+	<p>The PHP Client Libraries for Windows Azure have a dependency on the <a href="http://pear.php.net/package/HTTP_Request2">HTTP_Request2</a>, <a href="http://pear.php.net/package/Mail_mime">Mail_mime</a>, and <a href="http://pear.php.net/package/Mail_mimeDecode">Mail_mimeDecode</a> PEAR packages. The recommended way to resolve these dependencies is to install these packages using the <a href="http://pear.php.net/manual/en/installation.php">PEAR package manager</a>.</p> 
 	</div>
 
 
-2. Copy the `WindowsAzure` directory of the downloaded archive to your application directory structure and reference classes from your application. Alternatively, put the `src` directory in your `include_path` and reference classes from your application.
+2. Copy the `WindowsAzure` directory of the downloaded archive to your application directory structure and reference classes from your application. Alternatively, put the `WindowsAzure` directory in your `include_path` and reference classes from your application.
 
 ##Windows Azure PowerShell and Windows Azure Emulators
 
 Windows Azure PowerShell is a set of PowerShell cmdlets for deploying and managing Windows Azure Services (such as Cloud Services and Virtual Machines). The Windows Azure Emulators are emulators of Cloud Services and Cloud Storage that allow you to test an application locally. These components are supported Windows only.
 
-The recommended way to install Windows Azure PowerShell and the Windows Azure Emulators is to use the [Microsoft Web Platform Installer][download-wpi]. After downloading the Web Platform Installer, select **TODO: What to select?**.
+The recommended way to install Windows Azure PowerShell and the Windows Azure Emulators is to use the [Microsoft Web Platform Installer][download-wpi]. After downloading the Web Platform Installer, select **TODO: What to select?** and follow the prompts to complete the installation.
 
 Note that you can also choose to install other development components, such as PHP, SQL Server, the Microsoft Drivers for SQL Server for PHP, and WebMatrix.
 
@@ -89,7 +93,7 @@ For information about how to use the Windows Azure Command-Line Tools for Mac an
 [install-pear]: http://pear.php.net/manual/en/installation.php
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
-[download-wpi]: http://www.microsoft.com/web/downloads/platform.aspx
+[download-wpi]: http://go.microsoft.com/fwlink/?LinkId=253447
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [blob-service]: http://go.microsoft.com/fwlink/?LinkId=252714
 [table-service]: http://go.microsoft.com/fwlink/?LinkId=252715

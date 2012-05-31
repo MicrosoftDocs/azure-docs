@@ -18,33 +18,35 @@ Windows Azure can only ensure 99.95 percent service availability during the conf
 
 <h2 id="update">How to: Update the cloud service configuration</h2>
 
-1. In the Management Portal, click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
+1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
+
 
 2. Click **Configure**.
 
-3. On the **Configure** page, you can configure monitoring, update role settings, and choose the guest operating system and family for role instances (virtual machines). 
+ On the **Configure** page, you can configure monitoring, update role settings, and choose the guest operating system and family for role instances (virtual machines). 
 
 	![Configuration Page] (../media/CloudServices_ConfigurePage1.png)
 
-4. In monitoring settings, set the monitoring level to Verbose or Minimal, and configure the diagnostics connection strings that are required for verbose monitoring. For instructions, see [How to: Configure monitoring]().
+3. In monitoring settings, set the monitoring level to Verbose or Minimal, and configure the diagnostics connection strings that are required for verbose monitoring. For instructions, see [How to Monitor Cloud Services](../../../manage/services/cloud-services/howto-monitor-cloud-service/).
 
-5. For service roles (grouped by role), you can update the following settings:
 
-	>- **Settings**   Modify the values of miscellaneous configuration settings that are specified in the &lt;ConfigurationSettings&gt; elements of the service configuration (.cscfg) file.
+4. For service roles (grouped by role), you can update the following settings:
+
+	>- **Settings**   Modify the values of miscellaneous configuration settings that are specified in the *ConfigurationSettings* elements of the service configuration (.cscfg) file.
 	
-	>- **Certificates**   Change the certificate thumbprint that's being used in SSL encryption for a role. To change a certificate, you must first [upload the new certificate]() (on the **Certificates** page). Then update the thumbprint in the certificate string displayed in the role settings.
+	>- **Certificates**   Change the certificate thumbprint that's being used in SSL encryption for a role. To change a certificate, you must first upload the new certificate (on the **Certificates** page). Then update the thumbprint in the certificate string displayed in the role settings.
 
-6. In **operating system settings**, you can change the operating system family or version for role instances (virtual machines), or choose **Automatic** to resume automatic updates of the current OS version. The operating system settings apply to web roles and worker roles, but do not affect VM roles that were added to hosted services in the previous Windows Azure Management Portal.
+5. In **operating system settings**, you can change the operating system family or version for role instances (virtual machines), or choose **Automatic** to resume automatic updates of the current OS version. The operating system settings apply to web roles and worker roles, but do not affect VM roles that were added to hosted services in the previous Windows Azure Management Portal.
 
-7. When you deploy a new cloud service, you can choose either the Windows Server 2008 R2 or Windows Server 2008 with Service Pack 2 (SP2) operating system. During deployment, the most recent OS version is installed on all role instances, and the operating systems are updated automatically by default. 
+ When you deploy a new cloud service, you can choose either the Windows Server 2008 R2 or Windows Server 2008 with Service Pack 2 (SP2) operating system. During deployment, the most recent OS version is installed on all role instances, and the operating systems are updated automatically by default. 
 
-8. If you need for your cloud service to run on a different operating system version because of compatibility requirements in your code, you can choose an OS family and version. When you choose a specific OS version, automatic OS updates for the cloud service are suspended. You will need to ensure the operating systems receive updates.
+ If you need for your cloud service to run on a different operating system version because of compatibility requirements in your code, you can choose an OS family and version. When you choose a specific OS version, automatic OS updates for the cloud service are suspended. You will need to ensure the operating systems receive updates.
 
-9. If you resolve all compatibility issues that your apps have with the most recent OS version, you can resume automatic OS updates by setting the OS version to **Automatic**. 
+ If you resolve all compatibility issues that your apps have with the most recent OS version, you can resume automatic OS updates by setting the OS version to **Automatic**. 
 
 	![OS Settings] (../media/CloudServices_ConfigurePage_OSSettings.png)
 
-10. To save your configuration settings, and push them to the role instances, click **Save**. (Click **Discard** to cancel the changes.) After you change a setting, **Save** and **Discard** are added to the command bar.
+6. To save your configuration settings, and push them to the role instances, click **Save**. (Click **Discard** to cancel the changes.) After you change a setting, **Save** and **Discard** are added to the command bar.
 
 ###To update a cloud service configuration file manually###
 
@@ -52,21 +54,19 @@ Windows Azure can only ensure 99.95 percent service availability during the conf
 
 2. After you update the service configuration file, upload and apply the configuration updates:
 
-	>- On the **Configure** page, click **Upload**.
+	a. On the **Configure** page, click **Upload**.
 	
-	>- **Upload a New Configuration File** opens.
+	**Upload a New Configuration File** opens.
 
 	![Upload Configuration] (../media/CloudServices_UploadConfigFile.png)
 
+	b. In **Configuration file**, use **Browse** to select the updated .cscfg file.
 
->- In **Configuration file**, use **Browse** to select the updated .cscfg file.
+	c. If your cloud service contains any roles that have only one instance, select the **Apply configuration even if one or more roles contain a single instance** check box to enable the configuration updates for the roles to proceed.
 
->- If your cloud service contains any roles that have only one instance, select the **Apply configuration even if one or more roles contain a single instance** check box to enable the configuration updates for the roles to proceed.
+	Unless you define at least two instances of every role, Windows Azure cannot guarantee at least 99.95 percent availability of your cloud service during service configuration updates. For more information, see [Service Level Agreements](http://www.windowsazure.com/en-us/support/legal/sla/).
 
->- Unless you define at least two instances of every role, Windows Azure cannot guarantee at least 99.95 percent availability of your cloud service during service configuration updates. For more information, see [Service Level Agreements](http://www.windowsazure.com/en-us/support/legal/sla/).
-
->- Click OK (checkmark). 
-
+	d. Click OK (checkmark). 
 
 
 <h2 id="remoteaccess">How to: Configure remote access to role instances</h2>
@@ -85,35 +85,35 @@ On the **Configure** page, you can complete the Remote Desktop configuration or 
 
 ###To configure or modify Remote Access for role instances###
 
-- In the Management Portal, click Cloud Services. Then click the name of the cloud service to open the dashboard.
+1. In the [Management Portal](https://manage.windowsazure.com/), click Cloud Services. Then click the name of the cloud service to open the dashboard.
 
-- Open the **Configure** page for the cloud service, and click **Remote**.
+2. Open the **Configure** page for the cloud service, and click **Remote**.
 
-- **Configure Remote Desktop Settings** displays the settings that were added to the service configuration file when the cloud service was deployed, as shown below.
+ **Configure Remote Desktop Settings** displays the settings that were added to the service configuration file when the cloud service was deployed, as shown below.
 
 	![Cloud services remote] (../media/CloudServices_Remote.png)
 
 
-- In **Roles**, select the service role you want to update.
+3. In **Roles**, select the service role you want to update.
 
-- Make any of the following changes:
+4. Make any of the following changes:
 
->- To enable Remote Desktop, select the **Enable remote desktop** check box. To disable Remote Desktop, clear the check box.
+- To enable Remote Desktop, select the **Enable remote desktop** check box. To disable Remote Desktop, clear the check box.
 
->- Create an account to use in Remote Desktop connections to the role instances.
+- Create an account to use in Remote Desktop connections to the role instances.
 
->- Update the password for the existing account.
+- Update the password for the existing account.
 
->- Change the certificate used in authentication. First, upload the certificate using **Upload** on the **Certificates** page. (For instructions, see [To upload a certificate]().) Then enter the new certificate thumbprint.
+- Change the certificate used in authentication. First, upload the certificate using **Upload** on the **Certificates** page. Then enter the new certificate thumbprint.
 
->- Change the expiration date for the Remote Desktop configuration.
+- Change the expiration date for the Remote Desktop configuration.
 
-- When you finish your configuration updates, click OK (checkmark).
+5. When you finish your configuration updates, click OK (checkmark).
 
-- To test the Remote Desktop configuration, connect to a role instance:
+6. To test the Remote Desktop configuration, connect to a role instance:
 
->- Click **Instances** to open the **Instances** page.
+	a. Click **Instances** to open the **Instances** page.
 
->- Click a role instance that has Remote Desktop configured to select the instance.
+	b. Click a role instance that has Remote Desktop configured to select the instance.
 
->- Click **Connect**, and follow the instructions to open the desktop of the virtual machine. 
+	c. Click **Connect**, and follow the instructions to open the desktop of the virtual machine. 

@@ -135,52 +135,35 @@ Service Bus topics and subscriptions:
 
 You are now ready to write code against Service Bus.
 
-## <a name="create-provider"> </a>How to Create a Security Token Provider
+## <a name="create-provider"> </a>How to Set Up a Service Bus Connection String
 
-Service Bus uses a claims-based security model implemented using the
-Windows Azure Access Control Service (ACS). The **TokenProvider** class
-provides a security token provider with built-in factory methods. The
-code below creates a **SharedSecretTokenProvider** to hold the shared
-secret credentials and handle the acquisition of the appropriate tokens
-from the Access Control Service:
+The Service Bus uses a storage connection string to store endpoints and credentials. You can put your storage connection string in a configuration file, rather than hard-coding it in code. One option is to use .NET's built-in configuration mechanism (e.g. Web.config for web applications). This guide describes how to store your connection string using the Windows Azure service configuration. The service configuration is unique to Windows Azure projects and allows you to change configuration from the Management Portal without redeploying your application. For example:
 
-     string issuer = "<obtained from portal>";
-     string key = "<obtained from portal>";
-
-     TokenProvider tP = TokenProvider.CreateSharedSecretTokenProvider(issuer, key);
+	<ConfigurationSettings>
+    …
+    	<Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedSecretIssuer=<issuerName>;SharedSecretValue=<yourDefaultKey>" />
+	</ConfigurationSettings>
 
 Use the issuer and key values retrieved from the Management Portal as
 described in the previous section.
 
 ## <a name="create-topic"> </a>How to Create a Topic
 
-Management operations for Service Bus topics and subscriptions can be
-performed via the **NamespaceManager** class. A **NamespaceManager**
-object is constructed with the base address of a Service Bus namespace
-and an appropriate token provider that has permissions to manage it. The
-base address of a Service Bus namespace is a URI of the form
-"sb://[serviceNamespace].servicebus.windows.net". The **ServiceBusEnvironment** class
-provides the **CreateServiceUri** helper method to assist the creation
-of these URIs.
+Management operations for Service Bus topics and subscriptions can be performed via the
+**NamespaceManager** class. The **NamespaceManager** class provides methods to create, enumerate, and delete queues. 
 
-The **NamespaceManager** class provides methods to create, enumerate,
-and delete topics. The example below shows how a **NamespaceManager**
-can be used to create a topic named "TestTopic" within a "HowToSample"
-service namespace:
+In this example, a **NamespaceManager** object is constructed by using the Windows Azure **AzureConfigurationManager** class
+with a connection string consisting of the base address of a Service Bus namespace and the appropriate
+credentials with permissions to manage it. This connection string is of the form
+"`Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedSecretIssuer=<issuerName>;SharedSecretValue=<yourDefaultKey>"`". For example, given the configuration settings in the previous section:
 
-     string issuer = "<obtained from portal>";
-     string key = "<obtained from portal>";
-
-     TokenProvider tP = TokenProvider.CreateSharedSecretTokenProvider(issuer, key);
-     
-     // Retrieve URI of our "HowToSample" service namespace (created via the portal)
-     Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", "HowToSample", string.Empty);
-
-     // Create NamespaceManager for our "HowToSample" service namespace
-     NamespaceManager namespaceManager = new NamespaceManager(uri, tP);
-
-     // Create a new Topic named "TestTopic" 
-     namespaceManager.CreateTopic("TestTopic");
+	// Create the topic if it does not exist already
+	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+    if (!namespaceManager.TopicExists(QueueName))
+    {
+        namespaceManager.CreateTopic(QueueName);
+    }
 
 There are overloads of the **CreateTopic** method that allow properties
 of the topic to be tuned, for example, to set the default time-to-live
@@ -189,24 +172,18 @@ by using the **TopicDescription** class. The following example shows how
 to create a topic named "TestTopic" with a maximum size of 5 GB and a
 default message time-to-live of 1 minute.
 
-     string issuer = "<obtained from portal>";
-     string key = "<obtained from portal>";
+	// Configure Topic Settings
+    TopicDescription td = new TopicDescription("TestTopic");
+    td.MaxSizeInMegabytes = 5120;
+    td.DefaultMessageTimeToLive = new TimeSpan(0, 1, 0);
 
-     TokenProvider tP = TokenProvider.CreateSharedSecretTokenProvider(issuer, key);
-     
-     // Retrieve URI of our "HowToSample" service namespace (created via the portal)
-     Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", "HowToSample", string.Empty);
-
-     // Create NamespaceManager for our "HowToSample" service namespace
-     NamespaceManager namespaceManager = new NamespaceManager(uri, tP);
-
-     // Configure Topic Settings
-     TopicDescription td = new TopicDescription("TestTopic");
-     td.MaxSizeInMegabytes = 5120;
-     td.DefaultMessageTimeToLive = new TimeSpan(0, 1, 0);
-
-     // Create a new Topic with custom settings
-     namespaceManager.CreateTopic(td);
+	// Create a new Topic with custom settings
+	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+    if (!namespaceManager.TopicExists("TestTopic"))
+    {
+        namespaceManager.CreateTopic("TestTopic");
+    }
 
 **Note:** You can use the **TopicExists** method on **NamespaceManager**
 objects to check if a topic with a specified name already exists within
@@ -228,18 +205,12 @@ subscription's virtual queue. The following example creates a
 subscription named "AllMessages" and uses the default **MatchAll**
 filter.
 
-     string issuer = "<obtained from portal>";
-     string key = "<obtained from portal>";
-
-     // TokenProvider and URI of our "HowToSample" service namespace
-     TokenProvider tP = TokenProvider.CreateSharedSecretTokenProvider(issuer, key); 
-     Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", "HowToSample", string.Empty);
-
-     // Create NamespaceManager for the "HowToSample" service namespace
-     NamespaceManager namespaceManager = new NamespaceManager(uri, tP);
-
-     // Create a new "AllMessages" subscription on our "TestTopic"  
-     namespaceManager.CreateSubscription("TestTopic", "AllMessages");
+	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+    if (!namespaceManager.SubscriptionExists("TestTopic", "AllMessages"))
+    {
+        namespaceManager.CreateSubscription("TestTopic", "AllMessages");
+    }
 
 ### Create Subscriptions with Filters
 
@@ -277,24 +248,20 @@ message content).
 ## <a name="send-messages"> </a>How to Send Messages to a Topic
 
 To send a message to a Service Bus topic, your application will create a
-**MessageSender** object. Like **NamespaceManager** objects, this object
+**MessageSender** object. Similar to **NamespaceManager** objects, this object
 is created from the base URI of the service namespace and the
-appropriate token provider.
+appropriate credentials (the connection string).
 
 The code below demonstrates how to retrieve a **MessageSender** object
-for the "TestTopic" topic created above within the "HowToSample"
-service namespace:
+for the "TestTopic" topic created above:
 
-     string issuer = "<obtained from portal>";
-     string key = "<obtained from portal>";
+	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-     // URI address and token for our "HowToSample" namespace
-     TokenProvider tP = TokenProvider.CreateSharedSecretTokenProvider(issuer, key); 
-     Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", "HowToSample", string.Empty);
+	MessagingFactory factory = MessagingFactory.CreateFromConnectionString(connectionString);
 
-     // Retrieve MessageSender for the "TestTopic" within our "HowToSample" namespace
-     MessagingFactory factory = MessagingFactory.Create(uri, tP);
-     MessageSender testTopic = factory.CreateMessageSender("TestTopic");
+    MessageSender sender = factory.CreateMessageSender("TestTopic");
+
+    sender.Send(new BrokeredMessage());
 
 Messages sent to Service Bus topics are instances of the
 **BrokeredMessage** class. **BrokeredMessage** objects have a set of
@@ -366,41 +333,35 @@ creates an infinite loop and processes messages as they arrive to the
 subscription is supplied in the form "<*topic
 path*\>/subscriptions/<*subscription name*\>".
 
-     string issuer = "<obtained from portal>";
-     string key = "<obtained from portal>";
+	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-     // URI address and token for our "HowToSample" namespace
-     TokenProvider tP = TokenProvider.CreateSharedSecretTokenProvider(issuer, key); 
-     Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", "HowToSample", string.Empty);
+    MessagingFactory factory = MessagingFactory.CreateFromConnectionString(connectionString);
 
-     // Retrieve MessageReceiver for the "HighMessages" subscription 
-     MessagingFactory factory = MessagingFactory.Create(uri, tP);
-     MessageReceiver highMessages = 
-        factory.CreateMessageReceiver("TestTopic/subscriptions/HighMessages");
+	MessageReceiver highMessages = factory.CreateMessageReceiver("TestTopic/subscriptions/HighMessages");
      
-     // Continuously process messages received from the "HighMessages" subscription 
-     while (true) 
-     {  
-        BrokeredMessage message = highMessages.Receive();
+	// Continuously process messages received from the "HighMessages" subscription 
+    while (true) 
+    {  
+       BrokeredMessage message = highMessages.Receive();
 
-        if (message != null)
-        {
-           try 
-           {
-              Console.WriteLine("Body: " + message.GetBody<string>());
-              Console.WriteLine("MessageID: " + message.MessageId);
-              Console.WriteLine("MessageNumber: " + message.Properties["MessageNumber"]);
+       if (message != null)
+       {
+          try 
+          {
+             Console.WriteLine("Body: " + message.GetBody<string>());
+             Console.WriteLine("MessageID: " + message.MessageId);
+             Console.WriteLine("MessageNumber: " + message.Properties["MessageNumber"]);
 
-              // Remove message from subscription
-              message.Complete();
-           }
-           catch (Exception)
-           {
-              // Indicate a problem, unlock message in subscription
-              message.Abandon();
-           }
-        }
-     } 
+             // Remove message from subscription
+             message.Complete();
+          }
+          catch (Exception)
+          {
+             // Indicate a problem, unlock message in subscription
+             message.Abandon();
+          }
+       }
+    } 
 
 ## <a name="handle-crashes"> </a>How to Handle Application Crashes and Unreadable Messages
 

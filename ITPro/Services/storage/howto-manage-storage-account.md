@@ -1,4 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="How To Manage Storage Accounts" metaKeywords="Windows Azure storage, storage service, service, storage account, account, manage storage account, manage, geo-replication, regenerate storage account keys" metaDescription="Learn how to manage Windows Azure storage accounts." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties umbracoNaviHide="0" pageTitle="How To Manage Storage Accounts" metaKeywords="Windows Azure storage, storage service, service, storage account, account, manage storage account, manage, geo-replication, regenerate storage access keys" metaDescription="Learn how to manage Windows Azure storage accounts." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
 
 
 <h1 id="managestorageaccounts">How To Manage Storage Accounts</h1>
@@ -7,7 +7,7 @@
 ##Table of Contents##
 
 * [How to: Turn geo-replication off or on](#georeplication)
-* [How to: View, copy, and regenerate storage account keys](#regeneratestoragekeys)
+* [How to: View, copy, and regenerate storage access keys](#regeneratestoragekeys)
 * [How to: Delete a storage account](#deletestorageaccount)
 * [Next steps](#next)
 
@@ -32,14 +32,14 @@ For more information about geo-replication, see [Introducing Geo-Replication for
 4. Click **Save**.
 
 
-<h2 id="regeneratestoragekeys">How to: View, copy, and regenerate storage account keys</h2>
-When you create a storage account, Windows Azure generates two 512-bit storage account keys, which are used for authentication when the storage account is accessed. By providing two storage account keys, Windows Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
+<h2 id="regeneratestoragekeys">How to: View, copy, and regenerate storage access keys</h2>
+When you create a storage account, Windows Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. By providing two storage access keys, Windows Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
 
-In the [Management Portal](manage.windowsazure.com), use **Manage Keys** on the dashboard or the **Storage** page to view, copy, and regenerate the storage account keys that are used to access the Blob, Table, and Queue services. 
+In the [Management Portal](manage.windowsazure.com), use **Manage Keys** on the dashboard or the **Storage** page to view, copy, and regenerate the storage access keys that are used to access the Blob, Table, and Queue services. 
 
-### Copy a storage account key ###
+### Copy a storage access key ###
 
-You can use **Manage Keys** to copy a storage account key to use in a connection string. The connection string requires the storage account name and a key to use in authentication. For information about configuring connection strings to access Windows Azure storage services, see [Configuring Connection Strings](http://msdn.microsoft.com/en-us/library/ee758697.aspx).
+You can use **Manage Keys** to copy a storage access key to use in a connection string. The connection string requires the storage account name and a key to use in authentication. For information about configuring connection strings to access Windows Azure storage services, see [Configuring Connection Strings](http://msdn.microsoft.com/en-us/library/ee758697.aspx).
 
 1. In the [Management Portal](manage.windowsazure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
 
@@ -50,9 +50,9 @@ You can use **Manage Keys** to copy a storage account key to use in a connection
 	![Managekeys] (../media/Storage_ManageKeys.png)
 
  
-3. To copy a storage account key, select the key text. Then right-click, and click **Copy**.
+3. To copy a storage access key, select the key text. Then right-click, and click **Copy**.
 
-### Regenerate storage account keys ###
+### Regenerate storage access keys ###
 You should change the access keys to your storage account periodically to help keep your storage connections more secure. Two access keys are assigned to enable you to maintain connections to the storage account using one access key while you regenerate the other access key. The following procedure describes how to do that.
 
 1. Update the connection strings in your application code to reference the secondary access key of the storage account. 

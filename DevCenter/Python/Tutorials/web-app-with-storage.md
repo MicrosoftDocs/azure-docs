@@ -34,11 +34,11 @@ please see the [Installation Guide][] for information on how to set up your Pyth
 
 ## Setup A Windows Azure Account
 
-<div chunk="../../Shared/Chunks/create-azure-account" />
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
 
 ## Create A Storage Account In Azure
 
-<div chunk="../../Shared/Chunks/create-storage-account" />
+<div chunk="../../Shared/Chunks/create-storage-account.md" />
 
 ## Create A Django Project
 

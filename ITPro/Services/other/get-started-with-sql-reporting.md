@@ -5,7 +5,7 @@ In this tutorial you will learn about how to manage an instance of SQL Reporting
 ##What is SQL Reporting?
 Windows Azure SQL Reporting is a cloud-based reporting service built on Windows Azure and SQL Server Reporting Services technologies. By using SQL Reporting, you can easily provision and deploy reporting solutions to the cloud, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing.
 
-To get started with SQL Reporting, you must have a Windows Azure subscription. You can use an existing subscription, a new subscription, or the free trial subscription. For more information, see [Windows Azure Platform Offers][]. 
+To get started with SQL Reporting, you must have a Windows Azure subscription. You can use an existing subscription, a new subscription, or the free trial subscription. For more information, see [Windows Azure Offers][]. 
 
 ##Table of Contents
 
@@ -174,9 +174,9 @@ The report server name is a 10 character GUID. If you do not see the server, exp
 6.	If you want the data source to be available to use in reports, select **Enable**. If you do not want to enable the data source when you first create it, you can do it later when you are ready to use it.
 7.	Type or paste a connection string. The format of the connection string is: 
 	 
-		Data Source= <SQL Azure Database service>; Initial Catalog= <SQL Azure Database>; Encrypt=True;
+		Data Source= <SQL Database service>; Initial Catalog= <SQL Database instance>; Encrypt=True;
 	
-8.	Choose how the data source connects to the Windows Azure SQL Database. You can use either of the following two authentication types:
+8.	Choose how the data source connects to the SQL Database instance. You can use either of the following two authentication types:
 	* **Prompt for credentials** to prompt users to provide a user name and password when they run the report. Optionally, update the default prompt text: **Type the user name and password to use in order to access the data source:**. 
 	* **Credentials stored securely in the report server** to provide a user name and a password that is stored on the report server, separately from the report.
 9.	Click **OK**.
@@ -281,7 +281,7 @@ Now that you've learned the basics of SQL Reporting administration, to learn mor
 
 [SQL Database TechNet WIKI]: http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-en-us.aspx
 
-[Windows Azure Platform Offers]: http://www.windowsazure.com/en-us/
+[Windows Azure Offers]: http://www.windowsazure.com/en-us/
 
 [How to: Update Permissions on Report Server Item (Windows Azure SQL Reporting)]: http://msdn.microsoft.com/en-us/library/windowsazure/hh403965.aspx
 

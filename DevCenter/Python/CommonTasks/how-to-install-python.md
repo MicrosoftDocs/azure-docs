@@ -1,14 +1,13 @@
 # Installing Python and the SDK
 
-Python is pretty easy to setup on Windows and comes pre-installed on Mac and Linux.  This guide walks you through installation and getting your machine ready for use with Azure.
+Python is pretty easy to setup on Windows and comes pre-installed on Mac and Linux.  This guide walks you through installation and getting your machine ready for use with Azure.  This guide will help you with the following:
 
-
-* What's in the SDK?
-* Which Python & which version?
+* What's in the Python Azure SDK?
+* Which Python and which version to use
 * Installation on Windows
 * Installation on Mac and Linux
 
-## The Python Azure SDK
+## What's in the Python Azure SDK?
 
 The Windows Azure SDK for Python includes components that allow you to develop, deploy, and mangage Python applications for Windows Azure. Specifically, the Windows Azure SDK for Python includes the following:
 
@@ -20,18 +19,18 @@ The Windows Azure SDK for Python includes components that allow you to develop, 
 
 The core scenarios for this release are:
 
-* **Windows**: Cloud Service -- for example Django using Webroles
+* **Windows**: Cloud Service -- for example a Django site using Webroles
 * **Mac/Linux**: IaaS -- Run what you like in a VM; Consume Azure Services through Python
 
-## Which Python and which version?
+## Which Python and which version to use
 
-There are several flavors of Python - examples include:
+There are several flavors of Python interpreters available - examples include:
 
 * CPython - the standard and most commonly used Python interpreter
 * IronPython - Python interpreter that runs on .Net/CLR
 * Jython - Python interpreter that runs on the JVM
 
-For the purposes of this release, only CPython is tested and supported.  We also recommend at least version 2.7.  IronPython support will be added in the near future as well.
+For the purposes of this release, only **CPython** is tested and supported.  We also recommend at least version 2.7.  **IronPython** support will be added in the near future as well.
 
 ## Where to get Python?
 
@@ -80,11 +79,11 @@ After the installation you should have Python, Django, the Client Libraries avai
 
 ### Python Tools for Visual Studio
 
-Python Tools for Visual Studio is a free/OSS plugin from Microsoft which turn VS into a full-fledged Python IDE:
+Python Tools for Visual Studio is a free/OSS plugin from Microsoft which turns VS into a full-fledged Python IDE:
 
 ![how-to-install-python-ptvs.png][]
 
-Using Python Tools for Visual Studio is optional, but is recommended as it gives you Python and Django Project/Solution support, debugging, profiling, Template editing and Intellisense, deployment to cloud, etc.  This add-in  works with your existing VS2010 install.  If you don't have VS2010, WebPI will install the free Integrated Shell + PTVS which essentially give you a **completely free** "VS Python Express" IDE.  For more information, see [Python Tools for Visual Studio on CodePlex][].  Also note that while PTVS is small, the Integrated Shell will increases your download times.
+Using Python Tools for Visual Studio is optional, but is recommended as it gives you Python and Django Project/Solution support, debugging, profiling, Template editing and Intellisense, deployment to cloud, etc.  This add-in  works with your existing VS2010 install.  If you don't have VS2010, WebPI will install the free Integrated Shell + PTVS which essentially give you a **completely free** "VS Python Express" IDE.  For more information, see [Python Tools for Visual Studio on CodePlex][].  Also note that while the PTVS plug-in is small, the Integrated Shell will increases your download times.
 
 
 ## Installation on Linux and MacOS
@@ -115,12 +114,11 @@ When developing from mac/linux, there are two main scenarios supported for this 
 
 The first scenario enables you to author rich web apps that take advantage of the Azure PaaS capabilities such as blob storage, queues, etc. via Pythonic wrappers for the Azure REST API's.  These work identically on Windows, Mac and Linux.  See the Tutorials and How To Guides for examples.  You can also use these client libraries from within a Linux VM.
 
-For the VM scenario, you simply start a Linux VM of your choice (Ubuntu, CentOS, Suse) and run/manage what you like.  As an example, you can run [IPython](http://www.ipython.org) REPL/notebook on your Windows/Mac/Linux machine and point your browser to a Linux or Windows multi-proc VM running the IPython Engine on Azure. For more information on IPython installation please see its tutorial.
+For the VM scenario, you simply start a Linux VM of your choice (Ubuntu, CentOS, Suse) and run/manage what you like.  As an example, you can run [IPython](http://ipython.org) REPL/notebook on your Windows/Mac/Linux machine and point your browser to a Linux or Windows multi-proc VM running the IPython Engine on Azure. For more information on IPython installation please see its tutorial.
 
 For information on how to setup a Linux, please see [Setting up a Linux VM via the Azure portal][].
 
-For details on managing/deploying services, please see [How to use the Windows Azure Command-Line Tools for Mac and Linux](http://www.windowsazure.com/en-us/develop/shared/chunks/crossplt-cmd-tools).
-
+For details on managing/deploying services, please see [How to use the Windows Azure Command-Line Tools for Mac and Linux][]
 
 
  
@@ -158,7 +156,7 @@ For details on managing/deploying services, please see [How to use the Windows A
 
 [IPython - an advanced REPL/Notebook for Python]: http://ipython.org
 
-[IPython on Azure]: http://www.windowsazure.com/en-us/develop/python/tutorials/azure-ipython
+[IPython on Azure]: ../tutorials/azure-ipython.md
 
 [Python Tools for Visual Studio on CodePlex]: http://pytools.codeplex.com 
 
@@ -169,6 +167,8 @@ For details on managing/deploying services, please see [How to use the Windows A
 
 
 [Setting up a Linux VM via the Azure portal]: ../../../shared/chunks/create-and-configure-opensuse-vm-in-portal.md
+
+[How to use the Windows Azure Command-Line Tools for Mac and Linux]: ../../shared/chunks/crossplat-cmd-tools.md
 
 [how-to-install-python-webpi-1.png]: ../Media/how-to-install-python-webpi-1.png 
 [how-to-install-Python-webpi-2.png]: ../Media/how-to-install-Python-webpi-2.png

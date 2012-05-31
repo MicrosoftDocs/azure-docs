@@ -50,17 +50,17 @@ describe how to implement them.
 
 ##In this Document
 
-[Best Practices for Troubleshooting in Windows Azure](BestPractices)
+[Best Practices for Troubleshooting in Windows Azure](#BestPractices)
 
-[Windows Azure Websites](Websites)
+[Windows Azure Websites](#Websites)
 
-[Windows Azure Cloud Services](CloudServices)
+[Windows Azure Cloud Services](#CloudServices)
 
-[Windows Azure Virtual Machines](Vms)
+[Windows Azure Virtual Machines](#Vms)
 
-[Windows Azure Platform Services](PlatformServices)
+[Windows Azure Services](#PlatformServices)
 
-[SQL Azure Troubleshooting](SQLTroubleshooting)
+[SQL Database Troubleshooting](#SQLTroubleshooting)
 
 <h2 id="BestPractices">Best Practices for Troubleshooting in Windows Azure</h2>
 
@@ -96,7 +96,7 @@ network connections inherent in shared resources on the internet. Some
 examples are:
 
 -   Shared computer resources such as Windows Azure Cloud Services and
-    SQL Azure (to give two examples) can be slightly less or more
+    SQL Database (to give two examples) can be slightly less or more
     responsive from moment to moment.
 -   Responsiveness delays due to providing durability for services. For example, SQL
     Azure keeps multiple copies of databases consistent in order to
@@ -122,7 +122,7 @@ Microsoft Enterprise Library is a collection of reusable application
 blocks that address common cross-cutting concerns in enterprise software
 development. The Microsoft Enterprise Library Integration Pack for
 Windows Azure is an extension to Microsoft Enterprise Library 5.0 that
-can be used with the Windows Azure technology platform. It includes the
+can be used with Windows Azure. It includes the
 Autoscaling Application Block, Transient Fault Handling Application
 Block, blob configuration source, protected configuration provider, and
 learning materials. Another, simpler .NET library with fewer features is the
@@ -234,8 +234,8 @@ diagnostics data collected by applications running in Windows Azure. See
 Cloud Storage Studio 2 is a Windows (WPF) based client for managing
 Windows Azure Storage.
 
-Azure Management Cmdlets is a set of PowerShell Cmdlets for managing
-Windows Azure Storage, Hosted Services, SQL Azure databases and
+Azure Management Cmdlets is a set of Windows PowerShell cmdlets for managing
+Windows Azure Storage, Hosted Services, SQL Database instances, and
 Diagnostics. It also provides cmdlets to back up and restore storage
 accounts.
 
@@ -291,7 +291,7 @@ do rudimentary tests without having to deploying your application. The
 debugging tools you use vary depending upon the programming language and the development tools
 you are using.
 
-After an application has been deployed, you can debug in the cloud using a debugger like Visual Studio. The requires creating a debug build and deploying it. In order to do this,you must connect to a specific role instance. If you have a complex application with multiple roles and role instances, it can be very difficult to determine to which role instance to connect. Visual Studio 2010 Ultimate supports IntelliTrace, which allows .NET roles to track debug information. When a problem occurs you can download this information and load it into Visual Studio. You can look at each role instance's IntelliTrace log to determine where the problem occured. While there are some drawbacks to debugging in the cloud, there are some circumstancesin which it is required. Not all Azure Platform Services have an emulator (for example Service Bus) and not all supported development tools (for example Mac and Linux) come with emulators. 
+After an application has been deployed, you can debug in the cloud using a debugger like Visual Studio. The requires creating a debug build and deploying it. In order to do this,you must connect to a specific role instance. If you have a complex application with multiple roles and role instances, it can be very difficult to determine to which role instance to connect. Visual Studio 2010 Ultimate supports IntelliTrace, which allows .NET roles to track debug information. When a problem occurs you can download this information and load it into Visual Studio. You can look at each role instance's IntelliTrace log to determine where the problem occured. While there are some drawbacks to debugging in the cloud, there are some circumstancesin which it is required. Not all Windows Azure Services have an emulator (for example Service Bus) and not all supported development tools (for example Mac and Linux) come with emulators. 
 
 **Once you have debugged your application locally you will most likely
 have to rely on the instrumentation built into your application to
@@ -301,8 +301,8 @@ determine where problems are occurring. **
 
 For debugging Node.JS applications, you can use the Node-Inspector tool
 which is available on [GitHub](https://github.com/dannycoates/node-inspector). Node-Inspector can be run locally on your
-development machine using the Azure storage emulator. For more
-information see Jim Wang’s blog: [Debugging Node in the Azure Emulator].
+development machine using the Windows Azure storage emulator. For more
+information see Jim Wang’s blog: [Debugging Node in the Windows Azure Emulator].
 
 If you are debugging your application on Azure, install the full version
 of IISNode from [GitHub](https://github.com/windowsazure/iisnode/downloads) on your web role, worker role, or VM instance. As
@@ -404,7 +404,7 @@ The windows Azure Portal provides access to monitoring data that helps IT profes
 
 The original Windows Azure SDK 1.0 included functionality to collect
 diagnostics data and store them in Windows Azure storage collectively known
-as Windows Azure Diagnostics (WAD). This software, built upon the Event
+as Windows Azure Diagnostics. This software, built upon the Event
 Tracing for Windows (ETW) framework, fulfills two design requirements
 introduced by Windows Azure scale-out architecture:
 
@@ -413,7 +413,7 @@ introduced by Windows Azure scale-out architecture:
 -   Provide a central repository for diagnostics from multiple
     instances.
 
-After configuring Windows Azure Diagnostics in the role, WAD collects
+After configuring Diagnostics in the role, Diagnostics collects
 diagnostic data from all the instances of that particular role. The
 diagnostic data can be used for debugging and troubleshooting, measuring
 performance, monitoring resource usage, traffic analysis and capacity
@@ -431,9 +431,9 @@ ways:
 -   Diagnostic storage incurs a monthly cost when stored in Windows
     Azure storage.
 
-Cost is of particular importance because one of the key benefits of the
-Windows Azure platform is cost reduction. The only way to eliminate the
-cost of using WAD today is to leave the data on the virtual machine.
+Cost is of particular importance because one of the key benefits of
+Windows Azure is cost reduction. The only way to eliminate the
+cost of using Diagnostics today is to leave the data on the virtual machine.
 This may work in a small deployment, but is impractical where there are
 many instances. Here are a few ways to minimize the financial impact:
 
@@ -455,7 +455,7 @@ many instances. Here are a few ways to minimize the financial impact:
 -   Control the collection and extent of diagnostic data by implementing
     an on-demand switch in your application.
 -   Utilize the logging level (Verbose, Info, Warning, Error) so that
-    all information is available, then utilize the post-deploy WAD
+    all information is available, then utilize the post-deploy Diagnostics
     config to selectively gather data.
 
 [Windows Azure PowerShell Cmdlets]
@@ -476,7 +476,7 @@ demonstrated include:
 -   Windows Azure SDK
 -   Windows Azure Storage Analytics
 -   Windows Azure Diagnostics
--   SQL Azure REST API
+-   SQL Database REST API
 -   Windows Azure Traffic Manager REST API
 -   Windows PowerShell
 
@@ -504,9 +504,9 @@ with the operating systems and platforms in use. For example:
     start with the product documentation, see [https://help.ubuntu.com/].
 -   CentOS 6.2 Linux. For more information, see [http://centos.org/].
 
-<h2 id="PlatformServices">Troubleshooting Windows Azure Platform Services</h2>
+<h2 id="PlatformServices">Troubleshooting Windows Azure Services</h2>
 
-Many of the Windows Azure Services such as Windows Azure SQL Database, Windows Azure
+Many of the Windows Azure services such as Windows Azure SQL Database, Windows Azure
 Active Directory, and Windows Azure storage have troubleshooting advice
 that is specific to their use, regardless whether the application is
 executing on Windows Azure, what programming language or libraries it was built
@@ -539,7 +539,7 @@ tracing or logging work.
 
 There are a number of ways to explore Windows Azure storage. The Windows
 Azure Storage team came up with a [list of storage explorers]. Any of
-these will allow you to see WAD files and Windows Azure Storage
+these will allow you to see Diagnostics files and Windows Azure Storage
 Analytics files. Cloudberry Lab's [Explorer for Azure Blob Storage] provides a user interface to enable Storage Analytics directly in the
 application by clicking **Storage Settings**.
 
@@ -663,8 +663,8 @@ means an exhaustive list. The key to writing supportable Windows Azure SQL Datab
 is to examine the return codes and make sure that you have solid retry
 code to handle failures.
 
-Your application must handle login failures gracefully. SQL Azure
-Databases require the use of SQL Authentication. If you cannot
+Your application must handle login failures gracefully. SQL Database
+instances require the use of SQL Authentication. If you cannot
 successfully log in, either your credentials are not valid or the
 database you requested is not available.
 
@@ -674,9 +674,9 @@ available (you can check this using the [Azure Health Status] page), the
 likely cause is configuration issues in your on-site installation. For
 instance, you may be unable to resolve the name (which can be tested
 with tools such as tracert), you may have a firewall blocking port 1433
-that is used by SQL Azure, or you may be using a proxy server that is
+that is used by SQL Database, or you may be using a proxy server that is
 not configured properly. Use the same techniques to troubleshoot these
-difficulties that you would for SQL Server. For more information, see [SQL Azure Connectivity Troubleshooting Guide] and [Troubleshooting SQL Azure].
+difficulties that you would for SQL Server. For more information, see [SQL Database Connectivity Troubleshooting Guide] and [Troubleshooting SQL Database].
 
 Your application must handle general network errors. You may receive
 general network errors because Windows Azure SQL Database might disconnect users
@@ -692,10 +692,10 @@ you would use with SQL Server. For more information, see the following
 topics:
 
 -   [Troubleshooting Queries] in SQL Server Books Online
--   [Troubleshoot and Optimize Queries with SQL Azure]
--   [SQL Azure Performance Considerations and Troubleshooting]
+-   [Troubleshoot and Optimize Queries with SQL Database]
+-   [SQL Database Performance Considerations and Troubleshooting]
 -   [Improving Your I/O Performance]
--   [System Center Monitoring Pack for SQL Azure]
+-   [System Center Monitoring Pack for SQL Database]
 
 Windows Azure SQL Database uses a subset of SQL Server error messages. For more
 information about SQL Server errors, see [Errors and Events Reference
@@ -704,9 +704,9 @@ information about SQL Server errors, see [Errors and Events Reference
 If you need to recover login names or passwords, contact your service
 administrator, who can grant you proper access to the server and
 database. Service administrators can also reset their own passwords
-using the Windows Azure Platform Management Portal.
+using the Windows Azure Management Portal.
 
-SQL Azure queries can fail for various reasons – a malformed query,
+SQL Database queries can fail for various reasons – a malformed query,
 network issues, and so on. Some errors are transient, meaning the
 problem often goes away by itself. For this subset of errors, it makes
 sense to retry the query after a short interval. If the query still
@@ -716,13 +716,13 @@ away no matter how many times you submit the same query. In short,
 implementing robust retry logic requires some thought. A tabular data
 stream (TDS) error token is sent prior to disconnecting users, when
 possible. To improve application experience, we recommend that you
-implement the retry logic in your SQL Azure applications to catch these
+implement the retry logic in your SQL Database applications to catch these
 errors. When an error occurs, re-establish the connection, and then
 re-execute the failed commands or the query. For more information, see
 the following links:
 
--   [Retry Logic for Transient Failures in SQL Azure]
--   [SQL Azure Retry Logic Sample]
+-   [Retry Logic for Transient Failures in SQL Database]
+-   [SQL Database Retry Logic Sample]
 -   [The Transient Fault Handling Application Block]
 
 ###Windows Azure SQL Backup and Restore Strategy
@@ -732,31 +732,31 @@ environment and tools available. In many ways the risks have been
 mediated by the database being in the Microsoft data centers. The tools
 that we have today cover the other risk factors, however better tools
 are coming to make the job much easier. Red-gate recently published a
-free tool for SQL Azure backup and restore which can be found here: [http://www.red-gate.com/products/dba/sql-azure-backup/].
+free tool for SQL Database backup and restore which can be found here: [http://www.red-gate.com/products/dba/sql-azure-backup/].
 
-SQL Azure Data Sync enables you to easily create and schedule
+SQL Database Data Sync enables you to easily create and schedule
 bi-directional synchronizations from within the Data Sync web site
 without the need to write a single line of code. You can find more
 information here:
 http://msdn.microsoft.com/en-us/library/windowsazure/hh456371.aspx.
 
-For more information on SQL Azure backup and Restore strategies see the
+For more information on SQL Database backup and Restore strategies see the
 following articles:
 
--   This topic gives an overview of SQL Azure Backup and Restore
+-   This topic gives an overview of SQL Database Backup and Restore
     Strategies:
     [http://social.technet.microsoft.com/wiki/contents/articles/1792.sql-azure-backup-and-restore-strategy.aspx]
 -   This topic explains how to back up a database to another database on
     the same server:
     [http://msdn.microsoft.com/en-us/library/windowsazure/ff951631.aspx]
--   This topic explains how to export an existing SQL Azure database to
+-   This topic explains how to export an existing SQL Database instance to
     a blob on a given storage account:
     [http://msdn.microsoft.com/en-us/library/windowsazure/hh335292.aspx]
--   This topic explains how to import an existing SQL Azure database
+-   This topic explains how to import an existing SQL Database instance
     from a bacpac file stored in a blob:
     [http://msdn.microsoft.com/en-us/library/windowsazure/hh335291.aspx]
 -   This topic describes the business continuity capabilities provided
-    by SQL Azure:
+    by SQL Database:
     [http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx]
 
 <h2 id="Cache">Windows Azure Cache Services</h2>
@@ -807,7 +807,7 @@ For more information on quota-related errors, see [Understanding Quotas] and [Tr
 [AVIcode]: http://www.microsoft.com/en-us/server-cloud/system-center/avicode.aspx
 [profile]: http://msdn.microsoft.com/en-us/library/windowsazure/hh369930.aspx
 [VM Assitant]: http://azurevmassist.codeplex.com/
-[Debugging Node in the Azure Emulator]: http://weblogs.asp.net/jimwang/archive/2012/04/17/debugging-node-node-inspector-in-the-azure-emulator.aspx
+[Debugging Node in the Windows Azure Emulator]: http://weblogs.asp.net/jimwang/archive/2012/04/17/debugging-node-node-inspector-in-the-azure-emulator.aspx
 [Debugging with Node-Inspector]: http://howtonode.org/debugging-with-node-inspector
 [IntelliTrace]: http://msdn.microsoft.com/en-us/library/dd264915.aspx
 [IntelliTrace to debug Windows Azure Cloud Services]: http://blogs.msdn.com/b/jnak/archive/2010/06/07/using-intellitrace-to-debug-windows-azure-cloud-services.aspx
@@ -836,16 +836,16 @@ For more information on quota-related errors, see [Understanding Quotas] and [Tr
 [Best Practices for Leveraging Windows Azure Service Bus Brokered Messaging API]: http://windowsazurecat.com/2011/09/best-practices-leveraging-windows-azure-service-bus-brokered-messaging-api/
 [Troubleshooting the Service Bus]: http://msdn.microsoft.com/en-us/library/windowsazure/ee706702.aspx
 [Azure Health Status]: http://go.microsoft.com/fwlink/p/?LinkId=168847
-[SQL Azure Connectivity Troubleshooting Guide]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-connectivity-troubleshooting-guide.aspx
-[Troubleshooting SQL Azure]: http://msdn.microsoft.com/en-us/library/ee730906.aspx
+[SQL Database Connectivity Troubleshooting Guide]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-connectivity-troubleshooting-guide.aspx
+[Troubleshooting SQL Database]: http://msdn.microsoft.com/en-us/library/ee730906.aspx
 [Troubleshooting Queries]: http://go.microsoft.com/fwlink/p/?LinkId=166623
-[Troubleshoot and Optimize Queries with SQL Azure]: http://social.technet.microsoft.com/wiki/contents/articles/1104.troubleshoot-and-optimize-queries-with-sql-azure.aspx
-[SQL Azure Performance Considerations and Troubleshooting]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2011/DBI314
+[Troubleshoot and Optimize Queries with SQL Database]: http://social.technet.microsoft.com/wiki/contents/articles/1104.troubleshoot-and-optimize-queries-with-sql-azure.aspx
+[SQL Database Performance Considerations and Troubleshooting]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2011/DBI314
 [Improving Your I/O Performance]: http://blogs.msdn.com/b/sqlazure/archive/2010/07/27/10043069.aspx?PageIndex=2#comments
-[System Center Monitoring Pack for SQL Azure]: http://www.microsoft.com/download/en/details.aspx?id=28951
+[System Center Monitoring Pack for SQL Database]: http://www.microsoft.com/download/en/details.aspx?id=28951
 [Errors and Events Reference (Database Engine)]: http://go.microsoft.com/fwlink/p/?LinkId=166622
-[Retry Logic for Transient Failures in SQL Azure]: http://social.technet.microsoft.com/wiki/contents/articles/4235.retry-logic-for-transient-failures-in-sql-azure.aspx
-[SQL Azure Retry Logic Sample]: http://code.msdn.microsoft.com/windowsazure/SQL-Azure-Retry-Logic-2d0a8401
+[Retry Logic for Transient Failures in SQL Database]: http://social.technet.microsoft.com/wiki/contents/articles/4235.retry-logic-for-transient-failures-in-sql-azure.aspx
+[SQL Database Retry Logic Sample]: http://code.msdn.microsoft.com/windowsazure/SQL-Azure-Retry-Logic-2d0a8401
 [The Transient Fault Handling Application Block]: http://msdn.microsoft.com/en-us/library/hh680934(PandP.50).aspx
 [Microsoft Enterprise Library 5.0 Integration Pack for Windows Azure]: http://msdn.microsoft.com/en-us/library/hh680918%28v=pandp.50%29.aspx
 [Take Control of Logging and Tracing in Windows Azure]: http://msdn.microsoft.com/en-us/magazine/ff714589.aspx

@@ -99,7 +99,7 @@ Note that the **vm create** command, like the Windows Azure portal, only creates
 
 When you create a new virtual machine, you will need to specify the physical location (i.e., data center) where the virtual machine will reside. You can specify a location through the --location parameter, or specify an affinity group through the --affinity-group parameter. If neither is provided, you will be prompted to provide one from a list of valid locations.
 
-The supplied password must be 8-123 characters long and meet the password complexity requirements of the operating system that you are using for this virtual machine.</br />
+The supplied password must be 8-123 characters long and meet the password complexity requirements of the operating system that you are using for this virtual machine.
 
 If you anticipate the need to use SSH to manage a deployed Linux virtual machine (as is usually the case), you must enable SSH via the -s option when you create the virtual machine. It is not possible to enable SSH after the virtual machine has been created.
 
@@ -139,7 +139,7 @@ List Azure virtual machines
 
 ###vm show [options] &lt;name>
 
-Show details about an Azure virtual machine
+Show details about a Windows Azure virtual machine
 
 	~$ azure vm show my-vm
 	info:   Executing command vm show
@@ -304,7 +304,7 @@ Data disks are .vhd files in blob storage that can be used by a virtual machine.
 
 ###vm disk show [options] &lt;name>
 
-Show details about an Azure disk
+Show details about a Windows Azure disk
 
 	~$ azure vm disk show my-vm-my-vm-2-201242418259
 	info:   Executing command vm disk show
@@ -363,7 +363,7 @@ This command attaches an existing disk in blob storage to an existing virtual ma
 
 ###vm disk attach-new &lt;vm-name> &lt;size-in-gb> [blob-url]
 
-Attaches data-disk to Azure virtual machine
+Attaches a data-disk to a Windows Azure virtual machine
 
 	~$ azure vm disk attach-new nick-test36 20 http://nghinazz.blob.core.azure-preview.com/vhds/vmdisk1.vhd
 	info:   Executing command vm disk attach-new
@@ -371,7 +371,7 @@ Attaches data-disk to Azure virtual machine
 
 ###vm disk detach &lt;vm-name> &lt;lun>
 
-Detaches a data-disk attached to an Azure virtual machine
+Detaches a data-disk attached to a Windows Azure virtual machine
 
 	~$ azure vm disk detach my-vm 2
 	info:   Executing command vm disk detach
@@ -420,7 +420,8 @@ List Azure certificates
 
 ###service cert create &lt;dns-prefix> &lt;file> [password]
 
-Upload certificate</br />
+Upload certificate
+
 Leave password prompt blank for non-password protected certificates
 
 	~$ azure service cert create nghinazz ~/publishSet.pfx

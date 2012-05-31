@@ -134,7 +134,7 @@ created. The combination of service namespace and shared secret key
 provides a credential for Service Bus to authenticate access to an
 application.
 
-1.  Log into the [Windows Azure Platform Management Portal][].
+1.  Log into the [Windows Azure Management Portal][].
 
 2.  In the lower left navigation pane of the Management Portal, click
     **Service Bus, Access Control & Caching**.
@@ -364,8 +364,7 @@ Service Bus Queue.
     information and contains methods for initializing the connection to
     a Service Bus Queue. In QueueConnector.cs, paste in the following code, and enter in
     values for **Namespace**, **IssuerName**, and **IssuerKey**. You can
-    find these values in the [Management Portal][Windows Azure Platform
-    Management Portal].
+    find these values in the [Management Portal][Windows Azure Management Portal].
 
         using System;
         using System.Collections.Generic;
@@ -566,7 +565,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
   [4]: ../Media/getting-started-4.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [5]: ../Media/getting-started-12.png
-  [Windows Azure Platform Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://windows.azure.com
   [6]: ../Media/sb-queues-03.png
   [7]: ../Media/sb-queues-04.png
   [8]: ../Media/getting-started-multi-tier-09.png

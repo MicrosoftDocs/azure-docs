@@ -549,7 +549,7 @@ Next, copy and execute the Insert Data script.
 
 1. In Management Studio, connect to the logical server. If you already have a connection open, you can close it and open a new one. The existing connection shows only those databases that were running at the time the connection was made.
 
-   For instructions on how to connect to a logical server, see [How to: Connect using Management Studio][] in this document. 
+   For instructions on how to connect to a logical server, see [How to Manage SQL Database](../../../manage/services/sql-databases/howto-manage-sqldb/). 
 
 2. Expand the Databases folder. You should see the school database in the list.
 
@@ -576,5 +576,6 @@ Next, copy and execute the Insert Data script.
  	 INNER JOIN OnsiteCourse
 		ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
 </pre></div>
+
 [Getting Started with SQL Database Administration]: http://www.windowsazure.com/en-us/manage/tutorials/sql-azure-management/  
-[How to: Connect using Management Studio]: ./howto-connect-sqldb/
+

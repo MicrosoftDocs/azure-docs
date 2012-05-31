@@ -134,19 +134,14 @@ Service Bus queues:
 
 You are now ready to write code against the Service Bus.
 
-## <a name="create-provider"> </a>How to Create a Security Token Provider
+## <a name="create-provider"> </a>How to Set Up a Service Bus Connection String
 
-Service Bus uses a claims-based security model implemented using the
-Windows Azure Access Control Service (ACS). The **TokenProvider** class
-provides a security token provider with built-in factory methods. The
-code below creates a **SharedSecretTokenProvider** to hold the shared
-secret credentials and handle the acquisition of the appropriate tokens
-from the Access Control Service:
+The Service Bus uses a storage connection string to store endpoints and credentials. You can put your storage connection string in a configuration file, rather than hard-coding it in code. One option is to use .NET's built-in configuration mechanism (e.g. Web.config for web applications). This guide describes how to store your connection string using Windows Azure service configuration. The service configuration is unique to Windows Azure projects and allows you to change configuration from the Management Portal without redeploying your application. For example:
 
-     string issuer = "<obtained from portal>";
-     string key = "<obtained from portal>";
-
-     TokenProvider tP = TokenProvider.CreateSharedSecretTokenProvider(issuer, key);
+	<ConfigurationSettings>
+    …
+    	<Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=[issuerName];SharedSecretValue=[yourDefaultKey]" />
+	</ConfigurationSettings>
 
 Use the issuer and key values retrieved from the Management Portal as
 described in the previous section.
@@ -154,32 +149,20 @@ described in the previous section.
 ## <a name="create-queue"> </a>How to Create a Queue
 
 Management operations for Service Bus queues can be performed via the
-**NamespaceManager** class. A **NamespaceManager** object is constructed
-with the base address of a Service Bus namespace and an appropriate
-token provider that has permissions to manage it. The base address of a
-Service Bus namespace is a URI of the form
-"sb://[serviceNamespace].servicebus.windows.net". The **ServiceBusEnvironment** class
-provides the **CreateServiceUri** helper method to assist the creation
-of these URIs.
+**NamespaceManager** class. The **NamespaceManager** class provides methods to create, enumerate, and delete queues. 
 
-The **NamespaceManager** class provides methods to create, enumerate,
-and delete queues. The example below shows how a **NamespaceManager**
-can be used to create a queue named "TestQueue" within a "HowToSample"
-service namespace:
+In this example, a **NamespaceManager** object is constructed by using the Windows Azure **AzureConfigurationManager** class
+with a connection string consisting of the base address of a Service Bus namespace and the appropriate
+credentials with permissions to manage it. This connection string is of the form
+"Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=[issuerName];SharedSecretValue=[yourDefaultKey]"". For example, given the configuration settings in the previous section:
 
-     string issuer = "<obtained from portal>";
-     string key = "<obtained from portal>";
-
-     TokenProvider tP = TokenProvider.CreateSharedSecretTokenProvider(issuer, key);
-     
-     // Retrieve URI of our "HowToSample" service namespace (created via the portal)
-     Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", "HowToSample", string.Empty);
-
-     // Create NamespaceManager for our "HowToSample" service namespace
-     NamespaceManager namespaceManager = new NamespaceManager(uri, tP);
-
-     // Create a new Queue named "TestQueue" 
-     namespaceManager.CreateQueue("TestQueue");
+	// Create the queue if it does not exist already
+	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+    if (!namespaceManager.QueueExists(QueueName))
+    {
+        namespaceManager.CreateQueue(QueueName);
+    }
 
 There are overloads of the **CreateQueue** method that allow properties
 of the queue to be tuned (for example, to set the default
@@ -188,26 +171,20 @@ settings are applied by using the **QueueDescription** class. The
 following example shows how to create a queue named "TestQueue" with a
 maximum size of 5GB and a default message time-to-live of 1 minute:
 
-     string issuer = "<obtained from portal>";
-     string key = "<obtained from portal>";
+	// Configure Queue Settings
+    QueueDescription qd = new QueueDescription("TestQueue");
+    qd.MaxSizeInMegabytes = 5120;
+    qd.DefaultMessageTimeToLive = new TimeSpan(0, 1, 0);
 
-     TokenProvider tP = TokenProvider.CreateSharedSecretTokenProvider(issuer, key);
-     
-     // Retrieve URI of our "HowToSample" service namespace (created via the portal)
-     Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", "HowToSample", string.Empty);
+	// Create a new Queue with custom settings
+	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+    if (!namespaceManager.QueueExists("TestQueue"))
+    {
+        namespaceManager.CreateQueue("TestQueue");
+    }
 
-     // Create NamespaceManager for our "HowToSample" service namespace
-     NamespaceManager namespaceManager = new NamespaceManager(uri, tP);
-
-     // Configure Queue Settings
-     QueueDescription qd = new QueueDescription("TestQueue");
-     qd.MaxSizeInMegabytes = 5120;
-     qd.DefaultMessageTimeToLive = new TimeSpan(0, 1, 0);
-
-     // Create a new Queue with custom settings
-     namespaceManager.CreateQueue(qd);
-
-**Note:**You can use the **QueueExists** method on **NamespaceManager**
+**Note:** You can use the **QueueExists** method on **NamespaceManager**
 objects to check if a queue with a specified name already exists within
 a service namespace.
 
@@ -216,22 +193,18 @@ a service namespace.
 To send a message to a Service Bus queue, your application will create a
 **MessageSender** object. Similar to **NamespaceManager** objects, this object
 is created from the base URI of the service namespace and the
-appropriate token provider.
+appropriate credentials (the connection string).
 
-The code below demonstrates how to retrieve a **MessageSender** object
-for the "TestQueue" queue created above within the "HowToSample"
-service namespace:
+The code below demonstrates how to create a **MessageSender** object
+for the "TestQueue" queue created above:
 
-     string issuer = "<obtained from portal>";
-     string key = "<obtained from portal>";
+	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-     // URI address and token for our "HowToSample" namespace
-     TokenProvider tP = TokenProvider.CreateSharedSecretTokenProvider(issuer, key); 
-     Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", "HowToSample", string.Empty);
+	MessagingFactory factory = MessagingFactory.CreateFromConnectionString(connectionString);
 
-     // Retrieve MessageSender for the "TestQueue" within our "HowToSample" namespace
-     MessagingFactory factory = MessagingFactory.Create(uri, tP);
-     MessageSender testQueue = factory.CreateMessageSender("TestQueue");
+    MessageSender sender = factory.CreateMessageSender("TestQueue");
+
+    sender.Send(new BrokeredMessage());
 
 Messages sent to (and received from) Service Bus queues are instances of
 the **BrokeredMessage** class. **BrokeredMessage** objects have a set of
@@ -297,40 +270,37 @@ consumed and removes it from the queue.
 The example below demonstrates how messages can be received and
 processed using the default **PeekLock** mode. The example creates an infinite loop and processes messages as they arrive into the "TestQueue":
 
-     string issuer = "<obtained from portal>";
-     string key = "<obtained from portal>";
+	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-     // URI address and token for our "HowToSample" namespace
-     TokenProvider tP = TokenProvider.CreateSharedSecretTokenProvider(issuer, key); 
-     Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", "HowToSample", string.Empty);
+    MessagingFactory factory = MessagingFactory.CreateFromConnectionString(connectionString);
 
-     // Retrieve MessageReceiver for the "TestQueue" within our "HowToSample" namespace
-     MessagingFactory factory = MessagingFactory.Create(uri, tP);
-     MessageReceiver testQueue = factory.CreateMessageReceiver("TestQueue");
+    MessageReceiver receiver = factory.CreateMessageReceiver("TestQueue");
+
+    receiver.Receive(new BrokeredMessage());
      
-     // Continuously process messages sent to the "TestQueue" 
-     while (true) 
-     {  
-        BrokeredMessage message = testQueue.Receive();
+    // Continuously process messages sent to the "TestQueue" 
+    while (true) 
+    {  
+       BrokeredMessage message = receiver.Receive();
 
-        if (message != null)
-        {
-           try 
-           {
-              Console.WriteLine("Body: " + message.GetBody<string>());
-              Console.WriteLine("MessageID: " + message.MessageId);
-              Console.WriteLine("Custom Property: " + message.Properties["TestProperty"]);
+       if (message != null)
+       {
+          try 
+          {
+             Console.WriteLine("Body: " + message.GetBody<string>());
+             Console.WriteLine("MessageID: " + message.MessageId);
+             Console.WriteLine("Custom Property: " + message.Properties["TestProperty"]);
 
-              // Remove message from queue
-              message.Complete();
-           }
-           catch (Exception)
-           {
-              // Indicate a problem, unlock message in queue
-              message.Abandon();
-           }
-        }
-     } 
+             // Remove message from queue
+             message.Complete();
+          }
+          catch (Exception)
+          {
+             // Indicate a problem, unlock message in queue
+             message.Abandon();
+          }
+       }
+    } 
 
 ## <a name="handle-crashes"> </a>How to Handle Application Crashes and Unreadable Messages
 
