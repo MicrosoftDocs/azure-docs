@@ -1,6 +1,6 @@
 #PHP Developer Center - Best Practices
 
-The content in this section will help you develop robust Windows Azure solutions. New content will be added frequently, so please visit this page for new topics. You can also use the Disqus section below to suggest new topics, or submit your own best practices content through [GitHub]().
+The content in this section will help you develop robust Windows Azure solutions. New content will be added frequently, so please visit this page for new topics. You can also use the Disqus section below to suggest new topics.
 
 ## Key guidance areas
 
