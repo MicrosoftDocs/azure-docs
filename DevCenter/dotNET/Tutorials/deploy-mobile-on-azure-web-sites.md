@@ -67,7 +67,7 @@ Set up the Windows Azure environment by creating a Windows Azure account and a W
 
 ### Enable the Windows Azure Web Sites feature on your account
 
-<div chunk=”../../shared/chunks/antares-iaas-signup.md” />
+<div chunk="../../shared/chunks/antares-iaas-signup.md" />
 
 <h3>Create a website in Windows Azure</h3>
 
