@@ -2,7 +2,10 @@ The instructions contained in this article are based on the [Windows Azure Manag
 
 ![image of preview portal][preview-portal]
 
-If you are using the Production portal, you can switch to the Preview portal by [steps TBD]
+If you are using the Production portal, you can switch to the Preview portal by clicking the **Visit the Preview Portal** link at the bottom of the page.
+
+![image of the visit the preview portal link][preview-portal-link]
 
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [preview-portal]: ../../Shared/Media/preview-portal-button.png
+[preview-portal-link]: ../../Shared/Media/switch-to-preview.png
