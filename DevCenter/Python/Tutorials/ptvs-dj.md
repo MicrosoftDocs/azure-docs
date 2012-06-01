@@ -119,7 +119,7 @@ Now you're ready to deploy the project to Windows Azure. To do this all you need
 
 ![Package App Menu](../Media/ptvs-dj-publish1.png)
 
-After selecting Publish you will be prompted to sign in to Azure.  You can either import your existing credentials here or setup new credentials:
+After selecting Publish you will be prompted to sign in to Windows Azure.  You can either import your existing credentials here or setup new credentials:
 
 ![Package Settings](../Media/ptvs-dj-publish2.png)
 
@@ -134,5 +134,5 @@ you can click on the link below DNS Name to view your web site running in the cl
 ![Your Django app in the cloud](../Media/ptvs-dj-FirstAppInCloud.png)
 
 
-[How to Install Python]: ../commontasks/how-to-install-python
+[How to Install Python]: ../commontasks/install-python
 

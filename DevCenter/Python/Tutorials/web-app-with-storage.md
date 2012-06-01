@@ -72,11 +72,8 @@ Here are the steps for creating the app:
 	&lt;td&gt;{{entity.category}} &lt;input type=&quot;hidden&quot; name='category' value=&quot;{{entity.category}}&quot;&gt;&lt;/td&gt;
 	&lt;td&gt;{{entity.date}} &lt;input type=&quot;hidden&quot; name='date' value=&quot;{{entity.date}}&quot;&gt;&lt;/td&gt;
 	&lt;td&gt;{{entity.complete}} &lt;input type=&quot;hidden&quot; name='complete' value=&quot;{{entity.complete}}&quot;&gt;&lt;/td&gt;
-	{% if entity.complete == &quot;Yes&quot; %}
+
 	&lt;td&gt;&lt;input type=&quot;submit&quot; value=&quot;Complete&quot;&gt;&lt;/td&gt;
-	{% else %}
-	&lt;td&gt;&lt;input type=&quot;submit&quot; value=&quot;Complete&quot;&gt;&lt;/td&gt;
-	{% endif %}
 	&lt;/tr&gt;
 	&lt;/form&gt;
 	{% endfor %}
@@ -187,5 +184,5 @@ Now that you’ve learned the basics of the Windows Azure Table service, follow 
 [container-acl]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
 
-[Installation Guide]: http://www.windowsazure.com/en-us/develop/python/commontasks/how-to-install-python
+[Installation Guide]: ../commontasks/install-python
 [Django Hello World Web Application]: http://www.windowsazure.com/en-us/develop/python/tutorials/django-helloworld
