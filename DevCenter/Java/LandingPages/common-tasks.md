@@ -4,7 +4,7 @@
 
 Describes how to add a certificate authority (CA) certificate to the JRE cacerts store.
 
-### [How to Enable Remote Desktop](http://msdn.microsoft.com/en-us/library/windowsazure/hh690951.aspx)
+### [How to Enable Remote Desktop][remote-desktop]
 
 Remote Desktop enables you to access the desktop of a role instance running in Windows Azure. You can use a remote desktop connection to configure the virtual machine or troubleshoot problems with your application. 
 
@@ -24,8 +24,9 @@ The Windows Azure Content Delivery Network (CDN) offers a global solution for de
 
 Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
 
-[add_ca_cert]: ../common-tasks/add-certificate-to-ca-store/ 
-[manage_sql]: ../Common-Tasks/sql-azure-management/
-[custom_domain_name]: ../Common-Tasks/custom-dns/
-[cdn]: ../Common-Tasks/cdn/
-[ssl]: ../Common-Tasks/enable-ssl/
+[add_ca_cert]: ../Commontasks/add_ca_cert.md 
+[manage_sql]: ../CommonTasks/sql-azure-management.md
+[custom_domain_name]: ../CommonTasks/custom-dns.md
+[cdn]: ../CommonTasks/cdn.md
+[ssl]: ../CommonTasks/enable-ssl.md
+[remote-desktop]: ../CommonTasks/remote-desktop.md

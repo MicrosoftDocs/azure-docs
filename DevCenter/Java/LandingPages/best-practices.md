@@ -1,6 +1,6 @@
 # Java Developer Center - Best Practices
 
-The content in this section will help you develop robust Windows Azure solutions. New content will be added frequently, so please visit this page for new topics. You can also use the Disqus section below to suggest new topics, or submit your own best practices content through [GitHub]().
+The content in this section will help you develop robust Windows Azure solutions. New content will be added frequently, so please visit this page for new topics. You can also use the Disqus section below to suggest new topics, or submit your own best practices content through [GitHub][].
 
 ## Key guidance areas
 
@@ -22,8 +22,8 @@ These articles provide guidance based on real-world solutions, and walk you thro
 This content provides recommendations on how to design and develop custom applications using Windows Azure.
 
 [GitHub]: http://github.com/windowsazure/azure-content/
-[Troubleshooting in Windows Azure]: /en-us/develop/java/best-practices/troubleshooting/
-[Best Practices for Designing Secure Windows Azure Applications]: /en-us/develop/java/best-practices/security/
-[Best Practices for Performance in Windows Azure Applications]: /en-us/develop/java/best-practices/performance/
+[Troubleshooting in Windows Azure]: ../prescriptiveguidance/troubleshooting.md
+[Best Practices for Designing Secure Windows Azure Applications]: ../prescriptiveguidance/security.md
+[Best Practices for Performance in Windows Azure Applications]: ../prescriptiveguidance/performance.md
 [Windows Azure Developer Guidance]: http://msdn.microsoft.com/en-us/library/windowsazure/gg456500
 [Patterns and Practices]: http://msdn.microsoft.com/en-us/library/ff898430
