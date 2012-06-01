@@ -6,7 +6,7 @@ This guide will show you the basics of using Windows Azure SQL Database from PHP
 
 ##What is Windows Azure SQL Database
 
-Windows Azure SQL Database provides a relational database management system for the Windows Azure platform, and is based on SQL Server technology. With SQL Database, you can easily provision and deploy relational database solutions to the cloud, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing.
+Windows Azure SQL Database provides a relational database management system for Windows Azure, and is based on SQL Server technology. With SQL Database, you can easily provision and deploy relational database solutions to the cloud, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing.
 
 ##Table of contents
 
@@ -103,7 +103,7 @@ The following examples show how to use the **SQLSRV** and **PDO_SQLSRV** extensi
 
 
 <h2 id="NextSteps">Next steps</h2>
-As mentioned earlier, using SQL Database is very similar to using SQL Server. Once you have established a connection to a SQL Database (as shown above), you can then use the **SQLSRV** or **PDO\_SQLSRV** APIs for inserting, retrieving, updating, and deleting data. For information about the **SQLSRV** and **PDO\_SQLSRV** APIs, see the [Microsoft Drivers for PHP for SQL Server documentation][driver-docs]. There are, however, some differences between SQL Database and SQL Server that could affect your application. For more information, see [Guidelines and Limitations (SQL Azure Database)][limitations].
+As mentioned earlier, using SQL Database is very similar to using SQL Server. Once you have established a connection to a SQL Database (as shown above), you can then use the **SQLSRV** or **PDO\_SQLSRV** APIs for inserting, retrieving, updating, and deleting data. For information about the **SQLSRV** and **PDO\_SQLSRV** APIs, see the [Microsoft Drivers for PHP for SQL Server documentation][driver-docs]. There are, however, some differences between SQL Database and SQL Server that could affect your application. For more information, see [Guidelines and Limitations (SQL Database)][limitations].
 
 [download-drivers]: http://www.microsoft.com/download/en/details.aspx?id=20098
 [limitations]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx
