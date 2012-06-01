@@ -401,6 +401,10 @@ The steps in this section use the Windows Azure command-line tools to create a n
 
 **Note**: If this is the first Windows Azure Web Site you have created, you must use the Windows Azure portal to deploy this application.
 
+###Enable the Windows Azure Web Site feature
+
+<div chunk="../../Shared/Chunks/antares-iaas-signup.md"></div>
+
 ###Install the Windows Azure command-line tool for Mac and Linux
 
 To install the command-line tools, use the following command:
