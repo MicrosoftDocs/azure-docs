@@ -361,8 +361,7 @@ data.contoso.com custom subdomain that maps to a blob in your
 ## Additional Resources
 
 -   [How to Map CDN Content to a Custom Domain][]
--   [How to Configure a Custom Domain for a Windows Azure Hosted
-    Service][]
+-   [How to Configure a Custom Domain for a Windows Azure Hosted Service][]
 
   [Expose Your Application on a Custom Domain]: #access-app
   [Expose Your Data on a Custom Domain]: #access-data

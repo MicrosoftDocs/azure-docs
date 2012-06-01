@@ -311,12 +311,12 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
 
 ## Additional Resources
 
-[Introducing SQL Database][]   
- [Managing Databases and Logins in SQL Database][]   
- [Monitoring SQL Database using Dynamic Management Views][]   
- [SQL Database Provisioning Model][]   
- [Adding Users to your SQL Database][]   
- [Transact-SQL Reference (SQL Database)][]
+* [Introducing SQL Database][]   
+* [Managing Databases and Logins in SQL Database][]   
+* [Monitoring SQL Database using Dynamic Management Views][]   
+* [SQL Database Provisioning Model][]   
+* [Adding Users to your SQL Database][]   
+* [Transact-SQL Reference (SQL Database)][]
 
   [How to Use SQL Database]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
   [Step 1: Get SQL Server Management Studio]: #Step1

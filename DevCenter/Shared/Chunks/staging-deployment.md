@@ -128,12 +128,10 @@ deployment by swapping VIPs with the deployment in staging.
 
 ## Additional Resources
 
-[How to Deploy a Service Upgrade to Production by Swapping VIPs in
+* [How to Deploy a Service Upgrade to Production by Swapping VIPs in
 Windows Azure]
-
-[Overview of Managing Deployments in Windows Azure]
-
-[Publishing Applications to Windows Azure from Visual Studio]
+* [Overview of Managing Deployments in Windows Azure]
+* [Publishing Applications to Windows Azure from Visual Studio]
 
   [Step 1: Stage an Application by Using the Management Portal]: #step1
   [Step 1 (Alternate): Stage an Application with Visual Studio]: #step2

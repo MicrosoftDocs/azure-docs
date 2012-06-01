@@ -16,53 +16,30 @@ Web Site diagnostics provides the following logging and tracing options:
 
 Diagnostics log files are saved to an FTP site for download to a local computer. 
 ## Table of Contents ##
-[Concepts](#concepts) 
-
-[Install developer tools and create a Web Site on your local computer](#installdevtools)
-
-> [Install Web Matrix](#installwebmatrix)
-
-> [Create a Web Site on your local computer with WebMatrix](#createlocalsite)
-
-[Create a Web Site on Windows Azure](#createwebsiteonazure)
-
-> ['Quick Create' a new Web Site on Windows Azure](#quickcreateazurewebsite)
-
-> [Create deployment user credentials](#deploymentuser)
-
-[Deploy the Web Site from the developer computer to Windows Azure](#deploycontenttoazure)
-
-[Enable diagnostics for the Web Site](#enableazurediagnostics)
-
-> [Verify connectivity to the FTP site where log files are stored](#verifyftpconnectivity)
-
-[Register an account on the Website](#createsiteaccount)
-
-[Introduce an error condition on the website](#causewebsiteerror)
-
-> [Rename the Web Site user account database file](#breakregistration)
-
-> [Configure the Web Site to display application errors](#addwebconfig)
-
-> [Display environment variables for a website](#viewwebsitevariables)
-
-> [Deploy the updated Web Site to Windows Azure](#deployerrortoazure)
-
-[Download diagnostic log files to your local computer](#downloadlogfiles)
-
-[Analyze website log files](#readlogfiles)
-
-> [View results of detailed error logging](#detailederrors)
-
-> [View results of failed request tracing](#failedrequests)
-
-> [Analyze web server logs](#webserverlogging)
-
-[Troubleshoot the AzureWebDiag Web Site](#tshootazurewebdiag)
-
-> [Using logging and tracing information to troubleshoot website problems](#tshootwithloggingandtracing)
-
-> [Using detailed website errors to troubleshoot Web Site problems](#tshootwitherrormessages)
+* [Concepts](#concepts) 
+* [Install developer tools and create a Web Site on your local computer](#installdevtools)
+ * [Install Web Matrix](#installwebmatrix)
+ * [Create a Web Site on your local computer with WebMatrix](#createlocalsite)
+* [Create a Web Site on Windows Azure](#createwebsiteonazure)
+ * ['Quick Create' a new Web Site on Windows Azure](#quickcreateazurewebsite)
+ * [Create deployment user credentials](#deploymentuser)
+* [Deploy the Web Site from the developer computer to Windows Azure](#deploycontenttoazure)
+* [Enable diagnostics for the Web Site](#enableazurediagnostics)
+ * [Verify connectivity to the FTP site where log files are stored](#verifyftpconnectivity)
+* [Register an account on the Website](#createsiteaccount)
+* [Introduce an error condition on the website](#causewebsiteerror)
+ * [Rename the Web Site user account database file](#breakregistration)
+ * [Configure the Web Site to display application errors](#addwebconfig)
+ * [Display environment variables for a website](#viewwebsitevariables)
+ * [Deploy the updated Web Site to Windows Azure](#deployerrortoazure)
+* [Download diagnostic log files to your local computer](#downloadlogfiles)
+* [Analyze website log files](#readlogfiles)
+ * [View results of detailed error logging](#detailederrors)
+ * [View results of failed request tracing](#failedrequests)
+ * [Analyze web server logs](#webserverlogging)
+* [Troubleshoot the AzureWebDiag Web Site](#tshootazurewebdiag)
+ * [Using logging and tracing information to troubleshoot website problems](#tshootwithloggingandtracing)
+ * [Using detailed website errors to troubleshoot Web Site problems](#tshootwitherrormessages)
 
 ## <a name="concepts"></a>Concepts
 Concepts introduced in this article include:
