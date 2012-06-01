@@ -18,15 +18,15 @@ A screenshot of the completed application is below:
 
 ## Creating and configuring a Windows Azure virtual machine to host Django
 
-* Follow the instructions given [here][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Ubuntu Server 12.04* flavor.
+1. Follow the instructions given [here][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Ubuntu Server 12.04* flavor.
 
-**Note:** you *only* need to create the virtual machine. Stop at the section titled *How to log on to the virtual machine after you create it*.
+  **Note:** you *only* need to create the virtual machine. Stop at the section titled *How to log on to the virtual machine after you create it*.
 
-* Instruct Windows Azure to redirect port **80** traffic from the web to port **8000** on the virtual machine:
- 1. Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
- 1. Click *ADD ENDPOINT* button at the bottom of the screen.
+1. Instruct Windows Azure to direct port **80** traffic from the web to port **80** on the virtual machine:
+ * Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
+ * Click *ADD ENDPOINT* button at the bottom of the screen.
 ![][add endpoint]
- 1. Open up the *TCP* protocol's *PUBLIC PORT 80* as *PRIVATE PORT 8000*.
+ * Open up the *TCP* protocol's *PUBLIC PORT 80* as *PRIVATE PORT 80*.
 ![][port80]
 
 ## <a id="setup"> </a>Setting up the development environment
@@ -85,16 +85,16 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
 
 1.  Change to the django/helloworld directory and enter the following command to run your Django website, replacing the ip address with the one that was reported by **ifconfig** in the previous step:
 
-        $ ./manage.py runserver 123.34.56.78:8000
+        $ ./manage.py runserver 123.34.56.78:80
 
-    The **runserver** parameter instructs Django to run our *helloworld* website on TCP port *8000*. The results of this command should be similar to:
+    The **runserver** parameter instructs Django to run our *helloworld* website on TCP port *80*. The results of this command should be similar to:
 
-        $ ./manage.py runserver 123.34.56.78:8000
+        $ ./manage.py runserver 123.34.56.78:80
         Validating models...
         
         0 errors found
         Django version 1.4, using settings 'helloworld.settings'
-        Development server is running at http://123.34.56.78:8000
+        Development server is running at http://123.34.56.78:80
         Quit the server with CTRL-C.
 
 1.  From your local web browser, open http://yourVmName.cloudapp.net (where *yourVmName* is whatever name you used in the virtual machine creation step).  You should see "Hello World!":

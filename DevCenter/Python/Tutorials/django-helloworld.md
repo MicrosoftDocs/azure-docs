@@ -18,22 +18,22 @@ A screenshot of the completed application is below:
 
 ## Creating and configuring a Windows Azure virtual machine to host Django
 
-* Follow the instructions given [here][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Windows Server 2008 R2* flavor.
-* Open up TCP port **8000** on the virtual machine:
- 1. From the **Start** menu, select **Administrator Tools** and then **Windows Firewall with Advanced Security**. 
- 1. In the left pane, select **Inbound Rules**.  In the **Actions** pane on the right, select **New Rule...**.
- 1. In the **New Inbound Rule Wizard**, select **Port** and then click **Next**.
- 1. Select **TCP** and then **Specific local ports**.  Specify a port of "8000" (the port Django listens on) and click **Next**.
- 1. Select **Allow the connection** and click **Next**.
- 1. Click **Next** again.
- 1. Specify a name for the rule, such as "DjangoPort", and click Finish.
-* Instruct Windows Azure to redirect port **80** traffic from the web to port **8000** on the virtual machine:
- 1. Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
- 1. Click *ADD ENDPOINT* button at the bottom of the screen.
+1. Follow the instructions given [here][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Windows Server 2008 R2* flavor.
+1. Open up TCP port **80** on the virtual machine:
+ - From the **Start** menu, select **Administrator Tools** and then **Windows Firewall with Advanced Security**. 
+ - In the left pane, select **Inbound Rules**.  In the **Actions** pane on the right, select **New Rule...**.
+ - In the **New Inbound Rule Wizard**, select **Port** and then click **Next**.
+ - Select **TCP** and then **Specific local ports**.  Specify a port of "80" (the port Django listens on) and click **Next**.
+ - Select **Allow the connection** and click **Next**.
+ - Click **Next** again.
+ - Specify a name for the rule, such as "DjangoPort", and click Finish.
+1. Instruct Windows Azure to direct port **80** traffic from the web to port **80** on the virtual machine:
+ - Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
+ - Click *ADD ENDPOINT* button at the bottom of the screen.
 ![][add endpoint]
- 1. Open up the *TCP* protocol's *PUBLIC PORT 80* as *PRIVATE PORT 8000*.
+ - Open up the *TCP* protocol's *PUBLIC PORT 80* as *PRIVATE PORT 80*.
 ![][port80]
-* Use Windows *Remote Desktop* to remotely log into the newly created Windows Azure virtual machine.  
+1. Use Windows *Remote Desktop* to remotely log into the newly created Windows Azure virtual machine.  
 
 **Important Note:** all instructions below assume you logged into the virtual machine correctly and are issuing commands there rather than your local machine! 
 
@@ -87,17 +87,17 @@ We recommend using Windows PowerShell for developing your Windows Azure applicat
 
         PS C:\django\helloworld> $ipPort = [System.Net.Dns]::GetHostEntry("127.0.0.1")
         PS C:\django\helloworld> $ipPort = [string]$ipPort.AddressList[1]
-        PS C:\django\helloworld> $ipPort += ":8000"
+        PS C:\django\helloworld> $ipPort += ":80"
         PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
 
-    The **runserver** parameter instructs Django to run our *helloworld* website on TCP port *8000*. The results of this command should be similar to:
+    The **runserver** parameter instructs Django to run our *helloworld* website on TCP port *80*. The results of this command should be similar to:
 
         PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
         Validating models...
         
         0 errors found
         Django version 1.4, using settings 'helloworld.settings'
-        Development server is running at http://123.34.56.78:8000
+        Development server is running at http://123.34.56.78:80
         Quit the server with CTRL-BREAK.
  
 1. From your local web browser, open **http://*yourVmName*.cloudapp.net** (where *yourVmName* is whatever name you used in the virtual machine creation step). You should see “Hello World!” displayed as shown in the screenshot below. This indicates that Django is running in the virtual machine and is working correctly.
