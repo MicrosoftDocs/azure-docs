@@ -2,7 +2,7 @@
 
 # How to Configure Websites #
 
-<div chunk="../../../Shared/Chunks/disclaimer.md" />
+<div chunk="../../Shared/Chunks/disclaimer.md" />
 
 In the Windows Azure (Preview) Management Portal you can change the configuration options for websites and you can link website to other Windows Azure resources. For example, you can link websites to a SQL Database to provide additional functionality. You can also configure websites to use a new or existing MySQL database.
 

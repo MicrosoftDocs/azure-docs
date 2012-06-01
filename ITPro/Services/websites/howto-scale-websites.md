@@ -3,7 +3,7 @@
 
 # How to Scale Websites #
 
-<div chunk="../../../Shared/Chunks/disclaimer.md" />
+<div chunk="../../Shared/Chunks/disclaimer.md" />
 
 
 You use the Windows Azure (Preview) Management Portal to scale your websites, and to specify whether you want to run them in Shared website mode or Reserved website mode.  
