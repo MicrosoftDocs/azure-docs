@@ -1,5 +1,7 @@
 #Networking articles
 
+Windows Azure Virtual Network enables you to provision and manage virtual private networks in Windows Azure as well as securely link these with on-premises IT infrastructure. You can can extend on-premises networks into the cloud with control over network topology, including configuration of IP addresses, routing tables and security policies.
+
 
 ##Tutorials
 
