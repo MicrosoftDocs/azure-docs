@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-java-how-to-service-bus-queues" urldisplayname="Service Bus Queues" headerexpose="" pagetitle="Service Bus Queues - How To - Java - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-java-how-to-service-bus-queues" urldisplayname="Service Bus Queues" headerexpose="" pagetitle="Service Bus Queues - How To - Java - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # <span> How to Use Service Bus Queues</span>
 
@@ -69,7 +69,7 @@ To create a service namespace:
 4.  In the **Create a new Service Namespace** dialog, enter a
     **Namespace**, and then to make sure that it is unique, click the
     **Check Availability** button.  
-    ![Create a New Namespace   screenshot][]
+    ![Create a New Namespace screenshot][]
 5.  After making sure the namespace name is available, choose the
     country or region in which your namespace should be hosted (make
     sure you use the same country/region in which you are deploying your
@@ -89,7 +89,7 @@ namespace.
 
 1.  In the left navigation pane, click the **Service Bus** node, to
     display the list of available namespaces:   
-    ![Available Namespaces   screenshot][]
+    ![Available Namespaces screenshot][]
 2.  Select the namespace you just created from the list shown:   
     ![Namespace List screenshot][]
 3.  The right-hand **Properties** pane will list the properties for the
@@ -106,8 +106,12 @@ namespace.
 
 Add the following import statements to the top of the Java file:
 
-      // Include the following imports to use service bus APIs  import com.microsoft.windowsazure.services.serviceBus.*;  import com.microsoft.windowsazure.services.serviceBus.models.*;  import com.microsoft.windowsazure.services.core.*;  import javax.xml.datatype.*;
-
+	// Include the following imports to use service bus APIs
+	import com.microsoft.windowsazure.services.serviceBus.*;
+	import com.microsoft.windowsazure.services.serviceBus.models.*; 
+	import com.microsoft.windowsazure.services.core.*; 
+	import javax.xml.datatype.*;
+	
 ## <a name="bkmk_HowToCreateQueue"> </a>How to Create a Queue
 
 Management operations for Service Bus queues can be performed via the
@@ -316,8 +320,8 @@ topic [Queues, Topics, and Subscriptions][] for more information.
   [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
   [Windows Azure Management Portal]: http://windows.azure.com/
   [Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
-  [Create a New Namespace   screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_03_CreateNewSvcNamespace.jpg
-  [Available Namespaces   screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
+  [Create a New Namespace screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_03_CreateNewSvcNamespace.jpg
+  [Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
   [Namespace List screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_05_NamespaceList.jpg
   [Properties Pane screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_06_PropertiesPane.jpg
   [Default Key screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_07_DefaultKey.jpg
