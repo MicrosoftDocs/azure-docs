@@ -1,21 +1,25 @@
-The gallery makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the gallery do not require installation of any software other than the browser used to connect to the Windows Azure portal. By using the gallery, you can create, deploy, and have a fully operational web site running in 3 to 5 minutes.
+The gallery makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the gallery do not require installation of any software other than the browser used to connect to the Windows Azure Management Portal. 
 
 In this tutorial, you'll learn:
 
 - How to create a new site through the gallery.
-- How to deploy the site through the Windows Azure Portal.
 
-You'll build a Word press blog that uses a default template.  The following illustration shows the completed application:
+- How to deploy the site through the Windows Azure Portal.
+ 
+You'll build a Word press blog that uses a default template. The following illustration shows the completed application:
+
 
 ![Wordpress blog][13]
 
 ## Create a Windows Azure account and enable the Web Sites preview
 
 1. Open a web browser, and browse to [http://www.windowsazure.com](http://www.windowsazure.com).
+
 2. To get started with a free account, click **Free Trial** in the upper-right corner and follow the steps.<br/>
+
 	![Free trial screenshot][1]
 
-3. Next, sign up for the Windows Azure Web Sites preview. Navigate to the [https://account.windowsazure.com/]() and sign in with your Windows Azure account.
+3. Next, sign up for the Windows Azure Web Sites preview. Navigate to  [https://account.windowsazure.com/]() and sign in with your Windows Azure account.
 
 4. Click **preview features** to enable the Windows Azure Web Sites feature on your account.
 	
@@ -32,6 +36,7 @@ You'll build a Word press blog that uses a default template.  The following illu
 ## Create a web site in the portal
 
 1. Login to the [Windows Azure Management Portal](http://manage.windowsazure.com).
+
 2. Click the **New** icon on the bottom left of the dashboard.
 	
 	![Create New][5]
@@ -81,7 +86,6 @@ After you click **Complete** Windows Azure will initiate build and deploy operat
 	![your Wordpress site][13]
 
 
-[0]:
 [1]: ../../devcenter/dotnet/media/Dev-net-getting-started-010.png
 [2]: ../../devcenter/shared/media/antares-iaas-preview-01.png
 [3]: ../../devcenter/shared/media/antares-iaas-preview-02.png
