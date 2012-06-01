@@ -33,14 +33,12 @@ The following list contains information for installing the command-line tools, d
 
 		npm install azure -g
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>On Linux, you may need to run this command with elevated privileges:</p>
+	**Note**: On Linux, you may need to run this command with elevated privileges:
 
 		sudo npm install azure -g
 
 	On Windows, you may need to run the command from a prompt with elevated privileges.
-	</div>
+
 
 To test the installation, type `azure` at the command prompt. If the installation was successful, you will see a list of all the available `azure` commands.
 
