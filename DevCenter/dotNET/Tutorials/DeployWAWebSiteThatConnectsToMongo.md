@@ -35,9 +35,9 @@ To create a Linux virtual machine and install MongoDB, see [Install MongoDB on a
 
 After you have created the virtual machine in Windows Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.
 
-### Sign up for the Windows Azure Web Sites preview
+### Sign up for the Windows Azure Web Sites preview feature
 
-You will need to sign up for the Windows Azure Web Sites preview in order to create a Windows Azure web site. You can also sign up for a free trial account if you do not have a Windows Azure account.
+You will need to sign up for the Windows Azure Web Sites preview feature in order to create a Windows Azure web site. You can also sign up for a free trial account if you do not have a Windows Azure account.
 
 <div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
