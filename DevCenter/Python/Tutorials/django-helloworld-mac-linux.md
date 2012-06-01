@@ -31,7 +31,7 @@ A screenshot of the completed application is below:
 
 ## <a id="setup"> </a>Setting up the development environment
 
-The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't have django installed.  Follow these steps to connect to your VM and install django.
+The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't have Apache or django installed.  Follow these steps to connect to your VM and install Apache and django.
 
 1.  Launch a new **Terminal** window.
     
@@ -41,9 +41,12 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
 
 1.  Enter the following commands to install django:
 
-		$ sudo apt-get install python-dev python-setuptools
-		$ curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | sudo python
+		$ sudo apt-get install python-setuptools
 		$ sudo easy_install django
+
+1.  Enter the following command to install Apache with mod-wsgi:
+
+		$ sudo apt-get install apache2 libapache2-mod-wsgi
 
 
 ## Creating a new Django application
@@ -77,35 +80,25 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
 
 ## Deploying and running your Django website
 
-1.  Enter the following command to find out the public ip address for your VM:
+1.  Edit the apache configuration file **/etc/apache2/httpd.conf** and add the following, replacing *username* with the user name that you specified during the creation of the VM:
 
-        $ ifconfig
+		WSGIScriptAlias / /home/*username*/django/helloworld/helloworld/wsgi.py
+		WSGIPythonPath /home/*username*/django/helloworld
 
-	![The result of the ifconfig command][]
+		<Directory /home/*username*/django/helloworld/helloworld>
+		<Files wsgi.py>
+		Order deny,allow
+		Allow from all
+		</Files>
+		</Directory>
 
-1.  Change to the django/helloworld directory and enter the following command to run your Django website, replacing the ip address with the one that was reported by **ifconfig** in the previous step:
+1.  Restart apache with the following command:
 
-        $ ./manage.py runserver 123.34.56.78:80
-
-    The **runserver** parameter instructs Django to run our *helloworld* website on TCP port *80*. The results of this command should be similar to:
-
-        $ ./manage.py runserver 123.34.56.78:80
-        Validating models...
-        
-        0 errors found
-        Django version 1.4, using settings 'helloworld.settings'
-        Development server is running at http://123.34.56.78:80
-        Quit the server with CTRL-C.
+        $ sudo apachectl restart
 
 1.  From your local web browser, open http://yourVmName.cloudapp.net (where *yourVmName* is whatever name you used in the virtual machine creation step).  You should see "Hello World!":
 
 	![A browser window displaying the hello world page on Windows Azure][]
-
-1.  To suspend and resume the hosting process as a background task, press **CTRL-Z** and enter the following command:
-
-        $ bg
-
-	You will now be able to terminate your ssh connection and have your web site continue running.
 
 
 ## Shutting down your Windows Azure virtual machine
