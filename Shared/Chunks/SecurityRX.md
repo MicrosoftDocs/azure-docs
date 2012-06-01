@@ -249,13 +249,11 @@ Refer to the following resources to implement this scenario:
 
 -   [How To: Create My First Claims-Aware ASP.NET Application Using ACS](http://msdn.microsoft.com/en-us/library/gg429779.aspx)
 -   [How To: Host Login Pages in Your ASP.NET Web Application](http://msdn.microsoft.com/en-us/library/gg185926.aspx)
--   [How To: Implement Claims Authorization in a Claims-Aware ASP.NET Application Using WIF and ACS](http://msdn.microsoft.com/en-us/library/gg185907.aspx)
-    
+-   [How To: Implement Claims Authorization in a Claims-Aware ASP.NET Application Using WIF and ACS](http://msdn.microsoft.com/en-us/library/gg185907.aspx)    
 -   [How To: Implement Role Based Access Control (RBAC) in a Claims-Aware
     ASP.NET Application Using WIF and ACS](http://msdn.microsoft.com/en-us/library/gg185914.aspx)
 -   [How To: Configure Trust Between ACS and ASP.NET Web Applications
     Using X.509 Certificates](http://msdn.microsoft.com/en-us/library/gg185947.aspx)
-
 -   [Code Sample: ASP.NET Simple Forms](http://msdn.microsoft.com/en-us/library/gg185938.aspx)
 
 ###WCF (SOAP) Service with Service Identity
@@ -284,7 +282,6 @@ Refer to the following resources to implement this scenario:
     or Symmetric Key](http://msdn.microsoft.com/en-us/library/gg185924.aspx)
 -   [How To: Authenticate with a Client Certificate to a WCF Service
     Protected by ACS](http://msdn.microsoft.com/en-us/library/hh289316.aspx)
-
 -   [How To: Authenticate with a Username and Password to a WCF Service
     Protected by ACS](http://msdn.microsoft.com/en-us/library/gg185954.aspx)
 -   [Code Sample: WCF Certificate Authentication](http://msdn.microsoft.com/en-us/library/gg185952.aspx)
@@ -315,7 +312,6 @@ Refer to the following resources to implement this scenario:
 -   [How To: Configure AD FS 2.0 as an Identity Provider](http://msdn.microsoft.com/en-us/library/gg185961.aspx)
 -   [How To: Use Management Service to Configure AD FS 2.0 as an
     Enterprise Identity Provider](http://msdn.microsoft.com/en-us/library/gg185905.aspx)
-
 -   [Code Sample: WCF Federated Authentication With AD FS 2.0
 ](http://msdn.microsoft.com/en-us/library/hh127796.aspx)
 
@@ -346,7 +342,6 @@ Refer to the following resources to implement this scenario:
     Keys](http://msdn.microsoft.com/en-us/library/gg185958.aspx)
 -   [How To: Authenticate to a REST WCF Service Deployed to Windows Azure
     Using ACS](http://msdn.microsoft.com/en-us/library/hh289317.aspx)
-
 -   [Code Sample: ASP.NET Web Service](http://msdn.microsoft.com/en-us/library/gg983271.aspx)
 -   [Code Sample: Windows Phone 7 Application](http://msdn.microsoft.com/en-us/library/gg983271.aspx)
 -   [REST WCF With SWT Token Issued By Windows Azure Access Control
@@ -385,7 +380,6 @@ Refer to the following resources to implement this scenario:
 -   [How To: Configure Google as an Identity Provider](http://msdn.microsoft.com/en-us/library/gg185976.aspx)
 -   [How To: Configure Facebook as an Identity Provider](http://msdn.microsoft.com/en-us/library/gg185919.aspx)
 -   [How To: Configure Yahoo! as an Identity Provider](http://msdn.microsoft.com/en-us/library/gg185977.aspx)
-
 -  [ Code Sample: Windows Phone 7 Application](http://msdn.microsoft.com/en-us/library/gg983271.aspx)
 -   [REST WCF With SWT Token Issued By Windows Azure Access Control
     Service (ACS)](http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0)
@@ -424,7 +418,6 @@ Refer to the following resources to implement this scenario:
 -   [How To: Configure Google as an Identity Provider](http://msdn.microsoft.com/en-us/library/gg185976.aspx)
 -   [How To: Configure Facebook as an Identity Provider](http://msdn.microsoft.com/en-us/library/gg185919.aspx)
 -   [How To: Configure Yahoo! as an Identity Provider](http://msdn.microsoft.com/en-us/library/gg185977.aspx)
-
 -   [ASP.NET Web App To REST WCF Service Delegation Using Shared SWT
     Token](http://code.msdn.microsoft.com/ASPNET-Web-App-To-REST-WCF-b2b95f82)
 
@@ -508,7 +501,6 @@ Refer to the following resources to implement this scenario:
 -   [How To: Implement Token Transformation Logic Using Rules](http://msdn.microsoft.com/en-us/library/gg185955.aspx)
 -   [How To: Implement Claims Authorization in a Claims-Aware ASP.NET
     Application Using WIF and ACS](http://msdn.microsoft.com/en-us/library/gg185907.aspx)
-
 -   Code Sample: Claims based Authorization in [Windows Identity
     Foundation SDK](http://www.microsoft.com/downloads/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504)
 

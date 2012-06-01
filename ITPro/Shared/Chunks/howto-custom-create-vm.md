@@ -24,7 +24,7 @@ Before you create a virtual machine, you should decide how it will be used. If y
 
 	The **VM Configuration** dialog box appears.
 
-	![Select the image][Select the image]
+	![Select the image][Define the image]
 
 5. In **Virtual Machine Name**, type the name that you want to use for the virtual machine.
 
@@ -67,7 +67,7 @@ Before you create a virtual machine, you should decide how it will be used. If y
 [Create a new virtual machine]:../media/create.png
 [Create a new custom virtual machine]:../media/createnew.png
 [Select the image]:../media/imageselectionwindows.png
-[Select the image]:../media/imagedefinewindows.png
+[Define the image]:../media/imagedefinewindows.png
 [Define the stand-alone virtual machine]:../media/imagestandalonewindows.png
 [Define the virtual machine options]:../media/imageoptionswindows.png
 [Custom virtual machine creation successful]:../media/vmsuccesswindows.png
