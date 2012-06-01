@@ -5,32 +5,31 @@
 5. Right-click on the zip file and select **Extract All...**  Specify "C:\" and click **Extract**.  After the files have been extracted, you may wish to rename the install folder to something simpler.  "MongoDB", for example.
 6. Create a data directory.  By default, MongoDB stores data in the `\data\db` directory but you must manually create the directory.  From **Start**, select **Command Prompt** to open a command prompt window.  Enter:
 
-	`C:\> cd /`
+		C:\> cd /
+		C:\> mkdir \data
+		C:\> mkdir \data\db
 
-	`C:\> mkdir \data`
-
-	`C:\> mkdir \data\db`
 7. To run the database, run: 
 
-	`C:\> cd \MongoDB\bin`
-
-	`C:\my_mongo_dir\bin> mongod`
+		C:\> cd \MongoDB\bin
+		C:\my_mongo_dir\bin> mongod
 
 	You will see log messages displayed in this window as mongod.exe server starts and preallocates journal files. It may take several minutes to preallocate the journal files.
+
 8. To start the MongoDB administrative shell, open another command window from **Start** and enter the following:
 
-	`C:\> cd \my_mongo_dir\bin`  
-	`C:\my_mongo_dir\bin> mongo`  
-	`>db`  
-	`test`  	  
-	`> db.foo.insert( { a : 1 } )`  
-	`> db.foo.find()`  
-	`{ _id : ..., a : 1 }`  
-	`> show dbs`  
-	`...`  
-	`> show collections`  
-	`...`  
-	`> help`  
+		C:\> cd \my_mongo_dir\bin  
+		C:\my_mongo_dir\bin> mongo  
+		>db  
+		test  	  
+		> db.foo.insert( { a : 1 } )  
+		> db.foo.find()  
+		{ _id : ..., a : 1 }  
+		> show dbs  
+		...  
+		> show collections  
+		...  
+		> help  
 
 	The database is created by the insert.
 9. (Optional) mongod.exe has support for installing and running as a Windows service. To install mongod.exe as a service, run the following from the command prompt:
