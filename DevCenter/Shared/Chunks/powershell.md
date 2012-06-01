@@ -243,8 +243,7 @@ Co-Administrators for Your Windows Azure Subscription][add-remove-coadmins].
 downloaded using <b>Get-AzurePublishSettingsFile</b> after you import those
 settings. The downloaded profile contains a management certificate that
 should not be accessed by unauthorized users. If you need information
-about your subscriptions, you can get it from the <a href="http://windows.azure.com/">Windows Azure
-Platform Management Portal</a> or the <a href="https://mocp.microsoftonline.com/site/default.aspx">Microsoft Online Services Customer Portal</a>.</p> 
+about your subscriptions, you can get it from the <a href="http://windows.azure.com/">Windows Azure Management Portal</a> or the <a href="https://mocp.microsoftonline.com/site/default.aspx">Microsoft Online Services Customer Portal</a>.</p> 
 </div>
 
 
