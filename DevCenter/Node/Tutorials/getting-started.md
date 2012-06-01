@@ -69,7 +69,7 @@ applications.
 
     ![The Windows Start menu with the Windows Azure SDK Node.js entry expanded][]
 
-2.  Create a new **node**directory on your C drive, and change to the
+2.  Create a new **node** directory on your C drive, and change to the
     c:\\node directory:
 
     ![A command prompt displaying the commands 'mkdir c:\\node' and 'cd node'.][mkdir]
@@ -82,7 +82,7 @@ applications.
 
     ![The result of the New-AzureService tasklist command][]
 
-    The **New-AzureService** cmdlet generates a basic structure for
+    The **New-AzureServiceProject** cmdlet generates a basic structure for
     creating a new Windows Azure Node application. It contains
     configuration files necessary for publishing to Windows Azure. The
     cmdlet also changes your working directory to the directory for the
@@ -114,9 +114,9 @@ applications.
 
     The **Add-AzureNodeWebRole**cmdlet creates a new directory for your
     application and generates additional files that will be needed when
-    your application is published. In Windows Azure, *roles*define
+    your application is published. In Windows Azure, *roles* define
     components that can run in the Windows Azure execution environment.
-    A *web role*is customized for web application programming.
+    A *web role* is customized for web application programming.
 
     By default if you do not provide a role name, one will be created
     for you i.e. WebRole1. You can provide a name as the first parameter
@@ -234,7 +234,7 @@ Windows PowerShell cmdlets.
 1.  Publish the application using the **Publish-AzureServiceProject** cmdlet,
     as shown below.
 
-    -   **name** specifies the name for the service. The name must be
+    -   **serviceName** specifies the name for the service. The name must be
         unique across all other services in Windows Azure. For example,
         below, “TaskList” is suffixed with “Contoso,” the company name,
         to make the service name unique.
@@ -249,7 +249,7 @@ Windows PowerShell cmdlets.
 
     <!-- -->
 
-        PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject –name TaskListContoso –location "North Central US” -launch
+        PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject –serviceName TaskListContoso –location "North Central US” -launch
 
     Be sure to use a **unique name**, otherwise the publish process will
     fail. After publishing succeeds, you will see the following
@@ -319,7 +319,7 @@ The following steps show you how to stop and delete your application.
 
 2.  To delete the service, call the following cmdlet:
 
-        PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
+        PS C:\node\tasklist\WebRole1> Remove-AzureService
 
 	When prompted, enter **Y** to delete the service.
 
