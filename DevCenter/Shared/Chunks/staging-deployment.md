@@ -59,8 +59,7 @@ VIPs][Step 2: Deploy an Application to Production by Swapping VIPs].
 ## Step 1 (Alternate): Stage an Application with Visual Studio
 
 This task covers how to stage an application with Visual Studio. You can
-also [Stage an Application with the Management Portal][Step 1: Stage an
-Application by Using the Management Portal].
+also [Stage an Application with the Management Portal][Step 1: Stage an Application by Using the Management Portal].
 
 **Note:** This step requires Visual Studio 2010 and the Windows Azure
 SDK for .NET.

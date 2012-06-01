@@ -13,7 +13,7 @@ Provides details about the Windows Azure Training Kit, a downloadable set of han
 ### [White papers][]
 Links to white papers about Windows Azure.
 
-[Javadocs]: /en-us/develop/java/other-resources/javadocs/
-[Samples and toolkits]: /en-us/develop/java/other-resources/samples-and-toolkits/
-[Training kit]: /en-us/develop/java/other-resources/training-kit/
-[White papers]: /en-us/develop/java/other-resources/white-papers/
+[Javadocs]: ../otherresources/javadocs.md
+[Samples and toolkits]: ../other-resources/samples-and-toolkits.md
+[Training kit]: ../other-resources/training-kit.md
+[White papers]: ../other-resources/white-papers.md
