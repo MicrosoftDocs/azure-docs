@@ -1,15 +1,15 @@
 <a name="title" />
-# Hadoop on Windows Azure - Working With Data#
+# Hadoop on Windows Azure - Working With Data
 
 ---
 
 <a name="Overview" />
-## Overview ##
+## Overview 
 
 This tutorial covers several techniques for storing and importing data for use in Hadoop jobs run with Apache Hadoop-based Service for Windows Azure. Apache(TM) Hadoop(TM) is a software framework that supports data-intensive distributed applications. While Hadoop is designed to store data for such applications with its own distributed file system (HDFS), cloud-based on-demand processing can also use other forms of cloud storage such as Windows Azure storage. Collecting and importing data in such scenarios is the subject of this tutorial. 
 <a id="goals" />
 
-### Goals ###
+### Goals 
 In this tutorial you will see three things:
 
 1. Using Windows Azure Storage in MapReduce jobs
@@ -19,7 +19,7 @@ In this tutorial you will see three things:
 1. Importing SQL Server data with Sqoop
 
 <a name="technologies" />
-### Key Technologies ###
+### Key Technologies 
 
 - [Windows Azure Blob Storage][1]
 - [curl][2]
@@ -30,7 +30,7 @@ In this tutorial you will see three things:
 [3]: http://www.microsoft.com/en-us/download/details.aspx?id=27584
 
 <a name="Tutorial" />
-## Tutorial ##
+## Tutorial 
 
 This tutorial is composed of the following segments:
 
@@ -39,13 +39,13 @@ This tutorial is composed of the following segments:
 1. [Importing SQL Server data with Sqoop](#segment3).
 
 <a name="segment1" />
-### Using Windows Azure Storage in MapReduce###
+### Using Windows Azure Storage in MapReduce
 
 While HDFS is the natural storage solution for Hadoop jobs, data needed can also be located on cloud based, large, and scalable storage systems such as Windows Azure storage. It is reasonable to expect that Hadoop, when running on Windows Azure, be able to read data directly from such cloud storage.
 
 In this tutorial you will analyze IIS logs located in Windows Azure storage using a standard streaming map-reduce Hadoop job. The scenario demonstrates a Windows Azure web role that generates IIS logs using the Windows Azure diagnostic infrastructure. A simple Hadoop job reads the logs directly from storage and finds the 5 most popular URIs (Web pages).
 
-### Generating the IIS Logs ###
+### Generating the IIS Logs 
 
 To generate IIS logs and place them in storage, we need to create a simple ASP.NET web role, enable Windows Azure Diagnostics, and configure DiagnosticInfrastructureLogs. Run the web role and browse to different pages in the web site. After one minute, an IIS log will be persisted to Windows Azure storage.
 
@@ -97,7 +97,7 @@ In the **WebRoleWithIISLogs** project double-click the **WebRole1** node, under 
 
 Press **F5** to run the application. When it is open, use it to browse to different pages in the web site.
 
-#### Writing a Map-Reduce Streaming Job ####
+#### Writing a Map-Reduce Streaming Job 
 
 Hadoop Streaming is a utility that lets you create and run MapReduce jobs by creating an executable or a script in any language. Both the mapper and reducer read the input from STDIN and write the output to STDOUT. For more information about Hadoop Streaming, see the [Hadoop streaming decomentation](http://hadoop.apache.org/common/docs/current/streaming.html).
 
@@ -189,7 +189,7 @@ To this new project's **main.cs**, add the following code:
 
 Press **F6** to build both projects.
 
-#### Set Up ASV in the Cluster ####
+#### Set Up ASV in the Cluster 
 
 Providing the storage details of the cluster enables direct access from the map-reduce jobs to the storage content.  The prefix **asv://** is used to create a uri to a specific location in Windows Azure storage (such as **asv://container/blobname**).
 
@@ -228,7 +228,7 @@ _Downloading and uploading the blobs_
 
 ![Set Up ASV](../media/set-up-asv.png "Set Up ASV")
 
-#### Copy Map-Reduce Executable Files to HDFS ####
+#### Copy Map-Reduce Executable Files to HDFS 
 
 Open the Hadoop cluster portal at <https://www.hadooponazure.com>.
 
@@ -243,7 +243,7 @@ Upload the file **map.exe** by entering the following command:
 
 Repeat the last step with **reduce.exe**, uploading it to **/example/apps/reduce.exe**.
 
-#### Creating and Executing a New Hadoop Job ####
+#### Creating and Executing a New Hadoop Job 
 
 Open the Hadoop cluster portal at <https://www.hadooponazure.com>.
 
@@ -272,7 +272,7 @@ After the job completes, open the blob **results.txt/part-00000** in the contain
 ![Results](../media/results.png "Results")
 
 <a name="segment2" />
-### Uploading data files to HDFS using FTPS ###
+### Uploading data files to HDFS using FTPS 
 
 Map-Reduce jobs use input data located in HDFS. There are several ways to upload data to the distributed file system, one of which uses the FTPS protocol.
 
@@ -317,7 +317,7 @@ To verify that the file was uploaded open the JavaScript interactive console and
 ![Verification](../media/verification.png "Verification")
 
 <a name="segment3" />
-### Importing SQL Server data with Sqoop ###
+### Importing SQL Server data with Sqoop 
 
 While Hadoop is a natural choice for processing unstructured and semi-structured data like logs and files, there may be a need to process structured data stored in relational databases as well. Sqoop (SQL-to-Hadoop) is a tool the allows you to import structured data to Hadoop and use it in MapReduce and HIVE jobs.
 
@@ -358,6 +358,6 @@ Run the #tail command to view selected results from the **part-m-0000** file.
 
 
 <a name="summary" />
-## Summary ##
+## Summary 
 
 In this tutorial we have seen how a variety of the data sources that can be used for MapReduce jobs in Hadoop on Windows Azure. Data for Hadoop jobs can be located on cloud storage or on HDFS. We have also seen how relational data can be imported into HDFS using Sqoop and then be used in Hadoop jobs.
