@@ -482,7 +482,7 @@ Service Bus Queue.
 
 ## Azure Configuration Manager
 
-Windows Azure supports a set of managed API that provides a consistent way to create new instances of Windows Azure service clients (such as the Service Bus) across Microsoft cloud services. The API enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in websites, or in a persistent VM Role. You can also use these API to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The API are located in the **Microsoft.WindowsAzure.Configuration.AzureConfigurationManager** class. There are also APIs on the client side.
+Windows Azure supports a set of managed API that provides a consistent way to create new instances of Windows Azure service clients (such as the Service Bus) across Microsoft cloud services. The API enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in websites, or in a persistent VM Role. You can also use these API to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The API are located in the **Microsoft.WindowsAzure.Configuration.CloudConfigurationManager** class. There are also APIs on the client side.
 
 ### Connection String
 
@@ -497,7 +497,7 @@ The following code retrieves the connection string, creates a queue, and initial
 
 	QueueClient Client; 
 
-	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	string connectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString); 
 
 	if (!namespaceManager.QueueExists(QueueName))

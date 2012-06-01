@@ -157,7 +157,8 @@ credentials with permissions to manage it. This connection string is of the form
 "Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=[issuerName];SharedSecretValue=[yourDefaultKey]"". For example, given the configuration settings in the previous section:
 
 	// Create the queue if it does not exist already
-	string connectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	string connectionString = 
+	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
     if (!namespaceManager.QueueExists(QueueName))
     {
@@ -177,7 +178,8 @@ maximum size of 5GB and a default message time-to-live of 1 minute:
     qd.DefaultMessageTimeToLive = new TimeSpan(0, 1, 0);
 
 	// Create a new Queue with custom settings
-	string connectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	string connectionString = 
+	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
     if (!namespaceManager.QueueExists("TestQueue"))
     {
@@ -198,7 +200,8 @@ appropriate credentials (the connection string).
 The code below demonstrates how to create a **MessageSender** object
 for the "TestQueue" queue created above:
 
-	string connectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	string connectionString = 
+	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
 	MessagingFactory factory = MessagingFactory.CreateFromConnectionString(connectionString);
 
@@ -270,7 +273,8 @@ consumed and removes it from the queue.
 The example below demonstrates how messages can be received and
 processed using the default **PeekLock** mode. The example creates an infinite loop and processes messages as they arrive into the "TestQueue":
 
-	string connectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	string connectionString = 
+	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
     MessagingFactory factory = MessagingFactory.CreateFromConnectionString(connectionString);
 
