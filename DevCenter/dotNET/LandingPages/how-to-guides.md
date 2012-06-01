@@ -48,7 +48,7 @@ Access Control is a Windows Azure service that provides an easy way of authentic
 Windows Azure Diagnostics enables you to collect diagnostic data from an application running in Windows Azure. You can use diagnostic data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing.
 
 ### [Autoscaling](/en-us/develop/net/how-to-guides/autoscaling/) ###
-
+The Autoscaling Application Block from the Microsoft Enterprise Library 5.0 Integration Pack for Windows Azure provides tools that let you automatically scale your cloud service. You can use performance counters to understand your app's performance, and then write rules that will automatically scale your app to adjust for specified targets and thresholds.
 
 ### [Media Services](/en-us/develop/net/how-to-guides/media-services/) ###
 

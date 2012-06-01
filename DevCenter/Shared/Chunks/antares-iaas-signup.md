@@ -1,6 +1,6 @@
-1.	Navigate to the [https://account.windowsazure.com/]() and sign in with your Windows Azure account.
+1.	Navigate to [https://account.windowsazure.com/](https://account.windowsazure.com/) and sign in with your Windows Azure account.
 
-2.	Click **preview features** to enable the Windows Azure Web Sites feature on your account.
+2.	Click **preview features** to view the available previews.
 	
 	![open preview features tab][0]
 
