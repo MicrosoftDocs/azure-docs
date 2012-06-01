@@ -2,7 +2,7 @@
 
 ##Abstract
 
-When developing applications for the Windows Azure platform identity and
+When developing applications for Windows Azure, identity and
 access are the primary security concerns that you need to keep in mind.
 This topic explains the key security concerns related to identity and access in the cloud and how you
 can best protect your application.
@@ -112,7 +112,7 @@ app’s identity and access implementation:
 -   Do you store Windows Azure services credentials in clear?
 -   Do your Windows Azure services credentials follow strong password
     policies?
--   Do you rely on the Windows Azure platform to verify credentials vs.
+-   Do you rely on Windows Azure to verify credentials vs.
     using custom verification mechanisms?
 -   Do you limit Windows Azure services authentication sessions or token
     lifetime to a reasonable time window?
