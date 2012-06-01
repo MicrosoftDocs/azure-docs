@@ -1,18 +1,18 @@
-﻿<a name="title" />
-# Hadoop on Azure - Working With Data#
+<a name="title" />
+# Hadoop on Windows Azure - Working With Data#
 
 ---
 
 <a name="Overview" />
 ## Overview ##
 
-This tutorial covers several techniques for storing and importing data for use in Hadoop jobs. Apache(TM) Hadoop(TM) is a software framework that supports data-intensive distributed applications. While Hadoop is designed to store data for such applications with its own distributed file system (HDFS), cloud-based on-demand processing can also use other forms of cloud storage such as Windows Azure storage. Collecting and importing data in such scenarios is the subject of this tutorial. 
+This tutorial covers several techniques for storing and importing data for use in Hadoop jobs run with Apache Hadoop-based Service for Windows Azure. Apache(TM) Hadoop(TM) is a software framework that supports data-intensive distributed applications. While Hadoop is designed to store data for such applications with its own distributed file system (HDFS), cloud-based on-demand processing can also use other forms of cloud storage such as Windows Azure storage. Collecting and importing data in such scenarios is the subject of this tutorial. 
 <a id="goals" />
 
 ### Goals ###
 In this tutorial you will see three things:
 
-1. Using Azure Storage in MapReduce jobs
+1. Using Windows Azure Storage in MapReduce jobs
 
 1. Importing data files to HDFS using FTPS
 
@@ -34,12 +34,12 @@ In this tutorial you will see three things:
 
 This tutorial is composed of the following segments:
 
-1. [Using Azure Storage in MapReduce](#segment1).
+1. [Using Windows Azure Storage in MapReduce](#segment1).
 1. [Uploading data files to HDFS using FTPS](#segment2).
 1. [Importing SQL Server data with Sqoop](#segment3).
 
 <a name="segment1" />
-### Using Azure Storage in MapReduce###
+### Using Windows Azure Storage in MapReduce###
 
 While HDFS is the natural storage solution for Hadoop jobs, data needed can also be located on cloud based, large, and scalable storage systems such as Windows Azure storage. It is reasonable to expect that Hadoop, when running on Windows Azure, be able to read data directly from such cloud storage.
 
@@ -54,7 +54,7 @@ To generate IIS logs and place them in storage, we need to create a simple ASP.N
 
 Launch Visual Studio 2010 by right-clicking on the application and choosing **Run As Administrator**. In Visual Studio, select **File -> New Project** and from the **Installed Templates** select the **Cloud** category inside the **Visual C#** node.
 
-![windows-azure-project-template](images/windows-azure-project-template.png?raw=true)
+![windows-azure-project-template](../media/windows-azure-project-template.png)
 
 _Windows Azure Project template_
 
@@ -62,7 +62,7 @@ Select the  **Windows Azure Project** template. This template launches a wizard 
 
 Name your new project **WebRoleWithIISLogs** and click **OK**. Select **ASP.NET Web Role** from the **New Windows Azure Project** window.
 
-![selectiing a webrole](images/selectiing-a-webrole.png?raw=true)
+![selectiing a webrole](../media/selectiing-a-webrole.png)
 
 _Selecting the ASP.NET Web Role template_
 
@@ -70,14 +70,14 @@ Visual Studio will now creat a new solution that contains two project. The first
 
 In **Solution Explorer**, open the **WebRole.cs** file in the **WebRole1** project.
 
-![Selecting WebRole.cs](images/selecting-webrolecs.png?raw=true "Selecting WebRole.cs")
+![Selecting WebRole.cs](../media/selecting-webrolecs.png "Selecting WebRole.cs")
 
 _The WebRoleWithIISLogs solution_
 
 Add the following code to the **OnStart** method:
 
-````C#
-public override bool OnStart()
+
+	public override bool OnStart()
         {
             // Configure IIS Logging
            DiagnosticMonitorConfiguration diagMonitorConfig = DiagnosticMonitor.GetDefaultInitialConfiguration();
@@ -89,11 +89,11 @@ public override bool OnStart()
            DiagnosticMonitor.Start("Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString", diagMonitorConfig);
            return base.OnStart();
         }
-````
+
 
 In the **WebRoleWithIISLogs** project double-click the **WebRole1** node, under the **Settings** tab, add  the details of your storage account to a diagnostics connection string.
 
-![Adding a Diagnostics Connection String](images/adding-a-diagnostics-connection-string.png?raw=true "Adding a Diagnostics Connection String")
+![Adding a Diagnostics Connection String](../media/adding-a-diagnostics-connection-string.png "Adding a Diagnostics Connection String")
 
 Press **F5** to run the application. When it is open, use it to browse to different pages in the web site.
 
@@ -108,8 +108,8 @@ Click on **New Project...** and select **Console Application**. Name it **Map**,
 
 Add the following code to **main.cs**:
 
-````C#
-static void Main(string[] args)
+
+	static void Main(string[] args)
         {
             if (args.Length > 0)
             {
@@ -136,14 +136,14 @@ static void Main(string[] args)
                 }
             }
         }
-````
+
 
 Right-click on the solution in Solution Explorer and select **Add** and **New Project**. Select **Console Application**, name it **Reduce**, and click **OK**.
 
 To this new project's **main.cs**, add the following code:
 
-````C#
-private static void Main(string[] args)
+
+	private static void Main(string[] args)
         {
             if (args.Length > 0)
             {
@@ -185,7 +185,7 @@ private static void Main(string[] args)
                 Console.WriteLine(string.Format("{0} {1}", lst[i].Key, lst[i].Value));    
             
         }
-````
+
 
 Press **F6** to build both projects.
 
@@ -197,7 +197,7 @@ Open the Hadoop cluster portal at <https://www.hadooponazure.com>.
 
 Click the **Manage Cluster** icon.
 
-![The Manage Cluster Icon](images/the-manage-cluster-icon.png?raw=true "The Manage Cluster Icon")
+![The Manage Cluster Icon](../media/the-manage-cluster-icon.png "The Manage Cluster Icon")
 
 Click on **Set Up ASV**.
 
@@ -209,24 +209,24 @@ To simplify this tutorial, we will create two new containers in your storage acc
 
 Open Azure Storage Explorer from **Start | All Programs | Neudesic | Azure Storage Explorer**. In the storage accounts toolbar, click the **Add Accoun**t button. The **Add Storage Account** dialog will appear.
 
-![Add storage account](images/add-storage-account.png?raw=true)
+![Add storage account](../media/add-storage-account.png)
 
 _The Add Storage Accoutndialog box_
 
-Input the storage account name, and the storage account key (primary access key) of your account. Click the **Add Storage Account** button to add the storage account, and approve the information message if such appears.
+Input the storage account name, and the storage access key (primary access key) of your account. Click the **Add Storage Account** button to add the storage account, and approve the information message if such appears.
 
 Create the new blob containers by click the **New** button in the **Container** toolbar.
 
-![container toolbar](images/container-toolbar.png?raw=true)
+![container toolbar](../media/container-toolbar.png)
 _The Container toolbar_
 
 Donload the IIS log you created in the previous task from the container **wad-iis-logfiles**, name the file **iislog.txt**, and upload it to the container **fivetopuri**.
 
-![download and upload blobs](images/download-and-upload-blobs.png?raw=true)
+![download and upload blobs](../media/download-and-upload-blobs.png)
 
 _Downloading and uploading the blobs_ 
 
-![Set Up ASV](images/set-up-asv.png?raw=true "Set Up ASV")
+![Set Up ASV](../media/set-up-asv.png "Set Up ASV")
 
 #### Copy Map-Reduce Executable Files to HDFS ####
 
@@ -236,9 +236,8 @@ Open the JavaScript interactive console by FLARGENESH.
 
 Upload the file **map.exe** by entering the following command:
 
-````JavaScript
-fs.put()
-````
+	JavaScript fs.put()
+
 
  and then browsing to the map.exe executable, located in FLARGENESH. Upload it to **/example/apps/map.exe**.
 
@@ -250,7 +249,7 @@ Open the Hadoop cluster portal at <https://www.hadooponazure.com>.
 
 Click on the **Create Job** icon.
 
-![The Create Job icon](images/the-create-job-icon.png?raw=true "The Create Job icon")
+![The Create Job icon](../media/the-create-job-icon.png "The Create Job icon")
 
 Enter the following details:
 
@@ -264,13 +263,13 @@ Jar File: Browse to  **hadoop-streaming.jar** provided in FLARGENESH.
 
 **Parameter 2**: _-mapper "map.exe" -reducer "reduce.exe"_
 
-![Filled out form](images/filled-out-form.png?raw=true "Filled out form")
+![Filled out form](../media/filled-out-form.png "Filled out form")
 
 Click **Execute Job**.
 
 After the job completes, open the blob **results.txt/part-00000** in the container **fivetopuriresults** and look at the results. For example:
 
-![Results](images/results.png?raw=true "Results")
+![Results](../media/results.png "Results")
 
 <a name="segment2" />
 ### Uploading data files to HDFS using FTPS ###
@@ -285,21 +284,21 @@ To upload the files, we will write and execute a power-shell script. The script 
 
 Before running the script, you need to open the FTPS ports. To do so, click on the **Open Ports** icon at <https://www.hadooponazure.com> and toggle the FTPS port to be opened.
 
-![Configure Ports](images/configure-ports.png?raw=true "Configure Ports")
+![Configure Ports](../media/configure-ports.png "Configure Ports")
 
 Now run the script. Enter the following code in PowerShell:
 
-````PowerShell
-$serverName = "XXSERVERNAMEXX.cloudapp.net"; $userName = "XXUSERNAMEXX"; 
-$password = "XXPASSWORDXX"; 
-$fileToUpload = "iislog.txt"; $destination = "/example/data/iislog.txt"; 
-$Md5Hasher = [System.Security.Cryptography.MD5]::Create();
- $hashBytes = $Md5Hasher.ComputeHash($([Char[]]$password)) 
-foreach ($byte in $hashBytes) { $passwordHash += “{0:x2}” -f $byte } 
-$curlCmd = "PATH_TO_CURL\curl-7.23.1-win64-ssl-sspi\curl -k --ftp-create-dirs -T $fileToUpload -u $userName" 
-$curlCmd += ":$passwordHash ftps://$serverName" + ":2226$destination" 
-invoke-expression $curlCmd
-````
+	PowerShell
+	$serverName = "XXSERVERNAMEXX.cloudapp.net"; $userName = "XXUSERNAMEXX"; 
+	$password = "XXPASSWORDXX"; 
+	$fileToUpload = "iislog.txt"; $destination = "/example/data/iislog.txt"; 
+	$Md5Hasher = [System.Security.Cryptography.MD5]::Create();
+	$hashBytes = $Md5Hasher.ComputeHash($([Char[]]$password)) 
+	foreach ($byte in $hashBytes) { $passwordHash += “{0:x2}” -f $byte } 
+	$curlCmd = "PATH_TO_CURL\curl-7.23.1-win64-ssl-sspi\curl -k --ftp-create-dirs -T $fileToUpload -u $userName" 
+	$curlCmd += ":$passwordHash ftps://$serverName" + ":2226$destination" 
+	invoke-expression $curlCmd
+
 > **Note:** Replace the XXSERVERNAMEXX with the cluster name, which can be found on the top of the cluster home page. for the XXUSERNAMEXX and XXPASSWORDXX enter the username and password that were provided when the cluster was created. These should be the same username and password used to activate the remote desktop console of the cluster.
 > 
 
@@ -308,58 +307,57 @@ invoke-expression $curlCmd
 
 
 
-![Uploading the file](images/uploading-the-file.png?raw=true "Uploading the file")
+![Uploading the file](../media/uploading-the-file.png "Uploading the file")
 
 To verify that the file was uploaded open the JavaScript interactive console and execute the following command:
 
-````JavaScript
-#ls /example/data/
-````
+	JavaScript #ls /example/data/
 
-![Verification](images/verification.png?raw=true "Verification")
+
+![Verification](../media/verification.png "Verification")
 
 <a name="segment3" />
 ### Importing SQL Server data with Sqoop ###
 
 While Hadoop is a natural choice for processing unstructured and semi-structured data like logs and files, there may be a need to process structured data stored in relational databases as well. Sqoop (SQL-to-Hadoop) is a tool the allows you to import structured data to Hadoop and use it in MapReduce and HIVE jobs.
 
-Download the [Adventure Works for SQL Azure](http://msftdbprodsamples.codeplex.com/releases/view/37304) database. Follow the installation instructions in the _"ReadMe.htm"_ file to set up the SQL Azure version of the AdventureWorks2012. Open SQL Server Managment Studio and connect to the SQL Azure Server. Open the _"AdventureWorks2012"_ database and 
+Download the [Adventure Works for SQL Database](http://msftdbprodsamples.codeplex.com/releases/view/37304) database. Follow the installation instructions in the _"ReadMe.htm"_ file to set up the SQL Database version of the AdventureWorks2012. Open SQL Server Managment Studio and connect to the SQL Database Server. Open the _"AdventureWorks2012"_ database and 
 click the **New Query** button.
 
-![Creating a new query in SQL Server Managment Studio](images/creating-a-new-query-in-sql-server-managment.png?raw=true)
+![Creating a new query in SQL Server Managment Studio](../media/creating-a-new-query-in-sql-server-managment.png)
 
 Since Sqoop currently adds square brackets to the table name, we need to add a synonym to support two-part naming for SQL Server tables. To do so, run the following query:
 
-````	
-CREATE SYNONYM [Sales.SalesOrderDetail] FOR Sales.SalesOrderDetail
-````
+	
+	CREATE SYNONYM [Sales.SalesOrderDetail] FOR Sales.SalesOrderDetail
+
 
 Run the following query and review its result. 
 
-````	
-select top 200 * from [Sales.SalesOrderDetail]
-````
+	
+	select top 200 * from [Sales.SalesOrderDetail]
+
 
 In the Hadoop command prompt change the directory to _"c:\Apps\dist\sqoop\bin"_ and run the following command:
 
-````	
-sqoop import --connect  
-"jdbc:sqlserver://[serverName].database.windows.net;username=[userName]@[serverName];password=[password];database=AdventureWorks2012" --table Sales.SalesOrderDetail --target-dir /data/lineitemData -m 1
-````
+	
+	sqoop import --connect  
+	"jdbc:sqlserver://[serverName].database.windows.net;username=[userName]@[serverName];password=[password];database=AdventureWorks2012" --table Sales.SalesOrderDetail --target-dir /data/lineitemData -m 1
 
-Go to the Hadoop on Azure portal and open the interactive console. Run the #lsr command to list the file and directories on your HDFS.
 
-![result of #lsr](images/result-of-lsr.png?raw=true)
+Go to the Hadoop on Windows Azure portal and open the interactive console. Run the #lsr command to list the file and directories on your HDFS.
+
+![result of #lsr](../media/result-of-lsr.png)
 
 Run the #tail command to view selected results from the **part-m-0000** file.
 
-````
-#tail /user/RAdmin/data/SalesOrderDetail/part-m-00000
-```` 
-![#tail](images/tail.png?raw=true)
+
+	#tail /user/RAdmin/data/SalesOrderDetail/part-m-00000
+ 
+![#tail](../media/tail.png)
 
 
 <a name="summary" />
 ## Summary ##
 
-In this tutorial we have seen how a variety of the data sources that can be used for MapReduce jobs in Hadoop on Azure. Data for Hadoop jobs can be located on cloud storage or on HDFS. We have also seen how relational data can be imported into HDFS using Sqoop and then be used in Hadoop jobs.
+In this tutorial we have seen how a variety of the data sources that can be used for MapReduce jobs in Hadoop on Windows Azure. Data for Hadoop jobs can be located on cloud storage or on HDFS. We have also seen how relational data can be imported into HDFS using Sqoop and then be used in Hadoop jobs.
