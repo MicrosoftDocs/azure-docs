@@ -292,13 +292,15 @@ To test the application on your local machine, perform the following steps:
 
 ##Deploy your application to Windows Azure
 
-The steps in this section use the Windows Azure command-line tools to create a new Windows Azure Web Site, and then use Git to deploy your application. To perform these steps you must have a Windows Azure subscription. If you do not already have a subscription, you can sign up for one [for free].
+The steps in this section use the Windows Azure command-line tools to create a new Windows Azure Web Site, and then use Git to deploy your application. To perform these steps you must have a Windows Azure subscription.
 
 **Note**: These steps can also be performed by using the Windows Azure portal. For steps on using the Windows Azure portal to deploy a Node.js application, see [Create and deploy a Node.js application to a Windows Azure Web Site].
 
 **Note**: If this is the first Windows Azure Web Site you have created, you must use the Windows Azure portal to deploy this application.
 
 ###Enable the Windows Azure Web Site feature
+
+If you do not already have a Windows Azure subscription, you can sign up [for free]. After signing up, follow these steps to enable the Windows Azure Web Site feature.
 
 <div chunk="../../Shared/Chunks/antares-iaas-signup.md"></div>
 
