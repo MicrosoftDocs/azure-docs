@@ -75,9 +75,6 @@ optimizing sites for search engines and much more.
 href="http://go.microsoft.com/?linkid=9809702">
 Learn more about WebMatrix</a>
 
-</div>
-
-
 [1]: ./media/image001.jpg
 [2]: ./media/image002.png
 [3]: ./media/image003.jpg
