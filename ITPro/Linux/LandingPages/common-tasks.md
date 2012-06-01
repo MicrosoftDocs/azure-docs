@@ -1,4 +1,4 @@
-#Common tasks
+#Common tasks for Linux virtual machines
 
 ##[Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](./LinuxVHDCommonTask/)
 
@@ -19,9 +19,9 @@ Learn how to use the Windows Azure (Preview) Management Portal to create a virtu
 Learn how to create and upload a management certificate, which is needed anytime you want to use the Service Management API to interact with the Windows Azure image platform. 
 
 
-##[Install the LAMP Stack on a Linux virtual machine in Windows Azure
-Learn how to install a LAMP stack on Ubuntu or CentOS](./lampStack/) 
+##[Install the LAMP Stack on a Linux virtual machine in Windows Azure](./lampStack/) 
 
+Learn how to install a LAMP stack on Ubuntu or CentOS.
 
 ##[Using root privileges on Linux virtual machines in Windows Azure](./useRootPrivileges/)
 
