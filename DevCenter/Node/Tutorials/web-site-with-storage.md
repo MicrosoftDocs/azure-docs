@@ -112,68 +112,44 @@ The output of this command should appear similar to the following:
 
 ###Install additional modules
 
-The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for this application. For this tutorial, we will be using the following additional modules:
+The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to a Windows Azure Web Site, this file will be used to determine which modules need to be installed on Windows Azure to support your application.
 
-* [azure] - provides access to Windows Azure features such as the Table service
-
-* [node-uuid] - creates unique identifiers
-
-* [async] - functions for asynchronous JavaScript
-
-To add a requirement for additional modules used in this tutorial, perform the following steps:
-
-1. Open the **package.json** file in a text editor.
-
-2. Find the line that contains **"jade":** . Add a new line after it, which should contain the following:
-
-		, "azure": ">= 0.5.3"
-		, "node-uuid": ">= 1.3.3"
-    	, "async": ">= 0.1.18"
-
-	After this change, the file contents should appear similar to the following:
-
-		{
-	    "name": "application-name"
-		  , "version": "0.0.1"
-		  , "private": true
-		  , "dependencies": {
-		      "express": "2.5.8"
-		    , "jade": ">= 0.0.1"
-		    , "azure": ">= 0.5.3"
-			, "node-uuid": ">= 1.3.3"
-    		, "async": ">= 0.1.18"
-		  }
-		}
-
-3. Save the **package.json** file.
-	
-4. From the command-line, change directories to the **tasklist** folder and enter the following to install the modules described in the **package.json** file:
+1. From the command-line, change directories to the **tasklist** folder and enter the following to install the modules described in the **package.json** file:
 
         npm install
 
-    The output of this command should appear as follows:
+    The output of this command should appear similar to the following:
 
-		async@0.1.18 ./node_modules/async
-		node-uuid@1.3.3 ./node_modules/node-uuid
+		express@2.5.8 ./node_modules/express
+		├── mime@1.2.4
+		├── qs@0.4.2
+		├── mkdirp@0.3.0
+		└── connect@1.8.7
 		jade@0.26.0 ./node_modules/jade
 		├── commander@0.5.2
 		└── mkdirp@0.3.0
-		express@2.5.8 ./node_modules/express
-		├── qs@0.4.2
-		├── mime@1.2.4
-		├── mkdirp@0.3.0
-		└── connect@1.8.7
+
+	This installs all of the default modules that Express needs.
+
+2. Next, enter the following command to install the [azure], [node-uuid], and [async] modules locally as well as to save an entry for them to the **package.json** file:
+
+		npm install azure node-uuid async --save
+
+	The output of this command should appear similar to the following:
+
+		async@0.1.22 ./node_modules/async
+		node-uuid@1.3.3 ./node_modules/node-uuid
 		azure@0.5.3 ./node_modules/azure
 		├── dateformat@1.0.2-1.2.3
 		├── xmlbuilder@0.3.1
-		├── log@1.3.0
 		├── node-uuid@1.2.0
-		├── xml2js@0.1.14
+		├── log@1.3.0
 		├── mime@1.2.5
+		├── xml2js@0.1.14
 		├── underscore@1.3.3
 		├── qs@0.5.0
-		├── underscore.string@2.2.0rc
-		└── sax@0.4.0
+		├── sax@0.4.0
+		└── underscore.string@2.2.0rc
 
 ##Using the Table service in a node application
 
