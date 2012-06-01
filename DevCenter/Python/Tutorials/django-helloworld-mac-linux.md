@@ -35,9 +35,9 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
 
 1.  Launch a new **Terminal** window.
     
-1.  Enter the following command to connect to the Windows Azure VM, with the user name and VM name that you specified during the creation of the VM:
+1.  Enter the following command to connect to the Windows Azure VM.
 
-		$ ssh *username*@*yourVmName*.cloudapp.net
+		$ ssh yourusername@yourVmUrl
 
 1.  Enter the following commands to install django:
 
@@ -96,7 +96,7 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
 
         $ sudo apachectl restart
 
-1.  From your local web browser, open http://yourVmName.cloudapp.net (where *yourVmName* is whatever name you used in the virtual machine creation step).  You should see "Hello World!":
+1.  Finally, load the web page in your browser:
 
 	![A browser window displaying the hello world page on Windows Azure][]
 
