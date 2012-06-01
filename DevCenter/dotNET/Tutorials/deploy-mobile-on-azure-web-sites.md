@@ -486,8 +486,8 @@ Refresh the mobile browser. The following image reflects the code changes that y
 	![][DeployApplication9]
 14.	The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
 
-15.The default browser automatically opens to the URL of the deployed site.
- The application you created is now running in the cloud.
+15. The default browser automatically opens to the URL of the deployed site. The application you created is now running in the cloud.
+
 	![][DeployApplication10]
 
 
