@@ -1,6 +1,6 @@
-#Big Data Scenarios
+<h1>Big Data Scenarios</h1>
 
-Windows Azure supports a variety of structured and unstructured data storage options, along with tools to help you analyze and extract BI from data of any size.
+<p>Windows Azure supports a variety of structured and unstructured data storage options, along with tools to help you analyze and extract BI from data of any size.</p>
 
 <div class="dev-articles">
 <div class="article red">
