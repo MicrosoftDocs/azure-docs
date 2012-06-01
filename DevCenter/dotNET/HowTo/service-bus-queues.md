@@ -120,9 +120,7 @@ corresponding namespaces.
 1.  In Visual Studio's **Solution Explorer**, right-click
     **References**, and then click **Add Reference**.
 
-2.  In the **Browse** tab, go to C:\\Program Files\\Windows Azure
-    SDK\\v1.6\\ServiceBus\\ref\\ and add a **Microsoft.ServiceBus.dll**
-    reference.
+2.  In the **Browse** tab, go to C:\\Program Files\\Microsoft SDKs\\Windows Azure\\.NET SDK\\2012-06\\ref and add a **Microsoft.ServiceBus.dll** reference.
 
 ### Import the Service Bus Namespaces
 
