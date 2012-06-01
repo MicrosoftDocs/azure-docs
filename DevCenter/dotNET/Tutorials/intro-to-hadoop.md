@@ -1,4 +1,5 @@
 # Introduction to Hadoop on Azure
+
 **Overview**	
 Hadoop on Azure is a service that deploys and provisions clusters in the cloud, providing a software framework designed to manage, analyze and report on big data. 
 

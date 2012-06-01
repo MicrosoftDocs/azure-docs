@@ -35,12 +35,12 @@
 
 
 **Videos**	
-* [Hadoop on Windows Azure](http://channel9.msdn.com/Events/windowsazure/learn/Hadoop-on-Windows-Azure)	 - introduction to the Hadoop on Windows Azure portal CTP release	
+* [Hadoop on Windows Azure](http://channel9.msdn.com/Events/windowsazure/learn/Introduction-to-Hadoop-on-Windows-Azure)	 - Introduction to the Hadoop on Windows Azure portal CTP release	
 * [Microsoft Big Data](http://www.youtube.com/playlist?list=PLD471EE01A293CC34&feature=plcp)	- list of Microsoft BI Big Data videos		
 * [Introduction to the Hadoop on Windows Azure Interactive JavaScript Console](http://www.youtube.com/watch?v=alPMYcomUEs) - introduction tp the Hadoop on Windows Azure Interactive JavaScript Console		
 * [Run the Pi Estimator Sample on Apache Hadoop-based Service for Windows Azure](http://social.technet.microsoft.com/wiki/contents/articles/7021.run-the-pi-estimator-sample-on-hadoop-services-for-windows-azure-video.aspx) - how to run a very simple program with Hadoop on Windows Azure		
 * [PowerPivot](http://www.microsoft.com/en-us/bi/PowerPivot.aspx) - Microsoft BI PowerPivot download and videos		
-* [Use Excel Hive Add-in to Access Hive on Windows Azure](http://www.youtube.com/watch?v=djfpPsGwm6A) - how to use Excel Hive Add-in to import data from Hive on Windows Azure. 	
+* [Use Excel Hive Add-in to Access Hive on Windows Azure](http://channel9.msdn.com/Events/windowsazure/learn/Hadoop-on-Windows-Azure) - how to use Excel Hive Add-in to import data from Hive on Windows Azure. 	
 
 **Community Sites and Blogs**:	
 * [Windows Azure team blogs](http://blogs.msdn.com/b/windowsazure/)		
