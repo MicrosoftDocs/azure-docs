@@ -148,13 +148,12 @@ This step applies only to cloud services, not web sites. When you are ready, you
 
 For more information, see [Team Foundation Service](http://go.microsoft.com/fwlink/?LinkId=253861).
 
-[Step 1: Sign up for TFS Preview.][]: #step1
-[Step 2: Check in a project to TFS.][]: #step2
-[Step 3: Connect the project to Windows Azure.][]: #step3
-[Step 4: Make changes and trigger a rebuild and redeployment.][]: #step4
-[Step 5: Redeploy an earlier build (optional)][]: #step5
-[Step 6: Change the Production deployment (cloud services only)][]: #step6
-
+[Step 1: Sign up for TFS Preview.]: #step1
+[Step 2: Check in a project to TFS.]: #step2
+[Step 3: Connect the project to Windows Azure.]: #step3
+[Step 4: Make changes and trigger a rebuild and redeployment.]: #step4
+[Step 5: Redeploy an earlier build (optional)]: #step5
+[Step 6: Change the Production deployment (cloud services only)]: #step6
 [1]: ../../../DevCenter/dotNet/Media/tfs1.png
 [2]: ../../../DevCenter/dotNet/Media/tfs2.png
 [3]: ../../../DevCenter/dotNet/Media/tfs3.png
