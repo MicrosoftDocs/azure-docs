@@ -53,7 +53,7 @@ Now that you have learned the basics of creating a virtual machine, follow these
 
 - Deploy a Virtual Machine to a Virtual Network or Subnets
 - Add a Virtual Machine to the Local Domain by Using on Premises DNS/AD
-[How to Log on to a Virtual Machine Running Linux]: ./howto-log-into-VM/
+[How to Log on to a Virtual Machine Running Linux]: ./howto-logon-linux-vm.md
 [Deprovision the virtual machine]: ../media/linuxdeprovision.png
 [Deprovision of virtual machine successful]:../media/linuxdeprovision2.png
 [Shutdown the virtual machine]:../media/shutdownvm.png
