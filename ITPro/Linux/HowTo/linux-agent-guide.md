@@ -48,14 +48,14 @@ Installation using an RPM or a DEB package is preferred. If installing manually,
 
 	/usr/sbin/waagent -install
 
-###Command Line Options
+##Command Line Options
 
-Flags:
+###Flags
 
 - verbose: Increase verbosity of specified command
 - force: Skip interactive confirmation for some commands
 
-Commands
+###Commands
 
 - help: Lists the supported commands and flags.
 
@@ -88,13 +88,15 @@ Commands
  - Cached DHCP client leases.
  - Resets host name to localhost.localdomain.
  WARNING! This doesn’t guarantee that the image is cleared of all  sensitive information and suitable for redistribution.
--deprovision+user: Everything under deprovision (above) and also deletes  the last provisioned user account and associated data.
--version: Displays the version of waagent
--serialconsole: Configures GRUB to mark ttyS0 (the first serial port) as  the boot console. This ensures that kernel bootup logs are sent to the serial port and made available for debugging.
--daemon: Run waagent as a daemon to manage interaction with the platform.
- This argument is specified to waagent in the waagent init script.
 
-###Configuration
+- deprovision+user: Everything under deprovision (above) and also deletes  the last provisioned user account and associated data.
+
+- version: Displays the version of waagent
+
+- serialconsole: Configures GRUB to mark ttyS0 (the first serial port) as  the boot console. This ensures that kernel bootup logs are sent to the serial port and made available for debugging.
+- daemon: Run waagent as a daemon to manage interaction with the platform. This argument is specified to waagent in the waagent init script.
+
+##Configuration
 
 A configuration file (/etc/waagent.conf) controls the actions of waagent. 
 A sample configuration file is shown below:
@@ -253,7 +255,7 @@ This can be used to specify an alternate path for the openssl binary to use for 
 
 ###Sample Role Configuration File
 
-		<?xml version="1.0" encoding="utf-8"?>
+	<?xml version="1.0" encoding="utf-8"?>
 	<HostingEnvironmentConfig version="1.0.0.0" goalStateIncarnation="1">
 	  <StoredCertificates>
 	    <StoredCertificate name="Stored0Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" certificateId="sha1:C093FA5CD3AAE057CB7C4E04532B2E16E07C26CA" storeName="My" configurationLevel="System" />
