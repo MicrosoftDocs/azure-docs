@@ -56,7 +56,12 @@ Here are the steps for creating the app:
         from django.template.loader import render_to_string
         from django.template import Context
 
--   Add a new Django template file **mytasks.html** to project template folder and add following code to it:
+-   Create a new folder named **templates** under the **TableserviceSample/TableserviceSample** folder.
+-   Edit the application settings so your templates can be located. Open **settings.py** and add the following entry to INSTALLED_APPS:
+
+        'TableserviceSample',
+
+-   Add a new Django template file **mytasks.html** to the **templates** folder and add following code to it:
  
 <pre>
 	&lt;html&gt;
@@ -100,7 +105,7 @@ Here are the steps for creating the app:
 ## Import windowsazure storage module
 Add following code on the top of **views.py** just after Django imports
 
-        from windowsazure.storage.cloudtableclient import CloudTableClient
+        from azure.storage import TableService
 
 ## Get storage account name and account key
 Add the following code to **views.py** just after the windowsazure import, and replace  'youraccount' and 'yourkey' with your real account name and key. You can get an account name and key from azure management portal. 
@@ -108,17 +113,17 @@ Add the following code to **views.py** just after the windowsazure import, and r
         account_name = 'youraccount'
         account_key = 'yourkey'
 
-## Create CloudTableClient
+## Create TableService
 Add following code after “account_name …”
 
-		cloud_table_client = CloudTableClient(account_name=account_name, account_key=account_key)
-		cloud_table_client.create_table('mytasks')
+		table_service = TableService(account_name=account_name, account_key=account_key)
+		table_service.create_table('mytasks')
 
 ## List tasks 
 Add function list_tasks to **views.py**:
 
 		def list_tasks(request): 
-		    entities = cloud_table_client.query_entities('mytasks', '', 'name,category,date,complete')    
+		    entities = table_service.query_entities('mytasks', '', 'name,category,date,complete')    
 		    html = render_to_string('mytasks.html', Context({'entities':entities}))
 		    return HttpResponse(html)
 
@@ -129,8 +134,8 @@ Add the function add_task to **views.py**:
 		    name = request.GET['name']
 		    category = request.GET['category']
 		    date = request.GET['date']
-		    cloud_table_client.insert_entity('mytasks', {'PartitionKey':name+category, 'RowKey':date, 'name':name, 'category':category, 'date':date, 'complete':'No'}) 
-		    entities = cloud_table_client.query_entities('mytasks', '', 'name,category,date,complete')    
+		    table_service.insert_entity('mytasks', {'PartitionKey':name+category, 'RowKey':date, 'name':name, 'category':category, 'date':date, 'complete':'No'}) 
+		    entities = table_service.query_entities('mytasks', '', 'name,category,date,complete')    
 		    html = render_to_string('mytasks.html', Context({'entities':entities}))
 		    return HttpResponse(html)
 
@@ -143,8 +148,8 @@ Add the function update_task to **views.py**:
 		    date = request.GET['date']
 		    partition_key = name + category
 		    row_key = date
-		    cloud_table_client.update_entity('mytasks', partition_key, row_key, {'PartitionKey':partition_key, 'RowKey':row_key, 'name': name, 'category':category, 'date':date, 'complete':'Yes'})
-		    entities = cloud_table_client.query_entities('mytasks', '', 'name,category,date,complete')    
+		    table_service.update_entity('mytasks', partition_key, row_key, {'PartitionKey':partition_key, 'RowKey':row_key, 'name': name, 'category':category, 'date':date, 'complete':'Yes'})
+		    entities = table_service.query_entities('mytasks', '', 'name,category,date,complete')    
 		    html = render_to_string('mytasks.html', Context({'entities':entities}))
 		    return HttpResponse(html)
 
