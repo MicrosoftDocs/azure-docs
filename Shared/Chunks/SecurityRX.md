@@ -2,14 +2,14 @@
 
 ##Abstract
 
-When developing applications for Windows Azure, identity and
+When developing applications for the Windows Azure platform identity and
 access are the primary security concerns that you need to keep in mind.
-This topic explains the key security concerns in the cloud and how you
+This topic explains the key security concerns related to identity and access in the cloud and how you
 can best protect your application.
 
 ##Overview
 
-An application's security is a function of its surface. The more surface
+An application’s security is a function of its surface. The more surface
 that the application exposes the greater the security concerns. For
 example, an application that runs as an unattended batch process exposes
 less, from a security perspective, than a publically available web site.
@@ -21,13 +21,13 @@ hand, the cloud intrinsically exposes more surface area for your
 application that can be potentially exploited by attackers. This is
 because many cloud technologies and services are exposed as end points
 vs. in-memory components. Windows Azure storage, Service Bus, SQL
-Database, and many other services are accessible
+Database (formerly SQL Azure), and many other services are accessible
 via their endpoints over the wire.
 
 In cloud applications more responsibility lays on the shoulders of the
 application developers to design, develop, and maintain their cloud
 applications to high security standards to keep attackers at bay.
-Consider the following diagram (from J.D. Meier's [Windows Azure Security
+Consider the following diagram (from J.D. Meier’s [Windows Azure Security
 Notes PDF](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx)): notice how the infrastructure part is being addressed by the
 cloud provider--in our case by Windows Azure--leaving more security work
 to the application developers:
@@ -51,7 +51,7 @@ addressed:
     elevation of privileges threats.
 
 For a complete list of threats, attacks, vulnerabilities, and
-countermeasures refer to Patterns & Practices' [Cheat Sheet: Web
+countermeasures refer to patterns & practices’ [Cheat Sheet: Web
 Application Security Frame](http://msdn.microsoft.com/en-us/library/ff649461.aspx) and [Security Guidance for Applications Index](http://msdn.microsoft.com/en-us/library/ff650760.aspx).
 
 In the cloud, authentication and access control mechanisms are very
@@ -92,7 +92,7 @@ attacks can lead to an identity spoof threat being realized. To make it
 simple consider threats, vulnerabilities, and attacks as bad things.
 Consider the following diagrams as a balcony view of the bad things
 related to a Web application deployed to Windows Azure (from J.D.
-Meier's [Windows Azure Security Notes PDF](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx)):
+Meier’s [Windows Azure Security Notes PDF](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx)):
 
 ![Threats Vulnerabilities and Attacks][02]
 You, as a developer, have control over the vulnerabilities. The fewer
@@ -105,14 +105,14 @@ authentication mechanism may lead to an identity spoof and, as a result,
 information disclosure, data tampering, elevated privileges operations,
 or even shutting down the service altogether. Consider the following
 questions that may point to potential vulnerabilities in your cloud
-app's identity and access implementation:
+app’s identity and access implementation:
 
 -   Are you sending credentials in clear over the wire to your Windows
     Azure services?
 -   Do you store Windows Azure services credentials in clear?
 -   Do your Windows Azure services credentials follow strong password
     policies?
--   Do you rely on Windows Azure to verify credentials vs.
+-   Do you rely on the Windows Azure platform to verify credentials vs.
     using custom verification mechanisms?
 -   Do you limit Windows Azure services authentication sessions or token
     lifetime to a reasonable time window?
@@ -131,7 +131,7 @@ own. Consider the following prominent identity and access technologies:
 included with the .NET Framework 4.5 (it is also available as separate
 download for .NET 3.5/4.0). WIF does the heavy lifting for handling
 protocols such as WS-Federation and WS-Trust and tokens handling such as
-Security Assertion Markup Language (SAML) so you don't need to write
+Security Assertion Markup Language (SAML) so you don’t need to write
 very complex security-related code in your application. The following
 resources provide in-depth information about WIF:
 
@@ -152,12 +152,12 @@ information about Windows Azure AD Access Control:
 
 -   [Access Control Service 2.0](http://msdn.microsoft.com/library/gg429786.aspx) 
 -   [Scenarios and Solutions Using ACS](http://msdn.microsoft.com/en-us/library/gg185920.aspx)
--   [ACS How Tos](http://msdn.microsoft.com/en-us/library/windowsazure/gg185939.aspx)
+-   [ACS How To’s](http://msdn.microsoft.com/en-us/library/windowsazure/gg185939.aspx)
 -   [A Guide to Claims-Based Identity and Access Control](http://msdn.microsoft.com/en-us/library/ff423674.aspx)
 -   [Identity Developer Training Kit](http://www.microsoft.com/en-us/download/details.aspx?id=14347)
 -   [MSDN-hosted Identity Developer Training Course](http://msdn.microsoft.com/en-us/IdentityTrainingCourse)
 
-**Active Directory Federation Services (AD FS).** Active Directory
+**Active Directory Federation Services (AD FS).**Active Directory
 Federation Services (AD FS) 2.0 provides support for claims-aware
 identity solutions that involve Windows Server® and Active Directory
 technology. AD FS 2.0 supports the WS-Trust, WS-Federation, and SAML
@@ -187,14 +187,14 @@ application.
     this scenario you control access to your ASP.NET Web Forms app using
     either Internet identity such as Live ID / Microsoft Account or
     corporate identity managed in Windows Server Active Directory.
--   **WCF (SOAP) Service with Federated Authentication.** In this
+-   **WCF (SOAP) Service with Federated Authentication.**In this
     scenario you control access to your WCF (SOAP) service using Service
     Identities managed by Windows Azure AD Access Control.
 -   **WCF (SOAP) Service with Federated Authentication, Identities in
     Active Directory.** In this scenario you control access to your WCF
     (SOAP) web service using identities managed by corporate Windows
     Server Active Directory.
--   **WCF (REST) Service With Federated Authentication.** In this
+-   **WCF (REST) Service With Federated Authentication.**In this
     scenario you control access to your WCF (REST) service using Service
     Identities managed by Windows Azure AD Access Control.
 -   **WCF (REST) Service With Live ID / Microsoft Account, Facebook,
@@ -204,26 +204,26 @@ application.
 -   **ASP.NET Web App to REST WCF Service Using Shared SWT Token.** In
     this scenario you have distributed application with front end
     ASP.NET web app and downstream REST service and you want to flow end
-    user's context through physical tiers.
+    user’s context through physical tiers.
 -   **Role-Based Access Control (RBAC) Authorization In Claims-Aware
     Applications and Services.** In this scenario you want to implement
     authorization logic in your app based on roles.
 -   **Claims-Based Authorization In Claims-Aware Applications and
     Services.** In this scenario you want to implement authorization
     logic in your app based on complex authorization rules.
--   **Windows Azure Storage Service Identity and Access Scenarios.** In
+-   **Windows Azure Storage Service Identity and Access Scenarios.**In
     this scenario you need to securely share access to Windows Azure
     storage blobs and containers.
--   **Windows Azure SQL Database Identity and Access Scenarios.** SQL
+-   **Windows Azure SQL Database Identity and Access Scenarios.**SQL
     Database supports only SQL Server Authentication. Windows
     Authentication (integrated security) is not supported. Users must
     provide credentials (login and password) every time they connect to
     SQL Database.
--   **Windows Azure Service Bus Identity and Access Scenarios.** In this
+-   **Windows Azure Service Bus Identity and Access Scenarios.**In this
     scenario you need securely access Windows Azure Service Bus queues.
--   **In-Memory Cache Identity and Access Scenarios.** In this scenario
+-   **In-Memory Cache Identity and Access Scenarios.**In this scenario
     you need to securely access data managed by in-memory cache.
--   **Windows Azure Marketplace Identity and Access Scenarios.** In this
+-   **Windows Azure Marketplace Identity and Access Scenarios.**In this
     scenario you need to securely access Windows Azure Marketplace
     datasets.
 
@@ -306,6 +306,8 @@ then submitted to Windows Azure AD Access Control and reissued back to
 the agent. The agent uses the token to submit request to the WCF (SOAP)
 service.
 
+![WCF (SOAP) Service With AD][05]
+
 Refer to the following resources to implement this scenario:
 
 -   [How To: Add Service Identities with an X.509 Certificate, Password,
@@ -365,10 +367,10 @@ It is important to note that in order to implement this scenario, the
 application needs to use web browser control to collect end user
 credentials. This makes it unsuitable for scenarios in which the REST
 service is accessed from an ASP.NET web app. It is only suitable for
-scenarios in which the REST service is being accessed by the user's
+scenarios in which the REST service is being accessed by the user’s
 client application, such as a Windows Phone 7 app or a rich desktop
 client. The key reason for popping the web browser control is that
-Internet identities don't natively support active profile scenarios (web
+Internet identities don’t natively support active profile scenarios (web
 services scenario). Internet identities mainly support passive profile
 scenarios (web apps) that rely on browser redirects: this is where web
 browser control comes handy.
@@ -393,8 +395,8 @@ Refer to the following resources to implement this scenario:
 
 In this scenario you have a distributed application with a front-end
 ASP.NET web app and a downstream REST service and you want to maintain
-the end user's context across physical tiers. This is sometimes needed
-when implementing authorization logic or logging based on the end user's
+the end user’s context across physical tiers. This is sometimes needed
+when implementing authorization logic or logging based on the end user’s
 identity in the downstream REST service.
 
 Configure Windows Azure AD Access Control to issue SWT token. The SWT
@@ -409,11 +411,11 @@ several caveats:
     support the WS-Federation protocol that relies on browser redirects
     vs. implementing it yourself.
 -   When implementing a SWT custom token handler, make sure the
-    bootstrap token is being addressed to make sure it's retained.
-    Otherwise you won't be able to share it and send it to the
+    bootstrap token is being addressed to make sure it’s retained.
+    Otherwise you won’t be able to share it and send it to the
     downstream REST service.
--   You don't have to use WIF on a REST service; rather, you can parse
-    the token "manually" since there is no need to handle redirects in
+-   You don’t have to use WIF on a REST service; rather, you can parse
+    the token “manually” since there is no need to handle redirects in
     this case.
 
 ![ASP.NET Web Application][08]
@@ -430,7 +432,7 @@ Refer to the following resources to implement this scenario:
 
 In this scenario you need to implement authorization in your web
 application or service based on user roles: user with required roles get
-access and those that don't have required roles are denied. Simply put,
+access and those that don’t have required roles are denied. Simply put,
 your application needs to answer simple question – is the user in role
 X?
 
@@ -438,7 +440,7 @@ There are several ways to solve this scenario. You can use Windows Azure
 AD Access Control, WIF Claims Authentication Manager,
 samlSecurityTokenRequirement mapping, or Customer Role Manager.
 
-WIF is used in all cases. WIF supports the IPrincipal.IsInRole("MyRole")
+WIF is used in all cases. WIF supports the IPrincipal.IsInRole(“MyRole”)
 method. In most of the cases the key is to make sure there is role type
 claim with URI of
 http://schemas.microsoft.com/ws/2008/06/identity/claims/role in the
@@ -455,7 +457,7 @@ IsInRole method call is succesful.
 ![][09]
 
 **WIF ClaimsAuthenticationManager**. In this implementation use
-ClaimsAuthenticationManager as WIF's extensibility point. Using this
+ClaimsAuthenticationManager as WIF’s extensibility point. Using this
 approach you transform any arbitrary incoming claims to a role claim
 type at the application. The complexity of the transformation is only
 limited by the code you write.
@@ -497,7 +499,7 @@ control outlined in previous section.
 Use ClaimsAuthorizationManager as the WIF extensibility point.
 ClaimsAuthorizationManager allows external access check calls so that
 your application code looks cleaner and more maintainable than when
-access checks implemented in the application's code.
+access checks implemented in the application’s code.
 
 ![][13]
 
@@ -521,7 +523,7 @@ from your own application, use the shared hash that is available through
 Windows Azure portal when you configure and manage your storage service
 accounts. When you want to give someone else access to the blobs and
 containers in your storage service account use Shared Access Signatures
-URL's.
+URL’s.
 
 Pay special attention to securely managing the information to avoid its
 exposure; also, pay special attention to the lifetime of the Shared
@@ -607,7 +609,7 @@ In this scenario you are building an application that consumes datasets
 in your Marketplace subscription. You are the user of the application.
 The application can be deployed either to Windows Azure, on-premises, or Marketplace.
 
-Use the shared key that's available through your Marketplace
+Use the shared key that’s available through your Marketplace
 subscription. You obtain the shared key using the Marketplace portal.
 
 ![][18]
@@ -633,7 +635,7 @@ Refer to the following resources to solve this scenario:
 -   [OAuth Web Client Example](http://go.microsoft.com/fwlink/?LinkId=219162)
 -   [OAuth Rich Client Example](http://go.microsoft.com/fwlink/?LinkId=219163)
 
-Application Access Marketplace API
+###Application Access Marketplace API
 
 In this scenario you are building an application that accesses the
 Marketplace API. The Marketplace API requires authentication to
@@ -664,13 +666,13 @@ digest from [WIF Design Considerations](http://msdn.microsoft.com/en-us/library/
 .
 
 -   **IssuerNameRegistry**. Specifies trusted Security Token Services
-    (STS's). Make sure only trusted STS are listed.
--   **cookieHandler requireSsl="true"**. Specifies whether session
+    (STS’s). Make sure only trusted STS are listed.
+-   **cookieHandler requireSsl=“true”**. Specifies whether session
     cookies transferred over the SSL protocol.
--   **wsFederation's requireHttps="true"**. Specifies whether the
+-   **wsFederation’s requireHttps=“true”**. Specifies whether the
     federation protocol communication with identity provider performed
     over SSL protocol.
--   **tokenReplayDetection enabled="true"**. Specifies whether token
+-   **tokenReplayDetection enabled="true”**. Specifies whether token
     replay detection feature is enabled. Be aware that this feature
     creates server affinity as it manages local copies of used tokens.
 -   **audienceUris**. Specifies intended audience of the token. If your
@@ -679,8 +681,7 @@ digest from [WIF Design Considerations](http://msdn.microsoft.com/en-us/library/
 -   **requestValidation** and **httpRuntime requestValidationType**.
     Enables/disables ASP.NET validation feature. See guidance as
     outlined in [Windows Identity Foundation (WIF): A Potentially
-    Dangerous Request.Form Value Was Detected from the Client
-    (wresult="&lt;t:RequestSecurityTo...")](http://social.technet.microsoft.com/wiki/contents/articles/1725.windows-identity-foundation-wif-a-potentially-dangerous-request-form-value-was-detected-from-the-client-wresult-t-requestsecurityto.aspx).
+    Dangerous Request.Form Value Was Detected from the Client](http://social.technet.microsoft.com/wiki/contents/articles/1725.windows-identity-foundation-wif-a-potentially-dangerous-request-form-value-was-detected-from-the-client-wresult-t-requestsecurityto.aspx)
 
 ###Windows Azure AD Access Control
 
@@ -692,7 +693,7 @@ Guidelines](http://msdn.microsoft.com/en-us/library/gg185962.aspx) and [Certific
     management portal to set aggressive token expiration.
 -   **Data validation when using the Error URL feature**. Windows Azure
     AD Access Control Error URL feature requires anonymous access to the
-    app's page where it sends error messages. Assume all data coming to
+    app’s page where it sends error messages. Assume all data coming to
     this page as dangerous from untrusted source.
 -   **Encrypting tokens for highly sensitive scenarios**. To mitigate
     threat of information disclosure that available in the token
@@ -747,7 +748,7 @@ Guidelines](http://msdn.microsoft.com/en-us/library/gg185962.aspx) and [Certific
     are symmetric key, password, and an X.509 certificate. You will
     start receiving exception when the credentials are expired.
 -   **WS-Federation identity provider signing and encryption
-    certificates**. Query for WS-Federation identity provider's
+    certificates**. Query for WS-Federation identity provider’s
     certificate validity to avoid denial of service. WS-Federation
     identity provider certificate is available through its metadata.
     When configuring WS-Federation identity provider, such as AD FS, the
@@ -774,7 +775,7 @@ application is hosted on Windows Azure Virtual Machines.
 -   [MSDN-hosted Identity Developer Training Course](http://go.microsoft.com/fwlink/?LinkId=214561)
 -   [A Guide to Claims–based Identity and Access Control](http://go.microsoft.com/fwlink/?LinkId=214562)
 -   [Access Control Service](http://msdn.microsoft.com/en-us/library/windowsazure/gg429786.aspx)
--   [ACS How To's](http://msdn.microsoft.com/en-us/library/windowsazure/gg185939.aspx)
+-   [ACS How To’s](http://msdn.microsoft.com/en-us/library/windowsazure/gg185939.aspx)
 -   [Secure Windows Azure Web Role ASP.NET Web Application Using Access Control Service v2.0](http://social.technet.microsoft.com/wiki/contents/articles/2590.aspx)
 -   [Windows Azure AD Access Control Service (ACS) Academy Videos](http://social.technet.microsoft.com/wiki/contents/articles/2777.aspx)
 -   [Microsoft Security Development Lifecycle](http://www.microsoft.com/security/sdl/default.aspx)
