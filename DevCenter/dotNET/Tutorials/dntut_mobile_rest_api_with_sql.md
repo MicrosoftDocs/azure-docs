@@ -54,6 +54,10 @@ Next, set up the Windows Azure environment by creating a Windows Azure account, 
 2. To get started with a free account, click **Free Trial** in the upper-right corner and follow the steps.<br/>
 ![Free trial screenshot][setup003]
 
+### Enable the Windows Azure Web Sites feature on your account
+
+<div chunk=”../../shared/chunks/antares-iaas-signup.md” />
+
 ### Create a website and a SQL database in Windows Azure
 
 The next step is to create the Windows Azure website and the SQL database that your application will use.
