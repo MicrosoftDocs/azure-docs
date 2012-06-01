@@ -35,11 +35,11 @@ The following list contains information for installing the command-line tools, d
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
-	<p>On Linux, you may need to run this command with elevated privileges:
+	<p>On Linux, you may need to run this command with elevated privileges:</p>
 
 		sudo npm install azure -g
 
-	On Windows, you may need to run the command from a prompt with elevated privileges.
+	<p>On Windows, you may need to run the command from a prompt with elevated privileges.
 	</p> 
 	</div>
 
@@ -79,7 +79,7 @@ Next, import the `.publishsettings` file by running the following command, repla
 
 	azure account import <path to .publishsettings file>
 
-	<div class="dev-callout"> 
+<div class="dev-callout"> 
 <b>Note</b> 
 <p>You can remove all of the information stored by the <code>import</code> command by using the <code>account clear</code> command:</p>
 
