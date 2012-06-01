@@ -3,7 +3,7 @@
 
 #Other resources
 
-##Windows Azure Training Kit
+##[Windows Azure Training Kit](./training-kit/)
 
 The Windows Azure Training Kit includes a comprehensive set of technical
 content designed to help you learn how to use Windows Azure. The kit
