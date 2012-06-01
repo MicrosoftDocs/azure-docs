@@ -3,7 +3,7 @@
 
 <h1 id="vnettut1">Tutorial 1: Creating a Virtual Network in Windows Azure</h1>
 
-<div chunk="../../../Shared/Chunks/disclaimer.md" />
+<div chunk="../../Shared/Chunks/disclaimer.md" />
 
 This tutorial walks you through the steps to create a Windows Azure virtual network using the Windows Azure (Preview) Management Portal.
 

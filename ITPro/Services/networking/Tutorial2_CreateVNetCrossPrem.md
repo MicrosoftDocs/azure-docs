@@ -2,7 +2,7 @@
 
 <h1 id="vnettut1">Tutorial 2: Creating a Virtual Network for Cross-Premises Connectivity</h1>
 
-<div chunk="../../../Shared/Chunks/disclaimer.md" />
+<div chunk="../../Shared/Chunks/disclaimer.md" />
 
 This tutorial walks you through the steps to create a Windows Azure virtual network that connects to your company's network using the Management Portal. After completing this tutorial, you will have a virtual network that communicates with your company's network to which you can deploy your Windows Azure services.
 

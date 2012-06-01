@@ -2,7 +2,7 @@
 
 #<a name="howtomonitor"></a>How to Monitor Websites
 
-<div chunk="../../../Shared/Chunks/disclaimer.md" />
+<div chunk="../../Shared/Chunks/disclaimer.md" />
 
 Websites provide monitoring functionality via the Monitor management page. The Monitor management page provides performance statistics for a web site as described below.
 
