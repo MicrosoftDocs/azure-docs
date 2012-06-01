@@ -32,9 +32,9 @@ You'll build a simple to-do list web application that is built on ASP.NET MVC 4 
 
 To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. (If you already have Visual Studio or Visual Web Developer, the SDK isn't required for this tutorial. It will be required later if you follow the suggestions for further learning at the end of the tutorial.) 
 
-1. To install the Windows Azure SDK for .NET, click the button that corresponds to the version of Visual Studio you are using. If you don't have Visual Studio installed yet, use the Visual Studio 2012 button.<br/>
-<a href="http://go.microsoft.com/fwlink/?LinkID=252834" class="site-arrowboxcta download-cta">Get Tools and SDK for Visual Studio 2012</a><br/>
-<a href="http://go.microsoft.com/fwlink/?LinkID=252835" class="site-arrowboxcta download-cta">Get Tools and SDK for Visual Studio 2010</a>
+1. To install the Windows Azure SDK for .NET, click the link that corresponds to the version of Visual Studio you are using. If you don't have Visual Studio installed yet, use the Visual Studio 2012 link.<br/>
+[Windows Azure SDK for Visual Studio 2010][]<br/>
+[Windows Azure SDK for Visual Studio 2012 RC][]
 2. When you are prompted to run or save WindowsAzureSDKForNet.exe, click **Run**.<br/>
 3. In the Web Platform Installer window, click **Install** and proceed with the installation.<br/>
 ![Web Platform Installer - Windows Azure SDK for .NET][Image003]<br/>
@@ -249,9 +249,9 @@ In ASP.NET MVC the scaffolding feature can automatically generate code that perf
 4. Select **ToDoItem** as your model class and **ToDoDb** as your data context class, and then click **Add**.<br/>
 ![Add Controller dialog box][Image055]
 4. In the dialog box that indicates HomeController.cs already exists, select both **Overwrite HomeController.cs** and **Overwrite associated views** and click **OK**.<br/>
-The MVC template created a default home page for your application, and you are replacing the default functionality with the to-do list read and update functionality.
+The MVC template created a default home page for your application, and you are replacing the default functionality with the to-do list read and update functionality.<br/>
 ![Add Controller message box][Image056] <br/>
-Visual Studio creates a controller and views for each of the four main database operations (create, read, update, delete) for **ToDoItem** objects.
+When you click **OK**, Visual Studio creates a controller and views for each of the four main database operations (create, read, update, delete) for **ToDoItem** objects.
 1. In **Solution Explorer**, open Views\Home\Index.cshtml.
 2. In the line of code that reads <code>ViewBag.Title = "Index"</code>, and in the <code>h2</code> heading, change "Index" to "To Do Items".
 
@@ -335,6 +335,8 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [Deploy the application update to Windows Azure and SQL Database]: #deploydatabaseupdate
 [Important information about ASP.NET in Windows Azure Web Sites]: #aspnetwindowsazureinfo
 [Next steps]: #nextsteps
+[Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=252834
+[Windows Azure SDK for Visual Studio 2012 RC]: http://go.microsoft.com/fwlink/?LinkID=252835
 [NewPortal]: http://manage.windowsazure.com
 [WTEInstall]: http://go.microsoft.com/fwlink/?LinkID=208120
 [MVC4Install]: http://www.asp.net/mvc/mvc4
@@ -365,7 +367,7 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [Image002]: ../Media/Dev-net-getting-started-002.png
 [Image003]: ../Media/Dev-net-getting-started-003.png
 [Image004]: ../Media/Dev-net-getting-started-004.png
-[Image010]: ../Media/Dev-net-getting-started-010.png
+[Image010]: ../../Shared/Media/FreeTrialOnWindowsAzureHomePage.png
 [Image011]: ../Media/Dev-net-getting-started-011.png
 [Image012]: ../Media/Dev-net-getting-started-012.png
 [Image013]: ../Media/Dev-net-getting-started-013.png
