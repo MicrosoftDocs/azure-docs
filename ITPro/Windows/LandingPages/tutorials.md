@@ -4,6 +4,6 @@
 
 <h1 id="Tutorials">Tutorials</h1>
 
-<h2 id="createvm">Create a Virtual Machine Running Windows Server 2008 R2</h2>
+##[Create a Virtual Machine Running Windows Server 2008 R2](./CreateVirtualMachineWindowsTutorial/)
 
 In this tutorial you will learn how to use the Windows Azure (Preview) Management Portal to create a custom virtual machine running Windows Server.  After you create the virtual machine, you'll attach a data disk to the new virtual machine, and then set up communication with the virtual machine. 
