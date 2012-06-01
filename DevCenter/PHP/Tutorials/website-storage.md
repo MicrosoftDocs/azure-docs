@@ -18,7 +18,7 @@ You will build a simple Tasklist web application in PHP. A screenshot of the com
 
 ##Installing the Windows Azure client libraries
 
-In order to use the Windows Azure storage services, you must first download the client libraries. They are available as a ZIP file, PEAR package, and a Composer package. To install the PHP Client Libraries for Windows Azure as a PEAR package, follow these steps:
+To install the PHP Client Libraries for Windows Azure as a PEAR package, follow these steps:
 
 1. [Install PEAR][install-pear].
 2. Add the Windows Azure channel:
@@ -411,6 +411,7 @@ To publish changes to application, follow these steps:
 [ws-storage-app]: ../Media/ws-storage-app.png
 [preview-portal]: https://manage.windowsazure.com
 [new-website]: ../../Shared/Media/new_website.jpg
+[download-php-sdk]: /en-us/develop/php/download-php-sdk/
 [website-quick-create]: ../../Shared/Media/website-quick-create.png
 [website-quick-create-details]: ../../Shared/Media/website-quick-create-details.png
 [storage-quick-create]: ../../Shared/Media/storage-quick-create.png
