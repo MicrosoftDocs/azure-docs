@@ -103,7 +103,7 @@ In this tutorial you will learn:
 
 -  **NAME:** Type *YourCorpHQ*.
 
--  **VPN DEVICE IP ADDRESS:** Type *131.107.64.111*.
+-  **VPN DEVICE IP ADDRESS:** Enter the public IP address of your VPN device. The device should not be behind a NAT.
 
 -  **ADDRESS SPACE:** Type *10.1.0.0/16*.
 
