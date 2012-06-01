@@ -750,7 +750,7 @@ You can bypass the prompt by using the **-Force** option with the **Remove-Azure
   [Import-AzurePublishSettings]: http://msdn.microsoft.com/en-us/library/windowsazure/hh757264(vs.103).aspx
   [Microsoft Online Services Customer Portal]: https://mocp.microsoftonline.com/site/default.aspx
   [add-remove-coadmins]: http://msdn.microsoft.com/en-us/library/windowsazure/gg456328.aspx
-  [Windows Azure Platform Management Portal]: http://windows.azure.com/
+  [Windows Azure Management Portal]: http://windows.azure.com/
   [New-AzureService]: http://msdn.microsoft.com/en-us/library/windowsazure/hh757269(vs.103).aspx
   [Add-AzureNodeWebRole]: http://msdn.microsoft.com/en-us/library/windowsazure/hh757267(vs.103).aspx
   [Add-AzureNodeWorkerRole]: http://msdn.microsoft.com/en-us/library/windowsazure/hh757254(vs.103).aspx
