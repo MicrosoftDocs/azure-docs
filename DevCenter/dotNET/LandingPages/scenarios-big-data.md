@@ -1,11 +1,8 @@
-<h1>Big Data Scenarios</h1>
+#Big Data Scenarios
 
-<p>Windows Azure supports a variety of structured and unstructured data storage options, along with tools to help you analyze and extract BI from data of any size.</p>
-
-<span><br/></span> 
+Windows Azure supports a variety of structured and unstructured data storage options, along with tools to help you analyze and extract BI from data of any size.
 
 <div class="dev-articles">
-<h2>Create your first application</h2>
 <div class="article red">
 <h3><a href="../../tutorials/hadoop-and-data/">Working with Hadoop and data</a></h3>
 <p>Use Windows Azure Storage in MapReduce, upload data files to HDFS using FTPS, and import SQL Server Data with Sqoop.</p>
@@ -14,7 +11,6 @@
 <h3><a href="../../tutorials/website-with-mongodb-vm/">Website with MongoDB on a virtual machine</a></h3>
 <p>Create an ASP.NET MVC web site that connects to a MongoDB instance running on a Windows Azure virtual machine. You will learn how to leverage virtual machines to host unstructured data in MongoDB.</p>
 </div>
-<h2>Additional scenarios</h2>
 <div class="article green">
 <h3><a href="/en-us/develop/net/tutorials/hadoop-recommendation-engine/">Create a Mahout a Recommendation Engine</a></h3>
 <p>Create a simple recommendation engine using a Mahout item-based algorithm.</p>
