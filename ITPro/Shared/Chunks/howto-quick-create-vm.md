@@ -1,5 +1,7 @@
 #How to Quickly Create a Virtual Machine
 
+To use this feature, please sign up for the [Windows Azure Preview Beta Program](http://www.windowsazure.com). 
+
 You use the **Quick Create** method to quickly create a virtual machine in the Management Portal. When you create this machine, all you need to provide is the name of the machine, the image that is used to create the machine, and the password for the user account that is used to manage the machine.
 
 1. Sign in to the [Windows Azure Management Portal](http://manage.windowsazure.com).

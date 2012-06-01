@@ -1,6 +1,8 @@
 <properties umbracoNaviHide="0" pageTitle="How to Use the Service Management API" metaKeywords="Windows Azure virtual machine, Azure virtual machine, linux, service management api" metaDescription="Learn how to use the service management api." linkid="manage-linux-how-to-guide-virtual-machines" urlDisplayName="How To Guides" headerExpose="" footerExpose="" disqusComments="1" />
 #How to Use the Service Management API
 
+<div chunk="../../shared/chunks/disclaimer.md" />
+
 ##Initialization##
 
 To invoke the Windows Azure IaaS Service Management API from Node.js, the iaasclient.js module is used.

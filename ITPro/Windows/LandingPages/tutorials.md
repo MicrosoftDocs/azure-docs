@@ -1,8 +1,7 @@
 <properties umbracoNaviHide="0" pageTitle="Tutorials" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+#Tutorials for Windows virtual machines
 
-
-
-<h1 id="Tutorials">Tutorials</h1>
+<div chunk="../../shared/chunks/disclaimer.md" />
 
 ##[Create a Virtual Machine Running Windows Server 2008 R2](./CreateVirtualMachineWindowsTutorial/)
 

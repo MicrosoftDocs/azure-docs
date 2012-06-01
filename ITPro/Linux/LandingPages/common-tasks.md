@@ -1,5 +1,7 @@
 #Common tasks for Linux virtual machines
 
+<div chunk="../../shared/chunks/disclaimer.md" />
+
 ##[Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](./LinuxVHDCommonTask/)
 
 Learn how to install the Hyper-V role on your server, create the image, and then upload the image to Windows Azure. 

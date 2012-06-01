@@ -1,7 +1,8 @@
-
 <properties umbracoNaviHide="0" pageTitle="Other resources" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
 
-#Other resources
+#Other resources for Windows virtual machines
+
+<div chunk="../../shared/chunks/disclaimer.md" />
 
 ##[Windows Azure Training Kit](./training-kit/)
 

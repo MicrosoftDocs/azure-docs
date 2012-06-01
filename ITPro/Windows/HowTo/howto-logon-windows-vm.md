@@ -1,9 +1,7 @@
-
 <properties umbracoNaviHide="0" pageTitle="How to Log on to a Virtual Machine Running Windows Server 2008 R2" metaKeywords="Windows Azure virtual machine, Azure virtual machine, logon virtual machines, log on virtual machine" metaDescription="Learn how to logon to a virtual machine that is running Windows Server ." linkid="manage-windows-how-to-guide-virtual-machines" urlDisplayName="How to: virtual machines" headerExpose="" footerExpose="" disqusComments="1" />
+#How to Log on to a Virtual Machine Running Windows Server 2008 R2 #
 
-
-
-# <a id="logon"> </a>How to Log on to a Virtual Machine Running Windows Server 2008 R2 #
+<div chunk="../../shared/chunks/disclaimer.md" />
 
 For a virtual machine that is running the Windows Server 2008 R2 operating system, you use the Connect button in the Management Portal to start a Remote Desktop Connection. 
 

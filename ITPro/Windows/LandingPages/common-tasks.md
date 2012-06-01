@@ -1,8 +1,7 @@
 <properties umbracoNaviHide="0" pageTitle="Common tasks" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+#Common tasks for Windows virtual machines
 
-
-
-<h1 id="Tasks">Common tasks</h1>
+<div chunk="../../shared/chunks/disclaimer.md" />
 
 ##[Provisioning a SQL Server Virtual Machine on Windows Azure](./InstallingASQLServerVirtualMachine/)
 
