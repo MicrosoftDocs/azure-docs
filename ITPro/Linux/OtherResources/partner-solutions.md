@@ -2,6 +2,8 @@
 
 #Partner solutions for Linux in Windows Azure
 
+<div chunk="../../shared/chunks/disclaimer.md" />
+
 Contact the partners listed on this page for assistance in delivering Linux-based cloud solutions in Windows Azure. 
 
 ##Canonical

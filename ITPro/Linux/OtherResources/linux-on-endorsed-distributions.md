@@ -37,43 +37,39 @@ Please notice that the dfifferent distributions will be incorporating the agent 
 		<th>Base Images</th>
 	</tr>
 	<tr>
-		<th>Canonical UBUNTU</th>
-		<td>Ubuntu 12.04</td>
+		<th>  Canonical UBUNTU </th>
+		<td> Ubuntu 12.04</td>
 		<td>June 7 2012</td>
-        <td><A href="http://go.microsoft.com/fwlink/?LinkID=254262&clcid=0x409">LIS 3.1</A>
-		<td>Deb: <A HREF="http://go.microsoft.com/fwlink/?LinkID=254261&clcid=0x409">ISO</A>
-			Source: <A HREF="http://go.microsoft.com/fwlink/?LinkID=250998&clcid=0x409">GITHUB</A>
-		</td>
+        <td> <A href="http://go.microsoft.com/fwlink/?LinkID=254262&clcid=0x409">LIS 3.1</A></td>
+		<td>Deb: <A HREF="http://go.microsoft.com/fwlink/?LinkID=254261&clcid=0x409">ISO</A><br />
+			Source: <A HREF="http://go.microsoft.com/fwlink/?LinkID=250998&clcid=0x409">GITHUB</A></td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=254264&clcid=0x409">Download base VHD</a></td>
 	</tr>
 	<tr>
-		<th>CENTOS by Open Logi</th>
-		<td>CentOS 6.2</td>
+		<th> CENTOS by Open Logi </th>
+		<td> CentOS 6.2</td>
 		<td>June 7 2012</td>
 	    <td><a href="http://go.microsoft.com/fwlink/?LinkID=254263&clcid=0x409">LIS 3.2 Beta2</a></td>
-		<td>RPM:<A HREF="http://go.microsoft.com/fwlink/?LinkID=254261&clcid=0x409">ISO</A>
-			Source: <A HREF="http://go.microsoft.com/fwlink/?LinkID=250998&clcid=0x409">GITHUB</A>
-		</td>
- 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=254266&clcid=0x409">Download ISO</a></td
+		<td>RPM:<A HREF="http://go.microsoft.com/fwlink/?LinkID=254261&clcid=0x409">ISO</A><br />
+			Source: <A HREF="http://go.microsoft.com/fwlink/?LinkID=250998&clcid=0x409">GITHUB</A></td>
+ 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=254266&clcid=0x409">Download ISO</a></td>
 	</tr>
 	<tr>
-		<th>SUSE</th>
-		<td>SLES 11SP2</td>
+		<th> SUSE </th>
+		<td> SLES 11SP2</td>
 		<td>June 7 2012</td>
-        <td><A href="http://go.microsoft.com/fwlink/?LinkID=254262&clcid=0x409">LIS 3.1</A>
-		<td>RPM: <A HREF="http://go.microsoft.com/fwlink/?LinkID=254261&clcid=0x409">ISO</A>
-			Source: <A HREF="http://go.microsoft.com/fwlink/?LinkID=250998&clcid=0x409">GITHUB</A>
-		</td>
+        <td><A href="http://go.microsoft.com/fwlink/?LinkID=254262&clcid=0x409">LIS 3.1</A></td>
+		<td>RPM: <A HREF="http://go.microsoft.com/fwlink/?LinkID=254261&clcid=0x409">ISO</A><br />
+			Source: <A HREF="http://go.microsoft.com/fwlink/?LinkID=250998&clcid=0x409">GITHUB</A></td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=254265&clcid=0x409">Create base image</a></td>
 	</tr>
 	<tr>
-		<th>OPEN SUSE</th>
-		<td>Open SUSE 12.1</td>
+		<th> OPEN SUSE </th>
+		<td> Open SUSE 12.1</td>
 		<td>June 7 2012</td>
 		<td><A href="http://go.microsoft.com/fwlink/?LinkID=254262&clcid=0x409">LIS 3.1</A></td>
-		<td>RPM: <A HREF="http://go.microsoft.com/fwlink/?LinkID=254261&clcid=0x409">ISO</A>
-			Source: <A HREF="http://go.microsoft.com/fwlink/?LinkID=250998&clcid=0x409">GITHUB</A>
-		</td>
+		<td>RPM: <A HREF="http://go.microsoft.com/fwlink/?LinkID=254261&clcid=0x409">ISO</A><br />
+			Source: <A HREF="http://go.microsoft.com/fwlink/?LinkID=250998&clcid=0x409">GITHUB</A></td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=254265&clcid=0x409">Create base image</a></td>
 	</tr>
 </table>

@@ -1,5 +1,7 @@
 #How to Connect Virtual Machines in a Cloud Service
 
+To use this feature, please sign up for the [Windows Azure Preview Beta Program](http://www.windowsazure.com). 
+
 When you create a virtual machine, a cloud service is automatically created to contain the machine. You can create multiple virtual machines under the same cloud service to enable the machines to communicate with each other, to load-balance between virtual machines, and to maintain high availability of the machines. 
 
 You must first create a virtual machine with a new cloud service, and then you can connect additional machines with the first machine under the same cloud service. 

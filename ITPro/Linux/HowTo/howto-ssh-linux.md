@@ -1,6 +1,8 @@
 <properties umbracoNaviHide="0" pageTitle="How to Use SSH with Linux on Windows Azure" metaKeywords="Windows Azure virtual machine, Azure virtual machine, SSH" metaDescription="" linkid="manage-linux-how-to-guide-ssh" urlDisplayName="How To Guides" headerExpose="" footerExpose="" disqusComments="1" />
 #How to Use SSH with Linux on Windows Azure
 
+<div chunk="../../shared/chunks/disclaimer.md" />
+
 This topic describes the steps to generate SSH keys compatible with Windows Azure.
 
 The current version of the Windows Azure Management Portal only accepts SSH public keys that are encapsulated in an X509 certificate. Follow the steps below to generate and use SSH keys with Windows Azure.

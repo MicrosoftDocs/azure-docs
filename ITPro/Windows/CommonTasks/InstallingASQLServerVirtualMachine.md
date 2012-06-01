@@ -2,7 +2,7 @@
 
 # Provisioning a SQL Server Virtual Machine on Windows Azure #
 
-<div chunk="../../../Shared/Chunks/disclaimer.md" />
+<div chunk="../../Shared/Chunks/disclaimer.md" />
 
 The Windows Azure virtual machine gallery provides Windows Azure virtual machine images of Microsoft Windows Server 2008 R2, Service Pack 1 (64-bit) with a complete 64-bit installation of SQL Server. You can select one of the virtual machine images from the Windows Azure gallery and with a few clicks you can provision the virtual machine to your Windows Azure environment.
 
@@ -43,9 +43,10 @@ In this tutorial you will:
     <div class="dev-callout"> 
     <b>Note</b> 
     <p>Considerations related to size:
-- Medium is the smallest size recommended for production workloads. 
-- Select Large or Extra Large when using SQL Server Enterprise Edition.
-- The size selected limits the number of disks you can configure. (Extra Small <= 1, Small <= 2, Medium <= 4, Large <= 8, Extra Large <= 16)
+	<ul>
+		<li>Medium is the smallest size recommended for production workloads.</li> 
+		<li>Select Large or Extra Large when using SQL Server Enterprise Edition.</li>
+		<li>The size selected limits the number of disks you can configure. (Extra Small &lt;= 1, Small &lt;= 2, Medium &lt;= 4, Large &lt;= 8, Extra Large &lt;= 16)</li></ul>
     </p> 
     </div>
 
@@ -111,7 +112,7 @@ Before you can connect to the instance of SQL Server from the internet, the foll
 
 2. In SQL Server Configuration Manager, in the console pane, expand **SQL Server Network Configuration**.
 
-3. In the console pane, click **Protocols for** *instance name*. (The default instance is **Protocols for MSSQLSERVER**.)
+3. In the console pane, click **Protocols for _instance name_**. (The default instance is **Protocols for MSSQLSERVER**.)
 
 4. In the details pane, right-click TCP, and then click **Enable** .
 
@@ -119,7 +120,7 @@ Before you can connect to the instance of SQL Server from the internet, the foll
 
 5. In the console pane, click **SQL Server Services**.
 
-6. In the details pane, right-click **SQL Server (***instance name***)** (the default instance is **SQL Server (MSSQLSERVER)**), and then click **Restart**, to stop and restart the instance of SQL Server. 
+6. In the details pane, right-click **SQL Server (_instance name_)** (the default instance is **SQL Server (MSSQLSERVER)**), and then click **Restart**, to stop and restart the instance of SQL Server. 
 
     ![Restart Database Engine] [Image11]
 
@@ -167,11 +168,11 @@ Open additional ports for other components as needed. For more information, see 
 
 The SQL Server Database Engine cannot use Windows Authentication without domain environment. To connect to the Database Engine from a computer outside of the domain, configure SQL Server for mixed mode authentication. Mixed mode authentication allows both SQL Server Authentication and Windows Authentication. (Configuring mixed mode authentication might not be necessary if you have configured a Windows Azure Virtual Network. For more information about Windows Azure Virtual Network, see [Overview of Windows Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=251117).)
 
-1. While connected to the virtual machine by using Remote Desktop, on the Start menu, click **All Programs**, click **Microsoft SQL Server** *version*, and then click **SQL Server Management Studio**. 
+1. While connected to the virtual machine by using Remote Desktop, on the Start menu, click **All Programs**, click **Microsoft SQL Server _version_**, and then click **SQL Server Management Studio**. 
 
     ![Start SSMS] [Image18]
 
-2. When opening, Management Studio presents the **Connect to Server** dialog box. In the **Server name** box, type the name of the virtual machine to connect to the Database Engine  with the Object Explorer. (Instead of the virtual machine name you can also use **(local)** or a single period as the **Server name**. Select **Windows Authentication**, and leave *your_VM_name***\Administrator** in the **User name** box. Click **Connect**.
+2. When opening, Management Studio presents the **Connect to Server** dialog box. In the **Server name** box, type the name of the virtual machine to connect to the Database Engine  with the Object Explorer. (Instead of the virtual machine name you can also use **(local)** or a single period as the **Server name**. Select **Windows Authentication**, and leave **_your_VM_name_\Administrator** in the **User name** box. Click **Connect**.
 
     ![Connect to Server] [Image19]
 
@@ -290,7 +291,7 @@ To connect to the SQL Server Database Engine from another computer you must know
 
 If you can connect to an instance of SQL Server running on a Windows Azure virtual machine by using Management Studio, you should be able to connect by using a connection string similar to the following.
 
-`connectionString="Server=<DNS_Name>;Integrated Security=false;User ID=<login_name>;Password=<your_password>;"providerName="System.Data.SqlClient"`
+	connectionString="Server=<DNS_Name>;Integrated Security=false;User ID=<login_name>;Password=<your_password>;"providerName="System.Data.SqlClient"
 
 
 #### Additional Resources ####
@@ -336,39 +337,38 @@ To have access to a user database, logins that are not members of the sysadmin f
 The SQL Server setup media is saved on the virtual machine in the C:\SqlServer_11.0_Full directory. Run setup from this directory to perform any setup actions including add or remove features, add a new instance, repair the instance, etc.
 
 
-[Image1]: media/1Login.png
-[Image2]: media/2select-gallery.png
-[Image3]: media/3Select-Image.png
-[Image4]: media/4VM-Config.png
-[Image5]: media/5VM-Mode.png
-[Image6]: media/6VM-Options.png
-[Image7]: media/7VM-Provisioning.png
+[Image1]: ../media/1Login.png
+[Image2]: ../media/2select-gallery.png
+[Image3]: ../media/3Select-Image.png
+[Image4]: ../media/4VM-Config.png
+[Image5]: ../media/5VM-Mode.png
+[Image6]: ../media/6VM-Options.png
+[Image7]: ../media/7VM-Provisioning.png
+[Image8]: ../media/8VM-Connect.png
+[Image9]: ../media/9Click-SSCM.png
+[Image10]: ../media/10Enable-TCP.png
+[Image11]: ../media/11Restart.png
+[Image12]: ../media/12Open-WF.png
+[Image13]: ../media/13New-FW-Rule.png
+[Image14]: ../media/14Port-1433.png
+[Image15]: ../media/15Allow-Connection.png
+[Image16]: ../media/16Public-Profile.png
+[Image17]: ../media/17Rule-Name.png
+[Image18]: ../media/18Start-SSMS.png
+[Image19]: ../media/19Connect-to-Server.png
+[Image20]: ../media/20Server-Properties.png
+[Image21]: ../media/21Mixed-Mode.png
+[Image22]: ../media/22Restart2.png
+[Image23]: ../media/23New-Login.png
+[Image24]: ../media/24Test-Login.png
+[Image25]: ../media/25sysadmin.png
 
-[Image8]: media/8VM-Connect.png
-[Image9]: media/9Click-SSCM.png
-[Image10]: media/10Enable-TCP.png
-[Image11]: media/11Restart.png
-[Image12]: media/12Open-WF.png
-[Image13]: media/13New-FW-Rule.png
-[Image14]: media/14Port-1433.png
-[Image15]: media/15Allow-Connection.png
-[Image16]: media/16Public-Profile.png
-[Image17]: media/17Rule-Name.png
-[Image18]: media/18Start-SSMS.png
-[Image19]: media/19Connect-to-Server.png
-[Image20]: media/20Server-Properties.png
-[Image21]: media/21Mixed-Mode.png
-[Image22]: media/22Restart2.png
-[Image23]: media/23New-Login.png
-[Image24]: media/24Test-Login.png
-[Image25]: media/25sysadmin.png
+[Image26]: ../media/26Select-your-VM.png
+[Image27]: ../media/27VM-Connect.png
+[Image28]: ../media/28Add-Endpoint.png
+[Image29]: ../media/29Add-Endpoint-to-VM.png
+[Image30]: ../media/30Endpoint-Details.png
+[Image31]: ../media/31VM-Connect.png
 
-[Image26]: media/26Select-your-VM.png
-[Image27]: media/27VM-Connect.png
-[Image28]: media/28Add-Endpoint.png
-[Image29]: media/29Add-Endpoint-to-VM.png
-[Image30]: media/30Endpoint-Details.png
-[Image31]: media/31VM-Connect.png
-
-[Image32]: media/32DNS-Name.png
-[Image33]: media/33Connect-SSMS.png
+[Image32]: ../media/32DNS-Name.png
+[Image33]: ../media/33Connect-SSMS.png

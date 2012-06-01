@@ -1,7 +1,8 @@
-
 <properties umbracoNaviHide="0" pageTitle="Other resources" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
 
 #Other resources for Linux virtual machines
+
+<div chunk="../../shared/chunks/disclaimer.md" />
 
 ##[How to Use the Service Management API](./howto-servicemgt-api/)
 Learn about the Windows Azure IaaS Service Management API which is invoked from Node.js.

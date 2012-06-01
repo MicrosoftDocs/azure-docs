@@ -1,6 +1,8 @@
 <properties umbracoNaviHide="0" pageTitle="Install the LAMP Stack on Linux virtual machines in Windows Azure" metaKeywords="" metaDescription="" linkid="manage-linux-common-tasks-LAMP-stack" urlDisplayName="LAMP Stack" headerExpose="" footerExpose="" disqusComments="1" />
 ###Install the LAMP Stack on a Linux virtual machine in Windows Azure
 
+<div chunk="../../shared/chunks/disclaimer.md" />
+
 A LAMP stack consists of the following different elements:
 
 - **L**inux - Operating System

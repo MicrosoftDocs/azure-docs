@@ -1,5 +1,8 @@
 <properties umbracoNaviHide="0" pageTitle="Intro to Linux on Windows Azure" metaKeywords="" metaDescription="" linkid="manage-linux-fundamentals-intro-to-linux" urlDisplayName="Intro to Linux" headerExpose="" footerExpose="" disqusComments="1" />
 #Introduction to Linux on Windows Azure
+
+<div chunk="../../shared/chunks/disclaimer.md" />
+
 This topic provides an overview of some aspects of using Linux virtual machines in the Windows Azure cloud. Deploying a Linux virtual machine is a straightforward process when using a pre-existing image in the gallery. 
 
 ## Table of Contents ##

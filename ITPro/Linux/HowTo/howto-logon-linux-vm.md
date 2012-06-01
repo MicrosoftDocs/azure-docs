@@ -1,6 +1,8 @@
 <properties umbracoNaviHide="0" pageTitle="How to Log on to a Virtual Machine Running Linux" metaKeywords="Windows Azure virtual machine, Azure virtual machine, log on, logon, log on to virtual machines" metaDescription="Learn how to log on to a virtual machine." linkid="manage-linux-how-to-guide-virtual-machines" urlDisplayName="How To Guides" headerExpose="" footerExpose="" disqusComments="1" />
 #How to Log on to a Virtual Machine Running Linux #
 
+<div chunk="../../shared/chunks/disclaimer.md" />
+
 For a virtual machine that is running the Linux operating system, you use a Secure Shell (SSH) client to logon.
 
 You must install an SSH client on your computer that you want to use to log on to the virtual machine. There are many SSH client programs that you can choose from. The following are possible choices:

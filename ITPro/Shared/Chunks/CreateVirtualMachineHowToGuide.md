@@ -1,5 +1,7 @@
 # How to create and configure a virtual machine in Windows Azure #
 
+To use this feature, please sign up for the [Windows Azure Preview Beta Program](http://www.windowsazure.com). 
+
 This guide shows you how to create and configure a virtual machine in Windows Azure by using the Windows Azure Management Portal.
 
 ## Table of Contents ##

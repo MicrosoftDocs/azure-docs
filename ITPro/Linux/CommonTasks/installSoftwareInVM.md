@@ -1,6 +1,8 @@
 <properties umbracoNaviHide="0" pageTitle="Install software on your Linux virtual machine in Windows Azure" metaKeywords="" metaDescription="" linkid="manage-linux-common-tasks-install-software" urlDisplayName="Install software on VM" headerExpose="" footerExpose="" disqusComments="1" />
 #Install software on your Linux virtual machine in Windows Azure
 
+<div chunk="../../shared/chunks/disclaimer.md" />
+
 Linux distributions tend to use software "packages" to install software. These packages are usually managed using a set of commands, such as `apt` or `yum`. You can also install programs without a package, such as with a _tarball_ of the source code.
 
 We will be covering how to use the package managers for some of the common Linux distributions. The stepos will differ based on which Linux distribution you are using.
@@ -69,9 +71,3 @@ To upgrade to a new versio, you will need to use two commands: one to update you
 Once your package index is updated, run the following command to ugprade your packages:
 
 	apt-get upgrade
-
-
-<!--SuSe Linux
-----------
-
-RPM packages-->

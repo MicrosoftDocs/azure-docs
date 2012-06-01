@@ -3,6 +3,8 @@
 
 <h1 id="guides">How to guides for Linux virtual machines</h1>
 
+<div chunk="../../shared/chunks/disclaimer.md" />
+
 
 ##[How to Create a Custom Virtual Machine](./howto-custom-create-vm/)
 
