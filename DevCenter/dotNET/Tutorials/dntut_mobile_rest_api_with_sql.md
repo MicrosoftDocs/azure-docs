@@ -667,7 +667,6 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [firsdeploy008]: ../Media/dntutmobile-deploy1-publish-006.png
 [firsdeploy009]: ../Media/dntutmobile-deploy1-publish-007.png
 [adddb001]: ../Media/dntutmobile-adddatabase-001.png
-[newapp004.1]: ../Media/dntutmobile-adddatabase-001.1.png
 [adddb002]: ../Media/dntutmobile-adddatabase-002.png
 [addcode001]: ../Media/dntutmobile-controller-add-context-menu.png
 [addcode002]: ../Media/dntutmobile-controller-add-controller-dialog.png
