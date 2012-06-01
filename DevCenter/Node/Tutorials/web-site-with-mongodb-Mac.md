@@ -88,34 +88,13 @@ In this section you will create a new Node application and use npm to add module
 
 ###Install additional modules
 
-The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for this application. To add a requirement for the Mongoose module perform the following steps:
-
-1. Open the **package.json** file in a text editor.
-
-2. Find the line that contains **"jade":** . Add a new line after it, which should contain the following:
-
-		, "mongoose": ">= 2.5.13"
-
-	After this change, the file contents should appear similar to the following:
-
-		{
-	    "name": "application-name"
-		  , "version": "0.0.1"
-		  , "private": true
-		  , "dependencies": {
-		      "express": "2.5.8"
-		    , "jade": ">= 0.0.1"
-		    , "mongoose": ">= 2.5.13"
-		  }
-		}
-
-3. Save the **package.json** file.
+The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to a Windows Azure Web Site, this file will be used to determine which modules need to be installed on Windows Azure to support your application.
 	
-4. From the command-line, change directories to the **tasklist** folder and enter the following to install the modules described in the **package.json** file:
+1. From the command-line, change directories to the **tasklist** folder and enter the following to install the modules described in the **package.json** file:
 
-        	npm install
+        npm install
 
-    The output of this command should appear as follows:
+    The output of this command should appear similar to the following:
 
 		express@2.5.8 ./node_modules/express
 		├── mime@1.2.4
@@ -125,10 +104,19 @@ The **package.json** file is one of the files created by the **express** command
 		jade@0.26.0 ./node_modules/jade
 		├── commander@0.5.2
 		└── mkdirp@0.3.0
-		mongoose@2.6.4 ./node_modules/mongoose
+
+	This installs all of the default modules that Express needs.
+
+2. Next, enter the following command to install the Mongoose module locally as well as to save an entry for it to the **package.json** file:
+
+		npm install mongoose --save
+
+	The output of this command should appear similar to the following:
+
+		mongoose@2.6.5 ./node_modules/mongoose
 		├── hooks@0.2.1
 		└── mongodb@1.0.2
-		
+
     **Note**: You can safely ignore any message about installing the C++ bson parser.
 
 ##Using MongoDB in a node application
