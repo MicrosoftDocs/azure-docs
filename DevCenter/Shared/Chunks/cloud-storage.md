@@ -19,17 +19,13 @@ article. <a id="compare" name="compare"></a>
 ## Table of Contents
 
 - [Storing Data in Windows Azure][]
-
 - [Windows Azure Blobs and Tables][]
-	 - [Blobs][]
-	 - [Tables][]
-
+ - [Blobs][]
+ - [Tables][]
 - [SQL Database](#sql)
-
 - [Additional Storage Options for Applications Hosted in Windows Azure][]
-	- [Local Storage][]
-	- [Windows Azure Drives][]
-
+ - [Local Storage][]
+ - [Windows Azure Drives][]
 - [References][]
 
 <a name="storing"> </a>
@@ -747,25 +743,15 @@ files).<a id="Ref" name="Ref"></a>
 ## References
 
 -   [Windows Azure Pricing][]
-
 -   [Windows Azure Storage][]
-
 -   [Windows Azure Storage Services REST API Reference][]
-
 -   [Windows Azure Content Delivery Network (CDN)][]
-
 -   [Storing and Accessing Data in Windows Azure][]
-
 -   [Comparing SQL Server with SQL Database][]
-
 -   [SQL Database MSDN library][]
-
 -   [SQL Database Survival Guide][]
-
 -   [Overview of Options for Migrating Data and Schema to SQL Database][]
-
 -   [Handling Transactions in SQL Database][]
-
 -   [Configuring Local Storage Resources][]
 
 <div style="width: 700px; border-top: solid; margin-top: 5px; padding-top: 5px; border-top-width: 1px;">

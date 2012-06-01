@@ -1,8 +1,8 @@
-1.Open a web browser and browse to [http://www.windowsazure.com][].
+1. Open a web browser and browse to [http://www.windowsazure.com][].
+ 
+ ![Windows Azure Website][]
 
-![Windows Azure Website][]
-
-To get started with a free account, click free trial in the upper right corner and follow the steps.
+ To get started with a free account, click free trial in the upper right corner and follow the steps.
 
 [http://www.windowsazure.com]: http://www.windowsazure.com
 [Windows Azure Website]: ../media/create-account-01.png

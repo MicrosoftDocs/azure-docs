@@ -722,11 +722,11 @@ You can bypass the prompt by using the **-Force** option with the **Remove-Azure
 
 ## Additional resources
 
-[Windows Azure PowerShell for Node.js Cmdlet Reference][cmdlet-reference]   
- [Node.js Web Application][1]   
- [Node.js Web Application with Table Storage][]   
- [Enabling Remote Desktop in Windows Azure][]   
- [Configuring SSL for a Node.js Application in Windows Azure][]
+* [Windows Azure PowerShell for Node.js Cmdlet Reference][cmdlet-reference]   
+* [Node.js Web Application][1]   
+* [Node.js Web Application with Table Storage][]   
+* [Enabling Remote Desktop in Windows Azure][]   
+* [Configuring SSL for a Node.js Application in Windows Azure][]
 
   [What is Windows Azure PowerShell for Node.js]: #_What_Is_Windows
   [Get Started Using Windows Azure PowerShell for Node.js]: #_Get_Started_Using
