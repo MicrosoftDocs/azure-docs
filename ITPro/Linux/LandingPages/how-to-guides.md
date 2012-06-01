@@ -1,7 +1,7 @@
 <properties umbracoNaviHide="0" pageTitle="How to guides" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
 
 
-<h1 id="guides">How to guides</h1>
+<h1 id="guides">How to guides for Linux virtual machines</h1>
 
 
 ##[How to Create a Custom Virtual Machine](./howto-custom-create-vm/)

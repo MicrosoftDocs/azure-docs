@@ -1,4 +1,4 @@
-#Tutorials
+#Tutorials for Linux virtual machines
 
 ##[Introduction to Linux on Windows Azure](./intro-to-linux/)
 This topic provides an overview of some aspects of using Linux virtual machines in the Windows Azure cloud. 

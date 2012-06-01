@@ -1,8 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="Getting Started with Windows Azure SQL Database" metaKeywords="Windows Azure database, tutorial" metaDescription="Learn how to use Windows Azure SQL Database." 
-linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
-
-
-<h1 id="SQLAzureTutorialITPro">Getting Started with Windows Azure SQL Database</h1>
+#Getting Started with Windows Azure SQL Database
 
 In this tutorial you will learn the fundamentals of Windows Azure SQL Database administration using the Windows Azure (Preview) Management portal. If you are new to database administration, you can follow these lessons to learn essential skills in about 30 minutes. 
 
