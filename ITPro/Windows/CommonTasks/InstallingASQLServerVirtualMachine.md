@@ -1,4 +1,8 @@
-# Provision a SQL Server virtual machine on Windows Azure #
+<properties umbracoNaviHide="0" pageTitle="Provisioning a SQL Server Virtual Machine on Windows Azure" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+
+# Provisioning a SQL Server Virtual Machine on Windows Azure #
+
+<div chunk="../../../Shared/Chunks/disclaimer.md" />
 
 The Windows Azure virtual machine gallery provides Windows Azure virtual machine images of Microsoft Windows Server 2008 R2, Service Pack 1 (64-bit) with a complete 64-bit installation of SQL Server. You can select one of the virtual machine images from the Windows Azure gallery and with a few clicks you can provision the virtual machine to your Windows Azure environment.
 
@@ -13,7 +17,7 @@ In this tutorial you will:
 
 <h2 id="Provision">Connect to the Windows Azure management portal and provision a virtual machine from the gallery</h2>
 
-1. Login to the Windows Azure Management Portal [https://manage.windowsazure.com](https://manage.windowsazure.com) using your account. (If you do not have a Windows Azure account, visit [Windows Azure 3 Month free trial](http://www.windowsazure.com/en-us/pricing/free-trial/)).
+1. Log in to the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com) using your account. If you do not have a Windows Azure account, visit [Windows Azure 3 Month free trial](http://www.windowsazure.com/en-us/pricing/free-trial/).
 	![Connect to Portal] [Image1]
 2. On the Windows Azure Management Portal, at the bottom left of the web page, click **+NEW**, click **VIRTUAL MACHINE**, and then click **FROM GALLERY**.
 

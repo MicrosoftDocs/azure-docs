@@ -1,12 +1,12 @@
 <properties umbracoNaviHide="0" pageTitle="Create a Virtual Machine Running Linux" metaKeywords="Windows Azure virtual machine, Azure virtual machine, create a VM, VM" metaDescription="Learn how to create a virtual machine running Linux in Windows Azure." linkid="manage-linux-tutorial-create-a-virtual-machine" urlDisplayName="Create a virtual machine" headerExpose="" footerExpose="" disqusComments="1" />
 #Create a Virtual Machine Running Linux 
 
-Creating a virtual machine that is running the Linux operating system is easy when you use the Image Gallery in the Windows Azure Management Portal. This guide assumes that you have no prior experience using Windows Azure. In less than 20 minutes, you can create a virtual machine running the Linux operating system in the cloud that you can access and customize.
+Creating a virtual machine that is running the Linux operating system is easy when you use the Image Gallery in the Windows Azure Management Portal. This guide assumes that you have no prior experience using Windows Azure. You can create a virtual machine running the Linux operating system in the cloud that you can access and customize.
 
 You will learn:
 
 - [What is a virtual machine in Windows Azure] []
-- [How to create a custom virtual machine running the Linux operating system by using the Management Portal] []
+- [How to create a custom virtual machine running the Linux OS] []
 - [How to log on to the virtual machine after you create it] []
 - [How to attach a data disk to the new virtual machine] []
 - [How to set up communication with the virtual machine] []
@@ -219,7 +219,7 @@ All virtual machines that you create in Windows Azure can automatically communic
 
 
 [What is a virtual machine in Windows Azure]: #virtualmachine
-[How to create a custom virtual machine running the Linux operating system by using the Management Portal]: #custommachine
+[How to create a custom virtual machine running the Linux OS]: #custommachine
 [How to log on to the virtual machine after you create it]: #logon
 [How to attach a data disk to the new virtual machine]: #attachdisk
 [How to set up communication with the virtual machine]: #endpoints
