@@ -18,22 +18,18 @@ You will build a simple Tasklist web application in PHP. A screenshot of the com
 
 ##Installing the Windows Azure client libraries
 
-In order to use the Windows Azure storage services, you must first download the client libraries. They are available as a ZIP file, PEAR package, and a Composer package. Composer provides a way to install the client libraries and all their dependencies in one go and with no prior installation work:
+In order to use the Windows Azure storage services, you must first download the client libraries. They are available as a ZIP file, PEAR package, and a Composer package. To install the PHP Client Libraries for Windows Azure as a PEAR package, follow these steps:
 
-*  Create a file named **composer.json** in the root of your project and add the following code to it:
+1. [Install PEAR][install-pear].
+2. Add the Windows Azure channel:
 
-		{
-			"require": {
-				"microsoft/windowsazure": "1.0"
-			}
-		}
-		
-* Download **composer.phar** in your project root.
+		pear channel-discover pear.windowsazure.com
 
-* Open a command prompt and execute this in your project root
+3. Install the PEAR package:
 
-		php composer.phar install
+		pear install WindowsAzure
 
+After the installation completes, you can reference class libraries from your application.
 
 ##Getting started with the client libraries
 
@@ -43,7 +39,7 @@ There are four basic steps that have to be performed before you can make a call 
 
 * First, include the autoloader script:
 
-		require_once "azure-sdk-for-php/WindowsAzure/WindowsAzure.php"; 
+		require_once "WindowsAzure/WindowsAzure.php"; 
 	
 * Include the namespaces you are going to use.
 
@@ -404,6 +400,7 @@ To publish changes to application, follow these steps:
 3. Browse to **http://[your website domain]/index.php** to see your changes. 
 
 [install-php]: http://www.php.net/manual/en/install.php
+[install-pear]: http://pear.php.net/manual/en/installation.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
 [msdn-errors]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
