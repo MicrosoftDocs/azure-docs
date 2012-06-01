@@ -6,7 +6,7 @@
 
 The Windows Azure virtual machine gallery provides Windows Azure virtual machine images of Microsoft Windows Server 2008 R2, Service Pack 1 (64-bit) with a complete 64-bit installation of SQL Server. You can select one of the virtual machine images from the gallery and with a few clicks you can provision the virtual machine to your Windows Azure environment.
 
-To upload your own virtual machine image instead of using an image from the gallery, see [Creating and Uploading a Virtual Hard Drive that Contains the Windows Server Operating System](http://go.microsoft.com/fwlink/?LinkId=252920).
+To upload your own virtual machine image instead of using an image from the gallery, see [Creating and Uploading a Virtual Hard Drive that Contains the Windows Server Operating System](/upload-a-vhd/).
 
 In this tutorial you will:
 
@@ -314,7 +314,7 @@ Your existing database can be moved to this new instance of the Database Engine 
 
 Small files (database backups or DACPAC files) can be copied to the virtual machine using copy/paste while connected using remote desktop. To transfer large files select one of the following options.
 
-- Upload the file to BLOB storage in the same datacenter as the virtual machine, and then RDP to the virtual machine and download the file from BLOB storage. For more information, see [Windows Azure Storage](http://www.windowsazure.com/en-us/home/features/storage/).
+- Upload the file to BLOB storage in the same datacenter as the virtual machine, and then RDP to the virtual machine and download the file from BLOB storage. For more information, see [Windows Azure Storage](../fundamentals/cloud-storage/).
 
 - Transfer files to a file system share after configuring a Windows Azure Virtual Network. For more information, see [Overview of Windows Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=251117). 
 

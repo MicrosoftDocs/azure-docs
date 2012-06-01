@@ -3,19 +3,19 @@
 
 <div chunk="../../shared/chunks/disclaimer.md" />
 
-##[Provisioning a SQL Server Virtual Machine on Windows Azure](./InstallingASQLServerVirtualMachine/)
+##[Provisioning a SQL Server Virtual Machine on Windows Azure](./install-sql-server/)
 
 Learn how to provision a virtual machine from the gallery, connect to the virtual machine using Remote Desktop Connection and complete Setup. Then complete configuration steps to connect to the virtual machine using SQL Server Management Studio on another computer.
 
-##[Getting Started with SQL Server on a Windows Azure Virtual Machine](./GettingStartedwithSQLServeronaWindowsAzureVirtualMachine/)
+##[Getting Started with SQL Server on a Windows Azure Virtual Machine](./sql-server-on-a-vm/)
 
 Learn how to use an image from the Windows Azure virtual machine gallery. You will use images of images of Microsoft Windows Server 2008 R2, Service Pack 1 (64-bit) with  a complete 64-bit installation of SQL Server. A version of this virtual machine is available with SQL Server 2012 Evaluation (64-bit).
 
-##[Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System](./WindowsServerVHDCommonTask/)
+##[Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System](./upload-a-vhd/)
  
 Learn how to install the Hyper-V role on your server, create the image, and then upload the image to Windows Azure. 
 
-##[Install MongoDB on a virtual machine running Windows Server 2008 R2 in Windows Azure](./InstallMongoDbOnWin2k8VM/)
+##[Install MongoDB on a virtual machine running Windows Server 2008 R2 in Windows Azure](./install-mongodb/)
 
 Learn how to use the Windows Azure (Preview) Management Portal to create a Windows Server 2008 R2 SP1 virtual machine from the gallery. Next connect to the virtual machine using Remote Desktop, and then install MongoDB on the virtual machine.
 
