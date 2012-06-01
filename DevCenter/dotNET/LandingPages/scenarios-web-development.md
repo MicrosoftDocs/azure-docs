@@ -22,7 +22,7 @@ For small and medium-sized web apps with a simple web architecture
 <p>Use WebMatrix to create a new and deploy a new Windows Azure web site that hosts the WebMatrix bakery sample application.</p>
 </div>
 <div class="article red">
-<h3><a href="en-us/develop/net/tutorials/website-with-mongodb-vm/">Website with MongoDB on a virtual machine</a></h3>
+<h3><a href="/en-us/develop/net/tutorials/website-with-mongodb-vm/">Website with MongoDB on a virtual machine</a></h3>
 <p>Create an ASP.NET MVC web site that connects to a MongoDB instance running on a Windows Azure virtual machine. You will learn how to leverage virtual machines to host unstructured data in MongoDB.</p>
 </div>
 
@@ -30,11 +30,11 @@ For small and medium-sized web apps with a simple web architecture
 For multi-environment, multi-tier web applications that require greater control of the hosting environment.
 
 <div class="article blue">
-<h3><a href="/en-us/develop/tutorials/cloud-service-with-sql-database/">ASP.NET MVC web application with SQL Database</a></h3>
+<h3><a href="/en-us/develop/net/tutorials/cloud-service-with-sql-database/">ASP.NET MVC web application with SQL Database</a></h3>
 <p>Implement a simple web application using ASP.NET MVC that supports creating, editing, and listing to-do items from a database. You will learn the basics of deploying an application to Windows Azure and storing data in SQL Database.</p>
 </div>
 <div class="article green">
-<h3><a href="/en-us/develop/tutorials/web-app-with-sql-azure/">Multi-tier application</a></h3>
+<h3><a href="/en-us/develop/net/tutorials/multi-tier-application/">Multi-tier application</a></h3>
 <p>Build a front-end ASP.NET MVC web role that uses a back-end worker role to process long running jobs. You will learn how to create and deploy multi-role solutions, as well as how to use Service Bus Queues and Topics to enable inter-role communication.</p>
 </div>
 </div>

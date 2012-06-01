@@ -43,7 +43,7 @@ Caching increases performance by temporarily storing information from other back
 
 Access Control is a Windows Azure service that provides an easy way of authenticating users who need to access your web applications and services, without having to factor complex authentication logic into your code. It provides integration with Windows Identity Foundation (WIF), support for popular web identity providers including Windows Live ID, Google, Yahoo, and Facebook, and support for ADFS 2.0.
 
-### [Diagnostics](/en-us/develop/net/how-to-guides/diagnostics/) ###
+### [Diagnostics](/en-us/develop/net/common-tasks/diagnostics/) ###
 
 Windows Azure Diagnostics enables you to collect diagnostic data from an application running in Windows Azure. You can use diagnostic data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing.
 
@@ -54,7 +54,7 @@ The Autoscaling Application Block from the Microsoft Enterprise Library 5.0 Inte
 
 Windows Azure Media Services provides an extensible media platform on Windows Azure. Media Services components can be used to accomplish tasks including uploading, storing, encoding and streaming content.  You can leverage the system end-to-end or integrate individual components with your existing tools and processes.
 
-### [SendGrid Email Service](/en-us/develop/net/how-to-guides/sendgrid/) ###
+### [SendGrid Email Service](/en-us/develop/net/how-to-guides/sendgrid-email-service/) ###
 
 Windows Azure applications can use SendGrid to include email functionality.  SendGrid provides reliable email delivery,  real-time analytics, and flexible APIs that allow users to easily incorporate the service into their Windows Azure applications.
 
