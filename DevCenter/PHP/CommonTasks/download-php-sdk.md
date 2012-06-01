@@ -2,7 +2,7 @@
 
 #Download the Windows Azure SDK for PHP
 
-The Windows Azure SDK for PHP includes components that allow you to develop, deploy, and mangage PHP applications for Windows Azure. Specifically, the Windows Azure SDK for PHP includes the following:
+The Windows Azure SDK for PHP includes components that allow you to develop, deploy, and manage PHP applications for Windows Azure. Specifically, the Windows Azure SDK for PHP includes the following:
 
 * **The PHP client libraries for Windows Azure**. These class libraries provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services.  
 * **The Windows Azure Command-Line Tools for Mac and Linux**. This is a set of command-line tools for deploying and managing Windows Azure services, such as Windows Azure Websites and Windows Azure Virtual Machines. These tools work on any platform, including Mac, Linux, and Windows.
@@ -19,9 +19,10 @@ The instructions in this topic assume that you have [PHP][install-php] installed
 </div>
 
 
+
 ##PHP client libraries for Windows Azure
 
-The PHP Client Libraries for Windows Azure are PHP class libraries that provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services, from any operating system. These libraries can be installed as a PEAR package or manually.
+The PHP Client Libraries for Windows Azure provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services, from any operating system. These libraries can be installed as a PEAR package or manually.
 
 For information about how to use the PHP Client Libraries for Windows Azure, see [How to Use the Blob Service from PHP][blob-service], [How to Use the Table Service from PHP][table-service], and [How to Use the Queue Service from PHP][queue-service].
 
@@ -30,13 +31,9 @@ For information about how to use the PHP Client Libraries for Windows Azure, see
 To install the PHP Client Libraries for Windows Azure as a PEAR package, follow these steps:
 
 1. [Install PEAR][install-pear].
-2. Add the Windows Azure channel:
+2. Install the PEAR package:
 
-		pear channel-discover pear.windowsazure.com
-
-3. Install the PEAR package:
-
-		pear install WindowsAzure
+		pear install pear.windowsazure.com/WindowsAzure
 
 After the installation completes, you can reference class libraries from your application.
 
@@ -44,7 +41,7 @@ After the installation completes, you can reference class libraries from your ap
 
 To download and install the PHP Client Libraries for Windows Azure manually, follow these steps:
 
-1. Download a .zip archive that contains the libraries from Github: [http://go.microsoft.com/fwlink/?LinkId=252719][php-sdk-github]. Alternatively, fork the repository and clone it to your local machine. (The latter option requires a Github account and having Git installed locally.)
+1. Download a .zip archive that contains the libraries from [GitHub][php-sdk-github]. Alternatively, fork the repository and clone it to your local machine. (The latter option requires a GitHub account and having Git installed locally.)
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
