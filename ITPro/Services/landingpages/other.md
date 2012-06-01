@@ -1,4 +1,7 @@
 #Other management articles
+The articles in this section will help you manage your applications and services in a Windows Azure environment. New content will be added frequently, so please visit this page for new topics. You can also use the Disqus section below to suggest new topics. 
+
+
 
 ##Tutorials
 
