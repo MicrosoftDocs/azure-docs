@@ -146,9 +146,9 @@ The last thing we need to do to create the utility is implement the SaveMapping 
 	}
 
 
-Now you need to download the sample data from [this link](http://labrosa.ee.columbia.edu/millionsong/sites/default/files/challenge/train_triplets.txt.zip). Once dowloaded, open **train_triplets.txt.zip** and extract **train_triplets.txt**.
+Now you need to download the sample data from [this link](http://labrosa.ee.columbia.edu/millionsong/sites/default/files/challenge/train_triplets.txt.zip). Once dowloaded, open **train\_triplets.txt.zip** and extract **train\_triplets.txt**.
 
-When running the utility, you need to include a command line argument with the location of **train_triplets.txt**. To do so, right-click the **ConvertToMahoutInput** project node in **Solution Explorer** and select **Properties**. On the project properties page, add the path of **train_triplets.txt** to the **Command line arguments** text box:
+When running the utility, you need to include a command line argument with the location of **train\_triplets.txt**. To do so, right-click the **ConvertToMahoutInput** project node in **Solution Explorer** and select **Properties**. On the project properties page, add the path of **train\_triplets.txt** to the **Command line arguments** text box:
 
 ![setting command line arguments](../media/setting-command-line-arguments.png)
 
