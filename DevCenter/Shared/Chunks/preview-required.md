@@ -1,4 +1,4 @@
-The instructions contained in this article are based on the [Windows Azure Management Portal] preview. When viewing the portal, it should display the word Preview at the top of the page.
+The following instructions assume that you are using the [Windows Azure Management Portal] preview. When viewing the portal, it should display the word Preview at the top of the page.
 
 ![image of preview portal][preview-portal]
 
