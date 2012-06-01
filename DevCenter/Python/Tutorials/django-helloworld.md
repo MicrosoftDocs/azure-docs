@@ -1,3 +1,5 @@
+<div class="dev-center-os-selector"><a href="/en-us/develop/python/tutorials/web-app-with-django/" title="Windows Version" class="windows current">Windows</a><a href="./mac/" title="Mac Version" class="mac">Mac</a><span>Tutorial</span></div>
+
 # Django Hello World Web Application
 
 This tutorial describes how to host a Django-based website on Windows 
