@@ -65,6 +65,9 @@ Set up the Windows Azure environment by creating a Windows Azure account and a W
 1.	Open a web browser, and browse to http://www.windowsazure.com.
 2.	To get started with a free account, click Free Trial in the upper-right corner and follow the steps.
 
+### Enable the Windows Azure Web Sites feature on your account
+
+<div chunk=”../../shared/chunks/antares-iaas-signup.md” />
 
 <h3>Create a website in Windows Azure</h3>
 
