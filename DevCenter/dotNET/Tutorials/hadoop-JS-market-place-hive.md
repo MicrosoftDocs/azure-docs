@@ -1,5 +1,5 @@
 <a name="title" />
-# Running Hadoop Jobs on Windows Azure, Importing Data from DataMarket, and Analysing the Data with the Excel Hive Add-In 
+# Running Hadoop Jobs on Windows Azure, Importing Data from Windows Azure Marketplace, and Analysing the Data with the Excel Hive Add-In 
 
 ---
 
@@ -10,7 +10,7 @@ This tutorial shows two ways run MapReduce programs in a cluster using Apache Ha
 
 The first way to run a MapeReduce program is with a Hadoop jar file using the **Create Job** UI. The second way is with a query using the fluent API layered on Pig that is provided by the **Interactive Console**. The first approach uses a MapReduce program written in Java; the second uses a script written in Javascript. The tutorial also shows how to upload files to the HDFS cluster that are needed as input for a MapReduce program and how to read the MapReduce output files from the HDFS cluster to exmine the results of an analysis.
 
-The Azure Marketplace collects data, imagery, and real-time web services from leading commercial data providers and authoritative public data sources. It simplifies the purchase and consumption of a wide variety of data including demographic, environment, financial, retail and sports. This tutorial shows how to upload this data into a Hadoop on Windows Azure and query is using Hive scripts.
+The Windows Azure Marketplace collects data, imagery, and real-time web services from leading commercial data providers and authoritative public data sources. It simplifies the purchase and consumption of a wide variety of data including demographic, environment, financial, retail and sports. This tutorial shows how to upload this data into a Hadoop on Windows Azure and query is using Hive scripts.
 
 A key feature of Microsoft’s Big Data Solution is the integration of Hadoop with Microsoft Business Intelligence (BI) components. A good example of this is the ability for Excel to connect to the Hive data warehouse framework in the Hadoop cluster. This tutorial shows how to use Excel via the Hive ODBC driver to access and view data in the cluster. 
 	

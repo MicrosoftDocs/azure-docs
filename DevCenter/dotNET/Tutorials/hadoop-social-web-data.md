@@ -1,5 +1,5 @@
 <a name="tutorial-steps-to-demo-and-process-twitter-mo" />
-# Tutorial steps to Demo and Process Twitter Movie data using Apache Hadoop-based Service for Windows Azure 
+# Analyzing Twitter Movie Data with Hive 
 
 <a name="Overview" />
 ## Overview 
