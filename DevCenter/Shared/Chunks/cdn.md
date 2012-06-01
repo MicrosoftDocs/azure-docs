@@ -83,7 +83,9 @@ when the cached content time-to-live period expires.
 
 **To enable CDN on your subscription**
 
-1.  In the [Windows Azure Management Portal], in the title, click **Preview** and then select [Previous Management Portal]. This will load the production management portal.
+1.  In the [Windows Azure Management Portal], in the title, click **Preview** and then select **Take me to the previous portal**. This will load the production management portal.
+
+	![preview portal dialog][Previous Management Portal]
 
 2. In the production management portal, in the navigation pane,
     click **Hosted Services, Storage Accounts and CDN**.
@@ -173,3 +175,4 @@ CDN.
 
 [create-new-cdn-endpoint]: ../Media/CDN_CreateNewCDNEndpoint.png
 [create-new-storage-account]: ../Media/CDN_CreateNewStorageAcct.png
+[Previous Management Portal]: ../../Shared/Media/previous-portal.png
