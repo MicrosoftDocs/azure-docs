@@ -47,7 +47,7 @@ There are four basic steps that have to be performed before you can make a call 
 
 		use WindowsAzure\Common\Configuration;
 	
-	This tutorial uses the Azure Table service. Two namespaces are necessary to create a wrapper around the Table service calls:
+	This tutorial uses the Windows Azure Table service. Two namespaces are necessary to create a wrapper around the Table service calls:
 	
 		use WindowsAzure\Table\TableService;
 		use WindowsAzure\Table\TableSettings;

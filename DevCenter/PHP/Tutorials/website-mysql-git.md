@@ -206,7 +206,7 @@ After you have tested your application locally, you can publish it to your Windo
 
 <div class="dev-callout">
 <b>Note</b>
-<p>These are the same steps show in the portal at the end of the <b>Create a Windows Azure web site and Set up Git Publishing</b> section.</p>
+<p>These are the same steps shown in the portal at the end of the <b>Create a Windows Azure web site and Set up Git Publishing</b> section.</p>
 </div>
 
 1. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:
