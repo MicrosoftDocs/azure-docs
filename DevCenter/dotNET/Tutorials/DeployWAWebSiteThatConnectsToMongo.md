@@ -29,11 +29,17 @@ In this section you will learn how to create a virtual machine in Windows Azure 
 
 ###Create a virtual machine and install MongoDB
 
-This tutorial assumes you have created a virtual machine in Windows Azure running Linux. After createing the virtual machine you need to install MongoDB on the virtual machine.
+This tutorial assumes you have created a virtual machine in Windows Azure running Linux. After creating the virtual machine you need to install MongoDB on the virtual machine.
 
 To create a Linux virtual machine and install MongoDB, see [Install MongoDB on a virtual machine running CentOS Linux in Windows Azure][InstallMongoOnCentOSLinuxVM].
 
 After you have created the virtual machine in Windows Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.
+
+### Sign up for the Windows Azure Web Sites preview
+
+You will need to sign up for the Windows Azure Web Sites preview in order to create a Windows Azure web site. You can also sign up for a free trial account if you do not have a Windows Azure account.
+
+<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
 ### Set up the development environment
 
@@ -420,7 +426,7 @@ In this section you will create a web site and deploy your Task List ASP.NET app
 ### Create the web site
 In this section you will create a Windows Azure web site.
 
-1. Open a web browser and browse to the [Windows Azure (Preview) Management Portal][AzurePreviewPortal]. Sign in with your Windows Live ID and password. If you don't have a Windows Azure account, you can get started with a free account by clicking **Free trial** in the upper right corner. 
+1. Open a web browser and browse to the [Windows Azure (Preview) Management Portal][AzurePreviewPortal]. Sign in with your Windows Azure account. 
 2. At the bottom of the page, click **+New**, then **Web Site**, and finally **Quick Create**.
 3. Enter a unique prefix for the application's URL.
 4. Select a region.
