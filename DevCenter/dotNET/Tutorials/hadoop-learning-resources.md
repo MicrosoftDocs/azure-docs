@@ -1,4 +1,4 @@
-# Additional Resources 
+# Additional Learning Resources 
 
 
 <h2 id="Resources"> <a name="Resources">Resources for Learning about Apache Hadoop-based Service for Windows Azure and the Hadoop and Azure Ecosystems</a> </h2>

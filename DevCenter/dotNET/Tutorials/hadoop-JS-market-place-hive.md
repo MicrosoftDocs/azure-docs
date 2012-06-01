@@ -1,5 +1,5 @@
 <a name="title" />
-# Running Hadoop Jobs on Windows Azure, Importing Data from DataMarket, and Analysing the Data with the Excel Hive Add-In 
+# Running Hadoop Jobs on Windows Azure, Importing Data from Windows Azure Marketplace, and Analysing the Data with the Excel Hive Add-In 
 
 ---
 
