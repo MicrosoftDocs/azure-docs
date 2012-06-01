@@ -22,10 +22,10 @@ Secure Socket Layer (SSL) encryption is the most commonly used method of securin
 The Windows Azure Content Delivery Network (CDN) offers a global solution for delivering high-bandwidth content by caching blobs and static content at physical nodes around the world. This common task describes how to enable CDN and add, access, and delete content.
 
 
-[Downloading the Windows Azure SDK for PHP]: en-us/develop/php/common-tasks/download-php-sdk/
+[Downloading the Windows Azure SDK for PHP]: /en-us/develop/php/common-tasks/download-php-sdk/
 [Publishing with Git]: /en-us/develop/php/common-tasks/publishing-with-git/
 [Managing Windows Azure SQL Database using SQL Server Management Studio]: /en-us/develop/php/common-tasks/sql-azure-management/
-[Configuring a Custom Domain Name in Windows Azure]: /en-us/develop/php/common-tasks/custom-dns/
-[Enabling Remote Desktop in Windows Azure]: /en-us/develop/php/common-tasks/remote-desktop/
+[Configuring a Custom Domain Name in Windows Azure]: /en-us/develop/php/common-tasks/enable-custom-dns/
+[Enabling Remote Desktop in Windows Azure]: /en-us/develop/php/common-tasks/enable-remote-desktop/
 [Configuring SSL for an Application in Windows Azure]: /en-us/develop/php/common-tasks/enable-ssl/
 [Using CDN for Windows Azure]: /en-us/develop/php/common-tasks/cdn/
