@@ -39,8 +39,7 @@ The following list contains information for installing the command-line tools, d
 
 		sudo npm install azure -g
 
-	<p>On Windows, you may need to run the command from a prompt with elevated privileges.
-	</p> 
+	On Windows, you may need to run the command from a prompt with elevated privileges.
 	</div>
 
 To test the installation, type `azure` at the command prompt. If the installation was successful, you will see a list of all the available `azure` commands.
