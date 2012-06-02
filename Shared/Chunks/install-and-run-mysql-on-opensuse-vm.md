@@ -49,7 +49,7 @@
 
 9. To login from another computer, execute the following:
 
-	mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
+		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
 
 	where `ip-address` is the IP address of the computer from which you will connect to MySQL.
 	

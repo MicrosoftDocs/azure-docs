@@ -1,6 +1,6 @@
 #How to Create a Custom Virtual Machine
 
-To use this feature, please sign up for access to the preview at [https://account.windowsazure.com/PreviewFeatures](https://account.windowsazure.com/PreviewFeatures). 
+To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures). 
 
 You can create a custom virtual machine by providing advanced options, such as size, connected resources, DNS name, and network connection. You must use this option if you want to connect virtual machines or if you want to use a custom image to create the machine. 
 
