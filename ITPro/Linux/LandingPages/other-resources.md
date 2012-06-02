@@ -4,7 +4,7 @@
 
 <div chunk="../../shared/chunks/disclaimer.md" />
 
-##[How to Use the Service Management API](./howto-servicemgt-api/)
+##[How to Use the Service Management API](./service-management-api/)
 Learn about the Windows Azure IaaS Service Management API which is invoked from Node.js.
 
 ##[Windows Azure command-line tool for Mac and Linux](./command-line-tools/)
@@ -15,11 +15,11 @@ Learn about this command-line that provides functionality for creating, deployin
  
 Review a list of the partners who deliver Linux-based cloud solutions in Windows Azure.
 
-##[Linux on Windows Azure-Endorsed Distributions](./linux-on-endorsed-distributions/)
+##[Linux on Windows Azure-Endorsed Distributions](./endorsed-distributions/)
 
 Learn which distribution versions, LIS drivers and Agent Versions have been tested to work on Windows Azure.
 
-##[Selecting User Names for Linux on Windows Azure](./usernames-in-linux/)
+##[Selecting User Names for Linux on Windows Azure](./user-names-in-linux/)
 Learn which user names you can't use on Windows Azure. 
 
 ##[Windows Azure Training Kit](./training-kit/)
