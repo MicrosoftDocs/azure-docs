@@ -1,5 +1,11 @@
 # IPython Notebook on Windows Azure
 
+
+For a quick overview of installation and IPython, please watch:
+
+<div class="dev-video-thumb" style="background-image:url(../Media/ipy-youtube2.png)"><a href="VIDEOLINK">Video Available</a></div>
+
+
 The [IPython project](http://ipython.org) provides a collection of tools for
 scientific computing that include powerful interactive shells, high-performance
 and easy to use parallel libraries and a web-based environment called the
