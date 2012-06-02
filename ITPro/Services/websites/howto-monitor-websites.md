@@ -12,7 +12,7 @@ Websites provide monitoring functionality via the Monitor management page. The M
 - [How to: Reduce resource usage](#resourceusage)
 - [What happens when a resource usage quota is exceeded](#exceeded)
 - [How to: Configure diagnostics and download logs for a website](#howtoconfigdiagnostics)
-- [Next steps](#nextsteps)
+
 
 ##<a name="websitemetrics"></a>How to: Add website metrics
 
@@ -44,8 +44,6 @@ The following list describes the metrics that you can view in the chart on the *
 - **Http 406 errors** – Number of Http “406 Not Acceptable” messages sent.
 
 
---------------------------------------------------------------------------------
-
 
 
 ##<a name="howtoviewusage"></a>How to: View usage quotas for a website
@@ -53,7 +51,7 @@ The following list describes the metrics that you can view in the chart on the *
 Websites can be configured to run in either **Shared** or **Reserved** website mode from the website's **Scale** management page. Each Azure subscription has access to a pool of resources provided for the purpose of running up to 10 websites in **Shared** website mode. The pool of resources available to each Web Site subscription for this purpose is shared by other websites in the same geo-region that are configured to run in **Shared** website mode. Because these resources are shared for use by other websites, all subscriptions are limited in their use of these resources. Limits applied to a subscription's use of these resources are expressed as usage quotas listed under the usage overview section of each website's **Dashboard** management page.
 
 **Note**  
-When a website is configured to run in **Reserved** mode it is allocated dedicated resources equivalent to the **Small** (default), **Medium** or **Large** virtual machine sizes in the table at [How to: Configure Virtual Machine Sizes][configvmsizes]. There are no limits to the resources a subscription can use for running websites in **Reserved** mode however the number of **Reserved** mode websites that can be created per subscription is limited to **100**.
+When a website is configured to run in **Reserved** mode it is allocated dedicated resources equivalent to the **Small** (default), **Medium** or **Large** virtual machine sizes in the table at [How to Configure Virtual Machine Sizes][configvmsizes]. There are no limits to the resources a subscription can use for running websites in **Reserved** mode however the number of **Reserved** mode websites that can be created per subscription is limited to **100**.
  
 ### Viewing usage quotas for websites configured for Shared website mode ###
 To determine the extent that a website is impacting resource usage quotas, follow these steps:
@@ -85,7 +83,9 @@ Consider scaling back additional instances of shared mode websites if resource u
 Windows Azure takes the following actions if a subscription's resource usage quotas are exceeded in a quota interval (24 hours):
 
  - **Data Out** – when this quota is exceeded Windows Azure stops all websites for a subscription which are configured to run in **Shared** mode for the remainder of the current quota interval. Windows Azure will start the websites at the beginning of the next quota interval.
+
  - **CPU Time** – when this quota is exceeded Windows Azure stops all websites for a subscription which are configured to run in **Shared** mode for the remainder of the current quota interval. Windows Azure will start the websites at the beginning of the next quota interval.
+
  - **File System Storage** – Windows Azure prevents deployment of any websites for a subscription which are configured to run in Shared mode if the deployment will cause the File System Storage usage quota to be exceeded. When the File System Storage resource has grown to the maximum size allowed by its quota, file system storage remains accessible for read operations but all write operations, including those required for normal website activity are blocked. When this occurs you could configure one or more websites running in Shared website mode to run in Reserved website mode and reduce usage of file system storage below the File System Storage usage quota.
 
 
@@ -119,30 +119,39 @@ Follow these steps to download log files for a website:
 3. Consider using an FTP client such as [FileZilla][fzilla] to connect to the FTP site. An FTP client provides greater ease of use for specifying credentials and viewing folders on an FTP site than is typically possible with a browser.
 4. Copy the log files from the FTP site to your local computer.
 
-###Reading log files from a website###
+##Reading log files from a website##
 
-The log files that are generated after you have enabled logging and / or tracing for a website vary depending on the level of logging / tracing that is set on the Configure management page for the website. The following table summarizes the location of the log files and how the log files may be analyzed:
-
-<table cellpadding="0" cellspacing="0" width="900" rules="all" style="border: #000000 thin solid;">
-<tr style="background-color: silver; font-weight: bold;" valign="top"><th style="width: 160px">Log File Type</th><th style="width: 190px">Location</th><th style="width: 600px">Read Files With</th></tr>
-<tr><td>Failed Request Tracing</td><td>/LogFiles/W3SVC#########/</td><td><strong>Internet Explorer</strong><br/>
-<b>Important</b><br/>
-The /LogFiles/W3SVC#########/ folder contains an XSL file and one or more XML files. Ensure that you download the XSL file into the same directory as the XML file(s) because the XSL file provides functionality for formatting and filtering the contents of the XML file(s) when viewed in Internet Explorer.</td></tr>
-<tr><td>Detailed Error Logging</td><td>/LogFiles/DetailedErrors/</td><td><strong>Internet Explorer</strong><br/>
-The /LogFiles/DetailedErrors/ folder contains one or more .htm files that provide extensive information for any HTTP errors that have occurred. The .htm files include the following sections:<br/><ul>
-<li><strong>Detailed Error Information</strong> – Includes information about the error such as <em>Module</em>, <em>Handler</em>, <em>Error Code</em>, and <em>Requested URL</em>.<br/></li>	
-<li><strong>Most likely causes:</strong> Lists several possible causes of the error.<br/></li>
-<li><strong>Things you can try:</strong> Lists possible solutions for resolving the problem reported by the error.<br/></li>
-<li><strong>Links and More Information</strong> – Provides additional summary information about the error and may also include links to other resources such as Microsoft Knowledge Base articles.</li></ul></td></tr>
-<tr><td>Web Server Logging</td><td>/LogFiles/http/RawLogs</td><td><strong>Log Parser</strong><br/>
-Used to parse and query IIS log files. Log Parser 2.2 is available on the Microsoft Download Center at <a href="http://go.microsoft.com/fwlink/?LinkId=246619">http://go.microsoft.com/fwlink/?LinkId=246619</a>.</td></tr>
-</table>
+The log files that are generated after you have enabled logging and / or tracing for a website vary depending on the level of logging / tracing that is set on the Configure management page for the website. Following are the location of the log files and how the log files may be analyzed:
 
 
+###Log File Type: Failed Request Tracing
+
+- Location: /LogFiles/W3SVC#########/. This folder contains an XSL file and one or more XML files. Ensure that you download the XSL file into the same directory as the XML file(s) because the XSL file provides functionality for formatting and filtering the contents of the XML file(s) when viewed in Internet Explorer. 
+
+- Read Files with: Internet Explorer
+
+###Log File Type: Detailed Error Logging
+
+- Location: /LogFiles/DetailedErrors/. The /LogFiles/DetailedErrors/ folder contains one or more .htm files that provide extensive information for any HTTP errors that have occurred. 
+
+- Read Files with: Internet Explorer
+
+The .htm files include the following sections:
+
+- **Detailed Error Information:** Includes information about the error such as <em>Module</em>, <em>Handler</em>, <em>Error Code</em>, and <em>Requested URL</em>.
+
+- **Most likely causes:** Lists several possible causes of the error.
+
+- **Things you can try:** Lists possible solutions for resolving the problem reported by the error.
+
+- **Links and More Information**: Provides additional summary information about the error and may also include links to other resources such as Microsoft Knowledge Base articles.
 
 
+###Log File Type: Web Server Logging
 
-##<a name="nextsteps"></a>Next steps
+- Location: /LogFiles/http/RawLogs
+
+- Read Files with: Log Parser. Used to parse and query IIS log files. Log Parser 2.2 is available on the Microsoft Download Center at <a href="http://go.microsoft.com/fwlink/?LinkId=246619">http://go.microsoft.com/fwlink/?LinkId=246619</a>.
 
 
 

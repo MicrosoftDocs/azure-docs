@@ -13,7 +13,6 @@ Windows Azure can only ensure 99.95 percent service availability during the conf
 ##Table of Contents##
 
 * [How to: Update the cloud service configuration](#update)
-* [How to: Update a cloud service role or deployment](#updaterole)
 * [How to: Configure remote access to role instances](#remoteaccess)
 
 

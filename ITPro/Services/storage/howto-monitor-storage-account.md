@@ -52,6 +52,7 @@ On the dashboard, you can choose up to six metrics to plot on the metrics chart 
 1. In the [Management Portal](https://manage.windowsazure.com/), click **Storage**, and then click the name of the storage account to open the dashboard.
 
 2. To change the metrics that are plotted on the chart, take one of the following actions:
+
 - To add a new metric to the chart, click the check box by the metric header. In a narrow display, click ***n* more** to access headers that can't be displayed in the header area.
 
 - To hide a metric that is plotted on the chart, clear the check box by the metric header.
@@ -59,9 +60,6 @@ On the dashboard, you can choose up to six metrics to plot on the metrics chart 
 	![Monitoring_nmore] (../media/storage_Monitoring_nmore.png)
   
 - To change the time range the metrics chart displays, select 6 hours, 24 hours, or 7 days at the top of the chart.
-
-	![Monitoring_DisplayPeriod] (../media/Storage_Monitoring_DisplayPeriod.png)
-
      
 
 <h2 id="customizemonitorpage">How to: Customize the Monitor page</h2>
@@ -134,7 +132,7 @@ For each of the storage services available with your storage account (Blob, Tabl
 
 2. Click **Configure**, and use the Down arrow on the keyboard to scroll down to **logging** (shown below).
 
-	![Storagelogging] (../media/Storage_LoggingOpions.png)
+	![Storagelogging] (../media/Storage_LoggingOptions.png)
 
  
 3. For each service (Blob, Table, and Queue), configure the following:
