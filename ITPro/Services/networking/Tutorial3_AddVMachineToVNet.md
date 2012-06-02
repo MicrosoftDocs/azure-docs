@@ -15,9 +15,10 @@ This tutorial assumes you have no prior experience using Windows Azure.
 For information about creating adding Active Directory connection to your virtual network, see the following:
 	<!-- UPDATE THE FOLLOWING LIST ONCE WE HAVE THE LINKS FOR TUTORIALS 4 & 5 -->
 
--  New Active Directory Forest in the Cloud
+-  [Active Directory Replica Domain Controller with cross-premises connectivity](./Tutorial-AD-1/)
 
--  Active Directory Replica Domain Controller with cross-premises connectivity
+-  [New Active Directory Forest in the Cloud](./Tutorial-AD-2/)
+
 
 ## Objectives ##
 
@@ -31,16 +32,18 @@ In this tutorial you will learn:
 
 -  Complete one of the following: 
 
--  [Tutorial 1: Creating a Virtual Network in Windows Azure] [Tut1_VN]
+-  [Tutorial 1: Creating a Virtual Network in Windows Azure](./Tutorial1_CreateVirtualNetwork/)
 
 	-OR- 
--  [Tutorial 2: Creating a Virtual Network for cross-premises connectivity] [Tut2_VN]
+-  [Tutorial 2: Creating a Virtual Network for cross-premises connectivity](./Tutorial2_CreateVNetCrossPrem/)
 
 -  Windows Live account with at least one valid, active subscription.	
 
--  Names of the following:
-	-	Affinity group you assigned your virtual network to in Tutorial 1 or Tutorial 2.
-	-	Name of your virtual network created in Tutorial 1 or Tutorial 2.
+Names of the following:
+
+-	Affinity group you assigned your virtual network to in Tutorial 1 or Tutorial 2.
+
+-	Name of your virtual network created in Tutorial 1 or Tutorial 2.
 
 ## <a name="CreateStorageAcct">Create Storage Account</a> ##
 
@@ -131,9 +134,10 @@ In this tutorial you will learn:
 If you'd like to connect to Active Directory, you can continue with the following tutorials:
 	<!-- UPDATE THE FOLLOWING LIST ONCE WE HAVE THE LINKS FOR TUTORIALS 4 & 5 -->
 	
--	New Active Directory Forest in the Cloud
-	
--   Active Directory Replica Domain Controller with cross-premises connectivity
+-  [Active Directory Replica Domain Controller with cross-premises connectivity](./Tutorial-AD-1/)
+
+-  [New Active Directory Forest in the Cloud](./Tutorial-AD-2/)
+
 
 <!-- LINKS -->
 
