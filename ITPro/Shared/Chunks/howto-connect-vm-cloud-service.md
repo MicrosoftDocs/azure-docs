@@ -24,7 +24,7 @@ You must first create a virtual machine with a new cloud service, and then you c
 
 	The **VM Configuration** dialog box appears.
 
-	![Select the image][Select the image]
+	![Select the image][Define the image]
 
 5. In **Virtual Machine Name**, type the name that you want to use for the virtual machine.
 
@@ -50,16 +50,16 @@ You must first create a virtual machine with a new cloud service, and then you c
 
 	The **VM Options** dialog box appears.
 
-	![Define the connected virtual machine][Define the connected virtual machine]
+	![Define the connected virtual machine][Define the connected virtual machine region]
 
 14. Select the availability set that was created when you created the first virtual machine.
 
 15. Click the check mark to create the connected virtual machine.
 
-[How to create a custom virtual machine]:./howto-custom-create-VM/
+[How to create a custom virtual machine]:../../Linux/HowTo/howto-custom-create-vm.md
 [Create a new virtual machine]:../media/create.png
 [Create a custom virtual machine]:../media/createnew.png
 [Select the image]:../media/imageselectionwindows.png
-[Select the image]:../media/imagedefinewindows.png
+[Define the image]:../media/imagedefinewindows.png
 [Define the connected virtual machine]:../media/connectedvms.png
-[Define the connected virtual machine] (../media/availabilitysetselect.png
+[Define the connected virtual machine region]: ../media/availabilitysetselect.png

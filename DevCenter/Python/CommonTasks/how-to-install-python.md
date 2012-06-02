@@ -44,7 +44,9 @@ Unless you have a specific need, we recommend the first two options, as describe
 
 ## Installation on Windows
 
-For Windows you can use the provided WebPI installer to streamline the installation (it will grab CPython from www.python.org):
+For Windows you can use the provided WebPI installer from the main Python Developer Center to streamline the installation (it will grab CPython from www.python.org).
+
+**Note:** On Windows Server, in order to download the WebPI installer you may have to configure IE ESC settings (Start/Adminstrative Tools/Server Manager, then click **Configure IE ESC**, set to Off)
 
 ![how-to-install-python-webpi-1.png][] 
 
@@ -83,7 +85,9 @@ Python Tools for Visual Studio is a free/OSS plugin from Microsoft which turns V
 
 ![how-to-install-python-ptvs.png][]
 
-Using Python Tools for Visual Studio is optional, but is recommended as it gives you Python and Django Project/Solution support, debugging, profiling, Template editing and Intellisense, deployment to cloud, etc.  This add-in  works with your existing VS2010 install.  If you don't have VS2010, WebPI will install the free Integrated Shell + PTVS which essentially give you a **completely free** "VS Python Express" IDE.  For more information, see [Python Tools for Visual Studio on CodePlex][].  Also note that while the PTVS plug-in is small, the Integrated Shell will increases your download times.
+Using Python Tools for Visual Studio is optional, but is recommended as it gives you Python and Django Project/Solution support, debugging, profiling, Template editing and Intellisense, deployment to cloud, etc.  This add-in  works with your existing VS2010 install.  If you don't have VS2010, WebPI will install the free Integrated Shell + PTVS which essentially give you a **completely free** "VS Python Express" IDE.  For more information, see [Python Tools for Visual Studio on CodePlex][].  
+
+Note: While the PTVS plug-in is small, the Integrated Shell will increases your download times. It also currently doesn't support the "Add Windows Azure Deployment Project" feature.
 
 
 ## Installation on Linux and MacOS

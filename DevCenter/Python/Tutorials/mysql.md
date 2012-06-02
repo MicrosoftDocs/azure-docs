@@ -17,7 +17,7 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 ![][0]
 
 ## Setting up a virtual machine to host MySQL and Django
-1. Follow the instructions given [here][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Windows Server 2008 R2* flavor.
+1. Follow the instructions given [here ][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Windows Server 2008 R2* flavor.
 
 1. Open up a TCP port for MySQL transactions on the virtual machine:
  * Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
@@ -40,7 +40,7 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
  * Specify a name for the rule, such as "DjangoPort", and click Finish.
 
 1. Install the latest version of [MySQL Community Server] [mysqlcommunity] for Windows on the virtual machine:
- * Run the *Windows (x86, 64-bit), MSI Installer* link [here] [mysqlcommunity] and download the appropriate MSI installer from the download mirror nearest you. Helpful hints are:
+ * Run the *Windows (x86, 64-bit), MSI Installer* link [here ] [mysqlcommunity] and download the appropriate MSI installer from the download mirror nearest you. Helpful hints are:
      * Select a *Complete* Setup Type.
      * Select a *Detailed Configuration* within the Configuration Wizard.
      * **Make sure you enable TCP/IP Networking on Port Number 3306 and add a firewall exception for the port.**
@@ -50,7 +50,7 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
      * **Unzip it to *C:\Users\Administrator\Desktop\world.sql*.**
 1. After installing MySQL, click the Windows *Start* menu and run the freshly installed *MySQL 5.5 Command Line Client*.  Issue the following commands:
 
-		CREATE world;
+		CREATE DATABASE world;
 		USE world;
 		SOURCE C:\Users\Administrator\Desktop\world.sql
 		CREATE USER 'testazureuser'@'%' IDENTIFIED BY 'testazure';
@@ -207,7 +207,7 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 		Development server is running at http://123.34.56.78:80
 		Quit the server with CTRL-BREAK.
  
-1. From your local web browser, open **http://*yourVmName*.cloudapp.net** (where *yourVmName* is whatever name you used in the virtual machine creation step). You should see “Hello World!” displayed as shown in the screenshot below. This indicates that Django is running in the virtual machine and is working correctly.
+1. From your local web browser, open **http://*yourVmName*.cloudapp.net** (where *yourVmName* is whatever name you used in the virtual machine creation step). You should see “Hello ... !” displayed as shown in the screenshot below. This indicates that Django is running in the virtual machine and is working correctly.
 
     ![][5]
 
@@ -235,7 +235,7 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [djangohelloworld]: ../web-app-with-django
 [mysqldoc]: http://dev.mysql.com/doc/
 [mysqlpy]: http://pypi.python.org/pypi/MySQL-python/1.2.3
-[wapstarted]: ../commontasks/how-to-install-python.md
+[wapstarted]: ../commontasks/install-python
 [mysqlpydl]: http://www.codegood.com/download/10/
 [mysqlcommunity]:http://dev.mysql.com/downloads/mysql/
 [dotnetfour]:http://go.microsoft.com/fwlink/?LinkId=181012
@@ -249,5 +249,5 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [The status of the Remove-AzureService command]: ../Media/django-helloworld-ps-remove.png
 [How to Delete a Storage Account from a Windows Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx
 
-[Installation Guide]: /develop/python/commontasks/how-to-install-python
+[Installation Guide]: ../commontasks/install-python
  

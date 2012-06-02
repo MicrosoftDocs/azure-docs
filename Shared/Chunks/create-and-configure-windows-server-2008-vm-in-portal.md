@@ -1,4 +1,4 @@
-1. Login to the [Windows Azure (Preview) Management Portal][AzurePreviewPortal] using your account. If you do not have a Windows Azure account visit [Windows Azure 3 Month free trial](http://www.windowsazure.com/en-us/pricing/free-trial/).
+1. Login to the [Windows Azure (Preview) Management Portal][AzurePreviewPortal] using your Windows Azure account.
 2. In the Management Portal, at the bottom left of the web page, click **+New**, click **Virtual Machine**, and then click **From Gallery**.
 ![Create a New Virtual Machine][Image1]
 3. Select a Windows Server 2008 R2 SP1 virtual machine image, and then click the next arrow at the bottom right of the page.

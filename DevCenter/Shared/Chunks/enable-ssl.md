@@ -65,8 +65,7 @@ configuration files need to be updated.
     The **Certificates** section defines the name of our certificate,
     its location, and the name of the store where it is located. We have
     chosen to store the certificate in the CA (Certificate Authority)
-    store, but you can choose other options as well. See [How to
-    Associate a Certificate with a Service][] for more information.
+    store, but you can choose other options as well. See [How to Associate a Certificate with a Service][] for more information.
 
 2.  In your service definition file, add an **InputEndpoint** element
     within the **Endpoints** section to enable HTTPS:
@@ -168,10 +167,8 @@ connect to it using HTTPS.
     ![][3]
 
 ## Additional Resources
-
-[How to Associate a Certificate with a Service][]
-
-[How to Configure an SSL Certificate on an HTTPS Endpoint][]
+* [How to Associate a Certificate with a Service][]
+* [How to Configure an SSL Certificate on an HTTPS Endpoint][]
 
   [Step 1: Get an SSL Certificate]: #step1
   [Step 2: Modify the Service Definition and Configuration Files]: #step2

@@ -88,7 +88,7 @@ After deployment begins, you can monitor the deployment status on the **Deployme
 ##<a name="nextsteps"></a>Next Steps
 For more information about Websites, see the following:
 
-[Walkthrough: Troubleshooting a Website on Windows Azure](http://go.microsoft.com/fwlink/?LinkId=251824)
+* [Walkthrough: Troubleshooting a Website on Windows Azure](http://go.microsoft.com/fwlink/?LinkId=251824)
 
 
 

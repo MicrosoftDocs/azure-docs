@@ -1,5 +1,5 @@
 <a name="title" />
-# Simple Recommendation Engine using Mahout 
+# Simple Recommendation Engine using Apache Mahout 
 
 ---
 

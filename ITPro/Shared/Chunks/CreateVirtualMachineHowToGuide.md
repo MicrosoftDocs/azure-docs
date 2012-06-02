@@ -461,7 +461,7 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 
 7.	The sysprep command shuts down the virtual machine, which changes the status of the machine in the Management Portal to **Stopped**.
 
-	![The virtual machine is stopped] (../media/sysprepstopped.png)
+	![The virtual machine is stopped](../media/sysprepstopped.png)
 
 8.	Click **Virtual Machines**, and then select the virtual machine from which you want to capture an image.
 

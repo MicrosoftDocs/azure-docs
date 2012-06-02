@@ -471,7 +471,7 @@ You have now successfully deployed your ASP.NET application to a Windows Azure w
 [MongoDB]: http://www.mongodb.org
 [MongoCSharpDriverDownload]: http://github.com/mongodb/mongo-csharp-driver/downloads
 [InstallMongoWinVM]: ../../../Shared/Tutorials/InstallMongoDbOnWin2k8VM.md
-[InstallMongoOnCentOSLinuxVM]: ../../../manage/linux/common-tasks/mongodb-virtual-machine/
+[InstallMongoOnCentOSLinuxVM]: ../../../Shared/Tutorials/InstallMongoOnCentOSLinuxVM.md
 
 
 [Image0]: ../../../DevCenter/dotNET/Media/TaskListAppFull.png
