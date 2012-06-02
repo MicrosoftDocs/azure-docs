@@ -14,10 +14,10 @@ For information about adding a virtual machine to your tutorial or connecting to
 
 <!-- UPDATE THE FOLLOWING LIST ONCE WE HAVE THE LINKS FOR TUTORIALS 4 & 5 -->
 
--  [Tutorial 3: Adding a Virtual Machine to a Virtual Network] [Tut3_VN]
+-  [Tutorial 3: Adding a Virtual Machine to a Virtual Network](./Tutorial3_AddVMachineToVNet/)
 
--  Active Directory Replica Domain Controller with cross-premises connectivity
--  New Active Directory Forest in the Cloud
+-  [Active Directory Replica Domain Controller with cross-premises connectivity](./Tutorial-AD-1/)
+-  [New Active Directory Forest in the Cloud](./Tutorial-AD-2/)
 
 
 ##  Objectives
@@ -217,11 +217,10 @@ If you'd like, you can continue with the following tutorials:
 
 <!-- UPDATE THE FOLLOWING LIST ONCE WE HAVE THE LINKS FOR TUTORIALS 4 & 5 -->
 
-- [Tutorial 3: Adding a Virtual Machine to a Virtual Network] [Tut3_VN]
+-  [Tutorial 3: Adding a Virtual Machine to a Virtual Network](./Tutorial3_AddVMachineToVNet/)
 
-- New Active Directory Forest in the Cloud
-
-- Active Directory Replica Domain Controller with cross-premises connectivity
+-  [Active Directory Replica Domain Controller with cross-premises connectivity](./Tutorial-AD-1/)
+-  [New Active Directory Forest in the Cloud](./Tutorial-AD-2/)
 
 
 
