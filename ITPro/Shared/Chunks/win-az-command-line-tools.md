@@ -1,6 +1,6 @@
 #Windows Azure command-line tool for Mac and Linux
 
-To use this tool on web sites or virtual machines, please sign up for access to the preview at [https://account.windowsazure.com/PreviewFeatures](https://account.windowsazure.com/PreviewFeatures).
+To use this tool with virtual machines and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
 
 This tool provides functionality for creating, deploying and managing virtual machines and web sites from Mac and Linux desktops. This functionality is similar to that provided by the PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS and PHP.
 
