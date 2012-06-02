@@ -56,7 +56,7 @@ You must first create a virtual machine with a new cloud service, and then you c
 
 15. Click the check mark to create the connected virtual machine.
 
-[How to create a custom virtual machine]:./howto-custom-create-VM/
+[How to create a custom virtual machine]:../../Linux/HowTo/howto-custom-create-vm.md
 [Create a new virtual machine]:../media/create.png
 [Create a custom virtual machine]:../media/createnew.png
 [Select the image]:../media/imageselectionwindows.png
