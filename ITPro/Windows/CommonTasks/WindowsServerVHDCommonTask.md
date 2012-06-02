@@ -30,7 +30,7 @@ The following resources must be available to complete this task:
   </TR>
   </TABLE>
 </P>
-- **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. To download the SDK and the tools, see [Windows Azure Downloads](https://www.windowsazure.com/en-us/develop/downloads/).
+- **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. To download the SDK and the tools, see [Windows Azure Downloads](../../downloads/).
 
 This task includes the following steps:
 
@@ -158,7 +158,7 @@ In the virtual machine that you just created, complete the following procedure:
 
 5. Click **OK**.
 
-## Step 5: Upload the image to Windows Azure ##
+## <a id="upload"> </a>Step 5: Upload the image to Windows Azure ##
 
 To upload an image contained in a VHD file to Windows Azure, you must:
 
