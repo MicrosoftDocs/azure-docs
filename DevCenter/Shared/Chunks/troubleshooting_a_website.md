@@ -1,6 +1,6 @@
 <!-- http://daringfireball.net/projects/markdown/syntax -->
 <!-- http://go.microsoft.com/fwlink/?LinkId=251824 -->
-#Walkthrough: Troubleshooting a Web Site#
+#Troubleshooting a Web Site#
 Troubleshooting a web site is accomplished by configuring the web site to display application errors, configuring the web site to display environment variables, enabling web site diagnostics, and then analyzing website application errors and diagnostic data to identify and resolve problems. This tutorial walks you through the process of creating and deploying a simple web site to Windows Azure, causing an error condition on the web site and then  applying configuration and logging options to generate troubleshooting data that can be analyzed to identify and resolve the error.
 <div class="dev-callout"> 
 <b>Note</b> 
@@ -285,10 +285,10 @@ Now that you have introduced an error condition on the website, you can download
 
 Basic analysis of the different log file types can be performed as follows:
 
-<table cellpadding="0" cellspacing="0" width="730" rules="all" style="border: #000000 thin solid;">        
+<table cellpadding="0" cellspacing="0" width="655" rules="all" style="border: #000000 thin solid;">        
 <tr style="background-color: silver; font-weight: bold;" valign="top">
-<td style="width: 170px">Log File</td>
-<td style="width: 560px">Analyze with</td>
+<td style="width: 145px">Log File</td>
+<td style="width: 510px">Analyze with</td>
 </tr>
 <tr valign="top">
 <td>Detailed error logging</td>
