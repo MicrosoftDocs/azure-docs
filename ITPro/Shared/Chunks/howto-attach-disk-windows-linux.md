@@ -1,6 +1,6 @@
 #How to Attach a Data Disk to a Virtual Machine
 
-To use this feature, please sign up for access to the preview at [https://account.windowsazure.com/PreviewFeatures](https://account.windowsazure.com/PreviewFeatures). 
+To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures). 
 
 * [Concepts](#concepts)
 * [How to: Attach an existing disk](#attachexisting)
