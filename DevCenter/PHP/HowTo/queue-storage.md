@@ -39,7 +39,7 @@ In this guide, you will use Queue service features which can be called within a 
 
 To use the Windows Azure Queue service APIs to access queues, you need to:
 
-1. Reference the `WindowsAzure.php` file (from the Windows Azure SDK for PHP) using the [require_once] [require_once] statement, and
+1. Reference the `WindowsAzure.php` autoloader file (from the Windows Azure SDK for PHP) using the [require_once] [require_once] statement, and
 2. Reference any classes you might use.
 
 The following example shows how to include the `WindowsAzure.php` file and reference the **QueueService** class:

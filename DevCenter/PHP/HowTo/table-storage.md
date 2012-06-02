@@ -40,7 +40,7 @@ In this guide, you will use Table service features which can be called from with
 
 To use the Windows Azure Table service APIs to access Tables, you need to:
 
-1. Reference the `WindowsAzure.php` file (from the Windows Azure SDK for PHP) using the [require_once][require_once] statement, and
+1. Reference the `WindowsAzure.php` autoloader file (from the Windows Azure SDK for PHP) using the [require_once][require_once] statement, and
 2. Reference any classes you might use.
 
 The following example shows how to include the `WindowsAzure.php` file and reference the **TableService** class:
