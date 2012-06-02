@@ -49,7 +49,7 @@ Next, set up the Windows Azure environment. You'll create a Windows Azure accoun
 ### Create a Windows Azure account
 
 1. Open a web browser, and browse to [http://www.windowsazure.com][windowsazure.com].
-2. To get started with a free account, click **Free Trial** in the upper-right corner and follow the steps.<br/>
+2. To get started with a free account, click **Free Trial** in the upper-right corner and follow the steps. You'll need a credit card number and a mobile phone number.<br/>
 ![Free trial screenshot][Image010]
 
 ### Enable Windows Azure Web Sites
