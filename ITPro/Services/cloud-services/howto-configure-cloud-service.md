@@ -4,21 +4,21 @@
 
 <h1 id="configurecloudservice">How To Configure Cloud Services</h1>
 
+<div chunk="../../../Shared/Chunks/disclaimer.md" />
 
-You can configure the most commonly used settings for a cloud service in the Windows Azure Management Portal. Or, if you like to update your configuration files directly, download a service configuration file to update, and then upload the updated file and update the cloud service with the configuration changes. Either way, the configuration updates are pushed out to all role instances.
+You can configure the most commonly used settings for a cloud service in the Windows Azure (Preview) Management Portal. Or, if you like to update your configuration files directly, download a service configuration file to update, and then upload the updated file and update the cloud service with the configuration changes. Either way, the configuration updates are pushed out to all role instances.
 
 Windows Azure can only ensure 99.95 percent service availability during the configuration updates if you have at least two role instances (virtual machines) for every role. That enables one virtual machine to process client requests while the other is being updated.
 
 ##Table of Contents##
 
 * [How to: Update the cloud service configuration](#update)
-* [How to: Update a cloud service role or deployment](#updaterole)
 * [How to: Configure remote access to role instances](#remoteaccess)
 
 
 <h2 id="update">How to: Update the cloud service configuration</h2>
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
+1. In the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
 
 
 2. Click **Configure**.
@@ -85,7 +85,7 @@ On the **Configure** page, you can complete the Remote Desktop configuration or 
 
 ###To configure or modify Remote Access for role instances###
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click Cloud Services. Then click the name of the cloud service to open the dashboard.
+1. In the [Management Portal](http://manage.windowsazure.com/), click Cloud Services. Then click the name of the cloud service to open the dashboard.
 
 2. Open the **Configure** page for the cloud service, and click **Remote**.
 

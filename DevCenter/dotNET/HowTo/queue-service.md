@@ -27,7 +27,6 @@ to the [Next Steps][] section.
 -   [How To: Delete a Queue][]
 -   [Next Steps][]
 
-## <a name="what-is"> </a>What is Queue Storage
 <div chunk="../../Shared/Chunks/howto-queue-storage.md" />
 
 ## <a name="create-account"> </a>Create a Windows Azure Storage Account
@@ -57,46 +56,69 @@ where you want to use Windows Azure Storage:
 
 ## <a name="setup-connection-string"> </a>Setup a Windows Azure Storage Connection String
 
-The Windows Azure .NET storage client uses a storage connection string
-to store endpoints and credentials for accessing storage services. You
-can put your storage connection string in a configuration file, rather
-than hard-coding it in code. One option is to use .NET's built-in
-configuration mechanism (e.g. **Web.config** for web applications). In
-this guide, you will store your connection string using Windows Azure
-service configuration. The service configuration is unique to Windows
-Azure projects and allows you to change configuration from the
-Management Portal without redeploying your application.
+The Windows Azure .NET storage API supports using a storage connection
+string to configure endpoints and credentials for accessing storage
+services. You can put your storage connection string in a configuration
+file, rather than hard-coding it in code:
+
+- When using Windows Azure Cloud Services, it is recommended you store your connection string using the Windows Azure service configuration system (`*.csdef` and `*.cscfg` files).
+- When using Windows Azure Web Sites or Windows Azure Virtual Machines, it is recommended you store your connection string using the .NET configuration system (e.g. `web.config` file).
+
+In both cases, you can retrieve your connection string using the `CloudConfigurationManager.GetSetting` method as shown later in this guide.
+
+### Configuring your connection string when using Cloud Services
+
+The service configuration mechanism is unique to Windows Azure Cloud Services
+projects and enables you to dynamically change configuration settings
+from the Windows Azure Management Portal without redeploying your
+application.
 
 To configure your connection string in the Windows Azure service
 configuration:
 
-1.  In the Solution Explorer, in the **Roles** folder, right-click a web
-    role or worker role and click **Properties**.  
+1.  Within the Solution Explorer of Visual Studio, in the **Roles**
+    folder of your Windows Azure Deployment Project, right-click your
+    web role or worker role and click **Properties**.  
     ![Blob5][]
 
-2.  Click **Settings** and click **Add Setting**.  
+2.  Click the **Settings** tab and press the **Add Setting** button.  
     ![Blob6][]
 
-    A new setting is created.
+    A new **Setting1** entry will then show up in the settings grid.
 
-3.  In the **Type** drop-down of the **Setting1** entry, choose
+3.  In the **Type** drop-down of the new **Setting1** entry, choose
     **Connection String**.  
     ![Blob7][]
 
 4.  Click the **...** button at the right end of the **Setting1** entry.
-    The **Storage Account Connection String** dialog opens.
+    The **Storage Account Connection String** dialog will open.
 
-5.  Choose whether you want to target the storage emulator (Windows
-    Azure storage simulated on your desktop) or an actual storage
-    account in the cloud, and click **OK**. The code in this guide works
-    with either option.  
+5.  Choose whether you want to target the storage emulator (the Windows
+    Azure storage simulated on your local machine) or an actual storage
+    account in the cloud. The code in this guide works with either
+    option. Enter the **Primary Access Key** value copied from the
+    earlier step in this tutorial if you wish to store blob data in the
+    storage account we created earlier on Windows Azure.   
     ![Blob8][]
 
-6.  Change the entry **Name** from **Setting1** to
-    **StorageConnectionString**. You will reference this name in the
-    code in this guide.  
+6.  Change the entry **Name** from **Setting1** to a "friendlier" name
+    like **StorageConnectionString**. You will reference this
+    connectionstring later in the code in this guide.  
     ![Blob9][]
+	
+### Configuring your connection string when using Web Sites or Virtual Machines
 
+When using Web Sites or Virtual Machines, it is recommended you use the .NET configuration system (e.g. `web.config`).  You store the connection string using the `<appSettings>` element:
+
+	<configuration>
+	    <appSettings>
+		    <add key="StorageConnectionString"
+			     value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
+		</appSettings>
+	</configuration>
+
+Read [Configuring Connection Strings][] for more information on storage connection strings.
+	
 You are now ready to perform the How To's in this guide.
 
 ## <a name="create-queue"> </a>How To: Create a Queue
@@ -334,3 +356,4 @@ to learn how to do more complex storage tasks.
   [CloudStorageAccount]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Configuring Connection Strings]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx

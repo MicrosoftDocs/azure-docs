@@ -19,17 +19,13 @@ article. <a id="compare" name="compare"></a>
 ## Table of Contents
 
 - [Storing Data in Windows Azure][]
-
 - [Windows Azure Blobs and Tables][]
-	 - [Blobs][]
-	 - [Tables][]
-
+ - [Blobs][]
+ - [Tables][]
 - [SQL Database](#sql)
-
 - [Additional Storage Options for Applications Hosted in Windows Azure][]
-	- [Local Storage][]
-	- [Windows Azure Drives][]
-
+ - [Local Storage][]
+ - [Windows Azure Drives][]
 - [References][]
 
 <a name="storing"> </a>
@@ -75,7 +71,7 @@ and the request to checkout could be directed to a different machine.
 The second machine would need to know the items in the client’s cart.
 
 In order to achieve highly available and scalable applications, Windows
-Azure Platform Services offers multitenant storage machines within the
+Azure offers multitenant storage machines within the
 various Windows Azure data centers. These machines replicate your data
 ensuring that if one replica fails, others are still viable. These
 storage offerings can be accessed by applications running in a Windows
@@ -157,7 +153,7 @@ geo-replication by telephoning Windows Azure support.
 When using Blobs, Tables, or SQL Database, the data can be encrypted as it
 goes over the wire. However, the data is stored unencrypted inside the
 Windows Azure data centers. In many cases, you can encrypt the data
-yourself before sending it over the wire; Azure will simply store
+yourself before sending it over the wire; Windows Azure will simply store
 whatever you send it and now the data will be stored encrypted. The
 Windows Azure SDK includes a storage emulator which you can use on your
 local machine to test your code’s use of Blobs and Tables. The emulator
@@ -252,7 +248,7 @@ below enumerates some of them:
     great for storing public pictures, videos, etc.
 
 -   You can create a Shared Access Signature (SAS) for a blob allowing
-    others that do not have one of the 256-bit storage account keys to
+    others that do not have one of the 256-bit storage access keys to
     read, write, or delete the blob during a specified window of time.
 
 -   You can create snapshots of a blob effectively making read-only
@@ -747,25 +743,15 @@ files).<a id="Ref" name="Ref"></a>
 ## References
 
 -   [Windows Azure Pricing][]
-
 -   [Windows Azure Storage][]
-
 -   [Windows Azure Storage Services REST API Reference][]
-
 -   [Windows Azure Content Delivery Network (CDN)][]
-
 -   [Storing and Accessing Data in Windows Azure][]
-
 -   [Comparing SQL Server with SQL Database][]
-
 -   [SQL Database MSDN library][]
-
 -   [SQL Database Survival Guide][]
-
 -   [Overview of Options for Migrating Data and Schema to SQL Database][]
-
 -   [Handling Transactions in SQL Database][]
-
 -   [Configuring Local Storage Resources][]
 
 <div style="width: 700px; border-top: solid; margin-top: 5px; padding-top: 5px; border-top-width: 1px;">

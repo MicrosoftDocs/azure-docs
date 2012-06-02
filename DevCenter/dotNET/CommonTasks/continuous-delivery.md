@@ -15,6 +15,8 @@ Foundation Server - Team Build definitions to use the MSBuild commands
 and PowerShell scripts. The process is customizable for your build
 environment and Windows Azure target environments.
 
+You can also use Team Foundation Service, a version of TFS that is hosted in Windows Azure, to do this more easily. For more information, see [Continuous Delivery to Windows Azure by Using Team Foundation Service][].
+
 This task includes the following steps:
 
 -   [Step 1: Configure the Build Server][]
@@ -66,7 +68,7 @@ Command Line Reference][].
     If Visual Studio 2010 is not installed on the build server, open a
     command prompt and make sure that MSBuild.exe is accessible on the
     path. MSBuild is installed with the .NET Framework in the path   
-    %WINDIR%\\Microsoft.NET\\Framework\\*&lt;Version&gt;*. For example, to
+    %WINDIR%\\Microsoft.NET\\Framework\\*&lt;Version\&gt;*. For example, to
     add MSBuild.exe to the PATH environment variable when you have .NET
     Framework 4 installed, type the following command at the command
     prompt:
@@ -118,13 +120,13 @@ Command Line Reference][].
         MSBuild /t:Publish /p:TargetProfile=ServiceConfiguration.Cloud.cscfg
 
 6.  Specify the location for the output. Set the path by using the
-    /p:PublishDir=*&lt;Directory&gt;*\\ option, including the trailing
+    /p:PublishDir=*&lt;Directory\&gt;*\\ option, including the trailing
     backslash separator, as in the following example:
 
         MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
 
     Once you've constructed and tested an appropriate MSBuild command
-    line to build your projects and combine them into an Azure package,
+    line to build your projects and combine them into a Windows Azure package,
     you can add this command line to your build scripts. If your build
     server uses custom scripts, this process will depend on the
     specifics of your build custom process. If you are using TFS as a

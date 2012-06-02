@@ -238,7 +238,7 @@ addition to the mongodb module that you installed earlier):
 ## Using MongoDB in a Node application
 
 In this section you will extend your application to create a web-based
-task-list application that you will deploy to Azure. The task list will
+task-list application that you will deploy to Windows Azure. The task list will
 allow a user to retrieve tasks, add new tasks, and mark tasks as
 completed. The application will utilize MongoDB to store task data.
 

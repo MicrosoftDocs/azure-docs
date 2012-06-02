@@ -22,7 +22,6 @@ more information on blobs, see the [Next Steps][] section.
 -   [How To: Delete a Blob][]
 -   [Next Steps][]
 
-## <a name="what-is"> </a>What is Blob Storage
 <div chunk="../../Shared/Chunks/howto-blob-storage.md" />
 
 ## <a name="create-account"> </a>Create a Windows Azure Storage Account
@@ -33,9 +32,16 @@ more information on blobs, see the [Next Steps][] section.
 The Windows Azure .NET storage API supports using a storage connection
 string to configure endpoints and credentials for accessing storage
 services. You can put your storage connection string in a configuration
-file, rather than hard-coding it in code. In this guide, you will store
-your connection string using the Windows Azure service configuration
-system. This service configuration mechanism is unique to Windows Azure
+file, rather than hard-coding it in code:
+
+- When using Windows Azure Cloud Services, it is recommended you store your connection string using the Windows Azure service configuration system (`*.csdef` and `*.cscfg` files).
+- When using Windows Azure Web Sites or Windows Azure Virtual Machines, it is recommended you store your connection string using the .NET configuration system (e.g. `web.config` file).
+
+In both cases, you can retrieve your connection string using the `CloudConfigurationManager.GetSetting` method as shown later in this guide.
+
+### Configuring your connection string when using Cloud Services
+
+The service configuration mechanism is unique to Windows Azure Cloud Services
 projects and enables you to dynamically change configuration settings
 from the Windows Azure Management Portal without redeploying your
 application.
@@ -72,7 +78,20 @@ configuration:
     like **StorageConnectionString**. You will reference this
     connectionstring later in the code in this guide.  
     ![Blob9][]
+	
+### Configuring your connection string when using Web Sites or Virtual Machines
 
+When using Web Sites or Virtual Machines, it is recommended you use the .NET configuration system (e.g. `web.config`).  You store the connection string using the `<appSettings>` element:
+
+	<configuration>
+	    <appSettings>
+		    <add key="StorageConnectionString"
+			     value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
+		</appSettings>
+	</configuration>
+
+Read [Configuring Connection Strings][] for more information on storage connection strings.
+	
 You are now ready to perform the How To's in this guide.
 
 ## <a name="configure-access"> </a>How to Programmatically access Blob Storage Using .NET
@@ -117,7 +136,7 @@ to use. You can create the container if it doesn't exist:
     container.CreateIfNotExist();
 
 By default, the new container is private, so you must specify your
-storage account key (as you did above) to download blobs from this
+storage access key (as you did above) to download blobs from this
 container. If you want to make the files within the container available
 to everyone, you can set the container to be public using the following
 code:
@@ -271,3 +290,4 @@ to learn how to do more complex storage tasks.
   [CloudBlobContainer.ListBlobs]: http://msdn.microsoft.com/en-us/library/windowsazure/ee772878.aspx
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/gg433040.aspx
   [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Configuring Connection Strings]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx

@@ -179,9 +179,7 @@ The following are errors or problems commonly encountered when using Git to publ
 ## Additional Resources
 
 * [PowerShell for Windows Azure]
-
 * [Windows Azure Command-Line Tools for Mac and Linux]
-
 * [Git Documentation]
 
 [Windows Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/

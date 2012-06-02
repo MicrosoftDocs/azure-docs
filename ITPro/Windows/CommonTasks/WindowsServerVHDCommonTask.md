@@ -1,5 +1,7 @@
 # Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System #
 
+<div chunk="../../shared/chunks/disclaimer.md" />
+
 A virtual machine that you create in Windows Azure runs the operating system that you choose from the supported operating system versions. You can customize the operating system settings of the virtual machine to facilitate running your application. The configuration that you set is stored on disk. You create a virtual machine in Windows Azure by using a virtual hard disk (VHD) file. You can choose to create a virtual machine by using a VHD file that is supplied for you in the Image Gallery, or you can choose to create your own image and upload it to Windows Azure in a VHD file.
 
 The following resources must be available to complete this task:
@@ -28,7 +30,7 @@ The following resources must be available to complete this task:
   </TR>
   </TABLE>
 </P>
-- **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. To download the SDK and the tools, see [Windows Azure Downloads](https://www.windowsazure.com/en-us/develop/downloads/).
+- **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. To download the SDK and the tools, see [Windows Azure Downloads](../../downloads/).
 
 This task includes the following steps:
 
@@ -156,7 +158,7 @@ In the virtual machine that you just created, complete the following procedure:
 
 5. Click **OK**.
 
-## Step 5: Upload the image to Windows Azure ##
+## <a id="upload"> </a>Step 5: Upload the image to Windows Azure ##
 
 To upload an image contained in a VHD file to Windows Azure, you must:
 

@@ -1,5 +1,7 @@
 <properties umbracoNaviHide="0" pageTitle="How to Create Management Certificates for Linux" metaKeywords="Windows Azure virtual machine, Azure virtual machine, certificates, management certificates" metaDescription="Learn how to create management certificates for Linux on Windows Azure." linkid="manage-linux-how-to-guide-virtual-machines" urlDisplayName="How To Guides" headerExpose="" footerExpose="" disqusComments="1" />
-#Create Management Certificates for Linux
+#Create management certificates for Linux in Windows Azure
+
+<div chunk="../../shared/chunks/disclaimer.md" />
 
 A management certificate is needed anytime that you want to use the Service Management API to interact with the Windows Azure image platform. 
 

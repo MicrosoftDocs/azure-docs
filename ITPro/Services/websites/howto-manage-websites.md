@@ -3,6 +3,8 @@
 
 #<a name="howtomanage"></a>How to Manage Websites
 
+<div chunk="../../Shared/Chunks/disclaimer.md" />
+
 You manage your websites with a set of Management pages.
 
 **Windows Azure Portal Website Management Pages** – Each Website management page is described below.
@@ -10,15 +12,10 @@ You manage your websites with a set of Management pages.
 #### QuickStart ####
 The **QuickStart** management page includes the following sections:
 
-- **get the tools** – Provides links to [Install WebMatrix][mswebmatrix] and the [Azure SDK][azuresdk].
+- **get the tools** – Provides links to [Install WebMatrix][mswebmatrix] and the [Windows Azure SDK][azuresdk].
 - **publish from local environment** – Provides links to download the website’s publishing profile and reset deployment credentials for the website.
 - **publish from source control** – Includes links for setting up TFS publishing and GIT publishing.
 
-For more information about developing and deploying Websites see the following topics:
-
-- [How to: Create, Deploy and Delete Website](#howtocreatedeploydelete)
-- [How to: Develop and Deploy a Website with Microsoft WebMatrix](#howtodevdepwebmatrix)
-- [How to: Create a Website from the Gallery](#howtocreatefromgallery)
 
 #### Dashboard ####
 The **Dashboard** management page includes the following:
@@ -33,7 +30,8 @@ The **Dashboard** management page includes the following:
 > - **Http Server Errors** – number of Http “5xx Server Error” messages sent.
 
  > **Note**<br/>
-To see a chart with additional performance metrics, configure the chart displayed on the **Monitor** management page as described in [How to: Monitor a Website](#howtomonitor).
+To see a chart with additional performance metrics, configure the chart displayed on the **Monitor** management page as described in [How to Monitor Websites](./howto-monitor-websites/).
+
 
  - A list of all linked resources associated with this website or if no resources are associated, a hyperlink to the **Linked Resources** management page.
  - A **quick glance** section which includes the following summary information and links:
@@ -45,7 +43,7 @@ To see a chart with additional performance metrics, configure the chart displaye
 > - **Status** – Indicates whether the website is running or not.
 > - **Site Url** – Specifies the publicly accessibly address of the website on the internet.
 > - **Location** – Specifies the physical region of the datacenter that hosts the website.
-> - **Compute Mode** – Specifies whether the website is running in Reserved or Shared mode. For more information about website modes see [How to: Scale a Website](#howtoscale).
+> - **Compute Mode** – Specifies whether the website is running in Reserved or Shared mode. For more information about website modes see [How to Scale a Website](./howto-scale-websites/).
 > - **Subscription ID** – Specifies the actual unique subscription ID of the subscription that the website is associated with.
 > - **FTP Hostname** – Specifies the URL to use when publishing to the website over FTP.
 > - **Deployment User** – Indicates the account used when deploying the website to Windows Azure over FTP or GIT.
@@ -58,26 +56,25 @@ To see a chart with additional performance metrics, configure the chart displaye
  The **Deployments** management page provides a summary of all deployments made to the website using either GIT or TFS. If no GIT or TFS deployments have been made and GIT publishing has been configured for the website the **Deployments** management page provides information describing how to use GIT to deploy your web application to the website.
 
 ####Monitor####
-The **Monitor** management page provides a chart that displays usage information for the website. By default this chart displays the same metrics as the chart on the **Dashboard** page as described above in the Dashboard section. The chart can also be configured to display the metrics Http Successes, Http Redirects, Http 401 errors, Http 403 errors, Http 404 errors and Http 406 errors. For more information about these metrics see [How to: Monitor a Website](#howtomonitor).
+The **Monitor** management page provides a chart that displays usage information for the website. By default this chart displays the same metrics as the chart on the **Dashboard** page as described above in the Dashboard section. The chart can also be configured to display the metrics Http Successes, Http Redirects, Http 401 errors, Http 403 errors, Http 404 errors and Http 406 errors. For more information about these metrics see [How to Monitor Websites](./howto-monitor-websites/).
 
 ####Configure####
 The **Configure** management page is used to set application specific settings including:
 
 - **Framework** – Set the version of .NET framework or PHP required by your web application.
-- **Diagnostics** – Set logging options for gathering diagnostic information for your website in this section. For more information about configuring diagnostics see [How to: Configure Diagnostics and Download Logs for a Website][howtoconfiganddownloadlogs].
+- **Diagnostics** – Set logging options for gathering diagnostic information for your website in this section. 
 - **App Settings** – Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be injected into the website’s .NET configuration AppSettings at runtime, overriding existing settings. For PHP and Node websites, these settings will be available as environment variables at runtime.
 - **Connections Strings** – View connection strings to linked resources. For .NET sites, these connection strings will be injected into the website’s .NET configuration connectionStrings settings at runtime, overriding any existing entries where the key equals the linked database name. For PHP and Node websites, these settings will be available as environment variables at runtime.
 - **Default Documents** – Add your website’s default document to this list if it is not already in the list. If your website contains more than one of the files in the list then make sure your website’s default document appears at the top of the list by changing the order of the files in the list.
 
-For more information about how to configure a Website see [How to: Change Configuration Options for a Website](#howtochangeconfig).
+For more information about how to configure a Website see [How to Configure Websites](./howto-configure-websites/).
+
 
 ####Scale####
-The **Scale** management page is used to specify the website mode (either **Shared** or **Reserved**), the size of the website if it is configured as **Reserved** (**Small**, **Medium** or **Large**) and the value for **Reserved Instance Count** (from 1 to 3). A website that is configured as **Reserved** will provide more consistent performance than a website that is configured as **Shared**. A website that is configured with a larger **Reserved Instance Size** will perform better under load. Increasing the value for **Reserved Instance Count** will provide fault tolerance and improved performance through scale out. For more information about configuring scale options for a website see [How to: Scale a Website](#howtoscale).
+The **Scale** management page is used to specify the website mode (either **Shared** or **Reserved**), the size of the website if it is configured as **Reserved** (**Small**, **Medium** or **Large**) and the value for **Reserved Instance Count** (from 1 to 3). A website that is configured as **Reserved** will provide more consistent performance than a website that is configured as **Shared**. A website that is configured with a larger **Reserved Instance Size** will perform better under load. Increasing the value for **Reserved Instance Count** will provide fault tolerance and improved performance through scale out. For more information about configuring scale options for a website see [How to Scale a Website](./howto-scale-websites/).
 
 ####Linked Resources####
-The **Linked Resources** management page provides a summary of all Windows Azure resources that your website is using. At the time of this writing, the only type of Windows Azure resource that can be linked to a website is a SQL database. For more information about SQL Databases see [SQL Databases][sqldbs].
-
-For information about how to configure a  website to use other Windows Azure resources see [How to: Configure a Website to Use Other Windows Azure Resources](#howtoconfigother).
+The **Linked Resources** management page provides a summary of all Windows Azure resources that your website is using. At the time of this writing, the only type of Windows Azure resource that can be linked to a website is a SQL database. 
 
 ####Management Page Icons####
 Icons are displayed at the bottom of each of the website's Management pages, several of these icons appear on multiple pages and a couple of Management icons are only displayed on specific pages.  The following icons are displayed at the bottom of the **Dashboard** management page:

@@ -159,7 +159,7 @@ Depending on your application you may be able to apply similar reasoning to othe
 
 The Windows Azure Caching Service provides distributed elastic memory for caching things like ASP.net session state, or commonly referenced values from SQL Database reference tables. Because the objects are in distributed memory, there is a considerable performance gain possible. Because Windows Azure handles the caching infrastructure, there is little development cost in implementing it. 
 
-Plan to provide enough caching capacity so that you can cache frequently accessed objects. In SQL Database there are frequently reference tables used to convert numeric codes into longer descriptive character strings. These tables often include data such as Country and City names, valid Postal Code values, names of Departments within your company, etc. For smaller tables it may make sense to store the entire table in cache, for others you might only store the most frequently used values. The performance gain comes in multi-join queries that involve this data: for each value that is found in the cache, several disk accesses are saved. A good introduction and discussion of performance and caching in Windows Azure is [Introducing the Windows Azure Caching Service (http://go.microsoft.com/fwlink/?LinkId=252680)](http://go.microsoft.com/fwlink/?LinkId=252680). A more recent blog post on the subject is at [Windows #Azure Caching Performance Considerations (http://go.microsoft.com/fwlink/?LinkId=252681)](http://go.microsoft.com/fwlink/?LinkId=252681). 
+Plan to provide enough caching capacity so that you can cache frequently accessed objects. In SQL Database there are frequently reference tables used to convert numeric codes into longer descriptive character strings. These tables often include data such as Country and City names, valid Postal Code values, names of Departments within your company, etc. For smaller tables it may make sense to store the entire table in cache, for others you might only store the most frequently used values. The performance gain comes in multi-join queries that involve this data: for each value that is found in the cache, several disk accesses are saved. A good introduction and discussion of performance and caching in Windows Azure is [Introducing the Windows Azure Caching Service](http://go.microsoft.com/fwlink/?LinkId=252680). A more recent blog post on the subject is at [Windows #Azure Caching Performance Considerations](http://go.microsoft.com/fwlink/?LinkId=252681). 
 
 #### Scenario: Using Queuing in Windows Azure Applications ####
 
@@ -171,9 +171,9 @@ Windows Azure has two alternative queue technologies: Windows Azure Storage Queu
 
 Windows Azure Storage Queues provide features such as large queue size, progress tracking, and more. Service Bus provides features such as publish/subscribe, full integration with Windows Communication Foundation (“WCF”), automatic duplicate detection, guaranteed first-in first-out (“FIFO”) delivery, and more. 
 
-For a more complete and detailed comparison of the two technologies, see [Windows Azure Queues and Windows Azure Service Bus Queues – Compared and Contrasted (http://go.microsoft.com/fwlink/?LinkId=252682)]( http://go.microsoft.com/fwlink/?LinkId=252682). 
+For a more complete and detailed comparison of the two technologies, see [Windows Azure Queues and Windows Azure Service Bus Queues – Compared and Contrasted]( http://go.microsoft.com/fwlink/?LinkId=252682). 
 
-For a discussion of Service Bus performance, see [Best Practices for Performance Improvements Using Service Bus Brokered Messaging (http://go.microsoft.com/fwlink/?LinkID=252683)](http://go.microsoft.com/fwlink/?LinkID=252683). 
+For a discussion of Service Bus performance, see [Best Practices for Performance Improvements Using Service Bus Brokered Messaging](http://go.microsoft.com/fwlink/?LinkID=252683). 
 
 #### Scenario: “Big Data” Applications ####
 
@@ -214,8 +214,8 @@ Windows Azure provides direct support for Hadoop, and also enables use of other 
 For some discussion of issues involved with various noSQL storage methods, see: 
 
 * [Getting Acquainted with NoSQL on Windows Azure](http://go.microsoft.com/fwlink/?LinkId=252729) 
-* [AggregateOrientedDatabase (http://martinfowler.com/bliki/AggregateOrientedDatabase.html)](http://go.microsoft.com/fwlink/?LinkID=252731)
-* [PolyglotPersistence (http://martinfowler.com/bliki/PolyglotPersistence.html)](http://go.microsoft.com/fwlink/?LinkId=252732) 
+* [AggregateOrientedDatabase](http://go.microsoft.com/fwlink/?LinkID=252731)
+* [PolyglotPersistence](http://go.microsoft.com/fwlink/?LinkId=252732) 
 
 #### Other Windows Azure Individual Service Performance Optimizations ####
 
@@ -291,11 +291,8 @@ One necessary piece of performance planning is capacity planning: if you fail to
 Windows Azure dramatically reduces the effort involved in capacity planning because many old activities – particularly obtaining and provisioning computers -- have changed dramatically. In Windows Azure, capacity planning no longer focuses on the physical elements of computing, but instead works at a higher level of abstraction, asking rather, how many of the following are needed: 
 
 * Compute nodes 
-
 * Blob storage 
-
 * Table storage 
-
 * Queues etc. 
 
 And because of Windows Azure’s scalability, the initial capacity decisions are not cast in stone: it is relatively easy to scale up (or down) Windows Azure resources. Even so, it is important to do accurate capacity planning, since that will ensure that when the application goes live there is not a period of trial and error regarding capacity. 
@@ -341,7 +338,6 @@ Two topics about Dynamic Management Views are:
 A number of third-party non-Microsoft tools are available for analyzing Windows Azure performance: 
 
 - [Cerebrata](http://go.microsoft.com/fwlink/?LinkId=252880) 
-
 - [SQL Server and SQL Database Performance Testing: Enzo SQL Baseline](http://enzosqlbaseline.codeplex.com/) 
 
 Other Resources 

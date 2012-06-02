@@ -65,6 +65,9 @@ Set up the Windows Azure environment by creating a Windows Azure account and a W
 1.	Open a web browser, and browse to http://www.windowsazure.com.
 2.	To get started with a free account, click Free Trial in the upper-right corner and follow the steps.
 
+### Enable the Windows Azure Web Sites feature on your account
+
+<div chunk="../../shared/chunks/antares-iaas-signup.md" />
 
 <h3>Create a website in Windows Azure</h3>
 
@@ -111,7 +114,7 @@ The display is very readable on a mobile device. Choose the ASP.NET link.
 
 The ASP.NET tag view is very cluttered. For example, the Date column is very difficult to read. Later in the tutorial you'll create a version of the AllTags view that's specifically for mobile browsers and that will make the display readable.
 
-## <a name="bkmk_overrideviews"></a>Override the Views, Layouts, and Partial Views
+## <a name="bkmk_overrideviews"></a><h3>Override the Views, Layouts, and Partial Views</h3>
 
 In this section, you'll create a mobile-specific layout file.
 
@@ -486,17 +489,17 @@ Refresh the mobile browser. The following image reflects the code changes that y
 	![][DeployApplication9]
 14.	The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
 
-15.The default browser automatically opens to the URL of the deployed site.
- The application you created is now running in the cloud.
+15. The default browser automatically opens to the URL of the deployed site. The application you created is now running in the cloud.
+
 	![][DeployApplication10]
 
 
 [Create a Windows Azure web site]: #bkmk_createaccount
 [Setup the starter Project]: #bbkmk_setupstarterproject
-[Overriding Views, Layouts, and Partial Views]: #bkmk_overrideviews
-[Using jQuery Mobile ]: #bkmk_usejquerymobile
+[Override the Views, Layouts, and Partial Views]: #bkmk_overrideviews
+[Use jQuery Mobile to define the mobile broswer interface]: #bkmk_usejquerymobile
 [Improve the Speakers List]: #bkmk_Improvespeakerslis
-[Creating a Mobile Speakers View]: #bkmk_mobilespeakersview
+[Create a Mobile Speakers View]: #bkmk_mobilespeakersview
 [Improve the Tags List]: #bkmk_improvetags
 [Improve the Dates List]: #bkmk_improvedates
 [Improve the SessionsTable View]: #bkmk_improvesessionstable

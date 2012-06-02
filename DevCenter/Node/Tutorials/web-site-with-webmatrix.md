@@ -116,13 +116,13 @@ You can easily modify and republish your application. Here, you will make a simp
 [Publishing a Windows Azure Web site using Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
 [for free]: /en-us/pricing/free-trial
 [webmatrix-node-completed]: ../Media/webmatrix-node-complete.png
-[install-webmatrix]: ../../Shared/Media/install_webmatrix_from_site_dashboard.jpg
-[launch-webmatrix]: ../../Shared/Media/launch_webmatrix.jpg
-[download-publish-profile]: ../Media/download_publish_profile.jpg
-[webmatrix-templates]: ../Media/webmatrix-templates.png
+[install-webmatrix]: ../../Shared/Media/install_webmatrix_from_site_dashboard.png
+[launch-webmatrix]: ../../Shared/Media/launch-webmatrix.png
+
+[webmatrix-templates]: ../../Shared/Media/webmatrix-templates.png
 [webmatrix-node-express]: ../Media/webmatrix-node-express-template.png
 [webmatrix-node-files]: ../Media/webmatrixnodefiles.png
-[download-publish-profile]: ../../Shared/Media/download_publish_profile.jpg
+[download-publish-profile]: ../../Shared/Media/download-publishing-profile.png
 [webmatrix-run-icon]: ../Media/webmatrix-runicon.png
 [webmatrix-publishicon]: ../Media/webmatrix-publishicon.png
 [webmatrix-import-settings]: ../Media/webmatrix-publishsettings.png

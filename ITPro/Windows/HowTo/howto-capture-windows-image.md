@@ -1,7 +1,8 @@
-﻿
 <properties umbracoNaviHide="0" pageTitle="How to Capture an Image of a Virtual Machine Running Windows Server 2008 R2" metaKeywords="Windows Azure virtual machine, Azure virtual machine, Azure image, capture an image, image" metaDescription="Learn how to capture your own images to create customized virtual machines." linkid="manage-windows-how-to-guide-virtual-machines" urlDisplayName="How to: virtual machines" headerExpose="" footerExpose="" disqusComments="1" />
 
-# <a id="capture"> </a>How to Capture an Image of a Virtual Machine Running Windows Server 2008 R2 #
+#How to Capture an Image of a Virtual Machine Running Windows Server 2008 R2 #
+
+<div chunk="../../shared/chunks/disclaimer.md" />
 
 You can use images from the Image Gallery to easily create virtual machines, or you can capture and use your own images to create customized virtual machines. An image is a virtual hard disk (VHD) file that is used as a template for creating a virtual machine. An image is a template because it doesn’t have specific settings like a configured virtual machine, such as the computer name and user account settings. If you want to create multiple virtual machines that are set up the same way, you can capture an image of a configured virtual machine and use that image as a template.
 
@@ -53,7 +54,7 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 	![Use the captured image][Use the captured image]
 
 
-[How to Log on to a Virtual Machine Running Windows Server 2008 R2]:./howto-log-into-VM/
+[How to Log on to a Virtual Machine Running Windows Server 2008 R2]:./log-on-a-windows-VM/
 [How to Use Sysprep: An Introduction]:http://technet.microsoft.com/en-us/library/bb457073.aspx
 [Run Sysprep.exe]:../media/sysprepcommand.png
 [Enter Sysprep.exe options]:../media/sysprepgeneral.png

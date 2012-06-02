@@ -2,13 +2,14 @@
 
 # How to Configure Websites #
 
+<div chunk="../../Shared/Chunks/disclaimer.md" />
+
 In the Windows Azure (Preview) Management Portal you can change the configuration options for websites and you can link website to other Windows Azure resources. For example, you can link websites to a SQL Database to provide additional functionality. You can also configure websites to use a new or existing MySQL database.
 
 ## Table of Contents ##
 - [How to: Change configuration options for a website](#howtochangeconfig)
 - [How to: Configure a website to use a SQL database](#howtoconfigSQL)
 - [How to: Configure a website to use a MySQL database](#howtoconfigMySQL)
-- [Next steps](#nextsteps)
 
 
 ##<a name="howtochangeconfig"></a>How to: Change configuration options for a website
@@ -16,13 +17,13 @@ In the Windows Azure (Preview) Management Portal you can change the configuratio
 Follow these steps to change configuration options for a website.
 
 <ol>
-	<li>In the Management Portal, open the website’s management pages.</li>
+	<li>In the Management Portal, open the website's management pages.</li>
 	<li>Click the <strong>Configure</strong> tab to open the <strong>Configure</strong> management page.</li>
 	<li>Set the following configuration options for the website as appropriate:
 	<ul>
 	<li style="margin-left: 40px"><strong>framework</strong> – Set the version of .NET framework or PHP required by your web application.</li>
 	<li style="margin-left: 40px"><strong>hostnames</strong> – Enter additional hostnames for the website here. Additional hostnames are limited to changing only the 
-	portion of the fully qualified “dot delimited” domain name that precedes the first period or “dot”. For example if the original website name is MySite.azure-test.windows.net then additional hostnames must use the nomenclature newhostname.azure-test.windows.net and retain the first period plus everything to the right of the first period.<br /><strong>Note</strong><br />Functionality 
+	portion of the fully qualified "dot delimited" domain name that precedes the first period or “dot”. For example if the original website name is MySite.azure-test.windows.net then additional hostnames must use the nomenclature newhostname.azure-test.windows.net and retain the first period plus everything to the right of the first period.<br /><strong>Note</strong><br />Functionality 
 	for adding additional website hostnames is only available when the website is configured with the <strong>Reserved</strong> Website Mode,  as specified on the <strong>Scale</strong> management page.</li>
 	<li style="margin-left: 40px"><strong>diagnostics</strong> – Set options for gathering diagnostic 
 	information for your website including:
@@ -38,8 +39,7 @@ Follow these steps to change configuration options for a website.
 	After connecting to the specified FTP site navigate to /LogFiles/W3SVC######### (where ######### represent a unique identifier for the website) 
 	to retrieve the XML files that contain the failed request tracing output.<br /><strong>Important</strong><br />The /LogFiles/W3SVC#########/ 
 	folder contains an XSL file and one or more XML files. Ensure that you download the XSL file into the same directory as the XML file(s) because 
-	the XSL file provides functionality for formatting and filtering the contents of the XML file(s) when viewed in Internet Explorer. For more information about 
-	configuring diagnostics for Websites see <a href="#howtoconfigdiagnostics">How to: Configure Diagnostics and Download Logs for a Website</a>.</li>
+	the XSL file provides functionality for formatting and filtering the contents of the XML file(s) when viewed in Internet Explorer.</li>
 	</ul>
 	</li>
 	<li><strong>App Settings</strong> – Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be 
@@ -50,7 +50,7 @@ Follow these steps to change configuration options for a website.
 	and Node sites these settings will be available as environment variables at runtime.<br />
 	<strong>Note</strong><br />Connection strings are created when you link a database resource to a website and are read only when viewed on the 
 	configuration management page.</li>
-	<li><strong>Default Documents</strong> – Add your website’s default document to this list if it is not already in the list. A website’s default 
+	<li><strong>Default Documents</strong> – Add your website's default document to this list if it is not already in the list. A website’s default 
 	document is the web page that is displayed when a user navigates to a website and does not specify a particular page on the website. So given the 
 	website http://contoso.com, if the default document is set to default.htm, a user would be routed to http://www.contoso.com/default.htm when pointing 
 	their browser to http://www.contoso.com. If your website contains more than one of the files in the list then make sure your website’s default document 
@@ -65,17 +65,23 @@ Follow these steps to change configuration options for a website.
 Follow these steps to link a website to a SQL Database:
 
 1. In the [Management Portal](http://manage.windowsazure.com), welect **Web Sites** to display the list of web sites created by the currently logged on account.
-2. Select a website from the list of web sites to open the website’s **Management** pages.
+
+2. Select a website from the list of web sites to open the website's **Management** pages.
+
 3. Click the **Linked Resources** tab and a message will be displayed on the **Linked Resources** page indicating **You have no linked resources**.
+
 4. Click **Link a Resource** to open the **Link Resource** wizard.
+
 5. Click **Create a new resource** to display a list of resources types that can be linked to your website.
+
 6. Click **SQL Database** to display the **Link Database** wizard.
+
 7. Complete required fields on pages 3 and 4 of the **Link Database** wizard and then click the **Finish** checkmark on page 4.
 
 Windows Azure will create a SQL database with the specified parameters and link the database to the website.
 
 ##<a name="howtoconfigMySQL"></a>How to: Configure a website to use a MySQL database##
-To configure a website to use a MySQL database you must create the website with the **Create With Database** option and then specify either to “Use an existing MySQL database” or “Create a new MySQL database.” 
+To configure a website to use a MySQL database you must create the website with the **Create With Database** option and then specify either to "Use an existing MySQL database" or "Create a new MySQL database." 
 
 You can't add MySQL databases to a website as a linked resource. They aren't displayed in the Management Portal as a type of cloud resource.
 

@@ -23,19 +23,40 @@ For purposes of this tutorial, an Apache Tomcat application server will be insta
 2. Click **New**.
 3. Click **Virtual machine**.
 4. Click **Quick create**.
-5. In the **Create a virtual machine** screen, enter a value for **DNS name**.
+5. In the **Create virtual machine** screen, enter a value for **DNS name**.
 6. From the **Image** dropdown list, select an image, such as **Windows Server 2008 R2 SP1**.
-7. Enter a password in the **New password** field, and re-enter it in the **Confirm** field. Remember this password, you will use it when you remotely log in to the virtual machine.
-8. From the **Location** drop down list, select the data center location for your virtual machine; for example, **West US**.
+7. Enter a password in the **New password** field, and re-enter it in the **Confirm** field. This is the Administrator account password. Remember this password, you will use it when you remotely log in to the virtual machine.
+8. From the **Location** drop down list, select the data center location for your virtual machine; for example, **West US**. Your screen will look similar to the following.
+
+    ![Create a virtual machine][create_vm]
+
 9. Click **Create virtual machine**. Your virtual machine will be created. You can monitor the status in the **Virtual machines** section of the management portal.
 
 ## To remotely log in to your virtual machine
 
 1. Log in to the [Preview Management Portal](https://manage.windowsazure.com).
-2. Click **Virtual machines**.
-3. Click the name of the virtual machine that you want to log in to.
-4. Click **Connect**.
-5. Respond to the prompts as needed to connect to the virtual machine. When prompted for the password, use the password that you provided when you created the virtual machine.
+2. Click **Virtual Machines**, and then select the **MyTestVM1** virtual machine that you previously created.
+3. On the command bar, click **Connect**.
+
+    ![Connect to virtual machine][ConnectVMWindows]
+
+4. Click **Open** to use the remote desktop protocol file that was automatically created for the virtual machine
+
+    ![Open RDP file][ConnectVMRDP]
+
+5. Click **Connect** to proceed with the connection process.
+
+    ![Accept unknown publisher][ConnectVMPublisher]
+
+6. Type the password that you specified as the password of the Administrator account when you created the virtual machine, and then click **OK**.
+
+    ![Enter credentials][ConnectVMCreds]
+
+
+7. Click **Yes** to verify the identity of the virtual machine.
+
+    ![Verify identity of the virtual machine][ConnectVMVerify]
+
 
 ## To install a JDK on your virtual machine
 
@@ -63,7 +84,7 @@ For purposes of this tutorial, a Java application server will be installed by co
 5. When the zip is saved, open the folder that contains the zip and double-click the zip.
 6. Extract the zip. For purposes of this tutorial, the path used was **C:\program files\apache-tomcat-7.0.27-windows-x64**.
 
-## To run the Java application server locally
+## To run the Java application server privately on your virtual machine
 
 The following steps show you how to run the Java application server and test it within the virtual machine's browser. It won't be usable by external computers until you create an endpoint and open a port (those steps are described later).
 
@@ -119,25 +140,54 @@ To see Tomcat running from external machines, you'll need to create an endpoint 
 3. Click **Control Panel**.
 4. Click **System and Security**, click **Windows Firewall**, and then click **Advanced Settings**.
 5. Click **Inbound Rules** and then click **New Rule**.
-6. For the new rule
-- Select **Port** for the **Rule type** and click **Next**.
-- Select **TCP** for the protocol and specify **8080** for the port, and click **Next**.
-- Choose **Allow the connection** and click **Next**.
-- Ensure **Domain**, **Private**, and **Public** are checked for the profile and click **Next**.
-- Specify a name for the rule, such as **HttpIn**. The rule name is not required to match the endpoint name, however.  Click **Finish**.
+
+ ![New inbound rule][NewIBRule]
+
+6. For the new rule, select **Port** for the **Rule type** and click **Next**.
+
+ ![New inbound rule port][NewRulePort]
+
+7. Select **TCP** for the protocol and specify **8080** for the port, and click **Next**.
+
+ ![New inbound rule ][NewRuleProtocol]
+
+8. Choose **Allow the connection** and click **Next**.
+
+ ![New inbound rule action][NewRuleAction]
+
+9. Ensure **Domain**, **Private**, and **Public** are checked for the profile and click **Next**.
+
+ ![New inbound rule profile][NewRuleProfile]
+
+10. Specify a name for the rule, such as **HttpIn** (the rule name is not required to match the endpoint name, however), and then click **Finish**.  
+
+ ![New inbound rule name][NewRuleName]
 
 At this point, your Tomcat web site should now be viewable from an external browser, using a URL of the form **http://*your\_DNS\_name*.cloudapp.net**, where ***your\_DNS\_name*** is the DNS name you specified when you created the virtual machine.
 
-## Next steps
-
+## Application lifecycle considerations
 * You could create your own application web archive (WAR) and add it to the **webapps** folder. For example, create a basic Java Service Page (JSP) dynamic web project and export it as a WAR file, copy the WAR to the Apache Tomcat **webapps** folder on the virtual machine, then run it in a browser.
 * This tutorial runs Tomcat through a command prompt where **catalina.bat start** was called. You may instead want to run Tomcat as a service, a key benefit being to have it automatically start if the virtual machine is rebooted. To run Tomcat as a service, you can install it as a service via the **service.bat** file in the Apache Tomcat **bin** folder, and then you could set it up to run automatically via the Services snap-in. You can start the Services snap-in by clicking **Windows Start**, **Administrative Tools**, and then **Services**. If you run **service.bat install MyTomcat** in the Apache Tomcat **bin** folder, then within the Services snap-in, your service name will appear as **Apache Tomcat MyTomcat**. By default when the service is installed, it will be set to start manually. To set it to start automatically, double-click the service in the Services snap-in and set **Startup Type** to **Automatic**, as shown in the following. <p>![Setting a service to start automatically][service_automatic_startup]</p>
 You'll need to start the service the first time, which you can do through the Services snap-in (alternatively, you can reboot the virtual machine). Close the running occurrence of **catalina.bat start** if it is still running before starting the service.
 
-* Learn about other services, such as Windows Azure Storage, service bus, SQL Azure, and more that you may want to include with your Java applications, by viewing the information available at [http://www.windowsazure.com/en-us/develop/java/](http://www.windowsazure.com/en-us/develop/java/).
-
-
+## Next steps
+* Learn about other services, such as Windows Azure Storage, service bus, SQL Database, and more that you may want to include with your Java applications, by viewing the information available at [http://www.windowsazure.com/en-us/develop/java/](http://www.windowsazure.com/en-us/develop/java/).
 
 [virtual_machine_tomcat]: ../media/WA_VirtualMachineRunningApacheTomcat.png
 [virtual_machine_new_eps]: ../media/WA_NewEndpointDetails.png
 [service_automatic_startup]: ../media/WA_TomcatServiceAutomaticStart.png
+[create_vm]: ../media/CreateVM.png
+[ConnectVMCreds]: ../media/ConnectVMCreds.png
+[ConnectVMPublisher]: ../media/ConnectVMPublisher.png
+[ConnectVMRDP]: ../media/ConnectVMRDP.png
+[ConnectVMVerify]: ../media/ConnectVMVerify.png
+[ConnectVMWindows]: ../media/ConnectVMWindows.png
+[New]: ../media/New.png
+[New_VM_QuickCreate]: ../media/New_VM_QuickCreate.png
+[SelectVM]: ../media/SelectVM.png
+[NewIBRule]: ../media/NewInboundRule.png
+[NewRulePort]: ../media/NewRulePort.png
+[NewRuleProtocol]: ../media/NewRuleProtocol.png
+[NewRuleAction]: ../media/NewRuleAction.png
+[NewRuleName]: ../media/NewRuleName.png
+[NewRuleProfile]: ../media/NewRuleProfile.png

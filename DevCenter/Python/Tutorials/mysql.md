@@ -1,54 +1,56 @@
 <properties linkid="dev-python-mysql" urlDisplayName="Web App with MySQL" headerExpose="" pageTitle="Django Hello World - MySQL Edition" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
-# Django Hello World - MySQL Edition #
+# Django Hello World - MySQL Windows Edition #
   
-This tutorial describes how to use MySQL to access data from a Windows Azure Cloud Service application written in the Django Python web framework. This guide assumes that you have some prior experience using Windows Azure and Django. For an introduction to Windows Azure and Django, see [Django Hello World] [djangohelloworld]. The guide also assumes that you have some knowledge of MySQL. For an overview of MySQL, see the [MySQL website][mysqldoc].
+This tutorial describes how to use MySQL in conjunction with Django on a single Windows Azure virtual machine. This guide assumes that you have some prior experience using Windows Azure and Django. For an introduction to Windows Azure and Django, see [Django Hello World] [djangohelloworld]. The guide also assumes that you have some knowledge of MySQL. For an overview of MySQL, see the [MySQL website][mysqldoc].
 
 In this tutorial, you will learn how to:
 
-* Setup a Windows Azure virtual machine to host MySQL. While this tutorial explains how to accomplish this under Windows Server 2008 R2, the same could also be done with a Linux VM hosted in Windows Azure.
+* Setup a Windows Azure virtual machine to host MySQL and Django. While this tutorial explains how to accomplish this under Windows Server 2008 R2, the same could also be done with a Linux VM hosted in Windows Azure.
 * Install a [MySQL driver] [mysqlpy] for Python.
 * Configure an existing Django application to use a MySQL database.
 * Use MySQL directly from Python.
-* Run your MySQL Django application locally using the Windows Azure compute emulator.
-* Publish your MySQL Django application to Windows Azure.
+* Host and run your MySQL Django application.
 
-You will expand upon the [Django Hello World] [djangohelloworld] sample by utilizing a MySQL database, hosted in a Windows Azure VM, to find an interesting replacement for *World*. The replacement will in turn be determined via a MySQL-backed Django *counter* app. As was the case for the Hello World sample, this Django application will again be hosted in a web role.
+You will expand upon the [Django Hello World] [djangohelloworld] sample by utilizing a MySQL database, hosted in a Windows Azure VM, to find an interesting replacement for *World*. The replacement will in turn be determined via a MySQL-backed Django *counter* app. As was the case for the Hello World sample, this Django application will again be hosted in a Windows Azure Preview Portal virtual machine.
 
 The project files for this tutorial will be stored in **C:\django\helloworld** and the completed application will look similar to:
 ![][0]
-  
-## Setting up your development environment ##
-Before you can begin developing your Windows Azure application, you need to get the tools and set up your development environment. For details about getting and installing the Windows Azure SDK for Python, see [Setup the Development Environment] [wapstarted] in the Python "Hello World" Application tutorial.
 
-**Note:** This tutorial requires Python 2.7 and Django 1.4. These versions are included in the current Windows Azure SDK for Python; however if you have installed a previous version you will need to [upgrade to the latest version] [wapstarted].
+## Setting up a virtual machine to host MySQL and Django
+1. Follow the instructions given [here ][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Windows Server 2008 R2* flavor.
 
-## Install the MySQL Python package ##
-You must download and install the MySQL Python package, in addition to installing the Windows Azure SDK for Python. You can install it directly [from this link] [mysqlpydl]. Once completed, run the following command to verify your installation:
+1. Open up a TCP port for MySQL transactions on the virtual machine:
+ * Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
+ * Click *ADD ENDPOINT* button at the bottom of the screen.
+  ![][6]
+ * Open up the *TCP* protocol's *PUBLIC PORT* **3306** as *PRIVATE PORT* **3306**.
+  ![][8]
 
-![][1]
+1. Duplicate the previous *ENDPOINT* addition, this time opening up *TCP*'s *PUBLIC PORT 80* as *PRIVATE PORT 80*.  This redirects external Internet requests to the port Django runs on, namely *80*.
 
-## Setting up a virtual machine to host MySQL
-- Open up a TCP port for MySQL transactions on the virtual machine:
- 1. Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
- 1. Click *ADD ENDPOINT* button at the bottom of the screen.
-![][6]
+1. Use Windows *Remote Desktop* to remotely log into the newly created Windows Azure virtual machine.
 
- 1. Open up the *TCP* protocol's *PUBLIC PORT* **3306** as *PRIVATE PORT* **3306**.
-![][8]
+1. Open up TCP port **80** on the virtual machine:
+ * From the **Start** menu, select **Administrator Tools** and then **Windows Firewall with Advanced Security**. 
+ * In the left pane, select **Inbound Rules**.  In the **Actions** pane on the right, select **New Rule...**.
+ * In the **New Inbound Rule Wizard**, select **Port** and then click **Next**.
+ * Select **TCP** and then **Specific local ports**.  Specify a port of "80" (the port Django listens on) and click **Next**.
+ * Select **Allow the connection** and click **Next**.
+ * Click **Next** again.
+ * Specify a name for the rule, such as "DjangoPort", and click Finish.
 
-- Install the latest version of [MySQL Community Server] [mysqlcommunity] for Windows on the virtual machine:
-1. Install .NET version 4.0 from [here][dotnetfour].
-1. Run the *Windows (x86, 64-bit), MSI Installer* link [here] [mysqlcommunity] and download the appropriate MSI installer from the download mirror nearest you. Helpful hints are:
- * Select a *Complete* Setup Type.
- * Select a *Detailed Configuration* within the Configuration Wizard.
- * **Make sure you enable TCP/IP Networking on Port Number 3306 and add a firewall exception for the port.**
- * Set a root password and enable root access from remote machines.
-1. Install a sample ["world" database] [mysqlworld] (MyISAM version):
- * Download [this] [mysqlworlddl] zip file on the Windows Azure Virtual Machine.
- * **Unzip it to *C:\Users\Administrator\Desktop\world.sql*.**
-- After installing MySQL, click the Windows *Start* menu and run the freshly installed *MySQL 5.5 Command Line Client*.  Issue the following commands:
+1. Install the latest version of [MySQL Community Server] [mysqlcommunity] for Windows on the virtual machine:
+ * Run the *Windows (x86, 64-bit), MSI Installer* link [here ] [mysqlcommunity] and download the appropriate MSI installer from the download mirror nearest you. Helpful hints are:
+     * Select a *Complete* Setup Type.
+     * Select a *Detailed Configuration* within the Configuration Wizard.
+     * **Make sure you enable TCP/IP Networking on Port Number 3306 and add a firewall exception for the port.**
+     * Set a root password and enable root access from remote machines.
+ * Install a sample ["world" database] [mysqlworld] (MyISAM version):
+     * Download [this] [mysqlworlddl] zip file on the Windows Azure Virtual Machine.
+     * **Unzip it to *C:\Users\Administrator\Desktop\world.sql*.**
+1. After installing MySQL, click the Windows *Start* menu and run the freshly installed *MySQL 5.5 Command Line Client*.  Issue the following commands:
 
-		CREATE world;
+		CREATE DATABASE world;
 		USE world;
 		SOURCE C:\Users\Administrator\Desktop\world.sql
 		CREATE USER 'testazureuser'@'%' IDENTIFIED BY 'testazure';
@@ -57,14 +59,23 @@ You must download and install the MySQL Python package, in addition to installin
 		GRANT ALL ON world.* TO 'testazureuser'@'%';
 		SELECT name from country LIMIT 1;
 
-You should now see a response similar to the following: 
+  You should now see a response similar to the following: 
 
-![][2]
+  ![][2]
+
+1. Before you can begin developing your Django application, we of course need to install Python+Django on the virtual machine.  To that effect, follow the [Setup the Development Environment] [wapstarted] guide in the Python "Hello World" Application tutorial.  
+
+  **Note:** you merely need to install the *Django* product from WebPI to get this tutorial working.  You do **not** need *Python Tools for Visual Studio* or even the Windows Azure Python SDK installed for our purposes.
+
+1. Install the MySQL Python client package. You can install it directly [from this link] [mysqlpydl]. Once completed, run the following command to verify your installation:
+
+  ![][1]
+
 
 ## Extend the Django Hello World application
-* Follow the instructions given in the [Django Hello World] [djangohelloworld] tutorial to create a trivial "Hello World" web application in Django.
+1. Follow the instructions given in the [Django Hello World] [djangohelloworld] tutorial to create a trivial "Hello World" web application in Django.
 
-* Open **C:\django\helloworld\hello\_dj\hello\_dj\settings.py** in your favorite text editor.  Modify the **DATABASES** global dictionary to read:
+1. Open **C:\django\helloworld\helloworld\settings.py** in your favorite text editor.  Modify the **DATABASES** global dictionary to read:
 
 		DATABASES = {
 		    'default': {
@@ -91,14 +102,14 @@ You should now see a response similar to the following:
 
   After you've modified *HOST* to match the MySQL VM's IP address, please save this file and close it.
 
-* Now that we've referenced our *djangoazure* database, let's do something useful with it! To this end, we'll create a model for a trivial *counter* app.  To instruct Django to create this, run the following commands:
+1. Now that we've referenced our *djangoazure* database, let's do something useful with it! To this end, we'll create a model for a trivial *counter* app.  To instruct Django to create this, run the following commands:
 
-		cd C:\django\helloworld\hello_dj\hello_dj
+		cd C:\django\helloworld
 		C:\Python27\python.exe manage.py startapp counter
 
   If Django doesn't report any output from the final command above, it succeeded.
 
-* Append the following text to **C:\django\helloworld\hello\_dj\hello\_dj\counter\models.py**:
+1. Append the following text to **C:\django\helloworld\counter\models.py**:
 
 		class Counter(models.Model):
 		    count = models.IntegerField()
@@ -107,17 +118,17 @@ You should now see a response similar to the following:
 
   All we've done here is defined a subclass of Django's *Model* class named *Counter* with a single integer field, *count*. This trivial counter model will end up recording the number of hits to our Django application. 
 
-* Next we make Django aware of *Counter*'s existence:
- 1. Edit **C:\django\helloworld\hello\_dj\hello\_dj\settings.py** again. Add *'counter'* to the *INSTALLED_APPS* tuple.
- 1. From a command prompt, please run:
+1. Next we make Django aware of *Counter*'s existence:
+ * Edit **C:\django\helloworld\helloworld\settings.py** again. Add *'counter'* to the *INSTALLED_APPS* tuple.
+ * From a command prompt, please run:
 
-			cd C:\django\helloworld\hello_dj\hello_dj
+			cd C:\django\helloworld
 			C:\Python27\python manage.py sql counter
 			C:\Python27\python manage.py syncdb
 
     These commands store the *Counter* model in the live Django database, and result in output similar to the following:
 
-		C:\django\helloworld\hello_dj\hello_dj> C:\Python27\python manage.py sql counter
+		C:\django\helloworld> C:\Python27\python manage.py sql counter
 		BEGIN;
 		CREATE TABLE `counter_counter` (
     		`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -126,7 +137,7 @@ You should now see a response similar to the following:
 		;
 		COMMIT;
 		
-		C:\django\helloworld\hello_dj\hello_dj> C:\Python27\python manage.py syncdb
+		C:\django\helloworld> C:\Python27\python manage.py syncdb
 		Creating tables ...
 		Creating table auth_permission
 		Creating table auth_group_permissions
@@ -145,7 +156,7 @@ You should now see a response similar to the following:
 		Installing indexes ...
 		Installed 0 object(s) from 0 fixture(s)
 
-* Replace the contents of **C:\django\helloworld\hello\_dj\hello\_dj\views.py**. The new implementation of the *hello* function below uses our *Counter* model in conjunction with a separate sample database we previously installed, *world*, to generate a suitable replacement for the "*World*" string:
+1. Replace the contents of **C:\django\helloworld\helloworld\views.py**. The new implementation of the *hello* function below uses our *Counter* model in conjunction with a separate sample database we previously installed, *world*, to generate a suitable replacement for the "*World*" string:
 
 		from django.http import HttpResponse
 		import django.db
@@ -176,77 +187,38 @@ You should now see a response similar to the following:
 		    world = getCountry(int(c.count))
 		    return HttpResponse("<html><body>Hello <em>" + world + "</em></body></html>")
 
-## Running Your Application Locally ##
-Before running your application in the Windows Azure emulator, let's run it as a normal Django application to ensure everything's working properly:
 
-		pushd C:\django\helloworld\hello_dj\hello_dj
-		C:\Python27\python.exe manage.py runserver
-		"%ProgramFiles%\Internet Explorer\iexplore.exe" http://localhost:8000
+## Deploying and running your Django website
 
-**Note:** You might need to change port **8000** to another port depending upon how Django configured your application locally.
+1.  Switch back to a Windows PowerShell window, and type the following commands to deploy your Django website publically:
 
-You should see output similar to the following in your web browser:
+		PS C:\django\helloworld> $ipPort = [System.Net.Dns]::GetHostEntry("127.0.0.1")
+		PS C:\django\helloworld> $ipPort = [string]$ipPort.AddressList[1]
+		PS C:\django\helloworld> $ipPort += ":80"
+		PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
 
-![][4] 
+    The **runserver** parameter instructs Django to run our *helloworld* website on TCP port *80*. The results of this command should be similar to:
 
-Refresh the web browser a few times and you should see the message change from *"Hello **&lt;country abc&gt;**"* to *"Hello **&lt;some other country&gt;**"*.
-  
-##Running Your Application Locally in the Emulator##
-Start the Windows Azure emulator and open the Django webpage exactly as you did in the [Django Hello World] [djangohelloworld] tutorial.
+		PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
+		Validating models...
+		
+		0 errors found
+		Django version 1.4, using settings 'helloworld.settings'
+		Development server is running at http://123.34.56.78:80
+		Quit the server with CTRL-BREAK.
+ 
+1. From your local web browser, open **http://*yourVmName*.cloudapp.net** (where *yourVmName* is whatever name you used in the virtual machine creation step). You should see “Hello ... !” displayed as shown in the screenshot below. This indicates that Django is running in the virtual machine and is working correctly.
 
-The output should be basically the same to what you saw with the locally hosted version:
+    ![][5]
 
-![][5]
+  Refresh the web browser a few times and you should see the message change from *"Hello **&lt;country abc&gt;**"* to *"Hello **&lt;some other country&gt;**"*.
 
-##Deploying the application to Windows Azure
-From here, you need to duplicate the steps performed in the [Django Hello World] [djangohelloworld] tutorial to publish the MySQL derivation to Windows Azure.  
+1.  To stop Django from hosting the website, simply switch to the PowerShell window and press **CTRL-C**.
 
-Additionally, you'll need to bundle MySQLdb with your app as this is not installed with the Windows Azure SDK for Python.  An easy way to accomplish this is:
 
-		cd C:\django\helloworld\hello_dj
-		copy -recurse C:\Python27\Lib\site-packages\MySQLdb .
-		copy -recurse C:\Python27\Lib\site-packages\_mysql* .
+## Shutting down your Windows Azure virtual machine
 
-## Stopping and Deleting Your Application
-
-After deploying your application, you may want to disable it so you can
-avoid costs or build and deploy other applications within the free trial
-time period.
-
-Windows Azure bills web role instances per hour of server time consumed.
-Server time is consumed once your application is deployed, even if the
-instances are not running and are in the stopped state.
-
-The following steps show you how to stop and delete your application.
-
-1.  In the Windows PowerShell window, stop the service deployment
-    created in the previous section with the following cmdlet:
-
-        PS C:\django\helloworld\hello_dj\hello_dj> Stop-AzureService
-
-    Stopping the service may take several minutes. When the service is
-    stopped, you receive a message indicating that it has stopped.
-
-    ![The status of the Stop-AzureService command][]
-
-2.  To delete the service, call the following cmdlet:
-
-        PS C:\django\helloworld\hello_dj\hello_dj> Remove-AzureServiceProject
-
-3.  When prompted, enter **Y** to delete the service.
-
-    Deleting the service may take several minutes. After the service has
-    been deleted you receive a message indicating that the service was
-    deleted.
-
-    ![The status of the Remove-AzureService command][]
-
-**Note**: Deleting the service does not delete the storage account that
-was created when the service was initially published, and you will
-continue to be billed for storage used. Since storage accounts can be
-used by multiple deployments, be sure that no other deployed service is
-using the storage account before you delete it. For more information on
-deleting a storage account, see [How to Delete a Storage Account from a Windows Azure Subscription][].
+When you're done with this tutorial, shutdown and/or remove your newly created Windows Azure virtual machine to free up resources for other tutorials and avoid incurring Windows Azure usage charges.
 
 [0]: ../Media/mysql_tutorial01.png
 [1]: ../Media/mysql_tutorial01-1.png
@@ -263,16 +235,19 @@ deleting a storage account, see [How to Delete a Storage Account from a Windows 
 [djangohelloworld]: ../web-app-with-django
 [mysqldoc]: http://dev.mysql.com/doc/
 [mysqlpy]: http://pypi.python.org/pypi/MySQL-python/1.2.3
-[wapstarted]: ../commontasks/how-to-install-python.md
+[wapstarted]: ../commontasks/install-python
 [mysqlpydl]: http://www.codegood.com/download/10/
 [mysqlcommunity]:http://dev.mysql.com/downloads/mysql/
 [dotnetfour]:http://go.microsoft.com/fwlink/?LinkId=181012
 [mysqlworld]:http://dev.mysql.com/doc/index-other.html
 [mysqlworlddl]:http://downloads.mysql.com/docs/world.sql.zip
 
+[preview-portal]: https://manage.windowsazure.com
+[preview-portal-vm]: /en-us/manage/windows/tutorials/virtual-machine-from-gallery/
+
 [The status of the Stop-AzureService command]: ../Media/django-helloworld-ps-stop.png
 [The status of the Remove-AzureService command]: ../Media/django-helloworld-ps-remove.png
 [How to Delete a Storage Account from a Windows Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx
 
-[Installation Guide]: /develop/python/commontasks/how-to-install-python
+[Installation Guide]: ../commontasks/install-python
  

@@ -134,7 +134,7 @@ created. The combination of service namespace and shared secret key
 provides a credential for Service Bus to authenticate access to an
 application.
 
-1.  Log into the [Windows Azure Platform Management Portal][].
+1.  Log into the [Windows Azure Management Portal][].
 
 2.  In the lower left navigation pane of the Management Portal, click
     **Service Bus, Access Control & Caching**.
@@ -364,8 +364,7 @@ Service Bus Queue.
     information and contains methods for initializing the connection to
     a Service Bus Queue. In QueueConnector.cs, paste in the following code, and enter in
     values for **Namespace**, **IssuerName**, and **IssuerKey**. You can
-    find these values in the [Management Portal][Windows Azure Platform
-    Management Portal].
+    find these values in the [Management Portal][Windows Azure Management Portal].
 
         using System;
         using System.Collections.Generic;
@@ -483,7 +482,7 @@ Service Bus Queue.
 
 ## Azure Configuration Manager
 
-Windows Azure supports a set of managed API that provides a consistent way to create new instances of Windows Azure service clients (such as the Service Bus) across Microsoft cloud services. The API enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in websites, or in a persistent VM Role. You can also use these API to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The API are located in the **Microsoft.WindowsAzure.Configuration.AzureConfigurationManager** class. There are also APIs on the client side.
+Windows Azure supports a set of managed API that provides a consistent way to create new instances of Windows Azure service clients (such as the Service Bus) across Microsoft cloud services. The API enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in websites, or in a persistent VM Role. You can also use these API to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The API are located in the **Microsoft.WindowsAzure.Configuration.CloudConfigurationManager** class. There are also APIs on the client side.
 
 ### Connection String
 
@@ -498,7 +497,7 @@ The following code retrieves the connection string, creates a queue, and initial
 
 	QueueClient Client; 
 
-	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	string connectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString); 
 
 	if (!namespaceManager.QueueExists(QueueName))
@@ -595,7 +594,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
   [4]: ../Media/getting-started-4.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [5]: ../Media/getting-started-12.png
-  [Windows Azure Platform Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://windows.azure.com
   [6]: ../Media/sb-queues-03.png
   [7]: ../Media/sb-queues-04.png
   [8]: ../Media/getting-started-multi-tier-09.png

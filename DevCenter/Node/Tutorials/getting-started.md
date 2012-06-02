@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-getting-started" urldisplayname="Node.js Web Application" headerexpose="" pagetitle="Node.js Getting Started Guide" metakeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Windows Azure." umbraconavihide="0" disquscomments="1"></properties>
 
-# Node.js Web Application
+# Node.js Cloud Service
 
 Developing for Windows Azure is easy when using the available tools.
 This tutorial assumes you have no prior experience using Windows Azure.
@@ -13,7 +13,7 @@ You will learn:
     Windows PowerShell tools.
 -   How to run your Node application locally using the Windows Azure
     compute emulator
--   How to publish and re-publish your application to Windows Azure.
+-   How to publish and re-publish your application to a Cloud Service in Windows Azure.
 
 By following this tutorial, you will build a simple Hello World web
 application. The application will be hosted in an instance of a web role
@@ -35,7 +35,7 @@ to get the tools and set up your development environment.
     [Get Tools and SDK][]
 
 2.  Select **Install Now**, and when prompted to run or save
-    azurenodepowershell.exe, click Run:
+    azurenodesdk.exe, click Run:
 
     ![Internet Explorer promoting to run a downloaded file][]
 
@@ -50,9 +50,8 @@ start developing. The following components are installed:
 -   Node.js
 -   IISNode
 -   NPM for Windows
--   Windows Azure Emulators - November 2011
--   Windows Azure Authoring Components - November 2011
--   Windows Azure PowerShell for Node.js
+-   Windows Azure Compute & Storage Emulators
+-   Windows Azure PowerShell
 
 ## Creating a New Node Application
 
@@ -61,7 +60,7 @@ environment that is configured for Windows Azure and Node development.
 It includes tools that you can use to create and publish Node
 applications.
 
-1.  On the **Start** menu, click **All Programs, Windows Azure**, right-click **Windows Azure PowerShells**, and then select **Run As Administrator**. Opening
+1.  On the **Start** menu, click **All Programs, Windows Azure**, right-click **Windows Azure PowerShell**, and then select **Run As Administrator**. Opening
     your Windows PowerShell environment this way ensures that all of the
     Node command-line tools are available. Running with elevated
     privileges avoids extra prompts when working with the Windows Azure
@@ -69,7 +68,7 @@ applications.
 
     ![The Windows Start menu with the Windows Azure SDK Node.js entry expanded][]
 
-2.  Create a new **node**directory on your C drive, and change to the
+2.  Create a new **node** directory on your C drive, and change to the
     c:\\node directory:
 
     ![A command prompt displaying the commands 'mkdir c:\\node' and 'cd node'.][mkdir]
@@ -82,8 +81,8 @@ applications.
 
     ![The result of the New-AzureService tasklist command][]
 
-    The **New-AzureService** cmdlet generates a basic structure for
-    creating a new Windows Azure Node application. It contains
+    The **New-AzureServiceProject** cmdlet generates a basic structure for
+    creating a new Windows Azure Node application which will be published to a Cloud Service. It contains
     configuration files necessary for publishing to Windows Azure. The
     cmdlet also changes your working directory to the directory for the
     service.
@@ -114,9 +113,9 @@ applications.
 
     The **Add-AzureNodeWebRole**cmdlet creates a new directory for your
     application and generates additional files that will be needed when
-    your application is published. In Windows Azure, *roles*define
+    your application is published. In Windows Azure, *roles* define
     components that can run in the Windows Azure execution environment.
-    A *web role*is customized for web application programming.
+    A *web role* is customized for web application programming.
 
     By default if you do not provide a role name, one will be created
     for you i.e. WebRole1. You can provide a name as the first parameter
@@ -165,7 +164,7 @@ application without having to actually deploy it.
     Enter the following cmdlet to run your service in the emulator and
     launch a browser window:
 
-        PS C:\node\tasklist\WebRole1> Start-AzureEmulator -launch
+        PS C:\node\tasklist\WebRole1> Start-AzureEmulator -Launch
 
     The **–launch** parameter specifies that the tools should
     automatically open a browser window and display the application once
@@ -234,22 +233,23 @@ Windows PowerShell cmdlets.
 1.  Publish the application using the **Publish-AzureServiceProject** cmdlet,
     as shown below.
 
-    -   **name** specifies the name for the service. The name must be
+    -   **ServiceName** specifies the name for the service. The name must be
         unique across all other services in Windows Azure. For example,
         below, “TaskList” is suffixed with “Contoso,” the company name,
-        to make the service name unique.
-    -   **location** specifies the country/region for which the
+        to make the service name unique. By default if ServiceName is not provided, 
+        the project folder name will be used.
+    -   **Location** specifies the country/region for which the
         application should be optimized. You can expect faster loading
         times for users accessing it from this region. Examples of the\\
         available regions include: North Central US, Anywhere US,
         Anywhere Asia, Anywhere Europe, North Europe, South Central US,
         and Southeast Asia.
-    -   **launch** specifies to open the browser at the location of the
+    -   **Launch** specifies to open the browser at the location of the
         hosted service after publishing has completed.
 
     <!-- -->
 
-        PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject –name TaskListContoso –location "North Central US” -launch
+        PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject –serviceName TaskListContoso –location "North Central US” -launch
 
     Be sure to use a **unique name**, otherwise the publish process will
     fail. After publishing succeeds, you will see the following
@@ -319,7 +319,7 @@ The following steps show you how to stop and delete your application.
 
 2.  To delete the service, call the following cmdlet:
 
-        PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
+        PS C:\node\tasklist\WebRole1> Remove-AzureService
 
 	When prompted, enter **Y** to delete the service.
 

@@ -44,7 +44,9 @@ Unless you have a specific need, we recommend the first two options, as describe
 
 ## Installation on Windows
 
-For Windows you can use the provided WebPI installer to streamline the installation (it will grab CPython from www.python.org):
+For Windows you can use the provided WebPI installer from the main Python Developer Center to streamline the installation (it will grab CPython from www.python.org).
+
+**Note:** On Windows Server, in order to download the WebPI installer you may have to configure IE ESC settings (Start/Adminstrative Tools/Server Manager, then click **Configure IE ESC**, set to Off)
 
 ![how-to-install-python-webpi-1.png][] 
 
@@ -83,7 +85,9 @@ Python Tools for Visual Studio is a free/OSS plugin from Microsoft which turns V
 
 ![how-to-install-python-ptvs.png][]
 
-Using Python Tools for Visual Studio is optional, but is recommended as it gives you Python and Django Project/Solution support, debugging, profiling, Template editing and Intellisense, deployment to cloud, etc.  This add-in  works with your existing VS2010 install.  If you don't have VS2010, WebPI will install the free Integrated Shell + PTVS which essentially give you a **completely free** "VS Python Express" IDE.  For more information, see [Python Tools for Visual Studio on CodePlex][].  Also note that while the PTVS plug-in is small, the Integrated Shell will increases your download times.
+Using Python Tools for Visual Studio is optional, but is recommended as it gives you Python and Django Project/Solution support, debugging, profiling, Template editing and Intellisense, deployment to cloud, etc.  This add-in  works with your existing VS2010 install.  If you don't have VS2010, WebPI will install the free Integrated Shell + PTVS which essentially give you a **completely free** "VS Python Express" IDE.  For more information, see [Python Tools for Visual Studio on CodePlex][].  
+
+Note: While the PTVS plug-in is small, the Integrated Shell will increases your download times. It also currently doesn't support the "Add Windows Azure Deployment Project" feature.
 
 
 ## Installation on Linux and MacOS
@@ -92,7 +96,7 @@ Python is most likely already installed on your Dev machine.  You can check by e
 
 ![how-to-install-python-linux-run.png][]
 
-Here we see that this Azure Suse VM has CPython 2.7.2 installed which is fine for running the Azure tutorials and Django samples. If you need to upgrade, follow your OS's recommended package upgrade instructions.  Note however, that in general it's better to leave the system Python alone (others may depend on that version) and install the newer version via [Virtualenv][].
+Here we see that this Azure Suse VM has CPython 2.7.2 installed which is fine for running the Windows Azure tutorials and Django samples. If you need to upgrade, follow your OS's recommended package upgrade instructions.  Note however, that in general it's better to leave the system Python alone (others may depend on that version) and install the newer version via [Virtualenv][].
 
 To install the Python Azure Client Libraries, use **pip** to grab it from **PyPI**:
 
@@ -112,11 +116,11 @@ When developing from mac/linux, there are two main scenarios supported for this 
 
 2. Running your app in a Linux VM
 
-The first scenario enables you to author rich web apps that take advantage of the Azure PaaS capabilities such as blob storage, queues, etc. via Pythonic wrappers for the Azure REST API's.  These work identically on Windows, Mac and Linux.  See the Tutorials and How To Guides for examples.  You can also use these client libraries from within a Linux VM.
+The first scenario enables you to author rich web apps that take advantage of the Windows Azure PaaS capabilities such as blob storage, queues, etc. via Pythonic wrappers for the Windows Azure REST API's.  These work identically on Windows, Mac and Linux.  See the Tutorials and How To Guides for examples.  You can also use these client libraries from within a Linux VM.
 
 For the VM scenario, you simply start a Linux VM of your choice (Ubuntu, CentOS, Suse) and run/manage what you like.  As an example, you can run [IPython](http://ipython.org) REPL/notebook on your Windows/Mac/Linux machine and point your browser to a Linux or Windows multi-proc VM running the IPython Engine on Azure. For more information on IPython installation please see its tutorial.
 
-For information on how to setup a Linux, please see [Setting up a Linux VM via the Azure portal][].
+For information on how to setup a Linux, please see [Setting up a Linux VM via the Windows Azure portal][].
 
 For details on managing/deploying services, please see [How to use the Windows Azure Command-Line Tools for Mac and Linux][]
 
@@ -156,7 +160,9 @@ For details on managing/deploying services, please see [How to use the Windows A
 
 [IPython - an advanced REPL/Notebook for Python]: http://ipython.org
 
-[IPython on Azure]: ../tutorials/azure-ipython.md
+
+[IPython on Azure]: ../tutorials/azure-ipython
+
 
 [Python Tools for Visual Studio on CodePlex]: http://pytools.codeplex.com 
 
@@ -166,9 +172,9 @@ For details on managing/deploying services, please see [How to use the Windows A
 
 
 
-[Setting up a Linux VM via the Azure portal]: ../../../shared/chunks/create-and-configure-opensuse-vm-in-portal.md
+[Setting up a Linux VM via the Windows Azure portal]: ../../../shared/chunks/create-and-configure-opensuse-vm-in-portal
 
-[How to use the Windows Azure Command-Line Tools for Mac and Linux]: ../../shared/chunks/crossplat-cmd-tools.md
+[How to use the Windows Azure Command-Line Tools for Mac and Linux]: ../../shared/chunks/crossplat-cmd-tools
 
 [how-to-install-python-webpi-1.png]: ../Media/how-to-install-python-webpi-1.png 
 [how-to-install-Python-webpi-2.png]: ../Media/how-to-install-Python-webpi-2.png

@@ -1,5 +1,7 @@
 #How to Create a Custom Virtual Machine
 
+To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures). 
+
 You can create a custom virtual machine by providing advanced options, such as size, connected resources, DNS name, and network connection. You must use this option if you want to connect virtual machines or if you want to use a custom image to create the machine. 
 
 Before you create a virtual machine, you should decide how it will be used. If you have a need for only one virtual machine in your application, you choose to create a stand-alone virtual machine. If you need multiple virtual machines in the same cloud service that can communicate with each other and act as a load-balanced application, you choose to connect the new virtual machine to an existing virtual machine.
@@ -22,7 +24,7 @@ Before you create a virtual machine, you should decide how it will be used. If y
 
 	The **VM Configuration** dialog box appears.
 
-	![Select the image][Select the image]
+	![Select the image][Define the image]
 
 5. In **Virtual Machine Name**, type the name that you want to use for the virtual machine.
 
@@ -65,7 +67,7 @@ Before you create a virtual machine, you should decide how it will be used. If y
 [Create a new virtual machine]:../media/create.png
 [Create a new custom virtual machine]:../media/createnew.png
 [Select the image]:../media/imageselectionwindows.png
-[Select the image]:../media/imagedefinewindows.png
+[Define the image]:../media/imagedefinewindows.png
 [Define the stand-alone virtual machine]:../media/imagestandalonewindows.png
 [Define the virtual machine options]:../media/imageoptionswindows.png
 [Custom virtual machine creation successful]:../media/vmsuccesswindows.png

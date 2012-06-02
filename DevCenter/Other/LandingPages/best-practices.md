@@ -1,6 +1,6 @@
 # Developer Center - Best Practices
 
-The content in this section will help you develop robust Windows Azure solutions. New content will be added frequently, so please visit this page for new topics. You can also use the Disqus section below to suggest new topics, or submit your own best practices content through [GitHub]().
+The content in this section will help you develop robust Windows Azure solutions. New content will be added frequently, so please visit this page for new topics. You can also use the Disqus section below to suggest new topics.
 
 ## Key guidance areas
 
@@ -19,7 +19,7 @@ This topic provides an overview of performance considerations for cloud-based ap
 These articles provide guidance based on real-world solutions, and walk you through the entire software development lifecycle. 
 
 ### [Patterns and Practices][]
-This content provides recommendations on how to design and develop custom applications using the Windows Azure platform.
+This content provides recommendations on how to design and develop custom applications using Windows Azure.
 
 [GitHub]: http://github.com/windowsazure/azure-content/
 [Troubleshooting in Windows Azure]: /en-us/develop/other/best-practices/troubleshooting/

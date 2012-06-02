@@ -1,8 +1,7 @@
 # Managing Windows Azure SQL Database using SQL Server Management Studio 
 
 You can use Windows Azure SQL Database Management Portal or the SQL Server Management Studio (SSMS) client application to administer your SQL Database subscriptions and create and manage associated logical servers and databases. The guidance below describes how to use Management Studio to manage SQL Database logical servers and databases. For information on how to
-use SQL Database connections in application code, see [How to Use SQL
-Database][].
+use SQL Database connections in application code, see [How to Use SQL Database][].
 
 **Note:** You can use either SQL Server
 2012 or the SQL Server 2008 R2 version of Management Studio. Earlier versions are not supported.
@@ -13,8 +12,7 @@ This task includes the following steps:
 -   [Step 2: Connect to SQL Database][]
 -   [Step 3: Create and manage databases][]
 -   [Step 4: Create and manage logins][]
--   [Step 5: Monitor SQL Database using Dynamic Management
-    Views][]
+-   [Step 5: Monitor SQL Database using Dynamic Management Views][]
 
 ## <a id="Step1" name="Step1"> </a>Step 1: Get Management Studio
 
@@ -138,8 +136,7 @@ To open a query window in Management Studio, open the Databases folder, right-cl
 Click **Execute** to run the query.
 
 -   Use the **CREATE DATABASE** statement to create a new database. For
-    more information, see [CREATE DATABASE (SQL
-    Database)][]. The statement below creates a new database named
+    more information, see [CREATE DATABASE (SQL Database)][]. The statement below creates a new database named
     **myTestDB** and specifies that it is a Web Edition database
     with a maximum size of 1 GB.
 
@@ -159,8 +156,7 @@ Click **Execute** to run the query.
          EDITION='web');
 
 -   Use **the DROP DATABASE** Statement to delete an existing database.
-    For more information, see [DROP DATABASE (SQL
-    Database)][]. The statement below deletes the **myTestDB**
+    For more information, see [DROP DATABASE (SQL Database)][]. The statement below deletes the **myTestDB**
     database, but don't drop it now because you will use it create logins in the next step.
 
         DROP DATABASE myTestBase;
@@ -192,8 +188,7 @@ across the entire server. For more information, see [Managing Databases and Logi
 
 
 -   Use the **CREATE LOGIN** statement to create a new server-level
-    login. For more information, see [CREATE LOGIN
-    (SQL Database)][]. The statement below creates a new login
+    login. For more information, see [CREATE LOGIN (SQL Database)][]. The statement below creates a new login
     called **login1**. Replace **password1** with the password of your
     choice.
 
@@ -221,8 +216,7 @@ across the entire server. For more information, see [Managing Databases and Logi
 
 -   Use the **sp\_addrolemember** stored procedure to give the user
     account the appropriate level of permissions on the database. For
-    more information, see [sp\_addrolemember
-    (Transact-SQL)][]. The statement below gives **login1User**
+    more information, see [sp_addrolemember (Transact-SQL)][]. The statement below gives **login1User**
     read-only permissions to the database by adding **login1User** to
     the **db\_datareader** role.
 
@@ -230,8 +224,7 @@ across the entire server. For more information, see [Managing Databases and Logi
 
 -   Use the **ALTER LOGIN** statement to modify an existing login, for
     example if you want to change the password for the login. For
-    more information, see [ALTER LOGIN (SQL 
-    Database)][]. The **ALTER LOGIN** statement should be run against
+    more information, see [ALTER LOGIN (SQL Database)][]. The **ALTER LOGIN** statement should be run against
     the **master** database. The
     statement below modifies the **login1** login to reset the password.
     Replace **newPassword** with the password of your choice, and
@@ -261,8 +254,7 @@ across the entire server. For more information, see [Managing Databases and Logi
 SQL Database supports several dynamic management views that you
 can use to monitor an individual database. Below are a few examples of
 the type of monitor data you can retrieve through these views. For
-complete details and more usage examples, see [Monitoring SQL Database
-using Dynamic Management Views][].
+complete details and more usage examples, see [Monitoring SQL Database using Dynamic Management Views][].
 
 -   Querying a dynamic management view requires **VIEW DATABASE STATE**
     permissions. To grant the **VIEW DATABASE STATE** permission to a
@@ -319,12 +311,12 @@ using Dynamic Management Views][].
 
 ## Additional Resources
 
-[Introducing SQL Database][]   
- [Managing Databases and Logins in SQL Database][]   
- [Monitoring SQL Database using Dynamic Management Views][]   
- [SQL Database Provisioning Model][]   
- [Adding Users to your SQL Database][]   
- [Transact-SQL Reference (SQL Database)][]
+* [Introducing SQL Database][]   
+* [Managing Databases and Logins in SQL Database][]   
+* [Monitoring SQL Database using Dynamic Management Views][]   
+* [SQL Database Provisioning Model][]   
+* [Adding Users to your SQL Database][]   
+* [Transact-SQL Reference (SQL Database)][]
 
   [How to Use SQL Database]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
   [Step 1: Get SQL Server Management Studio]: #Step1
@@ -338,7 +330,7 @@ using Dynamic Management Views][].
   [SSMS Installer - Select features]: /media/installer_feature_selection.png
   [SSMS Installer - Installation complete]: /media/installer_completed.png
   [Windows Azure Management Portal]: http://windows.azure.com/
-  [Get SQL Azure server name from Management Portal]: /media/portal_get_database_name.png
+  [Get SQL Database server name from Management Portal]: /media/portal_get_database_name.png
   [Connect to SSMS]: /media/ssms_connect.png
   [Connect to SSMS -- properties]: /media/ssms_connect_properties.png
   [Transact-SQL Reference (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336281.aspx
@@ -348,7 +340,7 @@ using Dynamic Management Views][].
   [Managing Databases and Logins in SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336235.aspx
   [CREATE LOGIN (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336268.aspx
   [CREATE USER (SQL Database)]: http://msdn.microsoft.com/en-us/library/ee336277.aspx
-  [sp\_addrolemember (Transact-SQL)]: http://msdn.microsoft.com/en-us/library/ms187750.aspx
+  [sp_addrolemember (Transact-SQL)]: http://msdn.microsoft.com/en-us/library/ms187750.aspx
   [ALTER LOGIN (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336254.aspx
   [Monitoring SQL Database using Dynamic Management Views]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx
   [Introducing SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336230.aspx

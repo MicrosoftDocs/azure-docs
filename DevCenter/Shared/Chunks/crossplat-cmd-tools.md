@@ -33,15 +33,12 @@ The following list contains information for installing the command-line tools, d
 
 		npm install azure -g
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>On Linux, uou may need to run this command with elevated privileges:
+	**Note**: On Linux, you may need to run this command with elevated privileges:
 
 		sudo npm install azure -g
 
 	On Windows, you may need to run the command from a prompt with elevated privileges.
-	</p> 
-	</div>
+
 
 To test the installation, type `azure` at the command prompt. If the installation was successful, you will see a list of all the available `azure` commands.
 
@@ -81,9 +78,10 @@ Next, import the `.publishsettings` file by running the following command, repla
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>You can remove all of the information stored by the `import` command by using the `account clear` command:
+<p>You can remove all of the information stored by the <code>import</code> command by using the <code>account clear</code> command:</p>
 
-	azure account clear</p> 
+	azure account clear
+
 </div>
 
 To see a list of options for `account` commands, use the `-help` option:
@@ -116,7 +114,7 @@ To get detailed information about a site, use the `site show` command. The follo
 
 	azure site show MySite
 
-You can stop or start a site with the `site stop` and `site start` commands (respectively):
+You can stop or start a site with the `site stop` and `site start` commands:
 
 	azure site stop MySite
 	azure site start MySite
@@ -159,7 +157,7 @@ You can get detailed information about a virtual machine (including IP address, 
 
 	azure vm show myVM
 
-To shutdown, start, or restart the virtual machine, use one of the following commands (respectively):
+To shutdown, start, or restart the virtual machine, use one of the following commands:
 
 	azure vm shutdown myVM
 	azure vm start myVM

@@ -158,7 +158,7 @@ sending an attachment:
 **Note**: When using the **files** property, the file must be accessible
 through [fs.readFile][]. If the file you wish to attach is hosted in
 Windows Azure Storage, such as in a Blob container, you must first copy
-the file to local storage or an Azure drive before it can be sent as an
+the file to local storage or to a Windows Azure drive before it can be sent as an
 attachment using the **files** property.
 
 ## <a id="usefilters"> </a>How to: Use Filters to Enable Footers, Tracking, and Twitter

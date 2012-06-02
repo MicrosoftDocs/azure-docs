@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-website-mongodb" urldisplayname="Node.js Website with MongoDB" headerexpose="" pagetitle="Node.js Application using MongoDB" metakeywords="Azure Node.js tutorial MongoDB, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates a Node.js application in a Windows Azure Website, that talks to MongoDB on an Azure VM" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-website-mongodb" urldisplayname="Node.js Website with MongoDB" headerexpose="" pagetitle="Node.js Application using MongoDB" metakeywords="Azure Node.js tutorial MongoDB, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates a Node.js application in a Windows Azure Website, that talks to MongoDB on a Windows Azure virtual machine" umbraconavihide="0" disquscomments="1"></properties>
 # Node.js Web Application with Storage on MongoDB
 
 This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on Windows Azure. This tutorial assumes that you have some prior experience using node, MongoDB, and [Git].
@@ -88,34 +88,13 @@ In this section you will create a new Node application and use npm to add module
 
 ###Install additional modules
 
-The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for this application. To add a requirement for the Mongoose module perform the following steps:
-
-1. Open the **package.json** file in a text editor.
-
-2. Find the line that contains **"jade":** . Add a new line after it, which should contain the following:
-
-		, "mongoose": ">= 2.5.13"
-
-	After this change, the file contents should appear similar to the following:
-
-		{
-	    "name": "application-name"
-		  , "version": "0.0.1"
-		  , "private": true
-		  , "dependencies": {
-		      "express": "2.5.8"
-		    , "jade": ">= 0.0.1"
-		    , "mongoose": ">= 2.5.13"
-		  }
-		}
-
-3. Save the **package.json** file.
+The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to a Windows Azure Web Site, this file will be used to determine which modules need to be installed on Windows Azure to support your application.
 	
-4. From the command-line, change directories to the **tasklist** folder and enter the following to install the modules described in the **package.json** file:
+1. From the command-line, change directories to the **tasklist** folder and enter the following to install the modules described in the **package.json** file:
 
-        	npm install
+        npm install
 
-    The output of this command should appear as follows:
+    The output of this command should appear similar to the following:
 
 		express@2.5.8 ./node_modules/express
 		├── mime@1.2.4
@@ -125,10 +104,19 @@ The **package.json** file is one of the files created by the **express** command
 		jade@0.26.0 ./node_modules/jade
 		├── commander@0.5.2
 		└── mkdirp@0.3.0
-		mongoose@2.6.4 ./node_modules/mongoose
+
+	This installs all of the default modules that Express needs.
+
+2. Next, enter the following command to install the Mongoose module locally as well as to save an entry for it to the **package.json** file:
+
+		npm install mongoose --save
+
+	The output of this command should appear similar to the following:
+
+		mongoose@2.6.5 ./node_modules/mongoose
 		├── hooks@0.2.1
 		└── mongodb@1.0.2
-		
+
     **Note**: You can safely ignore any message about installing the C++ bson parser.
 
 ##Using MongoDB in a node application
@@ -304,13 +292,15 @@ To test the application on your local machine, perform the following steps:
 
 ##Deploy your application to Windows Azure
 
-The steps in this section use the Windows Azure command-line tools to create a new Windows Azure Web Site, and then use Git to deploy your application. To perform these steps you must have a Windows Azure subscription. If you do not already have a subscription, you can sign up for one [for free].
+The steps in this section use the Windows Azure command-line tools to create a new Windows Azure Web Site, and then use Git to deploy your application. To perform these steps you must have a Windows Azure subscription.
 
 **Note**: These steps can also be performed by using the Windows Azure portal. For steps on using the Windows Azure portal to deploy a Node.js application, see [Create and deploy a Node.js application to a Windows Azure Web Site].
 
 **Note**: If this is the first Windows Azure Web Site you have created, you must use the Windows Azure portal to deploy this application.
 
 ###Enable the Windows Azure Web Site feature
+
+If you do not already have a Windows Azure subscription, you can sign up [for free]. After signing up, follow these steps to enable the Windows Azure Web Site feature.
 
 <div chunk="../../Shared/Chunks/antares-iaas-signup.md"></div>
 

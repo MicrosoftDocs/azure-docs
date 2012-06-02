@@ -21,7 +21,7 @@ Knowledge of the following is useful for this tutorial, though not required:
 * The C# driver for MongoDB. For more information on developing C# applications against MongoDB, see [CSharp Language Center][MongoC#LangCenter]. 
 * The ASP .NET web application framework. You can learn all about it at the [ASP.net website][ASP.NET].
 * The ASP .NET MVC 3.0 web application framework. You can learn all about it at the [ASP.NET MVC 3 website][MVC3].
-* The Windows Azure Platform. You can get started reading at [Windows Azure][WindowsAzure].
+* Windows Azure. You can get started reading at [Windows Azure][WindowsAzure].
 
 ## Preparation
 
@@ -29,11 +29,17 @@ In this section you will learn how to create a virtual machine in Windows Azure 
 
 ###Create a virtual machine and install MongoDB
 
-This tutorial assumes you have created a virtual machine in Windows Azure running Linux. After createing the virtual machine you need to install MongoDB on the virtual machine.
+This tutorial assumes you have created a virtual machine in Windows Azure running Linux. After creating the virtual machine you need to install MongoDB on the virtual machine.
 
 To create a Linux virtual machine and install MongoDB, see [Install MongoDB on a virtual machine running CentOS Linux in Windows Azure][InstallMongoOnCentOSLinuxVM].
 
 After you have created the virtual machine in Windows Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.
+
+### Sign up for the Windows Azure Web Sites preview feature
+
+You will need to sign up for the Windows Azure Web Sites preview feature in order to create a Windows Azure web site. You can also sign up for a free trial account if you do not have a Windows Azure account.
+
+<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
 ### Set up the development environment
 
@@ -420,7 +426,7 @@ In this section you will create a web site and deploy your Task List ASP.NET app
 ### Create the web site
 In this section you will create a Windows Azure web site.
 
-1. Open a web browser and browse to the [Windows Azure (Preview) Management Portal][AzurePreviewPortal]. Sign in with your Windows Live ID and password. If you don't have a Windows Azure account, you can get started with a free account by clicking **Free trial** in the upper right corner. 
+1. Open a web browser and browse to the [Windows Azure (Preview) Management Portal][AzurePreviewPortal]. Sign in with your Windows Azure account. 
 2. At the bottom of the page, click **+New**, then **Web Site**, and finally **Quick Create**.
 3. Enter a unique prefix for the application's URL.
 4. Select a region.
@@ -440,10 +446,10 @@ In this section you will deploy the Task List application using Git.
 	![Git Repository is Ready][Image9]
 4. Select **Push my local files to Windows Azure** to display instructions on pushing your code to Windows Azure. The instructions will look similar to the following:
 
-	![Push local files to Azure][Image10]
+	![Push local files to Windows Azure][Image10]
 5. If you do not have Git installed, install it using the **Get it here** link in step 1.
 6. Following these instructions in step 2, commit your local files.
-7. Add the remote Azure repository and push your files to the Azure web site by following the instructions in step 3.
+7. Add the remote Windows Azure repository and push your files to the Windows Azure web site by following the instructions in step 3.
 8. When the deployment has completed you will see the following confirmation:
 	![Deployment Complete][Image11]
 9. Your Windows Azure web site is now available.  Check the **Dashboard** page for your site and the **Site URL** field to find the URL for your site. Following the procedures in this tutorial, your site would be available at this URL: <a href="http://mytasklistapp.cloudapp.net">http://mytasklistapp.cloudapp.net</a>.
@@ -465,7 +471,7 @@ You have now successfully deployed your ASP.NET application to a Windows Azure w
 [MongoDB]: http://www.mongodb.org
 [MongoCSharpDriverDownload]: http://github.com/mongodb/mongo-csharp-driver/downloads
 [InstallMongoWinVM]: ../../../Shared/Tutorials/InstallMongoDbOnWin2k8VM.md
-[InstallMongoOnCentOSLinuxVM]: ../../../manage/linux/common-tasks/mongodb-virtual-machine/
+[InstallMongoOnCentOSLinuxVM]: ../../../Shared/Tutorials/InstallMongoOnCentOSLinuxVM.md
 
 
 [Image0]: ../../../DevCenter/dotNET/Media/TaskListAppFull.png

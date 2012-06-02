@@ -40,9 +40,9 @@ The [Windows Azure Table Service] is a NoSQL storage service that is useful for 
 [Cloud9] is a browser based IDE that allows you to develop, test, and deploy a Node.js application from within your web browser. In this tutorial you will learn how to deploy a Node.js application from Cloud9 to a Windows Azure Cloud Service.
 
 [Node.js Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-[Web site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/
-[Web Site with Storage]: /en-us/develop/nodejs/tutorials/website-with-storage/
-[Web Site with MongoDB]: /en-us/develop/nodejs/tutorials/website-with-mongodb-vm-(mac)/
+[Web site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
+[Web Site with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
+[Web Site with MongoDB]: /en-us/develop/nodejs/tutorials/website-with-mongodb-(mac)/
 [Node.js Cloud Service]: /en-us/develop/nodejs/tutorials/getting-started/
 [Cloud Service with Express]: /en-us/develop/nodejs/tutorials/web-app-with-express/
 [Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/

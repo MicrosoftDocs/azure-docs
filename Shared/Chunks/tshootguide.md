@@ -1,4 +1,4 @@
-Troubleshooting in Windows Azure
+#Troubleshooting in Windows Azure
 
 *Troubleshooting* refers to the general task of locating and
 understanding unexpected application behavior and correcting it. When developing applications, developers test, run, and debug
@@ -50,17 +50,12 @@ describe how to implement them.
 
 ##In this Document
 
-[Best Practices for Troubleshooting in Windows Azure](#BestPractices)
-
-[Windows Azure Websites](#Websites)
-
-[Windows Azure Cloud Services](#CloudServices)
-
-[Windows Azure Virtual Machines](#Vms)
-
-[Windows Azure Services](#PlatformServices)
-
-[SQL Database Troubleshooting](#SQLTroubleshooting)
+* [Best Practices for Troubleshooting in Windows Azure](#BestPractices)
+* [Windows Azure Websites](#Websites)
+* [Windows Azure Cloud Services](#CloudServices)
+* [Windows Azure Virtual Machines](#Vms)
+* [Windows Azure Services](#PlatformServices)
+* [SQL Database Troubleshooting](#SQLTroubleshooting)
 
 <h2 id="BestPractices">Best Practices for Troubleshooting in Windows Azure</h2>
 
@@ -734,7 +729,7 @@ that we have today cover the other risk factors, however better tools
 are coming to make the job much easier. Red-gate recently published a
 free tool for SQL Database backup and restore which can be found here: [http://www.red-gate.com/products/dba/sql-azure-backup/].
 
-SQL Database Data Sync enables you to easily create and schedule
+SQL Data Sync enables you to easily create and schedule
 bi-directional synchronizations from within the Data Sync web site
 without the need to write a single line of code. You can find more
 information here:

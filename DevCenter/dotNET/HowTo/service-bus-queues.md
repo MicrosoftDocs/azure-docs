@@ -120,28 +120,70 @@ corresponding namespaces.
 1.  In Visual Studio's **Solution Explorer**, right-click
     **References**, and then click **Add Reference**.
 
-2.  In the **Browse** tab, go to C:\\Program Files\\Windows Azure
-    SDK\\v1.6\\ServiceBus\\ref\\ and add a **Microsoft.ServiceBus.dll**
-    reference.
+2.  In the **Browse** tab, go to C:\\Program Files\\Microsoft SDKs\\Windows Azure\\.NET SDK\\2012-06\\ref and add a **Microsoft.ServiceBus.dll** reference.
 
 ### Import the Service Bus Namespaces
 
 Add the following to the top of any C\# file where you want to use
 Service Bus queues:
 
-     using Microsoft.ServiceBus;
-     using Microsoft.ServiceBus.Messaging;
+    using Microsoft.ServiceBus;
+    using Microsoft.ServiceBus.Messaging;
 
 You are now ready to write code against the Service Bus.
 
 ## <a name="create-provider"> </a>How to Set Up a Service Bus Connection String
 
-The Service Bus uses a storage connection string to store endpoints and credentials. You can put your storage connection string in a configuration file, rather than hard-coding it in code. One option is to use .NET's built-in configuration mechanism (e.g. Web.config for web applications). This guide describes how to store your connection string using Windows Azure service configuration. The service configuration is unique to Windows Azure projects and allows you to change configuration from the Management Portal without redeploying your application. For example:
+The Service Bus uses a connection string to store endpoints and credentials. You can put your connection string in a configuration file, rather than hard-coding it in code:
 
-	<ConfigurationSettings>
-    …
-    	<Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=[issuerName];SharedSecretValue=[yourDefaultKey]" />
-	</ConfigurationSettings>
+- When using Windows Azure Cloud Services, it is recommended you store your connection string using the Windows Azure service configuration system (`*.csdef` and `*.cscfg` files).
+- When using Windows Azure Web Sites or Windows Azure Virtual Machines, it is recommended you store your connection string using the .NET configuration system (e.g. `web.config` file).
+
+In both cases, you can retrieve your connection string using the `CloudConfigurationManager.GetSetting` method as shown later in this guide.
+
+### Configuring your connection string when using Cloud Services
+
+The service configuration mechanism is unique to Windows Azure Cloud Services
+projects and enables you to dynamically change configuration settings
+from the Windows Azure Management Portal without redeploying your
+application.  For example, add a Setting to your service definition (`*.csdef`) file, as shown below:
+
+	<ServiceDefinition name="WindowsAzure1">
+	...
+		<WebRole name="MyRole" vmsize="Small">
+	    	<ConfigurationSettings>
+	      		<Setting name="Microsoft.ServiceBus.ConnectionString" />
+    		</ConfigurationSettings>
+  		</WebRole>
+	...
+	</ServiceDefinition>
+
+You then specify values in the service configuration (`*.cscfg`) file:
+
+	<ServiceConfiguration serviceName="WindowsAzure1">
+	...
+		<Role name="MyRole">
+			<ConfigurationSettings>
+				<Setting name="Microsoft.ServiceBus.ConnectionString" 
+						 value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=[issuerName];SharedSecretValue=[yourDefaultKey]" />
+			</ConfigurationSettings>
+		</Role>
+	...
+	</ServiceConfiguration>
+
+Use the issuer and key values retrieved from the Management Portal as
+described in the previous section.
+
+### Configuring your connection string when using Web Sites or Virtual Machines
+
+When using Web Sites or Virtual Machines, it is recommended you use the .NET configuration system (e.g. `web.config`).  You store the connection string using the `<appSettings>` element:
+
+	<configuration>
+	    <appSettings>
+		    <add key="Microsoft.ServiceBus.ConnectionString"
+			     value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=[issuerName];SharedSecretValue=[yourDefaultKey]" />
+		</appSettings>
+	</configuration>
 
 Use the issuer and key values retrieved from the Management Portal as
 described in the previous section.
@@ -151,13 +193,14 @@ described in the previous section.
 Management operations for Service Bus queues can be performed via the
 **NamespaceManager** class. The **NamespaceManager** class provides methods to create, enumerate, and delete queues. 
 
-In this example, a **NamespaceManager** object is constructed by using the Windows Azure **AzureConfigurationManager** class
+In this example, a **NamespaceManager** object is constructed by using the Windows Azure **CloudConfigurationManager** class
 with a connection string consisting of the base address of a Service Bus namespace and the appropriate
 credentials with permissions to manage it. This connection string is of the form
 "Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=[issuerName];SharedSecretValue=[yourDefaultKey]"". For example, given the configuration settings in the previous section:
 
 	// Create the queue if it does not exist already
-	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	string connectionString = 
+	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
     if (!namespaceManager.QueueExists(QueueName))
     {
@@ -177,7 +220,8 @@ maximum size of 5GB and a default message time-to-live of 1 minute:
     qd.DefaultMessageTimeToLive = new TimeSpan(0, 1, 0);
 
 	// Create a new Queue with custom settings
-	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	string connectionString = 
+	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
     if (!namespaceManager.QueueExists("TestQueue"))
     {
@@ -198,7 +242,8 @@ appropriate credentials (the connection string).
 The code below demonstrates how to create a **MessageSender** object
 for the "TestQueue" queue created above:
 
-	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	string connectionString = 
+	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
 	MessagingFactory factory = MessagingFactory.CreateFromConnectionString(connectionString);
 
@@ -270,7 +315,8 @@ consumed and removes it from the queue.
 The example below demonstrates how messages can be received and
 processed using the default **PeekLock** mode. The example creates an infinite loop and processes messages as they arrive into the "TestQueue":
 
-	string connectionString = AzureConfigurationManager.AppSettings.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	string connectionString = 
+	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
     MessagingFactory factory = MessagingFactory.CreateFromConnectionString(connectionString);
 

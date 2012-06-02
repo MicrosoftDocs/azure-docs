@@ -1,44 +1,57 @@
-<properties umbracoNaviHide="0" pageTitle="Create a PHP-MySQL Windows Azure Website and Deploy Using Git" metaKeywords="Windows Azure, Windows Azure Websites, PHP, MySQL, Git" metaDescription="Learn how to create a PHP-MySQL website in Windows Azure, and deploy to it using Git." linkid="dev-php-tutorials-php-mysql-site-git" urlDisplayName="Create a PHP-MySQL Windows Azure Website and Deploy Using Git" headerExpose="" footerExpose="" disqusComments="1" />
+<properties umbracoNaviHide="0" pageTitle="Create a PHP-MySQL Windows Azure web site and Deploy Using Git" metaKeywords="Windows Azure, Windows Azure Web Sites, PHP, MySQL, Git" metaDescription="Learn how to create a PHP-MySQL web site in Windows Azure, and deploy to it using Git." linkid="dev-php-tutorials-php-mysql-site-git" urlDisplayName="Create a PHP-MySQL Windows Azure web site and deploy using Git" headerExpose="" footerExpose="" disqusComments="1" />
 
-#Create a PHP-MySQL Windows Azure Website and deploy using Git
+#Create a PHP-MySQL Windows Azure web site and deploy using Git
 
-This tutorial shows you how to create a PHP-MySQL Windows Azure Website and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [MySQL][install-mysql], a web server, and [Git][install-git] installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL website running in Windows Azure.
+This tutorial shows you how to create a PHP-MySQL Windows Azure web site and how to deploy it using Git. You will use [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), a web server, and [Git][install-git] installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL web site running in Windows Azure.
  
 You will learn:
 
-* How to create a Windows Azure Website and a MySQL database using the Preview Management Portal. Because PHP is enabled in Windows Azure Websites by default, nothing special is required to run your PHP code.
+* How to create a Windows Azure web site and a MySQL database using the Preview Management Portal. Because PHP is enabled in Windows Azure Web Sites by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Windows Azure using Git.
  
-By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in a Windows Azure Website. A screenshot of the completed application is below:
+By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in a Windows Azure web site. A screenshot of the completed application is below:
 
-![Windows Azure PHP Website][running-app]
+![Windows Azure PHP web site][running-app]
 
-##Create a Windows Azure Website and set up Git publishing
+##Set up the development environment
 
-Follow these steps to create a Windows Azure Website and a MySQL database:
+This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), a web server, and [Git][install-git] installed on your computer.
+
+<div class="dev-callout">
+<b>Note</b>
+<p>If you are performing this tutorial on Windows, you can set up your machine for PHP and automatically configure IIS (the built-in web server in Windows) by installing the <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">Windows Azure SDK for PHP</a>.</p>
+</div>
+
+##Sign-up for a Free Preview Subscription to Windows Azure Web Sites
+
+<div chunk="../../shared/chunks/antares-iaas-signup.md" />
+
+##Create a Windows Azure web site and set up Git publishing
+
+Follow these steps to create a Windows Azure web site and a MySQL database:
 
 1. Login to the [Preview Management Portal][preview-portal].
 2. Click the **+ New** icon on the bottom left of the portal.
 
-	![Create New Windows Azure Website][new-website]
+	![Create New Windows Azure web site][new-website]
 
 3. Click **WEB SITE**, then **CREATE WITH DATABASE**.
 
-	![Custom Create a new Website][custom-create]
+	![Custom Create a new web site][custom-create]
 	
-	Enter a value for **URL**, select **Create a New MySQL Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
+	Enter a value for **URL**, select **Create a New MySQL Database** from the **DATABASE** dropdown,  and select the data center for your web site in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
 
-	![Fill in Website details][website-details]
+	![Fill in web site details][website-details]
 
 4. Enter a value for the **NAME** of your database, select the data center for your database in the **REGION** dropdown, and check the box that indicates you agree with the legal terms. Click the checkmark at the bottom of the dialog.
 
 	![Create new MySQL database][new-mysql-db]
 
-	When the website has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfully**. Now, you can enable Git publishing.
+	When the web site has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfully**. Now, you can enable Git publishing.
 
-6. Click the name of the website displayed in the list of websites to open the website’s **QUICKSTART** dashboard.
+6. Click the name of the web site displayed in the list of web sites to open the web site’s **QUICKSTART** dashboard.
 
-	![Open website dashboard][go-to-dashboard]
+	![Open web site dashboard][go-to-dashboard]
 
 
 7. At the bottom of the **QUICKSTART** page, click **Set up Git publishing**. 
@@ -53,56 +66,41 @@ Follow these steps to create a Windows Azure Website and a MySQL database:
 
 	![Creating Git repository][creating-repo]
 
-9. When your repository is ready, you will see instructions for pushing your application files to the repository. Make note of these instruction - they will be needed later.
+9. When your repository is ready, you will see instructions for pushing your application files to the repository. Make note of these instructions - they will be needed later.
 
 	![Git instructions][git-instructions]
 
+##Get remote MySQL connection information
+
+To connect to the MySQL database that is running in Windows Azure Web Sites, your will need the connection information. To get MySQL connection information, follow these steps:
+
+1. From your web site's dashboard, click the **View connection strings** link on the right side of the page:
+
+	![Get database connection information][connection-string-info]
+	
+2. Make note of the values for `Database`, `Data Source`, `User Id`, and `Password`.
+
 ##Build and test your application locally
 
-The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a MySQL database. The application consists of two files:
+The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a MySQL database. The application consists of one file:
 
 * **index.php**: Displays a form for registration and a table containing registrant information.
-* **createtable.php**: Creates the MySQL table for the application. This file will only be used once.
 
-To build and run the application locally, follow the steps below. Note that these steps assume you have PHP, MySQL, and a web server set up on your local machine, and that you have enabled the [PDO extension for MySQL][pdo-mysql].
+To build and run the application locally, follow the steps below. Note that these steps assume you have PHP, the MySQL Command-Line Tool (part of MySQL), and a web server set up on your local machine, and that you have enabled the [PDO extension for MySQL][pdo-mysql].
 
-1. Create a MySQL database called `registration`. You can do this from the MySQL command prompt with this command:
+1. Connect to the remote MySQL server, using the value for `Data Source`, `User Id`, `Password`, and `Database` that you retrieved earlier:
 
-		mysql> create database registration;
+		mysql -h{Data Source] -u[User Id] -p[Password] -D[Database]
 
-2. In your web server's root directory, create a folder called `registration` and create two files in it - one called `createtable.php` and one called `index.php`.
+2. The MySQL command prompt will appear:
 
-3. Open the `createtable.php` file in a text editor or IDE and add the code below. This code will be used to create the `registration_tbl` table in the `registration` database.
+		mysql>
 
-		<?php
-		// DB connection info
-		$host = "localhost";
-		$user = "user name";
-		$pwd = "password";
-		$db = "registration";
-		try{
-			$conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
-			$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-			$sql = "CREATE TABLE registration_tbl(
-						id INT NOT NULL AUTO_INCREMENT, 
-						PRIMARY KEY(id),
-						name VARCHAR(30),
-						email VARCHAR(30),
-						date DATE)";
-			$conn->query($sql);
-		}
-		catch(Exception $e){
-			die(print_r($e));
-		}
-		echo "<h3>Table created.</h3>";
-		?>
+3. Paste in the following `CREATE TABLE` command to create the `registration_tbl` table in your database:
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>You will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.</p> 
-	</div>
+		mysql> CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
 
-4. Open a web browser and browse to [http://localhost/registration/createtable.php][localhost-createtable]. This will create the `registration_tbl` table in the database.
+4. In your web server's root directory, create a folder called `registration` and create a file in it called `index.php`.
 
 5. Open the **index.php** file in a text editor or IDE and add the basic HTML and CSS code for the page (the PHP code will be added in later steps).
 
@@ -119,7 +117,7 @@ To build and run the application locally, follow the steps below. Note that thes
 			h2 { font-size: 1.75em; }
 			h3 { font-size: 1.2em; }
 			table { margin-top: 0.75em; }
-			th { font-size: 1.2em; text-align: left; border: none 0px; padding-left: 0; }
+			th { font-size: 1.2em; text-align: left; border: none; padding-left: 0; }
 			td { padding: 0.25em 2em 0.25em 0em; border: 0 none; }
 		</style>
 		</head>
@@ -137,13 +135,14 @@ To build and run the application locally, follow the steps below. Note that thes
 		</body>
 		</html>
 
-6. Within the PHP tags, add PHP code for connecting to the database.
+6. Within the PHP tags, add PHP code for connecting to the database.  Update the values for `$host`, `$user`, `$pwd`, and `$db` using the values you retrieved earlier from the portal.
 
 		// DB connection info
-		$host = "localhost";
-		$user = "user name";
-		$pwd = "password";
-		$db = "registration";
+		$host = "value of Data Source";
+		$user = "value of User Id";
+		$pwd = "value of Password";
+		$db = "value of Database";
+
 		// Connect to database.
 		try {
 			$conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
@@ -153,13 +152,9 @@ To build and run the application locally, follow the steps below. Note that thes
 			die(var_dump($e));
 		}
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.</p> 
-	</div>
+7. Following the database connection code, add code for inserting registration information into the database.
 
-7. Following the database connection code, add code for adding registration information to the database.
-
+		// Insert registration info
 		if(!empty($_POST)) {
 		try {
 			$name = $_POST['name'];
@@ -182,6 +177,7 @@ To build and run the application locally, follow the steps below. Note that thes
 
 8. Finally, following the code above, add code for retrieving data from the database.
 
+		// Retrieve data
 		$sql_select = "SELECT * FROM registration_tbl";
 		$stmt = $conn->query($sql_select);
 		$registrants = $stmt->fetchAll(); 
@@ -203,31 +199,14 @@ To build and run the application locally, follow the steps below. Note that thes
 
 You can now browse to [http://localhost/registration/index.php][localhost-index] to test the application.
 
-##Get remote MySQL connection information
-
-To connect to the MySQL database that is running in Windows Azure Websites, your will need the connection information. To get MySQL connection information, follow these steps:
-
-1. From your website's dashboard, click the **View connection strings** link on the right side of the page:
-
-	![Get database connection information][connection-string-info]
-	
-2. Make note of the values for `Database`, `Data Source`, `User Id`, and `Password`.
 
 ##Publish your application
 
-After you have tested your application locally, you can publish it to your Windows Azure Website using Git. However, you first need to update the database connection information in the application. Using the database connection information you obtained earlier (in the **Get MySQL connection information** section), update the following information in **both** the `createdatabase.php` and `index.php` files with the appropriate values:
-
-	// DB connection info
-	$host = "value of Data Source";
-	$user = "value of User Id";
-	$pwd = "value of Password";
-	$db = "value of Database";
-
-Now, you are ready to initialize your local Git repository and publish the application.
+After you have tested your application locally, you can publish it to your Windows Azure web site using Git. You will initialize your local Git repository and publish the application.
 
 <div class="dev-callout">
 <b>Note</b>
-<p>These are the same steps noted at the end of the <b>Create a Windows Azure Website and Set up Git Publishing</b> section.</p>
+<p>These are the same steps shown in the portal at the end of the <b>Create a Windows Azure web site and Set up Git Publishing</b> section.</p>
 </div>
 
 1. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:
@@ -240,8 +219,9 @@ Now, you are ready to initialize your local Git repository and publish the appli
 
 	You will be prompted for the password you created earlier.
 
-2. Browse to **http://[site name].azurewebsites.net/createtable.php** to create the MySQL table for the application.
-3. Browse to **http://[site name].azurewebsites.net/index.php** to begin using the application.
+2. Browse to **http://[site name].azurewebsites.net/index.php** to begin using the application:
+
+	![Windows Azure PHP web site][running-app]
 
 After you have published your application, you can begin making changes to it and use Git to publish them. 
 
@@ -258,13 +238,14 @@ To publish changes to application, follow these steps:
 
 	You will be prompted for the password you created earlier.
 
-3. Browse to **http://[site name].azurewebsites.net/index.php** to see your changes. 
+3. Browse to **http://[site name].azurewebsites.net/index.php** to see your application and any changes you may have made:
+
+	![Windows Azure PHP web site][running-app]
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
 [install-git]: http://git-scm.com/
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
-[localhost-createtable]: http://localhost/registration/createtable.php
 [localhost-index]: http://localhost/registration/index.php
 [running-app]: ../Media/running_app_2.png
 [new-website]: ../../Shared/Media/new_website.jpg

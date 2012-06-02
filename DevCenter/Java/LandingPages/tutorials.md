@@ -18,7 +18,7 @@ Use the Eclipse plugin to create a "Hello World" application hosted in Tomcat, t
 
 
 
-[on_premise_storage]: /en-us/develop/java/tutorials/application-with-blob-storage/
-[compute_intensive]: /en-us/develop/java/tutorials/tomcat-on-virtual-machine/
-[java_application_server]: /en-us/develop/java/tutorials/app-on-virtual-machine/
+[on_premise_storage]: ../tutorials/on-premise-app-with-blob-storage.md
+[java_application_server]: ../howto/howto_java_virtual_machine.md
+[compute_intensive]: ../howto/howto_java_compute_task.md
 [eclipse-app]: http://go.microsoft.com/fwlink/?LinkID=234493&clcid=0x409

@@ -1,6 +1,8 @@
 <!-- See http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/#create-provider for reference -->
 # How to Use Web Sites #
 
+<div chunk="../../shared/chunks/disclaimer.md" />
+
 This guide will show you how to use Web Sites. The scenarios covered in this guide include creating, configuring, managing and monitoring web sites in Windows Azure.
 
 ## Table of Contents ##

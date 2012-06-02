@@ -25,7 +25,7 @@ The [Apache Hadoop software library](http://hadoop.apache.org/) is a framework t
 Service Bus Queues offer simple first in, first out guaranteed message delivery and support a range of standard protocols (REST, AMQP, WS*) and APIs to put and pull messages on and off a queue.
 
 ### [Service Bus Topics](/en-us/develop/net/how-to-guides/service-bus-topics/ "Service Bus Topics") ###
-Service Bus Topics provide a publish/subscribe messaging model to support one-to-many communication. You can optionally register filter rules for a topic on a per-subscription basis, which allows you to estrict which messages to a topic are received by which topic subscriptions.
+Service Bus Topics provide a publish/subscribe messaging model to support one-to-many communication. You can optionally register filter rules for a topic on a per-subscription basis, which allows you to restrict which messages to a topic are received by which topic subscriptions.
 
 ### [Queue Service](/en-us/develop/net/how-to-guides/queue-service/ "Queue Service") ###
 Windows Azure Queues store large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. Common uses of Queue storage include creating a backlog of work to process asynchronously, and passing messages from a Windows Azure Web role to a Windows Azure Worker role.
@@ -43,18 +43,18 @@ Caching increases performance by temporarily storing information from other back
 
 Access Control is a Windows Azure service that provides an easy way of authenticating users who need to access your web applications and services, without having to factor complex authentication logic into your code. It provides integration with Windows Identity Foundation (WIF), support for popular web identity providers including Windows Live ID, Google, Yahoo, and Facebook, and support for ADFS 2.0.
 
-### [Diagnostics](/en-us/develop/net/how-to-guides/diagnostics/) ###
+### [Diagnostics](/en-us/develop/net/common-tasks/diagnostics/) ###
 
 Windows Azure Diagnostics enables you to collect diagnostic data from an application running in Windows Azure. You can use diagnostic data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing.
 
 ### [Autoscaling](/en-us/develop/net/how-to-guides/autoscaling/) ###
-
+The Autoscaling Application Block from the Microsoft Enterprise Library 5.0 Integration Pack for Windows Azure provides tools that let you automatically scale your cloud service. You can use performance counters to understand your app's performance, and then write rules that will automatically scale your app to adjust for specified targets and thresholds.
 
 ### [Media Services](/en-us/develop/net/how-to-guides/media-services/) ###
 
 Windows Azure Media Services provides an extensible media platform on Windows Azure. Media Services components can be used to accomplish tasks including uploading, storing, encoding and streaming content.  You can leverage the system end-to-end or integrate individual components with your existing tools and processes.
 
-### [SendGrid Email Service](/en-us/develop/net/how-to-guides/sendgrid/) ###
+### [SendGrid Email Service](/en-us/develop/net/how-to-guides/sendgrid-email-service/) ###
 
 Windows Azure applications can use SendGrid to include email functionality.  SendGrid provides reliable email delivery,  real-time analytics, and flexible APIs that allow users to easily incorporate the service into their Windows Azure applications.
 

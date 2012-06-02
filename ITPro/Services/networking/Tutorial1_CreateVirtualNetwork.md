@@ -1,6 +1,11 @@
-# Tutorial 1: Creating a Virtual Network in Windows Azure
+<properties umbracoNaviHide="0" pageTitle="Tutorial 1: Creating a Virtual Network in Windows Azure" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Learn how to configure Windows Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
 
-This tutorial walks you through the steps to create a Windows Azure virtual network using the Management Portal.
+
+<h1 id="vnettut1">Tutorial 1: Creating a Virtual Network in Windows Azure</h1>
+
+<div chunk="../../Shared/Chunks/disclaimer.md" />
+
+This tutorial walks you through the steps to create a Windows Azure virtual network using the Windows Azure (Preview) Management Portal.
 
 This tutorial assumes you have no prior experience using Windows Azure.
 
@@ -9,11 +14,11 @@ After completing this tutorial, you will have a virtual network to which you can
 For information about creating a virtual network with cross-premises connectivity (i.e., connecting to Active Directory or SharePoint located at your company), see the following tutorials:
 
 
-*  [Tutorial 2: Creating a Virtual Network for cross-premises connectivity](../../../manage/services/networking/Tutorial2_CreateVNetCrossPrem/)
+*  [Tutorial 2: Creating a Virtual Network for cross-premises connectivity](./Tutorial2_CreateVNetCrossPrem/)
 
-*  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](../../../manage/windows/tutorials/tutorial-AD-1/)
+*  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](./tutorial-AD-1/)
 
-*  [Install a new Active Directory forest in Windows Azure](../../../manage/windows/tutorials/tutorial-AD-2/)
+*  [Install a new Active Directory forest in Windows Azure](./tutorial-AD-2/)
 
 ##  Objectives
 
@@ -31,7 +36,7 @@ In this tutorial you will learn:
 
 **To create a cloud-only virtual network:**
 
-1.	Log in to the [Windows Azure Management Portal](http://manage.windowsazure.com/).
+1.	Log in to the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com/).
 2.	In the lower left-hand corner of the screen, click **New**. 
 
 	![Image1][]
@@ -67,25 +72,25 @@ In this tutorial you will learn:
 	Your virtual network will now be created.
 
 
- 	**Note:** You only need to enter DNS server or local network information if you plan to connect to your company’s network. For more information, see [Tutorial 2: Creating a Virtual Network for cross-premises connectivity](../../../manage/services/networking/Tutorial2_CreateVNetCrossPrem/).
+ 	**Note:** You only need to enter DNS server or local network information if you plan to connect to your company's network. For more information, see [Tutorial 2: Creating a Virtual Network for cross-premises connectivity](./Tutorial2_CreateVNetCrossPrem/).
  
 	![Image5] []
 
-7.	You now have a virtual network in Windows Azure, which you can see on the portal’s **Virtual Network** tab.
+7.	You now have a virtual network in Windows Azure, which you can see on the portal's **Virtual Network** tab.
 
 
 	![Image6] []
 
 
 ##  Next Steps
-If you’d like, you can continue with the following tutorials:
+If you'd like, you can continue with the following tutorials:
 
 
-- [Tutorial 3: Adding a Virtual Machine to a Virtual Network](../../../manage/services/networking/tutorial-AD-2/)
+- [Tutorial 3: Adding a Virtual Machine to a Virtual Network](./tutorial-AD-2/)
 
-*  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](../../../manage/windows/tutorials/tutorial-AD-1/)
+*  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](./tutorial-AD-1/)
 
-*  [Install a new Active Directory forest in Windows Azure](../../../manage/windows/tutorials/Tutorial3_AddVMachineToVNet/)
+*  [Install a new Active Directory forest in Windows Azure](./Tutorial3_AddVMachineToVNet/)
 
 
 [Image1]: ../media/VNTut1_00_New.png

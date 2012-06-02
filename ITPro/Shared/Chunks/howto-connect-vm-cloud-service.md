@@ -1,5 +1,7 @@
 #How to Connect Virtual Machines in a Cloud Service
 
+To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures). 
+
 When you create a virtual machine, a cloud service is automatically created to contain the machine. You can create multiple virtual machines under the same cloud service to enable the machines to communicate with each other, to load-balance between virtual machines, and to maintain high availability of the machines. 
 
 You must first create a virtual machine with a new cloud service, and then you can connect additional machines with the first machine under the same cloud service. 
@@ -22,7 +24,7 @@ You must first create a virtual machine with a new cloud service, and then you c
 
 	The **VM Configuration** dialog box appears.
 
-	![Select the image][Select the image]
+	![Select the image][Define the image]
 
 5. In **Virtual Machine Name**, type the name that you want to use for the virtual machine.
 
@@ -48,16 +50,16 @@ You must first create a virtual machine with a new cloud service, and then you c
 
 	The **VM Options** dialog box appears.
 
-	![Define the connected virtual machine][Define the connected virtual machine]
+	![Define the connected virtual machine][Define the connected virtual machine region]
 
 14. Select the availability set that was created when you created the first virtual machine.
 
 15. Click the check mark to create the connected virtual machine.
 
-[How to create a custom virtual machine]:./howto-custom-create-VM/
+[How to create a custom virtual machine]:../../Linux/HowTo/howto-custom-create-vm.md
 [Create a new virtual machine]:../media/create.png
 [Create a custom virtual machine]:../media/createnew.png
 [Select the image]:../media/imageselectionwindows.png
-[Select the image]:../media/imagedefinewindows.png
+[Define the image]:../media/imagedefinewindows.png
 [Define the connected virtual machine]:../media/connectedvms.png
-[Define the connected virtual machine] (../media/availabilitysetselect.png
+[Define the connected virtual machine region]: ../media/availabilitysetselect.png

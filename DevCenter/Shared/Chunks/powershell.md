@@ -171,9 +171,9 @@ to all Windows PowerShell components:
 
     If you are running the deployment locally in the Windows Azure
     compute emulator, you must run **Start-AzureEmulator** again after
-    you update the service definition file (.csdef) or the [service
-    configuration] file (.cscfg). However, the compute emulator renders
-    updates to the server.js and web.config files instantly.
+    you update the service definition file (.csdef) or the service
+    configuration file (.cscfg). However, the compute emulator renders
+    updates to the server.js (for Node.js applications) and web.config files instantly.
 
 -   Although Windows Azure PowerShell cmdlets and parameters are not
     case-sensitive, the following values that are entered for
@@ -207,7 +207,7 @@ must download your subscription information (by using
 **Import-AzurePublishSettingsFile**).
 
 The **Get-AzurePublishSettingsFile** cmdlet opens a web page on the
-[Microsoft Online Services Customer Portal][] from which you can
+Customer Portal from which you can
 download the publishing profile. You will need to log on to the Customer
 Portal using the credentials for your Windows Azure account.
 
@@ -240,11 +240,10 @@ Co-Administrators for Your Windows Azure Subscription][add-remove-coadmins].
 <div class="dev-callout"> 
 <b>Important</b> 
 <p>You should delete the publishing profile that you
-downloaded using **Get-AzurePublishSettingsFile** after you import those
+downloaded using <b>Get-AzurePublishSettingsFile</b> after you import those
 settings. The downloaded profile contains a management certificate that
 should not be accessed by unauthorized users. If you need information
-about your subscriptions, you can get it from the <a href="http://windows.azure.com/">Windows Azure
-Platform Management Portal</a> or the <a href="https://mocp.microsoftonline.com/site/default.aspx">Microsoft Online Services Customer Portal</a>.</p> 
+about your subscriptions, you can get it from the <a href="http://windows.azure.com/">Windows Azure Management Portal</a> or the <a href="https://mocp.microsoftonline.com/site/default.aspx">Microsoft Online Services Customer Portal</a>.</p> 
 </div>
 
 
@@ -456,9 +455,9 @@ accounts, <a href=" http://msdn.microsoft.com/en-us/library/windowsazure/hh53156
 
 
 In the following example, a service co-administrator retrieves storage
-account information for the subscription with Id fy877xxx-7zz7-4139-9x15-444b3y4z7f8x.
+account information for the subscription with the imported publish settings.
 
-     PS C:\ > Get-AzureStorageAccount -SubscriptionId fy877xxx-7zz7-4139-9x15-444b3y4z7f8x 
+     PS C:\ > Get-AzureStorageAccount 
 
     Account Name: ContosoUS
     Primary Key: YSAwVSjixHpcsK/IX7cRcqzVVa19YCUEhzndhZMZL9aMmNT2Du1DPiufPDBiJUO7FW4Dcb7tkzw14VoK0EppnA==
@@ -723,11 +722,11 @@ You can bypass the prompt by using the **-Force** option with the **Remove-Azure
 
 ## Additional resources
 
-[Windows Azure PowerShell for Node.js Cmdlet Reference][cmdlet-reference]   
- [Node.js Web Application][1]   
- [Node.js Web Application with Table Storage][]   
- [Enabling Remote Desktop in Windows Azure][]   
- [Configuring SSL for a Node.js Application in Windows Azure][]
+* [Windows Azure PowerShell for Node.js Cmdlet Reference][cmdlet-reference]   
+* [Node.js Web Application][1]   
+* [Node.js Web Application with Table Storage][]   
+* [Enabling Remote Desktop in Windows Azure][]   
+* [Configuring SSL for a Node.js Application in Windows Azure][]
 
   [What is Windows Azure PowerShell for Node.js]: #_What_Is_Windows
   [Get Started Using Windows Azure PowerShell for Node.js]: #_Get_Started_Using
@@ -750,7 +749,7 @@ You can bypass the prompt by using the **-Force** option with the **Remove-Azure
   [Import-AzurePublishSettings]: http://msdn.microsoft.com/en-us/library/windowsazure/hh757264(vs.103).aspx
   [Microsoft Online Services Customer Portal]: https://mocp.microsoftonline.com/site/default.aspx
   [add-remove-coadmins]: http://msdn.microsoft.com/en-us/library/windowsazure/gg456328.aspx
-  [Windows Azure Platform Management Portal]: http://windows.azure.com/
+  [Windows Azure Management Portal]: http://windows.azure.com/
   [New-AzureService]: http://msdn.microsoft.com/en-us/library/windowsazure/hh757269(vs.103).aspx
   [Add-AzureNodeWebRole]: http://msdn.microsoft.com/en-us/library/windowsazure/hh757267(vs.103).aspx
   [Add-AzureNodeWorkerRole]: http://msdn.microsoft.com/en-us/library/windowsazure/hh757254(vs.103).aspx

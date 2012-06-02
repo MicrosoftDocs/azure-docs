@@ -6,8 +6,7 @@ accelerators.
 
 ## Code Samples
 
-If you like to learn through looking at code samples, [Windows Azure
-Code Samples][] has a growing list of sample applications contributed by
+If you like to learn through looking at code samples, [Windows Azure Code Samples][] has a growing list of sample applications contributed by
 Microsoft and the Windows Azure community.
 
 ![][0]

@@ -18,22 +18,14 @@ You will build a simple Tasklist web application in PHP. A screenshot of the com
 
 ##Installing the Windows Azure client libraries
 
-In order to use the Windows Azure storage services, you must first download the client libraries. They are available as a ZIP file, PEAR package, and a Composer package. Composer provides a way to install the client libraries and all their dependencies in one go and with no prior installation work:
+To install the PHP Client Libraries for Windows Azure as a PEAR package, follow these steps:
 
-*  Create a file named **composer.json** in the root of your project and add the following code to it:
+1. [Install PEAR][install-pear].
+2. Install the PEAR package:
 
-		{
-			"require": {
-				"microsoft/windowsazure": "1.0"
-			}
-		}
-		
-* Download **composer.phar** in your project root.
+		pear install pear.windowsazure.com/WindowsAzure
 
-* Open a command prompt and execute this in your project root
-
-		php composer.phar install
-
+After the installation completes, you can reference class libraries from your application.
 
 ##Getting started with the client libraries
 
@@ -43,7 +35,7 @@ There are four basic steps that have to be performed before you can make a call 
 
 * First, include the autoloader script:
 
-		require_once "azure-sdk-for-php/WindowsAzure/WindowsAzure.php"; 
+		require_once "WindowsAzure/WindowsAzure.php"; 
 	
 * Include the namespaces you are going to use.
 
@@ -51,7 +43,7 @@ There are four basic steps that have to be performed before you can make a call 
 
 		use WindowsAzure\Common\Configuration;
 	
-	This tutorial uses the Azure Table service. Two namespaces are necessary to create a wrapper around the Table service calls:
+	This tutorial uses the Windows Azure Table service. Two namespaces are necessary to create a wrapper around the Table service calls:
 	
 		use WindowsAzure\Table\TableService;
 		use WindowsAzure\Table\TableSettings;
@@ -404,6 +396,7 @@ To publish changes to application, follow these steps:
 3. Browse to **http://[your website domain]/index.php** to see your changes. 
 
 [install-php]: http://www.php.net/manual/en/install.php
+[install-pear]: http://pear.php.net/manual/en/installation.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
 [msdn-errors]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
@@ -414,6 +407,7 @@ To publish changes to application, follow these steps:
 [ws-storage-app]: ../Media/ws-storage-app.png
 [preview-portal]: https://manage.windowsazure.com
 [new-website]: ../../Shared/Media/new_website.jpg
+[download-php-sdk]: /en-us/develop/php/download-php-sdk/
 [website-quick-create]: ../../Shared/Media/website-quick-create.png
 [website-quick-create-details]: ../../Shared/Media/website-quick-create-details.png
 [storage-quick-create]: ../../Shared/Media/storage-quick-create.png

@@ -1,6 +1,9 @@
+<properties umbracoNaviHide="0" pageTitle="Create a Virtual Machine Running Windows Server 2008 R2" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
 # Create a Virtual Machine Running Windows Server 2008 R2 #
 
-It's easy to create a virtual machine that is running the Windows Server operating system when you use the Image Gallery in the Windows Azure Management Portal. In less than 30 minutes, this tutorial will help you create a virtual machine running Windows Server in the cloud that you can then access and customize. You don't need prior experience with Windows Azure to use this tutorial. 
+<div chunk="../../Shared/Chunks/disclaimer.md" />
+
+It's easy to create a virtual machine that is running the Windows Server operating system when you use the Image Gallery in the Windows Azure Management Portal. This tutorial will teach you how to create a virtual machine running Windows Server in the cloud that you can then access and customize. You don't need prior experience with Windows Azure to use this tutorial. 
 
 You will learn:
 
@@ -20,7 +23,7 @@ A virtual machine in Windows Azure is a server in the cloud that you can control
 You can use the following options to create a virtual machine from an image:
 
 - Create a virtual machine by using an image from the Image Gallery of the Windows Azure Management Portal.
-- Create and upload a VHD file that contains an image to Windows Azure, and then create a virtual machine using the image. For more information about how to create and upload a custom image, see [Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System](http://).
+- Create and upload a VHD file that contains an image to Windows Azure, and then create a virtual machine using the image. For more information about how to create and upload a custom image, see [Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System](../common-tasks/upload-a-vhd/).
 
 ## <a id="custommachine"> </a>How to use the Management Portal to create a custom virtual machine running Windows Server ##
 

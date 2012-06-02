@@ -2,7 +2,7 @@
 
 The Windows Azure Table storage service stores large amounts of
 structured data. The service is a NoSQL datastore which accepts
-authenticated calls from inside and outside the Azure cloud. Azure
+authenticated calls from inside and outside the Windows Azure cloud. Windows Azure
 tables are ideal for storing structured, non-relational data. Common
 uses of the Table service include:
 

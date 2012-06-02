@@ -93,7 +93,7 @@ This will start your Python interpreter running Django's manage.py to run the te
 
 ![Debugger stopped at a template breakpoint](../Media/ptvs-dj-TemplateBreakpoint.png)
 
-You can now **click the stop button** and move onto running in the Azure compute emulator.
+You can now **click the stop button** and move onto running in the Windows Azure compute emulator.
 
 ## Running Your Application Locally in the Emulator	
 
@@ -115,38 +115,17 @@ When running in the compute emulator you can rapidly iterate on your application
 
 ## Deploying the Application to Windows Azure
 
-Now you're ready to deploy the project to Windows Azure.  The first step is to create the package to be deployed.  This is achieved by right clicking the Azure deployment project in Solution Explorer and **selecting Package**:
+Now you're ready to deploy the project to Windows Azure. To do this all you need to do is right clicking the Windows Azure deployment project in Solution Explorer and **selecting Publish**:
 
-![Package App Menu](../Media/ptvs-dj-PackageApp.png)
+![Package App Menu](../Media/ptvs-dj-publish1.png)
 
-After selecting Package you will get some options which can be configured:
+After selecting Publish you will be prompted to sign in to Windows Azure.  You can either import your existing credentials here or setup new credentials:
 
-![Package Settings](../Media/ptvs-dj-PackageSettings.png)
+![Package Settings](../Media/ptvs-dj-publish2.png)
 
-You can simply select Package to continue and create the package using the default options.  This step will take your Django application as well as your Python interpreter
-and package them up with the necessary files to deploy to the cloud.  Once this completes
-a folder will be opened containing the resulting package file:
+After selecting the credentials you'll see the Windows Azure Publish Settings screen.  You can select the various options on how your deployment will proceed, or you can just **press Publish**:
 
-![New Hosted Service](../Media/ptvs-dj-PackageCreated.png)
-
-From here you can sign into the [Windows Azure Portal](https://www.windowsazure.com)
-with your Windows Azure account and deplopy the package.  First **click on the New Hosted Service** button:
-
-
-![New Hosted Service](../Media/ptvs-dj-NewHostedService.png)
-
-Then fill out the information in the New Hosted Service dialog.  You'll need to select
-what subscription the service is associated with, provide a name, choose a region, and
-specify a deployment name.  Then you'll need to select the Package location and the
-Configuration file.  Select the Browse Locally button on both of them and navigate to
-the folder which was opened after creating the deployment package:
-
-![Select Package](../Media/ptvs-dj-PackageLocation.png)
-
-Repeat again for the configuration file and you'll be ready to press OK to setup
-the new hosted service:
-
-![Select Package](../Media/ptvs-dj-NewHostedServiceDone.png)
+![Package Settings](../Media/ptvs-dj-publish3.png)
 
 You'll now need to wait for the application be setup and deployed. Once it's all setup
 you can click on the link below DNS Name to view your web site running in the cloud:
@@ -154,4 +133,6 @@ you can click on the link below DNS Name to view your web site running in the cl
 
 ![Your Django app in the cloud](../Media/ptvs-dj-FirstAppInCloud.png)
 
-[How to Install Python]: ../commontasks/how-to-install-python.md 
+
+[How to Install Python]: ../commontasks/install-python
+

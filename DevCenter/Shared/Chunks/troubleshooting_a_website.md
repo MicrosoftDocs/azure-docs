@@ -1,6 +1,6 @@
 <!-- http://daringfireball.net/projects/markdown/syntax -->
 <!-- http://go.microsoft.com/fwlink/?LinkId=251824 -->
-#Walkthrough: Troubleshooting a Web Site#
+#Troubleshooting a Web Site#
 Troubleshooting a web site is accomplished by configuring the web site to display application errors, configuring the web site to display environment variables, enabling web site diagnostics, and then analyzing website application errors and diagnostic data to identify and resolve problems. This tutorial walks you through the process of creating and deploying a simple web site to Windows Azure, causing an error condition on the web site and then  applying configuration and logging options to generate troubleshooting data that can be analyzed to identify and resolve the error.
 <div class="dev-callout"> 
 <b>Note</b> 
@@ -16,53 +16,30 @@ Web Site diagnostics provides the following logging and tracing options:
 
 Diagnostics log files are saved to an FTP site for download to a local computer. 
 ## Table of Contents ##
-[Concepts](#concepts) 
-
-[Install developer tools and create a Web Site on your local computer](#installdevtools)
-
-> [Install Web Matrix](#installwebmatrix)
-
-> [Create a Web Site on your local computer with WebMatrix](#createlocalsite)
-
-[Create a Web Site on Windows Azure](#createwebsiteonazure)
-
-> ['Quick Create' a new Web Site on Windows Azure](#quickcreateazurewebsite)
-
-> [Create deployment user credentials](#deploymentuser)
-
-[Deploy the Web Site from the developer computer to Windows Azure](#deploycontenttoazure)
-
-[Enable diagnostics for the Web Site](#enableazurediagnostics)
-
-> [Verify connectivity to the FTP site where log files are stored](#verifyftpconnectivity)
-
-[Register an account on the Website](#createsiteaccount)
-
-[Introduce an error condition on the website](#causewebsiteerror)
-
-> [Rename the Web Site user account database file](#breakregistration)
-
-> [Configure the Web Site to display application errors](#addwebconfig)
-
-> [Display environment variables for a website](#viewwebsitevariables)
-
-> [Deploy the updated Web Site to Windows Azure](#deployerrortoazure)
-
-[Download diagnostic log files to your local computer](#downloadlogfiles)
-
-[Analyze website log files](#readlogfiles)
-
-> [View results of detailed error logging](#detailederrors)
-
-> [View results of failed request tracing](#failedrequests)
-
-> [Analyze web server logs](#webserverlogging)
-
-[Troubleshoot the AzureWebDiag Web Site](#tshootazurewebdiag)
-
-> [Using logging and tracing information to troubleshoot website problems](#tshootwithloggingandtracing)
-
-> [Using detailed website errors to troubleshoot Web Site problems](#tshootwitherrormessages)
+* [Concepts](#concepts) 
+* [Install developer tools and create a Web Site on your local computer](#installdevtools)
+ * [Install Web Matrix](#installwebmatrix)
+ * [Create a Web Site on your local computer with WebMatrix](#createlocalsite)
+* [Create a Web Site on Windows Azure](#createwebsiteonazure)
+ * ['Quick Create' a new Web Site on Windows Azure](#quickcreateazurewebsite)
+ * [Create deployment user credentials](#deploymentuser)
+* [Deploy the Web Site from the developer computer to Windows Azure](#deploycontenttoazure)
+* [Enable diagnostics for the Web Site](#enableazurediagnostics)
+ * [Verify connectivity to the FTP site where log files are stored](#verifyftpconnectivity)
+* [Register an account on the Website](#createsiteaccount)
+* [Introduce an error condition on the website](#causewebsiteerror)
+ * [Rename the Web Site user account database file](#breakregistration)
+ * [Configure the Web Site to display application errors](#addwebconfig)
+ * [Display environment variables for a website](#viewwebsitevariables)
+ * [Deploy the updated Web Site to Windows Azure](#deployerrortoazure)
+* [Download diagnostic log files to your local computer](#downloadlogfiles)
+* [Analyze website log files](#readlogfiles)
+ * [View results of detailed error logging](#detailederrors)
+ * [View results of failed request tracing](#failedrequests)
+ * [Analyze web server logs](#webserverlogging)
+* [Troubleshoot the AzureWebDiag Web Site](#tshootazurewebdiag)
+ * [Using logging and tracing information to troubleshoot website problems](#tshootwithloggingandtracing)
+ * [Using detailed website errors to troubleshoot Web Site problems](#tshootwitherrormessages)
 
 ## <a name="concepts"></a>Concepts
 Concepts introduced in this article include:
@@ -106,7 +83,7 @@ Before you can deploy your web site from WebMatrix to Windows Azure you must fir
  
  ![Create a new web site][createnewwebsite]
 
-3. After the web site has been created click the name of the web site as it is listed in the **Name** column of the Azure Portal's web sites page, this will open the **QuickStart** management page for the web site:
+3. After the web site has been created click the name of the web site as it is listed in the **Name** column of the Windows Azure portal's web sites page, this will open the **QuickStart** management page for the web site:
 
 	![QuickStart management page][quickstartmgmtpage]
 
@@ -308,10 +285,10 @@ Now that you have introduced an error condition on the website, you can download
 
 Basic analysis of the different log file types can be performed as follows:
 
-<table cellpadding="0" cellspacing="0" width="730" rules="all" style="border: #000000 thin solid;">        
+<table cellpadding="0" cellspacing="0" width="655" rules="all" style="border: #000000 thin solid;">        
 <tr style="background-color: silver; font-weight: bold;" valign="top">
-<td style="width: 170px">Log File</td>
-<td style="width: 560px">Analyze with</td>
+<td style="width: 145px">Log File</td>
+<td style="width: 510px">Analyze with</td>
 </tr>
 <tr valign="top">
 <td>Detailed error logging</td>

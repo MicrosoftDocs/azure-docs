@@ -1,4 +1,5 @@
-﻿# Introduction to Hadoop on Azure
+# Introduction to Hadoop on Windows Azure
+
 **Overview**	
 Hadoop on Azure is a service that deploys and provisions clusters in the cloud, providing a software framework designed to manage, analyze and report on big data. 
 
@@ -47,7 +48,8 @@ Larger issues in the interpretation of big data can also arise. The term variabi
 
 
 <h2 id="ecosystem"> <a name="Ecosystem">The Hadoop Ecosystem on Windows Azure </a></h2>
-![TheHadoopEcosystem](images/TheHadoopEcosystem.png?raw=true "The Hadoop Ecosystem")
+
+![TheHadoopEcosystem](../media/TheHadoopEcosystem.png "The Hadoop Ecosystem")
 
 **Introduction** 	
 Hadoop on Windows Azure offers a framework implementing Microsoft's cloud-based solution for handling big data. This federated ecosystem manages and analyses large data amounts while exploiting parallel processing capabilities, other HDFS architecture optimizations and the MapReduce programming model. Technologies such as HBase, Sqoop and Flume integrate HDFS with relational data stores and log files. Hive and Pig integrate data processing and warehousing capabilities. Pegasus provides graph-mining capabilities. Microsoft’s Big Data solution  integrates with Microsoft's BI tools, including SQL Server Analysis Services, Reporting Services, PowerPivot and Excel. This enables you to perform a straightforward BI on data stored and managed by the Hadoop on Azure ecosystem. The Apache-compatible technologies and sister technologies are part of this ecosystem built to run on top of Hadoop clusters are itemized and briefly described in this section.
@@ -131,16 +133,16 @@ There are three sections on the portal grouping the icons linked to Hadoop on Az
 To explore Portal functionality click any icon. For use of the **New Jobs** and **Interactive Console** functionality, see the _Running Jobs with Hadoop on Azure_ topic. For walkthroughs on running the **Samples**, see the _Samples_ topics. You can use the Hadoop file system commands from the command window on the head node, which is available in the **Remote Desktop**.
 
 <h2 id="Resources"> <a name="Resources">Resources  for Hadoop on Azure</a> </h2>
-**Microsoft: Hadoop on Azure**	
-* [Welcome to Hadoop on Azure](https://www.hadooponazure.com/) - the welcome page for the Developer Preview for the Apache Hadoop-based Services for Windows Azure	
-* [Hadoop-based Services on Windows Azure How To Guide](http://social.technet.microsoft.com/wiki/contents/articles/6206.hadoop-based-services-on-windows-azure-how-to-guide.aspx) - TechNet wiki with links to Hadoop on Azure documentation.	
+**Microsoft: Hadoop on Windows Azure**	
+* [Welcome to Hadoop on Windows Azure](https://www.hadooponazure.com/) - the welcome page for the Developer Preview for the Apache Hadoop-based Services for Windows Azure	
+* [Apache Hadoop-based Services for Windows Azure How To Guide](http://social.technet.microsoft.com/wiki/contents/articles/6206.hadoop-based-services-on-windows-azure-how-to-guide.aspx) - TechNet wiki with links to Hadoop on Windows Azure documentation.	
 * [Big Data and Windows Azure](http://www.windowsazure.com/en-us/home/scenarios/big-data/) - Big Data scenarios that explore what you can build with Windows Azure	
 
-**Microsoft: Windows and SQL Azure**	
+**Microsoft: Windows and SQL Database**	
 * [Windows Azure home page](https://www.windowsazure.com/en-us/) - scenarios, free trial sign up, development tools and documentation that you need get started building applications.		
-* [MSDN SQL Azure Database](http://msdn.microsoft.com/en-us/library/ee336279.aspx)	- MSDN documentation for SQL Azure	
-* [Management Portal for SQL Azure](http://msdn.microsoft.com/en-us/library/gg442309.aspx) - a lightweight and easy-to-use database management tool for managing your SQL Azure databases in the cloud	
-* [Adventure Works for SQL Azure](http://msftdbprodsamples.codeplex.com/releases/view/37304) - Download page for SQL Azure sample database	
+* [MSDN SQL Database](http://msdn.microsoft.com/en-us/library/ee336279.aspx)	- MSDN documentation for SQL Database	
+* [Management Portal for SQL Database](http://msdn.microsoft.com/en-us/library/gg442309.aspx) - a lightweight and easy-to-use database management tool for managing SQL Database in the cloud	
+* [Adventure Works for SQL Database](http://msftdbprodsamples.codeplex.com/releases/view/37304) - Download page for SQL Databse sample database	
 
 **Microsoft: Business Intelligence**		
 * [Microsoft BI PowerPivot](http://www.microsoft.com/en-us/bi/PowerPivot.aspx) - a powerful data mashup and data exploration tool 				
@@ -150,6 +152,6 @@ To explore Portal functionality click any icon. For use of the **New Jobs** and 
 **Apache Hadoop**:			
 * [Apache Hadoop](http://hadoop.apache.org/) - software library providing a framework that allows for the distributed processing of large data sets across clusters of computers	
 * [HDFS](http://hadoop.apache.org/hdfs/) - Hadoop Distributed File System (HDFS) is the primary storage system used by Hadoop applications.		
-* [Map Reduce](http://hadoop.apache.org/mapreduce/) - a programming model and software framework for writing applications that rapidly process vast amounts of data in parallel on large clusters of compute nodes	
+* [Map Reduce](http://hadoop.apache.org/mapreduce/) - a programming model and software framework for writing applications that rapidly process vast amounts of data in parallel on large clusters of compute nodes		
 
 --------------------------------------------------------
