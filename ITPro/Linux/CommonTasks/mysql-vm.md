@@ -1,7 +1,7 @@
 <properties umbracoNaviHide="0" pageTitle="Installing MySQL on a OpenSUSE Linux Virtual Machine in Windows Azure" metaKeywords="" metaDescription="" linkid="manage-linux-common-tasks-MongoDB" urlDisplayName="Install MongoDB" headerExpose="" footerExpose="" disqusComments="1" />
 #Install MySQL on a virtual machine running OpenSUSE Linux in Windows Azure
 
-<div chunk="../../shared/chunks/disclaimer.md" />
+<div chunk="../../Shared/Chunks/disclaimer.md" />
 
 [MySQL](http://www.mysql.com) is a popular open source, SQL database. Using the [Windows Azure (Preview) Management Portal][AzurePreviewPortal], you can create a virtual machine running OpenSUSE Linux from the Image Gallery.  You can then install and configure a MySQL database on the virtual machine.
 
