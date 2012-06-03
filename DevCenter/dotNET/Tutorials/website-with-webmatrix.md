@@ -9,6 +9,14 @@ You will learn:
 * How to set up WebMatrix and use it to develop a web site.
 * How to deploy a web site directly from WebMatrix to Windows Azure.
 
+### Create a Windows Azure account
+
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
+
+### Enable Windows Azure Web Sites
+
+<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
+
 ## Create a Windows Azure web site
 
 1. Login to the [Windows Azure Portal](http://manage.windowsazure.com).
