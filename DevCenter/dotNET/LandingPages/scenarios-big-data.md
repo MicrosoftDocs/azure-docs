@@ -4,19 +4,19 @@
 
 <div class="dev-articles">
 <div class="article red">
-<h3><a href="../../tutorials/hadoop-and-data/">Hadoop on Windows Azure - Working With Data</a></h3>
+<h3><a href="../../tutorials/hadoop-and-data/">Hadoop on Windows Azure - working With data</a></h3>
 <p>Use Windows Azure Storage in MapReduce, upload data files to HDFS using FTPS, and import SQL Server Data with Sqoop.</p>
 </div>
 <div class="article blue">
-<h3><a href="../../tutorials/website-with-mongodb-vm/">Website with MongoDB on a virtual machine</a></h3>
+<h3><a href="../../tutorials/website-with-mongodb-vm/">Web site with MongoDB on a virtual machine</a></h3>
 <p>Create an ASP.NET MVC web site that connects to a MongoDB instance running on a Windows Azure virtual machine. You will learn how to leverage virtual machines to host unstructured data in MongoDB.</p>
 </div>
 <div class="article green">
-<h3><a href="/en-us/develop/net/tutorials/hadoop-recommendation-engine/">Simple Recommendation Engine using Apache Mahout</a></h3>
+<h3><a href="/en-us/develop/net/tutorials/hadoop-recommendation-engine/">Simple recommendation engine using Apache Mahout</a></h3>
 <p>Create a simple recommendation engine using a Mahout item-based algorithm.</p>
 </div>
 <div class="article red">
-<h3><a href="../../tutorials/hadoop-social-web-data/">Analyzing Twitter Movie Data with Hive</a></h3>
+<h3><a href="../../tutorials/hadoop-social-web-data/">Analyzing Twitter movie data with Hive</a></h3>
 <p>Demo and process Twitter movie data using Hadoop on Windows Azure.</p>
 </div>
 <div class="article blue">

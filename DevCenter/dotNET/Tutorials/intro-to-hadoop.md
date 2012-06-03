@@ -106,7 +106,7 @@ The steps for getting access to the Hadoop on Windows Azure, logging into the si
 
  4. In the _Got a code_ dialog box, enter invite code, and then click **Enroll**.		
  5. For a new account, your first task is to create a Hadoop on Windows Azure cluster. Your options are as follows: 
-![RequestNewCluster](../media/RequestNewCluster.PNG?raw=true "Request a New Cluster") 
+![RequestNewCluster](../media/RequestNewCluster.PNG) 
 Your options are:	
 **DNS Name**: Choose a name for your cluster. Here "samples" is used.			
 **Cluster Size**: Select what size of cluster to test against. Here the **Small** 4 node cluster is used.	
@@ -119,7 +119,7 @@ Your options are:
  
 Once logged in with a deployed cluster, your account page opens.
 
-![HadoopOnAzureAccountPage](images/HadoopOnAzureAccountPage.PNG?raw=true "Hadoop on Windows Azure Account Page")
+![HadoopOnAzureAccountPage](../media/HadoopOnAzureAccountPage.PNG?raw=true "Hadoop on Windows Azure Account Page")
 	
 The Hadoop on Windows Azure Portal
 

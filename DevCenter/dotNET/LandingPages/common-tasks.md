@@ -3,7 +3,7 @@
 ### [Publishing with Git][]
 Git is a popular, open source, distributed version control system. Windows Azure Web Sites allow you to enable a Git repository for your site, which allows you to quickly and easily push code changes to your site. This common task provides details about how to get started using Git with Windows Azure
 
-### [Continuous Delivery with Team Foundation Service][]
+### [Publishing with Team Foundation Service][]
 Learn how to use the Team Foundation Service Preview to automate the continuous build, package, and deployment of a Windows Azure application.
 
 ### [Continuous Delivery for Cloud Services with Team Foundation Server][]
