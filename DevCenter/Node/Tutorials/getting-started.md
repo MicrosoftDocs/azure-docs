@@ -249,7 +249,7 @@ Windows PowerShell cmdlets.
 
     <!-- -->
 
-        PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject –serviceName TaskListContoso –location "North Central US” -launch
+        PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject –ServiceName TaskListContoso –Location "North Central US” -Launch
 
     Be sure to use a **unique name**, otherwise the publish process will
     fail. After publishing succeeds, you will see the following
