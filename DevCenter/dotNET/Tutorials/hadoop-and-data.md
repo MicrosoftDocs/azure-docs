@@ -1,36 +1,13 @@
-<a name="title" />
 # Hadoop on Windows Azure - Working With Data
 
----
-
-<a name="Overview" />
-## Overview 
 
 This tutorial covers several techniques for storing and importing data for use in Hadoop jobs run with Apache Hadoop-based Service for Windows Azure. Apache(TM) Hadoop(TM) is a software framework that supports data-intensive distributed applications. While Hadoop is designed to store data for such applications with its own distributed file system (HDFS), cloud-based on-demand processing can also use other forms of cloud storage such as Windows Azure storage. Collecting and importing data in such scenarios is the subject of this tutorial. 
-<a id="goals" />
 
-### Goals 
-In this tutorial you will see three things:
+You will learn:
 
-1. Using Windows Azure Storage in MapReduce jobs
-
-1. Importing data files to HDFS using FTPS
-
-1. Importing SQL Server data with Sqoop
-
-<a name="technologies" />
-### Key Technologies 
-
-- [Windows Azure Blob Storage][1]
-- [curl][2]
-- [Sqoop][3]
-
-[1]:https://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/
-[2]: http://curl.haxx.se/latest.cgi?curl=win64-ssl-sspi.
-[3]: http://www.microsoft.com/en-us/download/details.aspx?id=27584
-
-<a name="Tutorial" />
-## Tutorial 
+* Using Windows Azure Storage in MapReduce jobs
+* Importing data files to HDFS using FTPS
+* Importing SQL Server data with Sqoop
 
 This tutorial is composed of the following segments:
 
@@ -38,12 +15,12 @@ This tutorial is composed of the following segments:
 1. [Uploading data files to HDFS using FTPS](#segment2).
 1. [Importing SQL Server data with Sqoop](#segment3).
 
-<a name="segment1" />
+<a name="segment1"> </a>
 ### Using Windows Azure Storage in MapReduce
 
 While HDFS is the natural storage solution for Hadoop jobs, data needed can also be located on cloud based, large, and scalable storage systems such as Windows Azure storage. It is reasonable to expect that Hadoop, when running on Windows Azure, be able to read data directly from such cloud storage.
 
-In this tutorial you will analyze IIS logs located in Windows Azure storage using a standard streaming map-reduce Hadoop job. The scenario demonstrates a Windows Azure web role that generates IIS logs using the Windows Azure diagnostic infrastructure. A simple Hadoop job reads the logs directly from storage and finds the 5 most popular URIs (Web pages).
+In this tutorial you will analyze IIS logs located in Windows Azure storage using a standard streaming map-reduce Hadoop job. The scenario demonstrates a Windows Azure web role that generates IIS logs using the Windows Azure diagnostic infrastructure. A simple Hadoop job reads the logs directly from storage and finds the 5 most popular URIs (web pages).
 
 ### Generating the IIS Logs 
 
@@ -271,7 +248,7 @@ After the job completes, open the blob **results.txt/part-00000** in the contain
 
 ![Results](../media/results.png "Results")
 
-<a name="segment2" />
+<a name="segment2"> </a>
 ### Uploading data files to HDFS using FTPS 
 
 Map-Reduce jobs use input data located in HDFS. There are several ways to upload data to the distributed file system, one of which uses the FTPS protocol.
@@ -316,7 +293,7 @@ To verify that the file was uploaded open the JavaScript interactive console and
 
 ![Verification](../media/verification.png "Verification")
 
-<a name="segment3" />
+<a name="segment3"> </a>
 ### Importing SQL Server data with Sqoop 
 
 While Hadoop is a natural choice for processing unstructured and semi-structured data like logs and files, there may be a need to process structured data stored in relational databases as well. Sqoop (SQL-to-Hadoop) is a tool the allows you to import structured data to Hadoop and use it in MapReduce and HIVE jobs.
@@ -356,8 +333,6 @@ Run the #tail command to view selected results from the **part-m-0000** file.
  
 ![#tail](../media/tail.png)
 
-
-<a name="summary" />
 ## Summary 
 
 In this tutorial we have seen how a variety of the data sources that can be used for MapReduce jobs in Hadoop on Windows Azure. Data for Hadoop jobs can be located on cloud storage or on HDFS. We have also seen how relational data can be imported into HDFS using Sqoop and then be used in Hadoop jobs.

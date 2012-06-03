@@ -1,25 +1,6 @@
-<a name="tutorial-steps-to-demo-and-process-twitter-mo" />
 # Analyzing Twitter Movie Data with Hive 
 
-<a name="Overview" />
-## Overview 
-
 In this tutorial we will query, explore, and analyze data from twitter using Apache Hadoop-based Service for Windows Azure and a Hive query in Excel. Social web sites are one of the major driving forces for Big Data adoption. Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends.  
-
-<a name="technologies" />
-### Key Technologies 
-
-- [Apache Hive™][1]
-- Excel Hive Add-In
-- [Apache Hadoop™-based Service for Windows Azure][2]
-
-[1]: http://mahout.apache.org/
-[2]: http://www.hadooponazure.com/[3]: 
-
----
-
-<a name="Tutorial" />
-## Tutorial 
 
 This tutorial is composed of the following segments:
 
@@ -29,7 +10,7 @@ This tutorial is composed of the following segments:
 1. [Process Twitter data using Hive on the Hadoop on a Windows cluster](#segment4).
 1. [Set up Hive ODBC and the Hive panel in Excel to retrieve the Hive data](#segment5).
 
-<a name="segment1" />
+<a name="segment1"></a>
 ### Search for, download, install, and use Microsoft Analytics for Twitter  
 
 
@@ -49,7 +30,7 @@ Click on the ![search](../media/search.png) button and follow the directions.
 
 > **NOTE**: This part has nothing to do with Hadoop but is an example of using the Twitter Search API and self-service Business Intelligence (BI) in Excel and PowerPivot.
 
-<a name="segment2" />
+<a name="segment2"></a>
 ### Get Twitter Feed using cURL and Twitter Streaming API 
 
 This step requires curl.exe. Download the appropriate curl file for your OS (such as the Win64 binary SSL) from <http://curl.haxx.se/download.html>
@@ -81,7 +62,7 @@ You should see something like this:
 You can stop the job by pressing **Ctrl+C**. You can then rename the file and then restart the script.
 
 
-<a name="segment3" />
+<a name="segment3"></a>
 ### Request and configure a new Hadoop on a Windows Azure Cluster 
 
 This step requires access to the CTP for Apache Hadoop-based Service for Windows Azure. Go to <https://www.hadooponazure.com/> and click on the **invitation** link.  If you already have access, click the **Sign in** button.
@@ -287,7 +268,7 @@ Create and load **twitter_movies_vw** using:
 
 Monitor the job's progress as above.
 
-<a name="segment5" />
+<a name="segment5"></a>
 ### Set Up Hive ODBC and the Hive Panel in Excel to Retrieve the Hive Data 
 
 This section is copied from the **Apache Hadoop-based Service for Windows Azure How-To and FAQ**, which can be found in the downloads tile ![Figure37](../media/Figure37.png)
@@ -380,7 +361,7 @@ For the data processed in this tutorial, you would execute a query like:
 	Select * from twitter_movies_vw limit 20
 
 
-<a name="summary" />
+<a name="summary"></a>
 ## Summary 
 
 In this tutorial we have seen how to query, explore, and analyze data from Twitter using Hadoop on Windows Azure and a Hive query in Excel.

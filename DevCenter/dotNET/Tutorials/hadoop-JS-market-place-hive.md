@@ -1,59 +1,20 @@
-<a name="title" />
 # Running Hadoop Jobs on Windows Azure, Importing Data from Windows Azure Marketplace, and Analysing the Data with the Excel Hive Add-In 
-
----
-
-<a name="Overview" />
-## Overview 
 
 This tutorial shows two ways run MapReduce programs in a cluster using Apache Hadoop-based Sevice for Windows Azure and how to analyse data imported into the cluster from Excel using Hive-based connectivity. 
 
-The first way to run a MapeReduce program is with a Hadoop jar file using the **Create Job** UI. The second way is with a query using the fluent API layered on Pig that is provided by the **Interactive Console**. The first approach uses a MapReduce program written in Java; the second uses a script written in Javascript. The tutorial also shows how to upload files to the HDFS cluster that are needed as input for a MapReduce program and how to read the MapReduce output files from the HDFS cluster to exmine the results of an analysis.
+The first way to run a MapReduce program is with a Hadoop jar file using the **Create Job** UI. The second way is with a query using the fluent API layered on Pig that is provided by the **Interactive Console**. The first approach uses a MapReduce program written in Java; the second uses a script written in Javascript. The tutorial also shows how to upload files to the HDFS cluster that are needed as input for a MapReduce program and how to read the MapReduce output files from the HDFS cluster to exmine the results of an analysis.
 
 The Windows Azure Marketplace collects data, imagery, and real-time web services from leading commercial data providers and authoritative public data sources. It simplifies the purchase and consumption of a wide variety of data including demographic, environment, financial, retail and sports. This tutorial shows how to upload this data into a Hadoop on Windows Azure and query is using Hive scripts.
 
 A key feature of Microsoft’s Big Data Solution is the integration of Hadoop with Microsoft Business Intelligence (BI) components. A good example of this is the ability for Excel to connect to the Hive data warehouse framework in the Hadoop cluster. This tutorial shows how to use Excel via the Hive ODBC driver to access and view data in the cluster. 
 	
+You will learn: 
 
-<a id="goals" />
-### Goals 
-In this tutorial you will see three things:
-
-1. How to run a basic Java MapReduce program using a Hadoop jar file
-
-2. How to upload input files to the HDFS cluster and read output files from the HDFS cluster  
-
-3. How to run a JavaScript MapReduce script with a query using the fluent API on Pig that is provided by the Interactive JavaScript Console.
-
-4. How to import data from DataMarket into an Hadoop on Windows Azure cluster using the Interactive Hive Console.
-
-5. How to use Excel to query data stored in an Hadoop on Windows Azure cluster. 
-
-<a name="technologies" />
-### Key Technologies 
-
-- [MapReduce][1]
-- [Hadoop on Windows Azure][2]
-- [Hadoop on Windows Azure Interactive Console for JavaScript and Hive][3]
-- [Windows Azure Marketplace][4]
-- [Excel][5]
-
-[1]: http://hadoop.apache.org/mapreduce/
-[2]: http://www.hadooponazure.com/
-[3]: https://www.hadooponazure.com/Cluster/InteractiveJS
-
-[4]: https://datamarket.azure.com/
-[5]: http://office.microsoft.com/en-us/excel/
-
-<a name="setup" />
-### Setup and Configuration 
-
-You must have an account to access Hadoop on Windows Azure and have created a cluster to work through this tutorial. To obtain an account and create an Hadoop cluster, follow the instructions outlined in the _Getting started with Microsoft Hadoop on Windows Azure_ section of the _Introduction to Apache Hadoop-based Sevice for Windows Azure_ topic.
-
----
-
-<a name="Tutorial" />
-## Tutorial 
+* How to run a basic Java MapReduce program using a Hadoop jar file
+* How to upload input files to the HDFS cluster and read output files from the HDFS cluster  
+* How to run a JavaScript MapReduce script with a query using the fluent API on Pig that is provided by the Interactive JavaScript Console.
+* How to import data from DataMarket into an Hadoop on Windows Azure cluster using the Interactive Hive Console.
+* How to use Excel to query data stored in an Hadoop on Windows Azure cluster. 
 
 This tutorial is composed of the following segments:
 
@@ -62,7 +23,13 @@ This tutorial is composed of the following segments:
 3. [How to import data with the Hive Interactive  Console from DataMarket](#segment3).
 4. [How to connect to and query Hive data in a cluster from Excel](#segment4).
 
-<a name="segment1" />
+<a name="setup"></a>
+### Setup and Configuration 
+
+You must have an account to access Hadoop on Windows Azure and have created a cluster to work through this tutorial. To obtain an account and create an Hadoop cluster, follow the instructions outlined in the _Getting started with Microsoft Hadoop on Windows Azure_ section of the _Introduction to Apache Hadoop-based Sevice for Windows Azure_ topic.
+
+
+<a name="segment1"></a>
 ### How to run a basic Java MapReduce program using a Hadoop jar file with the Create Job UI 
 
 From your **Account** page, click on the **Create Job** icon in the **Your Tasks** section. This brings up the **Create Job** UI.
@@ -90,7 +57,7 @@ The status of the job is displayed on the page and will change to  _Completed Su
 
 ![PiEstimatorSampleResult](../media/piestimatorsampleresult.png "Pi Estimator Sample Result")
 
-<a name="segment2" />
+<a name="segment2"></a>
 ### How to run a JavaScript MapReduce script using the Interactive Console 
 This segment shows how to run a MapReduce job with a  query using the fluent API layered on Pig that is provided by the **Interactive Console**. This example requires an input data file. The WordCount sample that we will use here has already had this file uploaded to the cluster. But the sample does require that the .js script be uploaded to the cluster and we will use this step to show the procedure for uploading files to HDFS from the **Interactive Console**.
 
@@ -118,7 +85,7 @@ To display the results in the DaVinciTop10Words directory once the job completes
 ![WordCountSampleReadTop10](../media/wordcountsamplereadtop10.png "WordCount Sample Read Top10")
 
 
-<a name="segment3" />
+<a name="segment3"></a>
 ### How to import data with the Hive Interactive  Console from DataMarket 
 
 Open the [Windows Azure Marketplace](https://datamarket.azure.com/ "DataMarket") page in a browser and sign in with a valid Windlows Live ID.
@@ -189,7 +156,7 @@ Then press the **Evaluate** button.
 
 
 
-<a name="segment4" />
+<a name="segment4"></a>
 ### How to connect to and query Hive data in a cluster from Excel 
 
 Return to your Account page and select the **Open Ports** icon from the **Your Cluster** section to open the Configure Ports page. Open the ODBC Server on port 10000 by clicking on its Toggle button.
@@ -230,7 +197,7 @@ This should display the the cities with the most violent crime. From the **Inser
 
 ---
 
-<a name="summary" />
+<a name="summary"></a>
 ## Summary 
  
 In this tutorial, you have seen two ways to run MapReduce jobs using the Hadoop on Windows Azure portal. One used the **Create Job** UI to run a Java MapReduce program using a jar file. The other used the **Interactive Console** to run a MapReduce job using a .js script within a Pig query.
