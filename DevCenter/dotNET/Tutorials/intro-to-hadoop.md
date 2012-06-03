@@ -119,7 +119,7 @@ Your options are:
  
 Once logged in with a deployed cluster, your account page opens.
 
-![HadoopOnAzureAccountPage](../media/HadoopOnAzureAccountPage.PNG?raw=true "Hadoop on Windows Azure Account Page")
+![HadoopOnAzureAccountPage](../media/HadoopOnAzureAccountPage.PNG "Hadoop on Windows Azure Account Page")
 	
 The Hadoop on Windows Azure Portal
 
