@@ -19,5 +19,5 @@ The Windows Azure Content Delivery Network (CDN) offers a global solution for de
 [Configuring a Custom Domain Name in Windows Azure]: ../commontasks/custom-dns.md
 [Enabling Remote Desktop in Windows Azure with Visual Studio]: ../commontasks/remote-desktop.md
 [Configuring SSL for an Application in Windows Azure]: ../commontasks/enable-ssl.md
-[Using CDN for Windows Azure]: ../common-tasks/cdn.md
+[Using CDN for Windows Azure]: ../commontasks/cdn.md
 
