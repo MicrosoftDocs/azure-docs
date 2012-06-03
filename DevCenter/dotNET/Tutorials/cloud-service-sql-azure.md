@@ -166,15 +166,7 @@ machine to publish packages to Windows Azure using Visual Studio.
 
 ### Create a Windows Azure account
 
-1.  Open a web browser, and browse to [http://www.windowsazure.com][].
-
-    To get started with a free account, click **free trial** in the upper
-    right corner and follow the steps.
-
-    ![Free Trial link in windowsazure.com][13]
-
-    Your account is now created. You are ready to deploy your
-    application to Windows Azure.
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
 
 ### Publish the application
 
