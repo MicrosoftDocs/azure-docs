@@ -1,4 +1,4 @@
-# Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System #
+#Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System #
 
 <div chunk="../../shared/chunks/disclaimer.md" />
 
