@@ -35,7 +35,7 @@ Use the following procedures to configure verbose or minimal monitoring in the M
 
 ###Before you begin###
 
-- Create a storage account to store the monitoring data. You can use different storage accounts for different roles. For more information, see help for **Storage Accounts**, or see [How To Create a Storage Account](./howto-create-storage-account/).
+- Create a storage account to store the monitoring data. You can use different storage accounts for different roles. For more information, see help for **Storage Accounts**, or see [How To Create a Storage Account](/en-us/manage/services/storage/how-to-create-a-storage-account/).
 
 
 - Enable Windows Azure Diagnostics for your cloud service roles. 

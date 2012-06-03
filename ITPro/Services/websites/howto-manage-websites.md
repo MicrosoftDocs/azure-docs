@@ -30,7 +30,7 @@ The **Dashboard** management page includes the following:
 > - **Http Server Errors** – number of Http “5xx Server Error” messages sent.
 
  > **Note**<br/>
-To see a chart with additional performance metrics, configure the chart displayed on the **Monitor** management page as described in [How to Monitor Websites](./howto-monitor-websites/).
+To see a chart with additional performance metrics, configure the chart displayed on the **Monitor** management page as described in [How to Monitor Websites](/en-us/manage/services/web-sites/how-to-monitor-websites/).
 
 
  - A list of all linked resources associated with this website or if no resources are associated, a hyperlink to the **Linked Resources** management page.

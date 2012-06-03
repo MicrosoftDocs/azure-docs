@@ -14,10 +14,10 @@ For information about adding a virtual machine to your tutorial or connecting to
 
 <!-- UPDATE THE FOLLOWING LIST ONCE WE HAVE THE LINKS FOR TUTORIALS 4 & 5 -->
 
--  [Tutorial 3: Adding a Virtual Machine to a Virtual Network](./Tutorial3_AddVMachineToVNet/)
+-  [Tutorial 3: Adding a Virtual Machine to a Virtual Network](/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
--  [Active Directory Replica Domain Controller with cross-premises connectivity](./Tutorial-AD-1/)
--  [New Active Directory Forest in the Cloud](./Tutorial-AD-2/)
+-  [Active Directory Replica Domain Controller with cross-premises connectivity](/en-us/manage/services/networking/replica-domain-controller/)
+-  [New Active Directory Forest in the Cloud](/en-us/manage/services/networking/active-directory-forest/)
 
 
 ##  Objectives
@@ -217,10 +217,10 @@ If you'd like, you can continue with the following tutorials:
 
 <!-- UPDATE THE FOLLOWING LIST ONCE WE HAVE THE LINKS FOR TUTORIALS 4 & 5 -->
 
--  [Tutorial 3: Adding a Virtual Machine to a Virtual Network](./Tutorial3_AddVMachineToVNet/)
+-  [Tutorial 3: Adding a Virtual Machine to a Virtual Network](/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
--  [Active Directory Replica Domain Controller with cross-premises connectivity](./Tutorial-AD-1/)
--  [New Active Directory Forest in the Cloud](./Tutorial-AD-2/)
+-  [Active Directory Replica Domain Controller with cross-premises connectivity](/en-us/manage/services/networking/replica-domain-controller/)
+-  [New Active Directory Forest in the Cloud](/en-us/manage/services/networking/active-directory-forest/)
 
 
 

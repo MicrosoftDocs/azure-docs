@@ -38,7 +38,7 @@ Before you begin, make sure the following prerequisites are complete:
 >You need to provide your own DNS infrastructure to support AD DS on Windows Azure Virtual Network. The DNS infrastructure provided by Windows Azure for this release does not support some features that AD DS requires, such as SRV resource record registration or dynamic DNS. 
 
 **Note**
->If you already completed the steps in [Install a replica Active Directory domain controller in Windows Azure Virtual Network](tutorial-AD-1), you might need to remove AD DS from the domain controller on the Windows Azure virtual network before you begin this tutorial. For more information about how to remove AD DS, see [Removing a Domain Controller from a Domain](http://technet.microsoft.com/en-us/library/cc771844(v=WS.10).aspx).
+>If you already completed the steps in [Install a replica Active Directory domain controller in Windows Azure Virtual Network](/en-us/manage/services/networking/replica-domain-controller/), you might need to remove AD DS from the domain controller on the Windows Azure virtual network before you begin this tutorial. For more information about how to remove AD DS, see [Removing a Domain Controller from a Domain](http://technet.microsoft.com/en-us/library/cc771844(v=WS.10).aspx).
 
 
 <h2 id="Step1">Step 1: Sign on to Windows Azure, attach data disks, and connect to the VM</h2>

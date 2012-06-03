@@ -53,7 +53,7 @@ To change scale options for a Website, in the Management Portal open the website
 
 - **Reserved/Shared Instance Count** - Increase this value to provide fault tolerance and improved performance through scale out by running additional website instances. 
 
-Note that as you increase the value for **Shared Instance Count** you also increase the possibility of exceeding the resources allocated to each Web Site subscription for running websites in Shared website mode. The resources allocated for this purpose are evaluated on a resource usage per day basis. For more information about resource usage quotas see [How to Monitor Websites](./howto-monitor-websites/). 
+Note that as you increase the value for **Shared Instance Count** you also increase the possibility of exceeding the resources allocated to each Web Site subscription for running websites in Shared website mode. The resources allocated for this purpose are evaluated on a resource usage per day basis. For more information about resource usage quotas see [How to Monitor Websites](/en-us/manage/services/web-sites/how-to-monitor-websites/). 
 
 
 [vs2010]:http://go.microsoft.com/fwlink/?LinkId=225683

@@ -73,4 +73,5 @@ Windows Azure provides the ability to capture the state of an existing virtual m
 
 <h2 id="attachingdisks">Attaching Disks </h2>
 
-This is covered step-by-step in the tutorial on how to [create a Linux virtual machine](../tutorials/virtual-machine-from-gallery/).
+This is covered step-by-step in the tutorial on how to [create a Linux virtual machine](./CreateVirtualMachineLinuxTutorial/).
+

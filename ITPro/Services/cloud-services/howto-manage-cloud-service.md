@@ -105,8 +105,7 @@ You can follow the progress of the linking operation in the message area.
 ![Link Progress](../media/CloudServices_LinkedResources_LinkProgress.png)
 
 
-When linking is complete, you can monitor the status of the linked resource on the cloud service dashboard. For information about scaling a linked SQL Database, see [How to Scale a Cloud Service and Linked Resources](howto-scale-cloud-service).
-
+When linking is complete, you can monitor the status of the linked resource on the cloud service dashboard. For information about scaling a linked SQL Database, see [How to Scale a Cloud Service and Linked Resources](./howto-scale-cloud-service/).
 
 ###To unlink a linked resource###
 
@@ -143,4 +142,4 @@ Use the following procedure to delete a deployment or your cloud service.
 
 5. To delete the cloud service, click **Delete cloud service**. Then, at the confirmation prompt, click **Yes**.
 
-**Note**   If verbose monitoring is configured for your cloud service, Windows Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For more information, see [How to Monitor Cloud Services](./howto-monitor-cloud-service/).
+**Note**   If verbose monitoring is configured for your cloud service, Windows Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For more information, see [How to Monitor Cloud Services](./how-to-monitor-a-cloud-service/).

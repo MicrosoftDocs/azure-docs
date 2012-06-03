@@ -15,9 +15,9 @@ This tutorial assumes you have no prior experience using Windows Azure.
 For information about creating adding Active Directory connection to your virtual network, see the following:
 	<!-- UPDATE THE FOLLOWING LIST ONCE WE HAVE THE LINKS FOR TUTORIALS 4 & 5 -->
 
--  [Active Directory Replica Domain Controller with cross-premises connectivity](./Tutorial-AD-1/)
+-  [Active Directory Replica Domain Controller with cross-premises connectivity](/en-us/manage/services/networking/replica-domain-controller/)
 
--  [New Active Directory Forest in the Cloud](./Tutorial-AD-2/)
+-  [New Active Directory Forest in the Cloud](/en-us/manage/services/networking/active-directory-forest/)
 
 
 ## Objectives ##
@@ -32,10 +32,10 @@ In this tutorial you will learn:
 
 -  Complete one of the following: 
 
--  [Tutorial 1: Creating a Virtual Network in Windows Azure](./Tutorial1_CreateVirtualNetwork/)
+-  [Tutorial 1: Creating a Virtual Network in Windows Azure](/en-us/manage/services/networking/create-a-virtual-network/)
 
 	-OR- 
--  [Tutorial 2: Creating a Virtual Network for cross-premises connectivity](./Tutorial2_CreateVNetCrossPrem/)
+-  [Tutorial 2: Creating a Virtual Network for cross-premises connectivity](/en-us/manage/services/networking/cross-premises-connectivity/)
 
 -  Windows Live account with at least one valid, active subscription.	
 
@@ -134,9 +134,9 @@ Names of the following:
 If you'd like to connect to Active Directory, you can continue with the following tutorials:
 	<!-- UPDATE THE FOLLOWING LIST ONCE WE HAVE THE LINKS FOR TUTORIALS 4 & 5 -->
 	
--  [Active Directory Replica Domain Controller with cross-premises connectivity](./Tutorial-AD-1/)
+-  [Active Directory Replica Domain Controller with cross-premises connectivity](/en-us/manage/services/networking/replica-domain-controller/)
 
--  [New Active Directory Forest in the Cloud](./Tutorial-AD-2/)
+-  [New Active Directory Forest in the Cloud](/en-us/manage/services/networking/active-directory-forest/)
 
 
 <!-- LINKS -->
