@@ -1,7 +1,4 @@
-<a name="title" />
-
 # Hadoop on Windows Azure - Working With Data
-
 
 This tutorial covers several techniques for storing and importing data for use in Hadoop jobs run with Apache Hadoop-based Service for Windows Azure. Apache(TM) Hadoop(TM) is a software framework that supports data-intensive distributed applications. While Hadoop is designed to store data for such applications with its own distributed file system (HDFS), cloud-based on-demand processing can also use other forms of cloud storage such as Windows Azure storage. Collecting and importing data in such scenarios is the subject of this tutorial. 
 
@@ -14,8 +11,8 @@ You will learn:
 This tutorial is composed of the following segments:
 
 1. [Using Windows Azure Storage in MapReduce](#segment1).
-1. [Uploading data files to HDFS using FTPS](#segment2).
-1. [Importing SQL Server data with Sqoop](#segment3).
+2. [Uploading data files to HDFS using FTPS](#segment2).
+3. [Importing SQL Server data with Sqoop](#segment3).
 
 <a name="segment1"> </a>
 ### Using Windows Azure Storage in MapReduce

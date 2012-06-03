@@ -24,7 +24,7 @@
 </div>
 
 <h2>Windows Azure Cloud Services</h2>
-<h3 class="subtext">For multi-environment, multi-tier web applications that require greater control of the hosting environment.</h3>
+<h3 class="subtext">For multi-environment, multi-tier web applications that require greater control of the hosting environment</h3>
 
 <div class="article blue">
 <h3><a href="/en-us/develop/net/tutorials/cloud-service-with-sql-database/">Cloud service with ASP.NET web role and SQL Database</a></h3>
