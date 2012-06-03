@@ -1,6 +1,6 @@
 #Python Developer Center - Tutorials
 
-###[Python Django hello world application](/en-us/develop/python/tutorials/web-app-with-django/)
+###[Python Django hello world application](/en-us/develop/python/tutorials/django-hello-world-(maclinux)/)
 
 Implement a simple Hello World application written in the Django Python web framework and deploy the application to Windows Azure. You will learn the basics of working with the Windows Azure compute emulator and deploying a Python application to Windows Azure.
 
