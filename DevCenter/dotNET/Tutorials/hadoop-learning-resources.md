@@ -1,7 +1,7 @@
 # Additional Learning Resources 
 
-
-<h2 id="Resources"> <a name="Resources">Resources for Learning about Apache Hadoop-based Service for Windows Azure and the Hadoop and Azure Ecosystems</a> </h2>
+<a name="Resources"> </a>
+<h3 class="subtext">Resources for Learning about Apache Hadoop-based Service for Windows Azure and the Hadoop and Windows Azure Ecosystems</a> </h3>
 
 **Microsoft: Hadoop on Windows Azure**	
 * [Welcome to Hadoop on Windows Azure](https://www.hadooponazure.com/) - the welcome page for the Developer Preview for the Apache Hadoop-based Services for Windows Azure	
