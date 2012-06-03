@@ -1,7 +1,7 @@
 <properties umbracoNaviHide="0" pageTitle="Installing MongoDB on a CentOS Linux Virtual Machine in Windows Azure" metaKeywords="" metaDescription="" linkid="manage-linux-common-tasks-MongoDB" urlDisplayName="Install MongoDB" headerExpose="" footerExpose="" disqusComments="1" />
 #Install MongoDB on a virtual machine running CentOS Linux in Windows Azure
 
-<div chunk="../../shared/chunks/disclaimer.md" />
+<div chunk="../../Shared/Chunks/disclaimer.md" />
 
 [MongoDB](http://www.mongodb.org/) is a popular open source, high performance NoSQL database. Using the [Windows Azure (Preview) Management Portal][AzurePreviewPortal], you can create a virtual machine running CentOS Linux from the Image Gallery. You can then install and configure a MongoDB database on the virtual machine.
 

@@ -1,7 +1,7 @@
 <properties umbracoNaviHide="0" pageTitle="How to Create and Deploy a Cloud Service" metaKeywords="Windows Azure cloud services, cloud service, deploy cloud service, create cloud service" metaDescription="Learn how to create and deploy Windows Azure cloud services." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" />
 #How to Create and Deploy a Cloud Service
 
-<div chunk="../../../Shared/Chunks/disclaimer.md" />
+<div chunk="../../Shared/Chunks/disclaimer.md" />
 
 The Windows Azure (Preview) Management Portal provides two ways for you to create and deploy a cloud service: **Quick Create** and **Custom Create**. 
 
