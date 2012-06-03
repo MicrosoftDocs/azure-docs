@@ -47,7 +47,7 @@ using the Windows Azure Access Control Service.
 In this tutorial, you will create an ASP.NET MVC 3 website that will
 allow you to see a list of products on the product inventory page.
 
-![][]
+![][0]
 
 The tutorial assumes that you have product information in an existing
 on-premises system, and uses the Service Bus relay to reach into that
@@ -195,7 +195,7 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
 
     ![][11]
 
-4.  Click **OK**to create the **ProductsServer**project.
+4.  Click **OK** to create the **ProductsServer** project.
 5.  In the **Solution Explorer**, right-click **ProductsServer**, then
     click **Properties**.
 6.  Click the **Application** tab on the left, then select **.NET
@@ -312,7 +312,7 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
             }
         }
 
-13. In **Solution Explorer**, double click the **app.config**file to
+13. In **Solution Explorer**, double click the **app.config** file to
     open it in the **Visual Studio** editor. Replace the contents of
     **&lt;system.ServiceModel>** with the following XML code. Be sure to
     replace *yourServiceNamespace* with the name of your service
@@ -730,7 +730,7 @@ Run the application to verify that it works.
 
         ![][34]
 
-  []: ../../../DevCenter/dotNet/Media/hybrid.png
+  [0]: ../../../DevCenter/dotNet/Media/hybrid.png
   [1]: ../../../DevCenter/dotNet/Media/App2.png
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkID=234939&clcid=0x409
   [2]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-3.png
