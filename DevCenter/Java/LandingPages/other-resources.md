@@ -10,6 +10,6 @@ Provides details about the Windows Azure Training Kit, a downloadable set of han
 ### [White papers][]
 Links to white papers about Windows Azure.
 
-[Javadocs]: ../otherresources/javadocs.md
+[Javadocs]: ../otherresources/java-reference.md
 [Training kit]: ../otherresources/training-kit.md
 [White papers]: ../otherresources/white-papers.md
