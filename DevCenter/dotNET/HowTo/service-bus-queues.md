@@ -5,8 +5,7 @@
 <span>This guide will show you how to use Service Bus queues. The
 samples are written in C\# and use the .NET API. The scenarios covered
 include **creating queues, sending and receiving messages**, and
-**deleting queues**. For more information on queues, see the [Next
-Steps][] section. </span>
+**deleting queues**. For more information on queues, see the [Next Steps] section. </span>
 
 ## Table of Contents
 
@@ -68,7 +67,7 @@ To create a service namespace:
 
 3.  In the upper left pane of the Management Portal, click the **Service
     Bus** node, and then click the **New** button.   
-    ![][]
+    ![][0]
 
 4.  In the **Create a new Service Namespace** dialog, enter a
     **Namespace**, and then to make sure that it is unique, click the
@@ -92,7 +91,7 @@ namespace.
 
 1.  In the left navigation pane, click the **Service Bus** node, to
     display the list of available namespaces:   
-    ![][]
+    ![][0]
 
 2.  Select the namespace you just created from the list shown:   
     ![][2]
@@ -384,7 +383,7 @@ links to learn more.
 -   See the MSDN Reference: [Queues, Topics, and Subscriptions.][]
 -   Build a working application that sends and receives messages to and
     from a Service Bus queue: [Service Bus Brokered Messaging .NET
-    Tutorial][].
+    Tutorial].
 
   [Next Steps]: #next-steps
   [What are Service Bus Queues]: #what-queues
@@ -398,7 +397,7 @@ links to learn more.
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
   [Queue Concepts]: ../../../DevCenter/dotNet/Media/sb-queues-08.png
   [Windows Azure Management Portal]: http://windows.azure.com
-  []: ../../../DevCenter/dotNet/Media/sb-queues-03.png
+  [0]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
   [1]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
   [2]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
   [3]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
