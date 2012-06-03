@@ -8,7 +8,7 @@ To install the tool on a Mac, download and run the Windows Azure SDK installer. 
 
 To install the tool on Linux, install the latest version of Node.JS and then use NPM to install:
 
-	npm install azure -g
+	sudo npm install azure -g
 
 Optional parameters are show in square brackets (e.g., [parameter]). All other parameters are required.
 
@@ -267,19 +267,28 @@ Show status of a virtual machine image
 
 ###vm image list [options]
 
-Get a list of virtual machine images
+Get a list of virtual machine images. The list includes core images provided by Windows Azure as well as personal User images.
 
 	~$ azure vm image list
 	info:   Executing command vm image list
-	data:   Name                                     OS                            
-	data:   ---------------------------------------  ---------
-	data:   my-vm-1-my-vm-1-0-2012419145114          Windows  
-	data:   my-vm-1-my-vm-2-201242418259             undefined
+    data:   Name                                                                  Category   OS      
+    data:   --------------------------------------------------------------------  ---------  -------
+    data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-en-us-30GB.vhd  Canonical  Linux  
+    data:   MSFT__Windows-Server-2012-RC-June2012-en-us-30GB.vhd                  Microsoft  Windows
+    data:   MSFT__Win2K8R2SP1-120514-1520-141205-01-en-us-30GB.vhd                Microsoft  Windows
+    data:   MSFT__Windows-Server-8-Beta.en-us.30GB.2012-03-22                     Microsoft  Windows
+    data:   MSFT__Sql-Server-11EVAL-11.0.2215.0-05152012-en-us-30GB.vhd           Microsoft  Windows
+    data:   MSFT__Windows-Server-2008-R2-SP1.en-us.30GB.2012-3-22                 Microsoft  Windows
+    data:   OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd                OpenLogic  Linux  
+    data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-en-us-30GB.vhd      SUSE       Linux  
+    data:   SUSE__OpenSUSE64121-03192012-en-us-15GB.vhd                           SUSE       Linux 
+	data:   my-vm-1-my-vm-1-0-2012419145114                                       USER       Windows  
+	data:   my-vm-1-my-vm-2-201242418259                                          USER       Windows
 	info:   vm image list command OK
 
 ###vm image delete [options] &lt;name>
 
-Delete a virtual machine image
+Delete a virtual machine image from the personal repository
 
 	~$ azure vm image delete my-vm-image
 	info:   Executing command vm image delete
@@ -474,7 +483,7 @@ Create a new web site and local directory. Note that the site name must be uniqu
 
 ###site portal [options] [name]
 
-Opens the portal in a browser to manage your web sites
+Opens the portal in a browser to manage your web sites. If name is specified the portal will open for that specific site.
 
 	~$ azure site portal mysite
 	info:   Executing command site portal
