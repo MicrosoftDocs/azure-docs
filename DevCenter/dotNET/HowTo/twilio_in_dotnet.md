@@ -1,7 +1,7 @@
 <properties umbracoNaviHide="0" pageTitle="Deploying Applications" metaKeywords="Windows Azure deployment, Azure deployment, Azure configuration changes, Azure deployment update, Windows Azure .NET deployment, Azure .NET deployment, Azure .NET configuration changes, Azure .NET deployment update, Windows Azure C# deployment, Azure C# deployment, Azure C# configuration changes, Azure C# deployment update, Windows Azure VB deployment, Azure VB deployment, Azure VB configuration changes, Azure VB deployment update" metaDescription="Learn how to deploy applications to Windows Azure, make configuration changes, and and make major and minor updates." linkid="dev-net-fundamentals-deploying-applications" urlDisplayName="Deploying Applications" headerExpose="" footerExpose="" disqusComments="1" />
 # How to Use Twilio for Voice and SMS Capabilities from Windows Azure
 
-<div chunk="../../Shared/Chunks/how_to_use_twilio_opening_and_common_toc" />
+<div chunk="../../Shared/Chunks/how_to_use_twilio_opening_and_common_toc.md" />
 
 * [Create a Windows Azure Application](#create_app)
 * [Configure Your Application to Use Twilio Libraries](#configure_app)
@@ -11,7 +11,7 @@
 * [How to: Use Additional Twilio Services](#AdditionalServices)
 * [Next Steps](#NextSteps)
 
-<div chunk="../../Shared/Chunks/how_to_use_twilio_for_voice_and_sms_capabilities" />
+<div chunk="../../Shared/Chunks/how_to_use_twilio_for_voice_and_sms_capabilities.md" />
 
 <h2 id="create_app">Create a Windows Azure Application</h2>
 A Windows Azure Application that hosts a Twilio enabled application is no different from any other Windows Azure Application. You simply add the Twilio .NET library and configure the role to use the Twilio .NET libraries.
@@ -233,7 +233,7 @@ Once you have your handler set up to provide TwiML responses, use the URL of the
 
 For additional information about using Twilio on Windows Azure with ASP.NET, see [How to Make a Phone Call Using Twilio in a Web Role on Windows Azure][howto_phonecall_dotnet].
 
-<div chunk="../../Shared/Chunks/twilio_additional_services_and_next_steps" />
+<div chunk="../../Shared/Chunks/twilio_additional_services_and_next_steps.md" />
 
 [twilio_java]: https://github.com/twilio/twilio-java
 
