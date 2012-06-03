@@ -1,7 +1,7 @@
 <properties umbracoNaviHide="0" pageTitle="How to Monitor Cloud Services" metaKeywords="Windows Azure cloud services, cloud service, monitor cloud service, configure monitoring, metrics" metaDescription="Learn how to monitor Windows Azure cloud services." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" />
 #How to Monitor Cloud Services
 
-<div chunk="../../../Shared/Chunks/disclaimer.md" />
+<div chunk="../../Shared/Chunks/disclaimer.md" />
 
 You can monitor key performance metrics for your cloud services in the Windows Azure (Preview) Management Portal, and can customize what you monitor in the portal to meet your needs.
 

@@ -1,43 +1,23 @@
-<a name="title" />
 # Simple Recommendation Engine using Apache Mahout 
 
----
-
-<a name="Overview" />
-## Overview 
 
 Apache Mahout™ is a machine learning library built for use in scalable machine learning applications. Recommender engines are some of the most immediately recognizable machine learning applications in use today. In this tutorial we will use the  [Million Song Dataset](http://labrosa.ee.columbia.edu/millionsong/tasteprofile) to create song recommendations for users based on their past listening habits.
 
-<a id="goals" />
-### Goals 
-In this tutorial you will learn the following:
+You will learn:
 
-1. How to use Recommender Engines
-
-<a name="technologies" />
-### Key Technologies 
-
-- [Apache Mahout™][1]
-- [Apache Hadoop™-based Service for Windows Azure][2]
-
-[1]: http://mahout.apache.org/
-[2]: http://www.hadooponazure.com/[3]: 
-<a name="setup" />
-### Setup and Configuration 
-
-You must have an account to access Hadoop on Windows Azure and have created a cluster to work through this tutorial. To obtain an account and create an Hadoop cluster, follow the instructions outlined in the _Getting started with Microsoft Hadoop on Windows Azure_ section of the _Introduction to Hadoop on Windows Azure_ topic.
-
----
-
-<a name="Tutorial" />
-## Tutorial 
+* How to use Recommender Engines
 
 This tutorial is composed of the following segments:
 
 1. [Examining and formatting the data](#segment1).
 1. [Running the Mahout job](#segment2).
 
-<a name="segment1" />
+<a name="setup"></a>
+### Setup and Configuration 
+
+You must have an account to access Hadoop on Windows Azure and have created a cluster to work through this tutorial. To obtain an account and create an Hadoop cluster, follow the instructions outlined in the _Getting started with Microsoft Hadoop on Windows Azure_ section of the _Introduction to Hadoop on Windows Azure_ topic.
+
+<a name="segment1"></a>
 ### Examining and formatting the data 
 
 Apache Mahout provides a built-in implementation for Item-based Collaborative Filtering. Item-based Collaborative Filtering is a popular way to conduct recommendation data mining. 
@@ -160,7 +140,7 @@ Press **F5** to run the program. Once complete, open the **bin\Debug** folder fr
 
 _The output of the ConvertToMahoutInput utility_
 
-<a name="segment2" />
+<a name="segment2"></a>
 ### Running the Mahout job 
 
 Open the Hadoop cluster portal at <https://www.hadooponazure.com>, and click the **Remote Desktop** icon.
@@ -193,7 +173,7 @@ Open the **output.txt** file from the **c:\\** root folder and inspect its conte
 
 	user	[song:rating,song:rating, ...]
 
-<a name="summary" />
+<a name="summary"></a>
 ## Summary 
 
 Recommender engines provide important functionality to many modern social networking sites, online shopping, streaming media, and other internet sites. Mahout provides an out-of-the-box recommendation engine that is easy to use, contains many useful features, and is scalable on Hadoop.

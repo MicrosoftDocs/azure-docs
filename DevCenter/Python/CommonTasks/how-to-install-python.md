@@ -120,31 +120,20 @@ The first scenario enables you to author rich web apps that take advantage of th
 
 For the VM scenario, you simply start a Linux VM of your choice (Ubuntu, CentOS, Suse) and run/manage what you like.  As an example, you can run [IPython](http://ipython.org) REPL/notebook on your Windows/Mac/Linux machine and point your browser to a Linux or Windows multi-proc VM running the IPython Engine on Azure. For more information on IPython installation please see its tutorial.
 
-For information on how to setup a Linux, please see [Setting up a Linux VM via the Windows Azure portal][].
-
-For details on managing/deploying services, please see [How to use the Windows Azure Command-Line Tools for Mac and Linux][]
-
+For information on how to setup a Linux VM, please see the [Linux Management section.](http://www.windowsazure.com/en-us/manage/linux/)
 
  
 
 ## Additional Software and Resources:
 
 * [Enthought Python Distribution][]
-
 * [ActiveState Python Distribution][]
-
 * [SciPy - A suite of Scientific Python libraries][]
-
 * [NumPy - A numerics library for Python][]
-
 * [Django Project - A mature web framework/CMS][]
-
 * [IPython - an advanced REPL/Notebook for Python][]
-
 * [IPython on Azure][]
-
 * [Python Tools for Visual Studio on CodePlex][]
-
 * [Virtualenv][]
 
 

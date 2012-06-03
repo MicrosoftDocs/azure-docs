@@ -4,7 +4,7 @@
 
 <h1 id="configurecloudservice">How To Configure Cloud Services</h1>
 
-<div chunk="../../../Shared/Chunks/disclaimer.md" />
+<div chunk="../../Shared/Chunks/disclaimer.md" />
 
 You can configure the most commonly used settings for a cloud service in the Windows Azure (Preview) Management Portal. Or, if you like to update your configuration files directly, download a service configuration file to update, and then upload the updated file and update the cloud service with the configuration changes. Either way, the configuration updates are pushed out to all role instances.
 

@@ -232,10 +232,10 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [9]: ../Media/mysql_tutorial03-1.png
 [10]: ../Media/mysql_tutorial03-2.png 
 
-[djangohelloworld]: ../web-app-with-django
+[djangohelloworld]: ./django-helloworld.md
 [mysqldoc]: http://dev.mysql.com/doc/
 [mysqlpy]: http://pypi.python.org/pypi/MySQL-python/1.2.3
-[wapstarted]: ../commontasks/install-python
+[wapstarted]: ../commontasks/how-to-install-python.md
 [mysqlpydl]: http://www.codegood.com/download/10/
 [mysqlcommunity]:http://dev.mysql.com/downloads/mysql/
 [dotnetfour]:http://go.microsoft.com/fwlink/?LinkId=181012
@@ -249,5 +249,5 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [The status of the Remove-AzureService command]: ../Media/django-helloworld-ps-remove.png
 [How to Delete a Storage Account from a Windows Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx
 
-[Installation Guide]: ../commontasks/install-python
+[Installation Guide]: ../commontasks/how-to-install-python.md
  
