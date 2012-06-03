@@ -1,4 +1,4 @@
-<properties linkid="devnav-java-fundamentals" urlDisplayName="Fundamentals" headerExpose="" pageTitle="Windows Azure Java Fundamentals" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="devnav-java-fundamentals" urlDisplayName="Windows Azure Intro" headerExpose="" pageTitle="Windows Azure Java Fundamentals" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
 
 # Java Developer Center - Fundamentals
 
