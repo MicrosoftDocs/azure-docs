@@ -17,12 +17,12 @@ In addition to command-specific optional parameters documented below, there are 
 **Table of Contents:**
 
 * [Commands to manage your account information and publish settings](#Manage_your_account_information_and_publish_settings)
-* [Commands to manage your Azure virtual machines](#Commands_to_manage_your_Azure_virtual_machines)
-* [Commands to manage your Azure virtual machine endpoints](#Commands_to_manage_your_Azure_virtual_machine_endpoints)
-* [Commands to manage your Azure virtual machine images](#Commands_to_manage_your_Azure_virtual_machine_images)
-* [Commands to manage your Azure virtual machine data disks](#Commands_to_manage_your_Azure_virtual_machine_data_disks)
-* [Commands to manage your Azure cloud services](#Commands_to_manage_your_Azure_cloud_services)
-* [Commands to manage your Azure certificates](#Commands_to_manage_your_Azure_certificates)
+* [Commands to manage your Windows Azure virtual machines](#Commands_to_manage_your_Azure_virtual_machines)
+* [Commands to manage your Windows Azure virtual machine endpoints](#Commands_to_manage_your_Azure_virtual_machine_endpoints)
+* [Commands to manage your Windows Azure virtual machine images](#Commands_to_manage_your_Azure_virtual_machine_images)
+* [Commands to manage your Windows Azure virtual machine data disks](#Commands_to_manage_your_Azure_virtual_machine_data_disks)
+* [Commands to manage your Windows Azure cloud services](#Commands_to_manage_your_Azure_cloud_services)
+* [Commands to manage your Windows Azure certificates](#Commands_to_manage_your_Azure_certificates)
 * [Commands to manage your web sites](#Commands_to_manage_your_web_sites)
 * [Manage tool local settings](#Manage_tool_local_settings)
 
@@ -31,7 +31,7 @@ Your Windows Azure subscription information is used by the tool to connect to yo
 
 ###account download [options]
 
-Launch a browser to download your .publishsettings file from the Windows Azure portal:
+Launch a browser to download your .publishsettings file from the Windows Azure Management Portal:
 
 	~$ azure account download
 	info:   Executing command account download
@@ -63,7 +63,7 @@ This command will remove the stored publish settings that have been imported. Us
 
 ###account location list [options]
 
-This command lists all available Azure account locations.
+This command lists all available Windows Azure account locations.
 
 	~$ azure account location list
 	info:   Executing command account location list
@@ -97,7 +97,7 @@ The diagram below shows how Windows Azure virtual machines are hosted in the pro
 
 This command creates a new Windows Azure virtual machine. By default, each virtual machine is created in its own cloud service, however you can specify that a virtual machine should be added to an existing cloud service through use of the **-c** option as documented below.
 
-Note that the **vm create** command, like the Windows Azure portal, only creates virtual machines in the production deployment environment. There is currently no option for creating a virtual machine in the staging deployment environment of a cloud service. Note that a Windows Azure storage account will be created by this command if one does not already exist for your subscription.
+Note that the **vm create** command, like in the Windows Azure Management Portal, only creates virtual machines in the production deployment environment. There is currently no option for creating a virtual machine in the staging deployment environment of a cloud service. Note that a Windows Azure storage account will be created by this command if one does not already exist for your subscription.
 
 When you create a new virtual machine, you will need to specify the physical location (i.e., data center) where the virtual machine will reside. You can specify a location through the --location parameter, or specify an affinity group through the --affinity-group parameter. If neither is provided, you will be prompted to provide one from a list of valid locations.
 
@@ -123,14 +123,14 @@ The following optional parameters are supported for this command:
 
 ###vm create-from &lt;dns-prefix> &lt;role-file>
 
-Create a new Azure virtual machine from json role file
+Create a new Windows Azure virtual machine from json role file
 
 	~$ azure vm create-from foo.json
 	info:   OK
 
 ###vm list [options]
 
-List Azure virtual machines
+List Windows Azure virtual machines
 
 	~$ azure vm list
 	info:   Executing command vm list
@@ -171,7 +171,7 @@ Show details about a Windows Azure virtual machine
 
 ###vm delete [options] &lt;name>
 
-Delete Azure virtual machine
+Delete a Windows Azure virtual machine
 
 	~$ azure vm delete my-vm
 	info:   Executing command vm delete
@@ -179,7 +179,7 @@ Delete Azure virtual machine
 
 ###vm start [options] &lt;name>
 
-Start Azure virtual machine
+Start a Windows Azure virtual machine
 
 	~$ azure vm start my-vm
 	info:   Executing command vm start
@@ -187,7 +187,7 @@ Start Azure virtual machine
 
 ###vm restart [options] &lt;name>
 
-Restart Azure virtual machine
+Restart a Windows Azure virtual machine
 
 	~$ azure vm restart my-vm
 	info:   Executing command vm restart
@@ -195,7 +195,7 @@ Restart Azure virtual machine
 
 ###vm shutdown [options] &lt;name>
 
-Shutdown Azure virtual machine
+Shutdown a Windows Azure virtual machine
 
 	~$ azure vm shutdown my-vm
 	info:   Executing command vm shutdown
@@ -203,7 +203,7 @@ Shutdown Azure virtual machine
 
 ###vm capture &lt;vm-name> &lt;target-image-name>
 
-Capture Azure virtual machine image
+Capture a Windows Azure virtual machine image
 
 Capturing a virtual machine cannot be done while it's state is RoleStateStarted. Virtual machine state must be Stopped
 
@@ -213,7 +213,7 @@ Capturing a virtual machine cannot be done while it's state is RoleStateStarted.
 	+ Capturing VM
 	info:   vm capture command OK
 
-<h2 id="Commands_to_manage_your_Azure_virtual_machine_endpoints">Commands to manage your Azure virtual machine endpoints</h2>
+<h2 id="Commands_to_manage_your_Azure_virtual_machine_endpoints">Commands to manage your Windows Azure virtual machine endpoints</h2>
 
 The following diagram shows the architecture of a typical deployment of multiple instances of a virtual machine. Note that in this example port 3389 is open on each virtual machine (for RDP access), and there is also an internal IP address (e.g., 168.55.11.1) on each virtual machine that is used by the load balancer to route traffic to the virtual machine.
 
@@ -244,7 +244,7 @@ List all virtual machine endpoints
 	data:   ----  -------------  ----------
 	data:   ssh   22             22
 
-<h2 id="Commands_to_manage_your_Azure_virtual_machine_images">Commands to manage your Azure VM images</h2>
+<h2 id="Commands_to_manage_your_Azure_virtual_machine_images">Commands to manage your Windows Azure VM images</h2>
 Virtual machine images are captures of already configured virtual machines that can be replicated as required.
 
 ###vm image show [options] &lt;name>
@@ -309,7 +309,7 @@ Location and OS parameters are required
 	info:   http://myaccount.blob.core.azure.com/vm-images/SamplePictures.vhd is uploaded successfully
 	info:   vm image create command OK
 
-<h2 id="Commands_to_manage_your_Azure_virtual_machine_data_disks">Commands to manage your Azure virtual machine data disks</h2>
+<h2 id="Commands_to_manage_your_Azure_virtual_machine_data_disks">Commands to manage your Windows Azure virtual machine data disks</h2>
 
 Data disks are .vhd files in blob storage that can be used by a virtual machine. See the Windows Azure technical diagram above for an overview of how data disks are deployed to blob storage.
 
@@ -331,7 +331,7 @@ Show details about a Windows Azure disk
 
 ###vm disk list [options] [vm-name]
 
-List Azure disk images, or disks attached to a specified virtual machine
+List Windows Azure disk images, or disks attached to a specified virtual machine
 
 	~$ azure vm disk list my-vm
 	info:   Executing command vm disk list
@@ -342,7 +342,7 @@ List Azure disk images, or disks attached to a specified virtual machine
 
 ###vm disk delete [options] &lt;name>
 
-Delete Azure disk image from personal repository
+Delete a Windows Azure disk image from personal repository
 Disk must be detached from virtual machine prior to deletion
 
 	~$ azure vm disk delete my-vm-my-vm-3-2012426221035
@@ -352,7 +352,7 @@ Disk must be detached from virtual machine prior to deletion
 
 ###vm disk create &lt;name> [source-path]
 
-Upload and register Azure disk image
+Upload and register a Windows Azure disk image
 --blob-url, --location, or --affinity-group must be specified
 
 	~$ azure vm disk create my-vm ~/test.vhd --location Windows\ Azure
@@ -394,7 +394,7 @@ Windows Azure *cloud services* are applications and services hosted on web roles
    
 ###service list [options]
 
-List Azure cloud services
+List Windows Azure cloud services
 
 	~$ azure service list
 	info:   Executing command service list
@@ -406,19 +406,19 @@ List Azure cloud services
 
 ###service delete [options] &lt;name>
 
-Delete Azure cloud service
+Delete a Windows Azure cloud service
 
 	~$ azure cloud-service delete myservice
 	info:   Executing command cloud-service delete myservice 
 	info:   cloud-service delete command OK
 
-<h2 id="Commands_to_manage_your_Azure_certificates">Commands to manage your Azure certificates</h2>
+<h2 id="Commands_to_manage_your_Azure_certificates">Commands to manage your Windows Azure certificates</h2>
 
-Azure certificates are cerificates (i.e. SSL certificates) connected to your Azure account.
+Windows Azure certificates are cerificates (i.e. SSL certificates) connected to your Windows Azure account.
 
 ###service cert list [options]
 
-List Azure certificates
+List Windows Azure certificates
 
 	~$ azure service cert list
 	info:   Executing command service cert list
@@ -431,7 +431,7 @@ List Azure certificates
 
 ###service cert create &lt;dns-prefix> &lt;file> [password]
 
-Upload certificate
+Upload a certificate
 
 Leave password prompt blank for non-password protected certificates
 
@@ -443,7 +443,7 @@ Leave password prompt blank for non-password protected certificates
 
 ###service cert delete [options] &lt;thumbprint>
 
-Delete certificate
+Delete a certificate
 
 	~$ azure service cert delete 262DBF95B5E61375FA27F1E74AC7D9EAE842916C
 	info:   Executing command service cert delete

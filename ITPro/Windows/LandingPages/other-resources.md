@@ -2,9 +2,9 @@
 
 #Other resources for Windows virtual machines
 
-<div chunk="../../shared/chunks/disclaimer.md" />
+<div chunk="../../Shared/Chunks/disclaimer.md" />
 
-###[Windows Azure Training Kit](./training-kit/)
+###[Windows Azure Training Kit](/en-us/manage/windows/other-resources/training-kit/)
 
 The Windows Azure Training Kit includes a comprehensive set of technical
 content designed to help you learn how to use Windows Azure. The kit

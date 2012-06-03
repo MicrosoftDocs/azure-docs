@@ -34,7 +34,7 @@ This tutorial walks you through the steps to install an additional domain contro
 >You need to provide your own DNS infrastructure to support AD DS on Windows Azure Virtual Network. The Windows Azure-provided DNS infrastructure for this release does not support some features that AD DS requires, such as SRV resource record registration or dynamic DNS. 
 
 **Note**
->If you already completed the steps in [Install a new Active Directory forest in Windows Azure](), you might need to remove AD DS from the domain controller on the Windows Azure virtual network before you begin this tutorial. For more information about how to remove AD DS, see [Removing a Domain Controller from a Domain]().
+>If you already completed the steps in [Install a new Active Directory forest in Windows Azure](/en-us/manage/services/networking/active-directory-forest/), you might need to remove AD DS from the domain controller on the Windows Azure virtual network before you begin this tutorial. For more information about how to remove AD DS, see [Removing a Domain Controller from a Domain](http://technet.microsoft.com/en-us/library/cc771844(v=WS.10).aspx).
 
 
 
