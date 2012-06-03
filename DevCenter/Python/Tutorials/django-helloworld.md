@@ -146,4 +146,4 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [preview-portal-vm]: /en-us/manage/windows/tutorials/virtual-machine-from-gallery/
 
 
-[Installation Guide]: ../commontasks/install-python
+[Installation Guide]: ../commontasks/how-to-install-python.md

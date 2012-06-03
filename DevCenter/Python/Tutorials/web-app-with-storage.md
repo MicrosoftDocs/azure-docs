@@ -189,5 +189,5 @@ Now that you’ve learned the basics of the Windows Azure Table service, follow 
 [container-acl]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
 
-[Installation Guide]: ../commontasks/install-python
-[Django Hello World Web Application]: http://www.windowsazure.com/en-us/develop/python/tutorials/django-helloworld
+[Installation Guide]: ../commontasks/how-to-install-python.md 
+[Django Hello World Web Application]: ./django-helloworld.md
