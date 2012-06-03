@@ -1,4 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="Provisioning a SQL Server Virtual Machine on Windows Azure" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties umbracoNaviHide="0" pageTitle="Provisioning a SQL Server Virtual Machine on Windows Azure" metaKeywords="Windows Azure , cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
 
 # Provisioning a SQL Server Virtual Machine on Windows Azure #
 

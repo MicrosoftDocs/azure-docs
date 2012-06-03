@@ -1,4 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="Common tasks" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties umbracoNaviHide="0" pageTitle="Common tasks" metaKeywords="Windows Azure , configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
 #Common tasks for Windows virtual machines
 
 <div chunk="../../shared/chunks/disclaimer.md" />

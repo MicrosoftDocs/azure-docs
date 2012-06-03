@@ -1,4 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="Getting Started with SQL Server on a Windows Azure Virtual Machine" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties umbracoNaviHide="0" pageTitle="Getting Started with SQL Server on a Windows Azure Virtual Machine" metaKeywords="Windows Azure, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
 
 # Getting Started with SQL Server on a Windows Azure Virtual Machine
 

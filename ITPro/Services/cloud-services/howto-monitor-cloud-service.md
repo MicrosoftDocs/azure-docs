@@ -1,6 +1,8 @@
 <properties umbracoNaviHide="0" pageTitle="How to Monitor Cloud Services" metaKeywords="Windows Azure cloud services, cloud service, monitor cloud service, configure monitoring, metrics" metaDescription="Learn how to monitor Windows Azure cloud services." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" />
 #How to Monitor Cloud Services
 
+<div chunk="../../../Shared/Chunks/disclaimer.md" />
+
 You can monitor key performance metrics for your cloud services in the Windows Azure (Preview) Management Portal, and can customize what you monitor in the portal to meet your needs.
 
 Monitoring displays in the Management Portal are highly configurable. You can choose the metrics you want to monitor in the metrics list on the **Monitor** page, and you can choose which metrics to plot in metrics charts on the **Monitor** page and the dashboard. 
@@ -124,9 +126,7 @@ The raw performance counter data and aggregated monitoring data are stored in th
 
 1. In the metrics table, shown below, select up to 6 metrics to plot on the metrics chart. To select a metric, click the check box on its left side. To remove a metric from the metrics chart, clear its check box in the metrics table.
 
- As you select metrics in the metrics table, the metrics are added to the metrics   chart. On a narrow display, an **n more** drop-down list, as shown below, contains metric headers that won't fit the display.
-
-	![Chart metrics] (../media/CloudServices_ChartMetricSelection.png)
+ As you select metrics in the metrics table, the metrics are added to the metrics   chart. On a narrow display, an **n more** drop-down list contains metric headers that won't fit the display.
 
  
 2. To change the time range the metrics chart displays, select 1 hour, 24 hours, or 7 days at the top of the chart.

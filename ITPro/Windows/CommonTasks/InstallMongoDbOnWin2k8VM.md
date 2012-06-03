@@ -1,4 +1,4 @@
-# Install MongoDB on a virtual machine running Windows Server 2008 R2 in Windows Azure
+#Install MongoDB on a virtual machine running Windows Server 2008 R2 in Windows Azure
 
 <div chunk="../../shared/chunks/disclaimer.md" />
 
