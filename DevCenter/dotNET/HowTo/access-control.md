@@ -108,7 +108,7 @@ developer to get ACS to perform its function.
 The following figure shows how ACS authentication works with a web
 application:
 
-![][]
+![][0]
 
 1.  The client (in this case a browser) requests a page from the RP.
 2.  Since the request is not yet authenticated, the RP redirects the
@@ -176,8 +176,7 @@ addressing ACS resources from within your application.
 2.  In the lower left navigation pane of the Management Portal, click
     **Service Bus, Access Control & Caching**.
 
-    ![Management Portal Service Bus, Access Control, and Caching
-    section][]
+    ![Management Portal Service Bus, Access Control, and Caching section][]
 
 3.  In the upper left navigation pane of the Management Portal, click
     **Access Control**, and the click **New**.
@@ -322,7 +321,7 @@ application using the features of the Windows Identity Foundation SDK.
     it adds a reference to the Microsoft.IdentityModel.dll assembly and
     writes values to your Web.config file that configures the Windows
     Identity Foundation (WIF) in your ASP.NET web application.
-4.  Open Web.config and locate the main **system.web**element. It might
+4.  Open Web.config and locate the main **system.web** element. It might
     look like the following:
 
         <system.web>
@@ -330,7 +329,7 @@ application using the features of the Windows Identity Foundation SDK.
                <deny users="?" />
             </authorization>
 
-5.  Modify the **system.web**element to enable request validation by
+5.  Modify the **system.web** element to enable request validation by
     adding the following code:
 
         <!--set this value-->
@@ -402,8 +401,7 @@ web application. ACS is now handling the authentication of users using
 Windows Live ID and Google credentials.
 
 You can also expand on this scenario. For example, you can specify more
-IPs for this RP (via the ACS Management Portal, see section [Add
-Identity Providers][]) and thus allowing other web identities, such as
+IPs for this RP (via the ACS Management Portal, see section [Add Identity Providers][]) and thus allowing other web identities, such as
 Yahoo! or Facebook users, or users registered in enterprise directories,
 such as Active Directory Domain Services, access to this ASP.NET web
 application.
@@ -411,8 +409,7 @@ application.
 ## <a name="whats-next"> </a>What's Next
 
 To further explore ACS's functionality and to experiment with more
-sophisticated scenarios, see [Access Control Service 2.0.][Access
-Control Service 2.0]
+sophisticated scenarios, see [Access Control Service 2.0.][Access Control Service 2.0]
 
   [What is ACS?]: #what-is
   [Concepts]: #concepts
@@ -427,7 +424,7 @@ Control Service 2.0]
   [Test the Integration between ACS and Your ASP.NET Web Application]: #test
   [What's Next]: #whats-next
   [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
-  []: ../../../DevCenter/dotNet/Media/acs-01.png
+  [0]: ../../../DevCenter/dotNet/Media/acs-01.png
   [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
   [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
   [Windows Azure account]: {localLink:2187} "Free Trial"

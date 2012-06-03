@@ -68,7 +68,7 @@ To create a service namespace:
 
 3.  In the upper left pane of the Management Portal, click the **Service
     Bus** node, and then click the **New** button.   
-    ![][]
+    ![][0]
 
 4.  In the **Create a new Service Namespace** dialog, enter a
     **Namespace**, and then to make sure that it is unique, click the
@@ -93,7 +93,7 @@ credentials for the namespace.
 
 1.  In the left navigation pane, click the **Service Bus** node to
     display the list of available namespaces:   
-    ![][]
+    ![][0]
 
 2.  Select the namespace you just created from the list shown:   
     ![][3]
@@ -487,7 +487,7 @@ links to learn more.
   [1]: #next-steps
   [Topic Concepts]: ../../../DevCenter/dotNet/Media/sb-topics-01.png
   [Windows Azure Management Portal]: http://windows.azure.com
-  []: ../../../DevCenter/dotNet/Media/sb-queues-03.png
+  [0]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
   [2]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
   [3]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
   [4]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
