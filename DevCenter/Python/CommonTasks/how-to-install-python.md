@@ -127,21 +127,13 @@ For information on how to setup a Linux VM, please see the [Linux Management sec
 ## Additional Software and Resources:
 
 * [Enthought Python Distribution][]
-
 * [ActiveState Python Distribution][]
-
 * [SciPy - A suite of Scientific Python libraries][]
-
 * [NumPy - A numerics library for Python][]
-
 * [Django Project - A mature web framework/CMS][]
-
 * [IPython - an advanced REPL/Notebook for Python][]
-
 * [IPython on Azure][]
-
 * [Python Tools for Visual Studio on CodePlex][]
-
 * [Virtualenv][]
 
 
