@@ -232,7 +232,7 @@ In this section you will extend the basic application created by the **express**
     	app.post('/addtask', taskList.addTask.bind(taskList));
     	app.post('/completetask', taskList.completeTask.bind(taskList));
 
-		app.listen(process.env.port || 1337);
+		app.listen(process.env.port || 3000);
 
 	**Note**: You must replace the connection string above with the connection string for the MongoDB server you created earlier. For example, **'mongodb://mymongodb.cloudapp.net/tasks**.
 
@@ -362,7 +362,7 @@ Before using the command-line tools with Windows Azure, you must first download 
 		
 	You will be prompted for the datacenter that the site will be located in. Select the datacenter geographically close to your location.
 	
-	The `--git` parameter will create a Git repository locally in the **tasklist** folder if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Windows Azure. Finally, it will create a **web.config** file, which contains settings used by Windows Azure to host node applications.
+	The `--git` parameter will create a Git repository locally in the **tasklist** folder if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Windows Azure. It will create an [iisnode.yml], which contains settings used by Windows Azure to host node applications. Finally it will also create a .gitignore file to exclude the node-modules folder for being published to .git.
 	
 	**Note**: If this command is ran from a directory that already contains a Git repository, it will not re-initialize the directory.
 	
@@ -396,12 +396,25 @@ Before using the command-line tools with Windows Azure, you must first download 
 
 		git push azure master
 	
-	At the end of the deployment, you should see a statement similar to the following:
-	
+	You will see output similar to the following. As the deployment takes place Windows Azure will download all npm modules. 
+
+		Counting objects: 17, done.
+		Delta compression using up to 8 threads.
+		Compressing objects: 100% (13/13), done.
+		Writing objects: 100% (17/17), 3.21 KiB, done.
+		Total 17 (delta 0), reused 0 (delta 0)
+		remote: New deployment received.
+		remote: Updating branch 'master'.
+		remote: Preparing deployment for commit id 'ef276f3042'.
+		remote: Preparing files for deployment.
+		remote: Running NPM.
+		...
+		remote: Deploying Web.config to enable Node.js activation.
+		remote: Deployment successful.
 		To https://username@mongodbtasklist.azurewebsites.net/MongoDBTasklist.git
  		 * [new branch]      master -> master
  
-4. Once the push operation has completed, browse to the web site URL returned previously by the `azure create site` command to view your application.
+4. Once the push operation has completed, browse to the web site URL returned previously by using the `azure site browse` command to view your application.
 
 ##Next steps
 
@@ -422,15 +435,13 @@ While the steps in this article describe using MongoDB to store information, you
 [for free]: /en-us/pricing/free-trial
 [Git remote]: http://gitref.org/remotes/
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
+[iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
 [Windows Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Windows Azure Developer Center]: /en-us/develop/nodejs/
 [Create and deploy a Node.js application to Windows Azure Web Sites]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
 [Publishing to Windows Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
 [Installing MongoDB on a Linux Virtual machine]: /en-us/manage/linux/common-tasks/mongodb-virtual-machine/
 [Node.js Web Application with the Windows Azure Table Service]: /en-us/develop/nodejs/tutorials/website-with-storage/
-
-
-
 [node-mongo-finished]: ../media/todo_list_empty.png
 [node-mongo-express-results]: ../media/express_output.png
 [node-mongo-add-item]: ../media/todo_add_item.png
