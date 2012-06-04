@@ -141,7 +141,7 @@ This tutorial walks you through the steps to install an additional domain contro
 
 7.	Right-click **Subnets**, and then click **New Subnet**.
 
-	![CreateSubnetsandSites6](./media/CreateSubnetsandSites6.png)
+	![CreateSubnetsandSites6](../media/CreateSubnetsandSites6.png)
 
 8.	In **Prefix::**, type **10.4.2.0/24**, select the **CloudSite** site object and click **OK**.
 
