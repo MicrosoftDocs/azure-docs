@@ -2,9 +2,7 @@
 
 #Partner solutions for Linux in Windows Azure
 
-<div chunk="../../shared/chunks/disclaimer.md" />
-
-Contact the partners listed on this page for assistance in delivering Linux-based cloud solutions in Windows Azure. 
+Contact the partners listed on this page for assistance in delivering your Linux-based cloud solutions in Windows Azure. In addition, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
 
 ##Canonical
 
