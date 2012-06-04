@@ -49,6 +49,8 @@ To start, set up your development environment by installing the Windows Azure SD
 2.  Click **Install** in the installer window and proceed with the
     installation.
 
+    ![Web Platform Installer - Windows Azure SDK for .NET][Image003]
+
     Once the installation is complete, you have everything
     necessary to start developing.
 
@@ -509,8 +511,8 @@ that is hosted in a Windows Azure Cloud Service and stores data in SQL Database.
 
   [Create a Windows Azure account]: #create  
   [Download a publishing profile]: #profile
-  [Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=252834
-  [Windows Azure SDK for Visual Studio 2012 RC]: http://go.microsoft.com/fwlink/?LinkID=252835
+  [Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=254364
+  [Windows Azure SDK for Visual Studio 2012 RC]:  http://go.microsoft.com/fwlink/?LinkId=254269
   [0]: ../media/dev-net-getting-started-1.png
   [Set Up the development environment]: #setup
   [Create an ASP.NET MVC 3 application]: #creating
@@ -522,6 +524,7 @@ that is hosted in a Windows Azure Cloud Service and stores data in SQL Database.
   [Next steps]: #summary
   [Windows Azure Management Portal]: http://manage.windowsazure.com
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkID=234939
+  [Image003]: ../Media/Dev-net-getting-started-003.png
   [1]: ../Media/dev-net-getting-started-3.png
   [2]: ../media/dev-net-getting-started-4.png
   [3]: ../media/cloudservice-5.png
