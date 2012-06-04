@@ -129,10 +129,10 @@ We'll actually use this string later in this guide, for now you know the steps t
 5. Specify your connection string. Following is an example. As above, replace *your_server* (in two places), *your_user* and *your_password* with the values appropriate for your SQL Database server.
 
         String connectionString =
-        "jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
-        "database=master" + ";" + 
-        "user=your_user@your_server" + ";" +  
-        "password=your_password";
+        	"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
+        		"database=master" + ";" + 
+        		"user=your_user@your_server" + ";" +  
+        		"password=your_password";
 
 You're now ready to add in code that will communicate with your SQL Database server.
 
@@ -164,10 +164,10 @@ The following code shows you how to create a table named **Person**.
 			// your_user@your_server,
 			// and your_password.
 			String connectionString = 
-			"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
-			"database=gettingstarted" + ";" + 
-			"user=your_user@your_server" + ";" +  
-			"password=your_password";
+				"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
+					"database=gettingstarted" + ";" + 
+					"user=your_user@your_server" + ";" +  
+					"password=your_password";
 			
 			// The types for the following variables are
 			// defined in the java.sql library.
@@ -184,10 +184,11 @@ The following code shows you how to create a table named **Person**.
 			    connection = DriverManager.getConnection(connectionString);
 			
 			    // Define the SQL string.
-			    String sqlString = "CREATE TABLE Person (" + 
-			                            "[PersonID] [int] IDENTITY(1,1) NOT NULL," + 
-			                            "[LastName] [nvarchar](50) NOT NULL," + 
-			                            "[FirstName] [nvarchar](50) NOT NULL)";
+			    String sqlString = 
+					"CREATE TABLE Person (" + 
+			        	"[PersonID] [int] IDENTITY(1,1) NOT NULL," +
+			            "[LastName] [nvarchar](50) NOT NULL," + 
+			            "[FirstName] [nvarchar](50) NOT NULL)";
 			
 			    // Use the connection to create the SQL statement.
 			    statement = connection.createStatement();
@@ -240,10 +241,10 @@ The following code shows you how to create an index named **index1** on the **Pe
 	// your_user@your_server,
 	// and your_password.
 	String connectionString = 
-	"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
-	"database=gettingstarted" + ";" + 
-	"user=your_user@your_server" + ";" +  
-	"password=your_password";
+		"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
+			"database=gettingstarted" + ";" + 
+			"user=your_user@your_server" + ";" +  
+			"password=your_password";
 	
 	// The types for the following variables are
 	// defined in the java.sql library.
@@ -260,8 +261,8 @@ The following code shows you how to create an index named **index1** on the **Pe
 	    connection = DriverManager.getConnection(connectionString);
 	
 	    // Define the SQL string.
-	    String sqlString = "CREATE CLUSTERED INDEX index1 " + 
-	                       "ON Person (PersonID)";
+	    String sqlString = 
+			"CREATE CLUSTERED INDEX index1 " + "ON Person (PersonID)";
 	
 	    // Use the connection to create the SQL statement.
 	    statement = connection.createStatement();
@@ -286,10 +287,10 @@ The following code shows you how to add rows to the **Person** table.
 	// your_user@your_server,
 	// and your_password.
 	String connectionString = 
-	"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
-	"database=gettingstarted" + ";" + 
-	"user=your_user@your_server" + ";" +  
-	"password=your_password";
+		"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
+			"database=gettingstarted" + ";" + 
+			"user=your_user@your_server" + ";" +  
+			"password=your_password";
 	
 	// The types for the following variables are
 	// defined in the java.sql library.
@@ -306,14 +307,15 @@ The following code shows you how to add rows to the **Person** table.
 	    connection = DriverManager.getConnection(connectionString);
 	
 	    // Define the SQL string.
-	    String sqlString = "SET IDENTITY_INSERT Person ON " + 
-	                     "INSERT INTO Person " + 
-	                     "(PersonID, LastName, FirstName) " + 
-	                     "VALUES(1, 'Abercrombie', 'Kim')," + 
-	                          "(2, 'Goeschl', 'Gerhard')," + 
-	                          "(3, 'Grachev', 'Nikolay')," + 
-	                          "(4, 'Yee', 'Tai')," + 
-	                          "(5, 'Wilson', 'Jim')";
+	    String sqlString = 
+			"SET IDENTITY_INSERT Person ON " + 
+	        	"INSERT INTO Person " + 
+	            "(PersonID, LastName, FirstName) " + 
+	            "VALUES(1, 'Abercrombie', 'Kim')," + 
+	            	  "(2, 'Goeschl', 'Gerhard')," + 
+	                  "(3, 'Grachev', 'Nikolay')," + 
+	                  "(4, 'Yee', 'Tai')," + 
+	                  "(5, 'Wilson', 'Jim')";
 	
 	    // Use the connection to create the SQL statement.
 	    statement = connection.createStatement();
@@ -337,10 +339,10 @@ The following code shows you how to retrieve rows from the **Person** table.
 	// your_user@your_server,
 	// and your_password.
 	String connectionString = 
-	"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
-	"database=gettingstarted" + ";" + 
-	"user=your_user@your_server" + ";" +  
-	"password=your_password";
+		"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
+			"database=gettingstarted" + ";" + 
+			"user=your_user@your_server" + ";" +  
+			"password=your_password";
 	
 	// The types for the following variables are
 	// defined in the java.sql library.
@@ -370,11 +372,11 @@ The following code shows you how to retrieve rows from the **Person** table.
 	    {
 	        // Print out the row data
 	        System.out.println(
-	        "Person with ID " + 
-	        resultSet.getString("PersonID") + 
-	        " has name " +
-	        resultSet.getString("FirstName") + " " +
-	        resultSet.getString("LastName"));
+	        	"Person with ID " + 
+	        	resultSet.getString("PersonID") + 
+	        	" has name " +
+	        	resultSet.getString("FirstName") + " " +
+	       		resultSet.getString("LastName"));
 	        }
 	
 	    // Provide a message when processing is complete.
@@ -406,10 +408,10 @@ The following code shows you how to retrieve a count of rows from the **Person**
 	// your_user@your_server,
 	// and your_password.
 	String connectionString = 
-	"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
-	"database=gettingstarted" + ";" + 
-	"user=your_user@your_server" + ";" +  
-	"password=your_password";
+		"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
+			"database=gettingstarted" + ";" + 
+			"user=your_user@your_server" + ";" +  
+			"password=your_password";
 	
 	// The types for the following variables are
 	// defined in the java.sql library.
@@ -457,10 +459,10 @@ The following code shows you how to update rows. In this example, the **LastName
 	// your_user@your_server,
 	// and your_password.
 	String connectionString = 
-	"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
-	"database=gettingstarted" + ";" + 
-	"user=your_user@your_server" + ";" +  
-	"password=your_password";
+		"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
+			"database=gettingstarted" + ";" + 
+			"user=your_user@your_server" + ";" +  
+			"password=your_password";
 	
 	// The types for the following variables are
 	// defined in the java.sql library.
@@ -477,12 +479,11 @@ The following code shows you how to update rows. In this example, the **LastName
 	    connection = DriverManager.getConnection(connectionString);
 	
 	    // Define the SQL string.
-	    String sqlString = "UPDATE Person " + 
-	                    "SET LastName = 'Kim' " + 
-	                    "WHERE FirstName='Jim'";
+	    String sqlString = 
+			"UPDATE Person " + "SET LastName = 'Kim' " + "WHERE FirstName='Jim'";
 	
 	    // Use the connection to create the SQL statement.
-	                statement = connection.createStatement();
+	    statement = connection.createStatement();
 	    
 	    // Execute the statement.
 	    statement.executeUpdate(sqlString);
@@ -502,10 +503,10 @@ The following code shows you how to delete rows. In this example, any rows where
 	// your_user@your_server,
 	// and your_password.
 	String connectionString = 
-	"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
-	"database=gettingstarted" + ";" + 
-	"user=your_user@your_server" + ";" +  
-	"password=your_password";
+		"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
+			"database=gettingstarted" + ";" + 
+			"user=your_user@your_server" + ";" +  
+			"password=your_password";
 	
 	// The types for the following variables are
 	// defined in the java.sql library.
@@ -522,8 +523,9 @@ The following code shows you how to delete rows. In this example, any rows where
 	    connection = DriverManager.getConnection(connectionString);
 	
 	    // Define the SQL string.
-	    String sqlString = "DELETE from Person " + 
-	                     "WHERE FirstName='Jim'";
+	    String sqlString = 
+			"DELETE from Person " + 
+				"WHERE FirstName='Jim'";
 	
 	    // Use the connection to create the SQL statement.
 	    statement = connection.createStatement();
@@ -547,10 +549,10 @@ The following code shows you how to determine whether a table exists.
 	// your_user@your_server,
 	// and your_password.
 	String connectionString = 
-	"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
-	"database=gettingstarted" + ";" + 
-	"user=your_user@your_server" + ";" +  
-	"password=your_password";
+		"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
+			"database=gettingstarted" + ";" + 
+			"user=your_user@your_server" + ";" +  
+			"password=your_password";
 	
 	// The types for the following variables are
 	// defined in the java.sql library.
@@ -567,12 +569,13 @@ The following code shows you how to determine whether a table exists.
 	    connection = DriverManager.getConnection(connectionString);
 	
 	    // Define the SQL string.
-	    String sqlString = "IF EXISTS (SELECT 1 " +
-	                     "FROM sysobjects " + 
-	                     "WHERE xtype='u' AND name='Person') " +
-	                     "SELECT 'Person table exists.'" +
-	                     "ELSE  " +
-	                     "SELECT 'Person table does not exist.'";
+	    String sqlString = 
+			"IF EXISTS (SELECT 1 " +
+	        	"FROM sysobjects " + 
+	            "WHERE xtype='u' AND name='Person') " +
+	            "SELECT 'Person table exists.'" +
+	            "ELSE  " +
+	            "SELECT 'Person table does not exist.'";
 	
 	    // Use the connection to create the SQL statement.
 	    statement = connection.createStatement();
@@ -601,10 +604,10 @@ The following code shows you how to drop an index named **index1** on the **Pers
 	// your_user@your_server,
 	// and your_password.
 	String connectionString = 
-	"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +
-	"database=gettingstarted" + ";" +
-	"user=your_user@your_server" + ";" +
-	"password=your_password";
+		"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +
+			"database=gettingstarted" + ";" +
+			"user=your_user@your_server" + ";" +
+			"password=your_password";
 	
 	// The types for the following variables are
 	// defined in the java.sql library.
@@ -621,8 +624,9 @@ The following code shows you how to drop an index named **index1** on the **Pers
 	    connection = DriverManager.getConnection(connectionString);
 	
 	    // Define the SQL string.
-	    String sqlString = "DROP INDEX index1 " + 
-	                        "ON Person";
+	    String sqlString = 
+			"DROP INDEX index1 " + 
+	        	"ON Person";
 	
 	    // Use the connection to create the SQL statement.
 	    statement = connection.createStatement();
@@ -646,10 +650,10 @@ The following code shows you how to drop a table named **Person**.
 	// your_user@your_server,
 	// and your_password.
 	String connectionString = 
-	"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
-	"database=gettingstarted" + ";" + 
-	"user=your_user@your_server" + ";" +  
-	"password=your_password";
+		"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
+			"database=gettingstarted" + ";" + 
+			"user=your_user@your_server" + ";" +  
+			"password=your_password";
 	
 	// The types for the following variables are
 	// defined in the java.sql library.
