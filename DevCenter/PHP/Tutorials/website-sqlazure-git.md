@@ -100,7 +100,7 @@ To run the application locally, follow the steps below. Note that these steps as
 
 1. Create a SQL Server database called `registration`. You can do this from the `sqlcmd` command prompt with these commands:
 
-		>sqlcmd -S <server name>\sqlexpress -U <user name> -P <password>
+		>sqlcmd -S localhost\sqlexpress -U <local user name> -P <local password>
 		1> create database registration
 		2> GO	
 
