@@ -39,7 +39,7 @@ To set up your Python and Django environments, please see the [Installation Guid
 
 **Note 1:** you *only* need to install the **Django** product from the Windows WebPI installer on the Windows Azure virtual machine to get *this* particular tutorial operational.
 
-**Note 2:** In order to download the WebPI installer you may have to configure IE ESC settings (Start/Adminstrative Tools/Server Manager, then click **Configure IE ESC**, set to Off)
+**Note 2:** In order to download the WebPI installer you may have to configure IE ESC settings (Start/Adminstrative Tools/Server Manager, then click **Configure IE ESC**, set to Off).
 
 ## Setting up IIS with FastCGI
 

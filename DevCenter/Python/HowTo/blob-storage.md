@@ -25,6 +25,9 @@ see the [Next Steps][] section.
 
 ## <a name="create-container"> </a>How to: Create a Container
 
+**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../commontasks/how-to-install-python.md).
+
+
 The **BlobService** object lets you work with containers and blobs. The
 following code creates a **BlobService** object. Add the following near
 the top of any Python file in which you wish to programmatically access Windows Azure Storage:
