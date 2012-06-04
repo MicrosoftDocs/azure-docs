@@ -18,7 +18,7 @@ By following this tutorial, you will build a simple node web application. The ap
 
 First, set up the Windows Azure environment. You'll create a Windows Azure account and enable this account to use the Windows Azure Web Sites preview feature.
 
-### Create a Windows Azure account
+###Create a Windows Azure account
 
 <div chunk="../../Shared/Chunks/create-azure-account.md" />
 
@@ -28,9 +28,9 @@ After signing up, follow these steps to enable the Windows Azure Web Site featur
 
 <div chunk="../../Shared/Chunks/antares-iaas-signup.md"></div>
 
-##Create a Windows Azure Web Site and enable Git publishing
+##Create a Windows Azure Web Site
 
-Follow these steps to create a Windows Azure Web Site, and then enable Git publishing for the web site.
+Follow these steps to create a Windows Azure Web Site.
 
 1. Login to the [Windows Azure Portal].
 
@@ -42,23 +42,6 @@ Follow these steps to create a Windows Azure Web Site, and then enable Git publi
 
     ![The Quick Create dialog][portal-quick-create]
 
-4. Once the web site status changes to **Running**, click on the name of the web site to access the **Dashboard**
-
-	![Open website dashboard][go-to-dashboard]
-
-6. At the bottom right of the Dashboard, select **Set up Git Publishing**.
-
-	![Set up Git publishing][setup-git-publishing]
-
-7. To enable Git publishing, you must provide a user name and password. If you have previously enabled publishing for a Windows Azure Web Site, you will not be prompted for the user name or password. Instead, a Git repository will be created using the user name and password you previously specified. Make a note of the user name and password, as they will be used for Git publishing to all Windows Azure Web Sites you create.
-
-	![The dialog prompting for user name and password.][portal-git-username-password]
-
-8. Once the Git repository is ready, you will be presented with instructions on the Git commands to use in order to setup a local repository and then push the files to Windows Azure.
-
-	![Git deployment instructions returned after creating a repository for the website.][portal-git-instructions]
-
-	**Note**: Save the instructions returned by the **Push my local files to Windows Azure** link, as they will be used in the following sections.
 
 ##Install WebMatrix
 
@@ -161,3 +144,5 @@ You can easily modify and republish your application. Here, you will make a simp
 [webmatrix-import-settings]: ../Media/webmatrix-publishsettings.png
 [webmatrix-node-compatibility]: ../Media/webmatrix-publishcompatibility.png
 [webmatrix-node-publishpreview]: ../Media/webmatrix-publishpreview.png
+[portal-new-website]: ../../Shared/Media/plus-new.png
+[portal-quick-create]: ../../Shared/Media/create-quick-website.png
