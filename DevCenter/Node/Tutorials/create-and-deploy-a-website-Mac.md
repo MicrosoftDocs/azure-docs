@@ -68,7 +68,7 @@ To successfully complete the steps in this tutorial, you must have a working ins
 
 <div class="dev-callout">
 <b>Note</b>
-<p>If you are performing this tutorial on Windows, you can set up your machine with <a href="http://go.microsoft.com/fwlink/?LinkId=254279&clcid=0x409">Windows Azure SDK for Node.js</a> that includes Node.js.</p>
+<p>If you are performing this tutorial on Windows, you can set up your machine with <a href="http://go.microsoft.com/fwlink/?LinkId=254279">Windows Azure SDK for Node.js</a> that includes Node.js.</p>
 </div>
 
 ##Build and test your application locally
