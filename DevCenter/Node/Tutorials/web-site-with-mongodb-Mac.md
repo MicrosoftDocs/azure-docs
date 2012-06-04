@@ -1,7 +1,5 @@
 <properties linkid="dev-nodejs-website-mongodb" urldisplayname="Node.js Website with MongoDB" headerexpose="" pagetitle="Node.js Application using MongoDB" metakeywords="Azure Node.js tutorial MongoDB, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates a Node.js application in a Windows Azure Website, that talks to MongoDB on a Windows Azure virtual machine" umbraconavihide="0" disquscomments="1"></properties>
 
-<div class="dev-center-os-selector"><a href="/en-us/develop/nodejs/tutorials/web-app-with-mongodb/" title="Windows Version" class="windows">Windows</a> <a href="/en-us/develop/nodejs/tutorials/website-with-mongodb-(mac)/" title="Mac Version" class="mac current">Mac</a> <span>Tutorial</span></div>
-
 # Node.js Web Application with Storage on MongoDB
 This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on Windows Azure. [MongoDB] is a popular open source, high performance NoSQL database. This tutorial assumes that you have some prior experience using node, MongoDB, and [Git].
 
@@ -38,7 +36,7 @@ In this section you will learn how to create a virtual machine in Windows Azure 
 
 This tutorial assumes you have created a virtual machine in Windows Azure. After creating the virtual machine you need to install MongoDB on the virtual machine:
 
-* To create a Linux virtual machine and install MongoDB, see [Install MongoDB on a virtual machine running CentOS Linux in Windows Azure][InstallMongoOnCentOSLinuxVM].
+* To create a Linux virtual machine and install MongoDB, see [Installing MongoDB on a Linux Virtual machine].
 
 After you have created the virtual machine in Windows Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.
 
@@ -62,23 +60,23 @@ In this section you will create a new Node application and use npm to add module
 
 2. Enter the following command to install express.
 
-		sudo npm install express -g
-
+	sudo npm install express -g
+ 
 	**Note**: When using the '-g' parameter on some operating systems, you may receive an error of **Error: EPERM, chmod '/usr/local/bin/express'** and a request to try running the account as an administrator. If this occurs, use the [sudo] command to run npm at a higher privilege level.
 
     The output of this command should appear similar to the following:
 
 		express@2.5.9 /usr/local/lib/node_modules/express
-		├── mime@1.2.4
-		├── mkdirp@0.3.0
-		├── qs@0.4.2
-		└── connect@1.8.7
-
+		├── mime@1.2.4 
+		├── mkdirp@0.3.0 
+		├── qs@0.4.2 
+		└── connect@1.8.7 
+ 
 	**Note**: The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the **express** command to generate web site scaffolding without having to type in additional path information.
 
 4. To create the scaffolding which will be used for this application, use the **express** command:
 
-        	express
+    express
 
 	The output of this command should appear similar to the following:
 
@@ -245,7 +243,6 @@ In this section you will extend the basic application created by the **express**
 2. Replace the contents of the **index.jade** file with the code below. This defines the view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.
 
 		h1= title
-		  font(color="grey") (powered by Node.js and MongoDB)
 		form(action="/completetask", method="post")
 		  table(border="1")
 		    tr
@@ -289,7 +286,7 @@ To test the application on your local machine, perform the following steps:
 
         node app.js
 
-3. Open a web browser and navigate to http://127.0.0.1:1337. This should display a web page similar to the following:
+3. Open a web browser and navigate to http://localhost:3000. This should display a web page similar to the following:
 
     ![A webpage displaying an empty tasklist][node-mongo-finished]
 
@@ -446,5 +443,5 @@ While the steps in this article describe using MongoDB to store information, you
 [node-mongo-express-results]: ../media/express_output.png
 [node-mongo-add-item]: ../media/todo_add_item.png
 [node-mongo-list-items]: ../media/todo_list_items.png
-[download-publishing-settings]: ../../Shared/Media/azure-account-download.png
+[download-publishing-settings]: ../../Shared/Media/azure-account-download-cli.png
 [import-publishing-settings]: ../media/azureimport.png
