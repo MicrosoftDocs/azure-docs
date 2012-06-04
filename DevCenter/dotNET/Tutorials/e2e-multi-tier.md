@@ -114,15 +114,7 @@ to get the tools and set-up your development environment.
 
 ## Create a Windows Azure Account
 
-1.  Open a web browser, and browse to [http://www.windowsazure.com][].
-
-    To get started with a free account, click **free trial** in the upper
-    right corner and follow the steps.
-
-    ![][5]
-
-2.  Your account is now created. You are ready to deploy your
-    application to Windows Azure!
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
 
 ## <a name="create-namespace"> </a>Set up the Service Bus Namespace
 
