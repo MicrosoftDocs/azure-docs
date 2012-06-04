@@ -2,14 +2,6 @@
 
 # Create a Wordpress web site from the gallery in Windows Azure
 
-### Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
-
 <div chunk="../../../Shared/Chunks/website-from-gallery.md" />
 
 <h2><a name="nextsteps"></a>Next Steps</h2>
