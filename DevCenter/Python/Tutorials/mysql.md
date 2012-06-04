@@ -190,6 +190,10 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 
 ## Deploying and running your Django website
 
+Note: The following shows how to run Django in a test environment. To run it in production, follow the "Setting up IIS with FastCGI" section in the "Django Hello World tutorial". Using the Windows Firewall Client to open port 80 to Internet traffic on the Windows Server 2K8 R2 virtual machine is not necessary with FastCGI.
+
+
+
 1.  Switch back to a Windows PowerShell window, and type the following commands to deploy your Django website publically:
 
 		PS C:\django\helloworld> $ipPort = [System.Net.Dns]::GetHostEntry("127.0.0.1")
