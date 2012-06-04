@@ -17,7 +17,6 @@ Learn how to install the Hyper-V role on your server, create the image, and then
 
 ###[Install MongoDB on a virtual machine running Windows Server 2008 R2 in Windows Azure](/en-us/manage/windows/common-tasks/install-mongodb/)
 
-
 Learn how to use the Windows Azure (Preview) Management Portal to create a Windows Server 2008 R2 SP1 virtual machine from the gallery. Next connect to the virtual machine using Remote Desktop, and then install MongoDB on the virtual machine.
 
 

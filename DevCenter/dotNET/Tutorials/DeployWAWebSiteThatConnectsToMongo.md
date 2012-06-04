@@ -29,9 +29,10 @@ In this section you will learn how to create a virtual machine in Windows Azure 
 
 ###Create a virtual machine and install MongoDB
 
-This tutorial assumes you have created a virtual machine in Windows Azure running Linux. After creating the virtual machine you need to install MongoDB on the virtual machine.
+This tutorial assumes you have created a virtual machine in Windows Azure. After creating the virtual machine you need to install MongoDB on the virtual machine:
 
-To create a Linux virtual machine and install MongoDB, see [Install MongoDB on a virtual machine running CentOS Linux in Windows Azure][InstallMongoOnCentOSLinuxVM].
+* To create a Linux virtual machine and install MongoDB, see [Install MongoDB on a virtual machine running CentOS Linux in Windows Azure][InstallMongoOnCentOSLinuxVM].
+* Alternatively, to create a Windows virtual machine and install MongoDB, see [Install MongoDB on a virtual machine running Windows Server 2008 R2 in Windows Azure][InstallMongoOnWindowsVM].
 
 After you have created the virtual machine in Windows Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.
 
@@ -452,7 +453,7 @@ In this section you will deploy the Task List application using Git.
 
 	![Push local files to Windows Azure][Image10]
 5. If you do not have Git installed, install it using the **Get it here** link in step 1.
-6. Following these instructions in step 2, commit your local files.
+6. Following these instructions in step 2, commit your local files.  
 7. Add the remote Windows Azure repository and push your files to the Windows Azure web site by following the instructions in step 3.
 8. When the deployment has completed you will see the following confirmation:
 	![Deployment Complete][Image11]
@@ -475,7 +476,8 @@ You have now successfully deployed your ASP.NET application to a Windows Azure w
 [MongoDB]: http://www.mongodb.org
 [MongoCSharpDriverDownload]: http://github.com/mongodb/mongo-csharp-driver/downloads
 [InstallMongoWinVM]: ../../../Shared/Tutorials/InstallMongoDbOnWin2k8VM.md
-[InstallMongoOnCentOSLinuxVM]: ../../../Shared/Tutorials/InstallMongoOnCentOSLinuxVM.md
+[InstallMongoOnCentOSLinuxVM]: /en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm/
+[InstallMongoOnWindowsVM]: /en-us/manage/windows/common-tasks/install-mongodb/
 
 
 [Image0]: ../../../DevCenter/dotNET/Media/TaskListAppFull.png
