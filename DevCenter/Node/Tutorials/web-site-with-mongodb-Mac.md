@@ -3,13 +3,12 @@
 <div class="dev-center-os-selector"><a href="/en-us/develop/nodejs/tutorials/web-app-with-mongodb/" title="Windows Version" class="windows">Windows</a> <a href="/en-us/develop/nodejs/tutorials/website-with-mongodb-(mac)/" title="Mac Version" class="mac current">Mac</a> <span>Tutorial</span></div>
 
 # Node.js Web Application with Storage on MongoDB
-
-This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on Windows Azure. This tutorial assumes that you have some prior experience using node, MongoDB, and [Git].
+This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on Windows Azure. [MongoDB] is a popular open source, high performance NoSQL database. This tutorial assumes that you have some prior experience using node, MongoDB, and [Git].
 
 You will learn:
 
+* How to set up a virtual machine running Linux or Windows and install MongoDB
 * How to use npm (node package manager) to install the node modules
-* How to create a Linux VM running MongoDB
 * How to access MongoDB from a node application
 * How to use the Cross-Platform Tools for Windows Azure to create a Windows Azure Web Site
 
@@ -31,9 +30,27 @@ Before following the instructions in this article, you should ensure that you ha
 
 * [Git]
 
-##Create a MongoDB server
+##Preparation
 
-For this tutorial you will need a MongoDB server. Follow the steps in the [Installing MongoDB on a Linux Virtual machine] article to create a new Linux VM in Windows Azure and install MongoDB.
+In this section you will learn how to create a virtual machine in Windows Azure and install MongoDB, set up your development environment, and install the MongoDB C# driver.
+
+###Create a virtual machine and install MongoDB
+
+This tutorial assumes you have created a virtual machine in Windows Azure. After creating the virtual machine you need to install MongoDB on the virtual machine:
+
+* To create a Linux virtual machine and install MongoDB, see [Install MongoDB on a virtual machine running CentOS Linux in Windows Azure][InstallMongoOnCentOSLinuxVM].
+
+After you have created the virtual machine in Windows Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.
+
+### Sign up for the Windows Azure Web Sites preview feature
+
+You will need to sign up for the Windows Azure Web Sites preview feature in order to create a Windows Azure web site. You can also sign up for a free trial account if you do not have a Windows Azure account.
+
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
+
+### Enable Windows Azure Web Sites
+
+<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
 ##Install modules and generate scaffolding
 
@@ -295,12 +312,6 @@ The steps in this section use the Windows Azure command-line tools to create a n
 **Note**: These steps can also be performed by using the Windows Azure portal. For steps on using the Windows Azure portal to deploy a Node.js application, see [Create and deploy a Node.js application to a Windows Azure Web Site].
 
 **Note**: If this is the first Windows Azure Web Site you have created, you must use the Windows Azure portal to deploy this application.
-
-###Enable the Windows Azure Web Site feature
-
-If you do not already have a Windows Azure subscription, you can sign up [for free]. After signing up, follow these steps to enable the Windows Azure Web Site feature.
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md"></div>
 
 ###Install the Windows Azure command-line tool for Mac and Linux
 
