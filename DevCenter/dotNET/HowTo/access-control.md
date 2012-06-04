@@ -18,8 +18,7 @@ Google, or Facebook when they try to gain access to a web application.
 -   [Create Rules][]
 -   [Review the Application Integration Page][]
 -   [Configure Trust between ACS and Your ASP.NET Web Application][]
--   [Test the Integration between ACS and Your ASP.NET Web
-    Application][]
+-   [Test the Integration between ACS and Your ASP.NET Web Application][]
 -   [What's Next][]
 
 ## <a name="what-is"> </a>What is ACS?
