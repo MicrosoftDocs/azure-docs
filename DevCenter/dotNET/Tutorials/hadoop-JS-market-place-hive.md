@@ -26,7 +26,7 @@ This tutorial is composed of the following segments:
 <a name="setup"></a>
 ### Setup and Configuration 
 
-You must have an account to access Hadoop on Windows Azure and have created a cluster to work through this tutorial. To obtain an account and create an Hadoop cluster, follow the instructions outlined in the _Getting started with Microsoft Hadoop on Windows Azure_ section of the _Introduction to Apache Hadoop-based Sevice for Windows Azure_ topic.
+You must have an account to access Hadoop on Windows Azure and have created a cluster to work through this tutorial. To obtain an account and create an Hadoop cluster, follow the instructions outlined in the _Getting started with Microsoft Hadoop on Windows Azure_ section of the _[Introduction to Apache Hadoop-based Sevice for Windows Azure](/en-us/develop/net/tutorials/intro-to-hadoop/)_ topic.
 
 
 <a name="segment1"></a>
