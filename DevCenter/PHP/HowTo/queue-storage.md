@@ -36,7 +36,7 @@ In this guide, you will use Queue service features which can be called within a 
 
 <h2 id="GetClientLibrary">Get the Windows Azure Client Libraries</h2>
 
-<div chunk="../Chunks/get-client-libraries.md" />
+<div chunk="../../Shared/Chunks/get-client-libraries.md" />
 
 <h2 id="configure-app">Configure your application to access the Queue service</h2>
 
