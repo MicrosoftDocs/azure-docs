@@ -102,13 +102,13 @@ Here are the steps for creating the app:
 ## Import windowsazure storage module
 Add following code on the top of **views.py** just after Django imports
 
-        from azure.storage import TableService
+		from azure.storage import TableService
 
 ## Get storage account name and account key
 Add the following code to **views.py** just after the windowsazure import, and replace  'youraccount' and 'yourkey' with your real account name and key. You can get an account name and key from azure management portal. 
 
-        account_name = 'youraccount'
-        account_key = 'yourkey'
+		account_name = 'youraccount'
+		account_key = 'yourkey'
 
 ## Create TableService
 Add following code after “account_name …”
@@ -120,41 +120,41 @@ Add following code after “account_name …”
 Add function list_tasks to **views.py**:
 
 		def list_tasks(request): 
-		    entities = table_service.query_entities('mytasks', '', 'name,category,date,complete')    
-		    html = render_to_string('mytasks.html', Context({'entities':entities}))
+			entities = table_service.query_entities('mytasks', '', 'name,category,date,complete')    
+			html = render_to_string('mytasks.html', Context({'entities':entities}))
 		    return HttpResponse(html)
 
 ##  Add task
 Add the function add_task to **views.py**:
 
 		def add_task(request):
-		    name = request.GET['name']
-		    category = request.GET['category']
-		    date = request.GET['date']
-		    table_service.insert_entity('mytasks', {'PartitionKey':name+category, 'RowKey':date, 'name':name, 'category':category, 'date':date, 'complete':'No'}) 
-		    entities = table_service.query_entities('mytasks', '', 'name,category,date,complete')    
-		    html = render_to_string('mytasks.html', Context({'entities':entities}))
+			name = request.GET['name']
+			category = request.GET['category']
+			date = request.GET['date']
+			table_service.insert_entity('mytasks', {'PartitionKey':name+category, 'RowKey':date, 'name':name, 'category':category, 'date':date, 'complete':'No'}) 
+			entities = table_service.query_entities('mytasks', '', 'name,category,date,complete')    
+			html = render_to_string('mytasks.html', Context({'entities':entities}))
 		    return HttpResponse(html)
 
 ## Update task status
 Add the function update_task to **views.py**:
 
 		def update_task(request):
-		    name = request.GET['name']
-		    category = request.GET['category']
-		    date = request.GET['date']
-		    partition_key = name + category
-		    row_key = date
-		    table_service.update_entity('mytasks', partition_key, row_key, {'PartitionKey':partition_key, 'RowKey':row_key, 'name': name, 'category':category, 'date':date, 'complete':'Yes'})
-		    entities = table_service.query_entities('mytasks', '', 'name,category,date,complete')    
-		    html = render_to_string('mytasks.html', Context({'entities':entities}))
-		    return HttpResponse(html)
+			name = request.GET['name']
+			category = request.GET['category']
+			date = request.GET['date']
+			partition_key = name + category
+			row_key = date
+			table_service.update_entity('mytasks', partition_key, row_key, {'PartitionKey':partition_key, 'RowKey':row_key, 'name': name, 'category':category, 'date':date, 'complete':'Yes'})
+			entities = table_service.query_entities('mytasks', '', 'name,category,date,complete')    
+			html = render_to_string('mytasks.html', Context({'entities':entities}))
+			return HttpResponse(html)
 
 
 ## Mapping urls
 Now you need to map the URLs in the Django app. Open **urls.py** and add following mappings to urlpatterns:
 
-    	url(r'^$', 'TableserviceSample.views.list_tasks'),
+   		url(r'^$', 'TableserviceSample.views.list_tasks'),
     	url(r'^list_tasks$', 'TableserviceSample.views.list_tasks'),
     	url(r'^add_task$', 'TableserviceSample.views.add_task'),
     	url(r'^update_task$', 'TableserviceSample.views.update_task'),
