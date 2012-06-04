@@ -87,7 +87,7 @@ Python Tools for Visual Studio is a free/OSS plugin from Microsoft which turns V
 
 Using Python Tools for Visual Studio is optional, but is recommended as it gives you Python and Django Project/Solution support, debugging, profiling, Template editing and Intellisense, deployment to cloud, etc.  This add-in  works with your existing VS2010 install.  If you don't have VS2010, WebPI will install the free Integrated Shell + PTVS which essentially give you a **completely free** "VS Python Express" IDE.  For more information, see [Python Tools for Visual Studio on CodePlex][].  
 
-Note: While the PTVS plug-in is small, the Integrated Shell will increases your download times. It also currently doesn't support the "Add Windows Azure Deployment Project" feature.
+Note: While the PTVS plug-in is small, the Integrated Shell will increases your download times. The Integrated Shell version also currently doesn't support the "Add Windows Azure Deployment Project" feature.
 
 
 ## Installation on Linux and MacOS
@@ -150,7 +150,7 @@ For information on how to setup a Linux VM, please see the [Linux Management sec
 [IPython - an advanced REPL/Notebook for Python]: http://ipython.org
 
 
-[IPython on Azure]: ../tutorials/azure-ipython
+[IPython on Azure]: ../tutorials/azure-ipython.md
 
 
 [Python Tools for Visual Studio on CodePlex]: http://pytools.codeplex.com 
