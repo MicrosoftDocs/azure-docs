@@ -1,10 +1,12 @@
+<properties umbracoNaviHide="0" pageTitle="Commands for the Windows Azure cmdline tool for Mac and Linux" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Learn how to configure Windows Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+
 #Commands for the Windows Azure cmdline tool for Mac and Linux
 
 To use this tool with virtual machines and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
 
 This tool provides functionality for creating, deploying and managing virtual machines and web sites from Mac and Linux desktops. This functionality is similar to that provided by the PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS and PHP.
 
-To install the tool on a Mac, download and run the [Windows Azure SDK installer](http://go.microsoft.com/fwlink/?LinkId=246928).
+To install the tool on a Mac, download and run the [Windows Azure SDK installer](/en-us/manage/downloads/).
 
 To install the tool on Linux, install the latest version of Node.JS and then use NPM to install:
 
