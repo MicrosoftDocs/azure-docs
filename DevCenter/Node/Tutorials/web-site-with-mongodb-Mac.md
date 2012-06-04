@@ -6,14 +6,11 @@
 
 This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on Windows Azure. This tutorial assumes that you have some prior experience using node, MongoDB, and [Git].
 
-This guide also assumes that you have access to a MongoDB server, such as the one created by following the steps in the [Installing MongoDB on a Linux Virtual machine] article.
-
 You will learn:
 
 * How to use npm (node package manager) to install the node modules
-
+* How to create a Linux VM running MongoDB
 * How to access MongoDB from a node application
-
 * How to use the Cross-Platform Tools for Windows Azure to create a Windows Azure Web Site
 
 By following this tutorial, you will build a simple web-based task-management application that allows creating, retrieving and completing tasks. The tasks are stored in MongoDB.
@@ -30,15 +27,13 @@ The project files for this tutorial will be stored in a directory named **taskli
 
 Before following the instructions in this article, you should ensure that you have the following installed:
 
-* [node] version 0.6.14 or higher
+* [node] recent version
 
 * [Git]
 
-* A [MongoDB] server
+##Create a MongoDB server
 
-* A text editor
-
-* A web browser
+For this tutorial you will need a MongoDB server. Follow the steps in the [Installing MongoDB on a Linux Virtual machine] article to create a new Linux VM in Windows Azure and install MongoDB.
 
 ##Install modules and generate scaffolding
 
@@ -222,7 +217,7 @@ In this section you will extend the basic application created by the **express**
 
 		app.listen(process.env.port || 1337);
 
-	**Note**: You must replace the connection string above with the connection string for your MongoDB server. For example, **'mongodb://127.0.0.1/tasks**.
+	**Note**: You must replace the connection string above with the connection string for the MongoDB server you created earlier. For example, **'mongodb://mymongodb.cloudapp.net/tasks**.
 
 4. Save the **app.js** file.
 
