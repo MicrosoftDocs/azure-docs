@@ -68,16 +68,22 @@ To successfully complete the steps in this tutorial, you must have a working ins
 
 <div class="dev-callout">
 <b>Note</b>
-<p>If you are performing this tutorial on Windows, you can set up your machine with <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">Windows Azure SDK for Node.js</a> that includes Node.js.</p>
+<p>If you are performing this tutorial on Windows, you can set up your machine with <a href="http://go.microsoft.com/fwlink/?LinkId=254279&clcid=0x409">Windows Azure SDK for Node.js</a> that includes Node.js.</p>
 </div>
 
 ##Build and test your application locally
 
 In this section, you will create a **server.js** file containing the 'hello world' example from [nodejs.org]. This example has been modified from the original example by adding process.env.port as the port to listen on when running in a Windows Azure Web Site.
 
-**Note**: This tutorial makes reference to the **helloworld** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/helloworld** or **c:\node\helloworld**
+<div class="dev-callout">
+<b>Note</b>
+<p>This tutorial makes reference to the **helloworld** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/helloworld** or **c:\node\helloworld**</p>
+</div>
 
-**Note**: Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **Windows PowerShell**, **cmd.exe**, **GitBash** (Windows,) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
+<div class="dev-callout">
+<b>Note</b>
+<p>Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **Windows PowerShell**, **cmd.exe**, **GitBash** (Windows,) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.</p>
+</div>
 
 1. Using a text editor, create a new file named **server.js** in the **helloworld** directory. If the **helloworld** directory does not exist, create it.
 2. Add the following as the contents of the **server.js** file, and then save it:
