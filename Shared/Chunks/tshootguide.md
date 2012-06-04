@@ -198,7 +198,7 @@ allows you to:
 Monitoring is accomplished with a tool or set of tools. Which tool you
 use depends on the platform and/or languages your application uses and on your monitoring goals and requirements.
 
-####Microsoft System Center Monitoring Pack for Windows Azure Applications
+**Microsoft System Center Monitoring Pack for Windows Azure Applications**
 
 This [Monitoring Pack] allows you to use [Microsoft System Center
 Operations Manager] to monitor the availability and performance of
@@ -207,7 +207,7 @@ Windows Azure Applications.
 Using Microsoft System Center Operations Manager 2007 is the best way to
 monitor the health of your Windows Azure application.
 
-####Windows Azure Platform Management Tool
+**Windows Azure Platform Management Tool**
 
 Another tool is the [Windows Azure Platform Management Tool (MMC)], which
 enables you to manage your Windows Azure hosted services and storage
@@ -215,7 +215,7 @@ accounts. This tool is provided as a sample with complete source code so
 you can see how to perform various management and configuration tasks
 using the Windows Azure Management and Diagnostics APIs.
 
-####Cerebrata Tools
+**Cerebrata Tools**
 
 Cerebrata provides a number of tools that allow you to monitor and
 manage your Windows Azure applications. These include [Azure Diagnostics
@@ -234,7 +234,7 @@ Windows Azure Storage, Hosted Services, SQL Database instances, and
 Diagnostics. It also provides cmdlets to back up and restore storage
 accounts.
 
-####Network Monitoring: AlertBot, Gomez, Keynote, Pingdom
+**Network Monitoring: AlertBot, Gomez, Keynote, Pingdom**
 
 Compuware's [Gomez] Application Performance Management, [Keynote], [Pingdom],
 and [AlertBot] are solutions for monitoring your Windows Azure application
@@ -248,7 +248,7 @@ For other networking information, Microsoft Online Services provides a [performa
 overall connection quality. The latency between the different Microsoft
 data centers can be viewed with use Matthew Rosoff's [Azure Statistics].
 
-####Azure Check
+**Azure Check**
 
 Apica's [AzureCheck] is a tool that monitors your Windows Azure web
 application "from outside." In order to use this tool, download their
@@ -256,21 +256,21 @@ code and add it to your deployment as a [startup task]. The advantage of
 this tool is that it does not require that you store your logs in your
 storage account thus reducing the cost of monitoring.
 
-####AVIcode
+**AVIcode**
 
 Microsoft purchased AVIcode and it is now part of Microsoft System
 Center. [AVIcode] delivers .NET application performance monitoring
 capabilities with a comprehensive suite of application monitoring
 capabilities.
 
-####Performance Profiling
+**Performance Profiling**
 
 You can [profile] your Windows Azure application when it runs in Windows
 Azure to determine any performance issues. When you publish your Windows
 Azure application from Visual Studio, you can choose to profile the
 application and select the profiling settings that you require.
 
-####Windows Azure VM Assistant
+**Windows Azure VM Assistant**
 
 The [VM Assitant] tool is a CodePlex project that collects all the
 relevant troubleshooting data in one place when you Remote Desktop into
@@ -292,7 +292,7 @@ After an application has been deployed, you can debug in the cloud using a debug
 have to rely on the instrumentation built into your application to
 determine where problems are occurring. **
 
-####Node.js Debugging
+**Node.js Debugging**
 
 For debugging Node.JS applications, you can use the Node-Inspector tool
 which is available on [GitHub](https://github.com/dannycoates/node-inspector). Node-Inspector can be run locally on your
@@ -309,8 +309,6 @@ To use Node-Inspector on a web role, install the package in the web role
 and use the Node-Inspector tool as you normally would. For more
 information about debugging with Node-Inspector, see [Debugging with
 Node-Inspector].
-
-####Other Debugging Tools
 
 **IntelliTrace**
 
