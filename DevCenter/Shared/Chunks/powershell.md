@@ -269,7 +269,6 @@ web role or worker role for the service.
 * **Add-AzureNodeWorkerRole**
 * **Add-AzurePHPWebRole**
 * **Add-AzurePHPWorkerRole**
-* **Add-AzurePythonWebRole** 
 
 When your application is deployed as a cloud service in Windows Azure,
 it runs as one or more *roles.* A *role* simply refers to the
@@ -280,7 +279,7 @@ programming, while a worker role is intended to support general
 development and periodic or long-running processes. For more information
 about service roles, see [Overview of Creating a Hosted Service for Windows Azure][].
 
-The cmdlets listed above create a role directory that is ready to run code written in the specified language (Node.js, PHP, or Python). After creating a role, you can put code in the role directory and run it in the compute emulator with the **Start-AzureEmulator** cmdlet or publish it to Windows Azure with the **Publish-AzureServiceProject** cmdlet.
+The cmdlets listed above create a role directory that is ready to run code written in the specified language (Node.js or PHP). After creating a role, you can put code in the role directory and run it in the compute emulator with the **Start-AzureEmulator** cmdlet or publish it to Windows Azure with the **Publish-AzureServiceProject** cmdlet.
 
 You can run these cmdlets with no parameters to create a
 single role instance with the name WebRole1 or WorkerRole1. Use the
