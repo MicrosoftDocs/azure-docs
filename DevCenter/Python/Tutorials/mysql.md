@@ -39,7 +39,10 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
  * Click **Next** again.
  * Specify a name for the rule, such as "DjangoPort", and click Finish.
 
-1. Install the latest version of [MySQL Community Server] [mysqlcommunity] for Windows on the virtual machine:
+1. Install the latest version of [MySQL Community Server] [mysqlcommunity] for Windows on the virtual machine:  
+
+	**Note**: we recommend installing your DB on a different data partition than the OS. 
+
  * Run the *Windows (x86, 64-bit), MSI Installer* link [here ] [mysqlcommunity] and download the appropriate MSI installer from the download mirror nearest you. Helpful hints are:
      * Select a *Complete* Setup Type.
      * Select a *Detailed Configuration* within the Configuration Wizard.

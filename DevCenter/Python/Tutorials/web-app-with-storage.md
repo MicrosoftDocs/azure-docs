@@ -27,7 +27,8 @@ A screenshot of the completed application will be similar as below (the added ta
 
 ## <a id="setup"> </a>Setting Up the Development Environment
 
-please see the [Installation Guide][] for information on how to set up your Python, Django and Azure environments.
+**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../commontasks/how-to-install-python.md).
+
 
 
 *Note for Windows*: if you used the Windows WebPI installer, you already have Django and the Client Libs installed.

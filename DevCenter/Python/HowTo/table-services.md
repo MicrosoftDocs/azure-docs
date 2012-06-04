@@ -27,6 +27,9 @@ information on tables, see the [Next Steps][] section.
 ## <a name="create-account"> </a>Create a Windows Azure Storage Account
 <div chunk="../../Shared/Chunks/create-storage-account.md" />
 
+**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../commontasks/how-to-install-python.md).
+
+
 ## <a name="create-table"> </a>How to Create a Table
 
 The **TableService** object lets you work with table services. The
