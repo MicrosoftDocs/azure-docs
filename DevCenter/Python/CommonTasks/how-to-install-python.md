@@ -104,7 +104,7 @@ To install the Python Azure Client Libraries, use **pip** to grab it from **PyPI
 	
 The command above will silently prompt for the root password. Type it and press Enter.  Next:
 	
-	sudo /usr/local/bin/pip-2.7 install windowsazure
+	sudo /usr/local/bin/pip-2.7 install azure
 
 You should now see the client libraries installed under **site-packages**.  On MacOS:
 
