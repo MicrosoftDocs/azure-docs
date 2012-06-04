@@ -11,27 +11,13 @@ You'll build a Word press blog that uses a default template. The following illus
 
 ![Wordpress blog][13]
 
-## Create a Windows Azure account and enable the Web Sites preview
+## Create a Windows Azure account
 
-1. Open a web browser, and browse to [http://www.windowsazure.com](http://www.windowsazure.com).
+<div chunk="../../DevCenter/Shared/Chunks/create-azure-account.md" />
 
-2. To get started with a free account, click **Free Trial** in the upper-right corner and follow the steps.<br/>
+## Enable Windows Azure Web Sites
 
-	![Free trial screenshot][1]
-
-3. Next, sign up for the Windows Azure Web Sites preview. Navigate to  [https://account.windowsazure.com/]() and sign in with your Windows Azure account.
-
-4. Click **preview features** to enable the Windows Azure Web Sites feature on your account.
-	
-	![open preview features tab][2]
-
-2.	Select Windows Azure Web Sites and click **try it now**.
-	
-	![select a preview feature][3]
-
-3.	Select your subscription and click the check.
-	
-	![select subscription][4]
+<div chunk="../../DevCenter/Shared/Chunks/antares-iaas-signup.md" />
 
 ## Create a web site in the portal
 

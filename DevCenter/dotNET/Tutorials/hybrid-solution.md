@@ -96,14 +96,7 @@ In order to set up the Service Bus Service Namespace and later deploy
 your application to Windows Azure, you need an account. If you do not
 have one you can create a free trial account.
 
-1.  Open a web browser, and browse to the
-    [http://www.windowsazure.com][]. To get started with a free account,
-    click **free trial** in the upper right corner and follow the steps.
-
-    ![][4]
-
-2.  Your account is now created. You are ready to deploy your
-    application to Windows Azure!
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
 
 ## CREATE A SERVICE NAMESPACE
 

@@ -39,6 +39,10 @@ After you have created the virtual machine in Windows Azure and installed MongoD
 
 You will need to sign up for the Windows Azure Web Sites preview feature in order to create a Windows Azure web site. You can also sign up for a free trial account if you do not have a Windows Azure account.
 
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
+
+### Enable Windows Azure Web Sites
+
 <div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
 ### Set up the development environment
