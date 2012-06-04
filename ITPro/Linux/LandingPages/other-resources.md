@@ -9,9 +9,6 @@
 
 Learn which distribution versions, LIS drivers and Agent Versions have been tested to work on Windows Azure.
 
-###[How to Use the Service Management API](/en-us/manage/linux/other-resources/service-management-api/)
-
-Learn about the Windows Azure IaaS Service Management API which is invoked from Node.js.
 
 ###[Partner solutions for Linux in Windows Azure](/en-us/manage/linux/other-resources/partner-solutions/)
 
