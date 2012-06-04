@@ -453,7 +453,7 @@ In this section you will deploy the Task List application using Git.
 
 	![Push local files to Windows Azure][Image10]
 5. If you do not have Git installed, install it using the **Get it here** link in step 1.
-6. Following these instructions in step 2, commit your local files. Note: You may want to submit only the files ou need for deployment.  
+6. Following these instructions in step 2, commit your local files.  
 7. Add the remote Windows Azure repository and push your files to the Windows Azure web site by following the instructions in step 3.
 8. When the deployment has completed you will see the following confirmation:
 	![Deployment Complete][Image11]
