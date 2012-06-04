@@ -70,9 +70,7 @@ Next, set up the Windows Azure environment. You'll create a Windows Azure accoun
 
 ### Create a web site and a SQL database in Windows Azure
 
-The next step is to create the Windows Azure Web Site and the SQL database that your application will use.
-
-Your Windows Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Windows Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a multi-tier architecture, you can migrate to a Windows Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs.
+The next step is to create the Windows Azure web site and the SQL database that your application will use.
 
 SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
 
