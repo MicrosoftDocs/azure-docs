@@ -1,5 +1,3 @@
-<properties umbracoNaviHide="0" pageTitle="Commands for the Windows Azure cmdline tool for Mac and Linux" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Learn how to configure Windows Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
-
 #Commands for the Windows Azure cmdline tool for Mac and Linux
 
 To use this tool with virtual machines and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
