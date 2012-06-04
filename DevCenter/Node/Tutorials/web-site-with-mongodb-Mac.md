@@ -45,7 +45,7 @@ In this section you will create a new Node application and use npm to add module
 
 2. Enter the following command to install express.
 
-		npm install express -g
+		sudo npm install express -g
 
 	**Note**: When using the '-g' parameter on some operating systems, you may receive an error of **Error: EPERM, chmod '/usr/local/bin/express'** and a request to try running the account as an administrator. If this occurs, use the [sudo] command to run npm at a higher privilege level.
 
@@ -306,7 +306,7 @@ If you do not already have a Windows Azure subscription, you can sign up [for fr
 
 To install the command-line tools, use the following command:
 	
-	npm install azure -g
+	sudo npm install azure -g
 
 **Note**: If you have already installed the **Windows Azure SDK for Node.js** from the [Windows Azure Developer Center], then the command-line tools should already be installed. For more information, see [Windows Azure command-line tool for Mac and Linux].
 
