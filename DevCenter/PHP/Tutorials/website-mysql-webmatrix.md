@@ -37,6 +37,15 @@ By following this tutorial, you will build a simple Tasklist web application in 
 	This step is only necessary if you want to test your application locally.
 
 <h2 id="CreateWebsite">Create a Windows Azure Website and MySQL database</h2>
+
+### Create a Windows Azure account
+
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
+
+### Enable Windows Azure Web Sites
+
+<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
+
 Windows Azure Websites allows you to easily create a website and provision a MySQL Database.
 
 <div class="dev-callout"> 
