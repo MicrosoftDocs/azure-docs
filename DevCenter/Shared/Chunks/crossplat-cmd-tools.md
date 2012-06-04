@@ -94,26 +94,22 @@ You are now ready to being creating and managing Windows Azure Websites and Wind
 
 <h2 id="WebSites">How to create and manage a Windows Azure Web Site</h2>
 
-To create a Windows Azure Website:
+To create a Windows Azure Website, first create an empty directory called `MySite` and browse into that directory.
 
-1. Create an empty directory called `MySite`
+Then, run the following command:
 
-2. Run the following command:
-
-	azure site create MySite
+	azure site create MySite --git
 
 The output from this command will contain the default URL for the newly created website. The `--git` option allows you to use git to publish to your website by creating git repositories in both your local application directory and in your website's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your website's data center.
-
-3. Add content to your website directory. Use the regular git flow (`git add`, `git commit`) to commit your content.
-
-4. Use the following git command to push your website content to Windows Azure: 
-
-	git push azure master
 
 Note that you can execute the `azure site create` command with any of the following options:
 
 * `--location [location name]`. This option allows you to specify the location of the data center in which your website is created (e.g. "West US"). If you omit this option, you will be promted to choose a location.
 * `--hostname [custom host name]`. This option allows you to specify a custom hostname for your website.
+
+You can then add content to your website directory. Use the regular git flow (`git add`, `git commit`) to commit your content. Use the following git command to push your website content to Windows Azure: 
+
+	git push azure master
 
 To list your websites, use the following command:
 
