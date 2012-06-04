@@ -1,20 +1,21 @@
 1. After you've connected to the virtual machine using Remote Desktop, open Internet Explorer from the **Start** menu.
-2. Select the **Tools** button in the upper right corner.  In **Internet Options**, select the **Security** tab, and then select the **Trusted Sites** icon, and finally click the **Sites** button. Add *http://*.mongodb.org* to the list of trusted sites.
+2. Select the **Tools** button in the upper right corner.  In **Internet Options**, select the **Security** tab, and then select the **Trusted Sites** icon, and finally click the **Sites** button. Add *http://\*.mongodb.org* to the list of trusted sites.
 3. Go to [Downloads- MongoDB] [MongoDownloads].
 4. Find the most recent release in the **Production Release (Recommended)** section and click the ***2008+** link in the Windows 64-bit column.  Click **Save As** and save the zip file to the desktop.
 5. Right-click on the zip file and select **Extract All...**  Specify "C:\" and click **Extract**.  After the files have been extracted, you may wish to rename the install folder to something simpler.  "MongoDB", for example.
-6. Create a data directory.  By default, MongoDB stores data in the `\data\db` directory but you must manually create the directory.  From **Start**, select **Command Prompt** to open a command prompt window.  Enter:
+6. Create MongoDB data and log directories in the data disk (drive **F:**, for example) you created in the steps above. From **Start**, select **Command Prompt** to open a command prompt window.  Enter:
 
-		C:\> cd /
-		C:\> mkdir \data
-		C:\> mkdir \data\db
+		C:\> F:
+		F:\> mkdir \MongoData
+		F:\> mkdir \MongoLogs
 
 7. To run the database, run: 
 
+		F:\> C:
 		C:\> cd \MongoDB\bin
-		C:\my_mongo_dir\bin> mongod
+		C:\my_mongo_dir\bin> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
-	You will see log messages displayed in this window as mongod.exe server starts and preallocates journal files. It may take several minutes to preallocate the journal files.
+	All log messages will be directed to the *F:\MongoLogs\mongolog.log* file as mongod.exe server starts and preallocates journal files. It may take several minutes for MongoDB to preallocate the journal files and start listening for connections.
 
 8. To start the MongoDB administrative shell, open another command window from **Start** and enter the following:
 

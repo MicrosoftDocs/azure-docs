@@ -27,11 +27,6 @@
 	![VM Configuration] [Image4]
 8. Wait while Windows Azure prepares your virtual machine.
 
-##Connect to the Virtual Machine Using Remote Desktop and Complete Setup
-1. After the virtual machine is provisioned, on the Management Portal, click on **Virtual Machines**, and the click on your new virtual machine. Information about your virtual machine is presented.	
-2. At the bottom of the page, click **Connect**. Choose to open the rpd file using the Windows Remote Desktop program (*%windir%\system32\mstsc.exe*).	
-3. At the **Windows Security** dialog box, provide the password for the **Administrator** account. (You might be asked to verify the credentials of the virtual machine.)
-4. The first time you log on to this virtual machine, several processes may need to complete, including setup of your desktop, Windows updates, and completion of the Windows initial configuration tasks. Once you are connected to the virtual machine with Windows Remote Desktop, the virtual machine works like any other computer.
 
 [Image1]: ../media/CreateWinVM.png
 [Image21]: ../media/WinVmConfiguration0.png
