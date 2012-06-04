@@ -25,6 +25,16 @@ The following is an example of the Java application monitoring the compute-inten
 
 ![Traveling Salesman Problem client][client_output]
 
+## Setting up your account
+
+### Create a Windows Azure account
+
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
+
+### Enable Windows Azure Virtual Machines
+
+<div chunk="../../Shared/Chunks/antares-iaas-signup-iaas.md" />
+
 ## To create a virtual machine
 
 1. Log in to the [Windows Azure Preview Management Portal](https://manage.windowsazure.com).

@@ -22,9 +22,13 @@ This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (
 <p>If you are performing this tutorial on Windows, you can set up your machine for PHP and automatically configure IIS (the built-in web server in Windows) by installing the <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">Windows Azure SDK for PHP</a>.</p>
 </div>
 
-##Sign-up for a Free Preview Subscription to Windows Azure Web Sites
+### Create a Windows Azure account
 
-<div chunk="../../shared/chunks/antares-iaas-signup.md" />
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
+
+### Enable Windows Azure Web Sites
+
+<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
 ##Create a Windows Azure web site and set up Git publishing
 
