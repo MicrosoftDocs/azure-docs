@@ -153,8 +153,7 @@ selecting **Free Trial** in the upper right corner.
 
 4.  Click **+ Create new** to create a new hosted service. A *hosted
     service* is the container in which your application is hosted when
-    it is deployed to Windows Azure. For more information, see [Overview
-    of Creating a Hosted Service for Windows Azure][].
+    it is deployed to Windows Azure. For more information, see [Overview of Creating a Hosted Service for Windows Azure][].
 
     ![create a new deployment][1]
 
@@ -200,13 +199,11 @@ selecting **Free Trial** in the upper right corner.
     Select **Yes** to create the .csdef file. This will add a
     ‘ServiceDefinition.csdef’ file to your project.
     ServiceDefinition.csdef is a Windows Azure-specific files necessary
-    for publishing your application. For more information, see [Overview
-    of Creating a Hosted Service for Windows Azure][].
+    for publishing your application. For more information, see [Overview of Creating a Hosted Service for Windows Azure][].
 
 6.  You will be prompted to select the instance size for this
     application. Select **Small**, and then click **Create**. For more
-    details about Windows Azure VM sizes, see [How to Configure Virtual
-    Machine Sizes][].
+    details about Windows Azure VM sizes, see [How to Configure Virtual Machine Sizes][].
 
     ![specify csdef file values][]
 

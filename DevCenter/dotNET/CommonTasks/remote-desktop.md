@@ -31,7 +31,7 @@ be published.
       
      The **Remote Desktop Configuration** dialog box appears.
 
-    ![][]
+    ![][0]
 
 2.  In the **Remote Desktop Configuration** dialog box, select the
     **Enable connections for all roles** check box.
@@ -66,8 +66,7 @@ application.
 
 2.  On the **Windows Azure Publish Sign In** page, select the named
     authentication credentials you want to use, and then click **Next**.
-    For more information, see [Setting Up Named Authentication
-    Credentials][].
+    For more information, see [Setting Up Named Authentication Credentials][].
 3.  On the **Windows Azure Publish Settings** page, select the hosted
     service in which to publish the application, production or staging
     environment, the build configuration, and the service configuration.
@@ -120,15 +119,14 @@ manage your application on the instance itself.
 
 ## Additional Resources
 
--   [Remotely Accessing Role Instances in Windows Azure][]
--   [Using Remote Desktop with Windows Azure Roles][]
--   [Uploading Certificates and Encrypting Passwords for Remote Desktop
-    Connections][]
+* [Remotely Accessing Role Instances in Windows Azure][]
+* [Using Remote Desktop with Windows Azure Roles][]
+* [Uploading Certificates and Encrypting Passwords for Remote Desktop Connections][]
 
   [Step 1: Configure Remote Desktop connections]: #step1
   [Step 2: Publish the application]: #step2
   [Step 3: Connect to the role instance]: #step3
-  []: ../../../DevCenter/dotNet/Media/remote-desktop-01.png
+  [0]: ../../../DevCenter/dotNet/Media/remote-desktop-01.png
   [1]: ../../../DevCenter/dotNet/Media/remote-desktop-02.png
   [Setting Up Named Authentication Credentials]: http://msdn.microsoft.com/en-us/library/windowsazure/ff683676.aspx
   [Windows Azure Management Portal]: http://windows.azure.com/
@@ -138,5 +136,4 @@ manage your application on the instance itself.
   [5]: ../../../DevCenter/dotNet/Media/remote-desktop-06.png
   [Remotely Accessing Role Instances in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx
   [Using Remote Desktop with Windows Azure Roles]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx
-  [Uploading Certificates and Encrypting Passwords for Remote Desktop
-  Connections]: http://msdn.microsoft.com/en-us/library/windowsazure/hh403987.aspx
+  [Uploading Certificates and Encrypting Passwords for Remote Desktop Connections]: http://msdn.microsoft.com/en-us/library/windowsazure/hh403987.aspx
