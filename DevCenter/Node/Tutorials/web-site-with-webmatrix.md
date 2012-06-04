@@ -1,5 +1,5 @@
 <properties linkid="dev-nodejs-website-webmatrix" urldisplayname="Node.js Website with WebMatrix" headerexpose="" pagetitle="Node.js Application using a WebMatrix" metakeywords="Azure Node.js tutorial WebMatrix, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates creating and deploying a Node.js application using WebMatrix" umbraconavihide="0" disquscomments="1"></properties>
-#Create and deploy a Node.js Windows Azure Website using WebMatrix
+#Create and deploy a Node.js application to a Windows Azure Web Site using WebMatrix
 
 This tutorial shows you how to use WebMatrix to develop and deploy a node application to a Windows Azure Web Site. WebMatrix is a free web development tool from Microsoft that includes everything you need for web site development. WebMatrix supports node and includes code completion for node development.
 
@@ -14,20 +14,53 @@ By following this tutorial, you will build a simple node web application. The ap
 
 ![Windows Azure node Website][webmatrix-node-completed]
 
-##Set up your development environment
-The steps in this section will walk you through enabling the new Windows Azure Web Site feature, creating a blank web site, and installing WebMatrix 2.
+##Set up the Windows Azure environment
 
-###Enable the Windows Azure Web Site feature
+First, set up the Windows Azure environment. You'll create a Windows Azure account and enable this account to use the Windows Azure Web Sites preview feature.
 
-If you do not already have a Windows Azure subscription, you can sign up [for free]. After signing up, follow these steps to enable the Windows Azure Web Site feature.
+### Create a Windows Azure account
+
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
+
+###Enable Windows Azure Web Sites
+
+After signing up, follow these steps to enable the Windows Azure Web Site feature.
 
 <div chunk="../../Shared/Chunks/antares-iaas-signup.md"></div>
 
-###Create a Windows Azure Web Site
+##Create a Windows Azure Web Site and enable Git publishing
 
-<div chunk="../../Shared/Chunks/create-website.md" />
+Follow these steps to create a Windows Azure Web Site, and then enable Git publishing for the web site.
 
-###Install WebMatrix
+1. Login to the [Windows Azure Portal].
+
+2. Click the **+ NEW** icon on the bottom left of the portal
+
+    ![The Windows Azure Portal with the +NEW link highlighted.][portal-new-website]
+
+3. Click **WEB SITE**, then **QUICK CREATE**. Enter a value for **URL** and select the datacenter for your web site in the **REGION** dropdown. Click the checkmark at the bottom of the dialog.
+
+    ![The Quick Create dialog][portal-quick-create]
+
+4. Once the web site status changes to **Running**, click on the name of the web site to access the **Dashboard**
+
+	![Open website dashboard][go-to-dashboard]
+
+6. At the bottom right of the Dashboard, select **Set up Git Publishing**.
+
+	![Set up Git publishing][setup-git-publishing]
+
+7. To enable Git publishing, you must provide a user name and password. If you have previously enabled publishing for a Windows Azure Web Site, you will not be prompted for the user name or password. Instead, a Git repository will be created using the user name and password you previously specified. Make a note of the user name and password, as they will be used for Git publishing to all Windows Azure Web Sites you create.
+
+	![The dialog prompting for user name and password.][portal-git-username-password]
+
+8. Once the Git repository is ready, you will be presented with instructions on the Git commands to use in order to setup a local repository and then push the files to Windows Azure.
+
+	![Git deployment instructions returned after creating a repository for the website.][portal-git-instructions]
+
+	**Note**: Save the instructions returned by the **Push my local files to Windows Azure** link, as they will be used in the following sections.
+
+##Install WebMatrix
 
 You can install WebMatrix from the [Windows Azure Portal]. From your web site's dashboard, click **QUICKSTART** near the top of the page, then click **Install WebMatrix**.
 
@@ -92,7 +125,7 @@ In the next few steps you will develop the application by selecting and modifyin
 
 	When the publishing is complete, you will see **Publishing - Complete** at the bottom of the WebMatirx screen.
 
-7. Navigate to http://[your web site name].windows.net/ view begin using your web site.
+7. Navigate to http://[your web site name].azurewebsites.net/ view begin using your web site.
 	
 ##Modify and Republish Your Application
 
@@ -106,7 +139,7 @@ You can easily modify and republish your application. Here, you will make a simp
 
 3. Click the **Publish** icon, and then click **Continue** in the **Publish Preview** dialog.
 
-4. When publishing has completed, navigate to http://[your web site name].windows.net/ to see the published changes.
+4. When publishing has completed, navigate to http://[your web site name].azurewebsites.net/ to see the published changes.
 
 ##Additional resources
 
