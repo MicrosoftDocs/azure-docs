@@ -18,11 +18,15 @@ You will need to sign up for the Windows Azure Virtual Machines preview feature 
 
 <div chunk="../../../DevCenter/Shared/Chunks/antares-iaas-signup-iaas.md"/>
 
-##Connect to the Windows Azure Management Portal and Provision a Virtual Machine Image
+##Create a virtual machine running CentOS Linux
 
 <div chunk="../../../shared/chunks/create-and-configure-centos-vm-in-portal.md" />
 
-##Install and Run MongoDB on the Virtual Machine
+## Attach a data disk
+
+<div chunk="../../../shared/chunks/attach-data-disk-centos-vm-in-portal.md" />
+
+##Install and run MongoDB on the virtual machine
 
 <div chunk="../../../shared/chunks/install-and-run-mongo-on-centos-vm.md" />
 
