@@ -34,9 +34,6 @@ in a dedicated virtual machine (VM). The following illustration shows the comple
 
 <div chunk="../../Shared/Chunks/create-azure-account.md" />
 
-## Download a publishing profile
-
-
 ## <a name="setup"></a>Set up the development environment
 
 To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. 
@@ -106,14 +103,13 @@ Run the application to verify that it works.
 ## <a name="making"></a>Make the application ready to deploy to a Windows Azure Cloud Service
 
 Now, prepare the application to run in a Windows Azure cloud
-service. The application needs to include a Windows Azure deployment
-project before it can be deployed to the cloud. The deployment project
+service. The application needs to include a Windows Azure cloud service
+project before it can be deployed to the cloud. The cloud service project
 contains configuration information that is needed to run the
 application in the cloud.
 
 1.  Right click the
-    **ToDoListApp** project in **Solution Explorer**, and then click **Add Windows Azure
-    Deployment Project**:
+    **ToDoListApp** project in **Solution Explorer**, and then click **Add Windows Azure Cloud Service Project**:
 
     ![Add Windows Azure Deployment Project in menu][8]
 
@@ -177,7 +173,7 @@ machine to publish packages to Windows Azure using Visual Studio.
 
 ### Publish the application
 
-1.  Right-click the **ToDoListApp.Azure** Windows Azure deployment project in **Solution Explorer** and click **Publish**.
+1.  Right-click the **ToDoListApp.Azure** Windows Azure cloud service project in **Solution Explorer** and click **Publish**.
 
     ![Publish to Windows Azure in project context menu][14]
 
