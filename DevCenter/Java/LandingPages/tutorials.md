@@ -14,7 +14,7 @@ Create an application that stores images in Windows Azure blob storage. You will
 
 ### [Hello World web application using Eclipse][eclipse-app]
 
-Use the Eclipse plugin to create a "Hello World" application hosted in Tomcat, test it in the Compute emulator, and finally deploy it to Windows Azure.
+Use the Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies) to create a "Hello World" application hosted in Tomcat, test it in the Compute emulator, and finally deploy it to Windows Azure.
 
 
 
