@@ -299,7 +299,7 @@ To publish changes to application, follow these steps:
 [tasklist-sqlazure-download]: http://go.microsoft.com/fwlink/?LinkId=252504
 [localhost-createtable]: http://localhost/tasklist/createtable.php
 [localhost-index]: http://localhost/tasklist/index.php
-[running-app]: ../Media/tasklist_app_windows.png
+[running-app]: ../Media/running_app_3.png
 [new-website]: ../../Shared/Media/new_website.jpg
 [custom-create]: ../../Shared/Media/custom_create.jpg
 [website-details-sqlazure]: ../Media/website_details_sqlazure.jpg

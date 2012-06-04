@@ -62,9 +62,9 @@ can help you get started:
     [Windows PowerShell Getting Started Guide][].
 
 -   While you are working in Windows PowerShell, your best source of
-    help is the **Get-Help** cmdlet. The following table summarizes some
+    help is the **Help** cmdlet. The following table summarizes some
     common help requests. For more information, see [Getting Help:
-    Get-Help][get-help], or, in Windows PowerShell, type: **get-help**.
+    Help][get-help], or, in Windows PowerShell, type: **help**.
 
     <table border="1" cellspacing="4" cellpadding="4">
     <tbody>
@@ -80,17 +80,17 @@ can help you get started:
     </tr>
     <tr align="left" valign="top">
     <td>
-    get-help
+    help
 
     </td>
     <td>
-    Displays a help topic about using the <b>Get-Help</b> cmdlet
+    Displays a help topic about using the <b>help</b> cmdlet
 
     </td>
     </tr>
     <tr align="left" valign="top">
     <td>
-    get-help azure
+    help azure
 
     </td>
     <td>
@@ -98,9 +98,30 @@ can help you get started:
 
     </td>
     </tr>
+	</tr>
     <tr align="left" valign="top">
     <td>
-    get-help &lt;<b>cmdlet</b>&gt;
+    help node-dev
+
+    </td>
+    <td>
+    Lists cmdlets for developing and managing Node.js applications
+
+    </td>
+    </tr>
+	<tr align="left" valign="top">
+    <td>
+    help php-dev
+
+    </td>
+    <td>
+    Lists cmdlets for developing and managing PHP applications
+
+    </td>
+    </tr>
+    <tr align="left" valign="top">
+    <td>
+    help &lt;<b>cmdlet</b>&gt;
 
     </td>
     <td>
@@ -110,7 +131,7 @@ can help you get started:
     </tr>
     <tr align="left" valign="top">
     <td>
-    get-help &lt;<b>cmdlet</b>&gt; -parameter *
+    help &lt;<b>cmdlet</b>&gt; -parameter *
 
     </td>
     <td>
@@ -120,7 +141,7 @@ can help you get started:
     </tr>
     <tr align="left" valign="top">
     <td>
-    get-help &lt;<b>cmdlet</b>&gt; -examples
+    help &lt;<b>cmdlet</b>&gt; -examples
 
     </td>
     <td>
@@ -130,7 +151,7 @@ can help you get started:
     </tr>
     <tr align="left" valign="top">
     <td>
-    get-help &lt;<b>cmdlet</b>&gt; -full
+    help &lt;<b>cmdlet</b>&gt; -full
 
     </td>
     <td>
@@ -537,7 +558,7 @@ Central US.
 
 To get a list of available locations, run the following cmdlet.
 
-    Get-Help Publish-AzureServiceProject -Parameter Location 
+    Help Publish-AzureServiceProject -Parameter Location 
 
 In the following example, the **Publish-AzureServiceProject** cmdlet is used to deploy the service to the Southeast Asia data center:
 
