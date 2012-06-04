@@ -220,6 +220,18 @@ All virtual machines that you create in Windows Azure can automatically communic
 	![Endpont successfully created] (../media/endpointwindowsnew.png)
 
 
+##Next Steps 
+
+To learn more about Linux on Windows Azure, see the following articles:
+
+- [Introduction to Linux on Windows Azure](/en-us/manage/linux/tutorials/intro-to-linux/)
+
+- [How to guides](/en-us/manage/linux/how-to-guides/)
+
+- [Common tasks](/en-us/manage/linux/common-tasks/)
+
+
+[Next Steps]: #next
 [What is a virtual machine in Windows Azure]: #virtualmachine
 [How to create a custom virtual machine running the Linux OS]: #custommachine
 [How to log on to the virtual machine after you create it]: #logon
