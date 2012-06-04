@@ -106,7 +106,8 @@ To build and run the application locally, follow the steps below. Note that thes
 
 4. In your web server's root directory, create a folder called `registration` and create a file in it called `index.php`.
 
-5. Open the **index.php** file in a text editor or IDE and add the basic HTML and CSS code for the page (the PHP code will be added in later steps).
+5. Open the **index.php** file in a text editor or IDE and add the following code, and complete the necessary changes marked with `//TODO:` comments.
+
 
 		<html>
 		<head>
@@ -134,72 +135,63 @@ To build and run the application locally, follow the steps below. Note that thes
 		      <input type="submit" name="submit" value="Submit" />
 		</form>
 		<?php
-
+			// DB connection info
+			//TODO: Update the values for $host, $user, $pwd, and $db
+			//using the values you retrieved earlier from the portal.
+			$host = "value of Data Source";
+			$user = "value of User Id";
+			$pwd = "value of Password";
+			$db = "value of Database";
+			// Connect to database.
+			try {
+				$conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
+				$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+			}
+			catch(Exception $e){
+				die(var_dump($e));
+			}
+			// Insert registration info
+			if(!empty($_POST)) {
+			try {
+				$name = $_POST['name'];
+				$email = $_POST['email'];
+				$date = date("Y-m-d");
+				// Insert data
+				$sql_insert = "INSERT INTO registration_tbl (name, email, date) 
+						   VALUES (?,?,?)";
+				$stmt = $conn->prepare($sql_insert);
+				$stmt->bindValue(1, $name);
+				$stmt->bindValue(2, $email);
+				$stmt->bindValue(3, $date);
+				$stmt->execute();
+			}
+			catch(Exception $e) {
+				die(var_dump($e));
+			}
+			echo "<h3>Your're registered!</h3>";
+			}
+			// Retrieve data
+			$sql_select = "SELECT * FROM registration_tbl";
+			$stmt = $conn->query($sql_select);
+			$registrants = $stmt->fetchAll(); 
+			if(count($registrants) > 0) {
+				echo "<h2>People who are registered:</h2>";
+				echo "<table>";
+				echo "<tr><th>Name</th>";
+				echo "<th>Email</th>";
+				echo "<th>Date</th></tr>";
+				foreach($registrants as $registrant) {
+					echo "<tr><td>".$registrant['name']."</td>";
+					echo "<td>".$registrant['email']."</td>";
+					echo "<td>".$registrant['date']."</td></tr>";
+		    	}
+		 		echo "</table>";
+			} else {
+				echo "<h3>No one is currently registered.</h3>";
+			}
 		?>
 		</body>
 		</html>
-
-6. Within the PHP tags, add PHP code for connecting to the database.  Update the values for `$host`, `$user`, `$pwd`, and `$db` using the values you retrieved earlier from the portal.
-
-		// DB connection info
-		$host = "value of Data Source";
-		$user = "value of User Id";
-		$pwd = "value of Password";
-		$db = "value of Database";
-
-		// Connect to database.
-		try {
-			$conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
-			$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-		}
-		catch(Exception $e){
-			die(var_dump($e));
-		}
-
-7. Following the database connection code, add code for inserting registration information into the database.
-
-		// Insert registration info
-		if(!empty($_POST)) {
-		try {
-			$name = $_POST['name'];
-			$email = $_POST['email'];
-			$date = date("Y-m-d");
-			// Insert data
-			$sql_insert = "INSERT INTO registration_tbl (name, email, date) 
-						   VALUES (?,?,?)";
-			$stmt = $conn->prepare($sql_insert);
-			$stmt->bindValue(1, $name);
-			$stmt->bindValue(2, $email);
-			$stmt->bindValue(3, $date);
-			$stmt->execute();
-		}
-		catch(Exception $e) {
-			die(var_dump($e));
-		}
-		echo "<h3>Your're registered!</h3>";
-		}
-
-8. Finally, following the code above, add code for retrieving data from the database.
-
-		// Retrieve data
-		$sql_select = "SELECT * FROM registration_tbl";
-		$stmt = $conn->query($sql_select);
-		$registrants = $stmt->fetchAll(); 
-		if(count($registrants) > 0) {
-			echo "<h2>People who are registered:</h2>";
-			echo "<table>";
-			echo "<tr><th>Name</th>";
-			echo "<th>Email</th>";
-			echo "<th>Date</th></tr>";
-			foreach($registrants as $registrant) {
-				echo "<tr><td>".$registrant['name']."</td>";
-				echo "<td>".$registrant['email']."</td>";
-				echo "<td>".$registrant['date']."</td></tr>";
-		    }
-		 	echo "</table>";
-		} else {
-			echo "<h3>No one is currently registered.</h3>";
-		}
 
 You can now browse to [http://localhost/registration/index.php][localhost-index] to test the application.
 
@@ -213,6 +205,10 @@ After you have tested your application locally, you can publish it to your Windo
 <p>These are the same steps shown in the portal at the end of the <b>Create a Windows Azure web site and Set up Git Publishing</b> section.</p>
 </div>
 
+1. (Optional)  If you've forgotten or misplaced your Git remote repostitory URL, navigate to the Deployment tab on the portal.
+	
+	![Get Git URL][git-instructions]
+
 1. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:
 
 		git init
@@ -223,7 +219,7 @@ After you have tested your application locally, you can publish it to your Windo
 
 	You will be prompted for the password you created earlier.
 
-2. Browse to **http://[site name].azurewebsites.net/index.php** to begin using the application:
+2. Browse to **http://[site name].azurewebsites.net/index.php** to begin using the application (this information will be stored on your account dashboard):
 
 	![Windows Azure PHP web site][running-app]
 
