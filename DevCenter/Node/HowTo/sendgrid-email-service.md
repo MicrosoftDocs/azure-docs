@@ -258,11 +258,9 @@ Now that you’ve learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
 -   SendGrid Node.js module repository: [sendgrid-nodejs][]
-
 -   SendGrid API documentation:
     [http://docs.sendgrid.com/documentation/api/][SendGrid API
     documentation]
-
 -   SendGrid special offer for Windows Azure customers:
     [http://sendgrid.com/azure.html][]
 
