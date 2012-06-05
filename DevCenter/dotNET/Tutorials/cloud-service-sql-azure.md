@@ -17,19 +17,6 @@ in a dedicated virtual machine (VM). The following illustration shows the comple
 
 ![screenshot of web application][0]
 
-## Tutorial segments
-
-1. [Create a Windows Azure account][]
-2. [Download a publishing profile][]
-2. [Set Up the development environment][]
-2. [Create an ASP.NET MVC 3 application][]
-3. [Make the application ready to deploy to Windows Azure][]
-4. [Deploy the application to Windows Azure][]
-5. [Add SQL Database support][]
-6. [Run the application in the cloud][]
-7. [Stop and delete the application][]
-8. [Next steps][]
-
 ## <a hame="create"></a>Create a Windows Azure account
 
 <div chunk="../../Shared/Chunks/create-azure-account.md" />
