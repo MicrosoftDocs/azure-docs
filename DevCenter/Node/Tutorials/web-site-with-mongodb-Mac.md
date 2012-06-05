@@ -411,7 +411,7 @@ Before using the command-line tools with Windows Azure, you must first download 
 		To https://username@mongodbtasklist.azurewebsites.net/MongoDBTasklist.git
  		 * [new branch]      master -> master
  
-4. Once the push operation has completed, browse to the web site URL returned previously by using the `azure site browse` command to view your application.
+4. Once the push operation has completed, browse to the web site by using the `azure site browse` command to view your application.
 
 ##Next steps
 
