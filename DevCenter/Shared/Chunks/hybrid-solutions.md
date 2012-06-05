@@ -432,7 +432,6 @@ its own list of trusted identity providers.
 For a deeper and more thorough understanding of identities and
 claims-based security systems, see:
 
--   [Access Control][]
 -   [Access Control Service (MSDN library)][]
 -   [Getting Started with Security and Claims-Based Identity Model][]
 -   [Web Service Federation Language][]
@@ -569,7 +568,7 @@ Azure.
   [image]: ../../../DevCenter/Shared/Media/building-hybrid-solutions-1.jpg
   [Windows Azure Service Bus Relay Load balancing (Scale & Availability Feature)]: http://blogs.msdn.com/b/avkashchauhan/archive/2011/10/27/windows-azure-appfabric-servicebus-relay-load-balancing-scale-amp-availability-feature.aspx
   [How to Use the Service Bus Relay Service]: ../../how-to-guides/service-bus-relay/
-  [Windows Azure Service Bus]: ../../../../home/features/service-bus/
+  [Windows Azure Service Bus]: ../../../../home/features/messaging/
   [Developer resources]: http://msdn.microsoft.com/ServiceBus
   [1]: #Different
   [2]: ../../../DevCenter/Shared/Media/building-hybrid-solutions-2.jpg
