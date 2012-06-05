@@ -780,7 +780,7 @@ For more information on quota-related errors, see [Understanding Quotas] and [Tr
 [http://msdn.microsoft.com/en-us/library/windowsazure/dd179382.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179382.aspx
 [https://help.ubuntu.com/]: https://help.ubuntu.com/
 [http://centos.org/]: http://centos.org/
-[http://wappowershell.codeplex.com/documentation]: 	[http://wappowershell.codeplex.com/documentation
+[http://wappowershell.codeplex.com/documentation]: 	http://wappowershell.codeplex.com/documentation
 [http://www.cerebrata.com]: http://www.cerebrata.com
 
 [Monitoring Pack]: http://www.microsoft.com/download/en/details.aspx?id=11324
