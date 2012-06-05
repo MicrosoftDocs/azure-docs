@@ -47,7 +47,7 @@ ScaleXtreme gives customers the power to build, launch, monitor, patch, and mana
 
 ##SUSE Studio
 
-[![SUSE](../media/manage/manage-partner-suse-studio.png) ](http://www.susestudio.com)
+[![SUSE](../media/manage/manage-partner-suse-stuido.png) ](http://www.susestudio.com)
 
 [www.susestudio.com](http://www.susestudio.com)
 
