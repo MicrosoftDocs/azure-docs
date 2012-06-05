@@ -2,7 +2,7 @@
 
 # Deploy an ASP.NET MVC Mobile Web Application on Windows Azure Web Sites
 
-This tutorial will teach you the basics of how to deploy a web application to to a Windows Azure website. For the purposes of this tutorial we will work with mobile features in an ASP.NET MVC 4 developer preview web application. To perform the steps in this tutorial, you can use Microsoft Visual Web Developer 2010 Express Service Pack 1 ("Visual Web Developer"), which is a free version of Microsoft Visual Studio. Or you can use Visual Studio 2010 SP1 if you already have that.
+This tutorial will teach you the basics of how to deploy a web application to to a Windows Azure web site. For the purposes of this tutorial we will work with mobile features in an ASP.NET MVC 4 developer preview web application. To perform the steps in this tutorial, you can use Microsoft Visual Web Developer 2010 Express Service Pack 1 ("Visual Web Developer"), which is a free version of Microsoft Visual Studio. Or you can use Visual Studio 2010 SP1 if you already have that.
 
 ## You will learn:
 
@@ -54,22 +54,16 @@ This tutorial shows code in C#. However, the starter project and completed proje
 - [Deploy the Applciation to the Windows Azure Web Site][]
 
 
-## Getting Started
-
-Set up the Windows Azure environment
-
-Set up the Windows Azure environment by creating a Windows Azure account and a Windows Azure Web Site.
-
 <a name="bkmk_createaccount"></a><h3>Create a Windows Azure account</h3>
 
-1.	Open a web browser, and browse to http://www.windowsazure.com.
-2.	To get started with a free account, click Free Trial in the upper-right corner and follow the steps.
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
 
-### Enable the Windows Azure Web Sites feature on your account
+### Enable Windows Azure Web Sites
 
-<div chunk="../../shared/chunks/antares-iaas-signup.md" />
+<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
-<h3>Create a website in Windows Azure</h3>
+
+<h3>Create a web site in Windows Azure</h3>
 
 Your Windows Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Windows Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to a Windows Azure cloud service. Cloud services run on dedicated VMs that you can configure according to your needs.
 

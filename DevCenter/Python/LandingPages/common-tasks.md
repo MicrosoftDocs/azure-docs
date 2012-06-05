@@ -19,9 +19,9 @@ Secure Socket Layer (SSL) encryption is the most commonly used method of securin
 ### [Using CDN for Windows Azure][]
 The Windows Azure Content Delivery Network (CDN) offers a global solution for delivering high-bandwidth content by caching blobs and static content at physical nodes around the world. This common task describes how to enable CDN and add, access, and delete content.
 
-[Installing Python and the SDK]: /en-us/develop/python/common-tasks/install-python/
-[Managing Windows Azure SQL Database using SQL Server Management Studio]: /en-us/develop/python/common-tasks/sql-azure-management/
-[Configuring a Custom Domain Name in Windows Azure]: /en-us/develop/python/common-tasks/custom-dns/
-[Enabling Remote Desktop in Windows Azure with Visual Studio]: /en-us/develop/python/common-tasks/remote-desktop/
-[Configuring SSL for an Application in Windows Azure]: /en-us/develop/python/common-tasks/enable-ssl/
-[Using CDN for Windows Azure]: /en-us/develop/python/common-tasks/cdn/
+[Installing Python and the SDK]: ../commontasks/how-to-install-python.md
+[Managing Windows Azure SQL Database using SQL Server Management Studio]: ../commontasks/sql-azure-management.md
+[Configuring a Custom Domain Name in Windows Azure]: ../commontasks/custom-dns.md
+[Enabling Remote Desktop in Windows Azure with Visual Studio]: ../commontasks/remote-desktop.md
+[Configuring SSL for an Application in Windows Azure]: ../commontasks/enable-ssl.md
+[Using CDN for Windows Azure]: ../commontasks/cdn.md

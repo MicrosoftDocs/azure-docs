@@ -62,9 +62,9 @@ can help you get started:
     [Windows PowerShell Getting Started Guide][].
 
 -   While you are working in Windows PowerShell, your best source of
-    help is the **Get-Help** cmdlet. The following table summarizes some
+    help is the **Help** cmdlet. The following table summarizes some
     common help requests. For more information, see [Getting Help:
-    Get-Help][get-help], or, in Windows PowerShell, type: **get-help**.
+    Help][get-help], or, in Windows PowerShell, type: **help**.
 
     <table border="1" cellspacing="4" cellpadding="4">
     <tbody>
@@ -80,17 +80,17 @@ can help you get started:
     </tr>
     <tr align="left" valign="top">
     <td>
-    get-help
+    help
 
     </td>
     <td>
-    Displays a help topic about using the <b>Get-Help</b> cmdlet
+    Displays a help topic about using the <b>help</b> cmdlet
 
     </td>
     </tr>
     <tr align="left" valign="top">
     <td>
-    get-help azure
+    help azure
 
     </td>
     <td>
@@ -98,9 +98,30 @@ can help you get started:
 
     </td>
     </tr>
+	</tr>
     <tr align="left" valign="top">
     <td>
-    get-help &lt;<b>cmdlet</b>&gt;
+    help node-dev
+
+    </td>
+    <td>
+    Lists cmdlets for developing and managing Node.js applications
+
+    </td>
+    </tr>
+	<tr align="left" valign="top">
+    <td>
+    help php-dev
+
+    </td>
+    <td>
+    Lists cmdlets for developing and managing PHP applications
+
+    </td>
+    </tr>
+    <tr align="left" valign="top">
+    <td>
+    help &lt;<b>cmdlet</b>&gt;
 
     </td>
     <td>
@@ -110,7 +131,7 @@ can help you get started:
     </tr>
     <tr align="left" valign="top">
     <td>
-    get-help &lt;<b>cmdlet</b>&gt; -parameter *
+    help &lt;<b>cmdlet</b>&gt; -parameter *
 
     </td>
     <td>
@@ -120,7 +141,7 @@ can help you get started:
     </tr>
     <tr align="left" valign="top">
     <td>
-    get-help &lt;<b>cmdlet</b>&gt; -examples
+    help &lt;<b>cmdlet</b>&gt; -examples
 
     </td>
     <td>
@@ -130,7 +151,7 @@ can help you get started:
     </tr>
     <tr align="left" valign="top">
     <td>
-    get-help &lt;<b>cmdlet</b>&gt; -full
+    help &lt;<b>cmdlet</b>&gt; -full
 
     </td>
     <td>
@@ -269,7 +290,6 @@ web role or worker role for the service.
 * **Add-AzureNodeWorkerRole**
 * **Add-AzurePHPWebRole**
 * **Add-AzurePHPWorkerRole**
-* **Add-AzurePythonWebRole** 
 
 When your application is deployed as a cloud service in Windows Azure,
 it runs as one or more *roles.* A *role* simply refers to the
@@ -280,7 +300,7 @@ programming, while a worker role is intended to support general
 development and periodic or long-running processes. For more information
 about service roles, see [Overview of Creating a Hosted Service for Windows Azure][].
 
-The cmdlets listed above create a role directory that is ready to run code written in the specified language (Node.js, PHP, or Python). After creating a role, you can put code in the role directory and run it in the compute emulator with the **Start-AzureEmulator** cmdlet or publish it to Windows Azure with the **Publish-AzureServiceProject** cmdlet.
+The cmdlets listed above create a role directory that is ready to run code written in the specified language (Node.js or PHP). After creating a role, you can put code in the role directory and run it in the compute emulator with the **Start-AzureEmulator** cmdlet or publish it to Windows Azure with the **Publish-AzureServiceProject** cmdlet.
 
 You can run these cmdlets with no parameters to create a
 single role instance with the name WebRole1 or WorkerRole1. Use the
@@ -538,7 +558,7 @@ Central US.
 
 To get a list of available locations, run the following cmdlet.
 
-    Get-Help Publish-AzureServiceProject -Parameter Location 
+    Help Publish-AzureServiceProject -Parameter Location 
 
 In the following example, the **Publish-AzureServiceProject** cmdlet is used to deploy the service to the Southeast Asia data center:
 

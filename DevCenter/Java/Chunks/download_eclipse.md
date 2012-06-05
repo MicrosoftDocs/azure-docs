@@ -1,4 +1,4 @@
-##Windows Azure Plugin for Eclipse with Java
+##Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)
 
 Prerequisites:
 
@@ -7,8 +7,9 @@ Prerequisites:
 
 Installation steps:
 
-1. Follow the directions in the previous section to install the Windows Azure Libraries for Java.
-2. Install the [Windows Azure SDK](http://www.microsoft.com/web/gallery/install.aspx?appid=WindowsAzureSDK).
-3. In Eclipse, from the **Help** menu, select **Install New Software**.
-4. Enter the site location <http://dl.windowsazure.com/eclipse> and press **Enter**.
-5. Select the items to be installed and click **Finish**.
+1. In Eclipse, from the **Help** menu, select **Install New Software**.
+2. Enter the site location <http://dl.windowsazure.com/eclipse> and press **Enter**.
+3. Select the items to be installed and click **Finish**.
+
+This plugin uses Windows Azure SDK 1.7. This can be downloaded using the Web Platform Installer (WebPI) at <http://www.microsoft.com/web/gallery/install.aspx?appid=WindowsAzureSDK>. However, if you don’t have it installed, when you create your first Windows Azure deployment project, the Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies) will automatically install Windows Azure SDK 1.7. 
+

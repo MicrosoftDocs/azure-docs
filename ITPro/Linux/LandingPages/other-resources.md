@@ -2,28 +2,29 @@
 
 #Other resources for Linux virtual machines
 
-<div chunk="../../shared/chunks/disclaimer.md" />
 
-###[How to Use the Service Management API](./howto-servicemgt-api/)
+<div chunk="../../Shared/Chunks/disclaimer.md" />
 
-Learn about the Windows Azure IaaS Service Management API which is invoked from Node.js.
-
-###[Windows Azure command-line tool for Mac and Linux](./command-line-tools/)
-
-Learn about this command-line that provides functionality for creating, deploying and managing virtual machines and web sites from Mac and Linux desktops. This functionality is similar to that provided by the PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS and PHP.
-
-###[Partner solutions for Linux in Windows Azure](./partner-solutions/)
- 
-Review a list of the partners who deliver Linux-based cloud solutions in Windows Azure.
-
-###[Linux on Windows Azure-Endorsed Distributions](./linux-on-endorsed-distributions/)
+###[Linux on Windows Azure-Endorsed Distributions](/en-us/manage/linux/other-resources/endorsed-distributions/)
 
 Learn which distribution versions, LIS drivers and Agent Versions have been tested to work on Windows Azure.
 
-###[Selecting User Names for Linux on Windows Azure](./usernames-in-linux/)
+
+###[Partner solutions for Linux in Windows Azure](/en-us/manage/linux/other-resources/partner-solutions/)
+
+Review a list of the partners who deliver Linux-based cloud solutions in Windows Azure.
+
+
+###[Windows Azure command-line tool for Mac and Linux](/en-us/manage/linux/other-resources/command-line-tools/)
+
+Learn about this command-line that provides functionality for creating, deploying and managing virtual machines and web sites from Mac and Linux desktops. This functionality is similar to that provided by the PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS and PHP.
+
+
+###[Selecting User Names for Linux on Windows Azure](/en-us/manage/linux/other-resources/user-names-in-linux/)
+
 Learn which user names you can't use on Windows Azure. 
 
-###[Windows Azure Training Kit](./training-kit/)
+###[Windows Azure Training Kit](/en-us/manage/linux/other-resources/training-kit/)
 
 The Windows Azure Training Kit includes a comprehensive set of technical
 content designed to help you learn how to use Windows Azure. The kit

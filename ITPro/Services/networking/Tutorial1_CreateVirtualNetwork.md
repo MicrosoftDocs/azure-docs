@@ -14,11 +14,11 @@ After completing this tutorial, you will have a virtual network to which you can
 For information about creating a virtual network with cross-premises connectivity (i.e., connecting to Active Directory or SharePoint located at your company), see the following tutorials:
 
 
-*  [Tutorial 2: Creating a Virtual Network for cross-premises connectivity](./Tutorial2_CreateVNetCrossPrem/)
+*  [Tutorial 2: Creating a Virtual Network for cross-premises connectivity](/en-us/manage/services/networking/cross-premises-connectivity/)
 
-*  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](./tutorial-AD-1/)
+*  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](/en-us/manage/services/networking/replica-domain-controller/)
 
-*  [Install a new Active Directory forest in Windows Azure](./tutorial-AD-2/)
+*  [Install a new Active Directory forest in Windows Azure](/en-us/manage/services/networking/active-directory-forest/)
 
 ##  Objectives
 
@@ -86,11 +86,11 @@ In this tutorial you will learn:
 If you'd like, you can continue with the following tutorials:
 
 
-- [Tutorial 3: Adding a Virtual Machine to a Virtual Network](./tutorial-AD-2/)
+- [Tutorial 3: Adding a Virtual Machine to a Virtual Network](/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
-*  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](./tutorial-AD-1/)
+*  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](/en-us/manage/services/networking/replica-domain-controller/)
 
-*  [Install a new Active Directory forest in Windows Azure](./Tutorial3_AddVMachineToVNet/)
+*  [Install a new Active Directory forest in Windows Azure](/en-us/manage/services/networking/active-directory-forest/)
 
 
 [Image1]: ../media/VNTut1_00_New.png

@@ -49,7 +49,7 @@ Next, set up the Windows Azure environment. You'll create a Windows Azure accoun
 ### Create a Windows Azure account
 
 1. Open a web browser, and browse to [http://www.windowsazure.com][windowsazure.com].
-2. To get started with a free account, click **Free Trial** in the upper-right corner and follow the steps. You'll need a credit card number and a mobile phone number.<br/>
+2. To get started with a free account, click **Free Trial** in the upper-right corner and follow the steps. You'll need a credit card number and a mobile phone number for proof of identity, but you will not be billed.<br/>
 ![Free trial screenshot][Image010]
 
 ### Enable Windows Azure Web Sites
@@ -70,9 +70,7 @@ Next, set up the Windows Azure environment. You'll create a Windows Azure accoun
 
 ### Create a web site and a SQL database in Windows Azure
 
-The next step is to create the Windows Azure Web Site and the SQL database that your application will use.
-
-Your Windows Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Windows Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to a Windows Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs.
+The next step is to create the Windows Azure web site and the SQL database that your application will use.
 
 SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
 
@@ -213,7 +211,7 @@ The **ToDoItem** class defines the data that you want to store for each to-do li
 		{
     		public class ToDoDb : DbContext
     		{
-        		public DbSet&lt;ToDoItem&gt; ToDoItems { get; set; }
+        		public DbSet<ToDoItem> ToDoItems { get; set; }
     		}
 		}
 The **ToDoDb** class lets the Entity Framework know that you want to use **ToDoItem** objects as entities in an entity set.  An entity set in the Entity Framework corresponds to a table in a database. This is all the information the Entity Framework needs in order to create the database for you.
@@ -308,6 +306,7 @@ To learn how to deploy an application to a Windows Azure Cloud Service, see [The
 
 * You want administrator permissions on the web server that the application runs on.
 * You want to use Remote Desktop Connection to access the web server that the application runs on. 
+* Your application is multi-tier and you want to distribute work across multiple virtual servers (web and workers).
 
 Another way to store data in a Windows Azure application is to use Windows Azure Storage Services, which provides non-relational data storage in the form of blobs and tables. The to-do list application could have been designed to use Windows Azure Storage instead of SQL Database. For more information about both SQL Database and Windows Azure Storage, see [Data Storage Offerings on Windows Azure][WindowsAzureDataStorageOfferings].
 
@@ -335,8 +334,8 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [Deploy the application update to Windows Azure and SQL Database]: #deploydatabaseupdate
 [Important information about ASP.NET in Windows Azure Web Sites]: #aspnetwindowsazureinfo
 [Next steps]: #nextsteps
-[Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=252834
-[Windows Azure SDK for Visual Studio 2012 RC]: http://go.microsoft.com/fwlink/?LinkID=252835
+[Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=254364
+[Windows Azure SDK for Visual Studio 2012 RC]:  http://go.microsoft.com/fwlink/?LinkId=254269
 [NewPortal]: http://manage.windowsazure.com
 [WTEInstall]: http://go.microsoft.com/fwlink/?LinkID=208120
 [MVC4Install]: http://www.asp.net/mvc/mvc4

@@ -6,8 +6,7 @@ This guide shows you how to perform common scenarios using the Windows
 Azure Queue service. The samples are written using the Node.js
 API. The scenarios covered include **inserting**, **peeking**,
 **getting**, and **deleting**queue messages, as well as **creating and
-deleting queues**. For more information on queues, refer to the [Next
-Steps][] section.
+deleting queues**. For more information on queues, refer to the [Next Steps][] section.
 
 ## Table of Contents
 

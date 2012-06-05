@@ -50,17 +50,16 @@ Next, set up the Windows Azure environment by creating a Windows Azure account, 
 
 ### Create a Windows Azure account
 
-1. Open a web browser, and browse to [http://www.windowsazure.com][windowsazure.com].
-2. To get started with a free account, click **Free Trial** in the upper-right corner and follow the steps.<br/>
-![Free trial screenshot][setup003]
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
 
-### Enable the Windows Azure Web Sites feature on your account
+### Enable Windows Azure Web Sites
 
-<div chunk="../../shared/chunks/antares-iaas-signup.md" />
+<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
-### Create a website and a SQL database in Windows Azure
 
-The next step is to create the Windows Azure website and the SQL database that your application will use.
+### Create a web site and a SQL database in Windows Azure
+
+The next step is to create the Windows Azure web site and the SQL database that your application will use.
 
 Your Windows Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Windows Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to a Windows Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs.
 
@@ -70,7 +69,7 @@ SQL Database is a cloud-based relational database service that is built on SQL S
 ![New button in Management Portal][setup004]
 2. Click **Web Site**, and then click **Create with Database**.<br/>
 ![Create with Database link in Management Portal][setup005]<br/>
-The **New Web Site - Create with Database** wizard opens. The Create with Database wizard enables you to create a website and a database at the same time.
+The **New Web Site - Create with Database** wizard opens. The Create with Database wizard enables you to create a web site and a database at the same time.
 3. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application.<br/>The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "contactmanager", but if someone has already taken that URL you have to choose a different one.
 4. In the **Database** drop-down list, choose **Create a new SQL database**.
 5. In the **Region** drop-down list, choose the region that is closest to you.<br/>
@@ -85,10 +84,10 @@ The wizard advances to the **Database Settings** step.
 The wizard advances to the **Create a Server** step.
 10. Enter an administrator name and password.
 You aren't entering an existing name and password here. You're entering a new name and password that you're defining now to use later when you access the database.
-11. In the **Region** box, choose the same region that you chose for the website.
+11. In the **Region** box, choose the same region that you chose for the web site.
 Keeping the web server and the database server in the same region gives you the best performance.
 12. Make sure that **Allow Windows Azure Services to access the server** is selected.
-This option is selected by default. It creates a firewall rule that allows your Windows Azure website to access this database.
+This option is selected by default. It creates a firewall rule that allows your Windows Azure web site to access this database.
 13. Click the check mark at the bottom of the box to indicate you're finished.
 ![Create a Server step of New Web Site - Create with Database wizard][setup008]
 The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon, and the number of databases appears next to the **SQL Databases** icon.<br/>

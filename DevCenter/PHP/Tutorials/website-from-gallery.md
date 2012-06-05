@@ -8,5 +8,5 @@
 You've seen how to create and deploy a web site from the gallery. To learn more about how to create, configure, deploy, and scale Windows Azure web sites, check out these resources:
 
 - [Create a PHP-MySQL Windows Azure web site and deploy using Git](/en-us/develop/php/tutorials/website-w-mysql-and-git/) -- Create an PHP website from scratch and deploy it to a Windows Azure web site using Git
-- [More PHP tutorials] (/en-us/develop/php/tutorials/) - Create additional types of applications using PHP and Windows Azure
+- [More PHP tutorials](/en-us/develop/php/tutorials/) - Create additional types of applications using PHP and Windows Azure
 

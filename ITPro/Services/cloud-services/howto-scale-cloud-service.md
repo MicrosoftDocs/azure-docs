@@ -1,6 +1,9 @@
 <properties umbracoNaviHide="0" pageTitle="How to Scale a Cloud Service and Linked Resources" metaKeywords="Windows Azure cloud services, cloud service, scale cloud service, scale, scale linked resources" metaDescription="Learn how to scale a cloud service and linked resources." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" />
 #How to Scale a Cloud Service and Linked Resources
 
+<div chunk="../../Shared/Chunks/disclaimer.md" />
+
+
 On the **Scale** page of the Windows Azure (Preview) Management Portal, you can scale your cloud service by adding or removing role instances. If you link a SQL Database to your cloud service (using **Link** on **Linked Resources**), you can scale the database also.
 
 

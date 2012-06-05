@@ -17,33 +17,26 @@ in a dedicated virtual machine (VM). The following illustration shows the comple
 
 ![screenshot of web application][0]
 
-## Tutorial segments
+## <a hame="create"></a>Create a Windows Azure account
 
-1. [Set Up the development environment][]
-2. [Create an ASP.NET MVC 3 application][]
-3. [Make the application ready to deploy to Windows Azure][]
-4. [Deploy the application to Windows Azure][]
-5. [Add SQL Database support][]
-6. [Run the application in the cloud][]
-7. [Stop and delete the application][]
-8. [Next steps][]
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
 
 ## <a name="setup"></a>Set up the development environment
 
 To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. 
 
-1.  To install the Windows Azure SDK for .NET, click the following button:
-
-    [Get Tools and SDK][]
+1. To install the Windows Azure SDK for .NET, click the link that corresponds to the version of Visual Studio you are using. If you don't have Visual Studio installed yet, use the Visual Studio 2012 link.<br/>
+	[Windows Azure SDK for Visual Studio 2010][]<br/>
+	[Windows Azure SDK for Visual Studio 2012 RC][]
 
     When prompted to run or save WindowsAzureSDKForNet.exe, click **Run**:
 
     ![Click Run when prompted to run or save the SDK file][1]
 
 2.  Click **Install** in the installer window and proceed with the
-    installation:
+    installation.
 
-    ![Web Platform Installer - Windows Azure SDK for .NET][2]
+    ![Web Platform Installer - Windows Azure SDK for .NET][Image003]
 
     Once the installation is complete, you have everything
     necessary to start developing.
@@ -52,21 +45,24 @@ To start, set up your development environment by installing the Windows Azure SD
 
 ### Create the project
 
-1.  Start Microsoft Visual Studio
-    2010 or Microsoft Visual Web Developer Express 2010 with administrator privileges. Right-click Microsoft
-    Visual Studio 2010 (or Microsoft Visual Web Developer Express 2010) in the Windows Start menu
+1.  Start Microsoft Visual Studio or Microsoft Visual Web Developer Express  with administrator privileges. Right-click Microsoft
+    Visual Studio (or Microsoft Visual Web Developer Express) in the Windows Start menu
     and then click **Run as administrator**.<br/>
     The Windows Azure compute emulator, discussed later in this guide, requires that Visual Studio
     be launched with administrator privileges.
 
-2.  In the **File** menu, click **New**, and then click
-    **Project**.
+2.  In Visual Studio, in the **File** menu, click **New**, and then click
+    **Project**.  In Visual Web Developer or VS Express, in the **File** menu, click **New Project**.
 
     ![Click New Project in File menu][3]
 
-2.  Under **Installed Templates**, expand **Visual C#**, click **Web**, and then click
-    **ASP.NET MVC 3 Web Application**.
-3.  Name the application **ToDoListApp**, and then click **OK**:
+3. In the **New Project** dialog box, expand **C#** and select **Web** under **Installed Templates** and then select **ASP.NET MVC 3 Web Application**.
+
+   Note: In Visual Web Developer, this template can be found under **Installed Templates** > **Visual C#** > **Web**.
+ 
+3. If you are using Visual Studio 2012, change the **.NET Framework** drop-down list value to **.NET Framework 4**. 
+
+4. Name the application **ToDoListApp** and click **OK**.<br/>
 
     ![New Project dialog box][4]
 
@@ -97,19 +93,20 @@ Run the application to verify that it works.
 
 ## <a name="making"></a>Make the application ready to deploy to a Windows Azure Cloud Service
 
-Now, prepare the application to run in a Windows Azure hosted
-service. The application needs to include a Windows Azure deployment
-project before it can be deployed to the cloud. The deployment project
+Now, prepare the application to run in a Windows Azure cloud
+service. The application needs to include a Windows Azure cloud service
+project before it can be deployed to the cloud. The cloud service project
 contains configuration information that is needed to run the
 application in the cloud.
 
 1.  Right click the
-    **ToDoListApp** project in **Solution Explorer**, and then click **Add Windows Azure
-    Deployment Project**:
+    **ToDoListApp** project in **Solution Explorer**, and then click **Add Windows Azure Cloud Service Project**:
 
     ![Add Windows Azure Deployment Project in menu][8]
 
 To enable the built-in membership provider you must use the ASP.NET Universal Providers. This provider enables the account management capabilities in your application. 
+
+You can use NuGet to get the providers package. 
 
 2.  In **Solution Explorer**,
     right-click the **ToDoListApp** project, and then click **Manage NuGet
@@ -118,17 +115,16 @@ To enable the built-in membership provider you must use the ASP.NET Universal Pr
 
     ![Manage NuGet Packages in menu][9]
 
-3.  In the **ToDoListApp – Manage NuGet Packages** dialog, in the
-    top right corner in the **Search Online** field, enter
+4.  In the **ToDoListApp – Manage NuGet Packages** dialog, click the **Online** node in the left pane to expose the search field.
+
+5.  In the top right corner in the **Search Online** field, enter
     **"universal providers"**:
 
     ![Searching for Universal Providers in NuGet][10]
 
-4.  Select the **"ASP.NET Universal Providers"** package, and then click
-    **Install**. 
+4.  Select the **"ASP.NET Universal Providers"** package (note that the Id in the right pane should be "System.Web.Providers,") and then click **Install**. 
 
-5.  Close the **ToDoListApp – Manage NuGet Packages**
-    dialog after installation is complete.
+5.  Close the **ToDoListApp – Manage NuGet Packages** dialog after installation is complete.
 
 5.  In **Solution Explorer**, open the Web.config file in the root directory
     of the ToDoListApp project.
@@ -166,20 +162,11 @@ machine to publish packages to Windows Azure using Visual Studio.
 
 ### Create a Windows Azure account
 
-1.  Open a web browser, and browse to [http://www.windowsazure.com][].
-
-    To get started with a free account, click **free trial** in the upper
-    right corner and follow the steps.
-
-    ![Free Trial link in windowsazure.com][13]
-
-    Your account is now created. You are ready to deploy your
-    application to Windows Azure.
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
 
 ### Publish the application
 
-1.  Right-click the **ToDoListApp** project in **Solution Explorer** and
-    click **Publish to Windows Azure**.
+1.  Right-click the **ToDoListApp.Azure** Windows Azure cloud service project in **Solution Explorer**. Depending on your version of Visual Studio, click **Publish** or **Publish to Windows Azure** in the context menu to start the publishing process.
 
     ![Publish to Windows Azure in project context menu][14]
 
@@ -211,17 +198,17 @@ machine to publish packages to Windows Azure using Visual Studio.
 
         ![Choose the subscription][19]
 
-    7.  If your subscription doesn’t already contain any hosted
-        services, you are asked to create one. The hosted service
+    7.  If your subscription doesn’t already contain any cloud
+        services, you are asked to create one. The cloud service
         acts as a container for the application within your Windows
         Azure subscription. Enter a name that identifies the
         application, and choose the region for which the application
         should be optimized. (You can expect faster loading times for
         users accessing it from this region.)
 
-        ![Enter the hosted service name and location][20]
+        ![Enter the cloud service name and location][20]
 
-    8.  Select the hosted service you would like to publish your
+    8.  Select the cloud service you would like to publish your
         application to. Keep the defaults for the
         remaining settings. Click **Next**:
 
@@ -245,10 +232,13 @@ machine to publish packages to Windows Azure using Visual Studio.
 
         ![Visual Studio showing docked Windows Azure Activity Log window][23]
 
-    11. When deployment is complete, you can view the website by
-        clicking the **Website URL** link in the monitoring window:
+    11. Double-click on any activity log entry (for example, "Deploying ToDoListApp.Azure to ToDoListApp955 - Production" in the screenshot above) to open a more detailed monitoring view that provides information about your deployment. 
 
-        ![Windows Azure Activity Log window][24]<br/>
+    11. When deployment is complete, you can view your new site by
+        clicking the **Website URL** link in the monitoring view:
+
+        ![Windows Azure Activity Log window][24]
+
         ![screen shot of home page running in Windows Azure][25]
 
 ## <a name="adding"></a>Add SQL Database support
@@ -313,14 +303,11 @@ that uses the model and data context you created earlier to perform create, read
 
 1.  In **Solution Explorer**, right-click the **Controllers** folder and click **Add**, and then click **Controller**.
 
-    ![Add Controller in context menu][26]
-
 2.  In the **Add Controller** window, enter HomeController as the 
     controller name, and then select the **Controller with read/write actions
     and views, using Entity Framework** template. Scaffolding also
     writes code that uses a model and a data context. Select **ToDoItem** as
-    the model class and **ToDoDb** as the data context class, as shown in
-    the screenshot:
+    the model class and **ToDoDb** as the data context class.
 
     ![Add Controller dialog box][27]
 
@@ -357,101 +344,59 @@ that uses the model and data context you created earlier to perform create, read
 
 1.  The next step is to configure the application to store data in the
     cloud. First, create a SQL Database server. Log in to the
-    [Windows Azure Management Portal][] and click **Database**:
+    [Windows Azure Management Portal][]. In the left navigation pane, click **SQL Databases**.
+
+2.  In the middle pane, click **Create a SQL Database**.
 
     ![Windows Azure Management Portal - Database tab][29]
 
-2.  On the top of the left pane, click the subscription associated with
-    your SQL Database account:
-
-    ![Windows Azure Management Portal - selecting the subscription][30]
-
-3.  From the top menu, click **Create**.
-
-4.  In the **Create Server** dialog box, select the region for which you want database
-    access to be optimized, and then click **Next**:
-
-    **Important:** Pick the same region that you choose earlier when
-    deploying your application. This will give you the best performance.
+3.  Specify ToDoListDB as the name for your database, and select **New SQL Database server** as the server. You can use the default values for the other fields.
 
     ![Create Server dialog box][31]
 
-5.  Enter an administrator user name and password.
+4. Specify a login name and password. 
 
-    **Note:** These are the credentials for your administrative account
+   **Note:** These are the credentials for your administrative account
     and give you full access to all databases on the server.
+ 
+    Select the region closest to you as the hosting data center location--this will give you the best performance. 
 
-6.  Click **Next**.
+    Leave the **Allow Windows Azure services to access the server** box checked.
 
-7.  The next dialog prompts you to create firewall rules for the
-    server. Firewall rules identify specific IP addresses or ranges of
-    IP addresses that are able to communicate directly with your SQL
-    Azure server. Add a new rule by clicking **Add**. In the **Add Firewall Rule** dialog, and then enter the values shown in the following table. This 
-    enables your local application to communicate with SQL Database but
-    blocks other IP addresses from communicating directly with your
-    server.
+    ![Specify user and settings][100]
 
-    <table border="2" cellspacing="0" cellpadding="5" style="border: #000000 2px solid;">
-    <tbody>
-    <tr>
-    <th>
-    Name
+6.  Click the check box to complete the database creation.
 
-    </th>
-    <th>
-    Value
+7.  Next, configure the firewall for your new server to allow connections through. Click **Servers** at the top of the page. 
 
-    </th>
-    </tr>
-    <tr>
-    <td>
-    Rule name
+8.  Click on the server you just created so that you see a white arrow to the right. Click on the arrow to open the server page.
 
-    </td>
-    <td>
-    local development environment
+    ![Image5][101]
 
-    </td>
-    </tr>
-    <tr>
-    <td>
-    IP range start
+3. On the server page, click **Configure** to open the firewall configuration settings and specify the rule as follows: 
 
-    </td>
-    <td>
-    (Type the IP address of the computer you are using. The IP address
-    is listed at the bottom of the dialog.)
+    ![Image6][102]
 
-    </td>
-    </tr>
-    <tr>
-    <td>
-    IP range end
+	* Copy the current client IP address. This is the IP address that your  router or proxy server is listening on. SQL Database detects the IP address used by the current connection so that you can create a firewall rule to accept connection requests from this device. 
 
-    </td>
-    <td>
-    (Type the IP address of the computer you are using.)
+	* Paste the IP address into both the beginning and end range. Later, if you encounter connection errors indicating that the range is too narrow, you can edit this rule to widen the range.
 
-    </td>
-    </tr>
-    </tbody>
-    </table>
-8.  Click **OK**.
+	* Enter a name for the firewall rule, such as the name of your ToDoListDevRule.
 
-9.  Select the **Allow other Windows Azure services to access this server**
-    check box.
+* 	Click the checkmark to save the rule.
 
-    ![firewall rules in Create Server dialog box][32]
+    After you save the rule, your page will look similar to the following screenshot.
 
-11. Click **Finish**.
+    ![Image7][103]
 
-10. **Important:** In addition to configuring the SQL Database server-side
+4. Click **Save** at the bottom of the page to complete the step. If you do not see **Save**, refresh the browser page.
+
+    **Important:** In addition to configuring the SQL Database server-side
     firewall, you must also configure your client-side environment to
     allow outbound TCP connections over TCP port 1433. For more
     information, see [Security Guidelines for SQL Database][].
 
-12. You now see an entry for your new server in the left menu. The
-    fully qualified domain name of the server uses the following format:
+12. Before going back to Visual Studio, you need to get the fully-qualified name of your server. The fully qualified domain name of the server uses the following format:
 
     &lt;ServerName>.database.windows.net
 
@@ -541,14 +486,13 @@ server time for hosting these web role instances.
 
 The following steps show you how to stop and delete your application.
 
-1.  Log in to the [Windows Azure Management Portal][], click **Hosted Sevices, Storage
-    Accounts & CDN**, and then click **Hosted Services**:
+1.  Log in to the [Windows Azure Management Portal][], click **Cloud Services**, and then click your application:
 
-    ![Windows Azure Management Portal, selecting Hosted Services pane][38]
+    ![Cloud Services pane][106]
 
-2.  Click **Stop** to temporarily suspend the application. You can start it again just by clicking **Start**. Click **Delete** to completely remove the application from Windows Azure with no ability to restore it.
+2.  At the bottom of the Dashboard, click **Stop** to temporarily suspend the application. You can start it again just by clicking **Start**. Click **Delete** to completely remove the application from Windows Azure with no ability to restore it.
 
-    ![Delete and Stop buttons in Windows Azure Management Portal][39]
+    ![Cloud Services dashboard][107]
 
 ## <a name="summary"></a>Next steps
 
@@ -558,6 +502,10 @@ that is hosted in a Windows Azure Cloud Service and stores data in SQL Database.
 * Review the [SQL Database How-to Guide][] to learn more about using SQL Database.
 * Complete the [Multi-tier Application Tutorial][] to further your knowledge about Windows Azure by creating a website that leverages a background worker role to process data.
 
+  [Create a Windows Azure account]: #create  
+  [Download a publishing profile]: #profile
+  [Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=254364
+  [Windows Azure SDK for Visual Studio 2012 RC]:  http://go.microsoft.com/fwlink/?LinkId=254269
   [0]: ../media/dev-net-getting-started-1.png
   [Set Up the development environment]: #setup
   [Create an ASP.NET MVC 3 application]: #creating
@@ -567,50 +515,57 @@ that is hosted in a Windows Azure Cloud Service and stores data in SQL Database.
   [Run the application in the cloud]: #running
   [Stop and delete the application]: #stopping
   [Next steps]: #summary
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkID=234939
+  [Image003]: ../Media/Dev-net-getting-started-003.png
   [1]: ../Media/dev-net-getting-started-3.png
   [2]: ../media/dev-net-getting-started-4.png
-  [3]: ../media/dev-net-getting-started-5.png
-  [4]: ../media/dev-net-getting-started-6.png
-  [5]: ../media/dev-net-getting-started-7.png
+  [3]: ../media/cloudservice-5.png
+  [4]: ../media/cloudservice-6.png
+  [5]: ../media/cloudservice-7.png
   [6]: ../media/dev-net-getting-started-8.png
   [7]: ../media/dev-net-getting-started-9.png
-  [8]: ../media/dev-net-getting-started-10.png
-  [9]: ../media/dev-net-getting-started-27-1.png
-  [10]: ../media/dev-net-getting-started-27-2.png
+  [8]: ../media/cloudservice-10.png
+  [9]: ../media/cloudservice-27-1.png
+  [10]: ../media/cloudservice-27-2.png
   [11]: ../media/dev-net-getting-started-10a.png
   [12]: ../media/dev-net-getting-started-11.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [13]: ../media/dev-net-getting-started-12.png
-  [14]: ../media/dev-net-getting-started-13.png
-  [15]: ../media/dev-net-getting-started-14.png
+  [14]: ../media/cloudservice-13.png
+  [15]: ../media/cloudservice-14.png
   [16]: ../media/dev-net-getting-started-15.png
   [17]: ../media/dev-net-getting-started-16.png
-  [18]: ../media/dev-net-getting-started-17.png
-  [19]: ../media/dev-net-getting-started-18.png
-  [20]: ../media/dev-net-getting-started-19.png
-  [21]: ../media/dev-net-getting-started-20.png
-  [22]: ../media/dev-net-getting-started-21.png
-  [23]: ../media/dev-net-getting-started-23.png
-  [24]: ../media/dev-net-getting-started-24.png
+  [18]: ../media/cloudservice-17.png
+  [19]: ../media/cloudservice-18.png
+  [20]: ../media/cloudservice-19.png
+  [21]: ../media/cloudservice-20.png
+  [22]: ../media/cloudservice-21.png
+  [23]: ../media/cloudservice-23.png
+  [24]: ../media/cloudservice-24.png
   [25]: ../media/dev-net-getting-started-25.png
   [Data Storage Offerings on Windows Azure]: http://social.technet.microsoft.com/wiki/contents/articles/data-storage-offerings-on-the-windows-azure-platform.aspx
   [26]: ../media/dev-net-getting-started-26.png
-  [27]: ../media/dev-net-getting-started-27.png
+  [27]: ../media/cloudservice-27.png
   [28]: ../media/dev-net-getting-started-28.png
-  [29]: ../media/dev-net-getting-started-29.png
+  [29]: ../media/cloudservice-29.png
   [30]: ../media/dev-net-getting-started-30.png
-  [31]: ../media/dev-net-getting-started-31.png
+  [31]: ../media/cloudservice-31.png
   [Security Guidelines for SQL Database]: http://social.technet.microsoft.com/wiki/contents/articles/security-guidelines-for-sql-azure.aspx
   [32]: ../media/dev-net-getting-started-32.png
   [33]: ../media/dev-net-getting-started-33.png
   [Adding Users to Your SQL Database Instance]: http://blogs.msdn.com/b/sqlazure/archive/2010/06/21/10028038.aspx
-  [34]: ../media/dev-net-getting-started-35.png
-  [35]: ../media/dev-net-getting-started-36.png
+  [34]: ../media/cloudservice-21.png
+  [35]: ../media/cloudservice-24.png
   [36]: ../media/dev-net-getting-started-37.png
   [37]: ../media/dev-net-getting-started-38.png
   [38]: ../media/dev-net-getting-started-39.png
   [39]: ../media/dev-net-getting-started-40.png
+  [100]: ../media/newcloudservice100.png
+  [101]: ../media/cloudservice101.png
+  [102]: ../media/cloudservice102.png
+  [103]: ../media/cloudservice103.png
+  [106]: ../media/cloudservice106.png
+  [107]: ../media/cloudservice107.png
   [SQL Database How-to Guide]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
   [Multi-tier Application Tutorial]: http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-application/

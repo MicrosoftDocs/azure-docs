@@ -27,7 +27,8 @@ A screenshot of the completed application will be similar as below (the added ta
 
 ## <a id="setup"> </a>Setting Up the Development Environment
 
-please see the [Installation Guide][] for information on how to set up your Python, Django and Azure environments.
+**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../commontasks/how-to-install-python.md).
+
 
 
 *Note for Windows*: if you used the Windows WebPI installer, you already have Django and the Client Libs installed.
@@ -102,13 +103,13 @@ Here are the steps for creating the app:
 ## Import windowsazure storage module
 Add following code on the top of **views.py** just after Django imports
 
-        from azure.storage import TableService
+		from azure.storage import TableService
 
 ## Get storage account name and account key
 Add the following code to **views.py** just after the windowsazure import, and replace  'youraccount' and 'yourkey' with your real account name and key. You can get an account name and key from azure management portal. 
 
-        account_name = 'youraccount'
-        account_key = 'yourkey'
+		account_name = 'youraccount'
+		account_key = 'yourkey'
 
 ## Create TableService
 Add following code after “account_name …”
@@ -120,41 +121,41 @@ Add following code after “account_name …”
 Add function list_tasks to **views.py**:
 
 		def list_tasks(request): 
-		    entities = table_service.query_entities('mytasks', '', 'name,category,date,complete')    
-		    html = render_to_string('mytasks.html', Context({'entities':entities}))
+			entities = table_service.query_entities('mytasks', '', 'name,category,date,complete')    
+			html = render_to_string('mytasks.html', Context({'entities':entities}))
 		    return HttpResponse(html)
 
 ##  Add task
 Add the function add_task to **views.py**:
 
 		def add_task(request):
-		    name = request.GET['name']
-		    category = request.GET['category']
-		    date = request.GET['date']
-		    table_service.insert_entity('mytasks', {'PartitionKey':name+category, 'RowKey':date, 'name':name, 'category':category, 'date':date, 'complete':'No'}) 
-		    entities = table_service.query_entities('mytasks', '', 'name,category,date,complete')    
-		    html = render_to_string('mytasks.html', Context({'entities':entities}))
+			name = request.GET['name']
+			category = request.GET['category']
+			date = request.GET['date']
+			table_service.insert_entity('mytasks', {'PartitionKey':name+category, 'RowKey':date, 'name':name, 'category':category, 'date':date, 'complete':'No'}) 
+			entities = table_service.query_entities('mytasks', '', 'name,category,date,complete')    
+			html = render_to_string('mytasks.html', Context({'entities':entities}))
 		    return HttpResponse(html)
 
 ## Update task status
 Add the function update_task to **views.py**:
 
 		def update_task(request):
-		    name = request.GET['name']
-		    category = request.GET['category']
-		    date = request.GET['date']
-		    partition_key = name + category
-		    row_key = date
-		    table_service.update_entity('mytasks', partition_key, row_key, {'PartitionKey':partition_key, 'RowKey':row_key, 'name': name, 'category':category, 'date':date, 'complete':'Yes'})
-		    entities = table_service.query_entities('mytasks', '', 'name,category,date,complete')    
-		    html = render_to_string('mytasks.html', Context({'entities':entities}))
-		    return HttpResponse(html)
+			name = request.GET['name']
+			category = request.GET['category']
+			date = request.GET['date']
+			partition_key = name + category
+			row_key = date
+			table_service.update_entity('mytasks', partition_key, row_key, {'PartitionKey':partition_key, 'RowKey':row_key, 'name': name, 'category':category, 'date':date, 'complete':'Yes'})
+			entities = table_service.query_entities('mytasks', '', 'name,category,date,complete')    
+			html = render_to_string('mytasks.html', Context({'entities':entities}))
+			return HttpResponse(html)
 
 
 ## Mapping urls
 Now you need to map the URLs in the Django app. Open **urls.py** and add following mappings to urlpatterns:
 
-    	url(r'^$', 'TableserviceSample.views.list_tasks'),
+   		url(r'^$', 'TableserviceSample.views.list_tasks'),
     	url(r'^list_tasks$', 'TableserviceSample.views.list_tasks'),
     	url(r'^add_task$', 'TableserviceSample.views.add_task'),
     	url(r'^update_task$', 'TableserviceSample.views.update_task'),
@@ -189,5 +190,5 @@ Now that you’ve learned the basics of the Windows Azure Table service, follow 
 [container-acl]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
 
-[Installation Guide]: ../commontasks/install-python
-[Django Hello World Web Application]: http://www.windowsazure.com/en-us/develop/python/tutorials/django-helloworld
+[Installation Guide]: ../commontasks/how-to-install-python.md 
+[Django Hello World Web Application]: ./django-helloworld.md

@@ -11,27 +11,29 @@ You'll build a Word press blog that uses a default template. The following illus
 
 ![Wordpress blog][13]
 
-## Create a Windows Azure account and enable the Web Sites preview
+## Create a Windows Azure account
 
-1. Open a web browser, and browse to [http://www.windowsazure.com](http://www.windowsazure.com).
+1. Open a web browser and browse to [http://www.windowsazure.com][].
 
-2. To get started with a free account, click **Free Trial** in the upper-right corner and follow the steps.<br/>
+2. To get started with a free account, click **Free Trial** in the upper-right corner and follow the steps. You'll need a credit card number and a mobile phone number for proof of identity, but you will not be billed.
 
-	![Free trial screenshot][1]
+ ![Windows Azure Website][0]
+ 
+## Enable Windows Azure Web Sites
 
-3. Next, sign up for the Windows Azure Web Sites preview. Navigate to  [https://account.windowsazure.com/]() and sign in with your Windows Azure account.
+1.	Navigate to [https://account.windowsazure.com/](https://account.windowsazure.com/) and sign in with your Windows Azure account.
 
-4. Click **preview features** to enable the Windows Azure Web Sites feature on your account.
+2.	Click **preview features** to view the available previews.
 	
-	![open preview features tab][2]
+	![open preview features tab][14]
 
-2.	Select Windows Azure Web Sites and click **try it now**.
-	
-	![select a preview feature][3]
+2.	Scroll down to **Web Sites** and click **try it now**.
+
+	![select a preview feature][15]
 
 3.	Select your subscription and click the check.
-	
-	![select subscription][4]
+
+	![select subscription][16]
 
 ## Create a web site in the portal
 
@@ -99,3 +101,8 @@ After you click **Complete** Windows Azure will initiate build and deploy operat
 [11]: ../media/wordpressgallery-07.png
 [12]: ../media/wordpressgallery-08.png
 [13]: ../media/wordpressgallery-09.png
+[http://www.windowsazure.com]: http://www.windowsazure.com
+[0]: ../../devcenter/shared/media/freetrialonwindowsazurehomepage.png
+[14]: ../../devcenter/shared/media/antares-iaas-preview-01.png
+[15]: ../../devcenter/shared/media/antares-iaas-preview-05.png
+[16]: ../../devcenter/shared/media/antares-iaas-preview-06.png

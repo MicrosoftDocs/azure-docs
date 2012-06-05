@@ -51,9 +51,13 @@ There are four basic steps that have to be performed before you can make a call 
 * Objects of the `Configuration` class carry your authentication information and are required for instantiating any Azure REST call wrapper.  If you do not have a storage account you can copy this code as is and create one in the section for that near the end of this guide.
 
 		$config = new Configuration();
-		$config->setProperty(TableSettings::ACCOUNT_NAME, '[YOUR_STORAGE_ACCOUNT_NAME]');
-		$config->setProperty(TableSettings::ACCOUNT_KEY, '[YOUR_STORAGE_ACCOUNT_KEY]');
-		$config->setProperty(TableSettings::URI, 'http://' . '[YOUR_STORAGE_ACCOUNT_NAME]' . '.table.core.azure-preview.com');
+		$config->setProperty(TableSettings::ACCOUNT_NAME, 
+			'[YOUR_STORAGE_ACCOUNT_NAME]');
+		$config->setProperty(TableSettings::ACCOUNT_KEY,
+			'[YOUR_STORAGE_ACCOUNT_KEY]');
+		$config->setProperty(TableSettings::URI, 
+			'http://' . '[YOUR_STORAGE_ACCOUNT_NAME]' .
+			'.table.core.azure-preview.com');
 
 * Use the `TableService` factory to instantiate a wrapper around Table service calls.
 
@@ -71,7 +75,6 @@ Before you can store data you first have to create a container for it, the Table
 * First, include the initialization script you just created. You will be including this script in every file accessing Azure:
 
 		<?php
-
 		require_once "init.php";
 
 * Then, make a call to *createTable* passing in the name of the table. Similarly to other NoSQL table stores, no schema is required for Azure Tables.
@@ -84,7 +87,6 @@ Before you can store data you first have to create a container for it, the Table
 			$error_message = $e->getMessage();
 		    echo $code.": ".$error_message."<br />";
 		}
-
 		?>
 
 	Error codes and message scan be found here: [http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx][msdn-errors]
@@ -102,8 +104,7 @@ The home page of the Tasklist application should list all existing tasks and all
 		</head>
 		<body>
 		<h1>My ToDo List <font color="grey" size="5">(powered by PHP and Azure Tables) </font></h1>
-		<?php
-		
+		<?php		
 		require_once "init.php";
 
 * To query Azure Tables for **all entities** stored in the *tasks* table you call the *queryEntities* method passing only the name of the table. In the **Updating an Entity** section below you will also see how to pass a filter querying for a specific entity.
@@ -186,10 +187,8 @@ Your application can now read all items stored in the table. Since there won't b
 
 * Add the following to the file:
 
-		<?php
-		
-		require_once "init.php";
-		
+		<?php		
+		require_once "init.php";		
 		use WindowsAzure\Table\Models\Entity;
 		use WindowsAzure\Table\Models\EdmType;		
 
@@ -216,8 +215,7 @@ Your application can now read all items stored in the table. Since there won't b
 
 * Last, to make the page return to the home page after inserting the entity:
 
-		header('Location: index.php');
-		
+		header('Location: index.php');		
 		?>
 	
 ## Updating an Entity
@@ -226,17 +224,14 @@ The task list app has the ability to mark an item as complete as well as to unma
 
 * Create a file called **markitem.php** and add the initialization part:
 
-		<?php
-		
+		<?php		
 		require_once "init.php";
 		
 
 * The first step to updating an entity is fetching it from the Table:
 		
-		$result = $tableRestProxy->queryEntities(TABLE_NAME, 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');
-		
-		$entities = $result->getEntities();
-		
+		$result = $tableRestProxy->queryEntities(TABLE_NAME, 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');		
+		$entities = $result->getEntities();		
 		$entity = $entities[0];
 
 	As you can see the passed in query filter is of the form `Key eq 'Value'`. A full description of the query syntax is available [here][msdn-table-query-syntax].
@@ -258,8 +253,7 @@ The task list app has the ability to mark an item as complete as well as to unma
 
 * To make the page return to the home page after inserting the entity:
 
-		header('Location: index.php');
-		
+		header('Location: index.php');		
 		?>
 
 
@@ -269,10 +263,8 @@ Deleting an item is accomplished with a single call to `deleteItem`. The passed 
 
 		<?php
 		
-		require_once "init.php";
-		
-		$tableRestProxy->deleteEntity(TABLE_NAME, $_GET['pk'], $_GET['rk']);
-		
+		require_once "init.php";		
+		$tableRestProxy->deleteEntity(TABLE_NAME, $_GET['pk'], $_GET['rk']);		
 		header('Location: index.php');
 		
 		?>
@@ -312,6 +304,14 @@ To make your application store data into the cloud you need to first create a st
 
 
 ## Create a Windows Azure Website and Set up Git Publishing
+
+### Create a Windows Azure account
+
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
+
+### Enable Windows Azure Web Sites
+
+<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
 Follow these steps to create a Windows Azure Website:
 

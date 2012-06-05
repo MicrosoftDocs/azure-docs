@@ -111,6 +111,9 @@ credentials for the namespace.
     will use this information below to perform operations with the
     namespace.
 
+**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../commontasks/how-to-install-python.md).
+
+
 ## How to Create a Topic
 
 The **ServiceBusService** object lets you work with topics. Add the following near the top of any Python file in which you wish to programmatically access Windows Azure Service Bus:

@@ -39,7 +39,10 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
  * Click **Next** again.
  * Specify a name for the rule, such as "DjangoPort", and click Finish.
 
-1. Install the latest version of [MySQL Community Server] [mysqlcommunity] for Windows on the virtual machine:
+1. Install the latest version of [MySQL Community Server] [mysqlcommunity] for Windows on the virtual machine:  
+
+	**Note**: we recommend installing your DB on a different data partition than the OS. 
+
  * Run the *Windows (x86, 64-bit), MSI Installer* link [here ] [mysqlcommunity] and download the appropriate MSI installer from the download mirror nearest you. Helpful hints are:
      * Select a *Complete* Setup Type.
      * Select a *Detailed Configuration* within the Configuration Wizard.
@@ -190,6 +193,10 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 
 ## Deploying and running your Django website
 
+Note: The following shows how to run Django in a test environment. To run it in production, follow the "Setting up IIS with FastCGI" section in the "Django Hello World tutorial". Using the Windows Firewall Client to open port 80 to Internet traffic on the Windows Server 2K8 R2 virtual machine is not necessary with FastCGI.
+
+
+
 1.  Switch back to a Windows PowerShell window, and type the following commands to deploy your Django website publically:
 
 		PS C:\django\helloworld> $ipPort = [System.Net.Dns]::GetHostEntry("127.0.0.1")
@@ -232,10 +239,10 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [9]: ../Media/mysql_tutorial03-1.png
 [10]: ../Media/mysql_tutorial03-2.png 
 
-[djangohelloworld]: ../web-app-with-django
+[djangohelloworld]: ./django-helloworld.md
 [mysqldoc]: http://dev.mysql.com/doc/
 [mysqlpy]: http://pypi.python.org/pypi/MySQL-python/1.2.3
-[wapstarted]: ../commontasks/install-python
+[wapstarted]: ../commontasks/how-to-install-python.md
 [mysqlpydl]: http://www.codegood.com/download/10/
 [mysqlcommunity]:http://dev.mysql.com/downloads/mysql/
 [dotnetfour]:http://go.microsoft.com/fwlink/?LinkId=181012
@@ -249,5 +256,5 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [The status of the Remove-AzureService command]: ../Media/django-helloworld-ps-remove.png
 [How to Delete a Storage Account from a Windows Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx
 
-[Installation Guide]: ../commontasks/install-python
+[Installation Guide]: ../commontasks/how-to-install-python.md
  

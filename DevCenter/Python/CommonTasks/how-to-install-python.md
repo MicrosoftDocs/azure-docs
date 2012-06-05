@@ -87,7 +87,7 @@ Python Tools for Visual Studio is a free/OSS plugin from Microsoft which turns V
 
 Using Python Tools for Visual Studio is optional, but is recommended as it gives you Python and Django Project/Solution support, debugging, profiling, Template editing and Intellisense, deployment to cloud, etc.  This add-in  works with your existing VS2010 install.  If you don't have VS2010, WebPI will install the free Integrated Shell + PTVS which essentially give you a **completely free** "VS Python Express" IDE.  For more information, see [Python Tools for Visual Studio on CodePlex][].  
 
-Note: While the PTVS plug-in is small, the Integrated Shell will increases your download times. It also currently doesn't support the "Add Windows Azure Deployment Project" feature.
+Note: While the PTVS plug-in is small, the Integrated Shell will increases your download times. The Integrated Shell version also currently doesn't support the "Add Windows Azure Deployment Project" feature.
 
 
 ## Installation on Linux and MacOS
@@ -104,7 +104,7 @@ To install the Python Azure Client Libraries, use **pip** to grab it from **PyPI
 	
 The command above will silently prompt for the root password. Type it and press Enter.  Next:
 	
-	sudo /usr/local/bin/pip-2.7 install windowsazure
+	sudo /usr/local/bin/pip-2.7 install azure
 
 You should now see the client libraries installed under **site-packages**.  On MacOS:
 
@@ -120,31 +120,20 @@ The first scenario enables you to author rich web apps that take advantage of th
 
 For the VM scenario, you simply start a Linux VM of your choice (Ubuntu, CentOS, Suse) and run/manage what you like.  As an example, you can run [IPython](http://ipython.org) REPL/notebook on your Windows/Mac/Linux machine and point your browser to a Linux or Windows multi-proc VM running the IPython Engine on Azure. For more information on IPython installation please see its tutorial.
 
-For information on how to setup a Linux, please see [Setting up a Linux VM via the Windows Azure portal][].
-
-For details on managing/deploying services, please see [How to use the Windows Azure Command-Line Tools for Mac and Linux][]
-
+For information on how to setup a Linux VM, please see the [Linux Management section.](/en-us/manage/linux/)
 
  
 
 ## Additional Software and Resources:
 
 * [Enthought Python Distribution][]
-
 * [ActiveState Python Distribution][]
-
 * [SciPy - A suite of Scientific Python libraries][]
-
 * [NumPy - A numerics library for Python][]
-
 * [Django Project - A mature web framework/CMS][]
-
 * [IPython - an advanced REPL/Notebook for Python][]
-
 * [IPython on Azure][]
-
 * [Python Tools for Visual Studio on CodePlex][]
-
 * [Virtualenv][]
 
 
@@ -161,7 +150,7 @@ For details on managing/deploying services, please see [How to use the Windows A
 [IPython - an advanced REPL/Notebook for Python]: http://ipython.org
 
 
-[IPython on Azure]: ../tutorials/azure-ipython
+[IPython on Azure]: ../tutorials/azure-ipython.md
 
 
 [Python Tools for Visual Studio on CodePlex]: http://pytools.codeplex.com 

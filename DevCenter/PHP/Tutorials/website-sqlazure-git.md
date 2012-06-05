@@ -21,6 +21,14 @@ By following this tutorial, you will build a simple registration web application
 
 ##Create a Windows Azure Website and set up Git publishing
 
+### Create a Windows Azure account
+
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
+
+### Enable Windows Azure Web Sites
+
+<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
+
 Follow these steps to create a Windows Azure Website and a SQL Database:
 
 1. Login to the [Preview Management Portal][preview-portal].
@@ -92,7 +100,7 @@ To run the application locally, follow the steps below. Note that these steps as
 
 1. Create a SQL Server database called `registration`. You can do this from the `sqlcmd` command prompt with these commands:
 
-		>sqlcmd -S <server name>\sqlexpress -U <user name> -P <password>
+		>sqlcmd -S localhost\sqlexpress -U <local user name> -P <local password>
 		1> create database registration
 		2> GO	
 
@@ -291,7 +299,7 @@ To publish changes to application, follow these steps:
 [tasklist-sqlazure-download]: http://go.microsoft.com/fwlink/?LinkId=252504
 [localhost-createtable]: http://localhost/tasklist/createtable.php
 [localhost-index]: http://localhost/tasklist/index.php
-[running-app]: ../Media/tasklist_app_windows.png
+[running-app]: ../Media/running_app_3.png
 [new-website]: ../../Shared/Media/new_website.jpg
 [custom-create]: ../../Shared/Media/custom_create.jpg
 [website-details-sqlazure]: ../Media/website_details_sqlazure.jpg

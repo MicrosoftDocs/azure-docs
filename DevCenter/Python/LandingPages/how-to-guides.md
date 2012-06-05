@@ -20,17 +20,17 @@ Service Bus Topics provide a publish/subscribe messaging model to support one-to
 
 ## Service management ##
 
-### [PowerShell for Windows Azure]
-PowerShell for Windows Azure provides a command-line environment for developing and deploying applications for Windows Azure through a  Windows PowerShell cmdlets. This guide describes how to use Windows PowerShell cmdlets to create, test, deploy, and manage Windows Azure Services. 
+<!--### [PowerShell for Windows Azure]
+PowerShell for Windows Azure provides a command-line environment for developing and deploying applications for Windows Azure through a  Windows PowerShell cmdlets. This guide describes how to use Windows PowerShell cmdlets to create, test, deploy, and manage Windows Azure Services. -->
 
 ### [Command-Line Tools for Mac and Linux](/develop/python/how-to-guides/command-line-tools/ "Command-Line Tools for Mac and Linux")
 The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Windows Azure services. Use the command-line tools to create and manage websites and virtual machines in Windows Azure. 
 
-[PowerShell for Windows Azure]: /en-us/develop/python/how-to-guides/powershell-cmdlets/
-[Command-Line Tools for Mac and Linux]: /en-us/develop/python/how-to-guides/command-line-tools/
-[Blob Service]: /en-us/develop/python/how-to-guides/blob-storage/
-[Service Bus Queues]: /en-us/develop/python/how-to-guides/service-bus-queues/
-[Service Bus Topics]: /en-us/develop/python/how-to-guides/service-bus-topics/
-[Service Bus Relay]: /en-us/develop/python/how-to-guides/service-bus-relay/
-[Queue Service]: /en-us/develop/python/how-to-guides/queue-service/
-[Table Service]: /en-us/develop/python/how-to-guides/table-services/
+[PowerShell for Windows Azure]: ../howto/powershell.md
+[Command-Line Tools for Mac and Linux]: ../howto/crossplat-cmd-tools.md
+[Blob Service]: ../howto/blob-storage.md
+[Service Bus Queues]: ../howto/service-bus-queues.md
+[Service Bus Topics]: ../howto/service-bus-topics.md
+[Service Bus Relay]: ../howto/service-bus-relay.md
+[Queue Service]: ../howto/queue-service.md
+[Table Service]: ../howto/table-services.md

@@ -2,7 +2,7 @@
 
 #How to Create and Deploy a Website
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
+<div chunk="../../ITPro/Shared/Chunks/disclaimer.md" />
 
 Just as you can quickly create and deploy a web application created from the gallery, you can also deploy a website created on a workstation with traditional developer tools from Microsoft or other companies. 
 
@@ -25,7 +25,7 @@ Some development tools available from Microsoft include [Microsoft Visual Studio
 
 ##<a name="howtocreatefromgallery"></a>How to: Create a Website from the Gallery
 
-<div chunk="../../../Shared/Chunks/website-from-gallery.md" />
+<div chunk="../../Shared/Chunks/website-from-gallery.md" />
 
 
 ##<a name="deployawebsite"></a>How to: Deploy a Website from Git
