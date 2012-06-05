@@ -731,7 +731,7 @@ SQL Data Sync enables you to easily create and schedule
 bi-directional synchronizations from within the Data Sync web site
 without the need to write a single line of code. You can find more
 information here:
-http://msdn.microsoft.com/en-us/library/windowsazure/hh456371.aspx.
+[http://msdn.microsoft.com/en-us/library/windowsazure/hh456371.aspx].
 
 For more information on SQL Database backup and Restore strategies see the
 following articles:
@@ -760,10 +760,10 @@ Windows Azure Caching comes in two flavors: the Windows Azure Caching service, a
 - 	Eviction - items are forcibly evicted to make room for new items in a way that hurts application performance
 - 	Expiration - expiration times are set too short or long
 
-For more information on quota-related errors, see [Understanding Quotas] and [Troubleshooting Cache].
+For more information on quota-related errors, see [Understanding Quotas].
 
 
-
+[http://msdn.microsoft.com/en-us/library/windowsazure/hh456371.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/hh456371.aspx
 [https://www.windowsazure.com/en-us/develop/overview/]: https://www.windowsazure.com/en-us/develop/overview/
 [http://social.technet.microsoft.com/wiki/contents/articles/1792.sql-azure-backup-and-restore-strategy.aspx]: http://social.technet.microsoft.com/wiki/contents/articles/1792.sql-azure-backup-and-restore-strategy.aspx
 [http://msdn.microsoft.com/en-us/library/windowsazure/ff951631.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/ff951631.aspx
@@ -831,7 +831,7 @@ For more information on quota-related errors, see [Understanding Quotas] and [Tr
 [Azure Health Status]: http://go.microsoft.com/fwlink/p/?LinkId=168847
 [SQL Database Connectivity Troubleshooting Guide]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-connectivity-troubleshooting-guide.aspx
 [Troubleshooting SQL Database]: http://msdn.microsoft.com/en-us/library/ee730906.aspx
-[Troubleshooting Queries]: http://go.microsoft.com/fwlink/p/?LinkId=166623
+[Troubleshooting Queries]: http://msdn.microsoft.com/en-us/library/ms186351(SQL.100).aspx
 [Troubleshoot and Optimize Queries with SQL Database]: http://social.technet.microsoft.com/wiki/contents/articles/1104.troubleshoot-and-optimize-queries-with-sql-azure.aspx
 [SQL Database Performance Considerations and Troubleshooting]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2011/DBI314
 [Improving Your I/O Performance]: http://blogs.msdn.com/b/sqlazure/archive/2010/07/27/10043069.aspx?PageIndex=2#comments
