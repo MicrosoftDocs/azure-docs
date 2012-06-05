@@ -17,19 +17,6 @@ in a dedicated virtual machine (VM). The following illustration shows the comple
 
 ![screenshot of web application][0]
 
-## Tutorial segments
-
-1. [Create a Windows Azure account][]
-2. [Download a publishing profile][]
-2. [Set Up the development environment][]
-2. [Create an ASP.NET MVC 3 application][]
-3. [Make the application ready to deploy to Windows Azure][]
-4. [Deploy the application to Windows Azure][]
-5. [Add SQL Database support][]
-6. [Run the application in the cloud][]
-7. [Stop and delete the application][]
-8. [Next steps][]
-
 ## <a hame="create"></a>Create a Windows Azure account
 
 <div chunk="../../Shared/Chunks/create-azure-account.md" />
@@ -70,8 +57,10 @@ To start, set up your development environment by installing the Windows Azure SD
     ![Click New Project in File menu][3]
 
 3. In the **New Project** dialog box, expand **C#** and select **Web** under **Installed Templates** and then select **ASP.NET MVC 3 Web Application**.
+
+   Note: In Visual Web Developer, this template can be found under **Installed Templates** > **Visual C#** > **Web**.
  
-3. Change the **.NET Framework** drop-down list to **.NET Framework 4**. 
+3. If you are using Visual Studio 2012, change the **.NET Framework** drop-down list value to **.NET Framework 4**. 
 
 4. Name the application **ToDoListApp** and click **OK**.<br/>
 
@@ -117,6 +106,8 @@ application in the cloud.
 
 To enable the built-in membership provider you must use the ASP.NET Universal Providers. This provider enables the account management capabilities in your application. 
 
+You can use NuGet to get the providers package. 
+
 2.  In **Solution Explorer**,
     right-click the **ToDoListApp** project, and then click **Manage NuGet
     Packages...** (or **Add Library Package Reference...** in older
@@ -124,14 +115,14 @@ To enable the built-in membership provider you must use the ASP.NET Universal Pr
 
     ![Manage NuGet Packages in menu][9]
 
-3.  In the **ToDoListApp – Manage NuGet Packages** dialog, in the
-    top right corner in the **Search Online** field, enter
+4.  In the **ToDoListApp – Manage NuGet Packages** dialog, click the **Online** node in the left pane to expose the search field.
+
+5.  In the top right corner in the **Search Online** field, enter
     **"universal providers"**:
 
     ![Searching for Universal Providers in NuGet][10]
 
-4.  Select the **"ASP.NET Universal Providers"** package, and then click
-    **Install**. 
+4.  Select the **"ASP.NET Universal Providers"** package (note that the Id in the right pane should be "System.Web.Providers,") and then click **Install**. 
 
 5.  Close the **ToDoListApp – Manage NuGet Packages** dialog after installation is complete.
 
@@ -175,7 +166,7 @@ machine to publish packages to Windows Azure using Visual Studio.
 
 ### Publish the application
 
-1.  Right-click the **ToDoListApp.Azure** Windows Azure cloud service project in **Solution Explorer** and click **Publish**.
+1.  Right-click the **ToDoListApp.Azure** Windows Azure cloud service project in **Solution Explorer**. Depending on your version of Visual Studio, click **Publish** or **Publish to Windows Azure** in the context menu to start the publishing process.
 
     ![Publish to Windows Azure in project context menu][14]
 
@@ -241,8 +232,10 @@ machine to publish packages to Windows Azure using Visual Studio.
 
         ![Visual Studio showing docked Windows Azure Activity Log window][23]
 
-    11. When deployment is complete, you can view the website by
-        clicking the **Website URL** link in the monitoring window:
+    11. Double-click on any activity log entry (for example, "Deploying ToDoListApp.Azure to ToDoListApp955 - Production" in the screenshot above) to open a more detailed monitoring view that provides information about your deployment. 
+
+    11. When deployment is complete, you can view your new site by
+        clicking the **Website URL** link in the monitoring view:
 
         ![Windows Azure Activity Log window][24]
 
