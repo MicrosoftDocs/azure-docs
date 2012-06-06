@@ -156,6 +156,18 @@ In this section, you will create a **server.js** file containing the 'hello worl
 
 	![A web page displaying 'Hello Azure'][helloworld-completed]
 
+##Revert to a previous deployment
+
+Since Windows Azure maintains a git repository for your website, you can use the **Deployments** page to revert to a previous deployment.
+
+1. In the [Windows Azure Portal], select your web site and then select **Deployments**.
+
+2. Select a previous deployment, and then click **Redeploy** at the bottom of the page. When prompted, select **Yes**.
+
+	![redeploy button][redeploy-button]
+
+3. Once the deployment status changes to **Active Deployment**, view the web site in your browser and note that it has reverted to the selected deployment.
+
 ##Next steps
 
 While the steps in this article use the Windows Azure Portal to create a web site, you can also use the [Windows Azure Command-Line Tools for Mac and Linux] to perform the same operations.
@@ -193,3 +205,4 @@ While the steps in this article use the Windows Azure Portal to create a web sit
 [portal-website-stop-delete]: ../../Shared/Media/stop-delete-icons.png
 [setup-git-publishing]: ../Media/setup_git_publishing.jpg
 [go-to-dashboard]: ../../Shared/Media/go_to_dashboard.jpg
+[redeploy-button]: ../media/node-earlier-deployment.png
