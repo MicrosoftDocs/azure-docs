@@ -34,7 +34,7 @@ This tutorial requires Python 2.7 and Django 1.4. These versions are included in
 
 To create a new Django application first launch Visual Studio and then create a new project using **File->New Project**.  Find the Python tab (either available at the top-level, or in the Other Languages area) and select the Django Application template:
 
-**Note:** due to a bug (which will be fixed soon) the file path should not have spaces in it.
+
 
 ![New Python Project Templates](../Media/ptvs-dj-NewProject.png)
 
