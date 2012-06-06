@@ -112,7 +112,7 @@ When you have deployed your application, browse to http://*your_hosted_name*.clo
 ## Next steps
 This code was provided to show you basic functionality using Twilio in PHP on Windows Azure. Before deploying to Windows Azure in production, you may want to add more error handling or other features. For example:
 
-* Instead of using a web form, you could use Windows Azure storage blobs or SQL Azure to store phone numbers and call text. For information about using Windows Azure storage blobs in PHP, see [Using Windows Azure Storage with PHP Applications][howto_blob_storage_php]. For information about using SQL Azure in PHP, see [Using SQL Azure with PHP Applications][howto_sql_azure_php].
+* Instead of using a web form, you could use Windows Azure storage blobs or SQL Database to store phone numbers and call text. For information about using Windows Azure storage blobs in PHP, see [Using Windows Azure Storage with PHP Applications][howto_blob_storage_php]. For information about using SQL Database in PHP, see [Using SQL Database with PHP Applications][howto_sql_azure_php].
 * The **makecall.php** code uses Twilio-provided URL ([http://twimlets.com/message][twimlet_message_url]) to provide a Twilio Markup Language (TwiML) response that informs Twilio how to proceed with the call. For example, the TwiML that is returned can contain a `<Say>` verb that results in text being spoken to the call recipient. Instead of using the Twilio-provided URL, you could build your own service to respond to Twilio’s request; for more information, see [How to Use Twilio for Voice and SMS Capabilities in PHP][howto_twilio_voice_sms_php]. More information about TwiML can be found at [http://www.twilio.com/docs/api/twiml][twiml], and more information about `<Say>` and other Twilio verbs can be found at [http://www.twilio.com/docs/api/twiml/say][twilio_say].
 * Read the Twilio security guidelines at [https://www.twilio.com/docs/security][twilio_docs_security].
 
@@ -140,5 +140,5 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 [twilio_docs]: http://www.twilio.com/docs
 [twilio_say]: http://www.twilio.com/docs/api/twiml/say
 [ssl_validation]: http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html
-[twilio_php]: ./media/WA_TwilioPHPCallForm.jpg
-[twilio_php_response]: ./media/WA_TwilioPHPMakeCall.jpg
+[twilio_php]: ../Media/WA_TwilioPHPCallForm.jpg
+[twilio_php_response]: ../Media/WA_TwilioPHPMakeCall.jpg

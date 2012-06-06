@@ -23,30 +23,31 @@ This task covers how to stage an application by using the Windows Azure
 Management Portal. You can also [Stage an Application with Visual
 Studio][Step 1 (Alternate): Stage an Application with Visual Studio].
 
-1.  Log on to the [Windows Azure Management Portal][].
+1.  Log on to the [Windows Azure Management Portal].
 
-2.  In the Management Portal, click **New Hosted Service**.
+2.  In the Management Portal, click **+ NEW** in the bottom left, and then click **Cloud Service**.
 
-    ![][]
+    ![cloud service dialog][new-cloud-service]
 
-3.  In the Create a New Hosted Service dialog, fill in the required
-    information and select **Deploy to stage environment** under
-    **Deployment options**.
+3.  Select **Custom Create**, and then specify the **URL** and **Region/Affinity Group**. Finally, select **Deploy a Cloud Service Package Now** and click the arrow to continue.
 
-    ![][1]
+	![custom create cloud service][custom-create-page1]
 
-4.  Click **OK** to create the hosted service.
+4.  On the second page of the **Custom Create** dialog, fill in the required information and select **Staging**. Click **OK** to create the hosted service.
 
-5.  After the hosted service is created and the deployment's status has
-    been updated to **Ready**, click on the deployment and note the
-    values in the **Properties** pane to the right. The DNS name is an
-    obfuscated internal ID that Windows Azure generated. Also, the
-    environment is set to **Staging**.
+	![custom create cloud service][custom-create-page2]
 
-    ![][2]
+5.  After the cloud service is created and the staging status has
+    been updated to **Running**, select the **Dashboard** and then select **Staging**. 
+
+	![cloud service dashboard][cloud-service-dashboard]
+
+6. Note the value in the **Site URL** entry on the right. The DNS name is an obfuscated internal ID that Windows Azure generated.
+
+    ![site url][cloud-service-staging-url]
 
 Now you can verify that the application is working correctly in the
-staging environment.
+staging environment by using the staging site URL.
 
 For an upgrade scenario, in which the staged application is an upgraded
 version of one that has already been deployed to production, you can
@@ -58,8 +59,7 @@ VIPs][Step 2: Deploy an Application to Production by Swapping VIPs].
 ## Step 1 (Alternate): Stage an Application with Visual Studio
 
 This task covers how to stage an application with Visual Studio. You can
-also [Stage an Application with the Management Portal][Step 1: Stage an
-Application by Using the Management Portal].
+also [Stage an Application with the Management Portal][Step 1: Stage an Application by Using the Management Portal].
 
 **Note:** This step requires Visual Studio 2010 and the Windows Azure
 SDK for .NET.
@@ -74,7 +74,7 @@ SDK for .NET.
 3.  In the Windows Azure Publish Sign In page, select the named
     authentication credentials you want to use, and then click **Next**.
     For more information, see [Setting Up Named Authentication
-    Credentials.][]
+    Credentials.]
 
 4.  In Windows Azure Publish Settings, select hosted service in which to
     publish the application, and then in Environment, select
@@ -112,15 +112,12 @@ environments.
 application to production and staged the upgraded version of the
 application.
 
-1.  Log into the [Management Portal][Windows Azure Management Portal],
-    click **Hosted Services, Storage Accounts, & CDN**, and click
-    **Hosted Services**.
+1.  Log into the [Windows Azure Management Portal],
+    click **Cloud Services** and then select the service name.
 
-2.  Expand the hosted service that contains the deployment that you want
-    to upgrade, and then click **Swap VIP**. This opens the Swap VIPs
-    dialog.
+2.  From the **Dashboard**, select **Staging**, and then click **Swap** at the bottom o fthe page. This opens the VIP Swap dialog.
 
-    ![][4]
+	![vip swap dialog][vip-swap-dialog]
 
 3.  Review the information, and then click **OK**. The two deployments
     begin updating as the staging deployment switches to production and
@@ -131,24 +128,28 @@ deployment by swapping VIPs with the deployment in staging.
 
 ## Additional Resources
 
-[How to Deploy a Service Upgrade to Production by Swapping VIPs in
-Windows Azure][]
-
-[Overview of Managing Deployments in Windows Azure][]
-
-[Publishing Applications to Windows Azure from Visual Studio][]
+* [How to Deploy a Service Upgrade to Production by Swapping VIPs in
+Windows Azure]
+* [Overview of Managing Deployments in Windows Azure]
+* [Publishing Applications to Windows Azure from Visual Studio]
 
   [Step 1: Stage an Application by Using the Management Portal]: #step1
   [Step 1 (Alternate): Stage an Application with Visual Studio]: #step2
   [Step 2: Deploy an Application to Production by Swapping VIPs]: #step3
   [Windows Azure Management Portal]: http://windows.azure.com
-  []: ../../../DevCenter/Shared/Media/staging-01.png
+  [0]: ../../../DevCenter/Shared/Media/staging-01.png
   [1]: ../../../DevCenter/Shared/Media/staging-02.png
   [2]: ../../../DevCenter/Shared/Media/staging-03.png
   [Setting Up Named Authentication Credentials.]: http://msdn.microsoft.com/en-us/library/windowsazure/ff683676.aspx
   [3]: ../../../DevCenter/Shared/Media/staging-04.png
   [4]: ../../../DevCenter/Shared/Media/staging-05.png
-  [How to Deploy a Service Upgrade to Production by Swapping VIPs in
-  Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx
+  [How to Deploy a Service Upgrade to Production by Swapping VIPs in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx
   [Overview of Managing Deployments in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx
   [Publishing Applications to Windows Azure from Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460772.aspx
+[cloud-service]: ../../Shared/Media/staging-cloud-service-running.png
+[cloud-service-dashboard]: ../../Shared/Media/cloud-service-dashboard-staging.png
+[cloud-service-staging-url]: ../../Shared/Media/cloud-service-staging-url.png
+[vip-swap-dialog]: ../../Shared/Media/vip-swap-dialog.png
+[new-cloud-service]: ../../Shared/Media/cloud-service-new-custom-create.png
+[custom-create-page1]: ../../Shared/Media/cloud-service-custom-create.png
+[custom-create-page2]: ../../Shared/Media/cloud-service-custom-create-package.png

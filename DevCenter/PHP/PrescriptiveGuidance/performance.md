@@ -1,0 +1,2 @@
+<properties linkid="dev-php-best-practices-performance" urlDisplayName="Performance" headerExpose="" pageTitle="Windows Azure PHP Best Practices - Performance" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<div chunk="../../../Shared/Chunks/performance.md" />

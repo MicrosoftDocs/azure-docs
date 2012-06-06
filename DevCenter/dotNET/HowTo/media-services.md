@@ -2,7 +2,7 @@
 
 #How to Use Media Services
 
-This guide shows you how to start programming with Windows Azure Media Services. The guide includes a technical overview of Media Services, steps to configure your Windows Azure account for Media Services, a setup guide for development, and topics that show how to accomplish typical programming tasks.  The samples are written in C# and use the Media Services SDK for .NET.
+This guide shows you how to start programming with Windows Azure Media Services. The guide includes a technical overview of Media Services, steps to configure your Windows Azure account for Media Services, a setup guide for development, and topics that show how to accomplish typical programming tasks. The scenarios demonstrated include: uploading assets, encrypting or encoding assets, and delivering assets by downloading or by generating URLs for streaming content. The samples are written in C# and use the Media Services SDK for .NET. For more information on Windows Azure Media Services, refer to the [Next Steps][] section.
 
 You can also program Media Services using the OData-based REST APIs. You can build an application making REST API calls to Media Services from .NET languages or other programming languages. For a full documentation series on programming with the Media Services REST API, see [Building Applications with the Windows Azure Media Services REST API](http://go.microsoft.com/fwlink/?linkid=252967). To start programming with REST, first enable your Windows Azure account for Media Services as described in the section [Setting Up a Windows Azure Account for Media Services][].
 
@@ -271,7 +271,7 @@ To create a media processor instance, create a method like the following example
 	                        where p.Name == mediaProcessor
 	                        select p;
 	    // Cast the reference to an IMediaprocessor.
-	    IMediaProcessor processor = theProcessor.Single();
+	    IMediaProcessor processor = theProcessor.First();
 	
 	    if (processor == null)
 	    {
@@ -309,7 +309,7 @@ The following method combines the previous steps to encode a media file:
 	    // Get a media processor reference, and pass to it the name of the 
 	    // processor to use for the specific task. Use a method like the 
 	    // GetMediaProcessor method shown in this document.
-	    IMediaProcessor processor = GetMediaProcessor(_context, "Windows Azure Media Encoder");
+	    IMediaProcessor processor = GetMediaProcessor("Windows Azure Media Encoder");
 	    // Create a task with the encoding details, using a string preset.
 	    ITask task = job.Tasks.AddNew("My encoding task", 
 	        processor, 
@@ -359,7 +359,7 @@ The following code example shows how to implement the steps:
 	    IJob job = _context.Jobs.Create("My first PlayReady Protection Job");
 	    // Get a media processor reference, and pass to it the name of the 
 	    // processor to use for the specific task.
-	    IMediaProcessor processor = GetMediaProcessor(_context, "PlayReady Protection Task");
+	    IMediaProcessor processor = GetMediaProcessor("PlayReady Protection Task");
 	
 	    // Create a task and run a job using PlayReady Protection to encrypt the asset.
 	    // The TaskCreationOptions parameter lets you specify encryption options for
@@ -401,7 +401,7 @@ The following example shows how to query for and return a reference to an asset 
 	        where a.Id == assetId
 	        select a;
 	    // Reference the asset as an IAsset.
-	    IAsset theAsset = asset.SingleOrDefault();
+	    IAsset theAsset = asset.FirstOrDefault();
 	}
 
 
@@ -503,7 +503,7 @@ The following code shows how to implement the steps:
 	                        where f.Name.EndsWith(".ism")
 	                        select f;
 	    // Cast the reference to a true IFileInfo type. 
-	    IFileInfo manifestFile = theManifest.Single();
+	    IFileInfo manifestFile = theManifest.First();
 	
 	    // Create an 1-day readonly access policy. 
 	    IAccessPolicy streamingPolicy = _context.AccessPolicies.Create("Streaming policy", 
@@ -551,7 +551,7 @@ The following code shows how to implement the steps:
 	                        where f.Name.EndsWith(".ism")
 	                        select f;
 	    // Cast the reference to a true IFileInfo type. 
-	    IFileInfo manifestFile = theManifest.Single();
+	    IFileInfo manifestFile = theManifest.First();
 	
 	    // Create an 1-day readonly access policy. 
 	    IAccessPolicy streamingPolicy = _context.AccessPolicies.Create("Streaming policy",

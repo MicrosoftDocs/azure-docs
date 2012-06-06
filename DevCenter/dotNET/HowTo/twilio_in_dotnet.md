@@ -1,6 +1,7 @@
 <properties umbracoNaviHide="0" pageTitle="Deploying Applications" metaKeywords="Windows Azure deployment, Azure deployment, Azure configuration changes, Azure deployment update, Windows Azure .NET deployment, Azure .NET deployment, Azure .NET configuration changes, Azure .NET deployment update, Windows Azure C# deployment, Azure C# deployment, Azure C# configuration changes, Azure C# deployment update, Windows Azure VB deployment, Azure VB deployment, Azure VB configuration changes, Azure VB deployment update" metaDescription="Learn how to deploy applications to Windows Azure, make configuration changes, and and make major and minor updates." linkid="dev-net-fundamentals-deploying-applications" urlDisplayName="Deploying Applications" headerExpose="" footerExpose="" disqusComments="1" />
 # How to Use Twilio for Voice and SMS Capabilities from Windows Azure
-<div chunk="././Shared/Chunks/how_to_use_twilio_opening_and_common_toc" />
+
+<div chunk="../../Shared/Chunks/how_to_use_twilio_opening_and_common_toc.md" />
 
 * [Create a Windows Azure Application](#create_app)
 * [Configure Your Application to Use Twilio Libraries](#configure_app)
@@ -10,7 +11,7 @@
 * [How to: Use Additional Twilio Services](#AdditionalServices)
 * [Next Steps](#NextSteps)
 
-<div chunk="././Shared/Chunks/how_to_use_twilio_for_voice_and_sms_capabilities" />
+<div chunk="../../Shared/Chunks/how_to_use_twilio_for_voice_and_sms_capabilities.md" />
 
 <h2 id="create_app">Create a Windows Azure Application</h2>
 A Windows Azure Application that hosts a Twilio enabled application is no different from any other Windows Azure Application. You simply add the Twilio .NET library and configure the role to use the Twilio .NET libraries.
@@ -132,7 +133,7 @@ The following shows how to send an SMS message using the **TwilioRestClient**  c
 <h2 id="howto_provide_twiml_responses">How to: Provide TwiML Responses from your own website</h2>
 When your application initiates a call to the Twilio API, for example via the **client.InitiateOutboundCall** method, Twilio sends your request to a URL that is expected to return a TwiML response. The example in [How to: Make an outgoing call](#howto_make_call) uses the Twilio-provided URL [http://twimlets.com/message][twimlet_message_url] to return the response. (While TwiML is designed for use by web services, you can view the TwiML in your browser. For example, click [http://twimlets.com/message][twimlet_message_url] to see an empty &lt;Response&gt; element; as another example, click [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] to see a &lt;Response&gt; element that contains a &lt;Say&gt; element.)
 
-Instead of relying on the Twilio-provided URL, you can create your own URL site that returns HTTP responses. You can create the site in any language that returns HTTP responses; this topic assumes you’ll be hosting the URL from an ASP.NET generic handler.
+Instead of relying on the Twilio-provided URL, you can create your own URL site that returns HTTP responses. You can create the site in any language that returns HTTP responses; this topic assumes youâ€™ll be hosting the URL from an ASP.NET generic handler.
 
 The following ashx page results in a TwiML response that says **Hello World** on the call.
 
@@ -232,7 +233,7 @@ Once you have your handler set up to provide TwiML responses, use the URL of the
 
 For additional information about using Twilio on Windows Azure with ASP.NET, see [How to Make a Phone Call Using Twilio in a Web Role on Windows Azure][howto_phonecall_dotnet].
 
-<div chunk="././Shared/Chunks/twilio_additional_services_and_next_steps" />
+<div chunk="../../Shared/Chunks/twilio_additional_services_and_next_steps.md" />
 
 [twilio_java]: https://github.com/twilio/twilio-java
 

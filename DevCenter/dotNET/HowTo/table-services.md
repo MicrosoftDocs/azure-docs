@@ -1,4 +1,4 @@
-<properties umbraconavihide="0" pagetitle="How to Use the Table Storage Service from .NET" metakeywords="Get started Azure table, Azure nosql, Azure large structured data store, Azure table, Azure table storage, Azure table .NET, Azure table storage .NET, Azure table C#, Azure table storage C#" metadescription="Get started with Windows Azure table storage. Learn how to use the Windows Azure table storage service to create and delete tables and insert and query entities in a table." linkid="dev-net-how-to-table-services" urldisplayname="Table Service" headerexpose footerexpose disquscomments="1"></properties>
+<properties umbraconavihide="0" pagetitle="How to Use the Table Storage Service from .NET" metakeywords="Get started Azure table, Azure nosql, Azure large structured data store, Azure table, Azure table storage, Azure table .NET, Azure table storage .NET, Azure table C#, Azure table storage C#" metadescription="Get started with Windows Azure table storage. Learn how to use the Windows Azure table storage service to create and delete tables and insert and query entities in a table." linkid="dev-net-how-to-table-services" urldisplayname="Table Service" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
 # How to Use the Table Storage Service
 
@@ -29,98 +29,10 @@ information on tables, see the [Next Steps][] section.
 -   [How To: Delete a Table][]
 -   [Next Steps][]
 
-## <a name="what-is"> </a>What is the Table Service
-
-The Windows Azure Table storage service stores large amounts of
-structured data. The service is a NoSQL datastore which accepts
-authenticated calls from inside and outside the Azure cloud. Azure
-tables are ideal for storing structured, non-relational data. Common
-uses of the Table service include:
-
--   Storing TBs of structured data capable of serving web scale
-    applications
--   Storing datasets that don't require complex joins, foreign keys, or
-    stored procedures and can be denormalized for fast access
--   Quickly querying data using a clustered index
--   Accessing data using the OData protocol and LINQ queries with WCF
-    Data Service .NET Libraries
-
-You can use the Table service to store and query huge sets of
-structured, non-relational data, and your tables will scale as demand
-increases.
-
-## <a name="concepts"> </a>Concepts
-
-The Table service contains the following components:
-
-![Table1][]
-
--   **URL format:** Code addresses tables in an account using this
-    address format:   
-    http://<storage account\>.table.core.windows.net/<table\>  
-      
-    You can address Azure tables directly using this address with the
-    OData protocol. For more information, see [OData.org][]
-
--   **Storage Account:** All access to Windows Azure Storage is done
-    through a storage account. The total size of blob, table, and queue
-    contents in a storage account cannot exceed 100TB.
-
--   **Table**: A table is a collection of entities. Tables don't enforce
-    a schema on entities, which means a single table can contain
-    entities that have different sets of properties. An account can
-    contain many tables, the size of which is only limited by the 100TB
-    storage account limit.
-
--   **Entity**: An entity is a set of properties, similar to a database
-    row. An entity can be up to 1MB in size.
-
--   **Properties**: A property is a name-value pair. Each entity can
-    include up to 252 properties to store data. Each entity also has 3
-    system properties that specify a partition key, a row key, and a
-    timestamp. Entities with the same partition key can be queried more
-    quickly, and inserted/updated in atomic operations. An entity's row
-    key is its unique identifier within a partition.
+<div chunk="../../Shared/Chunks/howto-table-storage.md" />
 
 ## <a name="create-account"> </a>Create a Windows Azure Storage Account
-
-To use storage operations, you need a Windows Azure storage account. You
-can create a storage account by following these steps. (You can also
-create a storage account [using the REST API][].)
-
-1.  Log into the [Windows Azure Management Portal][].
-
-2.  In the navigation pane, click **Hosted Services, Storage Accounts &
-    CDN**.
-
-3.  At the top of the navigation pane, click **Storage Accounts**.
-
-4.  On the ribbon, in the Storage group, click **New Storage Account**.
-      
-    ![Blob2][]  
-      
-    The **Create a New Storage Account**dialog box opens.   
-    ![Blob3][]
-
-5.  In **Choose a Subscription**, select the subscription that the
-    storage account will be used with.
-
-6.  In **Enter a URL**, type a subdomain name to use in the URI for the
-    storage account. The entry can contain from 3-24 lowercase letters
-    and numbers. This value becomes the host name within the URI that is
-    used to address Blob, Queue, or Table resources for the
-    subscription.
-
-7.  Choose a region or an affinity group in which to locate the storage.
-    If you will be using storage from your Windows Azure application,
-    select the same region where you will deploy your application.
-
-8.  Click **OK**.
-
-9.  Click the **View** button in the right-hand column below to display
-    and save the **Primary access key** for the storage account. You
-    will need this in subsequent steps to access storage.   
-    ![Blob4][]
+<div chunk="../../Shared/Chunks/create-storage-account.md" />
 
 ## <a name="create-project"> </a>Create a Windows Azure Project in Visual Studio
 
@@ -157,46 +69,69 @@ Windows Azure Table Services:
 
 ## <a name="setup-connection-string"> </a>Setup a Windows Azure Storage Connection String
 
-The Windows Azure .NET storage client uses a storage connection string
-to store endpoints and credentials for accessing storage services. You
-can put your storage connection string in a configuration file, rather
-than hard-coding it in code. One option is to use .NET's built-in
-configuration mechanism (e.g. **Web.config** for web applications). In
-this guide, you will store your connection string using Windows Azure
-service configuration. The service configuration is unique to Windows
-Azure projects and allows you to change configuration from the
-Management Portal without redeploying your application.
+The Windows Azure .NET storage API supports using a storage connection
+string to configure endpoints and credentials for accessing storage
+services. You can put your storage connection string in a configuration
+file, rather than hard-coding it in code:
+
+- When using Windows Azure Cloud Services, it is recommended you store your connection string using the Windows Azure service configuration system (`*.csdef` and `*.cscfg` files).
+- When using Windows Azure Web Sites or Windows Azure Virtual Machines, it is recommended you store your connection string using the .NET configuration system (e.g. `web.config` file).
+
+In both cases, you can retrieve your connection string using the `CloudConfigurationManager.GetSetting` method as shown later in this guide.
+
+### Configuring your connection string when using Cloud Services
+
+The service configuration mechanism is unique to Windows Azure Cloud Services
+projects and enables you to dynamically change configuration settings
+from the Windows Azure Management Portal without redeploying your
+application.
 
 To configure your connection string in the Windows Azure service
 configuration:
 
-1.  In the Solution Explorer, in the **Roles** folder, right-click a web
-    role or worker role and click **Properties**.  
+1.  Within the Solution Explorer of Visual Studio, in the **Roles**
+    folder of your Windows Azure Deployment Project, right-click your
+    web role or worker role and click **Properties**.  
     ![Blob5][]
 
-2.  Click **Settings** and click **Add Setting**.  
+2.  Click the **Settings** tab and press the **Add Setting** button.  
     ![Blob6][]
 
-    A new setting is created.
+    A new **Setting1** entry will then show up in the settings grid.
 
-3.  In the **Type** drop-down of the **Setting1** entry, choose
+3.  In the **Type** drop-down of the new **Setting1** entry, choose
     **Connection String**.  
     ![Blob7][]
 
 4.  Click the **...** button at the right end of the **Setting1** entry.
-    The **Storage Account Connection String** dialog opens.
+    The **Storage Account Connection String** dialog will open.
 
-5.  Choose whether you want to target the storage emulator (Windows
-    Azure storage simulated on your desktop) or an actual storage
-    account in the cloud, and click **OK**. The code in this guide works
-    with either option.  
+5.  Choose whether you want to target the storage emulator (the Windows
+    Azure storage simulated on your local machine) or an actual storage
+    account in the cloud. The code in this guide works with either
+    option. Enter the **Primary Access Key** value copied from the
+    earlier step in this tutorial if you wish to store blob data in the
+    storage account we created earlier on Windows Azure.   
     ![Blob8][]
 
-6.  Change the entry **Name** from **Setting1** to
-    **StorageConnectionString**. You will reference this name in the
-    code in this guide.  
+6.  Change the entry **Name** from **Setting1** to a "friendlier" name
+    like **StorageConnectionString**. You will reference this
+    connectionstring later in the code in this guide.  
     ![Blob9][]
+	
+### Configuring your connection string when using Web Sites or Virtual Machines
 
+When using Web Sites or Virtual Machines, it is recommended you use the .NET configuration system (e.g. `web.config`).  You store the connection string using the `<appSettings>` element:
+
+	<configuration>
+	    <appSettings>
+		    <add key="StorageConnectionString"
+			     value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
+		</appSettings>
+	</configuration>
+
+Read [Configuring Connection Strings][] for more information on storage connection strings.
+	
 You are now ready to perform the How To's in this guide.
 
 ## <a name="create-table"> </a>How To: Create a Table
@@ -210,7 +145,7 @@ configuration. There are also other ways to create
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -261,7 +196,7 @@ sends the new entity to the table service when the
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -299,7 +234,7 @@ operations:
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -334,7 +269,7 @@ operations:
 To query a table for entities in a partition, you can use a LINQ query.
 Call **serviceContext.CreateQuery** to create a query from your data
 source. The following code specifies a filter for entities where 'Smith'
-is the partition key. Call **AsTableServiceQuery<CustomerEntity\>** on
+is the partition key. Call **AsTableServiceQuery&lt;CustomerEntity&gt;** on
 the result of the LINQ query to finish creating the **CloudTableQuery**
 object. You can then use the **partitionQuery** object you created in a
 **foreach** loop to consume the results. This code prints the fields of
@@ -342,7 +277,7 @@ each entity in the query results to the console.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -367,7 +302,7 @@ each entity in the query results to the console.
 
 If you don't want to query all the entities in a partition, you can
 specify a range by using the **CompareTo** method instead of using the
-usual greater-than (\>) and less-than (<) operators. This is because the
+usual greater-than (&gt;) and less-than (&lt;) operators. This is because the
 latter will result in improper query construction. The following code
 uses two filters to get all entities in partition 'Smith' where the row
 key (first name) starts with a letter up to 'E' in the alphabet. Then it
@@ -377,7 +312,7 @@ this time (Ben and Denise Smith); Jeff Smith is not included.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -413,7 +348,7 @@ Table service.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -442,7 +377,7 @@ system.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -477,7 +412,7 @@ code runs only when using an account on the table service.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -519,7 +454,7 @@ and insert-or-merge in this [blog post][].
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -552,7 +487,7 @@ retrieves and deletes a customer entity.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -579,7 +514,7 @@ period of time following the deletion.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -614,13 +549,6 @@ to learn how to do more complex storage tasks.
   [How To: Insert-or-Replace an Entity]: #insert-entity
   [How To: Delete an Entity]: #delete-entity
   [How To: Delete a Table]: #delete-table
-  [Table1]: ../../../DevCenter/dotNet/Media/table1.png
-  [OData.org]: http://www.odata.org/
-  [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
-  [Windows Azure Management Portal]: http://windows.azure.com
-  [Blob2]: ../../../DevCenter/dotNet/Media/blob2.png
-  [Blob3]: ../../../DevCenter/dotNet/Media/blob3.png
-  [Blob4]: ../../../DevCenter/dotNet/Media/blob4.png
   [Download and install the Windows Azure SDK for .NET]: /en-us/develop/net/
   [Creating a Windows Azure Project in Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx
   [Blob5]: ../../../DevCenter/dotNet/Media/blob5.png
@@ -631,3 +559,4 @@ to learn how to do more complex storage tasks.
   [blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Configuring Connection Strings]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx

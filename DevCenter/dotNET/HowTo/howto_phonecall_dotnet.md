@@ -141,8 +141,8 @@ More information about TwiML can be found at [http://www.twilio.com/docs/api/twi
 ## Next steps
 This code was provided to show you basic functionality using Twilio in an ASP.NET web role on Windows Azure. Before deploying to Windows Azure in production, you may want to add more error handling or other features. For example:
 
-* Instead of using a web form, you could use Windows Azure storage blobs or SQL Azure to store phone numbers and call text. For information about using Windows Azure storage blobs, see [How to Use the Blob Storage Service][howto_blob_storage_dotnet]. For information about using SQL Azure, see [How to Use SQL Azure][howto_sql_azure_dotnet].
-* You could use RoleEnvironment.getConfigurationSettings to retrieve the Twilio account ID and authentication token from your deployment’s configuration settings, instead of hard-coding the values in your form. For information about the RoleEnvironment class, see [Microsoft.WindowsAzure.ServiceRuntime Namespace][azure_runtime_ref_dotnet].
+* Instead of using a web form, you could use Windows Azure storage blobs or SQL Database to store phone numbers and call text. For information about using Windows Azure storage blobs, see [How to Use the Blob Storage Service][howto_blob_storage_dotnet]. For information about using SQL Database, see [How to Use SQL Database][howto_sql_azure_dotnet].
+* You could use RoleEnvironment.getConfigurationSettings to retrieve the Twilio account ID and authentication token from your deploymentâ€™s configuration settings, instead of hard-coding the values in your form. For information about the RoleEnvironment class, see [Microsoft.WindowsAzure.ServiceRuntime Namespace][azure_runtime_ref_dotnet].
 * Read the Twilio security guidelines at [https://www.twilio.com/docs/security][twilio_docs_security].
 
 For additional information about Twilio, see [https://www.twilio.com/docs][twilio_docs].
@@ -156,23 +156,23 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 [twilio_api]: http://www.twilio.com/api
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 [twilio_java]: http://github.com/twilio/twilio-java
-[twilio_dotnet_basic_form]: /media/net/WA_twilio_dotnet_basic_form.png
-[twilio_dotnet_basic_form_output]: ="/media/net/WA_twilio_dotnet_basic_form_output.png
+[twilio_dotnet_basic_form]: ../media/WA_twilio_dotnet_basic_form.png
+[twilio_dotnet_basic_form_output]: ../media/WA_twilio_dotnet_basic_form_output.png
 [twimlet_message_url]: http://twimlets.com/message
 [twiml]: http://www.twilio.com/docs/api/twiml
 [twilio_api_service]: http://api.twilio.com
 [add_ca_cert]: add_ca_cert.md
 [azure_java_eclipse_hello_world]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx
-[howto_twilio_voice_sms_dotnet]: ../twilio-voice-and-sms-service/
+[howto_twilio_voice_sms_dotnet]: /en-us/develop/net/how-to-guides/twilio/
 [howto_blob_storage_java]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/
 [howto_blob_storage_dotnet]: https://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/
 [howto_sql_azure_java]: [http://msdn.microsoft.com/en-us/library/windowsazure/hh749029.aspx]
-[howto_sql_azure_dotnet]: https://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
+[howto_sql_azure_dotnet]: https://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-database/
 [azure_runtime_jsp]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690948.aspx
 [azure_javadoc]: http://dl.windowsazure.com/javadoc
 [twilio_docs_security]: http://www.twilio.com/docs/security
 [twilio_docs]: http://www.twilio.com/docs
 [twilio_say]: http://www.twilio.com/docs/api/twiml/say
-[twilio_java]: ./media/net/WA_TwilioJavaCallForm.jpg
-[twilio_java_response]: ./media/net/WA_TwilioJavaMakeCall.jpg
+[twilio_java]: ../media/WA_TwilioJavaCallForm.jpg
+[twilio_java_response]: ../media/WA_TwilioJavaMakeCall.jpg
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx

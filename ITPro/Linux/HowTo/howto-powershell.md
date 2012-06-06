@@ -1,0 +1,2 @@
+<properties umbracoNaviHide="0" pageTitle="How to Use the Windows Azure cmdlets for Windows PowerShell" metaKeywords="" metaDescription="" linkid="manage-linux-howto-powershell" urlDisplayName="PowerShell cmdlets" headerExpose="" footerExpose="" disqusComments="1" />
+<div chunk="../../../devcenter/shared/chunks/powershell.md" />

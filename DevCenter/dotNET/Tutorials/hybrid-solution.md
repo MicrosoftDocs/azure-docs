@@ -1,4 +1,4 @@
-<properties linkid="dev-net-tutorials-hybrid-solution" urldisplayname="Hybrid Application" headerexpose pagetitle="Hybrid On-Premise /Cloud Application" metakeywords="Azure Service Bus tutorial, Azure Service Bus relay tutorial, Azure hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial" footerexpose metadescription="An end-to-end tutorial that helps you develop an application that uses the Windows Azure Service Bus relay to connect between two applications." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-tutorials-hybrid-solution" urldisplayname="Hybrid Application" headerexpose="" pagetitle="Hybrid On-Premise /Cloud Application" metakeywords="Azure Service Bus tutorial, Azure Service Bus relay tutorial, Azure hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop an application that uses the Windows Azure Service Bus relay to connect between two applications." umbraconavihide="0" disquscomments="1"></properties>
 
 # .NET On-Premises/Cloud Hybrid Application Using Service Bus Relay
 
@@ -47,7 +47,7 @@ using the Windows Azure Access Control Service.
 In this tutorial, you will create an ASP.NET MVC 3 website that will
 allow you to see a list of products on the product inventory page.
 
-![][]
+![][0]
 
 The tutorial assumes that you have product information in an existing
 on-premises system, and uses the Service Bus relay to reach into that
@@ -96,14 +96,7 @@ In order to set up the Service Bus Service Namespace and later deploy
 your application to Windows Azure, you need an account. If you do not
 have one you can create a free trial account.
 
-1.  Open a web browser, and browse to the
-    [http://www.windowsazure.com][]. To get started with a free account,
-    click **free trial** in the upper right corner and follow the steps.
-
-    ![][4]
-
-2.  Your account is now created. You are ready to deploy your
-    application to Windows Azure!
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
 
 ## CREATE A SERVICE NAMESPACE
 
@@ -189,13 +182,13 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
 
     ![][10]
 
-3.  From **Installed Templates**, under **Visual C\#**, click **Console
+3.  From **Installed Templates**, under **Visual C#**, click **Console
     Application**. In the **Name** box, type the name
     **ProductsServer**:
 
     ![][11]
 
-4.  Click **OK**to create the **ProductsServer**project.
+4.  Click **OK** to create the **ProductsServer** project.
 5.  In the **Solution Explorer**, right-click **ProductsServer**, then
     click **Properties**.
 6.  Click the **Application** tab on the left, then select **.NET
@@ -207,7 +200,7 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
 7.  In **Solution Explorer**, right-click **References**, then click
     **Manage NuGet Packages**...
 8.  Search for ‘**WindowsAzure.ServiceBus**’ and select the **Windows
-    Azure Service Bus** item. Click **Install**to complete the
+    Azure Service Bus** item. Click **Install** to complete the
     installation, then close this dialog.
 
     ![][13]
@@ -312,9 +305,9 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
             }
         }
 
-13. In **Solution Explorer**, double click the **app.config**file to
-    open it in the **Visual Studio**editor. Replace the contents of
-    **<system.ServiceModel\>**with the following XML code. Be sure to
+13. In **Solution Explorer**, double click the **app.config** file to
+    open it in the **Visual Studio** editor. Replace the contents of
+    **&lt;system.ServiceModel>** with the following XML code. Be sure to
     replace *yourServiceNamespace* with the name of your service
     namespace, and *yourIssuerSecret* with the key you retrieved earlier
     from the Windows Azure Management Portal:
@@ -366,7 +359,7 @@ display data retrieved from your product service.
     Visual Studio be launched with administrator privileges.
 2.  In Visual Studio, on the **File** menu, click **New**, and then
     click **Project**.
-3.  From **Installed Templates**, under **Visual C\#**, click **ASP.NET
+3.  From **Installed Templates**, under **Visual C#**, click **ASP.NET
     MVC 3 Web Application**. Name the project **ProductsPortal**. Then
     click **OK**.
 
@@ -421,13 +414,13 @@ display data retrieved from your product service.
             }
         }
 
-3.  In the **Solution Explorer**, expand Views\\Shared:
+3.  In the **Solution Explorer**, expand Views\Shared:
 
     ![][18]
 
 4.  Next, change the page title by replacing the header text in
-    \_Layout.cshtml with the text "LITWARE'S Products". Double-click
-    \_Layout.cshtml to open it in the Visual Studio editor.
+    _Layout.cshtml with the text "LITWARE'S Products". Double-click
+    _Layout.cshtml to open it in the Visual Studio editor.
 
 5.  Within the body tag, find the title of the page enclosed in h1 tags.
     Change the title text from My MVC Application to LITWARE's Products.
@@ -435,7 +428,7 @@ display data retrieved from your product service.
 
     ![][19]
 
-6.  In **Solution Explorer**, expand Views\\Home:
+6.  In **Solution Explorer**, expand Views\Home:
 
     ![][20]
 
@@ -717,7 +710,7 @@ Run the application to verify that it works.
     The following steps show you how to stop and delete your
     application.
 
-    1.  Login to the Windows Azure Platform Management Portal,
+    1.  Login to the Windows Azure Management Portal,
         http://windows.azure.com, and click on Hosted Sevices, Storage
         Accounts & CDN, then Hosted Services:
 
@@ -730,7 +723,7 @@ Run the application to verify that it works.
 
         ![][34]
 
-  []: ../../../DevCenter/dotNet/Media/hybrid.png
+  [0]: ../../../DevCenter/dotNet/Media/hybrid.png
   [1]: ../../../DevCenter/dotNet/Media/App2.png
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkID=234939&clcid=0x409
   [2]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-3.png

@@ -1,0 +1,2 @@
+<properties umbracoNaviHide="0" pageTitle="How to Set Up Endpoints in a Virtual Machine" metaKeywords="" metaDescription="" linkid="manage-windows-howto-setup-endpoints-vm" urlDisplayName="Set up endpoints" headerExpose="" footerExpose="" disqusComments="1" />
+<div chunk="../../Shared/Chunks/howto-setup-endpoints.md" />

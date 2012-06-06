@@ -1,4 +1,4 @@
-<properties linkid="dev-net-common-tasks-continuous-delivery" urldisplayname="Continuous Delivery" headerexpose pagetitle="Continuous Delivery for Cloud Applications in Windows Azure" metakeywords footerexpose metadescription umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-common-tasks-continuous-delivery" urldisplayname="Continuous Delivery" headerexpose="" pagetitle="Continuous Delivery for Cloud Applications in Windows Azure" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # Continuous Delivery for Cloud Applications in Windows Azure
 
@@ -14,6 +14,8 @@ it also demonstrates how to optionally configure Visual Studio Team
 Foundation Server - Team Build definitions to use the MSBuild commands
 and PowerShell scripts. The process is customizable for your build
 environment and Windows Azure target environments.
+
+You can also use Team Foundation Service, a version of TFS that is hosted in Windows Azure, to do this more easily. For more information, see [Continuous Delivery to Windows Azure by Using Team Foundation Service][].
 
 This task includes the following steps:
 
@@ -55,8 +57,7 @@ everything is configured correctly and that the MSBuild command does
 what you want it to do. You can either add this command line to existing
 build scripts on the build server, or you can use the command line in a
 TFS Build Definition, as described in the next section. For more
-information about command-line parameters and MSBuild, see [MSBuild
-Command Line Reference][].
+information about command-line parameters and MSBuild, see [MSBuild Command Line Reference][].
 
 1.  If Visual Studio 2010 is installed on the build server, click
     **Start**, click **All Programs**, and then locate and click
@@ -66,7 +67,7 @@ Command Line Reference][].
     If Visual Studio 2010 is not installed on the build server, open a
     command prompt and make sure that MSBuild.exe is accessible on the
     path. MSBuild is installed with the .NET Framework in the path   
-    %WINDIR%\\Microsoft.NET\\Framework\\*<Version\>*. For example, to
+    %WINDIR%\\Microsoft.NET\\Framework\\*&lt;Version\&gt;*. For example, to
     add MSBuild.exe to the PATH environment variable when you have .NET
     Framework 4 installed, type the following command at the command
     prompt:
@@ -95,12 +96,12 @@ Command Line Reference][].
 
 4.  Locate the output. By default, this command creates a directory in
     relation to the root folder for the project, such as
-    *<ProjectDir\>*\\bin\\*<Configuration\>*\\app.publish\\. When you
+    *&lt;ProjectDir&gt;*\\bin\\*&lt;Configuration&gt;*\\app.publish\\. When you
     build a Windows Azure project, you generate two files, the package
     file itself and the accompanying configuration file:
 
     -   Project.cspkg
-    -   ServiceConfiguration.*<TargetProfile\>*.cscfg
+    -   ServiceConfiguration.*&lt;TargetProfile&gt;*.cscfg
 
     By default, each Windows Azure project includes one
     service-configuration file (.cscfg file) for local (debugging)
@@ -118,13 +119,13 @@ Command Line Reference][].
         MSBuild /t:Publish /p:TargetProfile=ServiceConfiguration.Cloud.cscfg
 
 6.  Specify the location for the output. Set the path by using the
-    /p:PublishDir=*<Directory\>*\\ option, including the trailing
+    /p:PublishDir=*&lt;Directory\&gt;*\\ option, including the trailing
     backslash separator, as in the following example:
 
         MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
 
     Once you've constructed and tested an appropriate MSBuild command
-    line to build your projects and combine them into an Azure package,
+    line to build your projects and combine them into a Windows Azure package,
     you can add this command line to your build scripts. If your build
     server uses custom scripts, this process will depend on the
     specifics of your build custom process. If you are using TFS as a
@@ -149,7 +150,7 @@ steps:
     Team Explorer window, expand the **Builds**node, right-click **All
     Build Definitions**, and then click **New Build Definition**:
 
-    ![][]
+    ![][0]
 
 2.  Click the **Process**tab. On the Process tab, choose the default
     template, and expand the **Advanced**section in the grid.
@@ -164,7 +165,7 @@ steps:
     **Note:** Copying the files to a public share makes it easier to
     manually deploy the packages from your development computer.
 
-4.  Click the **Trigger**tab, and specify the desired conditions for
+4.  Click the **Trigger** tab, and specify the desired conditions for
     when you want the package to be built. For example, specify
     **Continuous Integration** to build the package whenever a source
     control check-in occurs.
@@ -194,8 +195,7 @@ Template workflow activities in Visual Studio TFS Team Build.
         Get-Command -Module WAPPSCmdlets
 
 4.  Install the certificates needed to allow the script to communicate
-    with Windows Azure service management APIs. First download [the
-    .publishsettings file][] corresponding to your subscription – this
+    with Windows Azure service management APIs. First download [the .publishsettings file][] corresponding to your subscription – this
     file contains the certificate. Then install the certificate to the
     User Store and save the Subscription.xml file containing certificate
     thumbprint and subscription ID pair using the following cmdlet:
@@ -485,8 +485,7 @@ piped into the standard build output.
     The final result of the publish workflow activities will look like
     this in XAML:
 
-        	    </TryCatch>
-
+        	</TryCatch>
               <If Condition="[Not String.IsNullOrEmpty(PublishScriptLocation)]" sap:VirtualizedContainerService.HintSize="1539,552">
                 <If.Then>
                   <Sequence DisplayName="Start publish" sap:VirtualizedContainerService.HintSize="297,446">
@@ -522,7 +521,6 @@ piped into the standard build output.
                   </Sequence>
                 </If.Then>
               </If>
-
             </mtbwa:AgentScope>
             <mtbwa:InvokeForReason DisplayName="Check In Gated Changes for CheckInShelveset Builds" sap:VirtualizedContainerService.HintSize="1370,146" Reason="CheckInShelveset">
               <mtbwa:CheckInGatedChanges DisplayName="Check In Gated Changes" sap:VirtualizedContainerService.HintSize="200,22" />
@@ -805,6 +803,7 @@ piped into the standard build output.
     Write-Output "$(Get-Date –f $timeStampFormat) - Created Cloud App with URL $deploymentUrl."
     Write-Output "$(Get-Date –f $timeStampFormat) - Azure Cloud App deploy script finished."
 
+  [Continuous Delivery to Windows Azure by Using Team Foundation Service]: ./team-foundation-service.md
   [Step 1: Configure the Build Server]: #step1
   [Step 2: Build a Package using MSBuild Commands]: #step2
   [Step 3: Build a Package using TFS Team Build (Optional)]: #step3
@@ -817,13 +816,13 @@ piped into the standard build output.
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [Understanding the Team Foundation Build System]: http://go.microsoft.com/fwlink/?LinkId=238798
   [Configure a Build Machine]: http://go.microsoft.com/fwlink/?LinkId=238799
-  []: ../../../DevCenter/dotNet/Media/tfs-01.png
+  [0]: ../../../DevCenter/dotNet/Media/tfs-01.png
   [2]: ../../../DevCenter/dotNet/Media/tfs-02.png
   [Windows Azure PowerShell Cmdlets]: http://go.microsoft.com/fwlink/?LinkId=242478
   [the .publishsettings file]: https://windows.azure.com/download/publishprofile.aspx?wa=wsignin1.0
   [end of this article]: #script
   [http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx
-  [3]: /media/net/common-task-tfs-03.png
-  [4]: /media/net/common-task-tfs-04.png
-  [5]: /media/net/common-task-tfs-05.png
-  [6]: /media/net/common-task-tfs-06.png
+  [3]: ../media/common-task-tfs-03.png
+  [4]: ../media/common-task-tfs-04.png
+  [5]: ../media/common-task-tfs-05.png
+  [6]: ../media/common-task-tfs-06.png

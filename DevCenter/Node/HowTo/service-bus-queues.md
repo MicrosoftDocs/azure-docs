@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-how-to-service-bus-queues" urldisplayname="Service Bus Queues" headerexpose pagetitle="Service Bus Queues - How To - Node.js - Develop" metakeywords="Azure messaging, Azure brokered messaging, Azure messaging queue, Service Bus queue, Azure Service Bus queue, Azure messaging Node.js, Azure messaging queue Node.js, Azure Service Bus queue Node.js, Service Bus queue Node.js" footerexpose metadescription="Learn about Windows Azure Service Bus queues, including how to create queues, how to send and receive messages, and how to delete queues." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-how-to-service-bus-queues" urldisplayname="Service Bus Queues" headerexpose="" pagetitle="Service Bus Queues - How To - Node.js - Develop" metakeywords="Azure messaging, Azure brokered messaging, Azure messaging queue, Service Bus queue, Azure Service Bus queue, Azure messaging Node.js, Azure messaging queue Node.js, Azure Service Bus queue Node.js, Service Bus queue Node.js" footerexpose="" metadescription="Learn about Windows Azure Service Bus queues, including how to create queues, how to send and receive messages, and how to delete queues." umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Use Service Bus Queues
 
@@ -6,7 +6,7 @@ This guide will show you how to use Service Bus queues. The samples are
 written in JavaScript and use the Node.js Azure module. The scenarios
 covered include **creating queues, sending and receiving messages**, and
 **deleting queues**. For more information on queues, see the [Next
-Steps][] section.
+Steps] section.
 
 ## Table of Contents
 
@@ -116,16 +116,9 @@ namespace.
 
 ## <a name="create-app"> </a>Create a Node.js Appication
 
-Create a new application using the **Windows PowerShell for Node.js**
-command window at the location c:\\node\\sbqueues\\WebRole1. For
+Create a blank Node.js application. For
 instructions on how to use the PowerShell commands to create a blank
-application, see [Node.js Web Application][].
-
-**Note**: Several steps in this article are performed using the tools
-provided by the **Windows Azure SDK for Node.js**, however the
-information provided should generally be applicable to applications
-created using other tools. The previous step simply creates a basic
-server.js file at c:\\node\\sbqueues\\WebRole1.
+application, see the [Node.js Cloud Service]. For instructions on how to use WebMatrix, see [Web Site with WebMatrix].
 
 ## <a name="configure-app"> </a>Configure Your Application to Use Service Bus
 
@@ -173,12 +166,12 @@ runtime:
 -   AZURE\_SERVICEBUS\_ACCESS\_KEY
 
 You can also store these values in the configuration files created by
-the **Windows Azure PowerShell for Node.js** commands. In this how-to,
+the **Windows Azure PowerShell** commands. In this how-to,
 you use the **Web.Cloud.Config** and **Web.Config** files, which are
-created when you create a Windows Azure Web role:
+created when you add a Web Role to a Windows Azure Cloud Service project:
 
-1.  Use a text editor to open
-    **c:\\node\\sbqueues\\WebRole1\\Web.cloud.config**
+1.  Use a text editor to open the
+    **Web.cloud.config**
 
 2.  Add the following inside the **configuration** element
 
@@ -355,12 +348,13 @@ links to learn more.
   [How to: Send Messages to a Queue]: #send-messages
   [How to: Receive Messages from a Queue]: #receive-messages
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
-  [Queue Concepts]: ../../../DevCenter/dotNet/Media/sb-queues-08.png
+  [Queue Concepts]: ../../dotNet/Media/sb-queues-08.png
   [Windows Azure Management Portal]: http://windows.azure.com
-  [image]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
-  [1]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
-  [2]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
-  [3]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
-  [4]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-  [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
+  [image]: ../../dotNet/Media/sb-queues-03.png
+  [1]: ../../dotNet/Media/sb-queues-04.png
+  [2]: ../../dotNet/Media/sb-queues-05.png
+  [3]: ../../dotNet/Media/sb-queues-06.png
+  [4]: ../../dotNet/Media/sb-queues-07.png
+  [Node.js Cloud Service]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
   [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/

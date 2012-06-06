@@ -139,7 +139,7 @@ that Windows Azure should create three instances of role \#1 and two
 instances of role \#2.
 <a id="AzureStorage" name="AzureStorage"></a>
 
-![image][]
+![image][0]
 
 <a name="scenario2"> </a>
 
@@ -224,35 +224,35 @@ across the upgrade domains as shown in the table below:
 <tbody>
 <tr align="left" valign="top">
 <td>
-**UD \#0**
+<strong>UD #0</strong>
 
 </td>
 <td>
-**UD \#1**
+<strong>UD #1</strong>
 
 </td>
 <td>
-**UD \#2**
+<strong>UD #2</strong>
 
 </td>
 <td>
-**UD \#3**
+<strong>UD #3</strong>
 
 </td>
 <td>
-**UD \#4**
+<strong>UD #4</strong>
 
 </td>
 </tr>
 <tr align="left" valign="top">
 <td>
 Web role  
-Instance \#1
+Instance #1
 
 </td>
 <td>
 Web role  
-Instance \#2
+Instance #2
 
 </td>
 <td>
@@ -271,17 +271,17 @@ Instance \#2
 <tr align="left" valign="top">
 <td>
 Worker role  
-Instance \#1
+Instance #1
 
 </td>
 <td>
 Worker role  
-Instance \#2
+Instance #2
 
 </td>
 <td>
 Worker role  
-Instance \#3
+Instance #3
 
 </td>
 <td>
@@ -412,12 +412,12 @@ the new version.<a id="SQLAzure" name="SQLAzure"></a>
   [Windows Azure Service Level Agreement]: http://www.windowsazure.com/en-us/support/sla/
   [Create Hosted Service REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/gg441304.aspx
   [Create Deployment REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460813.aspx
-  [image]: ../../../DevCenter/Shared/Media/deploying-and-updating-applications-3.jpg
+  [0]: ../Media/deploying-and updating-applications-3.jpg
   [Change Deployment Configuration REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460809.aspx
   [Managing Upgrades to the Windows Azure Guest OS]: http://msdn.microsoft.com/en-us/library/windowsazure/ff729422.aspx
-  [1]: ../../../DevCenter/Shared/Media/deploying-and-updating-applications-4.jpg
+  [1]: ../Media/deploying-and updating-applications-4.jpg 
   [Upgrade Deployment REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460793.aspx
-  [2]: ../../../DevCenter/Shared/Media/deploying-and-updating-applications-5.jpg
-  [3]: ../../../DevCenter/Shared/Media/deploying-and-updating-applications-6.jpg
+  [2]: ../Media/deploying-and-updating-applications-5.jpg
+  [3]: ../Media/deploying-and-updating-applications-6.jpg
   [Deploying a Windows Azure Service]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx
   [Operations on Hosted Services]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460812.aspx
