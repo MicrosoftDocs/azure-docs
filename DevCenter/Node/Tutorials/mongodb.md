@@ -1,4 +1,6 @@
-<properties linkid="dev-nodejs-mongodb" urldisplayname="Web App with MongoDB" headerexpose pagetitle="Node.js Web Application with Storage on MongoDB" metakeywords footerexpose metadescription umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-mongodb" urldisplayname="Web App with MongoDB" headerexpose="" pagetitle="Node.js Web Application with Storage on MongoDB" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+
+<div class="dev-center-os-selector"><a href="/en-us/develop/nodejs/tutorials/web-app-with-mongodb/" title="Windows Version" class="windows current">Windows</a> <a href="/en-us/develop/nodejs/tutorials/website-with-mongodb-(mac)/" title="Mac Version" class="mac">Mac</a> <span>Tutorial</span></div>
 
 # Node.js Web Application with Storage on MongoDB
 
@@ -6,13 +8,13 @@ This tutorial describes how to use MongoDB to store and access data from
 a Windows Azure application written in Node.js. This guide assumes that
 you have some prior experience using Windows Azure and Node.js. For an
 introduction to Windows Azure and Node.js, see [Node.js Web
-Application][]. The guide also assumes that you have some knowledge of
+Application]. The guide also assumes that you have some knowledge of
 MongoDB. For an overview of MongoDB, see the [MongoDB website][].
 
 In this tutorial, you will learn how to:
 
 -   Add MongoDB support to an existing Windows Azure service that was
-    created using the Windows Azure SDK for Node.js.
+    created using the Windows Azure SDK.
 
 -   Use npm to install the MongoDB driver for Node.js.
 
@@ -41,9 +43,8 @@ about getting and installing the Windows Azure SDK for Node.js, see
 [Setup the Development Environment][] in the Node.js Web Application
 tutorial.
 
-NOTE: this tutorial requires Node 0.6.10 or above. This version is
-included in the current Windows Azure SDK for Node.js; however if you
-have installed a previous version you will need to [upgrade to the
+NOTE: this tutorial requires Node 0.6.10 or above. The version included in the current Windows Azure SDK for Node.js may be higher; however if you
+have installed a previous version of Node you will need to [upgrade to the
 latest version][Setup the Development Environment].
 
 ## Install Windows Azure Tools for MongoDB and Node.js
@@ -57,18 +58,15 @@ connections between Node and MongoDB, you will need to install the
 
     ![Windows Azure Tools for MongoDB and Node.js Installer][]
 
-## Launching Windows Azure PowerShell for Node.js
+## Launching Windows Azure PowerShell
 
-The Windows Azure SDK for Node.js includes a Windows PowerShell
+The Windows Azure SDK includes a Windows PowerShell
 environment that is configured for Windows Azure and Node development.
 Installing the Windows Azure Tools for MongoDB and Node.js also
 configured the enviroment to include the MongoDB Windows PowerShell
 cmdlets.
 
-1.  On the **Start** menu, click **All Programs**, click **Windows Azure
-    SDK for Node.js - November 2011**. Some of the commands require
-    Administrator permissions, so right-click **Windows PowerShell for
-    Node.js** and click **Run as administrator**.
+1.  On the **Start** menu, click **All Programs**, click **Windows Azure**. Some of the commands require Administrator permissions, so right-click **Windows Azure PowerShell** and click **Run as administrator**.
 
     ![launch PowerShell environment][]
 
@@ -177,7 +175,7 @@ cmdlets.
     Running the application in the emulator also starts instances of
     mongod.exe and AzureEndpointsAgent.exe running on your local
     machine. You will see three console windows open for the mongod.exe
-    instancesâ€”one for each replicated instance. A fourth console
+    instances, one for each replicated instance. A fourth console
     window will open for AzureEndpointsAgent.exe. Calling
     Stop-AzureEmulator will also cause the instances of these
     applications to stop.
@@ -242,7 +240,7 @@ addition to the mongodb module that you installed earlier):
 ## Using MongoDB in a Node application
 
 In this section you will extend your application to create a web-based
-task-list application that you will deploy to Azure. The task list will
+task-list application that you will deploy to Windows Azure. The task list will
 allow a user to retrieve tasks, add new tasks, and mark tasks as
 completed. The application will utilize MongoDB to store task data.
 
@@ -462,7 +460,7 @@ The home controller will handle all requests for the task list site.
 
 ### Modify the home view using jade
 
-1.  From the Windows PowerShell command window, change to the views
+1.  From the Windows Azure PowerShell command window, change to the views
     folder and create a new home.jade file by calling the following
     commands:
 
@@ -499,7 +497,7 @@ The home controller will handle all requests for the task list site.
 
 ## Run your application locally in the emulator
 
-1.  In the Windows PowerShell window, enter the following command to
+1.  In the Windows Azure PowerShell window, enter the following command to
     launch your service in the compute emulator and display a web page
     that calls your service.
 
@@ -650,7 +648,7 @@ If this is the first Node.js application that you are deploying to
 Windows Azure, you will need to install publishing settings to your
 machine before deploying. For details about downloading and installing
 Windows Azure publishing settings, see [Downloading the Windows Azure
-Publishing Settings][] in the Node.js Web Application tutorial.
+Publishing Settings] in the Node.js Web Application tutorial.
 
 ### Publish the Application
 
@@ -689,7 +687,7 @@ is currently running four Windows Azure instances.
 
 The following steps describe how to stop and delete your application.
 
-1.  In the Windows PowerShell window, call the **Stop-AzureService**
+1.  In the Windows Azure PowerShell window, call the **Stop-AzureService**
     command to stop the service deployment created in the previous
     section:
 
@@ -710,27 +708,27 @@ The following steps describe how to stop and delete your application.
 
   [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
   [MongoDB website]: http://www.mongodb.org/
-  [task list application screenshot]: ../../../DevCenter/Node/Media/mongo_tutorial01.png
+  [task list application screenshot]: ../Media/mongo_tutorial01.png
   [Setup the Development Environment]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/#setup
   [AzureMongoDeploymentCmdlets]: http://downloads.mongodb.org/azure/AzureMongoDeploymentCmdlets.msi
-  [Windows Azure Tools for MongoDB and Node.js Installer]: ../../../DevCenter/Node/Media/mongo_tutorial02.png
-  [launch PowerShell environment]: ../../../DevCenter/Node/Media/node7.png
-  [Get-AzureMongoDBBinaries output]: ../../../DevCenter/Node/Media/mongo_tutorial01-1.png
-  [create directory]: ../../../DevCenter/Node/Media/getting-started-6.png
-  [New-AzureService cmdlet response]: ../../../DevCenter/Node/Media/mongo_tutorial06.png
-  [task list application]: ../../../DevCenter/Node/Media/mongo_tutorial07.png
-  [Add-AzureMongoWorkerRole cmdlet response]: ../../../DevCenter/Node/Media/mongo_tutorial08.png
-  [Join-AzureNodeRoleToMongoRole cmdlet response]: ../../../DevCenter/Node/Media/mongo_tutorial09.png
-  [application running in emulator]: ../../../DevCenter/Node/Media/mongo_tutorial10.png
-  [linstalling express module]: ../../../DevCenter/Node/Media/mongo_tutorial11.png
-  [server.js snippet]: ../../../DevCenter/Node/Media/mongo_tutorial12.png
-  [1]: ../../../DevCenter/Node/Media/mongo_tutorial13.png
-  [2]: ../../../DevCenter/Node/Media/node27.png
-  [screenshot of app running in emulator]: ../../../DevCenter/Node/Media/mongo_tutorial14.png
-  [3]: ../../../DevCenter/Node/Media/mongo_tutorial15.png
-  [home.js snippet]: ../../../DevCenter/Node/Media/mongo_tutorial16.png
-  [home.js snippet 2]: ../../../DevCenter/Node/Media/mongo_tutorial17.png
-  [screenshot of task list application in emulator]: ../../../DevCenter/Node/Media/mongo_tutorial18.png
-  [task list application running in emulator]: ../../../DevCenter/Node/Media/mongo_tutorial19.png
+  [Windows Azure Tools for MongoDB and Node.js Installer]: ../Media/mongo_tutorial02.png
+  [launch PowerShell environment]: ../../Shared/Media/azure-powershell-menu.png
+  [Get-AzureMongoDBBinaries output]: ../Media/mongo_tutorial01-1.png
+  [create directory]: ../Media/getting-started-6.png
+  [New-AzureService cmdlet response]: ../Media/mongo_tutorial06.png
+  [task list application]: ../Media/mongo_tutorial07.png
+  [Add-AzureMongoWorkerRole cmdlet response]: ../Media/mongo_tutorial08.png
+  [Join-AzureNodeRoleToMongoRole cmdlet response]: ../Media/mongo_tutorial09.png
+  [application running in emulator]: ../Media/mongo_tutorial10.png
+  [linstalling express module]: ../Media/mongo_tutorial11.png
+  [server.js snippet]: ../Media/mongo_tutorial12.png
+  [1]: ../Media/mongo_tutorial13.png
+  [2]: ../Media/node27.png
+  [screenshot of app running in emulator]: ../Media/mongo_tutorial14.png
+  [3]: ../Media/mongo_tutorial15.png
+  [home.js snippet]: ../Media/mongo_tutorial16.png
+  [home.js snippet 2]: ../Media/mongo_tutorial17.png
+  [screenshot of task list application in emulator]: ../Media/mongo_tutorial18.png
+  [task list application running in emulator]: ../Media/mongo_tutorial19.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [Downloading the Windows Azure Publishing Settings]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/#download_publishing_settings

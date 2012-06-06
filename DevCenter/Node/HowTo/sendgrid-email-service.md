@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-how-to-sendgrid-email-service" urldisplayname="SendGrid Email Service" headerexpose pagetitle="SendGrid Email Service - How To - Node.js - Develop" metakeywords footerexpose metadescription umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-how-to-sendgrid-email-service" urldisplayname="SendGrid Email Service" headerexpose="" pagetitle="SendGrid Email Service - How To - Node.js - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Send Email Using SendGrid from Node.js
 
@@ -58,7 +58,7 @@ about additional services provided by SendGrid, see
 The SendGrid module for Node.js can be installed through the node
 package manager (npm) by using the following command:
 
-    PS C:> npm install sendgrid-nodejs
+    npm install sendgrid-nodejs
 
 After installation, you can require the module in your application by
 using the following code:
@@ -158,7 +158,7 @@ sending an attachment:
 **Note**: When using the **files** property, the file must be accessible
 through [fs.readFile][]. If the file you wish to attach is hosted in
 Windows Azure Storage, such as in a Blob container, you must first copy
-the file to local storage or an Azure drive before it can be sent as an
+the file to local storage or to a Windows Azure drive before it can be sent as an
 attachment using the **files** property.
 
 ## <a id="usefilters"> </a>How to: Use Filters to Enable Footers, Tracking, and Twitter
@@ -258,11 +258,9 @@ Now that you’ve learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
 -   SendGrid Node.js module repository: [sendgrid-nodejs][]
-
 -   SendGrid API documentation:
     [http://docs.sendgrid.com/documentation/api/][SendGrid API
     documentation]
-
 -   SendGrid special offer for Windows Azure customers:
     [http://sendgrid.com/azure.html][]
 

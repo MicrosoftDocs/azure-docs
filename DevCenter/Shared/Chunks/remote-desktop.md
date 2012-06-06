@@ -29,7 +29,7 @@ Windows Azure SDK installed.
 
 2.  In the **IIS** section, click **Server Certificates**.
 
-    ![][]
+    ![][0]
 
 3.  On the **Actions** menu on the right, click **Create Self-Signed
     Certificate**.
@@ -80,11 +80,11 @@ must be updated to include the thumbprint of the certificate.
               		<Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="" />
         </ConfigurationSettings>
         ...
-        	</Role>
+        </Role>
 
 3.  The service configuration file also requires the thumbprint of the
     .pfx certificate you created earlier. Add a certificate entry to the
-    <Certificates\> section as shown, replacing the sample thumbprint
+    `<Certificates>` section as shown, replacing the sample thumbprint
     value below with your own:
 
         <Role name="Deployment>
@@ -190,7 +190,7 @@ manage your application.
   [Step 2: Modify the service definition and configuration files]: #step2
   [Step 3: Upload the deployment package and certificate]: #step3
   [Step 4: Connect to the role instance]: #step4
-  []: ../../../DevCenter/Shared/Media/remote-desktop-01.png
+  [0]: ../../../DevCenter/Shared/Media/remote-desktop-01.png
   [1]: ../../../DevCenter/Shared/Media/remote-desktop-02.png
   [2]: ../../../DevCenter/Shared/Media/remote-desktop-03.png
   [3]: ../../../DevCenter/Shared/Media/remote-desktop-04.png

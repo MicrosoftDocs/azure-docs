@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-basic-web-app-with-express" urldisplayname="Web App With Express" headerexpose pagetitle="Web App With Express" metakeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" footerexpose metadescription="An tutorial that builds on the Web app tutorial, and demonstrates how to use the Express module" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-basic-web-app-with-express" urldisplayname="Web App With Express" headerexpose="" pagetitle="Web App With Express" metakeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" footerexpose="" metadescription="An tutorial that builds on the Web app tutorial, and demonstrates how to use the Express module" umbraconavihide="0" disquscomments="1"></properties>
 
 # Node.js Web Application using Express
 
@@ -6,10 +6,10 @@ Node.js includes a minimal set of functionality in the core runtime.
 Developers often use 3rd party modules to provide additional
 functionality when developing a Node.js application. In this tutorial
 you will extend the application created in the [Node.js Web
-Application][] tutorial by using modules.
+Application] tutorial by using modules.
 
 This tutorial assumes that you have completed the [Node.js Web
-Application][] tutorial.
+Application] tutorial.
 
 You will learn:
 
@@ -24,7 +24,7 @@ A screenshot of the complted application is below:
 
 Node modules can be installed using the node package manager. The
 command format used to install a module using the package manager is
-*npm install <module\_name\>*. Packages installed in this way are stored
+**npm install modulename**. Packages installed in this way are stored
 in the **node\_modules** folder in the directory the command is ran in.
 Node automatically looks for modules within the **node\_modules** folder
 in the application folder, so it is important that you run the npm
@@ -34,30 +34,24 @@ modules.
 Perform the following steps to add the Express module to the application
 you created through the [Node.js Web Application][] tutorial.
 
-1.  If it is not already open, start the Windows Azure PowerShell for
-    Node.js from the **Start** menu by expanding **All Programs, Windows
-    Azure SDK Node.js - November 2011**, right-click **Windows Azure
-    PowerShell for Node.js**, and then select **Run As Administrator**.
+1.  If it is not already open, start the Windows Azure PowerShell from the **Start** menu by expanding **All Programs, Windows
+    Azure**, right-click **Windows Azure
+    PowerShell**, and then select **Run As Administrator**.
 
 2.  Change directories to the folder containing your application. For
     example, C:\\node\\tasklist\\WebRole1.
 
 3.  Install the Express module by issuing the following command:
 
-        PS C:\node\tasklist\WebRole1> npm install express
+        PS C:\node\tasklist\WebRole1> npm install express -g
 
-    **Note**: By default, the command above installs the latest version
-    of the modules. This tutorial was created with Express version
-    2.5.5. If you encounter problems using a newer version of Express,
-    you can install the 2.5.5 version by using **npm install
-    express@2.5.5**.
+    **Note**: The '-g' parameter installs the express scaffolding so that it is globally available. You will use this command in the next section to generate the scaffolding for this application.
 
     The output of the npm command should look similar to the result
     below. You can see the list of modules installed as well as any
     dependencies.
 
-    ![Windows PowerShell displaying the output of the npm install
-    express command.][]
+    ![Windows PowerShell displaying the output of the npm install express command.][]
 
 ## Generating an Express Application
 
@@ -74,13 +68,13 @@ generated using the Express scaffolding tool.
 1.  To create an Express web application using the scaffolding tool,
     enter the command below:
 
-        PS C:\node\tasklist\WebRole1> .\node_modules\.bin\express
+        PS C:\node\tasklist\WebRole1> express
 
 2.  You are prompted to overwrite your earlier application. Enter **y**
     or **yes** to continue. Express generates the app.js file and a
     folder structure for building your application.
 
-    ![The output of the .\\node\_modules\\.bin\\express command.][]
+    ![The output of the express command][express-command]
 
 3.  Delete your existing server.js and rename the generated app.js file
     to server.js. by entering the commands below. This is required
@@ -115,8 +109,7 @@ generated using the Express scaffolding tool.
 
         app.listen(process.env.port);
 
-    ![The contents of server.js with the app.listen(3000); and
-    console.log lines selected.][]
+    ![The contents of server.js with the app.listen(3000); and console.log lines selected.][]
 
     This configures Node to listen on the environment PORT value
     provided by Windows Azure when published to the cloud.
@@ -158,7 +151,7 @@ Windows Azure”.
 4.  Refresh your browser and you will see your changes.
 
     ![A browser window, the page contains Welcome to Express in Windows
-    Azure][]
+    Azure][express-page]
 
 ## Creating a New View
 
@@ -185,8 +178,7 @@ completed. For now, the view just has a static placeholder.
 
 4.  Add the home route after the default route as shown below:
 
-    ![The server.js file, with the app.get('/', routes.index); line
-    highlighted][]
+    ![The server.js file, with the app.get('/', routes.index); line highlighted][]
 
         app.get('/home', function(req, res){
           res.render('home', {
@@ -207,18 +199,17 @@ completed. For now, the view just has a static placeholder.
 
         PS C:\node\tasklist\WebRole1> start http://localhost:81/home
 
-    ![The web browser displaying the home page, which states A work in
-    progress][]
+    ![The web browser displaying the home page, which states A work in progress][]
 
 ## Re-Publishing the Application To Windows Azure
 
 Now that we augmented the Hello World application to use Express, you
 can publish it to Windows Azure by updating the deployment to the
-existing hosted service. In the Windows PowerShell window, call the
-**Publish-AzureService** cmdlet to redeploy your hosted service to
+existing hosted service. In the Windows Azure PowerShell window, call the
+**Publish-AzureServiceProject** cmdlet to redeploy your hosted service to
 Windows Azure.
 
-    PS C:\node\tasklist\WebRole1> Publish-AzureService -launch
+    PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -launch
 
 Since there is a previous deployment of this application, Windows Azure
 performs an in-place update. As such, the cmdlet completes faster than
@@ -231,29 +222,21 @@ As before, because you specified the **–launch** option, the browser
 opens and displays your application running in Windows Azure when
 publishing is completed.
 
-![A web browser displaying the Express page. The URL indicates it is now
-hosted on Windows Azure.][A web browser displaying Welcome to Express in
-Windows Azure]
+![A web browser displaying the Express page. The URL indicates it is now hosted on Windows Azure.][A web browser displaying Welcome to Express in Windows Azure]
 
   [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
-  [A web browser displaying Welcome to Express in Windows Azure]: ../../../DevCenter/Node/Media/node36.png
-  [Windows PowerShell displaying the output of the npm install express
-  command.]: ../../../DevCenter/Node/Media/getting-started-16storage.png
+  [A web browser displaying Welcome to Express in Windows Azure]: ../Media/node36.png
+  [Windows PowerShell displaying the output of the npm install express command.]: ../Media/getting-started-16storage.png
   [expressjs.com]: http://expressjs.com/
-  [The output of the .\\node\_modules\\.bin\\express command.]: ../../../DevCenter/Node/Media/node23.png
-  [Directory listing of the WebRole1 folder.]: ../../../DevCenter/Node/Media/getting-started-17.png
-  [The output of the npm install command]: ../../../DevCenter/Node/Media/node26.png
-  [The contents of server.js with the app.listen(3000); and console.log
-  lines selected.]: ../../../DevCenter/Node/Media/node27.png
-  [A web page containing welcome to express.]: ../../../DevCenter/Node/Media/node28.png
-  [The contents of the index.jade file.]: ../../../DevCenter/Node/Media/getting-started-19.png
+  [express-command]: ../Media/node23.png
+  [Directory listing of the WebRole1 folder.]: ../Media/getting-started-17.png
+  [The output of the npm install command]: ../Media/node26.png
+  [The contents of server.js with the app.listen(3000); and console.log lines selected.]: ../../../DevCenter/Node/Media/node27.png
+  [A web page containing welcome to express.]: ../Media/node28.png
+  [The contents of the index.jade file.]: ../Media/getting-started-19.png
   [http://jade-lang.com]: http://jade-lang.com
-  [The index.jade file, the last line reads: p Welcome to \#{title} in
-  Windows Azure]: ../../../DevCenter/Node/Media/node31.png
-  [A browser window, the page contains Welcome to Express in Windows
-  Azure]: ../../../DevCenter/Node/Media/node32.png
-  [The server.js file, with the app.get('/', routes.index); line
-  highlighted]: ../../../DevCenter/Node/Media/node33.png
-  [The web browser displaying the home page, which states A work in
-  progress]: ../../../DevCenter/Node/Media/node34.png
-  [The output of the publish command]: ../../../DevCenter/Node/Media/node35.png
+  [The index.jade file, the last line reads: p Welcome to \#{title} in Windows Azure]: ../Media/node31.png
+  [express-page]: ../Media/node32.png
+  [The server.js file, with the app.get('/', routes.index); line highlighted]: ../Media/node33.png
+  [The web browser displaying the home page, which states A work in progress]: ../Media/node34.png
+  [The output of the publish command]: ../Media/node35.png

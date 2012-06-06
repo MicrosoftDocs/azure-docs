@@ -1,134 +1,46 @@
-<properties umbraconavihide="0" pagetitle="How to Use the Table Storage Service - How To - Java - Develop" metakeywords="Get started Azure table Java, Azure nosql Java, Azure table storage Java, Azure table Java" metadescription linkid="dev-java-how-to-use-table-storage" urldisplayname="Table Service" headerexpose footerexpose disquscomments="1"></properties>
+<properties umbraconavihide="0" pagetitle="How to Use the Table Storage Service - How To - Java - Develop" metakeywords="Get started Azure table Java, Azure nosql Java, Azure table storage Java, Azure table Java" metadescription="" linkid="dev-java-how-to-use-table-storage" urldisplayname="Table Service" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
-# How to Use the Table Storage Service
+# How to use the Table storage service from Java
 
 This guide will show you how to perform common scenarios using the
 Windows Azure Table storage service. The samples are written in Java
 code. The scenarios covered include **creating and deleting a table,
 inserting and querying entities in a table**. For more information on
-tables, see the [Next Steps][] section.
+tables, see the [Next steps](#NextSteps) section.
 
-## Table of Contents
+## <a name="Contents"> </a>Table of Contents
 
--   [What is the Table Service][]
--   [Concepts][]
--   [Create a Windows Azure Storage Account][]
--   [Create a Java Application][]
--   [Configure your Application to Access Table Storage][]
--   [Setup a Windows Azure Storage Connection String][]
--   [How To: Create a Table][]
--   [How To: Add an Entity to a Table][]
--   [How To: Insert a Batch of Entities][]
--   [How To: Retrieve All Entities in a Partition][]
--   [How To: Retrieve a Range of Entities in a Partition][]
--   [How To: Retrieve a Single Entity][]
--   [How To: Modify an Entity][]
--   [How To: Query a Subset of Entity Properties][]
--   [How To: Insert-or-Replace an Entity][]
--   [How To: Delete an Entity][]
--   [How To: Delete a Table][]
--   [Next Steps][]
+* [What is Table Storage](#what-is)
+* [Concepts](#Concepts)
+* [Create a Windows Azure storage account](#CreateAccount)
+* [Create a Java application](#CreateApplication)
+* [Configure your application to access Table Storage](#ConfigureStorage)
+* [Setup a Windows Azure storage connection string](#ConnectionString)
+* [How to: Create a table](#CreateTable)
+* [How to: Add an entity to a table](#AddEntity)
+* [How to: Insert a batch of entities](#InsertBatch)
+* [How to: Retrieve all entities in a partition](#RetrieveEntities)
+* [How to: Retrieve a range of entities in a partition](#RetrieveRange)
+* [How to: Retrieve a single entity](#RetriveSingle)
+* [How to: Modify an entity](#ModifyEntity)
+* [How to: Query a sbset of entity properties](#QueryProperties)
+* [How to: Insert-or-replace an entity](#InsertOrReplace)
+* [How to: Delete an entity](#DeleteEntity)
+* [How to: Delete a table](#DeleteTable)
+* [Next steps](#NextSteps)
 
-## <a name="bkmk_what-is"> </a>What is the Table Service
+<div chunk="../../Shared/Chunks/howto-table-storage.md" />
 
-The Windows Azure Table storage service stores large amounts of
-structured data. The service is a NoSQL datastore which accepts
-authenticated calls from inside and outside the Azure cloud. Azure
-tables are ideal for storing structured, non-relational data. Common
-uses of the Table service include:
+<h2 id="CreateAccount">Create a Windows Azure storage account</h2>
 
--   Storing TBs of structured data capable of serving web scale
-    applications
--   Storing datasets that don't require complex joins, foreign keys, or
-    stored procedures and can be denormalized for fast access
--   Quickly querying data using a clustered index
--   Accessing data using the OData protocol and LINQ queries with WCF
-    Data Service .NET Libraries
+<div chunk="../../Shared/Chunks/create-storage-account.md" />
 
-You can use the Table service to store and query huge sets of
-structured, non-relational data, and your tables will scale as demand
-increases.
-
-## <a name="bkmk_concepts"> </a>Concepts
-
-The Table service contains the following components:
-
-![Table1][]
-
--   **URL format:** Code addresses tables in an account using this
-    address format:   
-    http://<storage account\>.table.core.windows.net/<table\>  
-      
-    You can address Azure tables directly using this address with the
-    OData protocol. For more information, see [OData.org][]
-
--   **Storage Account:** All access to Windows Azure Storage is done
-    through a storage account. The total size of blob, table, and queue
-    contents in a storage account cannot exceed 100TB.
-
--   **Table**: A table is a collection of entities. Tables don't enforce
-    a schema on entities, which means a single table can contain
-    entities that have different sets of properties. An account can
-    contain many tables, the size of which is only limited by the 100TB
-    storage account limit.
-
--   **Entity**: An entity is a set of properties, similar to a database
-    row. An entity can be up to 1MB in size.
-
--   **Properties**: A property is a name-value pair. Each entity can
-    include up to 252 properties to store data. Each entity also has 3
-    system properties that specify a partition key, a row key, and a
-    timestamp. Entities with the same partition key can be queried more
-    quickly, and inserted or modified in atomic operations. An entity's
-    row key is its unique identifier within a partition.
-
-## <a name="bkmk_create-account"> </a>Create a Windows Azure Storage Account
-
-To use storage operations, you need a Windows Azure storage account. You
-can create a storage account by following these steps. (You can also
-create a storage account [using the REST API][].)
-
-1.  Log into the [Windows Azure Management Portal][].
-
-2.  In the navigation pane, click **Hosted Services, Storage Accounts &
-    CDN**.
-
-3.  At the top of the navigation pane, click **Storage Accounts**.
-
-4.  On the ribbon, in the Storage group, click **New Storage Account**.
-      
-    ![Blob2][]  
-      
-    The **Create a New Storage Account**dialog box opens.   
-    ![Blob3][]
-
-5.  In **Choose a Subscription**, select the subscription that the
-    storage account will be used with.
-
-6.  In **Enter a URL**, type a subdomain name to use in the URI for the
-    storage account. The entry can contain from 3-24 lowercase letters
-    and numbers. This value becomes the host name within the URI that is
-    used to address Blob, Queue, or Table resources for the
-    subscription.
-
-7.  Choose a region or an affinity group in which to locate the storage.
-    If you will be using storage from your Windows Azure application,
-    select the same region where you will deploy your application.
-
-8.  Click **OK**.
-
-9.  Click the **View** button in the right-hand column below to display
-    and save the **Primary access key** for the storage account. You
-    will need this in subsequent steps to access storage.   
-    ![Blob4][]
-
-## <a name="bkmk_CreateJavaApp"> </a>Create a Java Application
+## <a name="CreateApplication"> </a>Create a Java application
 
 In this guide, you will use storage features which can be run within a
 Java application locally, or in code running within a web role or worker
 role in Windows Azure. We assume you have downloaded and installed the
-Java Development Kit (JDK), and followed the instructions in [Download
-the Windows Azure SDK for Java][] to install the Windows Azure Libraries
+Java Development Kit (JDK), and followed the instructions in [Windows Azure SDK for Java] to install the Windows Azure Libraries
 for Java and the Windows Azure SDK, and have created a Windows Azure
 storage account in your Windows Azure subscription.
 
@@ -136,7 +48,7 @@ You can use any development tools to create your application, including
 Notepad. All you need is the ability to compile a Java project and
 reference the Windows Azure Libraries for Java.
 
-## <a name="bkmk_ConfigApp"> </a>Configure your Application to Access Table Storage
+## <a name="ConfigureStorage"> </a>Configure your application to access table storage
 
 Add the following import statements to the top of the Java file where
 you want to use Windows Azure storage APIs to access tables:
@@ -146,7 +58,7 @@ you want to use Windows Azure storage APIs to access tables:
     import com.microsoft.windowsazure.services.table.client.*;
     import com.microsoft.windowsazure.services.table.client.TableQuery.*;
 
-## <a name="bkmk_SetupConnectString"> </a>Setup a Windows Azure Storage Connection String
+## <a name="ConnectionString"> </a>Setup a Windows Azure storage connection string
 
 A Windows Azure storage client uses a storage connection string to store
 endpoints and credentials for accessing storage services. When running
@@ -176,7 +88,7 @@ of getting the connection string from a **Setting** element named
 The samples below assume that you have used one of these two definitions
 to get the storage connection string.
 
-## <a name="bkmk_create-table"> </a>How To: Create a Table
+## <a name="CreateTable"> </a>How to: Create a table
 
 A **CloudTableClient** object lets you get reference objects for tables
 and entities. The following code creates a **CloudTableClient** object
@@ -196,7 +108,7 @@ configuration. There are also other ways to create
     String tableName = "people";
     tableClient.createTableIfNotExists(tableName);
 
-## <a name="bkmk_add-entity"> </a>How To: Add an Entity to a Table
+## <a name="AddEntity"> </a>How to: Add an entity to a table
 
 Entities map to Java objects using a custom class implementing
 **TableEntity**. For convenience, the **TableServiceEntity** class
@@ -267,7 +179,7 @@ insert the new customer entity into the "people" table.
     // Submit the operation to the table service.
     tableClient.execute("people", insertCustomer1);
 
-## <a name="bkmk_insert-batch"> </a>How To: Insert a Batch of Entities
+## <a name="InsertBatch"> </a>How to: Insert a batch of entities
 
 You can insert a batch of entities to the table service in one write
 operation. The following code creates a **TableBatchOperation** object,
@@ -322,7 +234,7 @@ note on batch operations:
     // Execute the batch of operations on the "people" table.
     tableClient.execute("people", batchOperation);
 
-## <a name="bkmk_retrieve-all-entities"> </a>How To: Retrieve All Entities in a Partition
+## <a name="RetrieveEntities"> </a>How to: Retrieve all entities in a partition
 
 To query a table for entities in a partition, you can use a
 **TableQuery**. Call **TableQuery.from** to create a query on a
@@ -361,7 +273,7 @@ in the query results to the console.
             "\t" + entity.getEmail() + "\t" + entity.getPhoneNumber());
     }
 
-## <a name="bkmk_retrieve-range-entities"> </a>How To: Retrieve a Range of Entities in a Partition
+## <a name="RetrieveRange"> </a>How to: Retrieve a range of entities in a partition
 
 If you don't want to query all the entities in a partition, you can
 specify a range by using comparison operators in a filter. The following
@@ -406,7 +318,7 @@ returned this time (Ben and Denise Smith); Jeff Smith is not included.
             "\t" + entity.getEmail() + "\t" + entity.getPhoneNumber());
     }
 
-## <a name="bkmk_retrieve-single-entity"> </a>How To: Retrieve a Single Entity
+## <a name="RetriveSingle"> </a>How to: Retrieve a single entity
 
 You can write a query to retrieve a single, specific entity. The
 following code calls **TableOperation.retrieve** with partition key and
@@ -435,7 +347,7 @@ the fastest way to retrieve a single entity from the Table service.
     CustomerEntity specificEntity =
         tableClient.execute("people", retrieveSmithJeff).getResultAsType();
 
-## <a name="bkmk_modify-entity"> </a>How To: Modify an Entity
+## <a name="ModifyEntity"> </a>How to: Modify an entity
 
 To modify an entity, retrieve it from the table service, make changes to
 the entity object, and save the changes back to the table service with a
@@ -473,7 +385,7 @@ storage system.
     // Submit the operation to the table service.
     tableClient.execute("people", replaceEntity);
 
-## <a name="bkmk_query-entity-properties"> </a>How To: Query a Subset of Entity Properties
+## <a name="QueryProperties"> </a>How to: Query a subset of entity properties
 
 A query to a table can retrieve just a few properties from an entity.
 This technique, called projection, reduces bandwidth and can improve
@@ -513,7 +425,7 @@ runs only when using an account on the table service.
         System.out.println(projectedString);
     }
 
-## <a name="bkmk_insert-entity"> </a>How To: Insert-or-Replace an Entity
+## <a name="InsertOrReplace"> </a>How to: Insert-or-replace an entity
 
 Often you want to add an entity to a table without knowing if it already
 exists in the table. An insert-or-replace operation allows you to make a
@@ -548,7 +460,7 @@ in this [blog post][].
     // Submit the operation to the table service.
     tableClient.execute("people", insertCustomer5);
 
-## <a name="bkmk_delete-entity"> </a>How To: Delete an Entity
+## <a name="DeleteEntity"> </a>How to: Delete an entity
 
 You can easily delete an entity after you have retrieved it. Once the
 entity is retrieved, call **TableOperation.delete** with the entity to
@@ -575,7 +487,7 @@ code retrieves and deletes a customer entity.
     // Submit the delete operation to the table service.
     tableClient.execute("people", deleteSmithJeff);
 
-## <a name="bkmk_delete-table"> </a>How To: Delete a Table
+## <a name="DeleteTable"> </a>How to: Delete a table
 
 Finally, the following code deletes a table from a storage account. A
 table which has been deleted will be unavailable to be recreated for a
@@ -591,41 +503,19 @@ period of time following the deletion, usually less than forty seconds.
     // Delete the table and all its data if it exists.
     tableClient.deleteTableIfExists("people");
 
-## <a name="bkmk_next-steps"> </a>Next Steps
+## <a name="NextSteps"> </a>Next steps
 
 Now that you've learned the basics of table storage, follow these links
 to learn how to do more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Windows
-    Azure][]
+    Azure]
 -   Visit the [Windows Azure Storage Team Blog][]
 
-  [Next Steps]: #bkmk_next-steps
-  [What is the Table Service]: #bkmk_what-is
-  [Concepts]: #bkmk_concepts
-  [Create a Windows Azure Storage Account]: #bkmk_create-account
-  [Create a Java Application]: #bkmk_CreateJavaApp
-  [Configure your Application to Access Table Storage]: #bkmk_ConfigApp
-  [Setup a Windows Azure Storage Connection String]: #bkmk_SetupConnectString
-  [How To: Create a Table]: #bkmk_create-table
-  [How To: Add an Entity to a Table]: #bkmk_add-entity
-  [How To: Insert a Batch of Entities]: #bkmk_insert-batch
-  [How To: Retrieve All Entities in a Partition]: #bkmk_retrieve-all-entities
-  [How To: Retrieve a Range of Entities in a Partition]: #bkmk_retrieve-range-entities
-  [How To: Retrieve a Single Entity]: #bkmk_retrieve-single-entity
-  [How To: Modify an Entity]: #bkmk_modify-entity
-  [How To: Query a Subset of Entity Properties]: #bkmk_query-entity-properties
-  [How To: Insert-or-Replace an Entity]: #bkmk_insert-entity
-  [How To: Delete an Entity]: #bkmk_delete-entity
-  [How To: Delete a Table]: #bkmk_delete-table
-  [Table1]: ../../../DevCenter/dotNet/Media/table1.png
-  [OData.org]: http://www.odata.org/
-  [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
-  [Windows Azure Management Portal]: http://windows.azure.com
-  [Blob2]: ../../../DevCenter/dotNet/Media/blob2.png
-  [Blob3]: ../../../DevCenter/dotNet/Media/blob3.png
-  [Blob4]: ../../../DevCenter/dotNet/Media/blob4.png
-  [Download the Windows Azure SDK for Java]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=vs.103).aspx
-  [blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[OData.org]: http://www.odata.org/
+[using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
+[blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+[Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+[Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Windows Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/java-home/download-the-windows-azure-sdk-for-java/
+[Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx

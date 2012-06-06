@@ -1,0 +1,2 @@
+<properties umbracoNaviHide="1" pageTitle="Download the Windows Azure SDK for Java" metaKeywords="Java, Azure, Download, Windows" metaDescription="Download the Windows Azure SDK for Java for your Mac." linkid="java-download-mac" urlDisplayName="Download for Mac" disqusComments="1" />
+<div chunk="../Chunks/download_libraries.md" />

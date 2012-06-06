@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-queue-service" urldisplayname="Queue Service" headerexpose pagetitle="How to Use the Queue Storage Service from .NET" metakeywords="Get started Azure queue, Azure asynchronous processing, Azure queue, Azure queue storage, Azure queue .NET, Azure queue storage .NET, Azure queue C#, Azure queue storage C#" footerexpose metadescription="Learn how to use the Windows Azure queue storage service to create and delete queues and insert, peek, get, and delete queue messages." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-how-to-queue-service" urldisplayname="Queue Service" headerexpose="" pagetitle="How to Use the Queue Storage Service from .NET" metakeywords="Get started Azure queue, Azure asynchronous processing, Azure queue, Azure queue storage, Azure queue .NET, Azure queue storage .NET, Azure queue C#, Azure queue storage C#" footerexpose="" metadescription="Learn how to use the Windows Azure queue storage service to create and delete queues and insert, peek, get, and delete queue messages." umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Use the Queue Storage Service
 
@@ -27,81 +27,10 @@ to the [Next Steps][] section.
 -   [How To: Delete a Queue][]
 -   [Next Steps][]
 
-## <a name="what-is"> </a>What is Queue Storage
-
-Windows Azure Queue storage is a service for storing large numbers of
-messages that can be accessed from anywhere in the world via
-authenticated calls using HTTP or HTTPS. A single queue message can be
-up to 64KB in size, a queue can contain millions of messages, up to the
-100TB total capacity limit of a storage account. Common uses of Queue
-storage include:
-
--   <span>Creating a backlog of work to process asynchronously</span>
--   Passing messages from a Windows Azure Web role to a Windows Azure
-    Worker role
-
-## <a name="concepts"> </a>Concepts
-
-The Queue service contains the following components:
-
-![Queue1][]
-
--   **URL format:** Queues are addressable using the following URL
-    format:   
-    http://<storage account\>.queue.core.windows.net/<queue\>  
-      
-    The following URL addresses one of the queues in the diagram:  
-    http://myaccount.queue.core.windows.net/imagesToDownload
-
--   **Storage Account:** All access to Windows Azure Storage is done
-    through a storage account. A storage account is the highest level of
-    the namespace for accessing queues. The total size of blob, table,
-    and queue contents in a storage account cannot exceed 100TB.
-
--   **Queue:** A queue contains a set of messages. All messages must be
-    in a queue.
-
--   **Message:** A message, in any format, of up to 64KB.
+<div chunk="../../Shared/Chunks/howto-queue-storage.md" />
 
 ## <a name="create-account"> </a>Create a Windows Azure Storage Account
-
-To use storage operations, you need a Windows Azure storage account. You
-can create a storage account by following these steps. (You can also
-create a storage account [using the REST API][].)
-
-1.  Log into the [Windows Azure Management Portal][].
-
-2.  In the navigation pane, click **Hosted Services, Storage Accounts &
-    CDN**.
-
-3.  At the top of the navigation pane, click **Storage Accounts**.
-
-4.  On the ribbon, in the Storage group, click **New Storage Account**.
-      
-    ![Blob2][]  
-      
-    The **Create a New Storage Account**dialog box opens.   
-    ![Blob3][]
-
-5.  In **Choose a Subscription**, select the subscription that the
-    storage account will be used with.
-
-6.  In **Enter a URL**, type a subdomain name to use in the URI for the
-    storage account. The entry can contain from 3-24 lowercase letters
-    and numbers. This value becomes the host name within the URI that is
-    used to address Blob, Queue, or Table resources for the
-    subscription.
-
-7.  Choose a region or an affinity group in which to locate the storage.
-    If you will be using storage from your Windows Azure application,
-    select the same region where you will deploy your application.
-
-8.  Click **OK**.
-
-9.  Click the **View** button in the right-hand column below to display
-    and save the **Primary access key** for the storage account. You
-    will need this in subsequent steps to access storage.   
-    ![Blob4][]
+<div chunk="../../Shared/Chunks/create-storage-account.md" />
 
 ## <a name="create-project"> </a>Create a Windows Azure Project in Visual Studio
 
@@ -127,46 +56,69 @@ where you want to use Windows Azure Storage:
 
 ## <a name="setup-connection-string"> </a>Setup a Windows Azure Storage Connection String
 
-The Windows Azure .NET storage client uses a storage connection string
-to store endpoints and credentials for accessing storage services. You
-can put your storage connection string in a configuration file, rather
-than hard-coding it in code. One option is to use .NET's built-in
-configuration mechanism (e.g. **Web.config** for web applications). In
-this guide, you will store your connection string using Windows Azure
-service configuration. The service configuration is unique to Windows
-Azure projects and allows you to change configuration from the
-Management Portal without redeploying your application.
+The Windows Azure .NET storage API supports using a storage connection
+string to configure endpoints and credentials for accessing storage
+services. You can put your storage connection string in a configuration
+file, rather than hard-coding it in code:
+
+- When using Windows Azure Cloud Services, it is recommended you store your connection string using the Windows Azure service configuration system (`*.csdef` and `*.cscfg` files).
+- When using Windows Azure Web Sites or Windows Azure Virtual Machines, it is recommended you store your connection string using the .NET configuration system (e.g. `web.config` file).
+
+In both cases, you can retrieve your connection string using the `CloudConfigurationManager.GetSetting` method as shown later in this guide.
+
+### Configuring your connection string when using Cloud Services
+
+The service configuration mechanism is unique to Windows Azure Cloud Services
+projects and enables you to dynamically change configuration settings
+from the Windows Azure Management Portal without redeploying your
+application.
 
 To configure your connection string in the Windows Azure service
 configuration:
 
-1.  In the Solution Explorer, in the **Roles** folder, right-click a web
-    role or worker role and click **Properties**.  
+1.  Within the Solution Explorer of Visual Studio, in the **Roles**
+    folder of your Windows Azure Deployment Project, right-click your
+    web role or worker role and click **Properties**.  
     ![Blob5][]
 
-2.  Click **Settings** and click **Add Setting**.  
+2.  Click the **Settings** tab and press the **Add Setting** button.  
     ![Blob6][]
 
-    A new setting is created.
+    A new **Setting1** entry will then show up in the settings grid.
 
-3.  In the **Type** drop-down of the **Setting1** entry, choose
+3.  In the **Type** drop-down of the new **Setting1** entry, choose
     **Connection String**.  
     ![Blob7][]
 
 4.  Click the **...** button at the right end of the **Setting1** entry.
-    The **Storage Account Connection String** dialog opens.
+    The **Storage Account Connection String** dialog will open.
 
-5.  Choose whether you want to target the storage emulator (Windows
-    Azure storage simulated on your desktop) or an actual storage
-    account in the cloud, and click **OK**. The code in this guide works
-    with either option.  
+5.  Choose whether you want to target the storage emulator (the Windows
+    Azure storage simulated on your local machine) or an actual storage
+    account in the cloud. The code in this guide works with either
+    option. Enter the **Primary Access Key** value copied from the
+    earlier step in this tutorial if you wish to store blob data in the
+    storage account we created earlier on Windows Azure.   
     ![Blob8][]
 
-6.  Change the entry **Name** from **Setting1** to
-    **StorageConnectionString**. You will reference this name in the
-    code in this guide.  
+6.  Change the entry **Name** from **Setting1** to a "friendlier" name
+    like **StorageConnectionString**. You will reference this
+    connectionstring later in the code in this guide.  
     ![Blob9][]
+	
+### Configuring your connection string when using Web Sites or Virtual Machines
 
+When using Web Sites or Virtual Machines, it is recommended you use the .NET configuration system (e.g. `web.config`).  You store the connection string using the `<appSettings>` element:
+
+	<configuration>
+	    <appSettings>
+		    <add key="StorageConnectionString"
+			     value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
+		</appSettings>
+	</configuration>
+
+Read [Configuring Connection Strings][] for more information on storage connection strings.
+	
 You are now ready to perform the How To's in this guide.
 
 ## <a name="create-queue"> </a>How To: Create a Queue
@@ -180,7 +132,7 @@ documentation for details.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -204,7 +156,7 @@ doesn't exist) and inserts the message 'Hello, World'.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -226,7 +178,7 @@ from the queue by calling the **PeekMessage** method.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -254,7 +206,7 @@ that triggers an application error each time it is processed.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -283,7 +235,7 @@ has been processed.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -312,7 +264,7 @@ will become visible again.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -338,7 +290,7 @@ property returns the last value retrieved by the
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -359,7 +311,7 @@ To delete a queue and all the messages contained in it, call the
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -394,12 +346,6 @@ to learn how to do more complex storage tasks.
   [How To: Additional Options for Dequeuing Messages]: #advanced-get
   [How To: Get the Queue Length]: #get-queue-length
   [How To: Delete a Queue]: #delete-queue
-  [Queue1]: ../../../DevCenter/dotNet/Media/queue1.png
-  [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
-  [Windows Azure Management Portal]: http://windows.azure.com
-  [Blob2]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage2.png
-  [Blob3]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage3.png
-  [Blob4]: /media//java/WA_HowToBlobStorage4.png
   [Download and install the Windows Azure SDK for .NET]: /en-us/develop/net/
   [Creating a Windows Azure Project in Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx
   [Blob5]: ../../../DevCenter/dotNet/Media/blob5.png
@@ -410,3 +356,4 @@ to learn how to do more complex storage tasks.
   [CloudStorageAccount]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Configuring Connection Strings]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx

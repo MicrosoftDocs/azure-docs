@@ -1,4 +1,4 @@
-<properties umbraconavihide="0" pagetitle="Service Bus Topics - How To - Node.js - Develop" metakeywords="Service Bus topics Node.js, getting started service bus topics node.js, getting started service bus subscriptions node.j" metadescription linkid="dev-nodejs-how-to-service-bus-topics" urldisplayname="Service Bus Topics" headerexpose footerexpose disquscomments="1"></properties>
+<properties umbraconavihide="0" pagetitle="Service Bus Topics - How To - Node.js - Develop" metakeywords="Service Bus topics Node.js, getting started service bus topics node.js, getting started service bus subscriptions node.j" metadescription="" linkid="dev-nodejs-how-to-service-bus-topics" urldisplayname="Service Bus Topics" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
 # How to Use Service Bus Topics/Subscriptions
 
@@ -117,16 +117,9 @@ credentials for the namespace.
 
 ## Create a Node.js Application
 
-Create a new application using the **Windows PowerShell for Node.js**
-command window at the location c:\\node\\sbtopicss\\WebRole1. For
+Create a blank Node.js application. For
 instructions on how to use the PowerShell commands to create a blank
-application, see Node.js Web Application.
-
-**Note**: Several steps in this article are performed using the tools
-provided by the **Windows Azure SDK for Node.js**, however the
-information provided should generally be applicable to applications
-created using other tools. The previous step simply creates a basic
-server.js file at c:\\node\\sbtopicss\\WebRole1.
+application, see the [Node.js Cloud Service]. For instructions on how to use WebMatrix, see [Web Site with WebMatrix].
 
 ## Configure Your Application to Use Service Bus
 
@@ -136,9 +129,7 @@ communicate with the Service Bus REST services.
 
 ### Use Node Package Manager (NPM) to obtain the package
 
-1.  Use the **Windows PowerShell for Node.js** command window to
-    navigate to the **c:\\node\\sbtopicss\\WebRole1** folder where you
-    created your sample application.
+1.  Use a command-line interface such as **PowerShell** (Windows,) **Terminal** (Mac,) or **Bash** (Unix), navigate to the folder where you created your sample application.
 
 2.  Type **npm install azure** in the command window, which should
     result in the following output:
@@ -175,12 +166,12 @@ runtime:
 -   AZURE\_SERVICEBUS\_ACCESS\_KEY
 
 You can also store these values in the configuration files created by
-the **Windows Azure PowerShell for Node.js** commands. In this how-to,
+the **Windows Azure PowerShell** commands. In this how-to,
 you use the **Web.Cloud.Config** and **Web.Config** files, which are
-created when you create a Windows Azure Web role:
+created when you add a Web role to a Windows Azure Cloud Service project:
 
-1.  Use a text editor to open
-    **c:\\node\\sbtopics\\WebRole1\\Web.cloud.config**
+1.  Use a text editor to open the
+    **Web.cloud.config**
 
 2.  Add the following inside the **configuration** element
 
@@ -521,13 +512,15 @@ links to learn more.
   [How to: Handle Application Crashes and Unreadable Messages]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
   [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
   [1]: #Next_Steps
-  [Topic Concepts]: ../../../DevCenter/dotNet/Media/sb-topics-01.png
+  [Topic Concepts]: ../../dotNet/Media/sb-topics-01.png
   [Windows Azure Management Portal]: http://windows.azure.com
-  [image]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
-  [2]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
-  [3]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
-  [4]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
-  [5]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
+  [image]: ../../dotNet/Media/sb-queues-03.png
+  [2]: ../../dotNet/Media/sb-queues-04.png
+  [3]: ../../dotNet/Media/sb-queues-05.png
+  [4]: ../../dotNet/Media/sb-queues-06.png
+  [5]: ../../dotNet/Media/sb-queues-07.png
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
+  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/
+  [Node.js Cloud Service]: {localLink:2221} "Node.js Web Application"

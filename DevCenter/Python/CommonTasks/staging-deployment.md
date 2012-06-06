@@ -1,0 +1,2 @@
+<properties linkid="dev-python-common-tasks-staging-deployment" urlDisplayName="Staging Deployment" headerExpose="" pageTitle="Enable Staging Deployment - Python - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<div chunk="../../Shared/Chunks/staging-deployment.md" />

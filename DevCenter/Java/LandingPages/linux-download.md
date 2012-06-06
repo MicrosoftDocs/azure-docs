@@ -1,0 +1,2 @@
+<properties umbracoNaviHide="1" pageTitle="Download the Windows Azure SDK for Java" metaKeywords="Java, Azure, Download, Windows" metaDescription="Download the Windows Azure SDK for Java for Linux." linkid="java-download-linux" urlDisplayName="Download for Linux" disqusComments="1" />
+<div chunk="../Chunks/download_libraries.md" />

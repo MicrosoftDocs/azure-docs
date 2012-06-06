@@ -1,4 +1,4 @@
-<properties linkid="dev-net-commons-tasks-enable-ssl" urldisplayname="Enable SSL" headerexpose pagetitle="Enable SSL - .NET - Develop" metakeywords="Azure SSL, Azure HTTPS, Windows Azure SSL, Windows Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" footerexpose metadescription="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-commons-tasks-enable-ssl" urldisplayname="Enable SSL" headerexpose="" pagetitle="Enable SSL - .NET - Develop" metakeywords="Azure SSL, Azure HTTPS, Windows Azure SSL, Windows Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" footerexpose="" metadescription="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." umbraconavihide="0" disquscomments="1"></properties>
 
 # Configuring SSL for an Application in Windows Azure
 
@@ -134,7 +134,7 @@ certificate to Windows Azure with the Management Portal.
     Hosted Services section. Click **New Hosted Service**, add the
     required information about your hosted service, and then click **Add
     Certificate**.   
-    ![][]
+    ![][0]
 
 2.  In **Upload Certificates**, enter the location for the SSL
     certificate .pfx file, the password for the certificate, and click
@@ -184,7 +184,7 @@ connect to it using HTTPS.
   [How to Create a Certificate for a Role]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432987.aspx
   [How to Associate a Certificate with a Service]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
   [Windows Azure Management Portal]: http://windows.azure.com
-  []: ../../../DevCenter/Shared/Media/ssl-01.png
+  [0]: ../../../DevCenter/Shared/Media/ssl-01.png
   [1]: ../../../DevCenter/Shared/Media/ssl-02.png
   [2]: ../../../DevCenter/Shared/Media/ssl-03.png
   [3]: ../../../DevCenter/Shared/Media/ssl-04.png

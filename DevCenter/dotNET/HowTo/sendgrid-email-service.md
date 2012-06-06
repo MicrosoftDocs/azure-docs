@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-sendgrid-email-service" urldisplayname="SendGrid Email Service" headerexpose pagetitle="SendGrid Email Service - How To - .NET - Develop" metakeywords footerexpose metadescription umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-how-to-sendgrid-email-service" urldisplayname="SendGrid Email Service" headerexpose="" pagetitle="SendGrid Email Service - How To - .NET - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Send Email Using SendGrid
 
@@ -41,8 +41,7 @@ For more information, see [http://sendgrid.com][].
 ## <a id="createaccount"> </a>Create a SendGrid Account
 
 To get started with SendGrid, evaluate pricing and sign up information
-at [http://sendgrid.com][1]. Windows Azure customers receive a [special
-offer][] of 25,000 free emails per month from SendGrid. To sign-up for
+at [http://sendgrid.com][1]. Windows Azure customers receive a [special offer][] of 25,000 free emails per month from SendGrid. To sign-up for
 this offer, or get more information, please visit
 [http://www.sendgrid.com/azure.html][special offer].
 
@@ -277,14 +276,9 @@ details, see the [SendGrid API documentation][].
 Now that you’ve learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
--   SendGrid C\# library repo: [sendgrid-csharp][]
-
--   SendGrid API documentation:
-    [http://docs.sendgrid.com/documentation/api/][SendGrid API
-    documentation]
-
--   SendGrid special offer for Windows Azure customers:
-    [http://sendgrid.com/azure.html][]
+* SendGrid C\# library repo: [sendgrid-csharp][]
+*   SendGrid API documentation: [http://docs.sendgrid.com/documentation/api/][SendGrid API documentation]
+*   SendGrid special offer for Windows Azure customers: [http://sendgrid.com/azure.html][]
 
   [Next Steps]: #nextsteps
   [What is the SendGrid Email Service?]: #whatis

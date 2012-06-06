@@ -1,17 +1,16 @@
-<properties linkid="dev-nodejs-how-to-service-bus-queues" urldisplayname="Queue Service" headerexpose pagetitle="Queue Service - How To - Node.js - Develop" metakeywords="Azure asynchronous processing Node.js, Azure queue Node.js, Azure queue storage Node.js" footerexpose metadescription="Learn how to use the Windows Azure queue storage service to create and delete queues and insert, peek, get, and delete queue messages from your Node.js application." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-how-to-service-bus-queues" urldisplayname="Queue Service" headerexpose="" pagetitle="Queue Service - How To - Node.js - Develop" metakeywords="Azure asynchronous processing Node.js, Azure queue Node.js, Azure queue storage Node.js" footerexpose="" metadescription="Learn how to use the Windows Azure queue service to create and delete queues and insert, peek, get, and delete queue messages from your Node.js application." umbraconavihide="0" disquscomments="1"></properties>
 
-# How to Use the Queue Storage Service from Node.js
+# How to Use the Queue Service from Node.js
 
 This guide shows you how to perform common scenarios using the Windows
-Azure Queue storage service. The samples are written using the Node.js
+Azure Queue service. The samples are written using the Node.js
 API. The scenarios covered include **inserting**, **peeking**,
 **getting**, and **deleting**queue messages, as well as **creating and
-deleting queues**. For more information on queues, refer to the [Next
-Steps][] section.
+deleting queues**. For more information on queues, refer to the [Next Steps][] section.
 
 ## Table of Contents
 
-[What is Queue Storage?][]   
+ [What is the Queue Service?][]   
  [Concepts][]   
  [Create a Windows Azure Storage Account][]   
  [Create a Node.js Application][]   
@@ -27,14 +26,14 @@ Steps][] section.
  [How To: Delete a Queue][]   
  [Next Steps][]
 
-## <a name="what-is"> </a>What is Queue Storage?
+## <a name="what-is"> </a>What is the Queue Service?
 
-Windows Azure Queue storage is a service for storing large numbers of
+The Windows Azure Queue service is a service for storing large numbers of
 messages that can be accessed from anywhere in the world via
 authenticated calls using HTTP or HTTPS. A single queue message can be
 up to 64KB in size, a queue can contain millions of messages, up to the
-100TB total capacity limit of a storage account. Common uses of Queue
-storage include:
+100TB total capacity limit of a storage account. Common uses of the Queue
+service include:
 
 -   <span>Creating a backlog of work to process asynchronously</span>
 -   Passing messages from a Windows Azure web role to a worker role
@@ -47,7 +46,7 @@ The Queue service contains the following components:
 
 -   **URL format:** Queues are addressable using the following URL
     format:   
-    http://<storage account\>.queue.core.windows.net/<queue\>  
+    http://storageaccount.queue.core.windows.net/queue  
       
     The following URL addresses one of the queues in the diagram:  
     http://myaccount.queue.core.windows.net/imagesToDownload
@@ -68,44 +67,34 @@ To use storage operations, you need a Windows Azure storage account. You
 can create a storage account by following these steps. (You can also
 create a storage account [using the REST API][].)
 
-1.  Log into the [Windows Azure Management Portal][].
+1.  Log into the [Windows Azure Management Portal].
 
-2.  In the navigation pane, click **Hosted Services, Storage Accounts &
-    CDN**.
+2.  At the bottom of the navigation pane, click **+NEW**.
 
-3.  At the top of the navigation pane, click **Storage Accounts**.
+	![+new][plus-new]
 
-4.  On the ribbon, in the Storage group, click **New Storage Account**.
-      
-    ![Blob2][]  
-      
-    The **Create a New Storage Account**dialog box opens.   
-    ![Blob3][]
+3.  Click **Storage Account**, and then click **Quick Create**.
 
-5.  In **Choose a Subscription**, select the subscription that the
-    storage account will be used with.
+	![Quick create dialog][quick-create-storage]
 
-6.  In Enter a URL, type a subdomain name to use in the URI for the
+4.  In URL, type a subdomain name to use in the URI for the
     storage account. The entry can contain from 3-24 lowercase letters
     and numbers. This value becomes the host name within the URI that is
     used to address Blob, Queue, or Table resources for the
     subscription.
 
-7.  Choose a country/region or an affinity group in which to locate the
+5.  Choose a Region/Affinity Group in which to locate the
     storage. If you will be using storage from your Windows Azure
     application, select the same region where you will deploy your
     application.
 
-8.  Finally, take note of your**Primary access key** in the right-hand
-    column. You will need this in subsequent steps to access storage.   
-    ![Blob4][]
+6.  Click **Create Storage Account**.
 
 ## <a name="create-app"> </a>Create a Node.js Application
 
-Create a blank tasklist application using the **Windows PowerShell for
-Node.js** command window at the location **c:\\node\\tasklist**. For
+Create a blank Node.js application. For
 instructions on how to use the PowerShell commands to create a blank
-application, see the [Node.js Web Application][].
+application, see the [Node.js Cloud Service]. For instructions on how to use WebMatrix, see [Web Site with WebMatrix].
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
@@ -115,20 +104,18 @@ communicate with the storage REST services.
 
 ### Use Node Package Manager (NPM) to obtain the package
 
-1.  Use the **Windows PowerShell for Node.js** command window to
-    navigate to the **c:\\node\\tasklist\\WebRole1** folder where you
-    created your sample application.
+1.  Use a command-line interface such as **PowerShell** (Windows,) **Terminal** (Mac,) or **Bash** (Unix), navigate to the folder where you created your sample application.
 
 2.  Type **npm install azure** in the command window, which should
     result in the following output:
 
         azure@0.5.0 ./node_modules/azure
-        ├── xmlbuilder@0.3.1
-        ├── mime@1.2.4
-        ├── xml2js@0.1.12
-        ├── qs@0.4.0
-        ├── log@1.2.0
-        └── sax@0.3.4
+		├── xmlbuilder@0.3.1
+		├── mime@1.2.4
+		├── xml2js@0.1.12
+		├── qs@0.4.0
+		├── log@1.2.0
+		└── sax@0.3.4
 
 3.  You can manually run the **ls** command to verify that a
     **node\_modules** folder was created. Inside that folder you will
@@ -149,11 +136,9 @@ you do not need to configure a connection string, as it will be
 configured automatically. You can continue to the next section.
 
 If you are planning to run against the real Windows Azure storage
-service, you need to modify your connection string to point at your
-cloud-based storage. You can store the storage connection string in a
-configuration file, rather than hard-coding it in code. In this tutorial
-you use the Web.cloud.config file, which is created when you create a
-Windows Azure web role.
+service, you need to specify connection information to point at your
+Windows Azure Storage Account. You can store the connection information in your code, or in an external configuration file. In this how-to,
+you use the Web.cloud.config file, which is created when you use the Windows Azure Powershell to create a new Cloud Service Project.
 
 1.  Use a text editor to open
     **c:\\node\\tasklist\\WebRole1\\Web.cloud.config**
@@ -566,12 +551,11 @@ To delete a queue and all the messages contained in it, call the
 Now that you’ve learned the basics of queue storage, follow these links
 to learn how to do more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Windows
-    Azure][]
+-   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][]
 -   Visit the [Windows Azure Storage Team Blog][]
 
   [Next Steps]: #next-steps
-  [What is Queue Storage?]: #what-is
+  [What is the Queue Service?]: #what-is
   [Concepts]: #concepts
   [Create a Windows Azure Storage Account]: #create-account
   [Create a Node.js Application]: #create-app
@@ -585,12 +569,16 @@ to learn how to do more complex storage tasks.
   [How To: Additional Options for Dequeuing Messages]: #advanced-get
   [How To: Get the Queue Length]: #get-queue-length
   [How To: Delete a Queue]: #delete-queue
-  [Queue1]: ../../../DevCenter/dotNet/Media/queue1.png
+  [Queue1]: ../../dotNet/Media/queue1.png
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
   [Windows Azure Management Portal]: http://windows.azure.com
-  [Blob2]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage2.png
-  [Blob3]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage3.png
-  [Blob4]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage4.png
-  [Node.js Web Application]: {localLink:2221} "Web App with Express"
+
+  [plus-new]: ../../Shared/Media/plus-new.png
+  [quick-create-storage]: ../../Shared/Media/quick-storage.png
+  [Blob2]: ../../Java/Media/WA_HowToBlobStorage2.png
+  [Blob3]: ../../Java/Media/WA_HowToBlobStorage3.png
+  [Blob4]: ../../Java/Media/WA_HowToBlobStorage4.png
+  [Node.js Cloud Service]: {localLink:2221} "Web App with Express"
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/

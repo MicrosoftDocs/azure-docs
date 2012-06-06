@@ -1,4 +1,4 @@
-<properties linkid="dev-net-commons-tasks-diagnostics" urldisplayname="Diagnostics" headerexpose pagetitle="Enable Diagnostics - .NET" metakeywords="Azure diagnostics, Azure monitoring, Azure logs, Azure event logs, Azure logging, Azure crash dumps, Azure diagnostics C#, Azure monitoring C#, Azure logs C#, Azure event logs C#, Azure logging C#, Azure crash dumps C#" footerexpose metadescription="Learn how to collect and view diagnostic data from an application running in Windows Azure. You can use diagnostic data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-commons-tasks-diagnostics" urldisplayname="Diagnostics" headerexpose="" pagetitle="Enable Diagnostics - .NET" metakeywords="Azure diagnostics, Azure monitoring, Azure logs, Azure event logs, Azure logging, Azure crash dumps, Azure diagnostics C#, Azure monitoring C#, Azure logs C#, Azure event logs C#, Azure logging C#, Azure crash dumps C#" footerexpose="" metadescription="Learn how to collect and view diagnostic data from an application running in Windows Azure. You can use diagnostic data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing." umbraconavihide="0" disquscomments="1"></properties>
 
 # Enabling Diagnostics in Windows Azure
 
@@ -9,8 +9,7 @@ resource usage, traffic analysis and capacity planning, and auditing.
 
 For additional in-depth guidance about using diagnostics and other
 techniques to troubleshoot problems and optimize Windows Azure
-applications, see [Troubleshooting Best Practices for Developing Windows
-Azure Applications][].
+applications, see [Troubleshooting Best Practices for Developing Windows Azure Applications][].
 
 This task includes the following steps:
 
@@ -70,8 +69,7 @@ collect.
 
 **Note**: If you are creating an application that uses the VM role, you
 can use the Windows Azure diagnostics configuration file to configure
-the data sources. For more information, see [How to Use the Windows
-Azure Diagnostics Configuration File][].
+the data sources. For more information, see [How to Use the Windows Azure Diagnostics Configuration File][].
 
 ### <a name="fail-reqs"> </a>IIS 7.0 Failed Request Trace Logs
 
@@ -113,8 +111,7 @@ the following steps to initialize the collection of failed request data.
 After you add the configuration information in the web.config, failed
 requests are automatically collected; no additional API calls are
 required. For more information about configuring failed request tracing,
-see [Adding Trace Failed Requests in the IIS 7.0 Configuration
-Reference][].
+see [Adding Trace Failed Requests in the IIS 7.0 Configuration Reference][].
 
 ### <a name="winlogs"> </a>Windows Event Logs
 
@@ -162,8 +159,7 @@ initialize the collection of event data.
         DiagnosticMonitor.Start("Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString", config);
 
     **Note**: This code example shows the use of a connection string.
-    For more information about using connection strings, see [How to
-    Configure Connection Strings][].
+    For more information about using connection strings, see [How to Configure Connection Strings][].
 
 6.  Save and build the project, and then deploy the application.
 
@@ -230,8 +226,7 @@ custom log data.
           </WebRole>
         </ServiceDefinition>
 
-    For more information about local storage resources, see [How to
-    Configure Local Storage Resources][].
+    For more information about local storage resources, see [How to Configure Local Storage Resources][].
 
 2.  Save the file.
 
@@ -260,8 +255,7 @@ custom log data.
         dirConfig.DirectoryQuotaInMB = localResource.MaximumSizeInMegabytes;
         dirConfig.Path = localResource.RootPath;
 
-    For more information about the naming of containers, see [Naming
-    Containers, Blobs, and Metadata][].
+    For more information about the naming of containers, see [Naming Containers, Blobs, and Metadata][].
 
 7.  Add the **DirectoryConfiguration** object to the configuration of
     the diagnostic monitor. The following example shows the creation of
@@ -277,7 +271,7 @@ custom log data.
         DiagnosticMonitor diagMonitor = DiagnosticMonitor.Start(storageAccount, diagMonitorConfig);
 
     The previous code example shows the creation of a
-    [CloudStorageAccount][]object by using credentials for the storage
+    [CloudStorageAccount][] object by using credentials for the storage
     emulator. To use Windows Azure storage, you can use the following:
 
         StorageCredentialsAccountAndKey credentials = new StorageCredentialsAccountAndKey(accountName, accountKey);
@@ -364,8 +358,7 @@ data.
         DiagnosticMonitor.Start("Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString", config);
 
     **Note**: This code example shows the use of a connection string.
-    For more information about using connection strings, see [How to
-    Configure Connection Strings][].
+    For more information about using connection strings, see [How to Configure Connection Strings][].
 
 6.  Save and build the project, and then deploy the application.
 
@@ -383,13 +376,11 @@ in a storage account:
     and table data from your Windows Azure storage accounts. You can
     display data from your local storage emulator account and also from
     storage accounts you have created for Windows Azure. For more
-    information, see [Browsing Storage Resources with Server
-    Explorer][].
+    information, see [Browsing Storage Resources with Server Explorer][].
 -   **Azure Storage Explorer by Neudesic** - Azure Storage Explorer is a
     useful graphical user interface tool for inspecting and altering the
     data in your Windows Azure storage projects including the logs of
-    your Windows Azure applications. To download the tool, see [Azure
-    Storage Explorer, Version 4 Beta 1 (October 2010)][].
+    your Windows Azure applications. To download the tool, see [Azure Storage Explorer, Version 4 Beta 1 (October 2010)][].
 -   **Azure Diagnostics Manager by Cerebrata** - Azure Diagnostics
     Manager is a Windows (WPF) based client for managing Windows Azure
     Diagnostics. It lets you view, download, and manage the diagnostics
@@ -398,12 +389,10 @@ in a storage account:
 
 ## Additional Resources
 
-[Collecting Logging Data by Using Windows Azure Diagnostics][]
+- [Collecting Logging Data by Using Windows Azure Diagnostics][]
+- [Debugging a Windows Azure Application][]
 
-[Debugging a Windows Azure Application][]
-
-  [Troubleshooting Best Practices for Developing Windows Azure
-  Applications]: http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx
+  [Troubleshooting Best Practices for Developing Windows Azure Applications]: http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx
   [Step 1: Import the Diagnostics module]: #step1
   [Step 2: Configure diagnostics for your application]: #step2
   [Step 3: (Optional) Permanently store diagnostic data]: #step3
