@@ -158,7 +158,7 @@ In this section, you will create a **server.js** file containing the 'hello worl
 
 ##Revert to a previous deployment
 
-Since Windows Azure maintains a git repository for your website, you can use the **Deployments** page to revert to a previous deployment.
+Since Windows Azure maintains a git repository for your web site, you can use the **Deployments** page to revert to a previous deployment.
 
 1. In the [Windows Azure Portal], select your web site and then select **Deployments**.
 
