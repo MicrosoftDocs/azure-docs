@@ -1,13 +1,12 @@
-#Develop and Deploy a Website with Microsoft WebMatrix
+#Develop and Deploy a Web site with Microsoft WebMatrix
 
-This guide describes how to use Microsoft WebMatrix to create and deploy a web site to Windows Azure.  You will use a sample application from a WebMatrix site template.
+This guide describes how to use Microsoft WebMatrix to create and deploy a Web site to Windows Azure.  You will use a sample application from a WebMatrix site template.
 
 You will learn:
 
-* How to set up WebMatrix.
-* How to create a new Windows Azure web site.
-* How to set up WebMatrix and use it to develop a web site.
-* How to deploy a web site directly from WebMatrix to Windows Azure.
+* How to create a web site from the Windows Azure portal.
+* How to import the Web site into WebMatrix and customize the web site to use one of the WebMatrix templates.
+* How to deploy the customized web site directly from WebMatrix to Windows Azure.
 
 ### Create a Windows Azure account
 
@@ -17,71 +16,57 @@ You will learn:
 
 <div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
-## Create a Windows Azure web site
+## Create a Web site from the Windows Azure portal
 
 1. Login to the [Windows Azure Portal](http://manage.windowsazure.com).
-2. Click the **Create New** icon at the bottom left of the Windows Azure portal.
-3. Click the **Web Site** icon, click **Quick Create**, enter a value for **URL** under the **create a new web site** section of this page and then click the checkmark next to **create web site**	at the bottom of this page:
+2. Click **New** at the bottom left of the Windows Azure portal.
+3. Click  **Web Site**, click **Quick Create**, enter a value for **URL** (e.g. *bakerysample*), select a **Region** that is closest to the web site users and then click the **Create Web Site** checkmark at the bottom of the page to initiate creation of the web site:
 
 	![Create New website][createnewsite]	
 
-	This will initiate the process for creating the new web site on Windows Azure.
-4. Once the web site is created, your browser will display the Web Sites page, listing all of the web sites associated with the currently logged on account. Verify that the web site you just created has a **Status** of **Running** and then open the web site's management pages by clicking the name of the web site displayed in the **Name** column. This will open the **Dashboard** page for the new web site.
-5. From the **Dashboard** page click the link to **Download publish profile** and save the publish profile file to the desktop of your development computer.
+4. Once the web site is created, the portal will display all of the web sites associated with your subscription. Verify that the web site you just created has a **Status** of **Running** and then open the web site's management pages by clicking the name of the web site displayed in the **Name** column to open the web site's **Dashboard** management page.
 
-## Install Microsoft WebMatrix
+## Import the Web site into WebMatrix and customize the Web site using a template
 
-1. Browse to [http://www.microsoft.com/web/webmatrix/][webmatrix] and click **Install WebMatrix**.  
-2. After you click **Install WebMatrix** you are directed to a page with a **Install Now** button. Click **Install Now**.
+1. From the **Dashboard** page click the WebMatrix icon at the bottom of the page to open the web site in WebMatrix 2.
 
-	![Install Web Platform Installer 3.0][installwebplat3]
+	![Open web site in WebMatrix 2][opensiteinwebmatrix2]
 
-2. You will see a prompt at the bottom of the web page to either run or save webmatrix.exe. Click **Run**.
+2. If WebMatrix 2 is not installed the Web Platform Installer 4.0 will install Microsoft WebMatrix 2 and all necessary prerequisite software and display a dialog box indicating **Empty Site Detected**. Click the option to use a built-in website template:
 
-	This will display the dialog box for **Web Platform Installer 3.0**, click **Install**:
+	![Empty Site Detected][howtodownloadsite]
 
-	![Install WebMatix][installwebmatrix]
+3. After you click the option to use a built-in website template select **Bakery** from the list of templates, enter **bakerysample** for the **Site Name** and click **Next**.
 
-	The Web Platform Installer 3.0 will detect any prerequisites required  for WebMatrix and list all dependencies and software to be installed in the **Web Platform Installation** dialog box:
+	![Create Site from Template][howtositefromtemplate]
 
-	![Web Platform Installation][webplatinstall]
+	After WebMatrix finishes building the web site the WebMatrix IDE is displayed:
 
-3. Click **I Accept** to proceed with installation of all WebMatrix prerequisites and WebMatrix. Upon successfull installation you are presented with a dialog box listing the software that was installed. Click **Finish**.
+	![Web Matrix 2 IDE][howtowebmatrixide] 
 
-	![Web Platform Installation Finished][webplatdone]
+## Deploy the customized Web site from WebMatrix to Windows Azure
 
-4. After you click **Finish**, WebMatrix will open. 
+1. In WebMatrix, click  **Publish** from the **Home** ribbon to display the **Publish Preview** dialog box for the web site.
 
-## Create, deploy and run the WebMatrix "bakery" sample web site on Windows Azure
+	![WebMatrix Publish Preview][howtopublishpreview]
 
-7. In WebMatrix, click the button immediately to the left of the **Home** tab in the Ribbon, click **New Site**, click **Site from Template**, select the **Bakery** template, enter a value for **Site Name** and then click **OK** to create the web site and display the web site’s Administration page.
-8. Click  **Publish** in the Home ribbon to display **Publish Settings** options for the web site.
-9. Click  **Import publish settings** under **Common Tasks**, select the publish profile file that you downloaded from Windows Azure and saved to the desktop. Then click **Open** to display the **Publish Settings** dialog box. 
-10. Click the **Validate Connection** button to verify connectivity between the WebMatrix computer and the web site you created earlier. If you receive a certificate error indicating that the security certificate presented by this server was issued to a different server, check the box next to **Save this certificate for future sessions of WebMatrix** and click **Accept Certificate**.
-
-	![WebMatrix Certificate Error][webmatrixcerterror]
-11. After you click **Accept Certificate** the **Publish Settings** dialog box will be displayed, click **Validate Connection**.
-12. Once the connection is validated, click **Save** to save publish settings for the web site you created in WebMatrix.
-13. From the **Publish Settings** dialog box click the dropdown for the Publish button and select Publish. Click **Yes** on the Publish Compatibility dialog box to perform publish compatibility testing and then click **Continue** when publish compatibility tests have completed.
-14. Click **Continue** in the Publish Preview dialog box to initiate publication of the site on WebMatrix to Windows Azure.
-15. Navigate to the web site on Windows Azure to verify it is deployed correctly and is running. The URL for the web site is displayed at the bottom of the WebMatrix IDE when publishing is complete. 
+2. Click to select the checkbox next to bakery.sdf and then click **Continue**.  When publishing is completed the URL for the updated web site on Windows Azure is displayed at the bottom of the WebMatrix IDE.  
 
 	![Publishing Complete][publishcomplete]
 
-16. Click on the URL for the web site to open the web site in your brower:
+4. Click on the link to open the web site in your browser:
 
 	![Bakery Sample Site][bakerysample]
 
-	The URL for the web site can also be found in the Windows Azure portal by clicking **Web Sites** to display all web sites created by the logged on account. The URL for each web site is displayed in the URL column on the web sites page.
+	The URL for the web site can also be found in the Windows Azure portal by clicking **Web Sites** to display all web sites for your subscription. The URL for each web site is displayed in the URL column on the web sites page.
 
-[webmatrix]: http://www.microsoft.com/web/webmatrix/
-
-[installwebplat3]: ../../../Shared/Media/howtoWebPI3installer.png
-[runorsavewebmatrix]: ../../../Shared/Media/howtorunorsavewebmatrix.png
-[installwebmatrix]: ../../../Shared/media/howtoinstallwebmatrix.png
-[webplatinstall]: ../../../Shared/media/howtowebplatforminstallation.png
-[webplatdone]: ../../../Shared/media/howtofinish.png
 [createnewsite]: ../../../Shared/media/howtocreatenewsite.png
-[webmatrixcerterror]: ../../../Shared/media/howtocertificateerror.png
-[publishcomplete]: ../../../Shared/media/howtopublished.png
+[opensiteinwebmatrix2]: ../../../Shared/media/howtoopensiteinWebMatrix2a.png
+[howtodownloadsite]: ../../../Shared/media/howtodownloadsite.png
+[howtositefromtemplate]: ../../../Shared/media/howtositefromtemplate.png
+[howtowebmatrixide]: ../../../Shared/media/howtowebmatrixide.png
+[howtopublishpreview]: ../../../Shared/media/howtopublishpreview.png
+[bakerysampleopeninwebmatrix2]: ../../../Shared/media/howtowebmatrix2ide.png
+[publishcomplete]: ../../../Shared/media/howtopublished2.png
 [bakerysample]: ../../../Shared/media/howtobakerysamplesite.png
+[webmatrix]: http://www.microsoft.com/web/webmatrix/
