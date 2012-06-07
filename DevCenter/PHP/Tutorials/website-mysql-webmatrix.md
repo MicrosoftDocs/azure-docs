@@ -30,7 +30,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 * **taskmodel.php**: Contains functions that add, get, update, and delete items from the database.
 * **createtable.php**: Creates the MySQL table for the application. This file will only be called once.
 
-2. Create a MySQL database called `tasklist`. You can do this from the MySQL command prompt with this command:
+2. Create a local MySQL database called `tasklist`. You can do this from the MySQL command prompt with this command:
 
 		mysql> create database tasklist;
 
@@ -46,65 +46,97 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 <div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
-Windows Azure Websites allows you to easily create a website and provision a MySQL Database.
+### Create a website and MySQL database
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>In the preview release of Windows Azure Websites, you cannot create a MySQL Database for a website *after* creating the website. You must create a website and a MySQL database as described in the steps below.</p> 
-</div>
+1. Login to the [Preview Management Portal][preview-portal].
+2. Click the **+ New** icon on the bottom left of the portal.
 
+	![Create New Windows Azure Website][new-website]
 
-<div chunk="../../Shared/Chunks/website-mysql.md" />
+3. Click **WEB SITE**, then **CREATE WITH DATABASE**.
 
-Make note of the database connection information as it will be needed later.
+	![Custom Create a new Website][custom-create]
+
+	<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>In the preview release of Windows Azure Websites, you cannot create a MySQL Database for a website *after* creating the website. You must create a website and a MySQL database as described in the steps below.</p> 
+	</div>
+
+4. Enter a value for **URL**, select **Create a New MySQL Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
+
+	![Fill in Website details][website-details]
+
+4. Enter a value for the **NAME** of your database, select the data center for your database in the **REGION** dropdown, and check the box that indicates you agree with the legal terms. Click the checkmark at the bottom of the dialog.
+
+	![Create new MySQL database][new-mysql-db]
+
+	When the website has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfully**.
+
+	Next, you need to get the MySQL connection information.
+
+	<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>Obtaining the MySQL connection information from the `.publishsettings` file, as described in the following steps, is only necessary in the preview release of Windows Azure Websites.</p> 
+	</div>
+
+5. Click the name of the website displayed in the list of websites to open the website’s Quick Start page.
+
+	![Open website dashboard][go-to-dashboard]
+
+6. From Quick Start page, click the **Download publish profile** link:
+
+	![Download publish profile][download-publish-profile]
+
+7. Open the `.publishsettings` file in an XML editor. The `<databases>` element will look similar to this:
+
+		<databases>
+	      <add name="tasklist" 
+	           connectionString="Database=tasklist;Data Source=us-mm-azure-ord-01.cleardb.com;User Id=e02c62383bffdd;Password=0fc50b7e" 
+	           providerName="MySql.Data.MySqlClient" 
+	           type="MySql"/>
+	    </databases>
+	
+8. The `connectionString` attribute in the `<add>` element contains your database connection information. The values for `Database`, `Data Source`, `User Id`, and `Password` are (respectively) the database name, server name, user name, and user password. Make note of the database connection information as it will be needed later.
 
 ##Install WebMatrix
 
-You can install WebMatrix from the [Preview Management Portal][preview-portal]. After logging in, navigate to your website's **DASHBOARD**,  click the cloud icon near the top of the page, then click **Install WebMatrix**.
+You can install WebMatrix from the [Preview Management Portal][preview-portal]. 
 
-![Install WebMatrix][install-webmatrix]
+1. After logging in, navigate to your website's Quick Start page, and click the WebMatrix icon at the bottom of the page:
 
-Run the downloaded .exe file. This will install the Microsoft Web Platform Installer, launch it, and select WebMatrix for installation. Follow the prompts to complete the installation.
+	![Install WebMatrix][install-webmatrix]
+
+	Follow the prompts to install WebMatrix.
+
+2. After WebMatrix is installed, it will attempt to open your site as a WebMatrix project. When prompted to download your site, choose **Yes, install from the Template Gallery**.
+
+	![Download website][download-site]
+
+3. From the available templates, choose **PHP**.
+
+	![Site from template][site-from-template]
+
+4. The **Empty Site** template will be selected by default. Provide a name for the site and click **NEXT**.
+
+	![Provide name for site][site-from-template-2]
+
+Your site will be opened on WebMatrix with some default files in place.
 
 ##Develop your application
 
 In the next few steps you will develop the Tasklist application by adding the files you downloaded earlier and making a few modifications. You could, however, add your own existing files or create new files.
 
-1. Launch WebMatrix by clicking the Windows **Start** button, then click **All Programs>Microsoft WebMatrix>Microsoft WebMatrix**:
+1. With your site open in WebMatrix, click **Files**:
 
-	![Launch Webmatrix][launch-webmatrix]
+	![WebMatrix - Click files][site-in-webmatrix]
 
-2. Create a new project by clicking **Templates**.
+2. Add your application files by clicking **Add Existing**:
 
-	![WebMatrix - Select Templates][webmatrix-templates]
+	![WebMatrix - Add existing files][add-existing-files]
 
-3. Click **PHP** (in the left pane). 
+	In the resulting dialog, navigate to the files you downloaded earlier, select all of them, and click Open. When propted, choose to replace the `index.php` file. 
 
-	![WebMatrix - Select PHP Template][webmatrix-php-template]
-
-4. Click **Empty Site**, fill in name of site (tasklist), and click **Next**.
-
-	![WebMatrix - Select PHP Empty Site][webmatrix-php-emptysite]
-
-5. Click **Accept** to allow WebMatrix to install the Empty Site template.
-
-	![WebMatrix - Download Empty Site template][php-site-from-template]
-
-6. Click **OK** when the template has been installed.
-
-	![WebMatrix - Empty Site template installed][php-empty-site-template-installed]
-
-7. In the lower left corner, click **Files**, then delete `index.php` from the project.
-
-	![WebMatrix - Select Files][webmatrix-files]
-
-	![WebMatrix - Delete index.php][webmatrix-delete-indexphp]
-
-8. To import the files you downloaded earlier, click **Add Existing**, navigate to the directory where you saved the Tasklist application files, select them, and add them to the project.
-
-	![WebMatrix - Add existing files][webmatrix-add-existing]
-
-9. Next, you need to add your local MySQL database connection information to the `taskmodel.php` file. Open the  `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function. (**Note**: Jump [Publish Your Application](#Publish) if you do not want to test your application locally and want to instead publish directly to Windows Azure Websites.)
+3. Next, you need to add your local MySQL database connection information to the `taskmodel.php` file. Open the  `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function. (**Note**: Jump to [Publish Your Application](#Publish) if you do not want to test your application locally and want to instead publish directly to Windows Azure Web Sites.)
 
 		// DB connection info
 		$host = "localhost";
@@ -135,35 +167,13 @@ Before publishing your application to Windows Azure Websites, the database conne
 	
 	Save the `taskmodel.php` file.
 
-2. Return to the Preview Management Portal and navigate to your website's **DASHBOARD**. Click the **Download publish profile** link at the bottom right corner of the page:
+2. Click **Publish** in WebMatrix, then click **Continue** in the **Publish Preview** dialog.
 
-	![Download publish profile][download-publish-profile]
+	![WebMatrix - Publish][publish]
 
-	Make note of where you save this file.
+3. Navigate to http://[your website name].azurewebsites.net/createtable.php to create the `items` table.
 
-3. In WebMatrix, click the **Publish** icon.
-
-	![WebMatrix - Publish][webmatrix-publish]
-
-4. In the dialog box that opens, click **Import publish settings**.
-
-	![Webmatrix - Import publish settings][webmatrix-import-pub-settings]
-
-	Navigate to the `.publishsettings` file that you saved in the previous step, import it, and click **Save**. You will be asked to allow WebMatrix to upload files to your site for compatibility testing. Choose to allow WebMatrix to do this.
-
-5. Click **Continue** on the **Publish Compatibility** dialog.
-
-	![Webmatrix - Publish Compatability][webmatrix-pubcompat-continue]
-
-6. Click **Continue** on the **Publish Preview** dialog.
-
-	![Webmatrix - Publish Preview][webmatirx-pubpreview]
-
-	When the publishing is complete, you will see **Publishing - Complete** at the bottom of the WebMatrix screen.
-
-7. Navigate to http://[your website name].windows.net/createtable.php to create the `items` table.
-
-8. Lastly, navigate to http://[your website name].windows.net/index.php to being using the running application.
+4. Lastly, navigate to http://[your website name].azurewebsites.net/index.php to being using the running application.
 	
 ##Modify and republish your application
 
@@ -173,17 +183,16 @@ You can easily modify and republish your application. Here, you will make a simp
 
 2. Change **My ToDo List** to **My Task List** in the **h1** tag and save the file.
 
-3. Click the **Publish** icon, the click **Continue** in the **Publish Preview** dialog.
+3. Click the **Publish** icon, then click **Continue** in the **Publish Preview** dialog.
 
-4. When publishing has completed, navigate to http://[your website name].windows.net/index.php to see the published changes.
+4. When publishing has completed, navigate to http://[your website name].azurewebsites.net/index.php to see the published changes.
 
 
 
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
 [running-app]: ../Media/tasklist_app_windows.png
 [tasklist-mysql-download]: http://go.microsoft.com/fwlink/?LinkId=252506
-[install-webmatrix]: ../../Shared/Media/install_webmatrix_from_site_dashboard.jpg
-[launch-webmatrix]: ../../Shared/Media/launch_webmatrix.jpg
+[install-webmatrix]: ../Media/install-webmatrix.png
 [download-publish-profile]: ../../Shared/Media/download_publish_profile.jpg
 [webmatrix-templates]: ../../Shared/Media/webmatrix_templates.jpg
 [webmatrix-php-template]: ../../Shared/Media/webmatrix_php_template.jpg
@@ -191,7 +200,7 @@ You can easily modify and republish your application. Here, you will make a simp
 [webmatrix-files]: ../../Shared/Media/webmatrix_files.jpg
 [webmatrix-delete-indexphp]: ../../Shared/Media/webmatrix_delete_indexphp.jpg
 [webmatrix-add-existing]: ../../Shared/Media/webmatrix_add_existing.jpg
-[webmatrix-launchinbrowser]: ../../Shared/Media/webmatrix_launchinbrowser.jpg
+[webmatrix-launchinbrowser]: ../Media/launch-in-browser.png
 [webmatrix-publish]: ../../Shared/Media/webmatrix_publish.jpg
 [webmatrix-import-pub-settings]: ../../Shared/Media/webmatrix_import_pub_settings.jpg
 [webmatrix-pubcompat-continue]: ../../Shared/Media/webmatrix_pubcompat_continue.jpg
@@ -199,3 +208,15 @@ You can easily modify and republish your application. Here, you will make a simp
 [preview-portal]: https://manage.windowsazure.com
 [php-site-from-template]: ../../Shared/Media/php_site_from_template.png
 [php-empty-site-template-installed]: ../../Shared/Media/php_empty_site_template_installed.png
+[new-website]: ../../Shared/Media/new_website.jpg
+[custom-create]: ../Media/custom_create.jpg
+[website-details]: ../../Shared/Media/website_details.jpg
+[new-mysql-db]: ../Media/new_mysql_db.jpg
+[go-to-dashboard]: ../Media/go_to_dashboard.jpg
+[download-publish-profile]: ../Media/download-publish-profile.png
+[download-site]: ../Media/download-site-1.png
+[site-from-template]: ../Media/site-from-template.png
+[site-from-template-2]: ../Media/site-from-template-2.png
+[site-in-webmatrix]: ../Media/site-in-webmatrix.png
+[add-existing-files]: ../Media/add-existing-files.png
+[publish]: ../Media/publish.png
