@@ -29,7 +29,7 @@ For purposes of this tutorial, an Apache Tomcat application server will be insta
 
 ## To create a virtual machine
 
-1. Log in to the Log in to the [Windows Azure Preview Management Portal](https://manage.windowsazure.com).
+1. Log in to the [Windows Azure Preview Management Portal](https://manage.windowsazure.com).
 2. Click **New**.
 3. Click **Virtual machine**.
 4. Click **Quick create**.
