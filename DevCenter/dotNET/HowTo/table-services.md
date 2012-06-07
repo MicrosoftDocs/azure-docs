@@ -116,7 +116,7 @@ configuration:
 
 6.  Change the entry **Name** from **Setting1** to a "friendlier" name
     like **StorageConnectionString**. You will reference this
-    connectionstring later in the code in this guide.  
+    connection string later in the code in this guide.  
     ![Blob9][]
 	
 ### Configuring your connection string when using Web Sites or Virtual Machines
@@ -341,7 +341,7 @@ following code uses two filters to specify the customer 'Jeff Smith'.
 Instead of calling **AsTableServiceQuery**, this code calls
 **FirstOrDefault**. This method returns just one entity, rather than a
 collection, so the code assigns the return value directly to a
-**CustomerEntity**object. A null value is returned if no entity has an
+**CustomerEntity** object. A null value is returned if no entity has an
 exact partition and row key match. Specifying both partition and row
 keys in a query is the fastest way to retrieve a single entity from the
 Table service.
@@ -527,8 +527,7 @@ period of time following the deletion.
 Now that you've learned the basics of table storage, follow these links
 to learn how to do more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Windows
-    Azure][]
+-   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][]
 -   Visit the [Windows Azure Storage Team Blog][]
 
   [Next Steps]: #next-steps
