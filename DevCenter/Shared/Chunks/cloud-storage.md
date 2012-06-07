@@ -778,9 +778,9 @@ files).<a id="Ref" name="Ref"></a>
   [Windows Azure Tables]: #_Tables
   [img3]: ../../../DevCenter/Shared/Media/data-storage-offerings-5.jpg
   [calculator]: http://www.windowsazure.com/en-us/pricing/calculator/
-  [Windows Azure Storage]: ../../../../home/features/storage/
+  [Windows Azure Storage]: ../../../../home/features/data-management/
   [Windows Azure Storage Services REST API Reference]: http://msdn.microsoft.com/en-us/library/dd179355.aspx
-  [Windows Azure Content Delivery Network (CDN)]: ../../../../home/features/cdn/
+  [Windows Azure Content Delivery Network (CDN)]: ../../../../home/features/caching/
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Comparing SQL Server with SQL Database]: http://social.technet.microsoft.com/wiki/contents/articles/compare-sql-server-with-sql-azure.aspx
   [SQL Database MSDN library]: http://msdn.microsoft.com/en-us/library/windowsazure/gg619386.aspx
