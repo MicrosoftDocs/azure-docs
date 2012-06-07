@@ -339,7 +339,9 @@ Now that you’ve learned the basics of Service Bus queues, follow these
 links to learn more.
 
 -   See the MSDN Reference: [Queues, Topics, and Subscriptions.][]
+-   Visit the [Azure SDK for Node] repository on GitHub.
 
+  [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Next Steps]: #next-steps
   [What are Service Bus Queues]: #what-queues
   [Create a Service Namespace]: #create-namespace

@@ -634,9 +634,11 @@ The following code deletes a table from a storage account.
 Now that you’ve learned the basics of table storage, follow these links
 to learn how to do more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][]
--   [Visit the Windows Azure Storage Team Blog][]
+-   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][].
+-   [Visit the Windows Azure Storage Team Blog][].
+-   Visit the [Azure SDK for Node] repository on GitHub.
 
+  [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Next Steps]: #next-steps
   [What is the Table Service?]: #what-is
   [Concepts]: #concepts
