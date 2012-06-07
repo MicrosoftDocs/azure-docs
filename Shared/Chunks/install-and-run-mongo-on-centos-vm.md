@@ -5,7 +5,6 @@
 		baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64
 		gpgcheck=0
 		enabled=1
-
 2. Save the repo file and then run the following command to update the local package database:
 
 		$ sudo yum update
