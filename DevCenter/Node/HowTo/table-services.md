@@ -10,22 +10,22 @@ information on tables, see the [Next Steps][] section.
 
 ## Table of Contents
 
-[What is the Table Service?][]   
- [Concepts][]   
- [Create a Windows Azure Storage Account][]   
- [Create a Node.js Application][]   
- [Configure your Application to Access Storage][]   
- [Setup a Windows Azure Storage Connection][]   
- [How To: Create a Table][]   
- [How To: Add an Entity to a Table][]   
- [How To: Update an Entity][]   
- [How to: Change a Group of Entities][]   
- [How to: Query for an Entity][]   
- [How to: Query a Set of Entities][]   
- [How To: Query a Subset of Entity Properties][]   
- [How To: Delete an Entity][]   
- [How To: Delete a Table][]   
- [Next Steps][]
+* [What is the Table Service?][]   
+* [Concepts][]   
+* [Create a Windows Azure Storage Account][]   
+* [Create a Node.js Application][]   
+* [Configure your Application to Access Storage][]   
+* [Setup a Windows Azure Storage Connection][]   
+* [How To: Create a Table][]   
+* [How To: Add an Entity to a Table][]   
+* [How To: Update an Entity][]   
+* [How to: Change a Group of Entities][]   
+* [How to: Query for an Entity][]   
+* [How to: Query a Set of Entities][]   
+* [How To: Query a Subset of Entity Properties][]   
+* [How To: Delete an Entity][]   
+* [How To: Delete a Table][]   
+* [Next Steps][]
 
 ## <a name="what-is"> </a>What is the Table Service?
 

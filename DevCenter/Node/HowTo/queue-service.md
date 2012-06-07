@@ -10,21 +10,21 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 
 ## Table of Contents
 
- [What is the Queue Service?][]   
- [Concepts][]   
- [Create a Windows Azure Storage Account][]   
- [Create a Node.js Application][]   
- [Configure your Application to Access Storage][]   
- [Setup a Windows Azure Storage Connection String][]   
- [How To: Create a Queue][]   
- [How To: Insert a Message into a Queue][]   
- [How To: Peek at the Next Message][]   
- [How To: Dequeue the Next Message][]   
- [How To: Change the Contents of a Queued Message][]   
- [How To: Additional Options for Dequeuing Messages][]   
- [How To: Get the Queue Length][]   
- [How To: Delete a Queue][]   
- [Next Steps][]
+* [What is the Queue Service?][]   
+* [Concepts][]   
+* [Create a Windows Azure Storage Account][]   
+* [Create a Node.js Application][]   
+* [Configure your Application to Access Storage][]   
+* [Setup a Windows Azure Storage Connection String][]   
+* [How To: Create a Queue][]   
+* [How To: Insert a Message into a Queue][]   
+* [How To: Peek at the Next Message][]   
+* [How To: Dequeue the Next Message][]   
+* [How To: Change the Contents of a Queued Message][]   
+* [How To: Additional Options for Dequeuing Messages][]   
+* [How To: Get the Queue Length][]   
+* [How To: Delete a Queue][]   
+* [Next Steps][]
 
 ## <a name="what-is"> </a>What is the Queue Service?
 

@@ -11,16 +11,16 @@ email, see the [Next Steps][] section.
 
 ## Table of Contents
 
-[What is the SendGrid Email Service?][]   
- [Create a SendGrid Account][]   
- [Reference the SendGrid Node.js Module][]   
- [How to: Create an Email][]   
- [How to: Send an Email][]   
- [How to: Add an Attachment][]   
- [How to: Use Filters to Enable Footers, Tracking, and Analytics][]   
- [How to: Update Email Properties][]   
- [How to: Use Additional SendGrid Services][]   
- [Next Steps][1]
+* [What is the SendGrid Email Service?][]   
+* [Create a SendGrid Account][]   
+* [Reference the SendGrid Node.js Module][]   
+* [How to: Create an Email][]   
+* [How to: Send an Email][]   
+* [How to: Add an Attachment][]   
+* [How to: Use Filters to Enable Footers, Tracking, and Analytics][]   
+* [How to: Update Email Properties][]   
+* [How to: Use Additional SendGrid Services][]   
+* [Next Steps][1]
 
 ## <a id="whatis"> </a>What is the SendGrid Email Service?
 
