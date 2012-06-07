@@ -500,7 +500,9 @@ links to learn more.
 
 -   See the MSDN Reference: [Queues, Topics, and Subscriptions][].
 -   API reference for [SqlFilter][].
+-   Visit the [Azure SDK for Node] repository on GitHub.
 
+  [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Next Steps]: #nextsteps
   [What are Service Bus Topics and Subscriptions]: #What_are_Service_Bus_Topics_and_Subscriptions
   [Create a Service Namespace]: #Create_a_Service_Namespace

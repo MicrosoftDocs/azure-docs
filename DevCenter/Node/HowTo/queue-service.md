@@ -10,21 +10,21 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 
 ## Table of Contents
 
- [What is the Queue Service?][]   
- [Concepts][]   
- [Create a Windows Azure Storage Account][]   
- [Create a Node.js Application][]   
- [Configure your Application to Access Storage][]   
- [Setup a Windows Azure Storage Connection String][]   
- [How To: Create a Queue][]   
- [How To: Insert a Message into a Queue][]   
- [How To: Peek at the Next Message][]   
- [How To: Dequeue the Next Message][]   
- [How To: Change the Contents of a Queued Message][]   
- [How To: Additional Options for Dequeuing Messages][]   
- [How To: Get the Queue Length][]   
- [How To: Delete a Queue][]   
- [Next Steps][]
+* [What is the Queue Service?][]   
+* [Concepts][]   
+* [Create a Windows Azure Storage Account][]   
+* [Create a Node.js Application][]   
+* [Configure your Application to Access Storage][]   
+* [Setup a Windows Azure Storage Connection String][]   
+* [How To: Create a Queue][]   
+* [How To: Insert a Message into a Queue][]   
+* [How To: Peek at the Next Message][]   
+* [How To: Dequeue the Next Message][]   
+* [How To: Change the Contents of a Queued Message][]   
+* [How To: Additional Options for Dequeuing Messages][]   
+* [How To: Get the Queue Length][]   
+* [How To: Delete a Queue][]   
+* [Next Steps][]
 
 ## <a name="what-is"> </a>What is the Queue Service?
 
@@ -551,9 +551,11 @@ To delete a queue and all the messages contained in it, call the
 Now that you’ve learned the basics of queue storage, follow these links
 to learn how to do more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][]
--   Visit the [Windows Azure Storage Team Blog][]
+-   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][].
+-   Visit the [Windows Azure Storage Team Blog][].
+-   Visit the [Azure SDK for Node] repository on GitHub.
 
+  [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Next Steps]: #next-steps
   [What is the Queue Service?]: #what-is
   [Concepts]: #concepts

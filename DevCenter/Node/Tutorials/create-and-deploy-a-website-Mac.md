@@ -60,7 +60,10 @@ Follow these steps to create a Windows Azure Web Site, and then enable Git publi
 
 	![Git deployment instructions returned after creating a repository for the website.][portal-git-instructions]
 
-	**Note**: Save the instructions returned by the **Push my local files to Windows Azure** link, as they will be used in the following sections.
+	<div class="dev-callout">
+	<b>Note</b>
+	<p>Save the instructions returned by the **Push my local files to Windows Azure** link, as they will be used in the following sections.</p>
+	</div>
 
 ##Install developer tools
 
@@ -121,7 +124,10 @@ In this section, you will create a **server.js** file containing the 'hello worl
 
 		git remote add azure [URL for remote repository]
 
-	**Note**: the URL used should be the one returned at the end of the **Create a Windows Azure Web Site and Set up Git Publishing** section. If you forgot to save the URL earlier you can retrieve it now by clicking the “Deployment” tab of your Windows Azure Web Site within the management portal
+	<div class="dev-callout">
+	<b>Note</b>
+	<p>the URL used should be the one returned at the end of the **Create a Windows Azure Web Site and Set up Git Publishing** section. If you forgot to save the URL earlier you can retrieve it now by clicking the “Deployment” tab of your Windows Azure Web Site within the management portal</p>
+	</div>
 
     ![Git deployment instructions returned after creating a repository for the website.][portal-git-remote-url]
 

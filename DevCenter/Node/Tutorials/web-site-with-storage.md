@@ -17,9 +17,15 @@ The project files for this tutorial will be stored in a directory named **taskli
 
 ![A web page displaying an empty tasklist][node-table-finished]
 
-**Note**: This tutorial makes reference to the **tasklist** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/tasklist** or **c:\node\tasklist**
+<div class="dev-callout">
+<b>Note</b>
+<p>This tutorial makes reference to the **tasklist** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/tasklist** or **c:\node\tasklist**</p>
+</div>
 
-**Note**: Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **cmd.exe** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
+<div class="dev-callout">
+<b>Note</b>
+<p>Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **cmd.exe** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.</p>
+</div>
 
 ##Prerequisites
 
@@ -73,7 +79,10 @@ In this section you will create a new Node application and use npm to add module
 
 		npm install express -g
 
-    **Note**: When using the '-g' parameter on some operating systems, you may receive an error of **Error: EPERM, chmod '/usr/local/bin/express'** and a request to try running the account as an administrator. If this occurs, use the **sudo** command to run npm at a higher privilege level.
+    <div class="dev-callout">
+	<b>Note</b>
+	<p>When using the '-g' parameter on some operating systems, you may receive an error of **Error: EPERM, chmod '/usr/local/bin/express'** and a request to try running the account as an administrator. If this occurs, use the **sudo** command to run npm at a higher privilege level.</p>
+	</div>
 
     The output of this command should appear similar to the following:
 
@@ -83,7 +92,10 @@ In this section you will create a new Node application and use npm to add module
 		├── qs@0.4.2
 		└── connect@1.8.7
 
-	**Note**: The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the **express** command to generate web site scaffolding without having to type in additional path information.
+	<div class="dev-callout">
+	<b>Note</b>
+	<p>The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the **express** command to generate web site scaffolding without having to type in additional path information.</p>
+	</div>
 
 4. To create the scaffolding which will be used for this application, use the **express** command:
 
@@ -308,7 +320,10 @@ In this section you will extend the basic application created by the **express**
 		  , accountName = 'accountName'
 		  , accountKey = 'accountKey';
 
-	**Note**: You must replace the values **'accountName'** and **'accountKey'** with the values obtained earlier when creating your Windows Azure storage account.
+	<div class="dev-callout">
+	<b>Note</b>
+	<p>You must replace the values **'accountName'** and **'accountKey'** with the values obtained earlier when creating your Windows Azure storage account.</p>
+	</div>
 
 3. Replace the content after the `//Routes` comment with the following code. This will initialize an instance of **Task** with a connection to your storage account. This is then password to the **TaskList**, which will use it to communicate with the Table service:
 
@@ -397,9 +412,15 @@ To test the application on your local machine, perform the following steps:
 
 The steps in this section use the Windows Azure command-line tools to create a new Windows Azure Web Site, and then use Git to deploy your application. To perform these steps you must have a Windows Azure subscription.
 
-**Note**: These steps can also be performed by using the Windows Azure portal. For steps on using the Windows Azure portal to deploy a Node.js application, see [Create and deploy a Node.js application to a Windows Azure Web Site].
+<div class="dev-callout">
+<b>Note</b>
+<p>These steps can also be performed by using the Windows Azure portal. For steps on using the Windows Azure portal to deploy a Node.js application, see [Create and deploy a Node.js application to a Windows Azure Web Site].</p>
+</div>
 
-**Note**: If this is the first Windows Azure Web Site you have created, you must use the Windows Azure portal to deploy this application.
+<div class="dev-callout">
+<b>Note</b>
+<p>If this is the first Windows Azure Web Site you have created, you must use the Windows Azure portal to deploy this application.</p>
+</div>
 
 ###Enable the Windows Azure Web Site feature
 
@@ -413,9 +434,15 @@ To install the command-line tools, use the following command:
 	
 	npm install azure -g
 
-**Note**: If you have already installed the **Windows Azure SDK for Node.js** from the [Windows Azure Developer Center], then the command-line tools should already be installed. For more information, see [Windows Azure command-line tool for Mac and Linux].
+<div class="dev-callout">
+<b>Note</b>
+<p>If you have already installed the **Windows Azure SDK for Node.js** from the [Windows Azure Developer Center], then the command-line tools should already be installed. For more information, see [Windows Azure command-line tool for Mac and Linux].</p>
+</div>
 
-**Note**: While the command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.
+<div class="dev-callout">
+<b>Note</b>
+<p>While the command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.</p>
+</dev>
 
 ###Import publishing settings
 
@@ -453,9 +480,15 @@ Before using the command-line tools with Windows Azure, you must first download 
 	
 	The `--git` parameter will create a Git repository on Windows Azure for this web site. It will also initialize a Git repository in the current directory if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Windows Azure. Finally, it will create a **web.config** file, which contains settings used by Windows Azure to host node applications.
 	
-	**Note**: If this command is ran from a directory that already contains a Git repository, it will not re-initialize the directory.
+	<div class="dev-callout">
+	<b>Note</b>
+	<p>If this command is ran from a directory that already contains a Git repository, it will not re-initialize the directory.</p>
+	</div>
 	
-	**Note**: If the `--git` parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.
+	<div class="dev-callout">
+	<b>Note</b>
+	<p>If the `--git` parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.</p>
+	</div>
 	
 	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Website created at** contains the URL for the web site.
 	
@@ -472,7 +505,10 @@ Before using the command-line tools with Windows Azure, you must first download 
 		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
 		info:   site create command OK
 
-	**Note**: If this is the first Windows Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see [Create and deploy a Node.js application to a Windows Azure Web Site].
+	<div class="dev-callout">
+	<b>Note</b>
+	<p>If this is the first Windows Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see [Create and deploy a Node.js application to a Windows Azure Web Site].</p>
+	</div>
 
 ###Publish the application
 
@@ -509,7 +545,7 @@ While the steps in this article describe using the Table Service to store inform
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
 [for free]: http://windowsazure.com
-[Git remote]: http://gitref.org/remotes/
+[Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [Node.js Web Application with MongoDB]: ./web-site-with-mongodb-Mac
 [Windows Azure command-line tool for Mac and Linux]: http://windowsazure.com

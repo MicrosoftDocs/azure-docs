@@ -180,12 +180,15 @@ cmdlets.
     Stop-AzureEmulator will also cause the instances of these
     applications to stop.
 
-    **Note:** In some cases, your browser window may launch and attempt
+    <div class="dev-callout">
+	<b>Note</b>
+	<p>In some cases, your browser window may launch and attempt
     to load the web application before your worker role instances are
     running, which will cause an error message to be displayed in the
     browser. If this occurs, refreshing the page in the browser when the
     worker role instances are running will result in the page being
-    displayed correctly.
+    displayed correctly.</p>
+	</div>
 
 2.  To stop the compute emulator, enter the following command:
 

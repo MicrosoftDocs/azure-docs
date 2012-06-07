@@ -27,8 +27,11 @@ Windows Azure Storage Services].
 To create a storage account, you must be either the service
 administrator or a co-administrator for the associated subscription.
 
-**Note:** For information about performing this operation by using the
-Windows Azure Service Management API, see the [Create Storage Account] reference topic.
+<div class="dev-callout">
+<b>Note</b>
+<p>For information about performing this operation by using the
+Windows Azure Service Management API, see the [Create Storage Account] reference topic.</p>
+</div>
 
 **To create a storage account for a Windows Azure subscription**
 
