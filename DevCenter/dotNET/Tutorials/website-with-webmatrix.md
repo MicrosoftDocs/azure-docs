@@ -1,11 +1,11 @@
-#Develop and Deploy a Web site with Microsoft WebMatrix
+#Develop and deploy a web site with Microsoft WebMatrix
 
-This guide describes how to use Microsoft WebMatrix to create and deploy a Web site to Windows Azure.  You will use a sample application from a WebMatrix site template.
+This guide describes how to use Microsoft WebMatrix to create and deploy a web site to Windows Azure.  You will use a sample application from a WebMatrix site template.
 
 You will learn:
 
 * How to create a web site from the Windows Azure portal.
-* How to import the Web site into WebMatrix and customize the web site to use one of the WebMatrix templates.
+* How to import the web site into WebMatrix and customize the web site to use one of the WebMatrix templates.
 * How to deploy the customized web site directly from WebMatrix to Windows Azure.
 
 ### Create a Windows Azure account
@@ -16,35 +16,35 @@ You will learn:
 
 <div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
-## Create a Web site from the Windows Azure portal
+## Create a web site from the Windows Azure portal
 
 1. Login to the [Windows Azure Portal](http://manage.windowsazure.com).
 2. Click **New** at the bottom left of the Windows Azure portal.
-3. Click  **Web Site**, click **Quick Create**, enter a value for **URL** (e.g. *bakerysample*), select a **Region** that is closest to the web site users and then click the **Create Web Site** checkmark at the bottom of the page to initiate creation of the web site:
+3. Click  **Web Site**, click **Quick Create**, enter a value for **URL** (e.g. *bakerysample*), select the **Region** that is closest to your intended users (this will ensure best performance) and then click the **Create Web Site** checkmark at the bottom of the page to initiate creation of the web site:
 
 	![Create New website][createnewsite]	
 
 4. Once the web site is created, the portal will display all of the web sites associated with your subscription. Verify that the web site you just created has a **Status** of **Running** and then open the web site's management pages by clicking the name of the web site displayed in the **Name** column to open the web site's **Dashboard** management page.
 
-## Import the Web site into WebMatrix and customize the Web site using a template
+## Import the web site into WebMatrix and customize the web site using a template
 
 1. From the **Dashboard** page click the WebMatrix icon at the bottom of the page to open the web site in WebMatrix 2.
 
 	![Open web site in WebMatrix 2][opensiteinwebmatrix2]
 
-2. If WebMatrix 2 is not installed the Web Platform Installer 4.0 will install Microsoft WebMatrix 2 and all necessary prerequisite software and display a dialog box indicating **Empty Site Detected**. Click the option to use a built-in website template:
+2. If WebMatrix 2 is not installed, the Web Platform Installer 4.0 will install Microsoft WebMatrix 2 and all necessary prerequisite software and display a dialog box indicating **Empty Site Detected**. Click the option to use a built-in website template:
 
 	![Empty Site Detected][howtodownloadsite]
 
-3. After you click the option to use a built-in website template select **Bakery** from the list of templates, enter **bakerysample** for the **Site Name** and click **Next**.
+3. After you click the option to use a built-in website template, select **Bakery** from the list of templates, enter **bakerysample** for the **Site Name**, and click **Next**.
 
 	![Create Site from Template][howtositefromtemplate]
 
-	After WebMatrix finishes building the web site the WebMatrix IDE is displayed:
+	After WebMatrix finishes building the web site, the WebMatrix IDE is displayed:
 
 	![Web Matrix 2 IDE][howtowebmatrixide] 
 
-## Deploy the customized Web site from WebMatrix to Windows Azure
+## Deploy the customized web site from WebMatrix to Windows Azure
 
 1. In WebMatrix, click  **Publish** from the **Home** ribbon to display the **Publish Preview** dialog box for the web site.
 
