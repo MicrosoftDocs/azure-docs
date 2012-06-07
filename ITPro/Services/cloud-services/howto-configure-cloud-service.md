@@ -27,7 +27,7 @@ Windows Azure can only ensure 99.95 percent service availability during the conf
 
 	![Configuration Page] (../media/CloudServices_ConfigurePage1.png)
 
-3. In monitoring settings, set the monitoring level to Verbose or Minimal, and configure the diagnostics connection strings that are required for verbose monitoring. For instructions, see [How to Monitor Cloud Services](./how-to-monitor-a-cloud-service/).
+3. In monitoring settings, set the monitoring level to Verbose or Minimal, and configure the diagnostics connection strings that are required for verbose monitoring. For instructions, see [How to Monitor Cloud Services](../how-to-monitor-a-cloud-service/).
 
 
 4. For service roles (grouped by role), you can update the following settings:

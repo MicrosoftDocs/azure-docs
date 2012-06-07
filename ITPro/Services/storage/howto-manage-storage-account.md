@@ -23,7 +23,7 @@ For more information about geo-replication, see [Introducing Geo-Replication for
 
 ### To turn geo-replication on or off for a storage account ###
 
-1. In the [Windows (Preview) Management Portal](manage.windowsazure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
+1. In the [Windows (Preview) Management Portal](http://manage.windowsazure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
 
 2. Click **Configure**.
 
@@ -70,7 +70,7 @@ To remove a storage account that you are no longer using, use **Delete** on the 
 
 **Warning**  There's no way to restore the content from a deleted storage account. Make sure you back up anything you want to save before you delete the account.
 
-1. In the [Management Portal](manage.windowsazure.com), click **Storage**.
+1. In the [Management Portal](http://manage.windowsazure.com), click **Storage**.
 
 2. Click anywhere in the storage account entry except the name, and then click **Delete**.
 
