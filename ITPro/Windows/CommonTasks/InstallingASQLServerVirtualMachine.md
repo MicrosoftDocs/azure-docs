@@ -73,7 +73,13 @@ In this tutorial you will:
 
 7. Click the check mark in the bottom right corner to continue.
 
-8. Wait while Windows Azure prepares your virtual machine.
+8. Wait while Windows Azure prepares your virtual machine. Expect the virtual machine status to proceed through:
+
+- Starting (Provisioning)
+- Stopped
+- Starting (Provisioning)
+- Running (Provisioning)
+- Running
 
 	![VM Options] [Image7]
 
@@ -95,16 +101,20 @@ Once you are connected to the virtual machine with Windows Remote Desktop, the v
 
 <h2 id="SSMS">Complete Configuration steps to connect to the virtual machine Using SQL Server Management Studio on another computer</h2>
 
-Before you can connect to the instance of SQL Server from the internet, the following tasks must be completed:
+Before you can connect to the instance of SQL Server from the internet, you must complete the following tasks as described in the sections that follow:
 
-- Configure SQL Server to listen on the TCP protocol and restart the Database Engine.
-- Open TCP ports in the Windows firewall.
-- Configure SQL Server for mixed mode authentication.
-- Create a SQL Server authentication login.
-- Create a TCP endpoint for the virtual machine.
-- Determine the DNS name of the virtual machine.
+- [Configure SQL Server to listen on the TCP protocol and restart the Database Engine](#TCP)
+- [Open TCP ports in the Windows firewall](#FW)
+- [Configure SQL Server for mixed mode authentication](#Mixed)
+- [Create SQL Server authentication logins](#Logins)
+- [Create a TCP endpoint for the virtual machine](#Endpoint)
+- [Determine the DNS name of the virtual machine](#DNS)
 
-### Configure SQL Server to listen on the TCP protocol and restart the Database Engine. ###
+    ![Connecting to a SQL Server virtual machine] [Image8b]
+
+<h3 id="TCP">Configure SQL Server to listen on the TCP protocol and restart the Database Engine</h3>
+
+This step might already be complete.
 
 1. While connected to the virtual machine by using Remote Desktop, on the Start menu, click **All Programs**, click **Microsoft SQL Server** *version*, click **Configuration Tools**, and then click **SQL Server Configuration Manager**.
 
@@ -128,7 +138,7 @@ Before you can connect to the instance of SQL Server from the internet, the foll
 
 For more information about enabling protocols for the SQL Server Database Engine, see [Enable or Disable a Server Network Protocol](http://msdn.microsoft.com/en-us/library/ms191294.aspx).
 
-### Open TCP ports in the Windows firewall for the default instance of the Database Engine ###
+<h3 id="FW">Open TCP ports in the Windows firewall for the default instance of the Database Engine</h3>
 
 1. On the Start menu, click **Run**, type **WF.msc**, and then click **OK**.
 
@@ -164,7 +174,7 @@ For more information about enabling protocols for the SQL Server Database Engine
 
 Open additional ports for other components as needed. For more information, see [Configuring the Windows Firewall to Allow SQL Server Access](http://msdn.microsoft.com/en-us/library/cc646023.aspx).
 
-### Configure SQL Server for mixed mode authentication ###
+<h3 id="Mixed">Configure SQL Server for mixed mode authentication</h3>
 
 The SQL Server Database Engine cannot use Windows Authentication without domain environment. To connect to the Database Engine from a computer outside of the domain, configure SQL Server for mixed mode authentication. Mixed mode authentication allows both SQL Server Authentication and Windows Authentication. (Configuring mixed mode authentication might not be necessary if you have configured a Windows Azure Virtual Network. For more information about Windows Azure Virtual Network, see [Overview of Windows Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=251117).)
 
@@ -192,7 +202,7 @@ The SQL Server Database Engine cannot use Windows Authentication without domain 
 
 7. In the SQL Server Management Studio dialog box, click **Yes** to agree that you want to restart SQL Server.
 
-### Create SQL Server authentication logins ###
+<h3 id="Logins">Create SQL Server authentication logins</h3>
 
 To connect to the Database Engine from another computer you must create at least one SQL Server authentication login.
 
@@ -230,7 +240,7 @@ To connect to the Database Engine from another computer you must create at least
 
 For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/en-us/library/aa337562.aspx).
 
-### Create a TCP endpoint for the virtual machine ###
+<h3 id="Endpoint">Create a TCP endpoint for the virtual machine</h3>
 
 1. The virtual machine must have an endpoint to listen for incoming TCP requests. On the Windows Azure Management Portal, click on **VIRTUAL MACHINES**.
 
@@ -261,7 +271,7 @@ For more information about SQL Server logins, see [Create a Login](http://msdn.m
 
 	![VM with Endpoint] [Image31]
 
-**### Determine the DNS name of the virtual machine ###
+<h3 id="DNS">Determine the DNS name of the virtual machine</h3>
 
 To connect to the SQL Server Database Engine from another computer you must know the DNS name of the virtual machine.
 
@@ -345,6 +355,7 @@ The SQL Server setup media is saved on the virtual machine in the C:\SqlServer_1
 [Image6]: ../media/6VM-Options.png
 [Image7]: ../media/7VM-Provisioning.png
 [Image8]: ../media/8VM-Connect.png
+[Image8b]: ../media/SQLVMConnectionsOnAzure.png
 [Image9]: ../media/9Click-SSCM.png
 [Image10]: ../media/10Enable-TCP.png
 [Image11]: ../media/11Restart.png
