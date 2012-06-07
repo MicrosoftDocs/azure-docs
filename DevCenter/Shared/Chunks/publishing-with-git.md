@@ -196,7 +196,7 @@ The following are errors or problems commonly encountered when using Git to publ
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [PowerShell for Windows Azure]: http://windowsazure.com
-[Windows Azure Command-Line Tools for Mac and Linux]: /DevCenter/Node/CommonTasks/crossplat-cmd-tools.md
+[Windows Azure Command-Line Tools for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Git Documentation]: http://git-scm.com/documentation
 
 [portal-select-website]: ../Media/git-select-website.png

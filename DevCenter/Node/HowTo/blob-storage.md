@@ -103,7 +103,7 @@ create a storage account [using the REST API][].)
 
 Create a blank Node.js application. For
 instructions on how to use the PowerShell commands to create a blank
-application, see the [Node.js Cloud Service]. For instructions on how to use WebMatrix, see [Web Site with WebMatrix].
+application, see the [Node.js Cloud Service].
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
@@ -445,4 +445,3 @@ to learn how to do more complex storage tasks.
   [Node.js Cloud Service]: {localLink:2221} "Node.js Web Application"
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/

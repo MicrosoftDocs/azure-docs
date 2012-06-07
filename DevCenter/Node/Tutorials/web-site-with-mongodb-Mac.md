@@ -469,7 +469,7 @@ While the steps in this article describe using MongoDB to store information, you
 [Express]: http://expressjs.com
 [Mongoose]: http://mongoosejs.com
 [for free]: /en-us/pricing/free-trial
-[Git remote]: http://gitref.org/remotes/
+[Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
 [Windows Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/

@@ -545,7 +545,7 @@ While the steps in this article describe using the Table Service to store inform
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
 [for free]: http://windowsazure.com
-[Git remote]: http://gitref.org/remotes/
+[Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [Node.js Web Application with MongoDB]: ./web-site-with-mongodb-Mac
 [Windows Azure command-line tool for Mac and Linux]: http://windowsazure.com
