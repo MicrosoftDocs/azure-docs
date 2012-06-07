@@ -60,7 +60,9 @@ application.
 
 To create a service namespace:
 
-1.  Log on to the [Windows Azure Management Portal][].
+1.  Log on to the [Windows Azure Management Portal][]. In order to perform the following steps you must use the Production portal. If you are currently using the Preview portal, you can switch to Production by clicking **Preview** at the top of the page, and then selecting **Take me to the previous portal**. This will load the production management portal.
+
+	![preview portal dialog][Previous Management Portal]
 
 2.  In the lower left navigation pane of the Management Portal, click
     **Service Bus, Access Control & Caching**.
@@ -524,3 +526,4 @@ links to learn more.
   [SqlFilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/
   [Node.js Cloud Service]: {localLink:2221} "Node.js Web Application"
+[Previous Management Portal]: ../../Shared/Media/previous-portal.png

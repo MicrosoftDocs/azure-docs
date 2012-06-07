@@ -62,7 +62,7 @@ Before you create a virtual machine, you should decide how it will be used. If y
 
 	![Custom virtual machine creation successful][Custom virtual machine creation successful]
 
-[Create a Virtual Machine into a Virtual Network]:http://www.windowsazure.com/manage/services/networking/
+[Create a Virtual Machine into a Virtual Network]: /en-us/manage/services/networking/add-a-vm-to-a-virtual-network/
 [About Affinity Groups for Virtual Network]:http://msdn.microsoft.com/en-us/library/windowsazure/
 [Create a new virtual machine]:../media/create.png
 [Create a new custom virtual machine]:../media/createnew.png
