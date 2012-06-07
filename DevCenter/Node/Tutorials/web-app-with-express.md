@@ -45,7 +45,10 @@ you created through the [Node.js Web Application][] tutorial.
 
         PS C:\node\tasklist\WebRole1> npm install express -g
 
-    **Note**: The '-g' parameter installs the express scaffolding so that it is globally available. You will use this command in the next section to generate the scaffolding for this application.
+    <div class="dev-callout">
+	<b>Note</b>
+	<p>The '-g' parameter installs the express scaffolding so that it is globally available. You will use this command in the next section to generate the scaffolding for this application.</p>
+	</div>
 
     The output of the npm command should look similar to the result
     below. You can see the list of modules installed as well as any
@@ -114,10 +117,13 @@ generated using the Express scaffolding tool.
     This configures Node to listen on the environment PORT value
     provided by Windows Azure when published to the cloud.
 
-    **Note**: At the time of this writing, express scaffolding sometimes
+    <div class="dev-callout">
+	<b>Note</b>
+	<p>At the time of this writing, express scaffolding sometimes
     generated LF-only line breaks (Unix-style). If you’re experiencing
     this, you can open the file in WordPad or Visual Studio and save,
-    thereby replacing LF with CRLF line breaks. Save the server.js file.
+    thereby replacing LF with CRLF line breaks. Save the server.js file.</p>
+	</div>
 
 8.  Use the following command to run the application in the Windows
     Azure emulator:

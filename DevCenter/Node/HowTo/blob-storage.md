@@ -159,7 +159,7 @@ you use the Web.cloud.config file, which is created when you use the Windows Azu
             <add key="AZURE_STORAGE_ACCESS_KEY" value="your storage access key" />
         </appSettings>
 
-Note that the examples below assume that you are using cloud-based
+Note that The examples below assume that you are using cloud-based
 storage.
 
 ## <a name="create-container"> </a>How to: Create a Container

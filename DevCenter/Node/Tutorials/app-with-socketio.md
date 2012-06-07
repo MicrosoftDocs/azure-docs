@@ -7,7 +7,9 @@ server and clients. This tutorial will walk you through hosting a
 socket.io based chat application on Windows Azure. For more information
 on Socket.io, see [http://socket.io/].
 
-**Note:** The sample in this tutorial demonstrates using the Socket.IO
+<div class="dev-callout">
+<b>Note</b>
+<p>The sample in this tutorial demonstrates using the Socket.IO
 API on Windows Azure. For simplicity, the sample is limited to running
 with a single Windows Azure worker role instance. This means that it
 should not be used in a production setting, because production
@@ -16,7 +18,8 @@ meet the [Windows Azure Compute SLA]. To scale the application to work
 with multiple role instances, you could use a technology like Service
 Bus to share the socket.io store state across instances. For examples,
 see the Service Bus Queues and Topics usage samples in the [Windows
-Azure SDK for Node.js GitHub repository].
+Azure SDK for Node.js GitHub repository].</p>
+</div>
 
 A screenshot of the completed application is below:
 
@@ -73,8 +76,11 @@ example of configuring Socket.io to use long-polling:
       io.set("polling duration", 10);
     });
 
-**Note**: This tutorial uses a Worker role, so the above Web role
-specific configuration is not used.
+<div class="dev-callout">
+<b>Note</b>
+<p>This tutorial uses a Worker role, so the above Web role
+specific configuration is not used.</p>
+</div>
 
 ## Hosting the Chat Example in a Worker Role
 
@@ -203,9 +209,12 @@ Azure emulator:
 
         PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -launch
 
-    **Note**: If the browser window does not open automatically, you can
+    <div class="dev-callout">
+	<b>Note</b>
+	<p>If the browser window does not open automatically, you can
     manually open it and browse to the address returned by the
-    **Start-AzureEmulator** command.
+    **Start-AzureEmulator** command.</p>
+	</div>
 
 2.  When the browser window opens, enter a nickname and then hit enter.
     This will all you to post messages as a specific nickname. To test
