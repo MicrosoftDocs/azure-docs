@@ -20,7 +20,7 @@ OpenLogic is a leading provider of enterprise open source solutions for the clou
 
 ##SUSE##
  
-[http://www.suse.com/suse-linux-enterprise-server-on-azure.com](http://www.suse.com/suse-linux-enterprise-server-on-azure.com)
+[http://www.suse.com/suse-linux-enterprise-server-on-azure](http://www.suse.com/suse-linux-enterprise-server-on-azure)
 
 SUSE Linux Enterprise Server on Windows Azure is a proven platform that provides superior reliability and security for cloud computing. SUSE's versatile Linux platform seamlessly integrates with Windows Azure cloud services to deliver an easily manageable cloud environment. And with more than 9,200 certified applications from over 1,800 independent software vendors for SUSE Linux Enterprise Server, SUSE ensures that workloads running supported in the data center can be confidently deployed on Windows Azure.
 

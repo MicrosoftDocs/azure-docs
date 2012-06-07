@@ -1,4 +1,4 @@
-#Commands for the Windows Azure cmdline tool for Mac and Linux
+#Windows Azure command line tool for Mac and Linux
 
 To use this tool with virtual machines and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
 
