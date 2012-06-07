@@ -67,5 +67,5 @@ If you are using a Windows computer, connect to the VM using PuTTY. PuTTY can be
 [Image21]: ../../Shared/Media/SUSEVmConfiguration0.png
 [Image2]: ../../Shared/Media/SUSEVmConfiguration1.png
 [Image3]: ../../Shared/Media/SUSEVmConfiguration2.png
-[Image4]: ../../Shared/Media/VmConfiguration3.png
+[Image4]: ../../Shared/Media/SUSEVmConfiguration3.png
 [Image6]: ../../Shared/Media/putty.png
