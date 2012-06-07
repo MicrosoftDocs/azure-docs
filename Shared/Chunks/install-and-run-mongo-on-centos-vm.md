@@ -17,7 +17,7 @@
 4. Create a data directory. By default MongoDB stores data in the */data/db* directory, but you must create that directory. To create it, run:
 
 		$ sudo mkdir -p /mnt/datadrive/data
-		$ sudo chown 'id -u' /mnt/datadrive/data
+		$ sudo chown `id -u` /mnt/datadrive/data
 
 	For more information on installing MongoDB on Linux, see [Quickstart Unix][QuickstartUnix].
 
