@@ -44,7 +44,7 @@ Windows Azure Caching (Preview) introduces a new way to perform caching by using
 Caching on role instances has the following advantages:
 
 -	Pay no premium for caching. You pay only for the compute resources that host the cache.
--	Elimates cache quotas and throttling.
+-	Eliminates cache quotas and throttling.
 -	Offers greater control and isolation. 
 -	Improved performance.
 -	Automatically sizes caches when roles are scaled in or out. Effectively scales the memory that is available for caching up or down when role instances are added or removed.
@@ -68,7 +68,7 @@ This guide provides an overview of getting started with Windows Azure Caching (P
 Windows Azure Caching (Preview) provides a way to enable caching using the memory that is on the virtual machines that host your role instances. The role instances that host your caches are known as a **cache cluster**. There are two deployment topologies for caching on role instances:
 
 -	**Dedicated Role** caching - The role instances are used exclusively for caching.
--	**Co-located Role** caching - The cache shares the VM resources (bandwith, CPU, and memory) with the application.
+-	**Co-located Role** caching - The cache shares the VM resources (bandwidth, CPU, and memory) with the application.
 
 To use caching on role instances, you need to configure a cache cluster, configure the cache size, and then configure the cache clients so they can access the cache cluster.
 
@@ -135,7 +135,7 @@ If **Dedicated Role** caching is specified, then the amount of memory listed  be
 
 To determine the size of the cache, multiply the amount of memory available based on the VM size by the number of role instances.
 
->Note that there are several caching features that increase the amount of memory required for each item in the cache, such as regions, tagging, and **Backup Copies**. **Backup Copies** is a feature that provides high availability for the cache which can be used if you have more than one role instance. If one of the role instances goes offline, the objects in the cache will still be available in the backup copy. If **Backup Copies** are specified, the total memory available required for eached cached item is doubled. This should be taken into consideration when estimating the memory requirements for the cache. For more information, see [Windows Azure Caching (Preview) Capacity Planning Considerations][].
+>Note that there are several caching features that increase the amount of memory required for each item in the cache, such as regions, tagging, and **Backup Copies**. **Backup Copies** is a feature that provides high availability for the cache which can be used if you have more than one role instance. If one of the role instances goes offline, the objects in the cache will still be available in the backup copy. If **Backup Copies** are specified, the total memory available required for each cached item is doubled. This should be taken into consideration when estimating the memory requirements for the cache. For more information, see [Windows Azure Caching (Preview) Capacity Planning Considerations][].
 
 Once the cache cluster is configured, you can configure the cache clients to allow access to the cache.
 
@@ -147,7 +147,7 @@ To access a Windows Azure Caching (Preview) cache, the clients must be within th
 
 Select **Windows Azure Caching Preview**, click **Install**, and then click **I Accept**.
 
->If **Windows Azure Caching Preview** does not appear in the list type **Windows Azure Caching Preview** into the **Search Online** text box and select it from the results.
+>If **Windows Azure Caching Preview** does not appear in the list type **WindowsAzure.Caching** into the **Search Online** text box and select it from the results.
 
 ![RoleCache5][]
 
@@ -174,7 +174,7 @@ This new section includes a reference to a **dataCacheClients** element. This **
 
 After the configuration is added, replace **[cache cluster role name]** with the name of the role that hosts the cache cluster.
 
->If **[cache cluster role name]** is not replaced with the name of the role that hosts the cache cluster, then a **TargetInvocationException** will be thrown when the cache is accessed with an inner **InvalidOperationException** with the message "No such role exists".
+>If **[cache cluster role name]** is not replaced with the name of the role that hosts the cache cluster, then a **TargetInvocationException** will be thrown when the cache is accessed with an inner **DatacacheException** with the message "No such role exists".
 
 The NuGet package also adds references to the following assemblies:
 
