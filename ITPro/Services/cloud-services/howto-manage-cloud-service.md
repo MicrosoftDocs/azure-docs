@@ -35,7 +35,7 @@ If you need to update your application code, use **Update** on the dashboard, **
 
 7. If any service roles have only one role instance, select the **Update even if one or more role contain a single instance check box** to enable the upgrade to proceed. 
 
- Windows Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). That enables one virtual machine to process client requests while the other is being updated. For information about how Windows Azure maintains service during updates, see [Deploying and Updating Windows Azure Applications](/en-us/develop/net/fundamentals/deploying-applications/).
+ Windows Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). That enables one virtual machine to process client requests while the other is being updated. For information about how Windows Azure maintains service during updates, see [Deploying and Updating Windows Azure Applications](/en-us/develop/dotnet/fundamentals/deploying-applications/).
 
 8. Click OK (checkmark) to begin updating the service.
 
@@ -60,7 +60,7 @@ You can swap deployments from the **Cloud Services** page or the dashboard.
 
 4. After you verify the deployment information, click **Yes** to swap the deployments.
 
-The deployment swap happens quickly because the only thing that changes is the virtual IP addresses (VIPs) for the deployments. For more information, see [Deploying and Updating Windows Azure Cloud Applications](/en-us/develop/net/fundamentals/deploying-applications/).
+The deployment swap happens quickly because the only thing that changes is the virtual IP addresses (VIPs) for the deployments. For more information, see [Deploying and Updating Windows Azure Cloud Applications](/en-us/develop/dotnet/fundamentals/deploying-applications/).
 
 To save compute costs, you can delete the deployment in the staging environment when you're sure the new production deployment is performing as expected.
 
