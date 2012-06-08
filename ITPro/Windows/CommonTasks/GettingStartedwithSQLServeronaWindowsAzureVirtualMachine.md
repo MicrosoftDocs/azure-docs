@@ -1,6 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Getting Started with SQL Server on a Windows Azure Virtual Machine" metaKeywords="Windows Azure, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties umbracoNaviHide="0" pageTitle="Getting started with SQL Server on a Windows Azure virtual machine" metaKeywords="Windows Azure, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
 
-# Getting Started with SQL Server on a Windows Azure Virtual Machine
+# Getting started with SQL Server on a Windows Azure virtual machine
 
 <div chunk="../../shared/chunks/disclaimer.md" />
 
@@ -11,7 +11,16 @@ The Windows Azure virtual machine gallery provides Windows Azure virtual machine
 <p>The evaluation edition is available for testing but cannot be upgraded to a per-hour  paid edition.</p> 
 </div>
 
-## About this virtual machine image
+In this topic contains:
+
+- [About this virtual image](#About)
+- [How to connect to this instance of SQL Server](#Connect)
+- [Next steps](#Next)
+- [Links to additional information](#Links)
+
+For a step-by-step tutorial on installing a virtual machine and connecting to SQL Server, see [Provision a SQL Server virtual machine on Windows Azure](http://go.microsoft.com/fwlink/?LinkID=251117).
+
+<h2 id="About">About this virtual machine image</h2>
 
 ###Windows Server 2008 R2
 
@@ -55,7 +64,7 @@ This SQL Server installation contains the following components.
 - The Database Engine memory is set to dynamic memory configuration. Contained database authentication is off. The default language is English. Cross-database ownership chaining is off. For more settings, examine the instance of SQL Server.
 - Additional installations of SQL Server can be installed on the virtual machine, but they might require a PID (Product ID code).
 
-## How to Connect To this Instance of SQL Server
+<h2 id="Connect">How to Connect To this Instance of SQL Server</h2>
 
 ### Connect from Management Studio running on this VM
 
@@ -63,7 +72,18 @@ In the Management Studio **Connect to server** dialog box, enter the of the virt
 
 ### Connect from the Internet by using Management Studio
 
-Additional configuration of SQL Server, the virtual machine, and Windows Azure is required to connect to SQL Server over the internet. For more information, see [Provision a SQL Server Virtual Machine on Windows Azure](../install-sql-server).
+Before you can connect to the instance of SQL Server from the internet, the following tasks must be completed:
+
+- Configure SQL Server to listen on the TCP protocol and restart the Database Engine.
+- Open TCP ports in the Windows firewall.
+- Configure SQL Server for mixed mode authentication.
+- Create a SQL Server authentication login.
+- Create a TCP endpoint for the virtual machine.
+- Determine the DNS name of the virtual machine.
+
+    ![Connection Path] [Image1]
+
+For more information, see the step-by-step instructions in [Provision a SQL Server Virtual Machine on Windows Azure](../install-sql-server).
  
 ### Connect from Management Studio running on another computer using Windows Azure Virtual Network
 
@@ -85,7 +105,7 @@ Provide a connection string similar to
 
 where VM_Name is the name you provided for this virtual machine during setup.
 
-## Next steps
+<h2 id="Next">Next steps</h2>
 
 ### Migrating an existing database
 Your existing database can be moved to this new instance of the Database Engine by using any of the following methods.
@@ -109,6 +129,12 @@ Create new Windows users, SQL Server Windows Authentication logins, and database
 
 The SQL Server setup media is saved on the virtual machine in the **C:\SQLServer\_&lt;version&gt;\_Full** directory. Run setup from this directory to perform any setup actions including add or remove features, add a new instance, repair the instance, etc.
 
-## Additional information
+<h2 id="Links">Links to additional information</h2>
 
-* For a tutorial on installing a virtual machine and connecting to SQL Server, see [Provision a SQL Server virtual machine on Windows Azure](../install-sql-server).
+* [Provision a SQL Server virtual machine on Windows Azure](http://go.microsoft.com/fwlink/?LinkID=251117)
+* [Best practices and troubleshooting](http://go.microsoft.com/fwlink/?LinkID=254744)
+* [Migrating with Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156159)
+
+
+
+[Image1]: ../media/SQLVMConnectionsOnAzure.png
