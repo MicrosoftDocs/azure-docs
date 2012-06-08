@@ -60,6 +60,20 @@ You will learn:
 
 	The URL for the web site can also be found in the Windows Azure portal by clicking **Web Sites** to display all web sites for your subscription. The URL for each web site is displayed in the URL column on the web sites page.
 
+
+
+# Next Steps
+
+You've seen how to create and deploy a web site from WebMatrix to Windows Azure. To learn more about WebMatrix, check out these resources:
+
+* [WebMatrix for Windows Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
+
+* [WebMatrix website](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
+
+
+
+
+
 [createnewsite]: ../../../Shared/media/howtocreatenewsite.png
 [opensiteinwebmatrix2]: ../../../Shared/media/howtoopensiteinWebMatrix2a.png
 [howtodownloadsite]: ../../../Shared/media/howtodownloadsite.png

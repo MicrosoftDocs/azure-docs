@@ -172,6 +172,20 @@ You can easily modify and republish your application. Here, you will make a simp
 
 4. When publishing has completed, navigate to http://[your website name].azurewebsites.net/index.php to see the published changes.
 
+
+
+## Next Steps
+
+You've seen how to create and deploy a web site from WebMatrix to Windows Azure. To learn more about WebMatrix, check out these resources:
+
+* [WebMatrix for Windows Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
+
+* [WebMatrix website](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
+
+
+
+
+
 [install-SQLExpress]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
 [running-app]: ../Media/tasklist_app_windows.png
 [tasklist-sqlazure-download]: http://go.microsoft.com/fwlink/?LinkId=252504
