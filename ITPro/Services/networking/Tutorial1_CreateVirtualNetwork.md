@@ -1,7 +1,7 @@
 <properties umbracoNaviHide="0" pageTitle="Tutorial 1: Creating a Virtual Network in Windows Azure" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Learn how to configure Windows Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
 
 
-<h1 id="vnettut1">Tutorial 1: Creating a Virtual Network in Windows Azure</h1>
+<h1 id="vnettut1">Create a Virtual Network in Windows Azure</h1>
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
@@ -14,7 +14,7 @@ After completing this tutorial, you will have a virtual network to which you can
 For information about creating a virtual network with cross-premises connectivity (i.e., connecting to Active Directory or SharePoint located at your company), see the following tutorials:
 
 
-*  [Tutorial 2: Creating a Virtual Network for cross-premises connectivity](../cross-premises-connectivity/)
+*  [Create a Virtual Network for Cross-Premises Connectivity](../cross-premises-connectivity/)
 
 *  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](../replica-domain-controller/)
 
@@ -24,13 +24,13 @@ For information about creating a virtual network with cross-premises connectivit
 
 In this tutorial you will learn:
 
-*  How to setup a basic Windows Azure virtual network to which you can add Windows Azure services.
+*  How to setup a basic Windows Azure virtual network to which you can add Windows Azure Cloud Services.
 
 ##  Prerequisites
 
 *  Windows Live account with at least one valid, active subscription.
 
-*  Address space and IPs to be used for the virtual network and subnets.
+*  Address space to be used for the virtual network and subnets within the virtual network (in CIDR notation).
 
 ##  Create a Virtual Network
 
@@ -51,19 +51,21 @@ In this tutorial you will learn:
 
 *  **AFFINITY GROUP:** From the drop-down list, select **Create a new affinity group**. Affinity groups are a way to physically group Windows Azure services together at the same data center to increase performance. Only one virtual network can be assigned an affinity group.
 
-*  **REGION:** From the drop-down list, select **West US**. Your virtual network will be created at a datacenter located in the specified region.
+*  **REGION:** From the drop-down list, select the desired region. Your virtual network will be created at a datacenter located in the specified region.
 
 *  **AFFINITY GROUP NAME:** Type *YourAffinityGroup*.
 
 	![Image3] []
 
-5.	On the **Address Space and Subnets** screen, enter the following information, and then click the next arrow. Address space must conform to RFC 1918 and cannot overlap other virtual network or local network sites.
+5.	On the **Address Space and Subnets** screen, enter the following information, and then click the next arrow. Address space must be a private address range, specified in CIDR notation 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16 (as specified by RFC 1918).
+
+	**NOTE:** After adding each address space, click the plus button.
+
 *  **ADDRESS SPACE:** Type *10.4.0.0/16*.
 *  **SUBNETS:** Enter the following:
 
-	-  *FrontEndSubnet, 10.4.2.0/24*
-
-	-  *BackEndSubnet, 10.4.3.0/24*
+		-  *FrontEndSubnet, 10.4.2.0/24*
+		-  *BackEndSubnet, 10.4.3.0/24*
  
 	![Image4] []
 
@@ -72,7 +74,7 @@ In this tutorial you will learn:
 	Your virtual network will now be created.
 
 
- 	**Note:** You only need to enter DNS server or local network information if you plan to connect to your company's network. For more information, see [Tutorial 2: Creating a Virtual Network for cross-premises connectivity](../cross-premises-connectivity/).
+ 	**Note:** If you want to use a public DNS service, you can enter that information on this screen. Otherwise, name resolution will default to the Windows Azure service. For more information, see [Windows Azure Name Resolution Overview](http://go.microsoft.com/fwlink/?LinkId=248097).
  
 	![Image5] []
 
@@ -86,7 +88,7 @@ In this tutorial you will learn:
 If you'd like, you can continue with the following tutorials:
 
 
-- [Tutorial 3: Adding a Virtual Machine to a Virtual Network](../add-a-vm-to-a-virtual-network/)
+- [Add a Virtual Machine to a Virtual Network](../add-a-vm-to-a-virtual-network/)
 
 *  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](../replica-domain-controller/)
 
