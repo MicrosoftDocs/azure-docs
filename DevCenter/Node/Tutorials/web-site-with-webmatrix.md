@@ -1,7 +1,7 @@
 <properties linkid="dev-nodejs-website-webmatrix" urldisplayname="Node.js Website with WebMatrix" headerexpose="" pagetitle="Node.js Application using a WebMatrix" metakeywords="Azure Node.js tutorial WebMatrix, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates creating and deploying a Node.js application using WebMatrix" umbraconavihide="0" disquscomments="1"></properties>
 #Create and deploy a Node.js application to a Windows Azure Web Site using WebMatrix
 
-This tutorial shows you how to use Microsoft WebMatrix to create and deploy a node application to a Windows Azure Web Site. WebMatrix is a free web development tool from Microsoft that includes everything you need for web site development. WebMatrix supports node and includes code completion for node development.
+This tutorial shows you how to use WebMatrix to develop and deploy a Node.js application to a Windows Azure Website. WebMatrix is a free web development tool from Microsoft that includes everything you need for website development. WebMatrix includes several features that make it easy to use Node.js including code completion, pre-built templates, and editor support for Jade, LESS, and CoffeeScript. Learn more about [WebMatrix for Windows Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409).
 
 Upon completing this guide, you will have a node web site running in Windows Azure.
  
@@ -101,11 +101,21 @@ You can easily modify and republish your application. Here, you will make a simp
 
 	![Windows Azure node Website][webmatrix-node-completed]
 
-##Additional resources
 
-[Publishing a Windows Azure Web site using Git]
+# Next Steps
+
+You've seen how to create and deploy a web site from WebMatrix to Windows Azure. To learn more about WebMatrix, check out these resources:
+
+* [WebMatrix for Windows Azure]
+* [WebMatrix website]
+* [Publishing a Windows Azure Web site using Git]
+
+
 
 [Windows Azure Portal]: http://manage.windowsazure.com
+[WebMatrix WebSite]: http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398
+[WebMatrix for Windows Azure]: http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409
+
 [Publishing a Windows Azure Web site using Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
 [for free]: /en-us/pricing/free-trial
 [webmatrix-node-completed]: ../Media/webmatrix-node-complete.png
