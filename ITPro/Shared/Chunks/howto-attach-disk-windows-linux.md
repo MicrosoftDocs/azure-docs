@@ -173,8 +173,8 @@ The data disk that you just attached to the virtual machine is offline and not i
 	The data disk is now ready to use as **/mnt/datadrive**.
 
 
-[logon]: en-us/manage/windows/how-to-guides/log-on-a-windows-vm/
-[logonlinux]: en-us/manage/windows/how-to-guides/log-on-a-linux-vm/
+[logon]: /en-us/manage/windows/how-to-guides/log-on-a-windows-vm/
+[logonlinux]: /en-us/manage/linux/how-to-guides/log-on-a-linux-vm/
 [Attach data disk]: ../media/attachexistingdiskwindows.png
 [Enter data disk details]: ../media/attachexistingdisk.png
 [Data disk successfully attached]: ../media/attachsuccess.png
