@@ -6,7 +6,7 @@ Contact the partners listed on this page for assistance in delivering your Linux
 
 ##Canonical Juju
 
-[![Juju](../media/manage/manage-partner-juju.png)](http://www.ubuntu.com/cloud/azure)
+[![Juju](../media/juju.png)](http://www.ubuntu.com/cloud/azure)
 
 [http://www.ubuntu.com/cloud/azure](http://www.ubuntu.com/cloud/azure)
 
@@ -47,9 +47,18 @@ ScaleXtreme gives customers the power to build, launch, monitor, patch, and mana
 
 ##SUSE Studio
 
-[![SUSE](../media/manage/manage-partner-suse-stuido.png) ](http://www.susestudio.com)
+[![SUSE](../media/suse.png) ](http://www.susestudio.com)
 
 [www.susestudio.com](http://www.susestudio.com)
 
 SUSE makes it easy to extend SUSE Linux Enterprise Server-based applications to Windows Azure using the one-click-deployment capabilities of SUSE Studio.  Through SUSE Studio, customers can rapidly develop cloud-ready applications that include a preconfigured, integrated and fully supported enterprise-class Linux operating system, and automatically launch them on Windows Azure, virtually eliminating inefficient manual processes. 
+
+##Bitnami
+
+[![Bitnami](../media/bitnami.png) ](http://bitnami.org/azure/get-started)
+
+[http://bitnami.org/azure/get-started](http://bitnami.org/azure/get-started)
+
+BitNami provides fully configured images of popular web applications that can be deployed to Windows Azure in one click. The BitNami WebPack and DevPack images for Windows Azure provide fully configured and ready-to-run environments for web and application developers, free of charge. BitNami WebPack bundles Wordpress, Drupal and Joomla! to give developers a choice of the best platforms for developing websites and blogs. BitNami DevPack provides a development environment complete with Ruby on Rails, PHP, Django and Java language runtimes and all of their dependencies, everything developers need to build web applications in the cloud.
+
 
