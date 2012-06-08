@@ -1,3 +1,4 @@
+# Create an Orchard web site from the gallery in Windows Azure
 The gallery makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the gallery do not require installation of any software other than the browser used to connect to the Windows Azure Management Portal. 
 
 In this tutorial, you'll learn:
@@ -31,7 +32,7 @@ You'll build an Orchard site that uses a default template. The following illustr
 	
 	![Create From Gallery][2]
 
-1. Locate and click the Umbraco CMS 5 icon in list, and then click **Next**.
+1. Locate and click the Orchard CMS icon in list, and then click **Next**.
 	
 	![Orchard from list][3]
 
