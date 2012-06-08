@@ -369,7 +369,7 @@ file and save.
 <div class="dev-callout">
 <b>Note</b>
 <p>In Jade, whitespace is significant, so do not
-remove any of the spacing below.<p>
+remove any of the spacing below.</p>
 </div>
 
         hr

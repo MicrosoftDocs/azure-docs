@@ -131,7 +131,7 @@ message using both SMTP and the Web API.
 <b>Note</b>
 <p>While the above examples show passing in an email object and
 callback function, you can also directly invoke the send and smtp
-functions by directly specifying email properties. For example:<p>
+functions by directly specifying email properties. For example:</p>
 <pre class="prettyprint">sender.send({
     to: 'john@contoso.com',
     from: 'anna@contoso.com',
