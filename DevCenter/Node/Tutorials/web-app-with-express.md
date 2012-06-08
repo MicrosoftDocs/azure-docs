@@ -150,7 +150,7 @@ Windows Azure”.
 2.  Modify the last line of text by appending **in Windows Azure**.
 
     ![The index.jade file, the last line reads: p Welcome to \#{title}
-    in Windows Azure][]
+    in Windows Azure][The index.jade file modified]
 
 3.  Save the file and exit Notepad.
 
@@ -241,7 +241,7 @@ publishing is completed.
   [A web page containing welcome to express.]: ../Media/node28.png
   [The contents of the index.jade file.]: ../Media/getting-started-19.png
   [http://jade-lang.com]: http://jade-lang.com
-  [The index.jade file, the last line reads: p Welcome to \#{title} in Windows Azure]: ../Media/node31.png
+  [The index.jade file modified]: ../Media/node31.png
   [express-page]: ../Media/node32.png
   [The server.js file, with the app.get('/', routes.index); line highlighted]: ../Media/node33.png
   [The web browser displaying the home page, which states A work in progress]: ../Media/node34.png
