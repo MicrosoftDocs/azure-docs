@@ -5,7 +5,7 @@
 When developing applications for Windows Azure, identity and
 access are the primary security concerns that you need to keep in mind.
 This topic explains the key security concerns related to identity and access in the cloud and how you
-can best protect your application.
+can best protect your cloud applications.
 
 ##Overview
 
