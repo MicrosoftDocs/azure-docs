@@ -5,7 +5,6 @@
 		baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64
 		gpgcheck=0
 		enabled=1
-
 2. Save the repo file and then run the following command to update the local package database:
 
 		$ sudo yum update
@@ -18,7 +17,7 @@
 4. Create a data directory. By default MongoDB stores data in the */data/db* directory, but you must create that directory. To create it, run:
 
 		$ sudo mkdir -p /mnt/datadrive/data
-		$ sudo chown 'id -u' /mnt/datadrive/data
+		$ sudo chown `id -u` /mnt/datadrive/data
 
 	For more information on installing MongoDB on Linux, see [Quickstart Unix][QuickstartUnix].
 
