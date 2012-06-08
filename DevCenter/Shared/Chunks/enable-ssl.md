@@ -159,7 +159,7 @@ connect to it using HTTPS.
     has been configured correctly for SSL.
 
     <div class="dev-callout">
-	<b>Note:</b>
+	<strong>Note:</strong>
 	<p>If you are using a self-signed certificate, when you
     browse to an HTTPS endpoint that's associated with the self-signed
     certificate you will see a certificate error in the browser. Using a

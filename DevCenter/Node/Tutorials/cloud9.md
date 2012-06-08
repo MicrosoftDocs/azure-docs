@@ -45,11 +45,11 @@ IDE].
     ![create new project dialog -- Cloud9][]
 
     <div class="dev-callout">
-	<b>Note</b>
+	<strong>Note</strong>
 	<p>Some options require a paid Cloud9 plan.</p>
 	</div>
     <div class="dev-callout">
-	<b>Note</b>
+	<strong>Note</strong>
 	<p>The project name of your Cloud9 project is not used when
     deploying to Windows Azure.</p>
 	</div>
@@ -79,7 +79,7 @@ IDE].
         }).listen(port);
 
     <div class="dev-callout">
-	<b>Note</b>
+	<strong>Note</strong>
 	<p>Using process.env.PORT ensures that the application picks
     up the correct port whether ran in the Cloud9 debugger or when
     deployed to Windows Azure.</p>
@@ -90,7 +90,7 @@ IDE].
     click **Save**.
 
     <div class="dev-callout">
-	<b>Note</b>
+	<strong>Note</strong>
 	<p>You may notice a warning symbol indicating that the req
     variable is unused. You may safely ignore this warning.</p>
 	</div>
@@ -100,11 +100,11 @@ IDE].
 ## Run the Application
 
 <div class="dev-callout">
-<b>Note</b>
+<strong>Note</strong>
 <p>While the steps provided in this section are sufficient for a
 Hello World application, for applications that use external modules you
 may need to select a specific version of Node.js for the debug
-environment. To do this, select <b>Configure...</b> from the debug
+environment. To do this, select <strong>Configure...</strong> from the debug
 dropdown, and then select the specific version of Node.js. For example,
 you may receive authentication errors when using the 'azure' module if
 you do not have Node.js 0.6.x selected.</p>
@@ -181,16 +181,16 @@ selecting **Free Trial** in the upper right corner.
     ![create a new hosted service][]
 
     <div class="dev-callout">
-	<b>Note</b>
-	<p>In the <b>Add a deploy target</b> dialog, any existing
-    Windows Azure hosted services will be listed under the <b>Choose
-    existing deployment</b> section; selecting an existing hosted service
+	<strong>Note</strong>
+	<p>In the <strong>Add a deploy target</strong> dialog, any existing
+    Windows Azure hosted services will be listed under the <strong>Choose
+    existing deployment</strong> section; selecting an existing hosted service
     will result in this project being deployed to that service.</p>
 	</div>
 
     <div class="dev-callout">
-	<b>Note</b>
-	<p>Selecting <b>Enable RDP</b> and providing a username and
+	<strong>Note</strong>
+	<p>Selecting <strong>Enable RDP</strong> and providing a username and
     password will enable remote desktop for your deployment.</p>
 	</div>
 
@@ -234,7 +234,7 @@ selecting **Free Trial** in the upper right corner.
     ![deployment status][]
 
     <div class="dev-callout">
-	<b>Note</b>
+	<strong>Note</strong>
 	<p>Projects deployed through the Cloud 9 IDE are assigned a
     GUID as the deployment name in Windows Azure.</p>
 	</div>
@@ -342,7 +342,7 @@ deployment, and will then connect you to the desktop of the selected
 instance.
 
 <div class="dev-callout">
-<b>Note</b>
+<strong>Note</strong>
 <p>The .RDP file to connect to the hosted instance of your
 application will only work with the Remote Desktop application on
 WIndows.</p>

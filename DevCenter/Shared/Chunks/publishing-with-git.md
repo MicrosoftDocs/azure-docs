@@ -3,7 +3,7 @@
 Git is a popular, open source, distributed version control system. Windows Azure Web Sites allow you to enable a Git repository for your site, which allows you to quickly and easily push code changes to your site. In this article, you will learn how to use Git to publish to a Windows Azure Web Site.
 
 <div class="dev-callout">
-<b>Note</b>
+<strong>Note</strong>
 <p>Many of the Git commands described in this article are performed automatically when creating a Web Site using the <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure Command-Line Tools for Mac and Linux</a>.</p>
 </div>
 
@@ -22,7 +22,7 @@ The task includes the following steps:
 The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distrubtions and installation guidance.
 
 <div class="dev-callout">
-<b>Note</b>
+<strong>Note</strong>
 <p>On some operating systems, both a command-line and GUI version of Git will are available. The instructions provided in this article use the command-line version.</p>
 </div>
 
@@ -114,8 +114,8 @@ The **remote** command adds a named reference to a remote repository, in this ca
 		* [new branch]		master -> master
 
 	<div class="dev-callout">
-	<b>Note</b>
-	<p>The repository created for your Windows Azure Website expects push requests to target the <b>master</b> branch of its repository, which will then be used as the content of the web site.</p>
+	<strong>Note</strong>
+	<p>The repository created for your Windows Azure Website expects push requests to target the <strong>master</strong> branch of its repository, which will then be used as the content of the web site.</p>
 	</div>
 
 2. In the portal, click the **BROWSE** link at the bottom of the portal to verify that the **index.html** has been deployed. A page containing 'Hello Git!' will appear.

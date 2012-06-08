@@ -330,7 +330,7 @@ The following steps show you how to stop and delete your application.
     ![The status of the Remove-AzureService command][]
 
 <div class="dev-callout">
-<b>Note</b>
+<strong>Note</strong>
 <p>Deleting the service does not delete the storage account that
 was created when the service was initially published, and you will
 continue to be billed for storage used. Since storage accounts can be

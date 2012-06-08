@@ -230,12 +230,12 @@ restricts the set of messages delivered to the subscription's virtual
 queue.
 
 <div class="dev-callout">
-<b>Note</b>
+<strong>Note</strong>
 <p>Subscriptions are persistent and will continue to exist until
 either they, or the topic they are associated with, are deleted. If your
 application contains logic to create a subscription, it should first
 check if the subscription already exists by using the
-<b>getSubscription<b> method.</p>
+<strong>getSubscription</strong> method.</p>
 </div>
 
 ### Create a Subscription with the default (MatchAll) Filter
@@ -269,12 +269,12 @@ method of the **ServiceBusService** object. This method allows you to
 add new filters to an existing subscription.
 
 <div class="dev-callout">
-<b>Note</b>
+<strong>Note</strong>
 <p>Since the default filter is applied automatically to all new
 subscriptions, you must first remove the default filter or the
-<b>MatchAll</b> will override any other filters you may specify. You can
-remove the default rule by using the <b>deleteRule</b> method of the
-<b>ServiceBusService</b> object.</p>
+<strong>MatchAll</strong> will override any other filters you may specify. You can
+remove the default rule by using the <strong>deleteRule</strong> method of the
+<strong>ServiceBusService</strong> object.</p>
 </div>
 
 The example below creates a subscription named 'HighMessages' with a

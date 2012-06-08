@@ -8,7 +8,7 @@ socket.io based chat application on Windows Azure. For more information
 on Socket.io, see [http://socket.io/].
 
 <div class="dev-callout">
-<b>Note</b>
+<strong>Note</strong>
 <p>The sample in this tutorial demonstrates using the Socket.IO
 API on Windows Azure. For simplicity, the sample is limited to running
 with a single Windows Azure worker role instance. This means that it
@@ -77,7 +77,7 @@ example of configuring Socket.io to use long-polling:
     });
 
 <div class="dev-callout">
-<b>Note</b>
+<strong>Note</strong>
 <p>This tutorial uses a Worker role, so the above Web role
 specific configuration is not used.</p>
 </div>
@@ -210,10 +210,10 @@ Azure emulator:
         PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -launch
 
     <div class="dev-callout">
-	<b>Note</b>
+	<strong>Note</strong>
 	<p>If the browser window does not open automatically, you can
     manually open it and browse to the address returned by the
-    <b>Start-AzureEmulator</b> command.</p>
+    <strong>Start-AzureEmulator</strong> command.</p>
 	</div>
 
 2.  When the browser window opens, enter a nickname and then hit enter.
