@@ -14,11 +14,11 @@ API on Windows Azure. For simplicity, the sample is limited to running
 with a single Windows Azure worker role instance. This means that it
 should not be used in a production setting, because production
 applications must have at least two instances of each role in order to
-meet the [Windows Azure Compute SLA]. To scale the application to work
+meet the <a href="http://www.windowsazure.com/en-us/support/sla/">Windows Azure Compute SLA</a>. To scale the application to work
 with multiple role instances, you could use a technology like Service
 Bus to share the socket.io store state across instances. For examples,
-see the Service Bus Queues and Topics usage samples in the [Windows
-Azure SDK for Node.js GitHub repository].</p>
+see the Service Bus Queues and Topics usage samples in the <a href="https://github.com/WindowsAzure/azure-sdk-for-node">Windows
+Azure SDK for Node.js GitHub repository</a>.</p>
 </div>
 
 A screenshot of the completed application is below:
@@ -213,7 +213,7 @@ Azure emulator:
 	<b>Note</b>
 	<p>If the browser window does not open automatically, you can
     manually open it and browse to the address returned by the
-    **Start-AzureEmulator** command.</p>
+    <b>Start-AzureEmulator</b> command.</p>
 	</div>
 
 2.  When the browser window opens, enter a nickname and then hit enter.

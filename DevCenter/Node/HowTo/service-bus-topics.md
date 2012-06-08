@@ -229,11 +229,14 @@ object. Subscriptions are named and can have an optional filter that
 restricts the set of messages delivered to the subscription's virtual
 queue.
 
-**Note**: Subscriptions are persistent and will continue to exist until
+<div class="dev-callout">
+<b>Note</b>
+<p>Subscriptions are persistent and will continue to exist until
 either they, or the topic they are associated with, are deleted. If your
 application contains logic to create a subscription, it should first
 check if the subscription already exists by using the
-**getSubscription** method.
+<b>getSubscription<b> method.</p>
+</div>
 
 ### Create a Subscription with the default (MatchAll) Filter
 
@@ -265,11 +268,14 @@ Filters can be added to a subscription by using the **createRule**
 method of the **ServiceBusService** object. This method allows you to
 add new filters to an existing subscription.
 
-**Note**: Since the default filter is applied automatically to all new
+<div class="dev-callout">
+<b>Note</b>
+<p>Since the default filter is applied automatically to all new
 subscriptions, you must first remove the default filter or the
-**MatchAll** will override any other filters you may specify. You can
-remove the default rule by using the **deleteRule** method of the
-**ServiceBusService** object.
+<b>MatchAll</b> will override any other filters you may specify. You can
+remove the default rule by using the <b>deleteRule</b> method of the
+<b>ServiceBusService</b> object.</p>
+</div>
 
 The example below creates a subscription named 'HighMessages' with a
 **SqlFilter** that only selects messages that have a custom

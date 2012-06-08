@@ -18,12 +18,12 @@ The project files for this tutorial will be stored in a directory named **taskli
 
 <div class="dev-callout">
 <b>Note</b>
-<p>This tutorial makes reference to the **tasklist** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/tasklist** or **c:\node\tasklist**</p>
+<p>This tutorial makes reference to the <b>tasklist</b> folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as <b>~/node/tasklist</b> or <b>c:\node\tasklist</b></p>
 </div>
 
 <div class="dev-callout">
 <b>Note</b>
-<p>Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **Windows PowerShell** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.</p>
+<p>Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as <b>Windows PowerShell</b> (Windows) or <b>Bash</b> (Unix Shell). On OS X systems you can access the command-line through the Terminal application.</p>
 </div>
 
 ##Prerequisites
@@ -70,7 +70,7 @@ In this section you will create a new Node application and use npm to add module
  
 	<div class="dev-callout">
 	<b>Note</b>
-	<p>When using the '-g' parameter on some operating systems, you may receive an error of **Error: EPERM, chmod '/usr/local/bin/express'** and a request to try running the account as an administrator. If this occurs, use the [sudo] command to run npm at a higher privilege level.</p>
+	<p>When using the '-g' parameter on some operating systems, you may receive an error of <b>Error: EPERM, chmod '/usr/local/bin/express'</b> and a request to try running the account as an administrator. If this occurs, use the <b>sudo</b> command to run npm at a higher privilege level.</p>
 	</div>
 
     The output of this command should appear similar to the following:
@@ -83,7 +83,7 @@ In this section you will create a new Node application and use npm to add module
  
 	<div class="dev-callout">
 	<b>Note</b>
-	<p>The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the **express** command to generate web site scaffolding without having to type in additional path information.</p>
+	<p>The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the <b>express</b> command to generate web site scaffolding without having to type in additional path information.</p>
 	</div>
 
 4. To create the scaffolding which will be used for this application, use the **express** command:
@@ -249,7 +249,7 @@ In this section you will extend the basic application created by the **express**
 
 	<div class="dev-callout">
 	<b>Note</b>
-	<p>You must replace the connection string above with the connection string for the MongoDB server you created earlier. For example, **'mongodb://mymongodb.cloudapp.net/tasks**.</p>
+	<p>You must replace the connection string above with the connection string for the MongoDB server you created earlier. For example, <b>mongodb://mymongodb.cloudapp.net/tasks</b>.</p>
 	</div>
 
 4. Save the **app.js** file.
@@ -326,7 +326,7 @@ The steps in this section use the Windows Azure command-line tools to create a n
 
 <div class="dev-callout">
 <b>Note</b>
-<p>These steps can also be performed by using the Windows Azure portal. For steps on using the Windows Azure portal to deploy a Node.js application, see [Create and deploy a Node.js application to a Windows Azure Web Site].</p>
+<p>These steps can also be performed by using the Windows Azure portal. For steps on using the Windows Azure portal to deploy a Node.js application, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to a Windows Azure Web Site</a>.</p>
 </div>
 
 <div class="dev-callout">
@@ -342,7 +342,7 @@ To install the command-line tools, use the following command:
 
 <div class="dev-callout">
 <b>Note</b>
-<p>If you have already installed the **Windows Azure SDK for Node.js** from the [Windows Azure Developer Center], then the command-line tools should already be installed. For more information, see [Windows Azure command-line tool for Mac and Linux].</p>
+<p>If you have already installed the <b>Windows Azure SDK for Node.js</b> from the <a href="/en-us/develop/nodejs/">Windows Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure command-line tool for Mac and Linux</a>.</p>
 </div>
 
 <div class="dev-callout">
@@ -398,7 +398,7 @@ Before using the command-line tools with Windows Azure, you must first download 
 	
 	<div class="dev-callout">
 	<b>Note</b>
-	<p>If the `--git` parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.</p>
+	<p>If the '--git' parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.</p>
 	</div>
 	
 	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created website at** contains the URL for the web site.
@@ -416,7 +416,7 @@ Before using the command-line tools with Windows Azure, you must first download 
 
 	<div class="dev-callout">
 	<b>Note</b>
-	<p>If this is the first Windows Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see [Create and deploy a Node.js application to Windows Azure Web Sites].</p>
+	<p>If this is the first Windows Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to Windows Azure Web Sites</a>.</p>
 	</div>
 
 ###Publish the application

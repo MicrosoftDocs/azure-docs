@@ -62,7 +62,7 @@ Follow these steps to create a Windows Azure Web Site, and then enable Git publi
 
 	<div class="dev-callout">
 	<b>Note</b>
-	<p>Save the instructions returned by the **Push my local files to Windows Azure** link, as they will be used in the following sections.</p>
+	<p>Save the instructions returned by the <b>Push my local files to Windows Azure</b> link, as they will be used in the following sections.</p>
 	</div>
 
 ##Install developer tools
@@ -80,12 +80,12 @@ In this section, you will create a **server.js** file containing the 'hello worl
 
 <div class="dev-callout">
 <b>Note</b>
-<p>This tutorial makes reference to the **helloworld** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/helloworld** or **c:\node\helloworld**</p>
+<p>This tutorial makes reference to the <b>helloworld</b> folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as <b>~/node/helloworld</b> or <b>c:\node\helloworld</b></p>
 </div>
 
 <div class="dev-callout">
 <b>Note</b>
-<p>Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **Windows PowerShell**, **cmd.exe**, **GitBash** (Windows,) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.</p>
+<p>Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as <b>Windows PowerShell</b>, <b>cmd.exe</b>, <b>GitBash</b> (Windows,) or <b>Bash</b> (Unix Shell). On OS X systems you can access the command-line through the Terminal application.</p>
 </div>
 
 1. Using a text editor, create a new file named **server.js** in the **helloworld** directory. If the **helloworld** directory does not exist, create it.
@@ -126,7 +126,7 @@ In this section, you will create a **server.js** file containing the 'hello worl
 
 	<div class="dev-callout">
 	<b>Note</b>
-	<p>the URL used should be the one returned at the end of the **Create a Windows Azure Web Site and Set up Git Publishing** section. If you forgot to save the URL earlier you can retrieve it now by clicking the “Deployment” tab of your Windows Azure Web Site within the management portal</p>
+	<p>the URL used should be the one returned at the end of the <b>Create a Windows Azure Web Site and Set up Git Publishing</b> section. If you forgot to save the URL earlier you can retrieve it now by clicking the “Deployment” tab of your Windows Azure Web Site within the management portal</p>
 	</div>
 
     ![Git deployment instructions returned after creating a repository for the website.][portal-git-remote-url]

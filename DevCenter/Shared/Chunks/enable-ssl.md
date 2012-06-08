@@ -158,11 +158,14 @@ connect to it using HTTPS.
     using an HTTPS connection. This also indicates that your application
     has been configured correctly for SSL.
 
-    **Note:** If you are using a self-signed certificate, when you
+    <div class="dev-callout">
+	<b>Note:</b>
+	<p>If you are using a self-signed certificate, when you
     browse to an HTTPS endpoint that's associated with the self-signed
     certificate you will see a certificate error in the browser. Using a
     certificate signed by a certification authority will eliminate this
-    problem; in the meantime, you can ignore the error.
+    problem; in the meantime, you can ignore the error.</p>
+	</div>
 
     ![][3]
 

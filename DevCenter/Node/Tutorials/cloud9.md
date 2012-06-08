@@ -104,7 +104,7 @@ IDE].
 <p>While the steps provided in this section are sufficient for a
 Hello World application, for applications that use external modules you
 may need to select a specific version of Node.js for the debug
-environment. To do this, select **Configure...** from the debug
+environment. To do this, select <b>Configure...</b> from the debug
 dropdown, and then select the specific version of Node.js. For example,
 you may receive authentication errors when using the 'azure' module if
 you do not have Node.js 0.6.x selected.</p>
@@ -182,15 +182,15 @@ selecting **Free Trial** in the upper right corner.
 
     <div class="dev-callout">
 	<b>Note</b>
-	<p>In the **Add a deploy target** dialog, any existing
-    Windows Azure hosted services will be listed under the **Choose
-    existing deployment** section; selecting an existing hosted service
+	<p>In the <b>Add a deploy target</b> dialog, any existing
+    Windows Azure hosted services will be listed under the <b>Choose
+    existing deployment</b> section; selecting an existing hosted service
     will result in this project being deployed to that service.</p>
 	</div>
 
     <div class="dev-callout">
 	<b>Note</b>
-	<p>Selecting **Enable RDP** and providing a username and
+	<p>Selecting <b>Enable RDP</b> and providing a username and
     password will enable remote desktop for your deployment.</p>
 	</div>
 
