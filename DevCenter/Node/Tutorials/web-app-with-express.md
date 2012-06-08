@@ -46,7 +46,7 @@ you created through the [Node.js Web Application][] tutorial.
         PS C:\node\tasklist\WebRole1> npm install express -g
 
     <div class="dev-callout">
-	<b>Note</b>
+	<strong>Note</strong>
 	<p>The '-g' parameter installs the express scaffolding so that it is globally available. You will use this command in the next section to generate the scaffolding for this application.</p>
 	</div>
 
@@ -118,7 +118,7 @@ generated using the Express scaffolding tool.
     provided by Windows Azure when published to the cloud.
 
     <div class="dev-callout">
-	<b>Note</b>
+	<strong>Note</strong>
 	<p>At the time of this writing, express scaffolding sometimes
     generated LF-only line breaks (Unix-style). If you’re experiencing
     this, you can open the file in WordPad or Visual Studio and save,

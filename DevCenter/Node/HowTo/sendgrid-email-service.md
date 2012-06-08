@@ -128,7 +128,7 @@ message using both SMTP and the Web API.
     )});
 
 <div class="dev-callout">
-<b>Note</b>
+<strong>Note</strong>
 <p>While the above examples show passing in an email object and
 callback function, you can also directly invoke the send and smtp
 functions by directly specifying email properties. For example:</p>
@@ -159,9 +159,9 @@ sending an attachment:
     });
 
 <div class="dev-callout">
-<b>Note</b>
-<p>When using the <b>files</b> property, the file must be accessible
-through <a href="http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile">fs.readFile</a>. If the file you wish to attach is hosted in Windows Azure Storage, such as in a Blob container, you must first copy the file to local storage or to a Windows Azure drive before it can be sent as an attachment using the <b>files</b> property.</p>
+<strong>Note</strong>
+<p>When using the <strong>files</strong> property, the file must be accessible
+through <a href="http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile">fs.readFile</a>. If the file you wish to attach is hosted in Windows Azure Storage, such as in a Blob container, you must first copy the file to local storage or to a Windows Azure drive before it can be sent as an attachment using the <strong>files</strong> property.</p>
 </div>
 
 ## <a id="usefilters"> </a>How to: Use Filters to Enable Footers, Tracking, and Twitter
