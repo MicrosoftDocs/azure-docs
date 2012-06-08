@@ -1,4 +1,4 @@
-# Create an Orchard web site from the Windows Azure gallery
+# Create an Orchard web site from the gallery in Windows Azure
 The gallery makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the gallery do not require installation of any software other than the browser used to connect to the Windows Azure Management Portal. 
 
 In this tutorial, you'll learn:
