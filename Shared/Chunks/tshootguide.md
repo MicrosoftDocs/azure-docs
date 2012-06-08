@@ -51,7 +51,7 @@ describe how to implement them.
 ##In this Document
 
 * [Best Practices for Troubleshooting in Windows Azure](#BestPractices)
-* [Windows Azure Websites](#Websites)
+* [Windows Azure Web Sites](#Websites)
 * [Windows Azure Cloud Services](#CloudServices)
 * [Windows Azure Virtual Machines](#Vms)
 * [Windows Azure Services](#PlatformServices)
@@ -171,7 +171,7 @@ one of these development platforms on Windows Azure, use the equivalent
 strategy and tools for the language or the platform you are using.
 
 Mixed mode applications are applications executing in a combination of
-Windows Azure Virtual Machines, Websites, and Cloud Services. When
+Windows Azure Virtual Machines, Web Sites, and Cloud Services. When
 building applications of this type, tracing and logging become even more
 important because they are more widely distributed. To troubleshoot
 these mixed-mode applications the overall data and execution flow must
@@ -347,37 +347,37 @@ string to:
 
 ##Troubleshooting and the Windows Azure Hosting Models##
 This section discusses best practices for debugging applications using the different Windows Azure hosting models.
-<h2 id="Websites">Windows Azure Websites</h2>
+<h2 id="Websites">Windows Azure Web Sites</h2>
 
-When designing a supportable Windows Azure website, follow the
+When designing a supportable Windows Azure web site, follow the
 recommendations made earlier in this document when possible. This
 includes checking for and handling errors, applying transient fault
 retry logic, tracing, and logging. Troubleshooting Windows Azure
-websites is accomplished by configuring websites to display application
-errors, configuring diagnostics for a website, collecting diagnostic
+web sites is accomplished by configuring web sites to display application
+errors, configuring diagnostics for a web site, collecting diagnostic
 data and then analyzing the collected data to identify and resolve
 problems.
 
-Windows Azure websites enable configuration of the following diagnostic
+Windows Azure web sites enable configuration of the following diagnostic
 options:
 
 -   Web Server Logging
 -   Detailed Error Messages
 -   Failed Request Tracing
 
-For more information on these topics see: [Troubleshooting a Windows Azure website].
+For more information on these topics see: [Troubleshooting a Windows Azure web site].
 
-When web server logs for Windows Azure websites are enabled, the website
+When web server logs for Windows Azure web sites are enabled, the web site
 will record all HTTP transactions into a log file using the [W3C extended log file format]. You can then use [Log Parser] to query the log file. Some
 example log parser queries are available on [Log Parser Plus] and [TechNet
 Log Parser Examples]. If you want to generate the CHART output type on a
 computer that is running Office 2007/2010, install [Office 2003 Web
 Components] following the instructions on [Log Parser Plus](http://logparserplus.com/article/2).
 
-Windows Azure websites uses the same failed request tracing
+Windows Azure web sites uses the same failed request tracing
 functionality that has been available with IIS 7.0 and later. It is not,
 however, configurable like IIS failed request tracing. When you enable
-failed request tracing for Windows Azure websites, **all** failed
+failed request tracing for Windows Azure web sites, **all** failed
 requests are captured. For more information on how to view failed
 request logs see: [View the results of failed request tracing].
 
@@ -805,7 +805,7 @@ For more information on quota-related errors, see [Understanding Quotas].
 [IntelliTrace]: http://msdn.microsoft.com/en-us/library/dd264915.aspx
 [IntelliTrace to debug Windows Azure Cloud Services]: http://blogs.msdn.com/b/jnak/archive/2010/06/07/using-intellitrace-to-debug-windows-azure-cloud-services.aspx
 [Fiddler]: http://www.fiddler2.com/fiddler2/
-[Troubleshooting a Windows Azure website]: http://diagnostics.antdf0.antares-test.windows-int.net/
+[Troubleshooting a Windows Azure web site]: ../best-practices/troubleshooting-web-sites/
 [W3C extended log file format]: http://go.microsoft.com/fwlink/?LinkID=90561
 [Log Parser]: http://go.microsoft.com/fwlink/?LinkId=246619
 [Log Parser Plus]: http://logparserplus.com/Examples
