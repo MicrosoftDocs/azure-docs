@@ -99,7 +99,7 @@ It is important to understand that use of Federations involves trade-offs in exc
 
 Federations is easiest to implement for new development, and for existing applications with databases that contain a relatively small number of tables, because Federations requires changes to the database schema as well as corresponding changes to the application layer (for example, Entity Framework code) described below. When you have a large existing database with hundreds of tables, you may decide the required changes are too extensive. 
 
-Your “proof of concept” application may encounter limitations in Federations ability to scale. When you partition a group of tables, rows that contain a key within a specified range occupy one of a number of Federation members, each of which is a separate database. Currently Federations scales well up to about 6 federation members. If you require more partitions, you may wish to consider “do-it-yourself” partitioning. 
+Your “proof of concept” application must validate Federation scalability: when you partition a group of tables, rows that contain a key within a specified range occupy one of a number of Federation members, each of which is a separate database. If your partitioning scheme requires 20 partitions, for example, you should performance test your application with that amount of partitioning. If your performance requirements are not achieved, you can consider “do-it-yourself” partitioning, several examples of which are described later.
 
 Another major trade off is that the transaction model becomes that of “eventual consistency”, because each Federation member is a separate database, and SQL Database does not support cross-database joins. 
 
