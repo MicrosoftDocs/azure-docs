@@ -35,13 +35,13 @@ For more information about geo-replication, see [Introducing Geo-Replication for
 <h2 id="regeneratestoragekeys">How to: View, copy, and regenerate storage access keys</h2>
 When you create a storage account, Windows Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. By providing two storage access keys, Windows Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
 
-In the [Management Portal](manage.windowsazure.com), use **Manage Keys** on the dashboard or the **Storage** page to view, copy, and regenerate the storage access keys that are used to access the Blob, Table, and Queue services. 
+In the [Management Portal](http://manage.windowsazure.com), use **Manage Keys** on the dashboard or the **Storage** page to view, copy, and regenerate the storage access keys that are used to access the Blob, Table, and Queue services. 
 
 ### Copy a storage access key ###
 
 You can use **Manage Keys** to copy a storage access key to use in a connection string. The connection string requires the storage account name and a key to use in authentication. For information about configuring connection strings to access Windows Azure storage services, see [Configuring Connection Strings](http://msdn.microsoft.com/en-us/library/ee758697.aspx).
 
-1. In the [Management Portal](manage.windowsazure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
+1. In the [Management Portal](http://manage.windowsazure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
 
 2. Click **Manage Keys**.
 
@@ -57,7 +57,7 @@ You should change the access keys to your storage account periodically to help k
 
 1. Update the connection strings in your application code to reference the secondary access key of the storage account. 
 
-2. Regenerate the primary access key for your storage account. In the [Management Portal](manage.windowsazure.com), from the dashboard or the **Configure** page, click **Manage Keys**. Click **Regenerate** under the primary access key, and then click **Yes** to confirm you want to generate a new key.
+2. Regenerate the primary access key for your storage account. In the [Management Portal](http://manage.windowsazure.com), from the dashboard or the **Configure** page, click **Manage Keys**. Click **Regenerate** under the primary access key, and then click **Yes** to confirm you want to generate a new key.
 
 3. Update the connection strings in your code to reference the new primary access key.
 
