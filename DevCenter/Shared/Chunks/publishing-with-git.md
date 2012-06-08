@@ -4,7 +4,7 @@ Git is a popular, open source, distributed version control system. Windows Azure
 
 <div class="dev-callout">
 <b>Note</b>
-<p>Many of the Git commands described in this article are performed automatically when creating a Web Site using the [Windows Azure Command-Line Tools for Mac and Linux].</p>
+<p>Many of the Git commands described in this article are performed automatically when creating a Web Site using the <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure Command-Line Tools for Mac and Linux</a>.</p>
 </div>
 
 The task includes the following steps:
@@ -115,7 +115,7 @@ The **remote** command adds a named reference to a remote repository, in this ca
 
 	<div class="dev-callout">
 	<b>Note</b>
-	<p>The repository created for your Windows Azure Website expects push requests to target the **master** branch of its repository, which will then be used as the content of the web site.</p>
+	<p>The repository created for your Windows Azure Website expects push requests to target the <b>master</b> branch of its repository, which will then be used as the content of the web site.</p>
 	</div>
 
 2. In the portal, click the **BROWSE** link at the bottom of the portal to verify that the **index.html** has been deployed. A page containing 'Hello Git!' will appear.

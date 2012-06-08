@@ -336,7 +336,7 @@ was created when the service was initially published, and you will
 continue to be billed for storage used. Since storage accounts can be
 used by multiple deployments, be sure that no other deployed service is
 using the storage account before you delete it. For more information on
-deleting a storage account, see [How to Delete a Storage Account from a Windows Azure Subscription][].</p>
+deleting a storage account, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx">How to Delete a Storage Account from a Windows Azure Subscription</a>.</p>
 </div>
 
   [A browser window displaying Hello World]: ../Media/node21.png

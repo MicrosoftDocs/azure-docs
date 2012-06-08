@@ -160,10 +160,8 @@ sending an attachment:
 
 <div class="dev-callout">
 <b>Note</b>
-<p>When using the **files** property, the file must be accessible
-through [fs.readFile][]. If the file you wish to attach is hosted in
-Windows Azure Storage, such as in a Blob container, you must first copy
-the file to local storage or to a Windows Azure drive before it can be sent as an attachment using the **files** property.</p>
+<p>When using the <b>files</b> property, the file must be accessible
+through <a href="http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile">fs.readFile</a>. If the file you wish to attach is hosted in Windows Azure Storage, such as in a Blob container, you must first copy the file to local storage or to a Windows Azure drive before it can be sent as an attachment using the <b>files</b> property.</p>
 </div>
 
 ## <a id="usefilters"> </a>How to: Use Filters to Enable Footers, Tracking, and Twitter

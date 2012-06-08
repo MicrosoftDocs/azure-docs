@@ -30,7 +30,7 @@ administrator or a co-administrator for the associated subscription.
 <div class="dev-callout">
 <b>Note</b>
 <p>For information about performing this operation by using the
-Windows Azure Service Management API, see the [Create Storage Account] reference topic.</p>
+Windows Azure Service Management API, see the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx">Create Storage Account</a> reference topic.</p>
 </div>
 
 **To create a storage account for a Windows Azure subscription**
