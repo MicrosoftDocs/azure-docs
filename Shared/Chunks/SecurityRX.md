@@ -95,6 +95,7 @@ related to a Web application deployed to Windows Azure (from J.D.
 Meier’s [Windows Azure Security Notes PDF](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx)):
 
 ![Threats Vulnerabilities and Attacks][02]
+
 You, as a developer, have control over the vulnerabilities. The fewer
 vulnerabilities that you introduce, the fewer options that are left to
 attacker to exploit.
@@ -413,6 +414,7 @@ several caveats:
     this case.
 
 ![ASP.NET Web Application][08]
+
 Refer to the following resources to implement this scenario:
 
 -   [How To: Configure Google as an Identity Provider](http://msdn.microsoft.com/en-us/library/gg185976.aspx)
@@ -562,6 +564,7 @@ relationship and the associated cryptographic secrets. Refer to the
 resources listed below for more details.
 
 ![][16]
+
 Refer to the following resources to solve this scenario:
 
 -   [Securing Service Bus with ACS](http://channel9.msdn.com/posts/Securing-Service-Bus-with-ACS) (Video)
@@ -578,7 +581,8 @@ configuration files when accessing the cache. Be sure to store the keys
 securely so as to avoid information disclosure.
 
 ![][17]
-`
+
+
 Refer to the following resources to solve this scenario:
 
 -   [How to: Configure a Cache Client Programmatically for Windows Azure
