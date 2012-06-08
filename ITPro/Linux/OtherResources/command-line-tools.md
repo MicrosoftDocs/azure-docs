@@ -1,0 +1,2 @@
+<properties linkid="manage-windows-other-resources-command-line-tools" urlDisplayName="Training KIt" headerExpose="" pageTitle="Windows Azure Command-Line Tools for Mac and Linux" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<div chunk="../../shared/chunks/win-az-command-line-tools.md" />

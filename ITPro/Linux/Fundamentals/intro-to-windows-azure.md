@@ -1,0 +1,2 @@
+<properties umbracoNaviHide="0" pageTitle="Intro to Windows Azure" metaKeywords="" metaDescription="" linkid="manage-windows-fundamentals-intro-to-windows-azure" urlDisplayName="Intro to Windows Azure" headerExpose="" footerExpose="" disqusComments="1" />
+<div chunk="../../../DevCenter/Shared/Chunks/intro-to-windows-azure.md" />

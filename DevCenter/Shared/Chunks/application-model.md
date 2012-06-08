@@ -1,4 +1,4 @@
-# The Windows Azure Application Model
+# Compute
 
 Windows Azure enables you to deploy and monitor your application code
 running inside a Microsoft data center. When you create an application
@@ -82,11 +82,11 @@ roles and role instances.
 
 ##### Figure 1: A single role with three instances (VMs) running in a Windows Azure data center
 
-![[image]][]
+![image][0]
 
 ##### Figure 2: Two roles, each with two instances (VMs), running in a Windows Azure data center
 
-![[image]][1]
+![image][1]
 
 Role instances typically process Internet client requests entering the
 data center through what is called an *input endpoint*. A single role
@@ -96,7 +96,7 @@ have two input endpoints: HTTP listening on port 80 and HTTPS listening
 on port 443. The figure below shows an example of two different roles
 with different input endpoints directing client requests to them.
 
-![[image]][2]
+![image][2]
 
 When you create a hosted service in Windows Azure, it is assigned a
 publicly addressable IP address that clients can use to access it. Upon
@@ -176,14 +176,14 @@ location in which you want your code to execute.
 To achieve high availability and scalability, it is critically important
 that your application’s data be kept in a central repository accessible
 to multiple role instances. To help with this, Windows Azure offers
-several storage options such as blobs, tables, and SQL Azure. Please see
+several storage options such as blobs, tables, and SQL Database. Please see
 the [Data Storage Offerings in Windows Azure][] article for more
 information about these storage technologies. The figure below shows how
 the load balancer inside the Windows Azure data center distributes
 client requests to different role instances all of which have access to
 the same data storage.
 
-![[image]][3]
+![image][3]
 
 Usually, you want to locate your application code and your data in the
 same data center as this allows for low latency (better performance)
@@ -202,7 +202,7 @@ the Report Generator role. These roles are all working together and the
 code for all of them can be packaged together and deployed as a single
 unit up to Windows Azure.
 
-![[image]][4]
+![image][4]
 
 The main reason to split an application into different roles each
 running on its own set of role instances (that is, VMs) is to scale the
@@ -505,7 +505,7 @@ file:
     what is described on this web page:
     [http://msdn.microsoft.com/en-us/library/hh560567.aspx][]. For more
     information about guest OS versions, see [Managing Upgrades to the
-    Windows Azure Guests OS][].
+    Windows Azure Guests OS].
 
 -   **Instances**. This element’s value indicates the number of role
     instances you want provisioned running the code for a particular
@@ -520,13 +520,13 @@ file:
 -   **Configuration Setting Values**. This element indicates values for
     settings (as defined in the CSDEF file). Your role can read these
     values while it is running. These configuration settings values are
-    typically used for connection strings to SQL Azure or to Windows
+    typically used for connection strings to SQL Database or to Windows
     Azure Storage, but they can be used for any purpose you desire.
 
 ## <a id="hostedservices"> </a>Creating and Deploying a Hosted Service
 
 Creating a hosted service requires that you first go to the [Windows
-Azure Management Portal][] and provision a hosted service by specifying
+Azure Management Portal] and provision a hosted service by specifying
 a DNS prefix and the data center you ultimately want your code running
 in. Then in your development environment, you create your service
 definition (CSDEF) file, build your application code and package (zip)
@@ -546,7 +546,7 @@ instances in the data center. In this example, the CSCFG file indicated
 that Windows Azure should create three instances of role \#1 and two
 instances of Role \#2.
 
-![[image]][5]
+![image][5]
 
 For more information about deploying, upgrading, and reconfiguring your
 roles, see the [Deploying and Updating Windows Azure Applications][]
@@ -576,7 +576,7 @@ article.<a id="Ref" name="Ref"></a>
   [The Service Configuration File]: #cfg
   [Creating and Deploying a Hosted Service]: #hostedservices
   [References]: #references
-  [[image]]: ../../../DevCenter/Shared/Media/application-model-3.jpg
+  [0]: ../../../DevCenter/Shared/Media/application-model-3.jpg
   [1]: ../../../DevCenter/Shared/Media/application-model-4.jpg
   [2]: ../../../DevCenter/Shared/Media/application-model-5.jpg
   [Configuring a Custom Domain Name in Windows Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/

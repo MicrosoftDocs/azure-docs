@@ -9,10 +9,10 @@ first.<a id="compare" name="compare"></a>
 
 -   [Benefits of the Windows Azure Deployment Model][]
 -   [Lifecycle of a Windows Azure Application][]
--   [Scenario \#1: New Deployment][]
--   [Scenario \#2: Configuration Change][]
--   [Scenario \#3: Incremental Code Upgrade][]
--   [Scenario \#4: Major Upgrade][]
+-   [Scenario #1: New Deployment][]
+-   [Scenario #2: Configuration Change][]
+-   [Scenario #3: Incremental Code Upgrade][]
+-   [Scenario #4: Major Upgrade][]
 -   [References][]
 
 <a name="benefits"> </a>
@@ -120,10 +120,8 @@ Before you can deploy an application into the hosted service, you must
 package (zip) your application for your roles together into a CSPKG
 file. Your service definition (CSDEF) file must also be embedded into
 the CSPKG file. In addition, you need to have your service configuration
-(CSCFG) file ready. These files are discussed in the [Windows Azure
-Application Model][] article. Then, you upload these files to Windows
-Azure via the Windows Azure Management Portal or by calling the [Create
-Deployment REST API][]. You can alternatively deploy your application
+(CSCFG) file ready. These files are discussed in the [Windows Azure Application Model][] article. Then, you upload these files to Windows
+Azure via the Windows Azure Management Portal or by calling the [Create Deployment REST API][]. You can alternatively deploy your application
 directly from Windows Azure tooling, such as the Visual Studio tooling
 in the Windows Azure SDK for .NET or the command line tooling in the
 Windows Azure SDK for Node.js. With the tooling, the underlying details
@@ -138,9 +136,10 @@ code for two roles. After uploading the CSPKG and CSCFG files to Windows
 Azure via the Service Management API, Windows Azure creates the role
 instances in the data center. In this example, the CSCFG file indicates
 that Windows Azure should create three instances of role \#1 and two
-instances of role \#2.<a id="AzureStorage" name="AzureStorage"></a>
+instances of role \#2.
+<a id="AzureStorage" name="AzureStorage"></a>
 
-![[image]][]
+![image][0]
 
 <a name="scenario2"> </a>
 
@@ -157,7 +156,7 @@ of instances running a particular role. However, you can also change
 configuration setting values or certificates used by a role. If you opt
 out of automatic OS updates, you can also change the OS version used by
 all the roles. For more information about OS updates, see [Managing
-Upgrades to the Windows Azure Guest OS][].
+Upgrades to the Windows Azure Guest OS].
 
 When scaling a role’s instances, Windows Azure adjusts the number of
 role instances running each role’s code. Increasing the number of
@@ -173,7 +172,7 @@ indicating that role \#1 should have two instances and role \#2 should
 have one instance. Windows Azure then terminates one instance of each
 role.
 
-![[image]][1]
+![image][1]
 
 When changing configuration setting values, the applications on the role
 instances may have to restart in order to pick up the new configuration
@@ -190,7 +189,7 @@ If you want to make an incremental code upgrade to a role — for example,
 to fix a bug or add a small feature — you can create a new CSPKG file
 containing the new code and upload it to Windows Azure via the Windows
 Azure Management Portal or by calling the [Upgrade Deployment REST
-API][]. You can alternatively deploy your application directly from
+API]. You can alternatively deploy your application directly from
 Windows Azure tooling, such as the Visual Studio tooling in the Windows
 Azure SDK for .NET or the command line tooling in the Windows Azure SDK
 for Node.js. With the tooling, the underlying details of creating a
@@ -225,35 +224,35 @@ across the upgrade domains as shown in the table below:
 <tbody>
 <tr align="left" valign="top">
 <td>
-**UD \#0**
+<strong>UD #0</strong>
 
 </td>
 <td>
-**UD \#1**
+<strong>UD #1</strong>
 
 </td>
 <td>
-**UD \#2**
+<strong>UD #2</strong>
 
 </td>
 <td>
-**UD \#3**
+<strong>UD #3</strong>
 
 </td>
 <td>
-**UD \#4**
+<strong>UD #4</strong>
 
 </td>
 </tr>
 <tr align="left" valign="top">
 <td>
 Web role  
-Instance \#1
+Instance #1
 
 </td>
 <td>
 Web role  
-Instance \#2
+Instance #2
 
 </td>
 <td>
@@ -272,17 +271,17 @@ Instance \#2
 <tr align="left" valign="top">
 <td>
 Worker role  
-Instance \#1
+Instance #1
 
 </td>
 <td>
 Worker role  
-Instance \#2
+Instance #2
 
 </td>
 <td>
 Worker role  
-Instance \#3
+Instance #3
 
 </td>
 <td>
@@ -364,7 +363,7 @@ figure below shows version 1.0 of your application running in the
 production environment and version 2.0 running in the staging
 environment.
 
-![[image]][2]
+![image][2]
 
 Once you have sufficiently tested your new code in staging using
 *guid*.cloudapp.net, you tell Windows Azure to put it into production by
@@ -377,7 +376,7 @@ to the old version. Again, clients experience no downtime. The figure
 below shows how the load balancer directs traffic after a VIP Swap has
 been performed.
 
-![[image]][3]
+![image][3]
 
 Note that after you swap the VIPs, the old version of your application
 is still running and is now available in the staging environment at
@@ -405,20 +404,20 @@ the new version.<a id="SQLAzure" name="SQLAzure"></a>
   [Windows Azure Application Model]: ../application-model/
   [Benefits of the Windows Azure Deployment Model]: #benefits
   [Lifecycle of a Windows Azure Application]: #lifecycle
-  [Scenario \#1: New Deployment]: #scenario1
-  [Scenario \#2: Configuration Change]: #scenario2
-  [Scenario \#3: Incremental Code Upgrade]: #scenario3
-  [Scenario \#4: Major Upgrade]: #scenario4
+  [Scenario #1: New Deployment]: #scenario1
+  [Scenario #2: Configuration Change]: #scenario2
+  [Scenario #3: Incremental Code Upgrade]: #scenario3
+  [Scenario #4: Major Upgrade]: #scenario4
   [References]: #references
   [Windows Azure Service Level Agreement]: http://www.windowsazure.com/en-us/support/sla/
   [Create Hosted Service REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/gg441304.aspx
   [Create Deployment REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460813.aspx
-  [[image]]: ../../../DevCenter/Shared/Media/deploying-and%20updating-applications-3.jpg
+  [0]: ../Media/deploying-and updating-applications-3.jpg
   [Change Deployment Configuration REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460809.aspx
   [Managing Upgrades to the Windows Azure Guest OS]: http://msdn.microsoft.com/en-us/library/windowsazure/ff729422.aspx
-  [1]: ../../../DevCenter/Shared/Media/deploying-and%20updating-applications-4.jpg
+  [1]: ../Media/deploying-and updating-applications-4.jpg 
   [Upgrade Deployment REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460793.aspx
-  [2]: ../../../DevCenter/Shared/Media/deploying-and%20updating-applications-5.jpg
-  [3]: ../../../DevCenter/Shared/Media/deploying-and%20updating-applications-6.jpg
+  [2]: ../Media/deploying-and-updating-applications-5.jpg
+  [3]: ../Media/deploying-and-updating-applications-6.jpg
   [Deploying a Windows Azure Service]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx
   [Operations on Hosted Services]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460812.aspx

@@ -1,9 +1,9 @@
-<properties umbraconavihide="0" pagetitle="Table Services - How To - Node.js - Develop" metakeywords="Azure nosql Node.js, Azure large structured data store Node.js, Azure table Node.js, Azure table storage Node.js" metadescription="Learn how to use the Windows Azure table storage service to create and delete tables and insert and query entities in a table from your Node.js application." linkid="dev-nodejs-how-to-table-services" urldisplayname="Table Service" headerexpose footerexpose disquscomments="1"></properties>
+<properties umbraconavihide="0" pagetitle="Table Services - How To - Node.js - Develop" metakeywords="Azure nosql Node.js, Azure large structured data store Node.js, Azure table Node.js, Azure table storage Node.js" metadescription="Learn how to use the Windows Azure table storage service to create and delete tables and insert and query entities in a table from your Node.js application." linkid="dev-nodejs-how-to-table-services" urldisplayname="Table Service" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
-# How to Use the Table Storage Service from Node.js
+# How to Use the Table Service from Node.js
 
 This guide shows you how to perform common scenarios using the Windows
-Azure Table storage service. The samples are written written using the
+Azure Table service. The samples are written written using the
 Node.js API. The scenarios covered include **creating and deleting a
 table, inserting and querying entities in a table**. For more
 information on tables, see the [Next Steps][] section.
@@ -29,7 +29,7 @@ information on tables, see the [Next Steps][] section.
 
 ## <a name="what-is"> </a>What is the Table Service?
 
-The Windows Azure Table storage service stores large amounts of
+The Windows Azure Table service stores large amounts of
 structured data. The service accepts authenticated calls from inside and
 outside the Windows Azure cloud. Windows Azure tables are ideal for
 storing structured, non-relational data. Common uses of Table services
@@ -53,7 +53,7 @@ The Table service contains the following components:
 
 -   **URL format:** Code addresses tables in an account using this
     address format:   
-    http://<storage account\>.table.core.windows.net/<table\>  
+    http://storageaccount.table.core.windows.net/table  
       
     You can address Azure tables directly using this address with the
     OData protocol. For more information, see [OData.org][]
@@ -83,43 +83,34 @@ To use storage operations, you need a Windows Azure storage account. You
 can create a storage account by following these steps. (You can also
 create a storage account [using the REST API][].)
 
-1.  Log into the [Windows Azure Management Portal][].
+1.  Log into the [Windows Azure Management Portal].
 
-2.  In the navigation pane, click **Hosted Services, Storage Accounts &
-    CDN**.
+2.  At the bottom of the navigation pane, click **+NEW**.
 
-3.  At the top of the navigation pane, click **Storage Accounts**.
+	![+new][plus-new]
 
-4.  On the ribbon, in the Storage group, click **New Storage Account**.
-      
-    ![Blob2][]  
-      
-    The **Create a New Storage Account**dialog box opens.   
-    ![Blob3][]
+3.  Click **Storage Account**, and then click **Quick Create**.
 
-5.  In **Choose a Subscription**, select the subscription that the
-    storage account will be used with.
+	![Quick create dialog][quick-create-storage]
 
-6.  In Enter a URL, type a subdomain name to use in the URI for the
+4.  In URL, type a subdomain name to use in the URI for the
     storage account. The entry can contain from 3-24 lowercase letters
     and numbers. This value becomes the host name within the URI that is
-    used to address Table, Queue, or Table resources for the
+    used to address Blob, Queue, or Table resources for the
     subscription.
 
-7.  Choose a region or an affinity group in which to locate the storage.
-    If you will be using storage from your Windows Azure application,
-    select the same region where you will deploy your application.
+5.  Choose a Region/Affinity Group in which to locate the
+    storage. If you will be using storage from your Windows Azure
+    application, select the same region where you will deploy your
+    application.
 
-8.  Finally, take note of your**Primary access key** in the right-hand
-    column. You will need this in subsequent steps to access storage.   
-    ![Blob4][]
+6.  Click **Create Storage Account**.
 
 ## <a name="create-app"> </a>Create a Node.js Application
 
-Create a blank tasklist application using the **Windows PowerShell for
-Node.js** command window at the location **c:\\node\\tasklist**. For
+Create a blank Node.js application. For
 instructions on how to use the PowerShell commands to create a blank
-application, see the [Node.js Web Application][].
+application, see the [Node.js Cloud Service]. For instructions on how to use WebMatrix, see [Web Site with WebMatrix].
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
@@ -129,20 +120,18 @@ communicate with the storage REST services.
 
 ### Use Node Package Manager (NPM) to obtain the package
 
-1.  Use the **Windows PowerShell for Node.js** command window to
-    navigate to the **c:\\node\\tasklist\\WebRole1** folder where you
-    created your sample application.
+1.  Use a command-line interface such as **PowerShell** (Windows,) **Terminal** (Mac,) or **Bash** (Unix), navigate to the folder where you created your sample application.
 
 2.  Type **npm install azure** in the command window, which should
     result in the following output:
 
         azure@0.5.0 ./node_modules/azure
-        ├── xmlbuilder@0.3.1
-        ├── mime@1.2.4
-        ├── xml2js@0.1.12
-        ├── qs@0.4.0
-        ├── log@1.2.0
-        └── sax@0.3.4
+		├── xmlbuilder@0.3.1
+		├── mime@1.2.4
+		├── xml2js@0.1.12
+		├── qs@0.4.0
+		├── log@1.2.0
+		└── sax@0.3.4
 
 3.  You can manually run the **ls** command to verify that a
     **node\_modules** folder was created. Inside that folder you will
@@ -162,12 +151,10 @@ If you are running against the storage emulator on the local machine,
 you do not need to configure a connection string, as it will be
 configured automatically. You can continue to the next section.
 
-If you are planning to run against the real cloud storage service, you
-need to modify your connection string to point at your cloud-based
-storage. You can store the storage connection string in a configuration
-file, rather than hard-coding it in code. In this tutorial you use the
-Web.cloud.config file, which is created when you create a Windows Azure
-web role.
+If you are planning to run against the real Windows Azure storage
+service, you need to specify connection information to point at your
+Windows Azure Storage Account. You can store the connection information in your code, or in an external configuration file. In this how-to,
+you use the Web.cloud.config file, which is created when you use the Windows Azure Powershell to create a new Cloud Service Project.
 
 1.  Use a text editor to open
     **c:\\node\\tasklist\\WebRole1\\Web.cloud.config**
@@ -647,8 +634,7 @@ The following code deletes a table from a storage account.
 Now that you’ve learned the basics of table storage, follow these links
 to learn how to do more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Windows
-    Azure][]
+-   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][]
 -   [Visit the Windows Azure Storage Team Blog][]
 
   [Next Steps]: #next-steps
@@ -667,13 +653,17 @@ to learn how to do more complex storage tasks.
   [How To: Query a Subset of Entity Properties]: #query-entity-properties
   [How To: Delete an Entity]: #delete-entity
   [How To: Delete a Table]: #delete-table
-  [Table1]: ../../../DevCenter/dotNet/Media/table1.png
+  [Table1]: ../../dotNet/Media/table1.png
   [OData.org]: http://www.odata.org/
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
   [Windows Azure Management Portal]: http://windows.azure.com
-  [Blob2]: ../../../DevCenter/dotNet/Media/blob2.png
-  [Blob3]: ../../../DevCenter/dotNet/Media/blob3.png
-  [Blob4]: ../../../DevCenter/dotNet/Media/blob4.png
-  [Node.js Web Application]: {localLink:2221} "Web App with Express"
+
+  [plus-new]: ../../Shared/Media/plus-new.png
+  [quick-create-storage]: ../../Shared/Media/quick-storage.png
+  [Blob2]: ../../dotNet/Media/blob2.png
+  [Blob3]: ../../dotNet/Media/blob3.png
+  [Blob4]: ../../dotNet/Media/blob4.png
+  [Node.js Cloud Service]: {localLink:2221} "Web App with Express"
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Visit the Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/

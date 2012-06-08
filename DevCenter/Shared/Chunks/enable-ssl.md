@@ -28,7 +28,7 @@ certificates in Windows Azure:
 -   The certificate must contain a private key.
 -   The certificate must be created for key exchange (.pfx file).
 -   The certificate's subject name must match the domain used to access
-    the hosted service. You cannot acquire an SSL certificate for the
+    the cloud service. You cannot acquire an SSL certificate for the
     cloudapp.net domain, so the certificate's subject name must match
     the custom domain name used to access your application.
 -   The certificate must use a minimum of 2048-bit encryption.
@@ -65,8 +65,7 @@ configuration files need to be updated.
     The **Certificates** section defines the name of our certificate,
     its location, and the name of the store where it is located. We have
     chosen to store the certificate in the CA (Certificate Authority)
-    store, but you can choose other options as well. See [How to
-    Associate a Certificate with a Service][] for more information.
+    store, but you can choose other options as well. See [How to Associate a Certificate with a Service][] for more information.
 
 2.  In your service definition file, add an **InputEndpoint** element
     within the **Endpoints** section to enable HTTPS:
@@ -128,19 +127,20 @@ Your deployment package has been updated to use the certificate, and an
 HTTPS endpoint has been added. Now you can upload the package and
 certificate to Windows Azure with the Management Portal.
 
-1.  Log into the [Windows Azure Management Portal][], and go to the
-    Hosted Services section. Click **New Hosted Service**, add the
-    required information about your hosted service, and then click **Add
-    Certificate**.   
-    ![][]
+1.  Log on to the [Windows Azure Management Portal].
 
-2.  In **Upload Certificates**, enter the location for the SSL
-    certificate .pfx file, the password for the certificate, and click
-    **OK**.  
-    ![][1]
+2.  In the Management Portal, click **+ NEW** in the botom left, and then clidk **Cloud Service**.
+	![cloud service dialog][new-cloud-service]
 
-3.  Click **OK** to create your hosted service. When the deployment has
-    reached the **Ready** status, you can proceed to the next steps.
+3.  Select **Custom Create**, and then specify the **URL** and **Region/Affinity Group**.  
+	Finally, select **Deploy a Cloud Service Package Now** and click the arrow to continue.
+	![custom create cloud service][custom-create-page1]
+	
+4.  On the second page of the **Custom Create** dialog, fill in the required information and select **Add certificates now**. Click the arrow to continue.
+	![custom create cloud service][custom-create-page2]
+
+5. Use the third page of the **Custom Create** dialog to attach the certificate(s), and then click the checkbox.
+	![custom create cloud service][custom-create-page3] 
 
 <a name="step4"> </a>
 
@@ -149,13 +149,10 @@ certificate to Windows Azure with the Management Portal.
 Now that your deployment is up and running in Windows Azure, you can
 connect to it using HTTPS.
 
-1.  In the Management Portal, select your deployment, then right-click
-    on the DNS name link in the **Properties** pane and choose
-    **Copy**.  
-    ![][2]
+1.  In the Management Portal, select **Cloud Services**, and then click the URL for the service.
 
-2.  Paste the address in a web browser, but make sure that it starts
-    with **https** instead of **http**, and then visit the page.
+2.  The browser will navigate to the URL; make sure that it starts
+	with **https** instead of **http**..
 
     Your browser displays the address in green to indicate that it's
     using an HTTPS connection. This also indicates that your application
@@ -170,10 +167,8 @@ connect to it using HTTPS.
     ![][3]
 
 ## Additional Resources
-
-[How to Associate a Certificate with a Service][]
-
-[How to Configure an SSL Certificate on an HTTPS Endpoint][]
+* [How to Associate a Certificate with a Service][]
+* [How to Configure an SSL Certificate on an HTTPS Endpoint][]
 
   [Step 1: Get an SSL Certificate]: #step1
   [Step 2: Modify the Service Definition and Configuration Files]: #step2
@@ -182,8 +177,12 @@ connect to it using HTTPS.
   [How to Create a Certificate for a Role]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432987.aspx
   [How to Associate a Certificate with a Service]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
   [Windows Azure Management Portal]: http://windows.azure.com
-  []: ../../../DevCenter/Shared/Media/ssl-01.png
+  [0]: ../../../DevCenter/Shared/Media/ssl-01.png
   [1]: ../../../DevCenter/Shared/Media/ssl-02.png
   [2]: ../../../DevCenter/Shared/Media/ssl-03.png
   [3]: ../../../DevCenter/Shared/Media/ssl-04.png
   [How to Configure an SSL Certificate on an HTTPS Endpoint]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
+  [new-cloud-service]: ../Media/cloud-service-new-custom-create.png
+  [custom-create-page1]: ../../Shared/Media/cloud-service-custom-create.png
+  [custom-create-page2]: ../../Shared/Media/cloud-service-custom-create-package.png
+  [custom-create-page3]: ../../Shared/Media/cloud-service-custom-created-add-cert.png

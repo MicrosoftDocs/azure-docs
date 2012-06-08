@@ -1,4 +1,4 @@
-<properties umbraconavihide="0" pagetitle="Node.js Deploying with Cloud9" metakeywords metadescription linkid="dev-nodejs-cloud9" urldisplayname="Deploying with Cloud9" headerexpose footerexpose disquscomments="1"></properties>
+<properties umbraconavihide="0" pagetitle="Node.js Deploying with Cloud9" metakeywords="" metadescription="" linkid="dev-nodejs-cloud9" urldisplayname="Deploying with Cloud9" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
 # Deploying a Windows Azure App from Cloud9
 
@@ -61,8 +61,8 @@ IDE].
 
     ![create new file in the Cloud9 project][]
 
-5.  A new tab titled **\*Untitled1** will be displayed. Enter the
-    following code on the **\*Untitled1** tab to create the Node
+5.  A new tab titled **Untitled1** will be displayed. Enter the
+    following code on the **Untitled1** tab to create the Node
     application:
 
         var http = require('http');
@@ -119,7 +119,6 @@ selecting **Free Trial** in the upper right corner.
 
 ## Create a Deployment
 
-<ol>
 1.  To create a new deployment, select **Deploy**, and then click **+**
     to create a deploy server.
 
@@ -154,8 +153,7 @@ selecting **Free Trial** in the upper right corner.
 
 4.  Click **+ Create new** to create a new hosted service. A *hosted
     service* is the container in which your application is hosted when
-    it is deployed to Windows Azure. For more information, see [Overview
-    of Creating a Hosted Service for Windows Azure][].
+    it is deployed to Windows Azure. For more information, see [Overview of Creating a Hosted Service for Windows Azure][].
 
     ![create a new deployment][1]
 
@@ -175,7 +173,6 @@ selecting **Free Trial** in the upper right corner.
     **Note:** Selecting **Enable RDP** and providing a username and
     password will enable remote desktop for your deployment.
 
-</ol>
 
 ## Deploy to the Windows Azure Production Environment
 
@@ -202,13 +199,11 @@ selecting **Free Trial** in the upper right corner.
     Select **Yes** to create the .csdef file. This will add a
     ‘ServiceDefinition.csdef’ file to your project.
     ServiceDefinition.csdef is a Windows Azure-specific files necessary
-    for publishing your application. For more information, see [Overview
-    of Creating a Hosted Service for Windows Azure][].
+    for publishing your application. For more information, see [Overview of Creating a Hosted Service for Windows Azure][].
 
 6.  You will be prompted to select the instance size for this
     application. Select **Small**, and then click **Create**. For more
-    details about Windows Azure VM sizes, see [How to Configure Virtual
-    Machine Sizes][].
+    details about Windows Azure VM sizes, see [How to Configure Virtual Machine Sizes][].
 
     ![specify csdef file values][]
 
@@ -361,32 +356,32 @@ Azure, perform the following steps:
 -   [Cloud9 documentation][]
 
   [Cloud9 IDE]: http://cloud9ide.com/
-  [create new Cloud9 project]: ../../../DevCenter/Node/Media/cloud9_create_project.png
-  [create new project dialog -- Cloud9]: ../../../DevCenter/Node/Media/cloud9_new_project.png
-  [start editing the Cloud9 project]: ../../../DevCenter/Node/Media/cloud9_startediting.png
-  [create new file in the Cloud9 project]: ../../../DevCenter/Node/Media/cloud9_filenew.png
-  [save the server.js file]: ../../../DevCenter/Node/Media/cloud9_saveas.png
-  [run in the debugger]: ../../../DevCenter/Node/Media/cloud9_debug.png
-  [output window]: ../../../DevCenter/Node/Media/cloud9_output.png
-  [application running in browser]: ../../../DevCenter/Node/Media/cloud9_debug_browser.png
+  [create new Cloud9 project]: ../Media/cloud9_create_project.png
+  [create new project dialog -- Cloud9]: ../Media/cloud9_new_project.png
+  [start editing the Cloud9 project]: ../Media/cloud9_startediting.png
+  [create new file in the Cloud9 project]: ../Media/cloud9_filenew.png
+  [save the server.js file]: ../Media/cloud9_saveas.png
+  [run in the debugger]: ../Media/cloud9_debug.png
+  [output window]: ../Media/cloud9_output.png
+  [application running in browser]: ../Media/cloud9_debug_browser.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
-  [create a new deployment]: ../../../DevCenter/Node/Media/cloud9_createdeployment.png
-  [download publish settings]: ../../../DevCenter/Node/Media/cloud9_choosetypeandcert.png
+  [create a new deployment]: ../Media/cloud9_createdeployment.png
+  [download publish settings]: ../Media/cloud9_choosetypeandcert.png
   [Overview of Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432976.aspx
-  [1]: ../../../DevCenter/Node/Media/cloud9_add_a_deploy_target.png
-  [create a new hosted service]: ../../../DevCenter/Node/Media/cloud9_new_hosted_service_settings.png
-  [select a deployment]: ../../../DevCenter/Node/Media/cloud9_select_deployment.png
-  [no web.config file found message.]: ../../../DevCenter/Node/Media/cloud9_no_web_config.png
+  [1]: ../Media/cloud9_add_a_deploy_target.png
+  [create a new hosted service]: ../Media/cloud9_new_hosted_service_settings.png
+  [select a deployment]: ../Media/cloud9_select_deployment.png
+  [no web.config file found message.]: ../Media/cloud9_no_web_config.png
   [How to Configure Virtual Machine Sizes]: http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx
-  [specify csdef file values]: ../../../DevCenter/Node/Media/cloud9_createcsdef.png
-  [deployment status]: ../../../DevCenter/Node/Media/cloud9_deployment_status.png
-  [Windows Azure production URL link]: ../../../DevCenter/Node/Media/cloud9_production_url.png
-  [console output showing staging URL]: ../../../DevCenter/Node/Media/cloud9_staging_console_output.png
+  [specify csdef file values]: ../Media/cloud9_createcsdef.png
+  [deployment status]: ../Media/cloud9_deployment_status.png
+  [Windows Azure production URL link]: ../Media/cloud9_production_url.png
+  [console output showing staging URL]: ../Media/cloud9_staging_console_output.png
   [Overview of Managing Deployments in Windows Azure.]: http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx
-  [Link from deploy dialog to Windows Azure Management Portal]: ../../../DevCenter/Node/Media/cloud9_portal_link.png
-  [Windows Azure Management Portal]: ../../../DevCenter/Node/Media/cloud9_hosted_service_and_ribbon.png
-  [VIP SWAP]: ../../../DevCenter/Node/Media/cloud9_portal_vipswap.png
-  [Production application running on Windows Azure]: ../../../DevCenter/Node/Media/cloud9_production_on_azure.png
-  [Connect to an instance]: ../../../DevCenter/Node/Media/connect.png
-  [delete the deployment]: ../../../DevCenter/Node/Media/cloud9_deletedeployment.png
+  [Link from deploy dialog to Windows Azure Management Portal]: ../Media/cloud9_portal_link.png
+  [Windows Azure Management Portal]: ../Media/cloud9_hosted_service_and_ribbon.png
+  [VIP SWAP]: ../Media/cloud9_portal_vipswap.png
+  [Production application running on Windows Azure]: ../Media/cloud9_production_on_azure.png
+  [Connect to an instance]: ../Media/connect.png
+  [delete the deployment]: ../Media/cloud9_deletedeployment.png
   [Cloud9 documentation]: http://go.microsoft.com/fwlink/?LinkId=241421&clcid=0x409

@@ -1,11 +1,11 @@
-# Data Storage Offerings in Windows Azure
+# Understanding Cloud Storage
 
 This article describes the Windows Azure data storage offerings: Blobs,
-Tables, and SQL Azure. These offerings are hosted in Windows Azure data
+Tables, and SQL Database. These offerings are hosted in Windows Azure data
 centers and are available to your applications whether they are running
 on-premises, hosted within a Windows Azure data center, or hosted within
 a competing cloud service. The data storage offerings offer many
-benefits including, high availability, scalability, fault tolerance,
+benefits, including high availability, scalability, fault tolerance,
 geo-replication, easy manageability, limitless storage, and security. In
 addition, the data is accessible via the Internet to any operating
 system (OS) and programming language.
@@ -13,39 +13,21 @@ system (OS) and programming language.
 If you are running your application code in a Windows Azure data center,
 then the virtual machine (VM) that is hosting your application exposes
 two additional storage options called local storage and Windows Azure
-Drives. These storage options will be discussed at the end of this
+drives. These storage options will be discussed at the end of this
 article. <a id="compare" name="compare"></a>
 
 ## Table of Contents
 
-<ul>
-<li>
-[Storing Data in Windows Azure][]
+- [Storing Data in Windows Azure][]
+- [Windows Azure Blobs and Tables][]
+ - [Blobs][]
+ - [Tables][]
+- [SQL Database](#sql)
+- [Additional Storage Options for Applications Hosted in Windows Azure][]
+ - [Local Storage][]
+ - [Windows Azure Drives][]
+- [References][]
 
-</li>
-<li>
-[Windows Azure Blobs and Tables][]
-
-</li>
--   [Blobs][]
--   [Tables][]
-
-<li>
-[SQL Azure][]
-
-</li>
-<li>
-[Additional Storage Options for Applications Hosted in Windows Azure][]
-
-</li>
--   [Local Storage][]
--   [Windows Azure Drives][]
-
-<li>
-[References][]
-
-</li>
-</ul>
 <a name="storing"> </a>
 
 ## Storing Data in Windows Azure
@@ -79,7 +61,7 @@ the machines running your application code.
 The figure below shows how client requests could be distributed to
 different machines all of which have access the same data storage.
 
-![[image]][]
+![image][img0]
 
 For example, let’s say that your application allows a client to place
 items into a shopping cart and later, the client purchases the items
@@ -89,14 +71,14 @@ and the request to checkout could be directed to a different machine.
 The second machine would need to know the items in the client’s cart.
 
 In order to achieve highly available and scalable applications, Windows
-Azure Platform Services offers multitenant storage machines within the
+Azure offers multitenant storage machines within the
 various Windows Azure data centers. These machines replicate your data
 ensuring that if one replica fails, others are still viable. These
 storage offerings can be accessed by applications running in a Windows
 Azure data center and can also be accessed directly by applications
 running on-premises or hosted in another cloud service.
 
-The figure above shows Blobs, Tables, and SQL Azure as the central data
+The figure above shows Blobs, Tables, and SQL Database as the central data
 repository. To store data in any of these offerings, you must first
 select which of the Windows Azure data centers you want to house your
 data. The table below shows the locations of 6 Windows Azure data
@@ -168,24 +150,24 @@ disaster, then your data will automatically start being served from the
 South Central data center. If you choose, you can opt out of
 geo-replication by telephoning Windows Azure support.
 
-When using Blobs, Tables, or SQL Azure, the data can be encrypted as it
+When using Blobs, Tables, or SQL Database, the data can be encrypted as it
 goes over the wire. However, the data is stored unencrypted inside the
 Windows Azure data centers. In many cases, you can encrypt the data
-yourself before sending it over the wire; Azure will simply store
+yourself before sending it over the wire; Windows Azure will simply store
 whatever you send it and now the data will be stored encrypted. The
 Windows Azure SDK includes a storage emulator which you can use on your
 local machine to test your code’s use of Blobs and Tables. The emulator
 is free of charge to use and requires the use of SQL Server or SQL
-Express. You can test your code’s use of SQL Azure by having it work
+Express. You can test your code’s use of SQL Database by having it work
 against a locally installed instance of SQL Server or SQL Express.
 
 The pricing for Blobs and Tables is related to the storage you consume,
 the number of bytes you transfer out of the data center (transfer into
 the data center is free) and the number of I/O operations you perform.
-The pricing for SQL Azure if based on the size of each database and the
+The pricing for SQL Database is based on the size of each database and the
 number of bytes you transfer out of the data center. To understand the
 latest pricing of these various storage mechanisms, please see [Windows
-Azure Pricing][].
+Azure Pricing].
 
 <a name="blobsandtables"> </a>
 
@@ -195,8 +177,7 @@ Blobs and Tables reside within a Windows Azure Storage account. A single
 Windows Azure Storage account can hold up to 100 TB of data. If you need
 to store more data, then you can create additional storage accounts.
 Within a storage account, you can store data in Blobs and Tables. A
-storage account can also contain Queues (for more information see [How
-to Use the Queue Storage Service][]). Here is a brief description for
+storage account can also contain Queues (for more information see [How to Use the Queue Storage Service][]). Here is a brief description for
 Blobs and Tables (they are described in more detail in the following
 sections):
 
@@ -216,13 +197,12 @@ These abstractions are accessible via [HTTP(S) REST APIs][] (overs ports
 programming languages. To simplify making the web requests for software
 developers, you can use several *client libraries* targeting specific
 operating systems and programming languages. Libraries exist for .NET,
-Node.js, Java, and PHP, and are available at the [Windows Azure
-website][]. The term “client libraries” is used since your application
+Node.js, Java, and PHP, and are available at the [Windows Azure website][]. The term “client libraries” is used since your application
 is a client to the data storage servers. The figure below shows how your
 application code makes a call into a client library which, in turn,
 makes an HTTP(S) REST request to Blobs or Tables.
 
-![[image]][1]
+![image][img1]
 
 When you create a storage account, your account is assigned two 256-bit
 account keys. One of these two keys must be specified in a header that
@@ -268,7 +248,7 @@ below enumerates some of them:
     great for storing public pictures, videos, etc.
 
 -   You can create a Shared Access Signature (SAS) for a blob allowing
-    others that do not have one of the 256-bit storage account keys to
+    others that do not have one of the 256-bit storage access keys to
     read, write, or delete the blob during a specified window of time.
 
 -   You can create snapshots of a blob effectively making read-only
@@ -290,8 +270,7 @@ Blob as a disk drive. This allows your application code to use standard
 FILE I/O APIs against the mounted drive letter and redirect the I/O
 operations to the backing blob. This feature is only available to
 applications running in Windows Azure because the VMs must have a
-special NTFS device driver installed on them. See [Windows Azure
-Drives][] for more details.<a id="Queue" name="Queue"></a>
+special NTFS device driver installed on them. See [Windows Azure Drives][] for more details.<a id="Queue" name="Queue"></a>
 
 <a name="tables"> </a>
 
@@ -303,8 +282,8 @@ and game scores. Key benefits of tables are that they are
 pay-for-consumption, can handle small and large (100 TB) amounts of data
 efficiently, and are accessible via HTTP(S). For data that requires
 server-side computation such as joins, sorts, views, and stored
-procedures, you should consider using SQL Azure as Tables do not support
-these features. See [SQL Azure][2] for more details.
+procedures, you should consider using SQL Database as Tables do not support
+these features. See [SQL Database](#sql) for more details.
 
 A table contains entities. Unlike database tables, the entities within a
 single table can have differing sets of properties. For example, you can
@@ -567,7 +546,7 @@ delete (CRUD) operations and these operations are performed using OData
 over HTTP(S) REST APIs. But, unlike database tables, it does not support
 joins, foreign keys, stored procedures, triggers, or any processing
 (other than filtering) on the storage engine side. Features like these
-are supported by SQL Azure, described in the next section. Queries
+are supported by SQL Database, described in the next section. Queries
 returning a large number of results, or queries that take more than 5
 seconds return partial results along with a *continuation token*. You
 can process the results returned and then pass the *continuation token*
@@ -576,30 +555,30 @@ results.<a id="Table" name="Table"></a>
 
 <a name="sql"> </a>
 
-## SQL Azure
+## SQL Database
 
-SQL Azure provides a highly-available and scalable relational database
-management system for Windows Azure. Key benefits of SQL Azure are SQL
+SQL Database provides a highly-available and scalable relational database
+management system for Windows Azure. Key benefits of SQL Database are SQL
 Server compatibility which allows you to use familiar T-SQL, SQL library
 APIs, tools, etc. For example, ADO.NET and ODBC continue to work with
-SQL Azure with minimal code changes. For data that requires server-side
+SQL Database with minimal code changes. For data that requires server-side
 computation such as joins, sorts, views, and stored procedures, SQL
-Azure is an ideal choice. Alternatively, if you do not need these
+Database is an ideal choice. Alternatively, if you do not need these
 features, then [Windows Azure Tables][] may be a better option.
 
-SQL Azure is a multitenant service which maintains scalability by
+SQL Database is a multitenant service which maintains scalability by
 automatically moving databases from heavily accessed machines to other
 machines. You access the database using the Tabular Data Stream (TDS)
 protocol on port 1433; In addition, access is granted from specific IP
-ranges and a password. Like Blobs & Tables, SQL Azure can also be
+ranges and a password. Like Blobs & Tables, SQL Database can also be
 accessed via applications running on-premises, inside a Windows Azure
 data center or via some other cloud service.
 
 The figure below shows how your application code makes a call into a SQL
 client library (such as ADO.NET) which, in turn, makes a TDS request
-over TCP to SQL Azure.
+over TCP to SQL Database.
 
-![[image]][3] <a id="SQLAzure" name="SQLAzure"> </a>
+![image][img3] <a id="SQLAzure" name="SQLAzure"> </a>
 
 Since Windows Azure does not provide direct access to the underlying
 hardware, administration tasks that involve hardware access, such as
@@ -608,19 +587,19 @@ Azure. Physical administration tasks are handled automatically by the
 platform, though you must still perform logical administration tasks
 such as creating logins, users, roles, etc. Because you cannot directly
 access the hardware, there are some differences between SQL Server and
-SQL Azure in terms of administration, provisioning, T-SQL support,
+SQL Database in terms of administration, provisioning, T-SQL support,
 programming model and features.
 
-Unlike the other storage offerings discussed so-far, SQL Azure provides
+Unlike the other storage offerings discussed so-far, SQL Database provides
 more than simple data storage; it also provides server side processing,
 which allows you to perform complex processing on stored data without
 having to retrieve and process the entire data set within your
 application. For example, a query to find all salesmen with sales
 greater than $1,000.00 in the past year, within a specific region of the
 country, and provide a sum total of all their sales, can be executed
-completely by SQL Azure and the results returned to your application.
+completely by SQL Database and the results returned to your application.
 
-A SQL Azure database can be up to 150GB in size and can contain multiple
+A SQL Database instance can be up to 150GB in size and can contain multiple
 tables with complex relationships between data in the tables. Rows can
 be up to 8MB in size, and can contain 1024 columns. A table within SQL
 Azure can have one clustered index on any column, and up to 999
@@ -654,7 +633,7 @@ subdirectories will not be moved with your code; the data will be lost.
 For this reason, local storage is best thought of as a cache allowing
 fast access to frequently-used data. Local storage is also useful for
 building up data (such as logs) that is then frequently transferred to a
-more durable storage mechanism such as Blobs, Tables, or SQL Azure.
+more durable storage mechanism such as Blobs, Tables, or SQL Database.
 <a id="Different" name="Different"></a>Consuming and accessing local
 storage is completely free.
 
@@ -763,26 +742,16 @@ files).<a id="Ref" name="Ref"></a>
 
 ## References
 
--   [Windows Azure Pricing][] [][]
-
+-   [Windows Azure Pricing][]
 -   [Windows Azure Storage][]
-
 -   [Windows Azure Storage Services REST API Reference][]
-
 -   [Windows Azure Content Delivery Network (CDN)][]
-
 -   [Storing and Accessing Data in Windows Azure][]
-
--   [Comparing SQL Server with SQL Azure][]
-
--   [SQL Azure MSDN library][]
-
--   [SQL Azure Survival Guide][]
-
--   [Overview of Options for Migrating Data and Schema to SQL Azure][]
-
--   [Handling Transactions in SQL Azure][]
-
+-   [Comparing SQL Server with SQL Database][]
+-   [SQL Database MSDN library][]
+-   [SQL Database Survival Guide][]
+-   [Overview of Options for Migrating Data and Schema to SQL Database][]
+-   [Handling Transactions in SQL Database][]
 -   [Configuring Local Storage Resources][]
 
 <div style="width: 700px; border-top: solid; margin-top: 5px; padding-top: 5px; border-top-width: 1px;">
@@ -794,29 +763,28 @@ files).<a id="Ref" name="Ref"></a>
   [Windows Azure Blobs and Tables]: #blobsandtables
   [Blobs]: #blobs
   [Tables]: #tables
-  [SQL Azure]: #sql
-  [Additional Storage Options for Applications Hosted in Windows Azure]:
-    #additional
+  [SQL Database]: #sql
+  [Additional Storage Options for Applications Hosted in Windows Azure]: #additional
   [Local Storage]: #local
   [Windows Azure Drives]: #drives
   [References]: #references
-  [[image]]: ../../../DevCenter/Shared/Media/data-storage-offerings-3.jpg
+  [img0]: ../../../DevCenter/Shared/Media/data-storage-offerings-3.jpg
   [Windows Azure Pricing]: ../../../../pricing/calculator/
   [How to Use the Queue Storage Service]: ../../how-to-guides/queue-service/
   [HTTP(S) REST APIs]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355.aspx
   [Windows Azure website]: {localLink:1123} "Downloads"
-  [1]: ../../../DevCenter/Shared/Media/data-storage-offerings-4.jpg
-  [2]: {localLink:1145} "SQL Azure"
+  [img1]: ../../../DevCenter/Shared/Media/data-storage-offerings-4.jpg
+  [2]: {localLink:1145} "SQL Database"
   [Windows Azure Tables]: #_Tables
-  [3]: ../../../DevCenter/Shared/Media/data-storage-offerings-5.jpg
-  []: http://www.windowsazure.com/en-us/pricing/calculator/
+  [img3]: ../../../DevCenter/Shared/Media/data-storage-offerings-5.jpg
+  [calculator]: http://www.windowsazure.com/en-us/pricing/calculator/
   [Windows Azure Storage]: ../../../../home/features/storage/
   [Windows Azure Storage Services REST API Reference]: http://msdn.microsoft.com/en-us/library/dd179355.aspx
   [Windows Azure Content Delivery Network (CDN)]: ../../../../home/features/cdn/
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Comparing SQL Server with SQL Azure]: http://social.technet.microsoft.com/wiki/contents/articles/compare-sql-server-with-sql-azure.aspx
-  [SQL Azure MSDN library]: http://msdn.microsoft.com/en-us/library/windowsazure/gg619386.aspx
-  [SQL Azure Survival Guide]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-survival-guide.aspx
-  [Overview of Options for Migrating Data and Schema to SQL Azure]: http://social.technet.microsoft.com/wiki/contents/articles/overview-of-options-for-migrating-data-and-schema-to-sql-azure.aspx
-  [Handling Transactions in SQL Azure]: http://social.technet.microsoft.com/wiki/contents/articles/handling-transactions-in-sql-azure.aspx
+  [Comparing SQL Server with SQL Database]: http://social.technet.microsoft.com/wiki/contents/articles/compare-sql-server-with-sql-azure.aspx
+  [SQL Database MSDN library]: http://msdn.microsoft.com/en-us/library/windowsazure/gg619386.aspx
+  [SQL Database Survival Guide]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-survival-guide.aspx
+  [Overview of Options for Migrating Data and Schema to SQL Database]: http://social.technet.microsoft.com/wiki/contents/articles/overview-of-options-for-migrating-data-and-schema-to-sql-azure.aspx
+  [Handling Transactions in SQL Database]: http://social.technet.microsoft.com/wiki/contents/articles/handling-transactions-in-sql-azure.aspx
   [Configuring Local Storage Resources]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758708.aspx

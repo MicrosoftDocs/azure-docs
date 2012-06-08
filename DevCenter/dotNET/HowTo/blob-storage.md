@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-blob-storage" urldisplayname="Blob Service" headerexpose pagetitle="How to Use the Blob Storage Service from .NET" metakeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob .NET, Azure blob storage .NET, Azure blob C#, Azure blob storage C#" footerexpose metadescription="Get started using the Windows Azure blob storage service to upload, download, list, and delete blob content." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-how-to-blob-storage" urldisplayname="Blob Service" headerexpose="" pagetitle="How to Use the Blob Storage Service from .NET" metakeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob .NET, Azure blob storage .NET, Azure blob C#, Azure blob storage C#" footerexpose="" metadescription="Get started using the Windows Azure blob storage service to upload, download, list, and delete blob content." umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Use the Blob Storage Service
 
@@ -22,106 +22,26 @@ more information on blobs, see the [Next Steps][] section.
 -   [How To: Delete a Blob][]
 -   [Next Steps][]
 
-## <a name="what-is"> </a>What is Blob Storage
-
-Windows Azure Blob storage is a service for storing large amounts of
-unstructured data that can be accessed from anywhere in the world via
-HTTP or HTTPS. A single blob can be hundreds of gigabytes in size, and a
-single storage account can contain up to 100TB of blobs. Common uses of
-Blob storage include:
-
--   Serving images or documents directly to a browser
--   Storing files for distributed access
--   Streaming video and audio
--   Performing secure backup and disaster recovery
--   Storing data for analysis by an on-premise or Windows Azure-hosted
-    service
-
-You can use Blob storage to expose data publicly to the world or
-privately for internal application storage.
-
-## <a name="concepts"> </a>Concepts
-
-The Blob service contains the following components:
-
-![Blob1][]
-
--   **Storage Account:** All access to Windows Azure Storage is done
-    through a storage account. This is the highest level of the
-    namespace for accessing blobs. An account can contain an unlimited
-    number of containers, as long as their total size is under 100TB.
-
--   **Container:** A container provides a grouping of a set of blobs.
-    All blobs must be in a container. An account can contain an
-    unlimited number of containers. A container can store an unlimited
-    number of blobs.
-
--   **Blob:** A file of any type and size. There are two types of blobs
-    that can be stored in Windows Azure Storage: block and page blobs.
-    Most files are block blobs. A single block blob can be up to 200GB
-    in size. This tutorial uses block blobs. Page blobs, another blob
-    type, can be up to 1TB in size, and are more efficient when ranges
-    of bytes in a file are modified frequently. For more information
-    about blobs, see [Understanding Block Blobs and Page Blobs][].
-
--   **URL format:** Blobs are addressable using the following URL
-    format:   
-    http://<storage
-    account\>.blob.core.windows.net/<container\>/<blob\>  
-      
-    The following URL could be used to address one of the blobs in the
-    diagram above:  
-    http://sally.blob.core.windows.net/movies/MOV1.AVI
+<div chunk="../../Shared/Chunks/howto-blob-storage.md" />
 
 ## <a name="create-account"> </a>Create a Windows Azure Storage Account
-
-You need a Windows Azure storage account to use the blob storage
-service. You can manually create a storage account by following the
-below steps (you can also programmatically create a storage account
-[using the REST API][]):
-
-1.  Log into the [Windows Azure Management Portal][].
-
-2.  In the navigation pane, click **Hosted Services, Storage Accounts &
-    CDN**.
-
-3.  At the top of the navigation pane, click **Storage Accounts**.
-
-4.  On the ribbon, in the Storage group, click **New Storage Account**.
-      
-    ![Blob2][]  
-      
-    The **Create a New Storage Account**dialog box will then open:   
-    ![Blob3][]
-
-5.  In **Choose a Subscription**, select the account subscription that
-    the storage account will be used with.
-
-6.  In **Enter a URL**, type a subdomain name to use in the URI for the
-    storage account. The entry can contain from 3-24 lowercase letters
-    and numbers. This value becomes the host name within the URI that is
-    used to address Blob, Queue, or Table resources for the
-    subscription.
-
-7.  Choose a region or an affinity group in which to locate the storage.
-    If you will be using storage from your Windows Azure application,
-    select the same region where you will deploy your application.
-
-8.  Click **OK**.
-
-9.  Click the **View** button in the right-hand column below to display
-    and save the **Primary access key** for the storage account. You
-    will need this in subsequent steps to access storage.   
-    ![Blob4][]
+<div chunk="../../Shared/Chunks/create-storage-account.md" />
 
 ## <a name="setup-connection-string"> </a>Setup a Windows Azure Storage Connection String
 
 The Windows Azure .NET storage API supports using a storage connection
 string to configure endpoints and credentials for accessing storage
 services. You can put your storage connection string in a configuration
-file, rather than hard-coding it in code. In this guide, you will store
-your connection string using the Windows Azure service configuration
-system. This service configuration mechanism is unique to Windows Azure
+file, rather than hard-coding it in code:
+
+- When using Windows Azure Cloud Services, it is recommended you store your connection string using the Windows Azure service configuration system (`*.csdef` and `*.cscfg` files).
+- When using Windows Azure Web Sites or Windows Azure Virtual Machines, it is recommended you store your connection string using the .NET configuration system (e.g. `web.config` file).
+
+In both cases, you can retrieve your connection string using the `CloudConfigurationManager.GetSetting` method as shown later in this guide.
+
+### Configuring your connection string when using Cloud Services
+
+The service configuration mechanism is unique to Windows Azure Cloud Services
 projects and enables you to dynamically change configuration settings
 from the Windows Azure Management Portal without redeploying your
 application.
@@ -158,7 +78,20 @@ configuration:
     like **StorageConnectionString**. You will reference this
     connectionstring later in the code in this guide.  
     ![Blob9][]
+	
+### Configuring your connection string when using Web Sites or Virtual Machines
 
+When using Web Sites or Virtual Machines, it is recommended you use the .NET configuration system (e.g. `web.config`).  You store the connection string using the `<appSettings>` element:
+
+	<configuration>
+	    <appSettings>
+		    <add key="StorageConnectionString"
+			     value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
+		</appSettings>
+	</configuration>
+
+Read [Configuring Connection Strings][] for more information on storage connection strings.
+	
 You are now ready to perform the How To's in this guide.
 
 ## <a name="configure-access"> </a>How to Programmatically access Blob Storage Using .NET
@@ -174,7 +107,7 @@ to retrieve your storage connection-string and storage account
 information from the Windows Azure service configuration:
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
 A **CloudBlobClient** type allows you to retrieve objects that represent
 containers and blobs stored within the Blob Storage Service. The
@@ -191,7 +124,7 @@ to use. You can create the container if it doesn't exist:
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the blob client 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -203,7 +136,7 @@ to use. You can create the container if it doesn't exist:
     container.CreateIfNotExist();
 
 By default, the new container is private, so you must specify your
-storage account key (as you did above) to download blobs from this
+storage access key (as you did above) to download blobs from this
 container. If you want to make the files within the container available
 to everyone, you can set the container to be public using the following
 code:
@@ -225,7 +158,7 @@ that the container was already created.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the blob client
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -251,7 +184,7 @@ the **Uri** of each blob in a container:
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the blob client
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -291,7 +224,7 @@ or **DownloadText** methods.
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the blob client
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -315,7 +248,7 @@ Finally, to delete a blob, get a blob reference, and then call the
 
     // Retrieve storage account from connection-string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the blob client
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -349,13 +282,6 @@ to learn how to do more complex storage tasks.
   [How To: List the Blobs in a Container]: #list-blob
   [How To: Download Blobs]: #download-blobs
   [How To: Delete a Blob]: #delete-blobs
-  [Blob1]: ../../../DevCenter/Shared/Media/blob1.jpg
-  [Understanding Block Blobs and Page Blobs]: http://msdn.microsoft.com/en-us/library/windowsazure/ee691964.aspx
-  [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
-  [Windows Azure Management Portal]: http://windows.azure.com
-  [Blob2]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage2.png
-  [Blob3]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage3.png
-  [Blob4]: ../../../DevCenter/Java/Media/WA_HowToBlobStorage4.png
   [Blob5]: ../../../DevCenter/dotNet/Media/blob5.png
   [Blob6]: ../../../DevCenter/dotNet/Media/blob6.png
   [Blob7]: ../../../DevCenter/dotNet/Media/blob7.png
@@ -364,3 +290,4 @@ to learn how to do more complex storage tasks.
   [CloudBlobContainer.ListBlobs]: http://msdn.microsoft.com/en-us/library/windowsazure/ee772878.aspx
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/gg433040.aspx
   [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Configuring Connection Strings]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx
