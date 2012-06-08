@@ -31,9 +31,12 @@ For information about how to use the PHP Client Libraries for Windows Azure, see
 To install the PHP Client Libraries for Windows Azure as a PEAR package, follow these steps:
 
 1. [Install PEAR][install-pear].
-2. Install the PEAR package:
+2. Set-up the Windows Azure PEAR channel:
 
-		pear install pear.windowsazure.com/WindowsAzure
+		pear channel-discover pear.windowsazure.com
+3. Install the PEAR package:
+
+		pear install pear.windowsazure.com/WindowsAzure-0.1.0
 
 After the installation completes, you can reference class libraries from your application.
 
@@ -85,7 +88,7 @@ For information about how to use the Windows Azure Command-Line Tools for Mac an
 [http-request2-package]: http://pear.php.net/package/HTTP_Request2
 [mail-mimedecode-package]: http://pear.php.net/package/Mail_mimeDecode
 [mail-mime-package]: http://pear.php.net/package/Mail_mime
-[install-pear]: http://pear.php.net/manual/en/installation.php
+[install-pear]: http://pear.php.net/manual/en/installation.getting.php
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 [download-wpi]: http://go.microsoft.com/fwlink/?LinkId=253447
