@@ -169,7 +169,6 @@ load balancing feature, see [Windows Azure Service Bus Relay Load balancing (Sca
 For more information about Service Bus Relays, see:
 
 -   [How to Use the Service Bus Relay Service][]
--   [Windows Azure Service Bus][]
 -   [Developer resources][]
 
 
@@ -564,14 +563,13 @@ Azure.
   [introduced later in this article]: #_Windows_Azure_Connect_1
   [image]: ../../../DevCenter/Shared/Media/building-hybrid-solutions-1.jpg
   [Windows Azure Service Bus Relay Load balancing (Scale & Availability Feature)]: http://blogs.msdn.com/b/avkashchauhan/archive/2011/10/27/windows-azure-appfabric-servicebus-relay-load-balancing-scale-amp-availability-feature.aspx
-  [How to Use the Service Bus Relay Service]: ../../how-to-guides/service-bus-relay/
-  [Windows Azure Service Bus]: ../../../../home/features/messaging/
+  [How to Use the Service Bus Relay Service]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-relay/
   [Developer resources]: http://msdn.microsoft.com/ServiceBus
   [1]: #Different
   [2]: ../../../DevCenter/Shared/Media/building-hybrid-solutions-2.jpg
   [3]: ../../../DevCenter/Shared/Media/building-hybrid-solutions-3.jpg
-  [How To Use Service Bus Queues]: ../../how-to-guides/service-bus-queues/
-  [How To Use Service Bus Topics/Subscriptions]: ../../how-to-guides/service-bus-topics/
+  [How To Use Service Bus Queues]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/
+  [How To Use Service Bus Topics/Subscriptions]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-topics/
   [4]: ../../../DevCenter/Shared/Media/building-hybrid-solutions-4.jpg
   [SQL Database Data (MSDN Library)]: http://msdn.microsoft.com/en-us/library/windowsazure/hh456371.aspx
   [SQL Database]: {localLink:1145} "SQL Database"
