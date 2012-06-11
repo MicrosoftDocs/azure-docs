@@ -752,10 +752,10 @@ following articles:
     by SQL Database:
     [http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx]
 
-<h2 id="Cache">Windows Azure Cache Services</h2>
-Windows Azure Caching comes in two flavors: the Windows Azure Caching service, and Windows Azure Dedicated Caching (Preview Release). The Windows Azure Caching service is a Windows Azure service that provides caching services. Windows Azure Dedicated Caching (Preview Release) provides caching on role instances by using a portion of the memory from the virtual machines that host your role instances. To troubleshooting Windows Azure Cache Services, observe the behavior of the cache by checking error codes, catching exceptions, or when using Windows Azure Dedicating Cachine, performance counters. Caching problems generally fall into one of the following categories:
+<h2 id="Cache">Windows Azure Caching>
+Windows Azure Caching comes in two flavors: the Windows Azure Shared Caching and role-based Windows Azure Caching (Preview). Shared Caching is a multitenent Windows Azure service that provides caching services. Windows Azure Caching (Preview) hosts caching on a role by using a portion of the memory from the virtual machines that host your role instances. To troubleshoot Windows Azure Caching, observe the behavior of the cache by checking error codes and catching exceptions. When using role-based Cachineg(Preview),you can also use performance counters. Caching problems generally fall into one of the following categories:
 
-- 	Quota-related errors - a quota has been exceeded
+- 	Quota-related errors - a quota has been exceeded (Shared Caching)
 - 	Throttling - occurs when there is not enough physical memory to support additional cached items
 - 	Eviction - items are forcibly evicted to make room for new items in a way that hurts application performance
 - 	Expiration - expiration times are set too short or long
