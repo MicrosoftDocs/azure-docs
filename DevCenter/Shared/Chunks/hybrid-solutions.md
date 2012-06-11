@@ -12,9 +12,9 @@ This article describes how to use Windows Azure together with on-premises resour
 -   [Windows Azure Connect][]
 -   [Conclusion][]
 
-<a name="benefits"> </a>
 
-## The Benefits of Hybrid
+
+<h2 id="benefits">The Benefits of Hybrid</h2>
 
 The cloud offers many compelling benefits to businesses and government
 agencies. These benefits include:
@@ -76,9 +76,8 @@ can be migrated to the cloud. This paper will explore several Windows
 Azure services that work well in the creation of hybrid
 applications.<a id="Different" name="Different"></a>
 
-<a name="relay"> </a>
 
-## Service Bus Relay
+<h2 id="relay">Service Bus Relay</h2>
 
 The Service Bus in Windows Azure, pictured in Figure 1, provides secure
 messaging and connectivity capabilities to facilitate the development of
@@ -173,9 +172,9 @@ For more information about Service Bus Relays, see:
 -   [Windows Azure Service Bus][]
 -   [Developer resources][]
 
-<a name="queues"> </a>
 
-## Service Bus Queues and Topics
+
+<h2 id="queues">Service Bus Queues and Topics</h2>
 
 The previous section outlined the benefit of using [Service Bus
 Relay][1] to solve application scenarios requiring immediate low-latency
@@ -257,9 +256,9 @@ For more information on Service Bus Queues and Topics, see:
     Service Bus Queues]
 2.  [How To Use Service Bus Topics/Subscriptions][]
 
-<a name="sql"> </a>
 
-## SQL Data Sync
+
+<h2 id="sql">SQL Data Sync</h2>
 
 The SQL Data Sync service can be used to keep on-premises SQL
 Server database synchronized with one or more SQL Database instances in the
@@ -293,10 +292,9 @@ For more information on SQL Data Sync, see:
 -   [SQL Database Data (MSDN Library)][]
 -   [SQL Database][]
 
-<a id="_ACS_paired_with" name="_ACS_paired_with"> </a> <a name="acs">
-</a>
+<a id="_ACS_paired_with" name="_ACS_paired_with"> </a>
 
-## Access Control Service (ACS) paired with Active Directory Federation Services (AD FS)
+<h2 id="acs">## Access Control Service (ACS) paired with Active Directory Federation Services (AD FS)</h2>
 
 Pairing the Windows Azure Access Control Service (ACS) in the cloud with
 on-premises Active Directory Federation Services (AD FS) makes it easy
@@ -439,9 +437,8 @@ claims-based security systems, see:
 -   [Windows Server 2008 R2 Active Directory Overview][]
 
 <a id="_Windows_Azure_Connect_1" name="_Windows_Azure_Connect_1"> </a>
-<a name="connect"> </a>
 
-## Windows Azure Connect
+<h2 id="connect">Windows Azure Connect</h2>
 
 The basic theme of this article on hybrid Windows Azure solutions is
 that it is impractical for organizations to store all of their resources
@@ -508,7 +505,7 @@ resources:
 
 <a name="conclusion"> </a>
 
-## Conclusion
+<h2 id="conclusion">Conclusion</h2>
 
 It is impractical for organizations to store and run all of their
 resources and applications in the cloud. There are many practical
