@@ -113,7 +113,7 @@ Before you can connect to the instance of SQL Server from the internet, you must
 
 The connection path is summarized by the following diagram:
 
-    ![Connecting to a SQL Server virtual machine] [Image8b]
+![Connecting to a SQL Server virtual machine][Image8b]
 
 <h3 id="Endpoint">Create a TCP endpoint for the virtual machine</h3>
 

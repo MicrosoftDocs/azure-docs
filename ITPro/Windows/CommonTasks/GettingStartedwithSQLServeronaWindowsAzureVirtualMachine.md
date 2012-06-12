@@ -81,7 +81,7 @@ Before you can connect to the instance of SQL Server from the internet, the foll
 - Create a TCP endpoint for the virtual machine.
 - Determine the DNS name of the virtual machine.
 
-    ![Connection Path] [Image1]
+![Connection Path] [Image1]
 
 For more information, see the step-by-step instructions in [Provision a SQL Server Virtual Machine on Windows Azure](../install-sql-server).
  
