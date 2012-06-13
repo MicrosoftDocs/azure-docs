@@ -128,7 +128,7 @@ While the above example illustrates how to return all rows at once in the result
 
 <h2 id="Deploy">Windows Azure deployment considerations</h2>
 
-When deploying a Node.js application that uses the node-sqlserver module to Windows Azure, you must ensure that your deployment contains a compiled, Windows compatable version of the module in the **node\_modules** directory. The directory structure should appear as follows:
+When deploying a Node.js application that uses the node-sqlserver module to Windows Azure, you must ensure that your deployment contains a compiled, Windows compatible version of the module in the **node\_modules** directory. The directory structure should appear as follows:
 
 	application directory
 		node_modules
