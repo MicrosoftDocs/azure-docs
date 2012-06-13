@@ -437,15 +437,14 @@ In this section you will create a Windows Azure web site.
 4. Select a region.
 5. Click **Create Web Site**.
 ![Create a new web site][Image7]
-6. Your web site will be created quickly.
-7. Click the **Name** of your site, then **Dashboard**.
+6. Your web site will be created quickly and will be listed in **Web sites**.
 ![Dashboard][Image8]
 
 ### Deploy the ASP.NET application using Git
 In this section you will deploy the Task List application using Git.
 
-1. Click **Set up Git publishing** at the bottom of the *Dashboard* page for the *mytasklistapp* site. 
-2. Enter a user name and password. Make note of the instructions on the resulting page as they will be used in the next section.
+1. Click your web site name in **Web sites**, then click **Dashboard**.  Click **Set up Git publishing** at the bottom of the **Dashboard** page for the **mytasklistapp** site. 
+2. Enter a user name and password in the **New user name and password** page and click the checkmark. Make note of the instructions on the resulting page as they will be used in the next section.
 3. The Git repository should be created quickly.
 
 	![Git Repository is Ready][Image9]
@@ -457,7 +456,7 @@ In this section you will deploy the Task List application using Git.
 7. Add the remote Windows Azure repository and push your files to the Windows Azure web site by following the instructions in step 3.
 8. When the deployment has completed you will see the following confirmation:
 	![Deployment Complete][Image11]
-9. Your Windows Azure web site is now available.  Check the **Dashboard** page for your site and the **Site URL** field to find the URL for your site. Following the procedures in this tutorial, your site would be available at this URL: <a href="http://mytasklistapp.cloudapp.net">http://mytasklistapp.cloudapp.net</a>.
+9. Your Windows Azure web site is now available.  Check the **Dashboard** page for your site and the **Site URL** field to find the URL for your site. Following the procedures in this tutorial, your site would be available at this URL: <a href="http://mytasklistapp.azurewebsites.net">http://mytasklistapp.azurewebsites.net</a>.
 
 ##Summary
 
