@@ -24,11 +24,12 @@ Windows Azure SQL Database provides a relational database management system for 
 
 The Microsoft Driver for Node.JS for SQL Server allows developers to access data stored in Microsoft SQL Server or Windows Azure SQL Database from a Node.js application. The driver is currently a preview release only; additional features will be integrated into the project as they are completed. For more information on the driver, see the Microsoft Driver for Node.JS for SQL Server project's [Github page] and the associated [Wiki].
 
+<div class="dev-callout">
+<b>Note</b>
+<p>The Microsoft Driver for Node.JS for SQL Server is currently available as a preview release, and relies on run-time components that are only available on the Microsoft Windows and Windows Azure operating systems.</p>
+</div>
+
 <h2 id="Setup">How to: Setup your environment</h2>
-
-###Install Python
-
-The Microsoft SQL Server Driver for Node.js is a native module and is built during install using node-gyp. Since node-gyp relies on Python must also have a working installation of Python. Python is available directly from [www.python.org](www.python.org) or through various distributions such as [www.enthought.com](www.enthought.com) or [www.ActiveState.com](www.ActiveState.com). It may also ship as part of your operating system. If no distribution is available for your operating system, you can also build Python from source.
 
 ###Install the SQL Server Native Client
 
@@ -84,9 +85,18 @@ In the ODBC section of the resulting window, make note of the values for connect
 
 ###Install node-sqlserver
 
-The Microsoft Driver for Node.JS for SQL Server can be installed using the npm utility. The following command will install the node-sqlserver module:
+The Microsoft Driver for Node.JS for SQL Server is available as the node-sqlserver native module. A binary version of this module is available from the [download center]. To use the binary version, perform these steps:
 
-	npm install node-sqlserver
+1. Extract the binary archive to the **node\_modules** directory for your application.
+2. Run the **node-sqlserver-install.cmd** file extracted from the archive. This will create a **node-sqlserver** subdirectory under **node\_modules** and move the driver files into this new directory structure.
+3. Delete the **node-sqlserver-install.cmd** file, as it is no longer needed.
+
+  
+
+<div class="dev-callout">
+<b>Note</b>
+<p>You can also install the node-sqlserver module using the npm utility; however this will invoke node-gyp to build a binary version of the module on your system.</p>
+</div>
 
 ###Specify the connection string
 
@@ -128,14 +138,14 @@ While the above example illustrates how to return all rows at once in the result
 
 <h2 id="Deploy">Windows Azure deployment considerations</h2>
 
-When deploying a Node.js application that uses the node-sqlserver module to Windows Azure, you must ensure that your deployment contains a compiled, Windows compatible version of the module in the **node\_modules** directory. The directory structure should appear as follows:
+Windows Azure will not dynamically install the node-sqlserver module at runtime, so you must ensure that your application deployment includes a binary version of the module. You can verify that your deployment does contain a binary version of the module by ensuring that the following directory structure exists, and contains the files described below:
 
 	application directory
 		node_modules
 			node-sqlserver
 				lib
 
-The **node-sqlserver** directory should contain a package.json file. The **lib** directory should contain a **sql.js* and a **sqlserver.node** file, which is the compiled form of the node-sqlserver module.
+The **node-sqlserver** directory should contain a **package.json** file. The **lib** directory should contain a **sql.js** and a **sqlserver.node** file, which is the compiled form of the node-sqlserver module.
 
 For more information on deploying a Node.js application to Windows Azure, see [Create and deploy a Node.js application to a Windows Azure Web Site] and [Node.js Cloud Service].
 
@@ -153,6 +163,7 @@ For more information on deploying a Node.js application to Windows Azure, see [C
 [Installing Python and the SDK]: /en-us/develop/python/common-tasks/install-python/
 [Microsoft SQL Server 2012 Feature Pack]: http://www.microsoft.com/en-us/download/details.aspx?id=29065
 [preview-portal]: https://manage.windowsazure.com
+[download center]: http://www.microsoft.com/en-us/download/details.aspx?id=29995
 
 [new-website]: ../../Shared/Media/new_website.jpg
 [custom-create]: ../../Shared/Media/create_custom_sql_db.jpg
