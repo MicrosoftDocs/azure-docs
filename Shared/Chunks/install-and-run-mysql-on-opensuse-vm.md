@@ -6,7 +6,7 @@
 
 2. Run the following command to install MySQL Community Server edition:
 
-		# yast2 --install mysql-community-server
+		# zypper install mysql-community-server
 
 	Wait while MySQL downloads and installs.
 3. To set MySQL to start when the system boots, execute the following command:
