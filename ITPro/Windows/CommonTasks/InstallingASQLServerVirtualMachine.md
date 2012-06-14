@@ -113,7 +113,7 @@ Before you can connect to the instance of SQL Server from the internet, you must
 
 The connection path is summarized by the following diagram:
 
-    ![Connecting to a SQL Server virtual machine] [Image8b]
+![Connecting to a SQL Server virtual machine][Image8b]
 
 <h3 id="Endpoint">Create a TCP endpoint for the virtual machine</h3>
 
@@ -346,7 +346,7 @@ For more information about migrating a database to Windows Azure, see [Guide to 
 
 ### Turn off write caching ###
 
-For best performance, the Database Engine requires write caching to be OFF for both data and operating system disks. OFF is the default setting for data disks, for both read and write operations. However, ON is the default write caching setting for the operating system disk. New users who are evaluating performance on a simple single disk system should configure write caching to be OFF for the operating system disk. For instructions on configuring write caching, see [How to Use PowerShell for Windows Azure](http://go.microsoft.com/fwlink/?LinkId=254236).
+For best performance, the Database Engine requires write caching to be OFF for both data and operating system disks. OFF is the default setting for data disks, for both read and write operations. However, ON is the default write caching setting for the operating system disk. New users who are evaluating performance on a simple single disk system should configure write caching to be OFF for the operating system disk. Use PowerShell and the **Set-AzureOSDisk** cmdlet. For instructions on configuring write caching, see [How to Use PowerShell for Windows Azure](http://go.microsoft.com/fwlink/?LinkId=254236), and [Set-AzureOSDisk](http://msdnstage/en-us/library/jj152847). For setting the write caching of a data disk, see [Set-AzureDataDisk](http://msdnstage/en-us/library/jj152851).
 
 ### Create database users ###
 
@@ -355,6 +355,22 @@ To have access to a user database, logins that are not members of the sysadmin f
 ### Adding additional instances of the Database Engine ###
 
 The SQL Server setup media is saved on the virtual machine in the C:\SqlServer_11.0_Full directory. Run setup from this directory to perform any setup actions including add or remove features, add a new instance, repair the instance, etc.
+
+
+###Links to additional information###
+
+* [Getting started with SQL Server on a Windows Azure virtual machine](http://go.microsoft.com/fwlink/p/?LinkID=242213) 
+* [Running SQL Server in Windows Azure Virtual Machine - Performance Guidelines for Preview](http://go.microsoft.com/fwlink/?LinkID=254744)
+* [Migrating with Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156159)
+* [How to Attach a Data Disk to a Virtual Machine](http://www.windowsazure.com/en-us/manage/windows/how-to-guides/attach-a-disk/)
+* To change the size of a VM, see [Set-AzureVMSize](http://msdn.microsoft.com/en-us/library/windowsazure/jj152814)
+* [SQL Server in Windows Azure Virtual Machine Early Adoption Cook Book](http://social.technet.microsoft.com/wiki/contents/articles/11554.sql-server-in-windows-azure-virtual-machine-early-adoption-cook-book-en-us.aspx)
+* [Migrating Data-Centric Applications to Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj156154)
+* [How to guides for Windows virtual machines](http://www.windowsazure.com/en-us/manage/windows/how-to-guides/)
+* [Support policy for Microsoft SQL Server products that are running in a hardware virtualization environment](http://support.microsoft.com/kb/956893)
+* [Pricing Details](https://www.windowsazure.com/en-us/pricing/details/)
+* [Pricing Calculator](http://www.windowsazure.com/en-us/pricing/calculator/?scenario=virtual-machines)
+* [Windows Azure Storage Service Level Agreement](http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=6656)
 
 
 [Image1]: ../media/1Login.png
