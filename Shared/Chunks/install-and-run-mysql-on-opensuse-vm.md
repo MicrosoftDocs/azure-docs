@@ -69,6 +69,10 @@
 
 14. To remotely connect to MySQL running on your OpenSUSE virtual machine in Windows Azure, run the following command on your local computer:
 
+		mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
+
+	For example, using the virual machine we created in this tutorial, the command would be:
+
 		mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
 15. You've successfully configured MySQL, created a database, and a new user.  For more information on MySQL, see the [MySQL Documentation][MySQLDocs].	
