@@ -138,6 +138,11 @@ While the above example illustrates how to return all rows at once in the result
 
 <h2 id="Deploy">Windows Azure deployment considerations</h2>
 
+<div class="dev-callout">
+<b>Note</b>
+<p>The following information is based off of a preview release of the Microsoft Driver for Node.JS for SQL Server. The information in this section may not be the most recent information on using the node-sqlserver module with Windows Azure. For the most recent information on the <a href="https://github.com/WindowsAzure/node-sqlserver">Microsoft Driver for Node.JS for SQL Server project page</a> on Github.</p>
+</div>
+
 Windows Azure will not dynamically install the node-sqlserver module at runtime, so you must ensure that your application deployment includes a binary version of the module. You can verify that your deployment does contain a binary version of the module by ensuring that the following directory structure exists, and contains the files described below:
 
 	application directory
