@@ -6,7 +6,7 @@
 
 2. Run the following command to install MySQL Community Server edition:
 
-		# yast2 --install mysql-community-server
+		# zypper install mysql-community-server
 
 	Wait while MySQL downloads and installs.
 3. To set MySQL to start when the system boots, execute the following command:
@@ -68,6 +68,10 @@
 	![Endpoints][Image9]
 
 14. To remotely connect to MySQL running on your OpenSUSE virtual machine in Windows Azure, run the following command on your local computer:
+
+		mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
+
+	For example, using the virual machine we created in this tutorial, the command would be:
 
 		mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 

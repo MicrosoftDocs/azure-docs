@@ -54,7 +54,7 @@ If you are using a Windows computer, connect to the VM using PuTTY. PuTTY can be
 ##Update the Virtual Machine (optional)
 1. Once you've connected to the virtual machine, you can optionally install system updates and patches. Run:
 
-	`# yast2`
+	`$ sudo zypper update`
 
 2. Select **Software** then **Online Update**.  A list of updates is displayed.  Select **Accept** to start the installation and apply all new patches (except the optional ones) that are currently available for your system. 
 
