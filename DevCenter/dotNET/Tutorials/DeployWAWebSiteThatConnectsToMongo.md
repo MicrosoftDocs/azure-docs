@@ -55,12 +55,6 @@ This tutorial uses Microsoft Visual Studio 2010.  You can also use Microsoft Vis
 
 If you're using Visual Web Developer 2010 instead of Visual Studio 2010, install the prerequisites by clicking the following link: [Visual Studio Web Developer Express SP1 prerequisites] [VsWebExpressPreReqs] 
 
-###Install the MongoDB C# driver
-
-MongoDB offers client-side support for C# applications through a driver, which you need to install on your local development computer. The C# driver is hosted at github.com. You can download the most recent binary builds in .msi format from: [Downloads][MongoCSharpDriverDownload].
-
-Download the .msi file and double-click it to run the setup program, which will install the C# driver DLLs to the *C:\Program Files (x86)\MongoDB\CSharp Driver 1.x* directory (the exact path may vary on your system).
-
 ## Create the Task List ASP.NET application and run it  
 
 In this section you will create the Task List ASP.NET application using Visual Studio.  You will also run the application locally against the MongoDB instance you created in the virtual machine hosted on Windows Azure.
@@ -78,18 +72,29 @@ Click **OK**.
 
 ![New Internet Application][Image1]
 
-###Add references to the C# MongoDB drivers
-In **Solution Explorer**, right-click the **References** folder and select **Add Reference...**. Click **Browse** and then navigate to *C:\Program Files (x86)\MongoDB\CSharp Driver 1.x* (or the path that the drivers were installed to). Select **MongoDB.Driver.dll** and **MongoDB.Bson.dll** and click **OK**.
+###Install the MongoDB C# driver
 
-![Add a reference to the C# MongoDB drivers][Image2]
+MongoDB offers client-side support for C# applications through a driver, which you need to install on your local development computer. The C# driver is available through NuGet.
 
-In **Solution Explorer**, right-click the *References/MongoDB.Bson* file and select **Properties**.  In the **Properties** frame, set **Copy Local** to **True**.
+To install the MongoDB C# driver:
 
-![Set MongoDB.Bson Copy Local to True][Image2.1]
+1. In **Solution Explorer**, right-click the **MyTaskListApplication** project references and select **Add Library Package Reference...**.
 
-In **Solution Explorer**, right-click the *References/MongoDB.Driver* file and select **Properties**.  In the **Properties** frame, set **Copy Local** to **True**.
+	![Add Library Package Reference][Image2]
 
-![Set MongoDB.Driver Copy Local to True][Image2.2]
+2. In the **Add Library Package Reference** window, click **Online** and then search for "mongocsharpdriver".  Click **Install** to install the driver.
+
+	![Search for MongoDB C# Driver][Image2.1]
+
+3. Click **I Accept** to accept the 10gen, Inc. license terms.
+
+4. Click **Close** after the driver has installed.
+	![MongoDB C# Driver Installed][Image2.2]
+
+
+The MongoDB C# driver is now installed.  References to the **MongoDB.Driver.dll** and **MongoDB.Bson.dll** libraries have been added to the project.
+
+![MongoDB C# Driver References][Image2.3]
 
 ###Add a model
 In **Solution Explorer**, right-click the *Models* folder and **Add** a new **Class** *TaskModel.cs*.  In *TaskModel.cs*, replace the existing code with the following code:
@@ -140,7 +145,6 @@ In **Solution Explorer**, right-click the *MyTaskListApp* project and **Add** a 
 	    public class Dal : IDisposable
 	    {
 	        private MongoServer mongoServer = null;
-	        private MongoDatabase database = null;
 	        private bool disposed = false;
 	
 	        // To do: update the connection string with the DNS name
@@ -483,8 +487,9 @@ You have now successfully deployed your ASP.NET application to a Windows Azure w
 [Image00]: ../../../DevCenter/dotNET/Media/NewProject.png
 [Image1]: ../../../DevCenter/dotNET/Media/NewProject2.png
 [Image2]: ../../../DevCenter/dotNET/Media/AddReference.png
-[Image2.1]: ../../../DevCenter/dotNET/Media/MongoDbBsonCopyLocal.png
-[Image2.2]: ../../../DevCenter/dotNET/Media/MongoDbDriverCopyLocal.png
+[Image2.1]: ../../../DevCenter/dotNET/Media/AddReference2.png
+[Image2.2]: ../../../DevCenter/dotNET/Media/AddReference3.png
+[Image2.3]: ../../../DevCenter/dotNET/Media/AddReference4.png
 [Image3]: ../../../DevCenter/dotNET/Media/SolnExplorer.png
 [Image4]: ../../../DevCenter/dotNET/Media/TaskListAppBlank.png
 [Image7]: ../../../DevCenter/dotNET/Media/NewWebSite.png
