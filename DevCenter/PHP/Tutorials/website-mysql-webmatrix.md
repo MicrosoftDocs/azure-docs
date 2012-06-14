@@ -59,14 +59,14 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
-	<p>In the preview release of Windows Azure Websites, you cannot create a MySQL Database for a website *after* creating the website. You must create a website and a MySQL database as described in the steps below.</p> 
+	<p>In the preview release of Windows Azure Websites, you cannot create a MySQL Database for a website <i>after</i> creating the website. You must create a website and a MySQL database as described in the steps below.</p> 
 	</div>
 
 4. Enter a value for **URL**, select **Create a New MySQL Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
 
 	![Fill in Website details][website-details]
 
-4. Enter a value for the **NAME** of your database, select the data center for your database in the **REGION** dropdown, and check the box that indicates you agree with the legal terms. Click the checkmark at the bottom of the dialog.
+5. Enter a value for the **NAME** of your database, select the data center for your database in the **REGION** dropdown, and check the box that indicates you agree with the legal terms. Click the checkmark at the bottom of the dialog.
 
 	![Create new MySQL database][new-mysql-db]
 
@@ -74,31 +74,20 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 	Next, you need to get the MySQL connection information.
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>Obtaining the MySQL connection information from the `.publishsettings` file, as described in the following steps, is only necessary in the preview release of Windows Azure Websites.</p> 
-	</div>
 
-5. Click the name of the website displayed in the list of websites to open the website’s Quick Start page.
+6. Click the name of the website displayed in the list of websites to open the website’s Quick Start page.
 
 	![Open website dashboard][go-to-dashboard]
 
-6. From Quick Start page, click the **Download publish profile** link:
+7. Click the **CONFIGURE** tab:
 
-	![Download publish profile][download-publish-profile]
+	![Configure tab][configure-tab]
 
-7. Open the `.publishsettings` file in an XML editor. The `<databases>` element will look similar to this:
+8. Scroll down to the **connection strings** section. The values for `Database`, `Data Source`, `User Id`, and `Password` are (respectively) the database name, server name, user name, and user password. Make note of the database connection information as it will be needed later.
 
-		<databases>
-	      <add name="tasklist" 
-	           connectionString="Database=tasklist;Data Source=us-mm-azure-ord-01.cleardb.com;User Id=e02c62383bffdd;Password=0fc50b7e" 
-	           providerName="MySql.Data.MySqlClient" 
-	           type="MySql"/>
-	    </databases>
-	
-8. The `connectionString` attribute in the `<add>` element contains your database connection information. The values for `Database`, `Data Source`, `User Id`, and `Password` are (respectively) the database name, server name, user name, and user password. Make note of the database connection information as it will be needed later.
+	![Connection string][connection-string]
 
-##Install WebMatrix
+##Install WebMatrix and develop your application
 
 You can install WebMatrix from the [Preview Management Portal][preview-portal]. 
 
@@ -120,23 +109,21 @@ You can install WebMatrix from the [Preview Management Portal][preview-portal].
 
 	![Provide name for site][site-from-template-2]
 
-Your site will be opened on WebMatrix with some default files in place.
+	Your site will be opened on WebMatrix with some default files in place.
 
-##Develop your application
+	In the next few steps you will develop the Tasklist application by adding the files you downloaded earlier and making a few modifications. You could, however, add your own existing files or create new files.
 
-In the next few steps you will develop the Tasklist application by adding the files you downloaded earlier and making a few modifications. You could, however, add your own existing files or create new files.
-
-1. With your site open in WebMatrix, click **Files**:
+5. With your site open in WebMatrix, click **Files**:
 
 	![WebMatrix - Click files][site-in-webmatrix]
 
-2. Add your application files by clicking **Add Existing**:
+6. Add your application files by clicking **Add Existing**:
 
 	![WebMatrix - Add existing files][add-existing-files]
 
 	In the resulting dialog, navigate to the files you downloaded earlier, select all of them, and click Open. When propted, choose to replace the `index.php` file. 
 
-3. Next, you need to add your local MySQL database connection information to the `taskmodel.php` file. Open the  `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function. (**Note**: Jump to [Publish Your Application](#Publish) if you do not want to test your application locally and want to instead publish directly to Windows Azure Web Sites.)
+7. Next, you need to add your local MySQL database connection information to the `taskmodel.php` file. Open the  `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function. (**Note**: Jump to [Publish Your Application](#Publish) if you do not want to test your application locally and want to instead publish directly to Windows Azure Web Sites.)
 
 		// DB connection info
 		$host = "localhost";
@@ -146,11 +133,11 @@ In the next few steps you will develop the Tasklist application by adding the fi
 
 	Save the `taskmodel.php` file.
 
-10. For the application to run, the `items` table needs to be created. Right click the `createtable.php` file and select **Launch in browser**. This will launch `createtable.php` in your browser and execute code that creates the `items` table in the `tasklist` database.
+8. For the application to run, the `items` table needs to be created. Right click the `createtable.php` file and select **Launch in browser**. This will launch `createtable.php` in your browser and execute code that creates the `items` table in the `tasklist` database.
 
 	![WebMatrix - Launch createtable.php in browser][webmatrix-launchinbrowser]
 
-11. Now you can test the application locally. Right click the `index.php` file and select **Launch in browser**. Test the application by adding items, marking them complete, and deleting them.  
+9. Now you can test the application locally. Right click the `index.php` file and select **Launch in browser**. Test the application by adding items, marking them complete, and deleting them.  
 
 
 <h2 id="Publish">Publish your application</h2>
@@ -232,3 +219,5 @@ You've seen how to create and deploy a web site from WebMatrix to Windows Azure.
 [site-in-webmatrix]: ../Media/site-in-webmatrix.png
 [add-existing-files]: ../Media/add-existing-files.png
 [publish]: ../Media/publish.png
+[configure-tab]: ../Media/configure-tab.png
+[connection-string]: ../Media/connection-string.png
