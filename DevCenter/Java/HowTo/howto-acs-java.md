@@ -279,7 +279,7 @@ In the **Login Page Integration: Azure Web App** page, the URL listed in **Optio
 5. When the index.jsp file opens in Eclipse, add in text to display **Hello ACS World!** within the existing `<body>` element. Your updated `<body>` content should appear as the following:
 
         <body>
-          <b><% out.println("Hello World!"); %></b>
+          <b><% out.println("Hello ACS World!"); %></b>
         </body>
     
     Save index.jsp.
