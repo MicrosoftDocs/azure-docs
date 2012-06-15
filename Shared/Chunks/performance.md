@@ -93,13 +93,6 @@ One of the most frequently partitioned resources is data. If you are creating a 
 
 Be sure to build a proof of concept to determine that Federations provides the needed partitioning for your application. If SQL Database Federations does not meet your scalability requirements, there are numerous examples of “do-it-yourself” partitioning that you can research. 
 
-##### Federations Design Tradeoffs #####
-
-It is important to understand the design trade-offs that use of Federations involves. These trade-offs may also be present with "do-it-yourself" partitioning schemes.
-
-Federations is easiest to implement for new development, and for existing applications with databases that contain a relatively small number of tables, because Federations requires changes to the database schema as well as corresponding changes to the application layer (for example, Entity Framework code) described below. When you have a large existing database with hundreds of tables,  the required changes can be extensive. 
-
-
 ##### Design Tasks for SQL Federations #####
 
 For an overview of SQL Database Federations, see [Federations in SQL Database]( http://go.microsoft.com/fwlink/?LinkId=252668). 
