@@ -13,7 +13,7 @@ This guide will show you how to use the Windows Azure Access Control Service (AC
 -   [Add identity providers][]
 -   [Add a relying party application][]
 -   [Create rules][]
--   [Update a certificate to your ACS namespace][]
+-   [Upload a certificate to your ACS namespace][]
 -   [Review the Application Integration Page][]
 -   [Create a Java web application][]
 -   [Add the ACS Filter library to your application][]
@@ -230,7 +230,7 @@ token, without filtering or modifying them.
     Live ID is checked and then click **Generate**.
 5.  On the **Edit Rule Group** page, click **Save**.
 
-## <a name="upload-certificate">Update a certificate to your ACS namespace</a>
+## <a name="upload-certificate">Upload a certificate to your ACS namespace</a>
 
 In this task, you upload a .PFX certificate that will be used to sign token requests created by your ACS namespace.
 
@@ -365,7 +365,7 @@ To further explore ACS's functionality and to experiment with more sophisticated
 [Add Identity Providers]: #add-IP
 [Add a Relying Party Application]: #add-RP
 [Create Rules]: #create-rules
-[Update a certificate to your ACS namespace]: #upload-certificate
+[Upload a certificate to your ACS namespace]: #upload-certificate
 [Review the Application Integration Page]: #review-app-int
 [Configure Trust between ACS and Your ASP.NET Web Application]: #config-trust
 [Add the ACS Filter library to your application]: #add_acs_filter_library
