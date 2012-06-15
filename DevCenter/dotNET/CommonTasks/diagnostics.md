@@ -251,7 +251,7 @@ custom log data.
     the object:
 
         DirectoryConfiguration dirConfig = new DirectoryConfiguration();
-        dirConfig.Container = "wad-mycustomlogs-container";
+        dirConfig.Container = "diagnotics-mycustomlogs-container";
         dirConfig.DirectoryQuotaInMB = localResource.MaximumSizeInMegabytes;
         dirConfig.Path = localResource.RootPath;
 
