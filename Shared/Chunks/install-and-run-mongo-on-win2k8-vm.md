@@ -1,3 +1,8 @@
+Follow these steps to install and run MongoDB on a VM running Windows Server 2008 R2.
+<div class="dev-callout">
+<b>Warning</b>
+<p>MongoDB security features, such as authentication and IP address binding, are not enabled by default. Security features should be enabled before deploying MongoDB to a production environment.  See <a href="http://www.mongodb.org/display/DOCS/Security+and+Authentication">Security and Authentication</a> for more information.</p>
+</div>
 
 1. After you've connected to the virtual machine using Remote Desktop, open Internet Explorer from the **Start** menu.
 2. Select the **Tools** button in the upper right corner.  In **Internet Options**, select the **Security** tab, and then select the **Trusted Sites** icon, and finally click the **Sites** button. Add *http://\*.mongodb.org* to the list of trusted sites.
