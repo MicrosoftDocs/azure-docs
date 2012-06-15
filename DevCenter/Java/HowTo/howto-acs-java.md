@@ -1,4 +1,4 @@
-<properties linkid="dev-java-how-to-use-acs-java" urldisplayname="Access Control" headerexpose="" pagetitle="How to Use the Access Control Service from Java" metakeywords="Azure Access Control Service Java" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-java-how-to-use-acs-java" urldisplayname="Access Control" headerexpose="" pagetitle="How to Use the Access Control Service from Eclipse" metakeywords="Azure Access Control Service Java" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Authenticate Web Users with Windows Azure Access Control Service Using Eclipse
 
@@ -13,7 +13,7 @@ This guide will show you how to use the Windows Azure Access Control Service (AC
 -   [Add identity providers][]
 -   [Add a relying party application][]
 -   [Create rules][]
--   [Update a certificate to your ACS namespace][]
+-   [Upload a certificate to your ACS namespace][]
 -   [Review the Application Integration Page][]
 -   [Create a Java web application][]
 -   [Add the ACS Filter library to your application][]
@@ -230,7 +230,7 @@ token, without filtering or modifying them.
     Live ID is checked and then click **Generate**.
 5.  On the **Edit Rule Group** page, click **Save**.
 
-## <a name="upload-certificate">Update a certificate to your ACS namespace</a>
+## <a name="upload-certificate">Upload a certificate to your ACS namespace</a>
 
 In this task, you upload a .PFX certificate that will be used to sign token requests created by your ACS namespace.
 
@@ -240,7 +240,7 @@ In this task, you upload a .PFX certificate that will be used to sign token requ
     1. In the **User for** section, click **Relying Party Application** and select **Azure Web App** (which you previously set as the name of your relying party application).
     2. In the **Type** section, select **X.509 Certificate**.
     3. In the **Certificate** section, click the browse button and navigate to the X.509 certificate file that you want to use. This will be a .PFX file. Select the file, click **Open**,  and then enter the certificate password in the **Password** text box.
-    4. Ensure that **Primary** is checked. Your **Add Token-Signing Certificate or Key** page should look similar to the following.
+    4. Ensure that **Make Primary** is checked. Your **Add Token-Signing Certificate or Key** page should look similar to the following.
         ![Add token-signing certificate][add_token_signing_cert]
     5. Click **Save** to save your settings and close the **Add Token-Signing Certificate or Key** page.
 
@@ -279,7 +279,7 @@ In the **Login Page Integration: Azure Web App** page, the URL listed in **Optio
 5. When the index.jsp file opens in Eclipse, add in text to display **Hello ACS World!** within the existing `<body>` element. Your updated `<body>` content should appear as the following:
 
         <body>
-          <b><% out.println("Hello World!"); %></b>
+          <b><% out.println("Hello ACS World!"); %></b>
         </body>
     
     Save index.jsp.
@@ -365,7 +365,7 @@ To further explore ACS's functionality and to experiment with more sophisticated
 [Add Identity Providers]: #add-IP
 [Add a Relying Party Application]: #add-RP
 [Create Rules]: #create-rules
-[Update a certificate to your ACS namespace]: #upload-certificate
+[Upload a certificate to your ACS namespace]: #upload-certificate
 [Review the Application Integration Page]: #review-app-int
 [Configure Trust between ACS and Your ASP.NET Web Application]: #config-trust
 [Add the ACS Filter library to your application]: #add_acs_filter_library
@@ -376,23 +376,23 @@ To further explore ACS's functionality and to experiment with more sophisticated
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
 [Windows Azure Management Portal]: http://windows.azure.com
-[acs_flow]: Media\ACSFlow.png
-[portal_home_image]: Media\PortalHomeImage.png
-[portal_sb_acs_caching]: Media\PortalSBACSCaching.png
-[new_acs_namespace]: Media\NewACSNamespace.png
-[new_acs_namespace_dialog]: Media\NewACSNamespaceDialog.png
-[acs_home_page]: Media\ACSHomePage.png
+[acs_flow]: ../Media/ACSFlow.png
+[portal_home_image]: ../Media/PortalHomeImage.png
+[portal_sb_acs_caching]: ../Media/PortalSBACSCaching.png
+[new_acs_namespace]: ../Media/NewACSNamespace.png
+[new_acs_namespace_dialog]: ../Media/NewACSNamespaceDialog.png
+[acs_home_page]: ../Media/ACSHomePage.png
 
 <!-- Eclipse-specific -->
-[add_acs_filter_lib]: Media\AddACSFilterLibrary.png
-[add_acs_filter_lib_emulator]: Media\AddACSFilterLibraryEmulator.png
-[add_acs_filter_lib_production]: Media\AddACSFilterLibraryProduction.png
-[new_azure_deployment]: Media\NewAzureDeployment.png
-[relying_party_realm_emulator]: Media\RelyingPartyRealmEmulator.png
-[relying_party_return_url_emulator]: Media\RelyingPartyReturnURLEmulator.png
-[relying_party_realm_production]: Media\RelyingPartyRealmProduction.png
-[relying_party_return_url_production]: Media\RelyingPartyReturnURLProduction.png
-[add_cert_component]: Media\AddCertificateComponent.png
-[add_jsp_file_acs]: Media\AddJSPFileACS.png
-[create_acs_hello_world]: Media\CreateACSHelloWorld.png
-[add_token_signing_cert]: Media\AddTokenSigningCertificate.png
+[add_acs_filter_lib]: ../Media/AddACSFilterLibrary.png
+[add_acs_filter_lib_emulator]: ../Media/AddACSFilterLibraryEmulator.png
+[add_acs_filter_lib_production]: ../Media/AddACSFilterLibraryProduction.png
+[new_azure_deployment]: ../Media/NewAzureDeployment.png
+[relying_party_realm_emulator]: ../Media/RelyingPartyRealmEmulator.png
+[relying_party_return_url_emulator]: ../Media\RelyingPartyReturnURLEmulator.png
+[relying_party_realm_production]: ../Media/RelyingPartyRealmProduction.png
+[relying_party_return_url_production]: ../Media/RelyingPartyReturnURLProduction.png
+[add_cert_component]: ../Media/AddCertificateComponent.png
+[add_jsp_file_acs]: ../Media/AddJSPFileACS.png
+[create_acs_hello_world]: ../Media/CreateACSHelloWorld.png
+[add_token_signing_cert]: ../Media/AddTokenSigningCertificate.png
