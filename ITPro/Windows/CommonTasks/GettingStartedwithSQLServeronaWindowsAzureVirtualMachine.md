@@ -18,7 +18,7 @@ In this topic contains:
 - [Next steps](#Next)
 - [Links to additional information](#Links)
 
-For a step-by-step tutorial on installing a virtual machine and connecting to SQL Server, see [Provision a SQL Server virtual machine on Windows Azure](http://go.microsoft.com/fwlink/?LinkID=251117).
+For a step-by-step tutorial on installing a virtual machine and connecting to SQL Server, see [Provision a SQL Server virtual machine on Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=248281).
 
 <h2 id="About">About this virtual machine image</h2>
 
@@ -115,7 +115,7 @@ Your existing database can be moved to this new instance of the Database Engine 
 - Create scripts of the source database, and execute the scripts on this new instance of SQL Server.
 - By using Copy Database Wizard in Management Studio.
 
-For more information about migrating a database to SQL Server on a Windows Azure virtual machine, see [Guide to Migrating Existing applications and Databases to Windows Azure](http://go.microsoft.com/fwlink/?LinkId=249158) and migration steps near the end of [Provision a SQL Server virtual machine on Windows Azure](../install-sql-server).
+For more information about migrating a database to SQL Server on a Windows Azure virtual machine, see [Guide to Migrating Existing applications and Databases to Windows Azure](http://go.microsoft.com/fwlink/?LinkId=249158) and migration steps near the end of [Provision a SQL Server virtual machine on Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=248281).
 
 ### Turn off write caching
 
@@ -131,7 +131,7 @@ The SQL Server setup media is saved on the virtual machine in the **C:\SQLServer
 
 <h2 id="Links">Links to additional information</h2>
 
-* [Provision a SQL Server virtual machine on Windows Azure](http://go.microsoft.com/fwlink/?LinkID=251117)
+* [Provision a SQL Server virtual machine on Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=248281)
 * [Running SQL Server in Windows Azure Virtual Machine - Performance Guidelines for Preview](http://go.microsoft.com/fwlink/?LinkID=254744)
 * [Migrating with Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156159)
 * [How to Attach a Data Disk to a Virtual Machine](http://www.windowsazure.com/en-us/manage/windows/how-to-guides/attach-a-disk/)

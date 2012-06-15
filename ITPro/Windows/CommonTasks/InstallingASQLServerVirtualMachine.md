@@ -85,12 +85,10 @@ In this tutorial you will:
 
 <h2 id="RemoteDesktop">Open the virtual machine using Remote Desktop and complete setup</h2>
 
-1. On the Windows Azure Management Portal, select your virtual machine, and select the DASHBOARD page.
+1. When provisionion completes, click on the name of your virtual machine to go to the DASHBOARD page. At the bottom of the page, click **Connect**.
 
-	![Select Dashboard Page] [Image31]
-2. At the bottom of the page, click **Connect**.
-
-3. Choose to open the rpd file using the Windows Remote Desktop program (`%windir%\system32\mstsc.exe`).
+	![Select Dashboard Page] [Image5b]
+2. Choose to open the rpd file using the Windows Remote Desktop program (`%windir%\system32\mstsc.exe`).
 
 	![Click Open] [Image8]
 3. At the **Windows Security** dialog box, provide the password for the **Administrator** account that you specified in an earlier step. (You might be asked to verify the credentials of the virtual machine.)
@@ -127,11 +125,11 @@ The virtual machine must have an endpoint to listen for incoming TCP communicati
 
 	![Click the VM] [Image27]
 
-3. Near the top of the page, select the **ENDPOINTS** page, and then click **ADD ENDPOINT**.
+3. Near the top of the page, select the **ENDPOINTS** page, and then at the bottom of the page, click **ADD ENDPOINT**.
 
 	![Click ADD ENDPOINT] [Image28]
 
-4. On the **Add endpoint to virtual machine** page, click **Add Endpoint**, and then click the Next arrow to continue.
+4. On the **Add Endpoint to Virtual Machine** page, click **Add Endpoint**, and then click the Next arrow to continue.
 
 	![Click Add endpoint] [Image29]
 
@@ -378,6 +376,7 @@ The SQL Server setup media is saved on the virtual machine in the C:\SqlServer_1
 [Image3]: ../media/3Select-Image.png
 [Image4]: ../media/4VM-Config.png
 [Image5]: ../media/5VM-Mode.png
+[Image5b]: ../media/5VM-Connect.png
 [Image6]: ../media/6VM-Options.png
 [Image7]: ../media/7VM-Provisioning.png
 [Image8]: ../media/8VM-Connect.png
