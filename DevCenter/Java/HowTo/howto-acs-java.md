@@ -1,4 +1,4 @@
-<properties linkid="dev-java-how-to-use-acs-java" urldisplayname="Access Control" headerexpose="" pagetitle="How to Use the Access Control Service from Java" metakeywords="Azure Access Control Service Java" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-java-how-to-use-acs-java" urldisplayname="Access Control" headerexpose="" pagetitle="How to Use the Access Control Service from Eclipse" metakeywords="Azure Access Control Service Java" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Authenticate Web Users with Windows Azure Access Control Service Using Eclipse
 
@@ -376,23 +376,23 @@ To further explore ACS's functionality and to experiment with more sophisticated
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
 [Windows Azure Management Portal]: http://windows.azure.com
-[acs_flow]: Media\ACSFlow.png
-[portal_home_image]: Media\PortalHomeImage.png
-[portal_sb_acs_caching]: Media\PortalSBACSCaching.png
-[new_acs_namespace]: Media\NewACSNamespace.png
-[new_acs_namespace_dialog]: Media\NewACSNamespaceDialog.png
-[acs_home_page]: Media\ACSHomePage.png
+[acs_flow]: ../Media/ACSFlow.png
+[portal_home_image]: ../Media/PortalHomeImage.png
+[portal_sb_acs_caching]: ../Media/PortalSBACSCaching.png
+[new_acs_namespace]: ../Media/NewACSNamespace.png
+[new_acs_namespace_dialog]: ../Media/NewACSNamespaceDialog.png
+[acs_home_page]: ../Media/ACSHomePage.png
 
 <!-- Eclipse-specific -->
-[add_acs_filter_lib]: Media\AddACSFilterLibrary.png
-[add_acs_filter_lib_emulator]: Media\AddACSFilterLibraryEmulator.png
-[add_acs_filter_lib_production]: Media\AddACSFilterLibraryProduction.png
-[new_azure_deployment]: Media\NewAzureDeployment.png
-[relying_party_realm_emulator]: Media\RelyingPartyRealmEmulator.png
-[relying_party_return_url_emulator]: Media\RelyingPartyReturnURLEmulator.png
-[relying_party_realm_production]: Media\RelyingPartyRealmProduction.png
-[relying_party_return_url_production]: Media\RelyingPartyReturnURLProduction.png
-[add_cert_component]: Media\AddCertificateComponent.png
-[add_jsp_file_acs]: Media\AddJSPFileACS.png
-[create_acs_hello_world]: Media\CreateACSHelloWorld.png
-[add_token_signing_cert]: Media\AddTokenSigningCertificate.png
+[add_acs_filter_lib]: ../Media/AddACSFilterLibrary.png
+[add_acs_filter_lib_emulator]: ../Media/AddACSFilterLibraryEmulator.png
+[add_acs_filter_lib_production]: ../Media/AddACSFilterLibraryProduction.png
+[new_azure_deployment]: ../Media/NewAzureDeployment.png
+[relying_party_realm_emulator]: ../Media/RelyingPartyRealmEmulator.png
+[relying_party_return_url_emulator]: ../Media\RelyingPartyReturnURLEmulator.png
+[relying_party_realm_production]: ../Media/RelyingPartyRealmProduction.png
+[relying_party_return_url_production]: ../Media/RelyingPartyReturnURLProduction.png
+[add_cert_component]: ../Media/AddCertificateComponent.png
+[add_jsp_file_acs]: ../Media/AddJSPFileACS.png
+[create_acs_hello_world]: ../Media/CreateACSHelloWorld.png
+[add_token_signing_cert]: ../Media/AddTokenSigningCertificate.png
