@@ -5,7 +5,9 @@ The content in this section will help you develop robust Windows Azure solutions
 ## Key guidance areas
 
 ###[Troubleshooting in Windows Azure][]
-This topic provides an introduction to designing Windows Azure applications and web sites so that you can identify problems when they occur. It includes links to additional content that will guide you through all stages of designing, deploying, and troubleshooting your application. 
+This topic provides an introduction to designing Windows Azure applications and web sites so that you can identify problems when they occur. It includes links to additional content that will guide you through all stages of designing, deploying, and troubleshooting your application. For additional troubleshooting guidance, see the following resources:
+
+- [Troubleshooting Windows Azure Web Sites][]
 
 ###[Best Practices for Designing Secure Windows Azure Applications][]
 This topic focuses on two key security areas, identity and access. You will learn about how security is different in the cloud and which features and settings to use in different application scenarios. The article provides links to additional content to help guide you through all stages of designing and deploying your application.
@@ -23,6 +25,7 @@ This content provides recommendations on how to design and develop custom applic
 
 [GitHub]: http://github.com/windowsazure/azure-content/
 [Troubleshooting in Windows Azure]: /en-us/develop/php/best-practices/troubleshooting/
+[Troubleshooting Windows Azure Web Sites]: /en-us/develop/php/best-practices/troubleshooting-web-sites/
 [Best Practices for Designing Secure Windows Azure Applications]: /en-us/develop/php/best-practices/security/
 [Best Practices for Performance in Windows Azure Applications]: /en-us/develop/php/best-practices/performance/
 [Windows Azure Developer Guidance]: http://msdn.microsoft.com/en-us/library/windowsazure/gg456500

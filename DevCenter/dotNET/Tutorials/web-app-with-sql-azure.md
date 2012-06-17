@@ -35,10 +35,10 @@ To start, set up your development environment by installing the Windows Azure SD
 1. To install the Windows Azure SDK for .NET, click the link that corresponds to the version of Visual Studio you are using. If you don't have Visual Studio installed yet, use the Visual Studio 2012 link.<br/>
 [Windows Azure SDK for Visual Studio 2010][]<br/>
 [Windows Azure SDK for Visual Studio 2012 RC][]
-2. When you are prompted to run or save WindowsAzureSDKForNet.exe, click **Run**.<br/>
+2. When you are prompted to run or save VWDOrVs11AzurePack_RC.3f.3f.3fnew.exe, click **Run**.<br/>
 3. In the Web Platform Installer window, click **Install** and proceed with the installation.<br/>
 ![Web Platform Installer - Windows Azure SDK for .NET][Image003]<br/>
-4. If you are using Visual Studio 2010 or Visual Web Developer 2010 Express, install [Visual Studio 2010 Web Publish Update][WTEInstall] and [MVC 4][MVC4Install].
+4. If you are using Visual Studio 2010 or Visual Web Developer 2010 Express, install [MVC 4][MVC4Install].
 
 When the installation is complete, you have everything necessary to start developing.
 
@@ -314,6 +314,7 @@ To learn more about how to use SQL Database, see the following resources:
 
 * [Data Migration to SQL Database: Tools and Techniques][SQLAzureDataMigration]
 * [Migrating a Database to SQL Database using SSDT][SQLAzureDataMigrationBlog]
+* [Migrating Data-Centric Applications to Windows Azure][MigratingDataCentricApps]
 * [General Guidelines and Limitations (SQL Database)][SQLAzureGuidelines]
 * [How to Use SQL Database][SQLAzureHowTo]
 * [Transact-SQL Reference (SQL Database)][TSQLReference]
@@ -337,7 +338,6 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=254364
 [Windows Azure SDK for Visual Studio 2012 RC]:  http://go.microsoft.com/fwlink/?LinkId=254269
 [NewPortal]: http://manage.windowsazure.com
-[WTEInstall]: http://go.microsoft.com/fwlink/?LinkID=208120
 [MVC4Install]: http://www.asp.net/mvc/mvc4
 [VS2012ExpressForWebInstall]: http://www.microsoft.com/web/gallery/install.aspx?appid=VWD11_BETA&prerelease=true
 [windowsazure.com]: http://www.windowsazure.com
@@ -349,9 +349,10 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [SQLAzureHowTo]: https://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
 [SQLAzureDataMigration]: http://msdn.microsoft.com/en-us/library/windowsazure/hh694043(v=vs.103).aspx
 [ASP.NETFormsAuth]: http://msdn.microsoft.com/en-us/library/windowsazure/hh508993.aspx
-[CommonTasks]: http://windowsazure.com/en-us/develop/net/common-tasks/
+[CommonTasks]: http://www.windowsazure.com/en-us/develop/net/common-tasks/
 [TSQLReference]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336281.aspx
 [SQLAzureGuidelines]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336245.aspx
+[MigratingDataCentricApps]: http://msdn.microsoft.com/en-us/library/jj156154.aspx
 [SQLAzureDataMigrationBlog]: http://blogs.msdn.com/b/ssdt/archive/2012/04/19/migrating-a-database-to-sql-azure-using-ssdt.aspx
 [SQLAzureConnPoolErrors]: http://blogs.msdn.com/b/adonet/archive/2011/11/05/minimizing-connection-pool-errors-in-sql-azure.aspx
 [UniversalProviders]: http://nuget.org/packages/System.Web.Providers

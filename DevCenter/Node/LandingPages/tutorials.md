@@ -6,6 +6,9 @@
 ### [Node.js Web Site] ###
 Learn how to use the Windows Azure portal to create a new Windows Azure Web Site, provision a [Git] repository for the web site, and then publish a Node.js application to the web site by using Git.
 
+### [Web Site with WebMatrix] ###
+[WebMatrix] provides a light-weight development experience for creating web applications. It includes several templates for creating Node.js applications, as well as autocomplete for JavaScript. In this tutorial you will learn how to create a Node.js application, and then deploy your application to a Windows Azure Web Site.
+
 ### [Web Site with Storage]
 The Windows Azure Table Service is a NoSQL storage service that is useful for working key/value pairs. Learn how to use this service by creating a Node.js 'task list' style application that uses the azure module to store data in the Table service. This tutorial also teaches you how to use the [Windows Azure Cross-Platform Tools for Mac and Linux] to create a Windows Azure Web Site.
 
@@ -50,6 +53,7 @@ The [Windows Azure Table Service] is a NoSQL storage service that is useful for 
 [Express]: http://expressjs.com/
 [WebMatrix]: /en-us/develop/downloads/webmatrix-overview/
 [Git]: http://git-scm.com/
+[Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
 [Windows Azure Cross-Platform Tools for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Windows Azure PowerShell]: /en-us/develop/nodejs/how-to-guides/powershell-cmdlets/
 [Windows Azure Table Service]: /en-us/develop/nodejs/how-to-guides/table-services/

@@ -19,7 +19,7 @@ For applications that need a full featured relational database-as-a-service, Win
 ### [PowerShell for Windows Azure](/en-us/develop/php/how-to-guides/powershell-cmdlets/ "PowerShell for Windows Azure") ###
 PowerShell for Windows Azure provides a command-line environment for developing and deploying applications for Windows Azure through a  Windows PowerShell cmdlets. This guide describes how to use Windows PowerShell cmdlets to create, test, deploy, and manage Windows Azure Services. 
 
-### [Command-Line Tools for Mac and Linux](/develop/php/how-to-guides/command-line-tools/ "Command-Line Tools for Mac and Linux") ###
+### [Command-Line Tools for Mac and Linux](/en-us/develop/php/how-to-guides/command-line-tools/ "Command-Line Tools for Mac and Linux") ###
 The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Windows Azure services. Use the command-line tools to create and manage websites and virtual machines in Windows Azure. 
 
 ## Additional guides ##

@@ -12,8 +12,8 @@
 **Microsoft: Windows and SQL Database**	
 
 * [Windows Azure home page](https://www.windowsazure.com/en-us/) - scenarios, free trial sign up, development tools and documentation that you need get started building applications.		
-* [MSDN SQL Database](http://msdn.microsoft.com/en-us/library/ee336279.aspx)	- MSDN documentation for SQL Database	
-* [Management Portal for SQL Database](http://msdn.microsoft.com/en-us/library/gg442309.aspx) - a lightweight and easy-to-use database management tool for managing SQL Database in the cloud	
+* [MSDN SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx)	- MSDN documentation for SQL Database	
+* [Management Portal for SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx) - a lightweight and easy-to-use database management tool for managing SQL Database in the cloud	
 * [Adventure Works for SQL Database](http://msftdbprodsamples.codeplex.com/releases/view/37304) - Download page for SQL Databse sample database	
 
 **Microsoft: Business Intelligence**		

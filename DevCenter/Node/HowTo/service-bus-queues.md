@@ -61,7 +61,9 @@ container for addressing Service Bus resources within your application.
 
 To create a service namespace:
 
-1.  Log on to the [Windows Azure Management Portal][].
+1.  Log on to the [Windows Azure Management Portal][]. In order to perform the following steps you must use the Production portal. If you are currently using the Preview portal, you can switch to Production by clicking **Preview** at the top of the page, and then selecting **Take me to the previous portal**. This will load the production management portal.
+
+	![preview portal dialog][Previous Management Portal]
 
 2.  In the lower left navigation pane of the Management Portal, click
     **Service Bus, Access Control & Caching**.
@@ -337,7 +339,9 @@ Now that you’ve learned the basics of Service Bus queues, follow these
 links to learn more.
 
 -   See the MSDN Reference: [Queues, Topics, and Subscriptions.][]
+-   Visit the [Azure SDK for Node] repository on GitHub.
 
+  [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Next Steps]: #next-steps
   [What are Service Bus Queues]: #what-queues
   [Create a Service Namespace]: #create-namespace
@@ -358,3 +362,4 @@ links to learn more.
   [Node.js Cloud Service]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
   [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
   [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/
+[Previous Management Portal]: ../../Shared/Media/previous-portal.png

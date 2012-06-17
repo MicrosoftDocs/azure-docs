@@ -58,7 +58,7 @@ The data disk that you just attached to the virtual machine is offline and not i
 
 8. Format the new disk using the **mkfs.ext3** command:
 
-	`$ sudo mkfs.ext3 /dev/sdb1`
+	`$ sudo mkfs.ext3 /dev/sdc1`
 
 	![Format Disk][Image9]
 
@@ -70,7 +70,7 @@ The data disk that you just attached to the virtual machine is offline and not i
 
 	`$ sudo mount /dev/sdc1 /mnt/datadrive`
 
-11. Open the **/etc/fstab** file and append the following:
+11. Open the **/etc/fstab** file and append the following line:
 
 	`/dev/sdc1        /mnt/datadrive      ext3    defaults   1 2`
 

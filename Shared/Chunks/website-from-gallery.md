@@ -49,7 +49,7 @@ You'll build a Word press blog that uses a default template. The following illus
 
 1. Locate and click the WordPress icon in list, and then click **Next**.
 	
-	![Wordpress from list][7]
+	![WordPress from list][7]
 
 4. On the **Configure Your App** page, enter or select values for all fields:
 	
@@ -67,7 +67,7 @@ You'll build a Word press blog that uses a default template. The following illus
 
 After you click **Complete** Windows Azure will initiate build and deploy operations. While the web site is being built and deployed the status of these operations is displayed at the bottom of the Web Sites page. After all operations are performed,  A final status message when the site has been successfully deployed.
 
-## Launch and manage your Wordpress site
+## Launch and manage your WordPress site
 
 1. Click on your new site from the **Web Sites** page to open the dashboard for the site.
 
@@ -77,15 +77,15 @@ After you click **Complete** Windows Azure will initiate build and deploy operat
 
 	![site URL][11] 
 
-3. Enter appropriate configuration information required by WordPress and click **Install Wordpress** to finalize configuration and open the web site’s login page.
+3. Enter appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the web site’s login page.
 
-	![login to wordpress][12]
+	![login to WordPress][12]
 
 8. Login to the new WordPress web site by entering the username and password that you specified on the **Welcome** page.
 
-9. You'll have a new Wordpress site that looks similar to the site below.  
+9. You'll have a new WordPress site that looks similar to the site below.  
 
-	![your Wordpress site][13]
+	![your WordPress site][13]
 
 
 [1]: ../../devcenter/dotnet/media/Dev-net-getting-started-010.png
