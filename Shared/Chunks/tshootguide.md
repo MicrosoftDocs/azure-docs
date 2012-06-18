@@ -795,7 +795,7 @@ For more information on quota-related errors, see [Understanding Quotas].
 [AlertBot]: http://www.alertbot.com/products/website-monitoring/default.aspx
 [performance tool test]: http://speedtest.noam.microsoftonline.com/
 [Azure Statistics]: http://latency.cloudapp.net/Default.aspx
-[AzureCheck]: http://www.apicasystem.com/products/azurecheck.aspx
+[AzureCheck]: http://www.apicasystem.com/monitoring/what-we-monitor/apica-azurecheck.aspx
 [startup task]: http://msdn.microsoft.com/en-us/library/gg456327.aspx
 [AVIcode]: http://www.microsoft.com/en-us/server-cloud/system-center/avicode.aspx
 [profile]: http://msdn.microsoft.com/en-us/library/windowsazure/hh369930.aspx
