@@ -59,7 +59,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
-	<p>In the preview release of Windows Azure Websites, you cannot create a MySQL Database for a website <i>after</i> creating the website. You must create a website and a MySQL database as described in the steps below.</p> 
+	<p>In the preview release of Windows Azure Websites, you cannot create a MySQL Database for a website after creating the website. You must create a website and a MySQL database as described in the steps below.</p> 
 	</div>
 
 4. Enter a value for **URL**, select **Create a New MySQL Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.

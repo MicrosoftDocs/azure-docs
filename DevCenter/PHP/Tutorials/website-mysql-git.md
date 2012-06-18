@@ -204,7 +204,7 @@ After you have tested your application locally, you can publish it to your Windo
 
 <div class="dev-callout">
 <b>Note</b>
-<p>These are the same steps shown in the portal at the end of the <b>Create a Windows Azure web site and Set up Git Publishing</b> section.</p>
+<p>These are the same steps shown in the portal at the end of the Create a Windows Azure web site and Set up Git Publishing section above.</p>
 </div>
 
 1. (Optional)  If you've forgotten or misplaced your Git remote repostitory URL, navigate to the Deployment tab on the portal.
