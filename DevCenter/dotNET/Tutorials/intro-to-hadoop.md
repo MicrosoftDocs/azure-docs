@@ -1,11 +1,11 @@
 # Introduction to Hadoop on Windows Azure
 
 **Overview**	
-Apache Hadoop-based Service for Windows Azure is a service that deploys and provisions clusters in the cloud, providing a software framework designed to manage, analyze and report on big data. 
+Apache™ Hadoop™-based Services for Windows Azure is a service that deploys and provisions clusters in the cloud, providing a software framework designed to manage, analyze and report on big data. 
 
 Data is described as "big data" to indicate that is being collection is in ever escalating volumes, at increasingly high velocities, and for a widening variety of unstructured formats and variable semantic contexts. Big data collection does not provide value to an enterprise. For big data to provide value in the form of actionable intelligence or insight, it must be accessible, cleaned, analyzed, and then presented in a useful way, often in combination with data from a variety of other sources. 
 
-Apache Hadoop(TM) is a software framework facilitating big data management and analysis. Apache Hadoop core provides reliable data storage with the Hadoop Distributed File System (HDFS), and a simple MapReduce programming model to process and analyze in parallel the data stored in this distributed system. HDFS uses data replication to address hardware failure issues that arise when deploying such highly distributed systems. 
+Apache Hadoop is a software framework facilitating big data management and analysis. Apache Hadoop core provides reliable data storage with the Hadoop Distributed File System (HDFS), and a simple MapReduce programming model to process and analyze in parallel the data stored in this distributed system. HDFS uses data replication to address hardware failure issues that arise when deploying such highly distributed systems. 
 
 To simplify the complexities of analyzing unstructured data from various sources, the MapReduce programming model provides a core abstraction that provides closure for map and reduce operations. The MapReduce programming model views all of its jobs as computations over key-value pair datasets. So both input and output files must contain such key-value pair datasets. Other Hadoop-related projects such as Pig and Hive are built on top of HDFS and the MapReduce framework, providing higher abstraction levels such as data flow control and querying, as well as additional functionality such as warehousing and mining, required to integrate big data analysis and end-to-end management.
 
@@ -17,11 +17,11 @@ This topic describes the Hadoop ecosystem on Windows Azure, the main scenarios f
 
  * <a href="#BigData">Big Data: Volume, Velocity, Variety and Variability.</a> - The qualities of big data that render it best managed by NoSQL systems like Hadoop, rather than by conventional Relational Database Management System (RDBMS).
 
- * <a href="#Ecosystem">The Hadoop Ecosystem on Windows Azure </a> - Hadoop on Windows Azure provides HBase, Pig, Hive, Mahout, Pegasus, Sqoop, and Flume implementations, and supports other BI tools such as Excel, SQL Server Analysis Services and Reporting Services that are integrated with HDFS and the MapReduce framework.  
+ * <a href="#Ecosystem">The Hadoop Ecosystem on Windows Azure </a> - Hadoop on Windows Azure provides Pig, Hive, Mahout, Pegasus, Sqoop, and Flume implementations, and supports other BI tools such as Excel, SQL Server Analysis Services and Reporting Services that are integrated with HDFS and the MapReduce framework.  
 
  * <a href="#Scenarios">Big Data Scenarios for Hadoop on Windows Azure</a> - The types of jobs appropriate for using Hadoop on Windows Azure.
  
- * <a href="#HadoopOnAzure">Getting Started with Microsoft Hadoop on Windows Azure</a> - Get Community Technical Preview (CTP) access and an introduction to the Elastic MapReduce Portal used by Windows Azure.
+ * <a href="#HadoopOnAzure">Getting Started with Microsoft Hadoop on Windows Azure</a> - Get Community Technical Preview (CTP) access and an introduction to the Apache™ Hadoop™-based Services for Windows Azure Portal.
 
  * <a href="#Tour">Tour of the Portal</a> - Deploying clusters, managing your account, running samples, and the interactive JavaScript console.
 
@@ -51,10 +51,7 @@ Larger issues in the interpretation of big data can also arise. The term variabi
 ![TheHadoopEcosystem](../media/TheHadoopEcosystem.png "The Hadoop Ecosystem")
 
 **Introduction** 	
-Hadoop on Windows Azure offers a framework implementing Microsoft's cloud-based solution for handling big data. This federated ecosystem manages and analyses large data amounts while exploiting parallel processing capabilities, other HDFS architecture optimizations and the MapReduce programming model. Technologies such as HBase, Sqoop and Flume integrate HDFS with relational data stores and log files. Hive and Pig integrate data processing and warehousing capabilities. Pegasus provides graph-mining capabilities. Microsoft’s Big Data solution  integrates with Microsoft's BI tools, including SQL Server Analysis Services, Reporting Services, PowerPivot and Excel. This enables you to perform a straightforward BI on data stored and managed by the Hadoop on Windows Azure ecosystem. The Apache-compatible technologies and sister technologies are part of this ecosystem built to run on top of Hadoop clusters are itemized and briefly described in this section.
- 
- **HBase**		
-HBase provides a database for Hadoop. HBase is a non-relational, distributed, big data, column-oriented store running on top of HDFS. HBase can host very large, sparsely populated tables and provide BigTable capabilities for Hadoop, and used when requiring real-time read/write random access to very large datasets. For additional information, see [Apache HBase](http://hbase.apache.org/).
+Hadoop on Windows Azure offers a framework implementing Microsoft's cloud-based solution for handling big data. This federated ecosystem manages and analyses large data amounts while exploiting parallel processing capabilities, other HDFS architecture optimizations and the MapReduce programming model. Technologies such as Sqoop and Flume integrate HDFS with relational data stores and log files. Hive and Pig integrate data processing and warehousing capabilities. Pegasus provides graph-mining capabilities. Microsoft’s Big Data solution  integrates with Microsoft's BI tools, including SQL Server Analysis Services, Reporting Services, PowerPivot and Excel. This enables you to perform a straightforward BI on data stored and managed by the Hadoop on Windows Azure ecosystem. The Apache-compatible technologies and sister technologies are part of this ecosystem built to run on top of Hadoop clusters are itemized and briefly described in this section.
 
  **Pig**	
 Pig is a high-level platform for processing big data on Hadoop clusters. Pig consists of a data flow language, called Pig Latin, supporting writing queries on large datasets and an execution environment running programs from a console. The Pig Latin programs consist of dataset transformation series converted under the covers, to a MapReduce program series. Pig Latin abstractions provide richer data structures than MapReduce, and perform for Hadoop what SQL performs for RDBMS systems. Pig Latin is fully extensible. User Defined Functions (UDFs), written in Java, Python, C#, or JavaScript, can be called to customize each processing path stage when composing the analysis. For additional information, see [Welcome to Apache Pig!](http://pig.apache.org/)
@@ -69,7 +66,7 @@ Mahout is an open source machine-learning library facilitating building scalable
 Pegasus is a peta-scale graph mining system running on Hadoop. Graph mining is data mining used to find the patterns, rules, and anomalies characterizing graphs. A graph in this context is a set of objects with links existing between any two objects in the set. This structure type characterizes networks everywhere, including pages linked on the Web, computer and social networks (FaceBook, Twitter), and many biological and physical systems. Prior to Pegasus, the maximum graph size that could be mined incorporated millions of objects. By developing algorithms that run in parallel on top of a Hadoop cluster, Pegasus develops algorithms to mine graphs containing billions of objects. For additional information, see the [Project Pegasus](http://www.cs.cmu.edu/~pegasus/) Web site.
 
  **Sqoop**		
-Sqoop is tool that transfers bulk data between Hadoop and relational databases such a SQL, or other structured data stores, as efficiently as possible. Use Sqoop to import data from external structured data stores into the HDFS or related systems like Hive and HBase. Sqoop can also extract data from Hadoop and export the extracted data to external relational databases, enterprise data warehouses, or any other structured data store type. For additional information, see the  [Apache Sqoop](http://sqoop.apache.org/) Web site.
+Sqoop is tool that transfers bulk data between Hadoop and relational databases such a SQL, or other structured data stores, as efficiently as possible. Use Sqoop to import data from external structured data stores into the HDFS or related systems like Hive. Sqoop can also extract data from Hadoop and export the extracted data to external relational databases, enterprise data warehouses, or any other structured data store type. For additional information, see the  [Apache Sqoop](http://sqoop.apache.org/) Web site.
 
 **Flume**
 Flume is a distributed, reliable, and available service for efficiently collecting, aggregating, and moving large log data amounts to HDFS. Flume's architecture is streaming data flow based. It is robust and fault tolerant with tunable and reliability mechanisms with many failover and recovery mechanisms. It has a simple extensible data model enabling online analytical applications. For additional information, see the  [Flume](http://incubator.apache.org/flume/) incubation site.
@@ -92,8 +89,8 @@ Hadoop is most suitable for handling a large amount of logged or archived data t
 **The Hadoop on Windows Azure CTP**		
 The Hadoop on Windows Azure service is available by invitation only during this Community Technical Preview (CTP). The CTP purpose is for you to test Hadoop-based service on Windows Azure, become more familiar with it, and provide feedback. The process for gaining access is outlined below.
 
-**Elastic MapReduce Portal**		
-The Hadoop on Windows Azure Microsoft implementation uses the Elastic MapReduce Portal to provision new Apache Hadoop clusters. Clusters provisioned on the portal are temporary and expire after several days. When there is less than six hours left on the clock an expiration time extension is allowed. These clusters run jobs that process data either on the cluster or located elsewhere. For example, the data could reside in a Windows Azure account or be transferred to the cluster over FTP.
+**The Portal used by Apache Hadoop-based Services for Windows Azure**		
+The Microsoft implementation of Hadoop on Windows Azure uses a Portal to provision new Apache Hadoop clusters. Clusters provisioned on the portal are temporary and expire after several days. When there is less than six hours left on the clock an expiration time extension is allowed. These clusters run jobs that process data either on the cluster or located elsewhere. For example, the data could reside in a Windows Azure account or be transferred to the cluster over FTP.
  
 The advantage of using a temporary cluster is that there is no cost to maintain the hardware needed for the MapReduce parallel processing jobs. You use the cluster and then release it or allow it to expire. Apache Hadoop deployment solutions are also available for deploying Apache Hadoop to a Windows Azure account, or on-premise hardware that you manage. 
 
