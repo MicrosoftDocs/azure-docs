@@ -236,7 +236,7 @@ In this section you will extend the basic application created by the **express**
 
 1. In the **tasklist/routes** directory, open the **index.js** file in a text editor.
 
-2. Replace the existing code in the **index.js** file with the following code. This loads the node-sqlserver, and nconf modules, then uses nconf to load the connection string from either an environment variable named **SQL_CONN** or an **SQL_CONN** value in the **config.json** file.
+2. Replace the existing code in the **index.js** file with the following code. This loads the node-sqlserver, and nconf modules, then uses nconf to load the connection string from either an environment variable named **SQL\_CONN** or an **SQL\_CONN** value in the **config.json** file.
 
 		var sql = require('node-sqlserver')
 		    , nconf = require('nconf');
