@@ -4,6 +4,12 @@
 
 This guide will show you how to use the Windows Azure Access Control Service (ACS) within the Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies). For more information on ACS, see the [Next steps](#next_steps) section.
 
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>The Windows Azure Access Services Control Filter (by Microsoft Open Technologies) is a community technology preview. As pre-release software, it is not formally supported by Microsoft Open Technologies, Inc. nor Microsoft.</p> 
+</div>
+
+
 ## Table of Contents
 
 -   [What is ACS?][]
