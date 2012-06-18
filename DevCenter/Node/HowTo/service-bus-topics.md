@@ -60,7 +60,9 @@ application.
 
 To create a service namespace:
 
-1.  Log on to the [Windows Azure Management Portal][].
+1.  Log on to the [Windows Azure Management Portal][]. In order to perform the following steps you must use the Production portal. If you are currently using the Preview portal, you can switch to Production by clicking **Preview** at the top of the page, and then selecting **Take me to the previous portal**. This will load the production management portal.
+
+	![preview portal dialog][Previous Management Portal]
 
 2.  In the lower left navigation pane of the Management Portal, click
     **Service Bus, Access Control & Caching**.
@@ -227,11 +229,14 @@ object. Subscriptions are named and can have an optional filter that
 restricts the set of messages delivered to the subscription's virtual
 queue.
 
-**Note**: Subscriptions are persistent and will continue to exist until
+<div class="dev-callout">
+<strong>Note</strong>
+<p>Subscriptions are persistent and will continue to exist until
 either they, or the topic they are associated with, are deleted. If your
 application contains logic to create a subscription, it should first
 check if the subscription already exists by using the
-**getSubscription** method.
+<strong>getSubscription</strong> method.</p>
+</div>
 
 ### Create a Subscription with the default (MatchAll) Filter
 
@@ -263,11 +268,14 @@ Filters can be added to a subscription by using the **createRule**
 method of the **ServiceBusService** object. This method allows you to
 add new filters to an existing subscription.
 
-**Note**: Since the default filter is applied automatically to all new
+<div class="dev-callout">
+<strong>Note</strong>
+<p>Since the default filter is applied automatically to all new
 subscriptions, you must first remove the default filter or the
-**MatchAll** will override any other filters you may specify. You can
-remove the default rule by using the **deleteRule** method of the
-**ServiceBusService** object.
+<strong>MatchAll</strong> will override any other filters you may specify. You can
+remove the default rule by using the <strong>deleteRule</strong> method of the
+<strong>ServiceBusService</strong> object.</p>
+</div>
 
 The example below creates a subscription named 'HighMessages' with a
 **SqlFilter** that only selects messages that have a custom
@@ -498,7 +506,9 @@ links to learn more.
 
 -   See the MSDN Reference: [Queues, Topics, and Subscriptions][].
 -   API reference for [SqlFilter][].
+-   Visit the [Azure SDK for Node] repository on GitHub.
 
+  [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Next Steps]: #nextsteps
   [What are Service Bus Topics and Subscriptions]: #What_are_Service_Bus_Topics_and_Subscriptions
   [Create a Service Namespace]: #Create_a_Service_Namespace
@@ -524,3 +534,4 @@ links to learn more.
   [SqlFilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/
   [Node.js Cloud Service]: {localLink:2221} "Node.js Web Application"
+[Previous Management Portal]: ../../Shared/Media/previous-portal.png

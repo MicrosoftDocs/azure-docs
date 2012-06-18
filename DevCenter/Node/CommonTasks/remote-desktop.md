@@ -68,8 +68,7 @@ the role instance.
 
 4.  Click **Connect**, and a security prompt will appear for entering
     credentials to access the instance. Enter the password you created
-    in [Step 1][Step 1: Configure the service for Remote Desktop access
-    using Windows Azure PowerShell], and then click **OK**.
+    in [Step 1][Step 1: Configure the service for Remote Desktop access using Windows Azure PowerShell], and then click **OK**.
 
     ![username/password prompt][6]
 
@@ -96,16 +95,15 @@ instances in the cloud, disable remote desktop access using the [Windows Azure P
 
 ## Additional Resources
 
-[Remotely Accessing Role Instances in Windows Azure] 
-
-[Using Remote Desktop with Windows Azure Roles]
+- [Remotely Accessing Role Instances in Windows Azure] 
+- [Using Remote Desktop with Windows Azure Roles]
 
   [Step 1: Configure the service for Remote Desktop access using Windows Azure PowerShell]: #step1
   [Step 2: Connect to the role instance]: #step2
   [Step 3: Configure the service to disable Remote Desktop access using Windows Azure PowerShell]: #step3
   [Windows Azure PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
 
-[Windows Azure Management Portal]: http://manage.windowszure.com
+[Windows Azure Management Portal]: http://manage.windowsazure.com
 [powershell-menu]: ../../Shared/Media/azure-powershell-menu.png
 [publish-project]: ../Media/publish-rdp.png
 [enable-rdp]: ../Media/enable-rdp.png

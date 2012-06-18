@@ -61,8 +61,11 @@ VIPs][Step 2: Deploy an Application to Production by Swapping VIPs].
 This task covers how to stage an application with Visual Studio. You can
 also [Stage an Application with the Management Portal][Step 1: Stage an Application by Using the Management Portal].
 
-**Note:** This step requires Visual Studio 2010 and the Windows Azure
-SDK for .NET.
+<div class="dev-callout">
+<b>Note</b>
+<p>This step requires Visual Studio 2010 and the Windows Azure
+SDK for .NET.</p>
+</div>
 
 1.  Start Visual Studio 2010 and open a cloud project that's ready for
     deployment.
@@ -108,9 +111,12 @@ staging environment, you can quickly make it available in production by
 swapping the virtual IPs (VIPs) of the staging and production
 environments.
 
-**Note:** This step assumes that you have already deployed an
+<div class="dev-callout">
+<b>Note</b>
+<p>This step assumes that you have already deployed an
 application to production and staged the upgraded version of the
-application.
+application.</p>
+</div>
 
 1.  Log into the [Windows Azure Management Portal],
     click **Cloud Services** and then select the service name.

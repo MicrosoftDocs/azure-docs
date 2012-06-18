@@ -20,7 +20,7 @@ OpenLogic is a leading provider of enterprise open source solutions for the clou
 
 ##SUSE##
  
-[http://www.suse.com/suse-linux-enterprise-server-on-azure.com](http://www.suse.com/suse-linux-enterprise-server-on-azure.com)
+[http://www.suse.com/suse-linux-enterprise-server-on-azure](http://www.suse.com/suse-linux-enterprise-server-on-azure)
 
 SUSE Linux Enterprise Server on Windows Azure is a proven platform that provides superior reliability and security for cloud computing. SUSE's versatile Linux platform seamlessly integrates with Windows Azure cloud services to deliver an easily manageable cloud environment. And with more than 9,200 certified applications from over 1,800 independent software vendors for SUSE Linux Enterprise Server, SUSE ensures that workloads running supported in the data center can be confidently deployed on Windows Azure.
 
@@ -41,7 +41,7 @@ Note that the different distributions will be incorporating the agent to their o
 		<th>  Canonical UBUNTU </th>
 		<td> Ubuntu 12.04</td>
 		<td>June 7 2012</td>
-        <td> <A href="http://go.microsoft.com/fwlink/p/?LinkID=2542629">LIS 3.1</A></td>
+        <td>In Kernel</td>
 		<td>Deb: <A HREF="http://go.microsoft.com/p/fwlink/?LinkID=254261">ISO</A><br />
 			Source: <A HREF="http://go.microsoft.com/p/fwlink/?LinkID=250998">GITHUB</A></td>
 		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254264">Download base VHD</a></td>
@@ -50,7 +50,7 @@ Note that the different distributions will be incorporating the agent to their o
 		<th> CENTOS by Open Logi </th>
 		<td> CentOS 6.2</td>
 		<td>June 7 2012</td>
-	    <td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254263">LIS 3.2 Beta2</a></td>
+	    <td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254263">LIS 3.3</a></td>
 		<td>RPM:<A HREF="http://go.microsoft.com/p/fwlink/?LinkID=254261">ISO</A><br />
 			Source: <A HREF="http://go.microsoft.com/p/fwlink/?LinkID=250998">GITHUB</A></td>
  		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254266">Download ISO</a></td>
@@ -59,7 +59,7 @@ Note that the different distributions will be incorporating the agent to their o
 		<th> SUSE </th>
 		<td> SLES 11SP2</td>
 		<td>June 7 2012</td>
-        <td><A href="http://go.microsoft.com/fwlink/p/?LinkID=254262">LIS 3.1</A></td>
+        <td>In Kernel</td>
 		<td>RPM: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=2542619">ISO</A><br />
 			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
 		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254265">Create base image</a></td>
@@ -68,9 +68,9 @@ Note that the different distributions will be incorporating the agent to their o
 		<th> OPEN SUSE </th>
 		<td> Open SUSE 12.1</td>
 		<td>June 7 2012</td>
-		<td><A href="http://go.microsoft.com/fwlink/p/?LinkID=254262">LIS 3.1</A></td>
+		<td>In Kernel</td>
 		<td>RPM: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=254261">ISO</A><br />
 			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
-		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254265">Create base image</a></td>
+		<td></td>
 	</tr>
 </table>

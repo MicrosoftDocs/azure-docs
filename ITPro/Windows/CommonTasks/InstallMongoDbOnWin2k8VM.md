@@ -20,6 +20,10 @@ You will need to sign up for the Windows Azure Virtual Machines preview feature 
 
 <div chunk="../../../Shared/Chunks/create-and-configure-windows-server-2008-vm-in-portal.md" />
 
+## Attach a data disk
+
+<div chunk="../../../Shared/Chunks/attach-data-disk-windows-server-2008-vm-in-portal.md" />
+
 ## Install and run MongoDB on the virtual machine 
 
 <div chunk="../../../Shared/Chunks/install-and-run-mongo-on-win2k8-vm.md" />

@@ -10,18 +10,18 @@ see the [Next Steps][] section.
 
 ## Table of Contents
 
- [What is the Blob Service?][]    
- [Concepts][]    
- [Create a Windows Azure Storage Account]   
- [Create a Node.js Application][]   
- [Configure your Application to Access Storage][]   
- [Setup a Windows Azure Storage Connection String][]   
- [How To: Create a Container][]   
- [How To: Upload a Blob into a Container][]   
- [How To: List the Blobs in a Container][]   
- [How To: Download Blobs][]   
- [How To: Delete a Blob][]   
- [Next Steps][]
+* [What is the Blob Service?][]    
+* [Concepts][]    
+* [Create a Windows Azure Storage Account]   
+* [Create a Node.js Application][]   
+* [Configure your Application to Access Storage][]   
+* [Setup a Windows Azure Storage Connection String][]   
+* [How To: Create a Container][]   
+* [How To: Upload a Blob into a Container][]   
+* [How To: List the Blobs in a Container][]   
+* [How To: Download Blobs][]   
+* [How To: Delete a Blob][]   
+* [Next Steps][]
 
 ## <a name="what-is"> </a>What is the Blob Service?
 
@@ -103,7 +103,7 @@ create a storage account [using the REST API][].)
 
 Create a blank Node.js application. For
 instructions on how to use the PowerShell commands to create a blank
-application, see the [Node.js Cloud Service]. For instructions on how to use WebMatrix, see [Web Site with WebMatrix].
+application, see the [Node.js Cloud Service].
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
@@ -159,7 +159,7 @@ you use the Web.cloud.config file, which is created when you use the Windows Azu
             <add key="AZURE_STORAGE_ACCESS_KEY" value="your storage access key" />
         </appSettings>
 
-Note that the examples below assume that you are using cloud-based
+Note that The examples below assume that you are using cloud-based
 storage.
 
 ## <a name="create-container"> </a>How to: Create a Container
@@ -421,9 +421,11 @@ Finally, to delete a blob, call **deleteBlob**.
 Now that you’ve learned the basics of blob storage, follow these links
 to learn how to do more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][]
--   Visit the [Windows Azure Storage Team Blog][]
+-   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][].
+-   Visit the [Windows Azure Storage Team Blog][].
+-   Visit the [Azure SDK for Node] repository on GitHub.
 
+  [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Next Steps]: #next-steps
   [What is the Blob Service?]: #what-is
   [Concepts]: #concepts
@@ -445,4 +447,3 @@ to learn how to do more complex storage tasks.
   [Node.js Cloud Service]: {localLink:2221} "Node.js Web Application"
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/

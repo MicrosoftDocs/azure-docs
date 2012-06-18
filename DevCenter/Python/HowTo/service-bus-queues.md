@@ -109,6 +109,10 @@ namespace.
 5.  Make a note of the **Default Key** as you will use this information
     below to perform operations with the namespace.
 
+
+**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../commontasks/how-to-install-python.md).
+
+
 ## <a name="create-queue"> </a>How to Create a Queue
 
 The **ServiceBusService** object lets you work with queues. Add the following near the top of any Python file in which you wish to programmatically access Windows Azure Service Bus:

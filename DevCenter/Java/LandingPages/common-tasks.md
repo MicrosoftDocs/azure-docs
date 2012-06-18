@@ -29,4 +29,4 @@ Secure Socket Layer (SSL) encryption is the most commonly used method of securin
 [custom_domain_name]: ../CommonTasks/custom-dns.md
 [cdn]: ../CommonTasks/cdn.md
 [ssl]: ../CommonTasks/enable-ssl.md
-[remote-desktop]: ../CommonTasks/remote-desktop.md
+[remote-desktop]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690951

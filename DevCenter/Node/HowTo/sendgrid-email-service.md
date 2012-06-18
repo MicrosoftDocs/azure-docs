@@ -11,16 +11,16 @@ email, see the [Next Steps][] section.
 
 ## Table of Contents
 
-[What is the SendGrid Email Service?][]   
- [Create a SendGrid Account][]   
- [Reference the SendGrid Node.js Module][]   
- [How to: Create an Email][]   
- [How to: Send an Email][]   
- [How to: Add an Attachment][]   
- [How to: Use Filters to Enable Footers, Tracking, and Analytics][]   
- [How to: Update Email Properties][]   
- [How to: Use Additional SendGrid Services][]   
- [Next Steps][1]
+* [What is the SendGrid Email Service?][]   
+* [Create a SendGrid Account][]   
+* [Reference the SendGrid Node.js Module][]   
+* [How to: Create an Email][]   
+* [How to: Send an Email][]   
+* [How to: Add an Attachment][]   
+* [How to: Use Filters to Enable Footers, Tracking, and Analytics][]   
+* [How to: Update Email Properties][]   
+* [How to: Use Additional SendGrid Services][]   
+* [Next Steps][1]
 
 ## <a id="whatis"> </a>What is the SendGrid Email Service?
 
@@ -127,16 +127,19 @@ message using both SMTP and the Web API.
         else console.log(err);
     )});
 
-**Note**: While the above examples show passing in an email object and
+<div class="dev-callout">
+<strong>Note</strong>
+<p>While the above examples show passing in an email object and
 callback function, you can also directly invoke the send and smtp
-functions by directly specifying email properties. For example:
-
-    sender.send({
-        to: 'john@contoso.com',
-        from: 'anna@contoso.com',
-        subject: 'test mail',
-        text: 'This is a sample email message.'
-    });
+functions by directly specifying email properties. For example:</p>
+<pre class="prettyprint">sender.send({
+    to: 'john@contoso.com',
+    from: 'anna@contoso.com',
+    subject: 'test mail',
+    text: 'This is a sample email message.'
+});
+</pre>
+</div>
 
 ## <a id="addattachment"> </a>How to: Add an Attachment
 
@@ -155,11 +158,11 @@ sending an attachment:
         }
     });
 
-**Note**: When using the **files** property, the file must be accessible
-through [fs.readFile][]. If the file you wish to attach is hosted in
-Windows Azure Storage, such as in a Blob container, you must first copy
-the file to local storage or to a Windows Azure drive before it can be sent as an
-attachment using the **files** property.
+<div class="dev-callout">
+<strong>Note</strong>
+<p>When using the <strong>files</strong> property, the file must be accessible
+through <a href="http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile">fs.readFile</a>. If the file you wish to attach is hosted in Windows Azure Storage, such as in a Blob container, you must first copy the file to local storage or to a Windows Azure drive before it can be sent as an attachment using the <strong>files</strong> property.</p>
+</div>
 
 ## <a id="usefilters"> </a>How to: Use Filters to Enable Footers, Tracking, and Twitter
 
@@ -258,11 +261,9 @@ Now that you’ve learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
 -   SendGrid Node.js module repository: [sendgrid-nodejs][]
-
 -   SendGrid API documentation:
     [http://docs.sendgrid.com/documentation/api/][SendGrid API
     documentation]
-
 -   SendGrid special offer for Windows Azure customers:
     [http://sendgrid.com/azure.html][]
 

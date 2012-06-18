@@ -86,7 +86,9 @@ To connect to the MySQL database that is running in Windows Azure Web Sites, you
 
 ##Build and test your application locally
 
-The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a MySQL database. The application consists of one file:
+Now that you have created a Windows Azure Website, you can develop your application locally, then deploy it after testing. 
+
+The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a MySQL database. The application consists of one file (copy/paste code available below):
 
 * **index.php**: Displays a form for registration and a table containing registrant information.
 
@@ -219,6 +221,8 @@ After you have tested your application locally, you can publish it to your Windo
 
 	You will be prompted for the password you created earlier.
 
+	![Initial Push to Azure via Git][git-initial-push]
+
 2. Browse to **http://[site name].azurewebsites.net/index.php** to begin using the application (this information will be stored on your account dashboard):
 
 	![Windows Azure PHP web site][running-app]
@@ -238,9 +242,15 @@ To publish changes to application, follow these steps:
 
 	You will be prompted for the password you created earlier.
 
+	![Pushing site changes to Azure via Git][git-change-push]
+
 3. Browse to **http://[site name].azurewebsites.net/index.php** to see your application and any changes you may have made:
 
 	![Windows Azure PHP web site][running-app]
+
+4. You can also see the new deployment in the 'Deployments' tab on the management portal:
+
+	![List of website deployments][deployments-list]
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
@@ -258,5 +268,8 @@ To publish changes to application, follow these steps:
 [creating-repo]: ../Media/creating_repo.jpg
 [push-files]: ../Media/push_files.jpg
 [git-instructions]: ../Media/git_instructions.jpg
+[git-change-push]: ../Media/php-git-change-push.png
+[git-initial-push]: ../Media/php-git-initial-push.png
+[deployments-list]: ../Media/php-deployments-list.png
 [connection-string-info]: ../../Shared/Media/connection_string_info.png
 [preview-portal]: https://manage.windowsazure.com

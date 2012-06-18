@@ -44,9 +44,15 @@ IDE].
 
     ![create new project dialog -- Cloud9][]
 
-    **Note**: Some options require a paid Cloud9 plan.  
-    **Note**: The project name of your Cloud9 project is not used when
-    deploying to Windows Azure.
+    <div class="dev-callout">
+	<strong>Note</strong>
+	<p>Some options require a paid Cloud9 plan.</p>
+	</div>
+    <div class="dev-callout">
+	<strong>Note</strong>
+	<p>The project name of your Cloud9 project is not used when
+    deploying to Windows Azure.</p>
+	</div>
 
 3.  After the project has been created, click **Start Editing**. If this
     is the first time you have used the Cloud9 IDE, you will be offered
@@ -72,28 +78,37 @@ IDE].
             res.end('hello azure\n');
         }).listen(port);
 
-    **Note**: Using process.env.PORT ensures that the application picks
+    <div class="dev-callout">
+	<strong>Note</strong>
+	<p>Using process.env.PORT ensures that the application picks
     up the correct port whether ran in the Cloud9 debugger or when
-    deployed to Windows Azure.
+    deployed to Windows Azure.</p>
+	</div>
 
 6.  To save the code, select **File** and then **Save as**. In the
     **Save As** dialog, enter **server.js** as the file name, and then
     click **Save**.
 
-    **Note**: You may notice a warning symbol indicating that the req
-    variable is unused. You may safely ignore this warning.
+    <div class="dev-callout">
+	<strong>Note</strong>
+	<p>You may notice a warning symbol indicating that the req
+    variable is unused. You may safely ignore this warning.</p>
+	</div>
 
     ![save the server.js file][]
 
 ## Run the Application
 
-**Note**: While the steps provided in this section are sufficient for a
+<div class="dev-callout">
+<strong>Note</strong>
+<p>While the steps provided in this section are sufficient for a
 Hello World application, for applications that use external modules you
 may need to select a specific version of Node.js for the debug
-environment. To do this, select **Configure...** from the debug
+environment. To do this, select <strong>Configure...</strong> from the debug
 dropdown, and then select the specific version of Node.js. For example,
 you may receive authentication errors when using the 'azure' module if
-you do not have Node.js 0.6.x selected.
+you do not have Node.js 0.6.x selected.</p>
+</div>
 
 1.  Click **Debug** to run the application in the Cloud9 debugger.
 
@@ -153,8 +168,7 @@ selecting **Free Trial** in the upper right corner.
 
 4.  Click **+ Create new** to create a new hosted service. A *hosted
     service* is the container in which your application is hosted when
-    it is deployed to Windows Azure. For more information, see [Overview
-    of Creating a Hosted Service for Windows Azure][].
+    it is deployed to Windows Azure. For more information, see [Overview of Creating a Hosted Service for Windows Azure][].
 
     ![create a new deployment][1]
 
@@ -166,13 +180,19 @@ selecting **Free Trial** in the upper right corner.
 
     ![create a new hosted service][]
 
-    **Note:** In the **Add a deploy target** dialog, any existing
-    Windows Azure hosted services will be listed under the **Choose
-    existing deployment** section; selecting an existing hosted service
-    will result in this project being deployed to that service.
+    <div class="dev-callout">
+	<strong>Note</strong>
+	<p>In the <strong>Add a deploy target</strong> dialog, any existing
+    Windows Azure hosted services will be listed under the <strong>Choose
+    existing deployment</strong> section; selecting an existing hosted service
+    will result in this project being deployed to that service.</p>
+	</div>
 
-    **Note:** Selecting **Enable RDP** and providing a username and
-    password will enable remote desktop for your deployment.
+    <div class="dev-callout">
+	<strong>Note</strong>
+	<p>Selecting <strong>Enable RDP</strong> and providing a username and
+    password will enable remote desktop for your deployment.</p>
+	</div>
 
 
 ## Deploy to the Windows Azure Production Environment
@@ -200,13 +220,11 @@ selecting **Free Trial** in the upper right corner.
     Select **Yes** to create the .csdef file. This will add a
     ‘ServiceDefinition.csdef’ file to your project.
     ServiceDefinition.csdef is a Windows Azure-specific files necessary
-    for publishing your application. For more information, see [Overview
-    of Creating a Hosted Service for Windows Azure][].
+    for publishing your application. For more information, see [Overview of Creating a Hosted Service for Windows Azure][].
 
 6.  You will be prompted to select the instance size for this
     application. Select **Small**, and then click **Create**. For more
-    details about Windows Azure VM sizes, see [How to Configure Virtual
-    Machine Sizes][].
+    details about Windows Azure VM sizes, see [How to Configure Virtual Machine Sizes][].
 
     ![specify csdef file values][]
 
@@ -215,8 +233,11 @@ selecting **Free Trial** in the upper right corner.
 
     ![deployment status][]
 
-    **Note**: Projects deployed through the Cloud 9 IDE are assigned a
-    GUID as the deployment name in Windows Azure.
+    <div class="dev-callout">
+	<strong>Note</strong>
+	<p>Projects deployed through the Cloud 9 IDE are assigned a
+    GUID as the deployment name in Windows Azure.</p>
+	</div>
 
 8.  The deployment dialog includes a link to the production URL. When
     the deployment is complete, click the URL to browse to your
@@ -320,9 +341,12 @@ prompt you for the username and password you entered when creating your
 deployment, and will then connect you to the desktop of the selected
 instance.
 
-**Note**: The .RDP file to connect to the hosted instance of your
+<div class="dev-callout">
+<strong>Note</strong>
+<p>The .RDP file to connect to the hosted instance of your
 application will only work with the Remote Desktop application on
-WIndows.
+WIndows.</p>
+</div>
 
 ## Stop and Delete the Application
 

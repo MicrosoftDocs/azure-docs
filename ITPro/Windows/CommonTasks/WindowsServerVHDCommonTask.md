@@ -30,7 +30,7 @@ The following resources must be available to complete this task:
   </TR>
   </TABLE>
 </P>
-- **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. To download the SDK and the tools, see [Windows Azure Downloads](../../downloads/).
+- **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. To download the SDK and the tools, see [Windows Azure Downloads](/en-us/develop/downloads/).
 
 This task includes the following steps:
 
@@ -203,13 +203,13 @@ You also need the ID of your subscription to upload the VHD file.
 
 ### Set the connection ###
 
-You must set the connection string that is used to access the subscription. The CSUpload Command-Line Tool is used to set the connection string that is used. For more information, see [CSUpload Command-Line Tool](http://msdn.microsoft.com/en-us/library/gg466228.aspx).
+You must set the connection string that is used to access the subscription. The CSUpload Command-Line Tool is used to set the connection string that is used. For more information, see [CSUpload Command-Line Tool](http://msdn.microsoft.com/en-us/library/windowsazure/gg466228.aspx).
 
 1. Open a Windows Azure SDK Command Prompt window as an administrator.
 
 2. Set the connection string by using the following command and replacing **Subscriptionid** and **CertThumbprint** with the values that you obtained earlier:
 
-	`csupload Set-Connection "SubscriptionID=<Subscriptionid>;CertificateThumbprint=<Thumbprint>;ServiceManagementEndpoint=https://management-preview.core.windows-int.net"`
+	`csupload Set-Connection "SubscriptionID=<Subscriptionid>;CertificateThumbprint=<Thumbprint>;ServiceManagementEndpoint=https://management.core.windows.net"`
 
 ### Upload the VHD file ###
 

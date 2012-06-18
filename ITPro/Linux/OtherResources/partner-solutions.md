@@ -2,31 +2,21 @@
 
 #Partner solutions for Linux in Windows Azure
 
-<div chunk="../../shared/chunks/disclaimer.md" />
+Contact the partners listed on this page for assistance in delivering your Linux-based cloud solutions in Windows Azure. In addition, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
 
-Contact the partners listed on this page for assistance in delivering Linux-based cloud solutions in Windows Azure. 
 
-##Canonical
+##Bitnami
 
-[![Ubuntu](../media/ubuntu.png)](http://www.ubuntu.com/microsoft)
+[![Bitnami](../media/bitnami.png) ](http://bitnami.org/azure/get-started)
 
-[www.ubuntu.com/microsoft](http://www.ubuntu.com/microsoft)
+[http://bitnami.org/azure/get-started](http://bitnami.org/azure/get-started)
 
-Canonical engineering and open community governance drive Ubuntu’s success in client, server and cloud computing - including personal cloud services for consumers. Canonical’s vision of a unified free platform in Ubuntu, from phone to cloud, with a family of coherent interfaces for the phone, tablet, TV and desktop, makes Ubuntu the first choice for diverse institutions from public cloud providers to the makers of consumer electronics, and a favorite among individual technologists.
+BitNami provides fully configured images of popular web applications that can be deployed to Windows Azure in one click. The BitNami WebPack and DevPack images for Windows Azure provide fully configured and ready-to-run environments for web and application developers, free of charge. BitNami WebPack bundles Wordpress, Drupal and Joomla! to give developers a choice of the best platforms for developing websites and blogs. BitNami DevPack provides a development environment complete with Ruby on Rails, PHP, Django and Java language runtimes and all of their dependencies, everything developers need to build web applications in the cloud.
 
-With developers and engineering centers around the world, Canonical is uniquely positioned to partner with hardware makers, content providers and software developers to bring Ubuntu solutions to market - from PCs to servers and handheld devices.
 
-##OpenLogic
+##Opscode Chef
 
-[![OpenLogic](../media/openlogic.png)](http://www.openlogic.com/azure/index.php)
-
-[www.openlogic.com/azure/index.php](http://www.openlogic.com/azure/index.php)
-
-OpenLogic is a leading provider of enterprise open source solutions for the cloud and the data center.  OpenLogic helps hundreds of leading enterprise across a wide range of industries to safely acquire, support, and control open source software.  OpenLogic offers  commercial-grade technical support and indemnification for 600 open source packages backed by the OpenLogic Expert Community, including enterprise level support for CentOS as well as being the launch partner for providing Centos images on Windows Azure.
-
-##Opscode
-
-[![Opscode](../media/opscode.png)](http://www.opscode.com/partners/microsoft)
+[![Opscode](../media/opscode.png)](http://www.opscode.com/partners/microsoft) 
 
 [www.opscode.com/partners/microsoft](http://www.opscode.com/partners/microsoft)
 	 
@@ -34,9 +24,9 @@ Opscode is the company behind Chef, the rapidly growing cloud infrastructure aut
 
 ##RightScale
 
-[![Rightscale](../media/rightscale-tagline-white-bg.png)](https://www.rightscale.com/microsoft-azure)
+[![Rightscale](../media/rightscale-tagline-white-bg.png)](http://www.rightscale.com/microsoft-azure)
 
-[www.rightscale.com/microsoft-azure](https://www.rightscale.com/microsoft-azure)
+[www.rightscale.com/microsoft-azure](http://www.rightscale.com/microsoft-azure)
 
 RightScale® Inc., cloud management enables organizations to easily deploy and manage business-critical applications across public, private, and hybrid clouds. RightScale provides efficient configuration, monitoring, automation, and governance of cloud computing infrastructure and applications. Since 2006, millions of servers have been launched with the RightScale solution by leading enterprises including the Associated Press, CBS Interactive, Intercontinental Hotels Group, PBS, and Zynga.
 
@@ -46,15 +36,29 @@ RightScale® Inc., cloud management enables organizations to easily deploy and m
 
 [www.scalextreme.com/partners-windows-azure](http://www.scalextreme.com/partners-windows-azure)
  
-ScaleXtreme is delivering the next-generation of systems and cloud management products that gives customers a unified product to manage their Microsoft Azure and internal enterprise servers. ScaleXtreme is cloud-based and gives customers instant, enterprise-class automation capabilities at a fraction of the cost and complexity of traditional solutions.
+ScaleXtreme is delivering the next-generation of systems and cloud management products that gives customers a unified product to manage their Windows Azure and internal enterprise servers. ScaleXtreme is cloud-based and gives customers instant, enterprise-class automation capabilities at a fraction of the cost and complexity of traditional solutions.
 
-ScaleXtreme gives customers the power to build, launch, monitor, patch, and manage their Windows and Linux servers on Microsoft Azure, and to rapidly deploy and scale their server infrastructure. ScaleXtreme is cloud-based and deploys in minutes, giving customers “instant” systems management and automation capabilities without the need to deploy on-premise infrastructure. Product features includes server templates and provisioning, monitoring, budgets and cost controls, patch management, and rich automation capabilities.
+ScaleXtreme gives customers the power to build, launch, monitor, patch, and manage their Windows and Linux servers on Microsoft Azure, and to rapidly deploy and scale their server infrastructure. ScaleXtreme is cloud-based and deploys in minutes, giving customers "instant" systems management and automation capabilities without the need to deploy on-premise infrastructure. Product features includes server templates and provisioning, monitoring, budgets and cost controls, patch management, and rich automation capabilities.
 
-##SUSE
 
-[![SUSE](../media/suse.png) ](http://www.suse.com/suse-linux-enterprise-server-on-azure.com)
+##SUSE Studio
 
-[www.suse.com/suse-linux-enterprise-server-on-azure.com](http://www.suse.com/suse-linux-enterprise-server-on-azure.com)
+[![SUSE](../media/suse.png) ](http://www.susestudio.com)
 
-SUSE Linux Enterprise Server on Windows Azure is a proven platform that provides superior reliability and security for cloud computing. SUSE’s versatile Linux platform seamlessly integrates with Windows Azure cloud services to deliver an easily manageable cloud environment. And with more than 9,200 certified applications from over 1,800 independent software vendors for SUSE Linux Enterprise Server, SUSE ensures that workloads running supported in the data center can be confidently deployed on Windows Azure. 
+[www.susestudio.com](http://www.susestudio.com)
+
+SUSE makes it easy to extend SUSE Linux Enterprise Server-based applications to Windows Azure using the one-click-deployment capabilities of SUSE Studio.  Through SUSE Studio, customers can rapidly develop cloud-ready applications that include a preconfigured, integrated and fully supported enterprise-class Linux operating system, and automatically launch them on Windows Azure, virtually eliminating inefficient manual processes. 
+
+
+##Ubuntu Juju
+
+[![Juju](../media/juju.png)](http://www.ubuntu.com/cloud/azure)
+
+[http://www.ubuntu.com/cloud/azure](http://www.ubuntu.com/cloud/azure)
+
+After recognizing cloud computing was the future and analyzing what cloud adoption would mean to both IT organizations and developers, we've developed Juju, a game-changing service orchestration toolset, that enables the knowledge connected with an application—dependencies, relations and platform configuration—to be encapsulated in a charm.
+
+A Juju charm is a collection of pre-written instructions that deploys a cloud service. More than 50 are already available, for services including Hadoop, PostgreSQL and Drupal. And because anyone can submit one, the selection is growing all the time.
+
+Juju is tightly coupled with provisioning, however independent of the underlying infrastructure layer. The base platform can be installed on a public cloud, private cloud, or hardware, ready for the services to be deployed, controlled, and scaled on top with Juju.
 

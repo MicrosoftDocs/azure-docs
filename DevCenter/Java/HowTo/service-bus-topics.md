@@ -124,15 +124,20 @@ service namespace:
     String issuer = "<obtained from portal>";
     String key = "<obtained from portal>";
     Configuration config = 
-      ServiceBusConfiguration.configureWithWrapAuthentication(“HowToSample”, issuer, key);  
+    	ServiceBusConfiguration.configureWithWrapAuthentication(
+			“HowToSample”,
+			issuer,
+			key);  
 	ServiceBusContract service = ServiceBusService.create(config);
     TopicInfo topicInfo = new TopicInfo("TestTopic");
-	try  {
+	try  
+	{
     	CreateTopicResult result = service.createTopic(topicInfo);
 	}
 	catch (ServiceException e) {
 		System.out.print("ServiceException encountered: ");
-	    System.out.println(e.getMessage());  System.exit(-1);
+	    System.out.println(e.getMessage());
+		System.exit(-1);
 	}
 
 There are methods on **TopicInfo** that allow properties of the topic to
@@ -164,19 +169,25 @@ subscription's virtual queue. The following example creates a
 subscription named "AllMessages" and uses the default **MatchAll**
 filter.
 
-    String issuer = "<obtained from portal>";  String key = "<obtained from portal>";
-    Configuration config = ServiceBusConfiguration.configureWithWrapAuthentication(“HowToSample”, issuer, key);
-    
+    String issuer = "<obtained from portal>";
+	String key = "<obtained from portal>";
+    Configuration config = 	ServiceBusConfiguration.configureWithWrapAuthentication(
+			“HowToSample”,
+			issuer,
+			key);    
 	ServiceBusContract service = ServiceBusService.create(config);
-    try  {
+    try 
+	{
 	    TopicInfo topicInfo = new TopicInfo("TestTopic");     
 		CreateTopicResult result = service.createTopic(topicInfo);
 		SubscriptionInfo subInfo = new SubscriptionInfo("AllMessages");
-	    CreateSubscriptionResult result = service.createSubscription("TestTopic", subInfo);
+	    CreateSubscriptionResult result = 
+			service.createSubscription("TestTopic", subInfo);
 	}
 	catch (ServiceException e) {
 		System.out.print("ServiceException encountered: ");
-		System.out.println(e.getMessage());  System.exit(-1);
+		System.out.println(e.getMessage()); 
+		System.exit(-1);
 	}
 
 ### Create Subscriptions with Filters
@@ -196,10 +207,12 @@ The example below creates a subscription named "HighMessages" with a
 
     // Create a "HighMessages" filtered subscription  
 	SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
-    CreateSubscriptionResult result = service.createSubscription("TestTopic", subInfo);
+    CreateSubscriptionResult result = 
+		service.createSubscription("TestTopic", subInfo);
 	RuleInfo ruleInfo = new RuleInfo();
 	ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber > 3");
-	CreateRuleResult ruleResult = service.createRule("TestTopic", "HighMessages", ruleInfo);
+	CreateRuleResult ruleResult = 
+		service.createRule("TestTopic", "HighMessages", ruleInfo);
 
 Similarly, the following example creates a subscription named
 "LowMessages" with   
@@ -209,10 +222,12 @@ property less
 
     // Create a "LowMessages" filtered subscription
 	SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
-	CreateSubscriptionResult result = service.createSubscription("TestTopic", subInfo);
+	CreateSubscriptionResult result = 
+		service.createSubscription("TestTopic", subInfo);
     RuleInfo ruleInfo = new RuleInfo();
 	ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber <= 3");
-	CreateRuleResult ruleResult = service.createRule("TestTopic", "HighMessages", ruleInfo);
+	CreateRuleResult ruleResult = 
+		service.createRule("TestTopic", "HighMessages", ruleInfo);
 
 When a message is now sent to the "TestTopic", it will always be
 delivered to receivers subscribed to the "AllMessages" topic
@@ -229,17 +244,22 @@ message for the "TestTopic" topic we created above within our
 
     String issuer = "<obtained from portal>";
 	String key = "<obtained from portal>";
-	Configuration config = ServiceBusConfiguration.configureWithWrapAuthentication (“HowToSample”, issuer, key);
+	Configuration config = 	ServiceBusConfiguration.configureWithWrapAuthentication(
+			“HowToSample”,
+			issuer,
+			key);
 	ServiceBusContract service = ServiceBusService.create(config);
 	TopicInfo topicInfo = new TopicInfo("TestTopic");
-	try {
+	try 
+	{
 		CreateTopicResult result = service.createTopic(topicInfo);
 		BrokeredMessage message = new BrokeredMessage("sendMessageWorks");
 		service.sendTopicMessage("TestTopic", message);
 	} 
 	catch (ServiceException e) {
 		System.out.print("ServiceException encountered: ");
-		System.out.println(e.getMessage()); System.exit(-1);
+		System.out.println(e.getMessage());
+		System.exit(-1);
 	}
 
 Messages sent to Service Bus Topics are instances of the
@@ -311,7 +331,8 @@ path&gt;/subscriptions/&lt;subscription name&gt;".
 
     ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;  opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
     while(true)  { 
-    	ReceiveTopicMessageResult resultQM = service.receiveTopicMessage("TestTopic", opts);
+    	ReceiveSubscriptionMessageResult  resultQM = 
+			service.receiveSubscriptionMessage("TestTopic", opts);
     	BrokeredMessage message = resultQM.getValue();
         if (message != null && message.getMessageId() != null)
         {
@@ -319,9 +340,11 @@ path&gt;/subscriptions/&lt;subscription name&gt;".
             {
 				System.out.println("Body: " + message.toString());
 				System.out.println("MessageID: " + message.getMessageId());
-                System.out.println("Custom Property: " + message.getProperty("TestProperty"));
+                System.out.println("Custom Property: " + 
+					message.getProperty("TestProperty"));
                 // Remove message from topic
-	            System.out.println("Deleting this message.");              service.deleteMessage(message);
+	            System.out.println("Deleting this message.");
+				service.deleteMessage(message);
             }
 			catch (Exception ex)
 	        {              
@@ -373,7 +396,8 @@ The primary way to delete topics and subscriptions is to use a
 **ServiceBusContract** object. Received messages can work in two
 different modes: **ReceiveAndDelete** and **PeekLock**
 
-    // Delete Topic  service.deleteTopic("TestTopic");
+    // Delete Topic  
+	service.deleteTopic("TestTopic");
     // Delete subscription  service.deleteSubscription("TestTopic", "HighMessages");
 
 Deleting a topic will also delete any subscriptions that are registered

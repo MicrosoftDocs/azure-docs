@@ -53,9 +53,12 @@ staging environment, you can quickly make it available in production by
 swapping the virtual IPs (VIPs) of the staging and production
 environments.
 
-**Note:** This step assumes that you have already deployed an
+<div class="dev-callout">
+<b>Note</b>
+<p>This step assumes that you have already deployed an
 application to production and staged the upgraded version of the
-application.
+application.</p>
+</div>
 
 1.  Log into the [Windows Azure Management Portal],
     click **Cloud Services** and then select the service name.
@@ -74,10 +77,8 @@ deployment by swapping VIPs with the deployment in staging.
 
 ## Additional Resources
 
-[How to Deploy a Service Upgrade to Production by Swapping VIPs in
-Windows Azure]
-
-[Overview of Managing Deployments in Windows Azure]
+- [How to Deploy a Service Upgrade to Production by Swapping VIPs in Windows Azure]
+- [Overview of Managing Deployments in Windows Azure]
 
   [Step 1: Stage an Application]: #step1
   [Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
@@ -86,6 +87,5 @@ Windows Azure]
 [cloud-service-dashboard]: ../../Shared/Media/cloud-service-dashboard-staging.png
   [cloud-service-staging-url]: ../../Shared/Media/cloud-service-staging-url.png
   [vip-swap-dialog]: ../../Shared/Media/vip-swap-dialog.png
-  [How to Deploy a Service Upgrade to Production by Swapping VIPs in
-  Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx
+  [How to Deploy a Service Upgrade to Production by Swapping VIPs in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx
   [Overview of Managing Deployments in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx

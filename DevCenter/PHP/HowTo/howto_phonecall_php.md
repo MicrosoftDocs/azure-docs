@@ -85,29 +85,11 @@ In addition to making the call, **makecall.php** displays some call metadata (ex
 ![Windows Azure Call Response Using Twilio and PHP][twilio_php_response]
 
 ## Run the application
-Following are the high-level steps for running your application in the Windows Azure Compute Emulator and for packaging and deploying your application to Windows Azure; details for these steps can be found at [Build and Deploy a Windows Azure PHP Application][build_php_azure_app].
+The next step is to deploy your application to Windows Azure Websites. The following articles contain the information for creating a website and deploying your code with Git, FTP, or WebMatrix (though not all information in each article is relevant):
 
-1. Run the Windows Azure SDK for PHP default scaffolder.
-
-		>scaffolder run -out="c:\temp\WindowsAzurePHPApp"	
-
-2. Add **callform.html**, **makecall.php**, and the Twilio library for PHP to the newly created **c:\temp\WindowsAzurePHPApp\PhpOnAzure.Web** directory.
-
-3. Run the application in the compute emulator. 
-
-		>package create -in="c:\temp\WindowsAzurePHPApp" -out="c:\temp\WindowsAzurePHPApp\build" -dev=true
-
-	Navigate to http://127.0.0.1:81/callform.html, enter values in the form, click **Make this call**, and then see the results in makecall.php.
-
-	**Note**: For help in troubleshooting SSL certificate verification errors, see [http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation].
-
-4. Package your application for deployment to Windows Azure.
-
-		>package create -in="c:\temp\WindowsAzurePHPApp" -out="c:\temp\WindowsAzurePHPApp\build" -dev=false
-
-5. Deploy the resulting `.cspkg` and `.cscfg` files to Windows Azure via the Windows Azure Portal.
-
-When you have deployed your application, browse to http://*your_hosted_name*.cloudapp.net/callform.html in your browser (substitute your value for *your_hosted_name*).
+* [Create a PHP-MySQL Windows Azure web site and deploy using Git][website-git]
+* [Create a PHP-MySQL Windows Azure Website and Deploy Using FTP][website-ftp]
+* [Create and deploy a PHP-MySQL Windows Azure Website using WebMatrix][website-webmatrix]
 
 ## Next steps
 This code was provided to show you basic functionality using Twilio in PHP on Windows Azure. Before deploying to Windows Azure in production, you may want to add more error handling or other features. For example:
@@ -142,3 +124,6 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 [ssl_validation]: http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html
 [twilio_php]: ../Media/WA_TwilioPHPCallForm.jpg
 [twilio_php_response]: ../Media/WA_TwilioPHPMakeCall.jpg
+[website-git]: https://www.windowsazure.com/en-us/develop/php/tutorials/website-w-mysql-and-git/
+[website-ftp]: https://www.windowsazure.com/en-us/develop/php/tutorials/website-w-mysql-and-ftp/
+[website-webmatrix]: https://www.windowsazure.com/en-us/develop/php/tutorials/website-w-mysql-and-webmatrix/

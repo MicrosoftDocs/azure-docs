@@ -35,7 +35,7 @@ If you need to update your application code, use **Update** on the dashboard, **
 
 7. If any service roles have only one role instance, select the **Update even if one or more role contain a single instance check box** to enable the upgrade to proceed. 
 
- Windows Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). That enables one virtual machine to process client requests while the other is being updated. For information about how Windows Azure maintains service during updates, see [Deploying and Updating Windows Azure Applications](https://www.windowsazure.com/en-us/develop/net/fundamentals/deploying-applications/).
+ Windows Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). That enables one virtual machine to process client requests while the other is being updated. For information about how Windows Azure maintains service during updates, see [Deploying and Updating Windows Azure Applications](/en-us/develop/dotnet/fundamentals/deploying-applications/).
 
 8. Click OK (checkmark) to begin updating the service.
 
@@ -60,7 +60,7 @@ You can swap deployments from the **Cloud Services** page or the dashboard.
 
 4. After you verify the deployment information, click **Yes** to swap the deployments.
 
-The deployment swap happens quickly because the only thing that changes is the virtual IP addresses (VIPs) for the deployments. For more information, see [Deploying and Updating Windows Azure Cloud Applications](http://www.windowsazure.com/en-us/develop/net/fundamentals/deploying-applications/).
+The deployment swap happens quickly because the only thing that changes is the virtual IP addresses (VIPs) for the deployments. For more information, see [Deploying and Updating Windows Azure Cloud Applications](/en-us/develop/dotnet/fundamentals/deploying-applications/).
 
 To save compute costs, you can delete the deployment in the staging environment when you're sure the new production deployment is performing as expected.
 
@@ -105,7 +105,7 @@ You can follow the progress of the linking operation in the message area.
 ![Link Progress](../media/CloudServices_LinkedResources_LinkProgress.png)
 
 
-When linking is complete, you can monitor the status of the linked resource on the cloud service dashboard. For information about scaling a linked SQL Database, see [How to Scale a Cloud Service and Linked Resources](./howto-scale-cloud-service/).
+When linking is complete, you can monitor the status of the linked resource on the cloud service dashboard. For information about scaling a linked SQL Database, see [How to Scale a Cloud Service and Linked Resources](../how-to-scale-a-cloud-service/).
 
 ###To unlink a linked resource###
 
@@ -142,4 +142,4 @@ Use the following procedure to delete a deployment or your cloud service.
 
 5. To delete the cloud service, click **Delete cloud service**. Then, at the confirmation prompt, click **Yes**.
 
-**Note**   If verbose monitoring is configured for your cloud service, Windows Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For more information, see [How to Monitor Cloud Services](./how-to-monitor-a-cloud-service/).
+**Note**   If verbose monitoring is configured for your cloud service, Windows Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For more information, see [How to Monitor Cloud Services](../how-to-monitor-a-cloud-service/).

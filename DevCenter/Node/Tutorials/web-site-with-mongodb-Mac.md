@@ -1,19 +1,13 @@
 <properties linkid="dev-nodejs-website-mongodb" urldisplayname="Node.js Website with MongoDB" headerexpose="" pagetitle="Node.js Application using MongoDB" metakeywords="Azure Node.js tutorial MongoDB, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates a Node.js application in a Windows Azure Website, that talks to MongoDB on a Windows Azure virtual machine" umbraconavihide="0" disquscomments="1"></properties>
 
-<div class="dev-center-os-selector"><a href="/en-us/develop/nodejs/tutorials/web-app-with-mongodb/" title="Windows Version" class="windows">Windows</a> <a href="/en-us/develop/nodejs/tutorials/website-with-mongodb-(mac)/" title="Mac Version" class="mac current">Mac</a> <span>Tutorial</span></div>
-
 # Node.js Web Application with Storage on MongoDB
-
-This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on Windows Azure. This tutorial assumes that you have some prior experience using node, MongoDB, and [Git].
-
-This guide also assumes that you have access to a MongoDB server, such as the one created by following the steps in the [Installing MongoDB on a Linux Virtual machine] article.
+This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on Windows Azure. [MongoDB] is a popular open source, high performance NoSQL database. This tutorial assumes that you have some prior experience using node, MongoDB, and [Git].
 
 You will learn:
 
+* How to set up a virtual machine running Linux or Windows and install MongoDB
 * How to use npm (node package manager) to install the node modules
-
 * How to access MongoDB from a node application
-
 * How to use the Cross-Platform Tools for Windows Azure to create a Windows Azure Web Site
 
 By following this tutorial, you will build a simple web-based task-management application that allows creating, retrieving and completing tasks. The tasks are stored in MongoDB.
@@ -22,23 +16,45 @@ The project files for this tutorial will be stored in a directory named **taskli
 
 ![A web page displaying an empty tasklist][node-mongo-finished]
 
-**Note**: This tutorial makes reference to the **tasklist** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/tasklist** or **c:\node\tasklist**
+<div class="dev-callout">
+<strong>Note</strong>
+<p>This tutorial makes reference to the <strong>tasklist</strong> folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as <strong>~/node/tasklist</strong> or <strong>c:\node\tasklist</strong></p>
+</div>
 
-**Note**: Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **Windows PowerShell** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
+<div class="dev-callout">
+<strong>Note</strong>
+<p>Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as <strong>Windows PowerShell</strong> (Windows) or <strong>Bash</strong> (Unix Shell). On OS X systems you can access the command-line through the Terminal application.</p>
+</div>
 
 ##Prerequisites
 
 Before following the instructions in this article, you should ensure that you have the following installed:
 
-* [node] version 0.6.14 or higher
+* [node] recent version
 
 * [Git]
 
-* A [MongoDB] server
+##Preparation
 
-* A text editor
+In this section you will learn how to create a virtual machine in Windows Azure and install MongoDB, set up your development environment, and install the MongoDB C# driver.
 
-* A web browser
+###Create a virtual machine and install MongoDB
+
+This tutorial assumes you have created a virtual machine in Windows Azure. After creating the virtual machine you need to install MongoDB on the virtual machine:
+
+* To create a Linux virtual machine and install MongoDB, see [Installing MongoDB on a Linux Virtual machine].
+
+After you have created the virtual machine in Windows Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.
+
+### Sign up for the Windows Azure Web Sites preview feature
+
+You will need to sign up for the Windows Azure Web Sites preview feature in order to create a Windows Azure web site. You can also sign up for a free trial account if you do not have a Windows Azure account.
+
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
+
+### Enable Windows Azure Web Sites
+
+<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
 ##Install modules and generate scaffolding
 
@@ -50,23 +66,29 @@ In this section you will create a new Node application and use npm to add module
 
 2. Enter the following command to install express.
 
-		npm install express -g
-
-	**Note**: When using the '-g' parameter on some operating systems, you may receive an error of **Error: EPERM, chmod '/usr/local/bin/express'** and a request to try running the account as an administrator. If this occurs, use the [sudo] command to run npm at a higher privilege level.
+	sudo npm install express -g
+ 
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>When using the '-g' parameter on some operating systems, you may receive an error of <strong>Error: EPERM, chmod '/usr/local/bin/express'</strong> and a request to try running the account as an administrator. If this occurs, use the <strong>sudo</strong> command to run npm at a higher privilege level.</p>
+	</div>
 
     The output of this command should appear similar to the following:
 
 		express@2.5.9 /usr/local/lib/node_modules/express
-		├── mime@1.2.4
-		├── mkdirp@0.3.0
-		├── qs@0.4.2
-		└── connect@1.8.7
-
-	**Note**: The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the **express** command to generate web site scaffolding without having to type in additional path information.
+		├── mime@1.2.4 
+		├── mkdirp@0.3.0 
+		├── qs@0.4.2 
+		└── connect@1.8.7 
+ 
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the <strong>express</strong> command to generate web site scaffolding without having to type in additional path information.</p>
+	</div>
 
 4. To create the scaffolding which will be used for this application, use the **express** command:
 
-        	express
+    express
 
 	The output of this command should appear similar to the following:
 
@@ -120,7 +142,10 @@ The **package.json** file is one of the files created by the **express** command
 		├── hooks@0.2.1
 		└── mongodb@1.0.2
 
-    **Note**: You can safely ignore any message about installing the C++ bson parser.
+    <div class="dev-callout">
+	<strong>Note</strong>
+	<p>You can safely ignore any message about installing the C++ bson parser.</p>
+	</div>
 
 ##Using MongoDB in a node application
 
@@ -220,9 +245,12 @@ In this section you will extend the basic application created by the **express**
     	app.post('/addtask', taskList.addTask.bind(taskList));
     	app.post('/completetask', taskList.completeTask.bind(taskList));
 
-		app.listen(process.env.port || 1337);
+		app.listen(process.env.port || 3000);
 
-	**Note**: You must replace the connection string above with the connection string for your MongoDB server. For example, **'mongodb://127.0.0.1/tasks**.
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>You must replace the connection string above with the connection string for the MongoDB server you created earlier. For example, <strong>mongodb://mymongodb.cloudapp.net/tasks</strong>.</p>
+	</div>
 
 4. Save the **app.js** file.
 
@@ -233,7 +261,6 @@ In this section you will extend the basic application created by the **express**
 2. Replace the contents of the **index.jade** file with the code below. This defines the view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.
 
 		h1= title
-		  font(color="grey") (powered by Node.js and MongoDB)
 		form(action="/completetask", method="post")
 		  table(border="1")
 		    tr
@@ -277,7 +304,7 @@ To test the application on your local machine, perform the following steps:
 
         node app.js
 
-3. Open a web browser and navigate to http://127.0.0.1:1337. This should display a web page similar to the following:
+3. Open a web browser and navigate to http://localhost:3000. This should display a web page similar to the following:
 
     ![A webpage displaying an empty tasklist][node-mongo-finished]
 
@@ -297,25 +324,31 @@ To test the application on your local machine, perform the following steps:
 
 The steps in this section use the Windows Azure command-line tools to create a new Windows Azure Web Site, and then use Git to deploy your application. To perform these steps you must have a Windows Azure subscription.
 
-**Note**: These steps can also be performed by using the Windows Azure portal. For steps on using the Windows Azure portal to deploy a Node.js application, see [Create and deploy a Node.js application to a Windows Azure Web Site].
+<div class="dev-callout">
+<strong>Note</strong>
+<p>These steps can also be performed by using the Windows Azure portal. For steps on using the Windows Azure portal to deploy a Node.js application, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to a Windows Azure Web Site</a>.</p>
+</div>
 
-**Note**: If this is the first Windows Azure Web Site you have created, you must use the Windows Azure portal to deploy this application.
-
-###Enable the Windows Azure Web Site feature
-
-If you do not already have a Windows Azure subscription, you can sign up [for free]. After signing up, follow these steps to enable the Windows Azure Web Site feature.
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md"></div>
+<div class="dev-callout">
+<strong>Note</strong>
+<p>If this is the first Windows Azure Web Site you have created, you must use the Windows Azure portal to deploy this application.</p>
+</div>
 
 ###Install the Windows Azure command-line tool for Mac and Linux
 
 To install the command-line tools, use the following command:
 	
-	npm install azure -g
+	sudo npm install azure -g
 
-**Note**: If you have already installed the **Windows Azure SDK for Node.js** from the [Windows Azure Developer Center], then the command-line tools should already be installed. For more information, see [Windows Azure command-line tool for Mac and Linux].
+<div class="dev-callout">
+<strong>Note</strong>
+<p>If you have already installed the <strong>Windows Azure SDK for Node.js</strong> from the <a href="/en-us/develop/nodejs/">Windows Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure command-line tool for Mac and Linux</a>.</p>
+</div>
 
-**Note**: While the command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.
+<div class="dev-callout">
+<strong>Note</strong>
+<p>While the command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.</p>
+</div>
 
 ###Import publishing settings
 
@@ -356,11 +389,17 @@ Before using the command-line tools with Windows Azure, you must first download 
 		
 	You will be prompted for the datacenter that the site will be located in. Select the datacenter geographically close to your location.
 	
-	The `--git` parameter will create a Git repository locally in the **tasklist** folder if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Windows Azure. Finally, it will create a **web.config** file, which contains settings used by Windows Azure to host node applications.
+	The `--git` parameter will create a Git repository locally in the **tasklist** folder if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Windows Azure. It will create an [iisnode.yml], which contains settings used by Windows Azure to host node applications. Finally it will also create a .gitignore file to exclude the node-modules folder for being published to .git.
 	
-	**Note**: If this command is ran from a directory that already contains a Git repository, it will not re-initialize the directory.
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>If this command is ran from a directory that already contains a Git repository, it will not re-initialize the directory.</p>
+	</div>
 	
-	**Note**: If the `--git` parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>If the '--git' parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.</p>
+	</div>
 	
 	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created website at** contains the URL for the web site.
 
@@ -375,7 +414,10 @@ Before using the command-line tools with Windows Azure, you must first download 
 		info:   Executing `git remote add azure http://username@mongodbtasklist.azurewebsites.net/mongodbtasklist.git`
 		info:   site create command OK
 
-	**Note**: If this is the first Windows Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see [Create and deploy a Node.js application to Windows Azure Web Sites].
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>If this is the first Windows Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to Windows Azure Web Sites</a>.</p>
+	</div>
 
 ###Publish the application
 
@@ -390,12 +432,25 @@ Before using the command-line tools with Windows Azure, you must first download 
 
 		git push azure master
 	
-	At the end of the deployment, you should see a statement similar to the following:
-	
+	You will see output similar to the following. As the deployment takes place Windows Azure will download all npm modules. 
+
+		Counting objects: 17, done.
+		Delta compression using up to 8 threads.
+		Compressing objects: 100% (13/13), done.
+		Writing objects: 100% (17/17), 3.21 KiB, done.
+		Total 17 (delta 0), reused 0 (delta 0)
+		remote: New deployment received.
+		remote: Updating branch 'master'.
+		remote: Preparing deployment for commit id 'ef276f3042'.
+		remote: Preparing files for deployment.
+		remote: Running NPM.
+		...
+		remote: Deploying Web.config to enable Node.js activation.
+		remote: Deployment successful.
 		To https://username@mongodbtasklist.azurewebsites.net/MongoDBTasklist.git
  		 * [new branch]      master -> master
  
-4. Once the push operation has completed, browse to the web site URL returned previously by the `azure create site` command to view your application.
+4. Once the push operation has completed, browse to the web site by using the `azure site browse` command to view your application.
 
 ##Next steps
 
@@ -414,20 +469,18 @@ While the steps in this article describe using MongoDB to store information, you
 [Express]: http://expressjs.com
 [Mongoose]: http://mongoosejs.com
 [for free]: /en-us/pricing/free-trial
-[Git remote]: http://gitref.org/remotes/
+[Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
+[iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
 [Windows Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Windows Azure Developer Center]: /en-us/develop/nodejs/
 [Create and deploy a Node.js application to Windows Azure Web Sites]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
 [Publishing to Windows Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
-[Installing MongoDB on a Linux Virtual machine]: /en-us/manage/linux/common-tasks/mongodb-virtual-machine/
-[Node.js Web Application with the Windows Azure Table Service]: /en-us/develop/nodejs/tutorials/website-with-storage/
-
-
-
+[Installing MongoDB on a Linux Virtual machine]: /en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm/
+[Node.js Web Application with the Windows Azure Table Service]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
 [node-mongo-finished]: ../media/todo_list_empty.png
 [node-mongo-express-results]: ../media/express_output.png
 [node-mongo-add-item]: ../media/todo_add_item.png
 [node-mongo-list-items]: ../media/todo_list_items.png
-[download-publishing-settings]: ../../Shared/Media/azure-account-download.png
+[download-publishing-settings]: ../../Shared/Media/azure-account-download-cli.png
 [import-publishing-settings]: ../media/azureimport.png

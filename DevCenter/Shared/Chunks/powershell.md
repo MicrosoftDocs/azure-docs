@@ -62,81 +62,47 @@ can help you get started:
     [Windows PowerShell Getting Started Guide][].
 
 -   While you are working in Windows PowerShell, your best source of
-    help is the **Get-Help** cmdlet. The following table summarizes some
+    help is the **Help** cmdlet. The following table summarizes some
     common help requests. For more information, see [Getting Help:
-    Get-Help][get-help], or, in Windows PowerShell, type: **get-help**.
+    Help][get-help], or, in Windows PowerShell, type: **help**.
 
     <table border="1" cellspacing="4" cellpadding="4">
     <tbody>
     <tr align="left" valign="top">
-    <td>
-    <b>Cmdlet Format</b>
-
-    </td>
-    <td>
-    <b>Information Returned</b>
-
-    </td>
+		<td><b>Cmdlet Format</b></td>
+		<td><b>Information Returned</b></td>
     </tr>
     <tr align="left" valign="top">
-    <td>
-    get-help
-
-    </td>
-    <td>
-    Displays a help topic about using the <b>Get-Help</b> cmdlet
-
-    </td>
+		<td>help</td>
+		<td>Displays a help topic about using the <b>help</b> cmdlet</td>
     </tr>
     <tr align="left" valign="top">
-    <td>
-    get-help azure
-
-    </td>
-    <td>
-    Lists all cmdlets in the Windows Azure PowerShell snap-in
-
-    </td>
+		<td>help azure</td>
+		<td>Lists all cmdlets in the Windows Azure PowerShell snap-in</td>
+    </tr>
+	<tr align="left" valign="top">
+		<td>help node-dev</td>
+		<td>Lists cmdlets for developing and managing Node.js applications</td>
+    </tr>
+	<tr align="left" valign="top">
+		<td>help php-dev</td>
+		<td>Lists cmdlets for developing and managing PHP applications</td>
     </tr>
     <tr align="left" valign="top">
-    <td>
-    get-help &lt;<b>cmdlet</b>&gt;
-
-    </td>
-    <td>
-    Displays help about a Windows PowerShell cmdlet
-
-    </td>
+		<td>help &lt;<b>cmdlet</b>&gt;</td>
+		<td>Displays help about a Windows PowerShell cmdlet</td>
     </tr>
     <tr align="left" valign="top">
-    <td>
-    get-help &lt;<b>cmdlet</b>&gt; -parameter *
-
-    </td>
-    <td>
-    Displays parameter definitions for a cmdlet
-
-    </td>
+		<td>help &lt;<b>cmdlet</b>&gt; -parameter *</td>
+		<td>Displays parameter definitions for a cmdlet</td>
     </tr>
     <tr align="left" valign="top">
-    <td>
-    get-help &lt;<b>cmdlet</b>&gt; -examples
-
-    </td>
-    <td>
-    Displays example syntax lines for a cmdlet
-
-    </td>
+		<td>help &lt;<b>cmdlet</b>&gt; -examples</td>
+		<td> Displays example syntax lines for a cmdlet</td>
     </tr>
     <tr align="left" valign="top">
-    <td>
-    get-help &lt;<b>cmdlet</b>&gt; -full
-
-    </td>
-    <td>
-    Displays technical requirements for a cmdlet
-
-    </td>
+		<td>help &lt;<b>cmdlet</b>&gt; -full</td>
+		<td>Displays technical requirements for a cmdlet</td>
     </tr>
     </tbody>
     </table>
@@ -269,7 +235,6 @@ web role or worker role for the service.
 * **Add-AzureNodeWorkerRole**
 * **Add-AzurePHPWebRole**
 * **Add-AzurePHPWorkerRole**
-* **Add-AzurePythonWebRole** 
 
 When your application is deployed as a cloud service in Windows Azure,
 it runs as one or more *roles.* A *role* simply refers to the
@@ -280,7 +245,7 @@ programming, while a worker role is intended to support general
 development and periodic or long-running processes. For more information
 about service roles, see [Overview of Creating a Hosted Service for Windows Azure][].
 
-The cmdlets listed above create a role directory that is ready to run code written in the specified language (Node.js, PHP, or Python). After creating a role, you can put code in the role directory and run it in the compute emulator with the **Start-AzureEmulator** cmdlet or publish it to Windows Azure with the **Publish-AzureServiceProject** cmdlet.
+The cmdlets listed above create a role directory that is ready to run code written in the specified language (Node.js or PHP). After creating a role, you can put code in the role directory and run it in the compute emulator with the **Start-AzureEmulator** cmdlet or publish it to Windows Azure with the **Publish-AzureServiceProject** cmdlet.
 
 You can run these cmdlets with no parameters to create a
 single role instance with the name WebRole1 or WorkerRole1. Use the
@@ -341,63 +306,28 @@ deployed using the following settings:
 <table border="1" cellspacing="4" cellpadding="4">
 <tbody>
 <tr align="left" valign="top">
-<td valign="bottom">
-<b>Setting</b>
-
-</td>
-<td valign="bottom">
-<b>Default Value</b>
-
-</td>
+	<td valign="bottom"><b>Setting</b></td>
+	<td valign="bottom"><b>Default Value</b></td>
 </tr>
 <tr align="left" valign="top">
-<td>
-Location
-
-</td>
-<td>
-Randomly assigns the service to either South Central US or North Central
-US.
-
-</td>
+	<td>Location</td>
+	<td>Randomly assigns the service to either South Central US or North Central US.</td>
 </tr>
 <tr align="left" valign="top">
-<td>
-Slot
-
-</td>
-<td>
-Deploys the service to a production slot.
-
-</td>
+	<td>Slot</td>
+	<td>Deploys the service to a production slot.</td>
 </tr>
 <tr align="left" valign="top">
-<td>
-Subscription
-
-</td>
-<td>
-Uses the first subscription in your publishing profile. If you are an
-administrator for more than one subscription, you should specify a
-subscription to ensure that the intended subscription is used.
-
-</td>
+	<td>Subscription</td>
+	<td>Uses the first subscription in your publishing profile. If you are an administrator for more than one subscription, you should specify a subscription to ensure that the intended subscription is used.</td>
 </tr>
 <tr align="left" valign="top">
-<td>
-Storage account
-
-</td>
-<td>
-Creates a new storage account that has the same name as the service, If
-the name has been used for a storage account for any other subscription,
-the deployment fails. In that case, you must specify a storage account
-to use for the service.
-
-</td>
+	<td>Storage account</td>
+	<td>Creates a new storage account that has the same name as the service, If the name has been used for a storage account for any other subscription, the deployment fails. In that case, you must specify a storage account to use for the service.</td>
 </tr>
 </tbody>
 </table>
+
 In the following example, the default deployment location for the
 MyService service is set to Southeast Asia:
 
@@ -538,7 +468,7 @@ Central US.
 
 To get a list of available locations, run the following cmdlet.
 
-    Get-Help Publish-AzureServiceProject -Parameter Location 
+    Help Publish-AzureServiceProject -Parameter Location 
 
 In the following example, the **Publish-AzureServiceProject** cmdlet is used to deploy the service to the Southeast Asia data center:
 

@@ -32,8 +32,11 @@ This guide will show you how to perform common scenarios using the Windows Azure
 
 The only requirement for creating a PHP application that accesses the Windows Azure Queue service is the referencing of classes from the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you will use Queue service features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site. We assume you have downloaded and installed PHP, followed the instructions in [Download the Windows Azure SDK for PHP] [download], and have created a Windows Azure storage account in your Windows Azure subscription.
+In this guide, you will use Queue service features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site.
 
+<h2 id="GetClientLibrary">Get the Windows Azure Client Libraries</h2>
+
+<div chunk="../../Shared/Chunks/get-client-libraries.md" />
 
 <h2 id="configure-app">Configure your application to access the Queue service</h2>
 
@@ -100,7 +103,7 @@ A **QueueRestProxy** object lets you create a queue with the **createQueue** met
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>You should not rely on case sensetivity for metadata keys. All keys are read from the service in lowercase.</p> 
+<p>You should not rely on case sensitivity for metadata keys. All keys are read from the service in lowercase.</p> 
 </div>
 
 

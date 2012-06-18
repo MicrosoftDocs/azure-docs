@@ -91,7 +91,7 @@ To connect to the SQL Database instance that is running in Windows Azure Website
 
 ##Build and test your application locally
 
-The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a SQL Database instance. The application consists of two files:
+The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a SQL Database instance. The application consists of two files (copy/paste code available below):
 
 * **index.php**: Displays a form for registration and a table containing registrant information.
 * **createtable.php**: Creates the SQL Database table for the application. This file will only be used once.
@@ -100,7 +100,7 @@ To run the application locally, follow the steps below. Note that these steps as
 
 1. Create a SQL Server database called `registration`. You can do this from the `sqlcmd` command prompt with these commands:
 
-		>sqlcmd -S <server name>\sqlexpress -U <user name> -P <password>
+		>sqlcmd -S localhost\sqlexpress -U <local user name> -P <local password>
 		1> create database registration
 		2> GO	
 
@@ -299,7 +299,7 @@ To publish changes to application, follow these steps:
 [tasklist-sqlazure-download]: http://go.microsoft.com/fwlink/?LinkId=252504
 [localhost-createtable]: http://localhost/tasklist/createtable.php
 [localhost-index]: http://localhost/tasklist/index.php
-[running-app]: ../Media/tasklist_app_windows.png
+[running-app]: ../Media/running_app_3.png
 [new-website]: ../../Shared/Media/new_website.jpg
 [custom-create]: ../../Shared/Media/custom_create.jpg
 [website-details-sqlazure]: ../Media/website_details_sqlazure.jpg

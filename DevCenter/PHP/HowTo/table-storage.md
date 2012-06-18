@@ -33,8 +33,11 @@ This guide will show you how to perform common scenarios using the Windows Azure
 
 The only requirement for creating a PHP application that accesses the Windows Azure Table service is the referencing of classes in the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you will use Table service features which can be called from within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site. We assume you have downloaded and installed PHP, followed the instructions in [Download the Windows Azure SDK for PHP] [download], and have created a Windows Azure storage account in your Windows Azure subscription.
+In this guide, you will use Table service features which can be called from within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site.
 
+<h2 id="GetClientLibrary">Get the Windows Azure Client Libraries</h2>
+
+<div chunk="../../Shared/Chunks/get-client-libraries.md" />
 
 <h2 id="ConfigureStorage">Configure your application to access the Table service</h2>
 

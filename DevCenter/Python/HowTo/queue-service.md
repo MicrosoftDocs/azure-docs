@@ -26,6 +26,9 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 ## <a name="create-account"> </a>Create a Windows Azure Storage Account
 <div chunk="../../Shared/Chunks/create-storage-account.md" />
 
+
+**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../commontasks/how-to-install-python.md).
+
 ## <a name="create-queue"> </a>How To: Create a Queue
 
 The **QueueService** object lets you work with queue storage services. The following code creates a **QueueService** object. Add the following near the top of any Python file in which you wish to programmatically access Windows Azure Storage:

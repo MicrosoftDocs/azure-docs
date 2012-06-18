@@ -7,8 +7,7 @@ collect data that can help determine system bottlenecks and fine-tune
 system and application performance. Windows Azure provides a subset of
 the performance counters available for Windows Server 2008, IIS and
 ASP.NET. For a list of the performance counters that might be of
-interest in Windows Azure applications, see [Overview of Creating and
-Using Performance Counters in a Windows Azure Application][].
+interest in Windows Azure applications, see [Overview of Creating and Using Performance Counters in a Windows Azure Application][].
 
 This task includes the following steps:
 
@@ -53,8 +52,7 @@ collect data from performance counters.
         DiagnosticMonitor.Start("Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString", config);
 
     **Note**: This code example shows the use of a connection string.
-    For more information about using connection strings, see [How to
-    Configure Connection Strings][].
+    For more information about using connection strings, see [How to Configure Connection Strings][].
 
 5.  Save and build the project, and then deploy the application.
 
@@ -227,8 +225,7 @@ counter data.
         // take advantage of continuation tokens automatically and get all the data.
         IEnumerable<PerformanceCountersEntity> result = query.Execute();
 
-    **Note:** For more information about query syntax, see [LINQ: .NET
-    Language-Integrated Query][].
+    **Note:** For more information about query syntax, see [LINQ: .NET Language-Integrated Query][].
 
 6.  Use the result to analyze and report on application performance:
 
@@ -242,11 +239,9 @@ available for reporting.
 
 ## Additional Resources
 
-[Collecting Logging Data by Using Windows Azure Diagnostics][]
-
-[Debugging a Windows Azure Application][]
-
-[How to Use the Autoscaling Application Block][]
+- [Collecting Logging Data by Using Windows Azure Diagnostics][]
+- [Debugging a Windows Azure Application][]
+- [How to Use the Autoscaling Application Block][]
 
   [Overview of Creating and Using Performance Counters in a Windows Azure Application]: http://msdn.microsoft.com/en-us/library/windowsazure/hh411520.aspx
   [Step 1: Collect data from performance counters]: #step1

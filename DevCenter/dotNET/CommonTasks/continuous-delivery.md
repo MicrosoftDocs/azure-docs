@@ -57,8 +57,7 @@ everything is configured correctly and that the MSBuild command does
 what you want it to do. You can either add this command line to existing
 build scripts on the build server, or you can use the command line in a
 TFS Build Definition, as described in the next section. For more
-information about command-line parameters and MSBuild, see [MSBuild
-Command Line Reference][].
+information about command-line parameters and MSBuild, see [MSBuild Command Line Reference][].
 
 1.  If Visual Studio 2010 is installed on the build server, click
     **Start**, click **All Programs**, and then locate and click
@@ -196,8 +195,7 @@ Template workflow activities in Visual Studio TFS Team Build.
         Get-Command -Module WAPPSCmdlets
 
 4.  Install the certificates needed to allow the script to communicate
-    with Windows Azure service management APIs. First download [the
-    .publishsettings file][] corresponding to your subscription – this
+    with Windows Azure service management APIs. First download [the .publishsettings file][] corresponding to your subscription – this
     file contains the certificate. Then install the certificate to the
     User Store and save the Subscription.xml file containing certificate
     thumbprint and subscription ID pair using the following cmdlet:
@@ -487,8 +485,7 @@ piped into the standard build output.
     The final result of the publish workflow activities will look like
     this in XAML:
 
-        	    </TryCatch>
-
+        	</TryCatch>
               <If Condition="[Not String.IsNullOrEmpty(PublishScriptLocation)]" sap:VirtualizedContainerService.HintSize="1539,552">
                 <If.Then>
                   <Sequence DisplayName="Start publish" sap:VirtualizedContainerService.HintSize="297,446">
@@ -524,7 +521,6 @@ piped into the standard build output.
                   </Sequence>
                 </If.Then>
               </If>
-
             </mtbwa:AgentScope>
             <mtbwa:InvokeForReason DisplayName="Check In Gated Changes for CheckInShelveset Builds" sap:VirtualizedContainerService.HintSize="1370,146" Reason="CheckInShelveset">
               <mtbwa:CheckInGatedChanges DisplayName="Check In Gated Changes" sap:VirtualizedContainerService.HintSize="200,22" />
@@ -807,6 +803,7 @@ piped into the standard build output.
     Write-Output "$(Get-Date –f $timeStampFormat) - Created Cloud App with URL $deploymentUrl."
     Write-Output "$(Get-Date –f $timeStampFormat) - Azure Cloud App deploy script finished."
 
+  [Continuous Delivery to Windows Azure by Using Team Foundation Service]: ./team-foundation-service.md
   [Step 1: Configure the Build Server]: #step1
   [Step 2: Build a Package using MSBuild Commands]: #step2
   [Step 3: Build a Package using TFS Team Build (Optional)]: #step3

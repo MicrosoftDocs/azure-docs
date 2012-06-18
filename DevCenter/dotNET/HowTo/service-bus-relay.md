@@ -15,8 +15,7 @@ section.
 -   [Create a Service Namespace][]
 -   [Obtain the Default Management Credentials for the Namespace][]
 -   [Get the Service Bus NuGet Package][]
--   [How to: Use Service Bus to Expose and Consume a SOAP Web Service
-    with TCP][]
+-   [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP][]
 -   [Next Steps][]
 
 ## <a name="what-is"> </a>What is the Service Bus Relay
@@ -61,7 +60,7 @@ To create a service namespace:
 
 3.  In the upper left pane of the Management Portal, click the **Service
     Bus** node, then click the **New** button.   
-    ![][]
+    ![][0]
 
 4.  In the **Create a new Service Namespace** dialog box, enter a
     **Namespace**, and then to make sure that it is unique, click the
@@ -86,7 +85,7 @@ credentials for the namespace.
 
 1.  In the left navigation pane, click **Service Bus** to display the
     list of available namespaces:   
-    ![][]
+    ![][0]
 
 2.  Select the namespace you just created from the list shown:   
     ![][2]
@@ -352,11 +351,10 @@ follow these links to learn more.
   [Create a Service Namespace]: #create_namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
   [Get the Service Bus NuGet Package]: #get_nuget_package
-  [How to: Use Service Bus to Expose and Consume a SOAP Web Service with
-  TCP]: #how_soap
+  [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
   [Relay Concepts]: ../../../DevCenter/dotNet/Media/sb-relay-01.png
   [Windows Azure Management Portal]: http://windows.azure.com
-  []: ../../../DevCenter/dotNet/Media/sb-queues-03.png
+  [0]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
   [1]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
   [2]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
   [3]: ../../../DevCenter/dotNet/Media/sb-queues-06.png

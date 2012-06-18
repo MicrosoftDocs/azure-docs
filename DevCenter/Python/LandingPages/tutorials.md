@@ -10,9 +10,10 @@ Implement a Django Python application and connect it to a MySQL database. You wl
 ###[Developing Python Django apps with Visual Studio](/en-us/develop/python/tutorials/django-with-visual-studio/)
 Implement a simple Python Django app in Visual Studio and deploy it to Windows Azure. You will learn how to leverage Visual Studio productivity features including debugging and Windows Azure publishing.
 
-###[Python App using Blob storage](/en-us/develop/python/tutorials/web-app-with-blob-storage/)
-Implement a simple web application that allows retrieving and creating items in Windows Azure Blob storage. You will learn the basics of using Windows Azure Storage services through the Windows Azure Client Libraries for Python.
-
 ###[IPython Notebook on Windows Azure](/en-us/develop/python/tutorials/ipython-notebook/)
 The [IPython project](http://ipython.org) provides a collection of tools for
-scientific computing, including an interactive web-based environment called the IPython Notebook. This tutorial shows how to deploy the IPython Notebook on Windows Azure using Linux or Windows virtual machines. 
+high-productivity and scientific computing, including an interactive web-based environment called the IPython Notebook. This tutorial shows how to deploy the IPython Notebook on Windows Azure using Linux or Windows virtual machines. 
+
+###[Python App using storage](/en-us/develop/python/tutorials/web-app-with-blob-storage/)
+Implement a simple web application that allows retrieving and creating items in Windows Azure storage. You will learn the basics of using Windows Azure Storage services through the Windows Azure Client Libraries for Python.
+

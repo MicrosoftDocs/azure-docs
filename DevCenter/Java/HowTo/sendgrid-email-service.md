@@ -62,21 +62,22 @@ to send email using SMTP is to do the following:
     SendGrid is smtp.sendgrid.net.
 
         public class MyEmailer {
-
-        private static final String SMTP_HOST_NAME = "smtp.sendgrid.net";
-        private static final String SMTP_AUTH_USER = "your_sendgrid_username";
-        private static final String SMTP_AUTH_PWD = "your_sendgrid_password";
-        public static void main(String[] args) throws Exception{
-           new MyEmailer().SendMail();
-        }
-        public void SendMail() throws Exception
-        {
-           Properties properties = new Properties();
-           properties.put("mail.transport.protocol", "smtp");
-           properties.put("mail.smtp.host", SMTP_HOST_NAME);
-           properties.put("mail.smtp.port", 587);
-           properties.put("mail.smtp.auth", "true");
-           // …
+	       private static final String SMTP_HOST_NAME = "smtp.sendgrid.net";
+	       private static final String SMTP_AUTH_USER = "your_sendgrid_username";
+           private static final String SMTP_AUTH_PWD = "your_sendgrid_password";
+        
+		   public static void main(String[] args) throws Exception{
+         	  new MyEmailer().SendMail();
+           }
+        
+		   public void SendMail() throws Exception
+           {
+              Properties properties = new Properties();
+           	  properties.put("mail.transport.protocol", "smtp");
+           	  properties.put("mail.smtp.host", SMTP_HOST_NAME);
+           	  properties.put("mail.smtp.port", 587);
+           	  properties.put("mail.smtp.auth", "true");
+           	  // …
 
 2.  Extend the <span class="auto-style1">javax.mail.Authenticator</span>
     class, and in your implementation of the
@@ -107,16 +108,16 @@ to send email using SMTP is to do the following:
 
 The following shows how to specify values for an email.
 
-    MimeMessage message;
-    message = new MimeMessage(mailSession);
-    Multipart multipart;
-    multipart = new MimeMultipart("alternative");
-    BodyPart part1, part2;
-    part1 = new MimeBodyPart();
+    MimeMessage message = new MimeMessage(mailSession);
+    Multipart multipart = new MimeMultipart("alternative");
+    BodyPart part1 = new MimeBodyPart();
     part1.setText("Hello, Your Contoso order has shipped. Thank you, John");
-    part2 = new MimeBodyPart();
-    part2.setContent("<p>Hello,</p><p>Your Contoso order has 
-    <b>shipped</b>.</p><p>Thank you,<br>John</br></p>", "text/html");
+    BodyPart part2 = new MimeBodyPart();
+    part2.setContent(
+		"<p>Hello,</p>
+		<p>Your Contoso order has <b>shipped</b>.</p>
+		<p>Thank you,<br>John</br></p>",
+		"text/html");
     multipart.addBodyPart(part1);
     multipart.addBodyPart(part2);
     message.setFrom(new InternetAddress("john@contoso.com"));
@@ -129,8 +130,7 @@ The following shows how to specify values for an email.
 
 The following shows how to send an email.
 
-    Transport transport;
-    transport = mailSession.getTransport();
+    Transport transport = mailSession.getTransport();
     // Connect the transport object.
     transport.connect();
     // Send the message.
@@ -145,8 +145,7 @@ The following code shows you how to add an attachment.
     // Local file name and path.
     String attachmentName = "myfile.zip";
     String attachmentPath = "c:\\myfiles\\"; 
-    MimeBodyPart attachmentPart;
-    attachmentPart = new MimeBodyPart();
+    MimeBodyPart attachmentPart = new MimeBodyPart();
     // Specify the local file to attach.
     DataSource source = new FileDataSource(attachmentPath + attachmentName);
     attachmentPart.setDataHandler(new DataHandler(source));
@@ -166,22 +165,31 @@ see [Filter Settings][].
 -   The following shows how to insert a footer filter that results in
     HTML text appearing at the bottom of the email being sent.
 
-        message.addHeader("X-SMTPAPI", "{\"filters\": {\"footer\": {\"settings\": 
-        {\"enable\":1,\"text/html\": \"<html><b>Thank you</b> for your 
-        business.</html>\"}}}}");
+        message.addHeader("X-SMTPAPI", 
+			"{\"filters\": 
+			{\"footer\": 
+			{\"settings\": 
+        	{\"enable\":1,\"text/html\": 
+			\"<html><b>Thank you</b> for your business.</html>\"}}}}");
 
 -   Another example of a filter is click tracking. Let’s say that your
     email text contains a hyperlink, such as the following, and you want
     to track the click rate:
 
-        messagePart.setContent("Hello,<p>This is the body of the message. Visit <a 
-        href='http://www.contoso.com'>http://www.contoso.com</a>.</p>Thank you.", 
-        "text/html");
+        messagePart.setContent(
+			"Hello,
+			<p>This is the body of the message. Visit 
+			<a href='http://www.contoso.com'>http://www.contoso.com</a>.</p>
+			Thank you.", 
+        	"text/html");
 
 -   To enable the click tracking, use the following code:
 
-        message.addHeader("X-SMTPAPI", "{\"filters\": {\"clicktrack\": {\"settings\": 
-        {\"enable\":1}}}}");
+        message.addHeader("X-SMTPAPI", 
+			"{\"filters\": 
+			{\"clicktrack\": 
+			{\"settings\": 
+        	{\"enable\":1}}}}");
 
 ## <a name="bkmk_HowToUpdateEmail"> </a>How to: Update email properties
 
@@ -190,9 +198,11 @@ appended using **add*Property***.
 
 For example, to specify **ReplyTo** addresses, use the following:
 
-    InternetAddress addresses[] = { new InternetAddress("john@contoso.com"),
-         new InternetAddress("wendy@contoso.com") };
-    message.setReplyTo(addresses);
+    InternetAddress addresses[] = 
+		{ new InternetAddress("john@contoso.com"),
+          new InternetAddress("wendy@contoso.com") };
+    
+	message.setReplyTo(addresses);
 
 To add a **Cc** recipient, use the following:
 

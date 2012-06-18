@@ -13,11 +13,27 @@ You'll build a Word press blog that uses a default template. The following illus
 
 ## Create a Windows Azure account
 
-<div chunk="../../DevCenter/Shared/Chunks/create-azure-account.md" />
+1. Open a web browser and browse to [http://www.windowsazure.com][].
 
+2. To get started with a free account, click **Free Trial** in the upper-right corner and follow the steps. You'll need a credit card number and a mobile phone number for proof of identity, but you will not be billed.
+
+ ![Windows Azure Website][0]
+ 
 ## Enable Windows Azure Web Sites
 
-<div chunk="../../DevCenter/Shared/Chunks/antares-iaas-signup.md" />
+1.	Navigate to [https://account.windowsazure.com/](https://account.windowsazure.com/) and sign in with your Windows Azure account.
+
+2.	Click **preview features** to view the available previews.
+	
+	![open preview features tab][14]
+
+2.	Scroll down to **Web Sites** and click **try it now**.
+
+	![select a preview feature][15]
+
+3.	Select your subscription and click the check.
+
+	![select subscription][16]
 
 ## Create a web site in the portal
 
@@ -33,7 +49,7 @@ You'll build a Word press blog that uses a default template. The following illus
 
 1. Locate and click the WordPress icon in list, and then click **Next**.
 	
-	![Wordpress from list][7]
+	![WordPress from list][7]
 
 4. On the **Configure Your App** page, enter or select values for all fields:
 	
@@ -51,7 +67,7 @@ You'll build a Word press blog that uses a default template. The following illus
 
 After you click **Complete** Windows Azure will initiate build and deploy operations. While the web site is being built and deployed the status of these operations is displayed at the bottom of the Web Sites page. After all operations are performed,  A final status message when the site has been successfully deployed.
 
-## Launch and manage your Wordpress site
+## Launch and manage your WordPress site
 
 1. Click on your new site from the **Web Sites** page to open the dashboard for the site.
 
@@ -61,15 +77,15 @@ After you click **Complete** Windows Azure will initiate build and deploy operat
 
 	![site URL][11] 
 
-3. Enter appropriate configuration information required by WordPress and click **Install Wordpress** to finalize configuration and open the web site’s login page.
+3. Enter appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the web site’s login page.
 
-	![login to wordpress][12]
+	![login to WordPress][12]
 
 8. Login to the new WordPress web site by entering the username and password that you specified on the **Welcome** page.
 
-9. You'll have a new Wordpress site that looks similar to the site below.  
+9. You'll have a new WordPress site that looks similar to the site below.  
 
-	![your Wordpress site][13]
+	![your WordPress site][13]
 
 
 [1]: ../../devcenter/dotnet/media/Dev-net-getting-started-010.png
@@ -85,3 +101,8 @@ After you click **Complete** Windows Azure will initiate build and deploy operat
 [11]: ../media/wordpressgallery-07.png
 [12]: ../media/wordpressgallery-08.png
 [13]: ../media/wordpressgallery-09.png
+[http://www.windowsazure.com]: http://www.windowsazure.com
+[0]: ../../devcenter/shared/media/freetrialonwindowsazurehomepage.png
+[14]: ../../devcenter/shared/media/antares-iaas-preview-01.png
+[15]: ../../devcenter/shared/media/antares-iaas-preview-05.png
+[16]: ../../devcenter/shared/media/antares-iaas-preview-06.png

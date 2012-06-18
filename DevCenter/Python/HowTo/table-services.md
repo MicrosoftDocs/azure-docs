@@ -27,6 +27,9 @@ information on tables, see the [Next Steps][] section.
 ## <a name="create-account"> </a>Create a Windows Azure Storage Account
 <div chunk="../../Shared/Chunks/create-storage-account.md" />
 
+**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../commontasks/how-to-install-python.md).
+
+
 ## <a name="create-table"> </a>How to Create a Table
 
 The **TableService** object lets you work with table services. The
@@ -107,7 +110,7 @@ batch, you call **commit\_batch**. Note that all entities must be in the same pa
 To query an entity in a table, use the **get\_entity** method, by
 passing the **PartitionKey** and **RowKey**.
 
-	task = table_service.get_entity('tasktable', 'tasksSeattle', '1', '')
+	task = table_service.get_entity('tasktable', 'tasksSeattle', '1')
 	print(task.description)
 	print(task.priority)
 
@@ -115,7 +118,7 @@ passing the **PartitionKey** and **RowKey**.
 
 This example finds all tasks in Seattle based on the **PartitionKey**.
 
-	tasks = table_service.query_entities('tasktable', "PartitionKey eq 'tasksSeattle'", '')
+	tasks = table_service.query_entities('tasktable', "PartitionKey eq 'tasksSeattle'")
 	for task in tasks:
 		print(task.description)
 		print(task.priority)
@@ -124,7 +127,7 @@ This example finds all tasks in Seattle based on the **PartitionKey**.
 
 A query to a table can retrieve just a few properties from an entity.
 This technique, called *projection*, reduces bandwidth and can improve
-query performance, especially for large entities. Use the **comma\_separated\_property\_names**
+query performance, especially for large entities. Use the **select**
 parameter and pass the names of the properties you would like to bring over
 to the client.
 
@@ -135,7 +138,7 @@ entities in the table.
 storage service, this not supported by the Storage
 Emulator.*
 
-	tasks = table_service.query_entities('tasktable', "partitionkey eq 'tasksSeattle'", 'description')
+	tasks = table_service.query_entities('tasktable', "PartitionKey eq 'tasksSeattle'", 'description')
 	for task in tasks:
 		print(task.description)
 
