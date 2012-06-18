@@ -144,7 +144,7 @@ To create the database table used to store items for the tasklist application, p
 
 ##Install modules and generate scaffolding
 
-In this section you will create a new Node application and use npm to add module packages. For the task-list application you will use the [Express] [node-sqlserver] modules. The Express module provides a Model View Controller framework for node, while the node-sqlserver module provides connectivity to Windows Azure SQL Database.
+In this section you will create a new Node application and use npm to add module packages. For the task-list application you will use the [express] and [node-sqlserver] modules. The Express module provides a Model View Controller framework for node, while the node-sqlserver module provides connectivity to Windows Azure SQL Database.
 
 ###Install express and generate scaffolding
 
@@ -467,7 +467,7 @@ Once the changes have been deployed to Windows Azure, your web application shoul
 
 [node]: http://nodejs.org
 [Git]: http://git-scm.com
-[Express]: http://expressjs.com
+[express]: http://expressjs.com
 [for free]: http://windowsazure.com
 [Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
