@@ -42,8 +42,8 @@ Note that the different distributions will be incorporating the agent to their o
 		<td> Ubuntu 12.04</td>
 		<td>June 7 2012</td>
         <td>In Kernel</td>
-		<td>Deb: <A HREF="http://go.microsoft.com/p/fwlink/?LinkID=254261">ISO</A><br />
-			Source: <A HREF="http://go.microsoft.com/p/fwlink/?LinkID=250998">GITHUB</A></td>
+		<td>Deb: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=254261">ISO</A><br />
+			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
 		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254264">Download base VHD</a></td>
 	</tr>
 	<tr>
@@ -51,8 +51,8 @@ Note that the different distributions will be incorporating the agent to their o
 		<td> CentOS 6.2</td>
 		<td>June 7 2012</td>
 	    <td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254263">LIS 3.3</a></td>
-		<td>RPM:<A HREF="http://go.microsoft.com/p/fwlink/?LinkID=254261">ISO</A><br />
-			Source: <A HREF="http://go.microsoft.com/p/fwlink/?LinkID=250998">GITHUB</A></td>
+		<td>RPM:<A HREF="http://go.microsoft.com/fwlink/p/?LinkID=254261">ISO</A><br />
+			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
  		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254266">Download ISO</a></td>
 	</tr>
 	<tr>
@@ -60,7 +60,7 @@ Note that the different distributions will be incorporating the agent to their o
 		<td> SLES 11SP2</td>
 		<td>June 7 2012</td>
         <td>In Kernel</td>
-		<td>RPM: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=2542619">ISO</A><br />
+		<td>RPM: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=254261">ISO</A><br />
 			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
 		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254265">Create base image</a></td>
 	</tr>
