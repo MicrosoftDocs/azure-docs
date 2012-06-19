@@ -320,7 +320,7 @@ In this section you will extend the basic application created by the **express**
 		        td #{task.created}
 		        td
 		          input(type="checkbox", name="completed", value="#{task.ID}", checked=task.completed == 1)
-		  button(type="submit") Update tasks
+		  button(type="submit", class="btn") Update tasks
 		hr
 
 		form(action="/", method="post", class="well")
@@ -343,17 +343,17 @@ The **layout.jade** file in the **views** directory is used as a global template
 
 		!!!html
 		html
-			head
-				title= title
-				meta(http-equiv='X-UA-Compatible', content='IE=10')
-				link(rel='stylesheet', href='/stylesheets/style.css')
-				link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-			body(class='app')
-				div(class='navbar navbar-fixed-top')
-					.navbar-inner
-						.container
-							a(class='brand', href='/') My Tasks
-				.container!= body
+		  head
+		    title= title
+		    meta(http-equiv='X-UA-Compatible', content='IE=10')
+		    link(rel='stylesheet', href='/stylesheets/style.css')
+		    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+		  body(class='app')
+		    div(class='navbar navbar-fixed-top')
+		      .navbar-inner
+		        .container
+		          a(class='brand', href='/') My Tasks
+		    .container!= body
 
 3. Save the **layout.jade** file.
 
