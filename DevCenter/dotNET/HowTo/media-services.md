@@ -25,7 +25,7 @@ You can also program Media Services using the OData-based REST APIs. You can bui
 
 
 ## <a name="what-are"> </a>What Are Media Services?
-Windows Azure Media Services form an extensible media platform that integrates the best of the Microsoft Media Platform and third-party media components in Windows Azure. Media Services provide a media pipeline in the cloud that enables industry partners to extend or replace component technologies. ISVs and media providers can use Media Services to build end-to-end media solutions. This overview describes the general architecture and comment development scenarios for Media Services.
+Windows Azure Media Services form an extensible media platform that integrates the best of the Microsoft Media Platform and third-party media components in Windows Azure. Media Services provide a media pipeline in the cloud that enables industry partners to extend or replace component technologies. ISVs and media providers can use Media Services to build end-to-end media solutions. This overview describes the general architecture and common development scenarios for Media Services.
 
 The following diagram illustrates the basic Media Services architecture.
 
