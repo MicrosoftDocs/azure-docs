@@ -116,7 +116,7 @@ namespace.
 
 ## How to create a Java application that performs a compute-intensive task
 
-1. On your development machine (which does not have to be the virtual machine that you created), download the [Windows Azure SDK for Java](http://www.windowsazure.com/en-us/develop/java/java-home/download-the-windows-azure-sdk-for-java/).
+1. On your development machine (which does not have to be the virtual machine that you created), download the [Windows Azure SDK for Java](http://www.windowsazure.com/en-us/develop/java/).
 2. Create a Java console application using the example code at the end of this section. For purposes of this tutorial, we'll use **TSPSolver.java** as the Java file name. Modify the **your\_service\_bus\_namespace**, **your\_service\_bus\_owner**, and **your\_service\_bus\_key** placeholders to use your service bus **namespace**, **Default Issuer** and **Default Key** values, respectively.
 3. After coding, export the application to a runnable Java archive (JAR), and package the required libraries into the generated JAR. For purposes of this tutorial, we'll use **TSPSolver.jar** as the generated JAR name.
 

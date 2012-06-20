@@ -517,5 +517,5 @@ to learn how to do more complex storage tasks.
 [blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
 [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Windows Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/java-home/download-the-windows-azure-sdk-for-java/
+[Windows Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
 [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
