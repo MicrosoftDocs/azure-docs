@@ -649,6 +649,7 @@ While the steps in this article describe using the Table Service to store inform
 [Windows Azure Portal]: http://windowsazure.com
 [nconf]: https://github.com/flatiron/nconf
 [preview-portal]: https://manage.windowsazure.com/
+[Twitter Bootstrap]: http://twitter.github.com/bootstrap/
 
 [node-table-finished]: ../media/table_todo_empty.png
 [node-table-list-items]: ../media/table_todo_list.png
