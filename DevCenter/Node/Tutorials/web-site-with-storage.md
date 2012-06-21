@@ -143,14 +143,18 @@ The **package.json** file is one of the files created by the **express** command
 
 	This installs all of the default modules that Express needs.
 
-2. Next, enter the following command to install the [azure], [node-uuid], and [async] modules locally as well as to save an entry for them to the **package.json** file:
+2. Next, enter the following command to install the [azure], [node-uuid], [nconf] and [async] modules locally as well as to save an entry for them to the **package.json** file:
 
-		npm install azure node-uuid async --save
+		npm install azure node-uuid async nconf --save
 
 	The output of this command should appear similar to the following:
 
 		async@0.1.22 ./node_modules/async
 		node-uuid@1.3.3 ./node_modules/node-uuid
+		nconf@0.6.0 ./node_modules/nconf
+		├── ini@1.0.2
+		├── pkginfo@0.2.3
+		└── optimist@0.3.4 (wordwrap@0.0.2)
 		azure@0.5.3 ./node_modules/azure
 		├── dateformat@1.0.2-1.2.3
 		├── xmlbuilder@0.3.1
@@ -315,14 +319,17 @@ In this section you will extend the basic application created by the **express**
 2. At the beginning of the file, add the following to load the azure module, set the table name, partitionKey, and set the storage credentials used by this example:
 
 		var azure = require('azure');
-		var tableName = 'tasks'
-		  , partitionKey = 'partition'
-		  , accountName = 'accountName'
-		  , accountKey = 'accountKey';
+		  , nconf = require('nconf');
+		nconf.env()
+	     .file({ file: 'config.json'});
+		var tableName = nconf.get("TABLE_NAME")
+		  , partitionKey = nconf.get("PARTITION_KEY")
+		  , accountName = nconf.get("STORAGE_NAME")
+		  , accountKey = nconf.get("STORAGE_KEY");
 
 	<div class="dev-callout">
 	<strong>Note</strong>
-	<p>You must replace the values <strong>'accountName'</strong> and <strong>'accountKey'</strong> with the values obtained earlier when creating your Windows Azure storage account.</p>
+	<p>nconf will load the configuration values from either environment variables or the **config.json** file, which we will create later.</p>
 	</div>
 
 3. Replace the content after the `//Routes` comment with the following code. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is then password to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
@@ -339,7 +346,7 @@ In this section you will extend the basic application created by the **express**
 		    app.post('/addtask', taskList.addTask.bind(taskList));
 		    app.post('/completetask', taskList.completeTask.bind(taskList));
 
-		app.listen(process.env.port || 1337);
+		app.listen(process.env.port || 3000);
 
 4. Save the **app.js** file.
 
@@ -350,9 +357,10 @@ In this section you will extend the basic application created by the **express**
 2. Replace the contents of the **index.jade** file with the code below. This defines the view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.
 
 		h1= title
-		  font(color="grey") (powered by Node.js and Windows Azure Table Service)
+		br
+
 		form(action="/completetask", method="post")
-		  table(border="1")
+		  table(class="table table-striped table-bordered")
 		    tr
 		      td Name
 		      td Category
@@ -366,23 +374,62 @@ In this section you will extend the basic application created by the **express**
 		        - var month = task.Timestamp.getMonth() + 1;
 		        - var year  = task.Timestamp.getFullYear();
 		        td #{month + "/" + day + "/" + year}
- 		       td
- 		         input(type="checkbox", name="#{task.RowKey}", value="#{!task.itemCompleted}", checked=task.itemCompleted)
-		  input(type="submit", value="Update tasks")
+		        td
+		          input(type="checkbox", name="#{task.RowKey}", value="#{!task.itemCompleted}", checked=task.itemCompleted)
+		  button(type="submit", class="btn") Update tasks
 		hr
-		form(action="/addtask", method="post")
-		  table(border="1") 
-		    tr
-		      td Item Name: 
-		      td 
-		        input(name="item[name]", type="textbox")
-		    tr
-		      td Item Category: 
-		      td 
-		        input(name="item[category]", type="textbox")
-		  input(type="submit", value="Add item")
+		form(action="/addtask", method="post", class="well")
+		  label Item Name: 
+		  input(name="item[name]", type="textbox")
+		  label Item Category: 
+		  input(name="item[category]", type="textbox")
+		  br
+		  button(type="submit", class="btn") Add item
 
 3. Save and close **index.jade** file.
+
+###Modify the global layout
+
+The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use [Twitter Bootstrap], which is a toolkit that makes it easy to design a nice looking web site.
+
+1. Download and extract the files for [Twitter Bootstrap]. Copy the **bootstrap.min.css** file from the **bootstrap\\css** folder to the **public\\stylesheets** directory of your tasklist application.
+
+2. From the **views** folder, open the **layout.jade** in your text editor and replace the contents with the following:
+
+		!!!html
+		html
+		  head
+		    title= title
+		    meta(http-equiv='X-UA-Compatible', content='IE=10')
+		    link(rel='stylesheet', href='/stylesheets/style.css')
+		    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+		  body(class='app')
+		    div(class='navbar navbar-fixed-top')
+		      .navbar-inner
+		        .container
+		          a(class='brand', href='/') My Tasks
+		    .container!= body
+
+3. Save the **layout.jade** file.
+
+###Create configuration file
+
+The **config.json** file contains the connection string used to connect to the SQL Database, and is read by the application at run-time. To create this file, perform the following steps:
+
+1. In the **tasklist** directory, create a new file named **config.json** and open it in a text editor.
+
+2. The contents of the **config.json** file should appear similiar to the following:
+
+		{
+			"STORAGE_NAME": "storage account name",
+			"STORAGE_KEY": "storage access key",
+			"PARTITION_KEY": "mytasks",
+			"TABLE_NAME": "tasks"
+		}
+
+	Replace the **storage account name** with the name of the storage account you created earlier. Replace the **storage access key** with the primary access key for your storage account.
+
+3. Save the file.
 
 ##Run your application locally
 
@@ -394,7 +441,7 @@ To test the application on your local machine, perform the following steps:
 
         node app.js
 
-3. Open a web browser and navigate to http://127.0.0.1:1337. This should display a web page similar to the following:
+3. Open a web browser and navigate to http://127.0.0.1:3000. This should display a web page similar to the following:
 
     ![A webpage displaying an empty tasklist][node-table-finished]
 
@@ -538,6 +585,43 @@ Before using the command-line tools with Windows Azure, you must first download 
 
 4. Once the push operation has completed, browse to the web site URL returned previously by the `azure create site` command to view your application.
 
+###Switch to an environment variable
+
+Earlier we implemented code that looks for a **SQL_CONN** environment variable for the connection string or loads the value from the **config.json** file. In the following steps you will create a key/value pair in your web site configuration that the application real access through an environment variable.
+
+1. From the Preview Management Portal, click **Web Sites** and then select your web site.
+
+	![Open website dashboard][go-to-dashboard]
+
+2. Click **CONFIGURE** and then find the **app settings** section of the page. 
+
+	![configure link][web-configure]
+
+3. In the **app settings** section, enter **STORAGE_NAME** in the **KEY** field, and the name of your storage account in the **VALUE** field. Click the checkmark to move to the next field. Repeat this process for the following keys and values:
+
+	* **STORAGE_KEY** - the access key for your storage account
+	
+	* **PARTITION_KEY** - 'mytasks'
+
+	* **TABLE_NAME** - 'tasks'
+
+	![app settings][app-settings]
+
+4. Finally, click the **SAVE** icon at the bottom of the page to commit this change to the run-time environment.
+
+	![app settings save][app-settings-save]
+
+5. From the command-line, change directories to the **tasklist** directory and enter the following command to remove the **config.json** file:
+
+		git rm config.json
+		git commit -m "Removing config file"
+
+6. Perform the following command to deploy the changes to Windows Azure:
+
+		git push azure master
+
+Once the changes have been deployed to Windows Azure, your web application should continue to work as it is now reading the connection string from the **app settings** entry. To verify this, change the value for the **STORAGE_KEY** entry in **app settings** to an invalid value. Once you have saved this value, the web site should fail due to the invalid storage access key setting.
+
 ##Next steps
 
 While the steps in this article describe using the Table Service to store information, you can also use MongoDB. See [Node.js Web Application with MongoDB] for more information.
@@ -563,7 +647,9 @@ While the steps in this article describe using the Table Service to store inform
 [node-uuid]: https://github.com/broofa/node-uuid
 [async]: https://github.com/caolan/async
 [Windows Azure Portal]: http://windowsazure.com
-
+[nconf]: https://github.com/flatiron/nconf
+[preview-portal]: https://manage.windowsazure.com/
+[Twitter Bootstrap]: http://twitter.github.com/bootstrap/
 
 [node-table-finished]: ../media/table_todo_empty.png
 [node-table-list-items]: ../media/table_todo_list.png
@@ -573,3 +659,7 @@ While the steps in this article describe using the Table Service to store inform
 [portal-quick-create-storage]: ../../Shared/Media/quick-storage.png
 [portal-storage-access-keys]: ../../Shared/Media/manage-access-keys.png
 [portal-storage-manage-keys]: ../../Shared/Media/manage-keys-button.png
+[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.jpg
+[web-configure]: ../media/sql-task-configure.png
+[app-settings-save]: ../media/savebutton.png
+[app-settings]: ../media/storage-tasks-appsettings.png
