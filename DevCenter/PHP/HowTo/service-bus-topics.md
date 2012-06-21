@@ -229,7 +229,7 @@ You can also setup filters that allow you to scope which messages sent to a topi
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>Each new subscription has a default "MatchAll" filter. Since the default filter is applied automatically, you must first remove the default filter or the "MatchAll" filter will override any other filters you may specify. You can remove the default filter by using the <b>ServiceBusRestProxy->deleteRule</b> method.</p> 
+<p>Each rule on a subscription processes incoming messages independently, adding their result messages to the subscription. In addition, each new subscription has a default <b>Rule</b> with a filter that adds all messages from the topic to the subscription. To receive only messages matching your filter, you must remove the default rule. You can remove the default rule by using the <b>ServiceBusRestProxy->deleteRule</b> method.</p> 
 </div>
 
 The example below creates a subscription named "HighMessages" with a **SqlFilter** that only selects messages that have a custom **MessageNumber** property greater than 3 (see [How to: Send messages to a topic](#SendMessage) for information about adding custom properties to messages):
