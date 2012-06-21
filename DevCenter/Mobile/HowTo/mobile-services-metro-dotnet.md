@@ -1,9 +1,9 @@
-<properties linkid="mobile-how-to-mobile-service-metro-dotNet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Learn how to use Mobile Services in Metro-style apps in C# and Visual Basic" metakeywords="Get started Windows Azure Mobile Services, Azure mobile devices, Azure Windows 8 Metro" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Metro-style apps using C#, Visual Basic, and XAML." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="mobile-how-to-mobile-service-metro-dotNet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Learn how to use Mobile Services in Windows Store apps in C# and Visual Basic" metakeywords="Get started Windows Azure Mobile Services, Azure mobile devices, Azure Windows 8" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps using C#, Visual Basic, and XAML." umbraconavihide="0" disquscomments="1"></properties>
 
-# How to Use Mobile Services in Metro-style Apps
+# How to Use Mobile Services in Windows Store Apps
 Language: [JavaScript and HTML][] | **VB/C# and XAML**
 
-This guide will demonstrate how to use Windows Azure Mobile Services to easily create a Windows 8 Metro-style app that uses Windows Azure as the backend service for storage and authentication. Because you can develop Metro-style apps using either JavaScript and HTML or C#/VB and XAML, there is a version of this guide for each language.
+This guide will demonstrate how to use Windows Azure Mobile Services to easily create a Windows Store app that uses Windows Azure as the backend service for storage and authentication. Because you can develop Windows Store apps using either JavaScript and HTML or C#/VB and XAML, there is a version of this guide for each language.
 
 ## Table of Contents
 -   [What is Mobile Services][]
@@ -11,7 +11,7 @@ This guide will demonstrate how to use Windows Azure Mobile Services to easily c
 -   [Getting started with Mobile Services][]
 	-	[Define the mobile service instance][]
 	-	[Add a new storage table][]
-	-	[Create a Windows 8 Metro-style application][]
+	-	[Create a Windows Store application][]
 -	[Working with Mobile Services][]
 	-	[How to: Add columns to the table index][]
 	-	[How to: Authenticate with Windows Live][]
@@ -33,7 +33,7 @@ Windows Azure Mobile Services is a Windows Azure service offering designed to ma
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>In this preview release, Mobile Services only supports Windows 8 Metro-style apps.</p> 
+<p>In this preview release, Mobile Services only supports Windows Store apps.</p> 
 </div>
 
 ## <a name="concepts"> </a>Concepts
@@ -41,7 +41,7 @@ The following concepts are important for understanding the capabilities of Mobil
 
 -	**Mobile service instance:** Mobile Services provides a backend for your mobile apps such that each app has a unique mobile service instance. The Windows Azure Preview Management Portal enables you to create and manage your mobile services. You can independently manage settings, tables and scripts for each mobile service instance. 
 -	**Tables:** Mobile Services provides structured data storage for your apps in the form of tables. However, unlike tables in Windows Azure SQL Database, Mobile Services dynamically defines table schema based on the data that is uploaded from your app. You can use the Preview Management Portal to manually define and modify indexes and columns in tables. 
--	**Authentication:** In this preview release, Mobile Services supports authentication for Windows 8 Metro-style apps by using Windows Live. Support for identity providers will be expanded in future releases.
+-	**Authentication:** In this preview release, Mobile Services supports authentication for Windows Store apps by using Windows Live. Support for identity providers will be expanded in future releases.
 -	**Permissions:** Mobile Services allows you to restrict the operations against a table. This can be used to restrict operations to only authenticated users or users that have an application key.
 -	**Keys:** Mobile Services supports application keys. While not strictly a security feature, an application key, which is known to your app, can be used to filter out random HTTP requests not originiating from the app. 
 -	**Push notifications:** Mobile Services authenticates with the Windows Push Notification Services (WNS) to send notifications.
@@ -50,11 +50,11 @@ The following concepts are important for understanding the capabilities of Mobil
 
 ## <a name="getting-started"> </a>Getting started with Mobile Services
 This guide 
-In this guide, you will complete the following basic steps to create a working Windows 8 Metro-style app that uses Mobile Services:
+In this guide, you will complete the following basic steps to create a working Windows Store app that uses Mobile Services:
 
 1.	Register for the Mobile Services preview
 2.	Create a new mobile service in the Preview Management Portal.
-3.	Complete the tutorial in the Preview Management Portal to create a Metro-style app that accesses the new mobile service. 
+3.	Complete the tutorial in the Preview Management Portal to create a Windows Store app that accesses the new mobile service. 
 
 Once you have completed the guide, 
 
@@ -90,27 +90,27 @@ At this point, you must login to the Preview Management Portal to create a new m
 
 	![][0]
 
-3.	Click **Mobile Service** and then click **Quick Create**.
+3.	Click **Mobile Service** and then click **Custom Create**.
 
 	![][1]
+	
+	This displays the **Create a mobile service** dialog box.
 
-4.	In **Name**, type a subdomain name to use in the URI for the mobile services instance. The entry can contain from 3-24 lowercase letters and numbers. This value becomes the host name within the URI that is used to address the mobile service instance, and must be globally unique in Mobile Services.
+4.	In **URL**, type a subdomain name to use in the URI for the mobile services instance. Click the check icon to varify that the name is available. Select the region for your mobile services instance from the **Region** drop-down list box.
+	
+	![][2]
 
-5.	From **Choose Database**, click **New Database**. Mobile Services will create a new SQL Database for your mobile service instance. Because the administrator username and password are auto-generated, you will later reset the password after the service is created.
+	(Move this to the help drawer??)The entry can contain from 3-24 lowercase letters and numbers. This value becomes the host name within the URI that is used to address the mobile service instance, and must be globally unique in Mobile Services.
 
-	![][2] 
-
-6.	Choose a location for the data center in which to host your mobile service instance, and then click **create mobile service**. 
+5.	From **Database**, click **Create a new SQL Database**. Mobile Services will create a new SQL Database for your mobile service instance. Click the right arrow button to go to the next page.
 
 	![][3]
 
-7.	\*\**How do we get to the page to reset the Admin password on the new DB?*\*\*
-
-8. In **Reset Password**, supply a new administrator password for the database.
+6.	In **New Database**, type the name of the database in **Name** and provide administrator credentials in **Admin Name** and **Password**. Make sure that **Configure my database automatically** is checked, and then click the check icon.
 
 	![][4]
 
-You now have a new service instance that can be used by your mobile application. Next, you will create a table in which to store application data.
+You now have a new service instance and a new SQL Database instance that can be used by your mobile application. Next, you will create a table in which to store application data.
 
 ###<a name="add-storage-table"></a>Add a new storage table
 1.	In the [Preview Management Portal][Management Portal preview], click **Mobile Services**. Then click the name of the new mobile service to open the dashboard.
@@ -133,8 +133,8 @@ You now have a new service instance that can be used by your mobile application.
 
 Next, you will complete the quickstart tutorial in the Preview Management Portal and insert data into this table. 
 
-###<a name="create-metro-app"></a>Create a Windows 8 Metro-style app
-Once you have created a mobile service instance, the Preview Management Portal will auto-generate a quickstart tutorial based on the new service configuration. You can select the type of application (for the preview only Metro-style apps are available) and the programming language for the snippets provided to you in the quickstart.
+###<a name="create-metro-app"></a>Create a Windows Store app
+Once you have created a mobile service instance, the Preview Management Portal will auto-generate a quickstart tutorial based on the new service configuration. You can select the type of application (for the preview, only Windows Store apps are available) and the programming language for the snippets provided to you in the quickstart.
 
 1.	In the [Preview Management Portal][Management Portal preview], click **Mobile Services**. Then click the name of the new mobile service to open the dashboard.
 
@@ -245,7 +245,7 @@ Next steps are...
 [Getting started with Mobile Services]:#getting-started
 [Define the mobile service instance]:#define-mobile-service-instance
 [Add a new storage table]:#add-storage-table
-[Create a Windows 8 Metro-style application]:#create-metro-app
+[Create a Windows Store application]:#create-metro-app
 [Working with Mobile Services]:#working-with-mobile
 [How to: Manage keys]:#managing-keys
 [How to: Add columns to the table index]:#how-to-add-index
@@ -257,10 +257,10 @@ Next steps are...
 
 <!-- Images. -->
 [0]: ../../Shared/Media/plus-new.PNG
-[1]: ../Media/mobile-quick-create.png
-[2]: ../Media/mobile-new-database.png
-[3]: ../Media/mobile-location-and-create.png
-[4]: ../Media/reset-db-password.png
+[1]: ../Media/mobile-create.png
+[2]: ../Media/mobile-create-page1-name.png
+[3]: ../Media/mobile-new-database.png
+[4]: ../Media/mobile-new-database2.png
 [5]: ../Media/mobile-services-selection.png
 [6]: ../Media/mobile-service-storage.png
 [7]: ../Media/mobile-create-storage-table.png
@@ -271,7 +271,8 @@ Next steps are...
 [12]: ../Media/mobile-table-perms.png
 [13]: ../Media/mobile-register-scriptlet.png
 [14]: ../Media/mobile-service-keys.png
-[15]: ../Media/mobile-view-keys.png
+[15]: ../Media/mobile-view-keys.png 
+[16]:  
 
 <!-- URLs. -->
 [JavaScript and HTML]: mobile-services-metro-javascript
