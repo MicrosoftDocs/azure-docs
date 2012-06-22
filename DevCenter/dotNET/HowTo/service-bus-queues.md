@@ -201,9 +201,9 @@ credentials with permissions to manage it. This connection string is of the form
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
-    if (!namespaceManager.QueueExists(QueueName))
+    if (!namespaceManager.QueueExists("TestQueue"))
     {
-        namespaceManager.CreateQueue(QueueName);
+        namespaceManager.CreateQueue("TestQueue");
     }
 
 There are overloads of the **CreateQueue** method that allow properties
@@ -224,7 +224,7 @@ maximum size of 5GB and a default message time-to-live of 1 minute:
 	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
     if (!namespaceManager.QueueExists("TestQueue"))
     {
-        namespaceManager.CreateQueue("TestQueue");
+        namespaceManager.CreateQueue(QueueDescription);
     }
 
 **Note:** You can use the **QueueExists** method on **NamespaceManager**
@@ -246,9 +246,8 @@ for the "TestQueue" queue created above:
 
 	MessagingFactory factory = MessagingFactory.CreateFromConnectionString(connectionString);
 
-    MessageSender sender = factory.CreateMessageSender("TestQueue");
-
-    sender.Send(new BrokeredMessage());
+    QueueClient queueClient = factory.CreateQueueClient("TestQueue");
+	queueClient.Send(new BrokeredMessage());
 
 Messages sent to (and received from) Service Bus queues are instances of
 the **BrokeredMessage** class. **BrokeredMessage** objects have a set of
@@ -319,14 +318,12 @@ processed using the default **PeekLock** mode. The example creates an infinite l
 
     MessagingFactory factory = MessagingFactory.CreateFromConnectionString(connectionString);
 
-    MessageReceiver receiver = factory.CreateMessageReceiver("TestQueue");
-
-    receiver.Receive(new BrokeredMessage());
+    queueClient.Receive();
      
     // Continuously process messages sent to the "TestQueue" 
     while (true) 
     {  
-       BrokeredMessage message = receiver.Receive();
+       BrokeredMessage message = QueueClient.Receive();
 
        if (message != null)
        {
