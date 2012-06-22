@@ -303,10 +303,10 @@ for the "TestTopic" topic created above:
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-	MessagingFactory factory = MessagingFactory.CreateFromConnectionString(connectionString);
+	namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
 
-   	TopicClient topicClient = factory.CreateTopicClient("TestTopic");
-	topicClient.Send(new BrokeredMessage());
+   	Client = TopicClient.CreateFromConnectionString(connectionString, "TestTopic");
+	Client.Send(new BrokeredMessage());
  
 
 Messages sent to Service Bus topics are instances of the
@@ -382,7 +382,7 @@ path*\>/subscriptions/<*subscription name*\>".
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-    MessagingFactory factory = MessagingFactory.CreateFromConnectionString(connectionString);
+    namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
 
 	highMessages.Receive();
      

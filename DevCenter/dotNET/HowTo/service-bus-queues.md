@@ -244,10 +244,10 @@ for the "TestQueue" queue created above:
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-	MessagingFactory factory = MessagingFactory.CreateFromConnectionString(connectionString);
+	namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
 
-    QueueClient queueClient = factory.CreateQueueClient("TestQueue");
-	queueClient.Send(new BrokeredMessage());
+    Client = QueueClient.CreateFromConnectionString(connectionString, "TestQueue");
+	Client.Send(new BrokeredMessage());
 
 Messages sent to (and received from) Service Bus queues are instances of
 the **BrokeredMessage** class. **BrokeredMessage** objects have a set of
@@ -316,7 +316,7 @@ processed using the default **PeekLock** mode. The example creates an infinite l
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-    MessagingFactory factory = MessagingFactory.CreateFromConnectionString(connectionString);
+    namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
 
     queueClient.Receive();
      
