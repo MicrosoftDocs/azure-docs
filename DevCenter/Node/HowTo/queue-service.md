@@ -158,7 +158,6 @@ Use the **createQueueIfNotExists** method, which returns the specified
 queue if it already exists or creates a new queue with the specified
 name if it does not already exist.
 
-    var queueService = azure.createQueueService();
 	queueService.createQueueIfNotExists(queueName, function(error){
     	if(!error){
         	// Queue exists
@@ -170,7 +169,6 @@ name if it does not already exist.
 To insert a message into a queue, use the **createMessage** method to
 create a new message and add it to the queue.
 
-    var queueService = azure.createQueueService();
 	queueService.createMessage(queueName, "Hello world!", function(error){
 	    if(!error){
 	        // Message inserted
@@ -184,13 +182,17 @@ You can peek at the message in the front of a queue without removing it
 from the queue by calling the **peekMessages** method. By default,
 **peekMessages** peeks at a single message.
 
-	var queueService = azure.createQueueService();
 	queueService.peekMessages(queueName, function(error, messages){
 		if(!error){
 			// Messages peeked
 			// Text is available in messages[0].messagetext
 		}
 	});
+
+<div class="dev-callout">
+<b>Note</b>
+<p>Using <b>peekMessage</b> when there are no messages in the queue will not return an error, however no messages will be returned.</p>
+</div>
 
 ## <a name="get-message"> </a>How To: Dequeue the Next Message
 
@@ -205,19 +207,26 @@ hardware or software failure, another instance of your code can get the
 same message and try again. Your code calls **deleteMessage** right
 after the message has been processed.
 
-	var queueService = azure.createQueueService(),
 	queueService.getMessages(queueName, function(error, messages){
 	    if(!error){
 	        // Process the message in less than 30 seconds, the message
 	        // text is available in messages[0].messagetext 
 			var message = messages[0]
-	        queueService.deleteMessage(queueName, message.messageid, message.popreceipt, function(error){
-	            if(!error){
-	                // Message deleted
-	            }
-	        });
+	        queueService.deleteMessage(queueName
+				, message.messageid
+				, message.popreceipt
+				, function(error){
+	            	if(!error){
+	                	// Message deleted
+	            	}
+	        	});
 	    }
 	});
+
+<div class="dev-callout">
+<b>Note</b>
+<p>Using <b>getMessages</b> when there are no messages in the queue will not return an error, however no messages will be returned.</p>
+</div>
 
 ## <a name="change-contents"> </a>How To: Change the Contents of a Queued Message
 
@@ -236,10 +245,10 @@ method to update a message.
 				, 10
 				, { messagetext: 'in your message, doing stuff.' }
 				, function(error){
-				if(!error){
-					// Message updated successfully
-				}
-			});
+					if(!error){
+						// Message updated successfully
+					}
+				});
 		}
 	});
 
@@ -249,12 +258,12 @@ There are two ways you can customize message retrieval from a queue.
 First, you can get a batch of messages (up to 32). Second, you can set a
 longer or shorter invisibility timeout, allowing your code more or less
 time to fully process each message. The following code example uses the
-**getMessages** method to get 16 messages in one call. Then it processes
+**getMessages** method to get 15 messages in one call. Then it processes
 each message using a for loop. It also sets the invisibility timeout to
 five minutes for each message.
 
     queueService.getMessages(queueName
-		, {numofmessages: messagesToGet, visibilitytimeout: 5 * 60}
+		, {numofmessages: 15, visibilitytimeout: 5 * 60}
 		, function(error, messages){
 		if(!error){
 			// Messages retreived
@@ -265,10 +274,10 @@ five minutes for each message.
 					, message.messageid
 					, message.popreceipt
 					, function(error){
-					if(!error){
-						// Message deleted
-					}
-				});
+						if(!error){
+							// Message deleted
+						}
+					});
 			}
 		}
 	});
