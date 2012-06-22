@@ -305,9 +305,9 @@ for the "TestTopic" topic created above:
 
 	MessagingFactory factory = MessagingFactory.CreateFromConnectionString(connectionString);
 
-    MessageSender sender = factory.CreateMessageSender("TestTopic");
-
-    sender.Send(new BrokeredMessage());
+   	TopicClient topicClient = factory.CreateTopicClient("TestTopic");
+	topicClient.Send(new BrokeredMessage());
+ 
 
 Messages sent to Service Bus topics are instances of the
 **BrokeredMessage** class. **BrokeredMessage** objects have a set of
@@ -384,7 +384,7 @@ path*\>/subscriptions/<*subscription name*\>".
 
     MessagingFactory factory = MessagingFactory.CreateFromConnectionString(connectionString);
 
-	MessageReceiver highMessages = factory.CreateMessageReceiver("TestTopic/subscriptions/HighMessages");
+	highMessages.Receive();
      
 	// Continuously process messages received from the "HighMessages" subscription 
     while (true) 
