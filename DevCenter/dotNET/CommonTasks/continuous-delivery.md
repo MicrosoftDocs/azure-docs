@@ -772,7 +772,7 @@ Write-Output "$(Get-Date –f $timeStampFormat) - Azure Cloud Service deploy scr
   [Step 5: Publish a Package using TFS Team Build (Optional)]: #step5
   [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
-  [Windows Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600ura
+  [Windows Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
   [MSBuild Command Line Reference]: http://msdn.microsoft.com/en-us/library/ms164311(v=VS.90).aspx
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [Understanding the Team Foundation Build System]: http://go.microsoft.com/fwlink/?LinkId=238798
