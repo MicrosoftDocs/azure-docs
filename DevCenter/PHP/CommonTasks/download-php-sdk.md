@@ -32,8 +32,15 @@ For information about how to use the PHP Client Libraries for Windows Azure, see
 1. Create a file named **composer.json** in the root of your project and add the following code to it:
 
 		{
+			"repositories": [
+				{
+					"type": "pear",
+					"url": "http://pear.php.net"
+				}
+			],
+			
 			"require": {
-				"microsoft/windowsazure": "0.2"
+				"microsoft/windowsazure": "*"
 			}
 		}
 
