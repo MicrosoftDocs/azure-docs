@@ -22,9 +22,27 @@ The instructions in this topic assume that you have [PHP][install-php] installed
 
 ##PHP client libraries for Windows Azure
 
-The PHP Client Libraries for Windows Azure provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services, from any operating system. These libraries can be installed as a PEAR package or manually.
+The PHP Client Libraries for Windows Azure provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services, from any operating system. These libraries can be installed via the Composer or PEAR package managers or manually.
 
-For information about how to use the PHP Client Libraries for Windows Azure, see [How to Use the Blob Service from PHP][blob-service], [How to Use the Table Service from PHP][table-service], and [How to Use the Queue Service from PHP][queue-service].
+For information about how to use the PHP Client Libraries for Windows Azure, see [How to Use the Blob Service][blob-service], [How to Use the Table Service][table-service] and [How to Use the Queue Service][queue-service].
+
+
+###Install via Composer
+
+1. Create a file named **composer.json** in the root of your project and add the following code to it:
+
+	{
+		"require": {
+			"microsoft/windowsazure": "0.2"
+		}
+	}
+
+2. Download **[composer.phar][composer-phar]** in your project root.
+
+3. Open a command prompt and execute this in your project root
+
+		php composer.phar install
+
 
 ###Install as a PEAR package
 
@@ -39,6 +57,7 @@ To install the PHP Client Libraries for Windows Azure as a PEAR package, follow 
 		pear install pear.windowsazure.com/WindowsAzure-0.1.0
 
 After the installation completes, you can reference class libraries from your application.
+
 
 ###Install manually
 
@@ -84,6 +103,7 @@ For information about how to use the Windows Azure Command-Line Tools for Mac an
 
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer
+[composer-phar]: http://getcomposer.org/composer.phar
 [pear-net]: http://pear.php.net/
 [http-request2-package]: http://pear.php.net/package/HTTP_Request2
 [mail-mimedecode-package]: http://pear.php.net/package/Mail_mimeDecode
