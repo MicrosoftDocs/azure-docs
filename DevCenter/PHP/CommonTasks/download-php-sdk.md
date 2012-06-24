@@ -22,33 +22,9 @@ The instructions in this topic assume that you have [PHP][install-php] installed
 
 ##PHP client libraries for Windows Azure
 
-The PHP Client Libraries for Windows Azure provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services, from any operating system. These libraries can be installed via the Composer or PEAR package managers or manually.
+The PHP Client Libraries for Windows Azure provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services, from any operating system. These libraries can be installed via the PEAR package manager or manually.
 
 For information about how to use the PHP Client Libraries for Windows Azure, see [How to Use the Blob Service][blob-service], [How to Use the Table Service][table-service] and [How to Use the Queue Service][queue-service].
-
-
-###Install via Composer
-
-1. Create a file named **composer.json** in the root of your project and add the following code to it:
-
-		{
-			"repositories": [
-				{
-					"type": "pear",
-					"url": "http://pear.php.net"
-				}
-			],
-			
-			"require": {
-				"microsoft/windowsazure": "*"
-			}
-		}
-
-2. Download **[composer.phar][composer-phar]** in your project root.
-
-3. Open a command prompt and execute this in your project root
-
-		php composer.phar install
 
 
 ###Install as a PEAR package
