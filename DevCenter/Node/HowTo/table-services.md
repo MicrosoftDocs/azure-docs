@@ -108,9 +108,7 @@ create a storage account [using the REST API][].)
 
 ## <a name="create-app"> </a>Create a Node.js Application
 
-Create a blank Node.js application. For
-instructions on how to use the PowerShell commands to create a blank
-application, see the [Node.js Cloud Service]. For instructions on how to use WebMatrix, see [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to a Windows Azure Web Site], [Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
@@ -159,7 +157,7 @@ Using Notepad or another text editor, add the following to the top the
 
 ## <a name="setup-connection-string"> </a>Setup a Windows Azure Storage Connection
 
-The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY for information required to connect to your Windows Azure storage account. If these environment variables are not set, you must specify the account information when calling **createQueueService**.
+The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY for information required to connect to your Windows Azure storage account. If these environment variables are not set, you must specify the account information when calling **TableService**.
 
 For an example of setting the environment variables in a configuration file for a Windows Azure Cloud Service, see [Node.js Cloud Service with Storage].
 
@@ -424,3 +422,4 @@ to learn how to do more complex storage tasks.
   [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/
 [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: en-us/develop/nodejs/tutorials/web-site-with-storage/
+ [Create and deploy a Node.js application to a Windows Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
