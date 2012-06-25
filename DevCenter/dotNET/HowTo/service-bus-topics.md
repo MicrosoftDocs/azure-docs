@@ -197,15 +197,18 @@ Management operations for Service Bus topics and subscriptions can be performed 
 In this example, a **NamespaceManager** object is constructed by using the Windows Azure **CloudConfigurationManager** class
 with a connection string consisting of the base address of a Service Bus namespace and the appropriate
 credentials with permissions to manage it. This connection string is of the form
-`Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedSecretIssuer=<issuerName>;SharedSecretValue=<yourDefaultKey>`. For example, given the configuration settings in the previous section:
+
+	Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedSecretIssuer=<issuerName>;SharedSecretValue=<yourDefaultKey> 
+
+For example, given the configuration settings in the previous section:
 
 	// Create the topic if it does not exist already
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
-    if (!namespaceManager.TopicExists(QueueName))
+    if (!namespaceManager.TopicExists("TestTopic"))
     {
-        namespaceManager.CreateTopic(QueueName);
+        namespaceManager.CreateTopic("TestTopic");
     }
 
 There are overloads of the **CreateTopic** method that allow properties
