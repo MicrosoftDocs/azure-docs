@@ -2,13 +2,16 @@
 
 When you create a web site, Windows Azure provides a friendly subdomain on the azurewebsites.net domain so your users can access your web site using a URL like http://&lt;mysite>.azurewebsites.net. However, if you configure your web sites for reserved mode, you can map your web site to your own domain name, such as contoso.com. 
 
+The procedueres in this task apply to Windows Azure web sites, for Cloud Services, see [Configuring a Custom Domain Name in Windows Azure][cloudservicedns].
+
+
 The task includes the following steps:
 
 - [Configure your web sites for reserved mode][]
 - [Configure the CNAME on your domain registrar][]
 - [Set the CNAME in management portal][]
  
-<a name="bkmk_configreservedmode"></a><h3>Configure your web sites for reserved mode</h3>
+<a name="bkmk_configreservedmode"></a><h2>Configure your web sites for reserved mode</h2>
 
 Setting a CNAME on a web site is only available in the reserved mode of web sites. Before switching a website from Shared website mode to Reserved website mode you must first remove spending caps in place for your Web Site subscription. For more information on reserved mode pricing, see [Pricing Details][PricingDetails].
 
@@ -36,10 +39,10 @@ Setting a CNAME on a web site is only available in the reserved mode of web site
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>If you receive a "Configuring scale for web site '&lt;site name>' Failed" error you can use the details button to get more information. You may receive a <b>Not enough available reserved instance servers to satisfy this request.</b> error. The web sites feature is in preview and we are adding capacity on a measured basis. If you receive this error, you will need to try again later to upgrade your account.</p> 
+<p>If you receive a "Configuring scale for web site '&lt;site name>' Failed" error you can use the details button to get more information. You may receive a "Not enough available reserved instance servers to satisfy this request." error. The web sites feature is in preview and we are adding capacity on a measured basis. If you receive this error, you will need to try again later to upgrade your account.</p> 
 </div>
 
-<a name="bkmk_configurecname"></a><h3>Configure the CNAME on your domain registrar</h3>
+<a name="bkmk_configurecname"></a><h2>Configure the CNAME on your domain registrar</h2>
 
 To configure a custom domain name, you must create a new CNAME record in your custom domain name's DNS table. Each registrar has a similar but slightly different method of specifying a CNAME record, but the concept is the same.
 
@@ -69,10 +72,10 @@ To configure a custom domain name, you must create a new CNAME record in your cu
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>It can take some time for your CNAME to propagate through the DNS system. You cannot set the CNAME for the web site until the CNAME has propagated. You can use a service such as [http://www.digwebinterface.com/][digweb] to verify that the CNAME is available.</p> 
+<p>It can take some time for your CNAME to propagate through the DNS system. You cannot set the CNAME for the web site until the CNAME has propagated. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.</p> 
 </div>
 
-<a name="bkmk_setcname"></a><h3>Set the CNAME in management portal</h3>
+<a name="bkmk_setcname"></a><h2>Set the CNAME in management portal</h2>
 
 Once the CNAME has propagated you must associate it with your web site.
 
@@ -102,6 +105,7 @@ Windows Azure validates the existence of the hostname in the public DNS before i
 [PricingDetails]: https://www.windowsazure.com/en-us/pricing/details/
 [portal]: http://manage.windowsazure.com
 [digweb]: http://www.digwebinterface.com/
+[cloudservicedns]: https://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/
 
 <!-- images -->
 [reservedmode1]: ../media/dncmntask-cname-1.png
