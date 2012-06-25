@@ -118,9 +118,7 @@ namespace.
 
 ## <a name="create-app"> </a>Create a Node.js Appication
 
-Create a blank Node.js application. For
-instructions on how to use the PowerShell commands to create a blank
-application, see the [Node.js Cloud Service]. For instructions on how to use WebMatrix, see [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to a Windows Azure Web Site], [Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
 ## <a name="configure-app"> </a>Configure Your Application to Use Service Bus
 
@@ -137,13 +135,25 @@ communicate with the Service Bus REST services.
 2.  Type **npm install azure** in the command window, which should
     result in output similiar to the following:
 
-        azure@0.5.0 ./node_modules/azure
-        ├── xmlbuilder@0.3.1
-        ├── mime@1.2.4
-        ├── xml2js@0.1.12
-        ├── qs@0.4.0
-        ├── log@1.2.0
-        └── sax@0.3.4
+        azure@0.6.0 ./node_modules/azure
+		├── easy-table@0.0.1
+		├── dateformat@1.0.2-1.2.3
+		├── xmlbuilder@0.3.1
+		├── eyes@0.1.7
+		├── colors@0.6.0-1
+		├── mime@1.2.5
+		├── log@1.3.0
+		├── commander@0.6.1
+		├── node-uuid@1.2.0
+		├── xml2js@0.1.14
+		├── async@0.1.22
+		├── tunnel@0.0.1
+		├── underscore@1.3.3
+		├── qs@0.5.0
+		├── underscore.string@2.2.0rc
+		├── sax@0.4.0
+		├── streamline@0.2.4
+		└── winston@0.6.1 (cycle@1.0.0, stack-trace@0.0.6, pkginfo@0.2.3, request@2.9.202)
 
 3.  You can manually run the **ls** command to verify that a
     **node\_modules** folder was created. Inside that folder find the
@@ -159,30 +169,11 @@ the **server.js** file of the application:
 
 ### Setup a Windows Azure Storage Connection
 
-You must use the namespace and default key values to connect to the
-Service Bus queue. These values can be specified programatically within
-your application, or read from the following environment variables at
-runtime:
+The azure module will read the environment variables AZURE\_SERVICEBUS\_NAMESPACE and AZURE\_SERVICEBUS\_ACCESS\_KEY for information required to connect to your Windows Azure Service Bus. If these environment variables are not set, you must specify the account information when calling **createServiceBusService**.
 
--   AZURE\_SERVICEBUS\_NAMESPACE
--   AZURE\_SERVICEBUS\_ACCESS\_KEY
+For an example of setting the environment variables in a configuration file for a Windows Azure Cloud Service, see [Node.js Cloud Service with Storage].
 
-You can also store these values in the configuration files created by
-the **Windows Azure PowerShell** commands. In this how-to,
-you use the **Web.Cloud.Config** and **Web.Config** files, which are
-created when you add a Web Role to a Windows Azure Cloud Service project:
-
-1.  Use a text editor to open the
-    **Web.cloud.config**
-
-2.  Add the following inside the **configuration** element
-
-        <appSettings>
-          <add key="AZURE_SERVICEBUS_NAMESPACE" value="your Service Bus namespace"/>
-          <add key="AZURE_SERVICEBUS_ACCESS_KEY" value="your default key"/>
-        </appSettings>
-
-You are now ready to write code against Service Bus.
+For an example of setting the environment variables in the management portal for a Windows Azure Web Site, see [Node.js Web Application with Storage]
 
 ## <a name="create-queue"> </a>How to Create a Queue
 
@@ -199,7 +190,6 @@ queue with the specified name will be created. The following code uses
 **createQueueIfNotExists** to create or connect to the queue named
 ‘myqueue’:
 
-    var serviceBusService = azure.createServiceBusService();
     serviceBusService.createQueueIfNotExists('myqueue', function(error){
         if(!error){
             // Queue exists
@@ -211,7 +201,6 @@ allow you to override default queue settings such as message time to
 live or maximum queue size. The following example shows setting the
 maximum queue size to 5GB a time to live of 1 minute:
 
-    var serviceBusService = azure.createServiceBusService();
     var queueOptions = {
           MaxSizeInMegabytes: '5120',
           DefaultMessageTimeToLive: 'PT1M'
@@ -363,3 +352,6 @@ links to learn more.
   [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
   [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
+  [Create and deploy a Node.js application to a Windows Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+  [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
+  [Node.js Web Application with Storage]: en-us/develop/nodejs/tutorials/web-site-with-storage/
