@@ -489,7 +489,7 @@ To install the command-line tools, use the following command:
 <div class="dev-callout">
 <strong>Note</strong>
 <p>While the command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.</p>
-</dev>
+</div>
 
 ###Import publishing settings
 
