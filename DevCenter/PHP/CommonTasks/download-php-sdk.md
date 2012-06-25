@@ -49,8 +49,7 @@ After the installation completes, you can reference class libraries from your ap
 		{
 			"require": {
 				"microsoft/windowsazure": "*"
-			},
-			
+			},			
 			"repositories": [
 				{
 					"type": "pear",
