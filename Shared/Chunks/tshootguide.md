@@ -846,3 +846,4 @@ For more information on quota-related errors, see [Understanding Quotas].
 [diagnostics-diagram]: ../Media/diagnosticsdiagram.png
 [Understanding Quotas]: http://msdn.microsoft.com/en-us/library/gg185683.aspx
 [Troubleshooting Cache]: http://go.microsoft.com/fwlink/?LinkId=252730 
+[Windows Azure PowerShell Cmdlets]: http://wappowershell.codeplex.com/documentation
