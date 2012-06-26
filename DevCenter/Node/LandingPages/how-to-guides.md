@@ -42,7 +42,6 @@ Windows Azure applications can use SendGrid to include email functionality.  Sen
 [Blob Service]: /en-us/develop/nodejs/how-to-guides/blob-storage/
 [Service Bus Queues]: /en-us/develop/nodejs/how-to-guides/service-bus-queues/
 [Service Bus Topics]: /en-us/develop/nodejs/how-to-guides/service-bus-topics/
-[Service Bus Relay]: /en-us/develop/nodejs/how-to-guides/service-bus-relay/
 [Queue Service]: /en-us/develop/nodejs/how-to-guides/queue-service/
 [Table Service]: /en-us/develop/nodejs/how-to-guides/table-services/
 [SendGrid Email Service]: /en-us/develop/nodejs/how-to-guides/sendgrid-email-service/
