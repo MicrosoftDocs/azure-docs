@@ -12,13 +12,13 @@ Currently, you can only monitor your blob storage usage and until you configure 
 
 1. In the [Management Portal](https://manage.windowsazure.com/), click **Media Services**, and then click the Media Services account name to open the dashboard. 
 
-![MediaServices_Dashboard][dashboard]
+	![MediaServices_Dashboard][dashboard]
 
 2. Click the **configure page** link, and scroll down to the **monitoring** settings for the Blob, Table, and Queue services, shown below.
 
 	**Note** Blobs are the only supported storage type in Media Services.
 
-![StorageOptions][storage_options_scoped]
+	![StorageOptions][storage_options_scoped]
 
 3. In **monitoring**, set the level of monitoring and the data retention policy for Blobs:
 
