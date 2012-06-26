@@ -1,16 +1,16 @@
 <properties umbracoNaviHide="0" pageTitle="How To Monitor a Media Services Account" metaKeywords="Windows Azure Media Services, service, media services account, monitor media services" metaDescription="Learn how to monitor a Media Services account." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: Media Services accounts" headerExpose="" footerExpose="" disqusComments="1" />
 
 
-<h1 id="monitormediaservicesaccount">How To Monitor a Media Services Account</h1>
+<h1 id="monitormediaservicesaccount">How to Monitor a Media Services Account</h1>
 The Windows Azure Media Services dashboard presents usage metrics and account information that you can use to manage your Media Services account.
 
 Currently, you can only monitor your blob storage usage and until you configure storage monitoring for your Media Services account, no monitoring data is collected and the metrics charts on the dashboard are empty. Similarly to general storage monitoring, you can choose the level of blob storage monitoring - minimal or verbose - and specify the appropriate data retention policy for the service. 
 
-**Note**   Additional costs are associated with examining monitoring data in the Windows Azure (Preview) Management Portal. For more information, see [Storage Analytics and Billing](http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx).
+**Note**   Additional costs are associated with examining monitoring data in the Windows Azure (Preview) Management Portal. For more information, see [Storage Analytics and Billing](http://go.microsoft.com/fwlink/?LinkId=256667).
 
 <h2 id="configuremonitoring">How to: Configure monitoring for a Media Services account</h2>
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click **Media Services**, and then click the Media Services account name to open the dashboard. 
+1. In the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=256666), click **Media Services**, and then click the Media Services account name to open the dashboard. 
 
 	![MediaServices_Dashboard][dashboard]
 
@@ -35,7 +35,7 @@ Currently, you can only monitor your blob storage usage and until you configure 
 4. When you finish the monitoring configuration, click **Save**.
 You should start seeing monitoring data on the dashboard after about an hour.
 
-Metrics are stored in the storage account in four tables named $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue, and $MetricsCapacityBlob. For more information, see [Storage Analytics Metrics](http://msdn.microsoft.com/en-us/library/windowsazure/hh343258.aspx).
+Metrics are stored in the storage account in four tables named $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue, and $MetricsCapacityBlob. For more information, see [Storage Analytics Metrics](http://go.microsoft.com/fwlink/?LinkId=256668).
 
 
 <!-- Images -->
