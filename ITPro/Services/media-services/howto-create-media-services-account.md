@@ -2,7 +2,7 @@
 
 #How to Create a Media Services Account
 
-The Windows Azure Management Portal provides a way to quickly create a Windows Azure Media Services account. You can use your Media Services account to store, encrypt, encode, manage, and stream media content in Windows Azure. At the time you create a Media Services account, you also create an associated storage account (or use an existing one) in the same geographic region as the Media Services account. 
+The Windows Azure Management Portal provides a way to quickly create a Windows Azure Media Services account. You can use your account to access Media Services that enable you to store, encrypt, encode, manage, and stream media content in Windows Azure. At the time you create a Media Services account, you also create an associated storage account (or use an existing one) in the same geographic region as the Media Services account. 
 
 This topic explains how to use the Quick Create method to create a new Media Services account and then associate it with a storage account. 
 
@@ -16,7 +16,7 @@ This topic explains how to use the Quick Create method to create a new Media Ser
 <h2 id="concepts">Concepts</h2>
 Accessing Media Services requires two associated accounts:
 
--   **A Media Services account**. Your account gives you access to a set of cloud-based Media Services that are available in Windows Azure. Services include encoding and format conversion, content protection, and on-demand or live streaming. Other related services are available including Azure CDN and the ability to extend Media Services by building or buying add-on media processing components. A Media Services account does not store actual media content. Instead it stores metadata about the media content and media processing jobs in your account. At the time you create the account, you select an available Media Services region. The region you select is a data center that stores the metadata records for your account. 
+-   **A Media Services account**. Your account gives you access to a set of cloud-based Media Services that are available in Windows Azure. Services include encoding and format conversion, content protection, and on-demand or live streaming. Other related services are available including Azure CDN and the ability to extend Media Services by using add-on media processor components. A Media Services account does not store actual media content. Instead it stores metadata about the media content and media processing jobs in your account. At the time you create the account, you select an available Media Services region. The region you select is a data center that stores the metadata records for your account. 
     - **Note**  Available Media Services regions include the following: **West Europe**, **Southeast Asia**, **East Asia**, **North Europe**, **West US**, **East US**. Media Services does not use affinity groups. 
 -   **An associated storage account**. Your storage account is a Windows Azure storage account that is associated with your Media Services account. The storage account provides blob storage for media files, and must be located in the same geographic region as the Media Services account. When you create a Media Services account, you can either choose an existing storage account in the same region, or you can create a new storage account in the same region. If you delete a Media Services account, the blobs in your related storage account are not deleted. 
 
