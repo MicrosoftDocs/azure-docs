@@ -5,7 +5,7 @@
 This guide will show you how to perform common scenarios using the
 Windows Azure Queue storage service. The samples are written in C\# code
 and use the .NET API. The scenarios covered include **inserting**,
-**peeking**, **getting**, and **deleting**queue messages, as well as
+**peeking**, **getting**, and **deleting** queue messages, as well as
 **creating and deleting queues**. For more information on queues, refer
 to the [Next Steps][] section.
 
@@ -103,7 +103,7 @@ configuration:
 
 6.  Change the entry **Name** from **Setting1** to a "friendlier" name
     like **StorageConnectionString**. You will reference this
-    connectionstring later in the code in this guide.  
+    connection string later in the code in this guide.  
     ![Blob9][]
 	
 ### Configuring your connection string when using Web Sites or Virtual Machines
@@ -124,7 +124,7 @@ You are now ready to perform the How To's in this guide.
 ## <a name="create-queue"> </a>How To: Create a Queue
 
 A **CloudQueueClient** object lets you get reference objects for queues.
-The following code creates a **CloudQueueClient**object. All code in
+The following code creates a **CloudQueueClient** object. All code in
 this guide uses a storage connection string stored in the Windows Azure
 application's service configuration. There are also other ways to create
 a **CloudStorageAccount** object. See [CloudStorageAccount][]
@@ -327,8 +327,7 @@ To delete a queue and all the messages contained in it, call the
 Now that you've learned the basics of queue storage, follow these links
 to learn how to do more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Windows
-    Azure][]
+-   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][]
 -   Visit the [Windows Azure Storage Team Blog][]
 
   [Next Steps]: #next-steps

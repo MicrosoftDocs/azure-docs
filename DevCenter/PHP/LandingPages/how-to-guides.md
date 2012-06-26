@@ -14,12 +14,18 @@ Service Bus Queues offer simple first in, first out guaranteed message delivery 
 ### [SQL Database](/en-us/develop/php/how-to-guides/sql-database/ "SQL Database") ###
 For applications that need a full featured relational database-as-a-service, Windows Azure offers SQL Database, formerly known as SQL Azure Database. SQL Database offers a high-level of interoperability, enabling customers to build applications using many of the major development frameworks.
 
+### [Service Bus Queues]
+Service Bus Queues offer simple first in, first out guaranteed message delivery and support a range of standard protocols (REST, AMQP, WS*) and APIs to put and pull messages on and off a queue.
+
+### [Service Bus Topics]
+Service Bus Topics provide a publish/subscribe messaging model to support one-to-many communication. You can optionally register filter rules for a topic on a per-subscription basis, which allows you to restrict which messages to a topic are received by which topic subscriptions.
+
 ## Service management ##
 
 ### [PowerShell for Windows Azure](/en-us/develop/php/how-to-guides/powershell-cmdlets/ "PowerShell for Windows Azure") ###
 PowerShell for Windows Azure provides a command-line environment for developing and deploying applications for Windows Azure through a  Windows PowerShell cmdlets. This guide describes how to use Windows PowerShell cmdlets to create, test, deploy, and manage Windows Azure Services. 
 
-### [Command-Line Tools for Mac and Linux](/develop/php/how-to-guides/command-line-tools/ "Command-Line Tools for Mac and Linux") ###
+### [Command-Line Tools for Mac and Linux](/en-us/develop/php/how-to-guides/command-line-tools/ "Command-Line Tools for Mac and Linux") ###
 The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Windows Azure services. Use the command-line tools to create and manage websites and virtual machines in Windows Azure. 
 
 ## Additional guides ##
@@ -33,3 +39,6 @@ Windows Azure applications can use Twilio to incorporate phone call and Short Me
 
 [client-libs]: http://go.microsoft.com/fwlink/?LinkId=252719
 [twilio_php]: https://github.com/twilio/twilio-php
+[Blob Service]: /en-us/develop/nodejs/how-to-guides/blob-storage/
+[Service Bus Queues]: /en-us/develop/php/how-to-guides/service-bus-queues/
+[Service Bus Topics]: /en-us/develop/php/how-to-guides/service-bus-topics/

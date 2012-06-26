@@ -53,9 +53,12 @@ staging environment, you can quickly make it available in production by
 swapping the virtual IPs (VIPs) of the staging and production
 environments.
 
-**Note:** This step assumes that you have already deployed an
+<div class="dev-callout">
+<b>Note</b>
+<p>This step assumes that you have already deployed an
 application to production and staged the upgraded version of the
-application.
+application.</p>
+</div>
 
 1.  Log into the [Windows Azure Management Portal],
     click **Cloud Services** and then select the service name.

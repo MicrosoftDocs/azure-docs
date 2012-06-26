@@ -27,8 +27,11 @@ Windows Azure Storage Services].
 To create a storage account, you must be either the service
 administrator or a co-administrator for the associated subscription.
 
-**Note:** For information about performing this operation by using the
-Windows Azure Service Management API, see the [Create Storage Account] reference topic.
+<div class="dev-callout">
+<strong>Note</strong>
+<p>For information about performing this operation by using the
+Windows Azure Service Management API, see the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx">Create Storage Account</a> reference topic.</p>
+</div>
 
 **To create a storage account for a Windows Azure subscription**
 
@@ -164,7 +167,7 @@ CDN.
   [Create Storage Account]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
   [Windows Azure CDN Node Locations]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680302.aspx
   [Windows Azure Management Portal]: https://manage.windowsazure.com/
-  [billing plan]: /en-us/pricing/calculator/advanced/
+  [billing plan]: /en-us/pricing/calculator/?scenario=full
   [Using the Windows Azure Storage Services]: http://msdn.microsoft.com/en-us/library/windowsazure/ee924681.aspx
   [How to Register a Custom Subdomain Name for Accessing Blobs in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee795179.aspx
   [How to Create an Affinity Group in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531560.aspx

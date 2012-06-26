@@ -89,26 +89,11 @@ For more discussion of Table Storage, see:
 
 #### Data Partitioning ####
 
-One of the most frequently partitioned resources is data. If you are creating a Windows Azure Cloud Service, then you should consider the use of SQL Database’s built-in sharding available via Federations. Be sure to build a proof of concept to determine that Federations provides the needed partitioning for your application. 
+One of the most frequently partitioned resources is data. If you are creating a Windows Azure Cloud Service, then you should consider the use of SQL Database’s built-in sharding available via Federations. 
 
-If SQL Database Federations does not meet your scalability requirements, there are numerous examples of “do-it-yourself” partitioning that you can consider adopting. 
+Be sure to build a proof of concept to determine that Federations provides the needed partitioning for your application. If SQL Database Federations does not meet your scalability requirements, there are numerous examples of “do-it-yourself” partitioning that you can research. 
 
-##### Federations Limitations and Scalability Tradeoffs #####
-
-It is important to understand that use of Federations involves trade-offs in exchange for the scalability that you gain. 
-
-Federations is easiest to implement for new development, and for existing applications with databases that contain a relatively small number of tables, because Federations requires changes to the database schema as well as corresponding changes to the application layer (for example, Entity Framework code) described below. When you have a large existing database with hundreds of tables, you may decide the required changes are too extensive. 
-
-Your “proof of concept” application may encounter limitations in Federations ability to scale. When you partition a group of tables, rows that contain a key within a specified range occupy one of a number of Federation members, each of which is a separate database. Currently Federations scales well up to about 6 federation members. If you require more partitions, you may wish to consider “do-it-yourself” partitioning. 
-
-Another major trade off is that the transaction model becomes that of “eventual consistency”, because each Federation member is a separate database, and SQL Database does not support cross-database joins. 
-
-One consequence of this is that if you need to do a fan-out query that crosses federation member boundaries (for example, get all Orders made this month), you will need to use logic in the application layer to support it. This blog post describes the basics of doing this: [Introduction to Fan-out Queries for Federations in SQL Database (Part 1): Scalable Queries over Multiple Federation Members, MapReduce Style!](http://go.microsoft.com/fwlink/?LinkID=252667) 
-
-
-Another limitation to consider is hybrid applications where you have portions of the database located in the cloud, and part on premises. If the federated part of the data exists in both places, then you will have to maintain two versions of the application code, since Federations is not implemented on premises. 
-
-##### SQL Federations #####
+##### Design Tasks for SQL Federations #####
 
 For an overview of SQL Database Federations, see [Federations in SQL Database]( http://go.microsoft.com/fwlink/?LinkId=252668). 
 
@@ -313,12 +298,10 @@ Capacity planning is an entire specialty of its own, and this paper assumes that
 
 ## Performance Monitoring and Tuning at Runtime ##
 
-Even the most careful design cannot guarantee zero performance problems at run-time, so it is necessary to monitor application performance on an on-going basis, to verify that it is achieving the required performance metrics, and to 
-
-correct situations in which it fails to achieve those metrics. Even well designed applications are subject to unanticipated events such as exponential growth in usage or possible changes to the run-time environment, which can result in performance problems where tuning is required. Often identifying and resolving bottlenecks is a significant part of the process. 
+Even the most careful design cannot guarantee zero performance problems at run-time, so it is necessary to monitor application performance on an on-going basis, to verify that it is achieving the required performance metrics, and to correct situations in which it fails to achieve those metrics. Even well designed applications are subject to unanticipated events such as exponential growth in usage or possible changes to the run-time environment, which can result in performance problems where tuning is required. Often identifying and resolving bottlenecks is a significant part of the process. 
 
 
-Being able to trouble shoot performance problems at runtime requires up-front work to build in logging and proper exception handling, so that trouble-shooting can be done whenever problems may arise. For a comprehensive treatment of this area, see [Troubleshooting Best Practices for Developing Windows Azure Applicaitons](http://go.microsoft.com/fwlink/?LinkID=252876). 
+Being able to trouble shoot performance problems at runtime requires up-front work to build in logging and proper exception handling, so that trouble-shooting can be done whenever problems may arise. For a comprehensive treatment of this area, see [Troubleshooting Best Practices for Developing Windows Azure Applications](http://go.microsoft.com/fwlink/?LinkID=252876). 
 
 There are tools available for monitoring the on-going performance of every Windows Azure service. In addition logging facilities should be built into applications that provide detailed information needed for trouble-shooting and resolving performance issues. 
 

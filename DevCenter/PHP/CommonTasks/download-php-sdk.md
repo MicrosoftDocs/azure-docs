@@ -22,20 +22,48 @@ The instructions in this topic assume that you have [PHP][install-php] installed
 
 ##PHP client libraries for Windows Azure
 
-The PHP Client Libraries for Windows Azure provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services, from any operating system. These libraries can be installed as a PEAR package or manually.
+The PHP Client Libraries for Windows Azure provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services, from any operating system. These libraries can be installed via the Composer or PEAR package managers or manually.
 
-For information about how to use the PHP Client Libraries for Windows Azure, see [How to Use the Blob Service from PHP][blob-service], [How to Use the Table Service from PHP][table-service], and [How to Use the Queue Service from PHP][queue-service].
+For information about how to use the PHP Client Libraries for Windows Azure, see [How to Use the Blob Service][blob-service], [How to Use the Table Service][table-service] and [How to Use the Queue Service][queue-service].
+
 
 ###Install as a PEAR package
 
 To install the PHP Client Libraries for Windows Azure as a PEAR package, follow these steps:
 
 1. [Install PEAR][install-pear].
-2. Install the PEAR package:
+2. Set-up the Windows Azure PEAR channel:
 
-		pear install pear.windowsazure.com/WindowsAzure
+		pear channel-discover pear.windowsazure.com
+3. Install the PEAR package:
+
+		pear install pear.windowsazure.com/WindowsAzure-0.1.0
 
 After the installation completes, you can reference class libraries from your application.
+
+
+###Install via Composer
+
+1. Create a file named **composer.json** in the root of your project and add the following code to it:
+
+		{
+			"require": {
+				"microsoft/windowsazure": "*"
+			},			
+			"repositories": [
+				{
+					"type": "pear",
+					"url": "http://pear.php.net"
+				}
+			]
+		}
+
+2. Download **[composer.phar][composer-phar]** in your project root.
+
+3. Open a command prompt and execute this in your project root
+
+		php composer.phar install
+
 
 ###Install manually
 
@@ -55,9 +83,7 @@ To download and install the PHP Client Libraries for Windows Azure manually, fol
 
 Windows Azure PowerShell is a set of PowerShell cmdlets for deploying and managing Windows Azure Services (such as Cloud Services and Virtual Machines). The Windows Azure Emulators are emulators of Cloud Services and Cloud Storage that allow you to test an application locally. These components are supported Windows only.
 
-The recommended way to install Windows Azure PowerShell and the Windows Azure Emulators is to use the [Microsoft Web Platform Installer][download-wpi]. After downloading the Web Platform Installer, select **TODO: What to select?** and follow the prompts to complete the installation.
-
-Note that you can also choose to install other development components, such as PHP, SQL Server, the Microsoft Drivers for SQL Server for PHP, and WebMatrix.
+The recommended way to install Windows Azure PowerShell and the Windows Azure Emulators is to use the [Microsoft Web Platform Installer][download-wpi]. Note that you can also choose to install other development components, such as PHP, SQL Server, the Microsoft Drivers for SQL Server for PHP, and WebMatrix.
 
 For information about how to use Windows Azure PowerShell, see [How to Use Windows Azure PowerShell][powershell-tools].
 
@@ -83,11 +109,12 @@ For information about how to use the Windows Azure Command-Line Tools for Mac an
 
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer
+[composer-phar]: http://getcomposer.org/composer.phar
 [pear-net]: http://pear.php.net/
 [http-request2-package]: http://pear.php.net/package/HTTP_Request2
 [mail-mimedecode-package]: http://pear.php.net/package/Mail_mimeDecode
 [mail-mime-package]: http://pear.php.net/package/Mail_mime
-[install-pear]: http://pear.php.net/manual/en/installation.php
+[install-pear]: http://pear.php.net/manual/en/installation.getting.php
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 [download-wpi]: http://go.microsoft.com/fwlink/?LinkId=253447

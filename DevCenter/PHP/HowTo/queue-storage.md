@@ -103,7 +103,7 @@ A **QueueRestProxy** object lets you create a queue with the **createQueue** met
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>You should not rely on case sensetivity for metadata keys. All keys are read from the service in lowercase.</p> 
+<p>You should not rely on case sensitivity for metadata keys. All keys are read from the service in lowercase.</p> 
 </div>
 
 

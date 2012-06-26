@@ -5,26 +5,26 @@
 This guide shows you how to perform common scenarios using the Windows
 Azure Queue service. The samples are written using the Node.js
 API. The scenarios covered include **inserting**, **peeking**,
-**getting**, and **deleting**queue messages, as well as **creating and
+**getting**, and **deleting** queue messages, as well as **creating and
 deleting queues**. For more information on queues, refer to the [Next Steps][] section.
 
 ## Table of Contents
 
- [What is the Queue Service?][]   
- [Concepts][]   
- [Create a Windows Azure Storage Account][]   
- [Create a Node.js Application][]   
- [Configure your Application to Access Storage][]   
- [Setup a Windows Azure Storage Connection String][]   
- [How To: Create a Queue][]   
- [How To: Insert a Message into a Queue][]   
- [How To: Peek at the Next Message][]   
- [How To: Dequeue the Next Message][]   
- [How To: Change the Contents of a Queued Message][]   
- [How To: Additional Options for Dequeuing Messages][]   
- [How To: Get the Queue Length][]   
- [How To: Delete a Queue][]   
- [Next Steps][]
+* [What is the Queue Service?][]   
+* [Concepts][]   
+* [Create a Windows Azure Storage Account][]   
+* [Create a Node.js Application][]   
+* [Configure your Application to Access Storage][]   
+* [Setup a Windows Azure Storage Connection String][]   
+* [How To: Create a Queue][]   
+* [How To: Insert a Message into a Queue][]   
+* [How To: Peek at the Next Message][]   
+* [How To: Dequeue the Next Message][]   
+* [How To: Change the Contents of a Queued Message][]   
+* [How To: Additional Options for Dequeuing Messages][]   
+* [How To: Get the Queue Length][]   
+* [How To: Delete a Queue][]   
+* [Next Steps][]
 
 ## <a name="what-is"> </a>What is the Queue Service?
 
@@ -92,9 +92,7 @@ create a storage account [using the REST API][].)
 
 ## <a name="create-app"> </a>Create a Node.js Application
 
-Create a blank Node.js application. For
-instructions on how to use the PowerShell commands to create a blank
-application, see the [Node.js Cloud Service]. For instructions on how to use WebMatrix, see [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to a Windows Azure Web Site], [Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
@@ -109,13 +107,25 @@ communicate with the storage REST services.
 2.  Type **npm install azure** in the command window, which should
     result in the following output:
 
-        azure@0.5.0 ./node_modules/azure
+        azure@0.6.0 ./node_modules/azure
+		├── easy-table@0.0.1
+		├── dateformat@1.0.2-1.2.3
 		├── xmlbuilder@0.3.1
-		├── mime@1.2.4
-		├── xml2js@0.1.12
-		├── qs@0.4.0
-		├── log@1.2.0
-		└── sax@0.3.4
+		├── eyes@0.1.7
+		├── colors@0.6.0-1
+		├── mime@1.2.5
+		├── log@1.3.0
+		├── commander@0.6.1
+		├── node-uuid@1.2.0
+		├── xml2js@0.1.14
+		├── async@0.1.22
+		├── tunnel@0.0.1
+		├── underscore@1.3.3
+		├── qs@0.5.0
+		├── underscore.string@2.2.0rc
+		├── sax@0.4.0
+		├── streamline@0.2.4
+		└── winston@0.6.1 (cycle@1.0.0, stack-trace@0.0.6, pkginfo@0.2.3, request@2.9.202)
 
 3.  You can manually run the **ls** command to verify that a
     **node\_modules** folder was created. Inside that folder you will
@@ -131,27 +141,11 @@ Using Notepad or another text editor, add the following to the top the
 
 ## <a name="setup-connection-string"> </a>Setup a Windows Azure Storage Connection
 
-If you are running against the storage emulator on the local machine,
-you do not need to configure a connection string, as it will be
-configured automatically. You can continue to the next section.
+The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY for information required to connect to your Windows Azure storage account. If these environment variables are not set, you must specify the account information when calling **createQueueService**.
 
-If you are planning to run against the real Windows Azure storage
-service, you need to specify connection information to point at your
-Windows Azure Storage Account. You can store the connection information in your code, or in an external configuration file. In this how-to,
-you use the Web.cloud.config file, which is created when you use the Windows Azure Powershell to create a new Cloud Service Project.
+For an example of setting the environment variables in a configuration file for a Windows Azure Cloud Service, see [Node.js Cloud Service with Storage].
 
-1.  Use a text editor to open
-    **c:\\node\\tasklist\\WebRole1\\Web.cloud.config**
-
-2.  Add the following inside the **configuration** element
-
-        <appSettings>
-            <add key="AZURE_STORAGE_ACCOUNT" value="your storage account" />
-            <add key="AZURE_STORAGE_ACCESS_KEY" value="your storage access key" />
-        </appSettings>
-
-Note that the examples below assume that you are using cloud-based
-storage.
+For an example of setting the environment variables in the management portal for a Windows Azure Web Site, see [Node.js Web Application with Storage]
 
 ## <a name="create-queue"> </a>How To: Create a Queue
 
@@ -162,70 +156,25 @@ to work with queues.
 
 Use the **createQueueIfNotExists** method, which returns the specified
 queue if it already exists or creates a new queue with the specified
-name if it does not already exist. Replace the existing definition of
-the **createServer** method with the following.
+name if it does not already exist.
 
-    var queueName = 'taskqueue';
-
-    http.createServer(function serverCreated(req, res) {
-        queueService.createQueueIfNotExists(queueName, null, {}, 
-                                            queueCreatedOrExists);
-        
-        function queueCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-        
-            if(error === null){
-                res.write('Using queue ' + queueName + '\r\n');
-                res.end();
-        
-            } else {
-                res.end('Could not use queue: ' + error.Code);
-            }
-        }
-
-    }).listen(port);
+	queueService.createQueueIfNotExists(queueName, function(error){
+    	if(!error){
+        	// Queue exists
+	    }
+	});
 
 ## <a name="insert-message"> </a>How To: Insert a Message into a Queue
 
 To insert a message into a queue, use the **createMessage** method to
 create a new message and add it to the queue.
 
-    var http = require('http');
-    var azure = require('azure');
-    var port = process.env.port || 1337;
+	queueService.createMessage(queueName, "Hello world!", function(error){
+	    if(!error){
+	        // Message inserted
+	    }
+	});
 
-    var queueService = azure.createQueueService();
-    var queueName = 'taskqueue';
-
-    http.createServer(function serverCreated(req, res) {
-        queueService.createQueueIfNotExists(queueName, null, {}, 
-                                            queueCreatedOrExists);
-        
-        function queueCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-        
-            if(error === null){
-                res.write('Using queue ' + queueName + '\r\n');
-                queueService.createMessage(queueName, "Hello world!", null,
-                                           messageCreated);
-            } else {
-                res.end('Could not use queue: ' + error.Code);
-            }
-        }
-
-        function messageCreated(error, serverQueue)
-        {
-            if(error === null){
-                res.end('Successfully inserted message into queue ' + 
-                        serverQueue.queue + ' \r\n');
-            } else {
-                res.end('Could not insert message into queue: ' + error.Code);
-            }
-        }
-
-    }).listen(port);
 
 ## <a name="peek-message"> </a>How To: Peek at the Next Message
 
@@ -233,40 +182,17 @@ You can peek at the message in the front of a queue without removing it
 from the queue by calling the **peekMessages** method. By default,
 **peekMessages** peeks at a single message.
 
-    var http = require('http');
-    var azure = require('azure');
-    var port = process.env.port || 1337;
+	queueService.peekMessages(queueName, function(error, messages){
+		if(!error){
+			// Messages peeked
+			// Text is available in messages[0].messagetext
+		}
+	});
 
-    var queueService = azure.createQueueService();
-    var queueName = 'taskqueue';
-
-    http.createServer(function serverCreated(req, res) {
-        queueService.createQueueIfNotExists(queueName, null, {}, 
-                                            queueCreatedOrExists);
-          
-        function queueCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-        
-            if(error === null){
-                res.write('Using queue ' + queueName + '\r\n');
-                queueService.peekMessages(queueName, null, messagePeeked);
-            } else {
-                res.end('Could not use queue: ' + error.Code);
-            }
-        }
-
-        function messagePeeked(error, serverMessages)
-        {
-            if(error === null){
-                res.end('Successfully peeked message: ' + 
-                        serverMessages[0].messagetext + ' \r\n');
-            } else {
-                res.end('Could not peek into queue: ' + error.Code);
-            }
-        }
-
-    }).listen(port);
+<div class="dev-callout">
+<b>Note</b>
+<p>Using <b>peekMessage</b> when there are no messages in the queue will not return an error, however no messages will be returned.</p>
+</div>
 
 ## <a name="get-message"> </a>How To: Dequeue the Next Message
 
@@ -281,56 +207,26 @@ hardware or software failure, another instance of your code can get the
 same message and try again. Your code calls **deleteMessage** right
 after the message has been processed.
 
-    var http = require('http');
-    var azure = require('azure');
-    var port = process.env.port || 1337;
+	queueService.getMessages(queueName, function(error, messages){
+	    if(!error){
+	        // Process the message in less than 30 seconds, the message
+	        // text is available in messages[0].messagetext 
+			var message = messages[0]
+	        queueService.deleteMessage(queueName
+				, message.messageid
+				, message.popreceipt
+				, function(error){
+	            	if(!error){
+	                	// Message deleted
+	            	}
+	        	});
+	    }
+	});
 
-    var queueService = azure.createQueueService();
-    var queueName = 'taskqueue';
-
-    http.createServer(function serverCreated(req, res) {
-        queueService.createQueueIfNotExists(queueName, null, {}, 
-                                            queueCreatedOrExists);
-        
-        function queueCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-        
-            if(error === null){
-                res.write('Using queue ' + queueName + '\r\n');
-                queueService.getMessages(queueName, null, messageGot);
-            } else {
-                res.end('Could not use queue: ' + error.Code);
-            }
-        }
-
-        function messageGot(error, serverMessages)
-        {
-            if(error === null){
-                res.write('Successfully got message: ' + 
-                           serverMessages[0].messagetext + ' \r\n');
-
-                // Process the message in less than 30 seconds, and then delete it
-
-                queueService.deleteMessage(queueName, serverMessages[0].messageid,
-                                           serverMessages[0].popreceipt, null, 
-                                           messageDeleted);
-            } else {
-                res.end('Could not get message: ' + error.Code);
-            }
-        }
-        
-        function messageDeleted(error)
-        {
-            if(error === null){
-                res.end('Successfully deleted message from queue ' + 
-                         queueName + ' \r\n');
-            } else {
-                res.end('Could not delete message: ' + error.Code);
-            }
-        }
-
-    }).listen(port);
+<div class="dev-callout">
+<b>Note</b>
+<p>Using <b>getMessages</b> when there are no messages in the queue will not return an error, however no messages will be returned.</p>
+</div>
 
 ## <a name="change-contents"> </a>How To: Change the Contents of a Queued Message
 
@@ -339,55 +235,22 @@ message represents a work task, you could use this feature to update the
 status of the work task. The code below uses the **updateMessage**
 method to update a message.
 
-    var http = require('http');
-    var azure = require('azure');
-    var port = process.env.port || 1337;
-
-    var queueService = azure.createQueueService();
-    var queueName = 'taskqueue';
-
-    http.createServer(function serverCreated(req, res) {
-        queueService.createQueueIfNotExists(queueName, null, {}, 
-                                            queueCreatedOrExists);
-        
-        function queueCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-        
-            if(error === null){
-                res.write('Using queue ' + queueName + '\r\n');
-                queueService.getMessages(queueName, null, messageGot);
-            } else {
-                res.end('Could not use queue: ' + error.Code);
-            }
-        }
-
-        function messageGot(error, serverMessages)
-        {
-            if(error === null){
-                res.write('Successfully got message: ' + 
-                          serverMessages[0].messagetext + ' \r\n');
-
-                queueService.updateMessage(queueName, serverMessages[0].messageid,
-                                           serverMessages[0].popreceipt, 0, 
-                                           {messagetext: 'Hello world again!'},
-                                           messageUpdated);
-            } else {
-                res.end('Could not get message: ' + error.Code);
-            }
-        }
-        
-        function messageUpdated(error, serverMessage)
-        {
-            if(error === null){
-                res.end('Successfully updated message in queue ' + 
-                        serverMessage.queue + ' \r\n');
-            } else {
-                res.end('Could not update  message: ' + error.Code);
-            }
-        }
-
-    }).listen(port);
+    queueService.getMessages(queueName, function(error, messages){
+		if(!error){
+			// Got the message
+			var message = messages[0];
+			queueService.updateMessage(queueName
+				, message.messageid
+				, message.popreceipt
+				, 10
+				, { messagetext: 'in your message, doing stuff.' }
+				, function(error){
+					if(!error){
+						// Message updated successfully
+					}
+				});
+		}
+	});
 
 ## <a name="advanced-get"> </a>How To: Additional Options for Dequeuing Messages
 
@@ -395,73 +258,29 @@ There are two ways you can customize message retrieval from a queue.
 First, you can get a batch of messages (up to 32). Second, you can set a
 longer or shorter invisibility timeout, allowing your code more or less
 time to fully process each message. The following code example uses the
-**getMessages** method to get 16 messages in one call. Then it processes
+**getMessages** method to get 15 messages in one call. Then it processes
 each message using a for loop. It also sets the invisibility timeout to
 five minutes for each message.
 
-    var http = require('http');
-    var azure = require('azure');
-    var port = process.env.port || 1337;
-
-    var queueService = azure.createQueueService();
-
-    var queueName = 'taskqueue';
-    var messagesToGet = 16;
-
-    http.createServer(function serverCreated(req, res) {
-        queueService.createQueueIfNotExists(queueName, null, {}, 
-                                            queueCreatedOrExists);
-        
-        function queueCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-        
-            if(error === null){
-                res.write('Using queue ' + queueName + '\r\n');
-                queueService.getMessages(queueName, 
-                                         {numofmessages: messagesToGet, 
-                                          visibilitytimeout: 5 * 60}, 
-                                         messageGot);
-            } else {
-                res.end('Could not use queue: ' + error.Code);
-            }
-        }
-
-        function messageGot(error, serverMessages)
-        {
-            if(error === null){
-                for(var index in serverMessages){
-                    res.write('Successfully got message: ' + 
-                              serverMessages[index].messagetext + ' \r\n');
-            
-                    // Process the message in less than 5 minutes, and then delete 
-
-                    queueService.deleteMessage(queueName, 
-                                               serverMessages[index].messageid,
-                                               serverMessages[index].popreceipt, 
-                                               null, messageDeleted);
-                }
-            } else {
-                res.end('Could not get messages: ' + error.Code);
-            }
-        }
-        
-        var received = 0;
-        function messageDeleted(error)
-        {
-            if(error === null){
-                res.write('Successfully deleted message from queue ' + 
-                          queueName + ' \r\n');
-                if(++received === messagesToGet)
-                {
-                    res.end();
-                }
-            } else {
-                res.end('Could not delete message: ' + error.Code);
-            }
-        }
-
-    }).listen(port);
+    queueService.getMessages(queueName
+		, {numofmessages: 15, visibilitytimeout: 5 * 60}
+		, function(error, messages){
+		if(!error){
+			// Messages retreived
+			for(var index in messages){
+				// text is available in messages[index].messagetext
+				var message = messages[index];
+				queueService.deleteMessage(queueName
+					, message.messageid
+					, message.popreceipt
+					, function(error){
+						if(!error){
+							// Message deleted
+						}
+					});
+			}
+		}
+	});
 
 ## <a name="get-queue-length"> </a>How To: Get the Queue Length
 
@@ -472,88 +291,33 @@ response contains a count of how many messages are in a queue. The count
 is only approximate because messages can be added or removed after the
 queue service responds to your request.
 
-    var http = require('http');
-    var azure = require('azure');
-    var port = process.env.port || 1337;
-
-    var queueService = azure.createQueueService();
-    var queueName = 'taskqueue';
-
-    http.createServer(function serverCreated(req, res) {
-        queueService.createQueueIfNotExists(queueName, null, {}, 
-                                            queueCreatedOrExists);
-        
-        function queueCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-        
-            if(error === null){
-                res.write('Using queue ' + queueName + '\r\n');
-                queueService.getQueueMetadata(queueName, metadataGot);
-            } else {
-                res.end('Could not use queue: ' + error.Code);
-            }
-        }
-
-        function metadataGot(error, serverQueue)
-        {
-            if(error === null){
-                res.end('Approximate queue length ' + 
-                        serverQueue.approximatemessagecount + ' \r\n');
-            } else {
-                res.end('Could not get queue length: ' + error.Code);
-            }
-        }
-
-    }).listen(port);
+    queueService.getQueueMetadata(queueName, function(error, queueInfo){
+		if(!error){
+			// Queue length is available in queueInfo.approximatemessagecount
+		}
+	});
 
 ## <a name="delete-queue"> </a>How To: Delete a Queue
 
 To delete a queue and all the messages contained in it, call the
 **deleteQueue** method on the queue object.
 
-    var http = require('http');
-    var azure = require('azure');
-    var port = process.env.port || 1337;
-
-    var queueService = azure.createQueueService();
-    var queueName = 'taskqueue';
-
-    http.createServer(function serverCreated(req, res) {
-        queueService.createQueueIfNotExists(queueName, null, {}, 
-                                            queueCreatedOrExists);
-        
-        function queueCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-        
-            if(error === null){
-                res.write('Using queue ' + queueName + '\r\n');
-                queueService.deleteQueue(queueName, null, queueDeleted);
-            } else {
-                res.end('Could not use queue: ' + error.Code);
-            }
-        }
-
-        function queueDeleted(error)
-        {
-            if(error === null){
-                res.end('Successfully deleted queue ' + queueName + ' \r\n');
-            } else {
-                res.end('Could not delete queue: ' + error.Code);
-            }
-        }
-
-    }).listen(port);
+    queueService.deleteQueue(queueName, function(error){
+		if(!error){
+			// Queue has been deleted
+		}
+	});
 
 ## <a name="next-steps"> </a>Next Steps
 
 Now that you’ve learned the basics of queue storage, follow these links
 to learn how to do more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][]
--   Visit the [Windows Azure Storage Team Blog][]
+-   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][].
+-   Visit the [Windows Azure Storage Team Blog][].
+-   Visit the [Azure SDK for Node] repository on GitHub.
 
+  [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Next Steps]: #next-steps
   [What is the Queue Service?]: #what-is
   [Concepts]: #concepts
@@ -572,6 +336,9 @@ to learn how to do more complex storage tasks.
   [Queue1]: ../../dotNet/Media/queue1.png
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
   [Windows Azure Management Portal]: http://windows.azure.com
+  [Create and deploy a Node.js application to a Windows Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+  [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
+  [Node.js Web Application with Storage]: en-us/develop/nodejs/tutorials/web-site-with-storage/
 
   [plus-new]: ../../Shared/Media/plus-new.png
   [quick-create-storage]: ../../Shared/Media/quick-storage.png

@@ -1,6 +1,6 @@
 <properties umbracoNaviHide="0" pageTitle="Tutorial 2: Creating a Virtual Network for Cross-Premises Connectivity" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Learn how to configure Windows Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
 
-<h1 id="vnettut1">Tutorial 2: Creating a Virtual Network for Cross-Premises Connectivity</h1>
+<h1 id="vnettut1">Create a Virtual Network for Cross-Premises Connectivity</h1>
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
@@ -12,12 +12,10 @@ This tutorial assumes you have no prior experience using Windows Azure.
 
 For information about adding a virtual machine to your tutorial or connecting to Active Directory, see the following:
 
-<!-- UPDATE THE FOLLOWING LIST ONCE WE HAVE THE LINKS FOR TUTORIALS 4 & 5 -->
+-  [Add a Virtual Machine to a Virtual Network](/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
--  [Tutorial 3: Adding a Virtual Machine to a Virtual Network](/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/)
-
--  [Active Directory Replica Domain Controller with cross-premises connectivity](/en-us/manage/services/networking/replica-domain-controller/)
--  [New Active Directory Forest in the Cloud](/en-us/manage/services/networking/active-directory-forest/)
+-  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](/en-us/manage/services/networking/replica-domain-controller/)
+-  [Install a New Active Directory Forest in Windows Azure](/en-us/manage/services/networking/active-directory-forest/)
 
 
 ##  Objectives
@@ -34,21 +32,19 @@ In this tutorial you will learn:
 
 -  Windows Live account with at least one valid, active subscription.
 
--  Address space and IPs to be used for the virtual network and subnets.
+-  Address space (in CIDR notation) to be used for the virtual network and subnets.
 
--  The name and IP address of your DNS server.
+-  The name and IP address of your DNS server (if you want to use your on-premises DNS server for name resolution).
 
--  The address space for your local network.
+-  The public IP address for your VPN device. This VPN device cannot be behind a NAT. You can get this from your network engineer.
 
--  The IP address of the public XXX that your virtual network will connect through.
-
--  The IP address for your VPN device. You can get this from your network engineer.
+-  The address space for your local network (on-premise network).
 
 ## High-Level Steps
 
 1.	[Create a Virtual Network] [CreateVN]
 
-2.	[Start the gateway and gather information for your network engineer] [StartGateway]
+2.	[Start the gateway and gather information for your network administrator] [StartGateway]
 
 3.  [Configure your VPN device] [ConfigVPN]
 
@@ -71,13 +67,16 @@ In this tutorial you will learn:
 
 -  **AFFINITY GROUP:** From the drop-down list, select **Create a new affinity group**. Affinity groups are a way to physically group Windows Azure services together at the same data center to increase performance. Only one virtual network can be assigned an affinity group.
 
--  **REGION:** From the drop-down list, select **West US**. Your virtual network will be created at a datacenter located in the specified region.
+-  **REGION:** From the drop-down list, select the desired region. Your virtual network will be created at a datacenter located in the specified region.
 
 -  **AFFINITY GROUP NAME:** Type *YourAffinityGroup*.
 
 	![VNDetails] []
 
-5.	On the **Address Space and Subnets** screen, enter the following information, and then click the next arrow. Address space must conform to RFC 1918 and cannot overlap other virtual network or local network sites.
+5.	On the **Address Space and Subnets** screen, enter the following information, and then click the next arrow. Address space must be a private address range, specified in CIDR notation 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16 (as specified by RFC 1918).
+
+	**NOTE:** After adding each address space, click the plus button.
+
 *  **ADDRESS SPACE:** Type 10.4.0.0/16.
 *  **SUBNETS:** Enter the following:
 
@@ -97,14 +96,11 @@ In this tutorial you will learn:
 	![DNSServer] []
 
 7.	On the **Create New Local Network** screen, enter the following information, and then click the check mark in the lower right-hand corner. Your virtual network will be created in a few minutes.
-	<!-- THINK I NEED TO DELETE THE ACTUAL VPN IP HERE!!! -->
 
-	**NOTE:** You get the VPN Device IP Address from your network engineer.
+	**NOTE:** You get the VPN Device IP Address from your network administrator.
 
 -  **NAME:** Type *YourCorpHQ*.
-
 -  **VPN DEVICE IP ADDRESS:** Enter the public IP address of your VPN device. The device should not be behind a NAT.
-
 -  **ADDRESS SPACE:** Type *10.1.0.0/16*.
 
 	![CreateLocal] []
@@ -134,9 +130,9 @@ In this tutorial you will learn:
 
 	![GWCreating] []
 
-4.   After the gateway has been created, you need to gather some information to send to your network engineer so they can configure the VPN device. The next steps walk you through this process.
+4.   After the gateway has been created, you need to gather some information to send to your network administrator so they can configure the VPN device. The next steps walk you through this process.
 
-5.    Copy the Gateway IP Address:
+5.    On the dashboard, copy the Gateway IP Address:
 
 	![GWIP] []
 
@@ -149,31 +145,36 @@ In this tutorial you will learn:
 
 	![DwnldVPN] []
  
-8.	On the **Download VPN Device Config Script** dialog, select the vendor, platform, and os for your company's VPN device. Click the check button and save the file.
+8.	On the **Download VPN Device Config Script** dialog, select the vendor, platform, and operating system for your company's VPN device. Click the check button and save the file.
+
+	For additional supported  VPN devices and script templates, see [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkId=248098).
 
 	![DwnldVPNConfig] []
 
-9.	Send your network engineer the following information:
+9.	Send your network administrator the following information:
 -  Gateway IP address
 -  Shared key
 -  VPN configuration script
 
-##  <a name="ConfigVPN">Configure the VPN Device (Network Engineer)</a>
+##  <a name="ConfigVPN">Configure the VPN Device (Network Administrator)</a>
 
-This procedure should be done by your network engineer. Because each VPN device is different, this is only a high-level procedure. Please refer to the your VPN documentation for specific information.
+This procedure should be done by your network administrator. Because each VPN device is different, this is only a high-level procedure. 
+
+You can get the VPN configuration script from the Management Portal or from the [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkId=248098) section of the MSDN library.
+
+For more information, see [Establish a Site-to-Site VPN Connection](http://go.microsoft.com/fwlink/?LinkId=254218) and your VPN device documentation.
 
 This procedure assumes the following:
 
 -  The VPN device has been configured at your company.
 
 	<!-- CONFIRM THE FOLLOWING IS CORRECT
-	  The network engineer doing this procedure knows IPSec.
+	  The network administrator doing this procedure knows IPSec.
 	-->
 
 **To configure the VPN device:**
 
-1.	Configure the VPN configuration script that was downloaded from the Management Portal. You will configure the following:
-	<!-- ALSO ADD LINK TO MSDN VPN SCRIPTS -->
+1.	Modify the VPN configuration script. You will configure the following:
 
 	a.	Security policies
 
@@ -187,7 +188,7 @@ This procedure assumes the following:
 
 	<table border="1">
 	<tr>
-	<th></th>
+	<th> </th>
 	<th>Cisco ASA</th>
 	<th>Cisco ISR/ASR</th>
 	<th>Juniper SSG/ISG</th>
@@ -215,12 +216,10 @@ This procedure assumes the following:
 ##  Next Steps
 If you'd like, you can continue with the following tutorials:
 
-<!-- UPDATE THE FOLLOWING LIST ONCE WE HAVE THE LINKS FOR TUTORIALS 4 & 5 -->
+-  [Add a Virtual Machine to a Virtual Network](/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
--  [Tutorial 3: Adding a Virtual Machine to a Virtual Network](/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/)
-
--  [Active Directory Replica Domain Controller with cross-premises connectivity](/en-us/manage/services/networking/replica-domain-controller/)
--  [New Active Directory Forest in the Cloud](/en-us/manage/services/networking/active-directory-forest/)
+-  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](/en-us/manage/services/networking/replica-domain-controller/)
+-  [Install a New Active Directory Forest in Windows Azure](/en-us/manage/services/networking/active-directory-forest/)
 
 
 

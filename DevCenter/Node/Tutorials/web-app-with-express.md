@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-basic-web-app-with-express" urldisplayname="Web App With Express" headerexpose="" pagetitle="Web App With Express" metakeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" footerexpose="" metadescription="An tutorial that builds on the Web app tutorial, and demonstrates how to use the Express module" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-basic-cloud-service-with-express" urldisplayname="Cloud Service With Express" headerexpose="" pagetitle="Cloud Service With Express" metakeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" footerexpose="" metadescription="An tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module" umbraconavihide="0" disquscomments="1"></properties>
 
-# Node.js Web Application using Express
+# Node.js Cloud Service using Express
 
 Node.js includes a minimal set of functionality in the core runtime.
 Developers often use 3rd party modules to provide additional
@@ -45,7 +45,10 @@ you created through the [Node.js Web Application][] tutorial.
 
         PS C:\node\tasklist\WebRole1> npm install express -g
 
-    **Note**: The '-g' parameter installs the express scaffolding so that it is globally available. You will use this command in the next section to generate the scaffolding for this application.
+    <div class="dev-callout">
+	<strong>Note</strong>
+	<p>The '-g' parameter installs the express scaffolding so that it is globally available. You will use this command in the next section to generate the scaffolding for this application.</p>
+	</div>
 
     The output of the npm command should look similar to the result
     below. You can see the list of modules installed as well as any
@@ -114,10 +117,13 @@ generated using the Express scaffolding tool.
     This configures Node to listen on the environment PORT value
     provided by Windows Azure when published to the cloud.
 
-    **Note**: At the time of this writing, express scaffolding sometimes
+    <div class="dev-callout">
+	<strong>Note</strong>
+	<p>At the time of this writing, express scaffolding sometimes
     generated LF-only line breaks (Unix-style). If you’re experiencing
     this, you can open the file in WordPad or Visual Studio and save,
-    thereby replacing LF with CRLF line breaks. Save the server.js file.
+    thereby replacing LF with CRLF line breaks. Save the server.js file.</p>
+	</div>
 
 8.  Use the following command to run the application in the Windows
     Azure emulator:
@@ -144,7 +150,7 @@ Windows Azure”.
 2.  Modify the last line of text by appending **in Windows Azure**.
 
     ![The index.jade file, the last line reads: p Welcome to \#{title}
-    in Windows Azure][]
+    in Windows Azure][The index.jade file modified]
 
 3.  Save the file and exit Notepad.
 
@@ -235,7 +241,7 @@ publishing is completed.
   [A web page containing welcome to express.]: ../Media/node28.png
   [The contents of the index.jade file.]: ../Media/getting-started-19.png
   [http://jade-lang.com]: http://jade-lang.com
-  [The index.jade file, the last line reads: p Welcome to \#{title} in Windows Azure]: ../Media/node31.png
+  [The index.jade file modified]: ../Media/node31.png
   [express-page]: ../Media/node32.png
   [The server.js file, with the app.get('/', routes.index); line highlighted]: ../Media/node33.png
   [The web browser displaying the home page, which states A work in progress]: ../Media/node34.png

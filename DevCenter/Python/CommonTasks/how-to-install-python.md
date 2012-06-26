@@ -89,6 +89,15 @@ Using Python Tools for Visual Studio is optional, but is recommended as it gives
 
 Note: While the PTVS plug-in is small, the Integrated Shell will increases your download times. The Integrated Shell version also currently doesn't support the "Add Windows Azure Deployment Project" feature.
 
+## Windows Uninstall
+
+The “Windows Azure SDK for Python – June 2012” WebPI product is not an application in the typical sense.  It’s actually a collection of distinct products such as 32-bit Python 2.7, Windows Azure client APIs for Python, Django, etc. which are bundled together.  A consequence of this is it has no conventional uninstaller of its own, and you’ll need to remove programs it installs individually from the Windows Control Panel.  
+
+If you ever wish to reinstall “Windows Azure SDK for Python”, you’ll simply need to open a PowerShell command prompt as an administrator and run the following command:
+
+	rm -force "HKLM:\SOFTWARE\Microsoft\Windows Azure SDK for Python - June 2012"
+
+and then rerun WebPI.
 
 ## Installation on Linux and MacOS
 
