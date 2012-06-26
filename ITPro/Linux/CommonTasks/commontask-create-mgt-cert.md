@@ -16,7 +16,7 @@ There is already documentation on how to create and manage these certificates at
 <h2 id="createcert">How to: Create and upload a management certificate</h2>
 
 
-We have created an easy way for you to create a management certificate for Windows Azure by visiting: [https://windows.azure.com/download/publishprofile.aspx](https://login.live-int.com/login.srf?wa=wsignin1.0&rpsnv=46&ct=1338199035&rver=6.1.6206.0&wp=MBI_SSL&wreply=https:%2F%2Fwindowsazure.com%2Flanding%3Ftarget%3D%252fdownload%252fpublishprofile.aspx&lc=1033&id=273891)
+We have created an easy way for you to create a management certificate for Windows Azure by visiting: [https://windows.azure.com/download/publishprofile.aspx](https://windows.azure.com/download/publishprofile.aspx)
 
 This website will ask you to login using your portal credentials and then generate a management certificate  for you that is packaged along with your subscriptionID  on a publishsettings file that you will be asked to download. 
 
