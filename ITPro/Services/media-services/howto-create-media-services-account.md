@@ -64,6 +64,6 @@ The **media services** page opens with the new account displayed. When the statu
   [Management Portal]: http://manage.windowsazure.com/
 
 <!-- Images. -->
-  [Media Services Quick Create]: ../../../ITPro/Services/media/wams-QuickCreate.png
-  [Media Services Page]: ../../../ITPro/Services/media/wams-mediaservices-page.png
+  [Media Services Quick Create]: ../media/wams-QuickCreate.png
+  [Media Services Page]: ../media/wams-mediaservices-page.png
 

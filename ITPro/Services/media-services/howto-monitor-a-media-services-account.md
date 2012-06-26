@@ -39,5 +39,5 @@ Metrics are stored in the storage account in four tables named $MetricsTransacti
 
 
 <!-- Images -->
-[dashboard]: ..\media\WAMS_Dashboard.png
-[storage_options_scoped]: ..\media\storagemonitoringoptions_scoped.png
+[dashboard]: ../media/WAMS_Dashboard.png
+[storage_options_scoped]: ../media/storagemonitoringoptions_scoped.png
