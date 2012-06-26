@@ -4,7 +4,7 @@
 
 This guide will show you how to perform common scenarios using the
 Windows Azure Blob service. The samples are written using the
-Node.js API. The scenarios covered include **uploading**,**listing**,
+Node.js API. The scenarios covered include **uploading**, **listing**,
 **downloading**, and **deleting** blobs. For more information on blobs,
 see the [Next Steps][] section.
 
@@ -101,9 +101,7 @@ create a storage account [using the REST API][].)
 
 ## <a name="create-app"> </a>Create a Node.js Application
 
-Create a blank Node.js application. For
-instructions on how to use the PowerShell commands to create a blank
-application, see the [Node.js Cloud Service].
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to a Windows Azure Web Site], [Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
@@ -118,13 +116,25 @@ communicate with the storage REST services.
 2.  Type **npm install azure** in the command window, which should
     result in the following output:
 
-        azure@0.5.0 ./node_modules/azure
+        azure@0.6.0 ./node_modules/azure
+		├── easy-table@0.0.1
+		├── dateformat@1.0.2-1.2.3
 		├── xmlbuilder@0.3.1
-		├── mime@1.2.4
-		├── xml2js@0.1.12
-		├── qs@0.4.0
-		├── log@1.2.0
-		└── sax@0.3.4
+		├── eyes@0.1.7
+		├── colors@0.6.0-1
+		├── mime@1.2.5
+		├── log@1.3.0
+		├── commander@0.6.1
+		├── node-uuid@1.2.0
+		├── xml2js@0.1.14
+		├── async@0.1.22
+		├── tunnel@0.0.1
+		├── underscore@1.3.3
+		├── qs@0.5.0
+		├── underscore.string@2.2.0rc
+		├── sax@0.4.0
+		├── streamline@0.2.4
+		└── winston@0.6.1 (cycle@1.0.0, stack-trace@0.0.6, pkginfo@0.2.3, request@2.9.202)
 
 3.  You can manually run the **ls** command to verify that a
     **node\_modules** folder was created. Inside that folder find the
@@ -140,27 +150,11 @@ Using Notepad or another text editor, add the following to the top the
 
 ## <a name="setup-connection-string"> </a>Setup a Windows Azure Storage Connection
 
-If you are running against the storage emulator on the local machine,
-you do not need to configure a connection string, as it will be
-configured automatically. You can continue to the next section.
+The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY for information required to connect to your Windows Azure storage account. If these environment variables are not set, you must specify the account information when calling **createBlobService**.
 
-If you are planning to run against the real Windows Azure storage
-service, you need to specify connection information to point at your
-Windows Azure Storage Account. You can store the connection information in your code, or in an external configuration file. In this how-to,
-you use the Web.cloud.config file, which is created when you use the Windows Azure Powershell to create a new Cloud Service Project.
+For an example of setting the environment variables in a configuration file for a Windows Azure Cloud Service, see [Node.js Cloud Service with Storage].
 
-1.  Use a text editor to open the
-    **Web.cloud.config** file for your Cloud Service project.
-
-2.  Add the following inside the **configuration** element
-
-        <appSettings>
-            <add key="AZURE_STORAGE_ACCOUNT" value="your storage account" />
-            <add key="AZURE_STORAGE_ACCESS_KEY" value="your storage access key" />
-        </appSettings>
-
-Note that The examples below assume that you are using cloud-based
-storage.
+For an example of setting the environment variables in the management portal for a Windows Azure Web Site, see [Node.js Web Application with Storage]
 
 ## <a name="create-container"> </a>How to: Create a Container
 
@@ -174,115 +168,50 @@ All blobs reside in a container. The call to
 **createContainerIfNotExists** on the **BlobService** object will return
 the specified container if it exists or create a new container with the
 specified name if it does not already exist. By default, the new
-container is private, so you must specify your storage access key (as
-you did above) to download blobs from this container. Modify the
-existing call to **createServer** as follows:
+container is private and requires the use of the access key to download blobs from this container.
 
-    var containerName = 'taskcontainer';
+	blobService.createContainerIfNotExists(containerName, function(error){
+    	if(!error){
+        	// Container exists and is private
+    	}
+	});
 
-    http.createServer(function serverCreated(req, res) {
-        blobService.createContainerIfNotExists(containerName, null, 
-                                               containerCreatedOrExists);
 
-        function containerCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
+If you want to make the files in the container public so that they can be accessed without requiring the access key, you can set the
+container’s access level to **blob** or **container**. Setting the access level to **blob** allows anonymous read access to blob content and metadata within this container, but not to container metadata such as listing all blobs within a container. Setting the access level to **container** allows anonymous read access to blob content and metadata as well as container metadata. The following example demonstrates setting the access level to **blob**: 
 
-            if(error === null){
-                res.write('Using container ' + containerName + '\r\n');
+    blobService.createContainerIfNotExists(containerName
+		, {publicAccessLevel : 'blob'}
+		, function(error){
+			if(!error){
+				// Container exists and is public
+			}
+		});
 
-                // #1 Remove the following line in a later step to set permissions.
-                res.end();
-            } else {
-                res.end('Could not use container: ' + error.Code);
-            }
-        }
+Alternatively, you can modify the access level of a container by using **setContainerAcl** to specify the access level. The following example changes the access level to container:
 
-        // #2 In a later step, place permissions callback here.
-
-    }).listen(port);
-
-If you want to make the files in the container public, you can set the
-container’s permissions. You could have done that in the previous
-snippet simply by modifying the container creation method call to pass
-the public access level as a parameter:
-
-    blobService.createContainerIfNotExists(
-        containerName, 
-        {publicAccessLevel : 'blob'}, 
-         containerCreatedOrExists);
-
-Alternatively, you can modify container after you created it by
-replacing the res.end() line indicated by comment \#1 above with the
-following code:
-
-    blobService.setContainerAcl(containerName, 'blob', containerAclSet);
-
-You also need to add the following callback in the place of the comment
-marked with \#2:
-
-    function containerAclSet(error, serverContainer){
-        if(error === null){
-            res.end('Successfully made ' + serverContainer.publicAccessLevel + 
-                    ' public\r\n');
-        } else {
-            res.end('Could not make container public: ' + error.Code);
-        }
-    }
-
-After this change, anyone on the Internet can see blobs in a public
-container, but only you can modify or delete them.
+    blobService.setContainerAcl(containerName
+		, 'container'
+		, function(error){
+			if(!error){
+				// Container access level set to 'container'
+			}
+		});
 
 ## <a name="upload-blob"> </a>How to: Upload a Blob into a Container
 
-To upload a file to a blob, use the **createBlockBlobFromStream** method
-to create the blob, using a file stream as the contents of the blob.
-First, create a file called **task1.txt** (arbitrary content is fine)
-and store it in the same directory as your **server.js** file. To be
-able to load the file into a stream from Node.js, you need to add
-**require(‘fs’)** at the top of the example in order to load the file
-system package.
+To upload data to a blob, use the **createBlockBlobFromFile**, **createBlockBlobFromStream** or **createBlockBlobFromText** methods. **createBlockBlobFromFile** uploads the contents of a file, while **createBlockBlobFromStream** uploads the contents of a stream.  **createBlockBlobFromText** uploads the specified text value.
 
-    var http = require('http');
-    var azure = require('azure');
-    var fs = require('fs');
-    var port = process.env.port || 1337;
+The following example uploads the contents of the **test1.txt** file into the 'test1' blob.
 
-    var blobService = azure.createBlobService();
-    var containerName = 'taskcontainer';
-      
-    http.createServer(function serverCreated(req, res) {
-        blobService.createContainerIfNotExists(containerName, 
-                                               {publicAccessLevel : 'blob'}, 
-                                                containerCreatedOrExists);
-
-        function containerCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-
-            if(error === null){
-                res.write('Using container ' + containerName + '\r\n');
-    	    
-                var blobName = 'task1.txt';
-                blobService.createBlockBlobFromStream(containerName, blobName, 
-                                                      fs.createReadStream('task1.txt'), 
-                                                      14, null, blobCreated);
-            } else {
-                res.end('Could not use container: ' + error.Code);
-            }
-        }
-
-        function blobCreated(error, serverBlob)
-        {
-            if(error === null)
-            {
-                res.end("Successfully uploaded blob " + serverBlob.blob + '\r\n');
-            } else {
-                res.end('Could not upload blob: ' + error.Code);
-            }
-        }
-
-    }).listen(port);
+	blobService.createBlockBlobFromFile(containerName
+		, 'test1'
+		, 'test1.txt'
+		, function(error){
+			if(!error){
+				// File has been uploaded
+			}
+		});
 
 ## <a name="list-blob"> </a>How to: List the Blobs in a Container
 
@@ -291,130 +220,39 @@ To list the blobs in a container, use the **listBlobs** method with a
 following code outputs the **name** of each blob in a container to the
 console.
 
-    var http = require('http');
-    var azure = require('azure');
-    var port = process.env.port || 1337;
-
-    var blobService = azure.createBlobService();
-    var containerName = 'taskcontainer';
-      
-    http.createServer(function serverCreated(req, res) {
-        blobService.createContainerIfNotExists(containerName, null, 
-                                               containerCreatedOrExists);
-
-        function containerCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-
-            if(error === null){
-                res.write('Using container ' + containerName + '\r\n');	    
-    	    
-                blobService.listBlobs(containerName, null, blobsListed);
-            } else {
-                res.end('Could not use container: ' + error.Code);
-            }
-        }
-
-        function blobsListed(error, blobList)
-        {
-            if(error === null){
-                res.write('Successfully listed blobs in ' + containerName + 
-                          ':\r\n');
-                for(var index in blobList){
-                    res.write(blobList[index].name + ' ');
-                }
-                res.end();
-            } else {
-                res.end('Could not list blobs: ' + error.Code);
-            }
-        }
-    }).listen(port);
+    blobService.listBlobs(containerName, function(error, blobs){
+		if(!error){
+			for(var index in blobs){
+				console.log(blobs[index].name);
+			}
+		}
+	});
 
 ## <a name="download-blobs"> </a>How to: Download Blobs
 
-To download blobs, use the **getBlobToStream** method to transfer the
-blob contents to a stream object that you can then persist to a local
-file. You could also call **getBlobToFile** or **getBlobToText**.
+To download data from a blob, use **getBlobToFile**, **getBlobToStream**, or **getBlobToText**. The following example demonstrates using **getBlobToStream** to download the contents of the **test1** blob and store it to the **output.txt** file using a stream:
 
-    var http = require('http');
-    var azure = require('azure');
-    var fs = require('fs');
-    var port = process.env.port || 1337;
-
-    var blobService = azure.createBlobService();
-    var containerName = 'taskcontainer';
-      
-    http.createServer(function serverCreated(req, res) {
-        blobService.createContainerIfNotExists(containerName, null, 
-                                               containerCreatedOrExists);
-
-        function containerCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-
-            if(error === null){
-                res.write('Using container ' + containerName + '\r\n');
-    	    
-                var blobName = 'task1.txt';
-                blobService.getBlobToStream(containerName, blobName, 
-                                            fs.createWriteStream('task2.txt'), 
-                                            null, blobGetCompleted);
-            } else {
-                res.end('Could not use container: ' + error.Code);
-            }
-        }
-
-        function blobGetCompleted(error, serverBlob)
-        {
-            if(error === null)
-            {
-                res.end("Successfully downloaded blob " + serverBlob.blob + '\r\n');
-            } else {
-                res.end('Could not download blob: ' + error.Code);
-            }
-        }
-    }).listen(port);
+    var fs=require('fs');
+	blobService.getBlobToStream(containerName
+		, 'test1'
+		, fs.createWriteStream('output.txt')
+		, function(error){
+			if(!error){
+				// Wrote blob to stream
+			}
+		});
 
 ## <a name="delete-blobs"> </a>How to: Delete a Blob
 
-Finally, to delete a blob, call **deleteBlob**.
+Finally, to delete a blob, call **deleteBlob**. The following example deletes the blob named 'blob1'.
 
-    var http = require('http');
-    var azure = require('azure');
-    var port = process.env.port || 1337;
-
-    var blobService = azure.createBlobService();
-
-    var containerName = 'taskcontainer';
-    var blobName = 'task1.txt';
-    	
-    http.createServer(function serverCreated(req, res) {
-        blobService.createContainerIfNotExists(containerName, null, 
-                                               containerCreatedOrExists);
-
-        function containerCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-
-            if(error === null){
-                res.write('Using container ' + containerName + '\r\n');
-    	    
-                blobService.deleteBlob(containerName, blobName, null, blobDeleted);
-            } else {
-                res.end('Could not use container: ' + error.Code);
-            }
-        }
-
-        function blobDeleted(error)
-        {
-            if(error === null)
-            {
-                res.end("Successfully deleted blob " + blobName + '\r\n');
-            } else {
-                res.end('Could not delete blob: ' + error.Code);
-            }
-        }
-    }).listen(port);
+    blobService.deleteBlob(containerName
+		, 'blob1'
+		, function(error){
+			if(!error){
+				// Blob has been deleted
+			}
+		});
 
 ## <a name="next-steps"> </a>Next Steps
 
@@ -438,6 +276,10 @@ to learn how to do more complex storage tasks.
   [How To: List the Blobs in a Container]: #list-blob
   [How To: Download Blobs]: #download-blobs
   [How To: Delete a Blob]: #delete-blobs
+[Create and deploy a Node.js application to a Windows Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+  [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
+  [Node.js Web Application with Storage]: en-us/develop/nodejs/tutorials/web-site-with-storage/
+ [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/
 
   [plus-new]: ../../Shared/Media/plus-new.png
   [quick-create-storage]: ../../Shared/Media/quick-storage.png

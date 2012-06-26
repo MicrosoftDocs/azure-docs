@@ -567,5 +567,5 @@ that is hosted in a Windows Azure Cloud Service and stores data in SQL Database.
   [103]: ../media/cloudservice103.png
   [106]: ../media/cloudservice106.png
   [107]: ../media/cloudservice107.png
-  [SQL Database How-to Guide]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
+  [SQL Database How-to Guide]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-database/
   [Multi-tier Application Tutorial]: http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-application/

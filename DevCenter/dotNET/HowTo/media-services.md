@@ -25,7 +25,7 @@ You can also program Media Services using the OData-based REST APIs. You can bui
 
 
 ## <a name="what-are"> </a>What Are Media Services?
-Windows Azure Media Services form an extensible media platform that integrates the best of the Microsoft Media Platform and third-party media components in Windows Azure. Media Services provide a media pipeline in the cloud that enables industry partners to extend or replace component technologies. ISVs and media providers can use Media Services to build end-to-end media solutions. This overview describes the general architecture and comment development scenarios for Media Services.
+Windows Azure Media Services form an extensible media platform that integrates the best of the Microsoft Media Platform and third-party media components in Windows Azure. Media Services provide a media pipeline in the cloud that enables industry partners to extend or replace component technologies. ISVs and media providers can use Media Services to build end-to-end media solutions. This overview describes the general architecture and common development scenarios for Media Services.
 
 The following diagram illustrates the basic Media Services architecture.
 
@@ -158,8 +158,8 @@ This section contains general prerequisites for Media Services development using
 -   VS 2010 SP1 (Professional, Premium, or Ultimate). You can develop Media Services client applications by using the Media Services SDK with Windows 8, Visual Studio 2010, and .NET 4.  To do this, see the Windows Azure SDK prerequisite. 
 -   A Windows Azure account with Media Services enabled. See the section [Setting Up a Windows Azure Account for Media Services][].
     - During the Media Services account setup process, you will install the [Windows Azure Media Services SDK for .NET][]. The Media Services SDK is required for SDK developers.
--   [Windows Azure SDK for .NET November 2011][]
-    - The link to the Windows Azure SDK enables you to install it from the Web Platform Installer.  
+-   Windows Azure SDK 1.6 (November 2011)
+    - To install, open the [Web Platform Installer][]. On the **Products** tab select **All**, then find and install the **Windows Azure SDK 1.6 for Visual Studio 2010 (November 2011)**.
     - For Windows 8 development, see [Installing the Windows Azure SDK on Windows 8][].
 -   [WCF Data Services 5.0 for OData v3][]
 
@@ -634,7 +634,7 @@ Now that you have learned how to set up for Media Services development and perfo
   [Media Services Upcoming Releases:  Planned Feature Support]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/thread/431ef036-0939-4784-a939-0ecb31151ded
   [Media Services Preview Account Setup]: http://go.microsoft.com/fwlink/?linkid=247287
   [Windows Azure Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?LinkID=245171
-  [Windows Azure SDK for .NET November 2011]: http://go.microsoft.com/fwlink/?LinkId=234531
+  [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Installing the Windows Azure SDK on Windows 8]: http://www.windowsazure.com/en-us/develop/net/other-resources/windows-azure-on-windows-8/
   [Windows Azure Media Services Documentation]: http://go.microsoft.com/fwlink/?linkid=245437

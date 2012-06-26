@@ -12,7 +12,13 @@ Learn how to use the Windows Azure portal to create a new Windows Azure Web Site
 ### [Web Site with Storage]
 The Windows Azure Table Service is a NoSQL storage service that is useful for working key/value pairs. Learn how to use this service by creating a Node.js 'task list' style application that uses the azure module to store data in the Table service. This tutorial also teaches you how to use the [Windows Azure Cross-Platform Tools for Mac and Linux] to create a Windows Azure Web Site.
 
+
+### [Web Site with SQL Database]
+
+SQL Database provides a full-featured relational database-as-a-service. This tutorial demonstrates how to use SQL Database from a Node.js application. You will create a 'task list' web site that stores and accesses data in a SQL Database instance.
+
 ### [Web Site with MongoDB]
+
 [MongoDB] is a popular document-oriented NoSQL solution. In this tutorial you will learn how to create a Node.js 'task list' style application that stores data in a Windows Azure virtual machine hosting MongoDB. This tutorial also teaches you how to use the [Windows Azure Cross-Platform Tools for Mac and Linux] to create a Windows Azure Web Site.
 
 ## Cloud Services
@@ -39,6 +45,7 @@ The [Windows Azure Table Service] is a NoSQL storage service that is useful for 
 [Node.js Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
 [Web site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
 [Web Site with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
+[Web Site with SQL Database]: /en-us/develop/nodejs/tutorials/web-site-with-sql-database/
 [Web Site with MongoDB]: /en-us/develop/nodejs/tutorials/website-with-mongodb-(mac)/
 [Node.js Cloud Service]: /en-us/develop/nodejs/tutorials/getting-started/
 [Cloud Service with Express]: /en-us/develop/nodejs/tutorials/web-app-with-express/

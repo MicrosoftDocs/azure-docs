@@ -144,7 +144,7 @@ To create the database table used to store items for the tasklist application, p
 
 ##Install modules and generate scaffolding
 
-In this section you will create a new Node application and use npm to add module packages. For the task-list application you will use the [Express] [node-sqlserver] modules. The Express module provides a Model View Controller framework for node, while the node-sqlserver module provides connectivity to Windows Azure SQL Database.
+In this section you will create a new Node application and use npm to add module packages. For the task-list application you will use the [express] and [node-sqlserver] modules. The Express module provides a Model View Controller framework for node, while the node-sqlserver module provides connectivity to Windows Azure SQL Database.
 
 ###Install express and generate scaffolding
 
@@ -236,7 +236,7 @@ In this section you will extend the basic application created by the **express**
 
 1. In the **tasklist/routes** directory, open the **index.js** file in a text editor.
 
-2. Replace the existing code in the **index.js** file with the following code. This loads the node-sqlserver, and nconf modules, then uses nconf to load the connection string from either an environment variable named **SQL_CONN** or an **SQL_CONN** value in the **config.json** file.
+2. Replace the existing code in the **index.js** file with the following code. This loads the node-sqlserver, and nconf modules, then uses nconf to load the connection string from either an environment variable named **SQL\_CONN** or an **SQL\_CONN** value in the **config.json** file.
 
 		var sql = require('node-sqlserver')
 		    , nconf = require('nconf');
@@ -320,7 +320,7 @@ In this section you will extend the basic application created by the **express**
 		        td #{task.created}
 		        td
 		          input(type="checkbox", name="completed", value="#{task.ID}", checked=task.completed == 1)
-		  button(type="submit") Update tasks
+		  button(type="submit", class="btn") Update tasks
 		hr
 
 		form(action="/", method="post", class="well")
@@ -343,17 +343,17 @@ The **layout.jade** file in the **views** directory is used as a global template
 
 		!!!html
 		html
-			head
-				title= title
-				meta(http-equiv='X-UA-Compatible', content='IE=10')
-				link(rel='stylesheet', href='/stylesheets/style.css')
-				link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-			body(class='app')
-				div(class='navbar navbar-fixed-top')
-					.navbar-inner
-						.container
-							a(class='brand', href='/') My Tasks
-				.container!= body
+		  head
+		    title= title
+		    meta(http-equiv='X-UA-Compatible', content='IE=10')
+		    link(rel='stylesheet', href='/stylesheets/style.css')
+		    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+		  body(class='app')
+		    div(class='navbar navbar-fixed-top')
+		      .navbar-inner
+		        .container
+		          a(class='brand', href='/') My Tasks
+		    .container!= body
 
 3. Save the **layout.jade** file.
 
@@ -467,7 +467,7 @@ Once the changes have been deployed to Windows Azure, your web application shoul
 
 [node]: http://nodejs.org
 [Git]: http://git-scm.com
-[Express]: http://expressjs.com
+[express]: http://expressjs.com
 [for free]: http://windowsazure.com
 [Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node

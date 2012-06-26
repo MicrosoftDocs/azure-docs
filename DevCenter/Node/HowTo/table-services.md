@@ -19,7 +19,7 @@ information on tables, see the [Next Steps][] section.
 * [How To: Create a Table][]   
 * [How To: Add an Entity to a Table][]   
 * [How To: Update an Entity][]   
-* [How to: Change a Group of Entities][]   
+* [How to: Work with Groups of Entities][]   
 * [How to: Query for an Entity][]   
 * [How to: Query a Set of Entities][]   
 * [How To: Query a Subset of Entity Properties][]   
@@ -108,9 +108,7 @@ create a storage account [using the REST API][].)
 
 ## <a name="create-app"> </a>Create a Node.js Application
 
-Create a blank Node.js application. For
-instructions on how to use the PowerShell commands to create a blank
-application, see the [Node.js Cloud Service]. For instructions on how to use WebMatrix, see [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to a Windows Azure Web Site], [Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
@@ -125,13 +123,25 @@ communicate with the storage REST services.
 2.  Type **npm install azure** in the command window, which should
     result in the following output:
 
-        azure@0.5.0 ./node_modules/azure
+        azure@0.6.0 ./node_modules/azure
+		├── easy-table@0.0.1
+		├── dateformat@1.0.2-1.2.3
 		├── xmlbuilder@0.3.1
-		├── mime@1.2.4
-		├── xml2js@0.1.12
-		├── qs@0.4.0
-		├── log@1.2.0
-		└── sax@0.3.4
+		├── eyes@0.1.7
+		├── colors@0.6.0-1
+		├── mime@1.2.5
+		├── log@1.3.0
+		├── commander@0.6.1
+		├── node-uuid@1.2.0
+		├── xml2js@0.1.14
+		├── async@0.1.22
+		├── tunnel@0.0.1
+		├── underscore@1.3.3
+		├── qs@0.5.0
+		├── underscore.string@2.2.0rc
+		├── sax@0.4.0
+		├── streamline@0.2.4
+		└── winston@0.6.1 (cycle@1.0.0, stack-trace@0.0.6, pkginfo@0.2.3, request@2.9.202)
 
 3.  You can manually run the **ls** command to verify that a
     **node\_modules** folder was created. Inside that folder you will
@@ -147,27 +157,11 @@ Using Notepad or another text editor, add the following to the top the
 
 ## <a name="setup-connection-string"> </a>Setup a Windows Azure Storage Connection
 
-If you are running against the storage emulator on the local machine,
-you do not need to configure a connection string, as it will be
-configured automatically. You can continue to the next section.
+The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY for information required to connect to your Windows Azure storage account. If these environment variables are not set, you must specify the account information when calling **TableService**.
 
-If you are planning to run against the real Windows Azure storage
-service, you need to specify connection information to point at your
-Windows Azure Storage Account. You can store the connection information in your code, or in an external configuration file. In this how-to,
-you use the Web.cloud.config file, which is created when you use the Windows Azure Powershell to create a new Cloud Service Project.
+For an example of setting the environment variables in a configuration file for a Windows Azure Cloud Service, see [Node.js Cloud Service with Storage].
 
-1.  Use a text editor to open
-    **c:\\node\\tasklist\\WebRole1\\Web.cloud.config**
-
-2.  Add the following inside the **configuration** element.
-
-        <appSettings>
-            <add key="AZURE_STORAGE_ACCOUNT" value="your storage account" />
-            <add key="AZURE_STORAGE_ACCESS_KEY" value="your storage access key" />
-        </appSettings>
-
-Note that the examples below assume that you are using cloud-based
-storage.
+For an example of setting the environment variables in the management portal for a Windows Azure Web Site, see [Node.js Web Application with Storage]
 
 ## <a name="create-table"> </a>How to Create a Table
 
@@ -178,27 +172,13 @@ create a new table. Add the following near the top of **server.js**.
 
 The call to **createTableIfNotExists** will return the specified table
 if it exists or create a new table with the specified name if it does
-not already exist. Replace the existing definition of the
-**createServer** method with the following.
+not already exist. The following example creates a new table named 'mytable' if it does not already exist:
 
-    var tableName = 'tasktable';
-
-    http.createServer(function serverCreated(req, res) {
-        tableService.createTableIfNotExists(tableName, tableCreatedOrExists);
-        
-        function tableCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-    	
-            if(error === null){
-                res.write('Using table ' + tableName + '\r\n');
-                res.end();
-    	
-            } else {
-                res.end('Could not use table: ' + error.Code);
-            }
-        }
-    }).listen(port);
+    tableService.createTableIfNotExists('mytable', function(error){
+		if(!error){
+			// Table exists or created
+		}
+	});
 
 ## <a name="add-entity"> </a>How to Add an Entity to a Table
 
@@ -213,98 +193,46 @@ Entities with the same **PartitionKey** are stored on the same node. The
 belongs to. To add an entity to your table, pass the entity object to
 the **insertEntity** method.
 
-    var http = require('http');
-    var azure = require('azure');
-    var port = process.env.port || 1337;
-
-    var tableService = azure.createTableService();
-
-    var tableName = 'tasktable';
-
-    http.createServer(function serverCreated(req, res) {
-        tableService.createTableIfNotExists(tableName, tableCreatedOrExists);
-        
-        function tableCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-    	
-            if(error === null){
-                res.write('Using table ' + tableName + '\r\n');
-    	    
-                var task1 = {
-                    PartitionKey : 'tasksSeattle',
-                    RowKey: '1',
-                    Description: 'Take out the trash',
-                    DueDate: new Date(2011, 12, 14, 12) 
-                };
-                tableService.insertEntity(tableName, task1, entityInserted);
-            } else {
-                res.end('Could not use table: ' + error.Code);
-            }
-        }
-
-        function entityInserted(error, serverEntity)
-        {
-            if(error === null){
-                res.end('Successfully inserted entity ' + serverEntity.Description 
-                        + ' \r\n');
-            } else {
-                res.end('Could not insert entity into table: ' + error.Code);
-            }
-        }
-    }).listen(port);
+    var task = {
+		PartitionKey : 'hometasks'
+		, RowKey : '1'
+		, Description : 'Take out the trash'
+		, DueDate: new Date(2012, 6, 20)
+	};
+	tableService.insertEntity('mytable', task, function(error){
+		if(!error){
+			// Entity inserted
+		}
+	});
 
 ## <a name="update-entity"> </a>How to Update an Entity
 
-This code shows how to replace the old version of an existing entity
-with an updated version.
+There are multiple methods available to update an existing entity:
 
-    var tableService = azure.createTableService();
+* **updateEntity** - Updates an existing entity by replacing it.
 
-    var tableName = 'tasktable';
+* **mergeEntity** - Updates an existing entity by merging new property values into the existing entity.
 
-    http.createServer(function serverCreated(req, res) {
-        tableService.createTableIfNotExists(tableName, tableCreatedOrExists);
-        
-        function tableCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-    	
-            if(error === null){
-                res.write('Using table ' + tableName + '\r\n');
-    	    
-                var task1 = {
-                    PartitionKey : 'tasksSeattle',
-                    RowKey: '1',
-                    Description: 'Do the dishes'
-                };
-                tableService.updateEntity(tableName, task1, entityUpdated);
+* **insertOrReplaceEntity** - Updates an existing entity by replacing it. If no entity exists, a new one will be inserted.
 
-            } else {
-                res.end('Could not use table: ' + error.Code);
-            }
-        }
+* **insertOrMergeEntity** - Updates an existing entity by merging new property values into the existing. If no entity exists, a new one will be inserted.
 
-        function entityUpdated(error, serverEntity)
-        {
-            if(error === null){
-                res.end('Successfully updated entity ' + serverEntity.Description 
-                        + ' \r\n');
-            } else {
-                res.end('Could not update entity: ' + error.Code);
-            }
-        }
-    }).listen(port);
+The following example demonstrates updating an entity using **updateEntity**:
 
-If the entity that is being updated doesn’t exist, then the update
-operation will fail. Therefore if the user is trying to store an entity
-regardless of whether it already existed before, it is sometimes common
-to call update and then insert right away if update fails (also known as
-“upserting” an entity). The Node.js library does not natively support
-this operation, so you have to manually chain **updateEntity** and
-**insertEntity** to accomplish this effect.
+	var task = {
+		PartitionKey : 'hometasks'
+		, RowKey : '1'
+		, Description : 'Wash Dishes'
+	}
+	tableService.updateEntity('mytable', task, function(error){
+		if(!error){
+			// Entity has been updated
+		}
+	});
+    
+With **updateEntity** and **mergeEntity**, if the entity that is being updated doesn’t exist then the update operation will fail. Therefore if you wish to store an entity regardless of whether it already exists, you should instead use **insertOrReplaceEntity** or **insertOrMergeEntity**.
 
-## <a name="change-entities"> </a>How to Change a Group of Entities
+## <a name="change-entities"> </a>How to Work with Groups of Entities
 
 Sometimes it makes sense to submit multiple operations together in a
 batch to ensure atomic processing by the server. To accomplish that, you
@@ -313,122 +241,65 @@ series of operations as usual. The difference is that the callback
 functions of these operators will indicate that the operation was
 batched, not submitted to the server. When you do want to submit the
 batch, you call **commitBatch**. The callback supplied to that method
-will indicate if the entire batch was submitted successfully. The
-example below adds two entities together in a batch.
+will indicate if the entire batch was submitted successfully. The following example demonstrates submitting two entities in a batch:
 
-    var http = require('http');
-    var azure = require('azure');
-    var port = process.env.port || 1337;
+    var tasks=[
+		{
+			PartitionKey : 'hometasks'
+			, RowKey : '1'
+			, Description : 'Take out the trash.'
+			, DueDate : new Date(2012, 6, 20)
+		}
+		, {
+			PartitionKey : 'hometasks'
+			, RowKey : '2'
+			, Description : 'Wash the dishes.'
+			, DueDate : new Date(2012, 6, 20)
+		}
+	]
+	tableService.beginBatch();
+	var async=require('async');
 
-    var tableService = azure.createTableService();
+	async.forEach(tasks
+		, function taskIterator(task, callback){
+			tableService.insertEntity('mytable', task, function(error){
+				if(!error){
+					// Entity inserted
+					callback(null);
+				} else {
+					callback(error);
+				}
+			});
+		}
+		, function(error){
+			if(!error){
+				// All inserts completed
+				tableService.commitBatch(function(error){
+					if(!error){
+						// Batch successfully commited
+					}
+				});
+			}
+		});
 
-    var tableName = 'tasktable';
-
-    http.createServer(function serverCreated(req, res) {
-        tableService.createTableIfNotExists(tableName, tableCreatedOrExists);
-        
-        function tableCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-    	
-            if(error === null){
-                res.write('Using table ' + tableName + '\r\n');
-
-                tableService.beginBatch();
-
-                var task1 = {
-                    PartitionKey : 'tasksSeattle',
-                    RowKey: '1',
-                    Description: 'Take out the trash',
-                    DueDate: new Date(2011, 12, 14, 12)
-                };
-                tableService.insertEntity(tableName, task1, entityInserted);
-    	
-            } else {
-                res.end('Could not use table: ' + error.Code);
-            }
-        }
-
-        function entityInserted(error)
-        {
-            if(error === null){
-                res.write('Successfully inserted entity into batch\r\n');
-
-                var task2 = {
-                    PartitionKey : 'tasksSeattle',
-                    RowKey: '2',
-                    Description: 'Do the dishes'
-                };
-    	    
-                tableService.insertEntity(tableName, task2, 
-                                          secondEntityInserted);
-            } else {
-                res.end('Could not insert entity into batch: ' + error.Code);
-            }
-        }
-
-        function secondEntityInserted(error)
-        {
-            if(error === null){
-                res.write('Successfully inserted entity into batch\r\n');
-
-                tableService.commitBatch(batchCommitted);
-            } else {
-                res.end('Could not insert entity into batch: ' + error.Code);
-            }
-        }
-
-        function batchCommitted(error, resp)
-        {
-            if(error === null)
-            {
-                res.end('Successfully submitted batch');
-            } else {
-                res.end('Could not submit batch: ' + error.Code);
-            }
-        }
-    }).listen(port);
+<div class="dev-callout">
+<strong>Note</strong>
+<p>The above example uses the 'async' module to ensure that the entities have all been successfully submitted before calling **commitBatch**.</p>
+</div>
 
 ## <a name="query-for-entity"> </a>How to Query for an Entity
 
 To query an entity in a table, use the **queryEntity** method, by
 passing the **PartitionKey** and **RowKey**.
 
-    var http = require('http');
-    var azure = require('azure');
-    var port = process.env.port || 1337;
-
-    var tableService = azure.createTableService();
-
-    var tableName = 'tasktable';
-
-    http.createServer(function serverCreated(req, res) {
-        tableService.createTableIfNotExists(tableName, tableCreatedOrExists);
-        
-        function tableCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-    	
-            if(error === null){
-                res.write('Using table ' + tableName + '\r\n');
-    	    
-                tableService.queryEntity(tableName, 'tasksSeattle', '1', 
-                                         entityQueried);
-            } else {
-                res.end('Could not use table: ' + error.Code);
-            }
-        }
-
-        function entityQueried(error, serverEntity)
-        {
-            if(error === null){
-            res.end('Successfully queried entity ' + serverEntity.Description 
-                    + ' \r\n');
-            } else {
-                res.end('Could not query entity: ' + error.Code);
-            }
-        }
-    }).listen(port);
+    tableService.queryEntity('mytable'
+		, 'hometasks'
+		, '1'
+		, function(error, entity){
+			if(!error){
+				// entity contains the returned entity
+			}
+		});
 
 ## <a name="query-set-entities"> </a>How to Query a Set of Entities
 
@@ -442,49 +313,15 @@ expression to the **queryEntities** method. You can use the results in a
 
 This example finds all tasks in Seattle based on the **PartitionKey**.
 
-    var http = require('http');
-    var azure = require('azure');
-    var port = process.env.port || 1337;
-
-    var tableService = azure.createTableService();
-
-    var tableName = 'tasktable';
-
-    http.createServer(function serverCreated(req, res) {
-        tableService.createTableIfNotExists(tableName, tableCreatedOrExists);
-        
-        function tableCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-    	
-            if(error === null){
-                res.write('Using table ' + tableName + '\r\n');
-    	    
-                var query = azure.TableQuery
-                    .select()
-                    .from(tableName)
-                    .where('PartitionKey eq ?', 'tasksSeattle');
-                tableService.queryEntities(query, entitiesQueried);
-            } else {
-                res.end('Could not use table: ' + error.Code);
-            }
-        }
-
-        function entitiesQueried(error, serverEntities)
-        {
-            if(error === null){
-                res.write('Successfully queried entities:\r\n');
-                for(var index in serverEntities)
-                {
-                    res.write(serverEntities[index].Description + 
-                              ' due on ' + serverEntities[index].DueDate + '\r\n');
-                }
-                res.end();
-            } else {
-                res.end('Could not query entities: ' + error.Code);
-            }
-        }
-    }).listen(port);
+    var query = azure.TableQuery
+		.select()
+		.from('mytable')
+		.where('PartitionKey eq ?', 'hometasks');
+	tableService.queryEntities(query, function(error, entities){
+		if(!error){
+			//entities contains an array of entities
+		}
+	});
 
 ## <a name="query-entity-properties"> </a>How to Query a Subset of Entity Properties
 
@@ -498,53 +335,22 @@ The query in the following code only returns the **Descriptions** of
 entities in the table, note that in the program output, the **DueDate**
 will show as **undefined** because it was not sent by the server.
 
-*Please note that the following snippet only works against the cloud
-storage service, the **select** keyword is not supported by the Storage
-Emulator.*
+<div class="dev-callout">
+<strong>Note</strong>
+<p>Please note that the following snippet only works against the cloud
+storage service, the <b>select</b> keyword is not supported by the Storage
+Emulator.</p>
+</div>
 
-    var http = require('http');
-    var azure = require('azure');
-    var port = process.env.port || 1337;
-
-    var tableService = azure.createTableService();
-
-    var tableName = 'tasktable';
-
-    http.createServer(function serverCreated(req, res) {
-        tableService.createTableIfNotExists(tableName, tableCreatedOrExists);
-        
-        function tableCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-    	
-            if(error === null){
-                res.write('Using table ' + tableName + '\r\n');
-    	    
-                var query = azure.TableQuery
-                    .select('Description')
-                    .from(tableName)
-                    .where('PartitionKey eq ?', 'tasksSeattle');
-                tableService.queryEntities(query, entitiesQueried);
-            } else {
-                res.end('Could not use table: ' + error.Code);
-            }
-        }
-        
-        function entitiesQueried(error, serverEntities)
-        {
-            if(error === null){
-                res.write('Successfully queried entities:\r\n');
-                for(var index in serverEntities)
-                {
-                    res.write(serverEntities[index].Description + 
-                              ' due on ' + serverEntities[index].DueDate + '\r\n');
-                }
-                res.end();
-            } else {
-                res.end('Could not query entities: ' + error.Code);
-            }
-        }
-    }).listen(port);
+    var query = azure.TableQuery
+		.select('Description')
+		.from('mytable')
+		.where('PartitionKey eq ?', 'hometasks');
+	tableService.queryEntities(query, function(error, entities){
+		if(!error){
+			//entities contains an array of entities
+		}
+	});
 
 ## <a name="delete-entity"> </a>How to Delete an Entity
 
@@ -553,81 +359,26 @@ example, the **task1** object contains the **RowKey** and
 **PartitionKey** values of the entity to be deleted. Then the object is
 passed to the **deleteEntity** method.
 
-    var http = require('http');
-    var azure = require('azure');
-    var port = process.env.port || 1337;
-
-    var tableService = azure.createTableService();
-
-    var tableName = 'tasktable';
-
-    http.createServer(function serverCreated(req, res) {
-        tableService.createTableIfNotExists(tableName, tableCreatedOrExists);
-        
-        function tableCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-    	
-            if(error === null){
-                res.write('Using table ' + tableName + '\r\n');
-    	    
-                var task1 = {
-                    PartitionKey : 'tasksSeattle',
-                    RowKey: '1'
-                };
-                tableService.deleteEntity(tableName, task1, entityDeleted);
-            } else {
-                res.end('Could not use table: ' + error.Code);
-            }
-        }
-
-        function entityDeleted(error)
-        {
-            if(error === null){
-                res.end('Successfully deleted entity\r\n');
-            } else {
-                res.end('Could not delete entity: ' + error.Code);
-            }
-        }
-    }).listen(port);
+    tableService.deleteEntity('mytable'
+		, {
+			PartitionKey : 'hometasks'
+			, RowKey : '1'
+		}
+		, function(error){
+			if(!error){
+				// Entity deleted
+			}
+		});
 
 ## <a name="delete-table"> </a>How to Delete a Table
 
 The following code deletes a table from a storage account.
 
-    var http = require('http');
-    var azure = require('azure');
-    var port = process.env.port || 1337;
-
-    var tableService = azure.createTableService();
-
-    var tableName = 'tasktable';
-
-    http.createServer(function serverCreated(req, res) {
-        tableService.createTableIfNotExists(tableName, tableCreatedOrExists);
-        
-        function tableCreatedOrExists(error)
-        {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-    	
-            if(error === null){
-                res.write('Using table ' + tableName + '\r\n');
-    	    
-                tableService.deleteTable(tableName, tableDeleted);
-            } else {
-                res.end('Could not use table: ' + error.Code);
-            }
-        }
-
-        function tableDeleted(error)
-        {
-            if(error === null){
-                res.end('Successfully deleted table\r\n');
-            } else {
-                res.end('Could not delete table: ' + error.Code);
-            }
-        }
-    }).listen(port);
+    tableService.deleteTable('mytable', function(error){
+		if(!error){
+			// Table deleted
+		}
+	});
 
 ## <a name="next-steps"> </a>Next Steps
 
@@ -649,7 +400,7 @@ to learn how to do more complex storage tasks.
   [How To: Create a Table]: #create-table
   [How To: Add an Entity to a Table]: #add-entity
   [How To: Update an Entity]: #update-entity
-  [How to: Change a Group of Entities]: #change-entities
+  [How to: Work with Groups of Entities]: #change-entities
   [How to: Query for an Entity]: #query-for-entity
   [How to: Query a Set of Entities]: #query-set-entities
   [How To: Query a Subset of Entity Properties]: #query-entity-properties
@@ -669,3 +420,6 @@ to learn how to do more complex storage tasks.
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Visit the Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/
+[Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
+  [Node.js Web Application with Storage]: en-us/develop/nodejs/tutorials/web-site-with-storage/
+ [Create and deploy a Node.js application to a Windows Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/

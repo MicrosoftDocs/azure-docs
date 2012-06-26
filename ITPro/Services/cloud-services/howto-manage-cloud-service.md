@@ -35,7 +35,7 @@ If you need to update your application code, use **Update** on the dashboard, **
 
 7. If any service roles have only one role instance, select the **Update even if one or more role contain a single instance check box** to enable the upgrade to proceed. 
 
- Windows Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). That enables one virtual machine to process client requests while the other is being updated. For information about how Windows Azure maintains service during updates, see [Deploying and Updating Windows Azure Applications](/en-us/develop/dotnet/fundamentals/deploying-applications/).
+ Windows Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). That enables one virtual machine to process client requests while the other is being updated.
 
 8. Click OK (checkmark) to begin updating the service.
 

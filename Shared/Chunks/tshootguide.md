@@ -752,7 +752,7 @@ following articles:
     by SQL Database:
     [http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx]
 
-<h2 id="Cache">Windows Azure Caching>
+<h2 id="Cache">Windows Azure Caching</h2>
 Windows Azure Caching comes in two flavors: the Windows Azure Shared Caching and role-based Windows Azure Caching (Preview). Shared Caching is a multitenent Windows Azure service that provides caching services. Windows Azure Caching (Preview) hosts caching on a role by using a portion of the memory from the virtual machines that host your role instances. To troubleshoot Windows Azure Caching, observe the behavior of the cache by checking error codes and catching exceptions. When using role-based Cachineg(Preview),you can also use performance counters. Caching problems generally fall into one of the following categories:
 
 - 	Quota-related errors - a quota has been exceeded (Shared Caching)
@@ -795,7 +795,7 @@ For more information on quota-related errors, see [Understanding Quotas].
 [AlertBot]: http://www.alertbot.com/products/website-monitoring/default.aspx
 [performance tool test]: http://speedtest.noam.microsoftonline.com/
 [Azure Statistics]: http://latency.cloudapp.net/Default.aspx
-[AzureCheck]: http://www.apicasystem.com/products/azurecheck.aspx
+[AzureCheck]: http://www.apicasystem.com/monitoring/what-we-monitor/apica-azurecheck.aspx
 [startup task]: http://msdn.microsoft.com/en-us/library/gg456327.aspx
 [AVIcode]: http://www.microsoft.com/en-us/server-cloud/system-center/avicode.aspx
 [profile]: http://msdn.microsoft.com/en-us/library/windowsazure/hh369930.aspx
@@ -805,7 +805,7 @@ For more information on quota-related errors, see [Understanding Quotas].
 [IntelliTrace]: http://msdn.microsoft.com/en-us/library/dd264915.aspx
 [IntelliTrace to debug Windows Azure Cloud Services]: http://blogs.msdn.com/b/jnak/archive/2010/06/07/using-intellitrace-to-debug-windows-azure-cloud-services.aspx
 [Fiddler]: http://www.fiddler2.com/fiddler2/
-[Troubleshooting a Windows Azure web site]: ../best-practices/troubleshooting-web-sites/
+[Troubleshooting a Windows Azure web site]: ../troubleshooting-web-sites/
 [W3C extended log file format]: http://go.microsoft.com/fwlink/?LinkID=90561
 [Log Parser]: http://go.microsoft.com/fwlink/?LinkId=246619
 [Log Parser Plus]: http://logparserplus.com/Examples
@@ -814,7 +814,7 @@ For more information on quota-related errors, see [Understanding Quotas].
 [View the results of failed request tracing]: http://diagnostics.antdf0.antares-test.windows-int.net/#failedrequests
 [CodePlex]: http://wappowershell.codeplex.com/
 [blog]: http://michaelwasham.com/2012/01/16/windows-azure-powershell-cmdlets-2-2-released/
-[How to: Debug Windows Service Applications]: http://msdn.microsoft.com/en-us/library/7a50syb3%28v=vs.90%29.aspx
+[How to: Debug Windows Service Applications]: http://msdn.microsoft.com/en-us/library/7a50syb3%28v=vs.90%29.aspx
 [Daniel Pearson's presentation Windows Debugging and Troubleshooting]: http://technet.microsoft.com/en-us/edge/Video/hh867800
 [Suse Linux documentation]: https://secure-www.suse.com/documentation/sles11/
 [list of storage explorers]: http://blogs.msdn.com/b/windowsazurestorage/archive/2010/04/17/windows-azure-storage-explorers.aspx
@@ -846,3 +846,4 @@ For more information on quota-related errors, see [Understanding Quotas].
 [diagnostics-diagram]: ../Media/diagnosticsdiagram.png
 [Understanding Quotas]: http://msdn.microsoft.com/en-us/library/gg185683.aspx
 [Troubleshooting Cache]: http://go.microsoft.com/fwlink/?LinkId=252730 
+[Windows Azure PowerShell Cmdlets]: http://wappowershell.codeplex.com/documentation

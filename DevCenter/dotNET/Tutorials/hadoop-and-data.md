@@ -1,6 +1,6 @@
 # Hadoop on Windows Azure - Working With Data
 
-This tutorial covers several techniques for storing and importing data for use in Hadoop jobs run with Apache Hadoop-based Service for Windows Azure. Apache(TM) Hadoop(TM) is a software framework that supports data-intensive distributed applications. While Hadoop is designed to store data for such applications with its own distributed file system (HDFS), cloud-based on-demand processing can also use other forms of cloud storage such as Windows Azure storage. Collecting and importing data in such scenarios is the subject of this tutorial. 
+This tutorial covers several techniques for storing and importing data for use in Hadoop jobs run with Apache™ Hadoop™-based Services for Windows Azure. Apache Hadoop is a software framework that supports data-intensive distributed applications. While Hadoop is designed to store data for such applications with its own distributed file system (HDFS), cloud-based on-demand processing can also use other forms of cloud storage such as Windows Azure storage. Collecting and importing data in such scenarios is the subject of this tutorial. 
 
 You will learn:
 

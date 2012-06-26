@@ -4,6 +4,12 @@
 
 This guide will show you how to use the Windows Azure Access Control Service (ACS) within the Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies). For more information on ACS, see the [Next steps](#next_steps) section.
 
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>The Windows Azure Access Services Control Filter (by Microsoft Open Technologies) is a community technology preview. As pre-release software, it is not formally supported by Microsoft Open Technologies, Inc. nor Microsoft.</p> 
+</div>
+
+
 ## Table of Contents
 
 -   [What is ACS?][]
@@ -237,7 +243,7 @@ In this task, you upload a .PFX certificate that will be used to sign token requ
 1.  On the ACS Management Portal main page, click **Certificates and keys**.
 2.  On the **Certificates and Keys** page, click **Add** above **Token Signing**.
 3.  On the **Add Token-Signing Certificate or Key** page:
-    1. In the **User for** section, click **Relying Party Application** and select **Azure Web App** (which you previously set as the name of your relying party application).
+    1. In the **Used for** section, click **Relying Party Application** and select **Azure Web App** (which you previously set as the name of your relying party application).
     2. In the **Type** section, select **X.509 Certificate**.
     3. In the **Certificate** section, click the browse button and navigate to the X.509 certificate file that you want to use. This will be a .PFX file. Select the file, click **Open**,  and then enter the certificate password in the **Password** text box.
     4. Ensure that **Make Primary** is checked. Your **Add Token-Signing Certificate or Key** page should look similar to the following.

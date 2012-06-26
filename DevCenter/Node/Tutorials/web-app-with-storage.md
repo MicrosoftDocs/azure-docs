@@ -37,11 +37,12 @@ Those settings will be passed as environment variables to Node, which
 are then read by the Windows Azure SDK.
 
 <div class="dev-callout">
-<b>Note</b>
+<strong>Note</strong>
 <p>Storage credentials are only used when the application is
 deployed to Windows Azure. When running in the emulator, the application
 will use the storage emulator.</p>
 </div>
+
 Perform the following steps to retrieve the storage account credentials
 and add them to the web.config settings:
 
@@ -61,7 +62,7 @@ and add them to the web.config settings:
     associated with your hosted service.
 
     <div class="dev-callout">
-	<b>Note</b>
+	<strong>Note</strong>
 	<p>Since the Windows Azure SDK creates a storage
     account when you deploy a service, a storage account should already
     exist from deploying your application in the previous guides.</p>
@@ -119,7 +120,7 @@ these modules in your application:
     and access key information.
 
     <div class="dev-callout">
-	<b>Note</b>
+	<strong>Note</strong>
 	<p>When running in the emulator, the SDK will automatically
     use the emulator even though storage account information has been
     provided via web.config.</p>
@@ -367,7 +368,7 @@ item. In the home.jade file, paste the following code at the end of the
 file and save.
 
 <div class="dev-callout">
-<b>Note</b>
+<strong>Note</strong>
 <p>In Jade, whitespace is significant, so do not
 remove any of the spacing below.</p>
 </div>

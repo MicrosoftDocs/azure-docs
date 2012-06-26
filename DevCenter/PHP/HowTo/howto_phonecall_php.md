@@ -11,7 +11,7 @@ You’ll need to do the following to use the code in this topic:
 1. Acquire a Twilio account and authentication token. To get started with Twilio, evaluate pricing at [http://www.twilio.com/pricing][twilio_pricing]. You can sign up for a trial account at [https://www.twilio.com/try-twilio][try_twilio]. For information about the API provided by Twilio, see [http://www.twilio.com/api][twilio_api].
 2. Verify your phone number as an outbound caller ID with Twilio. For information on how to verify your phone number, see [https://www.twilio.com/user/account/phone-numbers/verified#][verify_phone]. As an alternative to using an existing number, you can purchase a Twilio phone number.
 For purposes of this example, use the verified phone number as the **From** value of **callform.php** (described later).
-3. Obtain the Twilio library for PHP. You can download it from Github([https://github.com/twilio/twilio-php][twilio_php]) or install it as a PEAR package. For more information, see [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme].
+3. Obtain the Twilio library for PHP. You can download it from Github ([https://github.com/twilio/twilio-php][twilio_php_github]) or install it as a PEAR package. For more information, see [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme].
 4. Install the Windows Azure SDK for PHP. For an overview of the SDK and instructions on installing it, see [Set up the Windows Azure SDK for PHP][setup_php_sdk].
 
 ## Create a web form for making a call
@@ -127,3 +127,4 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 [website-git]: https://www.windowsazure.com/en-us/develop/php/tutorials/website-w-mysql-and-git/
 [website-ftp]: https://www.windowsazure.com/en-us/develop/php/tutorials/website-w-mysql-and-ftp/
 [website-webmatrix]: https://www.windowsazure.com/en-us/develop/php/tutorials/website-w-mysql-and-webmatrix/
+[twilio_php_github]: https://github.com/twilio/twilio-php

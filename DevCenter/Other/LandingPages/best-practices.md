@@ -25,5 +25,5 @@ This content provides recommendations on how to design and develop custom applic
 [Troubleshooting in Windows Azure]: /en-us/develop/other/best-practices/troubleshooting/
 [Best Practices for Designing Secure Windows Azure Applications]: /en-us/develop/other/best-practices/security/
 [Best Practices for Performance in Windows Azure Applications]: /en-us/develop/other/best-practices/performance/
-[Windows Azure Developer Guidance]: http://msdn.microsoft.com/en-us/library/windowsazure/gg456500
+[Windows Azure Developer Guidance]: http://msdn.microsoft.com/en-us/library/windowsazure/hh698321
 [Patterns and Practices]: http://msdn.microsoft.com/en-us/library/ff898430

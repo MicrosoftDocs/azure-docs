@@ -472,9 +472,9 @@ Service Bus Queue.
 
     ![][18]
 
-## Azure Configuration Manager
+## Cloud Configuration Manager
 
-Windows Azure supports a set of managed API that provides a consistent way to create new instances of Windows Azure service clients (such as the Service Bus) across Microsoft cloud services. The API enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in websites, or in a persistent VM Role. You can also use these API to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The API are located in the **Microsoft.WindowsAzure.Configuration.CloudConfigurationManager** class. There are also APIs on the client side.
+Windows Azure supports a set of managed API that provides a consistent way to create new instances of Windows Azure service clients (such as the Service Bus) across Microsoft cloud services. The API enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in websites, or in a persistent VM Role. You can also use these API to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The API are located in the [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] class. There are also APIs on the client side.
 
 ### Connection String
 
@@ -600,6 +600,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
   [16]: ../Media/getting-started-multi-tier-35.png
   [17]: ../Media/getting-started-multi-tier-36.png
   [18]: ../Media/getting-started-multi-tier-37.png
+  [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]:http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudconfigurationmanager.aspx
   [19]: ../Media/getting-started-multi-tier-38.png
   [20]: ../Media/getting-started-multi-tier-39.png
   [21]: ../Media/SBExplorer.jpg
