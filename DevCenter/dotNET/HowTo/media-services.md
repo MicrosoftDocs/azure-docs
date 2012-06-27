@@ -143,9 +143,11 @@ For more information about Media Services features and development scenarios, se
 
 ## <a name="setup-account"> </a>Setting Up a Windows Azure Account for Media Services
 
-To set up your Media Services account, see the following guide in the Media Services forum:
+To set up your Media Services account, you can use one of the following options:
 
--   [Media Services Preview Account Setup][]
+-   Use the Windows Azure Management Portal (recommended). See the topic [How to Create a Media Services Account][]. After creating your account in the Management Portal, you are ready to set up your computer for Media Services development. 
+
+-   Use a manual setup process with Powershell scripts. This option is also helpful for users who want to automate the account setup process. For more information see [Media Services Preview Account Setup][].
 
 
 ## <a name="setup-dev"> </a>Setting up for Media Services Development
@@ -642,6 +644,7 @@ Now that you have learned how to set up for Media Services development and perfo
   [Getting Started with the Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=252966
   [Building Applications with the Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=247821
   [Windows Azure Management Portal]: https://manage.windowsazure.com
+  [How to Create a Media Services Account]: http://go.microsoft.com/fwlink/?linkid=256662
 
   <!-- Email. -->
   [MediaServices@Microsoft.com]: mailto:MediaServices@Microsoft.com
