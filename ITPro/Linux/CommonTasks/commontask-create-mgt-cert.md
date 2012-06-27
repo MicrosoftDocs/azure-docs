@@ -15,7 +15,8 @@ There is already documentation on how to create and manage these certificates at
 
 <h2 id="createcert">How to: Create and upload a management certificate</h2>
 
-We have created an easy way for you to create a management certificate for Windows Azure by visiting: [https://windows.azure-preview.com/download/publishprofile.aspx](https://login.live-int.com/login.srf?wa=wsignin1.0&rpsnv=46&ct=1338199035&rver=6.1.6206.0&wp=MBI_SSL&wreply=https:%2F%2Fwindows.azure-preview.com%2Flanding%3Ftarget%3D%252fdownload%252fpublishprofile.aspx&lc=1033&id=273891)
+
+We have created an easy way for you to create a management certificate for Windows Azure by visiting: [https://windows.azure.com/download/publishprofile.aspx](https://windows.azure.com/download/publishprofile.aspx)
 
 This website will ask you to login using your portal credentials and then generate a management certificate  for you that is packaged along with your subscriptionID  on a publishsettings file that you will be asked to download. 
 
@@ -44,7 +45,7 @@ You will need to extract from that file the base 64 encoded content between the 
 	<PublishData>
 	  <PublishProfile
 	    PublishMethod="AzureServiceManagementAPI"
-	    Url="https://management-preview.core.windows-int.net/"
+	    Url="https://management.core.windows.net/"
 	    ManagementCertificate="xxxxx”>
 	    <Subscription
 	      Id="8a4a0a51-728e-482e-8daa-c477f03c541d"
@@ -115,7 +116,7 @@ You also need the ID of your subscription to upload the VHD file.
 2.	Set the connection string by using the following command and replacing **Subscriptionid** and **CertThumbprint** with the values that you obtained earlier:
 
 
-		csupload Set-Connection "SubscriptionID=<Subscriptionid>;CertificateThumbprint=<Thumbprint>;ServiceManagementEndpoint=https://management-preview.core.windows-int.net"
+		csupload Set-Connection "SubscriptionID=<Subscriptionid>;CertificateThumbprint=<Thumbprint>;ServiceManagementEndpoint=https://management.core.windows.net"
 
 ####For Linux Azure command line tools
 
@@ -129,7 +130,7 @@ You will then need to merge your subscription ID and the base64 encoded pfx into
 		<PublishData>
 		  <PublishProfile
 		    PublishMethod="AzureServiceManagementAPI"
-		    Url="https://management-preview.core.windows-int.net/"
+		    Url="https://management.core.windows.net/"
 		    ManagementCertificate="xxxxx”>
 		    <Subscription
 		      Id="8a4a0a51-728e-482e-8daa-c477f03c541d"

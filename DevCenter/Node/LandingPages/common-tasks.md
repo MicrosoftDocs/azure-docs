@@ -22,7 +22,6 @@ Secure Socket Layer (SSL) encryption is the most commonly used method of securin
 ### [Using CDN for Windows Azure]
 The Windows Azure Content Delivery Network (CDN) offers a global solution for delivering high-bandwidth content by caching blobs and static content at physical nodes around the world. This common task describes how to enable CDN and add, access, and delete content.
 
-
 [Publishing with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
 [Continuous Delivery with Team Foundation Service]: /en-us/develop/nodejs/common-tasks/continuous-delivery-service/
 [Continuous Delivery for Cloud Services with Team Foundation Server]: /en-us/develop/nodejs/common-tasks/continuous-delivery/

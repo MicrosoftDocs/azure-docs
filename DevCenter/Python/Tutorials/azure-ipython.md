@@ -3,7 +3,7 @@
 
 For a quick overview of installation and IPython, please watch:
 
-<div class="dev-video-thumb" style="background-image:url(../Media/ipy-youtube2.png)"><a href="VIDEOLINK">Video Available</a></div>
+<div class="dev-video-thumb" style="background-image:url(../Media/ipy-youtube2.png)"><a href="http://go.microsoft.com/fwlink/?LinkId=254535">IPython Overview</a></div>
 
 
 The [IPython project](http://ipython.org) provides a collection of tools for

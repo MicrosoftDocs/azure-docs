@@ -1,7 +1,7 @@
 <properties umbracoNaviHide="0" pageTitle="Tutorial 3: Adding a Virtual Machine to a Virtual Network" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Learn how to configure Windows Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
 
 
-<h1 id="vnet3">Tutorial 3: Adding a Virtual Machine to a Virtual Network</h1>
+<h1 id="vnet3">Add a Virtual Machine to a Virtual Network</h1>
 
 <!--SOMEWHERE IN THIS TUTORIAL I NEED TO XREF TO THE OTHER VMACHINE TUTORIAL -->
 
@@ -13,11 +13,10 @@ This tutorial walks you through the steps to create a Windows Azure storage acco
 This tutorial assumes you have no prior experience using Windows Azure.
 
 For information about creating adding Active Directory connection to your virtual network, see the following:
-	<!-- UPDATE THE FOLLOWING LIST ONCE WE HAVE THE LINKS FOR TUTORIALS 4 & 5 -->
 
--  [Active Directory Replica Domain Controller with cross-premises connectivity](/en-us/manage/services/networking/replica-domain-controller/)
+-  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](/en-us/manage/services/networking/replica-domain-controller/)
 
--  [New Active Directory Forest in the Cloud](/en-us/manage/services/networking/active-directory-forest/)
+-  [Install a New Active Directory Forest in Windows Azure](/en-us/manage/services/networking/active-directory-forest/)
 
 
 ## Objectives ##
@@ -30,24 +29,26 @@ In this tutorial you will learn:
 
 ## Prerequisites ##
 
--  Complete one of the following: 
+-  Complete one of the following tutorials: 
 
--  [Tutorial 1: Creating a Virtual Network in Windows Azure](/en-us/manage/services/networking/create-a-virtual-network/)
+	-  [Create a Virtual Network in Windows Azure](/en-us/manage/services/networking/create-a-virtual-network/)
 
-	-OR- 
--  [Tutorial 2: Creating a Virtual Network for cross-premises connectivity](/en-us/manage/services/networking/cross-premises-connectivity/)
+		-OR- 
+	-  [Create a Virtual Network for cross-premises connectivity](/en-us/manage/services/networking/cross-premises-connectivity/)
 
 -  Windows Live account with at least one valid, active subscription.	
 
-Names of the following:
+-  Names of the following from [Create a Virtual Network in Windows Azure](/en-us/manage/services/networking/create-a-virtual-network/) or [Create a Virtual Network for cross-premises connectivity](/en-us/manage/services/networking/cross-premises-connectivity/):
 
--	Affinity group you assigned your virtual network to in Tutorial 1 or Tutorial 2.
+	-	Affinity group you assigned your virtual network.
 
--	Name of your virtual network created in Tutorial 1 or Tutorial 2.
+	-	Name of your virtual network.
+
+	-   Names of your subnet(s).
 
 ## <a name="CreateStorageAcct">Create Storage Account</a> ##
 
-1.	After you have created your virtual network, on the lower left-hand corner of the screen, click **New**.
+1.	After you have created your virtual network in the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com/), on the lower left-hand corner of the screen, click **New**.
 
 	![NewStorAcct] []
 
@@ -93,11 +94,11 @@ Names of the following:
 
 -  **NEW USER NAME:** Read-only.
 
--  **NEW PASSWORD:** Enter a password.
+-  **NEW PASSWORD:** Enter a strong password.
 
 -  **CONFIRM PASSWORD:** Re-enter password.
 
--  **SIZE:** Select **Extra Small**.
+-  **SIZE:** Select **Large**.
  
 	![VMConfig] []
 
@@ -119,6 +120,8 @@ Names of the following:
 -  **AVAILABILITY SET:** Select **none**.
 
 -  **VIRTUAL NETWORK SUBNETS:** Select **FrontEndSubnet**.
+	
+	**NOTE:** You should select at least one subnet and DO NOT select the gateway subnet. 
  
 	![VMOptions] []
 
@@ -134,9 +137,9 @@ Names of the following:
 If you'd like to connect to Active Directory, you can continue with the following tutorials:
 	<!-- UPDATE THE FOLLOWING LIST ONCE WE HAVE THE LINKS FOR TUTORIALS 4 & 5 -->
 	
--  [Active Directory Replica Domain Controller with cross-premises connectivity](/en-us/manage/services/networking/replica-domain-controller/)
+-  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](/en-us/manage/services/networking/replica-domain-controller/)
 
--  [New Active Directory Forest in the Cloud](/en-us/manage/services/networking/active-directory-forest/)
+-  [Install a New Active Directory Forest in Windows Azure](/en-us/manage/services/networking/active-directory-forest/)
 
 
 <!-- LINKS -->

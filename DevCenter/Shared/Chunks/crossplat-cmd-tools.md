@@ -76,19 +76,27 @@ Next, import the `.publishsettings` file by running the following command, repla
 
 	azure account import <path to .publishsettings file>
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>You can remove all of the information stored by the <code>import</code> command by using the <code>account clear</code> command:</p>
+You can remove all of the information stored by the <code>import</code> command by using the <code>account clear</code> command:
 
 	azure account clear
-
-</div>
 
 To see a list of options for `account` commands, use the `-help` option:
 
 	azure account -help
 
 After importing your publish settings, you should delete the `.publishsettings` file for security reasons.
+
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>When you import publish settings, credentials for accessing your Windows Azure subscription are stored inside your <code>user</code> folder. Your <code>user</code> folder is protected by your operating system. However, it is recommended that you take additional steps to encrypt your <code>user</code> folder. You can do so in the following ways:</p>
+
+<ul>
+<li>On Windows, modify the folder properties or use BitLocker.</li>
+<li>On Mac, turn on FileVault for the folder.</li>
+<li>On Ubuntu, use the Encrypted Home directory feature. Other Linux distributions offer equivalent features.</li>
+</ul>
+
+</div>
 
 You are now ready to being creating and managing Windows Azure Websites and Windows Azure Virtual Machines.  
 

@@ -177,7 +177,7 @@ Blobs and Tables reside within a Windows Azure Storage account. A single
 Windows Azure Storage account can hold up to 100 TB of data. If you need
 to store more data, then you can create additional storage accounts.
 Within a storage account, you can store data in Blobs and Tables. A
-storage account can also contain Queues (for more information see [How to Use the Queue Storage Service][]). Here is a brief description for
+storage account can also contain Queues. Here is a brief description for
 Blobs and Tables (they are described in more detail in the following
 sections):
 
@@ -770,7 +770,7 @@ files).<a id="Ref" name="Ref"></a>
   [References]: #references
   [img0]: ../../../DevCenter/Shared/Media/data-storage-offerings-3.jpg
   [Windows Azure Pricing]: ../../../../pricing/calculator/
-  [How to Use the Queue Storage Service]: ../../how-to-guides/queue-service/
+
   [HTTP(S) REST APIs]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355.aspx
   [Windows Azure website]: {localLink:1123} "Downloads"
   [img1]: ../../../DevCenter/Shared/Media/data-storage-offerings-4.jpg
@@ -778,9 +778,9 @@ files).<a id="Ref" name="Ref"></a>
   [Windows Azure Tables]: #_Tables
   [img3]: ../../../DevCenter/Shared/Media/data-storage-offerings-5.jpg
   [calculator]: http://www.windowsazure.com/en-us/pricing/calculator/
-  [Windows Azure Storage]: ../../../../home/features/storage/
+  [Windows Azure Storage]: ../../../../home/features/data-management/
   [Windows Azure Storage Services REST API Reference]: http://msdn.microsoft.com/en-us/library/dd179355.aspx
-  [Windows Azure Content Delivery Network (CDN)]: ../../../../home/features/cdn/
+  [Windows Azure Content Delivery Network (CDN)]: ../../../../home/features/caching/
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Comparing SQL Server with SQL Database]: http://social.technet.microsoft.com/wiki/contents/articles/compare-sql-server-with-sql-azure.aspx
   [SQL Database MSDN library]: http://msdn.microsoft.com/en-us/library/windowsazure/gg619386.aspx

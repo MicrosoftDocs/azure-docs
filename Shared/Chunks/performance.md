@@ -89,9 +89,9 @@ For more discussion of Table Storage, see:
 
 #### Data Partitioning ####
 
-One of the most frequently partitioned resources is data. If you are creating a Windows Azure Cloud Service, then you should consider the use of SQL Database’s built-in sharding available via Federations. Be sure to build a proof of concept to determine that Federations provides the needed partitioning for your application. 
+One of the most frequently partitioned resources is data. If you are creating a Windows Azure Cloud Service, then you should consider the use of SQL Database’s built-in sharding available via Federations. 
 
-If SQL Database Federations does not meet your scalability requirements, there are numerous examples of “do-it-yourself” partitioning that you can consider adopting. 
+Be sure to build a proof of concept to determine that Federations provides the needed partitioning for your application. If SQL Database Federations does not meet your scalability requirements, there are numerous examples of “do-it-yourself” partitioning that you can research. 
 
 ##### Federations Limitations and Scalability Tradeoffs #####
 
@@ -313,12 +313,10 @@ Capacity planning is an entire specialty of its own, and this paper assumes that
 
 ## Performance Monitoring and Tuning at Runtime ##
 
-Even the most careful design cannot guarantee zero performance problems at run-time, so it is necessary to monitor application performance on an on-going basis, to verify that it is achieving the required performance metrics, and to 
-
-correct situations in which it fails to achieve those metrics. Even well designed applications are subject to unanticipated events such as exponential growth in usage or possible changes to the run-time environment, which can result in performance problems where tuning is required. Often identifying and resolving bottlenecks is a significant part of the process. 
+Even the most careful design cannot guarantee zero performance problems at run-time, so it is necessary to monitor application performance on an on-going basis, to verify that it is achieving the required performance metrics, and to correct situations in which it fails to achieve those metrics. Even well designed applications are subject to unanticipated events such as exponential growth in usage or possible changes to the run-time environment, which can result in performance problems where tuning is required. Often identifying and resolving bottlenecks is a significant part of the process. 
 
 
-Being able to trouble shoot performance problems at runtime requires up-front work to build in logging and proper exception handling, so that trouble-shooting can be done whenever problems may arise. For a comprehensive treatment of this area, see [Troubleshooting Best Practices for Developing Windows Azure Applicaitons](http://go.microsoft.com/fwlink/?LinkID=252876). 
+Being able to trouble shoot performance problems at runtime requires up-front work to build in logging and proper exception handling, so that trouble-shooting can be done whenever problems may arise. For a comprehensive treatment of this area, see [Troubleshooting Best Practices for Developing Windows Azure Applications](http://go.microsoft.com/fwlink/?LinkID=252876). 
 
 There are tools available for monitoring the on-going performance of every Windows Azure service. In addition logging facilities should be built into applications that provide detailed information needed for trouble-shooting and resolving performance issues. 
 

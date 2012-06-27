@@ -1,12 +1,13 @@
 <properties linkid="dev-nodejs-website-webmatrix" urldisplayname="Node.js Website with WebMatrix" headerexpose="" pagetitle="Node.js Application using a WebMatrix" metakeywords="Azure Node.js tutorial WebMatrix, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates creating and deploying a Node.js application using WebMatrix" umbraconavihide="0" disquscomments="1"></properties>
 #Create and deploy a Node.js application to a Windows Azure Web Site using WebMatrix
 
-This tutorial shows you how to use WebMatrix to develop and deploy a node application to a Windows Azure Web Site. WebMatrix is a free web development tool from Microsoft that includes everything you need for web site development. WebMatrix supports node and includes code completion for node development.
+This tutorial shows you how to use WebMatrix to develop and deploy a Node.js application to a Windows Azure Website. WebMatrix is a free web development tool from Microsoft that includes everything you need for website development. WebMatrix includes several features that make it easy to use Node.js including code completion, pre-built templates, and editor support for Jade, LESS, and CoffeeScript. Learn more about [WebMatrix for Windows Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409).
 
 Upon completing this guide, you will have a node web site running in Windows Azure.
  
 You will learn:
 
+* How to create a web site from the Windows Azure Portal.
 * How to develop a node application using WebMatrix.
 * How to publish and re-publish your application to Windows Azure using WebMatrix.
  
@@ -42,100 +43,86 @@ Follow these steps to create a Windows Azure Web Site.
 
     ![The Quick Create dialog][portal-quick-create]
 
+4. Once the web site is created, the portal will display all the web sites associated with your subscription. Verify that the web site you just created has a **Status** of **Running** and then click the web site name to view the **Dashboard** for this web site.
 
-##Install WebMatrix
+##Import the web site into WebMatrix and apply the Express template
 
-You can install WebMatrix from the [Windows Azure Portal]. From your web site's dashboard, click **QUICKSTART** near the top of the page, then click **Install WebMatrix**.
+1. From the **Dashboard**, click the WebMatrix icon at the bottom of the page to open the web site in WebMatrix 2.
 
-![Install WebMatrix][install-webmatrix]
+	![Launch WebMatrix][launch-webmatrix]
 
-Run the downloaded .exe file. This will install the Microsoft Web Platform Installer, launch it, and select WebMatrix for installation. Follow the prompts to complete the installation.
+2. If WebMatrix 2 is not installed, Web Platform Installer 4.0 will install Microsoft WebMatrix 2 and all necessary prerequisites. WebMatrix will launch and display a dialog indicating **Empty Site Detected**. Click **Yes, install from the Template Gallery** to select a built-in template.
 
-##Develop Your Application
+	![empty site detected][empty-site-detected]
 
-In the next few steps you will develop the application by selecting and modifying a template. You could, however, add your own existing files or create new files.
+3. In the **Site from Template** dialog, select **Node** and then select **Express Site**. Finally, click **Next**. If you are missing any prerequisites for the **Express Site** template, you will be prompted to install them.
 
-1. Launch WebMatrix by clicking the Windows **Start** button, then click **All Programs>Microsoft Web Matrix>Microsoft WebMatrix**:
+	![select express template][webmatrix-templates]
 
-	![Launch Webmatrix][launch-webmatrix]
+4. After WebMatrix finishes building the web site, the WebMatrix IDE is displayed.
 
-2. Create a new project by clicking **Templates**, then **Node** (in the left pane), and then **Express Site**. Finally, click **Next**.
+	![webmatrix ide][webmatrix-ide]
 
-	![templates][webmatrix-templates]
+##Publish your application to Windows Azure
 
-	![express site][webmatrix-node-express]
-
-3. In the lower left corner, click **Files**, then expand the **views** folder.
-
-	![files navigation][webmatrix-node-files]
-
-4. In the **views** folder, double-click **index.jade**. When the file opens, change line two to the following:
-
-		p Welcome to {#title} with WebMatrix!
-
-7. Now you can test the application locally. In the ribbon, click **Run**. 
-
-	![run icon][webmatrix-run-icon]
-
-	The browser should open and display 'Welcome to Express created with WebMatrix'.
-
-
-##Publish Your Application
-
-1. Return to the [Windows Azure Portal] and navigate to your web site's **Dashboard**. Click the **Download publish profile** link at the bottom right corner of the page:
-
-	![Download publish profile][download-publish-profile]
-
-	Make note of where you save this file.
-
-3. In WebMatrix, click the **Publish** icon on the ribbon.
-
-	![publish icon][webmatrix-publishicon]
-
-4. In the dialog box that opens, click **Import publish settings**.
-
-	![import publish settings][webmatrix-import-settings]
-
-	Navigate to the `.publishsettings` file that you saved in the previous step, import it, and click **Save**. You will be asked to allow WebMatrix to upload files to your site for compatibility testing. Choose to allow WebMatrix to do this.
-
-5. Click **Continue** on the **Publish Compatibility** dialog.
-
-	![publish compatibility][webmatrix-node-compatibility]
-
-6. Click **Continue** on the **Publish Preview** dialog.
+1. In WebMatrix, click **Publish** from the **Home** ribbon to display the **Publish Preview** dialog box for the web site.
 
 	![publish preview][webmatrix-node-publishpreview]
 
-	When the publishing is complete, you will see **Publishing - Complete** at the bottom of the WebMatirx screen.
+2. Click **Continue**. When publishing is complete, the URL for the web site on Windows Azure is displayed at the bottom of the WebMatrix IDE
 
-7. Navigate to http://[your web site name].azurewebsites.net/ view begin using your web site.
-	
-##Modify and Republish Your Application
+	![publish complete][webmatrix-publish-complete]
+
+3. Click the link to open the web site in your browser.
+
+	![Express website][webmatrix-node-express-site]
+
+##Modify and republish your application
 
 You can easily modify and republish your application. Here, you will make a simple change to the heading in in the **index.jade** file, and republish the application.
 
-1. Open the **index.jade** file by double-clicking it.
+1. In WebMatrix, select **Files**, and then expend the **views** folder. Open the **index.jade** file by double-clicking it.
+
+	![webmatrix viewing index.jade][webmatrix-modify-index]
 
 2. Change the second line to the following:
 
 		p Welcome to #{title} with WebMatrix on Windows Azure!
 
-3. Click the **Publish** icon, and then click **Continue** in the **Publish Preview** dialog.
+3. Click the save icon, and then click the publish icon.
 
-4. When publishing has completed, navigate to http://[your web site name].azurewebsites.net/ to see the published changes.
+	![save and publish][webmatrix-publishicon]
 
-##Additional resources
+3. Click **Continue** in the **Publish Preview** dialog and wait for the update to be published.
 
-[Publishing a Windows Azure Web site using Git]
+	![publish preview][webmatrix-republish]
+
+4. When publishing has completed, use the link returned when the publish process is complete to see the updated site.
+
+	![Windows Azure node Website][webmatrix-node-completed]
+
+
+# Next Steps
+
+You've seen how to create and deploy a web site from WebMatrix to Windows Azure. To learn more about WebMatrix, check out these resources:
+
+* [WebMatrix for Windows Azure]
+* [WebMatrix website]
+* [Publishing a Windows Azure Web site using Git]
+
+
 
 [Windows Azure Portal]: http://manage.windowsazure.com
+[WebMatrix WebSite]: http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398
+[WebMatrix for Windows Azure]: http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409
+
 [Publishing a Windows Azure Web site using Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
 [for free]: /en-us/pricing/free-trial
 [webmatrix-node-completed]: ../Media/webmatrix-node-complete.png
 [install-webmatrix]: ../../Shared/Media/install_webmatrix_from_site_dashboard.png
-[launch-webmatrix]: ../../Shared/Media/launch-webmatrix.png
-
-[webmatrix-templates]: ../../Shared/Media/webmatrix-templates.png
+[launch-webmatrix]: ../Media/webmatrix-launch-webmatrix.png
+[empty-site-detected]: ../Media/webmatrix-download-site.png
+[webmatrix-templates]: ../Media/webmatrix-templates.png
 [webmatrix-node-express]: ../Media/webmatrix-node-express-template.png
 [webmatrix-node-files]: ../Media/webmatrixnodefiles.png
 [download-publish-profile]: ../../Shared/Media/download-publishing-profile.png
@@ -146,3 +133,9 @@ You can easily modify and republish your application. Here, you will make a simp
 [webmatrix-node-publishpreview]: ../Media/webmatrix-publishpreview.png
 [portal-new-website]: ../../Shared/Media/plus-new.png
 [portal-quick-create]: ../../Shared/Media/create-quick-website.png
+[howtodownloadsite]: ../../../Shared/media/howtodownloadsite.png
+[webmatrix-ide]: ../media/webmatrix-ide.png
+[webmatrix-publish-complete]: ../media/webmatrix-publish-complete.png
+[webmatrix-node-express-site]: ../media/webmatrix-express-webiste.png
+[webmatrix-modify-index]: ../media/webmatrix-node-edit.png
+[webmatrix-republish]: ../media/webmatrix-republish.png

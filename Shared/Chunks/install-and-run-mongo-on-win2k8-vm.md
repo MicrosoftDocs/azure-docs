@@ -1,3 +1,10 @@
+Follow these steps to install and run MongoDB on a virtual machine running Windows Server 2008 R2.
+
+<div class="dev-callout">
+<b>Warning</b>
+<p>MongoDB security features, such as authentication and IP address binding, are not enabled by default. Security features should be enabled before deploying MongoDB to a production environment.  See <a href="http://www.mongodb.org/display/DOCS/Security+and+Authentication">Security and Authentication</a> for more information.</p>
+</div>
+
 1. After you've connected to the virtual machine using Remote Desktop, open Internet Explorer from the **Start** menu.
 2. Select the **Tools** button in the upper right corner.  In **Internet Options**, select the **Security** tab, and then select the **Trusted Sites** icon, and finally click the **Sites** button. Add *http://\*.mongodb.org* to the list of trusted sites.
 3. Go to [Downloads- MongoDB] [MongoDownloads].
@@ -35,9 +42,9 @@
 	The database is created by the insert.
 9. (Optional) mongod.exe has support for installing and running as a Windows service. To install mongod.exe as a service, run the following from the command prompt:
 
-	C:\mongodb\bin>mongod --logpath "c:\mongodb\logs\logfile.log" --logappend --dbpath "c:\data" --install 
+		C:\mongodb\bin>mongod --logpath "c:\mongodb\logs\logfile.log" --logappend --dbpath "c:\data" --install 
 
-	This creates a service named "Mongo DB" with a description of "Mongo DB". The --logpath option must be used to specify a log file, since the running service will not have a command window to display output.  The --logappend option specifies that a restart of the service will cause output to append to the existing log file.  The --dbpath option specifies the location of the data directory. For more service-related command line options, see [Service-related command line options] [MongoWindowsSvcOptions].
+	This creates a service named "Mongo DB" with a description of "Mongo DB". The **--logpath** option must be used to specify a log file, since the running service will not have a command window to display output.  The **--logpath** option specifies that a restart of the service will cause output to append to the existing log file.  The **--dbpath** option specifies the location of the data directory. For more service-related command line options, see [Service-related command line options] [MongoWindowsSvcOptions].
 10. Now that MongoDB is installed and running you must open a port in Windows Firewall in order to remotely connect to MongoDB.  From the **Start** menu, select **Administrator Tools** and then **Windows Firewall with Advanced Security**. 
 11. In the left pane, select **Inbound Rules**.  In the **Actions** pane on the right, select **New Rule...**.
 	![Windows Firewall][Image1]

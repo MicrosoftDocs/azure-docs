@@ -299,5 +299,5 @@ to learn how to do more complex storage tasks.
     Azure]
 -   Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
 
-[Windows Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/java-home/download-the-windows-azure-sdk-for-java/
+[Windows Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
 [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx

@@ -51,7 +51,7 @@ describe how to implement them.
 ##In this Document
 
 * [Best Practices for Troubleshooting in Windows Azure](#BestPractices)
-* [Windows Azure Websites](#Websites)
+* [Windows Azure Web Sites](#Websites)
 * [Windows Azure Cloud Services](#CloudServices)
 * [Windows Azure Virtual Machines](#Vms)
 * [Windows Azure Services](#PlatformServices)
@@ -171,7 +171,7 @@ one of these development platforms on Windows Azure, use the equivalent
 strategy and tools for the language or the platform you are using.
 
 Mixed mode applications are applications executing in a combination of
-Windows Azure Virtual Machines, Websites, and Cloud Services. When
+Windows Azure Virtual Machines, Web Sites, and Cloud Services. When
 building applications of this type, tracing and logging become even more
 important because they are more widely distributed. To troubleshoot
 these mixed-mode applications the overall data and execution flow must
@@ -347,37 +347,37 @@ string to:
 
 ##Troubleshooting and the Windows Azure Hosting Models##
 This section discusses best practices for debugging applications using the different Windows Azure hosting models.
-<h2 id="Websites">Windows Azure Websites</h2>
+<h2 id="Websites">Windows Azure Web Sites</h2>
 
-When designing a supportable Windows Azure website, follow the
+When designing a supportable Windows Azure web site, follow the
 recommendations made earlier in this document when possible. This
 includes checking for and handling errors, applying transient fault
 retry logic, tracing, and logging. Troubleshooting Windows Azure
-websites is accomplished by configuring websites to display application
-errors, configuring diagnostics for a website, collecting diagnostic
+web sites is accomplished by configuring web sites to display application
+errors, configuring diagnostics for a web site, collecting diagnostic
 data and then analyzing the collected data to identify and resolve
 problems.
 
-Windows Azure websites enable configuration of the following diagnostic
+Windows Azure web sites enable configuration of the following diagnostic
 options:
 
 -   Web Server Logging
 -   Detailed Error Messages
 -   Failed Request Tracing
 
-For more information on these topics see: [Troubleshooting a Windows Azure website].
+For more information on these topics see: [Troubleshooting a Windows Azure web site].
 
-When web server logs for Windows Azure websites are enabled, the website
+When web server logs for Windows Azure web sites are enabled, the web site
 will record all HTTP transactions into a log file using the [W3C extended log file format]. You can then use [Log Parser] to query the log file. Some
 example log parser queries are available on [Log Parser Plus] and [TechNet
 Log Parser Examples]. If you want to generate the CHART output type on a
 computer that is running Office 2007/2010, install [Office 2003 Web
 Components] following the instructions on [Log Parser Plus](http://logparserplus.com/article/2).
 
-Windows Azure websites uses the same failed request tracing
+Windows Azure web sites uses the same failed request tracing
 functionality that has been available with IIS 7.0 and later. It is not,
 however, configurable like IIS failed request tracing. When you enable
-failed request tracing for Windows Azure websites, **all** failed
+failed request tracing for Windows Azure web sites, **all** failed
 requests are captured. For more information on how to view failed
 request logs see: [View the results of failed request tracing].
 
@@ -731,7 +731,7 @@ SQL Data Sync enables you to easily create and schedule
 bi-directional synchronizations from within the Data Sync web site
 without the need to write a single line of code. You can find more
 information here:
-http://msdn.microsoft.com/en-us/library/windowsazure/hh456371.aspx.
+[http://msdn.microsoft.com/en-us/library/windowsazure/hh456371.aspx].
 
 For more information on SQL Database backup and Restore strategies see the
 following articles:
@@ -752,18 +752,18 @@ following articles:
     by SQL Database:
     [http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx]
 
-<h2 id="Cache">Windows Azure Cache Services</h2>
-Windows Azure Caching comes in two flavors: the Windows Azure Caching service, and Windows Azure Dedicated Caching (Preview Release). The Windows Azure Caching service is a Windows Azure service that provides caching services. Windows Azure Dedicated Caching (Preview Release) provides caching on role instances by using a portion of the memory from the virtual machines that host your role instances. To troubleshooting Windows Azure Cache Services, observe the behavior of the cache by checking error codes, catching exceptions, or when using Windows Azure Dedicating Cachine, performance counters. Caching problems generally fall into one of the following categories:
+<h2 id="Cache">Windows Azure Caching</h2>
+Windows Azure Caching comes in two flavors: the Windows Azure Shared Caching and role-based Windows Azure Caching (Preview). Shared Caching is a multitenent Windows Azure service that provides caching services. Windows Azure Caching (Preview) hosts caching on a role by using a portion of the memory from the virtual machines that host your role instances. To troubleshoot Windows Azure Caching, observe the behavior of the cache by checking error codes and catching exceptions. When using role-based Cachineg(Preview),you can also use performance counters. Caching problems generally fall into one of the following categories:
 
-- 	Quota-related errors - a quota has been exceeded
+- 	Quota-related errors - a quota has been exceeded (Shared Caching)
 - 	Throttling - occurs when there is not enough physical memory to support additional cached items
 - 	Eviction - items are forcibly evicted to make room for new items in a way that hurts application performance
 - 	Expiration - expiration times are set too short or long
 
-For more information on quota-related errors, see [Understanding Quotas] and [Troubleshooting Cache].
+For more information on quota-related errors, see [Understanding Quotas].
 
 
-
+[http://msdn.microsoft.com/en-us/library/windowsazure/hh456371.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/hh456371.aspx
 [https://www.windowsazure.com/en-us/develop/overview/]: https://www.windowsazure.com/en-us/develop/overview/
 [http://social.technet.microsoft.com/wiki/contents/articles/1792.sql-azure-backup-and-restore-strategy.aspx]: http://social.technet.microsoft.com/wiki/contents/articles/1792.sql-azure-backup-and-restore-strategy.aspx
 [http://msdn.microsoft.com/en-us/library/windowsazure/ff951631.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/ff951631.aspx
@@ -780,7 +780,7 @@ For more information on quota-related errors, see [Understanding Quotas] and [Tr
 [http://msdn.microsoft.com/en-us/library/windowsazure/dd179382.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179382.aspx
 [https://help.ubuntu.com/]: https://help.ubuntu.com/
 [http://centos.org/]: http://centos.org/
-[http://wappowershell.codeplex.com/documentation]: 	[http://wappowershell.codeplex.com/documentation
+[http://wappowershell.codeplex.com/documentation]: 	http://wappowershell.codeplex.com/documentation
 [http://www.cerebrata.com]: http://www.cerebrata.com
 
 [Monitoring Pack]: http://www.microsoft.com/download/en/details.aspx?id=11324
@@ -795,7 +795,7 @@ For more information on quota-related errors, see [Understanding Quotas] and [Tr
 [AlertBot]: http://www.alertbot.com/products/website-monitoring/default.aspx
 [performance tool test]: http://speedtest.noam.microsoftonline.com/
 [Azure Statistics]: http://latency.cloudapp.net/Default.aspx
-[AzureCheck]: http://www.apicasystem.com/products/azurecheck.aspx
+[AzureCheck]: http://www.apicasystem.com/monitoring/what-we-monitor/apica-azurecheck.aspx
 [startup task]: http://msdn.microsoft.com/en-us/library/gg456327.aspx
 [AVIcode]: http://www.microsoft.com/en-us/server-cloud/system-center/avicode.aspx
 [profile]: http://msdn.microsoft.com/en-us/library/windowsazure/hh369930.aspx
@@ -805,7 +805,7 @@ For more information on quota-related errors, see [Understanding Quotas] and [Tr
 [IntelliTrace]: http://msdn.microsoft.com/en-us/library/dd264915.aspx
 [IntelliTrace to debug Windows Azure Cloud Services]: http://blogs.msdn.com/b/jnak/archive/2010/06/07/using-intellitrace-to-debug-windows-azure-cloud-services.aspx
 [Fiddler]: http://www.fiddler2.com/fiddler2/
-[Troubleshooting a Windows Azure website]: http://diagnostics.antdf0.antares-test.windows-int.net/
+[Troubleshooting a Windows Azure web site]: ../troubleshooting-web-sites/
 [W3C extended log file format]: http://go.microsoft.com/fwlink/?LinkID=90561
 [Log Parser]: http://go.microsoft.com/fwlink/?LinkId=246619
 [Log Parser Plus]: http://logparserplus.com/Examples
@@ -814,7 +814,7 @@ For more information on quota-related errors, see [Understanding Quotas] and [Tr
 [View the results of failed request tracing]: http://diagnostics.antdf0.antares-test.windows-int.net/#failedrequests
 [CodePlex]: http://wappowershell.codeplex.com/
 [blog]: http://michaelwasham.com/2012/01/16/windows-azure-powershell-cmdlets-2-2-released/
-[How to: Debug Windows Service Applications]: http://msdn.microsoft.com/en-us/library/7a50syb3%28v=vs.90%29.aspx
+[How to: Debug Windows Service Applications]: http://msdn.microsoft.com/en-us/library/7a50syb3%28v=vs.90%29.aspx
 [Daniel Pearson's presentation Windows Debugging and Troubleshooting]: http://technet.microsoft.com/en-us/edge/Video/hh867800
 [Suse Linux documentation]: https://secure-www.suse.com/documentation/sles11/
 [list of storage explorers]: http://blogs.msdn.com/b/windowsazurestorage/archive/2010/04/17/windows-azure-storage-explorers.aspx
@@ -831,7 +831,7 @@ For more information on quota-related errors, see [Understanding Quotas] and [Tr
 [Azure Health Status]: http://go.microsoft.com/fwlink/p/?LinkId=168847
 [SQL Database Connectivity Troubleshooting Guide]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-connectivity-troubleshooting-guide.aspx
 [Troubleshooting SQL Database]: http://msdn.microsoft.com/en-us/library/ee730906.aspx
-[Troubleshooting Queries]: http://go.microsoft.com/fwlink/p/?LinkId=166623
+[Troubleshooting Queries]: http://msdn.microsoft.com/en-us/library/ms186351(SQL.100).aspx
 [Troubleshoot and Optimize Queries with SQL Database]: http://social.technet.microsoft.com/wiki/contents/articles/1104.troubleshoot-and-optimize-queries-with-sql-azure.aspx
 [SQL Database Performance Considerations and Troubleshooting]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2011/DBI314
 [Improving Your I/O Performance]: http://blogs.msdn.com/b/sqlazure/archive/2010/07/27/10043069.aspx?PageIndex=2#comments
@@ -846,3 +846,4 @@ For more information on quota-related errors, see [Understanding Quotas] and [Tr
 [diagnostics-diagram]: ../Media/diagnosticsdiagram.png
 [Understanding Quotas]: http://msdn.microsoft.com/en-us/library/gg185683.aspx
 [Troubleshooting Cache]: http://go.microsoft.com/fwlink/?LinkId=252730 
+[Windows Azure PowerShell Cmdlets]: http://wappowershell.codeplex.com/documentation

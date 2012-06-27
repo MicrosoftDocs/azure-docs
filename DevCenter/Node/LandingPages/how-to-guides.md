@@ -20,6 +20,10 @@ Tables offer NoSQL capabilities for applications that require storage of large a
 ### [Queue Service]
 Windows Azure Queues store large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. Common uses of Queue storage include creating a backlog of work to process asynchronously, and passing messages from a Windows Azure Web role to a Windows Azure Worker role.
 
+### [SQL Database]
+
+For applications that need a full featured relational database-as-a-service, Windows Azure offers SQL Database, formerly known as SQL Azure Database. SQL Database offers a high-level of interoperability, enabling customers to build applications using many of the major development frameworks.
+
 ### [Service Bus Queues]
 Service Bus Queues offer simple first in, first out guaranteed message delivery and support a range of standard protocols (REST, AMQP, WS*) and APIs to put and pull messages on and off a queue.
 
@@ -38,7 +42,7 @@ Windows Azure applications can use SendGrid to include email functionality.  Sen
 [Blob Service]: /en-us/develop/nodejs/how-to-guides/blob-storage/
 [Service Bus Queues]: /en-us/develop/nodejs/how-to-guides/service-bus-queues/
 [Service Bus Topics]: /en-us/develop/nodejs/how-to-guides/service-bus-topics/
-[Service Bus Relay]: /en-us/develop/nodejs/how-to-guides/service-bus-relay/
 [Queue Service]: /en-us/develop/nodejs/how-to-guides/queue-service/
 [Table Service]: /en-us/develop/nodejs/how-to-guides/table-services/
 [SendGrid Email Service]: /en-us/develop/nodejs/how-to-guides/sendgrid-email-service/
+[SQL Database]: /en-us/develop/nodejs/how-to-guides/sql-database/

@@ -69,95 +69,40 @@ can help you get started:
     <table border="1" cellspacing="4" cellpadding="4">
     <tbody>
     <tr align="left" valign="top">
-    <td>
-    <b>Cmdlet Format</b>
-
-    </td>
-    <td>
-    <b>Information Returned</b>
-
-    </td>
+		<td><b>Cmdlet Format</b></td>
+		<td><b>Information Returned</b></td>
     </tr>
     <tr align="left" valign="top">
-    <td>
-    help
-
-    </td>
-    <td>
-    Displays a help topic about using the <b>help</b> cmdlet
-
-    </td>
+		<td>help</td>
+		<td>Displays a help topic about using the <b>help</b> cmdlet</td>
     </tr>
     <tr align="left" valign="top">
-    <td>
-    help azure
-
-    </td>
-    <td>
-    Lists all cmdlets in the Windows Azure PowerShell snap-in
-
-    </td>
-    </tr>
-	</tr>
-    <tr align="left" valign="top">
-    <td>
-    help node-dev
-
-    </td>
-    <td>
-    Lists cmdlets for developing and managing Node.js applications
-
-    </td>
+		<td>help azure</td>
+		<td>Lists all cmdlets in the Windows Azure PowerShell snap-in</td>
     </tr>
 	<tr align="left" valign="top">
-    <td>
-    help php-dev
-
-    </td>
-    <td>
-    Lists cmdlets for developing and managing PHP applications
-
-    </td>
+		<td>help node-dev</td>
+		<td>Lists cmdlets for developing and managing Node.js applications</td>
+    </tr>
+	<tr align="left" valign="top">
+		<td>help php-dev</td>
+		<td>Lists cmdlets for developing and managing PHP applications</td>
     </tr>
     <tr align="left" valign="top">
-    <td>
-    help &lt;<b>cmdlet</b>&gt;
-
-    </td>
-    <td>
-    Displays help about a Windows PowerShell cmdlet
-
-    </td>
+		<td>help &lt;<b>cmdlet</b>&gt;</td>
+		<td>Displays help about a Windows PowerShell cmdlet</td>
     </tr>
     <tr align="left" valign="top">
-    <td>
-    help &lt;<b>cmdlet</b>&gt; -parameter *
-
-    </td>
-    <td>
-    Displays parameter definitions for a cmdlet
-
-    </td>
+		<td>help &lt;<b>cmdlet</b>&gt; -parameter *</td>
+		<td>Displays parameter definitions for a cmdlet</td>
     </tr>
     <tr align="left" valign="top">
-    <td>
-    help &lt;<b>cmdlet</b>&gt; -examples
-
-    </td>
-    <td>
-    Displays example syntax lines for a cmdlet
-
-    </td>
+		<td>help &lt;<b>cmdlet</b>&gt; -examples</td>
+		<td> Displays example syntax lines for a cmdlet</td>
     </tr>
     <tr align="left" valign="top">
-    <td>
-    help &lt;<b>cmdlet</b>&gt; -full
-
-    </td>
-    <td>
-    Displays technical requirements for a cmdlet
-
-    </td>
+		<td>help &lt;<b>cmdlet</b>&gt; -full</td>
+		<td>Displays technical requirements for a cmdlet</td>
     </tr>
     </tbody>
     </table>
@@ -361,63 +306,28 @@ deployed using the following settings:
 <table border="1" cellspacing="4" cellpadding="4">
 <tbody>
 <tr align="left" valign="top">
-<td valign="bottom">
-<b>Setting</b>
-
-</td>
-<td valign="bottom">
-<b>Default Value</b>
-
-</td>
+	<td valign="bottom"><b>Setting</b></td>
+	<td valign="bottom"><b>Default Value</b></td>
 </tr>
 <tr align="left" valign="top">
-<td>
-Location
-
-</td>
-<td>
-Randomly assigns the service to either South Central US or North Central
-US.
-
-</td>
+	<td>Location</td>
+	<td>Randomly assigns the service to either South Central US or North Central US.</td>
 </tr>
 <tr align="left" valign="top">
-<td>
-Slot
-
-</td>
-<td>
-Deploys the service to a production slot.
-
-</td>
+	<td>Slot</td>
+	<td>Deploys the service to a production slot.</td>
 </tr>
 <tr align="left" valign="top">
-<td>
-Subscription
-
-</td>
-<td>
-Uses the first subscription in your publishing profile. If you are an
-administrator for more than one subscription, you should specify a
-subscription to ensure that the intended subscription is used.
-
-</td>
+	<td>Subscription</td>
+	<td>Uses the first subscription in your publishing profile. If you are an administrator for more than one subscription, you should specify a subscription to ensure that the intended subscription is used.</td>
 </tr>
 <tr align="left" valign="top">
-<td>
-Storage account
-
-</td>
-<td>
-Creates a new storage account that has the same name as the service, If
-the name has been used for a storage account for any other subscription,
-the deployment fails. In that case, you must specify a storage account
-to use for the service.
-
-</td>
+	<td>Storage account</td>
+	<td>Creates a new storage account that has the same name as the service, If the name has been used for a storage account for any other subscription, the deployment fails. In that case, you must specify a storage account to use for the service.</td>
 </tr>
 </tbody>
 </table>
+
 In the following example, the default deployment location for the
 MyService service is set to Southeast Asia:
 
