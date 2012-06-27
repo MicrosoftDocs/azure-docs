@@ -5,7 +5,7 @@
 This guide will demonstrate how to perform common scenarios using the
 Windows Azure Blob storage service. The samples are written in C\# and
 use the .NET API. The scenarios covered include
-**uploading**,**listing**, **downloading**, and **deleting** blobs. For
+**uploading** ,**listing**, **downloading**, and **deleting** blobs. For
 more information on blobs, see the [Next Steps][] section.
 
 ## Table of Contents
@@ -76,7 +76,7 @@ configuration:
 
 6.  Change the entry **Name** from **Setting1** to a "friendlier" name
     like **StorageConnectionString**. You will reference this
-    connectionstring later in the code in this guide.  
+    connection string later in the code in this guide.  
     ![Blob9][]
 	
 ### Configuring your connection string when using Web Sites or Virtual Machines
@@ -102,7 +102,8 @@ in which you wish to programmatically access Windows Azure Storage:
     using Microsoft.WindowsAzure;
     using Microsoft.WindowsAzure.StorageClient;
 
-You can use the **CloudStorageAccount** type and **RoleEnvironment**type
+You can use the **CloudStorageAccount** type and
+**CloudConfigurationManager** type
 to retrieve your storage connection-string and storage account
 information from the Windows Azure service configuration:
 
@@ -178,7 +179,7 @@ that the container was already created.
 ## <a name="list-blob"> </a>How to List the Blobs in a Container
 
 To list the blobs in a container, first get a container reference. You
-can then use the container's**ListBlobs**method to retrieve the blobs
+can then use the container's **ListBlobs** method to retrieve the blobs
 within it. The following code demonstrates how to retrieve and output
 the **Uri** of each blob in a container:
 
@@ -217,9 +218,9 @@ MSDN.
 ## <a name="download-blobs"> </a>How to Download Blobs
 
 To download blobs, first retrieve a blob reference. The following
-example uses the **DownloadToStream**method to transfer the blob
+example uses the **DownloadToStream** method to transfer the blob
 contents to a stream object that you can then persist to a local file.
-You could also call the blob's **DownloadToFile**,**DownloadByteArray**,
+You could also call the blob's **DownloadToFile**, **DownloadByteArray**,
 or **DownloadText** methods.
 
     // Retrieve storage account from connection-string

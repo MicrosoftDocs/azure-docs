@@ -54,7 +54,7 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 	![Use the captured image][Use the captured image]
 
 
-[How to Log on to a Virtual Machine Running Windows Server 2008 R2]:./log-on-a-windows-VM/
+[How to Log on to a Virtual Machine Running Windows Server 2008 R2]:../log-on-a-windows-VM/
 [How to Use Sysprep: An Introduction]:http://technet.microsoft.com/en-us/library/bb457073.aspx
 [Run Sysprep.exe]:../media/sysprepcommand.png
 [Enter Sysprep.exe options]:../media/sysprepgeneral.png

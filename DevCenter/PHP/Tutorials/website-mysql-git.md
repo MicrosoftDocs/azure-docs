@@ -88,7 +88,7 @@ To connect to the MySQL database that is running in Windows Azure Web Sites, you
 
 Now that you have created a Windows Azure Website, you can develop your application locally, then deploy it after testing. 
 
-The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a MySQL database. The application consists of one file:
+The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a MySQL database. The application consists of one file (copy/paste code available below):
 
 * **index.php**: Displays a form for registration and a table containing registrant information.
 
@@ -204,7 +204,7 @@ After you have tested your application locally, you can publish it to your Windo
 
 <div class="dev-callout">
 <b>Note</b>
-<p>These are the same steps shown in the portal at the end of the <b>Create a Windows Azure web site and Set up Git Publishing</b> section.</p>
+<p>These are the same steps shown in the portal at the end of the Create a Windows Azure web site and Set up Git Publishing section above.</p>
 </div>
 
 1. (Optional)  If you've forgotten or misplaced your Git remote repostitory URL, navigate to the Deployment tab on the portal.

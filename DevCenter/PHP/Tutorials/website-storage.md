@@ -21,9 +21,12 @@ You will build a simple Tasklist web application in PHP. A screenshot of the com
 To install the PHP Client Libraries for Windows Azure as a PEAR package, follow these steps:
 
 1. [Install PEAR][install-pear].
-2. Install the PEAR package:
+2. Set-up the Windows Azure PEAR channel:
 
-		pear install pear.windowsazure.com/WindowsAzure
+		pear channel-discover pear.windowsazure.com
+3. Install the PEAR package:
+
+		pear install pear.windowsazure.com/WindowsAzure-0.1.0
 
 After the installation completes, you can reference class libraries from your application.
 
@@ -396,7 +399,7 @@ To publish changes to application, follow these steps:
 3. Browse to **http://[your website domain]/index.php** to see your changes. 
 
 [install-php]: http://www.php.net/manual/en/install.php
-[install-pear]: http://pear.php.net/manual/en/installation.php
+[install-pear]: http://pear.php.net/manual/en/installation.getting.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
 [msdn-errors]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx

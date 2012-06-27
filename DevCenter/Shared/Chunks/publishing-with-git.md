@@ -2,7 +2,10 @@
 
 Git is a popular, open source, distributed version control system. Windows Azure Web Sites allow you to enable a Git repository for your site, which allows you to quickly and easily push code changes to your site. In this article, you will learn how to use Git to publish to a Windows Azure Web Site.
 
-**Note**: Many of the Git commands described in this article are performed automatically when creating a Web Site using the [Windows Azure Command-Line Tools for Mac and Linux].
+<div class="dev-callout">
+<strong>Note</strong>
+<p>Many of the Git commands described in this article are performed automatically when creating a Web Site using the <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure Command-Line Tools for Mac and Linux</a>.</p>
+</div>
 
 The task includes the following steps:
 
@@ -18,7 +21,10 @@ The task includes the following steps:
 
 The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distrubtions and installation guidance.
 
-**Note**: On some operating systems, both a command-line and GUI version of Git will are available. The instructions provided in this article use the command-line version.
+<div class="dev-callout">
+<strong>Note</strong>
+<p>On some operating systems, both a command-line and GUI version of Git will are available. The instructions provided in this article use the command-line version.</p>
+</div>
 
 
 <h2 id="Step2">Create a local repository</h2>
@@ -107,7 +113,10 @@ The **remote** command adds a named reference to a remote repository, in this ca
 		To http://username@needsmoregit.windowsauzre.net/NeedsMoreGit.git
 		* [new branch]		master -> master
 
-	**Note**: The repository created for your Windows Azure Website expects push requests to target the **master** branch of its repository, which will then be used as the content of the web site.
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>The repository created for your Windows Azure Website expects push requests to target the <strong>master</strong> branch of its repository, which will then be used as the content of the web site.</p>
+	</div>
 
 2. In the portal, click the **BROWSE** link at the bottom of the portal to verify that the **index.html** has been deployed. A page containing 'Hello Git!' will appear.
 
@@ -187,7 +196,7 @@ The following are errors or problems commonly encountered when using Git to publ
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [PowerShell for Windows Azure]: http://windowsazure.com
-[Windows Azure Command-Line Tools for Mac and Linux]: /DevCenter/Node/CommonTasks/crossplat-cmd-tools.md
+[Windows Azure Command-Line Tools for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Git Documentation]: http://git-scm.com/documentation
 
 [portal-select-website]: ../Media/git-select-website.png
