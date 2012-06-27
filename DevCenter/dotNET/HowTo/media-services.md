@@ -161,8 +161,10 @@ This section contains general prerequisites for Media Services development using
 -   A Windows Azure account with Media Services enabled. See the section [Setting Up a Windows Azure Account for Media Services][].
 -   Windows Azure SDK 1.6 (November 2011)
     - To install, open the [Web Platform Installer][]. On the **Products** tab select **All**, then find and install the **Windows Azure SDK 1.6 for Visual Studio 2010 (November 2011)**.
+    - You can optionally install Windows Azure SDK 1.7 (June 2012) on the same machine as Windows Azure SDK 1.6 (November 2011). 
     - For Windows 8 development, see [Installing the Windows Azure SDK on Windows 8][].
--   [Windows Azure Media Services SDK for .NET][] 
+-   [Windows Azure Media Services SDK for .NET][]
+    - Remove any previous versions of the Media Services SDK before installing the current release.
 -   [WCF Data Services 5.0 for OData v3][]
 
 
