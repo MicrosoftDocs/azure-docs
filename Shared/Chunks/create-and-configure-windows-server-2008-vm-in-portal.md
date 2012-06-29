@@ -1,3 +1,4 @@
+Follow these steps to create a virtual machine:
 
 1. Login to the [Windows Azure (Preview) Management Portal][AzurePreviewPortal] using your Windows Azure account.
 2. In the Management Portal, at the bottom left of the web page, click **+New**, click **Virtual Machine**, and then click **From Gallery**.
@@ -18,7 +19,7 @@
 5. On the **VM Mode** page, provide the following information:
 
 - Select **Standalone Virtual Machine**.
-- In the **DNS Name** box, type a valid DNS in the format **testwinvm.cloudapp.net**
+- In the **DNS Name** box, type a valid sub-domain in the format **testwinvm.cloudapp.net**
 - In the **Region/Affinity Group/Virtual Network** box, select a region where this virtual image will be hosted.
 
    Click the next arrow to continue.
