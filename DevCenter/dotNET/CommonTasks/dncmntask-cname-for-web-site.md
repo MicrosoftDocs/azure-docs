@@ -4,7 +4,7 @@ When you create a web site, Windows Azure provides a friendly subdomain on the a
 
 The procedueres in this task apply to Windows Azure web sites, for Cloud Services, see [Configuring a Custom Domain Name in Windows Azure][cloudservicedns].
 
-The steps in this task require you to . Because the Web Site feature is in preview and we are adding capacity on a measured basis, you may receive a "Not enough available reserved instance servers to satisfy this request." error. If you receive this error, you will need to try again later to perform this task.
+The steps in this task require you to configure your web sites for reserved mode. Because the Web Site feature is in preview and we are adding capacity on a measured basis, you may receive a "Not enough available reserved instance servers to satisfy this request." error. If you receive this error, you will need to try again later to perform this task.
 
 The task includes the following steps: 
 
