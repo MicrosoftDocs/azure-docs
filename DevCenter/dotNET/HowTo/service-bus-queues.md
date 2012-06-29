@@ -189,13 +189,15 @@ described in the previous section.
 
 ## <a name="create-queue"> </a>How to Create a Queue
 
-Management operations for Service Bus queues can be performed via the
-**NamespaceManager** class. The **NamespaceManager** class provides methods to create, enumerate, and delete queues. 
+You can perform management operations for Service Bus queues via the **NamespaceManager** class. The **NamespaceManager** class provides methods to create, enumerate, and delete queues. 
 
-In this example, a **NamespaceManager** object is constructed by using the Windows Azure **CloudConfigurationManager** class
-with a connection string consisting of the base address of a Service Bus namespace and the appropriate
-credentials with permissions to manage it. This connection string is of the form
-"Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=[issuerName];SharedSecretValue=[yourDefaultKey]"". For example, given the configuration settings in the previous section:
+This example constructs a **NamespaceManager** object using the Windows Azure **CloudConfigurationManager** class
+with a connection string consisting of the base address of a Service Bus service namespace and the appropriate
+credentials with permissions to manage it. This connection string is of the form 
+
+	Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=[issuerName];SharedSecretValue=[yourDefaultKey]
+
+For example, given the configuration settings in the previous section:
 
 	// Create the queue if it does not exist already
 	string connectionString = 
@@ -206,9 +208,8 @@ credentials with permissions to manage it. This connection string is of the form
         namespaceManager.CreateQueue("TestQueue");
     }
 
-There are overloads of the **CreateQueue** method that allow properties
-of the queue to be tuned (for example, to set the default
-"time-to-live" value to be applied to messages sent to the queue). These
+There are overloads of the **CreateQueue** method that enable you to tune properties
+of the queue (for example, to set the default "time-to-live" value to be applied to messages sent to the queue). These
 settings are applied by using the **QueueDescription** class. The
 following example shows how to create a queue named "TestQueue" with a
 maximum size of 5GB and a default message time-to-live of 1 minute:
@@ -233,20 +234,16 @@ a service namespace.
 
 ## <a name="send-messages"> </a>How to Send Messages to a Queue
 
-To send a message to a Service Bus queue, your application will create a
-**MessageSender** object. Similar to **NamespaceManager** objects, this object
-is created from the base URI of the service namespace and the
-appropriate credentials (the connection string).
+To send a message to a Service Bus queue, your application creates a
+**QueueClient** object using the connection string.
 
-The code below demonstrates how to create a **MessageSender** object
-for the "TestQueue" queue created above:
+The code below demonstrates how to create a **QueueClient** object
+for the "TestQueue" queue created above using the **CreateFromConnectionString** API call:
 
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-	namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
-
-    Client = QueueClient.CreateFromConnectionString(connectionString, "TestQueue");
+    QueueClient Client = QueueClient.CreateFromConnectionString(connectionString, "TestQueue");
 	Client.Send(new BrokeredMessage());
 
 Messages sent to (and received from) Service Bus queues are instances of
@@ -260,7 +257,7 @@ then be used to serialize the object. Alternatively, a
 **System.IO.Stream** can be provided.
 
 The following example demonstrates how to send five test messages to the
-"TestQueue" **MessageSender** obtained in the code snippet above:
+"TestQueue" **QueueClient** obtained in the code snippet above:
 
      for (int i=0; i<5; i++)
      {
@@ -272,7 +269,7 @@ The following example demonstrates how to send five test messages to the
        message.Properties["Message number"] = i;   
 
        // Send message to the queue
-       testQueue.Send(message);
+       Client.Send(message);
      }
 
 Service Bus queues support a maximum message size of 256 KB (the header,
@@ -285,7 +282,7 @@ upper limit of 5 GB.
 ## <a name="receive-messages"> </a>How to Receive Messages from a Queue
 
 The easiest way to receive messages from a queue is to use a
-**MessageReceiver** object. **MessageReceiver** objects can work in two
+**QueueClient** object. These objects can work in two
 different modes: **ReceiveAndDelete** and **PeekLock**.
 
 When using the **ReceiveAndDelete** mode, the receive is a single-shot
@@ -311,19 +308,14 @@ Bus sees the **Complete** call, it marks the message as being
 consumed and removes it from the queue.
 
 The example below demonstrates how messages can be received and
-processed using the default **PeekLock** mode. The example creates an infinite loop and processes messages as they arrive into the "TestQueue":
+processed using the default **PeekLock** mode. To specify a different **ReceiveMode** value, you can use another overload for **CreateFromConnectionString**. This example creates an infinite loop and processes messages as they arrive into the "TestQueue":
 
-	string connectionString = 
-	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-
-    namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
-
-    queueClient.Receive();
+    Client.Receive();
      
     // Continuously process messages sent to the "TestQueue" 
     while (true) 
     {  
-       BrokeredMessage message = QueueClient.Receive();
+       BrokeredMessage message = Client.Receive();
 
        if (message != null)
        {
