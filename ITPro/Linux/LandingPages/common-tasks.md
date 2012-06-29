@@ -33,3 +33,7 @@ Learn how to gain root privileges on your Linux virtual machine by uploading an 
 ###[Install software on your Linux virtual machine in Windows Azure](/en-us/manage/linux/common-tasks/install-software/)
 
 Learn how to install software using the package managers for some of the common Linux distributions. 
+
+###[Load Balancing Virtual Machines](/en-us/manage/linux/common-tasks/how-to-load-balance-virtual-machines/)
+
+Learn how to load balance virtual machines that are running Linux and that are in a cloud service. 
