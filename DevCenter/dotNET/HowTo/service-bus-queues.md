@@ -234,19 +234,15 @@ a service namespace.
 ## <a name="send-messages"> </a>How to Send Messages to a Queue
 
 To send a message to a Service Bus queue, your application will create a
-**MessageSender** object. Similar to **NamespaceManager** objects, this object
-is created from the base URI of the service namespace and the
-appropriate credentials (the connection string).
+**QueueClient** object using the connection string.
 
-The code below demonstrates how to create a **MessageSender** object
-for the "TestQueue" queue created above:
+The code below demonstrates how to create a **QueueClient** object
+for the "TestQueue" queue created above using the **CreateFromConnectionString** API call:
 
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-	namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
-
-    Client = QueueClient.CreateFromConnectionString(connectionString, "TestQueue");
+    QueueClient Client = QueueClient.CreateFromConnectionString(connectionString, "TestQueue");
 	Client.Send(new BrokeredMessage());
 
 Messages sent to (and received from) Service Bus queues are instances of
@@ -260,7 +256,7 @@ then be used to serialize the object. Alternatively, a
 **System.IO.Stream** can be provided.
 
 The following example demonstrates how to send five test messages to the
-"TestQueue" **MessageSender** obtained in the code snippet above:
+"TestQueue" **QueueClient** obtained in the code snippet above:
 
      for (int i=0; i<5; i++)
      {
@@ -272,7 +268,7 @@ The following example demonstrates how to send five test messages to the
        message.Properties["Message number"] = i;   
 
        // Send message to the queue
-       testQueue.Send(message);
+       Client.Send(message);
      }
 
 Service Bus queues support a maximum message size of 256 KB (the header,
@@ -285,7 +281,7 @@ upper limit of 5 GB.
 ## <a name="receive-messages"> </a>How to Receive Messages from a Queue
 
 The easiest way to receive messages from a queue is to use a
-**MessageReceiver** object. **MessageReceiver** objects can work in two
+**QueueClient** object. These objects can work in two
 different modes: **ReceiveAndDelete** and **PeekLock**.
 
 When using the **ReceiveAndDelete** mode, the receive is a single-shot
@@ -313,17 +309,12 @@ consumed and removes it from the queue.
 The example below demonstrates how messages can be received and
 processed using the default **PeekLock** mode. The example creates an infinite loop and processes messages as they arrive into the "TestQueue":
 
-	string connectionString = 
-	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-
-    namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
-
-    queueClient.Receive();
+    Client.Receive();
      
     // Continuously process messages sent to the "TestQueue" 
     while (true) 
     {  
-       BrokeredMessage message = QueueClient.Receive();
+       BrokeredMessage message = Client.Receive();
 
        if (message != null)
        {
