@@ -1,0 +1,2 @@
+<properties umbracoNaviHide="0" pageTitle="Load Balancing Virtual Machines" metaKeywords="" metaDescription="" linkid="manage-windows-loadbalancing-vms" urlDisplayName="Load Balancing VMs" headerExpose="" footerExpose="" disqusComments="1" />
+<div chunk="../../Shared/Chunks/load-balancing-vms.md" />

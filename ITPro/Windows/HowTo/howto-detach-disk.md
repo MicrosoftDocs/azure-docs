@@ -1,0 +1,2 @@
+<properties umbracoNaviHide="0" pageTitle="How to Detach a Data Disk from a Virtual Machine" metaKeywords="" metaDescription="" linkid="manage-windows-howto-detach-disk" urlDisplayName="Detach disk" headerExpose="" footerExpose="" disqusComments="1" />
+<div chunk="../../Shared/Chunks/howto-detach-disk-windows-linux.md" />

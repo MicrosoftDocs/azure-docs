@@ -84,7 +84,7 @@ An image is a virtual hard disk (VHD) file that you can use as a template to cre
 
 	- **Name** - the name of the .vhd file. This is the file that you upload to Windows Azure.
 	- **Location** - the folder where the .vhd file is located. You should store the VHD file in a secure location.
-	- **Size** - the size of the virtual machine. You must ensure that the size of the virtual machine is one of the values in the following table and that the size corresponds to the size that you choose for the virtual machine when you create it in the Windows Azure Management Portal.
+	- **Size** - the size of the virtual hard disk. The maximum size for a virtual hard disk that is intended for an operating system disk in Windows Azure is 127 GB.
   
 5. On the **Installation Options** page, select **Install an operating system from a boot CD/DVD –ROM media**, and then choose the method that is appropriate for your installation media.
 
