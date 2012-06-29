@@ -47,14 +47,12 @@ Windows Azure needs an X509 public key that is either PEM or DER encoded at the 
 
 **Step 2:  Create a Ubuntu VM**
 
-Create the first Ubuntu VM by following the sequence shown below after logging into the Windows Azure preview portal (see [Create a Virtual Machine Running Linux](http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/) for a tutorial on Linux VM creation): 
+To create the first Ubuntu VM, log into the Windows Azure preview portal, click **New**, click **Virtual Machine**, click **From Gallery**, click **Unbuntu Server 12.xx**, and then click the right arrow. For a tutorial that describes how to create a Linux VM, see [Create a Virtual Machine Running Linux](http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/).
 
-New --> Virtual Machine -->From Gallery --> Unbuntu Server 12.xx --> click “right arrow”
+Then, enter the following information on the VM Configuration screen:
 
-Enter the following information on the VM Configuration screen:
-
-<table border>
-	<tr bgcolor = #C0C0C0 >
+<table>
+	<tr>
 		<th>Field Name</th>
 		<th>Field Value</th>
 		<th>Remarks</th>
@@ -99,9 +97,8 @@ Enter the following information on the VM Configuration screen:
 Enter the following information on the VM Mode screen:
 
 
-<table border>
-	<tr bgcolor = #C0C0C0 
->
+<table>
+	<tr>
 		<th>Field Name</th>
 		<th>Field Value</th>
 		<th>Remarks</th>
@@ -141,8 +138,8 @@ b.	On the “Add endpoint to virtual machine” screen, select “Add endpoint�
 c.	Click right arrow 
 
 d.	On the “Specify endpoint details”  screen enter the following
-<table border>
-	<tr bgcolor = #C0C0C0>
+<table>
+	<tr>
 		<th >Field Name</th>
 		<th>Field Value</th>
 		<th>Remarks</th>
@@ -211,7 +208,9 @@ The above will expand Cassandra into apache-cassandra-1.0.10 directory.
 6.	Start Cassandra from the apache-cassandra-1.0.10/bin directory using the following command: 
 
 		$ ./cassandra
-The above will start the Cassandra node as a background process. Use “cassandra –f” to start the process in the foreground mode.<br>
+
+The above will start the Cassandra node as a background process. Use “cassandra –f” to start the process in the foreground mode.
+
 The log should may show mx4j error. Cassandra will function fine without mx4j but it is necessary for managing the Cassandra installation.  Kill Cassandra process before the next step.
 
 **Step 3: Install mx4j**
@@ -264,7 +263,7 @@ Nodetool installed into the Cassandra’s bin directory will help with cluster o
 
 If the configuration is correct, it should display the information as shown below for a 3-node cluster:
 
-<table border>
+<table>
 	<tr>
 		<td>Address</td>
 		<td>DC</td>
@@ -438,7 +437,7 @@ Parameterized CQL template will be combined with params object to generate valid
 
 populateCustomerData() inserts couple of rows into the COLUMNFAMILY namely customers_cf. In Cassandra Query Language, UPDATE will insert the record if the record is not already present in the process making INSERT CQL statement redundant. 
 
-So far we wired the callback chain: createKeyspace() -> createColumnFamily() -> populateCustomerData(). Now it is time for us to execute the code through the following code snippet:
+So far we wired the callback chain: createKeyspace() to createColumnFamily() to populateCustomerData(). Now it is time for us to execute the code through the following code snippet:
 
 	casdemo.js:
 	var pooledCon = require('cassandra-client').PooledConnection;
