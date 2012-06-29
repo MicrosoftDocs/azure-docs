@@ -13,7 +13,7 @@ Follow these steps to attach a data disk:
 
 	![Attach Empty Disk][Image2]
 
-	**Note:** All disks are created from a VHD file in Windows Azure storage. You can provide a name for the VHD file that is added to storage, but Windows Azure generates the name of the disk automatically.
+	**Note:** All disks are created from a VHD file in Windows Azure storage. You can provide a name for the VHD file that you add to storage, but Windows Azure generates the name of the disk automatically.
 
 4. Click the check mark to attach the data disk to the virtual machine.
 
@@ -28,7 +28,7 @@ Follow these steps to attach a data disk:
 ##Connect to the Virtual Machine Using Remote Desktop and Complete Setup
 1. After the virtual machine is provisioned, on the Management Portal, click on **Virtual Machines**, and the click on your new virtual machine. Information about your virtual machine is presented.	
 
-2. At the bottom of the page, click **Connect**. Choose to open the rpd file using the Windows Remote Desktop program (*%windir%\system32\mstsc.exe*).	
+2. At the bottom of the page, click **Connect**. Open the rpd file using the Windows Remote Desktop program (*%windir%\system32\mstsc.exe*).	
 
 3. At the **Windows Security** dialog box, provide the password for the **Administrator** account. (You might be asked to verify the credentials of the virtual machine.) The first time you log on to this virtual machine, several processes may need to complete, including setup of your desktop, Windows updates, and completion of the Windows initial configuration tasks. Once you are connected to the virtual machine with Windows Remote Desktop, the virtual machine works like any other computer.
 
@@ -36,7 +36,11 @@ Follow these steps to attach a data disk:
 
 	![Server Manager][Image4]
 
-5. Right-click the space allocation area for Disk 2, click **New Simple Volume**, and then finish the wizard with the default values.
+5. The **Initalize Disk** window appears.  Click **OK**.
+
+	![Initialize Disk][Image5.0]
+
+6. Right-click the space allocation area for Disk 2, click **New Simple Volume**, and then finish the wizard with the default values.
 
 	![New Simple Volume][Image6]
 
@@ -51,6 +55,7 @@ Follow these steps to attach a data disk:
 [Image2]: ../../Shared/Media/AttachDataDiskWinVM2.png
 [Image3]: ../../Shared/Media/AttachDataDiskWinVM3.png
 [Image4]: ../../Shared/Media/servermanager.png
+[Image5.0]: ../../Shared/Media/initializedisk0.png
 [Image5]: ../../Shared/Media/initializedisk.png
 [Image6]: ../../Shared/Media/initializediskvolume.png
 [Image7]: ../../Shared/Media/initializesuccess.png
