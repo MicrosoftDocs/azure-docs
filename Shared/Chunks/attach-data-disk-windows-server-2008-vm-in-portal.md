@@ -1,3 +1,5 @@
+Follow these steps to attach a data disk:
+
 1. In the [Windows Azure (Preview) Management Portal][AzurePreviewPortal], click **Virtual Machines** and then select the virtual machine you just created (**testwinvm**).
 
 2. On the command bar click **Attach** and then click **Attach Empty Disk**.
