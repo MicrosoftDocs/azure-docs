@@ -14,6 +14,6 @@ This topic focuses on two key security areas, identity and access. You will lear
 This topic provides an overview of performance considerations for cloud-based applications, as well as guidance around monitoring application performance. It also provides links to additional content to help guide you through all stages of designing and deploying your application.
 
 
-[Troubleshooting in Windows Azure]: /en-us/manage/linux/best-practices/troubleshooting/
-[Best Practices for Designing Secure Windows Azure Applications]: /en-us/develop/net/best-practices/security/
-[Best Practices for Performance in Windows Azure Applications]: /en-us/develop/net/best-practices/performance/
+[Troubleshooting in Windows Azure]: ./troubleshooting/
+[Best Practices for Designing Secure Windows Azure Applications]: ./security/
+[Best Practices for Performance in Windows Azure Applications]: ./performance/
