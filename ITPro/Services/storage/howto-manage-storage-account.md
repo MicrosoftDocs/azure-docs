@@ -53,7 +53,19 @@ You can use **Manage Keys** to copy a storage access key to use in a connection 
 3. To copy a storage access key, select the key text. Then right-click, and click **Copy**.
 
 ### Regenerate storage access keys ###
-You should change the access keys to your storage account periodically to help keep your storage connections more secure. Two access keys are assigned to enable you to maintain connections to the storage account using one access key while you regenerate the other access key. The following procedure describes how to do that.
+You should change the access keys to your storage account periodically to help keep your storage connections more secure. Two access keys are assigned to enable you to maintain connections to the storage account using one access key while you regenerate the other access key. 
+
+<div class="dev-callout"> 
+    <b>Warning</b> 
+    <p>Regenerating your access keys affects virtual machines, media services, and any applications that are dependent on the storage account.
+    </p> 
+    </div>
+
+**Virtual machines** - If your storage account contains any virtual machines that are running, you will have to redeploy all virtual machines after you regenerate the access keys. To avoid redeployment, shut down the virtual machines before you regenerate the access keys.
+ 
+**Media services** - If you have media services dependent on your storage account, you must re-sync the access keys with your media service after you regenerate the keys.
+ 
+**Applications** - If you have web applications or cloud services using the storage account, you will lose the connections if you regenerate keys, unless you roll your keys. Here is the process:
 
 1. Update the connection strings in your application code to reference the secondary access key of the storage account. 
 
@@ -68,7 +80,13 @@ You should change the access keys to your storage account periodically to help k
 
 To remove a storage account that you are no longer using, use **Delete** on the dashboard or the **Configure** page. **Delete** deletes the entire storage account, including all of the blobs, tables, and queues in the account. 
 
-**Warning**  There's no way to restore the content from a deleted storage account. Make sure you back up anything you want to save before you delete the account.
+<div class="dev-callout">
+	<b>Warning</b>
+	<p>There's no way to restore the content from a deleted storage account. Make 
+	sure you back up anything you want to save before you delete the account.
+	</p>
+</div>
+
 
 1. In the [Management Portal](http://manage.windowsazure.com), click **Storage**.
 
