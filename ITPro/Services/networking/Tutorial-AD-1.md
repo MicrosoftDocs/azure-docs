@@ -20,8 +20,8 @@ This tutorial walks you through the steps to install an additional domain contro
 
 <h2 id="Prerequisites">Prerequisites</h2>
 
--	Create Affinity Group
--	Create Virtual Network for cross-premises connectivity configured between Windows Azure Virtual network and Corp network.
+-	Create an affinity group.
+-	Create a virtual network for cross-premises connectivity configured between Windows Azure Virtual network and Corp network.
 -	Create a cloud service in the virtual network
 -	Deploy two VMs in the Cloud Service that are part of the virtual network (specify the subnet where you want to place the VM). The VMs should be provisioned at the deployment level with DNS configured in advance by using Windows PowerShell (there is no UI option). For more information, see [Provisioning a Virtual Machine that is Domain Joined on Boot](#provisionvm). One VM must be size L or greater in order to attach two data disks to it. The data disks are needed to store:
 >-	The Active Directory database, logs, and SYSVOL.
