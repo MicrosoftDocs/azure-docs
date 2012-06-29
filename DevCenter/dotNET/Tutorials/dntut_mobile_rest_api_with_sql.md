@@ -1,4 +1,4 @@
-# Mobile-friendly REST service using ASP.NET Web API and SQL Database
+# Mobile-friendly REST service using ASP.NET Web API and SQL Database 
 
 This tutorial shows how to deploy an ASP.NET web application that uses the ASP.NET Web API to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2010. If you prefer, you can follow the tutorial steps by using Visual Web Developer Express 2010, Visual Studio 2012 RC or Visual Studio 2012 for Web Express RC.
 
@@ -266,52 +266,47 @@ The MVC template created a default home page for your application, and you are r
 ![Add Controller message box][addcode003] <br/>
 Visual Studio creates a controller and views for each of the four main database operations (create, read, update, delete) for **Contacts** objects.
 
-## Add sample data and a data initializer
+### Enable Migrations, create the database, add sample data and a data initializer
 
-1. Right-click the Models folder, click **Add**, and then **Class**.
-2. In the **Add New Item** dialog box, name the new class file ContactManagerDatabaseInitializer.cs, and then click **Add**
-3. Replace the contents of the ContactManagerDatabaseInitializer.cs file with the following code.
+The next task is to enable the Code First Migrations feature in order to create the database based on the data model you created.
 
-		using System;
-		using System.Data.Entity;
+1. In the **Tools** menu, select **Library Package Manager** and then **Package Manager Console**.<br/>
+![Package Manager Console in Tools menu][addcode008]
+2. In the **Package Manager Console** window, enter the following commands:<br/>
+enable-migrations<br/>
+add-migration Initial<br/>
+	The **enable-migrations** command creates a Migrations folder and a **Configuration** class that the Entity Framework uses to control database updates.<br/>
+	The **add-migration Initial** command generates a class named **Initial** that creates the database. You can see the new class files in **Solution Explorer**.<br/>
+	In the **Initial** class, the **Up** method creates the Contacts table, and the **Down** method (used when you want to return to the previous state) drops it.<br/>
+3. Right-click the Migrations folder and open the **Configuration.cs** file. 
+4. Add the folloing to list of namespaces. 
 
-		namespace ContactManager.Models
-		{
-		    public class ContactManagerDatabaseInitializer : DropCreateDatabaseAlways<ContactManagerContext>
-		    {
-		        static Contact[] sampleContacts = new Contact[]
-                    {
-                        new Contact { Name = "Debra Garcia", Address = "1234 Main St", City = "Redmond", State = "WA", Zip = "10999", Email = "debra@example.com", Twitter = "debra_example" },
-                        new Contact { Name = "Thorsten Weinrich", Address = "5678 1st Ave W", City = "Redmond", State = "WA", Zip = "10999", Email = "thorsten@example.com", Twitter = "thorsten_example" },
-                        new Contact { Name = "Yuhong Li", Address = "9012 State st", City = "Redmond", State = "WA", Zip = "10999", Email = "yuhong@example.com", Twitter = "yuhong_example" },
-                        new Contact { Name = "Jon Orton", Address = "3456 Maple St", City = "Redmond", State = "WA", Zip = "10999", Email = "jon@example.com", Twitter = "jon_example" },
-                        new Contact { Name = "Diliana Alexieva-Bosseva", Address = "7890 2nd Ave E", City = "Redmond", State = "WA", Zip = "10999", Email = "diliana@example.com", Twitter = "diliana_example" },
-                    };
+    	 using ContactManager.Models;
 
-		        protected override void Seed(ContactManagerContext context)
-		        {
-		            base.Seed(context);
-
-		            foreach (var contact in sampleContacts)
-		            {
-		                context.Contacts.Add(contact);
-		            }
-		        }
-		    }
-		}
+5. Add the following code into the seed Replace the contents of the file with the following code.
+		
+		context.Contacts.AddOrUpdate(
+		    p => p.Name,
+		    new Contact { Name = "Debra Garcia", Address = "1234 Main St", City = "Redmond", State = "WA", Zip = "10999", Email = "debra@example.com", Twitter = "debra_example" },
+		    new Contact { Name = "Thorsten Weinrich", Address = "5678 1st Ave W", City = "Redmond", State = "WA", Zip = "10999", Email = "thorsten@example.com", Twitter = "thorsten_example" },
+		    new Contact { Name = "Yuhong Li", Address = "9012 State st", City = "Redmond", State = "WA", Zip = "10999", Email = "yuhong@example.com", Twitter = "yuhong_example" },
+		    new Contact { Name = "Jon Orton", Address = "3456 Maple St", City = "Redmond", State = "WA", Zip = "10999", Email = "jon@example.com", Twitter = "jon_example" },
+		    new Contact { Name = "Diliana Alexieva-Bosseva", Address = "7890 2nd Ave E", City = "Redmond", State = "WA", Zip = "10999", Email = "diliana@example.com", Twitter = "diliana_example" }
+		    );
 
 	This will define an initializer to provide sample contacts to seed the database with.
-4. Open the Global.asax file.<br/>![Add Controller message box][addcode003.1]
-5. Add the following namespaces.
 
-		using ContactManager.Models;
-		using System.Data.Entity;
-	The ContactManager.Models allows access to the contacts model you defined. The System.Data.Entity provides the SetInitializer method to initialize the database.
-6. Add the following statement to the beginning of the Application_Start() method.
 
-        Database.SetInitializer(new ContactManagerDatabaseInitializer());
+6. in the **Package Manager Console** enter the command:<br/>
+update-database<br/>
+	![Package Manager Console commands][addcode009]
+
+	The **update-database** runs the first migration which creates the database. By default, the database is created as a SQL Server Express LocalDB database. (Unless you have SQL Server Express installed, in which case the database is created using the SQL Server Express instance.)
 
 7. Build the solution by pressing F6.
+
+Visual Studio compiles the data model classes that you created and makes them available for the following procedures that enable Code First Migrations and use MVC scaffolding.
+
 
 <h2><a name="bkmk_addview"></a>Add a view for the data</h2>
 
@@ -497,7 +492,7 @@ Visual Studio creates a controller and views for each of the four main database 
 2. Enter "Apis" and the press the **Enter** key.
 3. Right-click on the Apis folder and click **Add**, and then click **Controller...**.<br/>
 ![Add class in  folder context menu][addwebapi002]
-4. In the **Add Controller** dialog box, enter "ContactsController" as your controller name, select the **API controller with empty read/write actions** template
+4. In the **Add Controller** dialog box, enter "ContactsController" as your controller name, select the **API controller with empty read/write actions, using Entity Framework** template
 5. In **Model Class** select Contact (ContactManager.Models) and it **Data Context Class** select ContactManagerContext (ContactManager.Models).
 6. Click **Add**.<br/>![Add controller dialog box for web api][addwebapi003]
 7. Right-click the App\_Start folder and click **Add**, and then click **Class**.
@@ -538,7 +533,7 @@ Visual Studio creates a controller and views for each of the four main database 
             routeTemplate: "api/{controller}/{id}",
             defaults: new { id = RouteParameter.Optional }
         );
-11. Open Global.asax file add
+11. Open Global.asax file and add the following line to the Appplication_Start method.
 
 		WebApiConfig.Configure(GlobalConfiguration.Configuration);
 
@@ -680,6 +675,8 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [addcode005]: ../Media/dntutmobile-controller-add-contents-context-menu.png
 [addcode006]: ../Media/dntutmobile-controller-add-new-item-style-sheet.png
 [addcode007]: ../Media/dntutmobile-controller-modify-bundleconfig-context.png
+[addcode008]: ../Media/dntutmobile-migrations-package-manager-menu.png
+[addcode009]: ../Media/dntutmobile-migrations-package-manager-console.png
 [addwebapi001]: ../Media/dntutmobile-webapi-add-folder-context-menu.png
 [addwebapi002]: ../Media/dntutmobile-webapi-add-controller-context-menu.png
 [addwebapi003]: ../Media/dntutmobile-webapi-add-controller-dialog.png
