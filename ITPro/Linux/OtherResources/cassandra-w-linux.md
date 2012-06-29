@@ -1,4 +1,4 @@
-<h1 id = "" > Running Cassandra with Linux on Windows Azure and Access it from Node.js </h1>
+<h1 id = "" > Running Cassandra with Linux on Windows Azure and Accessing it from Node.js </h1>
 -Hanu Kommalapati
 
 ## Table of Contents##
@@ -27,11 +27,11 @@ There are two deployment models that are feasible for Cassandra application envi
 
 The goal of a composite deployment is to maximize the usage of PaaS while keeping the virtual machine footprint to an absolute minimum in an effort to save on the overhead imposed by the infrastructure management of the virtual machines. Due to the server management overhead, only deploy those components that require stateful behavior that can’t be modified easily due to various reasons including the time-to-market, lack of visibility into source code, and low level access to the OS. 
 
-![Image0001][Image01]
+![Image 1](../Media/Image0001.png)
 
 ##<a id="deployment"> </a>Windows Azure Virtual Machine Deployment##
 
-![Image0002][Image02]
+![Image 2](../Media/Image0002.png)
 
 In the above diagrams a 4-node Cassandra cluster is deployed inside Virtual Machines behind a load balancer that is configured to allow Thrift traffic. Azure hosted PaaS application accesses the cluster using language specific Thrift libraries. There are libraries for languages including Java, C#, Node.js, Python and C++. The self-contained Virtual Machines deployment shown in the second diagram consumes data by applications running inside another cloud service hosted on Virtual Machines. 
 
@@ -39,7 +39,7 @@ In the above diagrams a 4-node Cassandra cluster is deployed inside Virtual Mach
 
 During the Virtual Machines preview release, in order for the Linux VMs to be part of the same virtual network, all the machines need to be deployed to the same cloud service. Typical sequence for creating a cluster is: 
 
-![Task1][Image03]
+![Task1](../Media/task1.png)
 
 **Step 1: Generate SSH Key pair**
 
@@ -353,7 +353,7 @@ e)	Install NPM from stable binaries by executing the following command
 
 Cassandra storage uses the concepts of KEYSPACE and COLUMNFAMILY which can be approximately compared to DATABASE and TABLE structures in the RDBMS parlance. The KEYSAPCE will contain a set of COLUMNFAMILY definitions. Each COLUMNFAMILY will contain a set of rows and in turn each row contains several columns as shown in the composite view below:
 
-![step3][Image04]
+![Step 3](../Media/Step3.png)
 
 We will use the previously deployed Cassandra cluster to demonstrate node.js access by creating and querying the above data structures.  We will create a simple node.js script that performs the basic preparation of the cluster for storing customer data. The techniques shown in the script can easily be used in a node.js web application or web services. Please keep in mind that the snippets are only meant to show how the stuff works and for real world solutions, the code shown has a lot of room (e.g. security, logging, scalability, etc.) for improvement. 
 
@@ -498,7 +498,3 @@ Windows Azure Virtual Machines capability allows the creation of Linux  (images 
 [Conclusion]: #conclusion
 
 
-[Image01]: ../Media/Image0001.png
-[Image02]: ../Media/Image0002.png
-[Image03]: ../Media/task1.png
-[Image04]: ../Media/Step3.png
