@@ -19,19 +19,17 @@ This tutorial walks you through the steps to install an additional domain contro
 
 
 <h2 id="Prerequisites">Prerequisites</h2>
-
 -	Create an affinity group.
 -	Create a virtual network for cross-premises connectivity configured between Windows Azure Virtual network and Corp network.
 -	Create a cloud service in the virtual network
 -	Deploy two VMs in the Cloud Service that are part of the virtual network (specify the subnet where you want to place the VM). The VMs should be provisioned at the deployment level with DNS configured in advance by using Windows PowerShell (there is no UI option). For more information, see [Provisioning a Virtual Machine that is Domain Joined on Boot](#provisionvm). One VM must be size L or greater in order to attach two data disks to it. The data disks are needed to store:
->-	The Active Directory database, logs, and SYSVOL.
->-	System state backups.
-
--	A Corp network with two VMs (YourPrimaryDC and FileServer). 
+	- The Active Directory database, logs, and SYSVOL.
+	- System state backups.
+-	A Corp network with two VMs (YourPrimaryDC and FileServer).
 -	Domain Name System (DNS) infrastructure deployed if you need to have external users resolve names for accounts in Active Directory. In this case, you should create a DNS zone delegation before you install DNS server on the domain controller, or allow the Active Directory Domain Services Installation Wizard create the delegation. For more information about creating a DNS zone delegation, see [Create a Zone Delegation](http://technet.microsoft.com/en-us/library/cc753500.aspx).
 -	On the DC that you install on a Windows Azure VM, configure DNS client resolver settings as follows:
->-	Preferred DNS server: on-premises DNS server 
->-	Alternate DNS server: loopback address or, if possible, another DNS server running on a DC on the same virtual network.
+	- Preferred DNS server: on-premises DNS server 
+	- Alternate DNS server: loopback address or, if possible, another DNS server running on a DC on the same virtual network.
 
 **Note**
 >You need to provide your own DNS infrastructure to support AD DS on Windows Azure Virtual Network. The Windows Azure-provided DNS infrastructure for this release does not support some features that AD DS requires, such as dynamic SRV resource record registration. 
