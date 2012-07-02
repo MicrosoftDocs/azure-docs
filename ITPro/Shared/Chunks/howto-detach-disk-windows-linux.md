@@ -8,7 +8,7 @@ To use this feature and other new Windows Azure capabilities, sign up for the [f
 
 ## <a id="concepts"> </a>Concepts ##
 
-You can attach a data disk to a virtual machine to store application data. A data disk is a Virtual Hard Disk (VHD) that you can create either locally with your own computer or in the cloud with Windows Azure. You manage data disks in the virtual machine the same way you do on a server in your office.
+A Virtual Machine in Windows Azure uses different types of disks, such as an operating system disk, a local temporary disk, and optional data disks. You can attach a data disk to a virtual machine to store application data. A data disk is a Virtual Hard Disk (VHD) that you can create either locally with your own computer or in the cloud with Windows Azure. You manage data disks in the virtual machine the same way you do on a server in your office.
 
 You can attach and detach data disks anytime you want, but you are limited in the number of disks that you can attach to a virtual machine based on the size of the machine. The following table lists the number of attached disks that are allowed for each size of virtual machine.
 
@@ -57,7 +57,7 @@ You can find the disks that are attached to a virtual machine by using either th
 
 	![Find data disk][Find data disk]
 
-	**Note:** At least one disk is attached to all virtual machines. Each virtual machine has an operating system disk attached that you cannot detach without deleting the virtual machine.
+	**Note:** At least one disk is attached to all virtual machines. Each virtual machine has an operating system disk attached that you cannot detach without deleting the virtual machine. The local temporary disk is not listed in the disks section because it is not persistent.   
 
 ###Use the Disks page of Virtual Machines to find information about attached disks###
 
