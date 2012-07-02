@@ -637,7 +637,7 @@ Now that you have learned how to set up for Media Services development and perfo
   [Media Services Preview:  Supported Features]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/thread/eb946433-16f2-4eac-834d-4057335233e0
   [Media Services Upcoming Releases:  Planned Feature Support]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/thread/431ef036-0939-4784-a939-0ecb31151ded
   [Media Services Preview Account Setup]: http://go.microsoft.com/fwlink/?linkid=247287
-  [Windows Azure Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?LinkID=245171
+  [Windows Azure Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?LinkID=256500
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Installing the Windows Azure SDK on Windows 8]: http://www.windowsazure.com/en-us/develop/net/other-resources/windows-azure-on-windows-8/
   [Windows Azure Media Services Documentation]: http://go.microsoft.com/fwlink/?linkid=245437
