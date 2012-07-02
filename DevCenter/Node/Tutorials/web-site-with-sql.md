@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-website-sql" urldisplayname="Node.js Website with sql" headerexpose="" pagetitle="Node.js Application using the Windows Azure SQL Database" metakeywords="Azure Node.js tutorial sql, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates deploying a Node.js application using the Windows Azure SQL Database" umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-nodejs-website-sql" urldisplayname="Node.js Website with sql" headerexpose="" pagetitle="Node.js Application using the Windows Azure SQL Database" metakeywords="Azure Node.js tutorial sql, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates deploying a Node.js application using the Windows Azure SQL Database" umbraconavihide="0" disquscomments="1"></properties>
 # Node.js Web Application using the Windows Azure SQL Database
 
 This tutorial shows you how to use SQL Database provided by Windows Azure Data Management to store and access data from a [node] application hosted on Windows Azure. This tutorial assumes that you have some prior experience using node and [Git].
@@ -471,7 +471,7 @@ Once the changes have been deployed to Windows Azure, your web application shoul
 [for free]: http://windowsazure.com
 [Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
-[Node.js Web Application with MongoDB]: ./web-site-with-mongodb-Mac
+[Node.js Web Application with MongoDB]: ../website-with-mongodb-(mac)/
 [Windows Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Create and deploy a Node.js application to a Windows Azure Web Site]: ./web-site-with-mongodb-Mac
 [Publishing to Windows Azure Web Sites with Git]: ../CommonTasks/publishing-with-git
