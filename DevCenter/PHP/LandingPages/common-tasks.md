@@ -9,8 +9,11 @@ Git is a popular, open source, distributed version control system. Windows Azure
 ### [Managing Windows Azure SQL Database using SQL Server Management Studio][]
 You can use SQL Server Management Studio to manage SQL Database logical servers and databases. This article includes details about creating and managing databases, creating and managing logins, and monitoring using Dynamic Management Views.
 
-### [Configuring a Custom Domain Name in Windows Azure][]
-By default, Windows Azure applications and storage accounts can be accessed through friendly subdomains, for example, http://&lt;myapp&gt;.cloudapp.net and https://&lt;mydata&gt;.blob.core.windows.net. This article shows you you can explose your application and data on yoru own custom domain, such as http://&lt;myapp&gt;.com.  
+### [Configuring a Custom Domain Name for a Windows Azure Web Site][]
+When you create a web site, Windows Azure provides a friendly subdomain on the azurewebsites.net domain so your users can access your web site using a URL like http://&lt;mysite&gt;.azurewebsites.net. However, if you configure your web site for reserved mode, you can map your web site to your own domain name, such as contoso.com.
+
+### [Configuring a Custom Domain Name for a Windows Azure Cloud Service or Storage Account][]
+By default, Windows Azure applications and storage accounts can be accessed through friendly subdomains, for example, http://&lt;myapp&gt;.cloudapp.net and https://&lt;mydata&gt;.blob.core.windows.net. This article shows you you can explose your application and data on your own custom domain, such as http://&lt;myapp&gt;.com.  
 
 ### [Enabling Remote Desktop in Windows Azure][]
 Remote Desktop enables you to access the desktop of a role instance running in Windows Azure. You can use a remote desktop connection to configure the virtual machine or troubleshoot problems with your application. **Note:** This topic applies only for Cloud Services.
@@ -25,7 +28,8 @@ The Windows Azure Content Delivery Network (CDN) offers a global solution for de
 [Downloading the Windows Azure SDK for PHP]: /en-us/develop/php/common-tasks/download-php-sdk/
 [Publishing with Git]: /en-us/develop/php/common-tasks/publishing-with-git/
 [Managing Windows Azure SQL Database using SQL Server Management Studio]: /en-us/develop/php/common-tasks/sql-azure-management/
-[Configuring a Custom Domain Name in Windows Azure]: /en-us/develop/php/common-tasks/enable-custom-dns/
+[Configuring a Custom Domain Name for a Windows Azure Web Site]: /en-us/develop/net/common-tasks/custom-dns-web-site/
+[Configuring a Custom Domain Name for a Windows Azure Cloud Service or Storage Account]: /en-us/develop/net/common-task/enable-custom-dns/
 [Enabling Remote Desktop in Windows Azure]: /en-us/develop/php/common-tasks/enable-remote-desktop/
 [Configuring SSL for an Application in Windows Azure]: /en-us/develop/php/common-tasks/enable-ssl/
 [Using CDN for Windows Azure]: /en-us/develop/php/common-tasks/cdn/
