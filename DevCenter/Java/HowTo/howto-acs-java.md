@@ -361,7 +361,7 @@ When you are done using your ACS Hello World application, remember to delete the
 
 ## <a name="next_steps">Next steps</a>
 
-To further explore ACS's functionality and to experiment with more sophisticated scenarios, see [Access Control Service 2.0][].
+For an examination of the Security Assertion Markup Language (SAML) returned by ACS to your application, see [How to view SAML returned by the Windows Azure Access Control Service][]. To further explore ACS's functionality and to experiment with more sophisticated scenarios, see [Access Control Service 2.0][].
 
 [What is ACS?]: #what-is
 [Concepts]: #concepts
@@ -378,6 +378,7 @@ To further explore ACS's functionality and to experiment with more sophisticated
 [Deploy to the compute emulator]: #deploy_compute_emulator
 [Deploy to Windows Azure]: #deploy_azure
 [Next steps]: #next_steps
+[How to view SAML returned by the Windows Azure Access Control Service]: howto-acs-display-saml-java.md
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451

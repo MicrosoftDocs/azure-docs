@@ -30,6 +30,9 @@ For applications that need a full featured relational database-as-a-service, Win
 ### [Access Control][access_control]
 Access Control is a Windows Azure service that provides an easy way of authenticating users who need to access your web applications and services, without having to factor complex authentication logic into your code. It provides integration with Windows Identity Foundation (WIF), support for popular web identity providers including Windows Live ID, Google, Yahoo, and Facebook, and support for ADFS 2.0.
 
+### [Viewing SAML returned by Access Control][access_control_view_saml]
+The Access Control Service returns Security Assertion Markup Language (SAML) to your application when the user successfully logs on.
+
 ### [Service Runtime][service_runtime]
 
 The Windows Azure Service Runtime allows your hosted service to communicate with the Windows Azure environment.
@@ -52,3 +55,4 @@ Windows Azure applications can use Twilio to incorporate phone call and Short Me
 [sendgrid]: ../howto/sendgrid-email-service.md
 [twilio]: ../howto/twilio_in_java.md
 [access_control]: ../howto/howto-acs-java.md
+[access_control_view_saml]: ../howto/howto-acs-display-saml-java.md
