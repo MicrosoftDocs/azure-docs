@@ -3,27 +3,23 @@
 
 <h1 id="managestorageaccounts">How To Manage Storage Accounts</h1>
 
-
 ##Table of Contents##
 
 * [How to: Turn geo-replication off or on](#georeplication)
 * [How to: View, copy, and regenerate storage access keys](#regeneratestoragekeys)
 * [How to: Delete a storage account](#deletestorageaccount)
-* [Next steps](#next)
-
-
 
 <h2 id="georeplication">How to: Turn geo-replication off or on</h2>
 
-When geo-replication is turned on, the stored content is replicated to a secondary location to enable failover to that location in case of a major disaster in the primary location. The secondary location is in the same region, but is hundreds of miles from the primary location. This is the highest level of storage durability, known as *geo redundant storage* (GRS). Geo-replication is turned on by default. 
+When geo-replication is turned on for a storage account, the stored content is replicated to a secondary location to enable failover to that location in case of a major disaster in the primary location. The secondary location is in the same region, but is hundreds of miles from the primary location. This is the highest level of storage durability, known as *geo redundant storage* (GRS). Geo-replication is turned on by default. 
 
 If you turn off geo-replication, you have *locally redundant storage* (LRS). For locally redundant storage, account data is replicated three times within the same data center. LRS is offered at discounted rates. Be aware that if you turn off geo-replication, and you later change your mind, you will incur a one-time data cost to replicate your existing data to the secondary location. 
 
-For more information about geo-replication, see [Introducing Geo-Replication for Windows Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx). For pricing information, see [Windows Azure Pricing Overview](http://www.windowsazure.com/en-us/pricing/details/).
+For more information about geo-replication, see [Introducing Geo-Replication for Windows Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx). For pricing information, see [Pricing Details](https://www.windowsazure.com/en-us/pricing/details/#storage).
 
 ### To turn geo-replication on or off for a storage account ###
 
-1. In the [Windows (Preview) Management Portal](http://manage.windowsazure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
+1. In the [Windows Azure Preview Management Portal](https://manage.windowsazure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
 
 2. Click **Configure**.
 
@@ -97,13 +93,3 @@ To remove a storage account that you are no longer using, use **Delete** on the 
  Click the name of the storage account to open the dashboard, and then click **Delete**.
 
 3. Click **Yes** to confirm you want to delete the storage account.
-
-
-<h2 id="next">Next steps</h2>
-
-- Learn more about Windows Azure storage services at [Storing and Accessing Data in Windows Azure](http://msdn.microsoft.com/en-us/library/gg433040.aspx). 
-
-- Visit the [Windows Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
-
-- Configure your apps to use Windows Azure Blob, Table, and Queue services. The [Windows Azure Developer Center](http://www.windowsazure.com/en-us/develop/overview/) provides How To Guides for using the Blob, Table, and Queue storage services with your .NET, Node.js, Java, and PHP applications. For instructions specific to a programming language, see the How To Guides for that language.
-

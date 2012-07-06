@@ -3,27 +3,38 @@
 
 <h1 id="createstorageaccount">How To Create a Storage Account</h1>
 
-To store files and data in the Blob, Table, and Queue services in Windows Azure, you must create a storage account in the geographic region where you want to store the data. 
+To store files and data in the Blob, Table, and Queue services in Windows Azure, you must create a storage account in the geographic region where you want to store the data. A storage account can contain up to 100 TB of blob, table, and queue data. You can create up to five storage accounts for each Windows Azure subscription. This topic describes how to create a storage account in the Windows Azure Preview Management Portal.
 
-A storage account can contain up to 100 TB of blob, table, and queue data. You can create up to five storage accounts for each Windows Azure subscription.
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>For a Windows Azure virtual machine, a storage account is created automatically in the deployment location if you do not already have a storage account in that location. The storage account name will be based on the virtual machine name.</p> 
+</div>
 
-**Note**   For a Windows Azure virtual machine, a storage account is created automatically in the deployment location if you do not already have a storage account in that location. The storage account name will be based on the virtual machine name.
+##Table of Contents##
 
-### To create a storage account ###
+* [How to: Create a storage account](#create)
+* [Next steps](#next)
 
-1. Sign in to the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com).
+<h2 id="create">How to: Create a storage account</h2>
+
+1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
 2. Click **Create New**, click **Storage**, and then click **Quick Create**.
 
-	![NewStorageAccount] (../media/Storage_NewStorageAccount.png)
+	![NewStorageAccount] (../media/storage_NewStorageAccount.png)
 
 3. In **URL**, enter a subdomain name to use in the storage account URL. To access an object in storage, you will append the object's location to the endpoint. For example, the URL for accessing a blob might be http://*myaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
 4. In **Region/Affinity Group**, select a region or affinity group for the storage.  Select an affinity group instead of a region if you want your storage services to be in the same data center with other Windows Azure services that you are using. This can improve performance, and no charges are incurred for egress.
 
-  	**Note**   To create an affinity group, open the **Networks** area of the Management Portal, click **Affinity Group**s, and then click either **Create a new affinity group** or **Create**. You can use affinity groups that you created in the earlier Management Portal. And you can create and manage affinity groups using the Windows Azure Service Management API. For more information, see [Operations on Affinity Groups](http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx).
+	<div class="dev-callout"> 
+<b>Note</b> 
+	<p>To create an affinity group, open the <b>Networks</b> area of the Management Portal, click <b>Affinity Groups</b>, and then click either <b>Create a new affinity group</b> or <b>Create</b>. You can use affinity groups that you create in the previous Management Portal. To open the other portal, click <b>Preview</b> on the title bar, and then click <b>Take me to the previous portal</b>. (To return to this portal, click <b>View the Preview Portal</b> at the bottom of the portal.) You can also create and manage affinity groups using the Windows Azure Service Management API. See <a href=http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx>Operations on Affinity Groups</a> for more information.</p> 
+</div>
 
-5. If you don't want geo-replication for your storage account, clear the **Enable Geo-Replication** check box.
+5. In **Subscription**, enter the Windows Azure subscription that you want to use the storage account with. You can create up to five storage accounts for a subsccription.
+
+6. If you don't want geo-replication for your storage account, clear the **Enable Geo-Replication** check box.
 
  Geo-replication is enabled by default so that, in the event of a major disaster in the primary location, storage fails over to a secondary location. A secondary location in the same region is assigned and cannot be changed. After a geo-failover, the secondary location becomes the primary location for the storage account, and stored data is replicated to a new secondary location.
 
@@ -35,3 +46,10 @@ A storage account can contain up to 100 TB of blob, table, and queue data. You c
 
 	![StoragePage] (../media/Storage_StoragePage.png)
 
+<h2 id="next">Next steps</h2>
+
+- To learn more about Windows Azure storage services, see [Understanding Cloud Storage](http://www.windowsazure.com/en-us/develop/net/fundamentals/cloud-storage/) and [Blobs, Queues, and Tables](http://msdn.microsoft.com/en-us/library/gg433040.aspx). 
+
+- Visit the [Windows Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
+
+- Configure your apps to use Windows Azure Blob, Table, and Queue services. The [Windows Azure Developer Center](http://www.windowsazure.com/en-us/develop/overview/) provides How To Guides for using the Blob, Table, and Queue storage services with your .NET, Node.js, Java, and PHP applications. For instructions specific to a programming language, see the How To Guides for that language.
