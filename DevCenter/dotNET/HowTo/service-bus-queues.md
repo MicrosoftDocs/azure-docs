@@ -13,7 +13,8 @@ include **creating queues, sending and receiving messages**, and
 -   [Create a Service Namespace][]
 -   [Obtain the Default Management Credentials for the Namespace][]
 -   [Configure Your Application to Use Service Bus][]
--   [How to: Create a Security Token Provider][]
+-   [How to: Set Up a Service Bus Connection String][]
+-   [How to: Configure your Connection String][]
 -   [How to: Create a Queue][]
 -   [How to: Send Messages to a Queue][]
 -   [How to: Receive Messages from a Queue][]
@@ -131,7 +132,7 @@ Service Bus queues:
 
 You are now ready to write code against the Service Bus.
 
-## <a name="create-provider"> </a>How to Set Up a Service Bus Connection String
+## <a name="set-up-connstring"> </a>How to Set Up a Service Bus Connection String
 
 The Service Bus uses a connection string to store endpoints and credentials. You can put your connection string in a configuration file, rather than hard-coding it in code:
 
@@ -140,7 +141,7 @@ The Service Bus uses a connection string to store endpoints and credentials. You
 
 In both cases, you can retrieve your connection string using the `CloudConfigurationManager.GetSetting` method as shown later in this guide.
 
-### Configuring your connection string when using Cloud Services
+### <a name="config-connstring"> </a>Configuring your connection string when using Cloud Services
 
 The service configuration mechanism is unique to Windows Azure Cloud Services
 projects and enables you to dynamically change configuration settings
@@ -202,7 +203,10 @@ For example, given the configuration settings in the previous section:
 	// Create the queue if it does not exist already
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+
+	var namespaceManager = 
+		NamespaceManager.CreateFromConnectionString(connectionString);
+
     if (!namespaceManager.QueueExists("TestQueue"))
     {
         namespaceManager.CreateQueue("TestQueue");
@@ -222,7 +226,10 @@ maximum size of 5GB and a default message time-to-live of 1 minute:
 	// Create a new Queue with custom settings
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+
+	var namespaceManager = 
+		NamespaceManager.CreateFromConnectionString(connectionString);
+
     if (!namespaceManager.QueueExists("TestQueue"))
     {
         namespaceManager.CreateQueue(QueueDescription);
@@ -243,7 +250,9 @@ for the "TestQueue" queue created above using the **CreateFromConnectionString**
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-    QueueClient Client = QueueClient.CreateFromConnectionString(connectionString, "TestQueue");
+    QueueClient Client = 
+		QueueClient.CreateFromConnectionString(connectionString, "TestQueue");
+
 	Client.Send(new BrokeredMessage());
 
 Messages sent to (and received from) Service Bus queues are instances of
@@ -379,7 +388,8 @@ links to learn more.
   [Create a Service Namespace]: #create-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-creds
   [Configure Your Application to Use Service Bus]: #configure-app
-  [How to: Create a Security Token Provider]: #create-provider
+  [How to: Set Up a Service Bus Connection String]: #set-up-connstring
+  [How to: Configure your Connection String]: #config-connstring
   [How to: Create a Queue]: #create-queue
   [How to: Send Messages to a Queue]: #send-messages
   [How to: Receive Messages from a Queue]: #receive-messages
