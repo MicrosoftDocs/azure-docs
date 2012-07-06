@@ -273,7 +273,7 @@ The following example demonstrates how to send five test messages to the
        // Create message, passing a string message for the body
        BrokeredMessage message = new BrokeredMessage("Test message " + i);
 
-       // Set some additional custom app-specific properties
+       // Set some addtional custom app-specific properties
        message.Properties["TestProperty"] = "TestValue";
        message.Properties["Message number"] = i;   
 
@@ -281,9 +281,9 @@ The following example demonstrates how to send five test messages to the
        Client.Send(message);
      }
 
-Service Bus queues support a maximum message size of 256 KB (the header,
+Service Bus queues support a maximum message size of 256 Kb (the header,
 which includes the standard and custom application properties, can have
-a maximum size of 64 KB). There is no limit on the number of messages
+a maximum size of 64 Kb). There is no limit on the number of messages
 held in a queue but there is a cap on the total size of the messages
 held by a queue. This queue size is defined at creation time, with an
 upper limit of 5 GB.
