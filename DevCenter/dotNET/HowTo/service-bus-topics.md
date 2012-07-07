@@ -16,7 +16,8 @@ the [Next Steps][] section. </span>
 -   [Create a Service Namespace][]
 -   [Obtain the Default Management Credentials for the Namespace][]
 -   [Configure Your Application to Use Service Bus][]
--   [How to: Create a Security Token Provider][]
+-   [How to: Set Up a Service Bus Connection String][]
+-   [How to: Configure your Connection String][]
 -   [How to: Create a Topic][]
 -   [How to: Create Subscriptions][]
 -   [How to: Send Messages to a Topic][]
@@ -133,7 +134,7 @@ Service Bus topics and subscriptions:
 
 You are now ready to write code against Service Bus.
 
-## <a name="create-provider"> </a>How to Set Up a Service Bus Connection String
+## <a name="set-up-connstring"> </a>How to Set Up a Service Bus Connection String
 
 The Service Bus uses a connection string to store endpoints and credentials. You can put your connection string in a configuration file, rather than hard-coding it in code:
 
@@ -142,7 +143,7 @@ The Service Bus uses a connection string to store endpoints and credentials. You
 
 In both cases, you can retrieve your connection string using the `CloudConfigurationManager.GetSetting` method as shown later in this guide.
 
-### Configuring your connection string when using Cloud Services
+### <a name="config-connstring"> </a>Configuring your connection string when using Cloud Services
 
 The service configuration mechanism is unique to Windows Azure Cloud Services
 projects and enables you to dynamically change configuration settings
@@ -204,7 +205,10 @@ For example, given the configuration settings in the previous section:
 	// Create the topic if it does not exist already
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+
+	var namespaceManager = 
+		NamespaceManager.CreateFromConnectionString(connectionString);
+
     if (!namespaceManager.TopicExists("TestTopic"))
     {
         namespaceManager.CreateTopic("TestTopic");
@@ -225,10 +229,13 @@ default message time-to-live of 1 minute.
 	// Create a new Topic with custom settings
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+
+	var namespaceManager = 
+		NamespaceManager.CreateFromConnectionString(connectionString);
+
     if (!namespaceManager.TopicExists("TestTopic"))
     {
-        namespaceManager.CreateTopic("TestTopic");
+        namespaceManager.CreateTopic(td);
     }
 
 **Note:** You can use the **TopicExists** method on **NamespaceManager**
@@ -253,7 +260,10 @@ filter.
 
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+
+	var namespaceManager = 
+		NamespaceManager.CreateFromConnectionString(connectionString);
+
     if (!namespaceManager.SubscriptionExists("TestTopic", "AllMessages"))
     {
         namespaceManager.CreateSubscription("TestTopic", "AllMessages");
@@ -275,16 +285,20 @@ The example below creates a subscription named "HighMessages" with a
 **MessageNumber** property greater than 3:
 
      // Create a "HighMessages" filtered subscription
-     SqlFilter highMessagesFilter = new SqlFilter("MessageNumber > 3");
-     namespaceManager.CreateSubscription("TestTopic", "HighMessages", highMessages);
+     SqlFilter highMessagesFilter = 
+		new SqlFilter("MessageNumber > 3");
+
+     namespaceManager.CreateSubscription("TestTopic", "HighMessages", highMessagesFilter);
 
 Similarly, the following example creates a subscription named
 "LowMessages" with a **SqlFilter** that only selects messages that have
 a **MessageNumber** property less than or equal to 3:
 
      // Create a "LowMessages" filtered subscription
-     SqlFilter lowMessagesFilter = new SqlFilter("MessageNumber <= 3");
-     namespaceManager.CreateSubscription("TestTopic", "LowMessages", lowMessages);
+     SqlFilter lowMessagesFilter = 
+		new SqlFilter("MessageNumber <= 3");
+
+     namespaceManager.CreateSubscription("TestTopic", "LowMessages", lowMessagesFilter);
 
 Now when a message is sent to "TestTopic", it will always be
 delivered to receivers subscribed to the "AllMessages" topic
@@ -303,7 +317,9 @@ for the "TestTopic" topic created above using the **CreateFromConnectionString**
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-   	TopicClient Client = TopicClient.CreateFromConnectionString(connectionString, "TestTopic");
+   	TopicClient Client = 
+		TopicClient.CreateFromConnectionString(connectionString, "TestTopic");
+
 	Client.Send(new BrokeredMessage());
  
 
@@ -326,7 +342,8 @@ receive it):
      for (int i=0; i<5; i++)
      {
        // Create message, passing a string message for the body
-       BrokeredMessage message = new BrokeredMessage("Test message " + i);
+       BrokeredMessage message = 
+		new BrokeredMessage("Test message " + i);
 
        // Set additional custom app-specific property
        message.Properties["MessageNumber"] = i;
@@ -335,9 +352,9 @@ receive it):
        Client.Send(message);
      }
 
-Service Bus topics support a maximum message size of 256 MB (the header,
+Service Bus topics support a maximum message size of 256 Kb (the header,
 which includes the standard and custom application properties, can have
-a maximum size of 64 MB). There is no limit on the number of messages
+a maximum size of 64 Kb). There is no limit on the number of messages
 held in a topic but there is a cap on the total size of the messages
 held by a topic. This queue size is defined at creation time, with an
 upper limit of 5 GB.
@@ -378,7 +395,8 @@ path*\>/subscriptions/<*subscription name*\>".
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-    SubscriptionClient Client = SubscriptionClient.CreateFromConnectionString
+    SubscriptionClient Client = 
+		SubscriptionClient.CreateFromConnectionString
                 (connectionString, "TestTopic", "HighMessages");
 
 	Client.Receive();
@@ -464,7 +482,8 @@ links to learn more.
   [Create a Service Namespace]: #create-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-creds
   [Configure Your Application to Use Service Bus]: #configure-app
-  [How to: Create a Security Token Provider]: #create-provider
+  [How to: Set Up a Service Bus Connection String]: #set-up-connstring
+  [How to: Configure your Connection String]: #config-connstring
   [How to: Create a Topic]: #create-topic
   [How to: Create Subscriptions]: #create-subscriptions
   [How to: Send Messages to a Topic]: #send-messages
