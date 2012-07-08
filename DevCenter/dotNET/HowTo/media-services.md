@@ -143,9 +143,11 @@ For more information about Media Services features and development scenarios, se
 
 ## <a name="setup-account"> </a>Setting Up a Windows Azure Account for Media Services
 
-The Media Services Preview account setup process will be a partly manual process. For documentation on the account setup process, see the Media Services forum:
+To set up your Media Services account, you can use one of the following options:
 
--   [Media Services Preview Account Setup][]
+-   Use the Windows Azure Management Portal (recommended). See the topic [How to Create a Media Services Account][]. After creating your account in the Management Portal, you are ready to set up your computer for Media Services development. 
+
+-   Use a manual setup process with Powershell scripts. This option is also helpful for users who want to automate the account setup process. For more information see [Media Services Preview Account Setup][].
 
 
 ## <a name="setup-dev"> </a>Setting up for Media Services Development
@@ -157,10 +159,12 @@ This section contains general prerequisites for Media Services development using
 -   .NET Framework 3.5 SP1, and .NET Framework 4. In the current release both versions need to be present on your machine for compatibility with all required SDK packages.
 -   VS 2010 SP1 (Professional, Premium, or Ultimate). You can develop Media Services client applications by using the Media Services SDK with Windows 8, Visual Studio 2010, and .NET 4.  To do this, see the Windows Azure SDK prerequisite. 
 -   A Windows Azure account with Media Services enabled. See the section [Setting Up a Windows Azure Account for Media Services][].
-    - During the Media Services account setup process, you will install the [Windows Azure Media Services SDK for .NET][]. The Media Services SDK is required for SDK developers.
 -   Windows Azure SDK 1.6 (November 2011)
     - To install, open the [Web Platform Installer][]. On the **Products** tab select **All**, then find and install the **Windows Azure SDK 1.6 for Visual Studio 2010 (November 2011)**.
+    - You can optionally install Windows Azure SDK 1.7 (June 2012) on the same machine as Windows Azure SDK 1.6 (November 2011). 
     - For Windows 8 development, see [Installing the Windows Azure SDK on Windows 8][].
+-   [Windows Azure Media Services SDK for .NET][]
+    - Remove any previous versions of the Media Services SDK before installing the current release.
 -   [WCF Data Services 5.0 for OData v3][]
 
 
@@ -633,9 +637,8 @@ Now that you have learned how to set up for Media Services development and perfo
   [Media Services Preview:  Supported Features]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/thread/eb946433-16f2-4eac-834d-4057335233e0
   [Media Services Upcoming Releases:  Planned Feature Support]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/thread/431ef036-0939-4784-a939-0ecb31151ded
   [Media Services Preview Account Setup]: http://go.microsoft.com/fwlink/?linkid=247287
-  [Windows Azure Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?LinkID=245171
+  [Windows Azure Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?LinkID=256500
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
-  [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Installing the Windows Azure SDK on Windows 8]: http://www.windowsazure.com/en-us/develop/net/other-resources/windows-azure-on-windows-8/
   [Windows Azure Media Services Documentation]: http://go.microsoft.com/fwlink/?linkid=245437
   [Getting Started with the Windows Azure CDN]: http://msdn.microsoft.com/en-us/library/windowsazure/ff919705.aspx
@@ -643,6 +646,7 @@ Now that you have learned how to set up for Media Services development and perfo
   [Getting Started with the Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=252966
   [Building Applications with the Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=247821
   [Windows Azure Management Portal]: https://manage.windowsazure.com
+  [How to Create a Media Services Account]: http://go.microsoft.com/fwlink/?linkid=256662
 
   <!-- Email. -->
   [MediaServices@Microsoft.com]: mailto:MediaServices@Microsoft.com
