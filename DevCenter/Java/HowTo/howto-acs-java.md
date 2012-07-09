@@ -378,7 +378,7 @@ For an examination of the Security Assertion Markup Language (SAML) returned by 
 [Deploy to the compute emulator]: #deploy_compute_emulator
 [Deploy to Windows Azure]: #deploy_azure
 [Next steps]: #next_steps
-[How to view SAML returned by the Windows Azure Access Control Service]: howto-acs-display-saml-java.md
+[How to view SAML returned by the Windows Azure Access Control Service]: /en-us/develop/java/how-to-guides/view-saml-returned-by-acs/
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451

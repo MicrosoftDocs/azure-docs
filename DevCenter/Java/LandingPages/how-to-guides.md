@@ -55,4 +55,4 @@ Windows Azure applications can use Twilio to incorporate phone call and Short Me
 [sendgrid]: ../howto/sendgrid-email-service.md
 [twilio]: ../howto/twilio_in_java.md
 [access_control]: ../howto/howto-acs-java.md
-[access_control_view_saml]: ../howto/howto-acs-display-saml-java.md
+[access_control_view_saml]: /en-us/develop/java/how-to-guides/view-saml-returned-by-acs/
