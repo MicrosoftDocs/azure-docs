@@ -492,7 +492,7 @@ Windows Azure Virtual Machines capability allows the creation of Linux  (images 
 [Composite Deployment]: #composite
 [Windows Azure Virtual Machine Deployment]: #deployment
 [Task 1: Deploy Linux Cluster]: #task1
-[Task 2: Set Up Cassandra on Each VM]: #task2
+[Task 2: Set Up Cassandra on Each Virtual Machine]: #task2
 [Task 3: Access Cassandra Cluster from Node.js]: #task3
 [Conclusion]: #conclusion
 
