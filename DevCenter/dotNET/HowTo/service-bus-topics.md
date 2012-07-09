@@ -288,7 +288,9 @@ The example below creates a subscription named "HighMessages" with a
      SqlFilter highMessagesFilter = 
 		new SqlFilter("MessageNumber > 3");
 
-     namespaceManager.CreateSubscription("TestTopic", "HighMessages", highMessagesFilter);
+     namespaceManager.CreateSubscription("TestTopic", 
+		"HighMessages", 
+		highMessagesFilter);
 
 Similarly, the following example creates a subscription named
 "LowMessages" with a **SqlFilter** that only selects messages that have
@@ -298,7 +300,9 @@ a **MessageNumber** property less than or equal to 3:
      SqlFilter lowMessagesFilter = 
 		new SqlFilter("MessageNumber <= 3");
 
-     namespaceManager.CreateSubscription("TestTopic", "LowMessages", lowMessagesFilter);
+     namespaceManager.CreateSubscription("TestTopic", 
+		"LowMessages", 
+		lowMessagesFilter);
 
 Now when a message is sent to "TestTopic", it will always be
 delivered to receivers subscribed to the "AllMessages" topic
@@ -412,7 +416,8 @@ path*\>/subscriptions/<*subscription name*\>".
           {
              Console.WriteLine("Body: " + message.GetBody<string>());
              Console.WriteLine("MessageID: " + message.MessageId);
-             Console.WriteLine("MessageNumber: " + message.Properties["MessageNumber"]);
+             Console.WriteLine("MessageNumber: " + 
+				message.Properties["MessageNumber"]);
 
              // Remove message from subscription
              message.Complete();

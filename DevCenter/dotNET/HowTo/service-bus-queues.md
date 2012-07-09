@@ -232,7 +232,7 @@ maximum size of 5GB and a default message time-to-live of 1 minute:
 
     if (!namespaceManager.QueueExists("TestQueue"))
     {
-        namespaceManager.CreateQueue(QueueDescription);
+        namespaceManager.CreateQueue(qd);
     }
 
 **Note:** You can use the **QueueExists** method on **NamespaceManager**
@@ -332,7 +332,8 @@ processed using the default **PeekLock** mode. To specify a different **ReceiveM
           {
              Console.WriteLine("Body: " + message.GetBody<string>());
              Console.WriteLine("MessageID: " + message.MessageId);
-             Console.WriteLine("Custom Property: " + message.Properties["TestProperty"]);
+             Console.WriteLine("Test Property: " + 
+				message.Properties["TestProperty"]);
 
              // Remove message from queue
              message.Complete();
