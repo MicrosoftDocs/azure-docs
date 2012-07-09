@@ -266,15 +266,17 @@ The MVC template created a default home page for your application, and you are r
 ![Add Controller message box][addcode003] <br/>
 Visual Studio creates a controller and views for each of the four main database operations (create, read, update, delete) for **Contacts** objects.
 
-### Enable Migrations, create the database, add sample data and a data initializer
+## Enable Migrations, create the database, add sample data and a data initializer ##
 
 The next task is to enable the Code First Migrations feature in order to create the database based on the data model you created.
 
 1. In the **Tools** menu, select **Library Package Manager** and then **Package Manager Console**.<br/>
 ![Package Manager Console in Tools menu][addcode008]
 2. In the **Package Manager Console** window, enter the following commands:<br/>
-enable-migrations<br/>
-add-migration Initial<br/>
+
+		enable-migrations
+		add-migration Initial
+
 	The **enable-migrations** command creates a Migrations folder and a **Configuration** class that the Entity Framework uses to control database updates.<br/>
 	The **add-migration Initial** command generates a class named **Initial** that creates the database. You can see the new class files in **Solution Explorer**.<br/>
 	In the **Initial** class, the **Up** method creates the Contacts table, and the **Down** method (used when you want to return to the previous state) drops it.<br/>
@@ -298,7 +300,9 @@ add-migration Initial<br/>
 
 
 6. in the **Package Manager Console** enter the command:<br/>
-update-database<br/>
+
+	update-database
+
 	![Package Manager Console commands][addcode009]
 
 	The **update-database** runs the first migration which creates the database. By default, the database is created as a SQL Server Express LocalDB database. (Unless you have SQL Server Express installed, in which case the database is created using the SQL Server Express instance.)
