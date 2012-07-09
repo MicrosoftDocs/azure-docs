@@ -1,0 +1,2 @@
+<properties linkid="develop-ruby-commons-tasks-enable-ssl" urlDisplayName="Enable SSL" headerExpose="" pageTitle="Enable SSL - Ruby - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<div chunk="../../Shared/Chunks/enable-ssl.md" />

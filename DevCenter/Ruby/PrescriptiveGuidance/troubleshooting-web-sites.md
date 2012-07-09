@@ -1,0 +1,2 @@
+<properties linkid="develop-ruby-best-practices-troubleshooting-web-sites" urlDisplayName="Troubleshooting" headerExpose="" pageTitle="Troubleshooting Best Practices - Ruby - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<div chunk="../../Shared/Chunks/troubleshooting_a_website.md" />
