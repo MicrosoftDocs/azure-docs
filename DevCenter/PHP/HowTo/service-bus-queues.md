@@ -128,15 +128,19 @@ In this guide, you will use service features which can be called within a PHP ap
 
 <h2 id="ConfigureApp">Configure your application to use Service Bus</h2>
 
-To use the Windows Azure Service Bus queue APIs, you need to:
+To use the Windows Azure Servise Bus queue APIs, you need to:
 
-1. Reference the `WindowsAzure.php` file (from the Windows Azure SDK for PHP) using the [require_once][require_once] statement, and
+1. Reference the autoloader file using the [require_once][require_once] statement, and
 2. Reference any classes you might use.
 
-The following example shows how to include the `WindowsAzure.php` file and reference the **ServiceBusService** class:
+The following example shows how to include the autoloader file and reference the **ServiceBusService** class.
 
-	require_once 'WindowsAzure\WindowsAzure.php';
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>This example (and other examples in this article) assume you have installed the PHP Client Libraries for Windows Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the <code>WindowsAzure.php</code> autoloader file.</p> 
+</div>
 
+	require_once 'vendor\autoload.php';
 	use WindowsAzure\ServiceBus\ServiceBusService;
 
 
@@ -151,7 +155,7 @@ token permissions to manage it.
 
 The example below shows how create a **Configuration** object, instantiate **ServiceBusRestProxy** via the **ServiceBusService::create** factory method, and call **ServiceBusRestProxy->createQueue** to create a queue named `myqueue` within a `MySBNamespace` service namespace:
 
-    require_once 'WindowsAzure\WindowsAzure.php';
+    require_once 'vendor\autoload.php';
 
 	use WindowsAzure\ServiceBus\ServiceBusService;
 	use WindowsAzure\ServiceBus\Models\QueueInfo;
@@ -195,7 +199,7 @@ The example below shows how create a **Configuration** object, instantiate **Ser
 To send a message to a Service Bus queue, your application will call the **ServiceBusRestProxy->sendQueueMessage** method. The code below demonstrates how to send a message to the `myqueue` queue we created above within the
 `MySBNamespace` service namespace.
 
-	require_once 'WindowsAzure\WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\ServiceBus\ServiceBusService;
 	use WindowsAzure\ServiceBus\models\BrokeredMessage;
@@ -255,7 +259,7 @@ In **PeekLock** mode, receiving a message becomes a two stage operation, which m
 
 The example below demonstrates how a message can be received and processed using **PeekLock** mode (not the default mode).
 
-	require_once 'WindowsAzure\WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\ServiceBus\ServiceBusService;
 	use WindowsAzure\ServiceBus\models\ReceiveMessageOptions;
