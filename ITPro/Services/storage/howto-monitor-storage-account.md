@@ -9,7 +9,7 @@ Until you configure monitoring for a storage account, no monitoring data is coll
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>Additional costs are associated with examining monitoring data in the Management Portal. For more information, see <a href=http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx>Storage Analytics and Billing</a>.</p> 
+<p>Additional costs are associated with examining monitoring data in the Management Portal. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx">Storage Analytics and Billing</a>.</p> 
 </div>
 
 ##Table of Contents##
@@ -92,7 +92,7 @@ Use the following procedures to choose which storage metrics to view in the metr
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
-	<p>Consider costs when you select the metrics. There are transaction and egress costs associated with refreshing monitoring displays. For more information, see <a href=http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx>Storage Analytics and Billing</a>.</p> 
+	<p>Consider costs when you select the metrics. There are transaction and egress costs associated with refreshing monitoring displays. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx">Storage Analytics and Billing</a>.</p> 
 </div>
 
 3. Click **Add Metrics**. 

@@ -29,7 +29,7 @@ To store files and data in the Blob, Table, and Queue services in Windows Azure,
 
 	<div class="dev-callout"> 
 <b>Note</b> 
-	<p>To create an affinity group, open the <b>Networks</b> area of the Management Portal, click <b>Affinity Groups</b>, and then click either <b>Create a new affinity group</b> or <b>Create</b>. You can use affinity groups that you create in the previous Management Portal. To open the other portal, click <b>Preview</b> on the title bar, and then click <b>Take me to the previous portal</b>. (To return to this portal, click <b>View the Preview Portal</b> at the bottom of the portal.) You can also create and manage affinity groups using the Windows Azure Service Management API. See <a href=http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx>Operations on Affinity Groups</a> for more information.</p> 
+	<p>To create an affinity group, open the <b>Networks</b> area of the Management Portal, click <b>Affinity Groups</b>, and then click either <b>Create a new affinity group</b> or <b>Create</b>. You can use affinity groups that you create in the previous Management Portal. To open the other portal, click <b>Preview</b> on the title bar, and then click <b>Take me to the previous portal</b>. (To return to this portal, click <b>View the Preview Portal</b> at the bottom of the portal.) You can also create and manage affinity groups using the Windows Azure Service Management API. See <a href="http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx">Operations on Affinity Groups</a> for more information.</p> 
 </div>
 
 5. In **Subscription**, enter the Windows Azure subscription that you want to use the storage account with. You can create up to five storage accounts for a subsccription.

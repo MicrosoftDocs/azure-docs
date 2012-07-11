@@ -3,7 +3,7 @@
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-In **Cloud Services** of the Windows Azure Preview Management Portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies in the  portal, and delete deployments or the the cloud service.
+In the **Cloud Services** area of the Windows Azure Preview Management Portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
 
 ##Table of Contents##
 
@@ -151,6 +151,6 @@ Use the following procedure to delete a deployment or your cloud service.
 
 <div class="dev-callout"> 
 <b>Note</b>
-<p>If verbose monitoring is configured for your cloud service, Windows Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For information about where to find the metrics tables, see "How to: Access verbose monitoring data outside the Management Portal" in <a href=https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/>How to Monitor Cloud Services</a>.</p> 
+<p>If verbose monitoring is configured for your cloud service, Windows Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For information about where to find the metrics tables, see "How to: Access verbose monitoring data outside the Management Portal" in <a href="https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/">How to Monitor Cloud Services</a>.</p> 
 </div>
 

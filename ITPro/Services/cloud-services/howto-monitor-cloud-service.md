@@ -20,7 +20,7 @@ By default, minimal monitoring is provided for a new cloud service using perform
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>If you use verbose monitoring, you can add more performance counters at role instance startup, through a diagnostics configuration file, or remotely using the Windows Azure Diagnostics API. To be able to monitor these metrics in the Management Portal, you must add the performance counters before you configure verbose monitoring. For more information, see <a href=http://msdn.microsoft.com/en-us/library/hh411552.aspx>Overview of Windows Azure Diagnostics</a> and <a href=http://msdn.microsoft.com/en-us/library/hh411520.aspx>Overview of Creating and Using Performance Counters in a Windows Azure Application</a>.</p> 
+<p>If you use verbose monitoring, you can add more performance counters at role instance startup, through a diagnostics configuration file, or remotely using the Windows Azure Diagnostics API. To be able to monitor these metrics in the Management Portal, you must add the performance counters before you configure verbose monitoring. For more information, see <a href="http://msdn.microsoft.com/en-us/library/hh411552.aspx">Overview of Windows Azure Diagnostics</a> and <a href="http://msdn.microsoft.com/en-us/library/hh411520.aspx">Overview of Creating and Using Performance Counters in a Windows Azure Application</a>.</p> 
 </div>
 
 By default performance counter data from role instances is sampled and transferred from the role instance at 3-minute intervals. When you enable verbose monitoring, the raw performance counter data is aggregated for each role instance and across role instances for each role at intervals of 5 minutes, 1 hour, and 12 hours. The aggregated data is  purged after 10 days.
@@ -91,7 +91,7 @@ The raw performance counter data and aggregated monitoring data are stored in th
 
 2. To add metrics to the metrics table:
 
-	a. Click **Add Metrics** to open **Choose Metrics**, shows below.
+	a. Click **Add Metrics** to open **Choose Metrics**, shown below.
  The first available metric is expanded to show options that are available. For each metric, the top option displays aggregated monitoring data for all roles. In addition, you can choose individual roles to display data for.
 
 	![Add metrics] (../media/CloudServices_AddMetrics.png)
@@ -103,7 +103,10 @@ The raw performance counter data and aggregated monitoring data are stored in th
 
 	You can display up to 50 metrics in the metrics table.
 
- 	**Hint**   In verbose monitoring, the metrics list can contain dozens of metrics. To display a scrollbar, hover over the right side of the dialog box. To filter the list, click the search icon, and enter text in the search box, as shown below.
+	<div class="dev-callout"> 
+<b>Hint</b> 
+	<p>In verbose monitoring, the metrics list can contain dozens of metrics. To display a scrollbar, hover over the right side of the dialog box. To filter the list, click the search icon, and enter text in the search box, as shown below.</p> 
+</div>
  
 	![Add metrics search] (../media/CloudServices_AddMetrics_Search.png)
 
