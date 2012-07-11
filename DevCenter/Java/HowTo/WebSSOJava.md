@@ -1,7 +1,6 @@
 # How to implement single sign-on with Windows Azure Active Directory for Office 365 users -Java Application#
 
 <h2>Table of Contents</h2>
-<ul>
 <li>
 <a href="#overview">Overview</a>
 </li>
@@ -26,7 +25,11 @@ Imagine the following scenario:
 
 
 
-Awesome Computers wants to provide their users (employees) with the access to the Fabricam's JAVA application.  After some deliberation, both parties agree to utilize the web single sign-on approach, also called identity federation. Using this approach,  Awesome Computers will provide single sign-on access to their users through a federated mechanism that relies on a Security Token Service (STS). Since Awesome Computers does not have its own STS, they will rely on the STS provided by Office 365. In the end, Awesome Computers' users will be able to access Fabricam's JAVA application in exactly the same way they access Office 365 applications.  And I think here we need to add something about ACS and AAD. But what can I say? Can I say that ACS is officially part of AAD? Should I even name ACS?
+Awesome Computers wants to provide their users (employees) with the access to the Fabricam's JAVA application. After some deliberation, both parties agree to utilize the web single sign-on approach, also called identity federation with the end result being that Awesome Computers' users will be able to access Fabricam's JAVA application in exactly the same way they access Office 365 applications. 
+
+This web single sign-on method is made possible with the help of the Windows Azure Active Directory, which is built into Office 365. Windows Azure Active Directory provides Office 365 tenants with directory, authentication, and authorization services, including a Security Token Service (STS). 
+
+With the web single sign-on approach, Awesome Computers will provide single sign-on access to their users through a federated mechanism that relies on an STS. Since Awesome Computers does not have its own STS, they will rely on the STS in their Office 365 tenant provided by Windows Azure Active Directory.
 
 In the instructions provided in this guide, we will play the roles of both Fabricam and Awesome Computers and recreate this scenario by performing the following tasks: 
 
@@ -39,7 +42,7 @@ In the instructions provided in this guide, we will play the roles of both Fabri
 
 **Assets**
 
-This guide is available together with several code samples and scripts that can help you with some of the most time-consuming tasks. All materials are available here for you to study and modify to fit your environment. 
+This guide is available together with several code samples and scripts that can help you with some of the most time-consuming tasks. All materials are available at [Azure Active Directory SSO for Java](https://github.com/WindowsAzure/azure-sdk-for-java-samples) for you to study and modify to fit your environment. 
 
 <a name="prerequisites"></a>
 ## Prerequisites ##
@@ -53,7 +56,6 @@ To complete the tasks in this guide, you will need the following:
 - Microsoft Online Services Module
 
 **JAVA-specific requirements:**
-<ul>
     <li><a href="http://www.oracle.com/technetwork/java/javase/downloads/jre-6u31-download-1501637.html">Java Runtime Environment 1.6</a></li>
     <li>
       <a href=" http://www.jboss.org/jbossas/downloads/">JBoss 7.1.1.Final</a>
@@ -122,8 +124,8 @@ To provision the JAVA web application in Office 365, Awesome Computers creates a
 
 **To provision the ASP.NET applicaiton in Office 365**
 
-1.	Download and install a set of Powershell scripts from the Office 365’s online help page. (I need a link here).
-2.	Locate the CreateServicePrincipal.ps1 script in this code example set under WAAD.WebSSO.JAVA/Scripts (i need a proper link here)
+1.	Download and install a set of [Powershell scripts](https://bposast.vo.msecnd.net/MSOPMW/5164.009/amd64/administrationconfig-en.msi) from the Office 365’s online help page.
+2.	Locate the CreateServicePrincipal.ps1 script in this code example set under WAAD.WebSSO.JAVA/Scripts.
 
 3.	Launch the Microsoft Online Services Module for Windows PowerShell console.
 
