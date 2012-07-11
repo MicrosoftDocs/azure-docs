@@ -1,4 +1,4 @@
-# How to implement single sign-on with Windows Azure Active Directory for Office 365 users - ASP.NET Application#
+# How to implement single sign-on with Windows Azure Active Directory - ASP.NET Application#
 
 <h2>Table of Contents</h2>
 <li>
@@ -13,7 +13,7 @@
 
 <a name="overview"></a>
 ## Overview ##
-This guide provides instructions for creating an ASP.NET MVC application and configuring it to leverage Windows Azure Active Directory to accept Office 365 users. 
+This guide provides instructions for creating an ASP.NET MVC application and configuring it to leverage Windows Azure Active Directory. 
 
 Imagine the following scenario:
 
@@ -27,14 +27,14 @@ Imagine the following scenario:
 
 Awesome Computers wants to provide their users (employees) with the access to the Fabrikam's ASP.NET application. After some deliberation, both parties agree to utilize the web single sign-on approach, also called identity federation with the end result being that Awesome Computers' users will be able to access Fabrikam's ASP.NET MVC application in exactly the same way they access Office 365 applications. 
 
-This web single sign-on method is made possible with the help of the Windows Azure Active Directory, which is built-in to Office 365. Windows Azure Active Directory provides Office 365 tenants with directory, authentication, and authorization services, including a Security Token Service (STS). 
+This web single sign-on method is made possible with the help of the Windows Azure Active Directory, which is also used by Office 365. Windows Azure Active Directory provides directory, authentication, and authorization services, including a Security Token Service (STS). 
 
-With the web single sign-on approach, Awesome Computers will provide single sign-on access to their users through a federated mechanism that relies on an STS. Since Awesome Computers does not have its own STS, they will rely on the STS in their Office 365 tenant provided by Windows Azure Active Directory.
+With the web single sign-on approach, Awesome Computers will provide single sign-on access to their users through a federated mechanism that relies on an STS. Since Awesome Computers does not have its own STS, they will rely on the STS provided by Windows Azure Active Directory that was provisioned for them when they acquired Office 365.
 
 In the instructions provided in this guide, we will play the roles of both Fabrikam and Awesome Computers and recreate this scenario by performing the following tasks: 
 
 - Create a simple ASP.NET MVC application (performed by Fabrikam)
-- Provision an ASP.NET MVC web application in Office 365 (performed by Awesome Computers).
+- Provision an ASP.NET MVC web application in Windows Azure Active Directory (performed by Awesome Computers).
 
 	**Note:* As part of this step, Awesome Computers must in turn be provisioned by the Fabrikam as a customer of their ASP.NET application. Basically, Fabrikam needs to know that users from the Office 365 tenant with the domain **awesomecomputers.onmicrosoft.com** should be granted access to their ASP.NET application. *
 - Protect the ASP.NET MVC application with WS-Federation and onboard the first customer (performed by Fabrikam)
@@ -99,19 +99,19 @@ The instructions in this step demonstrate how to create a simple ASP.NET MVC app
 *Note:* Make sure to record this value. This identifier will be the AppPrincipalId used in further steps in this guide when provisioning this ASP.NET applicaiton in Office 365.
 
 <a name="step2"></a>
-## Step 2 - Provision the ASP.NET MVC application in Office 365 ##
+## Step 2 - Provision the ASP.NET MVC application in Windows Azure Active Directory ##
 
-Instructions in this step demonstrate how you can provision the ASP.NET application in the Office 365 tenant. In our scenario, this step is performed by. Awesome Computers then provides the application owner (Fabrikam) with the data Fabrikam needs in order to set up single sign-on access for Awesome Computers's users. 
+Instructions in this step demonstrate how you can provision the ASP.NET application in Windows Azure Active Directory. In our scenario, this step is performed by. Awesome Computers then provides the application owner (Fabrikam) with the data Fabrikam needs in order to set up single sign-on access for Awesome Computers's users. 
 
-Note: If you don’t have access to an Office 365 tenant, you can obtain one by applying for a FREE TRIAL subscription on the [Office 365’s Sign-up page](http://www.microsoft.com/en-us/office365/online-software.aspx#fbid=8qpYgwknaWN). 
+Note: If you don’t have access to an Office 365, you can obtain one by applying for a FREE TRIAL subscription on the [Office 365’s Sign-up page](http://www.microsoft.com/en-us/office365/online-software.aspx#fbid=8qpYgwknaWN). 
 
-To provision the ASP.NET application in Office 365, Awesome Computers creates a new Service Principal for it in the Office 365 tenant. In order to create a new Service principal for the ASP.NET application in the Office 365 tenant, Awesome Computers must obtain the following information from Fabrikam:
+To provision the ASP.NET application in Windows Azure Active Directory, Awesome Computers creates a new Service Principal for it in the directory. In order to create a new Service principal for the ASP.NET application in the directory, Awesome Computers must obtain the following information from Fabrikam:
 
 - The value of the ServicePrincipalName (OrgIdFederationSample/localhost)
 - The AppPrincipalId (7829c758-2bef-43df-a685-717089474505)
 - The ReplyUrl 
 
-**To provision the ASP.NET applicaiton in Office 365**
+**To provision the ASP.NET application in Windows Azure Active Directory**
 
 1.	Download and install a set of [Powershell scripts](https://bposast.vo.msecnd.net/MSOPMW/5164.009/amd64/administrationconfig-en.msi) from the Office 365’s online help page.
 2.	Locate the CreateServicePrincipal.ps1 script in this code example set under WAAD.WebSSO.ASPNET/Scripts.
@@ -149,7 +149,7 @@ Now Fabrikam must provision Awesome Computers as a customer of the ASP.NET appli
 
 The instructions in this step demonstrate how to add support for federated login to the ASP.NET application created in Step 1. In our scenario, this step is performed by Fabrikam. 
 
-This step is performed by using the federation and simpleSAML.php libraries and adding some extra artifacts, like a login page. With the ASP.NET application ready to authenticate requests using the WS-Federation protocol, we can add the Windows Azure AD tenant of Awesome Computers as a trusted provider. The initial setup of the federation will be done manually using FedUtil. The parameters required in the wizard will be: the audience Uri (spn:AppPrincipalId@realm) and the federation metadata (https://accounts.accesscontrol.windows.net/Federation……xml?realm=domain). 
+With the ASP.NET application ready to authenticate requests using the WS-Federation protocol, we can add the Windows Azure AD tenant of Awesome Computers as a trusted provider. The initial setup of the federation will be done manually using FedUtil. The parameters required in the wizard will be: the audience Uri (spn:AppPrincipalId@realm) and the federation metadata (https://accounts.accesscontrol.windows.net/Federation……xml?realm=domain). 
 
 The audienceURI was generated in Step 2 when Awesome Computers's admin ran the SampleAppServicePrincipal.ps1 script to provision Fabrikam's ASP.NET application. The following is an example of the audienceURI:
 
@@ -219,7 +219,7 @@ You can use this Audience URI to add the first customer to our solution:
 
 	<img src="../../../DevCenter/dotNet/Media/ssostep3Step12.png" />
 
-**Important:** If your application is meant to work with a single Office 365 tenant, for example, if you are writing a LoB application, you can stop following the instructions in this guide at this point. By running the three steps above, you have successfully set up Windows Azure AD-enabled single sign-on to a simple ASP.NET application for the users in one Office 365 tenant.
+**Important:** If your application is meant to work with a single Windows Azure Active Directory tenant, for example, if you are writing a LoB application, you can stop following the instructions in this guide at this point. By running the three steps above, you have successfully set up Windows Azure AD-enabled single sign-on to a simple ASP.NET application for the users in one tenant.
 
 If, however, you are developing applications that need to be accessed by more than one tenant, the next step can help you modify your code to accommodate multiple tenants.  
 
@@ -254,6 +254,7 @@ Let's add another fictitious customer to our scenario, Trey research Inc. Trey R
 5.	Add a reference to Microsoft.Samples.Waad.Federation assembly.
 
 	<img src="../../../DevCenter/dotNet/Media/ssostep4Step5.png" />
+
 6.	Go to the web.config and add the following snippet inside **service** under **microsoft.IdentityModel**. This is the security token handler that will validate the audience Uri dynamically using the “trustedIssuers.xml” repository.
 
 	<img src="../../../DevCenter/dotNet/Media/ssostep4Step6.png" />
@@ -262,7 +263,7 @@ Let's add another fictitious customer to our scenario, Trey research Inc. Trey R
 
 	<img src="../../../DevCenter/dotNet/Media/ssostep4Step7.png" />
 
-8.	Under **system.web** replace the **** node using the following snippet. This login page wauthenticationill display a list of trusted providers allowing users to perform the login process with their organization credentials.
+8.	Under **system.web** replace the **** node using the following snippet. This login page will display a list of trusted providers allowing users to perform the login process with their organization credentials.
 
 	<img src="../../../DevCenter/dotNet/Media/ssostep4Step8.png" />
 
