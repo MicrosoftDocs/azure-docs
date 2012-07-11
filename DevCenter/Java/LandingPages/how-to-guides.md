@@ -25,10 +25,18 @@ Tables offer NoSQL capabilities for applications that require storage of large a
 
 For applications that need a full featured relational database-as-a-service, Windows Azure offers SQL Database, formerly known as SQL Azure Database. SQL Database offers a high-level of interoperability, enabling customers to build applications using many of the major development frameworks.
 
-## Additional guides
+## Security
 
 ### [Access Control][access_control]
 Access Control is a Windows Azure service that provides an easy way of authenticating users who need to access your web applications and services, without having to factor complex authentication logic into your code. It provides integration with Windows Identity Foundation (WIF), support for popular web identity providers including Windows Live ID, Google, Yahoo, and Facebook, and support for ADFS 2.0.
+
+### [Viewing SAML returned by Access Control][access_control_view_saml]
+The Access Control Service returns Security Assertion Markup Language (SAML) to your application when the user successfully logs on.
+
+### [Single sign-on with Windows Azure Active Directory][Single sign-on with Windows Azure Active Directory]
+You can use web single sign-on (also called identity federation) to provide single sign-on access through a federated mechanism that relies on a Security Token Service (STS).  This guide shows you how to accomplish this using the STS in your Office 365 tenant provided by Windows Azure Active Directory.
+
+## Additional guides
 
 ### [Service Runtime][service_runtime]
 
@@ -52,3 +60,5 @@ Windows Azure applications can use Twilio to incorporate phone call and Short Me
 [sendgrid]: ../howto/sendgrid-email-service.md
 [twilio]: ../howto/twilio_in_java.md
 [access_control]: ../howto/howto-acs-java.md
+[access_control_view_saml]: ../howto/howto-acs-display-saml-java.md
+[Single sign-on with Windows Azure Active Directory]: /en-us/develop/java/how-to-guides/web-sso/
