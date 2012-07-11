@@ -17,7 +17,7 @@ This guide provides instructions for creating an ASP.NET MVC application and con
 
 Imagine the following scenario:
 
-- Fabricam is an independent software vendor with an ASP.NET MVC web application
+- Fabrikam is an independent software vendor with an ASP.NET MVC web application
 
 - Awesome Computers has a subscription to Office 365
 
@@ -25,20 +25,20 @@ Imagine the following scenario:
 
 
 
-Awesome Computers wants to provide their users (employees) with the access to the Fabricam's ASP.NET application. After some deliberation, both parties agree to utilize the web single sign-on approach, also called identity federation with the end result being that Awesome Computers' users will be able to access Fabricam's ASP.NET MVC application in exactly the same way they access Office 365 applications. 
+Awesome Computers wants to provide their users (employees) with the access to the Fabrikam's ASP.NET application. After some deliberation, both parties agree to utilize the web single sign-on approach, also called identity federation with the end result being that Awesome Computers' users will be able to access Fabrikam's ASP.NET MVC application in exactly the same way they access Office 365 applications. 
 
 This web single sign-on method is made possible with the help of the Windows Azure Active Directory, which is built-in to Office 365. Windows Azure Active Directory provides Office 365 tenants with directory, authentication, and authorization services, including a Security Token Service (STS). 
 
 With the web single sign-on approach, Awesome Computers will provide single sign-on access to their users through a federated mechanism that relies on an STS. Since Awesome Computers does not have its own STS, they will rely on the STS in their Office 365 tenant provided by Windows Azure Active Directory.
 
-In the instructions provided in this guide, we will play the roles of both Fabricam and Awesome Computers and recreate this scenario by performing the following tasks: 
+In the instructions provided in this guide, we will play the roles of both Fabrikam and Awesome Computers and recreate this scenario by performing the following tasks: 
 
-- Create a simple ASP.NET MVC application (performed by Fabricam)
+- Create a simple ASP.NET MVC application (performed by Fabrikam)
 - Provision an ASP.NET MVC web application in Office 365 (performed by Awesome Computers).
 
-	**Note:* As part of this step, Awesome Computers must in turn be provisioned by the Fabricam as a customer of their ASP.NET application. Basically, Fabricam needs to know that users from the Office 365 tenant with the domain **awesomecomputers.onmicrosoft.com** should be granted access to their ASP.NET application. *
-- Protect the ASP.NET MVC application with WS-Federation and onboard the first customer (performed by Fabricam)
-- Modify the ASP.NET MVC application to handle single sign-on with multiple tenants (performed by Fabricam)
+	**Note:* As part of this step, Awesome Computers must in turn be provisioned by the Fabrikam as a customer of their ASP.NET application. Basically, Fabrikam needs to know that users from the Office 365 tenant with the domain **awesomecomputers.onmicrosoft.com** should be granted access to their ASP.NET application. *
+- Protect the ASP.NET MVC application with WS-Federation and onboard the first customer (performed by Fabrikam)
+- Modify the ASP.NET MVC application to handle single sign-on with multiple tenants (performed by Fabrikam)
 
 **Assets**
 
@@ -53,7 +53,7 @@ To complete the tasks in this guide, you will need the following:
 
 - Internet Information Services (IIS) 7.5 (with SSL enabled)
 - Windows PowerShell 2.0
-- Microsoft Online Services Module
+- [Microsoft Online Services Module](http://g.microsoftonline.com/0BX10en/229)
 
 **ASP.NET-specific requirements:**
 
@@ -72,7 +72,7 @@ To complete the tasks in this guide, you will need the following:
 <a name="step1"></a>
 ## Step 1 - Create an ASP.NET MVC application ##
 
-The instructions in this step demonstrate how to create a simple ASP.NET MVC application. In our scenario, this step is performed by Fabricam.
+The instructions in this step demonstrate how to create a simple ASP.NET MVC application. In our scenario, this step is performed by Fabrikam.
 
 **To create an ASP.NET Application:**
 
@@ -101,11 +101,11 @@ The instructions in this step demonstrate how to create a simple ASP.NET MVC app
 <a name="step2"></a>
 ## Step 2 - Provision the ASP.NET MVC application in Office 365 ##
 
-Instructions in this step demonstrate how you can provision the ASP.NET application in the Office 365 tenant. In our scenario, this step is performed by. Awesome Computers then provides the application owner (Fabricam) with the data Fabricam needs in order to set up single sign-on access for Awesome Computers's users. 
+Instructions in this step demonstrate how you can provision the ASP.NET application in the Office 365 tenant. In our scenario, this step is performed by. Awesome Computers then provides the application owner (Fabrikam) with the data Fabrikam needs in order to set up single sign-on access for Awesome Computers's users. 
 
 Note: If you don’t have access to an Office 365 tenant, you can obtain one by applying for a FREE TRIAL subscription on the [Office 365’s Sign-up page](http://www.microsoft.com/en-us/office365/online-software.aspx#fbid=8qpYgwknaWN). 
 
-To provision the ASP.NET application in Office 365, Awesome Computers creates a new Service Principal for it in the Office 365 tenant. In order to create a new Service principal for the ASP.NET application in the Office 365 tenant, Awesome Computers must obtain the following information from Fabricam:
+To provision the ASP.NET application in Office 365, Awesome Computers creates a new Service Principal for it in the Office 365 tenant. In order to create a new Service principal for the ASP.NET application in the Office 365 tenant, Awesome Computers must obtain the following information from Fabrikam:
 
 - The value of the ServicePrincipalName (OrgIdFederationSample/localhost)
 - The AppPrincipalId (7829c758-2bef-43df-a685-717089474505)
@@ -140,18 +140,18 @@ When asked to provide a name for your Service Principal, type in a descriptive n
 
 	<img src="../../../DevCenter/dotNet/Media/ssostep2Step6.png" />
 
-The Fabricam's application has been successfully provisioned in the directory tenant of Awesome Computers. 
+The Fabrikam's application has been successfully provisioned in the directory tenant of Awesome Computers. 
 
-Now Fabricam must provision Awesome Computers as a customer of the ASP.NET application. In other words, Fabricam must know that users from the Office 365 tenant with domain *awesomecomputers.onmicrosoft.com* should be granted access. How that information reaches Fabricam depends on how the subscriptions are handled. In this guide, the instructions for this provisioning step are not provided. 
+Now Fabrikam must provision Awesome Computers as a customer of the ASP.NET application. In other words, Fabrikam must know that users from the Office 365 tenant with domain *awesomecomputers.onmicrosoft.com* should be granted access. How that information reaches Fabrikam depends on how the subscriptions are handled. In this guide, the instructions for this provisioning step are not provided. 
 
 <a name="step3"></a>
 ## Step 3 - Protect the ASP.NET application via WS-Federation and onboard the first customer##
 
-The instructions in this step demonstrate how to add support for federated login to the ASP.NET application created in Step 1. In our scenario, this step is performed by Fabricam. 
+The instructions in this step demonstrate how to add support for federated login to the ASP.NET application created in Step 1. In our scenario, this step is performed by Fabrikam. 
 
 This step is performed by using the federation and simpleSAML.php libraries and adding some extra artifacts, like a login page. With the ASP.NET application ready to authenticate requests using the WS-Federation protocol, we can add the Windows Azure AD tenant of Awesome Computers as a trusted provider. The initial setup of the federation will be done manually using FedUtil. The parameters required in the wizard will be: the audience Uri (spn:AppPrincipalId@realm) and the federation metadata (https://accounts.accesscontrol.windows.net/Federation……xml?realm=domain). 
 
-The audienceURI was generated in Step 2 when Awesome Computers's admin ran the SampleAppServicePrincipal.ps1 script to provision Fabricam's ASP.NET application. The following is an example of the audienceURI:
+The audienceURI was generated in Step 2 when Awesome Computers's admin ran the SampleAppServicePrincipal.ps1 script to provision Fabrikam's ASP.NET application. The following is an example of the audienceURI:
 
 *appid@realm or 7829c758-2bef-43df-a685-717089474505@e4073280-196b-408f-9d40-0be89978fda0*
 
@@ -226,12 +226,12 @@ If, however, you are developing applications that need to be accessed by more th
 <a name="step4"></a>
 ## Step 4 - Configure the ASP.NET application for single sign-on with Multiple tenants ##
 
-What if Fabricam wants to provide access to its application to multiple customers? The steps we performed in this guide so far ensure that single sign-on works with only one trusted provider. Fabricam's developers must make some changes to their ASP.NET application in order to provide single sign-on to whatever future customers they obtain. The main new features needed are:
+What if Fabrikam wants to provide access to its application to multiple customers? The steps we performed in this guide so far ensure that single sign-on works with only one trusted provider. Fabrikam's developers must make some changes to their ASP.NET application in order to provide single sign-on to whatever future customers they obtain. The main new features needed are:
 
 - Support for multiple identity providers in the login page
 - Maintenance of the list of all trusted providers and the audienceURI they will send to the application; That list can be used to determine how to validate incoming tokens
 
-Let's add another fictitious customer to our scenario, Trey research Inc. Trey Research Inc. must register Fabricam's ASP.NET application in its tenant the same way Awesome Computers have done in Step 2. The following is the list of configuration changes that Fabricam needs to perform to their ASP.NET application to enable multi-tenant single sign-on, intertwined with the provisioning of Trey Research Inc.
+Let's add another fictitious customer to our scenario, Trey research Inc. Trey Research Inc. must register Fabrikam's ASP.NET application in its tenant the same way Awesome Computers have done in Step 2. The following is the list of configuration changes that Fabrikam needs to perform to their ASP.NET application to enable multi-tenant single sign-on, intertwined with the provisioning of Trey Research Inc.
 
 1.	From Visual Studio, add an empty XML file to the application root called “trustedIssuers.xml”. This file will contain a list of the trusted issuers for the application (in this case, Awesome Computers and Trey Research Inc.) which will be used by the dynamic audience Uri validator.
 
