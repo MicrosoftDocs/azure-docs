@@ -121,15 +121,19 @@ In order to perform management operations on the new namespace (such as creating
 
 To use the Windows Azure Service Bus topic APIs, you need to:
 
-1. Reference the `WindowsAzure.php` file (from the Windows Azure SDK for PHP) using the [require\_once][require-once] statement, and
-
+1. Reference the autoloader file using the [require_once][require-once] statement, and
 2. Reference any classes you might use.
 
-The following example shows how to include the `WindowsAzure.php` file and reference the **ServiceBusService** class:
+The following example shows how to include the autoloader file and reference the **ServiceBusService** class.
 
-	require_once 'WindowsAzure\WindowsAzure.php';
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>This example (and other examples in this article) assume you have installed the PHP Client Libraries for Windows Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the <code>WindowsAzure.php</code> autoloader file.</p> 
+</div>
 
+	require_once 'vendor\autoload.php';
 	use WindowsAzure\ServiceBus\ServiceBusService;
+
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
@@ -142,7 +146,7 @@ token permissions to manage it.
 
 The example below shows how create a **Configuration** object, instantiate **ServiceBusRestProxy** via the **ServiceBusService::create** factory method, and call **ServiceBusRestProxy->createTopic** to create a topic named `mytopic` within a `MySBNamespace` service namespace:
 
-	require_once 'WindowsAzure\WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\ServiceBus\ServiceBusService;
 	use WindowsAzure\ServiceBus\ServiceBusSettings;
@@ -189,7 +193,7 @@ Topic subscriptions are also created with the **ServiceBusRestProxy->createSubsc
 
 The **MatchAll** filter is the default filter that is used if no filter is specified when a new subscription is created. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named 'mysubscription' and uses the default **MatchAll** filter.
 
-	require_once 'WindowsAzure\WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\ServiceBus\ServiceBusService;
 	use WindowsAzure\ServiceBus\ServiceBusSettings;
@@ -263,7 +267,7 @@ When a message is now sent to the `mytopic` topic, it will always be delivered t
 To send a message to a Service Bus topic, your application will call the **ServiceBusRestProxy->sendTopicMessage** method. The code below demonstrates how to send a message to the `mytopic` topic we created above within the
 `MySBNamespace` service namespace.
 
-	require_once 'WindowsAzure\WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\ServiceBus\ServiceBusService;
 	use WindowsAzure\ServiceBus\ServiceBusSettings;
@@ -327,7 +331,7 @@ In **PeekLock** mode, receiving a message becomes a two stage operation, which m
 
 The example below demonstrates how a message can be received and processed using **PeekLock** mode (not the default mode). 
 
-	require_once 'WindowsAzure\WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\ServiceBus\ServiceBusService;
 	use WindowsAzure\ServiceBus\ServiceBusSettings;
@@ -390,7 +394,7 @@ To delete a topic or a subscription, use the **ServiceBusRestProxy->deleteTopic*
 
 The following example shows how to delete a topic (`mytopic`) and its registered subscriptions.
 
-    require_once 'WindowsAzure\WindowsAzure.php';
+    require_once 'vendor\autoload.php';
 
 	use WindowsAzure\ServiceBus\ServiceBusService;
 	use WindowsAzure\ServiceBus\ServiceBusSettings;

@@ -1,17 +1,31 @@
-###Install as a PEAR package
+###Install via Composer
 
-To install the PHP Client Libraries for Windows Azure as a PEAR package, follow these steps:
+1. [Install Git][install-git]. 
 
-1. [Install PEAR][chunk-install-pear].
-2. Set-up the Windows Azure PEAR channel:
+	<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>On Windows, you will also need to add the Git executable to your PATH environment variable.</p>
+	</div>
 
-		pear channel-discover pear.windowsazure.com
+2. Create a file named **composer.json** in the root of your project and add the following code to it:
 
-3. Install the PEAR package:
+		{
+			"require": {
+				"microsoft/windowsazure": "*"
+			},			
+			"repositories": [
+				{
+					"type": "pear",
+					"url": "http://pear.php.net"
+				}
+			]
+		}
 
-		pear install pear.windowsazure.com/WindowsAzure-0.1.0
+3. Download **[composer.phar][composer-phar]** in your project root.
 
-After the installation completes, you can reference class libraries from your application.
+4. Open a command prompt and execute this in your project root
+
+		php composer.phar install
 
 ###Install manually
 
@@ -27,5 +41,9 @@ To download and install the PHP Client Libraries for Windows Azure manually, fol
 
 2. Copy the `WindowsAzure` directory of the downloaded archive to your application directory structure.
 
+For more information about installing the PHP Client Libraries for Windows Azure (including information about installing as a PEAR package), see [Download the Windows Azure SDK for PHP][download-php-sdk].
+
 [chunk-install-pear]: http://pear.php.net/manual/en/installation.php
 [chunk-php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
+[install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+[download-php-sdk]: https://www.windowsazure.com/en-us/develop/php/common-tasks/download-php-sdk/
