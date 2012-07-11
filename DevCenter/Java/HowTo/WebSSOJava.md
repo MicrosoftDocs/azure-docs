@@ -6,18 +6,18 @@
 </li>
 <li>
 <a href="#prerequisites">Prerequisites</a></li>
-<li><a href="#step1">Step 1 - Create a JAVA web application</a></li>
-<li><a href="#step2">Step 2 - Provision the JAVA web application in Office 365</a></li>
-<li><a href="#step3">Step 3 - Protect the JAVA web application via WS-Federation and onboard the first customer</a></li>
-<li><a href="#step4">Step 4 - Configure the JAVA web application for single sign-on with multiple tenants</a></li>	<li><a href="#appendix">Appendix: Deploying to JBOSS on Solaris</a></li>
+<li><a href="#step1">Step 1 - Create a Java web application</a></li>
+<li><a href="#step2">Step 2 - Provision the Java web application in Office 365</a></li>
+<li><a href="#step3">Step 3 - Protect the Java web application via WS-Federation and onboard the first customer</a></li>
+<li><a href="#step4">Step 4 - Configure the Java web application for single sign-on with multiple tenants</a></li>	<li><a href="#appendix">Appendix: Deploying to JBOSS on Solaris</a></li>
 
 <a name="overview"></a>
 ## Overview ##
-This guide provides instructions for creating a JAVA web application and configuring it to leverage Windows Azure Active Directory to accept Office 365 users. 
+This guide provides instructions for creating a Java web application and configuring it to leverage Windows Azure Active Directory to accept Office 365 users. 
 
 Imagine the following scenario:
 
-- Fabricam is an independent software vendor with a JAVA web application
+- Fabrikam is an independent software vendor with a Java web application
 
 - Awesome Computers has a subscription to Office 365
 
@@ -25,20 +25,20 @@ Imagine the following scenario:
 
 
 
-Awesome Computers wants to provide their users (employees) with the access to the Fabricam's JAVA application. After some deliberation, both parties agree to utilize the web single sign-on approach, also called identity federation with the end result being that Awesome Computers' users will be able to access Fabricam's JAVA application in exactly the same way they access Office 365 applications. 
+Awesome Computers wants to provide their users (employees) with the access to the Fabrikam's Java application. After some deliberation, both parties agree to utilize the web single sign-on approach, also called identity federation with the end result being that Awesome Computers' users will be able to access Fabrikam's Java application in exactly the same way they access Office 365 applications. 
 
 This web single sign-on method is made possible with the help of the Windows Azure Active Directory, which is built into Office 365. Windows Azure Active Directory provides Office 365 tenants with directory, authentication, and authorization services, including a Security Token Service (STS). 
 
 With the web single sign-on approach, Awesome Computers will provide single sign-on access to their users through a federated mechanism that relies on an STS. Since Awesome Computers does not have its own STS, they will rely on the STS in their Office 365 tenant provided by Windows Azure Active Directory.
 
-In the instructions provided in this guide, we will play the roles of both Fabricam and Awesome Computers and recreate this scenario by performing the following tasks: 
+In the instructions provided in this guide, we will play the roles of both Fabrikam and Awesome Computers and recreate this scenario by performing the following tasks: 
 
-- Create a simple JAVA application (performed by Fabricam)
-- Provision a JAVA web application in Office 365 (performed by Awesome Computers).
+- Create a simple Java application (performed by Fabrikam)
+- Provision a Java web application in Office 365 (performed by Awesome Computers).
 
-	**Note:** As part of this step, Awesome Computers must in turn be provisioned by the Fabricam as a customer of their JAVA application. Basically, Fabricam needs to know that users from the Office 365 tenant with the domain **awesomecomputers.onmicrosoft.com** should be granted access to their JAVA application.
-- Protect the JAVA application with WS-Federation and onboard the first customer (performed by Fabricam)
-- Modify the JAVA application to handle single sign-on with multiple tenants (performed by Fabricam)
+	**Note:** As part of this step, Awesome Computers must in turn be provisioned by the Fabrikam as a customer of their Java application. Basically, Fabrikam needs to know that users from the Office 365 tenant with the domain **awesomecomputers.onmicrosoft.com** should be granted access to their Java application.
+- Protect the Java application with WS-Federation and onboard the first customer (performed by Fabrikam)
+- Modify the Java application to handle single sign-on with multiple tenants (performed by Fabrikam)
 
 **Assets**
 
@@ -53,9 +53,9 @@ To complete the tasks in this guide, you will need the following:
 
 - Internet Information Services (IIS) 7.5 (with SSL enabled)
 - Windows PowerShell 2.0
-- Microsoft Online Services Module
+- [Microsoft Online Services Module](http://g.microsoftonline.com/0BX10en/229)
 
-**JAVA-specific requirements:**
+**Java-specific requirements:**
     <li><a href="http://www.oracle.com/technetwork/java/javase/downloads/jre-6u31-download-1501637.html">Java Runtime Environment 1.6</a></li>
     <li>
       <a href=" http://www.jboss.org/jbossas/downloads/">JBoss 7.1.1.Final</a>
@@ -67,13 +67,13 @@ To complete the tasks in this guide, you will need the following:
 
 
 <a name="step1"></a>
-## Step 1 - Create a JAVA web application ##
+## Step 1 - Create a Java web application ##
 
-The instructions in this step demonstrate how to create a simple JAVA application. In our scenario, this step is performed by Fabricam.
+The instructions in this step demonstrate how to create a simple Java application. In our scenario, this step is performed by Fabrikam.
 
 *NOTE for the non-Java developer: Maven is a dependency manager and build system. JBOSS Developer Studio, which is based on Eclipse, does not offer those capabilities out of the box. *
 
-**To create JAVA web application:**
+**To create Java web application:**
 
 1.	Open a new instance of JBoss Developer Studio.
 2.	Create a new project: File -> New Project -> Maven Project.
@@ -107,29 +107,29 @@ The instructions in this step demonstrate how to create a simple JAVA applicatio
 
 	<img src="../../../DevCenter/Java/Media/javastep1step10.png" />
 
-*Note:* Make sure to record this value. This identifier will be the AppPrincipalId used in further steps in this guide when provisioning this JAVA web applicaiton in Office 365. 
+*Note:* Make sure to record this value. This identifier will be the AppPrincipalId used in further steps in this guide when provisioning this Jav web applicaiton in Office 365. 
 
 <a name="step2"></a>
-## Step 2 - Provision the JAVA web application in Office 365 ##
+## Step 2 - Provision the Java web application in Office 365 ##
 
-Instructions in this step demonstrate how you can provision the JAVA web application in the Office 365 tenant. In our scenario, this step is performed by Awesome Computers.  Then Awesome Computers provides the application owner (Fabricam) with the data Fabricam needs in order to set up single sign-on access for Awesome Computers's users. 
+Instructions in this step demonstrate how you can provision the Java web application in the Office 365 tenant. In our scenario, this step is performed by Awesome Computers.  Then Awesome Computers provides the application owner (Fabrikam) with the data Fabrikam needs in order to set up single sign-on access for Awesome Computers's users. 
 
 Note: If you don’t have access to an Office 365 tenant, you can obtain one by applying for a FREE TRIAL subscription on the [Office 365’s Sign-up page](http://www.microsoft.com/en-us/office365/online-software.aspx#fbid=8qpYgwknaWN). 
 
-To provision the JAVA web application in Office 365, Awesome Computers creates a new Service Principal for it in the Office 365 tenant. In order to create a new Service principal for the JAVA application in the Office 365 tenant, Awesome Computers must obtain the following information from Fabricam:
+To provision the Java web application in Office 365, Awesome Computers creates a new Service Principal for it in the Office 365 tenant. In order to create a new Service principal for the Java application in the Office 365 tenant, Awesome Computers must obtain the following information from Fabrikam:
 
 - The value of the ServicePrincipalName (sample/localhost:8443
 - The AppPrincipalId (9a822147-348b-4e0e-8edf-899fe8c117d4)
 - The ReplyUrl 
 
-**To provision the ASP.NET applicaiton in Office 365**
+**To provision the Java application in Office 365**
 
 1.	Download and install a set of [Powershell scripts](https://bposast.vo.msecnd.net/MSOPMW/5164.009/amd64/administrationconfig-en.msi) from the Office 365’s online help page.
 2.	Locate the CreateServicePrincipal.ps1 script in this code example set under WAAD.WebSSO.JAVA/Scripts.
 
 3.	Launch the Microsoft Online Services Module for Windows PowerShell console.
 
-4.	Run the SampleAppServicePrincipal.ps1 command from the Microsoft Online Services Module for Windows PowerShell Console.
+4.	Run the CreateServicePrincipal.ps1 command from the Microsoft Online Services Module for Windows PowerShell Console.
 
 	<img src="../../../DevCenter/Java/Media/ssostep2Step4.png" />	
 
@@ -153,14 +153,14 @@ To provision the JAVA web application in Office 365, Awesome Computers creates a
 
 *Note: In the command shown here, AppPrincipalId values are those provided by Fabrikam.*
 
-The Fabricam's application has been successfully provisioned in the directory tenant of Awesome Computers. 
+The Fabrikam's application has been successfully provisioned in the directory tenant of Awesome Computers. 
 
-Now Fabricam must provision Awesome Computers as a customer of the JAVA application. In other words, Fabricam must know that users from the Office 365 tenant with domain *awesomecomputers.onmicrosoft.com* should be granted access to the JAVA applicaiton. How that information reaches Fabricam depends on how the subscriptions are handled. In this guide, the instructions for this provisioning step are not provided. 
+Now Fabrikam must provision Awesome Computers as a customer of the Java application. In other words, Fabrikam must know that users from the Office 365 tenant with domain *awesomecomputers.onmicrosoft.com* should be granted access to the Java applicaiton. How that information reaches Fabrikam depends on how the subscriptions are handled. In this guide, the instructions for this provisioning step are not provided. 
 
 <a name="step3"></a>
-## Step 3 - Protect the JAVA web application via WS-Federation and onboard the first customer##
+## Step 3 - Protect the Java web application via WS-Federation and onboard the first customer##
 
-The instructions in this step demonstrate how to add support for federated login to the JAVA web application created in Step 1. In our scenario, this step is performed by Fabricam. 
+The instructions in this step demonstrate how to add support for federated login to the Java web application created in Step 1. In our scenario, this step is performed by Fabrikam. 
 
 This step is performed by using the waad-federation library and adding some extra artifacts, like a login page. With the application ready to authenticate requests using the WS-Federation protocol, we’ll add the Windows Azure Active Directory tenant of Awesome Computers as a trusted provider.
 
@@ -212,7 +212,7 @@ This step is performed by using the waad-federation library and adding some extr
 
 	<img src="../../../DevCenter/Java/Media/javastep3Step10.png" />
 
-11.	Create the new Servlet. Right-click the sample project and select New -> Other -> Servlet.Name it FederationServlet, click Next and then Finish.
+11.	Create the new Servlet. Right-click the sample project and select New -> Other -> Servlet. Name it FederationServlet, click Next and then Finish.
 
 	<img src="../../../DevCenter/Java/Media/javastep3Step11.png" />
 
@@ -248,19 +248,19 @@ This step is performed by using the waad-federation library and adding some extr
 	<img src="../../../DevCenter/Java/Media/javastep3Step18.png" />
 
 
-**Important:** If your application is meant to work with a single Office 365 tenant, for example, if you are writing a LoB application, you can stop following the instructions in this guide at this point. By running the three steps above, you have successfully set up Windows Azure AD-enabled single sign-on to a simple JAVA web application for the users in one Office 365 tenant.
+**Important:** If your application is meant to work with a single Office 365 tenant, for example, if you are writing a LoB application, you can stop following the instructions in this guide at this point. By running the three steps above, you have successfully set up Windows Azure AD-enabled single sign-on to a simple Java web application for the users in one Office 365 tenant.
 
 If, however, you are developing applications that need to be accessed by more than one tenant, the next step can help you modify your code to accommodate multiple tenants.  
 
 <a name="step4"></a>
-## Step 4 - Configure the JAVA web application for single sign-on with Multiple tenants ##
+## Step 4 - Configure the Java web application for single sign-on with Multiple tenants ##
 
-What if Fabricam wants to provide access to its application to multiple customers? The steps we performed in this guide so far ensure that single sign-on works with only one trusted provider. Fabricam's developers must make some changes to their JAVA web application in order to provide single sign-on to whatever future customers they obtain. The main new features needed are:
+What if Fabrikam wants to provide access to its application to multiple customers? The steps we performed in this guide so far ensure that single sign-on works with only one trusted provider. Fabrikam's developers must make some changes to their Java web application in order to provide single sign-on to whatever future customers they obtain. The main new features needed are:
 
 - Support for multiple identity providers in the login page
 - Maintenance of the list of all trusted providers and the audienceURI they will send to the application; That list can be used to determine how to validate incoming tokens
 
-Let's add another fictitious customer to our scenario, Trey research Inc. Trey Research Inc. must register Fabricam's JAVA web application in its tenant the same way Awesome Computers have done in Step 2. The following is the list of configuration changes that Fabricam needs to perform to their JAVA web application to enable multi-tenant single sign-on, intertwined with the provisioning of Trey Research Inc.
+Let's add another fictitious customer to our scenario, Trey research Inc. Trey Research Inc. must register Fabrikam's Java web application in its tenant the same way Awesome Computers have done in Step 2. The following is the list of configuration changes that Fabrikam needs to perform to their Java web application to enable multi-tenant single sign-on, intertwined with the provisioning of Trey Research Inc.
 
 1.	From JBoss Developer Studio, right-click the src/main/resources folder in the sample project, select New -> Xml File and provide “trusted.issuers.xml” as the file name. This file will contain a list of the trusted issuers for the application (in this case with Awesome Computers and Trey Research Inc.) which will be used by the dynamic audience Uri validator.
 
