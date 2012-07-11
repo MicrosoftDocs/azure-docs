@@ -40,7 +40,7 @@ In the instructions provided in this guide, we will play the roles of both Fabri
 
 **Assets**
 
-This guide is available together with several code samples and scripts that can help you with some of the most time-consuming tasks. All materials are available at [Azure Active Directory SSO for PHP](https://github.com/WindowsAzure/azure-sdk-for-php-samples) for you to study and modify to fit your environment. 
+This guide is available together with several code samples and scripts that can help you with some of the most time-consuming tasks. All materials are available at Azure Active Directory SSO for .Net for you to study and modify to fit your environment. 
 
 <a name="prerequisites"></a>
 ## Prerequisites ##
@@ -112,19 +112,19 @@ The instructions in this step demonstrate how to create a simple PHP application
 *Note:* Make sure to record this value. This identifier will be the AppPrincipalId used in further steps in this guide when provisioning this PHP web applicaiton in Office 365. 
 
 <a name="step2"></a>
-## Step 2 - Provision the PHP application in Office 365 ##
+## Step 2 - Provision the PHP application in Windows Azure Active Directory ##
 
-Instructions in this step demonstrate how you can provision the PHP application in the Office 365 tenant. In our scenario, this step is performed by Awesome Computers.  Then Awesome Computers provides the application owner (Fabrikam) with the data Fabrikam needs in order to set up single sign-on access for Awesome Computers's users. 
+Instructions in this step demonstrate how you can provision the PHP application in Windows Azure Active Directory. In our scenario, this step is performed by Awesome Computers.  Then Awesome Computers provides the application owner (Fabrikam) with the data Fabrikam needs in order to set up single sign-on access for Awesome Computers's users. 
 
-Note: If you don’t have access to an Office 365 tenant, you can obtain one by applying for a FREE TRIAL subscription on the [Office 365’s Sign-up page](http://www.microsoft.com/en-us/office365/online-software.aspx#fbid=8qpYgwknaWN). 
+Note: If you don’t have access to an Office 365 tenant, you can obtain one by applying for a FREE TRIAL subscription on the [Office 365’s Sign-up page](http://www.microsoft.com/en-us/office365/online-software.aspx#fbid=8qpYgwknaWN)). 
 
-To provision the PHP application in Office 365, Awesome Computers creates a new Service Principal for it in the Office 365 tenant. In order to create a new Service principal for the PHP application in the Office 365 tenant, Awesome Computers must obtain the following information from Fabrikam:
+To provision the PHP application in Windows Azure Active Directory, Awesome Computers creates a new Service Principal for it in the directory. In order to create a new Service principal for the PHP application in the directory, Awesome Computers must obtain the following information from Fabrikam:
 
 - The value of the ServicePrincipalName (phpSample/localhost)
 - The AppPrincipalId (d184f6dd-d5d6-44c8-9cfa-e2d630dea392)
 - The ReplyUrl 
 
-**To provision the PHP applicaiton in Office 365**
+**To provision the PHP application in Windows Azure Active Directory**
 
 1.	Download and install a set of [Powershell scripts](https://bposast.vo.msecnd.net/MSOPMW/5164.009/amd64/administrationconfig-en.msi) from the Office 365’s online help page.
 2.	Locate the CreateServicePrincipal.ps1 script in this code example set under WAAD.WebSSO.PHP/Scripts
@@ -189,7 +189,7 @@ This step is performed by using the **federation** and **simpleSAML.php** librar
 	<img src="../../../DevCenter/PHP/Media/phpstep3Step5.png" />
 
 
-**Important:** If your application is meant to work with a single Office 365 tenant, for example, if you are writing a LoB application, you can stop following the instructions in this guide at this point. By running the three steps above, you have successfully set up Windows Azure AD-enabled single sign-on to a simple PHP application for the users in one Office 365 tenant.
+**Important:** If your application is meant to work with a single Windows Azure Active Directory tenant, for example, if you are writing a LoB application, you can stop following the instructions in this guide at this point. By running the three steps above, you have successfully set up Windows Azure AD-enabled single sign-on to a simple PHP application for the users in one tenant.
 
 If, however, you are developing applications that need to be accessed by more than one tenant, the next step can help you modify your code to accommodate multiple tenants.  
 
