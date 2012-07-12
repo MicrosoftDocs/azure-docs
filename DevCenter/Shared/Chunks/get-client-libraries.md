@@ -47,3 +47,4 @@ For more information about installing the PHP Client Libraries for Windows Azure
 [chunk-php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [download-php-sdk]: https://www.windowsazure.com/en-us/develop/php/common-tasks/download-php-sdk/
+[composer-phar]: http://getcomposer.org/composer.phar
