@@ -287,11 +287,11 @@ Template workflow activities in Visual Studio TFS Team Build.
     Upload Remote Desktop certificates as a one-time setup step using
     the following cmdlet script:
 
-        Add-Certificate -serviceName &lt;HOSTEDSERVICENAME&gt; -certificateToDeploy (get-item cert:\CurrentUser\MY\<THUMBPRINT>)
+        Add-AzureCertificate -serviceName &lt;HOSTEDSERVICENAME&gt; -certToDeploy (get-item cert:\CurrentUser\MY\<THUMBPRINT>)
 
     For example:
 
-        Add-Certificate -serviceName 'mytesthostedservice' -certificateToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
+        Add-AzureCertificate -serviceName 'mytesthostedservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
     Alternatively you can export the certificate file PFX with private
     key and upload certificates to each target Hosted Service using the
