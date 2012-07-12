@@ -129,8 +129,8 @@ corresponding namespaces.
 Add the following to the top of any C\# file where you want to use
 Service Bus topics and subscriptions:
 
-     using Microsoft.ServiceBus;
-     using Microsoft.ServiceBus.Messaging;
+	using Microsoft.ServiceBus;
+	using Microsoft.ServiceBus.Messaging;
 
 You are now ready to write code against Service Bus.
 
