@@ -7,11 +7,12 @@ The Windows Azure (Preview) Management Portal provides two ways for you to creat
 
 This topic explains how to use the Quick Create method to create a new cloud service and then use **Upload** to upload and deploy a cloud service package in Windows Azure. When you use this method, the Windows Azure (Preview) Management Portal makes available convenient links for completing all requirements as you go. If you're ready to deploy your cloud service when you create it, you can do both at the same time using **Custom Create**. 
 
-**Note**   If you plan to publish your cloud service from Windows Team Foundation Services (TFS), use Quick Create, and then set up TFS publishing from **Quick Start** or the dashboard. For more information, see help for the **Quick Start** page.
+**Note**   If you plan to publish your cloud service from Windows Team Foundation Services (TFS), use Quick Create, and then set up TFS publishing from **Quick Start** or the dashboard. For more information, see [Continuous Delivery to Windows Azure by Using Team Foundation Service Preview][TFSTutorialForCloudService], or see help for the **Quick Start** page.
 
 ##Table of Contents##
 
 * [Concepts](#concepts)
+* [Prepare your app](#prepare)
 * [Before you begin](#begin)
 * [How to: Create a cloud service using Quick Create](#quick)
 * [How to: Upload a certificate for a cloud service](#uploadcertificate)
@@ -19,7 +20,7 @@ This topic explains how to use the Quick Create method to create a new cloud ser
 
 
 <h2 id="concepts">Concepts</h2>
-
+<h2 id="sample">Sample head</h2>
 Three components are required in order to deploy an application as a cloud service in Windows Azure:
 
 >- **service definition file**   The cloud service definition file (.csdef) defines the service model, including the number of roles.
@@ -28,31 +29,32 @@ Three components are required in order to deploy an application as a cloud servi
 
 >- **service package**   The service package (.cspkg) contains the application code and the service definition file.
 
+<h2 id="prepare">Prepare your app</h2>
 Before you can deploy a cloud service, you must create the cloud service package (.cspkg) from your application code and a cloud service configuration file (.cscfg). Each cloud service package contains application files and configurations. The service configuration file provides the configuration settings.
 
 The Windows Azure SDK provides tools for preparing these required deployment files. You can install the SDK from the [Windows Azure Downloads](http://www.windowsazure.com/en-us/develop/downloads/) page, in the language in which you prefer to develop your application code.
 
 If you're new to cloud services, you can download a sample cloud service package (.cspkg) and service configuration file (.cscfg) to work with from the [Windows Azure Code Samples](http://code.msdn.microsoft.com/windowsazure/). 
 
-There are three tasks that require special configurations before you export a service package:
+Three cloud service features require special configurations before you export a service package:
 
 - If you want to deploy a cloud service that uses Secure Sockets Layer (SSL) for data encryption, configure your application for SSL. For more information, see [How to Configure an SSL Certificate on an HTTPS Endpoint](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx).
 
 - If you want to configure Remote Desktop connections to role instances, configure the roles for Remote Desktop. For more information about preparing the service definition file for remote access, see [Overview of Setting Up a Remote Desktop Connection for a Role](http://msdn.microsoft.com/en-us/library/windowsazure/gg433010.aspx).
 
-- If you want to configure verbose monitoring for your cloud service, enable Windows Azure Diagnostics for the cloud service. For more information, see [Enabling Diagnostics in Windows Azure](http://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/).
+- If you want to configure verbose monitoring for your cloud service, enable Windows Azure Diagnostics for the cloud service. *Minimal monitoring* (the default monitoring level) uses performance counters gathered from the host operating systems for role instances (virtual machines). "Verbose monitoring* gathers additional metrics based on performance data within the role instances to enable closer analysis of issues that occur during application processing. To find out how to enable Windows Azure Diagnostics, see [Enabling Diagnostics in Windows Azure](http://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/).
 
 
-<h2 id="begin">Before You Begin</h2>
+<h2 id="begin">Before you begin</h2>
 
 - If you haven’t installed the Windows Azure SDK, click **Install Azure SDK** to open the [Windows Azure Downloads page](http://www.windowsazure.com/en-us/develop/downloads/), and then download the SDK for the language in which you prefer to develop your code. (You'll have an opportunity to do this later.)
 
 - If any role instances require a certificate, create the certificates. Cloud services require a .pfx file with a private key. You can upload the certificates to Windows Azure as you create and deploy the cloud service. For information about creating certificates, see [How to Configure an SSL Certificate on an HTTPS Endpoint](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx).
 
-- If you plan to deploy the cloud service to an affinity group, create the affinity group. You can create the affinity group in the **Networks** area of the Management Portal, on the **Affinity Groups** page. For more information, see help for the **Affinity Groups** page.
+- If you plan to deploy the cloud service to an affinity group, create the affinity group. You can use an affinity group to deploy your cloud service and other Windows Azure services to the same location in a region. You can create the affinity group in the **Networks** area of the Management Portal, on the **Affinity Groups** page. For more information, see help for the **Affinity Groups** page.
 
 
-<h2 id="quick">How to: Create a Cloud Service using Quick Create</h2>
+<h2 id="quick">How to: Create a cloud service using Quick Create</h2>
 
 1. In the [Management Portal](http://manage.windowsazure.com/), click **New**, click **Cloud Service**, and then click **Quick Create**.
 
@@ -70,13 +72,13 @@ You can monitor the status of the process in the message area at the bottom of t
 
 The **Cloud Services** area opens, with the new cloud service displayed. When the status changes to Created, cloud service creation has completed successfully.
 
->![CloudServices_CloudServicesPage](../Media/CloudServices_CloudServicesPage.png)
+![CloudServices_CloudServicesPage](../Media/CloudServices_CloudServicesPage.png)
 
 
 If any roles in the cloud service require a certificate for Secure Sockets Layer (SSL) data encryption, and the certificate has not been uploaded to Windows Azure, you must upload the certificate before you deploy the cloud service. After you upload a certificate, any Windows applications that are running in the role instances can access the certificate.
 
 
-<h2 id="uploadcertificate">How to: Upload a Certificate for a Cloud Service</h2>
+<h2 id="uploadcertificate">How to: Upload a certificate for a cloud service</h2>
 
 1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
 
@@ -99,15 +101,15 @@ If any roles in the cloud service require a certificate for Secure Sockets Layer
 
 You can watch the progress of the upload in the message area, shown below. When the upload completes, the certificate is added to the table. In the message area, click the down arrow to close the message, or click X to remove the message.
 
->![CloudServices_CertificateProgress](../Media/CloudServices_CertificateProgress.png)
+![CloudServices_CertificateProgress](../Media/CloudServices_CertificateProgress.png)
 
 You can deploy your cloud service from the dashboard or from **Quick Start**.
 
-<h2 id="deploy">How to: Deploy a Cloud Service</h2>
+<h2 id="deploy">How to: Deploy a cloud service</h2>
 
 1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
 
-2. Click **Quick Start** to open the **Quick Start** page, shown below. (You can also deploy your cloud service by using **Upload** on the dashboard.)
+2. Click **Quick Start** (the icon to the left of **Dashboard**) to open the **Quick Start** page, shown below. (You can also deploy your cloud service by using **Upload** on the dashboard.)
 
  ![CloudServices_QuickStartPage](../Media/CloudServices_QuickStartPage.png)
 
@@ -121,7 +123,7 @@ You can deploy your cloud service from the dashboard or from **Quick Start**.
 
  If you'd like to test your cloud service in Windows Azure before deploying it to production, you can deploy to staging. In the staging environment, the cloud service's globally unique identifier (GUID) identifies the cloud service in URLs (*GUID*.cloudapp.net). In the production environment, the friendlier DNS prefix that you assign is used (for example, *myservice*.cloudapp.net). When you're ready to promote your staged cloud service to production, use **Swap** to redirect client requests to that deployment.
 
- **Upload a Package** opens.
+ When you select a deployment environment, **Upload a Package** opens.
 
  ![CloudServices_UploadaPackage](../Media/CloudServices_UploadaPackage.png)
 
@@ -146,6 +148,8 @@ You can deploy your cloud service from the dashboard or from **Quick Start**.
 1. Click **Dashboard**.
 
 2. Under **quick glance**, click the site URL to open your cloud service in a web browser.
+
+[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
 
  ![CloudServices_QuickGlance](../Media/CloudServices_QuickGlance.png)
 
