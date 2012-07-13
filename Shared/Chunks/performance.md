@@ -93,22 +93,7 @@ One of the most frequently partitioned resources is data. If you are creating a 
 
 Be sure to build a proof of concept to determine that Federations provides the needed partitioning for your application. If SQL Database Federations does not meet your scalability requirements, there are numerous examples of “do-it-yourself” partitioning that you can research. 
 
-##### Federations Limitations and Scalability Tradeoffs #####
-
-It is important to understand that use of Federations involves trade-offs in exchange for the scalability that you gain. 
-
-Federations is easiest to implement for new development, and for existing applications with databases that contain a relatively small number of tables, because Federations requires changes to the database schema as well as corresponding changes to the application layer (for example, Entity Framework code) described below. When you have a large existing database with hundreds of tables, you may decide the required changes are too extensive. 
-
-Your “proof of concept” application must validate Federation scalability: when you partition a group of tables, rows that contain a key within a specified range occupy one of a number of Federation members, each of which is a separate database. If your partitioning scheme requires 20 partitions, for example, you should performance test your application with that amount of partitioning. If your performance requirements are not achieved, you can consider “do-it-yourself” partitioning, several examples of which are described later.
-
-Another major trade off is that the transaction model becomes that of “eventual consistency”, because each Federation member is a separate database, and SQL Database does not support cross-database joins. 
-
-One consequence of this is that if you need to do a fan-out query that crosses federation member boundaries (for example, get all Orders made this month), you will need to use logic in the application layer to support it. This blog post describes the basics of doing this: [Introduction to Fan-out Queries for Federations in SQL Database (Part 1): Scalable Queries over Multiple Federation Members, MapReduce Style!](http://go.microsoft.com/fwlink/?LinkID=252667) 
-
-
-Another limitation to consider is hybrid applications where you have portions of the database located in the cloud, and part on premises. If the federated part of the data exists in both places, then you will have to maintain two versions of the application code, since Federations is not implemented on premises. 
-
-##### SQL Federations #####
+##### Design Tasks for SQL Federations #####
 
 For an overview of SQL Database Federations, see [Federations in SQL Database]( http://go.microsoft.com/fwlink/?LinkId=252668). 
 
