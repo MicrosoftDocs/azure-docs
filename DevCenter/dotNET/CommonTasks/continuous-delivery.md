@@ -739,11 +739,11 @@ function AllInstancesRunning($roleInstanceList)
 }
 
 #configure powershell with Azure 1.7 modules
-Get-ChildItem 'C:\Program Files (x86)\Microsoft SDKs\Windows Azure\PowerShell\*.psd1' | ForEach-Object {Import-Module $_}
+Import-Module Azure
 
 #configure powershell with publishsettings for your subscription
 $pubsettings = $subscriptionDataFile
-Import-AzurePublishSettingsFile -PublishSettingsFile $pubsettings
+Import-AzurePublishSettingsFile $pubsettings
 Set-AzureSubscription -CurrentStorageAccount $storageAccountName -SubscriptionName $selectedsubscription
 
 #set remaining environment variables for Azure cmdlets
