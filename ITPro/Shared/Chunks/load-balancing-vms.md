@@ -1,6 +1,6 @@
 #Load Balancing Virtual Machines#
 
-<div chunk="../../shared/chunks/disclaimer.md" /> 
+To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures). 
 
 External communication with virtual machines occurs through endpoints. These endpoints are used for diffierent purposes, such as load-balanced traffic or for direct Virtual Machine connectivity, like RDP or SSH. You define endpoints that are associated to specific ports and are assigned a specific communication protocol. An endpoint can be assigned a protocol of TCP or UDP (the TCP protocol includes HTTP and HTTPS traffic). Each endpoint defined for a virtual machine is assigned a public and private port for communication. The private port is defined for setting up communication rules on the virtual machine and the public port is used by Windows Azure to communicate with the virtual machine from external resources.
 
