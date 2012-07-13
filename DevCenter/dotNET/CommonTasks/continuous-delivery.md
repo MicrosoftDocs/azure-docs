@@ -116,7 +116,7 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
     TargetProfile property of the MSBuild command, as in the following
     example:
 
-        MSBuild /t:Publish /p:TargetProfile=ServiceConfiguration.Cloud.cscfg
+        MSBuild /t:Publish /p:TargetProfile=Cloud
 
 6.  Specify the location for the output. Set the path by using the
     /p:PublishDir=*&lt;Directory\&gt;*\\ option, including the trailing
@@ -207,7 +207,7 @@ Template workflow activities in Visual Studio TFS Team Build.
 4.  Verify that you can connect to your Windows Azure subscription by
     importing your subscription information from the .publishsettings file.
 
-    Import-AzurePublishSettingsFile -PublishSettingsFile c:\scripts\WindowsAzure\default.publishsettings
+    Import-AzurePublishSettingsFile c:\scripts\WindowsAzure\default.publishsettings
 
     Then give the command
 
@@ -564,6 +564,7 @@ piped into the standard build output.
 
 ### <a name="script"> </a>PublishCloudService.ps1 script template
 
+<pre>
 Param(  $serviceName = "myCloudServiceName",
         $storageAccountName = "myStorageAccountName",
         $packageLocation = "c:\drops\myPackageFile.cspkg",
@@ -762,7 +763,7 @@ $deploymentUrl = $deployment.Url
 
 Write-Output "$(Get-Date –f $timeStampFormat) - Created Cloud Service with URL $deploymentUrl."
 Write-Output "$(Get-Date –f $timeStampFormat) - Azure Cloud Service deploy script finished."
-
+</pre>
 
   [Continuous Delivery to Windows Azure by Using Team Foundation Service]: ./team-foundation-service.md
   [Step 1: Configure the Build Server]: #step1
