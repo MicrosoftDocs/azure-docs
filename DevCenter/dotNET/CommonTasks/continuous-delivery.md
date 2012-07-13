@@ -116,7 +116,7 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
     TargetProfile property of the MSBuild command, as in the following
     example:
 
-        MSBuild /t:Publish /p:TargetProfile=ServiceConfiguration.Cloud.cscfg
+        MSBuild /t:Publish /p:TargetProfile=Cloud
 
 6.  Specify the location for the output. Set the path by using the
     /p:PublishDir=*&lt;Directory\&gt;*\\ option, including the trailing
@@ -190,7 +190,7 @@ optional parameters. This script can be called after the build step in
 your custom build automation. It can also be called from Process
 Template workflow activities in Visual Studio TFS Team Build.
 
-1.  Install the [Windows Azure PowerShell Cmdlets][] (v0.6.0 or higher).
+1.  Install the [Windows Azure PowerShell Cmdlets][] (v0.6.1 or higher).
     During the cmdlet setup phase choose to install as a snap-in. Note
     that this officially supported version replaces the older version
     offered through CodePlex, although the previous versions were numbered 2.x.x.
@@ -207,7 +207,7 @@ Template workflow activities in Visual Studio TFS Team Build.
 4.  Verify that you can connect to your Windows Azure subscription by
     importing your subscription information from the .publishsettings file.
 
-    Import-AzurePublishSettingsFile -PublishSettingsFile c:\scripts\WindowsAzure\default.publishsettings
+    Import-AzurePublishSettingsFile c:\scripts\WindowsAzure\default.publishsettings
 
     Then give the command
 
@@ -287,11 +287,11 @@ Template workflow activities in Visual Studio TFS Team Build.
     Upload Remote Desktop certificates as a one-time setup step using
     the following cmdlet script:
 
-        Add-Certificate -serviceName &lt;HOSTEDSERVICENAME&gt; -certificateToDeploy (get-item cert:\CurrentUser\MY\<THUMBPRINT>)
+        Add-AzureCertificate -serviceName &lt;HOSTEDSERVICENAME&gt; -certToDeploy (get-item cert:\CurrentUser\MY\<THUMBPRINT>)
 
     For example:
 
-        Add-Certificate -serviceName 'mytesthostedservice' -certificateToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
+        Add-AzureCertificate -serviceName 'mytesthostedservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
     Alternatively you can export the certificate file PFX with private
     key and upload certificates to each target Hosted Service using the
@@ -564,6 +564,7 @@ piped into the standard build output.
 
 ### <a name="script"> </a>PublishCloudService.ps1 script template
 
+<pre>
 Param(  $serviceName = "myCloudServiceName",
         $storageAccountName = "myStorageAccountName",
         $packageLocation = "c:\drops\myPackageFile.cspkg",
@@ -738,11 +739,11 @@ function AllInstancesRunning($roleInstanceList)
 }
 
 #configure powershell with Azure 1.7 modules
-Get-ChildItem 'C:\Program Files (x86)\Microsoft SDKs\Windows Azure\PowerShell\*.psd1' | ForEach-Object {Import-Module $_}
+Import-Module Azure
 
 #configure powershell with publishsettings for your subscription
 $pubsettings = $subscriptionDataFile
-Import-AzurePublishSettingsFile -PublishSettingsFile $pubsettings
+Import-AzurePublishSettingsFile $pubsettings
 Set-AzureSubscription -CurrentStorageAccount $storageAccountName -SubscriptionName $selectedsubscription
 
 #set remaining environment variables for Azure cmdlets
@@ -762,7 +763,7 @@ $deploymentUrl = $deployment.Url
 
 Write-Output "$(Get-Date –f $timeStampFormat) - Created Cloud Service with URL $deploymentUrl."
 Write-Output "$(Get-Date –f $timeStampFormat) - Azure Cloud Service deploy script finished."
-
+</pre>
 
   [Continuous Delivery to Windows Azure by Using Team Foundation Service]: ./team-foundation-service.md
   [Step 1: Configure the Build Server]: #step1
