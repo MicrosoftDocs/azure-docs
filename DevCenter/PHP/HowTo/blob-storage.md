@@ -43,7 +43,7 @@ To use the Windows Azure Blob service APIs, you need to:
 1. Reference the autoloader file using the [require_once][require_once] statement, and
 2. Reference any classes you might use.
 
-The following example shows how to include the autoloader file and reference the **BlobService** class.
+The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
 
 <div class="dev-callout"> 
 <b>Note</b> 
@@ -51,26 +51,38 @@ The following example shows how to include the autoloader file and reference the
 </div>
 
 	require_once 'vendor\autoload.php';
-	use WindowsAzure\Blob\BlobService;
+	use WindowsAzure\Common\ServicesBuilder;
 
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
 <h2 id="ConnectionString">Setup a Windows Azure storage connection</h2>
 
-A Windows Azure Blob service client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the access key, and the blob URI for the storage account listed in the Management Portal. This example shows how you can create a new configuration object and set these properties:
+To instantiate a Windows Azure Blob service client you must first have a valid connection string. The format for storage services (blobs, tables, queues) connection strings is:
+
+For accessing a live service:
+
+	DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
+
+For accessing the emulator storage:
+
+	UseDevelopmentStorage=true
+
+
+To create any Windows Azure service client you need to use the **ServicesBuilder** class. You can:
+
+* pass the connection string directly to it or
+* use the **CloudConfigurationManager (CCM)** to check multiple external sources for the connection string:
+	* by default it comes with support for one external source - environmental variables
+	* you can add new sources by extending the **ConnectionStringSource** class
+
+For the examples outlined here, the connection string will be passed directly.
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Common\Configuration;
-	use WindowsAzure\Blob\BlobSettings;
-	
-	$config = new Configuration();
-	$config->setProperty(BlobSettings::ACCOUNT_NAME, "your_storage_account_name");
-	$config->setProperty(BlobSettings::ACCOUNT_KEY, "your_storage_account_key");
-	$config->setProperty(BlobSettings::URI, "http://your_storage_account_name.blob.core.windows.net");
+	use WindowsAzure\Common\ServicesBuilder;
 
-You will pass this `Configuration` instance (`$config`) to other objects when using the Blob API.
+	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
 <h2 id="CreateContainer">How to: Create a container</h2>
 
@@ -78,13 +90,14 @@ A **BlobRestProxy** object lets you create a blob container with the **createCon
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Blob\BlobService;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Blob\Models\CreateContainerOptions;
 	use WindowsAzure\Blob\Models\PublicAccessType;
 	use WindowsAzure\Common\ServiceException;
 
 	// Create blob REST proxy.
-	$blobRestProxy = BlobService::create($config);
+	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+
 
 	// OPTIONAL: Set public access policy and metadata.
 	// Create container options object.
@@ -133,11 +146,12 @@ To upload a file as a blob, use the **BlobRestProxy->createBlockBlob** method. T
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Blob\BlobService;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	// Create blob REST proxy.
-	$blobRestProxy = BlobService::create($config);
+	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+
 	
 	$content = fopen("c:\myfile.txt", "r");
 	$blob_name = "myblob";
@@ -163,11 +177,12 @@ To list the blobs in a container, use the **BlobRestProxy->listBlobs** method wi
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Blob\BlobService;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	// Create blob REST proxy.
-	$blobRestProxy = BlobService::create($config);
+	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+
 	
 	try	{
 		// List blobs.
@@ -195,11 +210,12 @@ To download a blob, call the **BlobRestProxy->getBlob** method, then call the **
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Blob\BlobService;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	// Create blob REST proxy.
-	$blobRestProxy = BlobService::create($config);
+	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+
 	
 	try	{
 		// Get blob.
@@ -223,11 +239,12 @@ To delete a blob, pass the container name and blob name to **BlobRestProxy->dele
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Blob\BlobService;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	// Create blob REST proxy.
-	$blobRestProxy = BlobService::create($config);
+	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+
 	
 	try	{
 		// Delete container.
@@ -248,11 +265,12 @@ Finally, to delete a blob container, pass the container name to **BlobRestProxy-
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Blob\BlobService;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	// Create blob REST proxy.
-	$blobRestProxy = BlobService::create($config);
+	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+
 	
 	try	{
 		// Delete container.

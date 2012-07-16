@@ -132,39 +132,50 @@ The following example shows how to include the autoloader file and reference the
 </div>
 
 	require_once 'vendor\autoload.php';
-	use WindowsAzure\ServiceBus\ServiceBusService;
+	use WindowsAzure\Common\ServicesBuilder;
 
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
+
+<h2 id="ConnectionString">Setup a Windows Azure Service Bus connection</h2>
+
+To instantiate a Windows Azure Service Bus client you must first have a valid connection string following this format:
+
+	Endpoint=[yourEndpoint];SharedSecretIssuer=[yourWrapAuthenticationName];SharedSecretValue=[yourWrapPassword]
+
+Where the Endpoint is typically of the format `https://[yourNamespace].servicebus.windows.net`.
+
+To create any Windows Azure service client you need to use the **ServicesBuilder** class. You can:
+
+* pass the connection string directly to it or
+* use the **CloudConfigurationManager (CCM)** to check multiple external sources for the connection string:
+	* by default it comes with support for one external source - environmental variables
+	* you can add new sources by extending the **ConnectionStringSource** class
+
+For the examples outlined here, the connection string will be passed directly.
+
+	require_once 'vendor\autoload.php';
+
+	use WindowsAzure\Common\ServicesBuilder;
+
+	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
 <h2 id="CreateTopic">How to: Create a topic</h2>
 
 Management operations for Service Bus topics can be performed via the
 **ServiceBusRestProxy** class. A **ServiceBusRestProxy** object is
-constructed via the **ServiceBusService::create** factory method with an appropriate configuration that encapsulates the
-token permissions to manage it.
+constructed via the **ServicesBuilder::createServiceBusService** factory method with an appropriate connection string that encapsulates the token permissions to manage it.
 
-The example below shows how create a **Configuration** object, instantiate **ServiceBusRestProxy** via the **ServiceBusService::create** factory method, and call **ServiceBusRestProxy->createTopic** to create a topic named `mytopic` within a `MySBNamespace` service namespace:
+The example below shows how to instantiate a **ServiceBusRestProxy** and call **ServiceBusRestProxy->createTopic** to create a topic named `mytopic` within a `MySBNamespace` service namespace:
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\ServiceBus\ServiceBusService;
-	use WindowsAzure\ServiceBus\ServiceBusSettings;
-	use WindowsAzure\ServiceBus\Models\TopicInfo;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
-
-	$issuer = "<obtained from portal>";
-	$key = "<obtained from portal>";
-
-	// Create configuration object.
-	$config = new Configuration();
-	ServiceBusSettings::configureWithWrapAuthentication( $config,
-														 "MySBNamespace",
-														 $issuer,
-														 $key);
-
+	use WindowsAzure\ServiceBus\Models\TopicInfo;
+	
 	// Create Service Bus REST proxy.
-	$serviceBusRestProxy = ServiceBusService::create($config);
+	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 	
 	try	{		
 		// Create topic.
@@ -195,23 +206,12 @@ The **MatchAll** filter is the default filter that is used if no filter is speci
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\ServiceBus\ServiceBusService;
-	use WindowsAzure\ServiceBus\ServiceBusSettings;
-	use WindowsAzure\ServiceBus\Models\SubscriptionInfo;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
-
-	$issuer = "<obtained from portal>";
-	$key = "<obtained from portal>";
-
-	// Create configuration object.
-	$config = new Configuration();
-	ServiceBusSettings::configureWithWrapAuthentication( $config,
-														 "MySBNamespace",
-														 $issuer,
-														 $key);
+	use WindowsAzure\ServiceBus\Models\SubscriptionInfo;
 
 	// Create Service Bus REST proxy.
-	$serviceBusRestProxy = ServiceBusService::create($config);
+	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 	
 	try	{
 		// Create subscription.
@@ -269,23 +269,12 @@ To send a message to a Service Bus topic, your application will call the **Servi
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\ServiceBus\ServiceBusService;
-	use WindowsAzure\ServiceBus\ServiceBusSettings;
-	use WindowsAzure\ServiceBus\Models\BrokeredMessage;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
-
-	$issuer = "<obtained from portal>";
-	$key = "<obtained from portal>";
-
-	// Create configuration object.
-	$config = new Configuration();
-	ServiceBusSettings::configureWithWrapAuthentication( $config,
-														 "MySBNamespace",
-														 $issuer,
-														 $key);	
+	use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 
 	// Create Service Bus REST proxy.
-	$serviceBusRestProxy = ServiceBusService::create($config);
+	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 		
 	try	{
 		// Create message.
@@ -333,23 +322,12 @@ The example below demonstrates how a message can be received and processed using
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\ServiceBus\ServiceBusService;
-	use WindowsAzure\ServiceBus\ServiceBusSettings;
-	use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
+	use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 
-	$issuer = "<obtained from portal>";
-	$key = "<obtained from portal>";
-
-	// Create configuration object.
-	$config = new Configuration();
-	ServiceBusSettings::configureWithWrapAuthentication( $config,
-														 "MySBNamespace",
-														 $issuer,
-														 $key);
-	
 	// Create Service Bus REST proxy.
-	$serviceBusRestProxy = ServiceBusService::create($config);
+	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 		
 	try	{
 		// Set receive mode to PeekLock (default is ReceiveAndDelete)
@@ -400,17 +378,8 @@ The following example shows how to delete a topic (`mytopic`) and its registered
 	use WindowsAzure\ServiceBus\ServiceBusSettings;
 	use WindowsAzure\Common\ServiceException;
 
-	$issuer = "<obtained from portal>";
-	$key = "<obtained from portal>";
-
-	// Create configuration object.
-	$config = new Configuration();
-	ServiceBusSettings::configureWithWrapAuthentication( $config,
-														 "MySBNamespace",
-														 $issuer,
-														 $key);
 	// Create Service Bus REST proxy.
-	$serviceBusRestProxy = ServiceBusService::create($config);
+	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 	
 	try	{		
 		// Delete topic.

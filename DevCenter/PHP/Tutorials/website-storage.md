@@ -26,7 +26,7 @@ To install the PHP Client Libraries for Windows Azure as a PEAR package, follow 
 		pear channel-discover pear.windowsazure.com
 3. Install the PEAR package:
 
-		pear install pear.windowsazure.com/WindowsAzure-0.1.0
+		pear install pear.windowsazure.com/WindowsAzure-0.3.0
 
 After the installation completes, you can reference class libraries from your application.
 
@@ -42,29 +42,24 @@ There are four basic steps that have to be performed before you can make a call 
 	
 * Include the namespaces you are going to use.
 
-	Since the third step is creating a configuration object containing the account credentials you need to include `Configuration` namespace:
+	To create any Windows Azure service client you need to use the **ServicesBuilder** class:
 
-		use WindowsAzure\Common\Configuration;
+		use WindowsAzure\Common\ServicesBuilder;
 	
-	This tutorial uses the Windows Azure Table service. Two namespaces are necessary to create a wrapper around the Table service calls:
+* To instantiate the service client you will also need a valid connection string. The format for storage services (blobs, tables, queues) connection strings is:
+
+	For accessing a live service:
 	
-		use WindowsAzure\Table\TableService;
-		use WindowsAzure\Table\TableSettings;
+		DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
 	
-* Objects of the `Configuration` class carry your authentication information and are required for instantiating any Azure REST call wrapper.  If you do not have a storage account you can copy this code as is and create one in the section for that near the end of this guide.
+	For accessing the emulator storage:
+	
+		UseDevelopmentStorage=true
 
-		$config = new Configuration();
-		$config->setProperty(TableSettings::ACCOUNT_NAME, 
-			'[YOUR_STORAGE_ACCOUNT_NAME]');
-		$config->setProperty(TableSettings::ACCOUNT_KEY,
-			'[YOUR_STORAGE_ACCOUNT_KEY]');
-		$config->setProperty(TableSettings::URI, 
-			'http://' . '[YOUR_STORAGE_ACCOUNT_NAME]' .
-			'.table.core.azure-preview.com');
 
-* Use the `TableService` factory to instantiate a wrapper around Table service calls.
+* Use the `ServicesBuilder::createBlobService` factory method to instantiate a wrapper around Table service calls.
 
-		$tableRestProxy = TableService::create($config);
+		$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	`$tableRestProxy` contains a method for every REST call available on Azure Tables.
 
