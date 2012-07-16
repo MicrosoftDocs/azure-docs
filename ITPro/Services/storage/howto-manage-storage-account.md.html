@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+<h1 id="managestorageaccounts">How To Manage Storage Accounts</h1>
+
+<h2>Table of Contents</h2>
+
+<ul>
+<li><a href="#georeplication">How to: Turn geo-replication off or on</a></li>
+<li><a href="#regeneratestoragekeys">How to: View, copy, and regenerate storage access keys</a></li>
+<li><a href="#deletestorageaccount">How to: Delete a storage account</a></li>
+</ul>
+
+<h2 id="georeplication">How to: Turn geo-replication off or on</h2>
+
+<p>When geo-replication is turned on for a storage account, the stored content is replicated to a secondary location to enable failover to that location in case of a major disaster in the primary location. The secondary location is in the same region, but is hundreds of miles from the primary location. This is the highest level of storage durability, known as <em>geo redundant storage</em> (GRS). Geo-replication is turned on by default. </p>
+
+<p>If you turn off geo-replication, you have <em>locally redundant storage</em> (LRS). For locally redundant storage, account data is replicated three times within the same data center. LRS is offered at discounted rates. Be aware that if you turn off geo-replication, and you later change your mind, you will incur a one-time data cost to replicate your existing data to the secondary location. </p>
+
+<p>For more information about geo-replication, see <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx">Introducing Geo-Replication for Windows Azure Storage</a>. For pricing information, see <a href="https://www.windowsazure.com/en-us/pricing/details/#storage">Pricing Details</a>.</p>
+
+<h3>To turn geo-replication on or off for a storage account</h3>
+
+<ol>
+<li><p>In the <a href="https://manage.windowsazure.com">Windows Azure Preview Management Portal</a>, click <strong>Storage</strong>, and then click the name of the storage account to open the dashboard.</p></li>
+<li><p>Click <strong>Configure</strong>.</p></li>
+<li><p>Beside <strong>Geo-Replication</strong>, click <strong>On</strong> or <strong>Off</strong>.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ol>
+
+<h2 id="regeneratestoragekeys">How to: View, copy, and regenerate storage access keys</h2>
+
+<p>When you create a storage account, Windows Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. By providing two storage access keys, Windows Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.</p>
+
+<p>In the <a href="http://manage.windowsazure.com">Management Portal</a>, use <strong>Manage Keys</strong> on the dashboard or the <strong>Storage</strong> page to view, copy, and regenerate the storage access keys that are used to access the Blob, Table, and Queue services. </p>
+
+<h3>Copy a storage access key</h3>
+
+<p>You can use <strong>Manage Keys</strong> to copy a storage access key to use in a connection string. The connection string requires the storage account name and a key to use in authentication. For information about configuring connection strings to access Windows Azure storage services, see <a href="http://msdn.microsoft.com/en-us/library/ee758697.aspx">Configuring Connection Strings</a>.</p>
+
+<ol>
+<li><p>In the <a href="http://manage.windowsazure.com">Management Portal</a>, click <strong>Storage</strong>, and then click the name of the storage account to open the dashboard.</p></li>
+<li><p>Click <strong>Manage Keys</strong>.</p>
+
+<p><strong>Manage Access Keys</strong> opens.</p>
+
+<p><img src="../media/Storage_ManageKeys.png" alt="Managekeys" /></p></li>
+<li><p>To copy a storage access key, select the key text. Then right-click, and click <strong>Copy</strong>.</p></li>
+</ol>
+
+<h3>Regenerate storage access keys</h3>
+
+<p>You should change the access keys to your storage account periodically to help keep your storage connections more secure. Two access keys are assigned to enable you to maintain connections to the storage account using one access key while you regenerate the other access key. </p>
+
+<div class="dev-callout"> 
+    <b>Warning</b> 
+    <p>Regenerating your access keys affects virtual machines, media services, and any applications that are dependent on the storage account.
+    </p> 
+    </div>
+
+<p><strong>Virtual machines</strong> - If your storage account contains any virtual machines that are running, you will have to redeploy all virtual machines after you regenerate the access keys. To avoid redeployment, shut down the virtual machines before you regenerate the access keys.</p>
+
+<p><strong>Media services</strong> - If you have media services dependent on your storage account, you must re-sync the access keys with your media service after you regenerate the keys.</p>
+
+<p><strong>Applications</strong> - If you have web applications or cloud services using the storage account, you will lose the connections if you regenerate keys, unless you roll your keys. Here is the process:</p>
+
+<ol>
+<li><p>Update the connection strings in your application code to reference the secondary access key of the storage account. </p></li>
+<li><p>Regenerate the primary access key for your storage account. In the <a href="http://manage.windowsazure.com">Management Portal</a>, from the dashboard or the <strong>Configure</strong> page, click <strong>Manage Keys</strong>. Click <strong>Regenerate</strong> under the primary access key, and then click <strong>Yes</strong> to confirm you want to generate a new key.</p></li>
+<li><p>Update the connection strings in your code to reference the new primary access key.</p></li>
+<li><p>Regenerate the secondary access key.</p></li>
+</ol>
+
+<h2 id="deletestorageaccount">How to: Delete a storage account</h2>
+
+<p>To remove a storage account that you are no longer using, use <strong>Delete</strong> on the dashboard or the <strong>Configure</strong> page. <strong>Delete</strong> deletes the entire storage account, including all of the blobs, tables, and queues in the account. </p>
+
+<div class="dev-callout">
+    <b>Warning</b>
+    <p>There's no way to restore the content from a deleted storage account. Make 
+    sure you back up anything you want to save before you delete the account.
+    </p>
+</div>
+
+<ol>
+<li><p>In the <a href="http://manage.windowsazure.com">Management Portal</a>, click <strong>Storage</strong>.</p></li>
+<li><p>Click anywhere in the storage account entry except the name, and then click <strong>Delete</strong>.</p>
+
+<p>-Or-</p>
+
+<p>Click the name of the storage account to open the dashboard, and then click <strong>Delete</strong>.</p></li>
+<li><p>Click <strong>Yes</strong> to confirm you want to delete the storage account.</p></li>
+</ol>
+    </body>
+</html>

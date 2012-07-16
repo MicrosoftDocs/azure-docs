@@ -30,8 +30,6 @@ Each cloud service has two environments to which you can deploy your service pac
 
 >- **service package:** The service package (.cspkg) contains the application code and the service definition file.
 
-		To deploy a cloud service, you must upload a service configuration file and the cloud service package.
-
 - **cloud service deployment:** A cloud service deployment is an instance of a cloud service deployed to the Windows Azure staging or production environment. You can maintain deployments in both staging and production.
 
 - **deployment environments:** Windows Azure offers two deployment environments for cloud services: a *staging environment* in which you can test your deployment before you promote it to the *production environment*. The two environments are distinguished only by the virtual IP addresses (VIPs) by which the cloud service is accessed. In the staging environment, the cloud service's globally unique identifier (GUID) identifies it in URLs (*GUID*.cloudapp.net). In the production environment, the URL is based on the friendlier DNS prefix assigned to the cloud service (for example, *myservice*.cloudapp.net).

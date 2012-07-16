@@ -146,11 +146,11 @@ On the dashboard metrics chart, the method for plotting metrics is different. A 
 
 <h2 id="accessverbose">How to: Access verbose monitoring data outside the Management Portal</h2>
 
-Verbose monitoring data is stored in tables in the storage accounts that you specify for each role. For each cloud service deployment, six tables are created for the role. Two tables are created for each aggregation interval (5 minutes, 1 hour, and 12 hours). One of these tables stores role-level aggregations; the other table stores aggregations for role instances. 
+Verbose monitoring data is stored in tables in the storage accounts that you specify for each role. For each cloud service deployment, six tables are created for the role. Two tables are created for each (5 minutes, 1 hour, and 12 hours). One of these tables stores role-level aggregations; the other table stores aggregations for role instances. 
 
 The table names have the following format:
 
-       WAD<deploymentID>PT<aggregation_interval>[R|RI]>Table
+	WAD*deploymentID*PT*aggregation_interval*[R|RI]Table
 
 where:
 

@@ -20,7 +20,6 @@ This topic explains how to use the Quick Create method to create a new cloud ser
 
 
 <h2 id="concepts">Concepts</h2>
-<h2 id="sample">Sample head</h2>
 Three components are required in order to deploy an application as a cloud service in Windows Azure:
 
 >- **service definition file**   The cloud service definition file (.csdef) defines the service model, including the number of roles.

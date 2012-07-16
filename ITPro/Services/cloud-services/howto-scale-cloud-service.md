@@ -11,7 +11,7 @@ On the **Scale** page of the Windows Azure Preview Management Portal, you can sc
 
 2. Click **Scale**.
 
- Your display will look similar to the following one. Each service role has a slider for changing the number of role instances. Under **linked resources**, each SQL database instance that you have linked to the cloud service is displayed.
+ Your display will look similar to the following one. Each service role has a slider for changing the number of role instances. Under **linked resources**, each SQL Database instance that you have linked to the cloud service is displayed.
 
  ![Scale page] (../media/CloudServices_ScalePage.png)
 
