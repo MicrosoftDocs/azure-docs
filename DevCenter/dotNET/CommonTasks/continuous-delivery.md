@@ -17,6 +17,10 @@ environment and Windows Azure target environments.
 
 You can also use Team Foundation Service, a version of TFS that is hosted in Windows Azure, to do this more easily. For more information, see [Continuous Delivery to Windows Azure by Using Team Foundation Service][].
 
+Before you start, you should publish your application from Visual Studio.
+This will ensure that all the resources are available and initialized when you 
+attempt to automate the publication process.
+
 This task includes the following steps:
 
 -   [Step 1: Configure the Build Server][]
@@ -256,7 +260,7 @@ Template workflow activities in Visual Studio TFS Team Build.
     **Example scenario 1:** continuous deployment to the staging
     environment of a service:
 
-        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 –environment Staging -serviceName myhostedservice -storageAccountName myhostedservice -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg
+        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 –environment Staging -serviceName myhostedservice -storageAccountName myhostedservice -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
     This is typically followed up by test run verification and a VIP
     swap. The VIP swap can be done via the Windows Azure Management
@@ -265,7 +269,7 @@ Template workflow activities in Visual Studio TFS Team Build.
     **Example scenario 2:** continuous deployment to the production
     environment of a dedicated test service
 
-        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 –environment Production –enableDeploymentUpgrade 1 -serviceName myhostedservice -storageAccountName myhostedservice -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg
+        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 –environment Production –enableDeploymentUpgrade 1 -serviceName myhostedservice -storageAccountName myhostedservice -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
     **Remote Desktop:**
 
@@ -287,7 +291,7 @@ Template workflow activities in Visual Studio TFS Team Build.
     Upload Remote Desktop certificates as a one-time setup step using
     the following cmdlet script:
 
-        Add-AzureCertificate -serviceName &lt;HOSTEDSERVICENAME&gt; -certToDeploy (get-item cert:\CurrentUser\MY\<THUMBPRINT>)
+        Add-AzureCertificate -serviceName <HOSTEDSERVICENAME> -certToDeploy (get-item cert:\CurrentUser\MY\<THUMBPRINT>)
 
     For example:
 
@@ -565,17 +569,17 @@ piped into the standard build output.
 ### <a name="script"> </a>PublishCloudService.ps1 script template
 
 <pre>
-Param(  $serviceName = "myCloudServiceName",
-        $storageAccountName = "myStorageAccountName",
-        $packageLocation = "c:\drops\myPackageFile.cspkg",
-        $cloudConfigLocation = "c:\drops\ServiceConfiguration.Cloud.cscfg",
+Param(  $serviceName = "",
+        $storageAccountName = "",
+        $packageLocation = "",
+        $cloudConfigLocation = "",
         $environment = "Staging",
         $deploymentLabel = "ContinuousDeploy to $servicename",
         $timeStampFormat = "g",
         $alwaysDeleteExistingDeployments = 1,
         $enableDeploymentUpgrade = 1,
         $selectedsubscription = "default",
-        $subscriptionDataFile = "C:\Scripts\default.publishsettings"
+        $subscriptionDataFile = ""
      )
       
 
