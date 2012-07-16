@@ -45,7 +45,7 @@ To use the Windows Azure Queue service APIs, you need to:
 1. Reference the autoloader file using the [require_once][require_once] statement, and
 2. Reference any classes you might use.
 
-The following example shows how to include the autoloader file and reference the **QueueService** class.
+The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
 
 <div class="dev-callout"> 
 <b>Note</b> 
@@ -53,27 +53,39 @@ The following example shows how to include the autoloader file and reference the
 </div>
 
 	require_once 'vendor\autoload.php';
-	use WindowsAzure\Queue\QueueService;
+	use WindowsAzure\Common\ServicesBuilder;
 
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
 <h2 id="connection-string">Setup a Windows Azure storage connection</h2>
 
-A Windows Azure Queue service client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the access key, and the queue URI for the storage account listed in the Management Portal. The following example shows how you can create a new configuration object and set these properties. Note that the full URI (including `http://`) for your storage account must be used when setting the account URI.
+To instantiate a Windows Azure Queue service client you must first have a valid connection string. The format for storage services (blobs, tables, queues) connection strings is:
+
+For accessing a live service:
+
+	DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
+
+For accessing the emulator storage:
+
+	UseDevelopmentStorage=true
+
+
+To create any Windows Azure service client you need to use the **ServicesBuilder** class. You can:
+
+* pass the connection string directly to it or
+* use the **CloudConfigurationManager (CCM)** to check multiple external sources for the connection string:
+	* by default it comes with support for one external source - environmental variables
+	* you can add new sources by extending the **ConnectionStringSource** class
+
+For the examples outlined here, the connection string will be passed directly.
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Common\Configuration;
-	use WindowsAzure\Queue\QueueSettings;
-	
-	$config = new Configuration();
-	$config->setProperty(QueueSettings::ACCOUNT_NAME, "your_storage_account_name");
-	$config->setProperty(QueueSettings::ACCOUNT_KEY, "your_storage_account_key");
-	$config->setProperty(QueueSettings::URI, 
-						"http://your_storage_account_name.queue.core.windows.net");
+	use WindowsAzure\Common\ServicesBuilder;
 
-You will pass this `Configuration` instance (`$config`) to other objects when using the Queue API.
+	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+
 
 <h2 id="create-queue">How to: Create a queue</h2>
 
@@ -81,12 +93,12 @@ A **QueueRestProxy** object lets you create a queue with the **createQueue** met
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Queue\QueueService;
-	use WindowsAzure\Queue\Models\CreateQueueOptions;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
+	use WindowsAzure\Queue\Models\CreateQueueOptions;
 	
 	// Create queue REST proxy.
-	$queueRestProxy = QueueService::create($config);
+	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 	
 	// OPTIONAL: Set queue metadata.
 	$createQueueOptions = new CreateQueueOptions();
@@ -118,15 +130,16 @@ To add a message to a queue, use **QueueRestProxy->createMessage**. The method t
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Queue\QueueService;
-	use WindowsAzure\Queue\Models\CreateMessageOptions;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
+	use WindowsAzure\Queue\Models\CreateMessageOptions;
 
 	// Create queue REST proxy.
-	$queueRestProxy = QueueService::create($config);
+	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 	
 	try	{
 		// Create message.
+		$builder = new ServicesBuilder();
 		$queueRestProxy->createMessage("myqueue", "Hello World!");
 	}
 	catch(ServiceException $e){
@@ -144,12 +157,12 @@ You can peek at a message (or messages) at the front of a queue without removing
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Queue\QueueService;
-	use WindowsAzure\Queue\Models\PeekMessagesOptions;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
+	use WindowsAzure\Queue\Models\PeekMessagesOptions;
 
 	// Create queue REST proxy.
-	$queueRestProxy = QueueService::create($config);
+	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 	
 	// OPTIONAL: Set peek message options.
 	$message_options = new PeekMessagesOptions();
@@ -189,11 +202,11 @@ Your code removes a message from a queue in two steps. First, you call **QueueRe
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Queue\QueueService;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	// Create queue REST proxy.
-	$queueRestProxy = QueueService::create($config);
+	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 	
 	// Get message.
 	$listMessagesResult = $queueRestProxy->listMessages("myqueue");
@@ -227,11 +240,11 @@ You can change the contents of a message in-place in the queue by calling **Queu
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Queue\QueueService;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;	
 
 	// Create queue REST proxy.
-	$queueRestProxy = QueueService::create($config);
+	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 	
 	// Get message.
 	$listMessagesResult = $queueRestProxy->listMessages("myqueue");
@@ -269,12 +282,12 @@ There are two ways you can customize message retrieval from a queue. First, you 
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Queue\QueueService;
-	use WindowsAzure\Queue\Models\ListMessagesOptions;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
+	use WindowsAzure\Queue\Models\ListMessagesOptions;
 
 	// Create queue REST proxy.
-	$queueRestProxy = QueueService::create($config);
+	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 	
 	// Set list message options. 
 	$message_options = new ListMessagesOptions();
@@ -316,11 +329,11 @@ You can get an estimate of the number of messages in a queue. The **QueueRestPro
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Queue\QueueService;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	// Create queue REST proxy.
-	$queueRestProxy = QueueService::create($config);
+	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 	
 	try	{
 		// Get queue metadata.
@@ -344,11 +357,11 @@ To delete a queue and all the messages contained in it, call the **QueueRestProx
 
 	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Queue\QueueService;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	// Create queue REST proxy.
-	$queueRestProxy = QueueService::create($config);
+	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 	
 	try	{
 		// Delete queue.
