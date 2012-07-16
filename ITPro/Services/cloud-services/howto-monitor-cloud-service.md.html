@@ -1,0 +1,174 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+<h1>How to Monitor Cloud Services</h1>
+
+<p><div chunk="../../Shared/Chunks/disclaimer.md" /></p>
+
+<p>You can monitor key performance metrics for your cloud services in the Windows Azure Preview Management Portal. You can set the level of monitoring to minimal and verbose for each service role, and can customize the monitoring displays. Verbose monitoring data is stored in a storage account, which you can access outside the portal. </p>
+
+<p>Monitoring displays in the Management Portal are highly configurable. You can choose the metrics you want to monitor in the metrics list on the <strong>Monitor</strong> page, and you can choose which metrics to plot in metrics charts on the <strong>Monitor</strong> page and the dashboard. </p>
+
+<h2>Table of Contents</h2>
+
+<ul>
+<li><a href="#concepts">Concepts</a></li>
+<li><a href="#verbose">How to: Configure monitoring for cloud services</a></li>
+<li><a href="#addmetrics">How to: Add metrics to the metrics table</a></li>
+<li><a href="#customizechart">How to: Customize the metrics chart</a></li>
+<li><a href="#accessverbose">How to: Access verbose monitoring data outside the Management Portal</a></li>
+</ul>
+
+<h2 id="concepts">Concepts</h2>
+
+<p>By default, minimal monitoring is provided for a new cloud service using performance counters gathered from the host operating system for the roles instances (virtual machines). The minimal metrics are limited to CPU Percentage, Data In, Data Out, Disk Read Throughput, and Disk Write Throughput. By configuring verbose monitoring, you can receive additional metrics based on performance data within the virtual machines (role instances). The verbose metrics enable closer analysis of issues that occur during application operations.</p>
+
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>If you use verbose monitoring, you can add more performance counters at role instance startup, through a diagnostics configuration file, or remotely using the Windows Azure Diagnostics API. To be able to monitor these metrics in the Management Portal, you must add the performance counters before you configure verbose monitoring. For more information, see <a href="http://msdn.microsoft.com/en-us/library/hh411552.aspx">Overview of Windows Azure Diagnostics</a> and <a href="http://msdn.microsoft.com/en-us/library/hh411520.aspx">Overview of Creating and Using Performance Counters in a Windows Azure Application</a>.</p> 
+</div>
+
+<p>By default performance counter data from role instances is sampled and transferred from the role instance at 3-minute intervals. When you enable verbose monitoring, the raw performance counter data is aggregated for each role instance and across role instances for each role at intervals of 5 minutes, 1 hour, and 12 hours. The aggregated data is  purged after 10 days.</p>
+
+<p>After you enable verbose monitoring, the aggregated monitoring data is stored in tables in your storage account. To enable verbose monitoring for a role, you must configure a diagnostics connection string that links to the storage account. You can use different storage accounts for different roles.</p>
+
+<p>Note that enabling verbose monitoring will increase your storage costs related to data storage, data transfer, and storage transactions. Minimal monitoring does not require a storage account. The data for the metrics that are exposed at the minimal monitoring level are not stored in your storage account, even if you set the monitoring level to verbose.</p>
+
+<h2 id="verbose">How to: Configure monitoring for cloud services</h2>
+
+<p>Use the following procedures to configure verbose or minimal monitoring in the Management Portal. You cannot turn on verbose monitoring until you enable Windows Azure Diagnostics and configure diagnostics connection strings to enable Windows Azure Diagnostics to access storage accounts to store the verbose monitoring data.</p>
+
+<h3>Before you begin</h3>
+
+<ul>
+<li><p>Create a storage account to store the monitoring data. You can use different storage accounts for different roles. For more information, see help for <strong>Storage Accounts</strong>, or see <a href="/en-us/manage/services/storage/how-to-create-a-storage-account/">How To Create a Storage Account</a>.</p></li>
+<li><p>Enable Windows Azure Diagnostics for your cloud service roles. <br /><br />You must update the cloud service definition file (.csdef) and the cloud service configuration file (.cscfg). For more information, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/">Enabling Diagnostics in Windows Azure</a>.</p></li>
+</ul>
+
+<p>In the Management Portal, you can add or modify the diagnostics connection strings that Windows Azure Diagnostics uses to access the storage accounts that store verbose monitoring data, and you can set the level of monitoring to verbose or minimal. Because verbose monitoring stores data in a storage account, you must configure the diagnostics connection strings before you set the monitoring level to verbose.</p>
+
+<h3>To configure diagnostics connections strings for verbose monitoring</h3>
+
+<ol>
+<li><p>Copy a storage access key for the storage accont that that you'll use to storage the verbose monitoring data. In the <a href="https://manage.windowsazure.com/">Windows Azure Preview Management Portal</a>, you can use <strong>Manage Keys</strong> on the <strong>Storage Accounts</strong> page. For more information, see <a href="http://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-manage-a-cloud-service/">How to Manage Cloud Services</a>, or see help for the <strong>Storage Accounts</strong> page. </p></li>
+<li><p>Open <strong>Cloud Services</strong>. Then, to open the dashboard, click the name of the cloud service you want to configure.</p></li>
+<li><p>Click <strong>Production</strong> or <strong>Staging</strong> to display the deployment you want to configure.</p></li>
+<li><p>Click <strong>Configure</strong>.</p>
+
+<p>You will edit the <strong>monitoring</strong> settings at the top of the <strong>Configure</strong> page, shown below. If you have not enabled Windows Azure Diagnostics for the cloud service, the <strong>Level</strong> option is not available. You can't change the data retention policy. Verbose monitoring data for a cloud service is stored for 10 days.</p>
+
+<p><img src="../media/CloudServices_MonitoringOptions.png" alt="Monitoring options" /></p></li>
+<li><p>In <strong>Diagnostics Connection Strings</strong>, complete the diagnostics connection string for each role for which you want verbose monitoring.</p>
+
+<p>The connection strings have the following format. (The sample is for a cloud service that uses default endpoints.) To update a connection string, enter a valid storage account name and storage access key for the storage account that you want to use.</p>
+
+<p>DefaultEndpointsProtocol=https;AccountName=StorageAccountName;AccountKey=StorageAccountKey  </p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ol>
+
+<p>If you're turning on verbose monitoring, perform the next procedure after you configure diagnostics connection strings for service roles. </p>
+
+<h3>To change the monitoring level to verbose or minimal</h3>
+
+<ol>
+<li><p>In the <a href="https://manage.windowsazure.com/">Management Portal</a>, open the <strong>Configure</strong> page for the cloud service deployment.</p></li>
+<li><p>In <strong>Level</strong>, click <strong>Verbose</strong> or <strong>Minimal</strong>. </p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ol>
+
+<p>After you turn on verbose monitoring, you should start seeing the monitoring data in the Management Portal within the hour.</p>
+
+<p>The raw performance counter data and aggregated monitoring data are stored in the storage account in tables qualified by the deployment ID for the roles. </p>
+
+<h2 id="addmetrics">How to: Add metrics to the metrics table</h2>
+
+<ol>
+<li><p>In the <a href="http://manage.windowsazure.com/">Management Portal</a>, open the <strong>Monitor</strong> page for the cloud service.</p>
+
+<p>By default, the metrics table displays a subset of the available metrics. The illustration shows the default verbose metrics for a cloud service, which is limited to the Memory\Available MBytes performance counter, with data aggregated at the role level. Use <strong>Add Metrics</strong> to select additional aggregate and role-level metrics to monitor in the Management Portal.</p>
+
+<p><img src="../media/CloudServices_DefaultVerboseDisplay.png" alt="Verbose display" /></p></li>
+<li><p>To add metrics to the metrics table:</p>
+
+<p>a. Click <strong>Add Metrics</strong> to open <strong>Choose Metrics</strong>, shown below.
+The first available metric is expanded to show options that are available. For each metric, the top option displays aggregated monitoring data for all roles. In addition, you can choose individual roles to display data for.</p>
+
+<p><img src="../media/CloudServices_AddMetrics.png" alt="Add metrics" /></p>
+
+<p>b. To select metrics to display:</p>
+
+<ul>
+<li>Click the down arrow by the metric to expand the monitoring options.</li>
+<li>Select the check box for each monitoring option you want to display.</li>
+</ul>
+
+<p>You can display up to 50 metrics in the metrics table.</p>
+
+<div class="dev-callout"> 
+<b>Hint</b> 
+<p>In verbose monitoring, the metrics list can contain dozens of metrics. To display a scrollbar, hover over the right side of the dialog box. To filter the list, click the search icon, and enter text in the search box, as shown below.</p> 
+</div>
+
+<p><img src="../media/CloudServices_AddMetrics_Search.png" alt="Add metrics search" /></p></li>
+<li><p>After you finish selecting metrics, click OK (checkmark).</p>
+
+<p>The selected metrics are added to the metrics table, as shown below.</p>
+
+<p><img src="../media/CloudServices_Monitor_UpdatedMetrics.png" alt="monitor metrics" /></p></li>
+<li><p>To delete a metric from the metrics table, click the metric to select it, and then click <strong>Delete Metric</strong>. (You only see <strong>Delete Metric</strong> when you have a metric selected.)</p></li>
+</ol>
+
+<h2 id="customizechart">How to: Customize the metrics chart</h2>
+
+<ol>
+<li><p>In the metrics table, select up to 6 metrics to plot on the metrics chart. To select a metric, click the check box on its left side. To remove a metric from the metrics chart, clear its check box in the metrics table.</p>
+
+<p>As you select metrics in the metrics table, the metrics are added to the metrics   chart. On a narrow display, an <strong>n more</strong> drop-down list contains metric headers that won't fit the display.</p></li>
+<li><p>To change the time range the metrics chart displays, select 1 hour, 24 hours, or 7 days at the top of the chart.</p>
+
+<p><img src="../media/CloudServices_Monitor_DisplayPeriod.png" alt="Monitor display period" /></p></li>
+</ol>
+
+<p>On the dashboard metrics chart, the method for plotting metrics is different. A standard set of metrics is available, and metrics are added or removed by selecting the metric header.</p>
+
+<h3>To customize the metrics chart on the dashboard</h3>
+
+<ol>
+<li><p>Open the dashboard for the cloud service.</p></li>
+<li><p>Add or remove metrics from the chart:</p>
+
+<ul>
+<li><p>To plot a new metric, select the check box for the metric in the chart headers. On a narrow display, click the down arrow by <strong><em>n</em> metrics</strong> to plot a metric the chart header area can't display.</p></li>
+<li><p>To delete a metric that is plotted on the chart, clear the check box by its header.</p></li>
+</ul></li>
+<li><p>Choose 1 hour, 24 hours, or 7 days of data to display.</p></li>
+</ol>
+
+<h2 id="accessverbose">How to: Access verbose monitoring data outside the Management Portal</h2>
+
+<p>Verbose monitoring data is stored in tables in the storage accounts that you specify for each role. For each cloud service deployment, six tables are created for the role. Two tables are created for each (5 minutes, 1 hour, and 12 hours). One of these tables stores role-level aggregations; the other table stores aggregations for role instances. </p>
+
+<p>The table names have the following format:</p>
+
+<pre><code>WAD*deploymentID*PT*aggregation_interval*[R|RI]Table
+</code></pre>
+
+<p>where:</p>
+
+<ul>
+<li><p><em>deploymentID</em> is the GUID assigned to the cloud service deployment</p></li>
+<li><p><em>aggregation_interval</em> = 5M, 1H, or 12H</p></li>
+<li><p>role-level aggregations = R</p></li>
+<li><p>aggregations for role instances = RI</p></li>
+</ul>
+
+<p>For example, the following tables would store verbose monitoring data aggregated at 1-hour intervals:</p>
+
+<pre><code>WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRTable (hourly aggregations for the role)
+
+WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
+</code></pre>
+    </body>
+</html>

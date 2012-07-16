@@ -2,7 +2,7 @@
 
 
 
-<h1 id="configurecloudservice">How To Configure Cloud Services</h1>
+<h1 id="configurecloudservice">How to Configure Cloud Services</h1>
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
