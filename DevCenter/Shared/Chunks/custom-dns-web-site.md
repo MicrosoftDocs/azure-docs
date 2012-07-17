@@ -1,4 +1,4 @@
-﻿#Configuring a Custom Domain Name for a Windows Azure Web Site
+#Configuring a Custom Domain Name for a Windows Azure Web Site
 
 When you create a web site, Windows Azure provides a friendly subdomain on the azurewebsites.net domain so your users can access your web site using a URL like http://&lt;mysite>.azurewebsites.net. However, if you configure your web sites for reserved mode, you can map your web site to your own domain name, such as contoso.com. 
 
@@ -52,7 +52,7 @@ To configure a custom domain name, you must create a new CNAME record in your cu
 3. Log on to your DNS registrar's website, and go to the page for managing DNS. You might find this in a section, such as Domain Name, DNS, or Name Server Management.
 4. Now find the section for managing CNAME's. You may have to go to an advanced settings page and look for the words CNAME, Alias, or Subdomains.
 3. Finally, you must provide a subdomain alias, such as www. Then, you must provide a host name, which is your application's azurewebsites.net domain which you copied in step 3. 
-	For example, the following CNAME record forwards all traffic from *www.contoso.com* to contoso.cloudapp.net, the DNS name of our deployed application:
+	For example, the following CNAME record forwards all traffic from *www.contoso.com* to contoso.azurewebsites.net, the DNS name of our deployed application:
 
 	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 	<tr>
