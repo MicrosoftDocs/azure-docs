@@ -3,7 +3,7 @@
 Prerequisites:
 
 1. Windows 7 or Windows Server 2008. (Not available for Mac or Linux.)
-2. Eclipse Helios or later.
+2. Eclipse Helios SR2 or later.
 
 Installation steps:
 

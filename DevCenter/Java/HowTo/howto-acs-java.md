@@ -139,7 +139,7 @@ application:
 To complete the tasks in this guide, you will need the following:
 
 - A Java Developer Kit (JDK), v 1.6 or later.
-- Eclipse IDE for Java EE Developers, Helios or later. This can be downloaded from <http://www.eclipse.org/downloads/>. 
+- Eclipse IDE for Java EE Developers, Helios SR2 or later. This can be downloaded from <http://www.eclipse.org/downloads/>. 
 - A distribution of a Java-based web server or application server, such as Apache Tomcat, GlassFish, JBoss Application Server, or Jetty.
 - A Windows Azure subscription, which can be acquired from <http://www.microsoft.com/windowsazure/offers/>.
 - The Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies) – June 2012 CTP. For more information, see [Installing the Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
