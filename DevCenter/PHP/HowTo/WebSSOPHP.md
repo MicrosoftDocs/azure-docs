@@ -1,45 +1,46 @@
-# How to implement single sign-on with Windows Azure Active Directory for Office 365 users -Java Application#
+# How to implement single sign-on with Windows Azure Active Directory - PHP Application#
 
 <h2>Table of Contents</h2>
-<ul>
 <li>
 <a href="#overview">Overview</a>
 </li>
 <li>
 <a href="#prerequisites">Prerequisites</a></li>
 <li><a href="#step1">Step 1 - Create a PHP application</a></li>
-<li><a href="#step2">Step 2 - Provision the PHP application in Office 365</a></li>
+<li><a href="#step2">Step 2 - Provision the PHP application in Windows Azure Active Directory</a></li>
 <li><a href="#step3">Step 3 - Protect the PHP application via WS-Federation and onboard the first customer</a></li>
 <li><a href="#step4">Step 4 - Configure the PHP application for single sign-on with multiple tenants</a></li>	
 
 <a name="overview"></a>
 ## Overview ##
-This guide provides instructions for creating a PHP application and configuring it to leverage Windows Azure Active Directory to accept Office 365 users. 
+This guide provides instructions for creating a PHP application and configuring it to leverage Windows Azure Active Directory. 
 
 Imagine the following scenario:
 
-- Fabricam is an independent software vendor with a PHP application
+- Fabrikam is an independent software vendor with a PHP application
 
 - Awesome Computers has a subscription to Office 365
 
 - Trey Research Inc. has a subscription to Office 365
 
+Awesome Computers wants to provide their users (employees) with the access to the Fabrikam's PHP application. After some deliberation, both parties agree to utilize the web single sign-on approach, also called identity federation with the end result being that Awesome Computers' users will be able to access Fabrikam's PHP application in exactly the same way they access Office 365 applications. 
 
+This web single sign-on method is made possible with the help of the Windows Azure Active Directory, which is also used by Office 365. Windows Azure Active Directory provides directory, authentication, and authorization services, including a Security Token Service (STS). 
 
-Awesome Computers wants to provide their users (employees) with the access to the Fabricam's PHP application.  After some deliberation, both parties agree to utilize the web single sign-on approach, also called identity federation. Using this approach,  Awesome Computers will provide single sign-on access to their users through a federated mechanism that relies on a Security Token Service (STS). Since Awesome Computers does not have its own STS, they will rely on the STS provided by Office 365. In the end, Awesome Computers' users will be able to access Fabricam's PHP application in exactly the same way they access Office 365 applications.  And I think here we need to add something about ACS and AAD. But what can I say? Can I say that ACS is officially part of AAD? Should I even name ACS?
+With the web single sign-on approach, Awesome Computers will provide single sign-on access to their users through a federated mechanism that relies on an STS. Since Awesome Computers does not have its own STS, they will rely on the STS provided by Windows Azure Active Directory that was provisioned for them when they acquired Office 365.
 
-In the instructions provided in this guide, we will play the roles of both Fabricam and Awesome Computers and recreate this scenario by performing the following tasks: 
+In the instructions provided in this guide, we will play the roles of both Fabrikam and Awesome Computers and recreate this scenario by performing the following tasks: 
 
-- Create a simple PHP application (performed by Fabricam)
-- Provision a PHP application in Office 365 (performed by Awesome Computers).
+- Create a simple PHP application (performed by Fabrikam)
+- Provision a PHP application in Windows Azure Active Directory (performed by Awesome Computers).
 
-	**Note:** As part of this step, Awesome Computers must in turn be provisioned by the Fabricam as a customer of their PHP application. Basically, Fabricam needs to know that users from the Office 365 tenant with the domain **awesomecomputers.onmicrosoft.com** should be granted access to their PHP application.
-- Protect the PHP application with WS-Federation and onboard the first customer (performed by Fabricam)
-- Modify the PHP application to handle single sign-on with multiple tenants (performed by Fabricam)
+	**Note:** As part of this step, Awesome Computers must in turn be provisioned by the Fabrikam as a customer of their PHP application. Basically, Fabrikam needs to know that users from the Office 365 tenant with the domain **awesomecomputers.onmicrosoft.com** should be granted access to their PHP application.
+- Protect the PHP application with WS-Federation and onboard the first customer (performed by Fabrikam)
+- Modify the PHP application to handle single sign-on with multiple tenants (performed by Fabrikam)
 
 **Assets**
 
-This guide is available together with several code samples and scripts that can help you with some of the most time-consuming tasks. All materials are available here for you to study and modify to fit your environment. 
+This guide is available together with several code samples and scripts that can help you with some of the most time-consuming tasks. All materials are available at [Azure Active Directory SSO for PHP](https://github.com/WindowsAzure/azure-sdk-for-php-samples) for you to study and modify to fit your environment. 
 
 <a name="prerequisites"></a>
 ## Prerequisites ##
@@ -53,7 +54,6 @@ To complete the tasks in this guide, you will need the following:
 - <a href="http://onlinehelp.microsoft.com/en-us/office365-enterprises/hh124998.aspx ">Microsoft Online Services Module</a>
 
 **PHP-specific requirements:**
-<ul>
     <li>PHP 5.3.1 (through Web Platform Installer)</li>
     <li>
       <a href=" http://www.eclipse.org/pdt/downloads/">Eclipse PDT 3.0.x All In Ones </a>
@@ -65,7 +65,7 @@ To complete the tasks in this guide, you will need the following:
 <a name="step1"></a>
 ## Step 1 - Create a PHP application ##
 
-The instructions in this step demonstrate how to create a simple PHP application. In our scenario, this step is performed by Fabricam.
+The instructions in this step demonstrate how to create a simple PHP application. In our scenario, this step is performed by Fabrikam.
 
 
 **To create a PHP application:**
@@ -109,25 +109,25 @@ The instructions in this step demonstrate how to create a simple PHP application
 
 	<img src="../../../DevCenter/PHP/Media/phpstep1Step12.png" />
 	
-*Note:* Make sure to record this value. This identifier will be the AppPrincipalId used in further steps in this guide when provisioning this JAVA web applicaiton in Office 365. 
+*Note:* Make sure to record this value. This identifier will be the AppPrincipalId used in further steps in this guide when provisioning this PHP web applicaiton in Office 365. 
 
 <a name="step2"></a>
-## Step 2 - Provision the PHP application in Office 365 ##
+## Step 2 - Provision the PHP application in Windows Azure Active Directory ##
 
-Instructions in this step demonstrate how you can provision the PHP application in the Office 365 tenant. In our scenario, this step is performed by Awesome Computers.  Then Awesome Computers provides the application owner (Fabricam) with the data Fabricam needs in order to set up single sign-on access for Awesome Computers's users. 
+Instructions in this step demonstrate how you can provision the PHP application in Windows Azure Active Directory. In our scenario, this step is performed by Awesome Computers.  Then Awesome Computers provides the application owner (Fabrikam) with the data Fabrikam needs in order to set up single sign-on access for Awesome Computers's users. 
 
-Note: If you don’t have access to an Office 365 tenant, you can obtain one by applying for a FREE TRIAL subscription on the [Office 365’s Sign-up page](http://www.microsoft.com/en-us/office365/online-software.aspx#fbid=8qpYgwknaWN). 
+Note: If you don’t have access to an Office 365 tenant, you can obtain one by applying for a FREE TRIAL subscription on the [Office 365’s Sign-up page](http://www.microsoft.com/en-us/office365/online-software.aspx#fbid=8qpYgwknaWN)). 
 
-To provision the PHP application in Office 365, Awesome Computers creates a new Service Principal for it in the Office 365 tenant. In order to create a new Service principal for the PHP application in the Office 365 tenant, Awesome Computers must obtain the following information from Fabricam:
+To provision the PHP application in Windows Azure Active Directory, Awesome Computers creates a new Service Principal for it in the directory. In order to create a new Service principal for the PHP application in the directory, Awesome Computers must obtain the following information from Fabrikam:
 
 - The value of the ServicePrincipalName (phpSample/localhost)
 - The AppPrincipalId (d184f6dd-d5d6-44c8-9cfa-e2d630dea392)
 - The ReplyUrl 
 
-**To provision the PHP applicaiton in Office 365**
+**To provision the PHP application in Windows Azure Active Directory**
 
-1.	Download and install a set of Powershell scripts from the Office 365’s online help page. (I need a link here).
-2.	Locate the CreateServicePrincipal.ps1 script in this code example set under WAAD.WebSSO.PHP/Scripts (i need a proper link here)
+1.	Download and install a set of [Powershell scripts](https://bposast.vo.msecnd.net/MSOPMW/5164.009/amd64/administrationconfig-en.msi) from the Office 365’s online help page.
+2.	Locate the CreateServicePrincipal.ps1 script in this code example set under WAAD.WebSSO.PHP/Scripts
 
 3.	Launch the Microsoft Online Services Module for Windows PowerShell console.
 
@@ -155,14 +155,14 @@ To provision the PHP application in Office 365, Awesome Computers creates a new 
 
 *Note: In the command shown here, AppPrincipalId values are those provided by Fabrikam.*
 
-The Fabricam's PHP application has been successfully provisioned in the directory tenant of Awesome Computers. 
+The Fabrikam's PHP application has been successfully provisioned in the directory tenant of Awesome Computers. 
 
-Now Fabricam must provision Awesome Computers as a customer of the PHP application. In other words, Fabricam must know that users from the Office 365 tenant with domain *awesomecomputers.onmicrosoft.com* should be granted access to the PHP applicaiton. How that information reaches Fabricam depends on how the subscriptions are handled. In this guide, the instructions for this provisioning step are not provided. 
+Now Fabrikam must provision Awesome Computers as a customer of the PHP application. In other words, Fabrikam must know that users from the Office 365 tenant with domain *awesomecomputers.onmicrosoft.com* should be granted access to the PHP applicaiton. How that information reaches Fabrikam depends on how the subscriptions are handled. In this guide, the instructions for this provisioning step are not provided. 
 
 <a name="step3"></a>
 ## Step 3 - Protect the PHP application via WS-Federation and onboard the first customer##
 
-The instructions in this step demonstrate how to add support for federated login to the JAVA web application created in Step 1. In our scenario, this step is performed by Fabricam. 
+The instructions in this step demonstrate how to add support for federated login to the PHP web application created in Step 1. In our scenario, this step is performed by Fabrikam. 
 
 This step is performed by using the **federation** and **simpleSAML.php** libraries  and adding some extra artifacts, like a login page. With the application ready to authenticate requests using the WS-Federation protocol, we’ll add the Windows Azure Active Directory tenant of Awesome Computers as a trusted provider.
 
@@ -189,19 +189,19 @@ This step is performed by using the **federation** and **simpleSAML.php** librar
 	<img src="../../../DevCenter/PHP/Media/phpstep3Step5.png" />
 
 
-**Important:** If your application is meant to work with a single Office 365 tenant, for example, if you are writing a LoB application, you can stop following the instructions in this guide at this point. By running the three steps above, you have successfully set up Windows Azure AD-enabled single sign-on to a simple PHP application for the users in one Office 365 tenant.
+**Important:** If your application is meant to work with a single Windows Azure Active Directory tenant, for example, if you are writing a LoB application, you can stop following the instructions in this guide at this point. By running the three steps above, you have successfully set up Windows Azure AD-enabled single sign-on to a simple PHP application for the users in one tenant.
 
 If, however, you are developing applications that need to be accessed by more than one tenant, the next step can help you modify your code to accommodate multiple tenants.  
 
 <a name="step4"></a>
 ## Step 4 - Configure the PHP application for single sign-on with Multiple tenants ##
 
-What if Fabricam wants to provide access to its application to multiple customers? The steps we performed in this guide so far ensure that single sign-on works with only one trusted provider. Fabricam's developers must make some changes to their PHP application in order to provide single sign-on to whatever future customers they obtain. The main new features needed are:
+What if Fabrikam wants to provide access to its application to multiple customers? The steps we performed in this guide so far ensure that single sign-on works with only one trusted provider. Fabrikam's developers must make some changes to their PHP application in order to provide single sign-on to whatever future customers they obtain. The main new features needed are:
 
 - Support for multiple identity providers in the login page
 - Maintenance of the list of all trusted providers and the audienceURI they will send to the application; That list can be used to determine how to validate incoming tokens
 
-Let's add another fictitious customer to our scenario, Trey research Inc. Trey Research Inc. must register Fabricam's PHP application in its tenant the same way Awesome Computers have done in Step 2. The following is the list of configuration changes that Fabricam needs to perform to their PHP application to enable multi-tenant single sign-on, intertwined with the provisioning of Trey Research Inc.
+Let's add another fictitious customer to our scenario, Trey research Inc. Trey Research Inc. must register Fabrikam's PHP application in its tenant the same way Awesome Computers have done in Step 2. The following is the list of configuration changes that Fabrikam needs to perform to their PHP application to enable multi-tenant single sign-on, intertwined with the provisioning of Trey Research Inc.
 
 1.	From Eclipse, Right-click the phpSample project, select New -> Xml File and provide “trustedIssuers.xml” as the file name. This file will contain a list of the trusted issuers for the application (in this case with Awesome Computers and Trey Research Inc.) which will be used by the dynamic audience Uri validator.
 

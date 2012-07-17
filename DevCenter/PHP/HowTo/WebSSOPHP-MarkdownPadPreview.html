@@ -270,8 +270,7 @@ button::-moz-focus-inner {
 
 <h2>Table of Contents</h2>
 
-<p><ul>
-<li>
+<p><li>
 <a href="#overview">Overview</a>
 </li>
 <li>
@@ -295,7 +294,11 @@ button::-moz-focus-inner {
 <li><p>Trey Research Inc. has a subscription to Office 365</p></li>
 </ul>
 
-<p>Awesome Computers wants to provide their users (employees) with the access to the Fabricam's PHP application.  After some deliberation, both parties agree to utilize the web single sign-on approach, also called identity federation. Using this approach,  Awesome Computers will provide single sign-on access to their users through a federated mechanism that relies on a Security Token Service (STS). Since Awesome Computers does not have its own STS, they will rely on the STS provided by Office 365. In the end, Awesome Computers' users will be able to access Fabricam's PHP application in exactly the same way they access Office 365 applications.  And I think here we need to add something about ACS and AAD. But what can I say? Can I say that ACS is officially part of AAD? Should I even name ACS?</p>
+<p>Awesome Computers wants to provide their users (employees) with the access to the Fabricam's PHP application. After some deliberation, both parties agree to utilize the web single sign-on approach, also called identity federation with the end result being that Awesome Computers' users will be able to access Fabricam's PHP application in exactly the same way they access Office 365 applications. </p>
+
+<p>This web single sign-on method is made possible with the help of the Windows Azure Active Directory, which is built-in to Office 365. Windows Azure Active Directory provides Office 365 tenants with directory, authentication, and authorization services, including a Security Token Service (STS). </p>
+
+<p>With the web single sign-on approach, Awesome Computers will provide single sign-on access to their users through a federated mechanism that relies on an STS. Since Awesome Computers does not have its own STS, they will rely on the STS in their Office 365 tenant provided by Windows Azure Active Directory.</p>
 
 <p>In the instructions provided in this guide, we will play the roles of both Fabricam and Awesome Computers and recreate this scenario by performing the following tasks: </p>
 
@@ -310,7 +313,7 @@ button::-moz-focus-inner {
 
 <p><strong>Assets</strong></p>
 
-<p>This guide is available together with several code samples and scripts that can help you with some of the most time-consuming tasks. All materials are available here for you to study and modify to fit your environment. </p>
+<p>This guide is available together with several code samples and scripts that can help you with some of the most time-consuming tasks. All materials are available at <a href="https://github.com/WindowsAzure/azure-sdk-for-php-samples">Azure Active Directory SSO for PHP</a> for you to study and modify to fit your environment. </p>
 
 <p><a name="prerequisites"></a></p>
 
@@ -327,7 +330,6 @@ button::-moz-focus-inner {
 </ul>
 
 <p><strong>PHP-specific requirements:</strong>
-<ul>
     <li>PHP 5.3.1 (through Web Platform Installer)</li>
     <li>
       <a href=" http://www.eclipse.org/pdt/downloads/">Eclipse PDT 3.0.x All In Ones </a>
@@ -395,8 +397,8 @@ button::-moz-focus-inner {
 <p><strong>To provision the PHP applicaiton in Office 365</strong></p>
 
 <ol>
-<li>Download and install a set of Powershell scripts from the Office 365’s online help page. (I need a link here).</li>
-<li><p>Locate the CreateServicePrincipal.ps1 script in this code example set under WAAD.WebSSO.PHP/Scripts (i need a proper link here)</p></li>
+<li>Download and install a set of <a href="https://bposast.vo.msecnd.net/MSOPMW/5164.009/amd64/administrationconfig-en.msi">Powershell scripts</a> from the Office 365’s online help page.</li>
+<li><p>Locate the CreateServicePrincipal.ps1 script in this code example set under WAAD.WebSSO.PHP/Scripts</p></li>
 <li><p>Launch the Microsoft Online Services Module for Windows PowerShell console.</p></li>
 <li><p>Run the SampleAppServicePrincipal.ps1 command from the Microsoft Online Services Module for Windows PowerShell Console.</p>
 
