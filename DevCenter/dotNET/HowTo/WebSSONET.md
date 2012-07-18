@@ -122,9 +122,9 @@ To provision the ASP.NET application in Windows Azure Active Directory, Awesome 
 
 	<img src="../../../DevCenter/dotNet/Media/ssostep2Step4.png" />	
 
-When asked to provide a name for your Service Principal, type in a descriptive name that you can remember in case you wish to inspect or remove the Service Principal later on.
+	When asked to provide a name for your Service Principal, type in a descriptive name that you can remember in case you wish to inspect or remove the Service Principal later on.
 
-<img src="../../../DevCenter/dotNet/Media/ssostep2Step45.png" />
+	<img src="../../../DevCenter/dotNet/Media/ssostep2Step45.png" />
 
 5.	When prompted, enter your administration credentials for your Office365 tenant:
 
@@ -200,16 +200,25 @@ You can use this Audience URI to add the first customer to our solution:
 
 - Find the **wsFederation** section and add a new attribute with the reply Url; the node will look like this:
 
-		<img src="../../../DevCenter/dotNet/Media/ssostep3Step9.1.png" />
-
-
+			<wsFederation passiveRedirectEnabled="true" issuer="https://accounts.accesscontrol.windows.net/v2/wsfederation" realm="spn: 7829c758-2bef-43df-a685-717089474505@awesomecomputers.onmicrosoft.com" requireHttps="false" reply="https://localhost/OrgIdFederationSample" />		
 - Add the **httpRuntime** node inside the **system.web** section and set the requestValidationMode attribute to “2.0”.
 
-		<img src="../../../DevCenter/dotNet/Media/ssostep3Step9.2.png" />
+			<system.web>
+			  <httpRuntime requestValidationMode="2.0" />
 
 10. From now on the site will require authentication, so we will change the Index page to show the authenticated user information (claims). Open the Index view and add the following code snippet at the end of the page:
 
-	<img src="../../../DevCenter/dotNet/Media/ssostep3Step10.png" />
+		<p>
+		    @if (User.Identity.IsAuthenticated)
+		    {
+		    <ul>
+		        @foreach (string claim in ((Microsoft.IdentityModel.Claims.IClaimsIdentity)this.User.Identity).Claims.Select(c => c.ClaimType + " : " + c.Value))
+		        {
+		            <li>@claim</li>
+		        } 
+		    </ul>
+		    }
+		</p>
 
 11. Press F5 to run the application and you will be redirected to the Office 365 identity provider page where you can log in using your awesomecomputers.onmicrosoft.com credentials (e.g. john.doe@awesomecomputers.onmicrosoft.com).
 
@@ -241,15 +250,20 @@ Let's add another fictitious customer to our scenario, Trey research Inc. Trey R
 
 	<img src="../../../DevCenter/dotNet/Media/ssostep4Step2.png" />
 
-*Note:* Behind the scenes the script retrieves the federation metadata to get the issuer identifier for generating the realm’s SPN value.
+	*Note:* Behind the scenes the script retrieves the federation metadata to get the issuer identifier for generating the realm’s SPN value.
 
 3.	Open the XML file and include the generated node:
 
-	<img src="../../../DevCenter/dotNet/Media/ssostep4Step3.png" />
+		<trustedIssuers>
+		  <issuer name="awesomecomputers.onmicrosoft.com" displayName="awesomecomputers.onmicrosoft.com" realm="spn:7829c758-2bef-43df-a685-717089474505@495c4a5e-38b7-49b9-a90f-4c0050b2d7f7" />
+		</trustedIssuers>
 
 4.	Repeat Step 2 to generate Trey Research Inc. node. Notice that you can change the display name to show a user-friendly name.
 
-	<img src="../../../DevCenter/dotNet/Media/ssostep4Step4.png" />
+		<trustedIssuers>
+		  <issuer name="awesomecomputers.onmicrosoft.com" displayName="Awesome Computers" realm=" spn:7829c758-2bef-43df-a685-717089474505@495c4a5e-38b7-49b9-a90f-4c0050b2d7f7" />
+		  <issuer name=" treyresearchinc.onmicrosoft.com" displayName="Trey Research Inc." realm="spn:7829c758-2bef-43df-a685-717089474505@13292593-4861-4847-8441-6da6751cfb86" />
+		</trustedIssuers>
 
 5.	Add a reference to Microsoft.Samples.Waad.Federation assembly.
 
@@ -257,15 +271,22 @@ Let's add another fictitious customer to our scenario, Trey research Inc. Trey R
 
 6.	Go to the web.config and add the following snippet inside **service** under **microsoft.IdentityModel**. This is the security token handler that will validate the audience Uri dynamically using the “trustedIssuers.xml” repository.
 
-	<img src="../../../DevCenter/dotNet/Media/ssostep4Step6.png" />
+		<microsoft.identityModel>
+		  <service>
+		    <securityTokenHandlers>
+		      <remove type="Microsoft.IdentityModel.Tokens.Saml2.Saml2SecurityTokenHandler, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35"/>
+		      <add type="Microsoft.Samples.Waad.Federation.ConfigurationBasedSaml2SecurityTokenHandler, Microsoft.Samples.Waad.Federation"/>
+		    </securityTokenHandlers>
 
 7.	Since we want to create a custom login page to support both organizations, we can disable the automatic redirection. Locate the **wsFederation** node and set the attribute passiveRedirectEnabled to false.
 
-	<img src="../../../DevCenter/dotNet/Media/ssostep4Step7.png" />
+		<wsFederation passiveRedirectEnabled="false" issuer="https://accounts.accesscontrol.windows.net/v2/wsfederation" realm="spn:7829c758-2bef-43df-a685-717089474505@awesomecomputers.onmicrosoft.com" requireHttps="false" reply="https://localhost/OrgIdFederationSample" />
 
 8.	Under **system.web** replace the **** node using the following snippet. This login page will display a list of trusted providers allowing users to perform the login process with their organization credentials.
 
-	<img src="../../../DevCenter/dotNet/Media/ssostep4Step8.png" />
+		<authentication mode="Forms">
+		  <forms loginUrl="~/Account/Login" timeout="2880" />
+		</authentication>
 
 9.	Create a new controller/view (AccountController/Login)
 
@@ -273,7 +294,12 @@ Let's add another fictitious customer to our scenario, Trey research Inc. Trey R
 
 10.	Open the Login view and add the following code snippet (at the end) to list the available trusted providers:
 
-	<img src="../../../DevCenter/dotNet/Media/ssostep4Step10.png" />
+		<ul>
+		    @foreach (var trustedIssuer in new Microsoft.Samples.Waad.Federation.TrustedIssuersRepository().GetTrustedIdentityProviderUrls())
+		    {
+		        <li><a href="@trustedIssuer.LoginUrl">@trustedIssuer.DisplayName</a></li>
+		    }
+		</ul>
 
 11.	Run the application (F5) to see a list with the links for each trusted identity provider retrieved from the “trustedIssuers.xml” repository.
 
