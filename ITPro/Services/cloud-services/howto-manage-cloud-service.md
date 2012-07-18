@@ -62,7 +62,7 @@ You can swap deployments from the **Cloud Services** page or the dashboard.
 
 4. After you verify the deployment information, click **Yes** to swap the deployments.
 
-The deployment swap happens quickly because the only thing that changes is the virtual IP addresses (VIPs) for the deployments. For more information, see [Deploying and Updating Windows Azure Cloud Applications](/en-us/develop/dotnet/fundamentals/deploying-applications/).
+The deployment swap happens quickly because the only thing that changes is the virtual IP addresses (VIPs) for the deployments.
 
 To save compute costs, you can delete the deployment in the staging environment when you're sure the new production deployment is performing as expected.
 
