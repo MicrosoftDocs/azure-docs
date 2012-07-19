@@ -3,6 +3,8 @@
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
+<div chunk=../../Shared/Chunks/disclaimer.md />
+
 In the **Cloud Services** area of the Windows Azure Preview Management Portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
 
 ##Table of Contents##
