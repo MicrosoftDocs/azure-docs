@@ -1,4 +1,4 @@
-<properties linkid="dev-net-common-tasks-team-foundation-service" urldisplayname="Team Foundation Service" headerexpose="" pagetitle="Continuous Delivery of a Cloud Service by Using Team Foundation Service" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-net-common-tasks-team-foundation-service" urldisplayname="Team Foundation Service" headerexpose="" pagetitle="Continuous Delivery of a Cloud Service by Using Team Foundation Service" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # Continuous Delivery to Windows Azure by Using Team Foundation Service Preview
 
@@ -127,9 +127,13 @@ The following table shows default values of the Azure properties:
 <tr><td>Cloud Service Name</td><td>The name of the service you are connected to</td></tr>
 <tr><td>Deployment Label</td><td>The same as the service name</td></tr>
 <tr><td>Service Configuration</td><td>ServiceConfiguration.Cloud.cscfg</td></tr>
-<tr><td>Storage Account Name</td><td>Blank, which means look for a storage account with the same name as the service</td></tr>
+<tr><td>Storage Account Name</td><td>Blank, which means try to find a storage account.</td></tr>
 <tr><td>Publish Profile</td><td>The .azurePubxml file already on the server. Provide a value to upload a new one.</td></tr>
 </table>
+<br/>
+If the storage account property is left blank, Windows Azure searches for one. If there is a storage
+account with the same name as the cloud service, it is used. Otherwise, it uses another storage account,
+or if there is no storage account, it creates one.
 
 11. By this time, your build should be completed successfully.<br/>
 ![][28]
