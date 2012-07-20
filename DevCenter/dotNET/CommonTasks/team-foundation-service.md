@@ -128,7 +128,7 @@ The following table shows default values of the Azure properties:
 <tr><td>Deployment Label</td><td>The same as the service name</td></tr>
 <tr><td>Service Configuration</td><td>ServiceConfiguration.Cloud.cscfg</td></tr>
 <tr><td>Storage Account Name</td><td>Blank, which means try to find a storage account.</td></tr>
-<tr><td>Publish Profile</td><td>The .azurePubxml file already on the server. Provide a value to upload a new one.</td></tr>
+<tr><td>Publish Profile</td><td>The .azurePubxml file. If you check in one, you can choose it here.</td></tr>
 </table>
 <br/>
 If the storage account property is left blank, Windows Azure searches for one. If there is a storage
