@@ -80,7 +80,7 @@ The wizard advances to the **Database Settings** step.
 7. In the **Name** box, enter a name for your database.
 8. In the **Server** box, select **New SQL Database server**.
 9. Click the arrow that points to the right at the bottom of the box.<br/>
-![Database Settings step of New Web Site - Create with Database wizard][setup007]
+![Database Settings step of New Web Site - Create with Database wizard][setup007]<br/>
 The wizard advances to the **Create a Server** step.
 10. Enter an administrator name and password.
 You aren't entering an existing name and password here. You're entering a new name and password that you're defining now to use later when you access the database.
@@ -89,7 +89,7 @@ Keeping the web server and the database server in the same region gives you the 
 12. Make sure that **Allow Windows Azure Services to access the server** is selected.
 This option is selected by default. It creates a firewall rule that allows your Windows Azure web site to access this database.
 13. Click the check mark at the bottom of the box to indicate you're finished.
-![Create a Server step of New Web Site - Create with Database wizard][setup008]
+![Create a Server step of New Web Site - Create with Database wizard][setup008]<br/>
 The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon, and the number of databases appears next to the **SQL Databases** icon.<br/>
 ![Web Sites page of Management Portal, website created][setup009]
 
@@ -285,7 +285,7 @@ The next task is to enable the Code First Migrations feature in order to create 
 
     	 using ContactManager.Models;
 
-5. Add the following code into the seed Replace the contents of the file with the following code.
+5. Add the following code to the seed method.
 		
 		context.Contacts.AddOrUpdate(
 		    p => p.Name,
@@ -296,10 +296,10 @@ The next task is to enable the Code First Migrations feature in order to create 
 		    new Contact { Name = "Diliana Alexieva-Bosseva", Address = "7890 2nd Ave E", City = "Redmond", State = "WA", Zip = "10999", Email = "diliana@example.com", Twitter = "diliana_example" }
 		    );
 
-	This will define an initializer to provide sample contacts to seed the database with.
+	This will define an initializer to provide sample contacts with which to seed the database.
 
 
-6. in the **Package Manager Console** enter the command:<br/>
+6. In the **Package Manager Console** enter the command:<br/>
 
 	update-database
 
@@ -547,10 +547,13 @@ Visual Studio compiles the data model classes that you created and makes them av
 ![Index page][intro001]
 2. Enter a contact and click **Add**. The app returns to the home page and displays the contact you entered.<br/>
 ![Index page with to-do list items][addwebapi004]
-3. Copy the URL from the address bar. Open a new browser window and paste the URL into the address bar and add /api/contacts to the URL.<br/>![Index page with to-do list items][addwebapi005]<br/>
-The RESTful web API you added returns the stored contacts.<br/>![Web API save dialog][addwebapi006]
+3. Copy the URL from the address bar. Open a new browser window and paste the URL into the address bar and add /api/contacts to the URL.<br/>
+![Index page with to-do list items][addwebapi005]<br/>
+The RESTful web API you added returns the stored contacts.<br/>
+![Web API save dialog][addwebapi006]<br/>
 	You can open the returned contacts in notepad or a browser.
-	This output can be consumed by another application such as mobile web page or application.<br/>![Web API save dialog][addwebapi007]
+	This output can be consumed by another application such as mobile web page or application.<br/>
+![Web API save dialog][addwebapi007]
 
 <h2><a name="bkmk_deploydatabaseupdate"></a>Publish the application update to Windows Azure and SQL Database</h2>
 

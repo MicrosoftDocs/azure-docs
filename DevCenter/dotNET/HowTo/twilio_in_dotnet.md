@@ -1,4 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="Deploying Applications" metaKeywords="Windows Azure deployment, Azure deployment, Azure configuration changes, Azure deployment update, Windows Azure .NET deployment, Azure .NET deployment, Azure .NET configuration changes, Azure .NET deployment update, Windows Azure C# deployment, Azure C# deployment, Azure C# configuration changes, Azure C# deployment update, Windows Azure VB deployment, Azure VB deployment, Azure VB configuration changes, Azure VB deployment update" metaDescription="Learn how to deploy applications to Windows Azure, make configuration changes, and and make major and minor updates." linkid="dev-net-fundamentals-deploying-applications" urlDisplayName="Deploying Applications" headerExpose="" footerExpose="" disqusComments="1" />
+****<properties umbracoNaviHide="0" pageTitle="Deploying Applications" metaKeywords="Windows Azure deployment, Azure deployment, Azure configuration changes, Azure deployment update, Windows Azure .NET deployment, Azure .NET deployment, Azure .NET configuration changes, Azure .NET deployment update, Windows Azure C# deployment, Azure C# deployment, Azure C# configuration changes, Azure C# deployment update, Windows Azure VB deployment, Azure VB deployment, Azure VB configuration changes, Azure VB deployment update" metaDescription="Learn how to deploy applications to Windows Azure, make configuration changes, and and make major and minor updates." linkid="dev-net-fundamentals-deploying-applications" urlDisplayName="Deploying Applications" headerExpose="" footerExpose="" disqusComments="1" />
 # How to Use Twilio for Voice and SMS Capabilities from Windows Azure
 
 <div chunk="../../Shared/Chunks/how_to_use_twilio_opening_and_common_toc.md" />
@@ -62,11 +62,11 @@ Tip: To install the latest verison of NuGet, you must first uninstall the loaded
 <h3 id="use_nuget">To add the Twilio libraries to your Visual Studio project.</h3>
 
 1.  Open your solution in Visual Studio.
-2.  Right click on the References.
-3.  Click Manage NuGet Packages...
-4.  Click Online.
-5.  In the search online box type twilio.
-6.  Click Install on the Twilio package.
+2.  Right click on the **References**.
+3.  Click **Manage NuGet Packages...**
+4.  Click **Online**.
+5.  In the search online box type *twilio*.
+6.  Click **Install** on the Twilio package.
 
 
 <h2 id="howto_make_call">How to: Make an outgoing call</h2>
