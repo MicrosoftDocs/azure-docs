@@ -46,7 +46,8 @@ For information about how to use the PHP Client Libraries for Windows Azure, see
 					"type": "pear",
 					"url": "http://pear.php.net"
 				}
-			]
+			],
+			"minimum-stability": "dev"
 		}
 
 3. Download **[composer.phar][composer-phar]** in your project root.
