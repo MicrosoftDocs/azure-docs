@@ -18,17 +18,35 @@ You will build a simple Tasklist web application in PHP. A screenshot of the com
 
 ##Installing the Windows Azure client libraries
 
-To install the PHP Client Libraries for Windows Azure as a PEAR package, follow these steps:
+To install the PHP Client Libraries for Windows Azure via Composer, follow these steps:
 
-1. [Install PEAR][install-pear].
-2. Set-up the Windows Azure PEAR channel:
+1. [Install Git][install-git]. 
 
-		pear channel-discover pear.windowsazure.com
-3. Install the PEAR package:
+	<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>On Windows, you will also need to add the Git executable to your PATH environment variable.</p>
+	</div>
 
-		pear install pear.windowsazure.com/WindowsAzure-0.3.0
+2. Create a file named **composer.json** in the root of your project and add the following code to it:
 
-After the installation completes, you can reference class libraries from your application.
+		{
+			"require": {
+				"microsoft/windowsazure": "*"
+			},			
+			"repositories": [
+				{
+					"type": "pear",
+					"url": "http://pear.php.net"
+				}
+			],
+			"minimum-stability": "dev"
+		}
+
+3. Download **[composer.phar][composer-phar]** in your project root.
+
+4. Open a command prompt and execute this in your project root
+
+		php composer.phar install
 
 ##Getting started with the client libraries
 
@@ -38,7 +56,7 @@ There are four basic steps that have to be performed before you can make a call 
 
 * First, include the autoloader script:
 
-		require_once "WindowsAzure/WindowsAzure.php"; 
+		require_once 'vendor\autoload.php'; 
 	
 * Include the namespaces you are going to use.
 
