@@ -414,6 +414,8 @@ To publish changes to application, follow these steps:
 [install-php]: http://www.php.net/manual/en/install.php
 [install-pear]: http://pear.php.net/manual/en/installation.getting.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
+[install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+[composer-phar]: http://getcomposer.org/composer.phar
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
 [msdn-errors]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
 [tasklist-mysql-download]: http://go.microsoft.com/fwlink/?LinkId=252506
