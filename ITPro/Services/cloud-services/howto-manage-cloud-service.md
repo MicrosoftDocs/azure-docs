@@ -150,7 +150,8 @@ Use the following procedure to delete a deployment or your cloud service.
 5. To delete the cloud service, click **Delete cloud service**. Then, at the confirmation prompt, click **Yes**.
 
 <div class="dev-callout"> 
-<b>Note</b>
+<b>Note</b> 
 <p>If verbose monitoring is configured for your cloud service, Windows Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For information about where to find the metrics tables, see "How to: Access verbose monitoring data outside the Management Portal" in <a href="https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/">How to Monitor Cloud Services</a>.</p> 
 </div>
+
 
