@@ -19,7 +19,7 @@ You'll build a simple to-do list web application that is built on ASP.NET MVC 4 
  
 ## Tutorial segments
 
-1. [Set Up the development environment][]
+1. [Set up the development environment][]
 2. [Set up the Windows Azure environment][]
 3. [Create an ASP.NET MVC 4 application][]
 4. [Deploy the application to Windows Azure][]
