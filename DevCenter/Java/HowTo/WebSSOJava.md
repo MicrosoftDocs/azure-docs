@@ -1,4 +1,4 @@
-# How to implement single sign-on with Windows Azure Active Directory for Office 365 users -Java Application#
+# How to implement single sign-on with Windows Azure Active Directory -Java Application#
 
 <h2>Table of Contents</h2>
 <li>
@@ -7,13 +7,13 @@
 <li>
 <a href="#prerequisites">Prerequisites</a></li>
 <li><a href="#step1">Step 1 - Create a Java web application</a></li>
-<li><a href="#step2">Step 2 - Provision the Java web application in Office 365</a></li>
+<li><a href="#step2">Step 2 - Provision the Java web application in Windows Azure Active Directory</a></li>
 <li><a href="#step3">Step 3 - Protect the Java web application via WS-Federation and onboard the first customer</a></li>
 <li><a href="#step4">Step 4 - Configure the Java web application for single sign-on with multiple tenants</a></li>	<li><a href="#appendix">Appendix: Deploying to JBOSS on Solaris</a></li>
 
 <a name="overview"></a>
 ## Overview ##
-This guide provides instructions for creating a Java web application and configuring it to leverage Windows Azure Active Directory to accept Office 365 users. 
+This guide provides instructions for creating a Java web application and configuring it to leverage Windows Azure Active Directory. 
 
 Imagine the following scenario:
 
@@ -27,14 +27,14 @@ Imagine the following scenario:
 
 Awesome Computers wants to provide their users (employees) with the access to the Fabrikam's Java application. After some deliberation, both parties agree to utilize the web single sign-on approach, also called identity federation with the end result being that Awesome Computers' users will be able to access Fabrikam's Java application in exactly the same way they access Office 365 applications. 
 
-This web single sign-on method is made possible with the help of the Windows Azure Active Directory, which is built into Office 365. Windows Azure Active Directory provides Office 365 tenants with directory, authentication, and authorization services, including a Security Token Service (STS). 
+This web single sign-on method is made possible with the help of the Windows Azure Active Directory, which is also used by Office 365. Windows Azure Active Directory provides directory, authentication, and authorization services, including a Security Token Service (STS). 
 
-With the web single sign-on approach, Awesome Computers will provide single sign-on access to their users through a federated mechanism that relies on an STS. Since Awesome Computers does not have its own STS, they will rely on the STS in their Office 365 tenant provided by Windows Azure Active Directory.
+With the web single sign-on approach, Awesome Computers will provide single sign-on access to their users through a federated mechanism that relies on an STS. Since Awesome Computers does not have its own STS, they will rely on the STS provided by Windows Azure Active Directory that was provisioned for them when they acquired Office 365.
 
 In the instructions provided in this guide, we will play the roles of both Fabrikam and Awesome Computers and recreate this scenario by performing the following tasks: 
 
 - Create a simple Java application (performed by Fabrikam)
-- Provision a Java web application in Office 365 (performed by Awesome Computers).
+- Provision a Java web application in Windows Azure Active Directory (performed by Awesome Computers)
 
 	**Note:** As part of this step, Awesome Computers must in turn be provisioned by the Fabrikam as a customer of their Java application. Basically, Fabrikam needs to know that users from the Office 365 tenant with the domain **awesomecomputers.onmicrosoft.com** should be granted access to their Java application.
 - Protect the Java application with WS-Federation and onboard the first customer (performed by Fabrikam)
@@ -42,7 +42,7 @@ In the instructions provided in this guide, we will play the roles of both Fabri
 
 **Assets**
 
-This guide is available together with several code samples and scripts that can help you with some of the most time-consuming tasks. All materials are available at [Azure Active Directory SSO for Java](https://github.com/WindowsAzure/azure-sdk-for-java-samples) for you to study and modify to fit your environment. 
+This guide is available together with several code samples and scripts that can help you with some of the most time-consuming tasks. All materials are available at [Azure Active Directory SSO for .Net](https://github.com/WindowsAzure/azure-sdk-for-net-samples) for you to study and modify to fit your environment. 
 
 <a name="prerequisites"></a>
 ## Prerequisites ##
@@ -76,20 +76,66 @@ The instructions in this step demonstrate how to create a simple Java applicatio
 **To create Java web application:**
 
 1.	Open a new instance of JBoss Developer Studio.
-2.	Create a new project: File -> New Project -> Maven Project.
-3.	In the first wizard window select the ‘Create a simple project’ option and click Next.
+2.	Create a new project: **File** -> **New Project** -> **Maven Project**.
+3.	In the first wizard window select the ‘**Create a simple project**’ option and click **Next**.
 
 	<img src="../../../DevCenter/Java/Media/javastep1step1.jpg" />	
 
-4.	Provide a Group Id, an Artifact Id, and for Packaging select war. Click Finish.
+4.	Provide a **Group Id**, an **Artifact Id**, and for **Packaging** select war. Click **Finish**.
 
 	<img src="../../../DevCenter/Java/Media/javastep1step4.jpg" />	
 
 5.	Open the pom.xml file in the sample project and add the following xml inside the project node to configure the repositories for the external libraries and plugins and to target the project to Java 1.6.
 
-	<img src="../../../DevCenter/Java/Media/javastep1step5.png" />	
+		<repositories>
+			<repository>
+				<id>jboss-public-repository-group</id>
+				<name>JBoss Public Maven Repository Group</name>
+				<url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+				<layout>default</layout>
+				<releases>
+					<enabled>true</enabled>
+					<updatePolicy>never</updatePolicy>
+				</releases>
+				<snapshots>
+					<enabled>true</enabled>
+					<updatePolicy>never</updatePolicy>
+				</snapshots>
+			</repository>
+		</repositories>
+		
+		<pluginRepositories>
+			<pluginRepository>
+				<id>jboss-public-repository-group</id>
+				<name>JBoss Public Maven Repository Group</name>
+				<url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+				<layout>default</layout>
+				<releases>
+					<enabled>true</enabled>
+					<updatePolicy>always</updatePolicy>
+				</releases>
+				<snapshots>
+					<enabled>true</enabled>
+					<updatePolicy>always</updatePolicy>
+				</snapshots>
+			</pluginRepository>
+		</pluginRepositories>
+		
+		<build>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.0.2</version>
+					<configuration>
+						<source>1.6</source>
+						<target>1.6</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</build>
 
-6.	Right-click the sample project and select Maven -> Update Project Configuration… to refresh the project and apply pom.xml file changes. Select both projects and click OK.
+6.	Right-click the **sample** project and select **Maven** -> **Update Project Configuration…** to refresh the project and apply **pom.xml** file changes. Select both projects and click **OK**.
 
 	<img src="../../../DevCenter/Java/Media/javastep1step6.png" />	
 
@@ -99,39 +145,54 @@ The instructions in this step demonstrate how to create a simple Java applicatio
 
 8.	Replace the generated code with the following:
 
-	<img src="../../../DevCenter/Java/Media/javastep1step8.png" />
+		<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+			pageEncoding="ISO-8859-1"%>
+		<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+		<html>
+		<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>Index</title>
+		</head>
+		<body>
+			<h3>Index Page</h3>
+		</body>
+		</html>
 
-9.	Right-click the sample project and select Run As -> Run on Server. 
+9.	Right-click the sample project and select **Run A**s -> **Run on Server**. 
 
 10.	Open a Powershell console and run the following command to generate a new GUID for the application:
 
-	<img src="../../../DevCenter/Java/Media/javastep1step10.png" />
+		PS C:\Windows\system32> [guid]::NewGuid()
+		Guid
+		----
+		9a822147-348b-4e0e-8edf-899fe8c117d4
 
-*Note:* Make sure to record this value. This identifier will be the AppPrincipalId used in further steps in this guide when provisioning this Jav web applicaiton in Office 365. 
+	*Note:* Make sure to record this value. This identifier will be the AppPrincipalId used in further steps in this guide when provisioning this Jav web applicaiton in Office 365. 
 
 <a name="step2"></a>
-## Step 2 - Provision the Java web application in Office 365 ##
+## Step 2 - Provision the Java web application in Windows Azure Active Directory ##
 
-Instructions in this step demonstrate how you can provision the Java web application in the Office 365 tenant. In our scenario, this step is performed by Awesome Computers.  Then Awesome Computers provides the application owner (Fabrikam) with the data Fabrikam needs in order to set up single sign-on access for Awesome Computers's users. 
+Instructions in this step demonstrate how you can provision the Java web application in Windows Azure Active Directory. In our scenario, this step is performed by Awesome Computers.  Then Awesome Computers provides the application owner (Fabrikam) with the data Fabrikam needs in order to set up single sign-on access for Awesome Computers's users. 
 
 Note: If you don’t have access to an Office 365 tenant, you can obtain one by applying for a FREE TRIAL subscription on the [Office 365’s Sign-up page](http://www.microsoft.com/en-us/office365/online-software.aspx#fbid=8qpYgwknaWN). 
 
-To provision the Java web application in Office 365, Awesome Computers creates a new Service Principal for it in the Office 365 tenant. In order to create a new Service principal for the Java application in the Office 365 tenant, Awesome Computers must obtain the following information from Fabrikam:
+To provision the Java web application in Windows Azure Active Directory, Awesome Computers creates a new Service Principal for it in the directory. In order to create a new Service principal for the Java application in the directory, Awesome Computers must obtain the following information from Fabrikam:
 
 - The value of the ServicePrincipalName (sample/localhost:8443
 - The AppPrincipalId (9a822147-348b-4e0e-8edf-899fe8c117d4)
 - The ReplyUrl 
 
-**To provision the Java application in Office 365**
+**To provision the Java application in Windows Azure Active Directory**
 
 1.	Download and install a set of [Powershell scripts](https://bposast.vo.msecnd.net/MSOPMW/5164.009/amd64/administrationconfig-en.msi) from the Office 365’s online help page.
-2.	Locate the CreateServicePrincipal.ps1 script in this code example set under WAAD.WebSSO.JAVA/Scripts.
+
+2.	Locate the **CreateServicePrincipal.ps1** script in this code example set under WAAD.WebSSO.JAVA/Scripts.
 
 3.	Launch the Microsoft Online Services Module for Windows PowerShell console.
 
-4.	Run the CreateServicePrincipal.ps1 command from the Microsoft Online Services Module for Windows PowerShell Console.
+4.	Run the **CreateServicePrincipal.ps1** command from the Microsoft Online Services Module for Windows PowerShell Console.
 
-	<img src="../../../DevCenter/Java/Media/ssostep2Step4.png" />	
+		PS C:\Windows\system32> ./CreateServicePrincipal.ps1
 
 	When asked to provide a name for your Service Principal, type in a descriptive name that you can remember in case you wish to inspect or remove the Service Principal later on.
 
@@ -148,10 +209,9 @@ To provision the Java web application in Office 365, Awesome Computers creates a
 - App Principal Secret
 - Audience URI
 
-
 	<img src="../../../DevCenter/dotNet/Media/ssostep2Step6.png" />
 
-*Note: In the command shown here, AppPrincipalId values are those provided by Fabrikam.*
+	*Note: In the command shown here, AppPrincipalId values are those provided by Fabrikam.*
 
 The Fabrikam's application has been successfully provisioned in the directory tenant of Awesome Computers. 
 
@@ -164,77 +224,248 @@ The instructions in this step demonstrate how to add support for federated login
 
 This step is performed by using the waad-federation library and adding some extra artifacts, like a login page. With the application ready to authenticate requests using the WS-Federation protocol, we’ll add the Windows Azure Active Directory tenant of Awesome Computers as a trusted provider.
 
-1.	Import the waad-federation library from JBoss Developer Studio in the same workspace you created the sample application: File -> Import -> Existing Maven Projects. 
+1.	Import the **waad-federation** library from JBoss Developer Studio in the same workspace you created the sample application: **File** -> **Import** -> **Existing Maven Projects**. 
 
 	<img src="../../../DevCenter/Java/Media/javastep3Step1.png" />
 
-2.	Select the folder where the waad-federation library is located and click Finish.
-
+2.	Select the folder where the **waad-federation** library is located and click **Finish**.
 
 	<img src="../../../DevCenter/Java/Media/javastep3Step2.png" />
 
-3.	Open the pom.xml file in the sample project and add the following xml inside project node to configure the project’s dependencies.
+3.	Open the **pom.xml** file in the sample project and add the following xml inside project node to configure the project’s dependencies.
 
-	<img src="../../../DevCenter/Java/Media/javastep3Step3.png" />
+		<dependencies>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>3.0-alpha-1</version>
+			</dependency>
+			<dependency>
+				<groupId>com.microsoft.samples.waad.federation</groupId>
+				<artifactId>waad-federation</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+		</dependencies>
 
-4.	Right-click the sample project and select Maven -> Update Project Configuration… to refresh the project and apply pom.xml file changes. Select both projects and click OK.
+4.	Right-click the **sample** project and select **Maven** -> **Update Project Configuration…** to refresh the project and apply pom.xml file changes. Select both projects and click **OK**.
 
 	<img src="../../../DevCenter/Java/Media/javastep3Step4.png" />
 
-5.	Create a Filter. Right-click the sample project and select New -> Filter. For “Class name” type FederationFilter and click Finish.
-
+5.	Create a Filter. Right-click the **sample** project and select **New** -> **Filter**. For “Class name” enter FederationFilter and click **Finish**.
+****
 	<img src="../../../DevCenter/Java/Media/javastep3Step5.png" />
 
 6.	Replace the generated code with the following:
 
-	<img src="../../../DevCenter/Java/Media/javastep3Step6.png" />
+		import java.io.IOException;
+		import javax.servlet.Filter;
+		import javax.servlet.FilterChain;
+		import javax.servlet.FilterConfig;
+		import javax.servlet.ServletException;
+		import javax.servlet.ServletRequest;
+		import javax.servlet.ServletResponse;
+		import javax.servlet.http.HttpServletRequest;
+		import javax.servlet.http.HttpServletResponse;
+		import java.util.regex.*;
+		
+		import com.microsoft.samples.federation.FederatedLoginManager;
+		import com.microsoft.samples.federation.URLUTF8Encoder;
+		
+		public class FederationFilter implements Filter {
+			private String loginPage;
+			private String allowedRegex;
+		
+			public void init(FilterConfig config) throws ServletException {
+				this.loginPage = config.getInitParameter("login-page-url");
+				this.allowedRegex = config.getInitParameter("allowed-regex");
+			}
+		
+			public void doFilter(ServletRequest request, ServletResponse response,
+					FilterChain chain) throws IOException, ServletException {
+		
+				if (request instanceof HttpServletRequest) {
+					HttpServletRequest httpRequest = (HttpServletRequest) request;
+		
+					if (!httpRequest.getRequestURL().toString().contains(this.loginPage)) {
+						FederatedLoginManager loginManager = FederatedLoginManager.fromRequest(httpRequest);
+		
+						boolean allowedUrl = Pattern.compile(this.allowedRegex).matcher(httpRequest.getRequestURL().toString()).find();
+		
+						if (!allowedUrl && ! loginManager.isAuthenticated()) {
+							HttpServletResponse httpResponse = (HttpServletResponse) response;
+							String encodedReturnUrl = URLUTF8Encoder.encode(httpRequest.getRequestURL().toString());
+							httpResponse.setHeader("Location", this.loginPage + "?returnUrl=" + encodedReturnUrl);
+							httpResponse.setStatus(302);
+							return;
+						}
+					}
+				}
+		
+				chain.doFilter(request, response);
+			}
+		
+			public void destroy() {
+			}
+		}
 
 7.	Open the web.xml located in the src/main/webapp/WEB-INF folder. Add the following piece inside the web-app node:
 
-	<img src="../../../DevCenter/Java/Media/javastep3Step7.png" />
+		<filter>
+		  <filter-name>FederationFilter</filter-name>
+		  <filter-class>FederationFilter</filter-class>
+		  <init-param>
+		    <param-name>login-page-url</param-name>
+		    <param-value>/sample/login.jsp</param-value>
+		  </init-param>
+		  <init-param>
+		    <param-name>allowed-regex</param-name>
+		    <param-value>(\/sample\/login.jsp|\/sample\/wsfed-saml|\/sample\/oauth)</param-value>
+		  </init-param>
+		</filter>
+		<filter-mapping>
+		  <filter-name>FederationFilter</filter-name>
+		  <url-pattern>/*</url-pattern>
+		</filter-mapping>
 
 	*Note: The filter will handle the secured and unsecured pages and will also redirect users to the login page (defined as login-page-url filter’s parameter) if they are not authenticated. 
 
 	However, the filter will not apply to the incoming Urls that match the allow-regex regular expression parameter.*
 
-8.	Create a login page. Select the sample project, right-click and select New -> JSP File (name it login.jsp) 
+8.	Create a login page. Select the sample project, right-click and select **New** -> **JSP File** (name it login.jsp) 
 
 	<img src="../../../DevCenter/Java/Media/javastep3Step8.png" />
 
 9.	Replace the generated code with the following:
 
-	<img src="../../../DevCenter/Java/Media/javastep3Step9.png" />
+		<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+			pageEncoding="ISO-8859-1"%>
+		<%@ page import="com.microsoft.samples.federation.*"%>
+		
+		<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+		<html>
+		<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>Login Page</title>
+		</head>
+		<body>
+			<h3>Login Page</h3>
+			<a href="<%=FederatedLoginManager.getFederatedLoginUrl(request.getParameter("returnUrl"))%>"><%=FederatedConfiguration.getInstance().getStsFriendlyName()%></a>
+		</body>
+		</html>
 
-10.	From JBoss Developer Studio, right-click the src/main/resources folder in the sample project, select New -> Properties file, name it federation and provide the following configuration:
+10.	From JBoss Developer Studio, right-click the **src/main/resources** folder in the sample project, select **New** -> **Properties** file, name it federation and provide the following configuration:
 
-	
 	*NOTE: audienceuris= and realm= are the values you retrieved from the PowerShell command above. Remember that you must add spn: to be beginning of this value. Use the audienceuri for both values below.*
 
-	<img src="../../../DevCenter/Java/Media/javastep3Step10.png" />
+		federation.trustedissuers.issuer=https://accounts.accesscontrol.windows.net/v2/wsfederation
+		federation.trustedissuers.thumbprint=3F5DFCDF4B3D0EAB9BA49BEFB3CFD760DA9CCCF1
+		federation.trustedissuers.friendlyname=Awesome Computers
+		federation.audienceuris=spn:9a822147-348b-4e0e-8edf-899fe8c117d4@495c4a5e-38b7-49b9-a90f-4c0050b2d7f7
+		federation.realm=spn:9a822147-348b-4e0e-8edf-899fe8c117d4@495c4a5e-38b7-49b9-a90f-4c0050b2d7f7
+		federation.reply=https://localhost:8443/sample/wsfed-saml
 
-11.	Create the new Servlet. Right-click the sample project and select New -> Other -> Servlet. Name it FederationServlet, click Next and then Finish.
+11.	Create the new Servlet. Right-click the sample project and select **New** -> **Other** -> **Servlet**. Name it **FederationServlet**, click **Next** and then **Finish**.
 
 	<img src="../../../DevCenter/Java/Media/javastep3Step11.png" />
 
 12.	Open the FederationServlet.java file and replace the generated code with the following:
-	
-	<img src="../../../DevCenter/Java/Media/javastep3Step12.png" />
 
-13.	Open the web.xml located inside the src/main/webapp/WEB-INF folder and replace the url-pattern “/FederationServlet” with “/ws-saml”.
+		import java.io.IOException;
+		import javax.servlet.ServletException;
+		import javax.servlet.http.HttpServlet;
+		import javax.servlet.http.HttpServletRequest;
+		import javax.servlet.http.HttpServletResponse;
+		
+		import com.microsoft.samples.federation.FederatedAuthenticationListener;
+		import com.microsoft.samples.federation.FederatedLoginManager;
+		import com.microsoft.samples.federation.FederatedPrincipal;
+		import com.microsoft.samples.federation.FederationException;
+		
+		public class FederationServlet extends HttpServlet {
+			private static final long serialVersionUID = 1L;
+				
+			protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+				String token = request.getParameter("wresult").toString();
+				
+				if (token == null) {
+					response.sendError(400, "You were supposed to send a wresult parameter with a token");
+				}
+				
+				FederatedLoginManager loginManager = FederatedLoginManager.fromRequest(request, new SampleAuthenticationListener());
+		
+				try {
+					loginManager.authenticate(token, response);
+				} catch (FederationException e) {
+					response.sendError(500, "Oops! and error occurred.");
+				}
+			}
+			
+			private class SampleAuthenticationListener implements FederatedAuthenticationListener {
+				@Override
+				public void OnAuthenticationSucceed(FederatedPrincipal principal) {
+					// ***
+					// do whatever you want with the principal object that contains the token's claims
+					// ***
+				}		
+			}
+		}
 
-	<img src="../../../DevCenter/Java/Media/javastep3Step13.png" />
+13.	Open the **web.xml** located inside the **src/main/webapp/WEB-INF** folder and replace the url-pattern “/FederationServlet” with “/ws-saml”.
 
-14.	Open the index.jsp file and replace the existing code with the following:
+		<servlet>
+		    <description></description>
+		    <display-name>FederationServlet</display-name>
+		    <servlet-name>FederationServlet</servlet-name>
+		    <servlet-class>FederationServlet</servlet-class>
+		  </servlet>
+		  <servlet-mapping>
+		    <servlet-name>FederationServlet</servlet-name>
+		    <url-pattern>/wsfed-saml</url-pattern>
+		  </servlet-mapping>
 
-	<img src="../../../DevCenter/Java/Media/javastep3Step14.png" />
+14.	Open the **index.jsp** file and replace the existing code with the following:
 
-15.	Open the web.xml located in the src/main/webapp/WEB-INF folder and add this node under web-app to make the application run over SSL:
+		<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+		<%@ page import="com.microsoft.samples.federation.*"%>
+		
+		<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+		<html>
+		<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>Index Page</title>
+		</head>
+		<body>
+			<h3>Welcome <strong><%=FederatedLoginManager.fromRequest(request).getPrincipal().getName()%></strong>!</h3>
+			
+			<h2>Claim list:</h2>
+			<ul>
+		<%
+			for (Claim claim : FederatedLoginManager.fromRequest(request).getClaims()) {
+		%>
+		          <li><%= claim.toString()%></li>
+		<% 	} %>
+		      </ul>
+		</body>
+		</html>
 
-	<img src="../../../DevCenter/Java/Media/javastep3Step15.png" />
+15.	Open the **web.xml** located in the **src/main/webapp/WEB-INF** folder and add this node under web-app to make the application run over SSL:
+
+		<security-constraint>
+		  <web-resource-collection>
+		    <web-resource-name>SSL Forwarding</web-resource-name>
+		    <url-pattern>/*</url-pattern>
+		    <http-method>POST</http-method>
+		    <http-method>GET</http-method>
+		  </web-resource-collection>
+		  <user-data-constraint>
+		    <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		  </user-data-constraint>
+		</security-constraint>
 
 	*NOTE: Ensure that JBoss server is already configured to support SSL.* 
 
-16.	Right-click the sample project and select Run As -> Run on Server, click Finish and you should be able to see the login page with the “Awesome Computers” link.
+16.	Right-click the **sample** project and select **Run As** -> **Run on Server**, click **Finish** and you should be able to see the login page with the “Awesome Computers” link.
 
 	<img src="../../../DevCenter/Java/Media/javastep3Step16.png" />
 
@@ -243,12 +474,11 @@ This step is performed by using the waad-federation library and adding some extr
 	<img src="../../../DevCenter/Java/Media/javastep3Step17.png" />
 
 18.	Finally, if the login process is successful, you will be redirected to the secured page (sample/index.jsp) as an authenticated user.
-
 	
 	<img src="../../../DevCenter/Java/Media/javastep3Step18.png" />
 
 
-**Important:** If your application is meant to work with a single Office 365 tenant, for example, if you are writing a LoB application, you can stop following the instructions in this guide at this point. By running the three steps above, you have successfully set up Windows Azure AD-enabled single sign-on to a simple Java web application for the users in one Office 365 tenant.
+**Important:** If your application is meant to work with a single Windows Azure Active Directory tenant, for example, if you are writing a LoB application, you can stop following the instructions in this guide at this point. By running the three steps above, you have successfully set up Windows Azure AD-enabled single sign-on to a simple Java web application for the users in one tenant.
 
 If, however, you are developing applications that need to be accessed by more than one tenant, the next step can help you modify your code to accommodate multiple tenants.  
 
@@ -273,24 +503,37 @@ Let's add another fictitious customer to our scenario, Trey research Inc. Trey R
 	*Note: The script retrieves the federation metadata directly from Windows Azure Active Directory to get the issuer identifier for generating the realm’s SPN value.	*
 
 3.	Open the XML file, create an issuers root node and include the output node:
-
-	<img src="../../../DevCenter/Java/Media/javastep4Step3.png" />
+		
+		<issuers>
+			<issuer name="awesomecomputers.onmicrosoft.com" displayName="awesomecomputers.onmicrosoft.com " realm="spn:9a822147-348b-4e0e-8edf-899fe8c117d4@495c4a5e-38b7-49b9-a90f-4c0050b2d7f7" />
+		</issuers>
 
 4.	Repeat Step 2 to generate Trey Research Inc. node. Notice that you can change the display name to show a user-friendly name.
 
-	<img src="../../../DevCenter/Java/Media/javastep4Step4.png" />
+		<issuers>
+			<issuer name="awesomecomputers.onmicrosoft.com" displayName="Awesome Computers" realm="spn:9a822147-348b-4e0e-8edf-899fe8c117d4@495c4a5e-38b7-49b9-a90f-4c0050b2d7f7" />
+			<issuer name="treyresearchinc.onmicrosoft.com" displayName="Trey Research Inc." realm="spn:9a822147-348b-4e0e-8edf-899fe8c117d4@13292593-4861-4847-8441-6da6751cfb86" />
+		</issuers>
 
 5.	Open the login.jsp file and replace the import declaration com.microsoft.samples.federation with com.microsoft.samples.waad.federation.
 
-	<img src="../../../DevCenter/Java/Media/javastep4Step5.png" />
+		<%@ page import="com.microsoft.samples.waad.federation.*"%>
 
 6.	Replace the old link (created for the first trusted issuer) with the following snippet to list all the trusted issuers from the XML repository:
 
-	<img src="../../../DevCenter/Java/Media/javastep4Step6.png" />
+		<ul>
+		<%
+			TrustedIssuersRepository repository = new TrustedIssuersRepository();
+			for (TrustedIssuer trustedIssuer : repository.getTrustedIdentityProviderUrls()) { %>
+			<li><a
+				href="<%=trustedIssuer.getLoginURL(request.getParameter("returnUrl"))%>"><%=trustedIssuer.getDisplayName()%></a>
+			</li>
+		<%	} %>
+		</ul>
 
 7.	Open the FederationServlet.java file and replace the FederatedLoginManager class with ConfigurableFederatedLoginManager.
 
-	<img src="../../../DevCenter/Java/Media/javastep4Step7.png" />
+		ConfigurableFederatedLoginManager loginManager = ConfigurableFederatedLoginManager.fromRequest(request, new SampleAuthenticationListener());
 
 8.	Also in the FederationServlet.java file, replace the import declaration com.microsoft.samples.federation.FederatedLoginManager with com.microsoft.samples.waad.federation.ConfigurableFederatedLoginManager.
 
@@ -298,7 +541,7 @@ Let's add another fictitious customer to our scenario, Trey research Inc. Trey R
 
 9.	Open the FederationFilter.java file and replace the FederatedLoginManager class with ConfigurableFederatedLoginManager.
 	
-	<img src="../../../DevCenter/Java/Media/javastep4Step9.png" />
+		ConfigurableFederatedLoginManager loginManager = ConfigurableFederatedLoginManager.fromRequest(httpRequest);
 
 10.	Also in the FederationFilter.java file, replace the import declaration com.microsoft.samples.federation.FederatedLoginManager with com.microsoft.samples.waad.federation.ConfigurableFederatedLoginManager.
 
@@ -352,7 +595,20 @@ This sample has been tested on JBOSS 7.1 running on Solaris.
 
 10.	Locate the node with the urn:jboss:domain:web:1.1 namespace, and replace the node by this one. Replace the user_name value with the current user (username used to login to Solaris VM) 
 
-	<img src="../../../DevCenter/Java/Media/javaappendixStep10.png" />
+			<subsystem xmlns="urn:jboss:domain:web:1.1" native="false" default-virtual-server="default-host">
+		    <configuration>
+		        <jsp-configuration development="true"/>
+		    </configuration>
+		    <connector name="http" protocol="HTTP/1.1" scheme="http" socket-binding="http" redirect-port="8443"/>
+		    <connector name="https" protocol="HTTP/1.1" scheme="https" socket-binding="https" enable-lookups="false" secure="true">
+		        <ssl password="Passw0rd!" certificate-key-file="/home/{user_name}/Downloads/ilex/java/assets/https.keystore" protocol="TLSv1" verify-client="false" certificate-file="/home/{user_name}/Downloads/ilex/java/assets/https.keystore"/>
+		    </connector>
+		    <virtual-server name="default-host" enable-welcome-root="true">
+		        <alias name="localhost"/>
+		        <alias name="example.com"/>
+		    </virtual-server>
+		</subsystem>
+
 	
 11.	Save the file, close GEdit and return to the Terminal window
 
