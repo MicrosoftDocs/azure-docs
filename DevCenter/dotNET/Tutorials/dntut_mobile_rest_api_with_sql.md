@@ -256,11 +256,14 @@ In ASP.NET MVC the scaffolding feature can automatically generate code that perf
 2. Delete the AccountController.cs file.
 3. Build the project. For example, you can press F6.<br/>
 Visual Studio compiles the data model classes that you created and makes them available for the following steps that enable Code First Migrations and use MVC scaffolding.
-4. Right-click the Controllers folder and click **Add**, and then click **Controller...**.<br/>![Add Controller in Controllers folder context menu][addcode001]
+4. Right-click the Controllers folder and click **Add**, and then click **Controller...**.<br/>
+![Add Controller in Controllers folder context menu][addcode001]<br/>
 5. In the **Add Controller** dialog box, enter "HomeController" as your controller name, and select the **MVC Controller with read/write actions and views, using Entity Framework** template.
-6. Select **Contacts** as your model class and **&lt;New data context...>** as your data context class.<br/>![Add Controller dialog box][addcode002]
-7. On the **New Data Context** dialog box, click OK.<br/>![Add Controller dialog box][addcode002.1]
-8. on the **Add Controller** dialog box, and then click **Add**.<br/>
+6. Select **Contacts** as your model class and **&lt;New data context...>** as your data context class.<br/>
+![Add Controller dialog box][addcode002]<br/>
+7. On the **New Data Context** dialog box, click OK.<br/>
+![Add Controller dialog box][addcode002.1]<br/>
+8. On the **Add Controller** dialog box, and then click **Add**.<br/>
 The MVC template created a default home page for your application, and you are replacing the default functionality with the contact list read and update functionality.<br/>
 9. On the **Add Controller** overwrite dialog, make sure all options are checked and click **OK**.<br/>
 ![Add Controller message box][addcode003] <br/>
@@ -353,7 +356,7 @@ Visual Studio compiles the data model classes that you created and makes them av
 		        }
 
 		        ko.applyBindings(new ContactsViewModel());
-		    </script>
+		</script>
 		}
 
 		<ul id="contacts" data-bind="foreach: contacts">
