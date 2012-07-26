@@ -20,11 +20,11 @@ You should be familiar with creating a basic web role on Windows Azure.
 <h3 id="use_nuget">To add the Twilio libraries to your web role project.</h3>
 
 1.  Open your solution in Visual Studio.
-2.  Right click on the References.
-3.  Click Manage NuGet Packages...
-4.  Click Online.
-5.  In the search online box type twilio.
-6.  Click Install on the Twilio package.
+2.  Right click on the **References**.
+3.  Click **Manage NuGet Packages...**
+4.  Click **Online**.
+5.  In the search online box type *twilio*.
+6.  Click **Install** on the Twilio package.
 
 The following code shows how to create a web form to retrieve user data for making a call. For purposes of this example, an ASP.NET web role, named **TwilioCloud**, was created.
 

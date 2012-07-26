@@ -18,17 +18,35 @@ You will build a simple Tasklist web application in PHP. A screenshot of the com
 
 ##Installing the Windows Azure client libraries
 
-To install the PHP Client Libraries for Windows Azure as a PEAR package, follow these steps:
+To install the PHP Client Libraries for Windows Azure via Composer, follow these steps:
 
-1. [Install PEAR][install-pear].
-2. Set-up the Windows Azure PEAR channel:
+1. [Install Git][install-git]. 
 
-		pear channel-discover pear.windowsazure.com
-3. Install the PEAR package:
+	<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>On Windows, you will also need to add the Git executable to your PATH environment variable.</p>
+	</div>
 
-		pear install pear.windowsazure.com/WindowsAzure-0.1.0
+2. Create a file named **composer.json** in the root of your project and add the following code to it:
 
-After the installation completes, you can reference class libraries from your application.
+		{
+			"require": {
+				"microsoft/windowsazure": "*"
+			},			
+			"repositories": [
+				{
+					"type": "pear",
+					"url": "http://pear.php.net"
+				}
+			],
+			"minimum-stability": "dev"
+		}
+
+3. Download **[composer.phar][composer-phar]** in your project root.
+
+4. Open a command prompt and execute this in your project root
+
+		php composer.phar install
 
 ##Getting started with the client libraries
 
@@ -38,33 +56,28 @@ There are four basic steps that have to be performed before you can make a call 
 
 * First, include the autoloader script:
 
-		require_once "WindowsAzure/WindowsAzure.php"; 
+		require_once 'vendor\autoload.php'; 
 	
 * Include the namespaces you are going to use.
 
-	Since the third step is creating a configuration object containing the account credentials you need to include `Configuration` namespace:
+	To create any Windows Azure service client you need to use the **ServicesBuilder** class:
 
-		use WindowsAzure\Common\Configuration;
+		use WindowsAzure\Common\ServicesBuilder;
 	
-	This tutorial uses the Windows Azure Table service. Two namespaces are necessary to create a wrapper around the Table service calls:
+* To instantiate the service client you will also need a valid connection string. The format for storage services (blobs, tables, queues) connection strings is:
+
+	For accessing a live service:
 	
-		use WindowsAzure\Table\TableService;
-		use WindowsAzure\Table\TableSettings;
+		DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
 	
-* Objects of the `Configuration` class carry your authentication information and are required for instantiating any Azure REST call wrapper.  If you do not have a storage account you can copy this code as is and create one in the section for that near the end of this guide.
+	For accessing the emulator storage:
+	
+		UseDevelopmentStorage=true
 
-		$config = new Configuration();
-		$config->setProperty(TableSettings::ACCOUNT_NAME, 
-			'[YOUR_STORAGE_ACCOUNT_NAME]');
-		$config->setProperty(TableSettings::ACCOUNT_KEY,
-			'[YOUR_STORAGE_ACCOUNT_KEY]');
-		$config->setProperty(TableSettings::URI, 
-			'http://' . '[YOUR_STORAGE_ACCOUNT_NAME]' .
-			'.table.core.azure-preview.com');
 
-* Use the `TableService` factory to instantiate a wrapper around Table service calls.
+* Use the `ServicesBuilder::createBlobService` factory method to instantiate a wrapper around Table service calls.
 
-		$tableRestProxy = TableService::create($config);
+		$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	`$tableRestProxy` contains a method for every REST call available on Azure Tables.
 
@@ -401,6 +414,8 @@ To publish changes to application, follow these steps:
 [install-php]: http://www.php.net/manual/en/install.php
 [install-pear]: http://pear.php.net/manual/en/installation.getting.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
+[install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+[composer-phar]: http://getcomposer.org/composer.phar
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
 [msdn-errors]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
 [tasklist-mysql-download]: http://go.microsoft.com/fwlink/?LinkId=252506

@@ -24,6 +24,10 @@ Learn about this command-line that provides functionality for creating, deployin
 
 Learn which user names you can't use on Windows Azure. 
 
+###[Running Cassandra with Linux on Windows Azure and accessing it from Node.js](./how-to-run-cassandra-with-linux/)
+
+Learn how to run a Cassandra cluster in Windows Azure Virtual Machines and how to access it by using Node.js. The topic describes how to do this using the Ubuntu 12.04 version of Linux and Cassandra 1.0.10, but you can adapt the process for any Linux distribution.
+
 ###[Windows Azure Training Kit](/en-us/manage/linux/other-resources/training-kit/)
 
 The Windows Azure Training Kit includes a comprehensive set of technical

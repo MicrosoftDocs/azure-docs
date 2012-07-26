@@ -1,4 +1,4 @@
-# Mobile-friendly REST service using ASP.NET Web API and SQL Database
+# Mobile-friendly REST service using ASP.NET Web API and SQL Database 
 
 This tutorial shows how to deploy an ASP.NET web application that uses the ASP.NET Web API to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2010. If you prefer, you can follow the tutorial steps by using Visual Web Developer Express 2010, Visual Studio 2012 RC or Visual Studio 2012 for Web Express RC.
 
@@ -80,7 +80,7 @@ The wizard advances to the **Database Settings** step.
 7. In the **Name** box, enter a name for your database.
 8. In the **Server** box, select **New SQL Database server**.
 9. Click the arrow that points to the right at the bottom of the box.<br/>
-![Database Settings step of New Web Site - Create with Database wizard][setup007]
+![Database Settings step of New Web Site - Create with Database wizard][setup007]<br/>
 The wizard advances to the **Create a Server** step.
 10. Enter an administrator name and password.
 You aren't entering an existing name and password here. You're entering a new name and password that you're defining now to use later when you access the database.
@@ -89,7 +89,7 @@ Keeping the web server and the database server in the same region gives you the 
 12. Make sure that **Allow Windows Azure Services to access the server** is selected.
 This option is selected by default. It creates a firewall rule that allows your Windows Azure web site to access this database.
 13. Click the check mark at the bottom of the box to indicate you're finished.
-![Create a Server step of New Web Site - Create with Database wizard][setup008]
+![Create a Server step of New Web Site - Create with Database wizard][setup008]<br/>
 The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon, and the number of databases appears next to the **SQL Databases** icon.<br/>
 ![Web Sites page of Management Portal, website created][setup009]
 
@@ -256,62 +256,64 @@ In ASP.NET MVC the scaffolding feature can automatically generate code that perf
 2. Delete the AccountController.cs file.
 3. Build the project. For example, you can press F6.<br/>
 Visual Studio compiles the data model classes that you created and makes them available for the following steps that enable Code First Migrations and use MVC scaffolding.
-4. Right-click the Controllers folder and click **Add**, and then click **Controller...**.<br/>![Add Controller in Controllers folder context menu][addcode001]
+4. Right-click the Controllers folder and click **Add**, and then click **Controller...**.<br/>
+![Add Controller in Controllers folder context menu][addcode001]<br/>
 5. In the **Add Controller** dialog box, enter "HomeController" as your controller name, and select the **MVC Controller with read/write actions and views, using Entity Framework** template.
-6. Select **Contacts** as your model class and **&lt;New data context...>** as your data context class.<br/>![Add Controller dialog box][addcode002]
-7. On the **New Data Context** dialog box, click OK.<br/>![Add Controller dialog box][addcode002.1]
-8. on the **Add Controller** dialog box, and then click **Add**.<br/>
+6. Select **Contacts** as your model class and **&lt;New data context...>** as your data context class.<br/>
+![Add Controller dialog box][addcode002]<br/>
+7. On the **New Data Context** dialog box, click OK.<br/>
+![Add Controller dialog box][addcode002.1]<br/>
+8. On the **Add Controller** dialog box, and then click **Add**.<br/>
 The MVC template created a default home page for your application, and you are replacing the default functionality with the contact list read and update functionality.<br/>
 9. On the **Add Controller** overwrite dialog, make sure all options are checked and click **OK**.<br/>
 ![Add Controller message box][addcode003] <br/>
 Visual Studio creates a controller and views for each of the four main database operations (create, read, update, delete) for **Contacts** objects.
 
-## Add sample data and a data initializer
+## Enable Migrations, create the database, add sample data and a data initializer ##
 
-1. Right-click the Models folder, click **Add**, and then **Class**.
-2. In the **Add New Item** dialog box, name the new class file ContactManagerDatabaseInitializer.cs, and then click **Add**
-3. Replace the contents of the ContactManagerDatabaseInitializer.cs file with the following code.
+The next task is to enable the Code First Migrations feature in order to create the database based on the data model you created.
 
-		using System;
-		using System.Data.Entity;
+1. In the **Tools** menu, select **Library Package Manager** and then **Package Manager Console**.<br/>
+![Package Manager Console in Tools menu][addcode008]
+2. In the **Package Manager Console** window, enter the following commands:<br/>
 
-		namespace ContactManager.Models
-		{
-		    public class ContactManagerDatabaseInitializer : DropCreateDatabaseAlways<ContactManagerContext>
-		    {
-		        static Contact[] sampleContacts = new Contact[]
-                    {
-                        new Contact { Name = "Debra Garcia", Address = "1234 Main St", City = "Redmond", State = "WA", Zip = "10999", Email = "debra@example.com", Twitter = "debra_example" },
-                        new Contact { Name = "Thorsten Weinrich", Address = "5678 1st Ave W", City = "Redmond", State = "WA", Zip = "10999", Email = "thorsten@example.com", Twitter = "thorsten_example" },
-                        new Contact { Name = "Yuhong Li", Address = "9012 State st", City = "Redmond", State = "WA", Zip = "10999", Email = "yuhong@example.com", Twitter = "yuhong_example" },
-                        new Contact { Name = "Jon Orton", Address = "3456 Maple St", City = "Redmond", State = "WA", Zip = "10999", Email = "jon@example.com", Twitter = "jon_example" },
-                        new Contact { Name = "Diliana Alexieva-Bosseva", Address = "7890 2nd Ave E", City = "Redmond", State = "WA", Zip = "10999", Email = "diliana@example.com", Twitter = "diliana_example" },
-                    };
+		enable-migrations
+		add-migration Initial
 
-		        protected override void Seed(ContactManagerContext context)
-		        {
-		            base.Seed(context);
+	The **enable-migrations** command creates a Migrations folder and a **Configuration** class that the Entity Framework uses to control database updates.<br/>
+	The **add-migration Initial** command generates a class named **Initial** that creates the database. You can see the new class files in **Solution Explorer**.<br/>
+	In the **Initial** class, the **Up** method creates the Contacts table, and the **Down** method (used when you want to return to the previous state) drops it.<br/>
+3. Right-click the Migrations folder and open the **Configuration.cs** file. 
+4. Add the folloing to list of namespaces. 
 
-		            foreach (var contact in sampleContacts)
-		            {
-		                context.Contacts.Add(contact);
-		            }
-		        }
-		    }
-		}
+    	 using ContactManager.Models;
 
-	This will define an initializer to provide sample contacts to seed the database with.
-4. Open the Global.asax file.<br/>![Add Controller message box][addcode003.1]
-5. Add the following namespaces.
+5. Add the following code to the seed method.
+		
+		context.Contacts.AddOrUpdate(
+		    p => p.Name,
+		    new Contact { Name = "Debra Garcia", Address = "1234 Main St", City = "Redmond", State = "WA", Zip = "10999", Email = "debra@example.com", Twitter = "debra_example" },
+		    new Contact { Name = "Thorsten Weinrich", Address = "5678 1st Ave W", City = "Redmond", State = "WA", Zip = "10999", Email = "thorsten@example.com", Twitter = "thorsten_example" },
+		    new Contact { Name = "Yuhong Li", Address = "9012 State st", City = "Redmond", State = "WA", Zip = "10999", Email = "yuhong@example.com", Twitter = "yuhong_example" },
+		    new Contact { Name = "Jon Orton", Address = "3456 Maple St", City = "Redmond", State = "WA", Zip = "10999", Email = "jon@example.com", Twitter = "jon_example" },
+		    new Contact { Name = "Diliana Alexieva-Bosseva", Address = "7890 2nd Ave E", City = "Redmond", State = "WA", Zip = "10999", Email = "diliana@example.com", Twitter = "diliana_example" }
+		    );
 
-		using ContactManager.Models;
-		using System.Data.Entity;
-	The ContactManager.Models allows access to the contacts model you defined. The System.Data.Entity provides the SetInitializer method to initialize the database.
-6. Add the following statement to the beginning of the Application_Start() method.
+	This will define an initializer to provide sample contacts with which to seed the database.
 
-        Database.SetInitializer(new ContactManagerDatabaseInitializer());
+
+6. In the **Package Manager Console** enter the command:<br/>
+
+	update-database
+
+	![Package Manager Console commands][addcode009]
+
+	The **update-database** runs the first migration which creates the database. By default, the database is created as a SQL Server Express LocalDB database. (Unless you have SQL Server Express installed, in which case the database is created using the SQL Server Express instance.)
 
 7. Build the solution by pressing F6.
+
+Visual Studio compiles the data model classes that you created and makes them available for the following procedures that enable Code First Migrations and use MVC scaffolding.
+
 
 <h2><a name="bkmk_addview"></a>Add a view for the data</h2>
 
@@ -354,7 +356,7 @@ Visual Studio creates a controller and views for each of the four main database 
 		        }
 
 		        ko.applyBindings(new ContactsViewModel());
-		    </script>
+		</script>
 		}
 
 		<ul id="contacts" data-bind="foreach: contacts">
@@ -497,7 +499,7 @@ Visual Studio creates a controller and views for each of the four main database 
 2. Enter "Apis" and the press the **Enter** key.
 3. Right-click on the Apis folder and click **Add**, and then click **Controller...**.<br/>
 ![Add class in  folder context menu][addwebapi002]
-4. In the **Add Controller** dialog box, enter "ContactsController" as your controller name, select the **API controller with empty read/write actions** template
+4. In the **Add Controller** dialog box, enter "ContactsController" as your controller name, select the **API controller with empty read/write actions, using Entity Framework** template
 5. In **Model Class** select Contact (ContactManager.Models) and it **Data Context Class** select ContactManagerContext (ContactManager.Models).
 6. Click **Add**.<br/>![Add controller dialog box for web api][addwebapi003]
 7. Right-click the App\_Start folder and click **Add**, and then click **Class**.
@@ -538,7 +540,7 @@ Visual Studio creates a controller and views for each of the four main database 
             routeTemplate: "api/{controller}/{id}",
             defaults: new { id = RouteParameter.Optional }
         );
-11. Open Global.asax file add
+11. Open Global.asax file and add the following line to the Appplication_Start method.
 
 		WebApiConfig.Configure(GlobalConfiguration.Configuration);
 
@@ -548,10 +550,13 @@ Visual Studio creates a controller and views for each of the four main database 
 ![Index page][intro001]
 2. Enter a contact and click **Add**. The app returns to the home page and displays the contact you entered.<br/>
 ![Index page with to-do list items][addwebapi004]
-3. Copy the URL from the address bar. Open a new browser window and paste the URL into the address bar and add /api/contacts to the URL.<br/>![Index page with to-do list items][addwebapi005]<br/>
-The RESTful web API you added returns the stored contacts.<br/>![Web API save dialog][addwebapi006]
+3. Copy the URL from the address bar. Open a new browser window and paste the URL into the address bar and add /api/contacts to the URL.<br/>
+![Index page with to-do list items][addwebapi005]<br/>
+The RESTful web API you added returns the stored contacts.<br/>
+![Web API save dialog][addwebapi006]<br/>
 	You can open the returned contacts in notepad or a browser.
-	This output can be consumed by another application such as mobile web page or application.<br/>![Web API save dialog][addwebapi007]
+	This output can be consumed by another application such as mobile web page or application.<br/>
+![Web API save dialog][addwebapi007]
 
 <h2><a name="bkmk_deploydatabaseupdate"></a>Publish the application update to Windows Azure and SQL Database</h2>
 
@@ -680,6 +685,8 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [addcode005]: ../Media/dntutmobile-controller-add-contents-context-menu.png
 [addcode006]: ../Media/dntutmobile-controller-add-new-item-style-sheet.png
 [addcode007]: ../Media/dntutmobile-controller-modify-bundleconfig-context.png
+[addcode008]: ../Media/dntutmobile-migrations-package-manager-menu.png
+[addcode009]: ../Media/dntutmobile-migrations-package-manager-console.png
 [addwebapi001]: ../Media/dntutmobile-webapi-add-folder-context-menu.png
 [addwebapi002]: ../Media/dntutmobile-webapi-add-controller-context-menu.png
 [addwebapi003]: ../Media/dntutmobile-webapi-add-controller-dialog.png

@@ -220,9 +220,10 @@ details, see the [SendGrid API documentation][].
 Now that you’ve learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
--   SendGrid Java information: <http://docs.sendgrid.com/documentation/get-started/integrate/examples/java-email-example-using-smtp/>
--   SendGrid API documentation: <http://docs.sendgrid.com/documentation/api/>
--   SendGrid special offer for Windows Azure customers: <http://sendgrid.com/azure.html>
+* SendGrid in a Windows Azure Deployment: [How to Send Email Using SendGrid from Java in a Windows Azure Deployment](./sendgrid-email-service-on-azure.md)
+* SendGrid Java information: <http://docs.sendgrid.com/documentation/get-started/integrate/examples/java-email-example-using-smtp/>
+* SendGrid API documentation: <http://docs.sendgrid.com/documentation/api/>
+* SendGrid special offer for Windows Azure customers: <http://sendgrid.com/azure.html>
 
   [Next Steps]: #bkmk_NextSteps
   [What is the SendGrid Email Service?]: #bkmk_WhatIsSendGrid

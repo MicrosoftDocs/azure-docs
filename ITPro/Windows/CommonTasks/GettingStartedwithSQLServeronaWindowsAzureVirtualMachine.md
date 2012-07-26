@@ -4,7 +4,7 @@
 
 <div chunk="../../shared/chunks/disclaimer.md" />
 
-The Windows Azure virtual machine gallery provides Windows Azure virtual machine images of Microsoft Windows Server 2008 R2, Service Pack 1 (64-bit) with  a complete 64-bit installation of SQL Server. A version of this virtual machine is available with SQL Server 2012 Evaluation (64-bit).
+The Windows Azure virtual machine gallery provides Windows Azure virtual machine images of Microsoft Windows Server 2008 R2, Service Pack 1 (64-bit) with  a complete 64-bit installation of SQL Server. A version of this virtual machine is available with SQL Server 2012 Evaluation (64-bit). This topic describes the virtual machine that is installed from the library, and provides links to additional configuration tasks. Many of the additional tasks are described in a step-by-step tutorial on installing a virtual machine and connecting to SQL Server. To review the tutorial, see [Provision a SQL Server virtual machine on Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=248281).
 
 <div class="dev-callout"> 
 <strong>Note</strong> 
@@ -17,8 +17,6 @@ In this topic contains:
 - [How to connect to this instance of SQL Server](#Connect)
 - [Next steps](#Next)
 - [Links to additional information](#Links)
-
-For a step-by-step tutorial on installing a virtual machine and connecting to SQL Server, see [Provision a SQL Server virtual machine on Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=248281).
 
 <h2 id="About">About this virtual machine image</h2>
 
@@ -134,6 +132,7 @@ The SQL Server setup media is saved on the virtual machine in the **C:\SQLServer
 * [Provision a SQL Server virtual machine on Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=248281)
 * [Running SQL Server in Windows Azure Virtual Machine - Performance Guidelines for Preview](http://go.microsoft.com/fwlink/?LinkID=254744)
 * [Migrating with Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156159)
+* [Best Practices for Running SQL Server in Windows Azure Virtual Machine](http://social.technet.microsoft.com/wiki/contents/articles/11578.best-practices-for-running-sql-server-in-windows-azure-virtual-machine-en-us.aspx)
 * [How to Attach a Data Disk to a Virtual Machine](http://www.windowsazure.com/en-us/manage/windows/how-to-guides/attach-a-disk/)
 * To change the size of a VM, see [Set-AzureVMSize](http://msdn.microsoft.com/en-us/library/windowsazure/jj152814)
 * [SQL Server in Windows Azure Virtual Machine Early Adoption Cook Book](http://social.technet.microsoft.com/wiki/contents/articles/11554.sql-server-in-windows-azure-virtual-machine-early-adoption-cook-book-en-us.aspx)
@@ -146,4 +145,4 @@ The SQL Server setup media is saved on the virtual machine in the **C:\SQLServer
 
 
 
-[Image1]: ../media/SQLVMConnectionsOnAzure.png
+[Image1]: ../media/SQLVMConnectionsOnAzure.GIF

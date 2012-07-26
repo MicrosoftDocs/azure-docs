@@ -211,8 +211,10 @@ with the issuer key that you obtained in the setup step above.
               TokenProvider = TokenProvider.CreateSharedSecretTokenProvider( "owner", "**key**")});
 
     sh.Open();
+
     Console.WriteLine("Press ENTER to close");
     Console.ReadLine();
+
     sh.Close();
 
 In the example, you create two endpoints that are on the same

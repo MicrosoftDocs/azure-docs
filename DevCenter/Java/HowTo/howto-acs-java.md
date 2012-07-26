@@ -139,7 +139,7 @@ application:
 To complete the tasks in this guide, you will need the following:
 
 - A Java Developer Kit (JDK), v 1.6 or later.
-- Eclipse IDE for Java EE Developers, Helios or later. This can be downloaded from <http://www.eclipse.org/downloads/>. 
+- Eclipse IDE for Java EE Developers, Helios SR2 or later. This can be downloaded from <http://www.eclipse.org/downloads/>. 
 - A distribution of a Java-based web server or application server, such as Apache Tomcat, GlassFish, JBoss Application Server, or Jetty.
 - A Windows Azure subscription, which can be acquired from <http://www.microsoft.com/windowsazure/offers/>.
 - The Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies) – June 2012 CTP. For more information, see [Installing the Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
@@ -361,7 +361,7 @@ When you are done using your ACS Hello World application, remember to delete the
 
 ## <a name="next_steps">Next steps</a>
 
-To further explore ACS's functionality and to experiment with more sophisticated scenarios, see [Access Control Service 2.0][].
+For an examination of the Security Assertion Markup Language (SAML) returned by ACS to your application, see [How to view SAML returned by the Windows Azure Access Control Service][]. To further explore ACS's functionality and to experiment with more sophisticated scenarios, see [Access Control Service 2.0][].
 
 [What is ACS?]: #what-is
 [Concepts]: #concepts
@@ -378,6 +378,7 @@ To further explore ACS's functionality and to experiment with more sophisticated
 [Deploy to the compute emulator]: #deploy_compute_emulator
 [Deploy to Windows Azure]: #deploy_azure
 [Next steps]: #next_steps
+[How to view SAML returned by the Windows Azure Access Control Service]: /en-us/develop/java/how-to-guides/view-saml-returned-by-acs/
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
