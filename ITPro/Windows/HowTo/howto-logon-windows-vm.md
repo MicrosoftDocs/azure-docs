@@ -15,7 +15,7 @@ For a virtual machine that is running the Windows Server 2008 R2 operating syste
 
 4. Click **Open** to use the remote desktop protocol file that was automatically created for the virtual machine.
 
-	![Log on to the virtual machine] (../media/connectwindows.png)
+	![Log on to the virtual machine] (../media/connectrdp.png)
 
 5. Click **Connect** to proceed with the connection process.
 

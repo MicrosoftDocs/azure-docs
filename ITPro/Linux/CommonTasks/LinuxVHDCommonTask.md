@@ -1,7 +1,7 @@
 <properties umbracoNaviHide="0" pageTitle="Create and Upload a Linux Virtual Hard Disk (VHD) to Windows Azure" metaKeywords="" metaDescription="" linkid="manage-linux-common-tasks-upload-vhd" urlDisplayName="Upload VHD" headerExpose="" footerExpose="" disqusComments="1" />
-# Create and Upload a Linux virtual hard disk (VHD) to Windows Azure 
+# Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System 
 
-<div chunk="../../shared/chunks/disclaimer.md" />
+To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
 
 A virtual machine that you create in Windows Azure runs the operating system that you choose from the supported operating system versions. You can customize the operating system settings of the virtual machine to facilitate running your application. The configuration that you set is stored on disk. You create a virtual machine in Windows Azure by using a virtual hard disk (VHD) file. You can choose to create a virtual machine by using a VHD file that is supplied for you in the Image Gallery, or you can choose to create your own image and upload it to Windows Azure in a VHD file.
 

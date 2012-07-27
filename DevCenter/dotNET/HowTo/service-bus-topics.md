@@ -16,7 +16,8 @@ the [Next Steps][] section. </span>
 -   [Create a Service Namespace][]
 -   [Obtain the Default Management Credentials for the Namespace][]
 -   [Configure Your Application to Use Service Bus][]
--   [How to: Create a Security Token Provider][]
+-   [How to: Set Up a Service Bus Connection String][]
+-   [How to: Configure your Connection String][]
 -   [How to: Create a Topic][]
 -   [How to: Create Subscriptions][]
 -   [How to: Send Messages to a Topic][]
@@ -128,12 +129,12 @@ corresponding namespaces.
 Add the following to the top of any C\# file where you want to use
 Service Bus topics and subscriptions:
 
-     using Microsoft.ServiceBus;
-     using Microsoft.ServiceBus.Messaging;
+	using Microsoft.ServiceBus;
+	using Microsoft.ServiceBus.Messaging;
 
 You are now ready to write code against Service Bus.
 
-## <a name="create-provider"> </a>How to Set Up a Service Bus Connection String
+## <a name="set-up-connstring"> </a>How to Set Up a Service Bus Connection String
 
 The Service Bus uses a connection string to store endpoints and credentials. You can put your connection string in a configuration file, rather than hard-coding it in code:
 
@@ -142,7 +143,7 @@ The Service Bus uses a connection string to store endpoints and credentials. You
 
 In both cases, you can retrieve your connection string using the `CloudConfigurationManager.GetSetting` method as shown later in this guide.
 
-### Configuring your connection string when using Cloud Services
+### <a name="config-connstring"> </a>Configuring your connection string when using Cloud Services
 
 The service configuration mechanism is unique to Windows Azure Cloud Services
 projects and enables you to dynamically change configuration settings
@@ -191,28 +192,30 @@ described in the previous section.
 
 ## <a name="create-topic"> </a>How to Create a Topic
 
-Management operations for Service Bus topics and subscriptions can be performed via the
-**NamespaceManager** class. The **NamespaceManager** class provides methods to create, enumerate, and delete queues. 
+You can perform management operations for Service Bus topics and subscriptions via the **NamespaceManager** class. The **NamespaceManager** class provides methods to create, enumerate, and delete queues. 
 
-In this example, a **NamespaceManager** object is constructed by using the Windows Azure **CloudConfigurationManager** class
-with a connection string consisting of the base address of a Service Bus namespace and the appropriate
+This example constructs a **NamespaceManager** object using the Windows Azure **CloudConfigurationManager** class
+with a connection string consisting of the base address of a Service Bus service namespace and the appropriate
 credentials with permissions to manage it. This connection string is of the form
 
-	Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedSecretIssuer=<issuerName>;SharedSecretValue=<yourDefaultKey> 
+	Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedSecretIssuer=<issuerName>;SharedSecretValue=<yourDefaultKey>
 
 For example, given the configuration settings in the previous section:
 
 	// Create the topic if it does not exist already
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+
+	var namespaceManager = 
+		NamespaceManager.CreateFromConnectionString(connectionString);
+
     if (!namespaceManager.TopicExists("TestTopic"))
     {
         namespaceManager.CreateTopic("TestTopic");
     }
 
-There are overloads of the **CreateTopic** method that allow properties
-of the topic to be tuned, for example, to set the default time-to-live
+There are overloads of the **CreateTopic** method that enable you to tune properties
+of the topic, for example, to set the default "time-to-live" value
 to be applied to messages sent to the topic. These settings are applied
 by using the **TopicDescription** class. The following example shows how
 to create a topic named "TestTopic" with a maximum size of 5 GB and a
@@ -226,10 +229,13 @@ default message time-to-live of 1 minute.
 	// Create a new Topic with custom settings
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+
+	var namespaceManager = 
+		NamespaceManager.CreateFromConnectionString(connectionString);
+
     if (!namespaceManager.TopicExists("TestTopic"))
     {
-        namespaceManager.CreateTopic("TestTopic");
+        namespaceManager.CreateTopic(td);
     }
 
 **Note:** You can use the **TopicExists** method on **NamespaceManager**
@@ -238,7 +244,7 @@ a service namespace.
 
 ## <a name="create-subscriptions"> </a>How to Create Subscriptions
 
-Topic subscriptions are also created with the **NamespaceManager**
+You can also create topic subscriptions with the **NamespaceManager**
 class. Subscriptions are named and can have an optional filter that
 restricts the set of messages passed to the subscription's virtual
 queue.
@@ -254,7 +260,10 @@ filter.
 
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+
+	var namespaceManager = 
+		NamespaceManager.CreateFromConnectionString(connectionString);
+
     if (!namespaceManager.SubscriptionExists("TestTopic", "AllMessages"))
     {
         namespaceManager.CreateSubscription("TestTopic", "AllMessages");
@@ -262,7 +271,7 @@ filter.
 
 ### Create Subscriptions with Filters
 
-You can also set up filters that allow you to scope which messages sent
+You can also set up filters that allow you to specify which messages sent
 to a topic should appear within a specific topic subscription.
 
 The most flexible type of filter supported by subscriptions is the
@@ -276,16 +285,24 @@ The example below creates a subscription named "HighMessages" with a
 **MessageNumber** property greater than 3:
 
      // Create a "HighMessages" filtered subscription
-     SqlFilter highMessages = new SqlFilter("MessageNumber > 3");
-     namespaceManager.CreateSubscription("TestTopic", "HighMessages", highMessages);
+     SqlFilter highMessagesFilter = 
+		new SqlFilter("MessageNumber > 3");
+
+     namespaceManager.CreateSubscription("TestTopic", 
+		"HighMessages", 
+		highMessagesFilter);
 
 Similarly, the following example creates a subscription named
 "LowMessages" with a **SqlFilter** that only selects messages that have
 a **MessageNumber** property less than or equal to 3:
 
      // Create a "LowMessages" filtered subscription
-     SqlFilter lowMessages = new SqlFilter("MessageNumber <= 3");
-     namespaceManager.CreateSubscription("TestTopic", "LowMessages", lowMessages);
+     SqlFilter lowMessagesFilter = 
+		new SqlFilter("MessageNumber <= 3");
+
+     namespaceManager.CreateSubscription("TestTopic", 
+		"LowMessages", 
+		lowMessagesFilter);
 
 Now when a message is sent to "TestTopic", it will always be
 delivered to receivers subscribed to the "AllMessages" topic
@@ -295,20 +312,18 @@ message content).
 
 ## <a name="send-messages"> </a>How to Send Messages to a Topic
 
-To send a message to a Service Bus topic, your application will create a
-**MessageSender** object. Similar to **NamespaceManager** objects, this object
-is created from the base URI of the service namespace and the
-appropriate credentials (the connection string).
+To send a message to a Service Bus topic, your application creates a
+**TopicClient** object using the connection string.
 
-The code below demonstrates how to retrieve a **MessageSender** object
-for the "TestTopic" topic created above:
+The code below demonstrates how to create a **TopicClient** object
+for the "TestTopic" topic created above using the **CreateFromConnectionString** API call:
 
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-	namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+   	TopicClient Client = 
+		TopicClient.CreateFromConnectionString(connectionString, "TestTopic");
 
-   	Client = TopicClient.CreateFromConnectionString(connectionString, "TestTopic");
 	Client.Send(new BrokeredMessage());
  
 
@@ -323,7 +338,7 @@ then be used to serialize the object. Alternatively, a
 **System.IO.Stream** can be provided.
 
 The following example demonstrates how to send five test messages to the
-"TestTopic" **MessageSender** obtained in the code snippet above.
+"TestTopic" **TopicClient** obtained in the code snippet above.
 Note how the **MessageNumber** property value of each message varies on
 the iteration of the loop (this will determine which subscriptions
 receive it):
@@ -331,26 +346,27 @@ receive it):
      for (int i=0; i<5; i++)
      {
        // Create message, passing a string message for the body
-       BrokeredMessage message = new BrokeredMessage("Test message " + i);
+       BrokeredMessage message = 
+		new BrokeredMessage("Test message " + i);
 
        // Set additional custom app-specific property
        message.Properties["MessageNumber"] = i;
 
        // Send message to the topic
-       testTopic.Send(message);
+       Client.Send(message);
      }
 
-Service Bus topics support a maximum message size of 256 MB (the header,
+Service Bus topics support a maximum message size of 256 Kb (the header,
 which includes the standard and custom application properties, can have
-a maximum size of 64 MB). There is no limit on the number of messages
+a maximum size of 64 Kb). There is no limit on the number of messages
 held in a topic but there is a cap on the total size of the messages
 held by a topic. This queue size is defined at creation time, with an
 upper limit of 5 GB.
 
 ## <a name="receive-messages"> </a>How to Receive Messages from a Subscription
 
-The simplest way to receive messages from a subscription is to use a
-**MessageReceiver** object. **MessageReceiver** objects can work in two
+The easiest way to receive messages from a subscription is to use a
+**SubscriptionClient** object. **SubscriptionClient** objects can work in two
 different modes: **ReceiveAndDelete** and **PeekLock**.
 
 When using the **ReceiveAndDelete** mode, receive is a single-shot
@@ -376,23 +392,23 @@ Bus sees the **Complete** call, it marks the message as being
 consumed and removes it from the subscription.
 
 The example below demonstrates how messages can be received and
-processed using the default **PeekLock** mode. The example below
-creates an infinite loop and processes messages as they arrive to the
-"HighMessages" subscription. Note that the path to the "HighMessages"
+processed using the default **PeekLock** mode. To specify a different **ReceiveMode** value, you can use another overload for **CreateFromConnectionString**. This example creates an infinite loop and processes messages as they arrive to the "HighMessages" subscription. Note that the path to the "HighMessages"
 subscription is supplied in the form "<*topic
 path*\>/subscriptions/<*subscription name*\>".
 
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-    namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+    SubscriptionClient Client = 
+		SubscriptionClient.CreateFromConnectionString
+                (connectionString, "TestTopic", "HighMessages");
 
-	highMessages.Receive();
+	Client.Receive();
      
-	// Continuously process messages received from the "HighMessages" subscription 
+	// Continuously process messages received from the HighMessages subscription 
     while (true) 
     {  
-       BrokeredMessage message = highMessages.Receive();
+       BrokeredMessage message = Client.Receive();
 
        if (message != null)
        {
@@ -400,7 +416,8 @@ path*\>/subscriptions/<*subscription name*\>".
           {
              Console.WriteLine("Body: " + message.GetBody<string>());
              Console.WriteLine("MessageID: " + message.MessageId);
-             Console.WriteLine("MessageNumber: " + message.Properties["MessageNumber"]);
+             Console.WriteLine("MessageNumber: " + 
+				message.Properties["MessageNumber"]);
 
              // Remove message from subscription
              message.Complete();
@@ -444,16 +461,6 @@ delivery attempts.
 The example below demonstrates how to delete the topic named
 **TestTopic** from the **HowToSample** service namespace:
 
-     string issuer = "<obtained from portal>";
-     string key = "<obtained from portal>";
-
-     // TokenProvider and URI of our "HowToSample" service namespace
-     TokenProvider tP = TokenProvider.CreateSharedSecretTokenProvider(issuer, key); 
-     Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", "HowToSample", string.Empty);
-
-     // Create NamespaceManager for the "HowToSample" service namespace
-     NamespaceManager namespaceManager = new NamespaceManager(uri, tP);
-
      // Delete Topic
      namespaceManager.DeleteTopic("TestTopic");
 
@@ -480,7 +487,8 @@ links to learn more.
   [Create a Service Namespace]: #create-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-creds
   [Configure Your Application to Use Service Bus]: #configure-app
-  [How to: Create a Security Token Provider]: #create-provider
+  [How to: Set Up a Service Bus Connection String]: #set-up-connstring
+  [How to: Configure your Connection String]: #config-connstring
   [How to: Create a Topic]: #create-topic
   [How to: Create Subscriptions]: #create-subscriptions
   [How to: Send Messages to a Topic]: #send-messages

@@ -52,6 +52,12 @@ You can now navigate the repository on your local machine using Windows Explorer
 	git add .
 	git commit -v -a -m "<Describe the changes made since last commit>"
 
+To associate the update with a weekly publishing event, create an issue in GitHub. Then, when you commit your changes, use the following command to associate the changes with the issue you created. In a weekly publishing cycle, associate all updates you made that week with the same issue.
+
+    git commit -a -v -m “fix #123 -- describe the changes made since last commit”
+
+In the comment, replace "123" with the number of the issue.
+
 #### Submit a Pull Request to the Main Repository
 
 When you are done with your work, and are ready to have it merged into the central repository follow the following steps.

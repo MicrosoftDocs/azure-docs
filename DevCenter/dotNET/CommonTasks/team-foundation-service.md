@@ -117,6 +117,23 @@ In the **Trigger** tab, you will see that the build definition is set to build o
 <br/>
 In the **Process** tab, you can see the deployment environment is set to the name of your cloud service or web site.<br/>
 ![][27]
+<br/>
+Specify values for the properties if the values differ from the defaults.
+The following table shows default values of the Azure properties:
+	<table>
+<tr><td><b>Property</b></td><td><b>Default Value</b></td></tr>
+<tr><td>Allow Upgrade</td><td>true</td></tr>
+<tr><td>Cloud Service Environment</td><td>Staging</td></tr>
+<tr><td>Cloud Service Name</td><td>The name of the service you are connected to</td></tr>
+<tr><td>Deployment Label</td><td>The same as the service name</td></tr>
+<tr><td>Service Configuration</td><td>ServiceConfiguration.Cloud.cscfg</td></tr>
+<tr><td>Storage Account Name</td><td>Blank, which means try to find a storage account.</td></tr>
+<tr><td>Publish Profile</td><td>The .azurePubxml file. If you check in one, you can choose it here.</td></tr>
+</table>
+<br/>
+If the storage account property is left blank, Windows Azure searches for one. If there is a storage
+account with the same name as the cloud service, it is used. Otherwise, it uses another storage account,
+or if there is no storage account, it creates one.
 
 11. By this time, your build should be completed successfully.<br/>
 ![][28]

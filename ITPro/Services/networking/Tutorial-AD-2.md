@@ -19,13 +19,13 @@ This tutorial walks you through the steps to create a new Active Directory fores
 
 Before you begin, make sure the following prerequisites are complete:
 
-- Create Affinity Group
+- Create an affinity group.
 
-- Create Virtual Network
+- Create a virtual network.
 
-- Create Cloud Service in the virtual network
+- Create a cloud service in the virtual network.
 
-- Deploy one VM in the Cloud Service that is part of the virtual network (specify the subnet where you want to place the VM). The VM must be size L or greater in order to attach two data disks to it. The data disks are needed to store:
+- Deploy one VM in the cloud service that is part of the virtual network (specify the subnet where you want to place the VM). The VM must be size L or greater in order to attach two data disks to it. The data disks are needed to store:
 	
 >- The Active Directory database, logs, and SYSVOL.
 	

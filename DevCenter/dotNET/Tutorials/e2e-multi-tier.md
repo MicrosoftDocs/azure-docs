@@ -489,8 +489,11 @@ The following code retrieves the connection string, creates a queue, and initial
 
 	QueueClient Client; 
 
-	string connectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString); 
+	string connectionString =
+     CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	
+    var namespaceManager =
+     NamespaceManager.CreateFromConnectionString(connectionString); 
 
 	if (!namespaceManager.QueueExists(QueueName))
     {

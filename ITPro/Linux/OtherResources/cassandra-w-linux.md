@@ -1,4 +1,4 @@
-<h1 id = "" > Running Cassandra with Linux on Windows Azure and Access it from Node.js </h1>
+<h1 id = "" > Running Cassandra with Linux on Windows Azure and Accessing it from Node.js </h1>
 -Hanu Kommalapati
 
 ## Table of Contents##
@@ -23,15 +23,15 @@ The Windows Azure Virtual Machines capability enables running of NoSQL databases
 
 There are two deployment models that are feasible for Cassandra application environment: self-contained Virtual Machines deployment and a composite deployment.  In a composite deployment, a Virtual Machines-hosted Cassandra cluster will be consumed from a PaaS hosted Azure web application (or web service) using Thrift interface through the load balancer.  Even though each Cassandra node proxies the request to other peer nodes in the event of a key space fault,  the load balancer helps with the entry level load balancing of the requests.  Also the load balancer creates a firewall protected sandbox for a better control of the data. 
 
-##<a id="composite"> </a>Composite Deployment## 
+## <a id="composite"> </a> Composite Deployment ##
 
 The goal of a composite deployment is to maximize the usage of PaaS while keeping the virtual machine footprint to an absolute minimum in an effort to save on the overhead imposed by the infrastructure management of the virtual machines. Due to the server management overhead, only deploy those components that require stateful behavior that can’t be modified easily due to various reasons including the time-to-market, lack of visibility into source code, and low level access to the OS. 
 
-![Image0001][Image01]
+![Composite deployment diagram](../Media/cassandra-linux1.png)
 
 ##<a id="deployment"> </a>Windows Azure Virtual Machine Deployment##
 
-![Image0002][Image02]
+![Virtual machine deployment](../Media/cassandra-linux2.png)
 
 In the above diagrams a 4-node Cassandra cluster is deployed inside Virtual Machines behind a load balancer that is configured to allow Thrift traffic. Azure hosted PaaS application accesses the cluster using language specific Thrift libraries. There are libraries for languages including Java, C#, Node.js, Python and C++. The self-contained Virtual Machines deployment shown in the second diagram consumes data by applications running inside another cloud service hosted on Virtual Machines. 
 
@@ -39,7 +39,7 @@ In the above diagrams a 4-node Cassandra cluster is deployed inside Virtual Mach
 
 During the Virtual Machines preview release, in order for the Linux VMs to be part of the same virtual network, all the machines need to be deployed to the same cloud service. Typical sequence for creating a cluster is: 
 
-![Task1][Image03]
+![Sequence diagram for creating a cluster](../Media/cassandra-linux4.png)
 
 **Step 1: Generate SSH Key pair**
 
@@ -47,14 +47,12 @@ Windows Azure needs an X509 public key that is either PEM or DER encoded at the 
 
 **Step 2:  Create a Ubuntu VM**
 
-Create the first Ubuntu VM by following the sequence shown below after logging into the Windows Azure preview portal (see [Create a Virtual Machine Running Linux](http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/) for a tutorial on Linux VM creation): 
+To create the first Ubuntu VM, log into the Windows Azure preview portal, click **New**, click **Virtual Machine**, click **From Gallery**, click **Unbuntu Server 12.xx**, and then click the right arrow. For a tutorial that describes how to create a Linux VM, see [Create a Virtual Machine Running Linux](http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/).
 
-New --> Virtual Machine -->From Gallery --> Unbuntu Server 12.xx --> click “right arrow”
+Then, enter the following information on the VM Configuration screen:
 
-Enter the following information on the VM Configuration screen:
-
-<table border>
-	<tr bgcolor = #C0C0C0 >
+<table>
+	<tr>
 		<th>Field Name</th>
 		<th>Field Value</th>
 		<th>Remarks</th>
@@ -99,9 +97,8 @@ Enter the following information on the VM Configuration screen:
 Enter the following information on the VM Mode screen:
 
 
-<table border>
-	<tr bgcolor = #C0C0C0 
->
+<table>
+	<tr>
 		<th>Field Name</th>
 		<th>Field Value</th>
 		<th>Remarks</th>
@@ -141,8 +138,8 @@ b.	On the “Add endpoint to virtual machine” screen, select “Add endpoint�
 c.	Click right arrow 
 
 d.	On the “Specify endpoint details”  screen enter the following
-<table border>
-	<tr bgcolor = #C0C0C0>
+<table>
+	<tr>
 		<th >Field Name</th>
 		<th>Field Value</th>
 		<th>Remarks</th>
@@ -211,7 +208,9 @@ The above will expand Cassandra into apache-cassandra-1.0.10 directory.
 6.	Start Cassandra from the apache-cassandra-1.0.10/bin directory using the following command: 
 
 		$ ./cassandra
-The above will start the Cassandra node as a background process. Use “cassandra –f” to start the process in the foreground mode.<br>
+
+The above will start the Cassandra node as a background process. Use “cassandra –f” to start the process in the foreground mode.
+
 The log should may show mx4j error. Cassandra will function fine without mx4j but it is necessary for managing the Cassandra installation.  Kill Cassandra process before the next step.
 
 **Step 3: Install mx4j**
@@ -264,7 +263,7 @@ Nodetool installed into the Cassandra’s bin directory will help with cluster o
 
 If the configuration is correct, it should display the information as shown below for a 3-node cluster:
 
-<table border>
+<table>
 	<tr>
 		<td>Address</td>
 		<td>DC</td>
@@ -353,7 +352,7 @@ e)	Install NPM from stable binaries by executing the following command
 
 Cassandra storage uses the concepts of KEYSPACE and COLUMNFAMILY which can be approximately compared to DATABASE and TABLE structures in the RDBMS parlance. The KEYSAPCE will contain a set of COLUMNFAMILY definitions. Each COLUMNFAMILY will contain a set of rows and in turn each row contains several columns as shown in the composite view below:
 
-![step3][Image04]
+![Rows and columns](../Media/cassandra-linux3.png)
 
 We will use the previously deployed Cassandra cluster to demonstrate node.js access by creating and querying the above data structures.  We will create a simple node.js script that performs the basic preparation of the cluster for storing customer data. The techniques shown in the script can easily be used in a node.js web application or web services. Please keep in mind that the snippets are only meant to show how the stuff works and for real world solutions, the code shown has a lot of room (e.g. security, logging, scalability, etc.) for improvement. 
 
@@ -438,7 +437,7 @@ Parameterized CQL template will be combined with params object to generate valid
 
 populateCustomerData() inserts couple of rows into the COLUMNFAMILY namely customers_cf. In Cassandra Query Language, UPDATE will insert the record if the record is not already present in the process making INSERT CQL statement redundant. 
 
-So far we wired the callback chain: createKeyspace() -> createColumnFamily() -> populateCustomerData(). Now it is time for us to execute the code through the following code snippet:
+So far we wired the callback chain: createKeyspace() to createColumnFamily() to populateCustomerData(). Now it is time for us to execute the code through the following code snippet:
 
 	casdemo.js:
 	var pooledCon = require('cassandra-client').PooledConnection;
@@ -493,12 +492,8 @@ Windows Azure Virtual Machines capability allows the creation of Linux  (images 
 [Composite Deployment]: #composite
 [Windows Azure Virtual Machine Deployment]: #deployment
 [Task 1: Deploy Linux Cluster]: #task1
-[Task 2: Set Up Cassandra on Each VM]: #task2
+[Task 2: Set Up Cassandra on Each Virtual Machine]: #task2
 [Task 3: Access Cassandra Cluster from Node.js]: #task3
 [Conclusion]: #conclusion
 
 
-[Image01]: ../Media/Image0001.png
-[Image02]: ../Media/Image0002.png
-[Image03]: ../Media/task1.png
-[Image04]: ../Media/Step3.png

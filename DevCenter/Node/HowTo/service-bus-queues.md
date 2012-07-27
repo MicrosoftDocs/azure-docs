@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-how-to-service-bus-queues" urldisplayname="Service Bus Queues" headerexpose="" pagetitle="Service Bus Queues - How To - Node.js - Develop" metakeywords="Azure messaging, Azure brokered messaging, Azure messaging queue, Service Bus queue, Azure Service Bus queue, Azure messaging Node.js, Azure messaging queue Node.js, Azure Service Bus queue Node.js, Service Bus queue Node.js" footerexpose="" metadescription="Learn about Windows Azure Service Bus queues, including how to create queues, how to send and receive messages, and how to delete queues." umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-nodejs-how-to-service-bus-queues" urldisplayname="Service Bus Queues" headerexpose="" pagetitle="Service Bus Queues - How To - Node.js - Develop" metakeywords="Azure messaging, Azure brokered messaging, Azure messaging queue, Service Bus queue, Azure Service Bus queue, Azure messaging Node.js, Azure messaging queue Node.js, Azure Service Bus queue Node.js, Service Bus queue Node.js" footerexpose="" metadescription="Learn about Windows Azure Service Bus queues, including how to create queues, how to send and receive messages, and how to delete queues." umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Use Service Bus Queues
 
@@ -350,8 +350,8 @@ links to learn more.
   [4]: ../../dotNet/Media/sb-queues-07.png
   [Node.js Cloud Service]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
   [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
-  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/
+  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
   [Create and deploy a Node.js application to a Windows Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
-  [Node.js Web Application with Storage]: en-us/develop/nodejs/tutorials/web-site-with-storage/
+  [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/

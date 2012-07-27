@@ -26,6 +26,35 @@ The PHP Client Libraries for Windows Azure provide an interface for accessing Wi
 
 For information about how to use the PHP Client Libraries for Windows Azure, see [How to Use the Blob Service][blob-service], [How to Use the Table Service][table-service] and [How to Use the Queue Service][queue-service].
 
+###Install via Composer
+
+1. [Install Git][install-git]. 
+
+	<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>On Windows, you will also need to add the Git executable to your PATH environment variable.</p>
+	</div>
+
+2. Create a file named **composer.json** in the root of your project and add the following code to it:
+
+		{
+			"require": {
+				"microsoft/windowsazure": "*"
+			},			
+			"repositories": [
+				{
+					"type": "pear",
+					"url": "http://pear.php.net"
+				}
+			],
+			"minimum-stability": "dev"
+		}
+
+3. Download **[composer.phar][composer-phar]** in your project root.
+
+4. Open a command prompt and execute this in your project root
+
+		php composer.phar install
 
 ###Install as a PEAR package
 
@@ -37,33 +66,9 @@ To install the PHP Client Libraries for Windows Azure as a PEAR package, follow 
 		pear channel-discover pear.windowsazure.com
 3. Install the PEAR package:
 
-		pear install pear.windowsazure.com/WindowsAzure-0.1.0
+		pear install pear.windowsazure.com/WindowsAzure-0.3.0
 
 After the installation completes, you can reference class libraries from your application.
-
-
-###Install via Composer
-
-1. Create a file named **composer.json** in the root of your project and add the following code to it:
-
-		{
-			"require": {
-				"microsoft/windowsazure": "*"
-			},			
-			"repositories": [
-				{
-					"type": "pear",
-					"url": "http://pear.php.net"
-				}
-			]
-		}
-
-2. Download **[composer.phar][composer-phar]** in your project root.
-
-3. Open a command prompt and execute this in your project root
-
-		php composer.phar install
-
 
 ###Install manually
 
@@ -125,3 +130,4 @@ For information about how to use the Windows Azure Command-Line Tools for Mac an
 [crossplat-tools]: http://go.microsoft.com/fwlink/?LinkId=252717
 [powershell-tools]: http://go.microsoft.com/fwlink/?LinkId=252718
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
+[install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
