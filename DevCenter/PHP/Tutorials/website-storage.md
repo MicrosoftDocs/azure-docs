@@ -63,6 +63,10 @@ There are four basic steps that have to be performed before you can make a call 
 	To create any Windows Azure service client you need to use the **ServicesBuilder** class:
 
 		use WindowsAzure\Common\ServicesBuilder;
+
+	To catch exceptions produced by any API call you need the **ServiceException** class:
+
+		use WindowsAzure\Common\ServiceException;
 	
 * To instantiate the service client you will also need a valid connection string. The format for storage services (blobs, tables, queues) connection strings is:
 
@@ -73,7 +77,6 @@ There are four basic steps that have to be performed before you can make a call 
 	For accessing the emulator storage:
 	
 		UseDevelopmentStorage=true
-
 
 * Use the `ServicesBuilder::createBlobService` factory method to instantiate a wrapper around Table service calls.
 
@@ -140,7 +143,7 @@ The home page of the Tasklist application should list all existing tasks and all
 			
 		for ($i = 0; $i < count($entities); $i++) {
 
-* Once you get an `Entity`, the model for reading data is `Entity->getProperty('[name]')->getValue()`:
+* Once you get an `Entity`, the model for reading data is `Entity->getPropertyValue('[name]')`:
 
 			if ($i == 0) {
 				echo "<table border='1'>
@@ -154,10 +157,10 @@ The home page of the Tasklist application should list all existing tasks and all
 			}
 			echo "
 				<tr>
-					<td>".$entities[$i]->getProperty('name')->getValue()."</td>
-					<td>".$entities[$i]->getProperty('category')->getValue()."</td>
-					<td>".$entities[$i]->getProperty('date')->getValue()."</td>";
-					if ($entities[$i]->getProperty('complete')->getValue() == false)
+					<td>".$entities[$i]->getPropertyValue('name')."</td>
+					<td>".$entities[$i]->getPropertyValue('category')."</td>
+					<td>".$entities[$i]->getPropertyValue('date')."</td>";
+					if ($entities[$i]->getPropertyValue('complete') == false)
 						echo "<td><a href='markitem.php?complete=true&pk=".$entities[$i]->getPartitionKey()."&rk=".$entities[$i]->getRowKey()."'>Mark Complete</a></td>";
 					else
 						echo "<td><a href='markitem.php?complete=false&pk=".$entities[$i]->getPartitionKey()."&rk=".$entities[$i]->getRowKey()."'>Unmark Complete</a></td>";
