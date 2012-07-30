@@ -1,3 +1,5 @@
+<properties linkid="dev-net-common-tasks-profiling-in-compute-emulator" urldisplayname="Team Foundation Service" headerexpose="" pagetitle="Profiling a Cloud Service Locally in the Compute Emulator" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+
 # Profiling a Cloud Service Locally in the Compute Emulator
 
 A variety of tools and techniques are available for testing the performance of cloud services.
