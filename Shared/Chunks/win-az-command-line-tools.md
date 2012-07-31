@@ -5,9 +5,7 @@ To install the tool on a Mac, download and run the [Windows Azure SDK installer]
 
 To install the tool on Linux, install the latest version of Node.JS and then use NPM to install:
 
-```
-npm install azure -g
-```
+    npm install azure -g
 
 Optional parameters are shown in square brackets (for example, [parameter]). All other parameters are required.
 
@@ -32,60 +30,50 @@ Your Windows Azure subscription information is used by the tool to connect to yo
 
 This command launches a browser to download your .publishsettings file from the Windows Azure portal.
 
-```
-~$ azure account download
-info:   Executing command account download
-info:   Launching browser to https://windows.azure.com/download/publishprofile.aspx
-help:   Save the downloaded file, then execute the command
-help:     account import <file>
-info:   account download command OK
-```
+	~$ azure account download
+	info:   Executing command account download
+	info:   Launching browser to https://windows.azure.com/download/publishprofile.aspx
+	help:   Save the downloaded file, then execute the command
+	help:   account import <file>
+	info:   account download command OK
 
 **account import [options] &lt;file>**
 
 This command imports a publishsettings file or certificate so that it can be used by the tool going forward.
 
-```
-~$ azure account import publishsettings.publishsettings
-info:   Importing publish settings file publishsettings.publishsettings
-info:   Found subscription: 3-Month Free Trial
-info:   Found subscription: Pay-As-You-Go
-info:   Setting default subscription to: 3-Month Free Trial
-warn:   The 'publishsettings.publishsettings' file contains sensitive information.
-warn:   Remember to delete it now that it has been imported.
-info:   Account publish settings imported successfully
-```
+	~$ azure account import publishsettings.publishsettings
+	info:   Importing publish settings file publishsettings.publishsettings
+	info:   Found subscription: 3-Month Free Trial
+	info:   Found subscription: Pay-As-You-Go
+	info:   Setting default subscription to: 3-Month Free Trial
+	warn:   The 'publishsettings.publishsettings' file contains sensitive information.
+	warn:   Remember to delete it now that it has been imported.
+	info:   Account publish settings imported successfully
 
 Note: The publishsettings file can contain details (that is, subscription name and ID) about more than one subscription. When you import the publishsettings file, the first subscription is used as the default description. To use a different subscription, run the following command.
 
-```
-~$ azure config set subscription <other-subscription-id>
-```
+	~$ azure config set subscription <other-subscription-id>
 
 **account clear [options]**
 
 This command removes the stored publish settings that have been imported. Use this command if you're finished using the tool on this machine and want to assure that the tool cannot be used with your account going forward.
 
-```
-~$ azure account clear
-Clearing account info.
-info:   OK
-```
+	~$ azure account clear
+	Clearing account info.
+	info:   OK
 
 **account affinity-group list [options]**
 
 This command lists your Windows Azure affinity groups.
 
 Affinity groups can be set when a group of virtual machines spans multiple physical machines. The affinity group specifies that the physical machines should be as close to each other as possible, to reduce network latency.
-
-``` 
-~$ azure account affinity-group list
-+ Fetching affinity groups
-data:   Name                                  Label   Location
-data:   ------------------------------------  ------  --------
-data:   535EBAED-BF8B-4B18-A2E9-8755FB9D733F  opentec  West US
-info:   account affinity-group list command OK
-```
+ 
+	~$ azure account affinity-group list
+	+ Fetching affinity groups
+	data:   Name                                  Label   Location
+	data:   ------------------------------------  ------  --------
+	data:   535EBAED-BF8B-4B18-A2E9-8755FB9D733F  opentec  West US
+	info:   account affinity-group list command OK
 
 ##<a id="Commands_to_manage_your_Azure_virtual_machines"></a>Commands to manage your Windows Azure virtual machines
 The following diagram shows how Windows Azure virtual machines are hosted in the production deployment environment of a Windows Azure cloud service.
@@ -123,109 +111,93 @@ The following optional parameters are supported for this command:
 
 In this example, MSFT__Win2K8R2SP1-120514-1520-141205-01-en-us-30GB is an image provided by the platform. For more information about operating system images, see vm image list.
 
-```
-~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "Western US" -r
-info:   Executing command vm create
-Enter VM 'my-vm-name' password: ************                                     
-info:   vm create command OK
-```
+	~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "Western US" -r
+	info:   Executing command vm create
+	Enter VM 'my-vm-name' password: ************                                     
+	info:   vm create command OK
 
 **vm create-from &lt;dns-prefix> &lt;role-file>**
 
 This command creates a new Windows Azure virtual machine from a JSON role file.
 
-```
-~$ azure vm create-from example.json
-info:   OK
-```
+	~$ azure vm create-from example.json
+	info:   OK
 
 **vm list [options]**
 
 This command lists Windows Azure virtual machines. The -json option specifies that the results are returned in raw JSON format. 
 
-```
-~$ azure vm list
-info:   Executing command vm list
-data:   DNS Name                          VM Name      Status                  
-data:   --------------------------------  -----------  ---------
-data:   my-vm-name.cloudapp-preview.net        my-vm        ReadyRole
-info:   vm list command OK
-```
+	~$ azure vm list
+	info:   Executing command vm list
+	data:   DNS Name                          VM Name      Status                  
+	data:   --------------------------------  -----------  ---------
+	data:   my-vm-name.cloudapp-preview.net        my-vm        ReadyRole
+	info:   vm list command OK
 
 **vm location list [options]**
 
 This command lists all available Windows Azure account locations.
 
-```
-~$ azure vm location list
-info:   Executing command vm location list
-data:   Name                   Display Name                                    
-data:   ---------------------  ------------
-data:   Windows Azure Preview  West US     
-info:   account location list command OK
-```
+	~$ azure vm location list
+	info:   Executing command vm location list
+	data:   Name                   Display Name                                    
+	data:   ---------------------  ------------
+	data:   Windows Azure Preview  West US     
+	info:   account location list command OK
 
 **vm show [options] &lt;name>**
 
 This command shows details about a Windows Azure virtual machine. The -json option specifies that the results are returned in raw JSON format. 
 
-```
-~$ azure vm show my-vm
-info:   Executing command vm show
-data:   {                                                                      
-data:       InstanceSize: 'Small',
-data:       InstanceStatus: 'ReadyRole',
-data:       DataDisks: [],
-data:       IPAddress: '10.26.192.206',
-data:       DNSName: 'my-vm.cloudapp.net',
-data:       InstanceStateDetails: {},
-data:       VMName: 'my-vm',
-data:       Network: {
-data:           Endpoints: [
-data:               {
-data:                   Protocol: 'tcp',
-data:                   Vip: '65.52.250.250',
-data:                   Port: '63238' ,
-data:                   LocalPort: '3389',
-data:                   Name: 'RemoteDesktop'
-data:               }
-data:           ]
-data:       },
-data:       Image: 'MSFT__Windows-Server-2008-R2-SP1.11-29-2011',
-data:       OSVersion: 'WA-GUEST-OS-1.18_201203-01'
-data:   } 
-info:   vm show command OK
-```
+	~$ azure vm show my-vm
+	info:   Executing command vm show
+	data:   {                                                                      
+	data:       InstanceSize: 'Small',
+	data:       InstanceStatus: 'ReadyRole',
+	data:       DataDisks: [],
+	data:       IPAddress: '10.26.192.206',
+	data:       DNSName: 'my-vm.cloudapp.net',
+	data:       InstanceStateDetails: {},
+	data:       VMName: 'my-vm',
+	data:       Network: {
+	data:           Endpoints: [
+	data:               {
+	data:                   Protocol: 'tcp',
+	data:                   Vip: '65.52.250.250',
+	data:                   Port: '63238' ,
+	data:                   LocalPort: '3389',
+	data:                   Name: 'RemoteDesktop'
+	data:               }
+	data:           ]
+	data:       },
+	data:       Image: 'MSFT__Windows-Server-2008-R2-SP1.11-29-2011',
+	data:       OSVersion: 'WA-GUEST-OS-1.18_201203-01'
+	data:   } 
+	info:   vm show command OK
 
 **vm delete [options] &lt;name>**
 
 This command deletes a Windows Azure virtual machine. By default, this command does not delete the Windows Azure blob from which the the operating system disk and the data disk are created. To delete the blob as well as the virtual machine on which it is based, specify the -b option.
 
-```
-~$ azure vm delete my-vm 
-info:   Executing command vm delete
-info:   vm delete command OK
-```
+	~$ azure vm delete my-vm 
+	info:   Executing command vm delete
+	info:   vm delete command OK
 
 **vm start [options] &lt;name>**
 
 This command starts a Windows Azure virtual machine.
 
-```
-~$ azure vm start my-vm
-info:   Executing command vm start
-info:   vm start command OK
-```
+	~$ azure vm start my-vm
+	info:   Executing command vm start
+	info:   vm start command OK
 
 **vm restart [options] &lt;name>**
 
 This command restarts a Windows Azure virtual machine.
 
-```
-~$ azure vm restart my-vm
-info:   Executing command vm restart
-info:   vm restart command OK
-```
+	~$ azure vm restart my-vm
+	info:   Executing command vm restart
+	info:   vm restart command OK
 
 **vm shutdown [options] &lt;name>**
 
@@ -243,13 +215,11 @@ This command captures a Windows Azure virtual machine image.
 
 A virtual machine image cannot be captured while the virtual machine state unless the virtual machine state is Stopped .
 
-```
-~$ azure.cmd vm capture my-vm mycaptureimagename --delete
-info:   Executing command vm capture
-+ Fetching VMs
-+ Capturing VM
-info:   vm capture command OK
-```
+	~$ azure.cmd vm capture my-vm mycaptureimagename --delete
+	info:   Executing command vm capture
+	+ Fetching VMs
+	+ Capturing VM
+	info:   vm capture command OK
 
 ##<a id="Commands_to_manage_your_Azure_virtual_machine_endpoints"></a>Commands to manage your Windows Azure virtual machine endpoints
 The following diagram shows the architecture of a typical deployment of multiple instances of a virtual machine. Note that in this example port 3389 is open on each virtual machine (for RDP access), and there is also an internal IP address (for example, 168.55.11.1) on each virtual machine that is used by the load balancer to route traffic to the virtual machine. This internal IP address can also be used for communication between virtual machines.
@@ -262,40 +232,34 @@ External requests to virtual machines go through a load balancer. Because of thi
 
 This command creates a virtual machine endpoint.
 
-```
-~$ azure vm endpoint create my-vm 8888 8888
-azure vm endpoint create my-vm 8888 8888
-info:   Executing command vm endpoint create
-+ Fetching VM
-+ Reading network configuration
-+ Updating network configuration
-info:   vm endpoint create command OK
-```
+	~$ azure vm endpoint create my-vm 8888 8888
+	azure vm endpoint create my-vm 8888 8888
+	info:   Executing command vm endpoint create
+	+ Fetching VM
+	+ Reading network configuration
+	+ Updating network configuration
+	info:   vm endpoint create command OK
 
 **vm endpoint delete &lt;vm-name> &lt;lb-port>**
 
 This command deletes a virtual machine endpoint.
 
-```
-~$ azure vm endpoint delete my-vm 8888
-azure vm endpoint delete my-vm 8888
-info:   Executing command vm endpoint delete
-+ Fetching VM
-+ Reading network configuration
-+ Updating network configuration
-info:   vm endpoint delete command OK
-```
+	~$ azure vm endpoint delete my-vm 8888
+	azure vm endpoint delete my-vm 8888
+	info:   Executing command vm endpoint delete
+	+ Fetching VM
+	+ Reading network configuration
+	+ Updating network configuration
+	info:   vm endpoint delete command OK
 
 **vm endpoint list &lt;vm-name>**
 
 This command lists all virtual machine endpoints. The -json option specifies that the results are returned in raw JSON format. 
 
-```
-~$ azure vm endpoint list my-linux-vm
-data:   Name  External Port  Local Port                                        
-data:   ----  -------------  ----------
-data:   ssh   22             22
-```
+	~$ azure vm endpoint list my-linux-vm
+	data:   Name  External Port  Local Port                                        
+	data:   ----  -------------  ----------
+	data:   ssh   22             22
 
 <span id="Commands_to_manage_your_Azure_virtual_machine_images"></span>
 ##Commands to manage your Windows Azure virtual machine images
@@ -306,54 +270,48 @@ Virtual machine images are captures of already configured virtual machines that 
 This command gets a list of virtual machine images. There are three types of images: images created by Microsoft, which are prefixed with "MSFT", images created by third parties, which are usually prefixed with the name of the vendor, and images you create. To create images, you can either capture an existing virtual machine or create an image from a custom .vhd uploaded to blob storage. For more information about using a custom .vhd, see vm image create.
 The -json option specifies that the results are returned in raw JSON format. 
 
-```
-~$ azure vm image list
-data:   Name                                                                   Category   OS
-data:   ---------------------------------------------------------------------  ---------  -------
-data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-en-us-30GB.vhd   Canonical  Linux
-data:   MSFT__Windows-Server-2008-R2-SP1.11-29-2011                            Microsoft  Windows
-data:   MSFT__Windows-Server-2008-R2-SP1-with-SQL-Server-2012-Eval.11-29-2011  Microsoft  Windows
-data:   MSFT__Windows-Server-8-Beta.en-us.30GB.2012-03-22                      Microsoft  Windows
-data:   MSFT__Windows-Server-8-Beta.2-17-2012                                  Microsoft  Windows
-data:   MSFT__Windows-Server-2008-R2-SP1.en-us.30GB.2012-3-22                  Microsoft  Windows
-data:   OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd                 OpenLogic  Linux
-data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-en-us-30GB.vhd       SUSE       Linux
-data:   SUSE__OpenSUSE64121-03192012-en-us-15GB.vhd                            SUSE       Linux
-data:   WIN2K8-R2-WINRM                                                        User       Windows
-info:   vm image list command OK   
-```
+	~$ azure vm image list
+	data:   Name                                                                   Category   OS
+	data:   ---------------------------------------------------------------------  ---------  -------
+	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-en-us-30GB.vhd   Canonical  Linux
+	data:   MSFT__Windows-Server-2008-R2-SP1.11-29-2011                            Microsoft  Windows
+	data:   MSFT__Windows-Server-2008-R2-SP1-with-SQL-Server-2012-Eval.11-29-2011  Microsoft  Windows
+	data:   MSFT__Windows-Server-8-Beta.en-us.30GB.2012-03-22                      Microsoft  Windows
+	data:   MSFT__Windows-Server-8-Beta.2-17-2012                                  Microsoft  Windows
+	data:   MSFT__Windows-Server-2008-R2-SP1.en-us.30GB.2012-3-22                  Microsoft  Windows
+	data:   OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd                 OpenLogic  Linux
+	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-en-us-30GB.vhd       SUSE       Linux
+	data:   SUSE__OpenSUSE64121-03192012-en-us-15GB.vhd                            SUSE       Linux
+	data:   WIN2K8-R2-WINRM                                                        User       Windows
+	info:   vm image list command OK   
 
 **vm image show [options] &lt;name>**
 
 This command shows the details of of a virtual machine image.
 
-```
-~$ azure vm image show MSFT__Windows-Server-2008-R2-SP1.11-29-2011
-+ Fetching VM image
-info:   Executing command vm image show
-data:   {                                                                      
-data:       Label: 'Windows Server 2008 R2 SP1, Nov 2011',
-data:       Name: 'MSFT__Windows-Server-2008-R2-SP1.11-29-2011',
-data:       Description: 'Microsoft Windows Server 2008 R2 SP1',
-data:       @: { xmlns: 'http://schemas.microsoft.com/windowsazure', xmlns:i: 'http://www.w3.org/2001/XMLSchema-instance' },
-data:       Category: 'Microsoft',
-data:       OS: 'Windows',
-data:       Eula: 'http://www.microsoft.com',
-data:       LogicalSizeInGB: '30'
-data:   }
-info:   vm image show command OK 
-```
+	~$ azure vm image show MSFT__Windows-Server-2008-R2-SP1.11-29-2011
+	+ Fetching VM image
+	info:   Executing command vm image show
+	data:   {                                                                      
+	data:       Label: 'Windows Server 2008 R2 SP1, Nov 2011',
+	data:       Name: 'MSFT__Windows-Server-2008-R2-SP1.11-29-2011',
+	data:       Description: 'Microsoft Windows Server 2008 R2 SP1',
+	data:       @: { xmlns: 'http://schemas.microsoft.com/windowsazure', xmlns:i: 'http://www.w3.org/2001/XMLSchema-instance' },
+	data:       Category: 'Microsoft',
+	data:       OS: 'Windows',
+	data:       Eula: 'http://www.microsoft.com',
+	data:       LogicalSizeInGB: '30'
+	data:   }
+	info:   vm image show command OK 
 
 **vm image delete [options] &lt;name>**
 
 This command deletes a virtual machine image.
 
-```
-~$ azure vm image delete my-vm-image
-info:   Executing command vm image delete
-info:   VM image deleted: my-vm-image                                         
-info:   vm image delete command OK
-```
+	~$ azure vm image delete my-vm-image
+	info:   Executing command vm image delete
+	info:   VM image deleted: my-vm-image                                         
+	info:   vm image delete command OK
 
 **vm image create &lt;name> [source-path]**
 
@@ -361,16 +319,14 @@ This command creates a virtual machine image. Your custom .vhd files are uploade
 
 Some systems impose per-process file descriptor limits. If this limit is exceeded, the tool displays a file descriptor limit error. You can run the command again using the -p &lt;number> parameter to reduce the maximum number of parallel uploads. The default maximum number of parallel uploads is 96.
 
-```
-~$ azure vm image create mytestimage ./Sample.vhd -o windows -l "West US"
-info:   Executing command vm image create
-+ Retrieving storage accounts
-info:   VHD size : 13 MB
-info:   Uploading 13312.5 KB
-Requested:100.0% Completed:100.0% Running: 105 Time:    8s Speed:  1721 KB/s
-info:   http://myaccount.blob.core.azure.com/vm-images/Sample.vhd is uploaded successfully
-info:   vm image create command OK
-```
+	~$ azure vm image create mytestimage ./Sample.vhd -o windows -l "West US"
+	info:   Executing command vm image create
+	+ Retrieving storage accounts
+	info:   VHD size : 13 MB
+	info:   Uploading 13312.5 KB
+	Requested:100.0% Completed:100.0% Running: 105 Time:    8s Speed:  1721 KB/s
+	info:   http://myaccount.blob.core.azure.com/vm-images/Sample.vhd is uploaded successfully
+	info:   vm image create command OK
 
 <span id="Commands_to_manage_your_Azure_virtual_machine_data_disks"></span>
 ##Commands to manage your Windows Azure virtual machine data disks
@@ -384,57 +340,49 @@ When you detach a data disk with the azure vm disk detach command, use the <lun>
 
 This command shows details about a Windows Azure disk.
 
-```
-~$ azure vm disk show anucentos-anucentos-0-20120524070008
-info:   Executing command vm disk show
-data:   AttachedTo DeploymentName "mycentos"
-data:   AttachedTo HostedServiceName "myanucentos"
-data:   AttachedTo RoleName "myanucentos"
-data:   OS "Linux"
-data:   Location "Windows Azure Preview"
-data:   LogicalDiskSizeInGB "30"
-data:   MediaLink "http://mystorageaccount.blob.core.azure-preview.com/vhd-store/mycentos-cb39b8223b01f95c.vhd"
-data:   Name "mycentos-mycentos-0-20120524070008"
-data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd"
-info:   vm disk show command OK
-```
+	~$ azure vm disk show anucentos-anucentos-0-20120524070008
+	info:   Executing command vm disk show
+	data:   AttachedTo DeploymentName "mycentos"
+	data:   AttachedTo HostedServiceName "myanucentos"
+	data:   AttachedTo RoleName "myanucentos"
+	data:   OS "Linux"
+	data:   Location "Windows Azure Preview"
+	data:   LogicalDiskSizeInGB "30"
+	data:   MediaLink "http://mystorageaccount.blob.core.azure-preview.com/vhd-store/mycentos-cb39b8223b01f95c.vhd"
+	data:   Name "mycentos-mycentos-0-20120524070008"
+	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd"
+	info:   vm disk show command OK
 
 **vm disk list [options] [vm-name]**
 
 This command lists Windows Azure disks, or disks attached to a specified virtual machine. if it is run with a virtual machine name parameter, it returns all disks attached to the virtual machine. Lun 1 is created with the virtual machine, and any other listed disks are attached separately.
 
-```
-~$ azure vm disk list mycentos
-info:   Executing command vm disk list
-data:   Lun  Size(GB)  Blob-Name
-data:   ---  --------  --------------------------------
-data:   1    30        mycentos-cb39b8223b01f95c.vhd
-data:   2    10        mycentos-e3f0d717950bb78d.vhd
-info:   vm disk list command OK                                               
-```
+	~$ azure vm disk list mycentos
+	info:   Executing command vm disk list
+	data:   Lun  Size(GB)  Blob-Name
+	data:   ---  --------  --------------------------------
+	data:   1    30        mycentos-cb39b8223b01f95c.vhd
+	data:   2    10        mycentos-e3f0d717950bb78d.vhd
+	info:   vm disk list command OK                                               
 
 Executing this command without a virtual machine name parameter returns all disks.
 
-```
-~$ azure vm disk list 
-data:   Name                                        OS
-data:   ------------------------------------------  -------
-data:   mycentos-mycentos-0-20120524070008          Linux
-data:   mycentos-mycentos-2-20120525055052
-data:   mywindows-winvm-20120522223119              Windows
-info:   vm disk list command OK
-```
+	~$ azure vm disk list 
+	data:   Name                                        OS
+	data:   ------------------------------------------  -------
+	data:   mycentos-mycentos-0-20120524070008          Linux
+	data:   mycentos-mycentos-2-20120525055052
+	data:   mywindows-winvm-20120522223119              Windows
+	info:   vm disk list command OK
 
 **vm disk delete [options] &lt;name>**
 
 This command deletes a Windows Azure disk from a personal repository. The disk must be detached from the virtual machine before it is deleted.
 
-```
-~$ azure vm disk delete mycentos-mycentos-2-20120525055052
-info:   Executing command vm disk delete
-info:   Disk deleted: mycentos-mycentos-2-20120525055052                  
-info:   vm disk delete command OK
-```
+	~$ azure vm disk delete mycentos-mycentos-2-20120525055052
+	info:   Executing command vm disk delete
+	info:   Disk deleted: mycentos-mycentos-2-20120525055052                  
+	info:   vm disk delete command OK
 
 **vm disk create &lt;name> [source-path]**
 
@@ -442,45 +390,37 @@ This command uploads and registers a Windows Azure disk. --blob-url, --location,
 
 Some systems impose per-process file descriptor limits. If this limit is exceeded, the tool displays a file descriptor limit error. You can run the command again using the -p &lt;number> parameter to reduce the maximum number of parallel uploads. The default maximum number of parallel uploads is 96. 
 
-```
-~$ azure vm disk create my-data-disk ~/test.vhd --location "Western US"
-info:   Executing command vm disk create
-info:   VHD size : 10 MB                                                       
-info:   Uploading 10240.5 KB
-Requested:100.0% Completed:100.0% Running:  81 Time:   11s Speed:   952 KB/s 
-info:   http://account.blob.core.azure.com/disks/test.vhd is uploaded successfully
-info:   vm disk create command OK
-```
+	~$ azure vm disk create my-data-disk ~/test.vhd --location "Western US"
+	info:   Executing command vm disk create
+	info:   VHD size : 10 MB                                                       
+	info:   Uploading 10240.5 KB
+	Requested:100.0% Completed:100.0% Running:  81 Time:   11s Speed:   952 KB/s 
+	info:   http://account.blob.core.azure.com/disks/test.vhd is uploaded successfully
+	info:   vm disk create command OK
 
 **vm disk attach &lt;vm-name> &lt;disk-image-name>**
 
 This command attaches an existing disk in blob storage to an existing virtual machine deployed in a cloud service.
 
-```
-~$ azure vm disk attach my-vm my-vm-my-vm-2-201242418259
-info:   Executing command vm disk attach
-info:   vm disk attach command OK
-```
+	~$ azure vm disk attach my-vm my-vm-my-vm-2-201242418259
+	info:   Executing command vm disk attach
+	info:   vm disk attach command OK
 
 **vm disk attach-new &lt;vm-name> &lt;size-in-gb> [blob-url]**
 
 This command attaches a data disk to a Windows Azure virtual machine. In this example, 20 is the size of the new disk, in gigabytes, to be attached. You can optionally use a blob URL as the last argument to explicitly specify the target blob to create. If you do not specify a blob URL, a blob object will be automatically generated.
 
-```
-~$ azure vm disk attach-new nick-test36 20 http://nghinazz.blob.core.azure-preview.com/vhds/vmdisk1.vhd
-info:   Executing command vm disk attach-new
-info:   vm disk attach-new command OK  
-```
+	~$ azure vm disk attach-new nick-test36 20 http://nghinazz.blob.core.azure-preview.com/vhds/vmdisk1.vhd
+	info:   Executing command vm disk attach-new
+	info:   vm disk attach-new command OK  
 
 **vm disk detach &lt;vm-name> &lt;lun>**
 
 This command detaches a data disk attached to a Windows Azure virtual machine. &lt;lun> identifies the disk to be detached. To get a list of disks associated with a disk before you detach it, use vm disk-list &lt;vm-name>.
 
-```
-~$ azure vm disk detach my-vm 2
-info:   Executing command vm disk detach
-info:   vm disk detach command OK
-```
+	~$ azure vm disk detach my-vm 2
+	info:   Executing command vm disk detach
+	info:   vm disk detach command OK
 
 <span id="Commands_to_manage_your_Azure_cloud_services"></span>
 ##Commands to manage your Windows Azure cloud services
@@ -490,25 +430,21 @@ Windows Azure cloud services are applications and services hosted on web roles a
 
 This command lists Windows Azure cloud services.
 
-```
-~$ azure service list
-info:   Executing command service list
-data:   Name         Status                                                    
-data:   -----------  -------
-data:   service1     Created
-data:   service2     Created
-info:   service list command OK
-```
+	~$ azure service list
+	info:   Executing command service list
+	data:   Name         Status                                                    
+	data:   -----------  -------
+	data:   service1     Created
+	data:   service2     Created
+	info:   service list command OK
 
 **service delete [options] &lt;name>**
 
 This command deletes a Windows Azure cloud service.
 
-```
-~$ azure cloud-service delete myservice
-info:   Executing command cloud-service delete myservice 
-info:   cloud-service delete command OK
-```
+	~$ azure cloud-service delete myservice
+	info:   Executing command cloud-service delete myservice 
+	info:   cloud-service delete command OK
 
 <span id="Commands_to_manage_your_Azure_certificates"></span>
 ##Commands to manage your Windows Azure certificates
@@ -518,40 +454,34 @@ Windows Azure certificates are cerificates (that is, SSL certificates) connected
 
 This command lists Windows Azure certificates.
 
-```
-~$ azure service cert list
-info:   Executing command service cert list
-+ Fetching cloud services                                                      
-+ Fetching certificates                                                        
-data:   Service   Thumbprint                                Algorithm
-data:   --------  ----------------------------------------  ---------
-data:   myservice  262DBF95B5E61375FA27F1E74AC7D9EAE842916C  sha1     
-info:   service cert list command OK
-```
+	~$ azure service cert list
+	info:   Executing command service cert list
+	+ Fetching cloud services                                                      
+	+ Fetching certificates                                                        
+	data:   Service   Thumbprint                                Algorithm
+	data:   --------  ----------------------------------------  ---------
+	data:   myservice  262DBF95B5E61375FA27F1E74AC7D9EAE842916C  sha1     
+	info:   service cert list command OK
 
 **service cert create &lt;dns-prefix> &lt;file> [password]**
 
 This command uploads a certificate. Leave the password prompt blank for certificates that are not password protected.
 
-```
-~$ azure service cert create nghinazz ~/publishSet.pfx
-info:   Executing command service cert create
-Cert password: 
-+ Creating certificate                                                         
-info:   service cert create command OK
-```
+	~$ azure service cert create nghinazz ~/publishSet.pfx
+	info:   Executing command service cert create
+	Cert password: 
+	+ Creating certificate                                                         
+	info:   service cert create command OK
 
 **service cert delete [options] &lt;thumbprint>**
 
 This command deletes a certificate.
 
-```
-~$ azure service cert delete 262DBF95B5E61375FA27F1E74AC7D9EAE842916C
-info:   Executing command service cert delete
-+ Deleting certificate                                                         
-info:   nghinazz : cert deleted
-info:   service cert delete command OK
-```
+	~$ azure service cert delete 262DBF95B5E61375FA27F1E74AC7D9EAE842916C
+	info:   Executing command service cert delete
+	+ Deleting certificate                                                         
+	info:   nghinazz : cert deleted
+	info:   service cert delete command OK
 
 <span id="Commands_to_manage_your_web_sites"></span>
 ##Commands to manage your websites
@@ -561,121 +491,105 @@ A Windows Azure website is a web configuration accessible by URI. Websites are h
 
 This command lists your websites.
 
-```
-~$ azure site list
-info:   Executing command site list
-data:   Name            State    Host names                                        
-data:   --------------  -------  --------------------------------------------------
-data:   mongosite       Running  mongosite.antdf0.antares.windows.net     
-data:   myphpsite       Running  myphpsite.antdf0.antares.windows.net     
-data:   mydrupalsite36  Running  mydrupalsite36.antdf0.antares.windows.net
-info:   site list command OK
-```
+	~$ azure site list
+	info:   Executing command site list
+	data:   Name            State    Host names                                        
+	data:   --------------  -------  --------------------------------------------------
+	data:   mongosite       Running  mongosite.antdf0.antares.windows.net     
+	data:   myphpsite       Running  myphpsite.antdf0.antares.windows.net     
+	data:   mydrupalsite36  Running  mydrupalsite36.antdf0.antares.windows.net
+	info:   site list command OK
 
 **site create [options] [name]**
 
 This command creates a new website and local directory. Note that the site name must be unique. You cannot create a site with the same DNS name as an existing site.
 
-```
-~$ azure site create mysite
-info:   Executing command site create
-info:   Using location northeuropewebspace
-info:   Creating a new web site
-info:   Created website at  mysite.antdf0.antares.windows.net
-info:   Initializing repository
-info:   Repository initialized
-info:   site create command OK
-```
+	~$ azure site create mysite
+	info:   Executing command site create
+	info:   Using location northeuropewebspace
+	info:   Creating a new web site
+	info:   Created website at  mysite.antdf0.antares.windows.net
+	info:   Initializing repository
+	info:   Repository initialized
+	info:   site create command OK
 
 **site portal [options] [name]**
 
 This command opens the portal in a browser so you can manage your websites.
 
-```
-~$ azure site portal mysite
-info:   Executing command site portal
-info:   Launching browser to https://windows.azure.net/#Workspaces/WebsiteExtension/Website/mysite/dashboard
-info:   site portal command OK
-```
+	~$ azure site portal mysite
+	info:   Executing command site portal
+	info:   Launching browser to https://windows.azure.net/#Workspaces/WebsiteExtension/Website/mysite/dashboard
+	info:   site portal command OK
 
 **site browse [options] [name]**
 
 This command opens your website in a browser.
 
-```
-~$ azure site browse mysite
-info:   Executing command site browse
-info:   Launching browser to http://mysite.antdf0.antares-test.windows-int.net
-info:   site browse command OK
-```
+	~$ azure site browse mysite
+	info:   Executing command site browse
+	info:   Launching browser to http://mysite.antdf0.antares-test.windows-int.net
+	info:   site browse command OK
 
 **site show [options] [name]**
 
 This command shows details for a website.
 
-```
-~$ azure site show mysite
-info:   Executing command site show
-info:   Showing details for site
-data:   Site AdminEnabled true
-data:   Site HostNames mysite.antdf0.antares-test.windows-int.net
-data:   Site Name mysite
-data:   Site Owner 00060000814EDDEE
-data:   Site RepositorySiteName mysite
-data:   Site SelfLink https://s1.api.antdf0.antares.windows.net:454/subscriptions/444e62ff-4c5f-4116-a695-5c803ed584a5/webspaces/northeuropewebspace/sites/mysite
-data:   Site State Running
-data:   Site UsageState Normal
-data:   Site WebSpace northeuropewebspace
-data:   Config AppSettings
-data:   Config ConnectionStrings
-data:   Config DefaultDocuments 0=Default.htm, 1=Default.asp, 2=index.htm, 3=index.html, 4=iisstart.htm, 5=default.aspx, 6=index.php, 7=hostingstart.aspx
-data:   Config DetailedErrorLoggingEnabled false
-data:   Config HttpLoggingEnabled false
-data:   Config Metadata
-data:   Config NetFrameworkVersion v4.0
-data:   Config NumberOfWorkers 1
-data:   Config PhpVersion 5.3
-data:   Config PublishingPassword rJ}[Er2v[Y]q16B6vTD]n$[C2z}Z.pvgLfRcLnAp%ax]xstiLny};o@vmMAote@d
-data:   Config RequestTracingEnabled false
-data:   Repository https://mysite.scm.antdf0.antares-test.windows-int.net/
-info:   site show command OK
-```
+	~$ azure site show mysite
+	info:   Executing command site show
+	info:   Showing details for site
+	data:   Site AdminEnabled true
+	data:   Site HostNames mysite.antdf0.antares-test.windows-int.net
+	data:   Site Name mysite
+	data:   Site Owner 00060000814EDDEE
+	data:   Site RepositorySiteName mysite
+	data:   Site SelfLink https://s1.api.antdf0.antares.windows.net:454/subscriptions/444e62ff-4c5f-4116-a695-5c803ed584a5/webspaces/northeuropewebspace/sites/mysite
+	data:   Site State Running
+	data:   Site UsageState Normal
+	data:   Site WebSpace northeuropewebspace
+	data:   Config AppSettings
+	data:   Config ConnectionStrings
+	data:   Config DefaultDocuments 0=Default.htm, 1=Default.asp, 2=index.htm, 3=index.html, 4=iisstart.htm, 5=default.aspx, 6=index.php, 7=hostingstart.aspx
+	data:   Config DetailedErrorLoggingEnabled false
+	data:   Config HttpLoggingEnabled false
+	data:   Config Metadata
+	data:   Config NetFrameworkVersion v4.0
+	data:   Config NumberOfWorkers 1
+	data:   Config PhpVersion 5.3
+	data:   Config PublishingPassword rJ}[Er2v[Y]q16B6vTD]n$[C2z}Z.pvgLfRcLnAp%ax]xstiLny};o@vmMAote@d
+	data:   Config RequestTracingEnabled false
+	data:   Repository https://mysite.scm.antdf0.antares-test.windows-int.net/
+	info:   site show command OK
 
 **site delete [options] [name]**
 
 This command deletes a website.
 
-```
-~$ azure site delete mysite
-info:   Executing command site delete
-info:   Deleting site mysite
-info:   Site mysite has been deleted
-info:   site delete command OK
-```
+	~$ azure site delete mysite
+	info:   Executing command site delete
+	info:   Deleting site mysite
+	info:   Site mysite has been deleted
+	info:   site delete command OK
 
 **site start [options] [name]**
 
 This command starts a website.
 
-```
-~$ azure site start mysite
-info:   Executing command site start
-info:   Starting site mysite
-info:   Site mysite has been started
-info:   site start command OK
-```
+	~$ azure site start mysite
+	info:   Executing command site start
+	info:   Starting site mysite
+	info:   Site mysite has been started
+	info:   site start command OK
 
 **site stop [options] [name]**
 
 This command stops a website.
 
-```
-~$ azure site stop mysite
-info:   Executing command site stop
-info:   Stopping site mysite
-info:   Site mysite has been stopped
-info:   site stop command OK
-```
+	~$ azure site stop mysite
+	info:   Executing command site stop
+	info:   Stopping site mysite
+	info:   Site mysite has been stopped
+	info:   site stop command OK
 
 <span id="Manage_tool_local_settings"></span>
 ##Manage tool local settings
@@ -685,21 +599,17 @@ Local settings are your subscription ID and Default Storage Account Name.
 
 This command displays config settings.
 
-```
-~$ azure config list
-info:   Displaying config settings
-data:   Setting                Value                               
-data:   ---------------------  ------------------------------------
-data:   subscription           32-digit-subscription-key
-data:   defaultStorageAccount  name
-```
+	~$ azure config list
+	info:   Displaying config settings
+	data:   Setting                Value                               
+	data:   ---------------------  ------------------------------------
+	data:   subscription           32-digit-subscription-key
+	data:   defaultStorageAccount  name
 
 **config set [options] &lt;name>,&lt;value>**
 
 This command changes a config setting.
 
-```
-~$ azure config set defaultStorageAccount myname
-info:   Setting 'defaultStorageAccount' to value 'myname'
-info:   Changes saved.
-```
+	~$ azure config set defaultStorageAccount myname
+	info:   Setting 'defaultStorageAccount' to value 'myname'
+	info:   Changes saved.
