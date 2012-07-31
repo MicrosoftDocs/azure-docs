@@ -14,7 +14,7 @@ This article covers the CPU Sampling method of profiling, which can be done loca
 
 ## Prerequisites
 
-You can run the profiler locally only if you have Visual Studio 2010 Premium or Visual Studio 2010 Ultimate. 
+You can run the profiler locally only if you have Visual Studio Premium or Visual Studio Ultimate. 
 
 ## In this article:
 
@@ -175,7 +175,7 @@ command line, especially the global settings, make sure that VSPerfClrEnv /globa
 
 - If when sampling, you see the message "PRF0025: No data was collected," check that the process you attached to has CPU activity. Applications that are not doing any computational work might not produce any sampling data.  It's also possible that the process exited before any sampling was done. Check to see that the Run method for a role that you are profiling does not terminate.
 
-[Step 1: Configuring Visual Studio for Profiling]: #step1
+[Step 1: Configure Visual Studio for Profiling]: #step1
 [Step 2: Attach to a Process]: #step2
 [Step 3: View Profiling Reports]: #step3
 [Step 4: Make Changes and Compare Performance]: #step4
