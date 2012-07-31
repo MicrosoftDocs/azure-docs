@@ -15,7 +15,7 @@ application. The application will be hosted in a Windows Azure Preview Portal vi
 
 A screenshot of the completed application is below:
 
-![A browser window displaying the hello world page on Windows Azur
+![A browser window displaying the hello world page on Windows Azure]
 
 <div chunk="../../Shared/Chunks/create-account-and-vms-note.md" />
 
