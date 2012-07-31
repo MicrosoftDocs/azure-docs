@@ -32,6 +32,8 @@ libraries.  Since all installation is done in the cloud, users can access these
 resources without the need for any local configuration beyond a modern web
 browser.
 
+<div chunk="../../Shared/Chunks/create-account-and-vms-note.md" />
+
 ## Create and Configure a VM on Azure
 
 The first step is to create a Virtual Machine (VM) instance running on Azure.

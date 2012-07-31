@@ -16,6 +16,8 @@ You will expand upon the [Django Hello World] [djangohelloworld] sample by utili
 The project files for this tutorial will be stored in **C:\django\helloworld** and the completed application will look similar to:
 ![][0]
 
+<div chunk="../../Shared/Chunks/create-account-and-vms-note.md" />
+
 ## Setting up a virtual machine to host MySQL and Django
 1. Follow the instructions given [here ][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Windows Server 2008 R2* flavor.
 
