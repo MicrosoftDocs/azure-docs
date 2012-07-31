@@ -189,15 +189,7 @@ Windows PowerShell cmdlets.
 
 ### Creating a Windows Azure Account
 
-1.  Open a web browser, and browse to [http://www.windowsazure.com][].
-
-    To get started with a free account, click on **Free Trial** in the
-    upper right corner and follow the steps.
-
-    ![A browser window displaying http://www.windowsazure.com/ with the Free Trial link highlighted][]
-
-2.  Your account is now created. You are ready to deploy your
-    application to Windows Azure!
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
 
 ### <a id="download_publishing_settings"> </a>Downloading the Windows Azure Publishing Settings
 
