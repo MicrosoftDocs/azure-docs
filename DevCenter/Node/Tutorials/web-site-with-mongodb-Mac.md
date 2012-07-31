@@ -34,6 +34,8 @@ Before following the instructions in this article, you should ensure that you ha
 
 * [Git]
 
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+
 ##Preparation
 
 In this section you will learn how to create a virtual machine in Windows Azure and install MongoDB, set up your development environment, and install the MongoDB C# driver.
@@ -45,16 +47,6 @@ This tutorial assumes you have created a virtual machine in Windows Azure. After
 * To create a Linux virtual machine and install MongoDB, see [Installing MongoDB on a Linux Virtual machine].
 
 After you have created the virtual machine in Windows Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.
-
-### Sign up for the Windows Azure Web Sites preview feature
-
-You will need to sign up for the Windows Azure Web Sites preview feature in order to create a Windows Azure web site. You can also sign up for a free trial account if you do not have a Windows Azure account.
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
 ##Install modules and generate scaffolding
 
@@ -209,7 +201,7 @@ In this section you will extend the basic application created by the **express**
       		    throw err;
       		  }
     	    });
-    	  	res.redirect('home');
+    	  	res.redirect('/');
   		  },
   
 
@@ -226,7 +218,7 @@ In this section you will extend the basic application created by the **express**
         		});
       		  }
     		}
-    		res.redirect('home');
+    		res.redirect('/');
   		  }
 		}
 
