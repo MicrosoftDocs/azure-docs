@@ -5,6 +5,8 @@ Using Git, you can deploy an ASP.NET application to a Windows Azure web site. In
 The ASP.NET application you'll build will look like this:
 ![My Task List Application][Image0]
 
+<div chunk="../../Shared/Chunks/create-account-and-websites-and-vms-note.md" />
+
 ## Overview
 
 In this tutorial you will:
@@ -35,16 +37,6 @@ This tutorial assumes you have created a virtual machine in Windows Azure. After
 * Alternatively, to create a Linux virtual machine and install MongoDB, see [Install MongoDB on a virtual machine running CentOS Linux in Windows Azure][InstallMongoOnCentOSLinuxVM].
 
 After you have created the virtual machine in Windows Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.
-
-### Sign up for the Windows Azure Web Sites preview feature
-
-You will need to sign up for the Windows Azure Web Sites preview feature in order to create a Windows Azure web site. You can also sign up for a free trial account if you do not have a Windows Azure account.
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
 ### Set up the development environment
 

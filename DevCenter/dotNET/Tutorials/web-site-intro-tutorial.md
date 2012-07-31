@@ -15,11 +15,13 @@ You'll learn:
 You'll build a simple web application that is built on ASP.NET MVC 4. The following illustration shows the completed application:
 
 ![screenshot of web site][nodb-image17]
+
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
  
 ## Tutorial segments
 
 1. [Set Up the development environment][]
-2. [Set up the Windows Azure environment][]
+2. [Create a web site in Windows Azure][]
 3. [Create an ASP.NET MVC 4 application][]
 4. [Deploy the application to Windows Azure][]
 7. [Important information about ASP.NET in Windows Azure Web Sites][]
@@ -39,32 +41,7 @@ To start, set up your development environment by installing the Windows Azure SD
 
 When the installation is complete, you have everything necessary to start developing.
 
-<h2><a name="setupwindowsazure"></a>Set up the Windows Azure environment</h2>
- 
-Next, set up the Windows Azure environment. You'll create a Windows Azure account and enable this account to use the Windows Azure Web Sites preview feature. Then you'll create a Windows Azure web site.
-
-### Create a Windows Azure account
-
-1. Open a web browser, and browse to [http://www.windowsazure.com][windowsazure.com].
-2. To get started with a free account, click **Free Trial** in the upper-right corner and follow the steps. You'll need a credit card number and a mobile phone number for proof of identity, but you will not be billed.<br/>
-
-### Enable Windows Azure Web Sites
-
-1.	Navigate to [https://account.windowsazure.com/](https://account.windowsazure.com/) and sign in with your Windows Azure account.
-
-2.	Click **preview features** to view the available previews.
-	
-	![open preview features tab][0]
-
-2.	Scroll down to **Web Sites** and click **try it now**.
-
-	![select a preview feature][1]
-
-3.	Select your subscription and click the check.
-
-	![select subscription][2]
-
-### Create a web site in Windows Azure
+<h2><a name="setupwindowsazure"></a>Create a web site in Windows Azure</h2>
 
 The next step is to create the Windows Azure web site and the SQL database that your application will use.
 
@@ -178,7 +155,7 @@ To learn how to deploy an application to a Windows Azure Cloud Service, see [The
 You might want to use the ASP.NET membership system in Windows Azure. For information about how to use either Windows Azure Storage or SQL Database for the membership database, see [Real World: ASP.NET Forms-Based Authentication Models for Windows Azure][ASP.NETFormsAuth].
 
 [Set Up the development environment]: #setupdevenv
-[Set up the Windows Azure environment]: #setupwindowsazure
+[Create a web site in Windows Azure]: #setupwindowsazure
 [Create an ASP.NET MVC 4 application]: #createmvc4app
 [Deploy the application to Windows Azure]: #deploytowindowsazure
 [Add a database to the application]: #addadatabase

@@ -28,6 +28,8 @@ shown below:
 
 ![][0]
 
+<div chunk="../../Shared/Chunks/create-account-note.md" />
+
 ## Scenario Overview: Inter-Role Communication
 
 To submit an order for processing, the front end UI component, running
@@ -111,10 +113,6 @@ to get the tools and set-up your development environment.
     easily develop Windows Azure applications in Visual Studio. If you
     do not have Visual Studio installed, it also installs the free
     Visual Web Developer Express.
-
-## Create a Windows Azure Account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
 
 ## <a name="create-namespace"> </a>Set up the Service Bus Namespace
 

@@ -17,6 +17,8 @@ You will learn:
 -   How to use the Windows Azure Service Bus relay to share data between
     a Windows Azure application and a web service hosted elsewhere.
 
+<div chunk="../../Shared/Chunks/create-account-note.md" />
+
 ### HOW THE SERVICE BUS RELAY HELPS WITH HYBRID SOLUTIONS
 
 Business solutions are typically composed of a combination of custom
@@ -89,14 +91,6 @@ to get the tools and set-up your development environment.
     easily develop Windows Azure applications in Visual Studio. If you
     do not have Visual Studio installed, it also installs the free
     Visual Web Developer Express.
-
-## CREATE A WINDOWS AZURE ACCOUNT
-
-In order to set up the Service Bus Service Namespace and later deploy
-your application to Windows Azure, you need an account. If you do not
-have one you can create a free trial account.
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
 
 ## CREATE A SERVICE NAMESPACE
 
