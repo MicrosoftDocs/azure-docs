@@ -18,6 +18,8 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
 ![screenshot of website][intro001]
 
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+
 In this tutorial:
 
 - [Set up the development environment][setupdbenv]
@@ -46,16 +48,7 @@ When the installation is complete, you have everything necessary to start develo
 
 <h2><a name="bkmk_setupwindowsazure"></a>Set up the Windows Azure environment</h2>
 
-Next, set up the Windows Azure environment by creating a Windows Azure account, a Windows Azure Web Site, and a SQL database.
-
-### Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
-
+Next, set up the Windows Azure environment by creating a Windows Azure Web Site and a SQL database.
 
 ### Create a web site and a SQL database in Windows Azure
 
