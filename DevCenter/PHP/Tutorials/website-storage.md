@@ -15,6 +15,7 @@ You will build a simple Tasklist web application in PHP. A screenshot of the com
 
 ![Windows Azure PHP Website][ws-storage-app]
 
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
 ##Installing the Windows Azure client libraries
 
@@ -323,14 +324,6 @@ To make your application store data into the cloud you need to first create a st
 
 
 ## Create a Windows Azure Website and Set up Git Publishing
-
-### Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
 Follow these steps to create a Windows Azure Website:
 
