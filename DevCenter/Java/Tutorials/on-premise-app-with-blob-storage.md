@@ -21,18 +21,19 @@ HTML file that displays the image in your browser.
     dependency JARs, are installed and are in the build path used by
     your Java compiler. For a list of the JARs, see [Download the
     Windows Azure SDK for Java].
-4.  You have a Windows Azure subscription.
-5.  A Windows Azure storage account has been set up. The account name
+4.  A Windows Azure storage account has been set up. The account name
     and account key for the storage account will be used by the code
     below. See [How to Create a Storage Account for a Windows Azure
     Subscription] for information about creating a storage account,
     and [How to View, Copy, and Regenerate Access Keys for a Windows
     Azure Storage Account] for information about retrieving the
     account key.
-6.  You have created a local image file named stored at the path
+5.  You have created a local image file named stored at the path
     c:\\myimages\\image1.jpg. Alternatively, modify the
     **FileInputStream** constructor in the example to use a different
     image path and file name.
+
+<div chunk="../../Shared/Chunks/create-account-note.md" />
 
 ## <a name="bkmk_uploadfile"> </a>To use Windows Azure blob storage to upload a file
 
