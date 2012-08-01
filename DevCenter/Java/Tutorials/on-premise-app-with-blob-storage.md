@@ -19,7 +19,7 @@ HTML file that displays the image in your browser.
 2.  The Windows Azure SDK is installed.
 3.  The JAR for the Windows Azure Libraries for Java, and any applicable
     dependency JARs, are installed and are in the build path used by
-    your Java compiler. For a list of the JARs, see [Download the
+    your Java compiler. For information on installing the Windows Azure Libraries for Java, see [Download the
     Windows Azure SDK for Java].
 4.  A Windows Azure storage account has been set up. The account name
     and account key for the storage account will be used by the code
@@ -423,7 +423,7 @@ Use the Blob Storage Service from Java].
   [Prerequisites]: #bkmk_prerequisites
   [To use Windows Azure blob storage to upload a file]: #bkmk_uploadfile
   [To delete a container]: #bkmk_deletecontainer
-  [Download the Windows Azure SDK for Java]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=vs.103).aspx
+  [Download the Windows Azure SDK for Java]: en-us/develop/java/
   [How to Create a Storage Account for a Windows Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433066.aspx
   [How to View, Copy, and Regenerate Access Keys for a Windows Azure Storage Account]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531566.aspx
   [How to Use the Blob Storage Service from Java]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/
