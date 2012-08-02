@@ -236,6 +236,7 @@ web role or worker role for the service.
 * **Add-AzureNodeWorkerRole**
 * **Add-AzurePHPWebRole**
 * **Add-AzurePHPWorkerRole**
+* **Add-AzureDjangoWebRole**
 
 When your application is deployed as a cloud service in Windows Azure,
 it runs as one or more *roles.* A *role* simply refers to the
