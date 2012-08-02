@@ -720,8 +720,8 @@ Run the application to verify that it works.
   [0]: ../../../DevCenter/dotNet/Media/hybrid.png
   [1]: ../../../DevCenter/dotNet/Media/App2.png
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkID=234939&clcid=0x409
-  [2]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-3.png
-  [3]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-4.png
+  [2]: ../../../DevCenter/dotNet/Media/getting-started-3.png
+  [3]: ../../../DevCenter/dotNet/Media/getting-started-4.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [4]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-32.png
   [Windows Azure Management Portal]: http://windows.azure.com
@@ -734,7 +734,7 @@ Run the application to verify that it works.
   [10]: ../../../DevCenter/dotNet/Media/hy-web-1.jpg
   [11]: ../../../DevCenter/dotNet/Media/hy-con-1.jpg
   [12]: ../../../DevCenter/dotNet/Media/hy-con-3.png
-  [13]: ../../../DevCenter/dotNet/Media/hy-con-2.png
+  [13]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-13.png
   [14]: ../../../DevCenter/dotNet/Media/hy-con-4.png
   [15]: ../../../DevCenter/dotNet/Media/hy-web-2.jpg
   [16]: ../../../DevCenter/dotNet/Media/hy-web-4.jpg
