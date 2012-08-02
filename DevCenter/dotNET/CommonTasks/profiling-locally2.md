@@ -1,6 +1,6 @@
 <properties linkid="dev-net-common-tasks-profiling-in-compute-emulator" urldisplayname="Team Foundation Service" headerexpose="" pagetitle="Profiling a Cloud Service Locally in the Compute Emulator" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
-# Profiling a Cloud Service Locally in the Compute Emulator
+# Testing the Performance of a Cloud Service Locally in the Compute Emulator by using the Visual Studio Profiler
 
 A variety of tools and techniques are available for testing the performance of cloud services.
 When you publish a cloud service to Windows Azure, you can have Visual Studio collect profiling
