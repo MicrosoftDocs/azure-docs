@@ -31,20 +31,34 @@ The following diagram illustrates the basic Media Services architecture.
 
 ![Media Services Architecture][]
 
-###Media Services Preview Feature Support
-Media Services enable you to perform several common tasks with media content. 
+###Media Services Feature Support
+The current release of Media Services provides the following feature set for developing media applications in the cloud. For information on future releases, see [Media Services Upcoming Releases:  Planned Feature Support][].
 
 - **Ingest**. Ingest operations bring assets into the system, for example by uploading them and encrypting them before they are placed into Windows Azure Storage. By the RTM release, Media Services will offer integration with partner components to provide fast UDP (User Datagram Protocol) upload solutions.
-- **Encode**. Encoding operations involve various types of encoding, transforming, and converting tasks that you perform on media assets. Encoding options include the following:
+- **Encode**. Encode operations include encoding, transforming and converting media assets. You can run encoding tasks in the cloud using the Media Encoder that is included in Media Services. Encoding options include the following:
    - Use the Windows Azure Media Encoder and work with a range of standard codecs and formats, including industry-leading IIS Smooth Streaming, MP4, and conversion to Apple HTTP Live Streaming.
    - Convert entire libraries or individual files with total control over input and output.
    - A large set of supported file types, formats, and codecs (see [Supported File Types for Media Services][]).
    - Supported format conversions. Media Services enable you to convert ISO MP4 (.mp4) to Smooth Streaming File Format (PIFF 1.3) (.ismv; .isma). You can also convert Smooth Streaming File Format (PIFF) to Apple HTTP Live Streaming (.msu8, .ts).
-- **Protect**. Protecting content means encrypting it for secure transport, storage, and delivery. Encrypt live or on-demand video and audio with standard MPEG Common Encryption or Microsoft PlayReady, the industry’s most accepted DRM for premium content. 
-- **Stream**. Stream content live or on demand to clients, retrieving or downloading specific media files from the cloud. Media Services provide streaming origin support for Smooth Streaming and Apple HTTP Live Streaming. You can also seamlessly deliver content via Windows Azure CDN or a third-party CDN, which enables the option to scale to millions of users. 
+- **Protect**. Protecting content means encrypting live streaming or on demand content for secure transport, storage, and delivery. Media Services provide a DRM technology-agnostic solution for protecting content.  Currently supported DRM technologies are Microsoft PlayReady Protection and MPEG Common Encryption. Support for additional DRM technologies will be available. 
+- **Stream**. Streaming content involves sending it live or on demand to clients, or you can retrieve or download specific media files from the cloud. Media Services provide a format-agnostic solution for streaming content.  Media Services provide  streaming origin support for Smooth Streaming, Apple HTTP Live Streaming, and MP4 formats. Support for additional formats will be available. You can also seamlessly deliver streaming content by using Windows Azure CDN or a third-party CDN, which enables the option  to scale to millions of users.   
+
+
+###Media Services Client Development
+Extend the reach of your Media Services solution by using SDKs and player frameworks to build media client applications. These clients are for developers who want to build Media Services applications that offer compelling user experiences across a range of devices and platforms. Depending on the devices that you want to build client applications for, there are options for SDKs and player frameworks available from Microsoft and other third-party partners.  
+
+The following provides a list of available client SDKs and player frameworks.  For more information on these and other planned SDKs and player frameworks, and the functionality they can support, see [Media Services Client Development][]. 
+
+-   **Mac and PC client support**.  Use Microsoft Silverlight to develop streaming clients.
+-   **Windows 8 desktop applications**. Windows 8 supported development languages and constructs including HTML, Javascript, XAML, C# and C+.
+-   **Embedded or dedicated devices**. Devices such as connected TVs, set-top boxes, Blu-Ray players, OTT TV boxes, and mobile devices that have a custom application development framework and a custom media pipeline.
+-   **Windows Phone**. Use a Microsoft SDK to build premium Windows Phone applications.
+-   **iOS devices**. Use a Microsoft SDK to build clients for iPhone, iPod, and iPad.
+-   **Android devices**. Use SDKs provided by Microsoft partners to build Android clients.
+
 
 ###Development Scenarios
-Media Services support several common media development scenarios as described in the following table:
+Media Services support several common media development scenarios as described in the following table. 
 <table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
   <thead>
     <tr>
@@ -69,13 +83,6 @@ Media Services support several common media development scenarios as described i
 </table>
 
 <br />
-
-###Additional Media Services Development Information
-
-For more information about Media Services features and development scenarios, see the following pages in the Media Services forum:
-
--   [Media Services Client Development][]
--   [Media Services Upcoming Releases:  Planned Feature Support][]
 
 
 ## <a name="setup-account"> </a>Setting Up a Windows Azure Account for Media Services
