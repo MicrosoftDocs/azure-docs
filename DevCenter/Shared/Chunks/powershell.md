@@ -52,7 +52,7 @@ The following tasks are supported:
 
 <h2 id="GetStarted">Get started using Windows Azure PowerShell</h2>
 
-The recommended way to install the Windows Azure PowerShell cmdlets is via the [Microsoft Web Platform Installer][wpi-installer]. After installing and launching the Web Platform Installer, select **Windows Azure PowerShell - June 2012** and follow the prompts to install the cmdlets. The Web Platform Installer will install all dependencies for the Windows Azure PowerShell cmdlets. Note that you can also select **Windows Azure SDK for Node.js - June 2012** or **Windows Azure SDK for PHP - June 2012** as these SDKs will include the Windows Azure PowerShell cmdlets.
+The recommended way to install the Windows Azure PowerShell cmdlets is via the [Microsoft Web Platform Installer][wpi-installer]. After installing and launching the Web Platform Installer, select **Windows Azure PowerShell** and follow the prompts to install the cmdlets. The Web Platform Installer will install all dependencies for the Windows Azure PowerShell cmdlets. Note that you can also select **Windows Azure SDK for Node.js - July 2012** or **Windows Azure SDK for PHP - July 2012** as these SDKs will include the Windows Azure PowerShell cmdlets.
 
 ### Getting started with Windows PowerShell
 
