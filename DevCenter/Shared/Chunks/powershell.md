@@ -11,23 +11,24 @@ service**, and **stopping, starting, and removing a service**.
 <div class="dev-callout"> 
 <b>Note</b> 
 <p>For a detailed description of each cmdlet, see the
-<a href="http://go.microsoft.com/fwlink/?LinkId=253185">Windows Azure PowerShell Cmdlet Reference</a>.</p> 
+<a href="http://go.microsoft.com/fwlink/?LinkId=253185">Windows Azure Management Cmdlets</a>.</p> 
 </div>
 
 
 ## Table of contents
 
-[What is Windows Azure PowerShell](#WhatIs)   
- [Get started using Windows Azure PowerShell](#GetStarted)  
- [How to: Import publishing settings](#ImportPubSettings)   
- [How to: Create a Windows Azure service](#CreateService)  
- [How to: Test a service locally in the Windows Azure Emulators](#TestLocally)   
- [How to: Set default deployment options for a service](#DefaultDeploymentOptions)   
- [How to: Use a storage account with more than one service](#StorageAcctMultipleServices)  
- [How to: Deploy a cloud service to Windows Azure](#Deploy)   
- [How to: Update a deployed service](#Update)   
- [How to: Scale out a service](#Scale)   
- [How to: Stop, start, and remove a service](#StopStartRemove)
+ * [What is Windows Azure PowerShell](#WhatIs)   
+ * [Get started using Windows Azure PowerShell](#GetStarted)  
+ * [How to: Import publishing settings](#ImportPubSettings)   
+ * [How to: Create a Windows Azure service](#CreateService)  
+ * [How to: Test a service locally in the Windows Azure Emulators](#TestLocally)   
+ * [How to: Set default deployment options for a service](#DefaultDeploymentOptions)   
+ * [How to: Use a storage account with more than one service](#StorageAcctMultipleServices)  
+ * [How to: Deploy a cloud service to Windows Azure](#Deploy)   
+ * [How to: Update a deployed service](#Update)   
+ * [How to: Scale out a service](#Scale)   
+ * [How to: Stop, start, and remove a service](#StopStartRemove)
+ * [How to: Create, modify, and remove a SQL Database server](#SqlDatabase)
 
 <h2 id="WhatIs">What is Windows Azure PowerShell</h2>
 
@@ -650,9 +651,54 @@ You can bypass the prompt by using the **-Force** option with the **Remove-Azure
 
     PS C:\app\MyService> Remove-AzureService -ServiceName MyService -Force 
 
+<h2 id="SqlDatabase">How to: Create, modify, and remove a SQL Database server</h2>
+
+Windows Azure SQL Database is a cloud-based relational database platform built on SQL Server technologies. (For more information, see [Introducing Windows Azure SQL Database][sql-database].) Windows Azure Powershell provides cmdlets that allow you to create, modify, and remove SQL Database servers.
+
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>SQL Database servers are not associated with Cloud Service projects. The SQL Database cmdlets shown below do not need to be run from a project directory as in the examples above.</p> 
+</div>
+
+### Create a server
+
+To create a SQL Database server, use the **New-AzureSqlDatabaseServer** cmdlet. You will need to supply an adminstrator name and login, and a location:
+
+	PS C:\> New-AzureSqlDatabaseServer -AdministratorLogin MyLogin -AdministratorLoginPassword MyPassword -Location "North Centeral US"
+
+Upon successful creation of a new server, you will see output simailar to this:
+
+	AdministratorLogin   : MyLogin
+	Location             : North Central US
+	ServerName           : t9qh586619
+	OperationDescription : New-AzureSqlDatabaseServer
+	OperationId          : 09d83500d84a43a8961b39b34d38a807
+	OperationStatus      : Success
+
+After creating a server, you will need to create a firewall rule to make it accessible.
+
+### Create a firewall rule
+
+To allow connections to a SQL Database server, you must create a firewall rule that specifies a range of IP addresses from which connections are allowed. The following example show how to use the **New-AzureSqlDatabaseServerFirewallRule** cmdlet to allow connections from IP address between `111.111.111.111` to `222.222.222.222`:
+
+	PS C:\> New-AzureSqlDatabaseServerFirewallRule –RuleName MyRule -ServerName t9qh586619 -StartIpAddress 111.111.111.111 -EndIpAddress 222.222.222.222
+
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>To allow other Windows Azure services to access the server, create a rule that specifies the <b>StartIpAddress</b> and <b>EndIpAddress</b> both as <code>0.0.0.0</code>.</p> 
+</div>
+
+To update an existing rule, use the **Set-AzureSqlDatabaseServerFirewallRule** cmdlet:
+
+	PS C:\> Set-AzureSqlDatabaseServerFirewallRule –RuleName MyRule -ServerName t9qh586619 -StartIpAddress 111.111.111.222 -EndIpAddress 222.222.222.111
+
+
+
+### Remove a server
+
 ## Additional resources
 
-* [Windows Azure PowerShell for Node.js Cmdlet Reference][cmdlet-reference]   
+* [Windows Azure Management Cmdlets][cmdlet-reference]   
 * [Node.js Web Application][1]   
 * [Node.js Web Application with Table Storage][]   
 * [Enabling Remote Desktop in Windows Azure][]   
@@ -703,3 +749,5 @@ You can bypass the prompt by using the **-Force** option with the **Remove-Azure
   [Enabling Remote Desktop in Windows Azure]: http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/enable-remote-desktop/
   [Configuring SSL for a Node.js Application in Windows Azure]: http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/enable-ssl/
 [wpi-installer]: http://go.microsoft.com/fwlink/?LinkId=253447
+[sql-database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336230.aspx
+
