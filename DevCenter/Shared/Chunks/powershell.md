@@ -675,6 +675,8 @@ Upon successful creation of a new server, you will see output simailar to this:
 	OperationId          : 09d83500d84a43a8961b39b34d38a807
 	OperationStatus      : Success
 
+To get a list of servers, use the **Get-AzureSqlDatabaseServer** cmdlet.
+
 After creating a server, you will need to create a firewall rule to make it accessible.
 
 ### Create a firewall rule
@@ -692,9 +694,17 @@ To update an existing rule, use the **Set-AzureSqlDatabaseServerFirewallRule** c
 
 	PS C:\> Set-AzureSqlDatabaseServerFirewallRule –RuleName MyRule -ServerName t9qh586619 -StartIpAddress 111.111.111.222 -EndIpAddress 222.222.222.111
 
+To get a list of rules for a server, use the **Get-AzureSqlDatabaseServerFirewallRule** cmdlet:
 
+	PS C:\> Get-AzureSqlDatabaseServerFirewallRule -ServerName t9qh586619
 
 ### Remove a server
+
+To remove a SQL Database server, use the **Remove-AzureSqlDatabaseServer** cmdlet, specifying the server name:
+
+	PS C:\> Remove-AzureSqlDatabaseServer -ServerName t9qh586619
+
+The command above will require confirmation that you want to delete the specified server. To override this default behavior, use the **-Force** parameter. Using this parameter will delete the server without requiring confirmation.
 
 ## Additional resources
 
