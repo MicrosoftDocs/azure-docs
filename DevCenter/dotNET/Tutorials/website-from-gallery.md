@@ -12,13 +12,7 @@ You'll build an Orchard CMS site that uses a default template. [Orchard](http://
 
 ![Orchard blog][13]
 
-## Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-## Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
 ## Create a web site in the portal
 

@@ -25,6 +25,8 @@ A screenshot of the completed application will be similar as below (the added ta
 
 ![](../media/web-app-with-storage-Finaloutput-mac.png)
 
+<div chunk="../../Shared/Chunks/create-account-note.md" />
+
 ## <a id="setup"> </a>Setting Up the Development Environment
 
 **Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../commontasks/how-to-install-python.md).
@@ -32,10 +34,6 @@ A screenshot of the completed application will be similar as below (the added ta
 
 
 *Note for Windows*: if you used the Windows WebPI installer, you already have Django and the Client Libs installed.
-
-## Setup A Windows Azure Account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
 
 ## Create A Storage Account In Windows Azure
 

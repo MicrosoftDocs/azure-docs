@@ -17,6 +17,8 @@ You will learn:
 -   How to use the Windows Azure Service Bus relay to share data between
     a Windows Azure application and a web service hosted elsewhere.
 
+<div chunk="../../Shared/Chunks/create-account-note.md" />
+
 ### HOW THE SERVICE BUS RELAY HELPS WITH HYBRID SOLUTIONS
 
 Business solutions are typically composed of a combination of custom
@@ -89,14 +91,6 @@ to get the tools and set-up your development environment.
     easily develop Windows Azure applications in Visual Studio. If you
     do not have Visual Studio installed, it also installs the free
     Visual Web Developer Express.
-
-## CREATE A WINDOWS AZURE ACCOUNT
-
-In order to set up the Service Bus Service Namespace and later deploy
-your application to Windows Azure, you need an account. If you do not
-have one you can create a free trial account.
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
 
 ## CREATE A SERVICE NAMESPACE
 
@@ -726,8 +720,8 @@ Run the application to verify that it works.
   [0]: ../../../DevCenter/dotNet/Media/hybrid.png
   [1]: ../../../DevCenter/dotNet/Media/App2.png
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkID=234939&clcid=0x409
-  [2]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-3.png
-  [3]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-4.png
+  [2]: ../../../DevCenter/dotNet/Media/getting-started-3.png
+  [3]: ../../../DevCenter/dotNet/Media/getting-started-4.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [4]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-32.png
   [Windows Azure Management Portal]: http://windows.azure.com
@@ -740,7 +734,7 @@ Run the application to verify that it works.
   [10]: ../../../DevCenter/dotNet/Media/hy-web-1.jpg
   [11]: ../../../DevCenter/dotNet/Media/hy-con-1.jpg
   [12]: ../../../DevCenter/dotNet/Media/hy-con-3.png
-  [13]: ../../../DevCenter/dotNet/Media/hy-con-2.png
+  [13]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-13.png
   [14]: ../../../DevCenter/dotNet/Media/hy-con-4.png
   [15]: ../../../DevCenter/dotNet/Media/hy-web-2.jpg
   [16]: ../../../DevCenter/dotNet/Media/hy-web-4.jpg

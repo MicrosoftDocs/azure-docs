@@ -19,15 +19,9 @@ By following this tutorial, you will build a simple registration web application
 
 ![Windows Azure PHP Website][running-app]
 
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+
 ##Create a Windows Azure Website and set up Git publishing
-
-### Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
 Follow these steps to create a Windows Azure Website and a SQL Database:
 

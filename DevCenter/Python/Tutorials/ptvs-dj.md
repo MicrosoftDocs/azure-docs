@@ -25,6 +25,7 @@ A screenshot of the completed application is below:
 
 ![](../Media/ptvs-dj-FirstAppInCloud.png)
 
+<div chunk="../../Shared/Chunks/create-account-note.md" />
 
 ## <a id="setup"> </a>Setting Up the Development Environment
 

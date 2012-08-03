@@ -1,13 +1,13 @@
 <properties linkid="dev-net-common-tasks-profiling-in-compute-emulator" urldisplayname="Team Foundation Service" headerexpose="" pagetitle="Profiling a Cloud Service Locally in the Compute Emulator" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
-# Testing the Performance of a Cloud Service Locally in the Windows Azure Compute Emulator by using the Visual Studio Profiler
+# Testing the Performance of a Cloud Service Locally in the Windows Azure Compute Emulator Using the Visual Studio Profiler
 
 A variety of tools and techniques are available for testing the performance of cloud services.
 When you publish a cloud service to Windows Azure, you can have Visual Studio collect profiling
 data and then analyze it locally, as described in [Profiling a Windows Azure Application][1].
 You can also use diagnostics to track a variety of performance
 counters, as described in [Using Performance Counters in Windows Azure][2].
-You might also want to profile your application locally in the compute emulator before deploying it to the Cloud.
+You might also want to profile your application locally in the compute emulator before deploying it to the cloud.
 
 This article covers the CPU Sampling method of profiling, which can be done locally in the emulator. CPU sampling is a method of profiling that is not very intrusive. At a designated sampling interval, the profiler takes a snapshot of the call stack. The data is collected over a period of time, and shown in a report. This method of profiling tends to indicate where in a computationally intensive application most of the CPU work is being done.  This gives you the opportunity to focus on the "hot path" where your application is spending the most time.
 
@@ -40,12 +40,12 @@ If desired, you can simplify the reports that the profiler generates by setting 
 
 ![][17]
 
-You can use these instructions with an existing project, but if you have problems, you can start a clean project and perform the steps as well.  If you start with a clean project, choose a C# **Windows Azure Cloud Service** project, and select a **Web Role** and a **Worker Role**.
+You can use these instructions with an existing project or with a new project.  If you create a new project to try the techniques described below, choose a C# **Windows Azure Cloud Service** project, and select a **Web Role** and a **Worker Role**.
 
 ![][5]
 
-Add some code to a project that takes
-a lot of time and demonstrates some obvious performance problem, for example, add this code to a worker role project:
+For example purposes, add some code to your project that takes
+a lot of time and demonstrates some obvious performance problem. For example, add the following code to a worker role project:
 
 	public class Concatenator
 	{
@@ -61,7 +61,7 @@ a lot of time and demonstrates some obvious performance problem, for example, ad
 	    }
 	}
 
-Call this code from your Run method in a worker role's RoleEntryPoint-derived class.
+Call this code from the Run method in the worker role's RoleEntryPoint-derived class.
 
 	public override void Run()
 	{
@@ -71,7 +71,7 @@ Call this code from your Run method in a worker role's RoleEntryPoint-derived cl
 	    }
 	}
 
-Build and run your cloud service locally with the solution configuration set to Release. This ensures that all files and folders are 
+Build and run your cloud service locally with the solution configuration set to **Release**. This ensures that all files and folders are 
 created for running the application locally, and ensures that all the emulators are started.
 
 ## <a name="step2"> </a> Step 2: Attach to a Process
@@ -146,7 +146,7 @@ You can also compare the performance before and after a code change.  Edit the c
 	    return builder.ToString();
 	}
 
-Do another performance run, and then compare the performance. In the Performance Explorer, if the runs are in the same session, you can just select both reports, open the shortcut menu, and choose **Compare Performance Reports**. If you want to compare with a run in another performance session, open the Analyze menu, and choose **Compare Performance Reports**. Specify both files in the dialog box that appears.
+Do another performance run, and then compare the performance. In the Performance Explorer, if the runs are in the same session, you can just select both reports, open the shortcut menu, and choose **Compare Performance Reports**. If you want to compare with a run in another performance session, open the **Analyze** menu, and choose **Compare Performance Reports**. Specify both files in the dialog box that appears.
 
 ![][15]
 
@@ -164,7 +164,7 @@ Congratulations! You've gotten started with the profiler.
 
 - Use the Compute Emulator UI to view the status of your application. 
 
-- If you have problems starting applications in the emulator, or attaching the profiler, shut down the Compute Emulator and restart it. If that doesn't solve the problem, try rebooting. This problem can occur if you use the Compute Emulator to suspend and remove running deployments.
+- If you have problems starting applications in the emulator, or attaching the profiler, shut down the compute emulator and restart it. If that doesn't solve the problem, try rebooting. This problem can occur if you use the Compute Emulator to suspend and remove running deployments.
 
 - If you have used any of the profiling commands from the
 command line, especially the global settings, make sure that VSPerfClrEnv /globaloff has been called and that VsPerfMon.exe has been shut down.
