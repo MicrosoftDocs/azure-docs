@@ -9,7 +9,6 @@ A screenshot of the completed application is below:
 ![A browser displaying the 'Hello World' message.][helloworld-completed]
 
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
-
 ##Create a Windows Azure Web Site and enable Git publishing
 
 Follow these steps to create a Windows Azure Web Site, and then enable Git publishing for the web site.
@@ -57,7 +56,6 @@ In this section, you will create a **server.js** file containing the 'hello worl
 3. Open the command-line, and use the following command to start the web page locally:
 
         node server.js
-
     <div chunk="../Chunks/install-dev-tools.md" />
 
 4. Open your web browser and navigate to http://localhost:1337. A web page displaying "Hello World" will appear as shown in the screenshot below:
@@ -73,7 +71,6 @@ In this section, you will create a **server.js** file containing the 'hello worl
 	<div class="dev-callout"><strong>Git command unavailable?</strong>
 	<p><a href="http://git-scm.com/" target="_blank">Git</a> is a distributed version control system that you can use to deploy your Windows Azure Web Site. For installation instructions for your platform, see <a href="http://git-scm.com/download" target="_blank">the Git download page</a>.</p>
 	</div>
-	<br />
 
 2. Use the following commands to add files to the repository:
 
@@ -128,7 +125,7 @@ While the steps in this article use the Windows Azure Portal to create a web sit
 * [Windows Azure PowerShell]
 * [Windows Azure Command-Line Tools for Mac and Linux]
 
-[Windows Azure PowerShell]: http://windowsazure.com
+[Windows Azure PowerShell]: en-us/develop/nodejs/how-to-guides/powershell-cmdlets/
 [Node]: http://nodejs.org/
 [nodejs.org]: http://nodejs.org/
 [Git]: http://git-scm.com/
