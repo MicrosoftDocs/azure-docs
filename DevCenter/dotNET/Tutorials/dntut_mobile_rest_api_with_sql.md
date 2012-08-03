@@ -533,9 +533,27 @@ Visual Studio compiles the data model classes that you created and makes them av
             routeTemplate: "api/{controller}/{id}",
             defaults: new { id = RouteParameter.Optional }
         );
-11. Open Global.asax file and add the following line to the Appplication_Start method.
+11. Open Global.asax file and add the following line to the beginning of the Appplication_Start method.
 
 		WebApiConfig.Configure(GlobalConfiguration.Configuration);
+
+	The resulting code should read as follows:
+ 
+	    public class MvcApplication : System.Web.HttpApplication
+	    {
+	         protected void Application_Start()
+	         {
+	             WebApiConfig.Configure(GlobalConfiguration.Configuration);
+	 
+	             AreaRegistration.RegisterAllAreas();
+	 
+	             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+	             RouteConfig.RegisterRoutes(RouteTable.Routes);
+	             BundleConfig.RegisterBundles(BundleTable.Bundles);
+	    
+	        }
+	    }
+
 
 ### Run the application locally
 
