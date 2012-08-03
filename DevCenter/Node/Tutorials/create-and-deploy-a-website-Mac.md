@@ -58,7 +58,7 @@ In this section, you will create a **server.js** file containing the 'hello worl
 
         node server.js
 
-    <div chunk="../../Shared/Chunks/node-install-dev-tools.md" />
+    <div chunk="../Chunks/install-dev-tools.md" />
 
 4. Open your web browser and navigate to http://localhost:1337. A web page displaying "Hello World" will appear as shown in the screenshot below:
 
@@ -132,12 +132,8 @@ While the steps in this article use the Windows Azure Portal to create a web sit
 [Node]: http://nodejs.org/
 [nodejs.org]: http://nodejs.org/
 [Git]: http://git-scm.com/
-[Windows Azure]: http://windowsazure.com
 [Windows Azure Portal]: http://manage.windowsazure.com
-[for free]: /en-us/pricing/free-trial
-[package management system]: http://en.wikipedia.org/wiki/List_of_software_package_management_systems
 [Windows Azure Command-Line Tools for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
-[Publishing with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
 
 [helloworld-completed]: ../Media/helloazure.png
 [helloworld-localhost]: ../Media/helloworldlocal.png
