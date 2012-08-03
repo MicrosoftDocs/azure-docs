@@ -135,7 +135,6 @@ While the steps in this article use the Windows Azure Portal to create a web sit
 [Windows Azure]: http://windowsazure.com
 [Windows Azure Portal]: http://manage.windowsazure.com
 [for free]: /en-us/pricing/free-trial
-[nodejs.org download page]: http://nodejs.org/#download
 [package management system]: http://en.wikipedia.org/wiki/List_of_software_package_management_systems
 [Windows Azure Command-Line Tools for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Publishing with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
