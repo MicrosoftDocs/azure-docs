@@ -1,6 +1,6 @@
 <properties linkid="dev-net-common-tasks-profiling-in-compute-emulator" urldisplayname="Team Foundation Service" headerexpose="" pagetitle="Profiling a Cloud Service Locally in the Compute Emulator" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
-# Profiling a Cloud Service Locally in the Windows Azure Compute Emulator
+# Testing the Performance of a Cloud Service Locally in the Windows Azure Compute Emulator Using the Visual Studio Profiler
 
 A variety of tools and techniques are available for testing the performance of cloud services.
 When you publish a cloud service to Windows Azure, you can have Visual Studio collect profiling
@@ -26,9 +26,9 @@ You can run the profiler locally only if you have Visual Studio Premium or Visua
 
 -   [Step 4: Make Changes and Compare Performance][]
 
--   [Next Steps][]
-
 -   [Troubleshooting][]
+
+-   [Next Steps][]
 
 ## <a name="step1"> </a> Step 1: Configure Visual Studio for Profiling
 
@@ -156,10 +156,6 @@ The reports highlight differences between the two runs.
 
 Congratulations! You've gotten started with the profiler.
 
-## <a name="nextSteps"> </a> Next Steps
-
-Instrumenting Windows Azure binaries in the emulator is not supported in the Visual Studio 2010 profiler, but if you want to test memory allocation, you can choose that option when profiling. You can also choose concurrency profiling, which helps you determine whether threads are wasting time competing for locks, or tier interaction profiling, which helps you track down performance problems when interacting between tiers of an application, most frequently between the data tier and a worker role.  You can view the database queries that your app generates and use the profiling data to improve your use of the database. For information about tier interaction profiling, see [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3].
-
 ## <a name="troubleshooting"> </a> Troubleshooting
 
 - Make sure you are profiling a Release build.
@@ -175,12 +171,17 @@ command line, especially the global settings, make sure that VSPerfClrEnv /globa
 
 - If when sampling, you see the message "PRF0025: No data was collected," check that the process you attached to has CPU activity. Applications that are not doing any computational work might not produce any sampling data.  It's also possible that the process exited before any sampling was done. Check to see that the Run method for a role that you are profiling does not terminate.
 
+## <a name="nextSteps"> </a> Next Steps
+
+Instrumenting Windows Azure binaries in the emulator is not supported in the Visual Studio 2010 profiler, but if you want to test memory allocation, you can choose that option when profiling. You can also choose concurrency profiling, which helps you determine whether threads are wasting time competing for locks, or tier interaction profiling, which helps you track down performance problems when interacting between tiers of an application, most frequently between the data tier and a worker role.  You can view the database queries that your app generates and use the profiling data to improve your use of the database. For information about tier interaction profiling, see [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3].
+
+
 [Step 1: Configure Visual Studio for Profiling]: #step1
 [Step 2: Attach to a Process]: #step2
 [Step 3: View Profiling Reports]: #step3
 [Step 4: Make Changes and Compare Performance]: #step4
-[Next Steps]: #nextSteps
 [Troubleshooting]: #troubleshooting
+[Next Steps]: #nextSteps
 
 [1]: http://msdn.microsoft.com/en-us/library/windowsazure/hh369930.aspx
 [2]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling
