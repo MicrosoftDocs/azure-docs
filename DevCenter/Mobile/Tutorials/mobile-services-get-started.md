@@ -81,6 +81,8 @@ The final stage of this tutorial is to build and run your new Windows 8 app.
 
 2. Press the **F5** key to rebuild the project and start the app.
 
+3. In the 
+
 ### <a name="next-steps"> </a>Next Steps
 Once you have either downloaded the pre-generated quickstart project or enabled Mobile Services in an existing Windows 8 app, you can learn how to perform the following key tasks in Mobile Services: 
 
