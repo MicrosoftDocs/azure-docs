@@ -1,11 +1,11 @@
-<properties linkid="dev-nodejs-website-mongodb" urldisplayname="Node.js Website with MongoDB" headerexpose="" pagetitle="Node.js Application using MongoDB" metakeywords="Azure Node.js tutorial MongoDB, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates a Node.js application in a Windows Azure Website, that talks to MongoDB on a Windows Azure virtual machine" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-website-mongodb" urldisplayname="Node.js Website with MongoDB" headerexpose="" pagetitle="Node.js Application using MongoDB - MongoLab" metakeywords="Azure Node.js tutorial MongoDB, Azure Node.js, Azure Node.js tutorial, MongoLab" footerexpose="" metadescription="A tutorial that demonstrates a Node.js application in a Windows Azure Website, that talks to MongoDB using MongoLab" umbraconavihide="0" disquscomments="1"></properties>
 
-# Node.js Web Application with Storage on MongoDB (Virtual Machine)
+# Node.js Web Application with Storage on MongoDB (MongoLab)
 This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on Windows Azure. [MongoDB] is a popular open source, high performance NoSQL database. This tutorial assumes that you have some prior experience using node, MongoDB, and [Git].
 
 You will learn:
 
-* How to set up a virtual machine running Linux or Windows and install MongoDB
+* How to set up a free MongoDB instance on Windows Azure using MongoLab
 * How to use npm (node package manager) to install the node modules
 * How to access MongoDB from a node application
 * How to use the Cross-Platform Tools for Windows Azure to create a Windows Azure Web Site
@@ -31,27 +31,25 @@ The project files for this tutorial will be stored in a directory named **taskli
 Before following the instructions in this article, you should ensure that you have the following installed:
 
 * [node] recent version
-
 * [Git]
 
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
 ##Preparation
 
-In this section you will learn how to create a virtual machine in Windows Azure and install MongoDB, set up your development environment, and install the MongoDB C# driver.
+In this section you will learn how to create a free MongoDB instance hosted in Windows Azure using MongoLab, set up your development environment, and install the MongoDB C# driver.
 
-###Create a virtual machine and install MongoDB
+###Create a free MongoDB instance using MongoLabs
 
-This tutorial assumes you have created a virtual machine in Windows Azure. After creating the virtual machine you need to install MongoDB on the virtual machine:
+Visit [MongoLab] to create a free MongoDB instance hosted on Windows Azure.
+![mongolab.com page showing creating a MongoDB database][mongolab-create]
 
-* To create a Linux virtual machine and install MongoDB, see [Installing MongoDB on a Linux Virtual machine].
-
-After you have created the virtual machine in Windows Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.
+After you have created a MongoDB instance in Windows Azure using MongoLab, note the connection information for your database.  You will need this information later in the tutorial.
+![mongolab.com page showing connection information for database][mongolab-view]
 
 ##Install modules and generate scaffolding
 
 In this section you will create a new Node application and use npm to add module packages. For the task-list application you will use the [Express] and [Mongoose] modules. The Express module provides a Model View Controller framework for node, while Mongoose is a driver for communicating with MongoDB.
-
 ###Install express and generate scaffolding
 
 1. From the command-line, change directories to the **tasklist** directory. If the **tasklist** directory does not exist, create it.
@@ -241,7 +239,7 @@ In this section you will extend the basic application created by the **express**
 
 	<div class="dev-callout">
 	<strong>Note</strong>
-	<p>You must replace the connection string above with the connection string for the MongoDB server you created earlier. For example, <strong>mongodb://mymongodb.cloudapp.net/tasks</strong>.</p>
+	<p>You must replace the connection string above with the connection string for the MongoDB server you created earlier. For example, <strong>mongodb://&ltuser&gt:&ltpassword&gt@ds037087.mongolab.com:37087/tasks</strong>.</p>
 	</div>
 
 4. Save the **app.js** file.
@@ -446,7 +444,7 @@ Before using the command-line tools with Windows Azure, you must first download 
 
 ##Next steps
 
-While the steps in this article describe using MongoDB to store information, you can also use the Windows Azure Table Service. See [Node.js Web Application with the Windows Azure Table Service] for more information.
+The steps in this article describe using MongoLab to host a MongoDB instance on Windows Azure to store information, you can also use the Windows Azure Virtual Machines to host a MongoDB instance. See [Node.js Web Application with Storage on MongoDB (Virtual Machine)] for more information.
 
 ##Additional resources
 
@@ -468,11 +466,13 @@ While the steps in this article describe using MongoDB to store information, you
 [Windows Azure Developer Center]: /en-us/develop/nodejs/
 [Create and deploy a Node.js application to Windows Azure Web Sites]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
 [Publishing to Windows Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
-[Installing MongoDB on a Linux Virtual machine]: /en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm/
-[Node.js Web Application with the Windows Azure Table Service]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
+[MongoLab]: http://mongolab.com
+[Node.js Web Application with Storage on MongoDB (Virtual Machine)]: /en-us/develop/nodejs/tutorials/website-with-mongodb-(mac)/
 [node-mongo-finished]: ../media/todo_list_empty.png
 [node-mongo-express-results]: ../media/express_output.png
 [node-mongo-add-item]: ../media/todo_add_item.png
 [node-mongo-list-items]: ../media/todo_list_items.png
 [download-publishing-settings]: ../../Shared/Media/azure-account-download-cli.png
 [import-publishing-settings]: ../media/azureimport.png
+[mongolab-create]: ../media/mongolab-create.png
+[mongolab-view]: ../media/mongolab-view.png
