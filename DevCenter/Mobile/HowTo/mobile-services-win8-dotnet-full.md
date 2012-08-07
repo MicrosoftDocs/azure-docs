@@ -1,9 +1,9 @@
-<properties linkid="mobile-how-to-mobile-service-metro-dotNet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Learn how to use Mobile Services in Windows Store apps in C# and Visual Basic" metakeywords="Get started Windows Azure Mobile Services, Azure mobile devices, Azure Windows 8" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps using C#, Visual Basic, and XAML." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="mobile-how-to-mobile-service-win8-dotNet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Learn how to use Mobile Services in WinRT apps for Windows 8 in C# and Visual Basic" metakeywords="Get started Windows Azure Mobile Services, Azure mobile devices, Azure Windows 8" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows apps using C#, Visual Basic, and XAML." umbraconavihide="0" disquscomments="1"></properties>
 
-# How to Use Mobile Services in Windows Store Apps
+# How to Use Mobile Services in Windows 8 apps
 Language: [JavaScript and HTML][] | **VB/C# and XAML**
 
-This guide will demonstrate how to use Windows Azure Mobile Services to easily create a Windows Store app that uses Windows Azure as the backend service for storage and authentication. Because you can develop Windows Store apps using either JavaScript and HTML or C#/VB and XAML, there is a version of this guide for each language.
+This guide will demonstrate how to use Windows Azure Mobile Services to easily create a WinRT app for Windows 8 that uses Windows Azure as the backend service for storage and authentication. Because you can develop WinRT apps using either JavaScript and HTML or C#/VB and XAML, there is a version of this guide for each language.
 
 ## Table of Contents
 -   [What is Mobile Services][]
@@ -11,8 +11,9 @@ This guide will demonstrate how to use Windows Azure Mobile Services to easily c
 -   [Getting started with Mobile Services][]
 	-	[Define the mobile service instance][]
 	-	[Add a new storage table][]
-	-	[Create a Windows Store application][]
+	-	[Create a Windows app][]
 -	[Working with Mobile Services][]
+	-	[How to: Manage Keys][]
 	-	[How to: Add columns to the table index][]
 	-	[How to: Authenticate with Windows Live][]
 	-	[How to: Manage table permissions][]
@@ -33,7 +34,7 @@ Windows Azure Mobile Services is a Windows Azure service offering designed to ma
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>In this preview release, Mobile Services only supports Windows Store apps.</p> 
+<p>In this preview release, Mobile Services only provides client support for Windows 8 apps.</p> 
 </div>
 
 ## <a name="concepts"> </a>Concepts
@@ -41,7 +42,7 @@ The following concepts are important for understanding the capabilities of Mobil
 
 -	**Mobile service instance:** Mobile Services provides a backend for your mobile apps such that each app has a unique mobile service instance. The Windows Azure Preview Management Portal enables you to create and manage your mobile services. You can independently manage settings, tables and scripts for each mobile service instance. 
 -	**Tables:** Mobile Services provides structured data storage for your apps in the form of tables. However, unlike tables in Windows Azure SQL Database, Mobile Services dynamically defines table schema based on the data that is uploaded from your app. You can use the Preview Management Portal to manually define and modify indexes and columns in tables. 
--	**Authentication:** In this preview release, Mobile Services supports authentication for Windows Store apps by using Windows Live. Support for identity providers will be expanded in future releases.
+-	**Authentication:** In this preview release, Mobile Services supports authentication for Windows apps by using Windows Live. Support for identity providers will be expanded in future releases.
 -	**Permissions:** Mobile Services allows you to restrict the operations against a table. This can be used to restrict operations to only authenticated users or users that have an application key.
 -	**Keys:** Mobile Services supports application keys. While not strictly a security feature, an application key, which is known to your app, can be used to filter out random HTTP requests not originiating from the app. 
 -	**Push notifications:** Mobile Services authenticates with the Windows Push Notification Services (WNS) to send notifications.
@@ -50,11 +51,11 @@ The following concepts are important for understanding the capabilities of Mobil
 
 ## <a name="getting-started"> </a>Getting started with Mobile Services
 This guide 
-In this guide, you will complete the following basic steps to create a working Windows Store app that uses Mobile Services:
+In this guide, you will complete the following basic steps to create a working Windows app that uses Mobile Services:
 
 1.	Register for the Mobile Services preview
 2.	Create a new mobile service in the Preview Management Portal.
-3.	Complete the tutorial in the Preview Management Portal to create a Windows Store app that accesses the new mobile service. 
+3.	Complete the tutorial in the Preview Management Portal to create a Windows app that accesses the new mobile service. 
 
 Once you have completed the guide, 
 
@@ -101,7 +102,6 @@ At this point, you must login to the Preview Management Portal to create a new m
 	![][2]
 
 	(Move this to the help drawer??)The entry can contain from 3-24 lowercase letters and numbers. This value becomes the host name within the URI that is used to address the mobile service instance, and must be globally unique in Mobile Services.
-
 5.	From **Database**, click **Create a new SQL Database**. Mobile Services will create a new SQL Database for your mobile service instance. Click the right arrow button to go to the next page.
 
 	![][3]
@@ -133,8 +133,8 @@ You now have a new service instance and a new SQL Database instance that can be 
 
 Next, you will complete the quickstart tutorial in the Preview Management Portal and insert data into this table. 
 
-###<a name="create-metro-app"></a>Create a Windows Store app
-Once you have created a mobile service instance, the Preview Management Portal will auto-generate a quickstart tutorial based on the new service configuration. You can select the type of application (for the preview, only Windows Store apps are available) and the programming language for the snippets provided to you in the quickstart.
+###<a name="create-win8-app"></a>Create a Windows app
+Once you have created a mobile service instance, the Preview Management Portal will auto-generate a quickstart tutorial based on the new service configuration. You can select the type of application (for the preview, only Windows apps are available) and the programming language for the snippets provided to you in the quickstart.
 
 1.	In the [Preview Management Portal][Management Portal preview], click **Mobile Services**. Then click the name of the new mobile service to open the dashboard.
 
@@ -245,7 +245,7 @@ Next steps are...
 [Getting started with Mobile Services]:#getting-started
 [Define the mobile service instance]:#define-mobile-service-instance
 [Add a new storage table]:#add-storage-table
-[Create a Windows Store application]:#create-metro-app
+[Create a Windows 8 app]:#create-win8-app
 [Working with Mobile Services]:#working-with-mobile
 [How to: Manage keys]:#managing-keys
 [How to: Add columns to the table index]:#how-to-add-index
@@ -275,6 +275,6 @@ Next steps are...
 [16]:  
 
 <!-- URLs. -->
-[JavaScript and HTML]: mobile-services-metro-javascript
+[JavaScript and HTML]: mobile-services-win8-javascript
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal preview]: https://manage.windowsazure.com/
