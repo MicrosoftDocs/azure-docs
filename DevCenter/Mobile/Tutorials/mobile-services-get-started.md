@@ -34,12 +34,12 @@ This topic shows you how to create a mobile service for your Windows 8 app using
 
 	![][3]
 
+    You have now created a new mobile service, along with a new SQL Database instance, that can be used by your mobile apps.
+
     <div class="dev-callout"> 
 	<b>Note</b> 
 	<p>When the password that you supply does not meet the minimum requirements or when there is a mismatch, a warning is displayed. <br/>Make a note of the the login name and password that you specify.</p> 
 	</div>
-
-You have now created a new mobile service, along with a new SQL Database instance, that can be used by your mobile apps.
 
 ### <a name="next-steps"> </a>Next Steps
 Once you have created the mobile service, there are two ways that you can get stared using the service in a Windows Store app: 
