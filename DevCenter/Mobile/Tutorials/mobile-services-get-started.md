@@ -10,10 +10,6 @@ A screenshot of the completed Windows 8 quickstart app is below:
 Completing this guide is a prerequisite for all other Mobile Services tutorials. 
 
 <div chunk="../../Shared/Chunks/create-account-and-mobile-note.md" />
-<div class="dev-callout"><strong>Note</strong>
-<p>To complete this tutorial, you need a Windows Azure account. You can create a free trial account and enable preview features in just a couple of minutes. For details, see <a href="../create-a-windows-azure-account/" target="_blank">Create a Windows Azure account and enable preview features</a>.</p>
-</div>
-**_(Above note will be a shared chunk)_**
 
 ### Create a new mobile service
 Follow these steps to create a new mobile service by using the default settings.
@@ -45,7 +41,7 @@ Follow these steps to create a new mobile service by using the default settings.
 	<p>When the password that you supply does not meet the minimum requirements or when there is a mismatch, a warning is displayed. <br/>Make a note of the the login name and password that you specify.</p> 
 	</div>
 
-You have now created a new mobile service, along with a new SQL Database instance, that can be used by your mobile apps.
+You have now created a new mobile service that can be used by your mobile apps.
 
 ### Add Mobile Services to a Windows 8 app
 
@@ -87,7 +83,7 @@ The final stage of this tutorial is to build and run your new Windows 8 app.
 
    ![][10]
 
-   This inserts the text in the ToDoItem table in the mobile service. Text already in the table is displayed in the second column.
+   This inserts the text in the ToDoItem table in the mobile service. Text stored in the table is returned by the service and displayed in the second column.
 
 ### <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
