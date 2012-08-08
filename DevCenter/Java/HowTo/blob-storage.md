@@ -57,12 +57,7 @@ you want to use Windows Azure storage APIs to access blobs:
 ## <a name="ConnectionString"> </a>Setup a Windows Azure storage connection string
 
 A Windows Azure storage client uses a storage connection string to store
-endpoints and credentials for accessing storage services. When running
-in a client application, you must provide the storage connection string
-in the following format, using the name of your storage account and the
-Primary access key for the storage account listed in the Management
-Portal for the *AccountName* and *AccountKey* values. This example shows
-how you can declare a static field to hold the connection string:
+endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Management Portal for the *AccountName* and *AccountKey* values. This example shows how you can declare a static field to hold the connection string:
 
     // Define the connection-string with your values
     public static final String storageConnectionString = 
