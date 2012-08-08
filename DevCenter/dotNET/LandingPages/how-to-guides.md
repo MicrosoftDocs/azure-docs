@@ -8,7 +8,7 @@ Blobs are the simplest way to store large amounts of unstructured text or binary
 ### [Table Service](/en-us/develop/net/how-to-guides/table-services/ "Table Service") ###
 Tables offer NoSQL capabilities for applications that require storage of large amounts of unstructured data. Tables are an ISO 27001 certified managed service that can auto-scale to store up to 100 terabytes of data. They are accessible from virtually anywhere via REST and managed APIs.
 
-### [SQL Database](/en-us/develop/net/how-to-guides/sql-azure/ "SQL Database") ###
+### [SQL Database](/en-us/develop/net/how-to-guides/sql-database/ "SQL Database") ###
 For applications that need a full featured relational database-as-a-service, Windows Azure offers SQL Database, formerly known as SQL Azure Database. SQL Database offers a high-level of interoperability, enabling customers to build applications using many of the major development frameworks.
 
 ### [SQL Reporting](/en-us/develop/net/how-to-guides/sql-reporting/) ###
@@ -33,15 +33,21 @@ Windows Azure Queues store large numbers of messages that can be accessed from a
 ### [Service Bus Relay](/en-us/develop/net/how-to-guides/service-bus-relay/ "Service Bus Relay") ###
 Service Bus Relay solves the challenges of communicating between on-premises applications and the outside world by allowing on-premises web services to project public endpoints. Systems can then access these web services, which continue to run on-premises from anywhere on the planet.
 
+## Security ##
+
+### [Access Control](/en-us/develop/net/how-to-guides/access-control/) ###
+
+Access Control is a Windows Azure service that provides an easy way of authenticating users who need to access your web applications and services, without having to factor complex authentication logic into your code. It provides integration with Windows Identity Foundation (WIF), support for popular web identity providers including Windows Live ID, Google, Yahoo, and Facebook, and support for ADFS 2.0.
+
+### [Single sign-on with Windows Azure Active Directory][Single sign-on with Windows Azure Active Directory]
+You can use web single sign-on (also called identity federation) to provide single sign-on access through a federated mechanism that relies on a Security Token Service (STS).  This guide shows you how to accomplish this using the STS in your Office 365 tenant provided by Windows Azure Active Directory.
+
+
 ## Additional guides ##
 
 ### [Caching](/en-us/develop/net/how-to-guides/cache/) ###
 
 Caching increases performance by temporarily storing information from other backend sources, and can reduce the costs associated with database transactions in the cloud. Choose between two deployment options: Windows Azure Caching is a dedicated system you can deploy along with your application; Shared Caching is a fully managed service.
-
-### [Access Control](/en-us/develop/net/how-to-guides/access-control/) ###
-
-Access Control is a Windows Azure service that provides an easy way of authenticating users who need to access your web applications and services, without having to factor complex authentication logic into your code. It provides integration with Windows Identity Foundation (WIF), support for popular web identity providers including Windows Live ID, Google, Yahoo, and Facebook, and support for ADFS 2.0.
 
 ### [Diagnostics](/en-us/develop/net/common-tasks/diagnostics/) ###
 
@@ -58,7 +64,8 @@ Windows Azure Media Services provides an extensible media platform on Windows Az
 
 Windows Azure applications can use SendGrid to include email functionality.  SendGrid provides reliable email delivery,  real-time analytics, and flexible APIs that allow users to easily incorporate the service into their Windows Azure applications.
 
-### [Twilio](/en-us/develop/net/how-to-guides/twilio/) ###
+### [Twilio](/en-us/develop/net/how-to-guides/twilio-voice-and-sms-service/) ###
 
 Windows Azure applications can use Twilio to incorporate phone call and Short Message Service (SMS) message functionality.  Use the Twilio APIs to make and receive phone calls, make and receive SMS messages, and enable voice communication using existing internet connections, including mobile connections.
 
+[Single sign-on with Windows Azure Active Directory]: /en-us/develop/net/how-to-guides/web-sso/

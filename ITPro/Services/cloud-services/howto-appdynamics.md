@@ -13,8 +13,6 @@ This topic describes how to get started with AppDynamics for Windows Azure.
 * [Add the .NET Agent to Windows Azure Roles and Modify Startup](#addagent)
 * [Publish the AppDynamics-Instrumented Application to Windows Azure](#publish)
 * [Monitor Your Application](#monitor)
-* [Learn More](#learn)
-
 
 
 <h2 id="what">What is AppDynamics?</h2>
@@ -31,7 +29,7 @@ There are two components in AppDynamics:
 
 - AppDynamics Controller: The Agent sends its information to an AppDynamics Controller hosted service on Windows Azure. Using a web browser-based console, you log into the Controller to monitor, analyze and troubleshoot your application.
 
-	![diagram](../media/addiagram.png)
+	![AppDynamics Diagram](../media/addiagram.png)
 
 
 <h2 id="prereq">Prerequisites</h2>
@@ -45,15 +43,15 @@ There are two components in AppDynamics:
 
 To register for an AppDynamics for Windows Azure account:
 
-1. Click **Try Free** or **Sign Up** for AppDynamics on the Windows Azure Marketplace at [https://datamarket.azure.com/browse/Applications](https://datamarket.azure.com/browse/Applications)
+1. Click **Try Free** or **Sign Up** for AppDynamics on the Windows Azure Marketplace at [https://datamarket.azure.com/browse/Applications](https://datamarket.azure.com/browse/Applications).
 
 	If you choose **Sign Up**, you receive a free version of AppDynamics Pro for Windows Azure with full functionality, which downgrades after 30 days to a free version of AppDynamics Lite for Azure with limited functionality. You do not need to provide a credit card for this option. You can upgrade to AppDynamics Pro for Windows Azure at any time.
 
 	If you choose **Try Free**, you receive a free version of AppDynamics Pro for Windows Azure with full functionality. You need to provide a credit card for this option. After 30 days your credit account will be charged for continued use of AppDynamics Pro for Windows Azure, unless you cancel your subscription.
 
-	You need one agent license for each role instance that you wish to monitor. For example, a site running 2 Web role instances requires 4 agent licenses.
+	You need one agent license for each role instance that you wish to monitor. For example, a site running 2 Web role instances and 2 Worker role instances requires 4 agent licenses.
 
-2. On the registration page, provide your user information, a password, and the name of the application you are monitoring as you will publish it with Windows Azure.
+2. On the registration page, provide your user information, a password, email address, company name, and the name of the application you are monitoring as you will publish it with Windows Azure.
 
 3. Click **Register Now**.
 
@@ -69,7 +67,7 @@ To register for an AppDynamics for Windows Azure account:
 
 	- Controller URL: from which to log into your account on the AppDynamics controller hosted service
 
-	- AppDynamics credentials: Account Name and Account Key
+	- AppDynamics credentials: Account Name and Access Key
 
 	- Link to the AppDynamics download site: from which to download the AppDynamics .NET Agent
 
@@ -83,7 +81,7 @@ To register for an AppDynamics for Windows Azure account:
 
 1. Navigate to the AppDynamics download site. The URL is in your welcome email and on your AppDynamics account home page.
 
-2. Log in with your AppDynamics account name and key.
+2. Log in with your AppDynamics account name and access key.
 
 3. Download the file named AppDynamicsdotNetAgentSetup64.msi. Do not run the file.
 
@@ -119,7 +117,7 @@ This step instruments the roles in your Visual Studio solution for monitoring by
 	Add the following lines:
 
 		<Startup>
-		<Task commandLine="startup.cmd [your_controller_host] [your_controller_port] [your_account_name] [your_account_key] [your_application_name]" executionContext="elevated" taskType="simple"/>
+		<Task commandLine="startup.cmd [your_controller_host] [your_controller_port] [your_account_name] [your_access_key] [your_application_name]" executionContext="elevated" taskType="simple"/>
 		</Startup>
 	
 	where:
@@ -128,10 +126,11 @@ This step instruments the roles in your Visual Studio solution for monitoring by
 
 		
 	- *your application name* is the name you choose for the application. This name will identify the application in the AppDynamics Controller interface.
-	
+
 	Your ServiceDefinition.csdef file will look something like this: 
 
-	![ServiceDefinition](../media/adscreen.png)
+	![Service Definition](../media/adscreen.png)
+
 
 ##<a name="publish"></a>Publish the AppDynamics-Instrumented Application to Windows Azure
 
@@ -148,9 +147,13 @@ For each AppDynamics-instrumented role project:
 
 2. Send some requests to your application so there is some traffic to monitor and wait a few minutes.
 
-3. Monitor your application.
+3. In the AppDynamics Controller, select your application.
+
+4. Monitor your application.
 
 ##<a name="learn"></a>Learn More
 
 See your AppDynamics account home page for links to documentation and videos.
+
+The latest updates to this document are in the wiki version at [http://docs.appdynamics.com/display/ADAZ/How+To+Use+AppDynamics+for+Windows+Azure](http://docs.appdynamics.com/display/ADAZ/How+To+Use+AppDynamics+for+Windows+Azure). 
 

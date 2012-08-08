@@ -211,8 +211,10 @@ with the issuer key that you obtained in the setup step above.
               TokenProvider = TokenProvider.CreateSharedSecretTokenProvider( "owner", "**key**")});
 
     sh.Open();
+
     Console.WriteLine("Press ENTER to close");
     Console.ReadLine();
+
     sh.Close();
 
 In the example, you create two endpoints that are on the same
@@ -351,7 +353,7 @@ follow these links to learn more.
   [Create a Service Namespace]: #create_namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
   [Get the Service Bus NuGet Package]: #get_nuget_package
-  [How to: Use Service Bus to Expose and Consume a SOAP Web Service with TCP]: #how_soap
+  [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
   [Relay Concepts]: ../../../DevCenter/dotNet/Media/sb-relay-01.png
   [Windows Azure Management Portal]: http://windows.azure.com
   [0]: ../../../DevCenter/dotNet/Media/sb-queues-03.png

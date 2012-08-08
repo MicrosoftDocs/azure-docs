@@ -4,18 +4,14 @@
 
 Contact the partners listed on this page for assistance in delivering your Linux-based cloud solutions in Windows Azure. In addition, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
 
-##Canonical Juju
 
-[![Juju](../media/manage/manage-partner-juju.png)](http://www.ubuntu.com/cloud/azure)
+##Bitnami
 
-[http://www.ubuntu.com/cloud/azure](http://www.ubuntu.com/cloud/azure)
+[![Bitnami](../media/bitnami.png) ](http://bitnami.org/azure/get-started)
 
-After recognizing cloud computing was the future and analyzing what cloud adoption would mean to both IT organizations and developers, we've developed Juju, a game-changing service orchestration toolset, that enables the knowledge connected with an application—dependencies, relations and platform configuration—to be encapsulated in a charm.
+[http://bitnami.org/azure/get-started](http://bitnami.org/azure/get-started)
 
-A Juju charm is a collection of pre-written instructions that deploys a cloud service. More than 50 are already available, for services including Hadoop, PostgreSQL and Drupal. And because anyone can submit one, the selection is growing all the time.
-
-Juju is tightly coupled with provisioning, however independent of the underlying infrastructure layer. The base platform can be installed on a public cloud, private cloud, or hardware, ready for the services to be deployed, controlled, and scaled on top with Juju.
-
+BitNami provides fully configured images of popular web applications that can be deployed to Windows Azure in one click. The BitNami WebPack and DevPack images for Windows Azure provide fully configured and ready-to-run environments for web and application developers, free of charge. BitNami WebPack bundles Wordpress, Drupal and Joomla! to give developers a choice of the best platforms for developing websites and blogs. BitNami DevPack provides a development environment complete with Ruby on Rails, PHP, Django and Java language runtimes and all of their dependencies, everything developers need to build web applications in the cloud.
 
 
 ##Opscode Chef
@@ -47,9 +43,22 @@ ScaleXtreme gives customers the power to build, launch, monitor, patch, and mana
 
 ##SUSE Studio
 
-[![SUSE](../media/manage/manage-partner-suse-stuido.png) ](http://www.susestudio.com)
+[![SUSE](../media/suse.png) ](http://www.susestudio.com)
 
 [www.susestudio.com](http://www.susestudio.com)
 
 SUSE makes it easy to extend SUSE Linux Enterprise Server-based applications to Windows Azure using the one-click-deployment capabilities of SUSE Studio.  Through SUSE Studio, customers can rapidly develop cloud-ready applications that include a preconfigured, integrated and fully supported enterprise-class Linux operating system, and automatically launch them on Windows Azure, virtually eliminating inefficient manual processes. 
+
+
+##Ubuntu Juju
+
+[![Juju](../media/juju.png)](http://www.ubuntu.com/cloud/azure)
+
+[http://www.ubuntu.com/cloud/azure](http://www.ubuntu.com/cloud/azure)
+
+After recognizing cloud computing was the future and analyzing what cloud adoption would mean to both IT organizations and developers, we've developed Juju, a game-changing service orchestration toolset, that enables the knowledge connected with an application—dependencies, relations and platform configuration—to be encapsulated in a charm.
+
+A Juju charm is a collection of pre-written instructions that deploys a cloud service. More than 50 are already available, for services including Hadoop, PostgreSQL and Drupal. And because anyone can submit one, the selection is growing all the time.
+
+Juju is tightly coupled with provisioning, however independent of the underlying infrastructure layer. The base platform can be installed on a public cloud, private cloud, or hardware, ready for the services to be deployed, controlled, and scaled on top with Juju.
 

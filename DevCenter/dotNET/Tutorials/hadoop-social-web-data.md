@@ -1,6 +1,6 @@
 # Analyzing Twitter Movie Data with Hive 
 
-In this tutorial we will query, explore, and analyze data from twitter using Apache Hadoop-based Service for Windows Azure and a Hive query in Excel. Social web sites are one of the major driving forces for Big Data adoption. Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends.  
+In this tutorial we will query, explore, and analyze data from twitter using Apache™ Hadoop™-based Services for Windows Azure and a Hive query in Excel. Social web sites are one of the major driving forces for Big Data adoption. Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends.  
 
 This tutorial is composed of the following segments:
 

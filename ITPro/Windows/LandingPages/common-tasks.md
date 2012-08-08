@@ -15,9 +15,14 @@ Learn how to use an image from the Windows Azure virtual machine gallery. You wi
  
 Learn how to install the Hyper-V role on your server, create the image, and then upload the image to Windows Azure. 
 
+###[Load Balancing Virtual Machines](/en-us/manage/windows/common-tasks/how-to-load-balance-virtual-machines/)
+Learn how to set up load balancing among multiple virtual machines that are part of a cloud service.
+
 ###[Install MongoDB on a virtual machine running Windows Server 2008 R2 in Windows Azure](/en-us/manage/windows/common-tasks/install-mongodb/)
 
 Learn how to use the Windows Azure (Preview) Management Portal to create a Windows Server 2008 R2 SP1 virtual machine from the gallery. Next connect to the virtual machine using Remote Desktop, and then install MongoDB on the virtual machine.
 
+###[Install MySQL on a virtual machine running Windows Server 2008 R2 in Windows Azure](/en-us/manage/windows/common-tasks/install-mysql/)
 
+Learn how to create a virtual machine that is running Windows Server 2008 R2 and then install and configure a MySQL database on the virtual machine.
 

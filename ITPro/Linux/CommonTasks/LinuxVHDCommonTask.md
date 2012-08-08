@@ -1,7 +1,7 @@
 <properties umbracoNaviHide="0" pageTitle="Create and Upload a Linux Virtual Hard Disk (VHD) to Windows Azure" metaKeywords="" metaDescription="" linkid="manage-linux-common-tasks-upload-vhd" urlDisplayName="Upload VHD" headerExpose="" footerExpose="" disqusComments="1" />
-# Create and Upload a Linux virtual hard disk (VHD) to Windows Azure 
+# Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System 
 
-<div chunk="../../shared/chunks/disclaimer.md" />
+To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
 
 A virtual machine that you create in Windows Azure runs the operating system that you choose from the supported operating system versions. You can customize the operating system settings of the virtual machine to facilitate running your application. The configuration that you set is stored on disk. You create a virtual machine in Windows Azure by using a virtual hard disk (VHD) file. You can choose to create a virtual machine by using a VHD file that is supplied for you in the Image Gallery, or you can choose to create your own image and upload it to Windows Azure in a VHD file.
 
@@ -14,7 +14,7 @@ The following resources must be available to complete this task:
 	- CentOS 6.2
 	- Ubuntu 12.04
 - **Linux Azure command-line tool.** If you are using a Linux operating system to create your image, you use this tool to upload the VHD file. To download the tool, see [Windows Azure Command-Line Tools for Linux and Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409).
-- **CSUpload command-line tool.** If you are using a Windows Server operating system to create your image, you use this tool to set the connection to Windows Azure and upload the VHD file. To download the SDK and the tools, see [Windows Azure Downloads](https://www.windowsazure.com/en-us/develop/downloads/).
+- **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. You must use the tools available in Windows Azure SDK - June 2012 or later to upload VHDs to Windows Azure. To download the SDK and the tools, see [Windows Azure Downloads](/en-us/develop/downloads/).
 
 This task includes the following steps:
 
@@ -336,7 +336,7 @@ You must set the connection string that is used to access the subscription. The 
 
 2. Set the connection string by using the following command and replacing **Subscriptionid** and **CertThumbprint** with the values that you obtained earlier:
 
-		csupload Set-Connection "SubscriptionID=<Subscriptionid>;CertificateThumbprint=<Thumbprint>;ServiceManagementEndpoint=https://management-preview.core.windows-int.net"
+		csupload Set-Connection "SubscriptionID=<Subscriptionid>;CertificateThumbprint=<Thumbprint>;ServiceManagementEndpoint=https://management.core.windows.net"
 
 After the connection string is set, you use the CSUpload command-line tool to upload a VHD file to the Image Gallery in Windows Azure.
 

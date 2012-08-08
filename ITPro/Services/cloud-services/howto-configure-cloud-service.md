@@ -2,13 +2,13 @@
 
 
 
-<h1 id="configurecloudservice">How To Configure Cloud Services</h1>
+<h1 id="configurecloudservice">How to Configure Cloud Services</h1>
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-You can configure the most commonly used settings for a cloud service in the Windows Azure (Preview) Management Portal. Or, if you like to update your configuration files directly, download a service configuration file to update, and then upload the updated file and update the cloud service with the configuration changes. Either way, the configuration updates are pushed out to all role instances.
+You can configure the most commonly used settings for a cloud service in the Windows Azure Preview Management Portal. Or, if you like to update your configuration files directly, download a service configuration file to update, and then upload the updated file and update the cloud service with the configuration changes. Either way, the configuration updates are pushed out to all role instances.
 
-Windows Azure can only ensure 99.95 percent service availability during the configuration updates if you have at least two role instances (virtual machines) for every role. That enables one virtual machine to process client requests while the other is being updated.
+Windows Azure can only ensure 99.95 percent service availability during the configuration updates if you have at least two role instances (virtual machines) for every role. That enables one virtual machine to process client requests while the other is being updated. For more information, see [Service Level Agreements](https://www.windowsazure.com/en-us/support/legal/sla/).
 
 ##Table of Contents##
 
@@ -18,7 +18,7 @@ Windows Azure can only ensure 99.95 percent service availability during the conf
 
 <h2 id="update">How to: Update the cloud service configuration</h2>
 
-1. In the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
+1. In the [Windows Azure Preview Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
 
 
 2. Click **Configure**.
@@ -27,7 +27,7 @@ Windows Azure can only ensure 99.95 percent service availability during the conf
 
 	![Configuration Page] (../media/CloudServices_ConfigurePage1.png)
 
-3. In monitoring settings, set the monitoring level to Verbose or Minimal, and configure the diagnostics connection strings that are required for verbose monitoring. For instructions, see [How to Monitor Cloud Services](./how-to-monitor-a-cloud-service/).
+3. In monitoring settings, set the monitoring level to Verbose or Minimal, and configure the diagnostics connection strings that are required for verbose monitoring. For instructions, see [How to Monitor Cloud Services](../how-to-monitor-a-cloud-service/).
 
 
 4. For service roles (grouped by role), you can update the following settings:
@@ -36,17 +36,17 @@ Windows Azure can only ensure 99.95 percent service availability during the conf
 	
 	>- **Certificates**   Change the certificate thumbprint that's being used in SSL encryption for a role. To change a certificate, you must first upload the new certificate (on the **Certificates** page). Then update the thumbprint in the certificate string displayed in the role settings.
 
-5. In **operating system settings**, you can change the operating system family or version for role instances (virtual machines), or choose **Automatic** to resume automatic updates of the current OS version. The operating system settings apply to web roles and worker roles, but do not affect VM roles that were added to hosted services in the previous Windows Azure Management Portal.
+5. In **operating system settings**, you can change the operating system family or version for role instances (virtual machines), or choose **Automatic** to resume automatic updates of the current operating system version. The operating system settings apply to web roles and worker roles, but do not affect VM roles that were added to hosted services in the previous Windows Azure Management Portal.
 
- When you deploy a new cloud service, you can choose either the Windows Server 2008 R2 or Windows Server 2008 with Service Pack 2 (SP2) operating system. During deployment, the most recent OS version is installed on all role instances, and the operating systems are updated automatically by default. 
+ When you deploy a new cloud service, you can choose either the Windows Server 2008 R2 or Windows Server 2008 with Service Pack 2 (SP2) operating system. During deployment, the most recent operating system version is installed on all role instances, and the operating systems are updated automatically by default. 
 
- If you need for your cloud service to run on a different operating system version because of compatibility requirements in your code, you can choose an OS family and version. When you choose a specific OS version, automatic OS updates for the cloud service are suspended. You will need to ensure the operating systems receive updates.
+ If you need for your cloud service to run on a different operating system version because of compatibility requirements in your code, you can choose an operating system family and version. When you choose a specific operating system version, automatic operating system updates for the cloud service are suspended. You will need to ensure the operating systems receive updates.
 
- If you resolve all compatibility issues that your apps have with the most recent OS version, you can resume automatic OS updates by setting the OS version to **Automatic**. 
+ If you resolve all compatibility issues that your apps have with the most recent operating system version, you can resume automatic operating system updates by setting the operating system version to **Automatic**. 
 
 	![OS Settings] (../media/CloudServices_ConfigurePage_OSSettings.png)
 
-6. To save your configuration settings, and push them to the role instances, click **Save**. (Click **Discard** to cancel the changes.) After you change a setting, **Save** and **Discard** are added to the command bar.
+6. To save your configuration settings, and push them to the role instances, click **Save**. (Click **Discard** to cancel the changes.) **Save** and **Discard** are added to the command bar after you change a setting.
 
 ###To update a cloud service configuration file manually###
 
@@ -79,13 +79,11 @@ On the **Configure** page, you can complete the Remote Desktop configuration or 
 
 ###Before you begin###
 
-- Before you deploy your cloud service, configure your application for Remote Desktop.
-
-- You must add &lt;Import%gt; elements to the service definition file (.csdef) to import the RemoteAccess and RemoteForwarder modules into the service model. When those modules are present, Windows Azure adds the configuration settings for Remote Desktop to the service configuration file. To complete the Remote Desktop configuration, you will need to import a certificate to Windows Azure, and specify the certificate in the service configuration file. For more information, see [Overview of Setting Up a Remote Desktop Connection for a Role](http://msdn.microsoft.com/en-us/library/windowsazure/gg433010.aspx).
+- Before you deploy your cloud service, configure your application for Remote Desktop.<br /><br />You must add &lt;Import&gt; elements to the service definition file (.csdef) to import the RemoteAccess and RemoteForwarder modules into the service model. When those modules are present, Windows Azure adds the configuration settings for Remote Desktop to the service configuration file. To complete the Remote Desktop configuration, you will need to import a certificate to Windows Azure, and specify the certificate in the service configuration file. For more information, see [Overview of Setting Up a Remote Desktop Connection for a Role](http://msdn.microsoft.com/en-us/library/windowsazure/gg433010.aspx).
 
 ###To configure or modify Remote Access for role instances###
 
-1. In the [Management Portal](http://manage.windowsazure.com/), click Cloud Services. Then click the name of the cloud service to open the dashboard.
+1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
 
 2. Open the **Configure** page for the cloud service, and click **Remote**.
 

@@ -13,6 +13,8 @@ By following this tutorial, you will build a simple registration web application
 
 ![Windows Azure PHP web site][running-app]
 
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+
 ##Set up the development environment
 
 This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), a web server, and [Git][install-git] installed on your computer.
@@ -21,14 +23,6 @@ This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (
 <b>Note</b>
 <p>If you are performing this tutorial on Windows, you can set up your machine for PHP and automatically configure IIS (the built-in web server in Windows) by installing the <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">Windows Azure SDK for PHP</a>.</p>
 </div>
-
-### Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
 ##Create a Windows Azure web site and set up Git publishing
 
@@ -88,7 +82,7 @@ To connect to the MySQL database that is running in Windows Azure Web Sites, you
 
 Now that you have created a Windows Azure Website, you can develop your application locally, then deploy it after testing. 
 
-The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a MySQL database. The application consists of one file:
+The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a MySQL database. The application consists of one file (copy/paste code available below):
 
 * **index.php**: Displays a form for registration and a table containing registrant information.
 
@@ -204,7 +198,7 @@ After you have tested your application locally, you can publish it to your Windo
 
 <div class="dev-callout">
 <b>Note</b>
-<p>These are the same steps shown in the portal at the end of the <b>Create a Windows Azure web site and Set up Git Publishing</b> section.</p>
+<p>These are the same steps shown in the portal at the end of the Create a Windows Azure web site and Set up Git Publishing section above.</p>
 </div>
 
 1. (Optional)  If you've forgotten or misplaced your Git remote repostitory URL, navigate to the Deployment tab on the portal.

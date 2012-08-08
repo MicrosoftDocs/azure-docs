@@ -1,4 +1,4 @@
-# Configuring a Custom Domain Name in Windows Azure
+# Configuring a Custom Domain Name for a Windows Azure Cloud Service or Storage Account
 
 When you create an application in Windows Azure, Windows Azure provides
 a friendly subdomain on the cloudapp.net domain so your users can access
@@ -9,6 +9,11 @@ access your data on a URL like
 https://<*mystorageaccount*>.blob.core.windows.net. However, you can
 also expose your application and data on your own domain name, such as
 contoso.com.
+
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>The procedures in this task apply to Windows Azure Cloud Services and storage accounts; for Web Sites, see <a href="../custom-dns-web-site/"></a>.</p> 
+</div>
 
 This task will show you how to:
 
@@ -96,14 +101,16 @@ is the same.
 A visitor of **www.contoso.com** will never see the true host
 (contoso.cloudapp.net), so the forwarding process is invisible to the
 end user.
-
-**Note:** The example above only applies to traffic at the **www**
+<div class="dev-callout">
+<b>Note</b>
+<p>The example above only applies to traffic at the **www**
 subdomain. You cannot specify a root CNAME record that directs all
 traffic from a custom domain to your cloudapp.net address, so additional
 alias records must be added. If you want to direct all traffic from a
 root domain, such as contoso.com, to your cloudapp.net address, you can
 configure a **URL Redirect** or **URL Forward** entry in your DNS
-settings, or create an A record as described earlier.
+settings, or create an A record as described earlier.</p>
+</div>
 
 <a name="access-data"> </a>
 
@@ -176,10 +183,13 @@ http://&lt;<em>custom.sub.domain</em>&gt;/$root/&lt;<em>myblob</em>&gt;
 </tr>
 </tbody>
 </table>
-**Note:** The tasks in this section use a DNS feature called CNAME, where
+<div class="dev-callout">
+<b>Note</b>
+<p>The tasks in this section use a DNS feature called CNAME, where
 a source domain points to a destination domain. Most domain registrars
 support specifying a subdomain (for example www.contoso.com or
-data.contoso.com) but not root domain (for example contoso.com) as the source domain. Accordingly, a subdomain is used as the example below.
+data.contoso.com) but not root domain (for example contoso.com) as the source domain. Accordingly, a subdomain is used as the example below.</p>
+</div>
 
 ### Task Overview
 
@@ -282,7 +292,10 @@ Web Browser</td>
         0e6cd138-82b8-4136-adae-91dbaa369576.data.contoso.com
     -   **Points to host name:** verify.azure.com
 
-    <strong>Note:</strong> Different domain registrars use different names for the two parameters in the CNAME record.
+    <div class="dev-callout">
+	<b>Note</b>
+	<p>Different domain registrars use different names for the two parameters in the CNAME record.</p>
+	</div>
 
 2.  Allow time for the CNAME record to propagate to all name servers on
     the Internet. Propagation can take 12 hours or longer.
@@ -305,21 +318,27 @@ Web Browser</td>
     If the validation is successful, the status of the custom subdomain
     changes to **Allowed**.
 
-    **Note:** If the validation is not successful, the **Validate Custom
+    <div class="dev-callout">
+	<b>Note</b>
+	<p>If the validation is not successful, the **Validate Custom
     Domain** dialog box displays a validation status of **Validation
     Failed**, and the items list shows the custom subdomain status as
     **Forbidden**. In that case, you might need to wait awhile longer to
     allow the updated domain record to finish propagating to all name
-    servers on the Internet.
+    servers on the Internet.</p>
+	</div>
 
-    **Important:** Windows Azure only validates that a CNAME record for
+    <div class="dev-callout">
+	<b>Important</b>
+	<p>Windows Azure only validates that a CNAME record for
     the domain corresponds to the alias that you copied from the
     **Validate Custom Domain** dialog box. (In the **Properties** pane
     for the custom domain, this alias is displayed under **CName
     redirect**.) Windows Azure does not check to make sure that you used
     a subdomain for the custom domain. If you did not use a subdomain
     for the custom domain, you will not be able to access your blobs
-    using the custom domain name, even if validation succeeds.
+    using the custom domain name, even if validation succeeds.</p>
+	</div>
 
 <a name="associate-subdomain"> </a>
 

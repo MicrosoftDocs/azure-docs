@@ -22,7 +22,7 @@ To set up a cloud service to automatically build and deploy to Windows Azure by 
 
 ## <a name="step1"> </a>Step 1: Sign up for TFS Preview:
 
-1.	Create a TFS account by navigating to [http://tfspreview.com](http://tfspreview.com).
+1.	Create a TFS account by navigating to [https://tfspreview.com](http://tfspreview.com).
  
 2.	Create a team project by navigating to your TFS account page. Your account will have the form: http://&lt;username&gt;.tfspreview.com.  You will need to sign-in using a Microsoft Live ID account.<br/>
 ![][1]
@@ -35,13 +35,13 @@ To set up a cloud service to automatically build and deploy to Windows Azure by 
 
 ## <a name="step2"> </a>Step 2: Check in a project to TFS:
 
-1. Click the **Open new instance in Visual Studio** link to automatically launch Visual Studio connected to your team project. If you see any security dialog boxes, choose Allow.<br/>
+1. Click the **Open new instance in Visual Studio** link to automatically launch Visual Studio connected to your team project. If you see any security dialog boxes, choose Allow. This step requires Visual Studio 2012.<br/>
 ![][4]
 
 2. In Visual Studio, open the solution you want to deploy, or create a new one.
 You can deploy a website or a cloud service (Windows Azure Application) by following the steps in this walkthrough.
 If you want to create a new solution, you can either create a new Windows Azure Cloud Service project,
-or a new ASP.NET MVC4 project. If you create a new cloud service, make sure that it targets .NET Framework 4,
+or a new ASP.NET MVC4 project. Make sure that the project targets .NET Framework 4,
 and add an ASP.NET MVC 4 web role and a worker role. When prompted, choose **Internet Application**.
 If you want to create a website, choose the ASP.NET MVC4 Application project template.
 
@@ -65,7 +65,7 @@ Note the options to include or exclude specific changes when you check in. If de
 1. Now that you have a TFS team project with some source code in it, you are ready to connect your team project to Windows Azure.  In the [Windows Azure Preview Portal](http://manage.windowsazure.com), select your cloud service or web site, or create a new one by selecting the + icon at the bottom left and choosing **Cloud Service** or **Web Site** and then **Quick Create**. Choose the **Set up TFS publishing** link.<br/>
 ![][10]
 
-2. In the wizard, type the name of your TFS account in the textbox and click the **Authorize Now** link.<br/>
+2. In the wizard, type the name of your TFS account in the textbox and click the **Authorize Now** link. You might be asked to sign in.<br/>
 ![][11]
 
 3. In the OAuth pop-up dialog, choose **Accept** to authorize Windows Azure to configure your team project in TFS.<br/>
@@ -117,6 +117,23 @@ In the **Trigger** tab, you will see that the build definition is set to build o
 <br/>
 In the **Process** tab, you can see the deployment environment is set to the name of your cloud service or web site.<br/>
 ![][27]
+<br/>
+Specify values for the properties if the values differ from the defaults.
+The following table shows default values of the properties:
+	<table>
+<tr><td><b>Property</b></td><td><b>Default Value</b></td></tr>
+<tr><td>Allow Upgrade</td><td>true</td></tr>
+<tr><td>Cloud Service Environment</td><td>Staging</td></tr>
+<tr><td>Cloud Service Name</td><td>The name of the service you are connected to</td></tr>
+<tr><td>Deployment Label</td><td>The same as the service name</td></tr>
+<tr><td>Service Configuration</td><td>ServiceConfiguration.Cloud.cscfg</td></tr>
+<tr><td>Storage Account Name</td><td>Blank, which means try to find a storage account.</td></tr>
+<tr><td>Publish Profile</td><td>The .azurePubxml file. If you check in one, you can choose it here.</td></tr>
+</table>
+<br/>
+If the storage account property is left blank, Windows Azure searches for one. If there is a storage
+account with the same name as the cloud service, it is used. Otherwise, it uses another storage account,
+or if there is no storage account, it creates one.
 
 11. By this time, your build should be completed successfully.<br/>
 ![][28]

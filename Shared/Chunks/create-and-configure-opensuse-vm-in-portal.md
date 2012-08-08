@@ -1,3 +1,4 @@
+
 1. Login to the [Windows Azure (Preview) Management Portal][AzurePreviewPortal] using your Windows Azure account.
 2. In the Management Portal, at the bottom left of the web page, click **+New**, click **Virtual Machine**, and then click **From Gallery**.
 ![Create a New Virtual Machine][Image1]
@@ -54,7 +55,7 @@ If you are using a Windows computer, connect to the VM using PuTTY. PuTTY can be
 ##Update the Virtual Machine (optional)
 1. Once you've connected to the virtual machine, you can optionally install system updates and patches. Run:
 
-	`# yast2`
+	`$ sudo zypper update`
 
 2. Select **Software** then **Online Update**.  A list of updates is displayed.  Select **Accept** to start the installation and apply all new patches (except the optional ones) that are currently available for your system. 
 
@@ -67,5 +68,5 @@ If you are using a Windows computer, connect to the VM using PuTTY. PuTTY can be
 [Image21]: ../../Shared/Media/SUSEVmConfiguration0.png
 [Image2]: ../../Shared/Media/SUSEVmConfiguration1.png
 [Image3]: ../../Shared/Media/SUSEVmConfiguration2.png
-[Image4]: ../../Shared/Media/VmConfiguration3.png
+[Image4]: ../../Shared/Media/SUSEVmConfiguration3.png
 [Image6]: ../../Shared/Media/putty.png

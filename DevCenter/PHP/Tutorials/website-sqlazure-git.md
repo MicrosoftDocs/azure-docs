@@ -19,15 +19,9 @@ By following this tutorial, you will build a simple registration web application
 
 ![Windows Azure PHP Website][running-app]
 
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+
 ##Create a Windows Azure Website and set up Git publishing
-
-### Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
 Follow these steps to create a Windows Azure Website and a SQL Database:
 
@@ -91,7 +85,7 @@ To connect to the SQL Database instance that is running in Windows Azure Website
 
 ##Build and test your application locally
 
-The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a SQL Database instance. The application consists of two files:
+The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a SQL Database instance. The application consists of two files (copy/paste code available below):
 
 * **index.php**: Displays a form for registration and a table containing registrant information.
 * **createtable.php**: Creates the SQL Database table for the application. This file will only be used once.
@@ -250,14 +244,14 @@ After you have tested your application locally, you can publish it to your Windo
 
 <div class="dev-callout">
 <b>Note</b>
-<p>In the <code>$host</code>, the value of <b>SERVER</b> must be prepended with <code>tcp:</code>, and the value of <code>$user</code> is the concatenation of the value of <b>USERNAME</b>, '@', and your server ID. Your server ID is the first 10 characters of the value of <b>SERVER</b>.</p>
+<p>In the <code>$host</code>, the value of SERVER must be prepended with <code>tcp:</code>, and the value of <code>$user</code> is the concatenation of the value of USERNAME, '@', and your server ID. Your server ID is the first 10 characters of the value of SERVER.</p>
 </div>
 
 Now, you are ready to set up Git publishing and publish the application.
 
 <div class="dev-callout">
 <b>Note</b>
-<p>These are the same steps noted at the end of the <b>Create a Windows Azure Website and Set up Git Publishing</b> section.</p>
+<p>These are the same steps noted at the end of the Create a Windows Azure Website and Set up Git Publishing section above.</p>
 </div>
 
 1. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:

@@ -17,19 +17,11 @@ For purposes of this tutorial, an Apache Tomcat application server will be insta
 
 ![Virtual machine running Apache Tomcat][virtual_machine_tomcat]
 
-## Setting up your account
-
-### Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Virtual Machines
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup-iaas.md" />
+<div chunk="../../Shared/Chunks/create-account-and-vms-note.md" />
 
 ## To create a virtual machine
 
-1. Log in to the Log in to the [Windows Azure Preview Management Portal](https://manage.windowsazure.com).
+1. Log in to the [Windows Azure Preview Management Portal](https://manage.windowsazure.com).
 2. Click **New**.
 3. Click **Virtual machine**.
 4. Click **Quick create**.

@@ -812,7 +812,6 @@ There are other methods for moving an on-premise database to SQL Database. If yo
 
 * [Migrating Databases to SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ee730904.aspx)
 * [Copying Databases in SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ff951624.aspx)
-* [How to Use SQL Database Programmatically](http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/)
 
 
 

@@ -3,7 +3,7 @@
 
 For a quick overview of installation and IPython, please watch:
 
-<div class="dev-video-thumb" style="background-image:url(../Media/ipy-youtube2.png)"><a href="VIDEOLINK">Video Available</a></div>
+<div class="dev-video-thumb" style="background-image:url(../Media/ipy-youtube2.png)"><a href="http://go.microsoft.com/fwlink/?LinkId=254535">IPython Overview</a></div>
 
 
 The [IPython project](http://ipython.org) provides a collection of tools for
@@ -31,6 +31,8 @@ scalable computational resources with all the power of Python and its many
 libraries.  Since all installation is done in the cloud, users can access these
 resources without the need for any local configuration beyond a modern web
 browser.
+
+<div chunk="../../Shared/Chunks/create-account-and-vms-note.md" />
 
 ## Create and Configure a VM on Azure
 

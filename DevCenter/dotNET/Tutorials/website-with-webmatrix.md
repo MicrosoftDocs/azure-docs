@@ -1,87 +1,165 @@
-#Develop and Deploy a Website with Microsoft WebMatrix
+#Develop and deploy a web site with Microsoft WebMatrix
 
 This guide describes how to use Microsoft WebMatrix to create and deploy a web site to Windows Azure.  You will use a sample application from a WebMatrix site template.
 
 You will learn:
 
-* How to set up WebMatrix.
-* How to create a new Windows Azure web site.
-* How to set up WebMatrix and use it to develop a web site.
-* How to deploy a web site directly from WebMatrix to Windows Azure.
+* How to create a web site from the Windows Azure portal.
+* How to import the web site into WebMatrix and customize the web site to use one of the WebMatrix templates.
+* How to deploy the customized web site directly from WebMatrix to Windows Azure.
 
-### Create a Windows Azure account
 
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
-
-## Create a Windows Azure web site
+## Create a web site from the Windows Azure portal
 
 1. Login to the [Windows Azure Portal](http://manage.windowsazure.com).
-2. Click the **Create New** icon at the bottom left of the Windows Azure portal.
-3. Click the **Web Site** icon, click **Quick Create**, enter a value for **URL** under the **create a new web site** section of this page and then click the checkmark next to **create web site**	at the bottom of this page:
+2. Click **New** at the bottom left of the Windows Azure portal.
+3. Click  **Web Site**, click **Quick Create**, enter a value for **URL** (e.g. *bakerysample*), select the **Region** that is closest to your intended users (this will ensure best performance) and then click the **Create Web Site** checkmark at the bottom of the page to initiate creation of the web site:
 
 	![Create New website][createnewsite]	
 
-	This will initiate the process for creating the new web site on Windows Azure.
-4. Once the web site is created, your browser will display the Web Sites page, listing all of the web sites associated with the currently logged on account. Verify that the web site you just created has a **Status** of **Running** and then open the web site's management pages by clicking the name of the web site displayed in the **Name** column. This will open the **Dashboard** page for the new web site.
-5. From the **Dashboard** page click the link to **Download publish profile** and save the publish profile file to the desktop of your development computer.
+4. Once the web site is created, the portal will display all of the web sites associated with your subscription. Verify that the web site you just created has a **Status** of **Running** and then open the web site's management pages by clicking the name of the web site displayed in the **Name** column to open the web site's **Dashboard** management page.
 
-## Install Microsoft WebMatrix
+## Import the web site into WebMatrix and customize the web site using a template
 
-1. Browse to [http://www.microsoft.com/web/webmatrix/][webmatrix] and click **Install WebMatrix**.  
-2. After you click **Install WebMatrix** you are directed to a page with a **Install Now** button. Click **Install Now**.
+1. From the **Dashboard** page click the WebMatrix icon at the bottom of the page to open the web site in WebMatrix 
 
-	![Install Web Platform Installer 3.0][installwebplat3]
+	![Open web site in WebMatrix 2][opensiteinwebmatrix2]
 
-2. You will see a prompt at the bottom of the web page to either run or save webmatrix.exe. Click **Run**.
+2. If WebMatrix 2 is not installed, the Web Platform Installer 4.0 will install Microsoft WebMatrix 2 and all necessary prerequisite software and display a dialog box indicating **Empty Site Detected**. Click the option to use a built-in website template:
 
-	This will display the dialog box for **Web Platform Installer 3.0**, click **Install**:
+	![Empty Site Detected][howtodownloadsite]
 
-	![Install WebMatix][installwebmatrix]
+3. After you click the option to use a built-in website template, select **Bakery** from the list of templates, enter **bakerysample** for the **Site Name**, and click **Next**.
 
-	The Web Platform Installer 3.0 will detect any prerequisites required  for WebMatrix and list all dependencies and software to be installed in the **Web Platform Installation** dialog box:
+	![Create Site from Template][howtositefromtemplate]
 
-	![Web Platform Installation][webplatinstall]
+	After WebMatrix finishes building the web site, the WebMatrix IDE is displayed:
 
-3. Click **I Accept** to proceed with installation of all WebMatrix prerequisites and WebMatrix. Upon successfull installation you are presented with a dialog box listing the software that was installed. Click **Finish**.
+	![Web Matrix 2 IDE][howtowebmatrixide] 
 
-	![Web Platform Installation Finished][webplatdone]
+## Test the web site
 
-4. After you click **Finish**, WebMatrix will open. 
+The bakery sample includes a simulated order form that sends an email message with the item ordered to a Windows Live Hotmail account that you provide.
 
-## Create, deploy and run the WebMatrix "bakery" sample web site on Windows Azure
+1. In the left hand navigation pane of WebMatrix, expand the **bakerysample** folder.
 
-7. In WebMatrix, click the button immediately to the left of the **Home** tab in the Ribbon, click **New Site**, click **Site from Template**, select the **Bakery** template, enter a value for **Site Name** and then click **OK** to create the web site and display the web site’s Administration page.
-8. Click  **Publish** in the Home ribbon to display **Publish Settings** options for the web site.
-9. Click  **Import publish settings** under **Common Tasks**, select the publish profile file that you downloaded from Windows Azure and saved to the desktop. Then click **Open** to display the **Publish Settings** dialog box. 
-10. Click the **Validate Connection** button to verify connectivity between the WebMatrix computer and the web site you created earlier. If you receive a certificate error indicating that the security certificate presented by this server was issued to a different server, check the box next to **Save this certificate for future sessions of WebMatrix** and click **Accept Certificate**.
+	![][modify1]
 
-	![WebMatrix Certificate Error][webmatrixcerterror]
-11. After you click **Accept Certificate** the **Publish Settings** dialog box will be displayed, click **Validate Connection**.
-12. Once the connection is validated, click **Save** to save publish settings for the web site you created in WebMatrix.
-13. From the **Publish Settings** dialog box click the dropdown for the Publish button and select Publish. Click **Yes** on the Publish Compatibility dialog box to perform publish compatibility testing and then click **Continue** when publish compatibility tests have completed.
-14. Click **Continue** in the Publish Preview dialog box to initiate publication of the site on WebMatrix to Windows Azure.
-15. Navigate to the web site on Windows Azure to verify it is deployed correctly and is running. The URL for the web site is displayed at the bottom of the WebMatrix IDE when publishing is complete. 
+2. Open the *Order.cshtml* page.
+
+	![][modify2]
+
+3. Find the comment that says //SMTP Configuration for Hotmail.
+
+	![][modify3]
+
+3. Change the values in the following lines to match your own email provider:
+
+		WebMail.SmtpServer = "smtp.live.com";
+		WebMail.SmtpPort  = 25;
+		WebMail.EnableSsl = true; 
+
+		//Enter your Hotmail credentials for UserName/Password and a "From" address for the e-mail
+        WebMail.UserName = "";
+        WebMail.Password = "";
+        WebMail.From = "";
+
+	Change the value of WebMail.SmtpServer to the name of the email server you normally use to send email. Then fill in values for the user name and password. Set the From property to your email address.
+
+4. On the WebMatrix ribbon click **Run** to test the site.
+
+	![][modify4]
+
+5. Click **Order Now** on one of the products and send an order to yourself.
+
+6. Check your email and make sure you got the order confirmation. If you have difficulties sending email, see [Issues with Sending Email][sendmailissues] in the ASP.NET Web Pages (Razor) Troubleshooting Guide.
+ 
+
+## Deploy the customized web site from WebMatrix to Windows Azure
+
+1. In WebMatrix, click  **Publish** from the **Home** ribbon to display the **Publish Preview** dialog box for the web site.
+
+	![WebMatrix Publish Preview][howtopublishpreview]
+
+2. Click to select the checkbox next to bakery.sdf and then click **Continue**.  When publishing is completed the URL for the updated web site on Windows Azure is displayed at the bottom of the WebMatrix IDE.  
 
 	![Publishing Complete][publishcomplete]
 
-16. Click on the URL for the web site to open the web site in your brower:
+4. Click on the link to open the web site in your browser:
 
 	![Bakery Sample Site][bakerysample]
 
-	The URL for the web site can also be found in the Windows Azure portal by clicking **Web Sites** to display all web sites created by the logged on account. The URL for each web site is displayed in the URL column on the web sites page.
+	The URL for the web site can also be found in the Windows Azure portal by clicking **Web Sites** to display all web sites for your subscription. The URL for each web site is displayed in the URL column on the web sites page.
+
+## Modify the web site and republish it to the Windows Azure web site
+
+You can use WebMatrix to modify the site and republish it to your Windows Azure web site. In the following procedure you will add a check box to indicate that the order is a gift.
+
+1. Open the *Order.cshtml* page.
+
+2. Locate the "shiping" class form definition. Insert the following code just after the &lt;li&gt; block.
+		
+		<li class="gift">
+		    <div class="fieldcontainer" data-role="fieldcontain">
+		        <label for="isGift">This is a gift</label>           
+		        <div>@Html.CheckBox("isGift")</div>
+		    </div>
+		</li>
+
+	![][modify5]
+
+3. Locate "var shipping = Request["orderShipping"];" line in the file and insert the following line of code just following it.
+
+		var gift = Request["isGift"];
+
+4. Just after the block of code that validates that the shipping address is not empty in the following code snippet.
+
+		if(gift != null) {
+			body += "This is a gift." + "<br/>";
+		}
+
+	Your *order.cshtml* file should look similar to the following image.
+
+	![][modify6]
+
+5. Save the file and run the site locally and send yourself a test order. Make sure to test the new check box.
+
+	![][modify7]
+
+6. Republish the site by clicking **Publish** on the **Home** ribbon.
+
+7. On the **Publish Preview** dialog box make sure both the Order.cshtml is checked and click continue.
+
+8. Click on the link to open the web site in your browser and test the update on your Windows Azure web site.
+
+# Next Steps
+
+You've seen how to create and deploy a web site from WebMatrix to Windows Azure. To learn more about WebMatrix, check out these resources:
+
+* [WebMatrix for Windows Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
+
+* [WebMatrix website](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
+
+[createnewsite]: ../../../Shared/media/howtocreatenewsite.png
+[opensiteinwebmatrix2]: ../../../Shared/media/howtoopensiteinWebMatrix2a.png
+[howtodownloadsite]: ../../../Shared/media/howtodownloadsite.png
+[howtositefromtemplate]: ../../../Shared/media/howtositefromtemplate.png
+[howtowebmatrixide]: ../../../Shared/media/howtowebmatrixide.png
+[howtopublishpreview]: ../../../Shared/media/howtopublishpreview.png
+[bakerysampleopeninwebmatrix2]: ../../../Shared/media/howtowebmatrix2ide.png
+[publishcomplete]: ../../../Shared/media/howtopublished2.png
+[bakerysample]: ../../../Shared/media/howtobakerysamplesite.png
+
+[modify1]: ../media/website-with-webmatrix-sample-mod-1-1.png
+[modify2]: ../media/website-with-webmatrix-sample-mod-1-2.png
+[modify3]: ../media/website-with-webmatrix-sample-mod-1-3.png
+[modify4]: ../media/website-with-webmatrix-sample-mod-1-4.png
+[modify5]: ../media/website-with-webmatrix-sample-mod-1-5.png
+[modify6]: ../media/website-with-webmatrix-sample-mod-1-6.png
+[modify7]: ../media/website-with-webmatrix-sample-mod-1-7.png
+[modify8]: ../media/website-with-webmatrix-sample-mod-1-8.png
 
 [webmatrix]: http://www.microsoft.com/web/webmatrix/
-
-[installwebplat3]: ../../../Shared/Media/howtoWebPI3installer.png
-[runorsavewebmatrix]: ../../../Shared/Media/howtorunorsavewebmatrix.png
-[installwebmatrix]: ../../../Shared/media/howtoinstallwebmatrix.png
-[webplatinstall]: ../../../Shared/media/howtowebplatforminstallation.png
-[webplatdone]: ../../../Shared/media/howtofinish.png
-[createnewsite]: ../../../Shared/media/howtocreatenewsite.png
-[webmatrixcerterror]: ../../../Shared/media/howtocertificateerror.png
-[publishcomplete]: ../../../Shared/media/howtopublished.png
-[bakerysample]: ../../../Shared/media/howtobakerysamplesite.png
+[sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email

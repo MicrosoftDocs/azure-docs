@@ -43,7 +43,7 @@ To see a chart with additional performance metrics, configure the chart displaye
 > - **Status** – Indicates whether the website is running or not.
 > - **Site Url** – Specifies the publicly accessibly address of the website on the internet.
 > - **Location** – Specifies the physical region of the datacenter that hosts the website.
-> - **Compute Mode** – Specifies whether the website is running in Reserved or Shared mode. For more information about website modes see [How to Scale a Website](./howto-scale-websites/).
+> - **Compute Mode** – Specifies whether the website is running in Reserved or Shared mode. For more information about website modes see [How to Scale a Website](../how-to-scale-websites/).
 > - **Subscription ID** – Specifies the actual unique subscription ID of the subscription that the website is associated with.
 > - **FTP Hostname** – Specifies the URL to use when publishing to the website over FTP.
 > - **Deployment User** – Indicates the account used when deploying the website to Windows Azure over FTP or GIT.
@@ -56,7 +56,7 @@ To see a chart with additional performance metrics, configure the chart displaye
  The **Deployments** management page provides a summary of all deployments made to the website using either GIT or TFS. If no GIT or TFS deployments have been made and GIT publishing has been configured for the website the **Deployments** management page provides information describing how to use GIT to deploy your web application to the website.
 
 ####Monitor####
-The **Monitor** management page provides a chart that displays usage information for the website. By default this chart displays the same metrics as the chart on the **Dashboard** page as described above in the Dashboard section. The chart can also be configured to display the metrics Http Successes, Http Redirects, Http 401 errors, Http 403 errors, Http 404 errors and Http 406 errors. For more information about these metrics see [How to Monitor Websites](./howto-monitor-websites/).
+The **Monitor** management page provides a chart that displays usage information for the website. By default this chart displays the same metrics as the chart on the **Dashboard** page as described above in the Dashboard section. The chart can also be configured to display the metrics Http Successes, Http Redirects, Http 401 errors, Http 403 errors, Http 404 errors and Http 406 errors. For more information about these metrics see [How to Monitor Websites](../how-to-monitor-websites/).
 
 ####Configure####
 The **Configure** management page is used to set application specific settings including:
@@ -67,11 +67,11 @@ The **Configure** management page is used to set application specific settings i
 - **Connections Strings** – View connection strings to linked resources. For .NET sites, these connection strings will be injected into the website’s .NET configuration connectionStrings settings at runtime, overriding any existing entries where the key equals the linked database name. For PHP and Node websites, these settings will be available as environment variables at runtime.
 - **Default Documents** – Add your website’s default document to this list if it is not already in the list. If your website contains more than one of the files in the list then make sure your website’s default document appears at the top of the list by changing the order of the files in the list.
 
-For more information about how to configure a Website see [How to Configure Websites](./howto-configure-websites/).
+For more information about how to configure a Website see [How to Configure Websites](../how-to-configure-websites/).
 
 
 ####Scale####
-The **Scale** management page is used to specify the website mode (either **Shared** or **Reserved**), the size of the website if it is configured as **Reserved** (**Small**, **Medium** or **Large**) and the value for **Reserved Instance Count** (from 1 to 3). A website that is configured as **Reserved** will provide more consistent performance than a website that is configured as **Shared**. A website that is configured with a larger **Reserved Instance Size** will perform better under load. Increasing the value for **Reserved Instance Count** will provide fault tolerance and improved performance through scale out. For more information about configuring scale options for a website see [How to Scale a Website](./howto-scale-websites/).
+The **Scale** management page is used to specify the website mode (either **Shared** or **Reserved**), the size of the website if it is configured as **Reserved** (**Small**, **Medium** or **Large**) and the value for **Reserved Instance Count** (from 1 to 3). A website that is configured as **Reserved** will provide more consistent performance than a website that is configured as **Shared**. A website that is configured with a larger **Reserved Instance Size** will perform better under load. Increasing the value for **Reserved Instance Count** will provide fault tolerance and improved performance through scale out. For more information about configuring scale options for a website see [How to Scale a Website](../how-to-scale-websites/).
 
 ####Linked Resources####
 The **Linked Resources** management page provides a summary of all Windows Azure resources that your website is using. At the time of this writing, the only type of Windows Azure resource that can be linked to a website is a SQL database. 

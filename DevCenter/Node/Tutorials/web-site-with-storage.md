@@ -17,9 +17,15 @@ The project files for this tutorial will be stored in a directory named **taskli
 
 ![A web page displaying an empty tasklist][node-table-finished]
 
-**Note**: This tutorial makes reference to the **tasklist** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/tasklist** or **c:\node\tasklist**
+<div class="dev-callout">
+<strong>Note</strong>
+<p>This tutorial makes reference to the <strong>tasklist</strong> folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as <strong>~/node/tasklist</strong> or <strong>c:\node\tasklist</strong></p>
+</div>
 
-**Note**: Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **cmd.exe** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
+<div class="dev-callout">
+<strong>Note</strong>
+<p>Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as <strong>cmd.exe</strong> (Windows) or <strong>Bash</strong> (Unix Shell). On OS X systems you can access the command-line through the Terminal application.</p>
+</div>
 
 ##Prerequisites
 
@@ -33,11 +39,7 @@ Before following the instructions in this article, you should ensure that you ha
 
 * A web browser
 
-##Enable the Windows Azure Web Site feature
-
-If you do not already have a Windows Azure subscription, you can sign up [for free]. After signing up, follow these steps to enable the Windows Azure Web Site feature.
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md"></div>
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
 ##Create a storage account
 
@@ -73,7 +75,10 @@ In this section you will create a new Node application and use npm to add module
 
 		npm install express -g
 
-    **Note**: When using the '-g' parameter on some operating systems, you may receive an error of **Error: EPERM, chmod '/usr/local/bin/express'** and a request to try running the account as an administrator. If this occurs, use the **sudo** command to run npm at a higher privilege level.
+    <div class="dev-callout">
+	<strong>Note</strong>
+	<p>When using the '-g' parameter on some operating systems, you may receive an error of <strong>Error: EPERM, chmod '/usr/local/bin/express'</strong> and a request to try running the account as an administrator. If this occurs, use the <strong>sudo</strong> command to run npm at a higher privilege level.</p>
+	</div>
 
     The output of this command should appear similar to the following:
 
@@ -83,7 +88,10 @@ In this section you will create a new Node application and use npm to add module
 		├── qs@0.4.2
 		└── connect@1.8.7
 
-	**Note**: The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the **express** command to generate web site scaffolding without having to type in additional path information.
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the <strong>express</strong> command to generate web site scaffolding without having to type in additional path information.</p>
+	</div>
 
 4. To create the scaffolding which will be used for this application, use the **express** command:
 
@@ -131,14 +139,18 @@ The **package.json** file is one of the files created by the **express** command
 
 	This installs all of the default modules that Express needs.
 
-2. Next, enter the following command to install the [azure], [node-uuid], and [async] modules locally as well as to save an entry for them to the **package.json** file:
+2. Next, enter the following command to install the [azure], [node-uuid], [nconf] and [async] modules locally as well as to save an entry for them to the **package.json** file:
 
-		npm install azure node-uuid async --save
+		npm install azure node-uuid async nconf --save
 
 	The output of this command should appear similar to the following:
 
 		async@0.1.22 ./node_modules/async
 		node-uuid@1.3.3 ./node_modules/node-uuid
+		nconf@0.6.0 ./node_modules/nconf
+		├── ini@1.0.2
+		├── pkginfo@0.2.3
+		└── optimist@0.3.4 (wordwrap@0.0.2)
 		azure@0.5.3 ./node_modules/azure
 		├── dateformat@1.0.2-1.2.3
 		├── xmlbuilder@0.3.1
@@ -303,14 +315,20 @@ In this section you will extend the basic application created by the **express**
 2. At the beginning of the file, add the following to load the azure module, set the table name, partitionKey, and set the storage credentials used by this example:
 
 		var azure = require('azure');
-		var tableName = 'tasks'
-		  , partitionKey = 'partition'
-		  , accountName = 'accountName'
-		  , accountKey = 'accountKey';
+		  , nconf = require('nconf');
+		nconf.env()
+	     .file({ file: 'config.json'});
+		var tableName = nconf.get("TABLE_NAME")
+		  , partitionKey = nconf.get("PARTITION_KEY")
+		  , accountName = nconf.get("STORAGE_NAME")
+		  , accountKey = nconf.get("STORAGE_KEY");
 
-	**Note**: You must replace the values **'accountName'** and **'accountKey'** with the values obtained earlier when creating your Windows Azure storage account.
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>nconf will load the configuration values from either environment variables or the **config.json** file, which we will create later.</p>
+	</div>
 
-3. Replace the content after the `//Routes` comment with the following code. This will initialize an instance of **Task** with a connection to your storage account. This is then password to the **TaskList**, which will use it to communicate with the Table service:
+3. Replace the content after the `//Routes` comment with the following code. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is then password to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
 
         var TaskList = require('./routes/tasklist');
 		var Task = require('./models/tasks.js');
@@ -324,7 +342,7 @@ In this section you will extend the basic application created by the **express**
 		    app.post('/addtask', taskList.addTask.bind(taskList));
 		    app.post('/completetask', taskList.completeTask.bind(taskList));
 
-		app.listen(process.env.port || 1337);
+		app.listen(process.env.port || 3000);
 
 4. Save the **app.js** file.
 
@@ -335,9 +353,10 @@ In this section you will extend the basic application created by the **express**
 2. Replace the contents of the **index.jade** file with the code below. This defines the view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.
 
 		h1= title
-		  font(color="grey") (powered by Node.js and Windows Azure Table Service)
+		br
+
 		form(action="/completetask", method="post")
-		  table(border="1")
+		  table(class="table table-striped table-bordered")
 		    tr
 		      td Name
 		      td Category
@@ -351,23 +370,62 @@ In this section you will extend the basic application created by the **express**
 		        - var month = task.Timestamp.getMonth() + 1;
 		        - var year  = task.Timestamp.getFullYear();
 		        td #{month + "/" + day + "/" + year}
- 		       td
- 		         input(type="checkbox", name="#{task.RowKey}", value="#{!task.itemCompleted}", checked=task.itemCompleted)
-		  input(type="submit", value="Update tasks")
+		        td
+		          input(type="checkbox", name="#{task.RowKey}", value="#{!task.itemCompleted}", checked=task.itemCompleted)
+		  button(type="submit", class="btn") Update tasks
 		hr
-		form(action="/addtask", method="post")
-		  table(border="1") 
-		    tr
-		      td Item Name: 
-		      td 
-		        input(name="item[name]", type="textbox")
-		    tr
-		      td Item Category: 
-		      td 
-		        input(name="item[category]", type="textbox")
-		  input(type="submit", value="Add item")
+		form(action="/addtask", method="post", class="well")
+		  label Item Name: 
+		  input(name="item[name]", type="textbox")
+		  label Item Category: 
+		  input(name="item[category]", type="textbox")
+		  br
+		  button(type="submit", class="btn") Add item
 
 3. Save and close **index.jade** file.
+
+###Modify the global layout
+
+The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use [Twitter Bootstrap], which is a toolkit that makes it easy to design a nice looking web site.
+
+1. Download and extract the files for [Twitter Bootstrap]. Copy the **bootstrap.min.css** file from the **bootstrap\\css** folder to the **public\\stylesheets** directory of your tasklist application.
+
+2. From the **views** folder, open the **layout.jade** in your text editor and replace the contents with the following:
+
+		!!!html
+		html
+		  head
+		    title= title
+		    meta(http-equiv='X-UA-Compatible', content='IE=10')
+		    link(rel='stylesheet', href='/stylesheets/style.css')
+		    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+		  body(class='app')
+		    div(class='navbar navbar-fixed-top')
+		      .navbar-inner
+		        .container
+		          a(class='brand', href='/') My Tasks
+		    .container!= body
+
+3. Save the **layout.jade** file.
+
+###Create configuration file
+
+The **config.json** file contains the connection string used to connect to the SQL Database, and is read by the application at run-time. To create this file, perform the following steps:
+
+1. In the **tasklist** directory, create a new file named **config.json** and open it in a text editor.
+
+2. The contents of the **config.json** file should appear similiar to the following:
+
+		{
+			"STORAGE_NAME": "storage account name",
+			"STORAGE_KEY": "storage access key",
+			"PARTITION_KEY": "mytasks",
+			"TABLE_NAME": "tasks"
+		}
+
+	Replace the **storage account name** with the name of the storage account you created earlier. Replace the **storage access key** with the primary access key for your storage account.
+
+3. Save the file.
 
 ##Run your application locally
 
@@ -379,7 +437,7 @@ To test the application on your local machine, perform the following steps:
 
         node app.js
 
-3. Open a web browser and navigate to http://127.0.0.1:1337. This should display a web page similar to the following:
+3. Open a web browser and navigate to http://127.0.0.1:3000. This should display a web page similar to the following:
 
     ![A webpage displaying an empty tasklist][node-table-finished]
 
@@ -397,9 +455,15 @@ To test the application on your local machine, perform the following steps:
 
 The steps in this section use the Windows Azure command-line tools to create a new Windows Azure Web Site, and then use Git to deploy your application. To perform these steps you must have a Windows Azure subscription.
 
-**Note**: These steps can also be performed by using the Windows Azure portal. For steps on using the Windows Azure portal to deploy a Node.js application, see [Create and deploy a Node.js application to a Windows Azure Web Site].
+<div class="dev-callout">
+<strong>Note</strong>
+<p>These steps can also be performed by using the Windows Azure portal. For steps on using the Windows Azure portal to deploy a Node.js application, see <a href="http://content-ppe.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to a Windows Azure Web Site</a>.</p>
+</div>
 
-**Note**: If this is the first Windows Azure Web Site you have created, you must use the Windows Azure portal to deploy this application.
+<div class="dev-callout">
+<strong>Note</strong>
+<p>If this is the first Windows Azure Web Site you have created, you must use the Windows Azure portal to deploy this application.</p>
+</div>
 
 ###Enable the Windows Azure Web Site feature
 
@@ -413,9 +477,15 @@ To install the command-line tools, use the following command:
 	
 	npm install azure -g
 
-**Note**: If you have already installed the **Windows Azure SDK for Node.js** from the [Windows Azure Developer Center], then the command-line tools should already be installed. For more information, see [Windows Azure command-line tool for Mac and Linux].
+<div class="dev-callout">
+<strong>Note</strong>
+<p>If you have already installed the **Windows Azure SDK for Node.js** from the <a href="/en-us/develop/nodejs/">Windows Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure command-line tool for Mac and Linux</a>.</p>
+</div>
 
-**Note**: While the command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.
+<div class="dev-callout">
+<strong>Note</strong>
+<p>While the command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.</p>
+</div>
 
 ###Import publishing settings
 
@@ -437,7 +507,15 @@ Before using the command-line tools with Windows Azure, you must first download 
 		
 	Specify the path and file name of the publishing settings file you downloaded in the previous step. Once the command completes, you should see output similar to the following:
 	
-	![The output of the import command][import-publishing-settings]
+		info:   Executing command account import
+		info:   Setting service endpoint to: management.core.windows.net
+		info:   Setting service port to: 443
+		info:   Found subscription: YourSubscription
+		info:   Setting default subscription to: YourSubscription
+		warn:   The 'C:\users\username\downloads\YourSubscription-6-7-2012-credentials.publishsettings' file contains sensitive information.
+		warn:   Remember to delete it now that it has been imported.
+		info:   Account publish settings imported successfully
+		info:   account import command OK
 
 4. Once the import has completed, you should delete the publish settings file as it is no longer needed and contains sensitive information regarding your Windows Azure subscription.
 
@@ -453,9 +531,15 @@ Before using the command-line tools with Windows Azure, you must first download 
 	
 	The `--git` parameter will create a Git repository on Windows Azure for this web site. It will also initialize a Git repository in the current directory if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Windows Azure. Finally, it will create a **web.config** file, which contains settings used by Windows Azure to host node applications.
 	
-	**Note**: If this command is ran from a directory that already contains a Git repository, it will not re-initialize the directory.
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>If this command is ran from a directory that already contains a Git repository, it will not re-initialize the directory.</p>
+	</div>
 	
-	**Note**: If the `--git` parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>If the `--git` parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.</p>
+	</div>
 	
 	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Website created at** contains the URL for the web site.
 	
@@ -472,7 +556,10 @@ Before using the command-line tools with Windows Azure, you must first download 
 		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
 		info:   site create command OK
 
-	**Note**: If this is the first Windows Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see [Create and deploy a Node.js application to a Windows Azure Web Site].
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>If this is the first Windows Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to a Windows Azure Web Site</a>.</p>
+	</div>
 
 ###Publish the application
 
@@ -494,6 +581,43 @@ Before using the command-line tools with Windows Azure, you must first download 
 
 4. Once the push operation has completed, browse to the web site URL returned previously by the `azure create site` command to view your application.
 
+###Switch to an environment variable
+
+Earlier we implemented code that looks for a **SQL_CONN** environment variable for the connection string or loads the value from the **config.json** file. In the following steps you will create a key/value pair in your web site configuration that the application real access through an environment variable.
+
+1. From the Preview Management Portal, click **Web Sites** and then select your web site.
+
+	![Open website dashboard][go-to-dashboard]
+
+2. Click **CONFIGURE** and then find the **app settings** section of the page. 
+
+	![configure link][web-configure]
+
+3. In the **app settings** section, enter **STORAGE_NAME** in the **KEY** field, and the name of your storage account in the **VALUE** field. Click the checkmark to move to the next field. Repeat this process for the following keys and values:
+
+	* **STORAGE_KEY** - the access key for your storage account
+	
+	* **PARTITION_KEY** - 'mytasks'
+
+	* **TABLE_NAME** - 'tasks'
+
+	![app settings][app-settings]
+
+4. Finally, click the **SAVE** icon at the bottom of the page to commit this change to the run-time environment.
+
+	![app settings save][app-settings-save]
+
+5. From the command-line, change directories to the **tasklist** directory and enter the following command to remove the **config.json** file:
+
+		git rm config.json
+		git commit -m "Removing config file"
+
+6. Perform the following command to deploy the changes to Windows Azure:
+
+		git push azure master
+
+Once the changes have been deployed to Windows Azure, your web application should continue to work as it is now reading the connection string from the **app settings** entry. To verify this, change the value for the **STORAGE_KEY** entry in **app settings** to an invalid value. Once you have saved this value, the web site should fail due to the invalid storage access key setting.
+
 ##Next steps
 
 While the steps in this article describe using the Table Service to store information, you can also use MongoDB. See [Node.js Web Application with MongoDB] for more information.
@@ -509,17 +633,19 @@ While the steps in this article describe using the Table Service to store inform
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
 [for free]: http://windowsazure.com
-[Git remote]: http://gitref.org/remotes/
+[Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [Node.js Web Application with MongoDB]: ./web-site-with-mongodb-Mac
-[Windows Azure command-line tool for Mac and Linux]: http://windowsazure.com
+[Windows Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Create and deploy a Node.js application to a Windows Azure Web Site]: ./web-site-with-mongodb-Mac
 [Publishing to Windows Azure Web Sites with Git]: ../CommonTasks/publishing-with-git
 [azure]: https://github.com/WindowsAzure/azure-sdk-for-node
 [node-uuid]: https://github.com/broofa/node-uuid
 [async]: https://github.com/caolan/async
 [Windows Azure Portal]: http://windowsazure.com
-
+[nconf]: https://github.com/flatiron/nconf
+[preview-portal]: https://manage.windowsazure.com/
+[Twitter Bootstrap]: http://twitter.github.com/bootstrap/
 
 [node-table-finished]: ../media/table_todo_empty.png
 [node-table-list-items]: ../media/table_todo_list.png
@@ -529,3 +655,7 @@ While the steps in this article describe using the Table Service to store inform
 [portal-quick-create-storage]: ../../Shared/Media/quick-storage.png
 [portal-storage-access-keys]: ../../Shared/Media/manage-access-keys.png
 [portal-storage-manage-keys]: ../../Shared/Media/manage-keys-button.png
+[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.jpg
+[web-configure]: ../media/sql-task-configure.png
+[app-settings-save]: ../media/savebutton.png
+[app-settings]: ../media/storage-tasks-appsettings.png

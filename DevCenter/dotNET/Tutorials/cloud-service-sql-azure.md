@@ -17,9 +17,7 @@ in a dedicated virtual machine (VM). The following illustration shows the comple
 
 ![screenshot of web application][0]
 
-## <a hame="create"></a>Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
+<div chunk="../../Shared/Chunks/create-account-note.md" />
 
 ## <a name="setup"></a>Set up the development environment
 
@@ -159,10 +157,6 @@ account. If you do not have one you can create a free trial account.
 Once you are logged in with your account, you can download a Windows
 Azure publishing profile. The publishing profile authorizes your
 machine to publish packages to Windows Azure using Visual Studio.
-
-### Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
 
 ### Publish the application
 
@@ -567,5 +561,5 @@ that is hosted in a Windows Azure Cloud Service and stores data in SQL Database.
   [103]: ../media/cloudservice103.png
   [106]: ../media/cloudservice106.png
   [107]: ../media/cloudservice107.png
-  [SQL Database How-to Guide]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
+  [SQL Database How-to Guide]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-database/
   [Multi-tier Application Tutorial]: http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-application/

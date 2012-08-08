@@ -28,6 +28,8 @@ shown below:
 
 ![][0]
 
+<div chunk="../../Shared/Chunks/create-account-note.md" />
+
 ## Scenario Overview: Inter-Role Communication
 
 To submit an order for processing, the front end UI component, running
@@ -96,7 +98,7 @@ to get the tools and set-up your development environment.
 
     [Get Tools and SDK][]
 
-    When prompted to run or save WindowsAzureSDKForNet.exe, click
+    When prompted to run or save the installation file, click
     **Run**:
 
     ![][3]
@@ -112,10 +114,6 @@ to get the tools and set-up your development environment.
     do not have Visual Studio installed, it also installs the free
     Visual Web Developer Express.
 
-## Create a Windows Azure Account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
 ## <a name="create-namespace"> </a>Set up the Service Bus Namespace
 
 The next step is to create a service namespace, and to obtain a shared
@@ -126,7 +124,7 @@ created. The combination of service namespace and shared secret key
 provides a credential for Service Bus to authenticate access to an
 application.
 
-1.  Log into the [Windows Azure Management Portal][].
+1.  Log into the [Windows Azure Management Portal][]. Note that for this tutorial, you must use the production version of the portal. If you are using the preview version of the portal, hover over the **Preview** text at the top of the page, and then click **Take me to the previous portal**.
 
 2.  In the lower left navigation pane of the Management Portal, click
     **Service Bus, Access Control & Caching**.
@@ -210,7 +208,7 @@ Queue and displaying status information about the queue.
     **Manage NuGet Packages...** or **Add Library Package Reference**.
 
 7.  Select **Online** on the left-hand side of the dialog. Search for
-    ‘**WindowsAzure.ServiceBus**’ and select the **Windows Azure.Service
+    ‘**WindowsAzure**’ and select the **Windows Azure Service
     Bus** item. Then complete the installation and close this dialog.
 
     ![][13]
@@ -472,9 +470,9 @@ Service Bus Queue.
 
     ![][18]
 
-## Azure Configuration Manager
+## Cloud Configuration Manager
 
-Windows Azure supports a set of managed API that provides a consistent way to create new instances of Windows Azure service clients (such as the Service Bus) across Microsoft cloud services. The API enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in websites, or in a persistent VM Role. You can also use these API to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The API are located in the **Microsoft.WindowsAzure.Configuration.CloudConfigurationManager** class. There are also APIs on the client side.
+Windows Azure supports a set of managed API that provides a consistent way to create new instances of Windows Azure service clients (such as the Service Bus) across Microsoft cloud services. The API enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in websites, or in a persistent VM Role. You can also use these API to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The API are located in the [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] class. There are also APIs on the client side.
 
 ### Connection String
 
@@ -489,8 +487,11 @@ The following code retrieves the connection string, creates a queue, and initial
 
 	QueueClient Client; 
 
-	string connectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-	var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString); 
+	string connectionString =
+     CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+	
+    var namespaceManager =
+     NamespaceManager.CreateFromConnectionString(connectionString); 
 
 	if (!namespaceManager.QueueExists(QueueName))
     {
@@ -534,7 +535,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
 	![][24]
 
-9.  In Solution Explorer, right-click the **OrderProcessingRole** you created in step 7, then click **Properties**.
+9.  In Solution Explorer, right-click the **OrderProcessingRole** you created in step 7 (make sure that you right-click **OrderProcessingRole** under **Roles**, and not the class). Then click **Properties**.
 
 10.  In the **Settings** tab of the **Properties** dialog, click inside the **Value** box for **Microsoft.ServiceBus.ConnectionString**, and then paste the endpoint value you copied in step 8.
 
@@ -562,7 +563,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
         	// Add these two lines of code
         	// View the message as an OnlineOrder
-        	OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
+			OnlineOrder order = receivedMessage.Get<OnlineOrder>();
         	Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
 
         	receivedMessage.Complete();
@@ -600,6 +601,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
   [16]: ../Media/getting-started-multi-tier-35.png
   [17]: ../Media/getting-started-multi-tier-36.png
   [18]: ../Media/getting-started-multi-tier-37.png
+  [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]:http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudconfigurationmanager.aspx
   [19]: ../Media/getting-started-multi-tier-38.png
   [20]: ../Media/getting-started-multi-tier-39.png
   [21]: ../Media/SBExplorer.jpg

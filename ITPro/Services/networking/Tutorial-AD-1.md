@@ -19,19 +19,20 @@ This tutorial walks you through the steps to install an additional domain contro
 
 
 <h2 id="Prerequisites">Prerequisites</h2>
-
--	Cloud service deployed
--	Affinity service deployed, and Affinity group created
--	A Virtual Network created on Windows Azure that hosts two VMs (YourVMachine and YourVMachine2). One VM must be size L or greater in order to attach two data disks to it. The data disks are needed to store:
->-	The Active Directory database, logs, and SYSVOL.
->-	System state backups.
-
--	A Corp network with two VMs (YourPrimaryDC and FileServer). 
--	Virtual Network for cross-premises connectivity configured between Windows Azure Virtual network and Corp network.
+-	Create an affinity group.
+-	Create a virtual network for cross-premises connectivity configured between Windows Azure Virtual network and Corp network.
+-	Create a cloud service in the virtual network
+-	Deploy two VMs in the Cloud Service that are part of the virtual network (specify the subnet where you want to place the VM). The VMs should be provisioned at the deployment level with DNS configured in advance by using Windows PowerShell (there is no UI option). For more information, see [Provisioning a Virtual Machine that is Domain Joined on Boot](#provisionvm). One VM must be size L or greater in order to attach two data disks to it. The data disks are needed to store:
+	- The Active Directory database, logs, and SYSVOL.
+	- System state backups.
+-	A Corp network with two VMs (YourPrimaryDC and FileServer).
 -	Domain Name System (DNS) infrastructure deployed if you need to have external users resolve names for accounts in Active Directory. In this case, you should create a DNS zone delegation before you install DNS server on the domain controller, or allow the Active Directory Domain Services Installation Wizard create the delegation. For more information about creating a DNS zone delegation, see [Create a Zone Delegation](http://technet.microsoft.com/en-us/library/cc753500.aspx).
+-	On the DC that you install on a Windows Azure VM, configure DNS client resolver settings as follows:
+	- Preferred DNS server: on-premises DNS server 
+	- Alternate DNS server: loopback address or, if possible, another DNS server running on a DC on the same virtual network.
 
 **Note**
->You need to provide your own DNS infrastructure to support AD DS on Windows Azure Virtual Network. The Windows Azure-provided DNS infrastructure for this release does not support some features that AD DS requires, such as SRV resource record registration or dynamic DNS. 
+>You need to provide your own DNS infrastructure to support AD DS on Windows Azure Virtual Network. The Windows Azure-provided DNS infrastructure for this release does not support some features that AD DS requires, such as dynamic SRV resource record registration. 
 
 **Note**
 >If you already completed the steps in [Install a new Active Directory forest in Windows Azure](/en-us/manage/services/networking/active-directory-forest/), you might need to remove AD DS from the domain controller on the Windows Azure virtual network before you begin this tutorial. For more information about how to remove AD DS, see [Removing a Domain Controller from a Domain](http://technet.microsoft.com/en-us/library/cc771844(v=WS.10).aspx).
@@ -227,14 +228,14 @@ This tutorial walks you through the steps to install an additional domain contro
 
 4.	Verify that the tests ran successfully. 
 
-To provision virtual machines and have them automatically join the domain when they are provisioned, create a new cloud service as the container for the new virtual machines. The DNS servers for the VMs can be automatically configured by specifying DNS settings during the initial deployment of the cloud service. 
+After the DC is configured, run the following Windows PowerShell cmdlet to provision additional virtual machines and have them automatically join the domain when they are provisioned. The DNS client resolver settings for the VMs must be configured when the VMs are provisioned. Substitute the correct names for your domain, VM name, and so on. 
 
-The example below demonstrates how you can automatically provision new virtual machines that are joined to the Active Directory domain at boot. 
+For more information about using Windows PowerShell, see [Getting Started with Windows Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx) and [Windows Azure Management Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841).
 
 
 <h2 id="provisionvm">Step 6: Provisioning a Virtual Machine that is Domain Joined on Boot</h2>
 
-1.	The Add-AzureProvisioningConfig also takes a -MachineObjectOU parameter which if specified (requires the full distinguished name in Active Directory) allows for setting group policy settings on all of the virtual machines in that container. Ensure that you replace storageaccountname with your storage account name.
+1.	The Add-AzureProvisioningConfig also takes a -MachineObjectOU parameter which if specified (requires the full distinguished name in Active Directory) allows for setting group policy settings on all of the virtual machines in that container.
 
 		# # Point to IP Address of Domain Controller Created Earlier  
 		$dns1 = New-AzureDns -Name 'dc-name' -IPAddress 'IP ADDRESS'

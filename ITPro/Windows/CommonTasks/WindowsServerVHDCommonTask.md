@@ -1,6 +1,6 @@
 #Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System #
 
-<div chunk="../../shared/chunks/disclaimer.md" />
+To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
 
 A virtual machine that you create in Windows Azure runs the operating system that you choose from the supported operating system versions. You can customize the operating system settings of the virtual machine to facilitate running your application. The configuration that you set is stored on disk. You create a virtual machine in Windows Azure by using a virtual hard disk (VHD) file. You can choose to create a virtual machine by using a VHD file that is supplied for you in the Image Gallery, or you can choose to create your own image and upload it to Windows Azure in a VHD file.
 
@@ -30,7 +30,7 @@ The following resources must be available to complete this task:
   </TR>
   </TABLE>
 </P>
-- **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. To download the SDK and the tools, see [Windows Azure Downloads](../../downloads/).
+- **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. You must use the tools available in Windows Azure SDK - June 2012 or later to upload VHDs to Windows Azure. To download the SDK and the tools, see [Windows Azure Downloads](/en-us/develop/downloads/).
 
 This task includes the following steps:
 
@@ -84,7 +84,7 @@ An image is a virtual hard disk (VHD) file that you can use as a template to cre
 
 	- **Name** - the name of the .vhd file. This is the file that you upload to Windows Azure.
 	- **Location** - the folder where the .vhd file is located. You should store the VHD file in a secure location.
-	- **Size** - the size of the virtual machine. You must ensure that the size of the virtual machine is one of the values in the following table and that the size corresponds to the size that you choose for the virtual machine when you create it in the Windows Azure Management Portal.
+	- **Size** - the size of the virtual hard disk. The maximum size for a virtual hard disk that is intended for an operating system disk in Windows Azure is 127 GB.
   
 5. On the **Installation Options** page, select **Install an operating system from a boot CD/DVD –ROM media**, and then choose the method that is appropriate for your installation media.
 
@@ -203,13 +203,13 @@ You also need the ID of your subscription to upload the VHD file.
 
 ### Set the connection ###
 
-You must set the connection string that is used to access the subscription. The CSUpload Command-Line Tool is used to set the connection string that is used. For more information, see [CSUpload Command-Line Tool](http://msdn.microsoft.com/en-us/library/gg466228.aspx).
+You must set the connection string that is used to access the subscription. The CSUpload Command-Line Tool is used to set the connection string that is used. For more information, see [CSUpload Command-Line Tool](http://msdn.microsoft.com/en-us/library/windowsazure/gg466228.aspx).
 
 1. Open a Windows Azure SDK Command Prompt window as an administrator.
 
 2. Set the connection string by using the following command and replacing **Subscriptionid** and **CertThumbprint** with the values that you obtained earlier:
 
-	`csupload Set-Connection "SubscriptionID=<Subscriptionid>;CertificateThumbprint=<Thumbprint>;ServiceManagementEndpoint=https://management-preview.core.windows-int.net"`
+	`csupload Set-Connection "SubscriptionID=<Subscriptionid>;CertificateThumbprint=<Thumbprint>;ServiceManagementEndpoint=https://management.core.windows.net"`
 
 ### Upload the VHD file ###
 

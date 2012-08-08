@@ -11,23 +11,24 @@ service**, and **stopping, starting, and removing a service**.
 <div class="dev-callout"> 
 <b>Note</b> 
 <p>For a detailed description of each cmdlet, see the
-<a href="http://go.microsoft.com/fwlink/?LinkId=253185">Windows Azure PowerShell Cmdlet Reference</a>.</p> 
+<a href="http://go.microsoft.com/fwlink/?LinkId=253185">Windows Azure Management Cmdlets</a>.</p> 
 </div>
 
 
 ## Table of contents
 
-[What is Windows Azure PowerShell](#WhatIs)   
- [Get started using Windows Azure PowerShell](#GetStarted)  
- [How to: Import publishing settings](#ImportPubSettings)   
- [How to: Create a Windows Azure service](#CreateService)  
- [How to: Test a service locally in the Windows Azure Emulators](#TestLocally)   
- [How to: Set default deployment options for a service](#DefaultDeploymentOptions)   
- [How to: Use a storage account with more than one service](#StorageAcctMultipleServices)  
- [How to: Deploy a cloud service to Windows Azure](#Deploy)   
- [How to: Update a deployed service](#Update)   
- [How to: Scale out a service](#Scale)   
- [How to: Stop, start, and remove a service](#StopStartRemove)
+ * [What is Windows Azure PowerShell](#WhatIs)   
+ * [Get started using Windows Azure PowerShell](#GetStarted)  
+ * [How to: Import publishing settings](#ImportPubSettings)   
+ * [How to: Create a Windows Azure service](#CreateService)  
+ * [How to: Test a service locally in the Windows Azure Emulators](#TestLocally)   
+ * [How to: Set default deployment options for a service](#DefaultDeploymentOptions)   
+ * [How to: Use a storage account with more than one service](#StorageAcctMultipleServices)  
+ * [How to: Deploy a cloud service to Windows Azure](#Deploy)   
+ * [How to: Update a deployed service](#Update)   
+ * [How to: Scale out a service](#Scale)   
+ * [How to: Stop, start, and remove a service](#StopStartRemove)
+ * [How to: Create, modify, and remove a SQL Database server](#SqlDatabase)
 
 <h2 id="WhatIs">What is Windows Azure PowerShell</h2>
 
@@ -51,7 +52,7 @@ The following tasks are supported:
 
 <h2 id="GetStarted">Get started using Windows Azure PowerShell</h2>
 
-The recommended way to install the Windows Azure PowerShell cmdlets is via the [Microsoft Web Platform Installer][wpi-installer]. After installing and launching the Web Platform Installer, select **Windows Azure PowerShell - June 2012** and follow the prompts to install the cmdlets. The Web Platform Installer will install all dependencies for the Windows Azure PowerShell cmdlets. Note that you can also select **Windows Azure SDK for Node.js - June 2012** or **Windows Azure SDK for PHP - June 2012** as these SDKs will include the Windows Azure PowerShell cmdlets.
+The recommended way to install the Windows Azure PowerShell cmdlets is via the [Microsoft Web Platform Installer][wpi-installer]. After installing and launching the Web Platform Installer, select **Windows Azure PowerShell** and follow the prompts to install the cmdlets. The Web Platform Installer will install all dependencies for the Windows Azure PowerShell cmdlets. Note that you can also select **Windows Azure SDK for Node.js - July 2012** or **Windows Azure SDK for PHP - July 2012** as these SDKs will include the Windows Azure PowerShell cmdlets.
 
 ### Getting started with Windows PowerShell
 
@@ -69,95 +70,40 @@ can help you get started:
     <table border="1" cellspacing="4" cellpadding="4">
     <tbody>
     <tr align="left" valign="top">
-    <td>
-    <b>Cmdlet Format</b>
-
-    </td>
-    <td>
-    <b>Information Returned</b>
-
-    </td>
+		<td><b>Cmdlet Format</b></td>
+		<td><b>Information Returned</b></td>
     </tr>
     <tr align="left" valign="top">
-    <td>
-    help
-
-    </td>
-    <td>
-    Displays a help topic about using the <b>help</b> cmdlet
-
-    </td>
+		<td>help</td>
+		<td>Displays a help topic about using the <b>help</b> cmdlet</td>
     </tr>
     <tr align="left" valign="top">
-    <td>
-    help azure
-
-    </td>
-    <td>
-    Lists all cmdlets in the Windows Azure PowerShell snap-in
-
-    </td>
-    </tr>
-	</tr>
-    <tr align="left" valign="top">
-    <td>
-    help node-dev
-
-    </td>
-    <td>
-    Lists cmdlets for developing and managing Node.js applications
-
-    </td>
+		<td>help azure</td>
+		<td>Lists all cmdlets in the Windows Azure PowerShell snap-in</td>
     </tr>
 	<tr align="left" valign="top">
-    <td>
-    help php-dev
-
-    </td>
-    <td>
-    Lists cmdlets for developing and managing PHP applications
-
-    </td>
+		<td>help node-dev</td>
+		<td>Lists cmdlets for developing and managing Node.js applications</td>
+    </tr>
+	<tr align="left" valign="top">
+		<td>help php-dev</td>
+		<td>Lists cmdlets for developing and managing PHP applications</td>
     </tr>
     <tr align="left" valign="top">
-    <td>
-    help &lt;<b>cmdlet</b>&gt;
-
-    </td>
-    <td>
-    Displays help about a Windows PowerShell cmdlet
-
-    </td>
+		<td>help &lt;<b>cmdlet</b>&gt;</td>
+		<td>Displays help about a Windows PowerShell cmdlet</td>
     </tr>
     <tr align="left" valign="top">
-    <td>
-    help &lt;<b>cmdlet</b>&gt; -parameter *
-
-    </td>
-    <td>
-    Displays parameter definitions for a cmdlet
-
-    </td>
+		<td>help &lt;<b>cmdlet</b>&gt; -parameter *</td>
+		<td>Displays parameter definitions for a cmdlet</td>
     </tr>
     <tr align="left" valign="top">
-    <td>
-    help &lt;<b>cmdlet</b>&gt; -examples
-
-    </td>
-    <td>
-    Displays example syntax lines for a cmdlet
-
-    </td>
+		<td>help &lt;<b>cmdlet</b>&gt; -examples</td>
+		<td> Displays example syntax lines for a cmdlet</td>
     </tr>
     <tr align="left" valign="top">
-    <td>
-    help &lt;<b>cmdlet</b>&gt; -full
-
-    </td>
-    <td>
-    Displays technical requirements for a cmdlet
-
-    </td>
+		<td>help &lt;<b>cmdlet</b>&gt; -full</td>
+		<td>Displays technical requirements for a cmdlet</td>
     </tr>
     </tbody>
     </table>
@@ -290,6 +236,7 @@ web role or worker role for the service.
 * **Add-AzureNodeWorkerRole**
 * **Add-AzurePHPWebRole**
 * **Add-AzurePHPWorkerRole**
+* **Add-AzureDjangoWebRole**
 
 When your application is deployed as a cloud service in Windows Azure,
 it runs as one or more *roles.* A *role* simply refers to the
@@ -361,63 +308,28 @@ deployed using the following settings:
 <table border="1" cellspacing="4" cellpadding="4">
 <tbody>
 <tr align="left" valign="top">
-<td valign="bottom">
-<b>Setting</b>
-
-</td>
-<td valign="bottom">
-<b>Default Value</b>
-
-</td>
+	<td valign="bottom"><b>Setting</b></td>
+	<td valign="bottom"><b>Default Value</b></td>
 </tr>
 <tr align="left" valign="top">
-<td>
-Location
-
-</td>
-<td>
-Randomly assigns the service to either South Central US or North Central
-US.
-
-</td>
+	<td>Location</td>
+	<td>Randomly assigns the service to either South Central US or North Central US.</td>
 </tr>
 <tr align="left" valign="top">
-<td>
-Slot
-
-</td>
-<td>
-Deploys the service to a production slot.
-
-</td>
+	<td>Slot</td>
+	<td>Deploys the service to a production slot.</td>
 </tr>
 <tr align="left" valign="top">
-<td>
-Subscription
-
-</td>
-<td>
-Uses the first subscription in your publishing profile. If you are an
-administrator for more than one subscription, you should specify a
-subscription to ensure that the intended subscription is used.
-
-</td>
+	<td>Subscription</td>
+	<td>Uses the first subscription in your publishing profile. If you are an administrator for more than one subscription, you should specify a subscription to ensure that the intended subscription is used.</td>
 </tr>
 <tr align="left" valign="top">
-<td>
-Storage account
-
-</td>
-<td>
-Creates a new storage account that has the same name as the service, If
-the name has been used for a storage account for any other subscription,
-the deployment fails. In that case, you must specify a storage account
-to use for the service.
-
-</td>
+	<td>Storage account</td>
+	<td>Creates a new storage account that has the same name as the service, If the name has been used for a storage account for any other subscription, the deployment fails. In that case, you must specify a storage account to use for the service.</td>
 </tr>
 </tbody>
 </table>
+
 In the following example, the default deployment location for the
 MyService service is set to Southeast Asia:
 
@@ -740,9 +652,64 @@ You can bypass the prompt by using the **-Force** option with the **Remove-Azure
 
     PS C:\app\MyService> Remove-AzureService -ServiceName MyService -Force 
 
+<h2 id="SqlDatabase">How to: Create, modify, and remove a SQL Database server</h2>
+
+Windows Azure SQL Database is a cloud-based relational database platform built on SQL Server technologies. (For more information, see [Introducing Windows Azure SQL Database][sql-database].) Windows Azure Powershell provides cmdlets that allow you to create, modify, and remove SQL Database servers.
+
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>SQL Database servers are not associated with Cloud Service projects. The SQL Database cmdlets shown below do not need to be run from a project directory as in the examples above.</p> 
+</div>
+
+### Create a server
+
+To create a SQL Database server, use the **New-AzureSqlDatabaseServer** cmdlet. You will need to supply an adminstrator name and login, and a location:
+
+	PS C:\> New-AzureSqlDatabaseServer -AdministratorLogin MyLogin -AdministratorLoginPassword MyPassword -Location "North Centeral US"
+
+Upon successful creation of a new server, you will see output simailar to this:
+
+	AdministratorLogin   : MyLogin
+	Location             : North Central US
+	ServerName           : t9qh586619
+	OperationDescription : New-AzureSqlDatabaseServer
+	OperationId          : 09d83500d84a43a8961b39b34d38a807
+	OperationStatus      : Success
+
+To get a list of servers, use the **Get-AzureSqlDatabaseServer** cmdlet.
+
+After creating a server, you will need to create a firewall rule to make it accessible.
+
+### Create a firewall rule
+
+To allow connections to a SQL Database server, you must create a firewall rule that specifies a range of IP addresses from which connections are allowed. The following example show how to use the **New-AzureSqlDatabaseServerFirewallRule** cmdlet to allow connections from IP address between `111.111.111.111` to `222.222.222.222`:
+
+	PS C:\> New-AzureSqlDatabaseServerFirewallRule –RuleName MyRule -ServerName t9qh586619 -StartIpAddress 111.111.111.111 -EndIpAddress 222.222.222.222
+
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>To allow other Windows Azure services to access the server, create a rule that specifies the <b>StartIpAddress</b> and <b>EndIpAddress</b> both as <code>0.0.0.0</code>.</p> 
+</div>
+
+To update an existing rule, use the **Set-AzureSqlDatabaseServerFirewallRule** cmdlet:
+
+	PS C:\> Set-AzureSqlDatabaseServerFirewallRule –RuleName MyRule -ServerName t9qh586619 -StartIpAddress 111.111.111.222 -EndIpAddress 222.222.222.111
+
+To get a list of rules for a server, use the **Get-AzureSqlDatabaseServerFirewallRule** cmdlet:
+
+	PS C:\> Get-AzureSqlDatabaseServerFirewallRule -ServerName t9qh586619
+
+### Remove a server
+
+To remove a SQL Database server, use the **Remove-AzureSqlDatabaseServer** cmdlet, specifying the server name:
+
+	PS C:\> Remove-AzureSqlDatabaseServer -ServerName t9qh586619
+
+The command above will require confirmation that you want to delete the specified server. To override this default behavior, use the **-Force** parameter. Using this parameter will delete the server without requiring confirmation.
+
 ## Additional resources
 
-* [Windows Azure PowerShell for Node.js Cmdlet Reference][cmdlet-reference]   
+* [Windows Azure Management Cmdlets][cmdlet-reference]   
 * [Node.js Web Application][1]   
 * [Node.js Web Application with Table Storage][]   
 * [Enabling Remote Desktop in Windows Azure][]   
@@ -793,3 +760,5 @@ You can bypass the prompt by using the **-Force** option with the **Remove-Azure
   [Enabling Remote Desktop in Windows Azure]: http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/enable-remote-desktop/
   [Configuring SSL for a Node.js Application in Windows Azure]: http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/enable-ssl/
 [wpi-installer]: http://go.microsoft.com/fwlink/?LinkId=253447
+[sql-database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336230.aspx
+

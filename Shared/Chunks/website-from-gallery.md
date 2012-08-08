@@ -1,4 +1,4 @@
-The gallery makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the gallery do not require installation of any software other than the browser used to connect to the Windows Azure Management Portal. 
+﻿The gallery makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the gallery do not require installation of any software other than the browser used to connect to the Windows Azure Management Portal. 
 
 In this tutorial, you'll learn:
 
@@ -11,29 +11,10 @@ You'll build a Word press blog that uses a default template. The following illus
 
 ![Wordpress blog][13]
 
-## Create a Windows Azure account
-
-1. Open a web browser and browse to [http://www.windowsazure.com][].
-
-2. To get started with a free account, click **Free Trial** in the upper-right corner and follow the steps. You'll need a credit card number and a mobile phone number for proof of identity, but you will not be billed.
-
- ![Windows Azure Website][0]
- 
-## Enable Windows Azure Web Sites
-
-1.	Navigate to [https://account.windowsazure.com/](https://account.windowsazure.com/) and sign in with your Windows Azure account.
-
-2.	Click **preview features** to view the available previews.
-	
-	![open preview features tab][14]
-
-2.	Scroll down to **Web Sites** and click **try it now**.
-
-	![select a preview feature][15]
-
-3.	Select your subscription and click the check.
-
-	![select subscription][16]
+<div class="dev-callout"><strong>Note</strong>
+<p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Web Sites feature enabled. You can create a free trial account and enable preview features in just a couple of minutes. For details, see <a href="../create-a-windows-azure-account/" target="_blank">Create a Windows Azure account and enable preview features</a>.</p>
+</div>
+<br />
 
 ## Create a web site in the portal
 
@@ -49,7 +30,7 @@ You'll build a Word press blog that uses a default template. The following illus
 
 1. Locate and click the WordPress icon in list, and then click **Next**.
 	
-	![Wordpress from list][7]
+	![WordPress from list][7]
 
 4. On the **Configure Your App** page, enter or select values for all fields:
 	
@@ -67,7 +48,7 @@ You'll build a Word press blog that uses a default template. The following illus
 
 After you click **Complete** Windows Azure will initiate build and deploy operations. While the web site is being built and deployed the status of these operations is displayed at the bottom of the Web Sites page. After all operations are performed,  A final status message when the site has been successfully deployed.
 
-## Launch and manage your Wordpress site
+## Launch and manage your WordPress site
 
 1. Click on your new site from the **Web Sites** page to open the dashboard for the site.
 
@@ -77,15 +58,15 @@ After you click **Complete** Windows Azure will initiate build and deploy operat
 
 	![site URL][11] 
 
-3. Enter appropriate configuration information required by WordPress and click **Install Wordpress** to finalize configuration and open the web site’s login page.
+3. Enter appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the web site’s login page.
 
-	![login to wordpress][12]
+	![login to WordPress][12]
 
 8. Login to the new WordPress web site by entering the username and password that you specified on the **Welcome** page.
 
-9. You'll have a new Wordpress site that looks similar to the site below.  
+9. You'll have a new WordPress site that looks similar to the site below.  
 
-	![your Wordpress site][13]
+	![your WordPress site][13]
 
 
 [1]: ../../devcenter/dotnet/media/Dev-net-getting-started-010.png
