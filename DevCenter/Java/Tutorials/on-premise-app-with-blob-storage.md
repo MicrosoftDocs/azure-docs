@@ -1,6 +1,6 @@
-<properties umbraconavihide="0" pagetitle="On-Premise Application with Blob Storage - How To - Java - Develop" metakeywords="Azure Blob Storage Java" metadescription="The following example shows you how you can use Windows Azure storage to store images in Windows Azure using the Java programming language." linkid="dev-java-how-to-on-premise-application-with-blob-storage" urldisplayname="Application Using Blobs" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties umbraconavihide="0" pagetitle="On-Premises Application with Blob Storage - How To - Java - Develop" metakeywords="Azure Blob Storage Java" metadescription="The following example shows you how you can use Windows Azure storage to store images in Windows Azure using the Java programming language." linkid="dev-java-how-to-on-premise-application-with-blob-storage" urldisplayname="Application Using Blobs" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
-# On-Premise Application with Blob Storage
+# On-Premises Application with Blob Storage
 
 The following example shows you how you can use Windows Azure storage to
 store images in Windows Azure. The code below is for a console
@@ -423,7 +423,7 @@ Use the Blob Storage Service from Java].
   [Prerequisites]: #bkmk_prerequisites
   [To use Windows Azure blob storage to upload a file]: #bkmk_uploadfile
   [To delete a container]: #bkmk_deletecontainer
-  [Download the Windows Azure SDK for Java]: en-us/develop/java/
+  [Download the Windows Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
   [How to Create a Storage Account for a Windows Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433066.aspx
   [How to View, Copy, and Regenerate Access Keys for a Windows Azure Storage Account]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531566.aspx
   [How to Use the Blob Storage Service from Java]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/
