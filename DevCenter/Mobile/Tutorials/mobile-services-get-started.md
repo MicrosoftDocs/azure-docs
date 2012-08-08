@@ -7,11 +7,13 @@ A screenshot of the completed Windows 8 quickstart app is below:
 
 ![][0]
 
-**Todo: add screen shot**
-
-Completing this guide is a prerequisite for all other Mobile Services tutorials. This tutorial creates a new mobile service .
+Completing this guide is a prerequisite for all other Mobile Services tutorials. 
 
 <div chunk="../../Shared/Chunks/create-account-and-mobile-note.md" />
+<div class="dev-callout"><strong>Note</strong>
+<p>To complete this tutorial, you need a Windows Azure account. You can create a free trial account and enable preview features in just a couple of minutes. For details, see <a href="../create-a-windows-azure-account/" target="_blank">Create a Windows Azure account and enable preview features</a>.</p>
+</div>
+**_(Above note will be a shared chunk)_**
 
 ### Create a new mobile service
 Follow these steps to create a new mobile service by using the default settings.
@@ -53,19 +55,19 @@ Follow these steps to create a new Windows 8 app.
 
 1.  In the Preview Management Portal, click **Mobile Services**, then click your new mobile service.
 
-    ![][5]
+   ![][5]
 
 2. In the quickstart tab, expand **Create a new Windows 8 application**.
 
-    ![][6]
+   ![][6]
 
 3. If you haven't already done so, download and install Visual Studio 2012 Express for Windows 8 and the Mobile Services SDK on your local computer or virtual machine. Download links for both are provided on the quickstart page.
 
-    ![][7]
+   ![][7]
 
 4. Click **Create ToDoItems table** to create a table to store app data.
 
-    ![][8]
+   ![][8]
 
 5. Under **Download and run application**, select a language for your app, then click **Download**. Save the compressed project file to your local computer (make a note of where you save it).
 
@@ -81,10 +83,14 @@ The final stage of this tutorial is to build and run your new Windows 8 app.
 
 2. Press the **F5** key to rebuild the project and start the app.
 
-3. In the 
+3. In the app, enter text in **Insert a ToDoItem** and then click **Save**.
+
+   ![][10]
+
+   This inserts the text in the ToDoItem table in the mobile service. Text already in the table is displayed in the second column.
 
 ### <a name="next-steps"> </a>Next Steps
-Once you have either downloaded the pre-generated quickstart project or enabled Mobile Services in an existing Windows 8 app, you can learn how to perform the following key tasks in Mobile Services: 
+Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
 * [Get started with data]
 * [Get started with users]   
@@ -106,6 +112,7 @@ Once you have either downloaded the pre-generated quickstart project or enabled 
 [7]: ../Media/mobile-quickstart-get-tools.png
 [8]: ../Media/mobile-quickstart-create-table.png
 [9]: ../Media/mobile-quickstart-download-app.png
+[10]: ../Media/mobile-quickstart-startup.png
 
 <!-- URLs. -->
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet/
