@@ -18,7 +18,7 @@ By default, Windows Azure applications and storage accounts can be accessed thro
 
 ### [Using CDN for Windows Azure][cdn]
 
-The Windows Azure Content Delivery Network (CDN) offers a global solution for delivering high-bandwidth content by caching blobs and static content at physical nodes around the world. This common task describes how to enable CDN and add, access, and delete content.
+The Content Delivery Network (CDN) offers a global solution for delivering high-bandwidth content by caching blobs and static content at physical nodes around the world. This common task describes how to enable CDN and add, access, and delete content.
 
 ### [Configuring SSL for an Application in Windows Azure][ssl]
 
