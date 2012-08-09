@@ -665,18 +665,15 @@ Windows Azure SQL Database is a cloud-based relational database platform built o
 
 To create a SQL Database server, use the **New-AzureSqlDatabaseServer** cmdlet. You will need to supply an adminstrator name and login, and a location:
 
-	PS C:\> New-AzureSqlDatabaseServer -AdministratorLogin MyLogin -AdministratorLoginPassword MyPassword -Location "North Centeral US"
+	PS C:\> New-AzureSqlDatabaseServer -AdministratorLogin MyLogin -AdministratorLoginPassword MyPassw0rd -Location "North Central US"
 
 Upon successful creation of a new server, you will see output simailar to this:
 
-	AdministratorLogin   : MyLogin
-	Location             : North Central US
-	ServerName           : t9qh586619
-	OperationDescription : New-AzureSqlDatabaseServer
-	OperationId          : 09d83500d84a43a8961b39b34d38a807
-	OperationStatus      : Success
+	ServerName			Location			AdministratorLogin
+	----------			----------			----------
+	t9qh586619			North Central US	MyLogin
 
-To get a list of servers, use the **Get-AzureSqlDatabaseServer** cmdlet.
+To get a list of servers, use the **Get-AzureSqlDatabaseServer** cmdlet. To update a server, use the **Set-AzureSqlDatabaseServer** cmdlet.
 
 After creating a server, you will need to create a firewall rule to make it accessible.
 
@@ -698,6 +695,8 @@ To update an existing rule, use the **Set-AzureSqlDatabaseServerFirewallRule** c
 To get a list of rules for a server, use the **Get-AzureSqlDatabaseServerFirewallRule** cmdlet:
 
 	PS C:\> Get-AzureSqlDatabaseServerFirewallRule -ServerName t9qh586619
+
+To remove a firewall rule, use the **Remove-AzureSqlDatabaseFirewallRule** cmdlet.
 
 ### Remove a server
 
