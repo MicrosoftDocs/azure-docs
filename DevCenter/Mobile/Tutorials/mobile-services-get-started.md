@@ -10,6 +10,10 @@ A screenshot from the completed app is below:
 Completing this guide is a prerequisite for all other Mobile Services tutorials. 
 
 <div chunk="../../Shared/Chunks/create-account-and-mobile-note.md" />
+<div class="dev-callout"><strong>Note</strong>
+<p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Mobile Services feature enabled. You can create a free trial account and enable preview features in just a couple of minutes. For details, see <a href="../create-a-windows-azure-account/" target="_blank">Create a Windows Azure account and enable preview features</a>. </p>
+</div>
+<br />
 
 ### Create a new mobile service
 Follow these steps to create a new mobile service.
@@ -26,28 +30,23 @@ Follow these steps to create a new mobile service.
     This displays the **New Mobile Service** dialog.
 
 4.	In the **Create a mobile service** page, type a subdomain name for the new mobile service in the **URL** textbox and wait for name verification. 
-	
+
     <div class="dev-callout"> 
 	<b>Note</b> 
 	<p>URL values in Mobile Services must be globally unique. When the name that you specify is available, a green check icon is displayed; otherwise, a warning is displayed and you are asked to choose a different name.</p> 
 	</div>
 
-5. Once name verification completes, click the right arrow button to go to the next page
+    Once name verification completes, click the right arrow button to go to the next page.	
 
 	![][3]
 
-    <div class="dev-callout"> 
-	<b>Note</b> 
-	<p>This tutorial assumes that you do not already have a SQL Database instance. If you already have a database in the same region as the the new mobile service, you can instead choose <b>Use existing Database</b> and then select that database.</p></div>
-	
-6.	In the **Specify database settings** page, type a meaningful name for the new database in the **Name** textbox. 
+    This displays the **Specify database settings** page.
 
     <div class="dev-callout"> 
 	<b>Note</b> 
-	<p>In this tutorial, we assume that you do not yet have a SQL Database server, so leave the <b>Server</b> combo box set to <b>New SQL Database Server</b>.</p> 
-	</div>
+	<p>This tutorial assumes that you do not already have a SQL Database instance. As part of this tutorial, you create a new SQL Database instance and server. Make sure that you provide a meaningful name for the new database. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the the new mobile service, you can instead choose <b>Use existing Database</b> and then select that database.</p></div>	
 
-7. In the **Login name** textbox, type the administrator login name for the new SQL Database server, type and confirm the password, and then click the check button to complete the process.
+6.	In **Name**, type the name of the new database, then type **Login name**, which is the administrator login name for the new SQL Database server, type and confirm the password, and click the check button to complete the process.
 
 	![][4]
 
@@ -58,11 +57,11 @@ Follow these steps to create a new mobile service.
 
 You have now created a new mobile service that can be used by your mobile apps.
 
-### Create a Windows 8 app that uses Mobile Services
+### Create new Windows 8 app
 
-The Mobile Services quickstart makes it easy to use Windows Azure in either a new or an existing Windows 8 app. 
+Once you have created your mobile service, you can follow an easy quickstart in the Preview Management Portal to either create a new Windows 8 app or modify an existing Windows 8 app to connect to your mobile service. 
 
-Follow these steps to create a new Windows 8 app.
+In this section you will create a new Windows 8 app that is connected to your mobile service.
 
 1.  In the Preview Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
 
@@ -71,6 +70,8 @@ Follow these steps to create a new Windows 8 app.
 2. In the quickstart tab, expand **Create a new Windows 8 application**.
 
    ![][6]
+
+   This displays the three easy steps to create an Windows 8 app connected to your mobile service.
 
 3. If you haven't already done so, download and install [Visual Studio 2012 Express for Windows 8] and the [Mobile Services SDK] on your local computer or virtual machine. 
 
@@ -82,9 +83,11 @@ Follow these steps to create a new Windows 8 app.
 
    ![][8]
 
-5. Under **Download and run application**, select a language for your app, then click **Download**. Save the compressed project file to your local computer (make a note of where you save it).
+5. Under **Download and run application**, select a language for your app, then click **Download**. 
 
    ![][9]
+
+  This downloads the project for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 
 ### Build and test your app
 
