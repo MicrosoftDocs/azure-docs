@@ -18,7 +18,7 @@ Completing this guide is a prerequisite for all other Mobile Services tutorials.
 ### Create a new mobile service
 Follow these steps to create a new mobile service.
 
-1.	Log into the [Preview Management Portal][Management Portal preview]. 
+1.	Log into the [Management Portal]. 
 2.	At the bottom of the navigation pane, click **+NEW**.
 
 	![][1]
@@ -29,14 +29,7 @@ Follow these steps to create a new mobile service.
 
     This displays the **New Mobile Service** dialog.
 
-4.	In the **Create a mobile service** page, type a subdomain name for the new mobile service in the **URL** textbox and wait for name verification. 
-
-    <div class="dev-callout"> 
-	<b>Note</b> 
-	<p>URL values in Mobile Services must be globally unique. When the name that you specify is available, a green check icon is displayed; otherwise, a warning is displayed and you are asked to choose a different name.</p> 
-	</div>
-
-    Once name verification completes, click the right arrow button to go to the next page.	
+4.	In the **Create a mobile service** page, type a subdomain name for the new mobile service in the **URL** textbox and wait for name verification. Once name verification completes, click the right arrow button to go to the next page.	
 
 	![][3]
 
@@ -44,7 +37,7 @@ Follow these steps to create a new mobile service.
 
     <div class="dev-callout"> 
 	<b>Note</b> 
-	<p>This tutorial assumes that you do not already have a SQL Database instance. As part of this tutorial, you create a new SQL Database instance and server. Make sure that you provide a meaningful name for the new database. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the the new mobile service, you can instead choose <b>Use existing Database</b> and then select that database.</p></div>	
+	<p>As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile service, you can instead choose <b>Use existing Database</b> and then select that database.</p></div>	
 
 6.	In **Name**, type the name of the new database, then type **Login name**, which is the administrator login name for the new SQL Database server, type and confirm the password, and click the check button to complete the process.
 
@@ -57,53 +50,53 @@ Follow these steps to create a new mobile service.
 
 You have now created a new mobile service that can be used by your mobile apps.
 
-### Create new Windows 8 app
+### Create a new Windows 8 app
 
-Once you have created your mobile service, you can follow an easy quickstart in the Preview Management Portal to either create a new Windows 8 app or modify an existing Windows 8 app to connect to your mobile service. 
+Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new Windows 8 app or modify an existing Windows 8 app to connect to your mobile service. 
 
 In this section you will create a new Windows 8 app that is connected to your mobile service.
 
-1.  In the Preview Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
+1.  In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
 
-   ![][5]
-
+   
 2. In the quickstart tab, expand **Create a new Windows 8 application**.
 
    ![][6]
 
    This displays the three easy steps to create an Windows 8 app connected to your mobile service.
 
-3. If you haven't already done so, download and install [Visual Studio 2012 Express for Windows 8] and the [Mobile Services SDK] on your local computer or virtual machine. 
+  ![][7]
 
-   ![][7]
-
-   Download links for both are provided on the quickstart page.
+3. If you haven't already done so, download and install [Visual Studio 2012 Express for Windows 8] and the [Mobile Services SDK] on your local computer or virtual machine.
 
 4. Click **Create TodoItems table** to create a table to store app data.
 
-   ![][8]
-
 5. Under **Download and run application**, select a language for your app, then click **Download**. 
-
-   ![][9]
 
   This downloads the project for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 
-### Build and test your app
+### Run your Windows 8 app
 
 The final stage of this tutorial is to build and run your new Windows 8 app.
 
 1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio 2012 Express for Windows 8. 
 
+   ![][8]
+
 2. Press the **F5** key to rebuild the project and start the app.
 
-3. In the app, enter text in **Insert a TodoItem** and then click **Save**.
+3. In the app, type meaningful text, such as _Complete the tutorial_, in **Insert a TodoItem**, and then click **Save**.
 
    ![][10]
 
-   This inserts the text in the TodoItem table in the mobile service. Text stored in the table is returned by the service and displayed in the second column.
+   This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
 
-4. Back in the Preview Management Portal, click the **Data** tab, then click the **TodoItems** table.
+	<div class="dev-callout"> 
+	<b>Note</b> 
+   	<p>You can review the code that accesses your mobile service to query and insert data, which is found in either the MainPage.xaml.cs file (C#/XAML project) or the default.js (JavaScript/HTML project) file.</p> 
+ 	</div>
+
+4. Back in the Management Portal, click the **Data** tab, then click the **TodoItems** table.
 
    ![][11]
 
@@ -115,7 +108,7 @@ The final stage of this tutorial is to build and run your new Windows 8 app.
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
 * [Get started with data]
-  <br/>Learn more about the "magic" behind the quickstart project.
+  <r/>Learn more about storing and querying data using Mobile Services.
 
 * [Get started with users]
   <br/>Learn how to authenticate users of your app with Windows Account.
@@ -136,8 +129,8 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [4]: ../Media/mobile-create-page2.png
 [5]: ../Media/mobile-services-selection.png
 [6]: ../Media/mobile-portal-quickstart.png
-[7]: ../Media/mobile-quickstart-get-tools.png
-[8]: ../Media/mobile-quickstart-create-table.png
+[7]: ../Media/mobile-quickstart-steps.png
+[8]: ../Media/mobile-vs-project.png
 [9]: ../Media/mobile-quickstart-download-app.png
 [10]: ../Media/mobile-quickstart-startup.png
 [11]: ../Media/mobile-data-tab.png
@@ -152,4 +145,4 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [WindowsAzure.com]: http://www.windowsazure.com/
-[Management Portal preview]: https://manage.windowsazure.com/
+[Management Portal]: https://manage.windowsazure.com/
