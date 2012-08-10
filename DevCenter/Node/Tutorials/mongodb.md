@@ -21,7 +21,7 @@ In this tutorial, you will learn how to:
 -   Use MongoDB within a Node.js application.
 
 -   Run your MongoDB Node.js application locally using the Windows Azure
-    compute emulator.
+    Cloud Services emulator.
 
 -   Publish your MongoDB Node.js application to Windows Azure.
 

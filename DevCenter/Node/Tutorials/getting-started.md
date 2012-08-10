@@ -50,7 +50,7 @@ start developing. The following components are installed:
 -   Node.js
 -   IISNode
 -   NPM for Windows
--   Windows Azure Compute & Storage Emulators
+-   Windows Azure Cloud Services & Storage Emulators
 -   Windows Azure PowerShell
 
 ## Creating a New Node Application
@@ -144,7 +144,7 @@ applications.
     -   The port has been changed to allow IIS to handle HTTP traffic on
         behalf of the application. IIS Node.js integration provides
         Node.js applications with a number of benefits when running
-        on-premise or in Windows Azure, including: process management,
+        on-premises or in Windows Azure, including: process management,
         scalability on multi-core servers, auto-update, side-by-side
         with other languages, etc.
     -   Console logging has been removed.
