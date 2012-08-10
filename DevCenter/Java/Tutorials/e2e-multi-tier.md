@@ -3,7 +3,7 @@
 # Java Multi-Tier Application Using Service Bus Queues
 
 Developing for Windows Azure is easy using the Eclipse IDE and the
-free [Windows Azure SDK for Java](http://msdn.microsoft.com/en-us/library/windowsazure/hh690953%28v=VS.103%29.aspx). On completing this guide, you will have an application that uses
+free [Windows Azure SDK for Java](http://www.windowsazure.com/en-us/develop/java/). On completing this guide, you will have an application that uses
 multiple Windows Azure resources running in your local environment and
 demonstrates how a multi-tier application works.
 
@@ -73,66 +73,7 @@ architecture.
 
 #### Download the Windows Azure SDK for Java
 
-The sections below describe the steps to download the components you may need for Java Development on Windows Azure. The following options are covered:
-
-1. Downloading the Windows Azure Libraries for Java manually
-
-2. Downloading the Windows Azure Libraries for Java manually using Apache Maven
-
-3. Installing the Windows Azure Plugin for Eclipse with Java
-
-For more information about the Windows Azure SDK for Java, see the [Windows Azure Java Developer Center](http://www.windowsazure.com/en-us/develop/java/).
-
-#### Windows Azure Libraries for Java – Manual Download
-
-The Windows Azure Libraries for Java are distributed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). Follow the steps below to get the libraries and required dependencies.
-
-1. Download the [Windows Azure Libraries for Java JAR](http://go.microsoft.com/fwlink/?LinkID=236226&clcid=0x409).
-2. Download [commons-lang3-3.1.jar](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.apache.commons%22%20AND%20a%3A%22commons-lang3%22%20AND%20v%3A%223.1%22)
-3. Download [commons-logging-1.1.1.jar](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22commons-logging%22%20AND%20a%3A%22commons-logging%22%20AND%20v%3A%221.1.1%22)
-4. Download [jackson-core-asl-1.8.3.jar](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.codehaus.jackson%22%20AND%20a%3A%22jackson-core-asl%22%20AND%20v%3A%221.8.3%22)
-5. Download [jackson-jaxrs-1.8.3.jar](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.codehaus.jackson%22%20AND%20a%3A%22jackson-jaxrs%22%20AND%20v%3A%221.8.3%22)
-6. Download [jackson-mapper-asl-1.8.3.jar](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.codehaus.jackson%22%20AND%20a%3A%22jackson-mapper-asl%22%20AND%20v%3A%221.8.3%22)
-7. Download [jackson-xc-1.8.3.jar](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.codehaus.jackson%22%20AND%20a%3A%22jackson-xc%22%20AND%20v%3A%221.8.3%22)
-8. Download [javax.inject-1.jar](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22javax.inject%22%20AND%20a%3A%22javax.inject%22%20AND%20v%3A%221%22)
-9. Download [jaxb-impl-2.2.3-1.jar](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.sun.xml.bind%22%20AND%20a%3A%22jaxb-impl%22%20AND%20v%3A%222.2.3-1%22)
-10. Download [jersey-client-1.10-b02.jar](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22jersey-client%22%20AND%20g%3A%22com.sun.jersey%22%20AND%20v%3A%221.10-b02%22)
-11. Download [jersey-core-1.10-b02.jar](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22jersey-core%22%20AND%20g%3A%22com.sun.jersey%22%20AND%20v%3A%221.10-b02%22)
-12. Download [jersey-json-1.10-b02.jar](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22jersey-json%22%20AND%20g%3A%22com.sun.jersey%22%20AND%20v%3A%221.10-b02%22)
-13. Download [jettison-1.1.jar](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.codehaus.jettison%22%20AND%20a%3A%22jettison%22%20AND%20v%3A%221.1%22)
-14. Download [stax-api-1.0.1.jar](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22stax%22%20AND%20a%3A%22stax-api%22%20AND%20v%3A%221.0.1%22)
-15. Download [javax.mail.jar](http://search.maven.org/#artifactdetails%7Cjavax.mail%7Cmail%7C1.4%7Cjar)
-
-#### Windows Azure Libraries for Java – Using Maven
-
-If your project is already set up to use Maven for build, add the following dependency to your pom.xml file.
-
-	<dependency>
-	    <groupId>com.microsoft.windowsazure</groupId>
-    	<artifactId>microsoft-windowsazure-api</artifactId>
-    	<version>0.2.1</version>
-	</dependency>
-
-
-#### Windows Azure Plugin for Eclipse with Java
-
-##### Prerequisites
-
-1. Windows 7 or Windows Server 2008
-2. Eclipse Helios or later
-
-##### Installation Steps
-
-1. Follow the directions in the previous section to install the Windows Azure Libraries for Java and the listed prerequisites.
-2. Install the Windows Azure SDK.
-3. In Eclipse, from the **Help** menu, select **Install New Software**.
-4. Enter the site location [http://dl.windowsazure.com/eclipse](http://dl.windowsazure.com/eclipse) and press **Enter**.
-5. Select all of the items to be installed and click **Finish**.
-
-6.  Once  installation is complete, you will have everything
-    necessary to start developing. The SDK includes the libraries that let you
-    easily develop Windows Azure applications with Java. If you
-    do not have Windows Azure Plugin for Eclipse with Java installed, it also helps install this free plugin.
+To install the Windows Azure SDK for Java, see the [Windows Azure Java Developer Center](http://www.windowsazure.com/en-us/develop/java/).
 
 ## Create a Windows Azure Account
 
@@ -289,8 +230,8 @@ provided.
 
 		// Include the following imports at the top of the page to use service bus APIs
 
-			<@ page language="java" contentType="text/html; charset=ISO-8859-1"
-		    pageEncoding="ISO-8859-1" import="com.microsoft.windowsazure.serviceruntime.*, java.util.Map, com.microsoft.windowsazure.services.serviceBus.models.*, com.microsoft.windowsazure.services.core.*, javax.xml.datatype.*" %>
+			
+		<@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" import="com.microsoft.windowsazure.serviceruntime.*, java.util.Map, com.microsoft.windowsazure.services.serviceBus.models.*, com.microsoft.windowsazure.services.core.*, javax.xml.datatype.*" %>
 		<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 		<html>
 		<head>
@@ -334,9 +275,9 @@ provided.
 				System.err.print("ServiceException encountered: ");			
 				System.err.println(e.getMessage());			
 			}		
-					  %>
-					</body>
-					</html>
+		  %>
+		</body>
+		</html>
 	
 - The page directive includes the import statement for the Service Runtime classes. Several other Service Runtime methods are used. 
 
@@ -378,7 +319,7 @@ provided.
 
 - Now we’ll overwrite the **startup.cmd** contents with the content you just placed into the clipboard buffer. Within Project Explorer, right-click **startup.cmd** (which is in the **approot** folder), click **Open With**, then click **Text Editor**. After startup.cmd opens in Eclipse, from the menu click **Edit**, click **Select All**, click **Edit** from the menu again, and then click **Delete**. Then right-click inside the now-empty startup.cmd and click **Paste** to paste in the startup commands for your web server.
 
-- If you are using a different server directory name than the value specified in the **SET SERVER_DIR_NAME=** statement, modify the value as needed. Additionally, there are comments in within the updated startup.cmd that provide additional guidance.
+- If you are using a different server directory name than the value specified in the **SET SERVER___DIR_NAME=** statement, modify the value as needed. Additionally, there are comments in within the updated startup.cmd that provide additional guidance.
 
 - Save startup.cmd.
 
@@ -487,7 +428,7 @@ Note that the Service Bus functionality requires the GTE CyberTrust Global Root 
 
 ##### How to create a middle-tier Java application
 
-1. On your development machine, create a Java console application using the following Java program. For purposes of this tutorial, we'll use **Client.java** as the Java file name. As above, modify the **your\_service\_bus\_namespace**, **your\_service\_bus\_owner**, and **your\_service\_bus\_key** placeholders to use your service bus **namespace**, **Default Issuer** and **Default Key** values, respectively.service bus **Namespace**,  **Default Issuer** and **Default Key** values, respectively.
+1. On your development machine, create a Java console application using the following Java program. For purposes of this tutorial, we'll use **Client.java** as the Java file name. As above, modify the **your\_service\_bus\_namespace**, **your\_service\_bus\_owner**, and **your\_service\_bus\_key** placeholders to use your service bus **namespace**, **Default Issuer** and **Default Key** values, respectively.
   
         import java.util.Date;
         import java.text.DateFormat;
@@ -496,7 +437,7 @@ Note that the Service Bus functionality requires the GTE CyberTrust Global Root 
         import com.microsoft.windowsazure.services.serviceBus.models.*;
         import com.microsoft.windowsazure.services.core.*;
         
-        public class TSP_Client 
+        public class Client 
         {
 
             public static void main(String[] args) 
@@ -598,21 +539,16 @@ Note that the Service Bus functionality requires the GTE CyberTrust Global Root 
 
 
 ##### How to run the application
-1. Log on to your machine where you will run the client application. This does not need to be the same machine running the **Client** application, although it can be.
+1. Log on to your machine where you will run the application. 
 2. Create a folder where you will run your application. For example, **c:\Client**.
 3. Copy **Client.jar** to **c:\Client**,
-4. Create a file named **c:\Client\output.txt**
-5. Ensure the JRE's bin folder is in the PATH environment variable.
-6. At a command prompt, change directories to c:\TSP.
-7. Run the following command:
+4. Ensure the JRE's bin folder is in the PATH environment variable.
+5. Run the following command:
 
         java -jar Client.jar
 
 The client will run until it sees a queue message of "Complete". 
 
-To delete the queue, run 
-
-        java -jar Client.jar deletequeue
 
 
 [arch-overview]: ../media/multi-tier/arch-overview.png
