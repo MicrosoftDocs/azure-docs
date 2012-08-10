@@ -64,7 +64,7 @@ After you have obtained your subscription ID, created a certificate, and uploade
 	
 	use WindowsAzure\Common\ServicesBuilder;
 
-	$conn_string = "SubscriptionID=<your_subscription_id>;CertificatePath=<path_to_.cer_certificate>";
+	$conn_string = "SubscriptionID=<your_subscription_id>;CertificatePath=<path_to_.pem_certificate>";
 
 	$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
 
