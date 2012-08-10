@@ -311,8 +311,8 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [Deploy the application update to Windows Azure and SQL Database]: #deploydatabaseupdate
 [Important information about ASP.NET in Windows Azure Web Sites]: #aspnetwindowsazureinfo
 [Next steps]: #nextsteps
-[Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=254364
-[Windows Azure SDK for Visual Studio 2012 RC]:  http://go.microsoft.com/fwlink/?LinkId=254269
+[Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=254269
+[Windows Azure SDK for Visual Studio 2012 RC]:  http://go.microsoft.com/fwlink/?LinkId=254364
 [NewPortal]: http://manage.windowsazure.com
 [MVC4Install]: http://www.asp.net/mvc/mvc4
 [VS2012ExpressForWebInstall]: http://www.microsoft.com/web/gallery/install.aspx?appid=VWD11_BETA&prerelease=true
