@@ -42,29 +42,29 @@ Each branch should be limited to a single concept/article both to streamline wor
 
 1.	Open GitBash
 2.	Type `git pull upstream master:<new branch name>` in the prompt.  This will create a new branch locally copied from the latest WindowsAzure master branch.
-3.	Type `git push origin <new branch name>` in the prompt.  This will alert github to the new branch.  You should now be able to see the new branch in your fork of the repository on GitHub.
-4.	Finally type, `git checkout <new branch name>` to switch to your new branch.
+3.	Type `git push origin <new branch name>` in the prompt.  This will alert GitHub to the new branch.  You should now be able to see the new branch in your fork of the repository on GitHub.
+4.	Type `git checkout <new branch name>` to switch to your new branch.
 
 #### Add New Content or Edit Existing Content
 
-You can now navigate to the repository on your local machine using Windows Explorer. The repository files are in C:\Users\<yourusername>\azure-content.
+You can now navigate to the repository on your local machine using Windows Explorer. The repository files are in `C:\Users\<yourusername>\azure-content`.
 
-If you are editing files, open them in an editor of your choice and start modifying them.  If you want to create a new file, use the editor of your choice and save it in the appropriate location in your local copy of the repository.  While working, make sure to save your work frequently.
+If you are editing files, open them in an editor of your choice and start modifying them.  If you want to create a new file, use the editor of your choice and save the new file in the appropriate location in your local copy of the repository.  While working, make sure to save your work frequently.
 
-The files in C:\Users\<yourusername>\azure-content are a working copy of the new branch that you created in your local repository. Changing anything in this folder does not affect the local repository until you commit a change. To commit a change to the local repository, type the following commands in GitBash:
+The files in `C:\Users\<yourusername>\azure-content` are a working copy of the new branch that you created in your local repository. Changing anything in this folder does not affect the local repository until you commit a change. To commit a change to the local repository, type the following commands in GitBash:
 
 	git add .
 	git commit -v -a -m "<Describe the changes made since last commit>"
 
-The `add` command adds your changes to a staging area in preparation for committing them to the repository. The period after the `add` command specifies that you want to add all of the changes you have made to the staging area to be committed. If you made some changes that you aren't ready to commit, type `git add -help` to see other variations of the add command you can use to stage only the changes that are ready.
+The `add` command adds your changes to a staging area in preparation for committing them to the repository. The period after the `add` command specifies that you want to stage all of the changes you have made. (If you don't want to commit all of the changes, you can add specific files. You can also undo a commit. For help, type `git add -help` or `git status`.)
 
-The `commit` command applies the staged changes to the repository. The -v means display verbose output from the command, -a means commit all of the staged changes, and -m means you are providing the commit comment in the command line. (You can omit -m and you will be prompted for a commit comment.) 
+The `commit` command applies the staged changes to the repository. `-v` means display verbose output from the command, `-a` means commit all of the staged changes, and `-m` means you are providing the commit comment in the command line. (You can omit `-m` and you will be prompted for a commit comment.)
 
 You can commit multiple times while you are doing your work, or you can wait and commit only once when you're done.  If you only do one, type the `git add .` command followed by the `git commit` command described in the following section, which provides the issue number in the comment.
 
 #### Submit a Pull Request to the Main Repository
 
-When you are done with your work, and are ready to have it merged into the central repository follow the following steps.
+When you are done with your work and are ready to have it merged into the central repository follow these steps.
 
 1.  Create a [WindowsAzure/Azure-Content issue].
 2.  In GitBash type the following command to associate the changes with the issue you created:
@@ -72,10 +72,10 @@ When you are done with your work, and are ready to have it merged into the centr
         git commit -a -v -m “fix #123 -- describe the changes made since last commit”
 
     In the comment, replace "123" with the number of the issue.
-1.	In GitBash type `git push origin <new branch name>` in the command prompt.  In your local repository, `origin` refers to your GitHub repository that you cloned the local repository from. This command pushes the current state of your new branch, including all commits made in the previous step, to your GitHub fork.
+1.	In GitBash type `git push origin <new branch name>` in the command prompt.  In your local repository, `origin` refers to your GitHub repository that you cloned the local repository from. This command pushes the current state of your new branch, including all commits made in the previous steps, to your GitHub fork.
 2.	On the GitHub site, navigate in your fork to the new branch.
 3.	Click the **Pull Request** button at the top of the page.
-4.	Ensure that the Base branch is WindowsAzure/azure-content@weekly and the Head branch is <your username>/azure-content@<branch name>
+4.	Ensure that the Base branch is `WindowsAzure/azure-content@weekly` and the Head branch is `<your username>/azure-content@<branch name>`
 5.	Click the **Update Commit Range** button.
 6.	Give your pull request a Title, and describe all the changes being made.  If your bug fixes a TFS Item or GitHub issue make sure to reference them in the description.
 7.	Submit the Pull Request.
@@ -96,7 +96,7 @@ You now have local copies (in a new local branch) of the work that you submitted
 
 	git checkout X2
 
-...and verifying the content. (The `checkout` command updates the files in C:\Users\<yourusername>\Azure-Content to the current state of the X2 branch.) Once you have checked out the new branch, you can make updates to the content and commit them as usual. However, to avoid working in the merged branch (X) by mistake, it is best to delete it (see the following "Delete a Branch" section).
+...and verifying the content. (The `checkout` command updates the files in `C:\Users\<yourusername>\Azure-Content` to the current state of the X2 branch.) Once you have checked out the new branch, you can make updates to the content and commit them as usual. However, to avoid working in the merged branch (X) by mistake, it is best to delete it (see the following "Delete a Branch" section).
 
 #### Delete a Branch
 
