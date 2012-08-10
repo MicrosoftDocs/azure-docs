@@ -14,7 +14,7 @@ API on Windows Azure. For simplicity, the sample is limited to running
 with a single Windows Azure worker role instance. This means that it
 should not be used in a production setting, because production
 applications must have at least two instances of each role in order to
-meet the <a href="http://www.windowsazure.com/en-us/support/sla/">Windows Azure Compute SLA</a>. To scale the application to work
+meet the <a href="http://www.windowsazure.com/en-us/support/sla/">Windows Azure SLA</a>. To scale the application to work
 with multiple role instances, you could use a technology like Service
 Bus to share the socket.io store state across instances. For examples,
 see the Service Bus Queues and Topics usage samples in the <a href="https://github.com/WindowsAzure/azure-sdk-for-node">Windows
@@ -263,7 +263,7 @@ realtime communication between between your Node.js server and clients.
 -   Complete more end-to-end <a>Node.js tutorials</a>
 
   [http://socket.io/]: http://socket.io/
-  [Windows Azure Compute SLA]: http://www.windowsazure.com/en-us/support/sla/
+  [Windows Azure SLA]: http://www.windowsazure.com/en-us/support/sla/
   [Windows Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
   [completed-app]: ../Media/socketio-10.png
   [Windows Azure SDK for Node.js]: https://www.windowsazure.com/en-us/develop/nodejs/
