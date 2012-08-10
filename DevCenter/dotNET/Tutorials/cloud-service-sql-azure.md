@@ -498,8 +498,8 @@ that is hosted in a Windows Azure Cloud Service and stores data in SQL Database.
 
   [Create a Windows Azure account]: #create  
   [Download a publishing profile]: #profile
-  [Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=254364
-  [Windows Azure SDK for Visual Studio 2012 RC]:  http://go.microsoft.com/fwlink/?LinkId=254269
+  [Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=254269
+  [Windows Azure SDK for Visual Studio 2012 RC]:  http://go.microsoft.com/fwlink/?LinkId=254364
   [0]: ../media/dev-net-getting-started-1.png
   [Set Up the development environment]: #setup
   [Create an ASP.NET MVC 3 application]: #creating
