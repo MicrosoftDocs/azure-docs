@@ -33,7 +33,7 @@ it easier for you to build native Android applications that leverage
 cloud services running in Windows Azure.
 
 [Windows Azure Toolkit for Windows 8][]: This toolkit is designed to let
-you build rich Windows Metro style applications that incorporate push
+you build rich Windows 8 applications that incorporate push
 notifications, cloud storage, and access control.
 
 [Windows Azure Toolkit for Social Gaming][]: This toolkit is designed to
