@@ -239,7 +239,7 @@ In this section you will extend the basic application created by the **express**
 
 	<div class="dev-callout">
 	<strong>Note</strong>
-	<p>You must replace the connection string above with the connection string for the MongoDB server you created earlier. For example, <strong>mongodb://&ltuser&gt:&ltpassword&gt@ds037087.mongolab.com:37087/tasks</strong>.</p>
+	<p>You must replace the connection string above with the connection string for the MongoDB server you created earlier. For example, <strong>mongodb://&lt;user&gt;:&lt;password&gt;@ds037087.mongolab.com:37087/tasks</strong>.</p>
 	</div>
 
 4. Save the **app.js** file.

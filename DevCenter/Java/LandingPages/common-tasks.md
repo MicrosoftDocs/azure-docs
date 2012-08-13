@@ -20,13 +20,8 @@ By default, Windows Azure applications and storage accounts can be accessed thro
 
 The Content Delivery Network (CDN) offers a global solution for delivering high-bandwidth content by caching blobs and static content at physical nodes around the world. This common task describes how to enable CDN and add, access, and delete content.
 
-### [Configuring SSL for an Application in Windows Azure][ssl]
-
-Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
-
 [add_ca_cert]: ../Commontasks/add_ca_cert.md 
 [manage_sql]: ../CommonTasks/sql-azure-management.md
 [custom_domain_name]: ../CommonTasks/custom-dns.md
 [cdn]: ../CommonTasks/cdn.md
-[ssl]: ../CommonTasks/enable-ssl.md
 [remote-desktop]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690951

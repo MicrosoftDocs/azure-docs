@@ -1,66 +1,23 @@
-#Node.js Developer Center - Tutorials
+<div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14783" umbversionid="b60ec6b6-4945-4a46-ba05-ce82eee30b59" ismacro="true" umb_chunkname="NodeJSLeft" umb_chunkpath="devcenter/Menu" umb_hide="0" umb_macroalias="AzureChunkDisplayer" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
+<h1 id="menu-nodejs-data">Data</h1>
+<h2>Windows Azure Storage</h2>
 
-## Web Sites
-<h3 class="subtext">Perfect for web apps consisting of client side markup and scripting, server side scripting and a database</h3> 
+<h3><a href="/en-us/develop/nodejs/how-to-guides/blob-storage/">Store unstructured data using Blobs</a></h3>
+<p>Blobs are the simplest way to store large amounts of unstructured text or binary data such as video, audio and images. Blobs are an ISO 27001 certified managed service that can auto-scale to store up to 100 terabytes of data. They are accessible from virtually anywhere via REST and client APIs.</p>
 
-### [Node.js Web Site] ###
-Learn how to use the Windows Azure portal to create a new Windows Azure Web Site, provision a [Git] repository for the web site, and then publish a Node.js application to the web site by using Git.
+<h3><a href="/en-us/develop/nodejs/how-to-guides/table-services/">Store key/value pairs using Tables</a></h3>
+<p>Tables offer NoSQL capabilities for applications that require storage of large amounts of unstructured data. Tables are an ISO 27001 certified managed service that can auto-scale to store up to 100 terabytes of data. They are accessible from virtually anywhere via REST and managed APIs.</p>
 
-### [Web Site with WebMatrix] ###
-[WebMatrix] provides a light-weight development experience for creating web applications. It includes several templates for creating Node.js applications, as well as autocomplete for JavaScript. In this tutorial you will learn how to create a Node.js application, and then deploy your application to a Windows Azure Web Site.
+<h2>Relational Data</h2>
+<h3><a href="/en-us/develop/nodejs/how-to-guides/sql-database/">Store relational data using SQL Database</a></h3>
+<p>For applications that need a full featured relational database-as-a-service, Windows Azure offers SQL Database, formerly known as SQL Azure Database. SQL Database offers a high-level of interoperability, enabling customers to build applications using many of the major development frameworks.</p>
 
-### [Web Site with Storage]
-The Windows Azure Table Service is a NoSQL storage service that is useful for working key/value pairs. Learn how to use this service by creating a Node.js 'task list' style application that uses the azure module to store data in the Table service. This tutorial also teaches you how to use the [Windows Azure Cross-Platform Tools for Mac and Linux] to create a Windows Azure Web Site.
+<h3><a href="/en-us/develop/nodejs/common-tasks/sql-azure-management/">Managing Windows Azure SQL Database using SQL Server Management Studio</a></h3>
+<p>You can use SQL Server Management Studio to manage SQL Database logical servers and databases. This article includes details about creating and managing databases, creating and managing logins, and monitoring using Dynamic Management Views.</p>
 
+<h2>Other Data Options</h2>
+<h3><a href="/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/">Store non-relational data using MongoDB hosted by MongoLab</a></h3>
+<p>MongoDB is a popular document-oriented NoSQL solution. In this tutorial you will learn how to create a Node.js 'task list' style application that stores data in a MongoDB instance hosted by MongoLab. This tutorial also teaches you how to use the Windows Azure Cross-Platform Tools for Mac and Linux to create a Windows Azure Web Site.</p>
 
-### [Web Site with SQL Database]
-
-SQL Database provides a full-featured relational database-as-a-service. This tutorial demonstrates how to use SQL Database from a Node.js application. You will create a 'task list' web site that stores and accesses data in a SQL Database instance.
-
-### [Web Site with MongoDB]
-
-[MongoDB] is a popular document-oriented NoSQL solution. In this tutorial you will learn how to create a Node.js 'task list' style application that stores data in a Windows Azure virtual machine hosting MongoDB. This tutorial also teaches you how to use the [Windows Azure Cross-Platform Tools for Mac and Linux] to create a Windows Azure Web Site.
-
-## Cloud Services
-<h3 class="subtext">Ideal for applications that separate logic into multiple tiers using both Web and Worker Roles
-</h3>
-
-### [Node.js Cloud Service]
-Learn how to use the [Windows Azure PowerShell] cmdlets to create a Node.js application, test it in the Windows Azure Emulator, and then deploy it as a Windows Azure Cloud Service.
-
-### [Cloud Service with Express]
-In this tutorial, learn how to use npm to install the popular [Express] module, and use it to create an MVC based application. Then use the [Windows Azure PowerShell] cmdlets to test and deploy the application as a Windows Azure Cloud Service
-
-### [Cloud Service with Storage]
-The [Windows Azure Table Service] is a NoSQL storage service that is useful for working key/value pairs. Learn how to use this service by creating a Node.js 'task list' style application that uses the azure module to store data in the Table service.
-
-### [Cloud Service with Socket.IO]
-[Socket.io] provides real-time communication between your Node.js application and client browsers. In this tutorial you will learn how to create a Cloud Service based on the 'chat' example provided with Socket.io.
-
-## Deployment
-
-### [Deploying with Cloud9]
-[Cloud9] is a browser based IDE that allows you to develop, test, and deploy a Node.js application from within your web browser. In this tutorial you will learn how to deploy a Node.js application from Cloud9 to a Windows Azure Cloud Service.
-
-[Node.js Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-[Web site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
-[Web Site with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
-[Web Site with SQL Database]: /en-us/develop/nodejs/tutorials/web-site-with-sql-database/
-[Web Site with MongoDB]: /en-us/develop/nodejs/tutorials/website-with-mongodb-(mac)/
-[Node.js Cloud Service]: /en-us/develop/nodejs/tutorials/getting-started/
-[Cloud Service with Express]: /en-us/develop/nodejs/tutorials/web-app-with-express/
-[Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
-[Cloud Service with MongoDB]: /en-us/develop/nodejs/tutorials/web-app-with-mongodb/
-[Cloud Service with Socket.IO]: /en-us/develop/nodejs/tutorials/app-using-socketio/
-[Deploying with Cloud9]: /en-us/develop/nodejs/tutorials/deploying-with-cloud9/
-
-[Cloud9]: http://http://c9.io/
-[MongoDB]: http://www.mongodb.org/
-[Socket.io]: http://socket.io/
-[Express]: http://expressjs.com/
-[WebMatrix]: /en-us/develop/downloads/webmatrix-overview/
-[Git]: http://git-scm.com/
-[Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
-[Windows Azure Cross-Platform Tools for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
-[Windows Azure PowerShell]: /en-us/develop/nodejs/how-to-guides/powershell-cmdlets/
-[Windows Azure Table Service]: /en-us/develop/nodejs/how-to-guides/table-services/
+<h3><a href="/en-us/develop/nodejs/tutorials/website-with-mongodb-(mac)/">Store non-relational data using MongoDB on a Virtual Machine</a></h3>
+<p>Another option for MongoDB support is to host your own instance on a Windows Azure virtual machine. This tutorial shows how to create a task list application that stores data in a Windows Azure Virtual Machine hosting MongoDB.</p>
