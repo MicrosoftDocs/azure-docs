@@ -9,7 +9,7 @@ application.
 
 <div class="dev-callout">
 	<b>Note</b>
-	<p>The steps in this article only apply to node applications hosted in a Windows Azure Cloud Service.</p>
+	<p>The steps in this article only apply to node applications hosted as a Windows Azure Cloud Service.</p>
 	</div>
 
 This task includes the following steps:
