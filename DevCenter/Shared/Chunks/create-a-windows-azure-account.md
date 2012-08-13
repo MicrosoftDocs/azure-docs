@@ -8,7 +8,7 @@ In order to deploy applications to Windows Azure, you need an account. This arti
 2.  To get started with a free account, click <strong>Free trial</strong> in the upper right corner and follow the steps. You'll need a credit card number and a mobile phone number for proof of identity, but you will not be billed.<br />
     ![Windows Azure Website][0]
 
-## Enable Windows Azure preview features
+<h2><a id="enable"></a>Enable Windows Azure preview features</h2>
 
 1.  Navigate to [https://account.windowsazure.com/](https://account.windowsazure.com/) and sign in with your Windows Azure account.
 2.  Click **preview features** to view the available previews.<br />
