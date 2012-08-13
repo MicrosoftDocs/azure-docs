@@ -61,7 +61,7 @@ In the examples below, the `require_once` statement will be shown always, but on
 
 <h2 id="ConnectionString">Setup a Windows Azure storage connection</h2>
 
-To instantiate a Windows Azure Table service client you must first have a valid connection string. The format for storage services (blobs, tables, queues) connection strings is:
+To instantiate a Windows Azure Table service client you must first have a valid connection string. The format for the table service connection string is:
 
 For accessing a live service:
 
