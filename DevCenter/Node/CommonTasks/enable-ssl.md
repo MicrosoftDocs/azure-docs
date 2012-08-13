@@ -7,6 +7,11 @@ securing data sent across the internet. This common task discusses how
 to specify an HTTPS endpoint for a Node.js web role and how to upload an
 SSL certificate to secure your application.
 
+<div class="dev-callout">
+	<b>Note</b>
+	<p>The steps in this article only apply to node applications hosted in a Windows Azure Cloud Service.</p>
+	</div>
+
 This task includes the following steps:
 
 -   [Step 1: Create a Node.js service and publish the service to the cloud]
