@@ -15,7 +15,7 @@ This guide will show you how to programmatically perform common service manageme
 * [How to: Create a cloud service](#CreateCloudService)
 * [How to: Delete a cloud service](#DeleteCloudService)
 * [How to: Create a deployment](#CreateDeployment)
-* [How to: Update a deployment's status](#UpdateDeploymentStatus)
+* [How to: Update a deployment](#UpdateDeployment)
 * [How to: Move deployments between staging and production](#MoveDeployments)
 * [How to: Delete a deployment](#DeleteDeployment)
 * [How to: Create a storage service](#CreateStorageService)
@@ -218,6 +218,8 @@ The following example creates a new deployement in the production slot of a host
 														 $configuration,
 														 $label);
 		
+		$status = $serviceManagementRestProxy->getOperationStatus($result);
+		echo "Operation status: ".$status->getStatus()."<br />";
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -228,7 +230,9 @@ The following example creates a new deployement in the production slot of a host
 		echo $code.": ".$error_message."<br />";
 	}
 
-You can access deployment properties with the **getDeploymentProperties** method. The following example retrieves a deployment by specifying the deployment slot in the [GetDeploymentOptions] object, but you could instead specify the deployment name. The example also iterates through all the instances for the deployment:
+Note in the example above that the status of the **createDeployment** operation can be retrieved by passing the result returned by **createDeployment** to the **getOperationStatus** method.
+
+You can access deployment properties with the **getDeployment** method. The following example retrieves a deployment by specifying the deployment slot in the [GetDeploymentOptions] object, but you could instead specify the deployment name. The example also iterates through all the instances for the deployment:
 
 	$options = new GetDeploymentOptions();
 	$options->setSlot(DeploymentSlot::PRODUCTION);
@@ -248,9 +252,45 @@ You can access deployment properties with the **getDeploymentProperties** method
 	}
 	echo "------<br />";
 
-<h2 id="UpdateDeploymentStatus">How to: Update a deployment's status</h2>
+<h2 id="UpdateDeployment">How to: Update a deployment</h2>
 
-A deployment status can be RUNNING or SUSPENDED. You can change the status of a deployment with the **updateDeploymentStatus** method. The following example demonstrates how to set the status to RUNNING for a deployment in the production slot of a hosted service called `myhostedservice`:
+A deployment can be updated by using the **changeDeploymentConfiguration** method or the **updateDeploymentStatus** method.
+
+The **changeDeploymentConfiguration** method allows you to upload a new service configuration (`.cscfg`) file, which will change any of several service settings (including the number of instances in a deployment). For more information, see [Windows Azure Service Configuration Schema (.cscfg)]. The following example demonstrates how to upload a new service configuration file:
+
+	require_once 'vendor\autoload.php';
+
+	use WindowsAzure\Common\ServicesBuilder;
+	use WindowsAzure\ServiceManagement\Models\ChangeDeploymentConfigurationOptions;
+	use WindowsAzure\ServiceManagement\Models\DeploymentSlot;
+	use WindowsAzure\Common\ServiceException;
+
+	try{
+		// Create REST proxy.
+		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
+		
+        $name = "myhostedservice";
+		$configuration = file_get_contents('path to .cscfg file');
+		$options = new ChangeDeploymentConfigurationOptions();
+		$options->setSlot(DeploymentSlot::PRODUCTION);
+
+        $result = $serviceManagementRestProxy->changeDeploymentConfiguration($name, $configuration, $options);
+		
+		$status = $serviceManagementRestProxy->getOperationStatus($result);
+		echo "Operation status: ".$status->getStatus()."<br />";
+	}
+	catch(ServiceException $e){
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
+		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		$code = $e->getCode();
+		$error_message = $e->getMessage();
+		echo $code.": ".$error_message."<br />";
+	}
+
+Note in the example above that the status of the **changeDeploymentConfiguration** operation can be retrieved by passing the result returned by **changeDeploymentConfiguration** to the **getOperationStatus** method.
+
+The **updateDeploymentStatus** method allows you to set a deployment status to RUNNING or SUSPENDED. The following example demonstrates how to set the status to RUNNING for a deployment in the production slot of a hosted service called `myhostedservice`:
 
 	require_once 'vendor\autoload.php';
 
@@ -355,6 +395,9 @@ A [storage service] gives you access to Windows Azure [Blobs][azure-blobs], [Tab
 		$options->setDescription("My storage account description.");
 
         $result = $serviceManagementRestProxy->createStorageService($name, $label, $options);
+
+		$status = $serviceManagementRestProxy->getOperationStatus($result);
+		echo "Operation status: ".$status->getStatus()."<br />";
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -364,6 +407,8 @@ A [storage service] gives you access to Windows Azure [Blobs][azure-blobs], [Tab
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
+
+Note in the example above that the status of the **createStorageService** operation can be retrieved by passing the result returned by **createStorageService** to the **getOperationStatus** method.  
 
 You can list your storage accounts and their properties with the **listStorageServices** method:
 
@@ -494,10 +539,12 @@ You can delete an affinity group by passing the group name to the **deleteAffini
 [service package]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433093
 [Windows Azure PowerShell cmdlets]: https://www.windowsazure.com/en-us/develop/php/how-to-guides/powershell-cmdlets/
 [cspack commandline tool]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432988.aspx
-[GetDeploymentOptions]: [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
+[GetDeploymentOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
+[ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 [Overview of Managing Deployments in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx
 [storage service]: https://www.windowsazure.com/en-us/manage/services/storage/what-is-a-storage-account/
 [azure-blobs]: https://www.windowsazure.com/en-us/develop/php/how-to-guides/blob-service/
 [azure-tables]: https://www.windowsazure.com/en-us/develop/php/how-to-guides/table-service/
 [azure-queues]: https://www.windowsazure.com/en-us/develop/php/how-to-guides/queue-service/
 [AffinityGroup]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/AffinityGroup.php
+[Windows Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
