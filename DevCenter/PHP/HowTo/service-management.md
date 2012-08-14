@@ -188,7 +188,7 @@ The **createDeployment** method uploads a new [service package] and creates a ne
 * **$deploymentName**: The name of the deployment.
 * **$slot**: An enumeration indicating the staging or production slot.
 * **$packageUrl**: The URL for the deployment package (a .cspgk file). The package file must be stored in a Windows Azure Blob Storage account under the same subscription as the hosted service to which the package is being uploaded. You can create a deployment package with the [Windows Azure PowerShell cmdlets], or with the [cspack commandline tool].
-* **$configuration**: The base 64-encoded service configuration file (.cscfg file).
+* **$configuration**: The service configuration file (.cscfg file).
 * **$label**: The base 64-encoded hosted service name.
 
 The following example creates a new deployement in the production slot of a hosted service called `myhostedservice`:
@@ -208,7 +208,7 @@ The following example creates a new deployement in the production slot of a host
 		$deploymentName = "v1";
         $slot = DeploymentSlot::PRODUCTION;
 		$packageUrl = "URL_for_.cspkg_file";
-		$configuration = base64_encode(file_get_contents('path_to_.cscfg_file'));
+		$configuration = file_get_contents('path_to_.cscfg_file');
 		$label = base64_encode($name);
 
         $result = $serviceManagementRestProxy->createDeployment($name,
