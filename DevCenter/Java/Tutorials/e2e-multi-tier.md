@@ -180,7 +180,11 @@ The application will look similar to the following:
 
 - In the **Select JSP Template** dialog, for purposes of this tutorial select **New JSP File (html)** and click **Finish**.
 
-- Add the Windows Azure Service Runtime library to your build path. Within Eclipse’s Project Explorer, right-click the **HelloWorld** project and click **Properties**.
+- When the index.jsp file opens in Eclipse, add in text to display Hello World! within the existing <body> element. Your updated <body> content should appear as the following. Save index.jsp.
+
+			<body>
+			  <b><% out.println("Hello World!"); %></b>
+			</body>
 
 - In the left-hand pane of the **Properties** dialog, click **Java Build Path**.
 
@@ -198,9 +202,7 @@ The application will look similar to the following:
  
 - Click **OK** to close the **Properties** dialog.
  
-- Modify the code in index.jsp, to include an **import** statement for the Service Runtime library, and also add in  functionality that uses this library. The following shows an index.jsp file that includes the **import** statement, and includes calls into the Service Runtime library.
-
-- The code uses Service Bus queues functionality to send messages to a queue. Management operations for Service Bus queues can be performed via the
+- Modify the code in index.jsp as shown below. The code uses Service Bus queues functionality to send messages to a queue. Management operations for Service Bus queues can be performed via the
 **ServiceBusContract** class. A **ServiceBusContract** object is
 constructed with an appropriate configuration that encapsulates the
 token permissions to manage it, and the **ServiceBusContract** class is
@@ -231,7 +233,7 @@ provided.
 		// Include the following imports at the top of the page to use service bus APIs
 
 			
-		<@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" import="com.microsoft.windowsazure.serviceruntime.*, java.util.Map, com.microsoft.windowsazure.services.serviceBus.models.*, com.microsoft.windowsazure.services.core.*, javax.xml.datatype.*" %>
+		<@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" import="java.util.Map, com.microsoft.windowsazure.services.serviceBus.models.*, com.microsoft.windowsazure.services.core.*, javax.xml.datatype.*" %>
 		<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 		<html>
 		<head>
@@ -279,97 +281,80 @@ provided.
 		</body>
 		</html>
 	
-- The page directive includes the import statement for the Service Runtime classes. Several other Service Runtime methods are used. 
 
 ##### To create a special Windows Azure project for deployment
 
-- Now we’ll create a Windows Azure project. Within Eclipse, at the menu click **File**, click **New**, and then click **Windows Azure Project**. (If you don’t see **Windows Azure Project** listed as an available project after clicking **File**, **New**, then do the following: click **File**, click **New**, click **Project…**, expand **Windows Azure Project**, click **Windows Azure Project**, and click **Next**.) For purposes of this tutorial, name the project **MyAzureProject**. Modify the **Location:** value if needed. Make a note of the location, you’ll need it when you export your WAR file. Accept the default values for **WorkerRole1**. Your **New Windows Azure Project** dialog should look similar to the following:
+- Now we’ll create a Windows Azure deployment project. As a shortcut, in Eclipse’s Project Explorer, right-click the **MyHelloWorld** project, click **Windows Azure**, and then click **Package for Windows Azure**.
 
-![Create Azure Project][new-windows-azure-project]
+- For purposes of this tutorial, name the project **MyAzureProject**, and click **Next**.
 
-- Click **Finish**.
+- Within the Windows Azure Deployment Project dialog, Click **Include a JDK from this location**, click the **Browse** button, and using the browse control, select the directory location for the JDK that you want use for your deployment. (By default, the **Open Directory** dialog already selects the Java directory on your computer, you just need to scroll down to it and select the JDK installation contained there that you want to use.)
+ 
+- Click **Include a server from this location**, select the application server of your choice, click the **Browse** button, and select the directory location where the application server that you want to deploy with your project has been installed on your computer.
 
-- Create a WAR file of the Java project. Within Eclipse’s Project Explorer, right-click **HelloWorld**, click **Export**, and click **WAR file**. In the **Export** dialog, click the **Browse** button.
-
-- In the **Save As** dialog, navigate to the following location (where <em>&lt;your_project_location&gt;</em> is the folder where you created your Windows Azure project):
-
-*<your_project_location>\MyAzureProject\WorkerRole1\approot*
-
-- Click **Save**. You’ll be prompted to overwrite the existing file, because a default **HelloWorld.war** file ships with the Windows Azure project. Click **Overwrite existing file**. Your **Export** dialog should appear as the following (other than the path used in the **Destination** field - use the path you specified earlier):
-
-![Export WAR File][war-export]
-
-- Click **Finish**.
-
-- Within Eclipse’s Project Explorer, expand **MyAzureProject**, expand **WorkerRole1**, and expand **approot**. There, you’ll see your **HelloWorld.war** file that you exported in the previous step. (If you don’t see your WAR file, refresh your Eclipse view by clicking the **File** menu choice, then clicking **Refresh**). Your Project Explorer should look similar to the following:
-
-![approot view][project-explorer-1]
-
-- To confirm that the HelloWorld.war file is the one that you exported, right-click **HelloWorld.war** to bring up the **Properties** menu option, then view the date and time that the WAR file was created.
-
-- Now we’ll copy over zips of your JDK and server. These zips will be copied to the **approot** folder.
-
-- Create the zips if needed, and then use File Explorer to drag the zips to the **approot** folder in Eclipse’s Project Explorer. When prompted by the **File Operation** dialog, choose **Copy files**. After dragging the zips to the **approot** folder, your Project Explorer should look similar to the following (for purposes of this tutorial, an Apache zip was used, your web server may be different):
-
-![approot view][project-explorer-2]
-
-- Now we’ll customize the startup script used for your application server. Within Project Explorer, expand the **samples** folder under **MyAzureProject**.
-
-- First we’ll copy the appropriate script contents into your clipboard buffer. Within the **samples** folder, you’ll see a set of files that provide specific startup commands for different types of web servers. Open the file that applies to your web server by double-clicking it. With the file opened in Eclipse, from Eclipse’s menu click **Edit**, then click **Select All**. Next, right-click the selected text and click **Copy**. 
-
-- Now we’ll overwrite the **startup.cmd** contents with the content you just placed into the clipboard buffer. Within Project Explorer, right-click **startup.cmd** (which is in the **approot** folder), click **Open With**, then click **Text Editor**. After startup.cmd opens in Eclipse, from the menu click **Edit**, click **Select All**, click **Edit** from the menu again, and then click **Delete**. Then right-click inside the now-empty startup.cmd and click **Paste** to paste in the startup commands for your web server.
-
-- If you are using a different server directory name than the value specified in the **SET SERVER___DIR_NAME=** statement, modify the value as needed. Additionally, there are comments in within the updated startup.cmd that provide additional guidance.
-
-- Save startup.cmd.
-
-- Build your project. Within Eclipse’s menu, click **Project**, then click **Build Project**. Ensure the build is successful before proceeding to the next section.
+- In the **Applications** selection, you will already see **HelloWorld.war** listed if you started this wizard from your project’s context menu **Package for Windows Azure** command. Click **Finish** to close the **Windows Azure Deployment Project** dialog.
 
 ##### To deploy your application to the compute emulator
 
-- In Eclipse’s Project Explorer, expand **MyAzureProject**, expand **emulatorTools**, and double-click **RunInEmulator.cmd**. This will launch your Java web application in the compute emulator. When you are prompted to allow this command to make changes to your computer; click **Yes**.
+- In Eclipse’s Project Explorer, click MyAzureProject.
 
-- Examine the output of the compute emulator UI to determine if there are any issues with your project. It may take several minutes for your deployment to be fully started within the compute emulator.
+- In the Eclipse toolbar, click the **Run in Windows Azure Emulator** button. If the **Run in Windows Azure Emulator** button is not enabled, ensure that **MyAzureProject** is enabled in Eclipse’s Project Explorer, and ensure that Eclipse’s Project Explorer has focus as the current window. (As an alternative to using the **Run in Windows Azure Emulator** button, you can use the following menu choices: In Eclipse’s Project Explorer, expand **MyAzureProject**, expand **emulatorTools**, and double-click **RunInEmulator.cmd**.)
 
-- Start your browser and use the URL http://localhost:8080/HelloWorld as the address (the HelloWorld portion of the URL is case-sensitive). You should see your HelloWorld application (the output of index.jsp), similar to the following
+- This will first start a full build of your project and then launch your Java web application in the compute emulator. (Note that the first build may take a couple of minutes. Subsequent builds are faster.) After the first build step has been completed, you will be prompted by Windows User Account Control (UAC) to allow this command to make changes to your computer. Click **Yes**.
+
+- Examine the output of the compute emulator UI to determine if there are any issues with your project. Depending on the contents of your deployment, it may take a couple minutes for your application to be fully started within the compute emulator.
+
+- Start your browser and use the URL http://localhost:8080/MyHelloWorld as the address (the MyHelloWorld portion of the URL is case-sensitive). You should see your MyHelloWorld application (the output of index.jsp), similar to the following image:
+
+
+
+
+
 
 ![][front-screenshot-localhost]
 
-- When you are ready to stop your application from running in the compute emulator, within the **emulatorTools** node, double-click **ResetEmulator.cmd**. (Alternatively, the compute emulator UI has menu options for stopping and deleting an application).
+- When you are ready to stop your application from running in the compute emulator, in the Eclipse toolbar, click the **Reset Windows Azure Emulator** button, . (As an alternative to using the **Reset Windows Azure Emulator** button, you can use the following menu choices: In Eclipse’s Project Explorer, expand **MyAzureProject**, expand **emulatorTools**, and double-click **ResetEmulator.cmd**.)
+
+
 
 ##### To deploy your application to Windows Azure
 
-- By default, a new Windows Azure project is configured to build a project to run in the compute emulator. To prepare it for deployment to the cloud, within Eclipse’s Project Explorer, right-click **MyAzureProject** and click **Properties**. In the left pane of the **Properties** dialog, click **Windows Azure**, and then select **Deployment to cloud** in the **Build for** list box. Your **Properties** dialog should look similar to the following:
+- In Eclipse’s Project Explorer, click **MyAzureProject**.
 
-![][project-properties]
+- In the Eclipse toolbar, click the **Publish to Windows Azure Cloud** button. If the **Publish to Windows Azure Cloud** button is not enabled, ensure that **MyAzureProject** is enabled in Eclipse’s Project Explorer, and ensure that Eclipse’s Project Explorer has focus as the current window. 
 
-- For purposes of this tutorial, we’ll turn off Remote Access for the Windows Azure project. In the left pane of the **Properties** dialog, expand **Windows Azure** and click **Remote Access**. In the **Remote Access** dialog, uncheck the **Enable all roles to accept Remote Desktop connections with these login credentials**. Click **OK** to close the Remote Access dialog.
+- In the **Publish Azure Project** dialog, for **Subscription**, click **Download**. If you are not yet logged into your Windows Azure account, you will be prompted to log in. Then you’ll be prompted to save a Windows Azure publish settings file. (You can ignore the resulting instructions shown on the logon pages – they are provided by the Windows Azure portal and are intended for Visual Studio users.) Save it to your local machine.
 
-- Build your project, through Eclipse’s menu options **Project**, **Build All**. Ensure the build is successful before proceeding to the next section.
+- Click the **Import** button for **Subscription**, select the publish settings file that you saved locally in the previous step, and click **Open**.
 
-- Within Eclipse’s Project Explorer, expand MyAzureProject, and then expand deploy. Within the deploy folder you should see three files, ServiceConfiguration.cscfg, WindowsAzurePackage.cspkg, and WindowsAzurePortal.url. You will need to upload the first two files to Windows Azure through the Windows Azure Management Portal, which we’ll do shortly. The third file, WindowsAzurePortal.url, is a shortcut to the Windows Azure Management Portal.
+- For Subscription, select the subscription that you want use for your deployment.
 
-- Double-click WindowsAzurePortal.url, which will launch the Windows Azure Management Portal in your browser.
+- For **Storage Account**, select the storage account that you want to use, or click **New** to create a new storage account.
 
-- Log in to the Windows Azure Management Portal. Within the Windows Azure Management Portal, click **Hosted Services, Storage Accounts &amp; CDN**. Click **New Hosted Service**. Select a subscription that will be used for this service.
- 
-- Enter a name for your service. This name is used to distinguish your services within the Windows Azure Management Portal for the specified subscription.
- 
-- Enter the URL for your service. The Windows Azure Management Portal ensures that the URL is unique within Windows Azure (not in use by anyone else’s service).
- 
-- Choose a region from the list of regions, for example, North Central US.
- 
-- Choose **Deploy to stage environment**. Ensure that **Start after successful deployment** is checked. Specify a name for the deployment. For **Package location**, click the corresponding **Browse Locally…** button, navigate to the folder where your WindowsAzurePackage.cspkg file is and select WindowsAzurePackage.cspkg.
- 
-- For **Configuration file**, click the corresponding **Browse Locally…** button, navigate to the folder where your ServiceConfiguration.cscfg is (*your_project_location\MyAzureProject\deploy\*), and select ServiceConfiguration.cscfg.
- 
-- Click **OK**. You will receive a warning after you click **OK** because there is only one instance of the worker role defined for your application. For purposes of this walk-through, override the warning by clicking **Yes**, but realize that you likely will want more than one instance of a worker role for a robust application.
- 
-- You can monitor the status of the deployment in the Windows Azure Management Portal by navigating to the **Hosted Services** section. Because this was a deployment to a staging environment, the DNS will be of the form *http://guid.cloudapp.net*. You can see the DNS name if you click the deployment name in the Windows Azure Management Portal (you may need to expand the Hosted Service node to see the deployment name); the DNS name is in the right hand pane of the portal. Once your deployment has a status of **Ready** (as indicated by the Windows Azure Management Portal), you can enter the URL for your deployed application in your browser to see that your application is deployed to the cloud. The URL for an application deployed to the staging environment will be of the form *http://guid.cloudapp.net/*. For example, *http://72d5eb5875234b7ca8c7f74c80a2a1f1.cloudapp.net*. Remember to append **HelloWorld** (case-sensitive) to the end of the URL, so you’ll be using a URL similar to the following in your browser (use the GUID assigned to your URL instead of the GUID listed here): *http://72d5eb5875234b7ca8c7f74c80a2a1f1.cloudapp.net/HelloWorld*.
- 
-- Although this walk-through was for a deployment to the staging environment, a deployment to production follows the same steps, except you pick the production environment instead of staging. A deployment to production results in a DNS name based on the URL of your choice, instead of a GUID as used for staging. If this is your first exposure to the Windows Azure Management Portal, take some time to familiarize yourself with its functionality. For example, similar to the way you deployed your service, the portal provides functionality for stopping, starting, deleting, or upgrading a deployment.
+- For **Access Key**, select **Primary**.
 
-- At this point you have deployed your Windows Azure application to the cloud. However, before proceeding, realize that a deployed application, even if it is not running, will continue to accrue billable time for your subscription. Therefore, it is extremely important that you delete unwanted deployments from your Windows Azure subscription. To delete the deployment, use the Hosted Services section of the Windows Azure Management Portal: Navigate to your deployment, select it, and then click the **Delete** icon. This will stop, and then delete, the deployment. If you only want to stop the deployment and not delete it, click the **Stop** icon instead of the **Delete** icon (but as mentioned above, if you do not delete the deployment, billable charges will continue to accrue for your deployment even if it is stopped).
+- For **Hosted Service**, select the hosted service that you want to use, or click **New** to create a new hosted service.
+
+- For **Target environment**, for purposes of this tutorial, select **Staging**. (When you’re ready to deploy to your production sight, you’ll change this to **Production**.)
+
+- Click **Next**.
+
+- The **Remote Desktop Settings** dialog is displayed. The default settings configured for your project will be shown. You can choose to enable or disable remote desktop access to the virtual machine hosting your deployment.
+
+- If you want to disable remote desktop access, uncheck **Enable all roles to accept Remote Desktop connections with these login credentials**.
+
+- In the **Publish Azure Project** dialog, click **Publish**. When prompted to perform a full build, click **Yes**. This may take several minutes for the first build.
+
+- A **Windows Azure Activity Log** will display in your Eclipse tabbed views section. You can use that view, as well as the **Console** view, to see the progress of your deployment. An alternative is to log in to the Windows Azure Management Portal, http://windows.azure.com, and use the **Hosted Services** section to monitor the status.
+
+- Because this was a deployment to a staging environment, the DNS will be of the form http://<guid>.cloudapp.net. You can see the DNS name if you click the deployment name in the Windows Azure Platform Management Portal (you may need to expand the Hosted Service node to see the deployment name); the DNS name is in the right hand pane of the portal.
+
+-  Once your deployment has a status of **Ready** (as indicated by the Windows Azure Platform Management Portal), you can enter the URL for your deployed application in your browser to see that your application is deployed to the cloud. The URL for an application deployed to the staging environment will be of the form http://<guid>.cloudapp.net/. For example, http://72d5eb5875234b7ca8c7f74c80a2a1f1.cloudapp.net. Remember to append **MyHelloWorld** (case-sensitive) to the end of the URL, so you’ll be using a URL similar to the following in your browser (use the GUID assigned to your URL instead of the GUID listed here): http://72d5eb5875234b7ca8c7f74c80a2a1f1.cloudapp.net/MyHelloWorld.
+
+
+- Although this walk-through was for a deployment to the staging environment, a deployment to production follows the same steps, except within the **Publish Azure Project** dialog, select **Production** instead of **Staging** for the **Target environment**. A deployment to production results in a URL based on the DNS name of your choice, instead of a GUID as used for staging.
+
+
 
 
 #### Create the Back-end VM Role
