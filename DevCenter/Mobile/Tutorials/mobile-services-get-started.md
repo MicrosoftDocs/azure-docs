@@ -1,4 +1,4 @@
-<properties linkid="mobile-get-started" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with Mobile Services in Windows Azure" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="mobile-services-get-started" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with Mobile Services in Windows Azure" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 This tutorial shows you how to add a cloud-based backend service to a Windows 8 app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple Windows 8 _To do list_ app that stores app data in the new mobile service. 
@@ -15,7 +15,7 @@ Completing this guide is a prerequisite for all other Mobile Services tutorials.
 </div>
 <br />
 
-### Create a new mobile service
+### <a name="create-new-service"> </a>Create a new mobile service
 Follow these steps to create a new mobile service.
 
 1.	Log into the [Management Portal]. 
@@ -118,6 +118,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
+[Create a new mobile service]:#create-new-service
 [Define the mobile service instance]:#define-mobile-service-instance
 [Next Steps]:#next-steps
 
