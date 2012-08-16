@@ -608,7 +608,7 @@ Here are some things to be aware of when you plan and develop an ASP.NET applica
 
 You've seen how to deploy a web application that implements RESTful web API to a Windows Azure Web Site. To learn more about how to configure, manage, and scale Windows Azure Web Sites, see the how-to topics on the [Common Tasks][CommonTasks] page.
 
-Another way to store data in a Windows Azure application is to use Windows Azure Storage Services, which provides non-relational data storage in the form of blobs and tables. The Contact Manager application could have been designed to use Windows Azure Storage instead of SQL Database. For more information about both SQL Database and Windows Azure Storage, see [Data Storage Offerings on Windows Azure][WindowsAzureDataStorageOfferings].
+Another way to store data in a Windows Azure application is to use Windows Azure data management services, which provides non-relational data storage in the form of blobs and tables. The Contact Manager application could have been designed to use Windows Azure Storage instead of SQL Database. For more information about both SQL Database and Windows Azure Storage, see [Data Storage Offerings on Windows Azure][WindowsAzureDataStorageOfferings].
 
 To learn more about how to use SQL Database, see the following resources:
 
