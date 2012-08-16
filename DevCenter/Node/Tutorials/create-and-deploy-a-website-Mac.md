@@ -10,6 +10,10 @@ A screenshot of the completed application is below:
 
 ![A browser displaying the 'Hello World' message.][helloworld-completed]
 
+##Create a Windows Azure Web Site and enable Git publishing
+
+Follow these steps to create a Windows Azure Web Site, and then enable Git publishing for the web site.
+
 <div class="dev-callout"><strong>Note</strong>
 <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Web Sites feature enabled.</p>
 <ul>
@@ -18,10 +22,6 @@ A screenshot of the completed application is below:
 </ul>
 </div>
 <br />
-
-##Create a Windows Azure Web Site and enable Git publishing
-
-Follow these steps to create a Windows Azure Web Site, and then enable Git publishing for the web site.
 
 1. Login to the [Windows Azure Management Portal].
 
