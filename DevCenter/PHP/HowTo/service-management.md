@@ -2,7 +2,7 @@
 
 # How to use Service Management from PHP
 
-This guide will show you how to programmatically perform common service management tasks from PHP. The [ServiceManagementRestProxy]  class in the [Widows Azure SDK for PHP][download-SDK-PHP] supports programmatic access to much of the service management-related functionality that is available in the [management portal][management-portal] (such as **creating, updating, and deleting cloud services, deployments, storage services, and affinity groups**). While this is a subset of what can be done using the [Service Management REST API][svc-mgmt-rest-api], the available functionality can be useful in building applications that need programmatic access to service management. 
+This guide will show you how to programmatically perform common service management tasks from PHP. The [ServiceManagementRestProxy]  class in the [Widows Azure SDK for PHP][download-SDK-PHP] supports programmatic access to much of the service management-related functionality that is available in the [management portal][management-portal] (such as **creating, updating, and deleting cloud services, deployments, storage services, and affinity groups**). This functionality can be useful in building applications that need programmatic access to service management. 
 
 ##Table of Contents
 
@@ -113,6 +113,11 @@ When you create a cloud service, storage service, or affinity group, you will ne
 - West US 
 - East US
 
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>In the code examples that follow, locations are passed to methods as strings. However, you can also pass locations as enumerations using the <code>WindowsAzure\ServiceManagement\Models\Locations</code> class. For example, instead of passing "West US" to a method that accepts a location, you could pass <code>Locations::WEST_US</code>.</p> 
+</div>
+
 <h2 id="CreateCloudService">How to: Create a cloud service</h2>
 
 When you create an application and run it in Windows Azure, the code and configuration together are called a Windows Azure [cloud service] (known as a *hosted service* in earlier Windows Azure releases). The **createHostedServices** method allows you to create a new hosted service by providing a hosted service name (which must be unique in Windows Azure), a label (the base 64-endcoded hosted service name), and a **CreateServiceOptions** object. The [CreateServiceOptions] object allows you to set the location *or* the affinity group for your service. 
@@ -178,7 +183,7 @@ You can delete a cloud service by passing the service name to the **deleteHosted
 
 	$serviceManagementRestProxy->deleteHostedService("myhostedservice");
 
-Note that before you can delete a service, all deployments for the the service must first be deleted. 
+Note that before you can delete a service, all deployments for the the service must first be deleted. (See [How to: Delete a deployment](#DeleteDeployment) for details.)
 
 <h2 id="CreateDeployment">How to: Create a deployment</h2>
 
