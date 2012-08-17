@@ -66,7 +66,7 @@ To install the PHP Client Libraries for Windows Azure as a PEAR package, follow 
 		pear channel-discover pear.windowsazure.com
 3. Install the PEAR package:
 
-		pear install pear.windowsazure.com/WindowsAzure-0.3.0
+		pear install pear.windowsazure.com/WindowsAzure-0.4.0
 
 After the installation completes, you can reference class libraries from your application.
 
