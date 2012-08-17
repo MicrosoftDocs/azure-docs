@@ -1,7 +1,11 @@
 <properties linkid="mobile-services-get-started" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with Mobile Services in Windows Azure" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
-This tutorial shows you how to add a cloud-based backend service to a Windows 8 app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple Windows 8 _To do list_ app that stores app data in the new mobile service. 
+This tutorial shows you how to add a cloud-based backend service to a Windows Store app using Windows Azure Mobile Services. 
+
+![][13]
+
+In this tutorial, you will create both a new mobile service and a simple Windows Store _To do list_ app that stores app data in the new mobile service. 
 
 A screenshot from the completed app is below:
 
@@ -10,10 +14,10 @@ A screenshot from the completed app is below:
 Completing this guide is a prerequisite for all other Mobile Services tutorials. 
 
 <div chunk="../../Shared/Chunks/create-account-and-mobile-note.md" />
+
 <div class="dev-callout"><strong>Note</strong>
 <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Mobile Services feature enabled. You can create a free trial account and enable preview features in just a couple of minutes. For details, see <a href="../create-a-windows-azure-account/" target="_blank">Create a Windows Azure account and enable preview features</a>. </p>
 </div>
-<br />
 
 ### <a name="create-new-service"> </a>Create a new mobile service
 Follow these steps to create a new mobile service.
@@ -50,11 +54,11 @@ Follow these steps to create a new mobile service.
 
 You have now created a new mobile service that can be used by your mobile apps.
 
-### Create a new Windows 8 app
+### Create a new Windows Store app
 
-Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new Windows 8 app or modify an existing Windows 8 app to connect to your mobile service. 
+Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new Windows Store app or modify an existing app to connect to your mobile service. 
 
-In this section you will create a new Windows 8 app that is connected to your mobile service.
+In this section you will create a new Windows Store app that is connected to your mobile service.
 
 1.  In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
 
@@ -63,7 +67,7 @@ In this section you will create a new Windows 8 app that is connected to your mo
 
    ![][6]
 
-   This displays the three easy steps to create an Windows 8 app connected to your mobile service.
+   This displays the three easy steps to create a Windows Store app connected to your mobile service.
 
   ![][7]
 
@@ -75,9 +79,9 @@ In this section you will create a new Windows 8 app that is connected to your mo
 
   This downloads the project for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 
-### Run your Windows 8 app
+### Run your Windows app
 
-The final stage of this tutorial is to build and run your new Windows 8 app.
+The final stage of this tutorial is to build and run your new Windows Store app.
 
 1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio 2012 Express for Windows 8. 
 
@@ -136,6 +140,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [10]: ../Media/mobile-quickstart-startup.png
 [11]: ../Media/mobile-data-tab.png
 [12]: ../Media/mobile-data-browse.png
+[13]: ../Media/mobile-services-diagram.png
 
 <!-- URLs. -->
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet/
