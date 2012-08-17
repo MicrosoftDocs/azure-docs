@@ -69,7 +69,7 @@ There are four basic steps that have to be performed before you can make a call 
 
 		use WindowsAzure\Common\ServiceException;
 	
-* To instantiate the service client you will also need a valid connection string. The format for storage services (blobs, tables, queues) connection strings is:
+* To instantiate the service client you will also need a valid connection string. The format for the table service connection strings is:
 
 	For accessing a live service:
 	
@@ -79,7 +79,7 @@ There are four basic steps that have to be performed before you can make a call 
 	
 		UseDevelopmentStorage=true
 
-* Use the `ServicesBuilder::createBlobService` factory method to instantiate a wrapper around Table service calls.
+* Use the `ServicesBuilder::createTableService` factory method to instantiate a wrapper around Table service calls.
 
 		$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	

@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-nodejs-website-sql" urldisplayname="Node.js Website with sql" headerexpose="" pagetitle="Node.js Application using the Windows Azure SQL Database" metakeywords="Azure Node.js tutorial sql, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates deploying a Node.js application using the Windows Azure SQL Database" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-website-sql" urldisplayname="Node.js Website with sql" headerexpose="" pagetitle="Node.js Application using the Windows Azure SQL Database" metakeywords="Azure Node.js tutorial sql, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates deploying a Node.js application using the Windows Azure SQL Database" umbraconavihide="0" disquscomments="1"></properties>
 # Node.js Web Application using the Windows Azure SQL Database
 
 This tutorial shows you how to use SQL Database provided by Windows Azure Data Management to store and access data from a [node] application hosted on Windows Azure. This tutorial assumes that you have some prior experience using node and [Git].
@@ -48,11 +48,7 @@ Before following the instructions in this article, you should ensure that you ha
 
 * A web browser
 
-##Enable the Windows Azure Web Site feature
-
-If you do not already have a Windows Azure subscription, you can sign up [for free]. After signing up, follow these steps to enable the Windows Azure Web Site feature.
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md"></div>
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
 ##Create a web site with database
 

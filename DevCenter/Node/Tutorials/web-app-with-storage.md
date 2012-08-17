@@ -4,7 +4,7 @@
 
 In this tutorial, you will extend the application created in the
 [Node.js Web Application using Express] tutorial by using the Windows
-Azure Client Libraries for Node.js to work with storage services. You
+Azure Client Libraries for Node.js to work with data management services. You
 will extend your application to create a web-based task-list application
 that you can deploy to Windows Azure. The task list allows a user to
 retrieve tasks, add new tasks, and mark tasks as completed.
@@ -23,7 +23,7 @@ Application] and [Node.js with Express][Node.js Web Application using Express] t
 You will learn:
 
 -   How to work with the Jade template engine
--   How to work with Windows Azure Storage services
+-   How to work with Windows Azure Data Management services
 
 A screenshot of the completed application is below:
 
@@ -89,7 +89,7 @@ and add them to the web.config settings:
 
 ## Install Modules
 
-In order to use Windows Azure Storage services, you must install the
+In order to use Windows Azure Data Management services, you must install the
 Azure module for node. You must also install the node-uuid module, as
 this will be used to generate universally unique identifiers (UUIDs). To
 install these modules, enter the command below:

@@ -119,7 +119,7 @@ In the **Process** tab, you can see the deployment environment is set to the nam
 ![][27]
 <br/>
 Specify values for the properties if the values differ from the defaults.
-The following table shows default values of the Azure properties:
+The following table shows default values of the properties:
 	<table>
 <tr><td><b>Property</b></td><td><b>Default Value</b></td></tr>
 <tr><td>Allow Upgrade</td><td>true</td></tr>

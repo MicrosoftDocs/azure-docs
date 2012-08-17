@@ -1,13 +1,13 @@
 <properties linkid="dev-net-common-tasks-profiling-in-compute-emulator" urldisplayname="Team Foundation Service" headerexpose="" pagetitle="Profiling a Cloud Service Locally in the Compute Emulator" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
-# Profiling a Cloud Service Locally in the Compute Emulator
+# Testing the Performance of a Cloud Service Locally in the Windows Azure Compute Emulator Using the Visual Studio Profiler
 
 A variety of tools and techniques are available for testing the performance of cloud services.
 When you publish a cloud service to Windows Azure, you can have Visual Studio collect profiling
 data and then analyze it locally, as described in [Profiling a Windows Azure Application][1].
 You can also use diagnostics to track a variety of performance
 counters, as described in [Using Performance Counters in Windows Azure][2].
-You might also want to profile your application locally in the compute emulator before deploying it to the Cloud.
+You might also want to profile your application locally in the compute emulator before deploying it to the cloud.
 
 This article covers the CPU Sampling method of profiling, which can be done locally in the emulator. CPU sampling is a method of profiling that is not very intrusive. At a designated sampling interval, the profiler takes a snapshot of the call stack. The data is collected over a period of time, and shown in a report. This method of profiling tends to indicate where in a computationally intensive application most of the CPU work is being done.  This gives you the opportunity to focus on the "hot path" where your application is spending the most time.
 
@@ -26,9 +26,9 @@ You can run the profiler locally only if you have Visual Studio Premium or Visua
 
 -   [Step 4: Make Changes and Compare Performance][]
 
--   [Next Steps][]
-
 -   [Troubleshooting][]
+
+-   [Next Steps][]
 
 ## <a name="step1"> </a> Step 1: Configure Visual Studio for Profiling
 
@@ -40,12 +40,12 @@ If desired, you can simplify the reports that the profiler generates by setting 
 
 ![][17]
 
-You can use these instructions with an existing project, but if you have problems, you can start a clean project and perform the steps as well.  If you start with a clean project, choose a C# **Windows Azure Cloud Service** project, and select a **Web Role** and a **Worker Role**.
+You can use these instructions with an existing project or with a new project.  If you create a new project to try the techniques described below, choose a C# **Windows Azure Cloud Service** project, and select a **Web Role** and a **Worker Role**.
 
 ![][5]
 
-Add some code to a project that takes
-a lot of time and demonstrates some obvious performance problem, for example, add this code to a worker role project:
+For example purposes, add some code to your project that takes
+a lot of time and demonstrates some obvious performance problem. For example, add the following code to a worker role project:
 
 	public class Concatenator
 	{
@@ -61,7 +61,7 @@ a lot of time and demonstrates some obvious performance problem, for example, ad
 	    }
 	}
 
-Call this code from your Run method in a worker role's RoleEntryPoint-derived class.
+Call this code from the Run method in the worker role's RoleEntryPoint-derived class.
 
 	public override void Run()
 	{
@@ -71,7 +71,7 @@ Call this code from your Run method in a worker role's RoleEntryPoint-derived cl
 	    }
 	}
 
-Build and run your cloud service locally with the solution configuration set to Release. This ensures that all files and folders are 
+Build and run your cloud service locally with the solution configuration set to **Release**. This ensures that all files and folders are 
 created for running the application locally, and ensures that all the emulators are started.
 
 ## <a name="step2"> </a> Step 2: Attach to a Process
@@ -146,7 +146,7 @@ You can also compare the performance before and after a code change.  Edit the c
 	    return builder.ToString();
 	}
 
-Do another performance run, and then compare the performance. In the Performance Explorer, if the runs are in the same session, you can just select both reports, open the shortcut menu, and choose **Compare Performance Reports**. If you want to compare with a run in another performance session, open the Analyze menu, and choose **Compare Performance Reports**. Specify both files in the dialog box that appears.
+Do another performance run, and then compare the performance. In the Performance Explorer, if the runs are in the same session, you can just select both reports, open the shortcut menu, and choose **Compare Performance Reports**. If you want to compare with a run in another performance session, open the **Analyze** menu, and choose **Compare Performance Reports**. Specify both files in the dialog box that appears.
 
 ![][15]
 
@@ -156,10 +156,6 @@ The reports highlight differences between the two runs.
 
 Congratulations! You've gotten started with the profiler.
 
-## <a name="nextSteps"> </a> Next Steps
-
-Instrumenting Windows Azure binaries in the emulator is not supported in the Visual Studio 2010 profiler, but if you want to test memory allocation, you can choose that option when profiling. You can also choose concurrency profiling, which helps you determine whether threads are wasting time competing for locks, or tier interaction profiling, which helps you track down performance problems when interacting between tiers of an application, most frequently between the data tier and a worker role.  You can view the database queries that your app generates and use the profiling data to improve your use of the database. For information about tier interaction profiling, see [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3].
-
 ## <a name="troubleshooting"> </a> Troubleshooting
 
 - Make sure you are profiling a Release build.
@@ -168,19 +164,24 @@ Instrumenting Windows Azure binaries in the emulator is not supported in the Vis
 
 - Use the Compute Emulator UI to view the status of your application. 
 
-- If you have problems starting applications in the emulator, or attaching the profiler, shut down the Compute Emulator and restart it. If that doesn't solve the problem, try rebooting. This problem can occur if you use the Compute Emulator to suspend and remove running deployments.
+- If you have problems starting applications in the emulator, or attaching the profiler, shut down the compute emulator and restart it. If that doesn't solve the problem, try rebooting. This problem can occur if you use the Compute Emulator to suspend and remove running deployments.
 
 - If you have used any of the profiling commands from the
 command line, especially the global settings, make sure that VSPerfClrEnv /globaloff has been called and that VsPerfMon.exe has been shut down.
 
 - If when sampling, you see the message "PRF0025: No data was collected," check that the process you attached to has CPU activity. Applications that are not doing any computational work might not produce any sampling data.  It's also possible that the process exited before any sampling was done. Check to see that the Run method for a role that you are profiling does not terminate.
 
+## <a name="nextSteps"> </a> Next Steps
+
+Instrumenting Windows Azure binaries in the emulator is not supported in the Visual Studio 2010 profiler, but if you want to test memory allocation, you can choose that option when profiling. You can also choose concurrency profiling, which helps you determine whether threads are wasting time competing for locks, or tier interaction profiling, which helps you track down performance problems when interacting between tiers of an application, most frequently between the data tier and a worker role.  You can view the database queries that your app generates and use the profiling data to improve your use of the database. For information about tier interaction profiling, see [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3].
+
+
 [Step 1: Configure Visual Studio for Profiling]: #step1
 [Step 2: Attach to a Process]: #step2
 [Step 3: View Profiling Reports]: #step3
 [Step 4: Make Changes and Compare Performance]: #step4
-[Next Steps]: #nextSteps
 [Troubleshooting]: #troubleshooting
+[Next Steps]: #nextSteps
 
 [1]: http://msdn.microsoft.com/en-us/library/windowsazure/hh369930.aspx
 [2]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling

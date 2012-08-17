@@ -4,10 +4,10 @@
 
 The Windows Azure SDK for PHP includes components that allow you to develop, deploy, and manage PHP applications for Windows Azure. Specifically, the Windows Azure SDK for PHP includes the following:
 
-* **The PHP client libraries for Windows Azure**. These class libraries provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services.  
+* **The PHP client libraries for Windows Azure**. These class libraries provide an interface for accessing Windows Azure features, such as data management services and cloud services.  
 * **The Windows Azure Command-Line Tools for Mac and Linux**. This is a set of command-line tools for deploying and managing Windows Azure services, such as Windows Azure Websites and Windows Azure Virtual Machines. These tools work on any platform, including Mac, Linux, and Windows.
 * **Windows Azure PowerShell (Windows Only)**. This is a set of PowerShell cmdlets for deploying and managing Windows Azure Services, such as Cloud Services and Virtual Machines.
-* **The Windows Azure Emulators (Windows Only)**. The compute and storage emulators are local emulators of Cloud Services and Cloud Storage that allow you to test an application locally. The Windows Azure Emulators run on Windows only.
+* **The Windows Azure Emulators (Windows Only)**. The compute and storage emulators are local emulators of cloud services and data management services that allow you to test an application locally. The Windows Azure Emulators run on Windows only.
 
 The sections below describe how to download and install the components described above. 
 
@@ -22,7 +22,7 @@ The instructions in this topic assume that you have [PHP][install-php] installed
 
 ##PHP client libraries for Windows Azure
 
-The PHP Client Libraries for Windows Azure provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services, from any operating system. These libraries can be installed via the Composer or PEAR package managers or manually.
+The PHP Client Libraries for Windows Azure provide an interface for accessing Windows Azure features, such as data management services and cloud services, from any operating system. These libraries can be installed via the Composer or PEAR package managers or manually.
 
 For information about how to use the PHP Client Libraries for Windows Azure, see [How to Use the Blob Service][blob-service], [How to Use the Table Service][table-service] and [How to Use the Queue Service][queue-service].
 
@@ -86,7 +86,7 @@ To download and install the PHP Client Libraries for Windows Azure manually, fol
 
 ##Windows Azure PowerShell and Windows Azure Emulators
 
-Windows Azure PowerShell is a set of PowerShell cmdlets for deploying and managing Windows Azure Services (such as Cloud Services and Virtual Machines). The Windows Azure Emulators are emulators of Cloud Services and Cloud Storage that allow you to test an application locally. These components are supported Windows only.
+Windows Azure PowerShell is a set of PowerShell cmdlets for deploying and managing Windows Azure Services (such as Cloud Services and Virtual Machines). The Windows Azure Emulators are emulators of cloud services and data management services that allow you to test an application locally. These components are supported Windows only.
 
 The recommended way to install Windows Azure PowerShell and the Windows Azure Emulators is to use the [Microsoft Web Platform Installer][download-wpi]. Note that you can also choose to install other development components, such as PHP, SQL Server, the Microsoft Drivers for SQL Server for PHP, and WebMatrix.
 

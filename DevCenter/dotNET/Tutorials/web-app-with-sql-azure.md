@@ -271,7 +271,7 @@ Here are some things to be aware of when you plan and develop an ASP.NET applica
 * The application must target ASP.NET 4.0 or earlier (not ASP.NET 4.5).
 * The application runs in Integrated mode (not Classic mode).
 * The application should not use Windows Authentication. Windows Authentication is usually not used as an authentication mechanism for Internet-based applications.
-* In order to use provider-based features such as membership, profile, role manager, and session state, the application must use the ASP.NET Universal Providers (the [System.Web.Providers][UniversalProviders] NuGet package).
+* In order to use provider-based features such as membership, profile, role manager, and session state, the application must use the Microsoft ASP.NET Universal Providers (the [Microsoft.AspNet.Providers][UniversalProviders] NuGet package).
 * If the applications writes to files, the files should be located in the application's content folder or one of its subfolders.
 
 <h2><a name="nextsteps"></a>Next Steps</h2>
@@ -311,8 +311,8 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [Deploy the application update to Windows Azure and SQL Database]: #deploydatabaseupdate
 [Important information about ASP.NET in Windows Azure Web Sites]: #aspnetwindowsazureinfo
 [Next steps]: #nextsteps
-[Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=254364
-[Windows Azure SDK for Visual Studio 2012 RC]:  http://go.microsoft.com/fwlink/?LinkId=254269
+[Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=254269
+[Windows Azure SDK for Visual Studio 2012 RC]:  http://go.microsoft.com/fwlink/?LinkId=254364
 [NewPortal]: http://manage.windowsazure.com
 [MVC4Install]: http://www.asp.net/mvc/mvc4
 [VS2012ExpressForWebInstall]: http://www.microsoft.com/web/gallery/install.aspx?appid=VWD11_BETA&prerelease=true
@@ -331,7 +331,7 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [MigratingDataCentricApps]: http://msdn.microsoft.com/en-us/library/jj156154.aspx
 [SQLAzureDataMigrationBlog]: http://blogs.msdn.com/b/ssdt/archive/2012/04/19/migrating-a-database-to-sql-azure-using-ssdt.aspx
 [SQLAzureConnPoolErrors]: http://blogs.msdn.com/b/adonet/archive/2011/11/05/minimizing-connection-pool-errors-in-sql-azure.aspx
-[UniversalProviders]: http://nuget.org/packages/System.Web.Providers
+[UniversalProviders]: http://nuget.org/packages/Microsoft.AspNet.Providers
 [EFCodeFirstMVCTutorial]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 [EFCFMigrations]: http://msdn.microsoft.com/en-us/library/hh770484
 [DevelopingWebAppsWithWindowsAzure]: http://msdn.microsoft.com/en-us/library/Hh674484

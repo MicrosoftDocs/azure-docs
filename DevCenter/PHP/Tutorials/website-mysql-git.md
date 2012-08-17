@@ -215,7 +215,7 @@ After you have tested your application locally, you can publish it to your Windo
 
 	You will be prompted for the password you created earlier.
 
-	![Initial Push to Azure via Git][git-initial-push]
+	![Initial Push to Windows Azure via Git][git-initial-push]
 
 2. Browse to **http://[site name].azurewebsites.net/index.php** to begin using the application (this information will be stored on your account dashboard):
 
@@ -236,7 +236,7 @@ To publish changes to application, follow these steps:
 
 	You will be prompted for the password you created earlier.
 
-	![Pushing site changes to Azure via Git][git-change-push]
+	![Pushing site changes to Windows Azure via Git][git-change-push]
 
 3. Browse to **http://[site name].azurewebsites.net/index.php** to see your application and any changes you may have made:
 
