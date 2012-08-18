@@ -50,7 +50,9 @@ To be able to authenticate users, you must register your Windows Store app at th
 
    ![][4]
 
-2. Click the **Permissions** tab, then set all permissions to **Only authenticated users**.
+2. Click the **Permissions** tab, set all permissions to **Only authenticated users**, and then click **Save**.
+
+   ![][5]
 
 3. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
 
@@ -142,6 +144,8 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [1]: ../Media/mobile-live-connect-app-api-settings.png
 [2]: ../Media/mobile-services-selection.png
 [3]: ../Media/mobile-identity-tab.png
+[4]: ../Media/mobile-portal-data-tables.png
+[5]: ../Media/mobile-portal-change-table-perms.png
 
 <!-- URLs. -->
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
