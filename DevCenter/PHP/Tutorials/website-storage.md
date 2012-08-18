@@ -121,6 +121,19 @@ The home page of the Tasklist application should list all existing tasks and all
 		<html>
 		<head>
 			<title>Index</title>
+			<style type="text/css">
+			    body { background-color: #fff; border-top: solid 10px #000;
+			        color: #333; font-size: .85em; margin: 20; padding: 20;
+			        font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+			    }
+			    h1, h2, h3,{ color: #000; margin-bottom: 0; padding-bottom: 0; }
+			    h1 { font-size: 2em; }
+			    h2 { font-size: 1.75em; }
+			    h3 { font-size: 1.2em; }
+			    table { margin-top: 0.75em; }
+			    th { font-size: 1.2em; text-align: left; border: none; padding-left: 0; }
+			    td { padding: 0.25em 2em 0.25em 0em; border: 0 none; }
+			</style>
 		</head>
 		<body>
 		<h1>My ToDo List <font color="grey" size="5">(powered by PHP and Azure Tables) </font></h1>
@@ -250,7 +263,7 @@ The task list app has the ability to mark an item as complete as well as to unma
 
 * The first step to updating an entity is fetching it from the Table:
 		
-		$result = $tableRestProxy->queryEntities(TABLE_NAME, 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');		
+		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');		
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 
@@ -263,7 +276,7 @@ The task list app has the ability to mark an item as complete as well as to unma
 * And the `updateEntity` method performs the update:
 
 		try{
-			$result = $tableRestProxy->updateEntity(TABLE_NAME, $entity);
+			$result = $tableRestProxy->updateEntity('tasks', $entity);
 		}
 		catch(ServiceException $e){
 			$code = $e->getCode();
@@ -284,7 +297,7 @@ Deleting an item is accomplished with a single call to `deleteItem`. The passed 
 		<?php
 		
 		require_once "init.php";		
-		$tableRestProxy->deleteEntity(TABLE_NAME, $_GET['pk'], $_GET['rk']);		
+		$tableRestProxy->deleteEntity('tasks', $_GET['pk'], $_GET['rk']);		
 		header('Location: index.php');
 		
 		?>
@@ -372,12 +385,14 @@ Follow these steps to create a Windows Azure Website:
 
 To publish your application with Git, follow the steps below.
 
-<div class="dev-callout">
-<b>Note</b>
-<p>These are the same steps noted at the end of the <b>Create a Windows Azure Website and Set up Git Publishing</b> section.</p>
-</div>
+1. Open the **vendor/microsoft/windowsazure** folder under the root of the application and delete the following files and folders:
+	* .git
+	* .gitattributes
+	* .gitignore
+			
+	When the Composer package manager downloads the Windows Azure client libraries and their dependencies it does so by cloning the GitHub repository that they reside in. In the next step, the application will be deployed via Git by creating a repository out of the root folder of the application. Git will ignore the sub-repository where the client libraries live unless the repository-specific files are removed.
 
-1. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:
+2. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application, and run the following commands (**Note:** these are the same steps noted at the end of the **Create a Windows Azure Website and Set up Git Publishing** section):
 
 		git init
 		git add .
@@ -387,8 +402,8 @@ To publish your application with Git, follow the steps below.
 
 	You will be prompted for the password you created earlier.
 
-2. Browse to **http://[your website domain]/createtable.php** to create the table for the application.
-3. Browse to **http://[your website domain]/index.php** to begin using the application.
+3. Browse to **http://[your website domain]/createtable.php** to create the table for the application.
+4. Browse to **http://[your website domain]/index.php** to begin using the application.
 
 After you have published your application, you can begin making changes to it and use Git to publish them. 
 

@@ -213,7 +213,7 @@ The following example creates a new deployement in the production slot of a host
 		$deploymentName = "v1";
         $slot = DeploymentSlot::PRODUCTION;
 		$packageUrl = "URL_for_.cspkg_file";
-		$configuration = file_get_contents('path_to_.cscfg_file');
+		$configuration = base64_encode(file_get_contents('path_to_.cscfg_file'));
 		$label = base64_encode($name);
 
         $result = $serviceManagementRestProxy->createDeployment($name,
@@ -275,7 +275,7 @@ The **changeDeploymentConfiguration** method allows you to upload a new service 
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
 		
         $name = "myhostedservice";
-		$configuration = file_get_contents('path to .cscfg file');
+		$configuration = base64_encode(file_get_contents('path to .cscfg file'));
 		$options = new ChangeDeploymentConfigurationOptions();
 		$options->setSlot(DeploymentSlot::PRODUCTION);
 
