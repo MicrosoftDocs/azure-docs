@@ -40,7 +40,7 @@ To be able to authenticate users, you must register your Windows Store app at th
 
    ![][2]
 
-6. Click the **Identity** tab, and enter the **Client secret** obtained form Live Connect, and click **Save**.
+6. Click the **Identity** tab, enter the **Client secret** obtained from Live Connect, and click **Save**.
 
    ![][3]
 
@@ -68,7 +68,7 @@ Next, you will update the app to authenticate users with Live Connect before req
 
 2. In the project in Visual Studio, add a reference to the Live SDK.
 
-5. Open the file mainpage.xaml.cs, and add the following using statements:
+5. Open the project file mainpage.xaml.cs and add the following using statements:
 
         using Microsoft.Live;
         using Windows.UI.Popups;
@@ -125,13 +125,13 @@ Next, you will update the app to authenticate users with Live Connect before req
             RefreshTodoItems();
         }
 		
-9. Press the F5 key to run app and signin to Live Connect with your Microsoft Account. 
+9. Press the F5 key to run the app and sign into Live Connect with your Microsoft Account. 
 
    When you are sucessfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
 ### <a name="next-steps"> </a>Next Steps
 
-In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned from a table. 
+In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register

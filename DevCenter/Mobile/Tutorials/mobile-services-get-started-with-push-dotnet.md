@@ -4,18 +4,22 @@
 Language: **C# and XAML**  
 
 This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Windows Store app.  
-In this tutorial, .  
+In this tutorial, you add push notifications, using the Windows Push Notification service (WNS), to the quickstart project. When complete, an insert in the mobile service will generate a push notification back to your app.
+
+   <div class="dev-callout"><b>Note</b>
+   <p>This tutorial demonstrates the simpliest way to send push notifications using Mobile Services. This is done to make it easy to understand how push works. You should review subsequent push notification tutorials for  examples of how to incorporate push notifications into your real-world apps.</p>
+   </div>
 
 This tutorial walks you through these basic steps to enable push notifications:
 
 1. [Register your app for push notifications and configure Mobile Services]
-2. cc
-
-This tutorial requires the [Live SDK for Windows], and you must have already completed the tutorial [Get started with Mobile Services].
+2. [Add push notifications to the app]
+3. [Update scripts to send push notifications]
+4. [Insert data to receive notifications]
 
 ### <a name="register"></a>Register your app for push notifications and configure Mobile Services
 
-To be able to send push notifications to Windows Store apps from Mobile Services, you must register your Windows Store app at the Live Connect Developer Center. You must then configure Mobile Services to integrate with the Windows Push Notification service (WNS).
+To be able to send push notifications to Windows Store apps from Mobile Services, you must register your Windows Store app at the Live Connect Developer Center. You must then configure your mobile service to integrate with WNS.
 
 1. Navigate to the [Windows Push Notifications & Live Connect] page, login with your Microsoft account if needed, and then follow the instructions to register your app.
 
@@ -37,108 +41,120 @@ To be able to send push notifications to Windows Store apps from Mobile Services
 
    ![][2]
 
-6. Click the **Identity** tab, and enter the **Client secret** obtained form Live Connect, and click **Save**.
+6. Click the **Push** tab, enter the **Client secret** and **Package SID** values obtained from WNS, and click **Save**.
 
    ![][3]
 
-### <a name="permissions"></a>Restrict table permissions to authenticated users
+### <a name="add-push"></a>Add push notifications to the app
+
+1. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services].
+
+2. Open the project file App.xaml.cs and add the following using statement:
+
+        using Windows.Networking.PushNotifications;
+
+3. Add the following members to App.xaml.cs:
+	
+        public static PushNotificationChannel CurrentChannel { get; private set; }
+
+	    private async void AcquirePushChannel()
+	    {
+	            CurrentChannel = 
+                    await PushNotificationChannelManager
+                             .CreatePushNotificationChannelForApplicationAsync();
+        }
+
+   This code creates a new asynchronous push notification channel.
+    
+4. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **AcquirePushChannel** method:
+
+        AcquirePushChannel();
+
+   This guarantees that the **CurrentChannel** property is initialized each time the application is launched.
+		
+5. Open the project file MainPage.xaml.cs and add the following new attributed property to the **TodoItem** class:
+
+         [DataMember(Name = "channel")]
+         public string Channel { get; set; }
+
+    <div class="dev-callout"><b>Note</b>
+	<p>When dynamic schema is enabled on your mobile service, Mobile Services will automatically add a new Channel column to the **TodoItem** table when a new item is inserted.</p>
+    </div>
+
+6. Replace the **ButtonSave_Click** event handler method with the following code:
+
+	        private void ButtonSave_Click(object sender, RoutedEventArgs e)
+	        {
+	            var todoItem = new TodoItem { Text = TextInput.Text, Channel = App.CurrentChannel.Uri };
+	            InsertTodoItem(todoItem);
+            }
+
+   This sets the client's current channel value on the item before it is sent to the mobile service.
+
+### <a name="update-scripts"></a>Update the insert script to send push notifications
 
 1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
 
    ![][4]
 
-2. Click the **Permissions** tab, then set all permissions to **Only authenticated users**.
-
-3. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
-
-4. Press the F5 key to run this quickstart-based app; verify that an exception with a status code of 401 (Unauthorized) is raised. 
+2. In **todoitem**, click the **Script** tab and select **Insert**.
    
-   This happens because the app is accessing Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
+  ![][5]
 
-Next, you will update the app to authenticate users with Live Connect before requesting resources from the mobile service.
+   This displays the function that is invoked when an insert occurs in the **todoitems** table.
 
-### <a name="add-authentication"></a>Add authentication to the app
+3. Replace the insert function with the following code, and then click **Save**:
 
-1. Download and install the [Live SDK for Windows].
-
-2. In the project in Visual Studio, add a reference to the Live SDK.
-
-5. Open the file mainpage.xaml.cs, and add the following using statements:
-
-        using Microsoft.Live;
-        using Windows.UI.Popups;
-
-6. Add the following code snippet that creates a member variable for storing the current Live Connect session and a method to handle the authentication process:
-	
-        private LiveConnectSession session;
-        private async System.Threading.Tasks.Task Authenticate()
-        {
-            LiveAuthClient liveIdClient = new LiveAuthClient("<< INSERT REDIRECT DOMAIN HERE >>");
-
-            while (session == null)
-            {
-                // Force a logout to make it easier to test with multiple Microsoft Accounts
-                if (liveIdClient.CanLogout)
-                    liveIdClient.Logout();
-	
-                LiveLoginResult result = await liveIdClient.LoginAsync(new[] { "wl.basic" });
-                if (result.Status == LiveConnectSessionStatus.Connected)
-                {
-                    session = result.Session;
-                    LiveConnectClient client = new LiveConnectClient(result.Session);
-                    LiveOperationResult meResult = await client.GetAsync("me");
-                    MobileServiceUser loginResult = await App.MobileService.LoginAsync(result.Session.AuthenticationToken);
-	
-                    string title = string.Format("Welcome {0}!", meResult.Result["first_name"]);
-                    var message = string.Format("You are now logged in - {0}", loginResult.UserId);
-                    var dialog = new MessageDialog(message, title);
-                    dialog.Commands.Add(new UICommand("OK"));
-                    await dialog.ShowAsync();
+        function insert(item, user, request) {
+            request.execute({
+                success: function() {
+                    request.respond();
+                    push.wns.sendToastText04(item.channel, {
+                        text1: item.Text
+                    }, {
+                        success: function(pushResponse) {
+                            console.log("Sent push:", pushResponse);
+                        }
+                    });
                 }
-                else
-                {
-                    session = null;
-                    var dialog = new MessageDialog("You must log in.", "Login Required");
-                    dialog.Commands.Add(new UICommand("OK"));
-                    await dialog.ShowAsync();
-                }
-            }
-         }
-
-    <div class="dev-callout"><b>Note</b>
-	<p>This code forces a logout, when possible, to make sure that the user is prompted for credentials each time the application runs. This makes it easier to test the application with different Microsoft Accounts to ensure that the authentication is working correctly. This mechanism will only work if the logged in user does not have a connected Microsoft account.</p>
-    </div>
-	
-
-7. Update string _<< INSERT REDIRECT DOMAIN HERE >>_ from the previous step with the redirect domain that was specified when setting up the app in Live Connect, in the format **https://_service-name_.azure-mobile.net/**.
-
-8. Replace the existing **OnNavigatedTo** event handler with the handler that calls the new **Authenticate** method:
-
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-            await Authenticate();
-            RefreshTodoItems();
+            });
         }
-		
-9. Press the F5 key to run app and signin to Live Connect with your Microsoft Account. 
 
-   When you are sucessfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+   This registers a new insert script, which sends a push notification (the inserted text) to the channel provided in the insert request.
+
+### <a name="test"></a>Insert data to receive notifications
+
+1. In Visual Studio, press the F5 key to run the app.
+
+2. In the app, type text in **Insert a TodoItem**, and then click **Save**.
+
+    ![][6]
+
+   Note that after the insert completes, the app receives a push notification from WNS.
+
+   ![][7]
+3. 
 
 ### <a name="next-steps"> </a>Next Steps
 
-In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned from a table. 
+This example is very simple because the user receives a push notification about the data that was just inserted, with the channel supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will xxxx. 
 
 <!-- Anchors. -->
 [Register your app for push notifications and configure Mobile Services]: #register
-[Restrict table permissions to authenticated users]: #permissions
-[Add authentication to the app]: #add-authentication
+[Update scripts to send push notifications]: #update-scripts
+[Add push notifications to the app]: #add-push
+[Insert data to receive notifications]: #test
 [Next Steps]:#next-steps
 
 <!-- Images. -->
 [0]: ../Media/mobile-live-connect-apps-list.png
 [1]: ../Media/mobile-live-connect-app-details.png
 [2]: ../Media/mobile-services-selection.png
-[3]: ../Media/mobile-identity-tab.png
+[3]: ../Media/mobile-push-tab.png
+[4]: ../Media/mobile-portal-data-tables.png
+[5]: ../Media/mobile-insert-script-push.png
+[6]: ../Media/mobile-quickstart-push1.png
+[7]: ../Media/mobile-quickstart-push2.png
 
 <!-- URLs. -->
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
@@ -148,6 +164,7 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet/
 [Get started with users]: ./mobile-services-get-started-with-users-dotnet/
 [Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet/
+[Push notifications to app users]: ./mobile-services-push-notifications-to-app-users/
 [Authorize users with scripts]: ./mobile-services-authorize-users-dotnet/
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [WindowsAzure.com]: http://www.windowsazure.com/
