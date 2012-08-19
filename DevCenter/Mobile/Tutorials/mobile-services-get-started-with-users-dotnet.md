@@ -3,28 +3,75 @@
 # Get started with users in Mobile Services
 Language: **C# and XAML**  
 
-This topic shows you how to work with authenticated users in Windows Azure Mobile Services from a Windows 8 app.  In this tutorial, you add Live Connect authentication to the quickstart project. When successfully authenticated by Live Connect, a logged-in user is welcomed by name and the user ID value is displayed.  
+This topic shows you how to work with authenticated users in Windows Azure Mobile Services from a Windows Store app.  In this tutorial, you add authentication, using Live Connect, to the quickstart project. When successfully authenticated by Live Connect, a logged-in user is welcomed by name and the user ID value is displayed.  
 
-To be able to authenticate users, you must register your Windows app and configure Mobile Services to integrate with Live Connect. You can do this at the Live Connect Developer Center.
+This tutorial walks you through these basic steps to enable Live Connect authentication:
+
+1. [Register your app for authentication and configure Mobile Services]
+2. [Restrict table permissions to authenticated users]
+3. [Add authentication to the app]
+4. [Next steps]
+
+This tutorial requires the [Live SDK for Windows], and you must have already completed the tutorial [Get started with Mobile Services].
+
+### <a name="register"></a>Register your app for authentication and configure Mobile Services
+
+To be able to authenticate users, you must register your Windows Store app at the Live Connect Developer Center. You must then register the client secret to integrate Live Connect with Mobile Services.
 
 1. Navigate to the [Windows Push Notifications & Live Connect] page, login with your Microsoft account if needed, and then follow the instructions to register your app.
 
-2. Once you have registered your app, navigate to the [My Apps dashboard]
+2. Once you have registered your app, navigate to the [My Apps dashboard] in Live Connect Developer Center and click on your app in the **My applications** list.
 
-1. Create a Windows Live application and configure the mobile service and app (reuse or link to content as necessary).
+   ![][0] 
 
-2. Navigate to the TodoItem table in the portal and on the permissions tab set everything to authenticated users only.
+3. Click **Edit settings**, then **API Settings** and make a note of the value of **Client secret**. 
 
-3. Run the application and observe that it throws an exception with a status code of 401 (unauthorized).
+   ![][1]
 
-4. Install and add a reference to the Live SDK
+   You must provide this value to Mobile Services to be able to use Live Connect for authentication. 
 
-5. Open mainpage.xaml.cs  and add the following using statements:
+    <div class="dev-callout"><b>Security Note</b>
+	<p>The client secret is an important security credential. Do not share the client secret with anyone or distribute it with your app.</p>
+    </div>
 
-	using Microsoft.Live;
-	using Windows.UI.Popups;
+4. In **Redirect domain**, enter the domain of your mobile service, in the format **https://_service-name_.azure-mobile.net/**, where _service-name_ is the name of your mobile service, then click **Save**.
 
-6. Add a member variable for storing the current Windows Live session and a method to handle the authentication process. This includes code to force a logout if possible to ensure that the user is prompted for credentials each time the application is run. This makes it easier to test the application with different Microsoft Accounts to ensure that the authentication is working correctly. This mechanism will only work if the logged in user does not have a connected Microsoft account.
+5. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
+
+   ![][2]
+
+6. Click the **Identity** tab, and enter the **Client secret** obtained form Live Connect, and click **Save**.
+
+   ![][3]
+
+### <a name="permissions"></a>Restrict table permissions to authenticated users
+
+1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
+
+   ![][4]
+
+2. Click the **Permissions** tab, then set all permissions to **Only authenticated users**.
+
+3. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
+
+4. Press the F5 key to run this quickstart-based app; verify that an exception with a status code of 401 (Unauthorized) is raised. 
+   
+   This happens because the app is accessing Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
+
+Next, you will update the app to authenticate users with Live Connect before requesting resources from the mobile service.
+
+### <a name="add-authentication"></a>Add authentication to the app
+
+1. Download and install the [Live SDK for Windows].
+
+2. In the project in Visual Studio, add a reference to the Live SDK.
+
+5. Open the file mainpage.xaml.cs, and add the following using statements:
+
+        using Microsoft.Live;
+        using Windows.UI.Popups;
+
+6. Add the following code snippet that creates a member variable for storing the current Live Connect session and a method to handle the authentication process:
 	
         private LiveConnectSession session;
         private async System.Threading.Tasks.Task Authenticate()
@@ -59,10 +106,16 @@ To be able to authenticate users, you must register your Windows app and configu
                     await dialog.ShowAsync();
                 }
             }
-        }
+         }
+
+    <div class="dev-callout"><b>Note</b>
+	<p>This code forces a logout, when possible, to make sure that the user is prompted for credentials each time the application runs. This makes it easier to test the application with different Microsoft Accounts to ensure that the authentication is working correctly. This mechanism will only work if the logged in user does not have a connected Microsoft account.</p>
+    </div>
 	
-7. Update the << INSERT REDIRECT DOMAIN HERE >> from the previous step with the redirect domain that was specified when setting up the Windows Live app. (e.g. https://mymobileservice.azure-mobile.net/ )
-8. Replace OnNavigatedTo with the following:
+
+7. Update string _<< INSERT REDIRECT DOMAIN HERE >>_ from the previous step with the redirect domain that was specified when setting up the app in Live Connect, in the format **https://_service-name_.azure-mobile.net/**.
+
+8. Replace the existing **OnNavigatedTo** event handler with the handler that calls the new **Authenticate** method:
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -70,40 +123,35 @@ To be able to authenticate users, you must register your Windows app and configu
             RefreshTodoItems();
         }
 		
-9. Run the app and sign in. After granting access permissions to the app, the user should be prompted with a welcome dialog which concludes this tutorial.
+9. Press the F5 key to run app and signin to Live Connect with your Microsoft Account. 
 
-### Build and test your app
-
-The final stage of this tutorial is to build and run your new Windows 8 app.
-
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio 2012 Express for Windows 8. 
-
-2. Press the **F5** key to rebuild the project and start the app.
-
-3. In the app, enter text in **Insert a TodoItem** and then click **Save**.
-
-   ![][10]
-
-   This inserts the text in the TodoItem table in the mobile service. Text stored in the table is returned by the service and displayed in the second column.
+   When you are sucessfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
 ### <a name="next-steps"> </a>Next Steps
 
-In the next tutorial, Authorize users with scripts, you will take the user ID value and use it to filter the data returned from a table. 
+In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned from a table. 
 
 <!-- Anchors. -->
-
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-
+[0]: ../Media/mobile-live-connect-apps-list.png
+[1]: ../Media/mobile-live-connect-app-api-settings.png
+[2]: ../Media/mobile-services-selection.png
+[3]: ../Media/mobile-identity-tab.png
 
 <!-- URLs. -->
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/?LinkId=262253
 [Get started with Mobile Services]: ./mobile-services-get-started#create-new-service/
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet/
 [Get started with users]: ./mobile-services-get-started-with-users-dotnet/
 [Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet/
+[Authorize users with scripts]: ./mobile-services-authorize-users-dotnet/
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [WindowsAzure.com]: http://www.windowsazure.com/
-[Management Portal preview]: https://manage.windowsazure.com/
+[Windows Azure Management Portal]: https://manage.windowsazure.com/
