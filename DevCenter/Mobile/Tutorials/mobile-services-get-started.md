@@ -112,7 +112,7 @@ The final stage of this tutorial is to build and run your new Windows Store app.
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
 * [Get started with data]
-  <r/>Learn more about storing and querying data using Mobile Services.
+  <br/>Learn more about storing and querying data using Mobile Services.
 
 * [Get started with users]
   <br/>Learn how to authenticate users of your app with Windows Account.
