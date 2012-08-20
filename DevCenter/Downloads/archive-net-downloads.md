@@ -3,6 +3,16 @@
 <table border="1" cellspacing="0" cellpadding="10" style="border: #000000 0px solid;">
 <tbody>
 <tr>
+<td style="width: 200px;">June 2012 (Version 1.7)</td>
+<td style="width: 400px;">
+<ul>
+<li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=29988" target="_blank">Manual Installers</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj156219.aspx" target="_blank">SDK Release Notes</a></li>
+</ul>
+</td>
+</tr>
+
+<tr>
 <td style="width: 200px;">November 2011 (Version 1.6)</td>
 <td style="width: 400px;">
 <ul>
