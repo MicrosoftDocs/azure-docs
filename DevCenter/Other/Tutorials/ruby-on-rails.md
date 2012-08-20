@@ -15,7 +15,7 @@ We will be using the following components to make up our "cloud stack":
 
 ## Set up Ruby
 
-The first thing you're going to want to do is setup a Ruby on Rails project on your computer. Depending on your operating system, the steps may vary.
+The first thing you're going to want to do is setup a Ruby on Rails project on your local computer. Depending on your operating system, the steps may vary.
 
 * Windows - Visit: [http://railsinstaller.org/](http://railsinstaller.org/).
 * Mac - Use [Homebrew](http://mxcl.github.com/homebrew/) to install **rbenv** and **ruby-build**. A basic tutorial can be found here: [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
@@ -24,17 +24,17 @@ The first thing you're going to want to do is setup a Ruby on Rails project on y
 
 We'll now setup a Windows Azure Virtual Machine.
 
-1.	Login to your Windows Azure account. If you don't have one, [sign up for a free 3-month subscription](http://www.windowsazure.com/en-us/pricing/free-trial/).
+1.	Login to your Windows Azure account. If you don't have one, <a href="http://www.windowsazure.com/en-us/pricing/free-trial/" target="_blank">sign up for a free 3-month subscription</a>.
 2.	If you haven't previously used Windows Azure Virtual Machines, follow the instructions at <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a> to enable Virtual Machines on your account.
 3.	Create a new Virtual Machine by clicking on **New** in the bottom left of the [Management Portal](http://manage.windowsazure.com), and selecting **Virtual Machine**. 
 
 	![create a new virtual machine](../media/ruby-on-rails01.png)
  
-4.	From the Gallery, Select Ubuntu as the OS.
+4.	From the Gallery, Select **Ubuntu** as the OS.
 
 	![select Ubuntu from the gallery](../media/ruby-on-rails02.png)
  
-5.	For this blog post, I've used the following settings:
+5.	For this article, I've used the following settings:
 	* Virtual Machine Name: blogpost
 	* Username: blogger
 	* Password: *
@@ -61,10 +61,10 @@ And now we have a simple application working. You can test this out by running t
 
 We'll now setup the virtual machine so we can run our application.
 
-1.	Log in to the server using the SSH.
+1.	Log in to the server using the SSH. In the command below, replace *blogpost* with your unique DNS name.
 
 		ssh blogger@blogpost.cloudapp.net -p22
-2.	Now using the apt-get command, we'll be updating and installing packages to our virtual machine. The following commands will install curl, git, nginx, sqlite, and nodejs:
+2.	Now, using the **apt-get** command, we'll be updating and installing packages to our virtual machine. The following commands will install **curl**, **git**, **nginx**, **sqlite**, and **nodejs**:
 
 		sudo apt-get -y update
 		sudo apt-get -y install curl git-core python-software-properties
@@ -72,19 +72,21 @@ We'll now setup the virtual machine so we can run our application.
 3.	We're going to use [rbenv-installer](https://github.com/fesplugas/rbenv-installer/) to install **rbenv** to manage our Ruby versions. Install it using the following command (note that the text below may be wrapped, but this should be entered as a single command):
 		
 		curl https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash	
-4.	Follow the instructions to modify your **.bashrc** file and reload it using: 
+4.	Follow the instructions provided by rbenv-installer to modify your **.bashrc** file to add rbenv to the load path. 
+
+5. Reload .bashrc using: 
 		
-		. ~/.bashrc.
+		. ~/.bashrc
 5.	Run the bootstrap script provided by rbenv-installer for Ubuntu 12.04:
 
 		rbenv bootstrap-ubuntu-12-04
-6.	Now install the latest Ruby. At time of writing it was: 1.9.3-p194. Tab completion should let you see the latest version. This will take some time, so grab a coffee:
+6.	Now install the latest Ruby. At time of writing it was 1.9.3-p194. Tab completion should let you see the latest version. This will take some time, so grab a coffee:
 
 		rbenv install 1.9.3-p194
 7.	Set the global version to the one installed:
 
 		rbenv global 1.9.3-p194
-8.	Check to make sure Ruby installed correctly by running 
+8.	Check to make sure Ruby installed correctly by running: 
 	
 		ruby -v
 9.	Now we can install gems: 
