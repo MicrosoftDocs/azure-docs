@@ -7,7 +7,7 @@ This topic shows you how to use Windows Azure Mobile Services to send push notif
 In this tutorial, you add push notifications, using the Windows Push Notification service (WNS), to the quickstart project. When complete, an insert in the mobile service will generate a push notification back to your app.
 
    <div class="dev-callout"><b>Note</b>
-   <p>This tutorial demonstrates the simpliest way to send push notifications using Mobile Services. This is done to make it easy to understand how push works. You should review subsequent push notification tutorials for  examples of how to incorporate push notifications into your real-world apps.</p>
+   <p>This tutorial demonstrates the simpliest way to send push notifications using Mobile Services. This is done to make it easy to understand how push works. You should review subsequent push notification tutorials for examples of how to incorporate push notifications into your real-world apps.</p>
    </div>
 
 This tutorial walks you through these basic steps to enable push notifications:
@@ -16,6 +16,8 @@ This tutorial walks you through these basic steps to enable push notifications:
 2. [Add push notifications to the app]
 3. [Update scripts to send push notifications]
 4. [Insert data to receive notifications]
+
+This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services].
 
 ### <a name="register"></a>Register your app for push notifications and configure Mobile Services
 
@@ -133,7 +135,6 @@ To be able to send push notifications to Windows Store apps from Mobile Services
    Note that after the insert completes, the app receives a push notification from WNS.
 
    ![][7]
-3. 
 
 ### <a name="next-steps"> </a>Next Steps
 
