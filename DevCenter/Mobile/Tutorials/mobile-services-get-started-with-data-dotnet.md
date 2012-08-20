@@ -3,9 +3,23 @@
 # Get started with data in Mobile Services
 Language: **C# and XAML**  
 
-This topic shows you how to work with data in Windows Azure Mobile Services from a Windows app. In this tutorial, you will create a new mobile service without following the Mobile Services quickstart, integrate the mobile service  with your Windows app, and then login to the Windows Azure Management Portal to view changes to data made when running the app.
+This topic shows you how to use Windows Azure Mobile Services to leverage data in a Windows Store app. In this tutorial, you will download a Windows Store app, create a new mobile service without using the Mobile Services quickstart, integrate the mobile service with the app, and then login to the Windows Azure Management Portal to view changes to data made when running the app.
 
-### Get the Windows Store ap	p
+<div class="dev-callout"><b>Note</b>
+<p>This tutorial is intended to help you better understand how Mobile Services enables you to use Windows Azure to store and retrieve data from a Windows Store app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services].</p>
+</div>
+
+
+This tutorial walks you through these basic steps:
+
+1. [Get the Windows Store app] 
+2. [Create the mobile service]
+3. [Add authentication to the app]
+4. [Next steps]
+
+This tutorial requires the [Mobile Services SDK]. 
+
+### <a name="download-app"></a>Get the Windows Store app
 
 This tutorial is based on a *sample app*. The first thing that you need to do is to download this sample application.
 
@@ -47,6 +61,7 @@ Some
 
 <!-- Anchors. -->
 
+[Get the Windows Store app]: #download-app
 [Next Steps]:#next-steps
 
 <!-- Images. -->
@@ -60,3 +75,4 @@ Some
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal preview]: https://manage.windowsazure.com/
+[Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
