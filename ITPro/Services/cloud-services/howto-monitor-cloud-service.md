@@ -126,7 +126,12 @@ The raw performance counter data and aggregated monitoring data are stored in th
  As you select metrics in the metrics table, the metrics are added to the metrics   chart. On a narrow display, an **n more** drop-down list contains metric headers that won't fit the display.
 
  
-2. To change the time range the metrics chart displays, select 1 hour, 24 hours, or 7 days at the top of the chart.
+2. To switch between displaying relative values (final value only for each metric) and absolute values (Y axis displayed), select Relative or Absolute at the top of the chart.
+
+	![Relative or Absolute] (../media/CloudServices_Monitor_RelativeAbsolute.png)
+ 
+
+3. To change the time range the metrics chart displays, select 1 hour, 24 hours, or 7 days at the top of the chart.
 
 	![Monitor display period] (../media/CloudServices_Monitor_DisplayPeriod.png)
 
@@ -142,7 +147,9 @@ On the dashboard metrics chart, the method for plotting metrics is different. A 
 
 	- To delete a metric that is plotted on the chart, clear the check box by its header.
 
-3. Choose 1 hour, 24 hours, or 7 days of data to display.
+3. Switch between **Relative** and **Absolute** displays.
+
+4. Choose 1 hour, 24 hours, or 7 days of data to display.
 
 <h2 id="accessverbose">How to: Access verbose monitoring data outside the Management Portal</h2>
 
