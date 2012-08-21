@@ -24,7 +24,7 @@ Remote Desktop enables you to access the desktop of a role instance running in W
 Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
 
 ### [Using CDN for Windows Azure]
-The Windows Azure Content Delivery Network (CDN) offers a global solution for delivering high-bandwidth content by caching blobs and static content at physical nodes around the world. This common task describes how to enable CDN and add, access, and delete content.
+The Content Delivery Network (CDN) offers a global solution for delivering high-bandwidth content by caching blobs and static content at physical nodes around the world. This common task describes how to enable CDN and add, access, and delete content.
 
 [Publishing with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
 [Continuous Delivery with Team Foundation Service]: /en-us/develop/nodejs/common-tasks/continuous-delivery-service/

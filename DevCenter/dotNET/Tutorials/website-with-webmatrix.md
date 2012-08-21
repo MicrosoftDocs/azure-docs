@@ -8,13 +8,8 @@ You will learn:
 * How to import the web site into WebMatrix and customize the web site to use one of the WebMatrix templates.
 * How to deploy the customized web site directly from WebMatrix to Windows Azure.
 
-### Create a Windows Azure account
 
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
 ## Create a web site from the Windows Azure portal
 

@@ -7,6 +7,11 @@ running in Windows Azure. You can use a remote desktop connection to
 configure the virtual machine or troubleshoot problems with your
 application.
 
+<div class="dev-callout">
+	<b>Note</b>
+	<p>The steps in this article only apply to node applications hosted as a Windows Azure Cloud Service.</p>
+	</div>
+
 This task includes the following steps:
 
 -   [Step 1: Configure the service for Remote Desktop access using Windows Azure PowerShell]

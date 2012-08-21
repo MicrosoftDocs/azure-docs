@@ -15,6 +15,8 @@ For this tutorial, you'll add mobile features to the simple conference-listing a
 
 ![MVC4 conference application main page.][AppMainPage]
 
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+
 ## SETTING UP THE DEVELOPMENT ENVIRONMENT
 
 Before you start, make sure you've installed the prerequisites listed below.
@@ -52,16 +54,6 @@ This tutorial shows code in C#. However, the starter project and completed proje
 - [Improve the SessionsTable View][]
 - [Improve the SessionByCode View][]
 - [Deploy the Applciation to the Windows Azure Web Site][]
-
-
-<a name="bkmk_createaccount"></a><h3>Create a Windows Azure account</h3>
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
-
 
 <h3>Create a web site in Windows Azure</h3>
 

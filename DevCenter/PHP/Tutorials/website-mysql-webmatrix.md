@@ -18,6 +18,8 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 ![Windows Azure PHP Website][running-app]
 
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+
 ##Prerequisites
 
 1. Download the Tasklist application files from here: [http://go.microsoft.com/fwlink/?LinkId=252506][tasklist-mysql-download]. The Tasklist application is a simple PHP application that allows you to add, mark complete, and delete items from a task list. Task list items are stored in a MySQL database. The application consists of these files:
@@ -37,16 +39,6 @@ By following this tutorial, you will build a simple Tasklist web application in 
 	This step is only necessary if you want to test your application locally.
 
 <h2 id="CreateWebsite">Create a Windows Azure Website and MySQL database</h2>
-
-### Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
-
-### Create a website and MySQL database
 
 1. Login to the [Preview Management Portal][preview-portal].
 2. Click the **+ New** icon on the bottom left of the portal.

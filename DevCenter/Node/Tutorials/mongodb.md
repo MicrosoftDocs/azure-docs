@@ -21,7 +21,7 @@ In this tutorial, you will learn how to:
 -   Use MongoDB within a Node.js application.
 
 -   Run your MongoDB Node.js application locally using the Windows Azure
-    compute emulator.
+    Cloud Services emulator.
 
 -   Publish your MongoDB Node.js application to Windows Azure.
 
@@ -640,10 +640,7 @@ PowerShell commands.
 If you do not already have a Windows Azure account, you can sign up for
 a free trial account.
 
-1.  Open a web browser, and browse to [http://www.windowsazure.com][].
-
-2.  To get started with a free account, click on **Free Trial** in the
-    upper right corner and follow the steps
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
 
 ### Download the Windows Azure Publishing Settings
 

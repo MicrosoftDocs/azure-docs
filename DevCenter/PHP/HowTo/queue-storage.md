@@ -60,7 +60,7 @@ In the examples below, the `require_once` statement will be shown always, but on
 
 <h2 id="connection-string">Setup a Windows Azure storage connection</h2>
 
-To instantiate a Windows Azure Queue service client you must first have a valid connection string. The format for storage services (blobs, tables, queues) connection strings is:
+To instantiate a Windows Azure Queue service client you must first have a valid connection string. The format for the queue service connection string is:
 
 For accessing a live service:
 

@@ -31,8 +31,34 @@ The following diagram illustrates the basic Media Services architecture.
 
 ![Media Services Architecture][]
 
+###Media Services Feature Support
+The current release of Media Services provides the following feature set for developing media applications in the cloud. For information on future releases, see [Media Services Upcoming Releases:  Planned Feature Support][].
+
+- **Ingest**. Ingest operations bring assets into the system, for example by uploading them and encrypting them before they are placed into Windows Azure Storage. By the RTM release, Media Services will offer integration with partner components to provide fast UDP (User Datagram Protocol) upload solutions.
+- **Encode**. Encode operations include encoding, transforming and converting media assets. You can run encoding tasks in the cloud using the Media Encoder that is included in Media Services. Encoding options include the following:
+   - Use the Windows Azure Media Encoder and work with a range of standard codecs and formats, including industry-leading IIS Smooth Streaming, MP4, and conversion to Apple HTTP Live Streaming.
+   - Convert entire libraries or individual files with total control over input and output.
+   - A large set of supported file types, formats, and codecs (see [Supported File Types for Media Services][]).
+   - Supported format conversions. Media Services enable you to convert ISO MP4 (.mp4) to Smooth Streaming File Format (PIFF 1.3) (.ismv; .isma). You can also convert Smooth Streaming File Format (PIFF) to Apple HTTP Live Streaming (.msu8, .ts).
+- **Protect**. Protecting content means encrypting live streaming or on demand content for secure transport, storage, and delivery. Media Services provide a DRM technology-agnostic solution for protecting content.  Currently supported DRM technologies are Microsoft PlayReady Protection and MPEG Common Encryption. Support for additional DRM technologies will be available. 
+- **Stream**. Streaming content involves sending it live or on demand to clients, or you can retrieve or download specific media files from the cloud. Media Services provide a format-agnostic solution for streaming content.  Media Services provide  streaming origin support for Smooth Streaming, Apple HTTP Live Streaming, and MP4 formats. Support for additional formats will be available. You can also seamlessly deliver streaming content by using Windows Azure CDN or a third-party CDN, which enables the option  to scale to millions of users.   
+
+
+###Media Services Client Development
+Extend the reach of your Media Services solution by using SDKs and player frameworks to build media client applications. These clients are for developers who want to build Media Services applications that offer compelling user experiences across a range of devices and platforms. Depending on the devices that you want to build client applications for, there are options for SDKs and player frameworks available from Microsoft and other third-party partners.  
+
+The following provides a list of available client SDKs and player frameworks.  For more information on these and other planned SDKs and player frameworks, and the functionality they can support, see [Media Services Client Development][]. 
+
+-   **Mac and PC client support**.  Use Microsoft Silverlight to develop streaming clients.
+-   **Windows 8 desktop applications**. Windows 8 supported development languages and constructs including HTML, Javascript, XAML, C# and C+.
+-   **Embedded or dedicated devices**. Devices such as connected TVs, set-top boxes, Blu-Ray players, OTT TV boxes, and mobile devices that have a custom application development framework and a custom media pipeline.
+-   **Windows Phone**. Use a Microsoft SDK to build premium Windows Phone applications.
+-   **iOS devices**. Use a Microsoft SDK to build clients for iPhone, iPod, and iPad.
+-   **Android devices**. Use SDKs provided by Microsoft partners to build Android clients.
+
+
 ###Development Scenarios
-Media Services support several common media development scenarios as described in the following table:
+Media Services support several common media development scenarios as described in the following table. 
 <table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
   <thead>
     <tr>
@@ -57,88 +83,6 @@ Media Services support several common media development scenarios as described i
 </table>
 
 <br />
-
-###Building Media Services Applications
-
-When you build Media Services applications, there are several architectural details to understand concerning what kind of application you plan to build, how you will access Media Services programmatically, and what is the basic programming model of a Media Services application.
-
-####Media Services Developers
-Media Services developers typically fit into two groups. 
-
-* **Independent Software Vendors** (ISVs).  ISVs build end-to-end media management services. These services may be used by media production companies, large content delivery providers, or consumers who directly access media applications. ISVs can programmatically connect to Media Services by using [Open Data Protocol][] (OData) 3.0 to call the REST API layer directly, or by using the Media Services SDK for .NET (the SDK simplifies the process of making calls to the REST API layer). OData is installed with [WCF Data Services 5.0 for OData v3][]. 
-* **Partners**. Partners build Media Services add-on components that run as part of the Media Services platform. Partners can also use the [Windows Azure Marketplace][] to market their components. These add-ons can be used by ISVs as they develop their end-to-end services. A special Media Services Platform SDK is available for building add-on components.
-
-####The Media Services REST API
-The REST API is the public, programmatic interface for accessing Media Services. REST (for Representational State Transfer) is an architectural strategy for building networked client-server applications. Machines in a REST application use HTTP requests to carry out typical data operations such as reading (equivalent to a GET), writing (equivalent to a POST), or deleting data over the network. As a Media Services developer, your application calls into Media Services by using the REST API. As described earlier, ISVs will call into the REST API by using OData 3.0, or by using the Media Services SDK.
-
-####Workflow of a Media Management Application
-In a typical media management application, there are four basic types of operations for working with media assets, and these operations make up the application workflow. Media Services provide full support for each operation in this workflow.  
-
-* **Ingest**. Ingest operations bring assets into the system, for example by uploading them and encrypting them before they are placed into Windows Azure Storage. By the RTM release, Media Services will offer integration with partner components to provide fast UDP (User Datagram Protocol) upload solutions.
-* **Process**. Processing operations involve various types of encoding, transforming, and converting tasks that you perform on media assets. 
-* **Manage**. Management operations involve working with assets that are already in Media Services. This includes listing and tagging media assets, deleting assets, editing assets, managing asset keys, DRM key management, analytics, and more. 
-* **Deliver**. Delivery operations transfer media content out of Media Services. This includes streaming content live or on demand to clients, retrieving or downloading specific media files from the cloud, or deploying media assets to other servers, such as a CDN caching location in Windows Azure. 
-
-
-####Entities in Media Services
-When you access Media Services programmatically through the REST API (using OData or using the Media Services SDK), you can see several fundamental entities for working with media content. The following table summarizes the main Media Services entities.
-
-<table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
-  <thead>
-    <tr>
-       <th>Entity</th>
-       <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-        <td>Asset</td>
-        <td>An asset is a virtual entity that holds metadata about media. An asset may contain one or many files.</td>
-    </tr>
-    <tr>
-        <td>File</td>
-        <td>A file is an actual video or audio blob object on the file system or on a remote server. A file is always associated with an asset, and an asset may contain one or many files.</td>
-    </tr>
-    <tr>
-        <td>Job</td>
-        <td>A job is an entity that holds metadata about tasks. The tasks perform work on assets and files, and a job can create new assets or files. A job always has one or more associated tasks.</td>
-    </tr>
-    <tr>
-        <td>Task</td>
-        <td>A task is an individual operation of work on an asset or file. A task is associated with a job.</td>
-    </tr>
-    <tr>
-        <td>Access policy</td>
-        <td>An access policy defines the permissions to a file or an asset (what type of access, and the duration).</td>
-    </tr>
-    <tr>
-        <td>Locator</td>
-        <td>A locator is a URI that provides time-based access to a specific asset. A locator gives you direct access to files stored in the Windows Azure Blobs service, an origin streaming server locator, or a CDN locator.</td>
-    </tr>
-    <tr>
-        <td>Job template</td>
-        <td>A job template provides reusable settings for jobs that need to be run repeatedly.</td>
-    </tr>
-    <tr>
-        <td>Task template</td>
-        <td>A task template provides reusable settings for tasks that you want to run repeatedly. Each job template has a collection of task templates.</td>
-    </tr>
-    <tr>
-        <td>Content key</td>
-        <td>A content key provides secure access to an asset. It also provides encryption keys used for storage encryption, MPEG Common Encryption, or PlayReady encryption.</td>
-    </tr>
-  </tbody>
-</table>
-
-<br />
-
-###Additional Media Services Development Information
-
-For more information about Media Services features and development scenarios, see the following pages in the Media Services forum:
-
--   [Media Services Client Development][]
--   [Media Services Preview:  Supported Features][]
--   [Media Services Upcoming Releases:  Planned Feature Support][]
 
 
 ## <a name="setup-account"> </a>Setting Up a Windows Azure Account for Media Services
@@ -645,8 +589,9 @@ Now that you have learned how to set up for Media Services development and perfo
   [Media Services Forum]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
   [Getting Started with the Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=252966
   [Building Applications with the Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=247821
-  [Windows Azure Management Portal]: https://manage.windowsazure.com
+  [Windows Azure Management Portal]: https://windows.azure.com/
   [How to Create a Media Services Account]: http://go.microsoft.com/fwlink/?linkid=256662
+  [Supported File Types for Media Services]: http://msdn.microsoft.com/en-us/library/hh973634
 
   <!-- Email. -->
   [MediaServices@Microsoft.com]: mailto:MediaServices@Microsoft.com

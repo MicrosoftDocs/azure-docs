@@ -18,6 +18,8 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
 ![screenshot of website][intro001]
 
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+
 In this tutorial:
 
 - [Set up the development environment][setupdbenv]
@@ -46,16 +48,7 @@ When the installation is complete, you have everything necessary to start develo
 
 <h2><a name="bkmk_setupwindowsazure"></a>Set up the Windows Azure environment</h2>
 
-Next, set up the Windows Azure environment by creating a Windows Azure account, a Windows Azure Web Site, and a SQL database.
-
-### Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
-
+Next, set up the Windows Azure environment by creating a Windows Azure Web Site and a SQL database.
 
 ### Create a web site and a SQL database in Windows Azure
 
@@ -540,9 +533,27 @@ Visual Studio compiles the data model classes that you created and makes them av
             routeTemplate: "api/{controller}/{id}",
             defaults: new { id = RouteParameter.Optional }
         );
-11. Open Global.asax file and add the following line to the Appplication_Start method.
+11. Open Global.asax file and add the following line to the beginning of the Appplication_Start method.
 
 		WebApiConfig.Configure(GlobalConfiguration.Configuration);
+
+	The resulting code should read as follows:
+ 
+	    public class MvcApplication : System.Web.HttpApplication
+	    {
+	         protected void Application_Start()
+	         {
+	             WebApiConfig.Configure(GlobalConfiguration.Configuration);
+	 
+	             AreaRegistration.RegisterAllAreas();
+	 
+	             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+	             RouteConfig.RegisterRoutes(RouteTable.Routes);
+	             BundleConfig.RegisterBundles(BundleTable.Bundles);
+	    
+	        }
+	    }
+
 
 ### Run the application locally
 
@@ -597,7 +608,7 @@ Here are some things to be aware of when you plan and develop an ASP.NET applica
 
 You've seen how to deploy a web application that implements RESTful web API to a Windows Azure Web Site. To learn more about how to configure, manage, and scale Windows Azure Web Sites, see the how-to topics on the [Common Tasks][CommonTasks] page.
 
-Another way to store data in a Windows Azure application is to use Windows Azure Storage Services, which provides non-relational data storage in the form of blobs and tables. The Contact Manager application could have been designed to use Windows Azure Storage instead of SQL Database. For more information about both SQL Database and Windows Azure Storage, see [Data Storage Offerings on Windows Azure][WindowsAzureDataStorageOfferings].
+Another way to store data in a Windows Azure application is to use Windows Azure data management services, which provides non-relational data storage in the form of blobs and tables. The Contact Manager application could have been designed to use Windows Azure Storage instead of SQL Database. For more information about both SQL Database and Windows Azure Storage, see [Data Storage Offerings on Windows Azure][WindowsAzureDataStorageOfferings].
 
 To learn more about how to use SQL Database, see the following resources:
 

@@ -17,9 +17,7 @@ in a dedicated virtual machine (VM). The following illustration shows the comple
 
 ![screenshot of web application][0]
 
-## <a hame="create"></a>Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
+<div chunk="../../Shared/Chunks/create-account-note.md" />
 
 ## <a name="setup"></a>Set up the development environment
 
@@ -159,10 +157,6 @@ account. If you do not have one you can create a free trial account.
 Once you are logged in with your account, you can download a Windows
 Azure publishing profile. The publishing profile authorizes your
 machine to publish packages to Windows Azure using Visual Studio.
-
-### Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
 
 ### Publish the application
 
@@ -504,8 +498,8 @@ that is hosted in a Windows Azure Cloud Service and stores data in SQL Database.
 
   [Create a Windows Azure account]: #create  
   [Download a publishing profile]: #profile
-  [Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=254364
-  [Windows Azure SDK for Visual Studio 2012 RC]:  http://go.microsoft.com/fwlink/?LinkId=254269
+  [Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=254269
+  [Windows Azure SDK for Visual Studio 2012 RC]:  http://go.microsoft.com/fwlink/?LinkId=254364
   [0]: ../media/dev-net-getting-started-1.png
   [Set Up the development environment]: #setup
   [Create an ASP.NET MVC 3 application]: #creating

@@ -16,11 +16,13 @@ You'll learn:
 You'll build a simple to-do list web application that is built on ASP.NET MVC 4 and uses the ADO.NET Entity Framework for database access. The following illustration shows the completed application:
 
 ![screenshot of website][Image059]
+
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
  
 ## Tutorial segments
 
 1. [Set up the development environment][]
-2. [Set up the Windows Azure environment][]
+2. [Create a web site and a SQL database in Windows Azure][]
 3. [Create an ASP.NET MVC 4 application][]
 4. [Deploy the application to Windows Azure][]
 5. [Add a database to the application][]
@@ -42,33 +44,7 @@ To start, set up your development environment by installing the Windows Azure SD
 
 When the installation is complete, you have everything necessary to start developing.
 
-<h2><a name="setupwindowsazure"></a>Set up the Windows Azure environment</h2>
- 
-Next, set up the Windows Azure environment. You'll create a Windows Azure account and enable this account to use the Windows Azure Web Sites preview feature. Then you'll create a Windows Azure Web Site and a SQL database.
-
-### Create a Windows Azure account
-
-1. Open a web browser, and browse to [http://www.windowsazure.com][windowsazure.com].
-2. To get started with a free account, click **Free Trial** in the upper-right corner and follow the steps. You'll need a credit card number and a mobile phone number for proof of identity, but you will not be billed.<br/>
-![Free trial screenshot][Image010]
-
-### Enable Windows Azure Web Sites
-
-1.	Navigate to [https://account.windowsazure.com/](https://account.windowsazure.com/) and sign in with your Windows Azure account.
-
-2.	Click **preview features** to view the available previews.
-	
-	![open preview features tab][0]
-
-2.	Scroll down to **Web Sites** and click **try it now**.
-
-	![select a preview feature][1]
-
-3.	Select your subscription and click the check.
-
-	![select subscription][2]
-
-### Create a web site and a SQL database in Windows Azure
+<h2><a name="setupwindowsazure"></a>Create a web site and a SQL database in Windows Azure</h2>
 
 The next step is to create the Windows Azure web site and the SQL database that your application will use.
 
@@ -295,7 +271,7 @@ Here are some things to be aware of when you plan and develop an ASP.NET applica
 * The application must target ASP.NET 4.0 or earlier (not ASP.NET 4.5).
 * The application runs in Integrated mode (not Classic mode).
 * The application should not use Windows Authentication. Windows Authentication is usually not used as an authentication mechanism for Internet-based applications.
-* In order to use provider-based features such as membership, profile, role manager, and session state, the application must use the ASP.NET Universal Providers (the [System.Web.Providers][UniversalProviders] NuGet package).
+* In order to use provider-based features such as membership, profile, role manager, and session state, the application must use the Microsoft ASP.NET Universal Providers (the [Microsoft.AspNet.Providers][UniversalProviders] NuGet package).
 * If the applications writes to files, the files should be located in the application's content folder or one of its subfolders.
 
 <h2><a name="nextsteps"></a>Next Steps</h2>
@@ -328,15 +304,15 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 * [Code First Migrations][EFCFMigrations]
 
 [Set Up the development environment]: #setupdevenv
-[Set up the Windows Azure environment]: #setupwindowsazure
+[Create a web site and a SQL database in Windows Azure]: #setupwindowsazure
 [Create an ASP.NET MVC 4 application]: #createmvc4app
 [Deploy the application to Windows Azure]: #deploytowindowsazure
 [Add a database to the application]: #addadatabase
 [Deploy the application update to Windows Azure and SQL Database]: #deploydatabaseupdate
 [Important information about ASP.NET in Windows Azure Web Sites]: #aspnetwindowsazureinfo
 [Next steps]: #nextsteps
-[Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=254364
-[Windows Azure SDK for Visual Studio 2012 RC]:  http://go.microsoft.com/fwlink/?LinkId=254269
+[Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=254269
+[Windows Azure SDK for Visual Studio 2012 RC]:  http://go.microsoft.com/fwlink/?LinkId=254364
 [NewPortal]: http://manage.windowsazure.com
 [MVC4Install]: http://www.asp.net/mvc/mvc4
 [VS2012ExpressForWebInstall]: http://www.microsoft.com/web/gallery/install.aspx?appid=VWD11_BETA&prerelease=true
@@ -355,7 +331,7 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [MigratingDataCentricApps]: http://msdn.microsoft.com/en-us/library/jj156154.aspx
 [SQLAzureDataMigrationBlog]: http://blogs.msdn.com/b/ssdt/archive/2012/04/19/migrating-a-database-to-sql-azure-using-ssdt.aspx
 [SQLAzureConnPoolErrors]: http://blogs.msdn.com/b/adonet/archive/2011/11/05/minimizing-connection-pool-errors-in-sql-azure.aspx
-[UniversalProviders]: http://nuget.org/packages/System.Web.Providers
+[UniversalProviders]: http://nuget.org/packages/Microsoft.AspNet.Providers
 [EFCodeFirstMVCTutorial]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 [EFCFMigrations]: http://msdn.microsoft.com/en-us/library/hh770484
 [DevelopingWebAppsWithWindowsAzure]: http://msdn.microsoft.com/en-us/library/Hh674484

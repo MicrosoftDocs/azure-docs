@@ -13,6 +13,8 @@ By following this tutorial, you will build a simple registration web application
 
 ![Windows Azure PHP web site][running-app]
 
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+
 ##Set up the development environment
 
 This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), a web server, and [Git][install-git] installed on your computer.
@@ -21,14 +23,6 @@ This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (
 <b>Note</b>
 <p>If you are performing this tutorial on Windows, you can set up your machine for PHP and automatically configure IIS (the built-in web server in Windows) by installing the <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">Windows Azure SDK for PHP</a>.</p>
 </div>
-
-### Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
 ##Create a Windows Azure web site and set up Git publishing
 
@@ -221,7 +215,7 @@ After you have tested your application locally, you can publish it to your Windo
 
 	You will be prompted for the password you created earlier.
 
-	![Initial Push to Azure via Git][git-initial-push]
+	![Initial Push to Windows Azure via Git][git-initial-push]
 
 2. Browse to **http://[site name].azurewebsites.net/index.php** to begin using the application (this information will be stored on your account dashboard):
 
@@ -242,7 +236,7 @@ To publish changes to application, follow these steps:
 
 	You will be prompted for the password you created earlier.
 
-	![Pushing site changes to Azure via Git][git-change-push]
+	![Pushing site changes to Windows Azure via Git][git-change-push]
 
 3. Browse to **http://[site name].azurewebsites.net/index.php** to see your application and any changes you may have made:
 
