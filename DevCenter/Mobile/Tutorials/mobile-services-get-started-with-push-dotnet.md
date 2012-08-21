@@ -80,7 +80,7 @@ To be able to send push notifications to Windows Store apps from Mobile Services
          public string Channel { get; set; }
 
     <div class="dev-callout"><b>Note</b>
-	<p>When dynamic schema is enabled on your mobile service, a new Channel column is automatically added to the **TodoItem** table when a new item that contains this property is inserted.</p>
+	<p>When dynamic schema is enabled on your mobile service, a new Channel column is automatically added to the <b>TodoItem</b> table when a new item that contains this property is inserted.</p>
     </div>
 
 6. Replace the **ButtonSave_Click** event handler method with the following code:

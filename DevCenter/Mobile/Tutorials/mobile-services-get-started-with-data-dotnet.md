@@ -9,7 +9,6 @@ This topic shows you how to use Windows Azure Mobile Services to leverage data i
 <p>This tutorial is intended to help you better understand how Mobile Services enables you to use Windows Azure to store and retrieve data from a Windows Store app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services].</p>
 </div>
 
-
 This tutorial walks you through these basic steps:
 
 1. [Get the Windows Store app] 
@@ -247,7 +246,7 @@ Once you have completed the data series, try one of these other tutorials:
 
 <!-- URLs. -->
 [Validate and modify data with scripts]: ./mobile-services-validate-and-modify-data-dotnet/
-[Refine queries with paging]: ./mobile-services-paging-data-dotnet
+[Refine queries with paging]: ./mobile-services-paging-data-dotnet/
 [Get started with Mobile Services]: ./mobile-services-get-started#create-new-service/
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet/
 [Get started with users]: ./mobile-services-get-started-with-users-dotnet/
