@@ -3,13 +3,14 @@
 # Validate and modify data in Mobile Services using server scripts
 Language: **C# and XAML**  
 
-This topic shows you how to leverage server scripts in Windows Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update the Windows Store app to take advantage of the new server behaviors.
+This topic shows you how to leverage server scripts in Windows Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update your Windows Store app to take advantage of these new behaviors.
 
 This tutorial walks you through these basic steps:
 
 1. [Add string length validation]
 2. [Update the client to support validation]
-3. 
+3. [Add a timestamp on insert]
+4. [Update the client to display the timestamp]
 
 This tutorial builds on the steps and the sample app from the previous tutorial [Get started with data]. Before you begin this tutorial, you must first complete [Get started with data].  
 
@@ -39,62 +40,133 @@ It is always a good practice to validate the length of data that is submitted by
             }
         }
 
-    This script checks the length of the **TodoItem.Text** property and sends an error response when the length exceeds 10 characters. 
-
-5. Repeat Steps 3 and 4 to replace the **Update** operation with a similar function, as follows:
-
-        function update(item, user, request) {
-            if (item.Text.length > 10) {
-                request.respond(statusCodes.BAD_REQUEST, 'Text length must be under 10');
-            } else {
-                request.execute();
-            }
-        }
+    This script checks the length of the **TodoItem.Text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** method is called to complete the insert.
 
 ### <a name="update-client-validation"></a>Update the client to support validation
 
 Now that the mobile service is validating data and sending error responses, you need to update your app to be able to handle error responses from validation.
 
-6. In Visual Studio 2012 Express for Windows 8, open the project that you modified when you completed the tutorial [Get started with data].
+1. In Visual Studio 2012 Express for Windows 8, open the project that you modified when you completed the tutorial [Get started with data].
 
-2. Press the F5 key to run the app
-6. 	Run the app (unmodified from the Getting Started tutorial) and type in todo item text that exceeds 10 characters. The app will crash. That is because we have not yet added error handling code. 
+2. Press the **F5** key to run the app, then type text longer than 10 characters in **Insert a TodoItem** and click **Save**.
 
-We will add that in the next step.
+   Notice that the app raises an unhandled **MobileServiceInvalidOperationException** as a result of the 400 response (Bad Request) returned by the mobile service.
 
-	1. Modify client app to show error message based on service response. (see client app with error handling code)
+    <div class="dev-callout"> 
+	<b>Note</b> 
+	<p>You can remove a registered script on the <b>Script</b> tab by clicking <b>Clear</b> and then <b>Save</b>.</p></div>	
 
-	2. Augment todo item by adding date(time) of creation.  The insert script now looks as follows:
-	function insert(item, user, context) {
-	    if (item.Text.length > 10) {
-	        context.respond(statusCodes.BAD_REQUEST, 'Text length must be under 10');
-	    } else {
-	        item.createdAt = new Date();
-	        context.execute();
-	    }
-	}
-	
-	3. Run the app and add a few rows. The timestamp is not seen in the app UI because the client is unaware of the addition. But you can see the added column in the portal if you go to TABLES, select the TodoItem table and then click on BROWSE.
-	4. Next we need to change our object model to read back the automatically added create timestamp. Note the DataMember element added to convert JS style camel casing used by script code to C# style Pascal casing. The column naming in Mobile Services is case preserving when created but case insensitive in case of queries. But the default serializer will not serialize createdAt into CreatedAt without explicit DataMember attribute.
+6. 	Open the file MainPage.xaml.cs, then add the following **using** statement:
+
+        using Windows.UI.Popups;
+
+7. Replace the existing **InsertTodoItem** method with the following:
+
+        private async void InsertTodoItem(TodoItem todoItem)
+        {
+            // This code inserts a new TodoItem into the database. When the operation completes
+            // and Mobile Services has assigned an Id, the item is added to the CollectionView
+            try
+            {
+                await todoTable.InsertAsync(todoItem);
+                items.Add(todoItem);
+            }
+            catch (MobileServiceInvalidOperationException e)
+            {
+                MessageDialog errormsg = new MessageDialog(e.Response.Content, 
+                    string.Format("{0} (HTTP {1})",                     
+                    e.Response.StatusDescription,
+                    e.Response.StatusCode));
+                var ignoreAsyncOpResult = errormsg.ShowAsync();
+            }
+        }
+
+   This version of the method includes error handling for the **MobileServiceInvalidOperationException** that displays the error response in a popup.
+
+### <a name="add-timestamp"></a>Add a timestamp on insert
+
+The previous tasks validated an insert and either accepted or rejected it. Now, you will update inserted data by using a server script that adds a timestamp property to the object before it gets inserted.
+
+1. In the **Scripts** tab in the [Management Portal], replace the current **Insert** script with the following function, and then click **Save**.
+
+        function insert(item, user, request) {
+            if (item.Text.length > 10) {
+                request.respond(statusCodes.BAD_REQUEST, 'Text length must be under 10');
+            } else {
+                item.createdAt = new Date();
+                request.execute();
+            }
+        }
+
+    This function augments the previous insert script by adding a new **createdAt** timestamp property to the object before it gets inserted by the call to **request**.**execute**. 
+
+    <div class="dev-callout"><b>Note</b>
+	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <b>createdAt</b> column to the <b>TodoItem</b> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the service is published.</p>
+    </div>
+
+2. In Visual Studio, press the **F5** key to run the app, then type text (shorter than 10 characters) in **Insert a TodoItem** and click **Save**.
+
+   Notice that the new timestamp does not appear in the app UI.
+
+3. Back in the Management Portal, click the **Browse** tab in the **todoitem** table.
+   
+   Notice that there is now a **createdAt** column, and the new inserted item has a timestamp value.
+  
+Next, you need to update the Windows Store app to display this new column.
+
+### <a name="update-client-timestamp"></a>Update the client to display the timestamp
+
+The Mobile Service client will ignore any data in a response that it cannot serialize into properties on the defined type. The final step is to update the client to display this new data.
+
+1. In Visual Studio, open the file MainPage.xaml.cs, then replace the existing **TodoItem** class with the following definition:
+
 	    public class TodoItem
 	    {
 	        public int Id { get; set; }
 	        public string Text { get; set; }
 	        public bool Complete { get; set; }
-	        [DataMember(Name="createdAt")]
+	        
+            [DataMember(Name="createdAt")]
 	        public DateTime? CreatedAt { get; set; }
 	    }
 	
-	5. Next, we need to change the UI to show the newly added CreatedAt element. Add the following XAML element just below the "CheckBoxComplete" element in MainPage.xaml.
-	<TextBlock Name="WhenCreated" Text="{Binding CreatedAt}" VerticalAlignment="Center"/>
+    This new class definition includes the new timestamp property, as a nullable DateTime type.
+  
+    <div class="dev-callout"><b>Note</b>
+	<p>The <b>DataMemberAttribute</b> tells the client to serialize the new <b>CreatedAt</b> property in the app with the same casing as the <b>createdAt</b> column defined in the TodoItem table. This way, your app can have different property names than the columns in the mobile service. Without this mapping, the client could not map the <b>CreatedAt</b> property to the <b>createdAt</b> column in the case-senstive SQL Database and an error would occur.</p>
+    </div>
+
+5. Add the following XAML element just below the **CheckBoxComplete** element in the MainPage.xaml file:
+	      
+        <TextBlock Name="WhenCreated" Text="{Binding CreatedAt}" VerticalAlignment="Center"/>
+
+   This displays the new **CreatedAt** property in a text box. 
 	
-	6. Run the app and browse data in portal to see added column and datetime info for new rows (only)
-	7. Add a query to client to restrict results to those with timestamp. The modified query is as follows:
-	MobileServiceTableQuery<TodoItem> query = todoTable
-	                .Where(todoItem => todoItem.Complete == false && todoItem.CreatedAt != null);
-	8. Run the app and notice that the rows without create timestamp disappear.
+6. Press the **F5** key to run the app. 
 
+   Notice that the timestamp is only displayed for items inserted after you updated the insert script.
 
+7. Replace the existing **RefreshTodoItems** method with the following code:
+
+        private void RefreshTodoItems()
+        {
+            // This query filters out completed TodoItems and 
+            // items without a timestamp. 
+            items = todoTable
+               .Where(todoItem => todoItem.Complete == false
+                   && todoItem.CreatedAt != null)
+               .ToCollectionView();
+
+            ListItems.ItemsSource = items;
+        }
+
+   This method updates the query to also filter out items that do not have a timestamp value.
+	
+8. Press the **F5** key to run the app.
+
+   Notice that all items created without timestamp value disappear from the UI.
+
+You have completed this working with data tutorial.
 
 ### <a name="next-steps"> </a>Next Steps
 
@@ -114,6 +186,8 @@ Server scripts are also used when authorizing users and for sending push notific
 <!-- Anchors. -->
 [Add string length validation]: #string-length-validation
 [Update the client to support validation]: #update-client-validation
+[Add a timestamp on insert]: #add-timestamp
+[Update the client to display the timestamp]: #update-client-timestamp
 
 [Next Steps]:#next-steps
 
