@@ -27,7 +27,7 @@ Follow these steps to create a new mobile service.
 
 	![][1]
 
-3.	Expand **Compute** and **Mobile Service**, then click **Create**.
+3.	Expand **Mobile Service**, then click **Create**.
 
 	![][2]
 
@@ -83,7 +83,7 @@ In this section you will create a new Windows Store app that is connected to you
 
 The final stage of this tutorial is to build and run your new Windows Store app.
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio 2012 Express for Windows 8. 
+1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio 2012 Express for Windows 8.
 
    ![][8]
 
