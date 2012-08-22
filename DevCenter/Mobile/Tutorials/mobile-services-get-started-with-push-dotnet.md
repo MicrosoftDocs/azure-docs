@@ -6,10 +6,10 @@
 Language: **C# and XAML**  
 
 This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Windows Store app.  
-In this tutorial, you add push notifications, using the Windows Push Notification service (WNS), to the quickstart project. When complete, an insert in the mobile service will generate a push notification back to your app.
+In this tutorial you add push notifications using the Windows Push Notification service (WNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
    <div class="dev-callout"><b>Note</b>
-   <p>This tutorial demonstrates a simplified way to send push notifications using Mobile Services. This is done to make it easy to understand how push works. You should review subsequent push notification tutorials for examples of how to incorporate push notifications into your real-world apps.</p>
+   <p>This tutorial demonstrates a simplified way of sending push notifications by attaching a push notification channel to the inserted record. Be sure to follow along with the next tutorial to get a better idea of how to incorporate push notifications into your real-world apps.</p>
    </div>
 
 This tutorial walks you through these basic steps to enable push notifications:
@@ -57,18 +57,17 @@ To be able to send push notifications to Windows Store apps from Mobile Services
 
         using Windows.Networking.PushNotifications;
 
-3. Add the following members to App.xaml.cs:
+3. Add the following to App.xaml.cs:
 	
         public static PushNotificationChannel CurrentChannel { get; private set; }
 
 	    private async void AcquirePushChannel()
 	    {
-	            CurrentChannel = 
-                    await PushNotificationChannelManager
-                             .CreatePushNotificationChannelForApplicationAsync();
+	            CurrentChannel =  
+	                await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
         }
 
-   This code creates a new asynchronous push notification channel.
+   This code acquires and stores a push notification channel.
     
 4. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **AcquirePushChannel** method:
 
@@ -82,7 +81,7 @@ To be able to send push notifications to Windows Store apps from Mobile Services
          public string Channel { get; set; }
 
     <div class="dev-callout"><b>Note</b>
-	<p>When dynamic schema is enabled on your mobile service, a new Channel column is automatically added to the <b>TodoItem</b> table when a new item that contains this property is inserted.</p>
+	<p>When dynamic schema is enabled on your mobile service, a new 'channel' column is automatically added to the <b>TodoItem</b> table when a new item that contains this property is inserted.</p>
     </div>
 
 6. Replace the **ButtonSave_Click** event handler method with the following code:
@@ -105,13 +104,14 @@ To be able to send push notifications to Windows Store apps from Mobile Services
    
   ![][5]
 
-   This displays the function that is invoked when an insert occurs in the **todoitems** table.
+   This displays the function that is invoked when an insert occurs in the **TodoItem** table.
 
 3. Replace the insert function with the following code, and then click **Save**:
 
         function insert(item, user, request) {
             request.execute({
                 success: function() {
+                    // Write to the response and then send the notification in the background
                     request.respond();
                     push.wns.sendToastText04(item.channel, {
                         text1: item.Text
