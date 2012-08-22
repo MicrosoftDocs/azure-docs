@@ -14,7 +14,7 @@ This tutorial walks you through these basic steps:
 
 This tutorial builds on the steps and the sample app from the previous tutorial [Get started with data]. Before you begin this tutorial, you must first complete [Get started with data].  
 
-### <a name="string-length-validation"></a>Add string length validation
+## <a name="string-length-validation"></a>Add string length validation
 
 It is always a good practice to validate the length of data that is submitted by users. First, you register a script that validates the length of string data sent to the mobile service and rejects strings that are too long, in this case longer than 10 characters.
 
@@ -42,7 +42,7 @@ It is always a good practice to validate the length of data that is submitted by
 
     This script checks the length of the **TodoItem.Text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** method is called to complete the insert.
 
-### <a name="update-client-validation"></a>Update the client to support validation
+## <a name="update-client-validation"></a>Update the client to support validation
 
 Now that the mobile service is validating data and sending error responses, you need to update your app to be able to handle error responses from validation.
 
@@ -83,7 +83,7 @@ Now that the mobile service is validating data and sending error responses, you 
 
    This version of the method includes error handling for the **MobileServiceInvalidOperationException** that displays the error response in a popup.
 
-### <a name="add-timestamp"></a>Add a timestamp on insert
+## <a name="add-timestamp"></a>Add a timestamp on insert
 
 The previous tasks validated an insert and either accepted or rejected it. Now, you will update inserted data by using a server script that adds a timestamp property to the object before it gets inserted.
 
@@ -114,7 +114,7 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
   
 Next, you need to update the Windows Store app to display this new column.
 
-### <a name="update-client-timestamp"></a>Update the client to display the timestamp
+## <a name="update-client-timestamp"></a>Update the client to display the timestamp
 
 The Mobile Service client will ignore any data in a response that it cannot serialize into properties on the defined type. The final step is to update the client to display this new data.
 
@@ -168,7 +168,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
 You have completed this working with data tutorial.
 
-### <a name="next-steps"> </a>Next Steps
+## <a name="next-steps"> </a>Next Steps
 
 Now that you have completed this tutorial, consider continuing on with the final tutorial in the data series: 
 
@@ -188,8 +188,7 @@ Server scripts are also used when authorizing users and for sending push notific
 [Update the client to support validation]: #update-client-validation
 [Add a timestamp on insert]: #add-timestamp
 [Update the client to display the timestamp]: #update-client-timestamp
-
-[Next Steps]:#next-steps
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [0]: ../Media/mobile-services-selection.png

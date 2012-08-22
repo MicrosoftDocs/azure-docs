@@ -7,7 +7,7 @@ This topic shows you how to use server scripts to authorize authenticated users 
 
 This tutorial is based on the Mobile Services quickstart and builds on the previous tutorial [Get started with users]. Before you start this tutorial, you must first complete [Get started with users].  
 
-### <a name="register-scripts"></a>Register server scripts
+## <a name="register-scripts"></a>Register server scripts
 Because the quickstart app reads and inserts data, you need to register scripts for these operations against the TodoItem table.
 
 1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app. 
@@ -45,7 +45,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
    This script filters the returned TodoItem objects so that each user only receives the items that they inserted.
 
-### Run the app to test the new behavior
+## Run the app to test the new behavior
 
 1. In Visual Studio 2012 Express for Windows 8, open the project that you modified when you completed the tutorial [Get started with users].
 
@@ -63,7 +63,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
 6. (Optional) If you have an additional Microsoft Account, you can verify that users can only see their own data by closing the app (Alt+F4) and then running it again. When the login credentials dialog is displayed, enter a different Microsoft account, and then verify that the items entered under the previous account are not displayed. 
 
-### Additional reading
+## Next Steps
 
 This concludes the tutorials that demonstrate the basics of working with users. Consider finding out more about the following Mobile Services topics:
 

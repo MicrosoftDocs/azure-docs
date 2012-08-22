@@ -62,7 +62,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
 This completes the tutorial.
 
-### <a name="next-steps"> </a>Next Steps
+## <a name="next-steps"> </a>Next Steps
 
 This concludes the set of tutorials that demonstrate the basics of working with data in Mobile Services. Consider finding out more about the following Mobile Services topics:
 
