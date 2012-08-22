@@ -68,18 +68,13 @@ To save compute costs, you can delete the deployment in the staging environment 
 
 <h2 id="linkresources">How to: Link a resource to a cloud service</h2>
 
-To show your cloud service's dependencies on other resources, such as a Windows Azure SQL Database instance, you can link the resources to the cloud service. Link and unlink resources on the **Linked Resources** page. Then monitor their usage on the cloud service dashboard.
+To show your cloud service's dependencies on other resources, you can link a Windows Azure SQL Database instance or a storage account to the cloud service. You an link and unlink resources on the **Linked Resources** page. Then monitor their usage on the cloud service dashboard. If a linked storage account has monitoring turned on, you can monitor Total Requests on the cloud service dashboard.
 
-Use **Link** to link a new or existing SQL Database instance to your cloud service. You can then scale the database along with the cloud service role that is using it on the **Scale** page. For more information, see [How to Scale a Cloud Service and Linked Resources](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-scale-a-cloud-service/). 
+Use **Link** to link a new or existing SQL Database instance or storage account to your cloud service. You can then scale the database along with the cloud service role that is using it on the **Scale** page. (A storage account scales automatically as usage increases.) For more information, see [How to Scale a Cloud Service and Linked Resources](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-scale-a-cloud-service/). 
 
 You also can monitor, manage, and scale the database in the **Databases** node of the Management Portal. 
 
-"Linking" a resource in this sense doesn't connect your app to the database. If you create a new database using **Link**, you'll need to add the connection strings to your application code and then upgrade the cloud service.
-
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>Linked storage accounts are not supported in the Preview Management Portal.</p> 
-</div>
+"Linking" a resource in this sense doesn't connect your app to the resource. If you create a new database using **Link**, you'll need to add the connection strings to your application code and then upgrade the cloud service. You'll also need to add connection strings if your app uses resources in a linked storage account.
 
 The following procedure describes how to link a new SQL Database instance, deployed on a new SQL Database server, to a cloud service.
 
