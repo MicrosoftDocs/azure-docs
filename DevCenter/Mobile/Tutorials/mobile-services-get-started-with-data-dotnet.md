@@ -60,7 +60,7 @@ Next, you will create a new mobile service to replace the in-memory list for dat
 
     <div class="dev-callout"> 
 	<b>Note</b> 
-	<p>As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile service, you can instead choose <b>Use existing Database</b> and then select that database. Use of database in a different region is not recommended because of additional egress bandwidth costs and higher latencies.</p></div>	
+	<p>As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile service, you can instead choose <b>Use existing Database</b> and then select that database. The use of a database in a different region is not recommended because of additional bandwidth costs and higher latencies.</p></div>	
 
 5.	In **Name**, type the name of the new database, then type **Login name**, which is the administrator login name for the new SQL Database server, type and confirm the password, and click the check button to complete the process.
 
@@ -94,12 +94,12 @@ To be able to store app data in the new mobile service, you must first create a 
 
     <div class="dev-callout"> 
 	<b>Note</b> 
-	<p>The same table name is used in Mobile Services quickstart. But each table is created in a schema specific to a Mobile Service.</p> 
+	<p>The same table name is used in Mobile Services quickstart. However, each table is created in a schema that is specific to a given mobile service. This is to prevent data collisions when multiple mobile services use the same database.</p> 
 	</div>
 
 4. Click the new **TodoItem** table and verify that there are no data rows.
 
-5. Click the **Columns** tab and verify that there is only a single **id** column which is automatically created for you.
+5. Click the **Columns** tab and verify that there is only a single **id** column, which is automatically created for you.
 
   This is the minimum requirement for a table in Mobile Services. 
 
@@ -245,8 +245,8 @@ Once you have completed the data series, try one of these other tutorials:
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: ./mobile-services-validate-and-modify-data-dotnet/
-[Refine queries with paging]: ./mobile-services-paging-data-dotnet/
+[Validate and modify data with scripts]: ../mobile-services-validate-and-modify-data-dotnet.md
+[Refine queries with paging]: ../mobile-services-paging-data-dotnet.md
 [Get started with Mobile Services]: ./mobile-services-get-started#create-new-service/
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet/
 [Get started with users]: ./mobile-services-get-started-with-users-dotnet/

@@ -41,7 +41,7 @@ Follow these steps to create a new mobile service.
 
     <div class="dev-callout"> 
 	<b>Note</b> 
-	<p>As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile service, you can instead choose <b>Use existing Database</b> and then select that database.</p></div>	
+	<p>As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile service, you can instead choose <b>Use existing Database</b> and then select that database. The use of a database in a different region is not recommended because of additional bandwidth costs and higher latencies.</p></div>	
 
 6.	In **Name**, type the name of the new database, then type **Login name**, which is the administrator login name for the new SQL Database server, type and confirm the password, and click the check button to complete the process.
 
@@ -100,7 +100,7 @@ The final stage of this tutorial is to build and run your new Windows Store app.
    	<p>You can review the code that accesses your mobile service to query and insert data, which is found in either the MainPage.xaml.cs file (C#/XAML project) or the default.js (JavaScript/HTML project) file.</p> 
  	</div>
 
-4. Back in the Management Portal, click the **Data** tab, then click the **TodoItems** table.
+4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
 
    ![][11]
 
@@ -143,9 +143,8 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [13]: ../Media/mobile-services-diagram.png
 
 <!-- URLs. -->
-[Get started with data]: ./mobile-services-get-started-with-data-dotnet/
-
-[Get started with users]: ./mobile-services-get-started-with-users-dotnet/
+[Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
+[Get started with users]: ./mobile-services-get-started-with-users-dotnet.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet/
 [Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
