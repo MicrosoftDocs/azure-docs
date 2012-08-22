@@ -5,7 +5,7 @@
 # Push notifications to users by using Mobile Services
 Language: **C# and XAML**  
 
-This topic extends the previous push notification tutorial by adding a new table in Windows Azure Mobile Services, which is used to store Windows Push Notification Service (WNS) channel URIs. These channels can then be used to send push notifications to users of the Windows Store app.  
+This topic extends the previous push notification tutorial by adding a new table to store Windows Push Notification Service (WNS) channel URIs. These channels can then be used to send push notifications to users of the Windows Store app.  
 
 This tutorial walks you through these steps to update push notifications in your app:
 
@@ -38,7 +38,18 @@ Next, you will modify the push notifications app to store data in this new table
 
 ## <a name="update-app"></a>Update the push notifications app
 
-1. In Visual Studio 2012 Express for Windows 8, open the project from the tutorial [Get started with push notifications], open up file MainPage.xaml.cs, and remove the **Channel** property from the **TodoItem** class. 
+1. In Visual Studio 2012 Express for Windows 8, open the project from the tutorial [Get started with push notifications], open up file MainPage.xaml.cs, and remove the **Channel** property from the **TodoItem** class. It should now look like this:
+
+        public class TodoItem
+        {
+        	public int Id { get; set; }
+
+        	[DataMember(Name = "text")]
+	        public string Text { get; set; }
+	
+	        [DataMember(Name = "complete")]
+	        public bool Complete { get; set; }
+        }
 
 2. Replace the **ButtonSave_Click** event handler method with the original version of this method, as follows:
 
@@ -63,15 +74,14 @@ Next, you will modify the push notifications app to store data in this new table
 	    private async void AcquirePushChannel()
 	    {
 	        CurrentChannel = 
-                await PushNotificationChannelManager
-                          .CreatePushNotificationChannelForApplicationAsync();
+                await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 	
 	        IMobileServiceTable<Channel> channelTable = App.MobileService.GetTable<Channel>();
 	        var channel = new Channel { Uri = CurrentChannel.Uri };
 	        await channelTable.InsertAsync(channel)
         }
 
-     This code tries to insert the current channel into the Channel table each time that the application runs.
+     This code inserts the current channel into the Channel table.
 
 ## <a name="update-scripts"></a>Update server scripts
 
@@ -87,13 +97,11 @@ Next, you will modify the push notifications app to store data in this new table
 
 3. Replace the insert function with the following code, and then click **Save**:
 
-	    function insert(item, user, request) {
-  	      var channelTable = tables.getTable('Channel');
-    	    channelTable.where({
-        	    uri: item.uri
-    	    }).read({
-        	    success: insertChannelIfNotFound
-    	    });
+		function insert(item, user, request) {
+			var channelTable = tables.getTable('Channel');
+			channelTable
+				.where({ uri: item.uri })
+				.read({ success: insertChannelIfNotFound });
 
 	        function insertChannelIfNotFound(existingChannels) {
         	    if (existingChannels.length > 0) {
@@ -104,7 +112,7 @@ Next, you will modify the push notifications app to store data in this new table
     	    }
 	    }
 
-   This script queries the **Channel** table for an existing channel with the same URI before allowing the insert into the table.
+   This script checks the **Channel** table for an existing channel with the same URI. The insert only proceeds if no matching channel was found. This prevents duplicate channel records.
 
 4. Click **TodoItem**, click **Script** and select **Insert** 
 
@@ -138,7 +146,7 @@ Next, you will modify the push notifications app to store data in this new table
     	    }
 	    }
 
-    This updates the insert script to send a push notification (the inserted text) to all channels stored in the **Channel** table.
+    This insert script sends a push notification (with the text of the inserted item) to all channels stored in the **Channel** table.
 
 ## <a name="test-app"></a>Test the new push notification behavior
 
