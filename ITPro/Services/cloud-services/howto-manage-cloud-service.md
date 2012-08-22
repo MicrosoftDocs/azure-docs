@@ -56,7 +56,7 @@ You can swap deployments from the **Cloud Services** page or the dashboard.
 
 3. Click **Swap**.
 
- **VIP swap?** opens.
+ The following confirmation prompt opens.
 
  ![Cloud Services Swap] (../media/CloudServices_Swap.png)
 
