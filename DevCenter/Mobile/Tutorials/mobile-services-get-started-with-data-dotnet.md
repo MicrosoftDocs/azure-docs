@@ -245,8 +245,8 @@ Once you have completed the data series, try one of these other tutorials:
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: ./mobile-services-validate-and-modify-data-dotnet/
-[Refine queries with paging]: ./mobile-services-paging-data-dotnet/
+[Validate and modify data with scripts]: ../mobile-services-validate-and-modify-data-dotnet.md
+[Refine queries with paging]: ../mobile-services-paging-data-dotnet.md
 [Get started with Mobile Services]: ./mobile-services-get-started#create-new-service/
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet/
 [Get started with users]: ./mobile-services-get-started-with-users-dotnet/
