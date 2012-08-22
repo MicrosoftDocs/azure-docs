@@ -101,7 +101,7 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
     This function augments the previous insert script by adding a new **createdAt** timestamp property to the object before it gets inserted by the call to **request**.**execute**. 
 
     <div class="dev-callout"><b>Note</b>
-	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <b>createdAt</b> column to the <b>TodoItem</b> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the service is published.</p>
+	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <b>createdAt</b> column to the <b>TodoItem</b> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published to the Windows Store.</p>
     </div>
 
 2. In Visual Studio, press the **F5** key to run the app, then type text (shorter than 10 characters) in **Insert a TodoItem** and click **Save**.
@@ -133,7 +133,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
     This new class definition includes the new timestamp property, as a nullable DateTime type.
   
     <div class="dev-callout"><b>Note</b>
-	<p>The <b>DataMemberAttribute</b> tells the client to serialize the new <b>CreatedAt</b> property in the app with the same casing as the <b>createdAt</b> column defined in the TodoItem table. This way, your app can have different property names than the columns in the mobile service. Without this mapping, the client could not map the <b>CreatedAt</b> property to the <b>createdAt</b> column in the case-senstive SQL Database and an error would occur.</p>
+	<p>The <b>DataMemberAttribute</b> tells the client to serialize the new <b>CreatedAt</b> property in the app with the same casing as the <b>createdAt</b> column defined in the TodoItem table. This way, your app can have different property names than the columns in the mobile service. Without this mapping, the client could not map the <b>CreatedAt</b> property to the <b>createdAt</b> property in the JSON result and an error would occur. We have used property names that follow C# and JavaScript casing conventions respectively and hence they are different.</p>
     </div>
 
 5. Add the following XAML element just below the **CheckBoxComplete** element in the MainPage.xaml file:
