@@ -60,7 +60,7 @@ Next, you will create a new mobile service to replace the in-memory list for dat
 
     <div class="dev-callout"> 
 	<b>Note</b> 
-	<p>As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile service, you can instead choose <b>Use existing Database</b> and then select that database.</p></div>	
+	<p>As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile service, you can instead choose <b>Use existing Database</b> and then select that database. Use of database in a different region is not recommended because of additional egress bandwidth costs and higher latencies.</p></div>	
 
 5.	In **Name**, type the name of the new database, then type **Login name**, which is the administrator login name for the new SQL Database server, type and confirm the password, and click the check button to complete the process.
 
@@ -94,12 +94,12 @@ To be able to store app data in the new mobile service, you must first create a 
 
     <div class="dev-callout"> 
 	<b>Note</b> 
-	<p>This is the same table created by the Mobile Services quickstart.</p> 
+	<p>The same table name is used in Mobile Services quickstart. But each table is created in a schema specific to a Mobile Service.</p> 
 	</div>
 
 4. Click the new **TodoItem** table and verify that there are no data rows.
 
-5. Click the **Columns** tab and verify that there is only a single **id** column.
+5. Click the **Columns** tab and verify that there is only a single **id** column which is automatically created for you.
 
   This is the minimum requirement for a table in Mobile Services. 
 
