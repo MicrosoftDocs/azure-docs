@@ -1,5 +1,14 @@
 <properties linkid="mobile-services-paging-data-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Refine Mobile Services queries with paging" metakeywords="access and change data, Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Validate and modify data sent to the Windows Azure Mobile Services from a Windows app." umbraconavihide="0" disquscomments="1"></properties>
 
+<div class="floating-nav left-nav">
+<ul class="Compute">
+<li><a href="../../resources/">Resources</a></li>
+</ul>
+<ul class="default">
+<li><a href="#">In this article</a></li>
+</ul>
+</div>
+
 # Refine Mobile Services queries with paging
 Language: **C# and XAML**  
 
@@ -24,9 +33,8 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
             // Define a filtered query that returns the top 3 items.
             MobileServiceTableQuery<TodoItem> query = todoTable
                             .Where(todoItem => todoItem.Complete == false)
-                           .Take(3);
-
-            items = query.ToCollectionView();
+                           .Take(3);					          
+			items = query.ToCollectionView();
             ListItems.ItemsSource = items;
         }
 
@@ -49,7 +57,6 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
                            .Where(todoItem => todoItem.Complete == false)
                            .Take(3)
                            .Skip(3);
-
             items = query.ToCollectionView();
             ListItems.ItemsSource = items;
         }
@@ -60,9 +67,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
     <p>This tutorial uses a simplified scenario by passing hard-coded paging values to the <b>Take</b> and <b>Skip</b> methods. In a real-world app, you can programmatically control these paging values to enable your users to browse multiple pages of data.</p>
     </div>
 
-This completes the tutorial.
-
-### <a name="next-steps"> </a>Next Steps
+## <a name="next-steps"> </a>Next Steps
 
 This concludes the set of tutorials that demonstrate the basics of working with data in Mobile Services. Consider finding out more about the following Mobile Services topics:
 
@@ -80,10 +85,10 @@ This concludes the set of tutorials that demonstrate the basics of working with 
 
 
 <!-- URLs. -->
-[Get started with Mobile Services]: ./mobile-services-get-started#create-new-service/
-[Get started with data]: ./mobile-services-get-started-with-data-dotnet/
-[Get started with users]: ./mobile-services-get-started-with-users-dotnet/
-[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet/
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service/
+[Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
+[Get started with users]: ./mobile-services-get-started-with-users-dotnet.md
+[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
 [Fiddler]: http://go.microsoft.com/fwlink/?LinkId=262412
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [WindowsAzure.com]: http://www.windowsazure.com/
