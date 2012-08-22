@@ -163,12 +163,12 @@ In this simple example a user receives a push notification with the data that wa
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/?LinkId=262253
-[Get started with Mobile Services]: ./mobile-services-get-started#create-new-service/
-[Get started with data]: ./mobile-services-get-started-with-data-dotnet/
-[Get started with users]: ./mobile-services-get-started-with-users-dotnet/
-[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet/
-[Push notifications to app users]: ./mobile-services-push-notifications-to-app-users/
-[Authorize users with scripts]: ./mobile-services-authorize-users-dotnet/
+[Get started with Mobile Services]: ./mobile-services-get-started#create-new-service.md
+[Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
+[Get started with users]: ./mobile-services-get-started-with-users-dotnet.md
+[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
+[Push notifications to app users]: ./mobile-services-push-notifications-to-app-users.md
+[Authorize users with scripts]: ./mobile-services-authorize-users-dotnet.md
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/

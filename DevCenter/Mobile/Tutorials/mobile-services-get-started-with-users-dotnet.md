@@ -155,11 +155,11 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/?LinkId=262253
-[Get started with Mobile Services]: ./mobile-services-get-started#create-new-service/
-[Get started with data]: ./mobile-services-get-started-with-data-dotnet/
-[Get started with users]: ./mobile-services-get-started-with-users-dotnet/
-[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet/
-[Authorize users with scripts]: ./mobile-services-authorize-users-dotnet/
+[Get started with Mobile Services]: ../get-started/#create-new-service
+[Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
+[Get started with users]: ./mobile-services-get-started-with-users-dotnet.md
+[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
+[Authorize users with scripts]: ./mobile-services-authorize-users-dotnet.md
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/

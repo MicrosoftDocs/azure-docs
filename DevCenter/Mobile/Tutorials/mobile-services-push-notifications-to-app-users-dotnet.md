@@ -190,10 +190,10 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Get started with Mobile Services]: ./mobile-services-get-started#create-new-service/
-[Get started with data]: ./mobile-services-get-started-with-data-dotnet/
-[Get started with users]: ./mobile-services-get-started-with-users-dotnet/
-[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet/
+[Get started with Mobile Services]: ../get-started/#create-new-service
+[Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
+[Get started with users]: ./mobile-services-get-started-with-users-dotnet.md
+[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
