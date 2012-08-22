@@ -133,7 +133,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
     This new class definition includes the new timestamp property, as a nullable DateTime type.
   
     <div class="dev-callout"><b>Note</b>
-	<p>The <b>DataMemberAttribute</b> tells the client to serialize the new <b>CreatedAt</b> property in the app with the same casing as the <b>createdAt</b> column defined in the TodoItem table. This way, your app can have different property names than the columns in the mobile service. Without this mapping, the client could not map the <b>CreatedAt</b> property to the <b>createdAt</b> column in the case-senstive SQL Database and an error would occur.</p>
+	<p>The <b>DataMemberAttribute</b> tells the client to map the new <b>CreatedAt</b> property in the app to the <b>createdAt</b> column defined in the TodoItem table, which has a different casing. By using this attribute, your app can have property names on objects that differ from column names in the SQL Database. Without this attribute, an error would occur because of the casing differences.</p>
     </div>
 
 5. Add the following XAML element just below the **CheckBoxComplete** element in the MainPage.xaml file:
