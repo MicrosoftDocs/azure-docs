@@ -15,5 +15,5 @@
 <h2>Push</h2>
 <h3><a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/">Get started with push</a></h3>
 <p>Push notifications let you deliver information to your app's users through tile, badge, and toast notifications. This tutorial shows how to use the Windows Push Notification service (WNS) to add push notifications to an app.</p>
-<h3><a href="/en-us/develop/mobile/tutorials/connect-to-windows-live/">Push notifications to users</a></h3>
-<p>This tutorial shows you how register and configure your Windows 8 app to use Live Connect authentication and Windows Push Notifications Services (WNS) with Mobile Services.</p>
+<h3><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet/">Push notifications to users</a></h3>
+<p>This topic extends the previous push notification tutorial by adding a new table in Mobile Services, which is used to store Windows Push Notification Service (WNS) channel URIs. These channels can then be used to send push notifications to users of the Windows Store app.</p>
