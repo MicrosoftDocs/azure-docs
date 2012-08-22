@@ -19,7 +19,7 @@ Completing this guide is a prerequisite for all other Mobile Services tutorials.
 <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Mobile Services feature enabled. You can create a free trial account and enable preview features in just a couple of minutes. For details, see <a href="../create-a-windows-azure-account/" target="_blank">Create a Windows Azure account and enable preview features</a>. </p>
 </div>
 
-### <a name="create-new-service"> </a>Create a new mobile service
+## <a name="create-new-service"> </a>Create a new mobile service
 Follow these steps to create a new mobile service.
 
 1.	Log into the [Management Portal]. 
@@ -54,7 +54,7 @@ Follow these steps to create a new mobile service.
 
 You have now created a new mobile service that can be used by your mobile apps.
 
-### Create a new Windows Store app
+## Create a new Windows Store app
 
 Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new Windows Store app or modify an existing app to connect to your mobile service. 
 
@@ -79,7 +79,7 @@ In this section you will create a new Windows Store app that is connected to you
 
   This downloads the project for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 
-### Run your Windows app
+## Run your Windows app
 
 The final stage of this tutorial is to build and run your new Windows Store app.
 
@@ -108,7 +108,7 @@ The final stage of this tutorial is to build and run your new Windows Store app.
 
    ![][12]
 
-### <a name="next-steps"> </a>Next Steps
+## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
 * [Get started with data]

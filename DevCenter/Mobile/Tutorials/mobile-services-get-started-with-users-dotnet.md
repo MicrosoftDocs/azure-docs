@@ -14,7 +14,7 @@ This tutorial walks you through these basic steps to enable Live Connect authent
 
 This tutorial requires the [Live SDK for Windows], and you must have already completed the tutorial [Get started with Mobile Services].
 
-### <a name="register"></a>Register your app for authentication and configure Mobile Services
+## <a name="register"></a>Register your app for authentication and configure Mobile Services
 
 To be able to authenticate users, you must register your Windows Store app at the Live Connect Developer Center. You must then register the client secret to integrate Live Connect with Mobile Services.
 
@@ -44,7 +44,7 @@ To be able to authenticate users, you must register your Windows Store app at th
 
    ![][3]
 
-### <a name="permissions"></a>Restrict table permissions to authenticated users
+## <a name="permissions"></a>Restrict table permissions to authenticated users
 
 1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
 
@@ -62,7 +62,7 @@ To be able to authenticate users, you must register your Windows Store app at th
 
 Next, you will update the app to authenticate users with Live Connect before requesting resources from the mobile service.
 
-### <a name="add-authentication"></a>Add authentication to the app
+## <a name="add-authentication"></a>Add authentication to the app
 
 1. Download and install the [Live SDK for Windows].
 
@@ -129,7 +129,7 @@ Next, you will update the app to authenticate users with Live Connect before req
 
    When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
-### <a name="next-steps"> </a>Next Steps
+## <a name="next-steps"> </a>Next Steps
 
 In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
 

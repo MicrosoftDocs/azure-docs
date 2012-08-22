@@ -19,7 +19,7 @@ This tutorial walks you through these basic steps to enable push notifications:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services].
 
-### <a name="register"></a>Register your app for push notifications and configure Mobile Services
+## <a name="register"></a>Register your app for push notifications and configure Mobile Services
 
 To be able to send push notifications to Windows Store apps from Mobile Services, you must register your Windows Store app at the Live Connect Developer Center. You must then configure your mobile service to integrate with WNS.
 
@@ -47,7 +47,7 @@ To be able to send push notifications to Windows Store apps from Mobile Services
 
    ![][3]
 
-### <a name="add-push"></a>Add push notifications to the app
+## <a name="add-push"></a>Add push notifications to the app
 
 1. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services].
 
@@ -93,7 +93,7 @@ To be able to send push notifications to Windows Store apps from Mobile Services
 
    This sets the client's current channel value on the item before it is sent to the mobile service.
 
-### <a name="update-scripts"></a>Update the insert script to send push notifications
+## <a name="update-scripts"></a>Update the insert script to send push notifications
 
 1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
 
@@ -124,7 +124,7 @@ To be able to send push notifications to Windows Store apps from Mobile Services
 
    This registers a new insert script, which sends a push notification (the inserted text) to the channel provided in the insert request.
 
-### <a name="test"></a>Insert data to receive notifications
+## <a name="test"></a>Insert data to receive notifications
 
 1. In Visual Studio, press the F5 key to run the app.
 
@@ -136,7 +136,7 @@ To be able to send push notifications to Windows Store apps from Mobile Services
 
    ![][7]
 
-### <a name="next-steps"> </a>Next Steps
+## <a name="next-steps"> </a>Next Steps
 
 In this simple example a user receives a push notification with the data that was just inserted. The channel used by WNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Channel table in which to store channel URIs and send a push notification out to all stored channels when an insert occurs. 
 
