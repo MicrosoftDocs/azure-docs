@@ -13,7 +13,7 @@ A screenshot of the completed application is below:
 
 
 
-## Create a cloud service project
+## Create a Cloud Service Project
 
 The following steps create the cloud service project that will host the socket.io application.
 
