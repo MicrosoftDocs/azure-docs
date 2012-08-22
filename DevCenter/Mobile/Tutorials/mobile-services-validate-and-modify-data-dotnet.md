@@ -1,5 +1,7 @@
 <properties linkid="mobile-services-validate-and-modify-data-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Validate and modify data in Windows Azure Mobile Services" metakeywords="access and change data, Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Validate and modify data sent to the Windows Azure Mobile Services using server scripts." umbraconavihide="0" disquscomments="1"></properties>
 
+<div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14808" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
+
 # Validate and modify data in Mobile Services using server scripts
 Language: **C# and XAML**  
 
