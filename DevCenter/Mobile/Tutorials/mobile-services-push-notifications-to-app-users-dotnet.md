@@ -14,7 +14,7 @@ This tutorial walks you through these steps to update push notifications in your
 
 This tutorial is based on the Mobile Services quickstart and builds on the previous tutorial [Get started with push notifications]. Before you start this tutorial, you must first complete [Get started with push notifications].  
 
-### <a name="create-table"></a>Create the Channel table
+## <a name="create-table"></a>Create the Channel table
 
 1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
 
@@ -34,7 +34,7 @@ This tutorial is based on the Mobile Services quickstart and builds on the previ
 
 Next, you will modify the push notifications app to store data in this new table instead of in the **TodoItem** table.
 
-### <a name="update-app"></a>Update the push notifications app
+## <a name="update-app"></a>Update the push notifications app
 
 1. In Visual Studio 2012 Express for Windows 8, open the project from the tutorial [Get started with push notifications], open up file MainPage.xaml.cs, and remove the **Channel** property from the **TodoItem** class. 
 
@@ -71,7 +71,7 @@ Next, you will modify the push notifications app to store data in this new table
 
      This code tries to insert the current channel into the Channel table each time that the application runs.
 
-### <a name="update-scripts"></a>Update server scripts
+## <a name="update-scripts"></a>Update server scripts
 
 1. In the Management Portal, click the **Data** tab and then click the **Channel** table. 
 
@@ -138,7 +138,7 @@ Next, you will modify the push notifications app to store data in this new table
 
     This updates the insert script to send a push notification (the inserted text) to all channels stored in the **Channel** table.
 
-### <a name="test-app"></a>Test the new push notification behavior
+## <a name="test-app"></a>Test the new push notification behavior
 
 1. In Visual Studio, press the F5 key to run the app.
 
@@ -154,7 +154,7 @@ Next, you will modify the push notifications app to store data in this new table
 
     The notification is sent to all running app instances.
 
-### Additional reading
+## Next steps
 
 This concludes the tutorials that demonstrate the basics of working with push notifications. Consider finding out more about the following Mobile Services topics:
 
