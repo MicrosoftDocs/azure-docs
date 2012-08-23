@@ -78,7 +78,7 @@ Next, you will modify the push notifications app to store data in this new table
 	
 	        IMobileServiceTable<Channel> channelTable = App.MobileService.GetTable<Channel>();
 	        var channel = new Channel { Uri = CurrentChannel.Uri };
-	        await channelTable.InsertAsync(channel)
+	        await channelTable.InsertAsync(channel);
         }
 
      This code inserts the current channel into the Channel table.
@@ -134,7 +134,7 @@ Next, you will modify the push notifications app to store data in this new table
             	    success: function(channels) {
                 	    channels.forEach(function(channel) {
                     	    push.wns.sendToastText04(channel.uri, {
-                        	    text1: item.Text
+                        	    text1: item.text
                     	    }, {
                         	    success: function(pushResponse) {
                             	    console.log("Sent push:", pushResponse);

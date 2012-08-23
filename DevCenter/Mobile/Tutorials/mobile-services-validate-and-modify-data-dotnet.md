@@ -35,14 +35,14 @@ It is always a good practice to validate the length of data that is submitted by
 4. Replace the existing script with the following function, and then click **Save**.
 
         function insert(item, user, request) {
-            if (item.Text.length > 10) {
+            if (item.text.length > 10) {
                 request.respond(statusCodes.BAD_REQUEST, 'Text length must be under 10');
             } else {
                 request.execute();
             }
         }
 
-    This script checks the length of the **TodoItem.Text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** method is called to complete the insert.
+    This script checks the length of the **TodoItem.text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** method is called to complete the insert.
 
 ## <a name="update-client-validation"></a>Update the client
 
@@ -92,7 +92,7 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
 1. In the **Scripts** tab in the [Management Portal], replace the current **Insert** script with the following function, and then click **Save**.
 
         function insert(item, user, request) {
-            if (item.Text.length > 10) {
+            if (item.text.length > 10) {
                 request.respond(statusCodes.BAD_REQUEST, 'Text length must be under 10');
             } else {
                 item.createdAt = new Date();
