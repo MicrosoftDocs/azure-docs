@@ -14,17 +14,16 @@ This tutorial walks you through these basic steps to enable Live Connect authent
 1. [Register your app for authentication and configure Mobile Services]
 2. [Restrict table permissions to authenticated users]
 3. [Add authentication to the app]
-4. [Next steps]
 
 This tutorial requires the [Live SDK for Windows], and you must have already completed the tutorial [Get started with Mobile Services].
 
-## <a name="register"></a>Register your app for authentication and configure Mobile Services
+## <a name="register"></a>Register your app
 
 To be able to authenticate users, you must register your Windows Store app at the Live Connect Developer Center. You must then register the client secret to integrate Live Connect with Mobile Services.
 
-1. Navigate to the [Windows Push Notifications & Live Connect] page, login with your Microsoft account if needed, and then follow the instructions to register your app. Note that these instructions include updating the package name for the project.
+1. Navigate to the [Windows Push Notifications & Live Connect] page, log on with your Microsoft account if needed, and then follow the instructions to register your app. Note that these instructions include updating the package name for the project.
 
-2. Once you have registered your app, navigate to the [My Apps dashboard] in Live Connect Developer Center and click on your app in the **My applications** list.
+2. After you have registered your app, navigate to the [My Apps dashboard] in Live Connect Developer Center and click on your app in the **My applications** list.
 
    ![][0] 
 
@@ -40,7 +39,7 @@ To be able to authenticate users, you must register your Windows Store app at th
 
 4. In **Redirect domain**, enter the domain of your mobile service, in the format **https://_service-name_.azure-mobile.net/**, where _service-name_ is the name of your mobile service, then click **Save**.
 
-5. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
+5. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
 
    ![][2]
 
@@ -48,9 +47,9 @@ To be able to authenticate users, you must register your Windows Store app at th
 
    ![][3]
 
-## <a name="permissions"></a>Restrict table permissions to authenticated users
+## <a name="permissions"></a>Restrict permissions
 
-1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
+1. In the Management Portal, click the **Data** tab, and then click the **TodoItem** table. 
 
    ![][4]
 
@@ -66,7 +65,7 @@ To be able to authenticate users, you must register your Windows Store app at th
 
 Next, you will update the app to authenticate users with Live Connect before requesting resources from the mobile service.
 
-## <a name="add-authentication"></a>Add authentication to the app
+## <a name="add-authentication"></a>Add authentication
 
 1. Download and install the [Live SDK for Windows].
 
@@ -133,7 +132,7 @@ Next, you will update the app to authenticate users with Live Connect before req
 
    When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
-## <a name="next-steps"> </a>Next Steps
+## <a name="next-steps"> </a>Next steps
 
 In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
 

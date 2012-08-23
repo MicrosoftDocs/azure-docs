@@ -16,7 +16,7 @@ This tutorial walks you through these basic steps:
 
 This tutorial builds on the steps and the sample app from the previous tutorial [Get started with data]. Before you begin this tutorial, you must first complete [Get started with data].  
 
-## <a name="string-length-validation"></a>Add string length validation
+## <a name="string-length-validation"></a>Add validation
 
 It is always a good practice to validate the length of data that is submitted by users. First, you register a script that validates the length of string data sent to the mobile service and rejects strings that are too long, in this case longer than 10 characters.
 
@@ -44,7 +44,7 @@ It is always a good practice to validate the length of data that is submitted by
 
     This script checks the length of the **TodoItem.Text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** method is called to complete the insert.
 
-## <a name="update-client-validation"></a>Update the client to support validation
+## <a name="update-client-validation"></a>Update the client
 
 Now that the mobile service is validating data and sending error responses, you need to update your app to be able to handle error responses from validation.
 
@@ -56,7 +56,7 @@ Now that the mobile service is validating data and sending error responses, you 
 
     <div class="dev-callout"> 
 	<b>Note</b> 
-	<p>You can remove a registered script on the <b>Script</b> tab by clicking <b>Clear</b> and then <b>Save</b>.</p></div>	
+	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>	
 
 6. 	Open the file MainPage.xaml.cs, then add the following **using** statement:
 
@@ -85,7 +85,7 @@ Now that the mobile service is validating data and sending error responses, you 
 
    This version of the method includes error handling for the **MobileServiceInvalidOperationException** that displays the error response in a popup.
 
-## <a name="add-timestamp"></a>Add a timestamp on insert
+## <a name="add-timestamp"></a>Add a timestamp
 
 The previous tasks validated an insert and either accepted or rejected it. Now, you will update inserted data by using a server script that adds a timestamp property to the object before it gets inserted.
 
@@ -103,7 +103,7 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
     This function augments the previous insert script by adding a new **createdAt** timestamp property to the object before it gets inserted by the call to **request**.**execute**. 
 
     <div class="dev-callout"><b>Note</b>
-	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <b>createdAt</b> column to the <b>TodoItem</b> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published to the Windows Store.</p>
+	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>createdAt</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published to the Windows Store.</p>
     </div>
 
 2. In Visual Studio, press the **F5** key to run the app, then type text (shorter than 10 characters) in **Insert a TodoItem** and click **Save**.
@@ -116,7 +116,7 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
   
 Next, you need to update the Windows Store app to display this new column.
 
-## <a name="update-client-timestamp"></a>Update the client to display the timestamp
+## <a name="update-client-timestamp"></a>Update the client again
 
 The Mobile Service client will ignore any data in a response that it cannot serialize into properties on the defined type. The final step is to update the client to display this new data.
 
@@ -135,7 +135,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
     This new class definition includes the new timestamp property, as a nullable DateTime type.
   
     <div class="dev-callout"><b>Note</b>
-	<p>The <b>DataMemberAttribute</b> tells the client to map the new <b>CreatedAt</b> property in the app to the <b>createdAt</b> column defined in the TodoItem table, which has a different casing. By using this attribute, your app can have property names on objects that differ from column names in the SQL Database. Without this attribute, an error would occur because of the casing differences.</p>
+	<p>The <strong>DataMemberAttribute</strong> tells the client to map the new <strong>CreatedAt</strong> property in the app to the <strong>createdAt</strong> column defined in the TodoItem table, which has a different casing. By using this attribute, your app can have property names on objects that differ from column names in the SQL Database. Without this attribute, an error would occur because of the casing differences.</p>
     </div>
 
 5. Add the following XAML element just below the **CheckBoxComplete** element in the MainPage.xaml file:
@@ -170,7 +170,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
 You have completed this working with data tutorial.
 
-## <a name="next-steps"> </a>Next Steps
+## <a name="next-steps"> </a>Next steps
 
 Now that you have completed this tutorial, consider continuing on with the final tutorial in the data series: 
 
