@@ -25,13 +25,15 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 To be able to send push notifications to Windows Store apps from Mobile Services, you must register your Windows Store app at the Live Connect Developer Center. You must then configure your mobile service to integrate with WNS.
 
-1. Navigate to the [Windows Push Notifications & Live Connect] page, login with your Microsoft account if needed, and then follow the instructions to register your app.
+1. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
 
-2. Once you have registered your app, navigate to the [My Apps dashboard] in Live Connect Developer Center, click on your app in the **My applications** list.
+2. Navigate to the [Windows Push Notifications & Live Connect] page, login with your Microsoft account if needed, and then follow the instructions to register your app. Note that these instructions include updating the package name for the project you opened in the previous step.
+
+3. Once you have registered your app, navigate to the [My Apps dashboard] in Live Connect Developer Center, click on your app in the **My applications** list.
 
    ![][0] 
 
-3. Under **API Settings** make a note of the values of **Client secret** and **Package security identifier (SID)**.
+4. Under **API Settings** make a note of the values of **Client secret** and **Package security identifier (SID)**.
 
    ![][1]
 
@@ -51,13 +53,11 @@ To be able to send push notifications to Windows Store apps from Mobile Services
 
 ## <a name="add-push"></a>Add push notifications to the app
 
-1. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services].
-
-2. Open the project file App.xaml.cs and add the following using statement:
+1. Open the file App.xaml.cs and add the following using statement:
 
         using Windows.Networking.PushNotifications;
 
-3. Add the following to App.xaml.cs:
+2. Add the following to App.xaml.cs:
 	
         public static PushNotificationChannel CurrentChannel { get; private set; }
 
@@ -69,13 +69,13 @@ To be able to send push notifications to Windows Store apps from Mobile Services
 
    This code acquires and stores a push notification channel.
     
-4. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **AcquirePushChannel** method:
+3. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **AcquirePushChannel** method:
 
         AcquirePushChannel();
 
    This guarantees that the **CurrentChannel** property is initialized each time the application is launched.
 		
-5. Open the project file MainPage.xaml.cs and add the following new attributed property to the **TodoItem** class:
+4. Open the project file MainPage.xaml.cs and add the following new attributed property to the **TodoItem** class:
 
          [DataMember(Name = "channel")]
          public string Channel { get; set; }
@@ -84,7 +84,7 @@ To be able to send push notifications to Windows Store apps from Mobile Services
 	<p>When dynamic schema is enabled on your mobile service, a new 'channel' column is automatically added to the <b>TodoItem</b> table when a new item that contains this property is inserted.</p>
     </div>
 
-6. Replace the **ButtonSave_Click** event handler method with the following code:
+5. Replace the **ButtonSave_Click** event handler method with the following code:
 
 	        private void ButtonSave_Click(object sender, RoutedEventArgs e)
 	        {
@@ -114,7 +114,7 @@ To be able to send push notifications to Windows Store apps from Mobile Services
                     // Write to the response and then send the notification in the background
                     request.respond();
                     push.wns.sendToastText04(item.channel, {
-                        text1: item.Text
+                        text1: item.text
                     }, {
                         success: function(pushResponse) {
                             console.log("Sent push:", pushResponse);
