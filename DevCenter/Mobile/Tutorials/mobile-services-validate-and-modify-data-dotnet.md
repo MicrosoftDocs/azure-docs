@@ -5,7 +5,7 @@
 # Validate and modify data in Mobile Services using server scripts
 Language: **C# and XAML**  
 
-This topic shows you how to leverage server scripts in Windows Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update your Windows Store app to take advantage of these new behaviors.
+This topic shows you how to leverage server scripts in Windows Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update your Windows 8 app to take advantage of these new behaviors.
 
 This tutorial walks you through these basic steps:
 
@@ -114,7 +114,7 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
    
    Notice that there is now a **createdAt** column, and the new inserted item has a timestamp value.
   
-Next, you need to update the Windows Store app to display this new column.
+Next, you need to update the Windows 8 app to display this new column.
 
 ## <a name="update-client-timestamp"></a>Update the client again
 
