@@ -5,7 +5,7 @@
 # Get started with push notifications in Mobile Services
 Language: **C# and XAML**  
 
-This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Windows Store app.  
+This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Windows 8 app.  
 In this tutorial you add push notifications using the Windows Push Notification service (WNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
    <div class="dev-callout"><b>Note</b>
@@ -23,7 +23,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## <a name="register"></a>Register your app
 
-To be able to send push notifications to Windows Store apps from Mobile Services, you must register your Windows Store app at the Live Connect Developer Center. You must then configure your mobile service to integrate with WNS.
+To be able to send push notifications to Windows 8 apps from Mobile Services, you must register your app at the Live Connect Developer Center. You must then configure your mobile service to integrate with WNS.
 
 1. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
 
