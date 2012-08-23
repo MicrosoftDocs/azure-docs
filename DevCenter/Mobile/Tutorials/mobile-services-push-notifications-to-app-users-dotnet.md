@@ -5,7 +5,7 @@
 # Push notifications to users by using Mobile Services
 Language: **C# and XAML**  
 
-This topic extends the previous push notification tutorial by adding a new table to store Windows Push Notification Service (WNS) channel URIs. These channels can then be used to send push notifications to users of the Windows Store app.  
+This topic extends the [previous push notification tutorial][Get started with push notifications] by adding a new table to store Windows Push Notification Service (WNS) channel URIs. These channels can then be used to send push notifications to users of the Windows Store app.  
 
 This tutorial walks you through these steps to update push notifications in your app:
 
@@ -16,7 +16,7 @@ This tutorial walks you through these steps to update push notifications in your
 
 This tutorial is based on the Mobile Services quickstart and builds on the previous tutorial [Get started with push notifications]. Before you start this tutorial, you must first complete [Get started with push notifications].  
 
-## <a name="create-table"></a>Create the Channel table
+## <a name="create-table"></a>Create a new table
 
 1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
 
@@ -32,11 +32,11 @@ This tutorial is based on the Mobile Services quickstart and builds on the previ
 
    ![][2]
 
-  This creates the **Channel** table, which is used to store the channel URIs used to send push notifications separate from item data.
+  This creates the **Channel** table, which stores the channel URIs used to send push notifications separate from item data.
 
 Next, you will modify the push notifications app to store data in this new table instead of in the **TodoItem** table.
 
-## <a name="update-app"></a>Update the push notifications app
+## <a name="update-app"></a>Update your app
 
 1. In Visual Studio 2012 Express for Windows 8, open the project from the tutorial [Get started with push notifications], open up file MainPage.xaml.cs, and remove the **Channel** property from the **TodoItem** class. It should now look like this:
 
@@ -114,7 +114,7 @@ Next, you will modify the push notifications app to store data in this new table
 
    This script checks the **Channel** table for an existing channel with the same URI. The insert only proceeds if no matching channel was found. This prevents duplicate channel records.
 
-4. Click **TodoItem**, click **Script** and select **Insert** 
+4. Click **TodoItem**, click **Script** and select **Insert**. 
 
    ![][5]
 
@@ -148,7 +148,7 @@ Next, you will modify the push notifications app to store data in this new table
 
     This insert script sends a push notification (with the text of the inserted item) to all channels stored in the **Channel** table.
 
-## <a name="test-app"></a>Test the new push notification behavior
+## <a name="test-app"></a>Test the app
 
 1. In Visual Studio, press the F5 key to run the app.
 
