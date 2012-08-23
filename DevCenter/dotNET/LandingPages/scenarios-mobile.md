@@ -1,12 +1,16 @@
 <h1>Mobile Scenarios</h1>
-<p>Windows Azure provides a flexible platform for hosting and scaling apps for mobile devices. The tutorials below demonstrate how you can easily create web applications hosted on Windows Azure that are optimized for rendering on mobile devices.</p> 
+<p>Windows Azure provides a flexible platform for hosting and scaling apps for mobile devices. The resources below show how you can easily create web applications hosted on Windows Azure that are optimized for rendering on mobile devices.</p> 
 
 <div class="dev-articles">
 <div class="article red">
+<h3><a href="/en-us/develop/mobile/">Windows Azure Mobile Services</a></h3>
+<p>Mobile Services allow you to easily build a cloud backend for a Windows Store app. You can use Mobile Services for many common backend tasks including authenticating users, storing and accessing data, and providing push notifications.</p>
+</div>
+<div class="article blue">
 <h3><a href="../../tutorials/aspnet-mvc-4-mobile-website/">ASP.NET MVC 4 mobile web application on Windows Azure</a></h3>
 <p>Learn the basics of how to work with mobile features in an ASP.NET MVC 4 web application, and then deploy your application to a Windows Azure web site.</p>
 </div>
-<div class="article blue">
+<div class="article green">
 <h3><a href="../../tutorials/rest-service-using-web-api/">Mobile-friendly REST service using ASP.NET Web API and SQL Database</a></h3>
 <p>ASP.NET Web API is a framework for building web APIs on top of the .NET Framework. In this tutorial, you use the Web API to create a REST service that provides data stored in a SQL Database instance.</p>
 </div>
