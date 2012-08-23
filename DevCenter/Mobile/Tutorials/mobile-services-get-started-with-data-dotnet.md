@@ -111,7 +111,7 @@ To be able to store app data in the new mobile service, you must first create a 
 
 You are now ready to use the new mobile service as data storage for the Windows Store app.
 
-## <a name="update-app"></a>Update the app to use Mobile Services
+## <a name="update-app"></a>Update the Windows store app to use Mobile Services
 
 Now that your mobile service is ready, you can update the Windows Store app to store items in Mobile Services instead of the local collection. 
 
@@ -127,7 +127,7 @@ Now that your mobile service is ready, you can update the Windows Store app to s
 
         using Microsoft.WindowsAzure.MobileServices;
 
-3. In the Management Portal, click **Mobile Services**, and then click the mobile service.
+3. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
 
 4. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
 
