@@ -1,11 +1,11 @@
 <properties linkid="mobile-services-get-started" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with Mobile Services in Windows Azure" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14812" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umbversionid="254ca664-c4f3-4815-8073-c86d43f4aa16" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 # <a name="getting-started"> </a>Get started with Mobile Services
-This tutorial shows you how to add a cloud-based backend service to a Windows Store app using Windows Azure Mobile Services. 
+This tutorial shows you how to add a cloud-based backend service to a Windows 8 app using Windows Azure Mobile Services. 
 
 ![][13]
 
-In this tutorial, you will create both a new mobile service and a simple Windows Store _To do list_ app that stores app data in the new mobile service. 
+In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. 
 
 A screenshot from the completed app is below:
 
@@ -54,11 +54,11 @@ Follow these steps to create a new mobile service.
 
 You have now created a new mobile service that can be used by your mobile apps.
 
-## Create a new Windows Store app
+## Create a new app
 
-Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new Windows Store app or modify an existing app to connect to your mobile service. 
+Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
 
-In this section you will create a new Windows Store app that is connected to your mobile service.
+In this section you will create a new Windows 8 app that is connected to your mobile service.
 
 1.  In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
 
@@ -67,7 +67,7 @@ In this section you will create a new Windows Store app that is connected to you
 
    ![][6]
 
-   This displays the three easy steps to create a Windows Store app connected to your mobile service.
+   This displays the three easy steps to create a Windows 8 app connected to your mobile service.
 
   ![][7]
 
@@ -81,7 +81,7 @@ In this section you will create a new Windows Store app that is connected to you
 
 ## Run your Windows app
 
-The final stage of this tutorial is to build and run your new Windows Store app.
+The final stage of this tutorial is to build and run your new app.
 
 1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio 2012 Express for Windows 8.
 
