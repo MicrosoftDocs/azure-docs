@@ -31,7 +31,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
             ListItems.ItemsSource = items;
         }
 
-  This query, when executed during data abinding, returns the top three items that are not marked as completed.
+  This query, when executed during data binding, returns the top three items that are not marked as completed.
 
 3. Press the **F5** key to run the app.
 
