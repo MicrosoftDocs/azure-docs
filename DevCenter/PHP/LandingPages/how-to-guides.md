@@ -39,7 +39,7 @@ Windows Azure applications can use SendGrid to include email functionality.  Sen
 ### [Twilio](/en-us/develop/php/how-to-guides/twilio-voice-and-sms-service/ "Twilio") ###
 Windows Azure applications can use Twilio to incorporate phone call and Short Message Service (SMS) message functionality.  Use the Twilio APIs to make and receive phone calls, make and receive SMS messages, and enable voice communication using existing internet connections, including mobile connections.
 
-### [Single sign-on with Windows Azure Active Directory][Single sign-on with Windows Azure Active Directory]
+### [Single sign-on with Windows Azure Active Directory]
 You can use web single sign-on (also called identity federation) to provide single sign-on access through a federated mechanism that relies on a Security Token Service (STS).  This guide shows you how to accomplish this using the STS in your Office 365 tenant provided by Windows Azure Active Directory.
 
 [client-libs]: http://go.microsoft.com/fwlink/?LinkId=252719
@@ -47,5 +47,5 @@ You can use web single sign-on (also called identity federation) to provide sing
 [Blob Service]: /en-us/develop/nodejs/how-to-guides/blob-storage/
 [Service Bus Queues]: /en-us/develop/php/how-to-guides/service-bus-queues/
 [Service Bus Topics]: /en-us/develop/php/how-to-guides/service-bus-topics/
-[Single sign-on with Windows Azure Active Directory for Office 365 users]: /en-us/develop/php/how-to-guides/web-sso/
+[Single sign-on with Windows Azure Active Directory]: /en-us/develop/php/how-to-guides/web-sso/
 [Service Management]: /en-us/develop/how-to-guides/service-management/
