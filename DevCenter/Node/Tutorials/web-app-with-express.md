@@ -1,11 +1,11 @@
 <properties linkid="dev-nodejs-basic-cloud-service-with-express" urldisplayname="Cloud Service With Express" headerexpose="" pagetitle="Cloud Service With Express" metakeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" footerexpose="" metadescription="An tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module" umbraconavihide="0" disquscomments="1"></properties>
 
-# Node.js Cloud Service using Express
+#Build a Node.js web application using Express on a Windows Azure Cloud Service
 
 Node.js includes a minimal set of functionality in the core runtime.
 Developers often use 3rd party modules to provide additional
 functionality when developing a Node.js application. In this tutorial
-you will create a new application using the [Express] module, which provides an MVC framework for creating Node.js applications.
+you will create a new application using the [Express] module, which provides an MVC framework for creating Node.js web applications.
 
 A screenshot of the completed application is below:
 
@@ -19,10 +19,7 @@ Perform the following steps to create a new cloud service project named 'express
 
 	![Windows Azure PowerShell icon][powershell-menu]
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>If Windows Azure PowerShell does not appear when searching from the Start Menu or Start Screen, you must install the <a href="http://go.microsoft.com/fwlink/?LinkId=254279&clcid=0x409">Windows Azure SDK for Node.js</a>.</p>
-	</div>
+	<div chunk="../Chunks/install-dev-tools.md" />
 
 2. Change directories to the **c:\\node** directory and then enter the following commands to create a new solution named **expressapp** and a web role named **WebRole1**:
 
