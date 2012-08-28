@@ -1,0 +1,2 @@
+<properties umbracoNaviHide="0" pageTitle="Manage the Availability of Virtual Machines" metaKeywords="" metaDescription="" linkid="manage-vm-availability" urlDisplayName="Manage Availability" headerExpose="" footerExpose="" disqusComments="1" />
+<div chunk="../../Shared/Chunks/manage-vm-availability.md" />
