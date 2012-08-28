@@ -40,9 +40,9 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
 5. Repeat steps 3 and 4 to replace the existing **Read** operation with the following function:
 
-        function read(query, user, context) {
+        function read(query, user, request) {
            query.where({ userId: user.userId });    
-           context.execute();
+           request.execute();
         }
 
    This script filters the returned TodoItem objects so that each user only receives the items that they inserted.
