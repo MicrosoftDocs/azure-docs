@@ -2,10 +2,11 @@
 
 # Enabling Remote Desktop in Windows Azure with Visual Studio
 
-Remote Desktop enables you to access the desktop of a role instance
-running in Windows Azure. You can use a remote desktop connection to
-configure the virtual machine or troubleshoot problems with your
-application. Windows Azure Tools for Microsoft Visual Studio, which is
+Remote Desktop enables you to access the desktop of your Windows Azure Virtual Machines and your Windows Azure Cloud Services. You can use a remote desktop connection to configure the virtual machine or troubleshoot problems with your application.
+
+**Note:** Changes made to Windows Azure Cloud Services such as operating system configurations and installing software are not persistent. These changes will be lost if the cloud service is restarted.  For information on using Remote Desktop with Windows Azure Virtual Machines, see [How to Log on to a Virtual Machine Running Windows Server 2008 R2][].
+
+Windows Azure Tools for Microsoft Visual Studio, which is
 included in Windows Azure SDK for .NET, lets you configure Remote
 Desktop Services from a Windows Azure project in Visual Studio.
 
@@ -22,7 +23,7 @@ have the option of configuring Remote Desktop for the application's role
 instances, which would allow you to remotely connect to the role
 instances after the application has been published.
 
-**Note:**To perform this step, you need an application that's ready to
+**Note:** To perform this step, you need an application that's ready to
 be published.
 
 1.  In a Windows Azure project in Visual Studio 2010, open Solution
@@ -137,3 +138,4 @@ manage your application on the instance itself.
   [Remotely Accessing Role Instances in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx
   [Using Remote Desktop with Windows Azure Roles]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx
   [Uploading Certificates and Encrypting Passwords for Remote Desktop Connections]: http://msdn.microsoft.com/en-us/library/windowsazure/hh403987.aspx
+  [How to Log on to a Virtual Machine Running Windows Server 2008 R2]: https://www.windowsazure.com/en-us/manage/windows/how-to-guides/log-on-a-windows-vm/
