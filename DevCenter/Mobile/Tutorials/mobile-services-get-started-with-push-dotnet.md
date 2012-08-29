@@ -163,7 +163,7 @@ In this simple example a user receives a push notification with the data that wa
 [2]: ../Media/mobile-services-selection.png
 [3]: ../Media/mobile-push-tab.png
 [4]: ../Media/mobile-portal-data-tables.png
-[5]: ../Media/mobile-insert-script-push.png
+[5]: ../Media/mobile-insert-script-push2.png
 [6]: ../Media/mobile-quickstart-push1.png
 [7]: ../Media/mobile-quickstart-push2.png
 [8]: ../Media/mobile-app-manifest-initial.png
