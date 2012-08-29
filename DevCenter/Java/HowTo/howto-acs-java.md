@@ -361,7 +361,7 @@ Also, this example used the **Embed the certificate in the WAR file** option. Th
 1. Within the **Security** section of the **Windows Azure Access Control Services Filter** dialog, type **${env.JAVA_HOME}/mycert.cer** and uncheck **Embed the certificate in the WAR file**. (Adjust mycert.cer if your certificate file name is different.) Click **Finish** to close the dialog.
 2. Copy the certificate as a component in your deployment: In Eclipse's Project Explorer, expand **MyAzureACSProject**, right-click **WorkerRole1**, click **Properties**, expand **Windows Azure Role**, and click **Components**.
 3. Click **Add**.
-4. With the **Add Component** dialog:
+4. Within the **Add Component** dialog:
     1. In the **Import** section:
         1. Use the **File** button to navigate to the certificate you want to use. 
         2. For **Method**, select **copy**.
