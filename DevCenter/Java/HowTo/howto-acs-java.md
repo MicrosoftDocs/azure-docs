@@ -307,7 +307,9 @@ In the **Login Page Integration: Azure Web App** page, the URL listed in **Optio
 8. Check **Embed the certificate in the WAR file**. Embedding the certificate in this manner includes it in your deployment without requiring you to manually add it as a component. (If instead you must store your certificate externally from your WAR file, you could add the certificate as a role component and uncheck **Embed the certificate in the WAR file**.)
 9. [Optional] Keep **Require HTTPS connections** checked. If you set this option, you'll need to access your application using the HTTPS protocol. If you don't want to require HTTPS connections, uncheck this option.
 10. For a deployment to the compute emulator, your **Windows Azure ACS Filter** settings will look similar to the following.
+
     ![Windows Azure ACS Filter settings for a deployment to the compute emulator][add_acs_filter_lib_emulator]
+
 11. Click **Finish**.
 12. Click **Yes** when presented with with a dialog box stating that a web.xml file will be created.
 13. Click **OK** to close the **Java Build Path** dialog.
