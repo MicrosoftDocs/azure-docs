@@ -15,7 +15,7 @@ We will be using the following components to make up our "cloud stack":
 
 ## Set up Ruby
 
-The first thing you're going to want to do is setup a Ruby on Rails project on your local computer. Depending on your operating system, the steps may vary.
+The first thing you're going to want to do is setup a Ruby on Rails project on your computer. Depending on your operating system, the steps may vary.
 
 * Windows - Visit: [http://railsinstaller.org/](http://railsinstaller.org/).
 * Mac - Use [Homebrew](http://mxcl.github.com/homebrew/) to install **rbenv** and **ruby-build**. A basic tutorial can be found here: [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
@@ -44,12 +44,14 @@ Now that the machine is spinning up, we can focus on building a Ruby on Rails ap
 
 ## Create a sample app
 
-We're going to build and use a toy application so we can focus on the setup of the environment in Windows Azure. To build the application, follow these steps on your local machine.
+We're going to build and use a toy application so we can focus on the setup of the environment in Windows Azure. To build the application, follow these steps.
 
 1.	Create a new Rails application: 
 
 		rails new blog_app 
-and cd into it.
+2.  Change to the next directory:
+
+		cd blog_app
 2.	Generate the scaffolding for the application: 
 
 		rails g scaffold article name content:text
@@ -100,8 +102,8 @@ We'll now setup the virtual machine so we can run our application.
 
 We now have a working virtual machine with the necessary packages to run a Ruby on Rails application. We're going to prepare our application for deployment. We'll use [Git](http://git-scm.com/) and [GitHub](https://github.com/) for version control and as a central location for our code. Follow these steps to setup a local repository and upload it to GitHub.
 
-1.	Create a repository on [GitHub](https://github.com/).
-2.	Run the following commands to upload the initial version of the application:
+1.	Create a repository within your account on [GitHub](https://github.com/). Name your repository blog-azure.
+2.	Run the following commands on your local computer to upload the initial version of the application:
 
 		git init
 		git add .
@@ -140,7 +142,7 @@ We're now ready to deploy the application. We're going to use **capistrano** to 
 
 1.	Setup SSH Keys. You will need to ensure you can connect to the GitHub account on your cloud machine. You can use the SSH Agent to do this, using the following command: 
 
-		ssh-add. 
+		ssh-add 
 This command may vary depending on your operating system.
 2.	Setup capistrano on the remote server:
 

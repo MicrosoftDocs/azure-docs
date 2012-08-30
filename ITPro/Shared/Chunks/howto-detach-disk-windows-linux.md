@@ -43,6 +43,8 @@ You can attach and detach data disks anytime you want, but you are limited in th
 
 When you no longer need a data disk that is attached to a virtual machine, you can easily detach it. You do not lose the disk after you detach it, it stays in storage and you can easily attach it again to the same virtual machine or you can attach it to a new machine and continue to use the existing data.
 
+For more information about using data disks, see [Manage disks and images] [].
+
 ## <a id="finddisks"> </a>How to: Find the disks that are attached to a virtual machine ##
 
 You can find the disks that are attached to a virtual machine by using either the dashboard or the Disks page of Virtual Machines.
@@ -95,3 +97,4 @@ You can now attach the disk again to the same virtual machine or to a new machin
 [Detach disk details]:../media/detachdiskdetails.png
 [Detach disk success]:../media/diskdetachsuccess.png
 [attachdisk]:/en-us/manage/windows/how-to-guides/attach-a-disk/
+[Manage disks and images]:http://go.microsoft.com/fwlink/?LinkId=263439

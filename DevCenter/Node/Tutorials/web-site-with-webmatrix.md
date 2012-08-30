@@ -1,10 +1,10 @@
 <properties linkid="dev-nodejs-website-webmatrix" urldisplayname="Node.js Website with WebMatrix" headerexpose="" pagetitle="Node.js Application using a WebMatrix" metakeywords="Azure Node.js tutorial WebMatrix, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates creating and deploying a Node.js application using WebMatrix" umbraconavihide="0" disquscomments="1"></properties>
 
-#Build a Windows Azure Web Site with WebMatrix and Node.js
+#Build and deploy a Node.js web site to Windows Azure using WebMatrix
 
 This tutorial shows you how to use WebMatrix to develop and deploy a Node.js application to a Windows Azure Website. WebMatrix is a free web development tool from Microsoft that includes everything you need for website development. WebMatrix includes several features that make it easy to use Node.js including code completion, pre-built templates, and editor support for Jade, LESS, and CoffeeScript. Learn more about [WebMatrix for Windows Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409).
 
-Upon completing this guide, you will have a node web site running in Windows Azure.
+Upon completing this guide, you will have a Node.js web site running in Windows Azure.
  
 A screenshot of the completed application is below:
 
@@ -16,7 +16,16 @@ A screenshot of the completed application is below:
 
 Follow these steps to create a Windows Azure Web Site.
 
-1. Login to the [Windows Azure Portal].
+<div class="dev-callout"><strong>Note</strong>
+<p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Web Sites feature enabled.</p>
+<ul>
+<li>If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Windows Azure Free Trial</a>.</li>
+<li>If you have an existing account but need to enable the Windows Azure Web Sites preview, see <a href="../create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li>
+</ul>
+</div>
+<br />
+
+1. Login to the [Windows Azure Management Portal].
 
 2. Click the **+ NEW** icon on the bottom left of the portal
 
@@ -26,7 +35,7 @@ Follow these steps to create a Windows Azure Web Site.
 
     ![The Quick Create dialog][portal-quick-create]
 
-4. Once the web site is created, the portal will display all the web sites associated with your subscription. Verify that the web site you just created has a **Status** of **Running** and then click the web site name to view the **Dashboard** for this web site.
+4. Once the web site status changes to **Running**, click on the name of the web site to access the **Dashboard**
 
 ##Import the web site into WebMatrix and apply the Express template
 
@@ -83,7 +92,7 @@ You can easily modify and republish your application. Here, you will make a simp
 
 
 
-[Windows Azure Portal]: http://manage.windowsazure.com
+[Windows Azure Management Portal]: http://manage.windowsazure.com
 [WebMatrix WebSite]: http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398
 [WebMatrix for Windows Azure]: http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409
 
