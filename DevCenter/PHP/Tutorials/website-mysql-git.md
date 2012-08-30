@@ -256,12 +256,12 @@ To publish changes to application, follow these steps:
 [custom-create]: ../../Shared/Media/custom_create.jpg
 [website-details]: ../../Shared/Media/website_details.jpg
 [new-mysql-db]: ../../Shared/Media/new_mysql_db.jpg
-[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.jpg
-[setup-git-publishing]: ../Media/setup_git_publishing.jpg
+[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.png
+[setup-git-publishing]: ../../Shared/Media/setup_git_publishing.png
 [credentials]: ../Media/credentials.jpg
 [creating-repo]: ../Media/creating_repo.jpg
 [push-files]: ../Media/push_files.jpg
-[git-instructions]: ../Media/git_instructions.jpg
+[git-instructions]: ../../Shared/Media/git_instructions.png
 [git-change-push]: ../Media/php-git-change-push.png
 [git-initial-push]: ../Media/php-git-initial-push.png
 [deployments-list]: ../Media/php-deployments-list.png

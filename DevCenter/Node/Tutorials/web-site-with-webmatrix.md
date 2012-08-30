@@ -103,7 +103,7 @@ You can easily modify and republish your application. Here, you will make a simp
 [webmatrix-node-compatibility]: ../Media/webmatrix-publishcompatibility.png
 [webmatrix-node-publishpreview]: ../Media/webmatrix-publishpreview.png
 [portal-new-website]: ../../Shared/Media/plus-new.png
-[portal-quick-create]: ../Media/create-quick-website.png
+[portal-quick-create]: ../../Shared/Media/create-quick-website.png
 [howtodownloadsite]: ../../../Shared/media/howtodownloadsite.png
 [webmatrix-ide]: ../media/webmatrix-ide.png
 [webmatrix-publish-complete]: ../media/webmatrix-publish-complete.png
