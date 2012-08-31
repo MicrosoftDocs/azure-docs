@@ -208,7 +208,7 @@ Server scripts are also used when authorizing users and for sending push notific
 [Authorize users with scripts]: ./mobile-services-authorize-users-dotnet.md
 [Refine queries with paging]: ./mobile-services-paging-data-dotnet.md
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
-[Get started with users]: ./mobile-services-get-started-with-users-dotnet.md
+[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [WindowsAzure.com]: http://www.windowsazure.com/

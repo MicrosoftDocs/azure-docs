@@ -218,7 +218,7 @@ This tutorial demonstrated the basics of enabling a Windows 8 app to work with d
 
 Once you have completed the data series, try one of these other tutorials:
 
-* [Get started with users]
+* [Get started with authentication]
   <br/>Learn how to authenticate users of your app with Windows Account.
 
 * [Get started with push notifications] 
@@ -251,7 +251,7 @@ Once you have completed the data series, try one of these other tutorials:
 [Refine queries with paging]: ./mobile-services-paging-data-dotnet.md
 [Get started with Mobile Services]: ./mobile-services-get-started#create-new-service.md
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
-[Get started with users]: ./mobile-services-get-started-with-users-dotnet.md
+[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [WindowsAzure.com]: http://www.windowsazure.com/

@@ -64,7 +64,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
 This concludes the set of tutorials that demonstrate the basics of working with data in Mobile Services. Consider finding out more about the following Mobile Services topics:
 
-* [Get started with users]
+* [Get started with authentication]
   <br/>Learn how to authenticate users of your app with Windows Account.
 
 * [Get started with push notifications] 
@@ -80,7 +80,7 @@ This concludes the set of tutorials that demonstrate the basics of working with 
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service/
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
-[Get started with users]: ./mobile-services-get-started-with-users-dotnet.md
+[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
 [Fiddler]: http://go.microsoft.com/fwlink/?LinkId=262412
 [JavaScript and HTML]: mobile-services-win8-javascript/

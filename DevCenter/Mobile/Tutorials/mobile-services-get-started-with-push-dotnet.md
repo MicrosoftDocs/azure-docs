@@ -176,7 +176,7 @@ In this simple example a user receives a push notification with the data that wa
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/?LinkId=262253
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
-[Get started with users]: ./mobile-services-get-started-with-users-dotnet.md
+[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
 [Push notifications to app users]: ./mobile-services-push-notifications-to-app-users-dotnet.md
 [Authorize users with scripts]: ./mobile-services-authorize-users-dotnet.md
