@@ -114,7 +114,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Get started with data]
   <br/>Learn more about storing and querying data using Mobile Services.
 
-* [Get started with users]
+* [Get started with authentication]
   <br/>Learn how to authenticate users of your app with Windows Account.
 
 * [Get started with push notifications] 
@@ -144,7 +144,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 <!-- URLs. -->
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
-[Get started with users]: ./mobile-services-get-started-with-users-dotnet.md
+[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
 [Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545

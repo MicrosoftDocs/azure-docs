@@ -7,7 +7,7 @@ Language: **C# and XAML**
 
 This topic shows you how to use server scripts to authorize authenticated users for accessing data in Windows Azure Mobile Services from a Windows 8 app.  In this tutorial you register scripts with Mobile Services to filter queries based on the userId of an authenticated user, ensuring that each user can see only their own data.
 
-This tutorial is based on the Mobile Services quickstart and builds on the previous tutorial [Get started with users]. Before you start this tutorial, you must first complete [Get started with users].  
+This tutorial is based on the Mobile Services quickstart and builds on the previous tutorial [Get started with authentication]. Before you start this tutorial, you must first complete [Get started with authentication].  
 
 ## <a name="register-scripts"></a>Register scripts
 Because the quickstart app reads and inserts data, you need to register scripts for these operations against the TodoItem table.
@@ -49,7 +49,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
 ## Test the app
 
-1. In Visual Studio 2012 Express for Windows 8, open the project that you modified when you completed the tutorial [Get started with users].
+1. In Visual Studio 2012 Express for Windows 8, open the project that you modified when you completed the tutorial [Get started with authentication].
 
 2. Press the F5 key to run the app and sign into Live Connect with your Microsoft Account. 
 
@@ -67,7 +67,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
 ## Next steps
 
-This concludes the tutorials that demonstrate the basics of working with users. Consider finding out more about the following Mobile Services topics:
+This concludes the tutorials that demonstrate the basics of working with authentication. Consider finding out more about the following Mobile Services topics:
 
 * [Get started with data]
   <br/>Learn more about storing and querying data using Mobile Services.
@@ -94,7 +94,7 @@ This concludes the tutorials that demonstrate the basics of working with users. 
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
-[Get started with users]: ./mobile-services-get-started-with-users-dotnet.md
+[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [WindowsAzure.com]: http://www.windowsazure.com/

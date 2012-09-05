@@ -1,8 +1,8 @@
-<properties linkid="mobile-get-started-with-users-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with users in Mobile Services" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="mobile-get-started-with-users-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with authentication in Mobile Services" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
-# Get started with users in Mobile Services
+# Get started with authentication in Mobile Services
 Language: **C# and XAML**  
 
 This topic shows you how to authenticate users in Windows Azure Mobile Services from a Windows 8 app.  In this tutorial, you add authentication to the quickstart project using Live Connect. When successfully authenticated by Live Connect, a logged-in user is welcomed by name and the user ID value is displayed.  
@@ -182,7 +182,7 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/?LinkId=262253
 [Get started with Mobile Services]: ../get-started/#create-new-service
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
-[Get started with users]: ./mobile-services-get-started-with-users-dotnet.md
+[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
 [Authorize users with scripts]: ./mobile-services-authorize-users-dotnet.md
 [JavaScript and HTML]: mobile-services-win8-javascript/

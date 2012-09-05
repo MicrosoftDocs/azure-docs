@@ -171,7 +171,7 @@ This concludes the tutorials that demonstrate the basics of working with push no
 * [Get started with data]
   <br/>Learn more about storing and querying data using Mobile Services.
 
-* [Get started with users]
+* [Get started with authentication]
   <br/>Learn how to authenticate users of your app with Windows Account.
 
 * [Mobile Services server script reference]
@@ -200,7 +200,7 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
 [Get started with Mobile Services]: ../get-started/#create-new-service
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
-[Get started with users]: ./mobile-services-get-started-with-users-dotnet.md
+[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [WindowsAzure.com]: http://www.windowsazure.com/
