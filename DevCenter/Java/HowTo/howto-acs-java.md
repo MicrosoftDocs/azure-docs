@@ -307,7 +307,9 @@ In the **Login Page Integration: Azure Web App** page, the URL listed in **Optio
 8. Check **Embed the certificate in the WAR file**. Embedding the certificate in this manner includes it in your deployment without requiring you to manually add it as a component. (If instead you must store your certificate externally from your WAR file, you could add the certificate as a role component and uncheck **Embed the certificate in the WAR file**.)
 9. [Optional] Keep **Require HTTPS connections** checked. If you set this option, you'll need to access your application using the HTTPS protocol. If you don't want to require HTTPS connections, uncheck this option.
 10. For a deployment to the compute emulator, your **Windows Azure ACS Filter** settings will look similar to the following.
+
     ![Windows Azure ACS Filter settings for a deployment to the compute emulator][add_acs_filter_lib_emulator]
+
 11. Click **Finish**.
 12. Click **Yes** when presented with with a dialog box stating that a web.xml file will be created.
 13. Click **OK** to close the **Java Build Path** dialog.
@@ -361,7 +363,7 @@ Also, this example used the **Embed the certificate in the WAR file** option. Th
 1. Within the **Security** section of the **Windows Azure Access Control Services Filter** dialog, type **${env.JAVA_HOME}/mycert.cer** and uncheck **Embed the certificate in the WAR file**. (Adjust mycert.cer if your certificate file name is different.) Click **Finish** to close the dialog.
 2. Copy the certificate as a component in your deployment: In Eclipse's Project Explorer, expand **MyAzureACSProject**, right-click **WorkerRole1**, click **Properties**, expand **Windows Azure Role**, and click **Components**.
 3. Click **Add**.
-4. With the **Add Component** dialog:
+4. Within the **Add Component** dialog:
     1. In the **Import** section:
         1. Use the **File** button to navigate to the certificate you want to use. 
         2. For **Method**, select **copy**.
