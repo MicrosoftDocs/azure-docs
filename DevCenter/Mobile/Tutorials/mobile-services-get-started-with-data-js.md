@@ -174,11 +174,8 @@ Now that your mobile service is ready, you can update the app to store items in 
 9. Replace the **UpdateCheckedTodoItem** method with the following code:
         
         var updateCheckedTodoItem = function (todoItem) {
-            // This code takes a freshly completed TodoItem and updates the database. When the MobileService 
-            // responds, the item is removed from the list 
-            todoTable.update(todoItem).done(function (item) {
-                todoItems.splice(todoItems.indexOf(item), 1);
-            });
+            // This code takes a freshly completed TodoItem and updates the database. 
+            todoTable.update(todoItem);
         };
 
    This sends an item update to the mobile service.
