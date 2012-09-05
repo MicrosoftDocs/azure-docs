@@ -1,6 +1,6 @@
 # Deploying an ASP.NET Web Application to a Windows Azure Cloud Service and SQL Database
 
-This tutorial shows how to deploy an ASP.NET web application to a Windows Azure Cloud Service by using the Windows Azure SDK for .NET in Visual Studio 2010 or Visual Web Developer 2010 Express. You can open a Windows Azure account for free, and if you don't already have Visual Studio 2010, the SDK automatically installs Visual Web Developer 2010 Express. So you can start developing for Windows Azure entirely for free.
+This tutorial shows how to deploy an ASP.NET web application to a Windows Azure Cloud Service by using the Windows Azure SDK for .NET in Visual Studio 2012 or Visual Web 2012 for Web Express. You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. So you can start developing for Windows Azure entirely for free.
 
 This tutorial assumes that you have no prior experience using Windows Azure. On completing this tutorial, you'll have a data-driven web application up and running in the cloud and using a cloud database.
 
@@ -101,37 +101,6 @@ application in the cloud.
     **ToDoListApp** project in **Solution Explorer**, and then click **Add Windows Azure Cloud Service Project**:
 
     ![Add Windows Azure Deployment Project in menu][8]
-
-To enable the built-in membership provider you must use the ASP.NET Universal Providers. This provider enables the account management capabilities in your application. 
-
-You can use NuGet to get the providers package. 
-
-2.  In **Solution Explorer**,
-    right-click the **ToDoListApp** project, and then click **Manage NuGet
-    Packages...** (or **Add Library Package Reference...** in older
-    versions of NuGet):
-
-    ![Manage NuGet Packages in menu][9]
-
-4.  In the **ToDoListApp – Manage NuGet Packages** dialog, click the **Online** node in the left pane to expose the search field.
-
-5.  In the top right corner in the **Search Online** field, enter
-    **"universal providers"**:
-
-    ![Searching for Universal Providers in NuGet][10]
-
-4.  Select the **"ASP.NET Universal Providers"** package (note that the Id in the right pane should be "System.Web.Providers,") and then click **Install**. 
-
-5.  Close the **ToDoListApp – Manage NuGet Packages** dialog after installation is complete.
-
-5.  In **Solution Explorer**, open the Web.config file in the root directory
-    of the ToDoListApp project.
-
-6.  In the &lt;configuration> / &lt;connectionStrings> element, delete
-    the **DefaultConnection** connection string, and insert the one shown here:
-
-        <add name="DefaultConnection" connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=aspnet_ToDoListApp;Integrated Security=True;MultipleActiveResultSets=True"
-        providerName="System.Data.SqlClient" />
 
 7.  To test the application, press CTRL-F5.<br/>
 The Windows Azure compute emulator starts. The compute
@@ -319,15 +288,20 @@ that uses the model and data context you created earlier to perform create, read
     of the ToDoListApp project.
 
 7.  In the &lt;configuration> / &lt;connectionStrings> element, add the following
-    **ToDoDb connection** string:
+    **ToDoDb connection** string for the version of Visual Studio that you are using.
+
+    Visual Studio 2010:
 
         <add name="ToDoDb" connectionString="data source=.\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=ToDoDb;User Instance=true;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
+
+    Visual Studio 2012:
+
+        <add name="ToDoDb" connectionString="data source=(LocalDB)\v11.0;Integrated Security=SSPI;AttachDbFileName=|DataDirectory|\ToDoDB.mdf;Initial Catalog=ToDoDb;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
 
 8.  Press CTRL-F5 in Visual Studio to
     run the application locally in the compute emulator. When the application
     first runs, Code First creates a database in the local SQL Server
-    Express instance, which was installed as part of the Windows Azure
-    SDK.
+    Express or LocalDB instance, depending on which connection string you used.
 
     ![To Do List Index page][28]
 

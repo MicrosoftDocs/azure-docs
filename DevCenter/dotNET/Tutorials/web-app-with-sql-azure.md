@@ -1,6 +1,6 @@
 #  Deploying an ASP.NET Web Application to a Windows Azure Web Site and SQL Database
 
-This tutorial shows how to deploy an ASP.NET web application to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012 RC or Visual Studio 2012 for Web Express RC. If you prefer, you can follow the tutorial steps by using Visual Studio 2010 or Visual Web Developer Express 2010.
+This tutorial shows how to deploy an ASP.NET web application to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012 or Visual Studio 2012 for Web Express. If you prefer, you can follow the tutorial steps by using Visual Studio 2010 or Visual Web Developer Express 2010.
 
 You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. So you can start developing for Windows Azure entirely for free.
 
@@ -37,7 +37,7 @@ To start, set up your development environment by installing the Windows Azure SD
 1. To install the Windows Azure SDK for .NET, click the link that corresponds to the version of Visual Studio you are using. If you don't have Visual Studio installed yet, use the Visual Studio 2012 link.<br/>
 [Windows Azure SDK for Visual Studio 2010][]<br/>
 [Windows Azure SDK for Visual Studio 2012 RC][]
-2. When you are prompted to run or save VWDOrVs11AzurePack_RC.3f.3f.3fnew.exe, click **Run**.<br/>
+2. When you are prompted to run or save VWDOrVs11AzurePack.exe, click **Run**.<br/>
 3. In the Web Platform Installer window, click **Install** and proceed with the installation.<br/>
 ![Web Platform Installer - Windows Azure SDK for .NET][Image003]<br/>
 4. If you are using Visual Studio 2010 or Visual Web Developer 2010 Express, install [MVC 4][MVC4Install].
@@ -201,7 +201,7 @@ The next task is to enable the Code First Migrations feature in order to create 
 5. In the **Tools** menu, select **Library Package Manager** and then **Package Manager Console**.<br/>
 ![Package Manager Console in Tools menu][Image047]
 6. In the **Package Manager Console** window, enter the following commands:<br/>
-enable-migrations<br/>
+enable-migrations -ContextTypeName ToDoListApp.Models.ToDoDb<br/>
 add-migration Initial<br/>
 update-database<br/>
 ![Package Manager Console commands][Image051]
@@ -271,8 +271,8 @@ Here are some things to be aware of when you plan and develop an ASP.NET applica
 * The application must target ASP.NET 4.0 or earlier (not ASP.NET 4.5).
 * The application runs in Integrated mode (not Classic mode).
 * The application should not use Windows Authentication. Windows Authentication is usually not used as an authentication mechanism for Internet-based applications.
-* In order to use provider-based features such as membership, profile, role manager, and session state, the application must use the Microsoft ASP.NET Universal Providers (the [Microsoft.AspNet.Providers][UniversalProviders] NuGet package).
-* If the applications writes to files, the files should be located in the application's content folder or one of its subfolders.
+* In order to use provider-based features such as membership, profile, role manager, and session state, the application must use the Microsoft ASP.NET universal providers. To use the universal providers with SQL Server Express (the default for Visual Studio 2010), use the [Microsoft.AspNet.Providers][UniversalProviders] NuGet package. To use the universal providers with SQL Server Express LocalDB (the default for Visual Studio 2012), use the [Microsoft.AspNet.Providers.LocalDB][UniversalProvidersLocalDB] NuGet package.  The project templates for MVC and Web Forms install the appropriate NuGet package by default.
+* If the application writes to files, the files should be located in the application's content folder or one of its subfolders.
 
 <h2><a name="nextsteps"></a>Next Steps</h2>
 
@@ -332,6 +332,7 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [SQLAzureDataMigrationBlog]: http://blogs.msdn.com/b/ssdt/archive/2012/04/19/migrating-a-database-to-sql-azure-using-ssdt.aspx
 [SQLAzureConnPoolErrors]: http://blogs.msdn.com/b/adonet/archive/2011/11/05/minimizing-connection-pool-errors-in-sql-azure.aspx
 [UniversalProviders]: http://nuget.org/packages/Microsoft.AspNet.Providers
+[UniversalProvidersLocalDB]: http://nuget.org/packages/Microsoft.AspNet.Providers.LocalDB
 [EFCodeFirstMVCTutorial]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 [EFCFMigrations]: http://msdn.microsoft.com/en-us/library/hh770484
 [DevelopingWebAppsWithWindowsAzure]: http://msdn.microsoft.com/en-us/library/Hh674484
