@@ -5,7 +5,7 @@
 # Get started with authentication in Mobile Services
 Language: **C# and XAML**  
 
-This topic shows you how to authenticate users in Windows Azure Mobile Services from a Windows 8 app.  In this tutorial, you add authentication to the quickstart project using Live Connect. When successfully authenticated by Live Connect, a logged-in user is welcomed by name and the user ID value is displayed.  
+This topic shows you how to authenticate users in Windows Azure Mobile Services from a Windows Store app.  In this tutorial, you add authentication to the quickstart project using Live Connect. When successfully authenticated by Live Connect, a logged-in user is welcomed by name and the user ID value is displayed.  
 
 This tutorial walks you through these basic steps to enable Live Connect authentication:
 
@@ -17,7 +17,7 @@ This tutorial requires the [Live SDK for Windows], and you must have already com
 
 ## <a name="register"></a>Register your app
 
-To be able to authenticate users, you must register your Windows 8 app at the Live Connect Developer Center. You must then register the client secret to integrate Live Connect with Mobile Services.
+To be able to authenticate users, you must register your Windows Store app at the Live Connect Developer Center. You must then register the client secret to integrate Live Connect with Mobile Services.
 
 1. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services].
 

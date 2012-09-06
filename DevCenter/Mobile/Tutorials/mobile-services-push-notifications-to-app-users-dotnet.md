@@ -5,7 +5,7 @@
 # Push notifications to users by using Mobile Services
 Language: **C# and XAML**  
 
-This topic extends the [previous push notification tutorial][Get started with push notifications] by adding a new table to store Windows Push Notification Service (WNS) channel URIs. These channels can then be used to send push notifications to users of the Windows 8 app.  
+This topic extends the [previous push notification tutorial][Get started with push notifications] by adding a new table to store Windows Push Notification Service (WNS) channel URIs. These channels can then be used to send push notifications to users of the Windows Store app.  
 
 This tutorial walks you through these steps to update push notifications in your app:
 
