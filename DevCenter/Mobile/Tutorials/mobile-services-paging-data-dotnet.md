@@ -3,7 +3,7 @@
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14809" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
 # Refine Mobile Services queries with paging
-Language: **C# and XAML**  
+Language: **C# and XAML** | [JavaScript and HTML]
 
 This topic shows you how to use paging to manage the amount of data returned to your Windows Store app from Windows Azure Mobile Services. In this tutorial, you will use the **Take** and **Skip** query methods on the client to request specific "pages" of data.
 
@@ -88,6 +88,6 @@ This concludes the set of tutorials that demonstrate the basics of working with 
 [Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
 [Fiddler]: http://go.microsoft.com/fwlink/?LinkId=262412
-[JavaScript and HTML]: mobile-services-win8-javascript/
+[JavaScript and HTML]: ./mobile-services-paging-data-js.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/

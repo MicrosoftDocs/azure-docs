@@ -3,7 +3,7 @@
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14808" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
 # Validate and modify data in Mobile Services using server scripts
-Language: **C# and XAML**  
+Language: **C# and XAML** | [JavaScript and HTML]
 
 This topic shows you how to leverage server scripts in Windows Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update your Windows Store app to take advantage of these new behaviors.
 
@@ -210,7 +210,7 @@ Server scripts are also used when authorizing users and for sending push notific
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
 [Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
-[JavaScript and HTML]: mobile-services-win8-javascript/
+[JavaScript and HTML]: ./mobile-services-validate-and-modify-data-js.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
