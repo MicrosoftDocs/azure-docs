@@ -4,7 +4,7 @@
 
 <div class="dev-center-os-selector">
   <a href="/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet/" title=".NET client version" class="current">C# and XAML</a>
-  <a href="/en-us/develop/mobile/tutorials/add-paging-to-data-js/" title="JavaScript client version" class="">JavaScript and HTML</a>
+  <a href="/en-us/develop/mobile/tutorials/add-paging-to-data-js/" title="JavaScript client version">JavaScript and HTML</a>
   <span>Tutorial</span>
 </div>
 
