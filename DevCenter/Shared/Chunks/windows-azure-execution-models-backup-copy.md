@@ -183,12 +183,12 @@ Windows Azure provides different execution models because cloud platforms need t
 ##About the Author
 David Chappell is Principal of Chappell & Associates ([www.davidchappell.com][]) in San Francisco, California. Through his speaking, writing, and consulting, he helps people around the world understand, use, and make better decisions about new technologies.
 
-[01_CreatingVMs]: ../Media/ExecModels_01_CreatingVMs.png
-[02_CloudServices]: ../Media/ExecModels_02_CloudServices.png
-[03_AppUsingSQLServer]: ../Media/ExecModels_03_AppUsingSQLServer.png
-[04_SharePointFarm]: ../Media/ExecModels_04_SharePointFarm.png
-[05_Websites]: ../Media/ExecModels_05_Websites.png
-[06_CloudServices2]: ../Media/ExecModels_06_CloudServices2.png
-[07_CombineTechnologies]: ../Media/ExecModels_07_CombineTechnologies.png
+[01_CreatingVMs]: ../../../DevCenter/Shared/Media/ExecModels_01_CreatingVMs.png
+[02_CloudServices]: ../../../DevCenter/Shared/Media/ExecModels_02_CloudServices.png
+[03_AppUsingSQLServer]: ../../../DevCenter/Shared/Media/ExecModels_03_AppUsingSQLServer.png
+[04_SharePointFarm]: ../../../DevCenter/Shared/Media/ExecModels_04_SharePointFarm.png
+[05_Websites]: ../../../DevCenter/Shared/Media/ExecModels_05_Websites.png
+[06_CloudServices2]: ../../../DevCenter/Shared/Media/ExecModels_06_CloudServices2.png
+[07_CombineTechnologies]: ../../../DevCenter/Shared/Media/ExecModels_07_CombineTechnologies.png
 
 [www.davidchappell.com]: http://www.davidchappell.com 

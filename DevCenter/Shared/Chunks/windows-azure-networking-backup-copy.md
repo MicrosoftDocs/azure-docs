@@ -79,8 +79,8 @@ Not every application is big enough or global enough to need Traffic Manager. Fo
 David Chappell is Principal of Chappell & Associates ([www.davidchappell.com][]) in San Francisco, California. Through his speaking, writing, and consulting, he helps people around the world understand, use, and make better decisions about new technologies.
 
 
-[01_Networking]: ../Media/Networking_01_Networking.png
-[02_Connect]: ../Media/Networking_02_Connect.png
-[03_TrafficManager]: ../Media/Networking_03_TrafficManager.png
+[01_Networking]: ../../../DevCenter/Shared/Media/Networking_01_Networking.png
+[02_Connect]: ../../../DevCenter/Shared/Media/Networking_02_Connect.png
+[03_TrafficManager]: ../../../DevCenter/Shared/Media/Networking_03_TrafficManager.png
 
 [www.davidchappell.com]: http://www.davidchappell.com 

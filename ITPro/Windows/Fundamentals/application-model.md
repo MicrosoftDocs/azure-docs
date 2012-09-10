@@ -1,2 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="The Windows Azure compute model" metaKeywords="Windows Azure, Azure, compute model, virtual machines, web sites, cloud services" metaDescription="Learn about the Windows Azure compute model. Understand core concepts, design considerations, defining and configuring your application, and scaling." linkid="manage-windows-fundamentals-compute-model" urlDisplayName="Compute model" headerExpose="" footerExpose="" disqusComments="1" />
-<div chunk="../../../DevCenter/Shared/Chunks/application-model.md" />
+<properties umbracoNaviHide="0" pageTitle="Windows Azure Execution Models" metaKeywords="" metaDescription="" linkid="manage-fundamentals-
+
+compute" urlDisplayName="Execution Models" headerExpose="" footerExpose="" disqusComments="1" />
+<div chunk="../../Shared/Chunks/windows-azure-execution-models.md" />
