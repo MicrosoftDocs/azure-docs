@@ -2,7 +2,7 @@
 
 Git is a popular, open source, distributed version control system. Windows Azure Web Sites allow you to enable a Git repository for your site, which allows you to quickly and easily push code changes to your site. In this article, you will learn how to use Git to publish to a Windows Azure Web Site.
 
-<div class="dev-callout">
+<div class="dev-callout-new">
 <strong>Note</strong>
 <p>Many of the Git commands described in this article are performed automatically when creating a Web Site using the <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure Command-Line Tools for Mac and Linux</a>.</p>
 </div>
@@ -21,7 +21,7 @@ The task includes the following steps:
 
 The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distrubtions and installation guidance.
 
-<div class="dev-callout">
+<div class="dev-callout-new">
 <strong>Note</strong>
 <p>On some operating systems, both a command-line and GUI version of Git will are available. The instructions provided in this article use the command-line version.</p>
 </div>
@@ -72,7 +72,7 @@ Perform the following steps to enable a Git repository for your web site by usin
 
 	![An image displaying a selected web site][portal-select-website]
 
-3. At the bottom of the page, select **Setup Git publishing** from the **quick glance** section.
+3. In the **quick glance** section, select **Setup Git publishing**.
 
 	![The Setup Git Publishing link][portal-setup-git]
 
@@ -162,7 +162,7 @@ The following are errors or problems commonly encountered when using Git to publ
 
 **Cause**: This error can occur if you attempt to push to a branch other than master on the 'azure' remote.
 
-**Resolution**: erform the push operation again, specifying the master branch. For example:
+**Resolution**: Perform the push operation again, specifying the master branch. For example:
 
 	git push azure master
 
@@ -187,16 +187,16 @@ The following are errors or problems commonly encountered when using Git to publ
 
 ## Additional Resources
 
-* [PowerShell for Windows Azure]
-* [Windows Azure Command-Line Tools for Mac and Linux]
+* [How to use PowerShell for Windows Azure]
+* [How to use the Windows Azure Command-Line Tools for Mac and Linux]
 * [Git Documentation]
 
 [Windows Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/
 [Windows Azure portal]: http://manage.windowsazure.com
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[PowerShell for Windows Azure]: http://windowsazure.com
-[Windows Azure Command-Line Tools for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
+[How to use PowerShell for Windows Azure]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/
+[How to use the Windows Azure Command-Line Tools for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Git Documentation]: http://git-scm.com/documentation
 
 [portal-select-website]: ../Media/git-select-website.png
