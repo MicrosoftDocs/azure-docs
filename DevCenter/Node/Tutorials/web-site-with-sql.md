@@ -88,7 +88,7 @@ Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
 8. To enable Git publishing, you must provide a user name and password. Make a note of the user name and password you create. (If you have set up a Git repository before, this step will be skipped.)
 
-	![Create publishing credentials][credentials]
+	![Create publishing credentials][portal-git-username-password]
 
 	It will take a few seconds to set up your repository.
 
@@ -486,12 +486,12 @@ Once the changes have been deployed to Windows Azure, your web application shoul
 [website-details-sqlazure]: ../Media/website_details_sqlazure.jpg
 [database-settings]: ../Media/database_settings.jpg
 [create-server]: ../Media/create_server.jpg
-[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.jpg
-[setup-git-publishing]: ../Media/setup_git_publishing.jpg
-[credentials]: ../Media/credentials.jpg
+[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.png
+[setup-git-publishing]: ../../Shared/Media/setup_git_publishing.png
+[portal-git-username-password]: ../../Shared/Media/git-deployment-credentials.png
 [creating-repo]: ../Media/creating_repo.jpg
 [push-files]: ../Media/push_files.jpg
-[git-instructions]: ../Media/git_instructions.jpg
+[git-instructions]: ../../Shared/Media/git_instructions.png
 [linked-resources]: ../Media/linked_resources.jpg
 [new-website]: ../../Shared/Media/new_website.jpg
 [custom-create]: ../../Shared/Media/custom_create.jpg

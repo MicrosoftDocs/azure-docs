@@ -49,7 +49,7 @@ Follow these steps to create a Windows Azure Website and a MySQL database:
 
 7. To enable FTP publishing, you must provide a user name and password. Make a note of the user name and password you create.
 
-	![Create publishing credentials][credentials]
+	![Create publishing credentials][portal-git-username-password]
 
 ##Build and test your application locally
 
@@ -256,9 +256,9 @@ After uploading both `index.php` and `createtable.php`, browse to **http://[site
 [custom-create]: ../../Shared/Media/custom_create.jpg
 [website-details]: ../../Shared/Media/website_details.jpg
 [new-mysql-db]: ../../Shared/Media/new_mysql_db.jpg
-[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.jpg
+[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.png
 [reset-deployment-credentials]: ../Media/reset-deployment-credentials.png
-[credentials]: ../Media/credentials.jpg
+[portal-git-username-password]: ../../Shared/Media/git-deployment-credentials.png
 [creating-repo]: ../Media/creating_repo.jpg
 [push-files]: ../Media/push_files.jpg
 [connection-string-info]: ../../Shared/Media/connection_string_info.png

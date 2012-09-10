@@ -21,7 +21,6 @@ Follow these steps to create a Windows Azure Web Site, and then enable Git publi
 <li>If you have an existing account but need to enable the Windows Azure Web Sites preview, see <a href="../create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li>
 </ul>
 </div>
-<br />
 
 1. Login to the [Windows Azure Management Portal].
 
@@ -47,7 +46,7 @@ Follow these steps to create a Windows Azure Web Site, and then enable Git publi
 
 8. Once the Git repository is ready, you will be presented with instructions on the Git commands to use in order to setup a local repository and then push the files to Windows Azure.
 
-	![Git deployment instructions returned after creating a repository for the website.][portal-git-instructions]
+	![Git deployment instructions returned after creating a repository for the website.][git-instructions]
 
 ##Build and test your application locally
 
@@ -91,7 +90,7 @@ In this section, you will create a **server.js** file containing the 'hello worl
 
 		git remote add azure [URL for remote repository]
 
-    ![Git deployment instructions returned after creating a repository for the website.][portal-git-remote-url]
+    ![Git deployment instructions returned after creating a repository for the website.][git-instructions]
 
 4. Push your changes to Windows Azure using the following command:
 
@@ -147,13 +146,11 @@ While the steps in this article use the Windows Azure Portal to create a web sit
 [portal-new-website]: ../../Shared/Media/plus-new.png
 [portal-quick-create]: ../../Shared/Media/create-quick-website.png
 [portal-website-list]: ../Media/list-of-websites.png
-[portal-website-dashboard-setup-git]: ../../Shared/Media/setup-git-publishing.png
 [portal-git-username-password]: ../../Shared/Media/git-deployment-credentials.png
-[portal-git-instructions]: ../Media/git_instructions.jpg
-[portal-git-remote-url]: ../Media/git_remote_url.jpg
+[git-instructions]: ../../Shared/Media/git_instructions.png
 [git-push-azure]: ../Media/git_push_azure.png
-[git-deployments-first]: ../Media/git_deployments_first.jpg
-[git-deployments-second]: ../Media/git_deployments_second.jpg
+[git-deployments-first]: ../Media/git_deployments_first.png
+[git-deployments-second]: ../Media/git_deployments_second.png
 [portal-website-stop-delete]: ../../Shared/Media/stop-delete-icons.png
-[setup-git-publishing]: ../Media/setup_git_publishing.jpg
-[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.jpg
+[setup-git-publishing]: ../../Shared/Media/setup_git_publishing.png
+[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.png

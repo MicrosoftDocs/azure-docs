@@ -32,10 +32,6 @@ Windows Azure.
 it easier for you to build native Android applications that leverage
 cloud services running in Windows Azure.
 
-[Windows Azure Toolkit for Windows 8][]: This toolkit is designed to let
-you build rich Windows 8 applications that incorporate push
-notifications, cloud storage, and access control.
-
 [Windows Azure Toolkit for Social Gaming][]: This toolkit is designed to
 help developers quickly get started building a casual or social game on
 Windows Azure.
@@ -49,6 +45,5 @@ multiple Web Role instances using Web Deploy.</span>
   [Windows Azure Toolkit for Windows Phone]: http://go.microsoft.com/fwlink/?LinkID=214684&clcid=0x409
   [Windows Azure Toolkit for iOS]: http://go.microsoft.com/fwlink/?LinkID=234566&clcid=0x409
   [Windows Azure Toolkit for Android]: http://go.microsoft.com/fwlink/?LinkID=234567&clcid=0x409
-  [Windows Azure Toolkit for Windows 8]: http://go.microsoft.com/fwlink/?LinkID=236946&clcid=0x409
   [Windows Azure Toolkit for Social Gaming]: http://go.microsoft.com/fwlink/?LinkID=236947&clcid=0x409
   [Windows Azure Accelerator for Web Roles]: http://go.microsoft.com/fwlink/?LinkID=236948&clcid=0x409
