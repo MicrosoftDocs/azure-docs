@@ -1,0 +1,3 @@
+5.	Summary section
+a.	Create a summary section by surrounding the following sections (if they exist, based on the content template and the individual topic) with a <div class=”abstract”> tag:
+i.	 intro paragraph, video reference, table of contents, screenshot of completed application.
