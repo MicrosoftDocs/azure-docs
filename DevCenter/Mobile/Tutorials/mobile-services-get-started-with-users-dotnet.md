@@ -3,9 +3,9 @@
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
 # Get started with authentication in Mobile Services
-Language: **C# and XAML**  
+Language: **C# and XAML** | [JavaScript and HTML]
 
-This topic shows you how to authenticate users in Windows Azure Mobile Services from a Windows 8 app.  In this tutorial, you add authentication to the quickstart project using Live Connect. When successfully authenticated by Live Connect, a logged-in user is welcomed by name and the user ID value is displayed.  
+This topic shows you how to authenticate users in Windows Azure Mobile Services from a Windows Store app.  In this tutorial, you add authentication to the quickstart project using Live Connect. When successfully authenticated by Live Connect, a logged-in user is welcomed by name and the user ID value is displayed.  
 
 This tutorial walks you through these basic steps to enable Live Connect authentication:
 
@@ -17,7 +17,7 @@ This tutorial requires the [Live SDK for Windows], and you must have already com
 
 ## <a name="register"></a>Register your app
 
-To be able to authenticate users, you must register your Windows 8 app at the Live Connect Developer Center. You must then register the client secret to integrate Live Connect with Mobile Services.
+To be able to authenticate users, you must register your Windows Store app at the Live Connect Developer Center. You must then register the client secret to integrate Live Connect with Mobile Services.
 
 1. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services].
 
@@ -180,11 +180,11 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/?LinkId=262253
-[Get started with Mobile Services]: ../get-started/#create-new-service
+[Get started with Mobile Services]: ./mobile-services-get-started.md
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
 [Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
 [Authorize users with scripts]: ./mobile-services-authorize-users-dotnet.md
-[JavaScript and HTML]: mobile-services-win8-javascript/
+[JavaScript and HTML]: ./mobile-services-get-started-with-users-js.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/

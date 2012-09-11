@@ -3,8 +3,8 @@
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14809" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
 <div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet/" title=".NET client version" class="current">C# and XAML</a>
-  <a href="/en-us/develop/mobile/tutorials/add-paging-to-data-js/" title="JavaScript client version">JavaScript and HTML</a>
+  <a href="/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet/" title=".NET client version">C# and XAML</a>
+  <a href="/en-us/develop/mobile/tutorials/add-paging-to-data-js/" title="JavaScript client version" class="current">JavaScript and HTML</a>
   <span>Tutorial</span>
 </div>
 
@@ -24,17 +24,18 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
 3. Repeat the previous step at least three times, so that you have more than three items stored in the TodoItem table. 
 
-2. In the MainPage.xaml.cs file, replace the **RefreshTodoItems** method with the following code:
+2. In the default.js file, replace the **RefreshTodoItems** method with the following code:
 
-        private void RefreshTodoItems()
-        {
+        var refreshTodoItems = function () {
             // Define a filtered query that returns the top 3 items.
-            MobileServiceTableQuery<TodoItem> query = todoTable
-                            .Where(todoItem => todoItem.Complete == false)
-                           .Take(3);					          
-			items = query.ToCollectionView();
-            ListItems.ItemsSource = items;
-        }
+            todoTable.where({ complete: false })
+                .take(3)
+                .read()
+                .done(function (results) {
+                    todoItems = new WinJS.Binding.List(results);
+                    listItems.winControl.itemDataSource = todoItems.dataSource;
+                });
+        };
 
   This query, when executed during data binding, returns the top three items that are not marked as completed.
 
@@ -44,21 +45,22 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
 4. (Optional) View the URI of the request sent to the mobile service by using message inspection software, such as browser developer tools or [Fiddler]. 
 
-   Notice that the **Take(3)** method was translated into the query option **$top=3** in the query URI.
+   Notice that the **take(3)** method was translated into the query option **$top=3** in the query URI.
 
 5. Update the **RefreshTodoItems** method once more with the following code:
             
-        private void RefreshTodoItems()
-        {
+        var refreshTodoItems = function () {
             // Define a filtered query that skips the first 3 items and 
             // then returns the next 3 items.
-            MobileServiceTableQuery<TodoItem> query = todoTable
-                           .Where(todoItem => todoItem.Complete == false)
-                           .Skip(3)
-                           .Take(3);
-            items = query.ToCollectionView();
-            ListItems.ItemsSource = items;
-        }
+            todoTable.where({ complete: false })
+                .skip(3)
+                .take(3)
+                .read()
+                .done(function (results) {
+                    todoItems = new WinJS.Binding.List(results);
+                    listItems.winControl.itemDataSource = todoItems.dataSource;
+                });
+        };
 
    This query skips the first three results and returns the next three after that. This is effectively the second "page" of data, where the page size is three items.
 
@@ -68,7 +70,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
 6. (Optional) Again view the URI of the request sent to the mobile service. 
 
-   Notice that the **Skip(3)** method was translated into the query option **$skip=3** in the query URI.
+   Notice that the **skip(3)** method was translated into the query option **$skip=3** in the query URI.
 
 ## <a name="next-steps"> </a>Next Steps
 
@@ -89,10 +91,10 @@ This concludes the set of tutorials that demonstrate the basics of working with 
 
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service/
-[Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
+[Get started with data]: ./mobile-services-get-started-with-data-js.md
+[Get started with authentication]: ./mobile-services-get-started-with-users-js.md
+[Get started with push notifications]: ./mobile-services-get-started-with-push-js.md
 [Fiddler]: http://go.microsoft.com/fwlink/?LinkId=262412
-[JavaScript and HTML]: ./mobile-services-paging-data-js.md
+[JavaScript and HTML]: mobile-services-win8-javascript/
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/

@@ -3,9 +3,9 @@
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14799" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
 # Get started with push notifications in Mobile Services
-Language: **C# and XAML**  
+Language: **C# and XAML** | [JavaScript and HTML]
 
-This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Windows 8 app.  
+This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Windows Store app.  
 In this tutorial you add push notifications using the Windows Push Notification service (WNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
    <div class="dev-callout"><b>Note</b>
@@ -23,7 +23,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## <a name="register"></a>Register your app
 
-To be able to send push notifications to Windows 8 apps from Mobile Services, you must register your app at the Live Connect Developer Center. You must then configure your mobile service to integrate with WNS.
+To be able to send push notifications to Windows Store apps from Mobile Services, you must register your app at the Live Connect Developer Center. You must then configure your mobile service to integrate with WNS.
 
 1. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
 
@@ -180,6 +180,6 @@ In this simple example a user receives a push notification with the data that wa
 [Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
 [Push notifications to app users]: ./mobile-services-push-notifications-to-app-users-dotnet.md
 [Authorize users with scripts]: ./mobile-services-authorize-users-dotnet.md
-[JavaScript and HTML]: mobile-services-win8-javascript/
+[JavaScript and HTML]: ./mobile-services-get-started-with-push-js.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
