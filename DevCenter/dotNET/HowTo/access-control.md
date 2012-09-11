@@ -1,13 +1,13 @@
-
+﻿
 <properties umbraconavihide="0" pagetitle="Access Control - How To - .NET - Develop" metakeywords="Azure Access Control Service, Azure ACS, Azure authentication, Azure authentication LiveID, Azure authentication Google, Azure authentication Facebook, Azure authentication .NET, Azure authentication C#" metadescription="Learn how to use Windows Azure Access Control Service (ACS) in your Windows Azure application to authenticate users from identity providers like Windows Live, Google, or Facebook when they try to gain access to a web application." linkid="dev-net-how-to-access-control" urldisplayname="Access Control" headerexpose="" footerexpose="" disquscomments="0"></properties>
-<div chunk=”../chunks/article-left-menu.md” />
+<div chunk="../chunks/article-left-menu.md" />
 # How to Authenticate Web Users with Windows Azure Access Control Service
 
 This guide shows you how to use Windows Azure Access Control Service
 (ACS) to authenticate users from identity providers like Windows Live,
 Google, or Facebook when they try to gain access to a web application.
 
-<h2><span class=”short-header”>Table of Contents</span>Table of Contents</h2>
+<h2><span class="short-header">Table of Contents</span>Table of Contents</h2>
 
 -   [What is ACS?][]
 -   [Concepts][]
@@ -22,7 +22,7 @@ Google, or Facebook when they try to gain access to a web application.
 -   [Test the Integration between ACS and Your ASP.NET Web Application][]
 -   [What's Next][]
 
-<h2><span class=”short-header”>What is ACS?</span>What is ACS?</h2>
+<h2><span class="short-header">What is ACS?</span>What is ACS?</h2>
 
 
 Most developers are not identity experts and generally do not want to
@@ -45,7 +45,7 @@ The following features are available in ACS:
 
 For more information about ACS, see [Access Control Service 2.0][].
 
-<h2><span class=”short-header”>Concepts</span>Concepts</h2>
+<h2><span class="short-header">Concepts</span>Concepts</h2>
 
 
 Windows Azure ACS is built on the principals of claims-based identity -
@@ -132,7 +132,7 @@ application:
     signature on the security token issued by ACS, validates the claims
     in this token, and returns the page that was originally requested.
 
-<h2><span class=”short-header”>Prerequisites</span>Prerequisites</h2>
+<h2><span class="short-header">Prerequisites</span>Prerequisites</h2>
 
 
 To complete the tasks in this guide, you will need the following:
@@ -142,7 +142,7 @@ To complete the tasks in this guide, you will need the following:
 -   [Windows Identity Foundation SDK][]
 -   An active [Windows Azure account][]
 
-<h2><span class=”short-header”>Create an ASP.NET Web Application</span>Create an ASP.NET Web Application</h2>
+<h2><span class="short-header">Create an ASP.NET Web Application</span>Create an ASP.NET Web Application</h2>
 
 To demonstrate how ACS does authentication, create a simple ASP.NET web
 application, which you will later set up as a Relying Party (RP)
@@ -166,7 +166,7 @@ Now you've created an ASP.NET web application that runs locally on port
 7777. Keep Visual Studio open as you complete the rest of the tasks in
 this guide. Next, create the ACS namespace.
 
-<h2><span class=”short-header”>Create an ACS Namespace</span>Create an ACS Namespace</h2>
+<h2><span class="short-header">Create an ACS Namespace</span>Create an ACS Namespace</h2>
 
 
 To begin using Access Control Service (ACS) in Windows Azure, you must
@@ -201,7 +201,7 @@ The namespace appears in the Management Portal and takes a few minutes
 to activate. Wait until the status is **Active** before moving on to add
 IPs to your namespace.
 
-<h2><span class=”short-header”>Add Identity Providers</span>Add Identity Providers</h2>
+<h2><span class="short-header">Add Identity Providers</span>Add Identity Providers</h2>
 
 In this task, you add IPs to use with your RP application for
 authentication. For demonstration purposes, this task shows how to add
@@ -239,7 +239,7 @@ Management Portal.
 Google has now been added as an IP for your ACS namespace. Next, you
 specify the ASP.NET web application that you created earlier as an RP.
 
-<h2><span class=”short-header”>Add a Relying Party Application</span>Add a Relying Party Application</h2>
+<h2><span class="short-header">Add a Relying Party Application</span>Add a Relying Party Application</h2>
 
 In this task, you configure ACS to recognize your ASP.NET web
 application as a valid RP application.
@@ -262,7 +262,7 @@ You have now successfully configured the ASP.NET web application (at
 http://localhost:7777/) to be an RP in your ACS namespace. Next, create
 the rules that ACS uses to process claims for the RP.
 
-<h2><span class=”short-header”>Create Rules</span>Create Rules</h2>
+<h2><span class="short-header">Create Rules</span>Create Rules</h2>
 
 In this task, you define the rules that drive how claims are passed from
 IPs to your RP. For the purpose of this guide, we will simply configure
@@ -282,7 +282,7 @@ Next, review the information in the Application Integration page and
 copy the URI that you will need to configure your ASP.NET web
 application to use ACS.
 
-<h2><span class=”short-header”>Review the Application Integration Page</span>Review the Application Integration Page</h2>
+<h2><span class="short-header">Review the Application Integration Page</span>Review the Application Integration Page</h2>
 
 You can find all the information and the code necessary to configure
 your ASP.NET web application (the RP application) to work with ACS on
@@ -301,7 +301,7 @@ federated authentication.
 
 Next, go back to Visual Studio and configure the application to use ACS.
 
-<h2><span class=”short-header”>Configure Trust between ACS and Your ASP.NET Web Application</span>Configure Trust between ACS and Your ASP.NET Web Application</h2>
+<h2><span class="short-header">Configure Trust between ACS and Your ASP.NET Web Application</span>Configure Trust between ACS and Your ASP.NET Web Application</h2>
 
 This task describes how to integrate ACS with the ASP.NET web
 application using the features of the Windows Identity Foundation SDK.
@@ -393,7 +393,7 @@ application using the features of the Windows Identity Foundation SDK.
 
 11. Press Ctrl+S to save your changes.
 
-<h2><span class=”short-header”>Test the Integration between ACS and Your ASP.NET Web Application</span>Test the Integration between ACS and Your ASP.NET Web Application</h2>
+<h2><span class="short-header">Test the Integration between ACS and Your ASP.NET Web Application</span>Test the Integration between ACS and Your ASP.NET Web Application</h2>
 
 This task describes how you can test the integration between your RP
 application and ACS.
@@ -438,7 +438,7 @@ Yahoo! or Facebook users, or users registered in enterprise directories,
 such as Active Directory Domain Services, access to this ASP.NET web
 application.
 
-<h2><span class=”short-header”>What's Next</span>What's Next</h2>
+<h2><span class="short-header">What's Next</span>What's Next</h2>
 
 To further explore ACS's functionality and to experiment with more
 sophisticated scenarios, see [Access Control Service 2.0.][Access Control Service 2.0]
