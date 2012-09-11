@@ -17,7 +17,7 @@ The task includes the following steps:
 * [Publish and re-publish the web site](#Step6)
 * [Troubleshooting](#Step7)
 
-<h2 id="Step1">Installing Git</h2>
+<h2 id="Step1"><span class="short-header">Installing Git</span>Installing Git</h2>
 
 The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distrubtions and installation guidance.
 
@@ -27,7 +27,7 @@ The steps required to install Git vary between operating systems. See [Installin
 </div>
 
 
-<h2 id="Step2">Create a local repository</h2>
+<h2 id="Step2"><span class="short-header">Create local repo</span>Create a local repository</h2>
 
 Perform the following tasks to create a new Git repository.
 
@@ -42,7 +42,7 @@ Perform the following tasks to create a new Git repository.
 	This should return a message such as **Initialized empty Git repository in [path]**.
 
 
-<h2 id="Step3">Add a web page</h2>
+<h2 id="Step3"><span class="short-header">Add files</span>Add a web page</h2>
 
 Windows Azure Web Sites support a applications created in a variety of programming languages. For this example, you will use a static .html file. For information on publishing web sites in other programming languages to Windows Azure, see the [Windows Azure Developer Center].
 
@@ -62,7 +62,7 @@ Windows Azure Web Sites support a applications created in a variety of programmi
 		 1 file changed, 1 insertion(+)
 		 create mode 100644 index.html
 
-<h2 id="Step4">Enable the web site repository</h2>
+<h2 id="Step4"><span class="short-header">Create remote repo</span>Enable the web site repository</h2>
 
 Perform the following steps to enable a Git repository for your web site by using the Windows Azure portal:
 
@@ -84,7 +84,7 @@ Perform the following steps to enable a Git repository for your web site by usin
 
 	![Repository ready][portal-repository-ready]
 
-<h2 id="Step5">Add the web site as a remote repository</h2>
+<h2 id="Step5"><span class="short-header">Add remote</span>Add the web site as a remote repository</h2>
 
 Since you have already initialized a local repository and added files to it, skip steps 1 and 2 of the instructions displayed in the portal. Using the command-line, change directories to your web site directory and use the commands listed in step 3 of the instructions returned by the portal. For example:
 
@@ -93,7 +93,7 @@ Since you have already initialized a local repository and added files to it, ski
 
 The **remote** command adds a named reference to a remote repository, in this case it creates a reference named 'azure' for your Windows Azure Website repository.
 
-<h2 id="Step6">Publish and re-publish the web site</h2>
+<h2 id="Step6"><span class="short-header">Publish</span>Publish and re-publish the web site</h2>
 
 1. Use the following from the command-line to push the current repository contents from the local repository to the 'azure' remote:
 
@@ -134,7 +134,7 @@ The **remote** command adds a named reference to a remote repository, in this ca
 
 	![A webpage containing 'Yay!'][yay]
 
-<h2 id="Step7">Troubleshooting</h2>
+<h2 id="Step7"><span class="short-header">Troubleshooting</span>Troubleshooting</h2>
 
 The following are errors or problems commonly encountered when using Git to publish to a Windows Azure Website:
 
