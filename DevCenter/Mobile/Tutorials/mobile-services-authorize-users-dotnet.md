@@ -2,8 +2,15 @@
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14810" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
-# Use scripts to authorize users in Mobile Services
-Language: **C# and XAML**  
+<div class="dev-center-os-selector">
+  <a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/" title=".NET client version" class="current">C# and XAML</a>
+<!--
+  <a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js/" title="JavaScript client version">JavaScript and HTML</a>
+-->
+  <span>Tutorial</span>
+</div>
+
+# Use scripts to authorize users in Mobile Services 
 
 This topic shows you how to use server scripts to authorize authenticated users for accessing data in Windows Azure Mobile Services from a Windows Store app.  In this tutorial you register scripts with Mobile Services to filter queries based on the userId of an authenticated user, ensuring that each user can see only their own data.
 
