@@ -4,7 +4,9 @@
 
 <div class="dev-center-os-selector">
   <a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/" title=".NET client version" class="current">C# and XAML</a>
-  <a href="" title="JavaScript client version">JavaScript and HTML</a>
+  <!--
+  <a href="/en-us/develop/mobile/tutorials/get-started-with-data-js/" title="JavaScript client version">JavaScript and HTML</a>
+   -->
   <span>Tutorial</span>
 </div>
 
