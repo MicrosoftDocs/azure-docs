@@ -13,3 +13,9 @@ aspect of developing applications for Windows Azure. You can use the
 resources in the training kit to teach yourself or train others.
 
 You can [download and install the kit](http://go.microsoft.com/fwlink/?LinkID=130354) on Microsoft Download Center.
+
+###[SharePoint Deployment on Windows Azure Virtual Machines](http://www.microsoft.com/en-us/download/details.aspx?id=34598)
+
+The *SharePoint Deployment on Windows Azure Virtual Machines* white paper provides guidance about the benefits of Windows Azure Virtual Machines and explains how to deploy SharePoint Server 2010 on Windows Azure Virtual Machines.
+
+You can [download the whitepaper](http://www.microsoft.com/en-us/download/details.aspx?id=34598) on the Microsoft Download Center.
