@@ -11,13 +11,12 @@ The steps in this task require you to configure your web sites for shared or res
 
 You can use a CNAME record to point your domain name to your Windows Azure web site. You can also configure an A record to point the domain name to Windows Azure web site. The process requires that you wait for the CNAME and A records propagate before you can finally set the domain name in the management portal.
 
-There are two ways you can configure the DNS settings on your domain
+There are two ways you can configure the Domain Name Server (DNS) settings on your domain
 registrar to point to your Windows Azure web site:
 
 1.  **CNAME or Alias record**
 
-    With a CNAME, you map a *specific* domain, such as www.contoso.com or myblog.contoso.com, to the <*mysite*>.azurewebsites.net domain name of your Windows Azure web site. The lifetime of the <*mysite*>.cloudapp.net domain name required to implement this olution is the lifetime of your hosted service and persists even if your hosted service does not contain any deployments.
-
+    With a CNAME, you map a *specific* domain, such as www.contoso.com or myblog.contoso.com, to the <*mysite*>.azurewebsites.net domain name of your Windows Azure web site. 
     Most domain registrars only allow you to map subdomains, such as www.contoso.com and not root names, such as contoco.com or wildcard names, such as \*.contoso.com.
 
 2.  **A record**
