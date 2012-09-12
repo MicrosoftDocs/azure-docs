@@ -258,7 +258,7 @@ filters:
     // Add a footer to the message.
     myMessage.EnableFooter("PLAIN TEXT FOOTER", "<p><em>HTML FOOTER</em></p>");
 
-### Click Tracking
+### Click tracking
 
     // Create the email object first, then add the properties.
     SendGrid myMessage = SendGrid.GenerateInstance();
@@ -279,7 +279,7 @@ SendGrid offers web-based APIs that you can use to leverage additional
 SendGrid functionality from your Windows Azure application. For full
 details, see the [SendGrid API documentation][].
 
-<h2 id="nextsteps"><span class="short-header">Next steps</span>Next Steps</h2>
+<h2 id="nextsteps"><span class="short-header">Next steps</span>Next steps</h2>
 
 Now that you’ve learned the basics of the SendGrid Email service, follow
 these links to learn more.
