@@ -1,5 +1,7 @@
 <properties umbraconavihide="0" pagetitle="Service Bus Relay - How To - .NET - Develop" metakeywords="get started azure Service Bus Relay, Azure relay, Azure Service Bus relay, Service Bus relay, Azure relay .NET, Azure Service Bus relay .NET, Service Bus relay .NET, Azure relay C#, Azure Service Bus relay C#, Service Busy relay C#" metadescription="Learn how to use the Windows Azure Service Bus relay service to connect two applications hosted in different locations." linkid="dev-net-how-to-service-bus-relay" urldisplayname="Service Bus Relay" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
+<div chunk=”../chunks/article-left-menu.md” />
+
 # How to Use the Service Bus Relay Service
 
 This guide will show you how to use the Service Bus relay service.
@@ -9,16 +11,7 @@ that is part of the .NET libraries for Windows Azure. For more
 information on the Service Bus relay, see the [Next Steps][]
 section.
 
-## Table of Contents
-
--   [What is the Service Bus Relay][]
--   [Create a Service Namespace][]
--   [Obtain the Default Management Credentials for the Namespace][]
--   [Get the Service Bus NuGet Package][]
--   [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP][]
--   [Next Steps][]
-
-## <a name="what-is"> </a>What is the Service Bus Relay
+<h2><span class=”short-header”>What is the Service Bus Relay</span>What is the Service Bus Relay</h2>
 
 The Service Bus **Relay** service enables you to build **hybrid
 applications** that run in both a Windows Azure datacenter and your
@@ -45,7 +38,7 @@ This guide demonstrates how to use the Service Bus relay to create a WCF
 web service, exposed using a TCP channel binding, that implements a
 secured conversation between two parties.
 
-## <a name="create_namespace"> </a>Create a Service Namespace
+<h2><span class=”short-header”>Create a Service Namespace</span>Create a Service Namespace</h2>
 
 To begin using the Service Bus relay in Windows Azure, you must first
 create a service namespace. A service namespace provides a scoping
@@ -77,7 +70,7 @@ The namespace you created will then appear in the Management Portal and
 takes a moment to activate. Wait until the status is **Active** before
 continuing.
 
-## <a name="obtain_credentials"> </a>Obtain the Default Management Credentials for the Namespace
+<h2><span class=”short-header”>Obtain Management Credentials</span>Obtain the Default Management Credentials for the Namespace</h2>
 
 In order to perform management operations, such as creating a relay
 connection, on the new namespace, you need to obtain the management
@@ -102,7 +95,7 @@ credentials for the namespace.
     will use this information below to perform operations with the
     namespace.
 
-## <a name="get_nuget_package"> </a>Get the Service Bus NuGet Package
+<h2><span class=”short-header”>Get the NuGet Package</span>Get the Service Bus NuGet Package</h2>
 
 The Service Bus **NuGet** package is the easiest way to get the
 Service Bus API and to configure your application with all of the
@@ -116,13 +109,13 @@ To install the NuGet package in your application, do the following:
 
 1.  In Solution Explorer, right-click **References**, then click
     **Manage NuGet Packages**.
-2.  Search for "WindowsAzure.ServiceBus" and select the **Windows Azure
+2.  Search for WindowsAzure" and select the **Windows Azure
     Service Bus** item. Click **Install** to complete the installation,
     then close this dialog.
 
     ![][5]
 
-## <a name="how_soap"> </a>How to Use Service Bus to Expose and Consume a SOAP Web Service with TCP
+<h2><span class=”short-header”>Expose and Consume a SOAP Web Service</span>How to Use Service Bus to Expose and Consume a SOAP Web Service with TCP</h2>
 
 To expose an existing WCF SOAP web service for external
 consumption, you must make changes to the service bindings and
@@ -134,7 +127,7 @@ internal endpoints while adding Service Bus endpoints for external
 access at the same time.
 
 In this task, you will build a simple WCF service and
-add a Service Bus listener to it. This exercise assumes some familiarity with Visual Studio 2010, and therefore does not walk through all the details of creating a project. Instead, it focuses on the code.
+add a Service Bus listener to it. This exercise assumes some familiarity with Visual Studio 2012, and therefore does not walk through all the details of creating a project. Instead, it focuses on the code.
 
 Before starting the steps below, complete the following procedure to set up
 your environment:
@@ -339,7 +332,7 @@ and key.
         </endpointBehaviors>
     </behaviors>
 
-## <a name="next_steps"> </a>Next Steps
+<h2><span class=”short-header”>Next Steps</span>Next Steps</h2>
 
 Now that you've learned the basics of the Service Bus **Relay** service,
 follow these links to learn more.
@@ -361,7 +354,7 @@ follow these links to learn more.
   [2]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
   [3]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [4]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-  [5]: ../../../DevCenter/dotNet/Media/hy-con-2.png
+  [5]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-13.png
   [Building a Service for the Service Bus]: http://msdn.microsoft.com/en-us/library/windowsazure/ee173564.aspx
   [Building a Service Bus Client Application]: http://msdn.microsoft.com/en-us/library/windowsazure/ee173543.aspx
   [Windows Azure Samples]: http://code.msdn.microsoft.com/windowsazure

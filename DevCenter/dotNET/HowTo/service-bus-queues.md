@@ -1,5 +1,7 @@
 <properties linkid="dev-net-how-to-service-bus-queues" urldisplayname="Service Bus Queues" headerexpose="" pagetitle="Service Bus Queues - How To - .NET - Develop" metakeywords="Get Started Service Bus queues, Get started Azure Service Bus queues, Azure messaging, Azure brokered messaging, Azure messaging queue, Service Bus queue, Azure Service Bus queue, Azure messaging .NET, Azure messaging queue .NET, Azure Service Bus queue .NET, Service Bus queue .NET, Azure messaging C#, Azure messaging queue C#, Azure Service Bus queue C#, Service Bus queue C#" footerexpose="" metadescription="Get started with Windows Azure Service Bus queues, including how to create queues, how to send and receive messages, and how to delete queues." umbraconavihide="0" disquscomments="1"></properties>
 
+<div chunk=”../chunks/article-left-menu.md” />
+
 # How to Use Service Bus Queues
 
 <span>This guide will show you how to use Service Bus queues. The
@@ -7,21 +9,7 @@ samples are written in C\# and use the .NET API. The scenarios covered
 include **creating queues, sending and receiving messages**, and
 **deleting queues**. For more information on queues, see the [Next Steps] section. </span>
 
-## Table of Contents
-
--   [What are Service Bus Queues][]
--   [Create a Service Namespace][]
--   [Obtain the Default Management Credentials for the Namespace][]
--   [Configure Your Application to Use Service Bus][]
--   [How to: Set Up a Service Bus Connection String][]
--   [How to: Configure your Connection String][]
--   [How to: Create a Queue][]
--   [How to: Send Messages to a Queue][]
--   [How to: Receive Messages from a Queue][]
--   [How to: Handle Application Crashes and Unreadable Messages][]
--   [Next Steps][]
-
-## <a name="what-queues"> </a>What are Service Bus Queues
+<h2><span class=”short-header”>What are Service Bus Queues</span>What are Service Bus Queues</h2>
 
 <span>Service Bus Queues support a **brokered messaging communication**
 model. When using queues, components of a distributed application do not
@@ -53,7 +41,7 @@ a wide variety of scenarios:
 Using queues can enable you to scale out your applications better, and
 enable more resiliency to your architecture.
 
-## <a name="create-namespace"> </a>Create a Service Namespace
+<h2><span class=”short-header”>Create a Service Namespace</span>Create a Service Namespace</h2>
 
 To begin using Service Bus queues in Windows Azure, you must first
 create a service namespace. A service namespace provides a scoping
@@ -84,7 +72,7 @@ The namespace you created will then appear in the Management Portal and
 takes a moment to activate. Wait until the status is **Active** before
 moving on.
 
-## <a name="obtain-creds"> </a>Obtain the Default Management Credentials for the Namespace
+<h2><span class=”short-header”>Obtain Management Credentials</span>Obtain the Default Management Credentials for the Namespace</h2>
 
 In order to perform management operations, such as creating a queue, on
 the new namespace, you need to obtain the management credentials for the
@@ -109,7 +97,7 @@ namespace.
     will use this information below to perform operations with the
     namespace.
 
-## <a name="configure-app"> </a>Configure Your Application to Use Service Bus
+<h2><span class=”short-header”>Configure the Application</span>Configure the Application to Use Service Bus</h2>
 
 When you create an application that uses Service Bus, you will need to
 add a reference to the Service Bus assembly and include the
@@ -132,7 +120,7 @@ Service Bus queues:
 
 You are now ready to write code against the Service Bus.
 
-## <a name="set-up-connstring"> </a>How to Set Up a Service Bus Connection String
+<h2><span class=”short-header”>Set Up the Connection String</span>How to Set Up a Service Bus Connection String</h2>
 
 The Service Bus uses a connection string to store endpoints and credentials. You can put your connection string in a configuration file, rather than hard-coding it in code:
 
@@ -188,7 +176,7 @@ When using Web Sites or Virtual Machines, it is recommended you use the .NET con
 Use the issuer and key values retrieved from the Management Portal as
 described in the previous section.
 
-## <a name="create-queue"> </a>How to Create a Queue
+<h2><span class=”short-header”>How to Create a Queue</span>How to Create a Queue</h2>
 
 You can perform management operations for Service Bus queues via the **NamespaceManager** class. The **NamespaceManager** class provides methods to create, enumerate, and delete queues. 
 
@@ -239,7 +227,7 @@ maximum size of 5GB and a default message time-to-live of 1 minute:
 objects to check if a queue with a specified name already exists within
 a service namespace.
 
-## <a name="send-messages"> </a>How to Send Messages to a Queue
+<h2><span class=”short-header”>Send Messages to a Queue</span>How to Send Messages to a Queue</h2>
 
 To send a message to a Service Bus queue, your application creates a
 **QueueClient** object using the connection string.
@@ -288,7 +276,7 @@ held in a queue but there is a cap on the total size of the messages
 held by a queue. This queue size is defined at creation time, with an
 upper limit of 5 GB.
 
-## <a name="receive-messages"> </a>How to Receive Messages from a Queue
+<h2><span class=”short-header”>Receive Messages from a Queue</span>How to Receive Messages from a Queue</h2>
 
 The easiest way to receive messages from a queue is to use a
 **QueueClient** object. These objects can work in two
@@ -346,7 +334,7 @@ processed using the default **PeekLock** mode. To specify a different **ReceiveM
        }
     } 
 
-## <a name="handle-crashes"> </a>How to Handle Application Crashes and Unreadable Messages
+<h2><span class=”short-header”>Application Crashes and Unreadable Messages</span>How to Handle Application Crashes and Unreadable Messages</h2>
 
 The Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
@@ -374,7 +362,7 @@ to handle duplicate message delivery. This is often achieved using the
 **MessageId** property of the message, which will remain constant across
 delivery attempts.
 
-## <a name="next-steps"> </a>Next Steps
+<h2><span class=”short-header”>Next Steps</span>Next Steps</h2>
 
 Now that you've learned the basics of Service Bus queues, follow these
 links to learn more.

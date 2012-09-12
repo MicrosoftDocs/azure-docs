@@ -1,11 +1,12 @@
 <properties linkid="dev-net-e2e-multi-tier" urldisplayname="Multi-Tier Application" headerexpose="" pagetitle=".NET Multi-Tier Application" metakeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET Service Bus queue tutorial, Azure .NET queue tutorial, Azure .NET worker role tutorial, Azure C# Service Bus queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop a multi-tier application in Windows Azure that includes web and worker roles and uses Service Bus queues to communicate between tiers." umbraconavihide="0" disquscomments="1"></properties>
 
+<div chunk=”../chunks/article-left-menu.md” />
+
 # .NET Multi-Tier Application Using Service Bus Queues
 
-Developing for Windows Azure is easy using Visual Studio 2010 and the
+Developing for Windows Azure is easy using Visual Studio 2012 and the
 free Windows Azure SDK for .NET. If you do not already have Visual
-Studio 2010, the SDK will automatically install Visual Web Developer
-2010 Express, so you can start developing for Windows Azure entirely for
+Studio 2012, the SDK will automatically install Visual Web Developer Express, so you can start developing for Windows Azure entirely for
 free. This guide assumes you have no prior experience using Windows
 Azure. On completing this guide, you will have an application that uses
 multiple Windows Azure resources running in your local environment and
@@ -30,7 +31,7 @@ shown below:
 
 <div chunk="../../Shared/Chunks/create-account-note.md" />
 
-## Scenario Overview: Inter-Role Communication
+<h2><span class=”short-header”>Inter-Role Communication</span>Scenario Overview: Inter-Role Communication</h2>
 
 To submit an order for processing, the front end UI component, running
 in the web role, needs to interact with the middle tier logic running in
@@ -89,7 +90,7 @@ messaging, namely:
 The following sections discuss the code that implements this
 architecture.
 
-## Set Up the Development Environment
+<h2><span class=”short-header”>Set Up Environment</span>Set Up the Development Environment</h2>
 
 Before you can begin developing your Windows Azure application, you need
 to get the tools and set-up your development environment.
@@ -114,7 +115,7 @@ to get the tools and set-up your development environment.
     do not have Visual Studio installed, it also installs the free
     Visual Web Developer Express.
 
-## <a name="create-namespace"> </a>Set up the Service Bus Namespace
+<h2><span class="short-header">Set up the Namespace</span>Set up the Service Bus Namespace</h2>
 
 The next step is to create a service namespace, and to obtain a shared
 secret key. A service namespace provides an application boundary for
@@ -161,7 +162,7 @@ application.
 9.  In Default Key, click **View**. Make a note of the key, or copy it
     to the clipboard.
 
-## Create a Web Role
+<h2><span class=”short-header”>Create a Web Role</span>Create a Web Role</h2>
 
 In this section, you will build the front end of your application. You
 will first create the various pages that your application displays.
@@ -171,9 +172,9 @@ Queue and displaying status information about the queue.
 ### Create the Project
 
 1.  Using administrator privileges, start either Microsoft Visual Studio
-    2010 or Microsoft Visual Web Developer Express 2010. To start Visual
+    2012 or Microsoft Visual Web Developer Express. To start Visual
     Studio with administrator privileges, right-click **Microsoft Visual
-    Studio 2010 (or Microsoft Visual Web Developer Express 2010)** and
+    Studio 2012 (or Microsoft Visual Web Developer Express)** and
     then click Run as administrator. The Windows Azure compute emulator,
     discussed later in this guide, requires that Visual Studio be
     launched with administrator privileges.
@@ -470,7 +471,7 @@ Service Bus Queue.
 
     ![][18]
 
-## Cloud Configuration Manager
+<h2><span class=”short-header”>Configuration Manager</span>Cloud Configuration Manager</h2>
 
 Windows Azure supports a set of managed API that provides a consistent way to create new instances of Windows Azure service clients (such as the Service Bus) across Microsoft cloud services. The API enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in websites, or in a persistent VM Role. You can also use these API to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The API are located in the [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] class. There are also APIs on the client side.
 
@@ -503,7 +504,7 @@ The following code retrieves the connection string, creates a queue, and initial
 
 The code in the following section uses these configuration management APIs.
 
-## Create the Worker Role
+<h2><span class=”short-header”>Create Worker Role</span>Create the Worker Role</h2>
 
 You will now create the worker role that processes the order
 submissions. This example uses the **Worker Role with Service Bus Queue** Visual Studio project template. First, you will use Server Explorer in Visual Studio to obtain the required credentials.
@@ -563,7 +564,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
         	// Add these two lines of code
         	// View the message as an OnlineOrder
-			OnlineOrder order = receivedMessage.Get<OnlineOrder>();
+			OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
         	Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
 
         	receivedMessage.Complete();
@@ -604,9 +605,9 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
   [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]:http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudconfigurationmanager.aspx
   [19]: ../Media/getting-started-multi-tier-38.png
   [20]: ../Media/getting-started-multi-tier-39.png
-  [21]: ../Media/SBExplorer.jpg
-  [22]: ../Media/SBExplorerAddConnect.jpg
-  [23]: ../Media/SBWorkerRole1.jpg
-  [24]: ../Media/SBExplorerProperties.jpg
-  [25]: ../Media/SBWorkerRoleProperties.jpg
-  [26]: ../Media/SBNewWorkerRole.jpg
+  [21]: ../Media/SBExplorer.png
+  [22]: ../Media/SBExplorerAddConnect.png
+  [23]: ../Media/SBWorkerRole1.png
+  [24]: ../Media/SBExplorerProperties.png
+  [25]: ../Media/SBWorkerRoleProperties.png
+  [26]: ../Media/SBNewWorkerRole.png
