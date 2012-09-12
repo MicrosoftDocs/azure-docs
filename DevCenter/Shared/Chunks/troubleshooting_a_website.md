@@ -52,13 +52,13 @@ Concepts introduced in this article include:
 ##<a name="installdevtools"></a>Install developer tools and create a Web Site on your local computer
 Before discussing how to troubleshoot a web site we must first create a web site. This section walks through using Microsoft WebMatrix to create a simple web site and deploy the web site to Windows Azure.
 ###<a name="installwebmatrix"></a>Install Microsoft WebMatrix
-Visit [http://www.microsoft.com/web/webmatrix][webmatrix] and choose **Install WebMatrix**.  This will run the Web Platform Installer which installs all the dependencies you need to run WebMatrix and then install WebMatrix.
+Visit [http://www.microsoft.com/web/webmatrix][webmatrix] and click the **Free Download** buttpn.  This will run the Web Platform Installer which installs all the dependencies you need to run WebMatrix and then install WebMatrix.
 ###<a name="createlocalsite"></a>Create a Web Site on your local computer with WebMatrix
 To create a web site with WebMatrix follow these steps:
 
 1. Click <b>Start</b>, <b>All Programs</b>, <b>Microsoft WebMatrix</b> and then click <b>Microsoft WebMatrix</b> to display the WebMatrix Quick Start screen.
-2. Click <b>Site From Template</b> to display the available templates.
-3. Select the <b>Starter Site</b> template, enter a value (e.g. <b>AzureWebDiag</b>) for the Site Name and then click <b>OK</b>.
+2. Click <b>Templates</b> to display the available templates.
+3. Select the <b>Starter Site</b> template, enter a value (e.g. <b>AzureWebDiag</b>) for the Site Name and then click <b>Next</b>.
 
 	![Create new site from a template][newsitefromtemplate]
 
@@ -78,7 +78,7 @@ Before you can deploy your web site from WebMatrix to Windows Azure you must fir
 
 ###<a name="quickcreateazurewebsite"></a>'Quick Create' a new Web Site on Windows Azure
 
-1. Connect to the Windows Azure Portal and click **New**, **Web Site**, **Quick Create**.
+1. Connect to the [Windows Azure Portal] and click **New**, **Web Site**, **Quick Create**.
 2. Enter a name for the URL (e.g. AzureWebDiag), select an appropriate Region and then click **Create Web Site**. 
  
  ![Create a new web site][createnewwebsite]
@@ -90,7 +90,7 @@ Before you can deploy your web site from WebMatrix to Windows Azure you must fir
 ###<a name="deploymentuser"></a>Create deployment user credentials###
 Web Sites support multiple deployment technologies including MSDeploy/Webdeploy, TFS, FTP and GIT. This tutorial will describe how to use FTP to deploy a web site from your developer computer to Windows Azure.  Both GIT and FTP deployment require authentication with specific **deployment user** credentials that you generate from the web site management pages. If you have not already created deployment user credentials follow these steps: 
 
-1. Click **Reset FTP Credentials** from the **QuickStart** management page to display the **Deployment Credentials** dialog box. Then enter values for Username and Password and click the check mark to generate deployment user credentials.   
+1. Click **Set up deployment credentials** under the **Publish your app** heading on the **QuickStart** management page. This will display the **Deployment Credentials** dialog box. Then enter values for Username and Password and click the check mark to generate deployment user credentials.   
 
 	![Create deployment credentials][createdeploycreds]
 
@@ -107,11 +107,12 @@ Web Sites support multiple deployment technologies including MSDeploy/Webdeploy,
 Now that you have created a web site on Windows Azure and generated the necessary deployment user credentials you can deploy the web site from your developer computer to Windows Azure.  To deploy a web site to Windows Azure using FTP you can use one of several FTP clients available for download on the Internet or you can deploy directly from your development environment if the application supports FTP publishing. Since WebMatrix supports FTP publishing, follow these steps to publish the web site you created in WebMatrix to Windows Azure:
 
 1. Open the web site that you created with WebMatrix.
-2. From the default view of the web site displayed in the WebMatrix IDE, click the **Publish** button to display **Publish Settings**.
+2. From the default view of the web site displayed in the WebMatrix IDE, click the **Publish** button to display the **Publish Your Site** window and click the **Enter settings** link under the **I already have a hosted website**.
 
 	![WebMatrix Publish Settings][webmatrixpubsettings]
 
 3. <p id="pubsettings">Enter the following values in the <b>Publish Settings</b> dialog box:</p>
+![WebMatrix Publish Settings2][webmatrixpubsettings2]
 -  **Protocol:**  Select **FTP**
 - **Server:**  Specify the URL listed under **FTP Hostname** on the web site's **Dashboard** management page.
 - **Site path:** site/wwwroot
@@ -120,14 +121,16 @@ Now that you have created a web site on Windows Azure and generated the necessar
 - **Destination URL:** Specify the URL listed under **Site URL** on the web site's **Dashboard** management page. 
 - **Save password:** Check this option to save the deployment user password. 
 - **Validate Connection:** Click this to verify that WebMatrix can connect to the FTP host using the specified parameters.
-4. Click **Save** and then click the **Publish** button again to initiate deployment of the local web site to Windows Azure. If you are prompted to test compatibility click **No**. WebMatrix will calculate what files have changed since the last time the web site was published (all of them since this is the first time the web site has been published to Windows Azure) and display a **Publish Preview** dialog box:
+4. Click **Save** and a **Publish Compatibility** window is shown. Click **Continue** to perform the compatibility tests.
+![Publish Compatibility Window][publishcompatibility]
+5. Click the **Continue** button again to initiate deployment of the local web site to Windows Azure. WebMatrix will calculate what files have changed since the last time the web site was published (all of them since this is the first time the web site has been published to Windows Azure) and display a **Publish Preview** dialog box:
 
 	![WebMatrix Publish Preview][webmatrixpubpre]
 
 5. Select the checkbox next to the file StarterSite.sdf and click **Continue** to initiate deployment to Windows Azure. 
 6. After publishing is complete click the link displayed under **Site URL** from the **Dashboard** management page to open the an instance of the web site from your browser. You should see a web page similar to the following:
 
-	![Web Site Published to Windows Azure][sitepublishtoazure]
+	![Web Site Published to Windows Azure][defaultpagenewsite]
 
 ##<a name="enableazurediagnostics"></a>Enable diagnostics for the Web Site
 
@@ -157,36 +160,26 @@ Follow these steps to register an account on the web site:
 
 ##<a name="causewebsiteerror"></a>Introduce an error condition on the website
 
-Before downloading and analyzing diagnostic data from a website it will be useful to modify the web site to cause an error to occur. Follow the steps below to cause an error condition, configure the web site to display application errors and deploy the updated web site to Windows Azure.
+Before downloading and analyzing diagnostic data from a website it will be useful to modify the web site to cause an error to occur. Follow the steps below to cause an error condition and configure the web site to display application errors.
 
 ###<a name="breakregistration"></a>Rename the Web Site user account database file
 
-The web site is configured to store account registration information in the file **StarterSite.sdf**. To introduce an error condition on instances of the web site, rename the file **StarterSite.sdf** to **StarterSite.bak**:
+The web site is configured to store account registration information in the file **StarterSite.sdf**. To introduce an error condition on instances of the web site, rename the file **StarterSite.sdf** to **StarterSite.bak** on the deployed web site:
 
-1. On the local developer computer, open the web site that you deployed to Windows Azure with WebMatrix.
-2. Select **Files** on the left hand side of the WebMatrix IDE to display the directories and files for the web site.
-3. Click to expand the **App_Data** folder, right-click the file **StarterSite.sdf** and then select **Rename** from the menu.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
-
-	![Rename StarterSite.sdf file][renamestartersite]
-
-4. Rename the file **StartSite.sdf** to **StarteSite.bak**. After the renamed file is deployed to Windows Azure websites will be unable to access the user account database, causing an error to occur whenever clients connect to instances of the web site. 
+1. On the **Dashboard** page for the web site, click the **FTP Host Name** under the **Quick Glance** section. This will start an instance of Internet Explorer. Press the ALT key and select the **View** menu. Next select **Open FTP site in Windows Explorer**. 
+2. Navigate to the /site/wwwroot/App_Data/ directory,
+3. Rename the file **StarterSite.sdf** to **StarterSite.bak**. After renaming the file  Windows Azure websites will be unable to access the user account database, causing an error to occur whenever clients connect to instances of the web site. 
 
 ###<a name="addwebconfig"></a>Configure the Web Site to display application errors
 
 The default **mode** of the ASP.NET [customErrors][customErrors] configuration setting is **RemoteOnly**, which prevents application errors from being displayed. To configure the web site to display application errors create a web.config file and set the **mode** attribute of **customErrors**  to **Off**:
 
-1. Open Notepad and paste the following text into a new document:
+1. Open the web.config file located in the root directory of your web site. Open the file with Notepad (or any editor you like) and add the following XML inside the <system.web> elements:
 
-		<configuration>
-			<system.web>
-				<customErrors mode="Off"/>
-			</system.web>
-		</configuration>
+		<customErrors mode="Off"/>
+If you are unsure of the location of your web site, open WebMatrix and right-click AzureWebDiag and select **Show in File Explorer**.
 
-2. Save the contents of this document to the root directory of your web site with the name "web.config":
-
-	![Save web.config to the root folder of your website][savewebconfigtoroot]
-
+	
 	<div class="dev-callout"> 
 	<b>Note</b> 
 	<p>When an ASP.NET website running on Windows Azure is not configured to display application errors, a web page similar to the following is displayed if an application error occurs:</p> </div>	
@@ -254,13 +247,13 @@ echo “&lt;/pre&gt;”;
 ?&gt;
 </pre>
 
-When you  add the file **environment.aspx** to a .NET web application or the file **environment.php** to a PHP web application, after you have deployed your web site to Windows Azure you can browse to these files to view values assigned to a website's environment variables.
+When you add the file **environment.aspx** to a .NET web application or the file **environment.php** to a PHP web application, after you have deployed your web site to Windows Azure you can browse to these files to view values assigned to a website's environment variables.
 
 ###<a name="deployerrortoazure"></a>Deploy the updated Web Site to Windows Azure###
 
 1. Click **Publish** in the WebMatrix IDE. WebMatrix will calculate any changes made to files since the last time you published and display the changes in a dialog box  similar to the following:
 
-	![WebMatrix Publish Preview][webmatrixpubprev]
+	![WebMatrix Publish Preview][webmatrixpubpre2]
 
 2. Click **Continue** to initiate transfer of these files to Windows Azure. 
 3. After publishing is complete click the link displayed under **Site URL** from the **Dashboard** management page to open the website from your browser. You should see a web page similar to the following:   
@@ -377,6 +370,7 @@ Checking the web site's \root\App\_Data\ directory  we can verify that there is 
 [initdb]:http://go.microsoft.com/fwlink/?LinkId=252805
 [initdbconnect]:http://go.microsoft.com/fwlink/?LinkId=252806
 [connecttosqlinwebmatrix]:http://go.microsoft.com/fwlink/?LinkId=208661
+[Windows Azure Portal]:https://manage.windowsazure.com
 
 [newsitefromtemplate]: ..\Media\tshootSiteFromTemplate.png
 [newsiteinwebmatrix]: ..\Media\tshootWebMatrixIDE.png
@@ -387,7 +381,9 @@ Checking the web site's \root\App\_Data\ directory  we can verify that there is 
 [verifydeployuser]: ..\Media\tshootquickglanceborder.png
 [webunderconstruction]: ..\Media\tshootUnderConstruction.png
 [webmatrixpubsettings]: ..\Media\tshootPublishSettings.png
+[webmatrixpubsettings2]: ..\Media\tshootPublishSettings2.png
 [webmatrixpubpre]: ..\Media\tshootPublishPreview.png
+[webmatrixpubpre2]: ..\Media\tshootPublishPreview2.png
 [sitepublishtoazure]: ..\Media\tshootPublishedSite.png
 [siteregpage]: ..\Media\tshootregisteracct.png
 [loggedontosite]: ..\Media\tshootloggedon.png
@@ -400,4 +396,5 @@ Checking the web site's \root\App\_Data\ directory  we can verify that there is 
 [viewlogfiles]: ..\Media\tshootlogfiles.png
 [viewdetailederr]: ..\Media\tshootdetailederrors.png
 [failedreqtrace]: ..\Media\tshootfailedrequesttracing.png
-[logparsercmdwind]: ..\Media\tshootlogparser.png                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+[logparsercmdwind]: ..\Media\tshootlogparser.png
+[publishcompatibility]: ..\Media\tshootPublishCompatibility.png                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
