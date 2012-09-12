@@ -11,13 +11,12 @@ The steps in this task require you to configure your web sites for shared or res
 
 You can use a CNAME record to point your domain name to your Windows Azure web site. You can also configure an A record to point the domain name to Windows Azure web site. The process requires that you wait for the CNAME and A records propagate before you can finally set the domain name in the management portal.
 
-There are two ways you can configure the DNS settings on your domain
+There are two ways you can configure the Domain Name Server (DNS) settings on your domain
 registrar to point to your Windows Azure web site:
 
 1.  **CNAME or Alias record**
 
-    With a CNAME, you map a *specific* domain, such as www.contoso.com or myblog.contoso.com, to the <*mysite*>.azurewebsites.net domain name of your Windows Azure web site. The lifetime of the <*mysite*>.cloudapp.net domain name required to implement this olution is the lifetime of your hosted service and persists even if your hosted service does not contain any deployments.
-
+    With a CNAME, you map a *specific* domain, such as www.contoso.com or myblog.contoso.com, to the <*mysite*>.azurewebsites.net domain name of your Windows Azure web site. 
     Most domain registrars only allow you to map subdomains, such as www.contoso.com and not root names, such as contoco.com or wildcard names, such as \*.contoso.com.
 
 2.  **A record**
@@ -49,21 +48,14 @@ Setting a custom domain name on a web site is only available for the shared and 
 4. In the **general** section, set the web site mode by clicking **SHARED**.
 
 	![][reservedmode3]
-
-5. If you recieve **Spending Limit Warning** click the "I have removed the spending limit on my account" box.
-
-	<div class="dev-callout-new"> 
-	<b>Note</b> 
-	<p>If you have not yet removed the spending limit from your account, follow the instruction in the dialog to do so before proceeding.</p> 
-	</div>
 5. Click **Save**.
-7. On the **You are changing to a mode that may have a billing impact. Continue?** (If you select **RESERVED**, the confirmation message will be: **Are you sure you want to upgrade from Free to Reserved web site mode?**) click **Yes**.
+6. On the **You are changing to a mode that may have a billing impact. Continue?** (If you select **RESERVED**, the confirmation message will be: **Are you sure you want to upgrade from Free to Reserved web site mode?**) click **Yes**.
 
 	<!--![][reservedmode4]-->
 
 <div class="dev-callout-new"> 
-<b>Note</b> 
-<p>If you receive a "Configuring scale for web site '&lt;site name>' Failed" error you can use the details button to get more information. You may receive a "Not enough available reserved instance servers to satisfy this request." error. The web sites feature is in preview and we are adding capacity on a measured basis. If you receive this error, you will need to try again later to upgrade your account.</p> 
+	<b>Note</b> 
+	<p>If you receive a "Configuring scale for web site '&lt;site name>' Failed" error you can use the details button to get more information. You may receive a "Not enough available reserved instance servers to satisfy this request." error. The web sites feature is in preview and we are adding capacity on a measured basis. If you receive this error, you will need to try again later to upgrade your account.</p> 
 </div>
 
 <a name="bkmk_configurecname"></a><h2><span class="short-header">Configure the CNAME on your domain registrar</span></h2>
