@@ -2,7 +2,7 @@
 
 Git is a popular, open source, distributed version control system. Windows Azure Web Sites allow you to enable a Git repository for your site, which allows you to quickly and easily push code changes to your site. In this article, you will learn how to use Git to publish to a Windows Azure Web Site.
 
-<div class="dev-callout">
+<div class="dev-callout-new">
 <strong>Note</strong>
 <p>Many of the Git commands described in this article are performed automatically when creating a Web Site using the <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure Command-Line Tools for Mac and Linux</a>.</p>
 </div>
@@ -17,17 +17,17 @@ The task includes the following steps:
 * [Publish and re-publish the web site](#Step6)
 * [Troubleshooting](#Step7)
 
-<h2 id="Step1">Installing Git</h2>
+<h2 id="Step1"><span class="short-header">Installing Git</span>Installing Git</h2>
 
 The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distrubtions and installation guidance.
 
-<div class="dev-callout">
+<div class="dev-callout-new">
 <strong>Note</strong>
 <p>On some operating systems, both a command-line and GUI version of Git will are available. The instructions provided in this article use the command-line version.</p>
 </div>
 
 
-<h2 id="Step2">Create a local repository</h2>
+<h2 id="Step2"><span class="short-header">Create local repo</span>Create a local repository</h2>
 
 Perform the following tasks to create a new Git repository.
 
@@ -42,7 +42,7 @@ Perform the following tasks to create a new Git repository.
 	This should return a message such as **Initialized empty Git repository in [path]**.
 
 
-<h2 id="Step3">Add a web page</h2>
+<h2 id="Step3"><span class="short-header">Add files</span>Add a web page</h2>
 
 Windows Azure Web Sites support a applications created in a variety of programming languages. For this example, you will use a static .html file. For information on publishing web sites in other programming languages to Windows Azure, see the [Windows Azure Developer Center].
 
@@ -62,7 +62,7 @@ Windows Azure Web Sites support a applications created in a variety of programmi
 		 1 file changed, 1 insertion(+)
 		 create mode 100644 index.html
 
-<h2 id="Step4">Enable the web site repository</h2>
+<h2 id="Step4"><span class="short-header">Create remote repo</span>Enable the web site repository</h2>
 
 Perform the following steps to enable a Git repository for your web site by using the Windows Azure portal:
 
@@ -72,7 +72,7 @@ Perform the following steps to enable a Git repository for your web site by usin
 
 	![An image displaying a selected web site][portal-select-website]
 
-3. At the bottom of the page, select **Setup Git publishing** from the **quick glance** section.
+3. In the **quick glance** section, select **Setup Git publishing**.
 
 	![The Setup Git Publishing link][portal-setup-git]
 
@@ -84,7 +84,7 @@ Perform the following steps to enable a Git repository for your web site by usin
 
 	![Repository ready][portal-repository-ready]
 
-<h2 id="Step5">Add the web site as a remote repository</h2>
+<h2 id="Step5"><span class="short-header">Add remote</span>Add the web site as a remote repository</h2>
 
 Since you have already initialized a local repository and added files to it, skip steps 1 and 2 of the instructions displayed in the portal. Using the command-line, change directories to your web site directory and use the commands listed in step 3 of the instructions returned by the portal. For example:
 
@@ -93,7 +93,7 @@ Since you have already initialized a local repository and added files to it, ski
 
 The **remote** command adds a named reference to a remote repository, in this case it creates a reference named 'azure' for your Windows Azure Website repository.
 
-<h2 id="Step6">Publish and re-publish the web site</h2>
+<h2 id="Step6"><span class="short-header">Publish</span>Publish and re-publish the web site</h2>
 
 1. Use the following from the command-line to push the current repository contents from the local repository to the 'azure' remote:
 
@@ -134,7 +134,7 @@ The **remote** command adds a named reference to a remote repository, in this ca
 
 	![A webpage containing 'Yay!'][yay]
 
-<h2 id="Step7">Troubleshooting</h2>
+<h2 id="Step7"><span class="short-header">Troubleshooting</span>Troubleshooting</h2>
 
 The following are errors or problems commonly encountered when using Git to publish to a Windows Azure Website:
 
@@ -162,7 +162,7 @@ The following are errors or problems commonly encountered when using Git to publ
 
 **Cause**: This error can occur if you attempt to push to a branch other than master on the 'azure' remote.
 
-**Resolution**: erform the push operation again, specifying the master branch. For example:
+**Resolution**: Perform the push operation again, specifying the master branch. For example:
 
 	git push azure master
 
@@ -187,16 +187,16 @@ The following are errors or problems commonly encountered when using Git to publ
 
 ## Additional Resources
 
-* [PowerShell for Windows Azure]
-* [Windows Azure Command-Line Tools for Mac and Linux]
+* [How to use PowerShell for Windows Azure]
+* [How to use the Windows Azure Command-Line Tools for Mac and Linux]
 * [Git Documentation]
 
 [Windows Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/
 [Windows Azure portal]: http://manage.windowsazure.com
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[PowerShell for Windows Azure]: http://windowsazure.com
-[Windows Azure Command-Line Tools for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
+[How to use PowerShell for Windows Azure]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/
+[How to use the Windows Azure Command-Line Tools for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Git Documentation]: http://git-scm.com/documentation
 
 [portal-select-website]: ../Media/git-select-website.png
