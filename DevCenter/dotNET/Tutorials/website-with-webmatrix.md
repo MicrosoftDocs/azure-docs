@@ -11,7 +11,7 @@ You will learn:
 
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
-## Create a web site from the Windows Azure portal
+## Create a web site with the Windows Azure portal
 
 1. Login to the [Windows Azure Portal](http://manage.windowsazure.com).
 2. Click **New** at the bottom left of the Windows Azure portal.
