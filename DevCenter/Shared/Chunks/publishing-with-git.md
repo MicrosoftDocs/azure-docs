@@ -1,8 +1,10 @@
 # Publishing a website with Git
 
-Git is a popular, open source, distributed version control system. Windows Azure Web Sites allow you to enable a Git repository for your site, which allows you to quickly and easily push code changes to your site. In this article, you will learn how to use Git to publish to a Windows Azure Web Site.
+Git is a popular, open source, distributed version control system. Windows Azure Web Sites allow you to enable a Git repository for your site, which allows you to quickly and easily push code changes to your site. Windows Azure Web Sites also support continuous deployment from your public GitHub or CodePlex repositories.
 
-<div class="dev-callout-new">
+In this article, you will learn how to use Git to publish to a Windows Azure Web Site, as well as enable continuous deployment from GitHub and CodePlex.
+
+<div class="dev-callout">
 <strong>Note</strong>
 <p>Many of the Git commands described in this article are performed automatically when creating a Web Site using the <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure Command-Line Tools for Mac and Linux</a>.</p>
 </div>
@@ -17,17 +19,16 @@ The task includes the following steps:
 * [Publish and re-publish the web site](#Step6)
 * [Troubleshooting](#Step7)
 
-<h2 id="Step1"><span class="short-header">Installing Git</span>Installing Git</h2>
+<h2 id="Step1">Installing Git</h2>
 
 The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distrubtions and installation guidance.
 
-<div class="dev-callout-new">
+<div class="dev-callout">
 <strong>Note</strong>
 <p>On some operating systems, both a command-line and GUI version of Git will are available. The instructions provided in this article use the command-line version.</p>
 </div>
 
-
-<h2 id="Step2"><span class="short-header">Create local repo</span>Create a local repository</h2>
+<h2 id="Step2">Create a local repository</h2>
 
 Perform the following tasks to create a new Git repository.
 
@@ -41,8 +42,7 @@ Perform the following tasks to create a new Git repository.
 
 	This should return a message such as **Initialized empty Git repository in [path]**.
 
-
-<h2 id="Step3"><span class="short-header">Add files</span>Add a web page</h2>
+<h2 id="Step3">Add a web page</h2>
 
 Windows Azure Web Sites support a applications created in a variety of programming languages. For this example, you will use a static .html file. For information on publishing web sites in other programming languages to Windows Azure, see the [Windows Azure Developer Center].
 
@@ -62,7 +62,7 @@ Windows Azure Web Sites support a applications created in a variety of programmi
 		 1 file changed, 1 insertion(+)
 		 create mode 100644 index.html
 
-<h2 id="Step4"><span class="short-header">Create remote repo</span>Enable the web site repository</h2>
+<h2 id="Step4">Enable the web site repository</h2>
 
 Perform the following steps to enable a Git repository for your web site by using the Windows Azure portal:
 
@@ -80,11 +80,19 @@ Perform the following steps to enable a Git repository for your web site by usin
 
 	![Deployment credentials prompt][portal-deployment-credentials]
 
-4. After a short delay, you should be presented with a message that your repository is ready. Below this message, in the **Push my local files to Windows Azure** section, there will be a list of commands that can be used to push your local files to Windows Azure.
+4. After a short delay, you should be presented with a message that your repository is ready. Below this message will be instructions for pushing local files to Windows Azure, deploying from a GitHub project, or deploying from a CodePlex project.
 
 	![Repository ready][portal-repository-ready]
 
-<h2 id="Step5"><span class="short-header">Add remote</span>Add the web site as a remote repository</h2>
+<h2 id="Step5">Deploy your project</h2>
+
+Pushing local files to Windows Azure allows you to manually push updates from a local project to your Windows Azure Web Site, while deploying from GitHub or CodePlex results in a continuous deployment process where Windows Azure will pull in the most recent updates to your GitHub or CodePlex project.
+
+While both methods result in your project being deployed to a Windows Azure Web Site, continuous deployment is useful when you have multiple people working on a project and want to ensure that the latest version is always published regardless of who made the most recent update. Continuous deployment is also useful if you are using GitHub or Codeplex as the central repository for your application.
+
+<h3 id="Step6">Pushing local files to Windows Azure</h3>
+
+Once the repository is ready, select **Push my local files to Windows Azure** in the portal for instructions on publishing your local files.
 
 Since you have already initialized a local repository and added files to it, skip steps 1 and 2 of the instructions displayed in the portal. Using the command-line, change directories to your web site directory and use the commands listed in step 3 of the instructions returned by the portal. For example:
 
@@ -93,7 +101,7 @@ Since you have already initialized a local repository and added files to it, ski
 
 The **remote** command adds a named reference to a remote repository, in this case it creates a reference named 'azure' for your Windows Azure Website repository.
 
-<h2 id="Step6"><span class="short-header">Publish</span>Publish and re-publish the web site</h2>
+<h4 id="Step7">Publish and re-publish the web site</h4>
 
 1. Use the following from the command-line to push the current repository contents from the local repository to the 'azure' remote:
 
@@ -134,7 +142,23 @@ The **remote** command adds a named reference to a remote repository, in this ca
 
 	![A webpage containing 'Yay!'][yay]
 
-<h2 id="Step7"><span class="short-header">Troubleshooting</span>Troubleshooting</h2>
+<h2 id="Step8">Deploy files from GitHub or CodePlex<h2>
+
+Deploying files from either GitHub or CodePlex requires that you have published your local project to one of these services. For more information on publishing your project to these services, see [Create a Repo](GitHub) or [Using Git with CodePlex].
+
+Once your project has been published to GitHub or CodePlex, select **Deploy from my GitHub project** or **Deploy from My CodePlex project**. The following steps are based on deploying from a CodePlex project, however the steps are identical for GitHub projects.
+
+1. In step 1 displayed in the portal, select the link to **Associate Windows Azure**. This will display a page asking you to authorize Windows Azure to access your GitHub or CodePlex account. You may be prompted to login to GitHub or CodePlex if you are not already logged in to the service.
+
+2. Once you have authorized Windows Azure to access your account, you will be prompted with a list of repositories. Select the repository that you wish to be associate with this Windows Azure Web Site. Click the checkmark to continue.
+
+3. Windows Azure will create a WebHook with the selected repository, and will pull in the files from the master branch. Once this process completes, you will see a message similar to the following:
+
+4. At this point your project has been deployed from GitHub or CodePlex to your Windows Azure Web Site. To verify that the site is active, navigate to the Web Site **DASHBOARD** page for your Web Site in the portal, and then click the **SITE URL**.
+
+5. To verify that continuous deployment is occuring, make a change to your project and then push the update to GitHub or CodePlex. Your Web Site should update to refelect the new changes shortly after the push to GitHub and CodePlex completes. You can verify that it has pulled in the update by navigating to the **DEPLOYMENT** page for your Web Site in the portal.
+
+<h2 id="Step7">Troubleshooting</h2>
 
 The following are errors or problems commonly encountered when using Git to publish to a Windows Azure Website:
 
@@ -206,3 +230,5 @@ The following are errors or problems commonly encountered when using Git to publ
 [hello-git]: ../Media/git-hello-git.png
 [yay]: ../Media/git-yay.png
 
+[Create a Repo]: https://help.github.com/articles/create-a-repo
+[Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
