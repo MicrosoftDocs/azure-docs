@@ -21,7 +21,7 @@ The task includes the following steps:
 
 <h2 id="Step1">Installing Git</h2>
 
-The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distrubtions and installation guidance.
+The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distributions and installation guidance.
 
 <div class="dev-callout">
 <strong>Note</strong>
@@ -146,17 +146,56 @@ The **remote** command adds a named reference to a remote repository, in this ca
 
 Deploying files from either GitHub or CodePlex requires that you have published your local project to one of these services. For more information on publishing your project to these services, see [Create a Repo](GitHub) or [Using Git with CodePlex].
 
-Once your project has been published to GitHub or CodePlex, select **Deploy from my GitHub project** or **Deploy from My CodePlex project**. The following steps are based on deploying from a CodePlex project, however the steps are identical for GitHub projects.
+1. Once your project has been published to GitHub or CodePlex, select **Deploy from my GitHub project** or **Deploy from My CodePlex project**. The following steps are based on deploying from a CodePlex project, however the steps are identical for GitHub projects.
 
-1. In step 1 displayed in the portal, select the link to **Associate Windows Azure**. This will display a page asking you to authorize Windows Azure to access your GitHub or CodePlex account. You may be prompted to login to GitHub or CodePlex if you are not already logged in to the service.
+	![deployment links for GitHub and Codeplex][deploy-git-links]
+
+1. In the steps displayed in the portal, select the link to **Associate Windows Azure**. This will display a page asking you to authorize Windows Azure to access your GitHub or CodePlex account. You may be prompted to login to GitHub or CodePlex if you are not already logged in to the service.
+
+	![link to associate with CodePlex][git-associate-link]
 
 2. Once you have authorized Windows Azure to access your account, you will be prompted with a list of repositories. Select the repository that you wish to be associate with this Windows Azure Web Site. Click the checkmark to continue.
 
-3. Windows Azure will create a WebHook with the selected repository, and will pull in the files from the master branch. Once this process completes, you will see a message similar to the following:
+	![select repository and click checkbox][git-select-repository]
 
-4. At this point your project has been deployed from GitHub or CodePlex to your Windows Azure Web Site. To verify that the site is active, navigate to the Web Site **DASHBOARD** page for your Web Site in the portal, and then click the **SITE URL**.
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>When enabling continuous deployment with GitHub, only public projects will be displayed.</p>
+	</div>
 
-5. To verify that continuous deployment is occuring, make a change to your project and then push the update to GitHub or CodePlex. Your Web Site should update to refelect the new changes shortly after the push to GitHub and CodePlex completes. You can verify that it has pulled in the update by navigating to the **DEPLOYMENT** page for your Web Site in the portal.
+3. Windows Azure will create an association with the selected repository, and will pull in the files from the master branch. Once this process completes, you will see a message similar to the following:
+
+	![initial deployment message][git-initial-deploy]
+
+4. At this point your project has been deployed from GitHub or CodePlex to your Windows Azure Web Site. To verify that the site is active, navigate to the Web Site **DASHBOARD** page for your Web Site in the portal, and then click the **SITE URL**. The browser should navigate to the web site.
+
+5. To verify that continuous deployment is occurring, make a change to your project and then push the update to the GitHub or CodePlex repository you have associated with this Web Site. Your Web Site should update to reflect the changes shortly after the push to GitHub and CodePlex completes. You can verify that it has pulled in the update by navigating to the **DEPLOYMENT** page for your Web Site in the portal.
+
+	![updated deployment message][git-update-deploy]
+
+<h3 id="Step9">Specifying the branch to use</h3>
+
+When you enable continuous deployment, it will default to the **master** branch of the repository. If you wish to use a different branch, perform the following steps:
+
+1. In the portal, select your website and then select **CONFIGURE**.
+
+2. In the **git** section of the page, enter the branch you wish to use in the **BRANCH** field, and then hit enter. Finally, click **SAVE**.
+
+	![Chaning the branch to use the notmaster branch][git-notmaster]
+
+Windows Azure should immediately begin updating based on changes to the new branch.
+
+<h3 id="Step10">Disabling continuous deployment</h3>
+
+Continuous deployment cannot be disabled from the Windows Azure portal, but must instead be disabled from your repository settings on GitHub or CodePlex.
+
+Continuous deployment works by providing the **DEPLOYMENT TRIGGER URL** found in the **git** section of your sites **CONFIGURATION** to GitHub or CodePlex.
+
+![deployment trigger url][git-deployment-trigger]
+
+When updates are made to your GitHub or CodePlex repository, a POST request is sent to this URL, which notifies your Windows Azure Web Site that the repository has been updated. At this point it retrieves the update and deploys it to your web site.
+
+To discontinue continuous deployment, simply remove the URL from the configuration settings of your GitHub or CodePlex repository.
 
 <h2 id="Step7">Troubleshooting</h2>
 
@@ -229,6 +268,13 @@ The following are errors or problems commonly encountered when using Git to publ
 [portal-repository-ready]: ../Media/git-setup-complete.png
 [hello-git]: ../Media/git-hello-git.png
 [yay]: ../Media/git-yay.png
+[git-select-repository]: ../Media/git-select-project.png
+[git-initial-deploy]: ../Media/git-deployed.png
+[git-update-deploy]: ../Media/git-deployment-updated.png
+[git-associate-link]: ../Media/git-associate-link.png
+[deploy-git-links]: ../Media/git-deploy-link.png
+[git-notmaster]: ../Media/git-notmaster.png
+[git-deployment-trigger]: ../Media/git-deployment-trigger.png
 
 [Create a Repo]: https://help.github.com/articles/create-a-repo
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
