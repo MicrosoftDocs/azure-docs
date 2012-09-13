@@ -1,3 +1,4 @@
+<div chunk=”../chunks/article-left-menu.md” />
 # Deploying an ASP.NET Web Application to a Windows Azure Cloud Service and SQL Database
 
 This tutorial shows how to deploy an ASP.NET web application to a Windows Azure Cloud Service by using the Windows Azure SDK for .NET in Visual Studio 2012 or Visual Web 2012 for Web Express. You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. So you can start developing for Windows Azure entirely for free.
@@ -19,13 +20,13 @@ in a dedicated virtual machine (VM). The following illustration shows the comple
 
 <div chunk="../../Shared/Chunks/create-account-note.md" />
 
-## <a name="setup"></a>Set up the development environment
+<h2><a name="setup"></a><span class=”short-header”>Set up the environment</span>Set up the development environment</h2>
 
 To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. 
 
 1. To install the Windows Azure SDK for .NET, click the link that corresponds to the version of Visual Studio you are using. If you don't have Visual Studio installed yet, use the Visual Studio 2012 link.<br/>
 	[Windows Azure SDK for Visual Studio 2010][]<br/>
-	[Windows Azure SDK for Visual Studio 2012 RC][]
+	[Windows Azure SDK for Visual Studio 2012][]
 
     When prompted to run or save WindowsAzureSDKForNet.exe, click **Run**:
 
@@ -39,7 +40,7 @@ To start, set up your development environment by installing the Windows Azure SD
     Once the installation is complete, you have everything
     necessary to start developing.
 
-## <a name="creating"></a>Create an ASP.NET MVC 3 application
+<h2><a name="creating"></a><span class=”short-header”>Create the app</span>Create an ASP.NET MVC 3 application</h2>
 
 ### Create the project
 
@@ -89,7 +90,7 @@ Run the application to verify that it works.
 
     ![screen shot of application home page][7]
 
-## <a name="making"></a>Make the application ready to deploy to a Windows Azure Cloud Service
+<h2><a name="making"></a><span class=”short-header”>Prepare to deploy</span>Make the application ready to deploy to a Windows Azure Cloud Service</h2>
 
 Now, prepare the application to run in a Windows Azure cloud
 service. The application needs to include a Windows Azure cloud service
@@ -115,7 +116,7 @@ looking at the system tray:<br/>
 
     ![][12]
 
-## <a name="deploying"></a>Deploy the application to Windows Azure
+<h2><a name="deploying"></a><span class=”short-header”>Deploy the app</span>Deploy the application to Windows Azure</h2>
 
 You can deploy the application to Windows Azure either through the
 portal or directly from Visual Studio. This tutorial shows you how
@@ -204,7 +205,7 @@ machine to publish packages to Windows Azure using Visual Studio.
 
         ![screen shot of home page running in Windows Azure][25]
 
-## <a name="adding"></a>Add SQL Database support
+<h2><a name="adding"></a><span class=”short-header”>Add a database</span>Add SQL Database support</h2>
 
 Windows Azure offers two primary storage options:
 
@@ -400,13 +401,26 @@ when it is deployed to the cloud.
           <add name="DefaultConnection" connectionString="data source=<serverName>.database.windows.net;Initial Catalog=ToDoDb;User ID=<user>@<serverName>;Password=<password>;Encrypt=true;Trusted_Connection=false;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)" />
         </connectionStrings>
 
-    **Note:** The administrative user has access to all the databases on
+<div class="dev-callout-new">
+    <strong>Note <span>Click to collapse</span></strong>
+    <div class="dev-callout-content">
+        <p>The administrative user has access to all the databases on
     the server. To create a SQL Database user with more restricted
     permissions, follow the steps in [Adding Users to Your SQL Database Instance][]. Then, modify the connection string in Web.Release.config to use the
     newly created user and password instead of the administrative user
-    and password.
+    and password.</p>
+    </div>
+</div>  
 
-## <a name="running"></a>Run the application in the cloud
+<div class="dev-callout-new">
+    <strong>Note <span>Click to collapse</span></strong>
+    <div class="dev-callout-content">
+        <p>In order to use provider-based features such as membership, profile, role manager, and session state, the application must use the Microsoft ASP.NET universal providers. To use the universal providers with SQL Server Express (the default for Visual Studio 2010), use the [Microsoft.AspNet.Providers][UniversalProviders] NuGet package. To use the universal providers with SQL Server Express LocalDB (the default for Visual Studio 2012), use the [Microsoft.AspNet.Providers.LocalDB][UniversalProvidersLocalDB] NuGet package.  The project templates for MVC and Web Forms install the appropriate NuGet package by default.</p>
+    </div>
+</div>  
+  
+
+<h2><a name="running"></a><span class=”short-header”>Run the app</span>Run the application in the cloud</h2>
 
 Now, for the final step, redeploy the application to Windows Azure in order to test the application both running in the cloud and accessing the database in the cloud.
 
@@ -440,7 +454,7 @@ Now, for the final step, redeploy the application to Windows Azure in order to t
     role instance handling user requests while another one is being
     updated.
 
-## <a name="stopping"></a>Stop and delete the application
+<h2><a name="stopping"></a><span class=”short-header”>Delete the app</span>Stop and delete the application</h2>
 
 After deploying the application, you may want to disable it so that you can
 build and deploy other applications within the free 750 hours/month (31
@@ -462,18 +476,18 @@ The following steps show you how to stop and delete your application.
 
     ![Cloud Services dashboard][107]
 
-## <a name="summary"></a>Next steps
+<h2><a name="summary"></a><span class=”short-header”>Next steps</span>Next steps</h2>
 
 In this tutorial you learned how to create and deploy a web application
 that is hosted in a Windows Azure Cloud Service and stores data in SQL Database.
 
 * Review the [SQL Database How-to Guide][] to learn more about using SQL Database.
-* Complete the [Multi-tier Application Tutorial][] to further your knowledge about Windows Azure by creating a website that leverages a background worker role to process data.
+* Complete the [Multi-tier Application Tutorial][] to further your knowledge about Windows Azure by creating a web site that leverages a background worker role to process data.
 
   [Create a Windows Azure account]: #create  
   [Download a publishing profile]: #profile
   [Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=254269
-  [Windows Azure SDK for Visual Studio 2012 RC]:  http://go.microsoft.com/fwlink/?LinkId=254364
+  [Windows Azure SDK for Visual Studio 2012]:  http://go.microsoft.com/fwlink/?LinkId=254364
   [0]: ../media/dev-net-getting-started-1.png
   [Set Up the development environment]: #setup
   [Create an ASP.NET MVC 3 application]: #creating
