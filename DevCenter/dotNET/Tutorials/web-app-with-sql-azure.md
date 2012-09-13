@@ -1,4 +1,4 @@
-﻿<div chunk="../chunks/article-left-menu.md" />
+<div chunk="../chunks/article-left-menu.md" />
 
 # Deploying an ASP.NET Web Application to a Windows Azure Web Site and SQL Database
 
@@ -21,7 +21,7 @@ You'll build a simple to-do list web application that is built on ASP.NET MVC 4 
 
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
  
-## Tutorial segments
+### Tutorial segments
 
 1. [Set up the development environment][]
 2. [Create a web site and a SQL database in Windows Azure][]
