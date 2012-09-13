@@ -55,7 +55,7 @@ Setting a custom domain name on a web site is only available for the shared and 
 
 <div class="dev-callout-new"> 
 	<b>Note</b> 
-	<p>If you receive a "Configuring scale for web site '&lt;site name>' Failed" error you can use the details button to get more information. You may receive a "Not enough available reserved instance servers to satisfy this request." error. The web sites feature is in preview and we are adding capacity on a measured basis. If you receive this error, you will need to try again later to upgrade your account.</p> 
+	<p>If you receive a "Configuring scale for web site '&lt;site name>' failed" error you can use the details button to get more information. You may receive a "Not enough available reserved instance servers to satisfy this request." error. The web sites feature is in preview and we are adding capacity on a measured basis. If you receive this error, you will need to try again later to upgrade your account.</p> 
 </div>
 
 <a name="bkmk_configurecname"></a><h2><span class="short-header">Configure the CNAME on your domain registrar</span></h2>
