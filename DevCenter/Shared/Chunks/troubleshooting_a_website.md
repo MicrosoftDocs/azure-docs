@@ -150,7 +150,7 @@ The web site is configured to store account registration information in the file
 
 The default **mode** of the ASP.NET [customErrors][customErrors] configuration setting is **RemoteOnly**, which prevents application errors from being displayed. To configure the web site to display application errors create a web.config file and set the **mode** attribute of **customErrors**  to **Off**:
 
-1. Open the web.config file located in the root directory of your web site. Open the file with Notepad (or any editor you like) and add the following XML inside the &gt;system.web&lt; elements:
+1. Open the web.config file located in the root directory of your web site. Open the file with Notepad (or any editor you like) and add the following XML inside the &lt;system.web&gt; elements:
 
 		<customErrors mode="Off"/>
 If you are unsure of the location of your web site, open WebMatrix and right-click AzureWebDiag and select **Show in File Explorer**.
