@@ -4,7 +4,7 @@ When you create a web site, Windows Azure provides a friendly subdomain on the a
 
 <div class="dev-callout-new"> 
 <b>Note</b> 
-<p>The procedures in this task apply to Windows Azure Web Sites; for Cloud Services, see [Configuring a Custom Domain Name in Windows Azure][cloudservicedns].</p> 
+	<p>The procedures in this task apply to Windows Azure Web Sites; for Cloud Services, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Windows Azure</a>.</p> 
 </div>
 
 The steps in this task require you to configure your web sites for shared or reserved mode. Because the Web Sites feature is in preview and we are adding capacity on a measured basis, you may receive a "Not enough available reserved instance servers to satisfy this request." error. If you receive this error, you will need to try again later to perform this task.
@@ -28,8 +28,8 @@ registrar to point to your Windows Azure web site:
 The task includes the following steps: 
 
 - Prerequisite: [Configure your web sites for shared mode][]
-- Prerequisite: Configure a CNAME record with your domain registrar
-- Optional: Configure an A record for the domain name
+- Prerequisite: [Configure the CNAME on your domain registrar][]
+- Optional: [Configure an A record for the domain name][]
 - [Set the domain name in management portal][]
  
 <a name="bkmk_configsharedmode"></a><h2><span class="short-header">Configure your web sites for shared mode</span></h2>
@@ -60,7 +60,7 @@ Setting a custom domain name on a web site is only available for the shared and 
 
 <a name="bkmk_configurecname"></a><h2><span class="short-header">Configure the CNAME on your domain registrar</span></h2>
 
-To configure a custom domain name, you must create a CNAME record in your custom domain name's DNS table. Each registrar has a similar but slightly different method of specifying a CNAME record, but the concept is the same. Once you have configured the CNAME record, it will take some time to propagate through the dom
+To configure a custom domain name, you must create a CNAME record in your custom domain name's DNS table. Each registrar has a similar but slightly different method of specifying a CNAME record, but the concept is the same. Once you have configured the CNAME record, it will take some time to propagate.
 
 1. In your browser, open the [Windows Azure Management Portal][portal].
 2. In the **Web Sites** tab, locate the name of your site. 
@@ -69,28 +69,29 @@ To configure a custom domain name, you must create a CNAME record in your custom
 5. Finally, you must provide a subdomain alias, such as www. Then, you must provide a hostname, which is your application's azurewebsites.net domain which consists of the name you located in step two and the azurewebsites.net domain. 
 For example, the following CNAME record example forwards all traffic from *www.contoso.com* to *mysite.azurewebsites.net*, the DNS name of your deployed application:
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tr>
-		<th><strong>Alias</strong></th>
-		<th><strong>TTL</strong></th>
-		<th><strong>Type</strong></th>
-		<th>Value</th>
-	</tr>
-	<tr>
-	  	<td>www.contoso.com</td>
-	  	<td>86400</td>
-	    <td>CNAME</td>
-		<td>mysite.azurewebsites.net</td>
-	</tr>
-</table>
-<br/>
+	<br/>
+	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+		<tr>
+			<th><strong>Alias</strong></th>
+			<th><strong>TTL</strong></th>
+			<th><strong>Type</strong></th>
+			<th>Value</th>
+		</tr>
+		<tr>
+		  	<td>www.contoso.com</td>
+		  	<td>86400</td>
+		    <td>CNAME</td>
+			<td>mysite.azurewebsites.net</td>
+		</tr>
+	</table>
+	<br/>
 
 <div class="dev-callout-new"> 
 <b>Note</b> 
 <p>It can take some time for your CNAME to propagate through the DNS system. You cannot set the CNAME for the web site until the CNAME has propagated. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.</p> 
 </div>
 
-<a name="bkmk_setcname"></a><h2><span class="short-header">Configure an A record for the domain name</span></h2>
+<a name="bkmk_configurearecord"></a><h2><span class="short-header">Configure an A record for the domain name</span></h2>
 
 To configure an A record you must configure a CNAME record used to verify the domain name. This process is the same as one used to configure a CNAME record to point at to your web site, except that you configure the CNAME record domain names that will be used for verification purposes. The hostname will be awverify.www.contoso.com and the value will be awverify.mysite.azurewebsites.net. Once this has propagate, you can configure the A record.
 
@@ -109,26 +110,27 @@ To configure an A record you must configure a CNAME record used to verify the do
 7. Configure the domain name and the IP address you copied in step 5.
 For example, the following DNS examples forwards all traffic from *www.contoso.com* to *172.16.48.1*.
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tr>
-		<th><strong>Alias</strong></th>
-		<th><strong>TTL</strong></th>
-		<th><strong>Type</strong></th>
-		<th><strong>Value</strong></th>
-	</tr>
-	<tr>
-	  	<td>awverify.www.contoso.com</td>
-	  	<td>86400</td>
-	    <td>CNAME</td>
-		<td>awverify.mysite.azurewebsites.net</td>
-	</tr>
-	<tr>
-	  	<td>www.contoso.com</td>
-	  	<td>7200</td>
-	    <td>A</td>
-		<td>172.16.48.1</td>
-	</tr>
-</table>
+	<br/>
+	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+		<tr>
+			<th><strong>Alias</strong></th>
+			<th><strong>TTL</strong></th>
+			<th><strong>Type</strong></th>
+			<th><strong>Value</strong></th>
+		</tr>
+		<tr>
+		  	<td>awverify.www.contoso.com</td>
+		  	<td>86400</td>
+		    <td>CNAME</td>
+			<td>awverify.mysite.azurewebsites.net</td>
+		</tr>
+		<tr>
+		  	<td>www.contoso.com</td>
+		  	<td>7200</td>
+		    <td>A</td>
+			<td>172.16.48.1</td>
+		</tr>
+	</table>
 
 <a name="bkmk_setcname"></a><h2><span class="short-header">Set the domain name in management portal</span></h2>
 
@@ -156,9 +158,12 @@ Windows Azure validates the existence of the hostname in the public DNS before i
 <!-- Bookmarks -->
 
 [Configure your web sites for shared mode]: #bkmk_configsharedmode
+[Configure the CNAME on your domain registrar]: #bkmk_configurecname
 [Configure a CNAME verification record on your domain registrar]: #bkmk_configurecname
-[Configue an A record for the domain name]:#bkmk_configurearecord
+[Configure an A record for the domain name]:#bkmk_configurearecord
 [Set the domain name in management portal]: #bkmk_setcname
+
+
 
 <!-- Links -->
 

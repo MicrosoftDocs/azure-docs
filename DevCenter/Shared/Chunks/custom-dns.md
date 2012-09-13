@@ -1,18 +1,12 @@
 # Configuring a custom domain name for a Windows Azure cloud service or storage account
 
-When you create an application in Windows Azure, Windows Azure provides
-a friendly subdomain on the cloudapp.net domain so your users can access
-your application on a URL like http://<*myapp*>.cloudapp.net.
-Similarly, when you create a storage account, Windows Azure provides a
-friendly subdomain on the core.windows.net domain so your users can
-access your data on a URL like
-https://<*mystorageaccount*>.blob.core.windows.net. However, you can
-also expose your application and data on your own domain name, such as
+When you create an application in Windows Azure, Windows Azure provides a friendly subdomain on the cloudapp.net domain so your users can access your application on a URL like http://<*myapp*>.cloudapp.net.
+Similarly, when you create a storage account, Windows Azure provides a friendly subdomain on the core.windows.net domain so your users can access your data on a URL like https://<*mystorageaccount*>.blob.core.windows.net. However, you can also expose your application and data on your own domain name, such as
 contoso.com.
 
 <div class="dev-callout-new"> 
 <b>Note</b> 
-<p>The procedures in this task apply to Windows Azure Cloud Services and storage accounts; for Web Sites, see <a href="../custom-dns-web-site/"></a>.</p> 
+	<p>The procedures in this task apply to Windows Azure Cloud Services and storage accounts; for Web Sites, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/"></a>.</p> 
 </div>
 
 This task will show you how to:
