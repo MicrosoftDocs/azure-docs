@@ -1,6 +1,6 @@
-<properties linkid="dev-net-e2e-multi-tier" urldisplayname="Multi-Tier Application" headerexpose="" pagetitle=".NET Multi-Tier Application" metakeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET Service Bus queue tutorial, Azure .NET queue tutorial, Azure .NET worker role tutorial, Azure C# Service Bus queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop a multi-tier application in Windows Azure that includes web and worker roles and uses Service Bus queues to communicate between tiers." umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-net-e2e-multi-tier" urldisplayname="Multi-Tier Application" headerexpose="" pagetitle=".NET Multi-Tier Application" metakeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET Service Bus queue tutorial, Azure .NET queue tutorial, Azure .NET worker role tutorial, Azure C# Service Bus queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop a multi-tier application in Windows Azure that includes web and worker roles and uses Service Bus queues to communicate between tiers." umbraconavihide="0" disquscomments="1"></properties>
 
-<div chunk=”../chunks/article-left-menu.md” />
+<div chunk="../chunks/article-left-menu.md" />
 
 # .NET Multi-Tier Application Using Service Bus Queues
 
@@ -31,7 +31,7 @@ shown below:
 
 <div chunk="../../Shared/Chunks/create-account-note.md" />
 
-<h2><span class=”short-header”>Inter-Role Communication</span>Scenario Overview: Inter-Role Communication</h2>
+<h2><span class="short-header">Inter-Role Communication</span>Scenario Overview: Inter-Role Communication</h2>
 
 To submit an order for processing, the front end UI component, running
 in the web role, needs to interact with the middle tier logic running in
@@ -90,7 +90,7 @@ messaging, namely:
 The following sections discuss the code that implements this
 architecture.
 
-<h2><span class=”short-header”>Set Up Environment</span>Set Up the Development Environment</h2>
+<h2><span class="short-header">Set Up Environment</span>Set Up the Development Environment</h2>
 
 Before you can begin developing your Windows Azure application, you need
 to get the tools and set-up your development environment.
@@ -162,7 +162,7 @@ application.
 9.  In Default Key, click **View**. Make a note of the key, or copy it
     to the clipboard.
 
-<h2><span class=”short-header”>Create a Web Role</span>Create a Web Role</h2>
+<h2><span class="short-header">Create a Web Role</span>Create a Web Role</h2>
 
 In this section, you will build the front end of your application. You
 will first create the various pages that your application displays.
@@ -471,7 +471,7 @@ Service Bus Queue.
 
     ![][18]
 
-<h2><span class=”short-header”>Configuration Manager</span>Cloud Configuration Manager</h2>
+<h2><span class="short-header">Configuration Manager</span>Cloud Configuration Manager</h2>
 
 Windows Azure supports a set of managed API that provides a consistent way to create new instances of Windows Azure service clients (such as the Service Bus) across Microsoft cloud services. The API enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in websites, or in a persistent VM Role. You can also use these API to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The API are located in the [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] class. There are also APIs on the client side.
 
@@ -504,7 +504,7 @@ The following code retrieves the connection string, creates a queue, and initial
 
 The code in the following section uses these configuration management APIs.
 
-<h2><span class=”short-header”>Create Worker Role</span>Create the Worker Role</h2>
+<h2><span class="short-header">Create Worker Role</span>Create the Worker Role</h2>
 
 You will now create the worker role that processes the order
 submissions. This example uses the **Worker Role with Service Bus Queue** Visual Studio project template. First, you will use Server Explorer in Visual Studio to obtain the required credentials.
@@ -546,7 +546,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
 12. Browse to the subfolder for **FrontendWebRole\Models**, and double-click **OnlineOrder.cs** to add it to this project.
 
-13. Replace the value of the **QueueName** variable in **WorkerRole.cs** from `“ProcessingQueue”` to `“OrdersQueue”` as in the following code:
+13. Replace the value of the **QueueName** variable in **WorkerRole.cs** from `“ProcessingQueue"` to `“OrdersQueue"` as in the following code:
 
 		// The name of your queue
 		const string QueueName = "OrdersQueue";

@@ -59,6 +59,7 @@ collect.
 <tr><td>Windows Azure Diagnostic infrastructure logs</td>
 <td>Collected by default. Logs information about the diagnostic infrastructure, the RemoteAccess module, and the RemoteForwarder module.</td>
 <td>Web and worker roles</td>
+</tr>
 <tr>
 <td>Failed Request logs</td>
 <td>Logs information about failed requests to an IIS site or application.</td>
@@ -230,7 +231,7 @@ You can collect data in a custom log file. The custom log file is created in a l
 
         using Microsoft.WindowsAzure.Diagnostics;
 
-    <div class=dev-callout-new">
+    <div class="dev-callout-new">
        <strong>Note <span>Click to collapse</span></strong>
        <div class="dev-callout-content">
            <p>The code in the following steps is typically added to the OnStart method of the role.</p>

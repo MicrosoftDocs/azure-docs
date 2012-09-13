@@ -1,6 +1,6 @@
-<properties umbraconavihide="0" pagetitle="Service Bus Topics - How To - .NET - Develop" metakeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Azure Service Bus topic, Service Bus topic, Azure messaging topics and subscriptions .NET, Azure Service Bus topic .NET, Service Bus topic .NET, Azure messaging topics and subscriptions C#, Azure Service Bus topic C#, Service Bus topic C#" metadescription="Get Started with Windows Azure Service Bus topics and subscriptions, including creating topics and subscriptions, creating subscription filters, sending messages to a topic, receiving messages from a subscription, and deleting topics and subscriptions." linkid="dev-net-how-to-service-bus-topics" urldisplayname="Service Bus Topics" headerexpose="" footerexpose="" disquscomments="1"></properties>
+﻿<properties umbraconavihide="0" pagetitle="Service Bus Topics - How To - .NET - Develop" metakeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Azure Service Bus topic, Service Bus topic, Azure messaging topics and subscriptions .NET, Azure Service Bus topic .NET, Service Bus topic .NET, Azure messaging topics and subscriptions C#, Azure Service Bus topic C#, Service Bus topic C#" metadescription="Get Started with Windows Azure Service Bus topics and subscriptions, including creating topics and subscriptions, creating subscription filters, sending messages to a topic, receiving messages from a subscription, and deleting topics and subscriptions." linkid="dev-net-how-to-service-bus-topics" urldisplayname="Service Bus Topics" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
-<div chunk=”../chunks/article-left-menu.md” />
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to Use Service Bus Topics/Subscriptions
 
@@ -12,7 +12,7 @@ messages from a subscription**, and **deleting topics and
 subscriptions**. For more information on topics and subscriptions, see
 the [Next Steps][] section. </span>
 
-<h2><span class=”short-header”>What are Topics and Subscriptions</span>What are Service Bus Topics and Subscriptions</h2>
+<h2><span class="short-header">What are Topics and Subscriptions</span>What are Service Bus Topics and Subscriptions</h2>
 
 Service Bus topics and subscriptions support a **publish/subscribe
 messaging communication** model. When using topics and subscriptions,
@@ -39,7 +39,7 @@ Service Bus topics and subscriptions enable you to scale to process a
 very large number of messages across a very large number of users and
 applications.
 
-<h2><span class=”short-header”>Create a Service Namespace</span>Create a Service Namespace</h2>
+<h2><span class="short-header">Create a Service Namespace</span>Create a Service Namespace</h2>
 
 To begin using Service Bus topics and subscriptions in Windows Azure,
 you must first create a service namespace. A service namespace provides
@@ -72,7 +72,7 @@ The namespace you created will then appear in the Management Portal and
 takes a moment to activate. Wait until the status is **Active** before
 moving on.
 
-<h2><span class=”short-header”>Obtain the Management Credentials</span>Obtain the Default Management Credentials for the Namespace</h2>
+<h2><span class="short-header">Obtain the Management Credentials</span>Obtain the Default Management Credentials for the Namespace</h2>
 
 In order to perform management operations, such as creating a topic or
 subscription, on the new namespace, you need to obtain the management
@@ -97,7 +97,7 @@ credentials for the namespace.
     will use this information below to perform operations with the
     namespace.
 
-<h2><span class=”short-header”>Configure the Application</span>Configure the Application to Use Service Bus</h2>
+<h2><span class="short-header">Configure the Application</span>Configure the Application to Use Service Bus</h2>
 
 When you create an application that uses Service Bus, you will need to
 add a reference to the Service Bus assembly and include the
@@ -120,7 +120,7 @@ Service Bus topics and subscriptions:
 
 You are now ready to write code against Service Bus.
 
-<h2><span class=”short-header”>How to Set Up the Connection String</span>How to Set Up a Service Bus Connection String</h2>
+<h2><span class="short-header">How to Set Up the Connection String</span>How to Set Up a Service Bus Connection String</h2>
 
 The Service Bus uses a connection string to store endpoints and credentials. You can put your connection string in a configuration file, rather than hard-coding it in code:
 
@@ -176,7 +176,7 @@ When using Web Sites or Virtual Machines, it is recommended you use the .NET con
 Use the issuer and key values retrieved from the Management Portal as
 described in the previous section.
 
-<h2><span class=”short-header”>How to Create a Topic</span>How to Create a Topic</h2>
+<h2><span class="short-header">How to Create a Topic</span>How to Create a Topic</h2>
 
 You can perform management operations for Service Bus topics and subscriptions via the **NamespaceManager** class. The **NamespaceManager** class provides methods to create, enumerate, and delete queues. 
 
@@ -228,7 +228,7 @@ default message time-to-live of 1 minute.
 objects to check if a topic with a specified name already exists within
 a service namespace.
 
-<h2><span class=”short-header”>How to Create Subscriptions</span>How to Create Subscriptions</h2>
+<h2><span class="short-header">How to Create Subscriptions</span>How to Create Subscriptions</h2>
 
 You can also create topic subscriptions with the **NamespaceManager**
 class. Subscriptions are named and can have an optional filter that
@@ -296,7 +296,7 @@ subscription, and selectively delivered to receivers subscribed to the
 "HighMessages" and "LowMessages" topic subscriptions (depending upon the
 message content).
 
-<h2><span class=”short-header”>Send Messages to a Topic</span>How to Send Messages to a Topic</h2>
+<h2><span class="short-header">Send Messages to a Topic</span>How to Send Messages to a Topic</h2>
 
 To send a message to a Service Bus topic, your application creates a
 **TopicClient** object using the connection string.
@@ -349,7 +349,7 @@ held in a topic but there is a cap on the total size of the messages
 held by a topic. This queue size is defined at creation time, with an
 upper limit of 5 GB.
 
-<h2><span class=”short-header”>Receive Messages from a Subscription</span>How to Receive Messages from a Subscription</h2>
+<h2><span class="short-header">Receive Messages from a Subscription</span>How to Receive Messages from a Subscription</h2>
 
 The easiest way to receive messages from a subscription is to use a
 **SubscriptionClient** object. **SubscriptionClient** objects can work in two
@@ -416,7 +416,7 @@ path*\>/subscriptions/<*subscription name*\>".
        }
     } 
 
-<h2><span class=”short-header”>Application Crashes and Unreadable Messages</span>How to Handle Application Crashes and Unreadable Messages</h2>
+<h2><span class="short-header">Application Crashes and Unreadable Messages</span>How to Handle Application Crashes and Unreadable Messages</h2>
 
 The Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
@@ -442,7 +442,7 @@ to handle duplicate message delivery. This is often achieved using the
 **MessageId** property of the message, which will remain constant across
 delivery attempts.
 
-<h2><span class=”short-header”>Delete Topics and Subscriptions</span>How to Delete Topics and Subscriptions</h2>
+<h2><span class="short-header">Delete Topics and Subscriptions</span>How to Delete Topics and Subscriptions</h2>
 
 The example below demonstrates how to delete the topic named
 **TestTopic** from the **HowToSample** service namespace:
@@ -457,7 +457,7 @@ following code demonstrates how to delete a subscription named
 
       namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 
-<h2><span class=”short-header”>Next Steps</span>Next Steps</h2>
+<h2><span class="short-header">Next Steps</span>Next Steps</h2>
 
 Now that you've learned the basics of Service Bus topics and subscriptions, follow these
 links to learn more.
