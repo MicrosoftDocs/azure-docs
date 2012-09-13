@@ -116,7 +116,7 @@ You now have a database instance, logical server, a firewall rule that allows in
 
 
 
-<h2 id="Connect-DB"><span class="short-header">Connect to SQL Database</h2>
+<h2 id="Connect-DB"><span class="short-header">Connect to SQL Database</span></h2>
 
 This section shows how to connect to SQL Database instance using different
 .NET Framework data providers.

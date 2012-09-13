@@ -1,6 +1,6 @@
-<properties umbraconavihide="0" pagetitle="Service Bus Relay - How To - .NET - Develop" metakeywords="get started azure Service Bus Relay, Azure relay, Azure Service Bus relay, Service Bus relay, Azure relay .NET, Azure Service Bus relay .NET, Service Bus relay .NET, Azure relay C#, Azure Service Bus relay C#, Service Busy relay C#" metadescription="Learn how to use the Windows Azure Service Bus relay service to connect two applications hosted in different locations." linkid="dev-net-how-to-service-bus-relay" urldisplayname="Service Bus Relay" headerexpose="" footerexpose="" disquscomments="1"></properties>
+﻿<properties umbraconavihide="0" pagetitle="Service Bus Relay - How To - .NET - Develop" metakeywords="get started azure Service Bus Relay, Azure relay, Azure Service Bus relay, Service Bus relay, Azure relay .NET, Azure Service Bus relay .NET, Service Bus relay .NET, Azure relay C#, Azure Service Bus relay C#, Service Busy relay C#" metadescription="Learn how to use the Windows Azure Service Bus relay service to connect two applications hosted in different locations." linkid="dev-net-how-to-service-bus-relay" urldisplayname="Service Bus Relay" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
-<div chunk=”../chunks/article-left-menu.md” />
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to Use the Service Bus Relay Service
 
@@ -11,7 +11,7 @@ that is part of the .NET libraries for Windows Azure. For more
 information on the Service Bus relay, see the [Next Steps][]
 section.
 
-<h2><span class=”short-header”>What is the Service Bus Relay</span>What is the Service Bus Relay</h2>
+<h2><span class="short-header">What is the Service Bus Relay</span>What is the Service Bus Relay</h2>
 
 The Service Bus **Relay** service enables you to build **hybrid
 applications** that run in both a Windows Azure datacenter and your
@@ -38,7 +38,7 @@ This guide demonstrates how to use the Service Bus relay to create a WCF
 web service, exposed using a TCP channel binding, that implements a
 secured conversation between two parties.
 
-<h2><span class=”short-header”>Create a Service Namespace</span>Create a Service Namespace</h2>
+<h2><span class="short-header">Create a Service Namespace</span>Create a Service Namespace</h2>
 
 To begin using the Service Bus relay in Windows Azure, you must first
 create a service namespace. A service namespace provides a scoping
@@ -70,7 +70,7 @@ The namespace you created will then appear in the Management Portal and
 takes a moment to activate. Wait until the status is **Active** before
 continuing.
 
-<h2><span class=”short-header”>Obtain Management Credentials</span>Obtain the Default Management Credentials for the Namespace</h2>
+<h2><span class="short-header">Obtain Management Credentials</span>Obtain the Default Management Credentials for the Namespace</h2>
 
 In order to perform management operations, such as creating a relay
 connection, on the new namespace, you need to obtain the management
@@ -95,7 +95,7 @@ credentials for the namespace.
     will use this information below to perform operations with the
     namespace.
 
-<h2><span class=”short-header”>Get the NuGet Package</span>Get the Service Bus NuGet Package</h2>
+<h2><span class="short-header">Get the NuGet Package</span>Get the Service Bus NuGet Package</h2>
 
 The Service Bus **NuGet** package is the easiest way to get the
 Service Bus API and to configure your application with all of the
@@ -115,7 +115,7 @@ To install the NuGet package in your application, do the following:
 
     ![][5]
 
-<h2><span class=”short-header”>Expose and Consume a SOAP Web Service</span>How to Use Service Bus to Expose and Consume a SOAP Web Service with TCP</h2>
+<h2><span class="short-header">Expose and Consume a SOAP Web Service</span>How to Use Service Bus to Expose and Consume a SOAP Web Service with TCP</h2>
 
 To expose an existing WCF SOAP web service for external
 consumption, you must make changes to the service bindings and
@@ -332,7 +332,7 @@ and key.
         </endpointBehaviors>
     </behaviors>
 
-<h2><span class=”short-header”>Next Steps</span>Next Steps</h2>
+<h2><span class="short-header">Next Steps</span>Next Steps</h2>
 
 Now that you've learned the basics of the Service Bus **Relay** service,
 follow these links to learn more.

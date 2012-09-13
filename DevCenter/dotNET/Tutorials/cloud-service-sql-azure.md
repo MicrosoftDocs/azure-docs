@@ -1,4 +1,5 @@
-<div chunk=”../chunks/article-left-menu.md” />
+﻿<div chunk="../chunks/article-left-menu.md" />
+
 # Deploying an ASP.NET Web Application to a Windows Azure Cloud Service and SQL Database
 
 This tutorial shows how to deploy an ASP.NET web application to a Windows Azure Cloud Service by using the Windows Azure SDK for .NET in Visual Studio 2012 or Visual Web 2012 for Web Express. You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. So you can start developing for Windows Azure entirely for free.
@@ -20,7 +21,7 @@ in a dedicated virtual machine (VM). The following illustration shows the comple
 
 <div chunk="../../Shared/Chunks/create-account-note.md" />
 
-<h2><a name="setup"></a><span class=”short-header”>Set up the environment</span>Set up the development environment</h2>
+<h2><a name="setup"></a><span class="short-header">Set up the environment</span>Set up the development environment</h2>
 
 To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. 
 
@@ -40,7 +41,7 @@ To start, set up your development environment by installing the Windows Azure SD
     Once the installation is complete, you have everything
     necessary to start developing.
 
-<h2><a name="creating"></a><span class=”short-header”>Create the app</span>Create an ASP.NET MVC 3 application</h2>
+<h2><a name="creating"></a><span class="short-header">Create the app</span>Create an ASP.NET MVC 3 application</h2>
 
 ### Create the project
 
@@ -90,7 +91,7 @@ Run the application to verify that it works.
 
     ![screen shot of application home page][7]
 
-<h2><a name="making"></a><span class=”short-header”>Prepare to deploy</span>Make the application ready to deploy to a Windows Azure Cloud Service</h2>
+<h2><a name="making"></a><span class="short-header">Prepare to deploy</span>Make the application ready to deploy to a Windows Azure Cloud Service</h2>
 
 Now, prepare the application to run in a Windows Azure cloud
 service. The application needs to include a Windows Azure cloud service
@@ -116,7 +117,7 @@ looking at the system tray:<br/>
 
     ![][12]
 
-<h2><a name="deploying"></a><span class=”short-header”>Deploy the app</span>Deploy the application to Windows Azure</h2>
+<h2><a name="deploying"></a><span class="short-header">Deploy the app</span>Deploy the application to Windows Azure</h2>
 
 You can deploy the application to Windows Azure either through the
 portal or directly from Visual Studio. This tutorial shows you how
@@ -205,7 +206,7 @@ machine to publish packages to Windows Azure using Visual Studio.
 
         ![screen shot of home page running in Windows Azure][25]
 
-<h2><a name="adding"></a><span class=”short-header”>Add a database</span>Add SQL Database support</h2>
+<h2><a name="adding"></a><span class="short-header">Add a database</span>Add SQL Database support</h2>
 
 Windows Azure offers two primary storage options:
 
@@ -420,7 +421,7 @@ when it is deployed to the cloud.
 </div>  
   
 
-<h2><a name="running"></a><span class=”short-header”>Run the app</span>Run the application in the cloud</h2>
+<h2><a name="running"></a><span class="short-header">Run the app</span>Run the application in the cloud</h2>
 
 Now, for the final step, redeploy the application to Windows Azure in order to test the application both running in the cloud and accessing the database in the cloud.
 
@@ -454,7 +455,7 @@ Now, for the final step, redeploy the application to Windows Azure in order to t
     role instance handling user requests while another one is being
     updated.
 
-<h2><a name="stopping"></a><span class=”short-header”>Delete the app</span>Stop and delete the application</h2>
+<h2><a name="stopping"></a><span class="short-header">Delete the app</span>Stop and delete the application</h2>
 
 After deploying the application, you may want to disable it so that you can
 build and deploy other applications within the free 750 hours/month (31
@@ -476,7 +477,7 @@ The following steps show you how to stop and delete your application.
 
     ![Cloud Services dashboard][107]
 
-<h2><a name="summary"></a><span class=”short-header”>Next steps</span>Next steps</h2>
+<h2><a name="summary"></a><span class="short-header">Next steps</span>Next steps</h2>
 
 In this tutorial you learned how to create and deploy a web application
 that is hosted in a Windows Azure Cloud Service and stores data in SQL Database.

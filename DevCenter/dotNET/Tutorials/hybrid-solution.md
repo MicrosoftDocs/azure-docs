@@ -1,10 +1,10 @@
-<properties linkid="dev-net-tutorials-hybrid-solution" urldisplayname="Hybrid Application" headerexpose="" pagetitle="Hybrid On-Premise /Cloud Application" metakeywords="Azure Service Bus tutorial, Azure Service Bus relay tutorial, Azure hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop an application that uses the Windows Azure Service Bus relay to connect between two applications." umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-net-tutorials-hybrid-solution" urldisplayname="Hybrid Application" headerexpose="" pagetitle="Hybrid On-Premise /Cloud Application" metakeywords="Azure Service Bus tutorial, Azure Service Bus relay tutorial, Azure hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop an application that uses the Windows Azure Service Bus relay to connect between two applications." umbraconavihide="0" disquscomments="1"></properties>
 
-<div chunk=”../chunks/article-left-menu.md” />
+<div chunk="../chunks/article-left-menu.md" />
 
 # .NET On-Premises/Cloud Hybrid Application Using Service Bus Relay
 
-<h2><span class=”short-header”>INTRODUCTION</span>INTRODUCTION</h2>
+<h2><span class="short-header">INTRODUCTION</span>INTRODUCTION</h2>
 
 Developing hybrid cloud applications with Windows Azure is easy using
 Visual Studio 2012 and the free Windows Azure SDK for .NET. This guide
@@ -69,7 +69,7 @@ below.
 
 ![][1]
 
-<h2><span class=”short-header”>SET UP THE ENVIRONMENT</span>SET UP THE DEVELOPMENT ENVIRONMENT</h2>
+<h2><span class="short-header">SET UP THE ENVIRONMENT</span>SET UP THE DEVELOPMENT ENVIRONMENT</h2>
 
 Before you can begin developing your Windows Azure application, you need
 to get the tools and set-up your development environment.
@@ -94,7 +94,7 @@ to get the tools and set-up your development environment.
     do not have Visual Studio installed, it also installs the free
     Visual Web Developer Express.
 
-<h2><span class=”short-header”>CREATE A NAMESPACE</span>CREATE A SERVICE NAMESPACE</h2>
+<h2><span class="short-header">CREATE A NAMESPACE</span>CREATE A SERVICE NAMESPACE</h2>
 
 To begin using Service Bus features in Windows Azure, you must first
 create a service namespace. A service namespace provides a scoping
@@ -125,7 +125,7 @@ The namespace you created will then appear in the Management Portal and
 takes a moment to activate. Wait until the status is **Active** before
 moving on.
 
-<h2><span class=”short-header”>OBTAIN MANAGEMENT CREDENTIALS</span>OBTAIN THE DEFAULT MANAGEMENT CREDENTIALS FOR THE NAMESPACE</h2>
+<h2><span class="short-header">OBTAIN MANAGEMENT CREDENTIALS</span>OBTAIN THE DEFAULT MANAGEMENT CREDENTIALS FOR THE NAMESPACE</h2>
 
 In order to perform management operations, such as creating a queue, on
 the new namespace, you need to obtain the management credentials for the
@@ -150,7 +150,7 @@ namespace.
     will use this information below to perform operations with the
     namespace.
 
-<h2><span class=”short-header”>CREATE AN ON-PREMISES SERVER</span>CREATE AN ON-PREMISES SERVER</h2>
+<h2><span class="short-header">CREATE AN ON-PREMISES SERVER</span>CREATE AN ON-PREMISES SERVER</h2>
 
 First, you will build a (mock) on-premises product catalog system. It
 will be fairly simple; you can see this as representing an actual
@@ -339,7 +339,7 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
 14. Press **F6** to build the application to verify the accuracy of your
     work so far.
 
-<h2><span class=”short-header”>CREATE AN ASP.NET APPLICATION</span>CREATE AN ASP.NET MVC 3 APPLICATION</h2>
+<h2><span class="short-header">CREATE AN ASP.NET APPLICATION</span>CREATE AN ASP.NET MVC 3 APPLICATION</h2>
 
 In this section you will build a simple MVC 3 application that will
 display data retrieved from your product service.
@@ -464,7 +464,7 @@ Run the application to verify that it works.
 
     ![][21]
 
-    <h2><span class=”short-header”>DEPLOY TO WINDOWS AZURE</span>MAKE YOUR APPLICATION READY TO DEPLOY TO WINDOWS AZURE</h2>
+    <h2><span class="short-header">DEPLOY TO WINDOWS AZURE</span>MAKE YOUR APPLICATION READY TO DEPLOY TO WINDOWS AZURE</h2>
 
     Now, you will prepare your application to run in a Windows Azure
     hosted service. Your application already includes a Windows Azure
@@ -490,16 +490,16 @@ Run the application to verify that it works.
         and it will look and function the same way it did when you ran
         it earlier as a regular ASP.NET MVC 3 application.
 
-    <h2><span class=”short-header”>PUT THE PIECES TOGETHER</span>PUT THE PIECES TOGETHER</h2>
+    <h2><span class="short-header">PUT THE PIECES TOGETHER</span>PUT THE PIECES TOGETHER</h2>
 
     The next step is to hook up the on-premises products server with the
     ASP.NET MVC3 application.
 
     1.  If it is not already open, in Visual Studio re-open the
-        **ProductsPortal** project you created in the “Creating an
-        ASP.NET MVC 3 Application” section.
+        **ProductsPortal** project you created in the "Creating an
+        ASP.NET MVC 3 Application" section.
 
-    2.  Similar to the step in the “Create an On-Premises Server”
+    2.  Similar to the step in the "Create an On-Premises Server"
         section, add the NuGet package to the project References. In
         Solution Explorer, right-click **References**, then click
         **Manage NuGet Packages**.
@@ -597,7 +597,7 @@ Run the application to verify that it works.
 
         ![][26]
 
-    <h2><span class=”short-header”>RUN THE APPLICATION</span>RUN THE APPLICATION</h2>
+    <h2><span class="short-header">RUN THE APPLICATION</span>RUN THE APPLICATION</h2>
 
     1.  From the **File** menu in Visual Studio, click **Save All**.
 
@@ -610,7 +610,7 @@ Run the application to verify that it works.
 
         ![][1]
 
-    <h2><span class=”short-header”>DEPLOY THE APPLICATION</span>DEPLOY YOUR APPLICATION TO WINDOWS AZURE</h2>
+    <h2><span class="short-header">DEPLOY THE APPLICATION</span>DEPLOY YOUR APPLICATION TO WINDOWS AZURE</h2>
 
     1.  Right-click on the **ProductsPortal** project in **Solution
         Explorer** and click **Publish to Windows Azure**.
@@ -691,7 +691,7 @@ Run the application to verify that it works.
 
         ![][37]
 
-    <h2><span class=”short-header”>DELETE THE APPLICATION</span>STOP AND DELETE YOUR APPLICATION</h2>
+    <h2><span class="short-header">DELETE THE APPLICATION</span>STOP AND DELETE YOUR APPLICATION</h2>
 
     After deploying your application, you may want to disable it so you
     can build and deploy other applications within the free 750
