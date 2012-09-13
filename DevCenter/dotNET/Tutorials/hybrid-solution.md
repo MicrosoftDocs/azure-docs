@@ -496,10 +496,10 @@ Run the application to verify that it works.
     ASP.NET MVC3 application.
 
     1.  If it is not already open, in Visual Studio re-open the
-        **ProductsPortal** project you created in the “Creating an
+        **ProductsPortal** project you created in the "Creating an
         ASP.NET MVC 3 Application" section.
 
-    2.  Similar to the step in the “Create an On-Premises Server"
+    2.  Similar to the step in the "Create an On-Premises Server"
         section, add the NuGet package to the project References. In
         Solution Explorer, right-click **References**, then click
         **Manage NuGet Packages**.

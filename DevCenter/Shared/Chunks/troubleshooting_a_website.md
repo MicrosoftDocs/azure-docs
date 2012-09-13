@@ -217,9 +217,9 @@ public void Page_Load(Object sender, EventArgs E)
 **environment.php**<br />
 <pre>
 &lt;?php
-echo “&lt;pre&gt;";
+echo "&lt;pre&gt;";
 print_r($_SERVER);
-echo “&lt;/pre&gt;";
+echo "&lt;/pre&gt;";
 ?&gt;
 </pre>
 
