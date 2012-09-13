@@ -1,18 +1,12 @@
 # Configuring a custom domain name for a Windows Azure cloud service or storage account
 
-When you create an application in Windows Azure, Windows Azure provides
-a friendly subdomain on the cloudapp.net domain so your users can access
-your application on a URL like http://<*myapp*>.cloudapp.net.
-Similarly, when you create a storage account, Windows Azure provides a
-friendly subdomain on the core.windows.net domain so your users can
-access your data on a URL like
-https://<*mystorageaccount*>.blob.core.windows.net. However, you can
-also expose your application and data on your own domain name, such as
+When you create an application in Windows Azure, Windows Azure provides a friendly subdomain on the cloudapp.net domain so your users can access your application on a URL like http://<*myapp*>.cloudapp.net.
+Similarly, when you create a storage account, Windows Azure provides a friendly subdomain on the core.windows.net domain so your users can access your data on a URL like https://<*mystorageaccount*>.blob.core.windows.net. However, you can also expose your application and data on your own domain name, such as
 contoso.com.
 
-<div class="dev-callout-new"> 
+<div class="dev-callout"> 
 <b>Note</b> 
-<p>The procedures in this task apply to Windows Azure Cloud Services and storage accounts; for Web Sites, see <a href="../custom-dns-web-site/"></a>.</p> 
+	<p>The procedures in this task apply to Windows Azure Cloud Services and storage accounts; for Web Sites, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a Custom Domain Name for a Windows Azure Web Site</a>.</p> 
 </div>
 
 This task will show you how to:
@@ -22,51 +16,28 @@ This task will show you how to:
 
 <a name="access-app"> </a>
 
-<h2><span class="short-header">Expose your application on a custom domain</span></h2>
+<h2>Expose your application on a custom domain</h2>
 
 There are two ways you can configure the Domain Name Server (DNS) settings on your domain
 registrar to point to your Windows Azure hosted service:
 
 1.  **CNAME or Alias record (preferred)**
 
-    With a CNAME, you map a *specific* domain, such as www.contoso.com
-    or myblog.contoso.com, to the <*myapp*>.cloudapp.net domain name of
-    your Windows Azure hosted application. The lifetime of the
-    <*myapp*>.cloudapp.net domain name required to implement this
-    solution is the lifetime of your hosted service and persists even if
-    your hosted service does not contain any deployments.
+    With a CNAME, you map a *specific* domain, such as www.contoso.com or myblog.contoso.com, to the <*myapp*>.cloudapp.net domain name of your Windows Azure hosted application. The lifetime of the     <*myapp*>.cloudapp.net domain name required to implement this solution is the lifetime of your hosted service and persists even if your hosted service does not contain any deployments.
 
-    Note, however, that most domain registrars only allow you to map
-    subdomains, such as www.contoso.com and not root names, such as
-    contoco.com or wildcard names, such as \*.contoso.com.
+    Note, however, that most domain registrars only allow you to map subdomains, such as www.contoso.com and not root names, such as contoco.com or wildcard names, such as \*.contoso.com.
 
 2.  **A record**
 
-    With an A record, you map a domain (e.g., contoso.com or
-    www.contoso.com) or a wildcard domain (e.g., \*.contoso.com) to the
-    single public IP address of a deployment within a Windows Azure
-    hosted service. Accordingly, the lifetime of this IP address is the
-    lifetime of a deployment within your hosted service. The IP address
-    gets created the first time you deploy to an empty slot (either
-    production or staging) in the hosted service and is retained by the
-    slot until you delete the deployment from that slot. You can
-    discover this IP address from within the Windows Azure Management
-    Portal.
+    With an A record, you map a domain (e.g., contoso.com or www.contoso.com) or a wildcard domain (e.g., \*.contoso.com) to the single public IP address of a deployment within a Windows Azure hosted service. Accordingly, the lifetime of this IP address is the     lifetime of a deployment within your hosted service. The IP address gets created the first time you deploy to an empty slot (either production or staging) in the hosted service and is retained by the slot until you delete the deployment from that slot. You can discover this IP address from within the Windows Azure Management Portal.
 
-    The main benefit of this approach over using CNAMEs is that you can
-    map root domains (e.g., contoso.com) and wildcard domains (e.g.,
-    \*.contoso.com), in addition to subdomains (e.g., www.contoso.com).
+    The main benefit of this approach over using CNAMEs is that you can map root domains (e.g., contoso.com) and wildcard domains (e.g., \*.contoso.com), in addition to subdomains (e.g., www.contoso.com).
 
-    Note, however, because the lifetime of the IP address is associated
-    with a deployment, it is important not to delete your deployment if
-    you need the IP address to persist. Conveniently, the IP address of
-    a given deployment slot (production or staging) *is* persisted when
-    using the two upgrade mechanisms in Windows Azure: [VIP swaps][] and
-    in-place upgrades.
+    Note, however, because the lifetime of the IP address is associated with a deployment, it is important not to delete your deployment if you need the IP address to persist. Conveniently, the IP address of a given deployment slot (production or staging) *is* persisted when using the two upgrade mechanisms in Windows Azure: [VIP swaps][] and in-place upgrades.
 
 The remainder of this section focuses on the CNAME approach.
 
-<h2><span class="short-header">Adding a CNAME record for your custom domain</span></h2>
+<h2>Adding a CNAME record for your custom domain</h2>
 
 To configure a custom domain name, you must create a new CNAME record in
 your custom domain name's DNS table. Each registrar has a similar but
@@ -101,7 +72,7 @@ is the same.
 A visitor of **www.contoso.com** will never see the true host
 (contoso.cloudapp.net), so the forwarding process is invisible to the
 end user.
-<div class="dev-callout-new">
+<div class="dev-callout">
 	<b>Note</b>
 	<p>The example above only applies to traffic at the <strong>www</strong>
 	subdomain. You cannot specify a root CNAME record that directs all
@@ -114,7 +85,7 @@ end user.
 
 <a name="access-data"> </a>
 
-<h2><span class="short-header">Expose your data on a custom domain</span></h2>
+<h2>Expose your data on a custom domain</h2>
 
 This section describes how to associate your own custom domain with a
 Windows Azure storage account. When you complete the tasks in this
@@ -147,7 +118,8 @@ be able to access blobs within this storage account as follows:
 		</tr>
 	</tbody>
 </table>
-<div class="dev-callout-new">
+<br/>
+<div class="dev-callout">
 <b>Note</b>
 	<p>The tasks in this section use a DNS feature called CNAME, where
 	a source domain points to a destination domain. Most domain registrars
@@ -191,7 +163,7 @@ Management Portal and others in your domain registrar's portal.
 
 <a name="configure-domain"> </a>
 
-<h2><span class="short-header">Configure a custom domain for the storage account</span></h2>
+<h2>Configure a custom domain for the storage account</h2>
 
 1.  Log on to the [Windows Azure Management Portal][].
 
@@ -232,7 +204,7 @@ Management Portal and others in your domain registrar's portal.
 
 <a name="create-cname"> </a>
 
-<h2><span class="short-header">Create a CNAME record to use for domain validation in Windows Azure</span></h2>
+<h2>Create a CNAME record to use for domain validation in Windows Azure</h2>
 
 1.  On your domain registrar's website, add a CNAME record to the
     domain, using the alias and destination host name that you copied
@@ -255,7 +227,7 @@ Management Portal and others in your domain registrar's portal.
 
 <a name="validate-subdomain"> </a>
 
-<h2><span class="short-header">Validate the subdomain in Windows Azure</span></h2>
+<h2>Validate the subdomain in Windows Azure</h2>
 
 1.  In the Windows Azure Management Portal, in the navigation pane,
     click **Hosted Services, Storage Accounts & CDN**.
@@ -271,7 +243,7 @@ Management Portal and others in your domain registrar's portal.
     If the validation is successful, the status of the custom subdomain
     changes to **Allowed**.
 
-    <div class="dev-callout-new">
+    <div class="dev-callout">
 	<b>Note</b>
 	<p>If the validation is not successful, the <strong>Validate Custom
     Domain</strong> dialog box displays a validation status of <strong>Validation
@@ -279,7 +251,7 @@ Management Portal and others in your domain registrar's portal.
     servers on the Internet.</p>
 	</div>
 
-    <div class="dev-callout-new">
+    <div class="dev-callout">
 	<b>Important</b>
 	<p>Windows Azure only validates that a CNAME record for
     the domain corresponds to the alias that you copied from the
@@ -288,7 +260,7 @@ Management Portal and others in your domain registrar's portal.
 
 <a name="associate-subdomain"> </a>
 
-<h2><span class="short-header">Create a CNAME record to associate the subdomain with the storage account</span></h2>
+<h2>Create a CNAME record to associate the subdomain with the storage account</h2>
 
 1.  On the domain registrar's website, add a second CNAME record to the
     domain. This CNAME record associates the validated custom subdomain
@@ -310,7 +282,7 @@ the storage account.
 
 <a name="verify-subdomain"> </a>
 
-<h2><span class="short-header">Verify that the subdomain references the blob service</span></h2>
+<h2>Verify that the subdomain references the blob service</h2>
 
 In a web browser, use a URI in the following format to access a blob in
 a public container:
