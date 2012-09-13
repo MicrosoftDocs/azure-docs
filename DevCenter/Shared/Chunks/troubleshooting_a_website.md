@@ -9,7 +9,7 @@ Troubleshooting a web site is accomplished by configuring the web site to displa
 <p>For purposes of this document, <b>Web Site</b> refers to the host for a web application running on Windows Azure and <b>web site</b> refers to a running host instance.</p> 
 </div>
 
-<h2><span class="short-header">Web site diagnostics</span>What is Web Site Diagnostics?</h2>
+<h2>What is Web Site Diagnostics?</h2>
 
 Web Site diagnostics provides the following logging and tracing options:
 
@@ -20,7 +20,7 @@ Web Site diagnostics provides the following logging and tracing options:
 Diagnostics log files are saved to an FTP site for download to a local computer. 
 
 
-<h2><span class="short-header">Concepts</span>Concepts</h2>
+<h2>Concepts</h2>
 
 Concepts introduced in this article include:
 
@@ -30,7 +30,7 @@ Concepts introduced in this article include:
  - **Troubleshooting Web Sites using configuration options and diagnostics** - Configuring web sites to display application errors and environment variables, configuring diagnostics for a web site, collecting diagnostic data and then analyzing the displayed application errors and diagnostics data to troubleshoot and resolve problems.
 
 
-<h2><span class=”short-header”>Install developer tools</span>Install developer tools and create a web site on your local computer</h2>
+<h2>Install developer tools and create a web site on your local computer</h2>
 
 Before discussing how to troubleshoot a web site we must first create a web site. This section walks through using Microsoft WebMatrix to create a simple web site and deploy the web site to Windows Azure.
 ###<a name="installwebmatrix"></a>Install Microsoft WebMatrix
@@ -54,7 +54,7 @@ To create a web site with WebMatrix follow these steps:
 
 You have now successfully created a web site with WebMatrix.
   
-<h2><span class=”short-header”>Create a web site</span>Create a Web Site on Windows Azure</h2>
+<h2>Create a Web Site on Windows Azure</h2>
 
 Before you can deploy your web site from WebMatrix to Windows Azure you must first create a web site on Windows Azure. This section walks through creating a web site on Windows Azure.
 
@@ -84,7 +84,7 @@ Web Sites support multiple deployment technologies including MSDeploy/Webdeploy,
 
 	![Web Site Under Construction page][webunderconstruction]
 
-<h2><span class=”short-header”>Deploy the web site</span>Deploy the web site from the developer computer to Windows Azure</h2>
+<h2>Deploy the web site from the developer computer to Windows Azure</h2>
 
 Now that you have created a web site on Windows Azure and generated the necessary deployment user credentials you can deploy the web site from your developer computer to Windows Azure.  To deploy a web site to Windows Azure using FTP you can use one of several FTP clients available for download on the Internet or you can deploy directly from your development environment if the application supports FTP publishing. Since WebMatrix supports FTP publishing, follow these steps to publish the web site you created in WebMatrix to Windows Azure:
 
@@ -115,7 +115,7 @@ Now that you have created a web site on Windows Azure and generated the necessar
 	![Web Site Published to Windows Azure][defaultpagenewsite]
 
 
-<h2><span class=”short-header”>Enable diagnostics</span>Enable diagnostics for the web site</h2>
+<h2>Enable diagnostics</span>Enable diagnostics for the web site</h2>
 
 Enable diagnostics for web sites on the **Configure** management page. Under the **Diagnostics** section of the **Configure** management page you can enable or disable the following logging and tracing options:
 
@@ -129,7 +129,7 @@ Set all logging and tracing options for the web site to **On** and click the **S
 
 Connect to the FTP site where diagnostic data is stored using parameters from the web site's **Dashboard** management page. Open the FTP site listed under **Diagnostics Logs** using the **Deployment User** account credentials [you created earlier](#deploymentuser). Consider using an FTP client such as [FileZilla][filezilla] to download log files. An FTP client typically provides more flexibility than a web browser for connnecting to and downloading files from an FTP site. 
 
-<h2><span class=”short-header”>Register an account</span>Register an account on the Website</h2>
+<h2>Register an account on the Website</h2>
 
 Follow these steps to register an account on the web site:
 
@@ -141,7 +141,7 @@ Follow these steps to register an account on the web site:
 
 	![Logged on to website][loggedontosite]
 
-<h2><span class=”short-header”>Introduce an error condition</span>Introduce an error condition on the web site</h2>
+<h2>Introduce an error condition on the web site</h2>
 
 Before downloading and analyzing diagnostic data from a web site it will be useful to modify the web site to cause an error to occur. Follow the steps below to cause an error condition and configure the web site to display application errors.
 
@@ -243,7 +243,7 @@ When you add the file **environment.aspx** to a .NET web application or the file
 	<a name="debugapperr"></a>
 	![Detailed Application Error][detailedapperr]
 
-<h2><span class=”short-header”>Download log files</span>Download diagnostic log files to your local computer</h2>
+<h2>Download diagnostic log files to your local computer</h2>
 
 Now that you have introduced an error condition on the website, you can download the resulting diagnostic log files to your local computer for analysis. To ensure that web site diagnostics creates all of the log files specified under the **Diagnostics** section of the website's **Configure** management page, refresh your browser once or twice to ensure that the error occurs.  Follow these steps to download the diagnostic log files to your local computer:
 
@@ -256,7 +256,7 @@ Now that you have introduced an error condition on the website, you can download
 
 	![View Log Files][viewlogfiles]
 
-<h2><span class=”short-header”>Analyze web site logs</span>Analyze website log files</h2>
+<h2>Analyze website log files</h2>
 
 Basic analysis of the different log file types can be performed as follows:
 
@@ -303,7 +303,7 @@ Web site logs record all HTTP transactions using the W3C extended log file forma
 For more information about Log Parser 2.2 see [Download Log Parser 2.2][downloadlogparser]
 
 
-<h2><span class=”short-header”>Troubleshoot the web site</span>Troubleshoot the AzureWebDiag web site</h2>
+<h2>Troubleshoot the AzureWebDiag web site</h2>
 
 This section describes how someone might engage in troubleshooting a web site using the information that is available after you configure the web site to display errors and enable web site tracing and logging.  
 
