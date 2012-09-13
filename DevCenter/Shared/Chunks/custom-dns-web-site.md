@@ -2,7 +2,7 @@
 
 When you create a web site, Windows Azure provides a friendly subdomain on the azurewebsites.net domain so your users can access your web site using a URL like http://&lt;mysite>.azurewebsites.net. However, if you configure your web sites for shared or reserved mode, you can map your web site to your own domain name, such as contoso.com. 
 
-<div class="dev-callout-new"> 
+<div class="dev-callout"> 
 <b>Note</b> 
 	<p>The procedures in this task apply to Windows Azure Web Sites; for Cloud Services, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Windows Azure</a>.</p> 
 </div>
@@ -32,7 +32,7 @@ The task includes the following steps:
 - Optional: [Configure an A record for the domain name][]
 - [Set the domain name in management portal][]
  
-<a name="bkmk_configsharedmode"></a><h2><span class="short-header">Configure your web sites for shared mode</span></h2>
+<a name="bkmk_configsharedmode"></a><h2>Configure your web sites for shared mode</h2>
 
 Setting a custom domain name on a web site is only available for the shared and reserved modes for Windows Azure web sites. Before switching a web site from the free web site mode to the shared or reserved web site mode, you must first remove spending caps in place for your Web Site subscription. For more information on shared and reserved mode pricing, see [Pricing Details][PricingDetails].
 
@@ -53,12 +53,12 @@ Setting a custom domain name on a web site is only available for the shared and 
 
 	<!--![][reservedmode4]-->
 
-<div class="dev-callout-new"> 
+<div class="dev-callout"> 
 	<b>Note</b> 
 	<p>If you receive a "Configuring scale for web site '&lt;site name>' failed" error you can use the details button to get more information. You may receive a "Not enough available reserved instance servers to satisfy this request." error. The web sites feature is in preview and we are adding capacity on a measured basis. If you receive this error, you will need to try again later to upgrade your account.</p> 
 </div>
 
-<a name="bkmk_configurecname"></a><h2><span class="short-header">Configure the CNAME on your domain registrar</span></h2>
+<a name="bkmk_configurecname"></a><h2>Configure the CNAME on your domain registrar</h2>
 
 To configure a custom domain name, you must create a CNAME record in your custom domain name's DNS table. Each registrar has a similar but slightly different method of specifying a CNAME record, but the concept is the same. Once you have configured the CNAME record, it will take some time to propagate.
 
@@ -86,12 +86,12 @@ For example, the following CNAME record example forwards all traffic from *www.c
 	</table>
 	<br/>
 
-<div class="dev-callout-new"> 
+<div class="dev-callout"> 
 <b>Note</b> 
 <p>It can take some time for your CNAME to propagate through the DNS system. You cannot set the CNAME for the web site until the CNAME has propagated. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.</p> 
 </div>
 
-<a name="bkmk_configurearecord"></a><h2><span class="short-header">Configure an A record for the domain name</span></h2>
+<a name="bkmk_configurearecord"></a><h2>Configure an A record for the domain name</h2>
 
 To configure an A record you must configure a CNAME record used to verify the domain name. This process is the same as one used to configure a CNAME record to point at to your web site, except that you configure the CNAME record domain names that will be used for verification purposes. The hostname will be awverify.www.contoso.com and the value will be awverify.mysite.azurewebsites.net. Once this has propagate, you can configure the A record.
 
@@ -132,7 +132,7 @@ For example, the following DNS examples forwards all traffic from *www.contoso.c
 		</tr>
 	</table>
 
-<a name="bkmk_setcname"></a><h2><span class="short-header">Set the domain name in management portal</span></h2>
+<a name="bkmk_setcname"></a><h2>Set the domain name in management portal</h2>
 
 Once the CNAME or A record for domain name has propagated you must associate it with your web site.
 
