@@ -1,10 +1,10 @@
 # Analyzing Twitter Movie Data with Hive 
 
-In this tutorial we will query, explore, and analyze data from twitter using Apache™ Hadoop™-based Services for Windows Azure and a Hive query in Excel. Social web sites are one of the major driving forces for Big Data adoption. Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends.  
+In this tutorial you will query, explore, and analyze data from twitter using Apache™ Hadoop™-based Services for Windows Azure and a Hive query in Excel. Social web sites are one of the major driving forces for Big Data adoption. Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends.  
 
 This tutorial is composed of the following segments:
 
-1. [Search for, download, install, and use Microsoft Analytics for Twitter ](#segment1).
+1. [Search for, download, install, and use Microsoft Analytics for Twitter](#segment1).
 1. [Get Twitter Feed using cURL and Twitter Streaming API](#segment2).
 1. [Request and configure a new Hadoop on a Windows Azure cluster](#segment3).
 1. [Process Twitter data using Hive on the Hadoop on a Windows cluster](#segment4).
@@ -22,7 +22,7 @@ This requires Excel 2010 and PowerPivot (the latter of which can be downloaded a
 
 ![Figure2](../media/Figure2.png)
 
-Paste the following movie tags and accounts into the query window:
+Open Microsoft Analytics for Twitter and paste the following movie tags and accounts into the query window:
 
 \#moneyball, @MoneyballMovie, @helpmovie, @BridesmaidsSay, @CONTAGION_movie
 
@@ -69,7 +69,7 @@ This step requires access to the CTP for Apache Hadoop-based Service for Windows
 
 ![Figure7](../media/Figure7.png)  
 
-Request a new cluster.  Below is an example of a large cluster called “mailboxpeak.” Enter a username and password and click the Request cluster button.  If you have questions, refer to the “Apache Hadoop-based Service for Windows Azure How-To and FAQ.”
+Request a new cluster.  Below is an example of a 3 node cluster called “mailboxpeak.” Enter a username and password and click the **Request cluster** button.  If you have questions, refer to the “Apache Hadoop-based Service for Windows Azure How-To and FAQ.”
 
 ![Figure8](../media/Figure8.png)
 
@@ -157,13 +157,13 @@ Go to <https://www.hadooponazure.com/>. Connect to the Hadoop head node by click
     
 ![Figure23](../media/Figure23.png)
 
-Click the Open button.
+Click the **Open** button.
   
 ![Figure24](../media/Figure24.png)
   
 Log on to the remote server with the name and password you used to create the cluster in Step 3.
 
-Create a directory (for instance, **c:\Apps\dist\example\data**) on the Remote Hadoop head node server (on the NTFS side) using Explorer or a command line and change to that directory.
+Create a directory (for instance, **c:\Apps\dist\example\data**) on the Remote Hadoop head node server (on the NTFS side) using Windows Explorer or a command line and change to that directory.
 
 Copy the entire contents of the CopyToHeadnode folder into that new directory. This includes **HiveUDFs.jar** (User Defined Functions use by Hive queries), **gzip**, and the Hive query txt files.  You may also want to copy the **All steps to run from the Hadoop Command Shell.txt** file over to make the last half of this step easier.
  
@@ -171,7 +171,7 @@ Copy the entire contents of the CopyToHeadnode folder into that new directory. T
 
 RDP supports copying and pasting between the host desktop and the remote desktop. There is a chance that Hadoop may unzip the **gzip** file as you copy it to HDFS.
 
-Open the Hadoop Command Shell on the Remote Deskop.  
+Open the Hadoop Command Shell on the Remote Desktop.  
 
 ![Figure26](../media/Figure26.png)
 
@@ -271,7 +271,10 @@ Monitor the job's progress as above.
 <a name="segment5"></a>
 ### Set Up Hive ODBC and the Hive Panel in Excel to Retrieve the Hive Data 
 
-This section is copied from the **Apache Hadoop-based Service for Windows Azure How-To and FAQ**, which can be found in the downloads tile ![Figure37](../media/Figure37.png)
+This section is copied from the **Apache Hadoop-based Service for Windows Azure How-To and FAQ**, which can be found by clicking the **Downloads** tile 
+
+![Figure37](../media/Figure37.png)
+
 at the Hadoop on Windows Azure portal.
   
 ![Figure38](../media/Figure38.png)  
@@ -282,7 +285,7 @@ This is also where you can download **HiveODBCSetup** for 64-bit or 32-bit Excel
 
 **How to connect the Excel Hive Add-In to Hadoop on Windows Azure via HiveODBC**
 
-One key feature of Microsoft’s Big Data Solution is the solid integration of Apache Hadoop with the Microsoft Business Intelligence (BI) components. A good example of this is Excel's ability to connect to the Hive data warehouse framework in the Hadoop cluster. This section walks you through using Excel via the Hive ODBC driver.
+One key feature of the Microsoft Big Data Solution is the solid integration of Apache Hadoop with the Microsoft Business Intelligence (BI) components. A good example of Apache Hadoop integration with Microsoft BI components is the ability of Excel to connect to the Hive data warehouse framework in the Hadoop cluster. This section walks you through using Excel via the Hive ODBC driver.
 
 **Installing the Hive ODBC Driver**
 
@@ -294,7 +297,7 @@ Read the license agreement. If you agree to the license agreement, click **I acc
   
 ![Figure40](../media/Figure40.png)
 
-Once the installation has completed, click **Finish** to exit the Setup Wizard.
+Once the installation has completed, click **Finish** to exit the **ODBC Driver for Hive Setup** wizard.
 
 **Installing the Excel Hive Add-In**
 
