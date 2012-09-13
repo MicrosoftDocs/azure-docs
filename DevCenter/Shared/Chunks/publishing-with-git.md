@@ -15,9 +15,10 @@ The task includes the following steps:
 * [Create a local repository](#Step2)
 * [Add a web page](#Step3)
 * [Enable the web site repository](#Step4)
-* [Add the web site as a remote repository](#Step5)
-* [Publish and re-publish the web site](#Step6)
-* [Troubleshooting](#Step7)
+* [Deploy your project](#Step5)
+	* [Pushing local files to Windows Azure](#Step6)
+	* [Deploy files from GitHub or CodePlex](#Step7)
+* [Troubleshooting](#Step8)
 
 <h2 id="Step1">Installing Git</h2>
 
@@ -101,7 +102,7 @@ Since you have already initialized a local repository and added files to it, ski
 
 The **remote** command adds a named reference to a remote repository, in this case it creates a reference named 'azure' for your Windows Azure Website repository.
 
-<h4 id="Step7">Publish and re-publish the web site</h4>
+<h4>Publish and re-publish the web site</h4>
 
 1. Use the following from the command-line to push the current repository contents from the local repository to the 'azure' remote:
 
@@ -142,7 +143,7 @@ The **remote** command adds a named reference to a remote repository, in this ca
 
 	![A webpage containing 'Yay!'][yay]
 
-<h2 id="Step8">Deploy files from GitHub or CodePlex<h2>
+<h3 id="Step7">Deploy files from GitHub or CodePlex</h3>
 
 Deploying files from either GitHub or CodePlex requires that you have published your local project to one of these services. For more information on publishing your project to these services, see [Create a Repo](GitHub) or [Using Git with CodePlex].
 
@@ -173,7 +174,7 @@ Deploying files from either GitHub or CodePlex requires that you have published 
 
 	![updated deployment message][git-update-deploy]
 
-<h3 id="Step9">Specifying the branch to use</h3>
+<h4>Specifying the branch to use</h4>
 
 When you enable continuous deployment, it will default to the **master** branch of the repository. If you wish to use a different branch, perform the following steps:
 
@@ -185,7 +186,7 @@ When you enable continuous deployment, it will default to the **master** branch 
 
 Windows Azure should immediately begin updating based on changes to the new branch.
 
-<h3 id="Step10">Disabling continuous deployment</h3>
+<h4>Disabling continuous deployment</h4>
 
 Continuous deployment cannot be disabled from the Windows Azure portal, but must instead be disabled from your repository settings on GitHub or CodePlex.
 
@@ -197,7 +198,7 @@ When updates are made to your GitHub or CodePlex repository, a POST request is s
 
 To discontinue continuous deployment, simply remove the URL from the configuration settings of your GitHub or CodePlex repository.
 
-<h2 id="Step7">Troubleshooting</h2>
+<h2 id="Step8">Troubleshooting</h2>
 
 The following are errors or problems commonly encountered when using Git to publish to a Windows Azure Website:
 
