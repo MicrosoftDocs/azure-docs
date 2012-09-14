@@ -1,6 +1,7 @@
 <properties linkid="dev-net-commons-tasks-enable-ssl" urldisplayname="Enable SSL" headerexpose="" pagetitle="Enable SSL - .NET - Develop" metakeywords="Azure SSL, Azure HTTPS, Windows Azure SSL, Windows Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" footerexpose="" metadescription="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." umbraconavihide="0" disquscomments="1"></properties>
 
-# Configuring SSL for an Application in Windows Azure
+<div chunk="../chunks/article-left-menu.md" />
+# Configuring SSL for an application in Windows Azure
 
 Secure Socket Layer (SSL) encryption is the most commonly used method of
 securing data sent across the internet. This common task discusses how
@@ -9,14 +10,12 @@ certificate to secure your application.
 
 This task includes the following steps:
 
--   [Step 1: Get an SSL Certificate][]
--   [Step 2: Modify the Service Definition and Configuration Files][]
--   [Step 3: Upload the Deployment Package and Certificate][]
--   [Step 4: Connect to the Role Instance by Using HTTPS][]
+-   [Step 1: Get an SSL certificate][]
+-   [Step 2: Modify the service definition and configuration files][]
+-   [Step 3: Upload the deployment package and certificate][]
+-   [Step 4: Connect to the role instance by using HTTPS][]
 
-<a name="step1"> </a>
-
-## Step 1: Get an SSL Certificate
+<h2 id="step1"><span class="short-header">Get an SSL cert</span>Step 1: Get an SSL certificate</h2>
 
 To configure SSL for an application, you first need to get an SSL
 certificate that has been signed by a Certificate Authority (CA), a
@@ -28,9 +27,9 @@ The certificate must meet the following requirements for SSL
 certificates in Windows Azure:
 
 -   The certificate must contain a private key.
--   The certificate must be created for key exchange (.pfx file).
+-   The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
 -   The certificate's subject name must match the domain used to access
-    the hosted service. You cannot acquire an SSL certificate for the
+    the cloud service. You cannot acquire an SSL certificate for the
     cloudapp.net domain, so the certificate's subject name must match
     the custom domain name used to access your application.
 -   The certificate must use a minimum of 2048-bit encryption.
@@ -42,9 +41,7 @@ See [How to Create a Certificate for a Role][].
 Next, you must include information about the certificate in your service
 definition and service configuration files.
 
-<a name="step2"> </a>
-
-## Step 2: Modify the Service Definition and Configuration Files
+<h2 id="step2"><span class="short-header">Modify svc / config files</span>Step 2: Modify the service definition and configuration files</h2>
 
 Your application must be configured to use the certificate, and an HTTPS
 endpoint must be added. As a result, the service definition and service
@@ -102,9 +99,9 @@ configuration files need to be updated.
     completed, but you still need to add the certificate information to
     the service configuration file.
 
-4.  In your service configuration file (CSCFG), add a **Certificates**
+4.  In your service configuration file (CSCFG), ServiceConfiguration.Cloud.cscfg, add a **Certificates**
     section within the **Role** section, replacing the sample thumbprint
-    value below with that of your certificate:
+    value shown below with that of your certificate:
 
         <Role name="Deployment">
         ...
@@ -116,52 +113,45 @@ configuration files need to be updated.
         ...
         </Role>
 
+(The example above uses **sha1** for the thumbprint algorithm. Specify the appropriate value for your certificate's thumbprint algorithm.)
+
 Now that the service definition and service configuration files have
 been updated, package your deployment for uploading to Windows Azure. If
 you are using **cspack**, ensure that you don't use the
 **/generateConfigurationFile** flag, as that will overwrite the
 certificate information you just inserted.
 
-<a name="step3"> </a>
-
-## Step 3: Upload the Deployment Package and Certificate
+<h2 id="step3"><span class="short-header">Upload to Windows Azure</span>Step 3: Upload the deployment package and certificate</h2>
 
 Your deployment package has been updated to use the certificate, and an
 HTTPS endpoint has been added. Now you can upload the package and
 certificate to Windows Azure with the Management Portal.
 
-1.  Log into the [Windows Azure Management Portal][], and go to the
-    Hosted Services section. Click **New Hosted Service**, add the
-    required information about your hosted service, and then click **Add
-    Certificate**.   
+1. Log into the [Windows Azure Management Portal][]. 
+2. Click **New**, click **Cloud Service**, and then click **Custom Create**.
+3. In the **Create a cloud service** dialog, enter values for the URL, region/affinity group, subscription. Ensure **Deploy a cloud service package now** is checked and click the **Next** button.
+3. In the **Publish your cloud service** dialog, enter the required information for your cloud service, and ensure **Add certificates now** is checked.   
+
     ![][0]
 
-2.  In **Upload Certificates**, enter the location for the SSL
+4.  Click the **Next** button.
+5.  In the **Add Certificate** dialog, enter the location for the SSL
     certificate .pfx file, the password for the certificate, and click
-    **OK**.  
+    **attach certificate**.  
     ![][1]
 
-3.  Click **OK** to create your hosted service. When the deployment has
-    reached the **Ready** status, you can proceed to the next steps.
+6.  Click the **Complete** button to create your cloud service. When the deployment has reached the **Ready** status, you can proceed to the next steps.
 
-<a name="step4"> </a>
-
-## Step 4: Connect to the Role Instance by Using HTTPS
+<h2 id="step4"><span class="short-header">Connect using HTTPS</span>Step 4: Connect to the role instance by using HTTPS</h2>
 
 Now that your deployment is up and running in Windows Azure, you can
 connect to it using HTTPS.
 
-1.  In the Management Portal, select your deployment, then right-click
-    on the DNS name link in the **Properties** pane and choose
-    **Copy**.  
+1.  In the Management Portal, select your deployment, then click the link under **Site URL**.
+
     ![][2]
 
-2.  Paste the address in a web browser, but make sure that it starts
-    with **https** instead of **http**, and then visit the page.
-
-    Your browser displays the address in green to indicate that it's
-    using an HTTPS connection. This also indicates that your application
-    has been configured correctly for SSL.
+2.  In your web browser, modify the link to use **https** instead of **http**, and then visit the page.
 
     **Note:** If you are using a self-signed certificate, when you
     browse to an HTTPS endpoint that's associated with the self-signed
@@ -177,13 +167,13 @@ connect to it using HTTPS.
 
 [How to Configure an SSL Certificate on an HTTPS Endpoint][]
 
-  [Step 1: Get an SSL Certificate]: #step1
-  [Step 2: Modify the Service Definition and Configuration Files]: #step2
-  [Step 3: Upload the Deployment Package and Certificate]: #step3
-  [Step 4: Connect to the Role Instance by Using HTTPS]: #step4
+  [Step 1: Get an SSL certificate]: #step1
+  [Step 2: Modify the service definition and configuration files]: #step2
+  [Step 3: Upload the deployment package and certificate]: #step3
+  [Step 4: Connect to the role instance by using HTTPS]: #step4
   [How to Create a Certificate for a Role]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432987.aspx
   [How to Associate a Certificate with a Service]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [0]: ../../../DevCenter/Shared/Media/ssl-01.png
   [1]: ../../../DevCenter/Shared/Media/ssl-02.png
   [2]: ../../../DevCenter/Shared/Media/ssl-03.png
