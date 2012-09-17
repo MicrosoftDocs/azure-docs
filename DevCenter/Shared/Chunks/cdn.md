@@ -21,7 +21,8 @@ The benefits of using CDN to cache Windows Azure data include:
 To use the Windows Azure CDN, you must have a Windows Azure subscription
 and enable the feature on the storage account or hosted service in the [Windows Azure Management Portal]. The CDN is an add-on feature to your subscription and has a separate [billing plan].
 
-<h2 id="Step1">Step 1: Create a storage account</h2>
+<a id="Step1"> </a>
+<h2>Step 1: Create a storage account</h2>
 
 Use the following procedure to create a new storage account for a
 Windows Azure subscription. A storage account gives access to Windows
@@ -76,7 +77,8 @@ Windows Azure Service Management API, see the <a href="http://msdn.microsoft.com
 7.  Click **Create Storage Account**. The process of creating the storage account might take several minutes to complete.
 8.  To verify that the storage account was created successfully, verify that the account appears in the items listed for **Storage** with a status of **Online**.
 
-<h2 id="Step2">Step 2: Enable CDN on your storage account</h2>
+<a id="Step2"> </a>
+<h2>Step 2: Enable CDN on your storage account</h2>
 
 The CDN caches static content at strategically placed locations around
 the world to provide superior performance and availability. The benefits
@@ -137,13 +139,15 @@ when the cached content time-to-live period expires.
     (Bad Request) until the content is available via the CDN.</p>
     </div>
 
-<h2 id="Step3">Step 3: Access your CDN content</h2> 
+<a id="Step3"> </a>
+<h2>Step 3: Access your CDN content</h2> 
 
 To access the content on the CDN, go to:
 
 http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
 
-<h2 id="Step4">Step 4: Delete your CDN content</h2>
+<a id="Step4"> </a>
+<h2>Step 4: Delete your CDN content</h2>
 
 If you no longer wish to cache an object in the Windows Azure Content
 Delivery Network (CDN), you can:
