@@ -16,8 +16,7 @@ This task includes the following steps:
 -   [Step 2: Deploy an Application to Production by Swapping VIPs][]
 
 <a name="step1"> </a>
-
-## Step 1: Stage an Application by Using the Management Portal
+<h2><span class="short-header">Stage using portal</span>Step 1: Stage an application by using the management portal</h2>
 
 This task covers how to stage an application by using the Windows Azure
 Management Portal. You can also [Stage an Application with Visual
@@ -25,7 +24,7 @@ Studio][Step 1 (Alternate): Stage an Application with Visual Studio].
 
 1.  Log on to the [Windows Azure Management Portal].
 
-2.  In the Management Portal, click **+ NEW** in the bottom left, and then click **Cloud Service**.
+2.  In the Management Portal, click **New** in the bottom left, and then click **Cloud Service**.
 
     ![cloud service dialog][new-cloud-service]
 
@@ -54,9 +53,8 @@ version of one that has already been deployed to production, you can
 [upgrade the application in the production environment by swapping the
 VIPs][Step 2: Deploy an Application to Production by Swapping VIPs].
 
-<a name="step2"> </a>
-
-## Step 1 (Alternate): Stage an Application with Visual Studio
+<a name="step1a"> </a>
+<h2><span class="short-header">Stage with Visual Studio</span>Step 1 (Alternate): Stage an application with Visual Studio</h2>
 
 This task covers how to stage an application with Visual Studio. You can
 also [Stage an Application with the Management Portal][Step 1: Stage an Application by Using the Management Portal].
@@ -102,9 +100,8 @@ version of one that has already been deployed to production, you can
 [upgrade the application in the production environment by swapping the
 VIPs][Step 2: Deploy an Application to Production by Swapping VIPs].
 
-<a name="step3"> </a>
-
-## Step 2: Upgrade an Application in Production by Swapping VIPs
+<a name="step2"> </a>
+<h2><span class="short-header">Upgrade by swapping VIPs</span>Upgrade an application in production by swapping VIPs</h2>
 
 After you have verified the upgraded version of an application in the
 staging environment, you can quickly make it available in production by
@@ -132,7 +129,8 @@ application.</p>
 You have successfully staged a deployment and upgraded a production
 deployment by swapping VIPs with the deployment in staging.
 
-## Additional Resources
+<a name="additional_resources"> </a>
+<h2><span class="short-header">Additional Resources</span>Additional Resources</h2>
 
 * [How to Deploy a Service Upgrade to Production by Swapping VIPs in
 Windows Azure]
@@ -140,9 +138,9 @@ Windows Azure]
 * [Publishing Applications to Windows Azure from Visual Studio]
 
   [Step 1: Stage an Application by Using the Management Portal]: #step1
-  [Step 1 (Alternate): Stage an Application with Visual Studio]: #step2
-  [Step 2: Deploy an Application to Production by Swapping VIPs]: #step3
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Step 1 (Alternate): Stage an Application with Visual Studio]: #step1a
+  [Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [0]: ../../../DevCenter/Shared/Media/staging-01.png
   [1]: ../../../DevCenter/Shared/Media/staging-02.png
   [2]: ../../../DevCenter/Shared/Media/staging-03.png
