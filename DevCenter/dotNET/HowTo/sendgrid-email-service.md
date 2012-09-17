@@ -8,9 +8,10 @@ SendGrid email service on Windows Azure. The samples are written in C\#
 and use the .NET API. The scenarios covered include **constructing
 email**, **sending email**, **adding attachments**, and **using
 filters**. For more information on SendGrid and sending email, see the
-[Next Steps][] section.
+[Next steps][] section.
 
-<h2 id="toc"><span class="short-header">Table of contents</span>Table of contents</h2>
+<a id="toc"> </a>
+<h2><span class="short-header">Table of contents</span>Table of contents</h2>
 
 [What is the SendGrid Email Service?][]   
 [Create a SendGrid account][]   
@@ -22,7 +23,8 @@ filters**. For more information on SendGrid and sending email, see the
 [How to: Use additional SendGrid services][]   
 [Next steps][]
 
-<h2 id="whatis"><span class="short-header">What is SendGrid?</span>What is the SendGrid Email Service?</h2>
+<a id="whatis"> </a>
+<h2><span class="short-header">What is SendGrid?</span>What is the SendGrid Email Service?</h2>
 
 SendGrid is a cloud-based email service that provides reliable email
 delivery, scalability, and real-time analytics. along with flexible APIs
@@ -39,7 +41,8 @@ include:
 
 For more information, see [http://sendgrid.com][].
 
-<h2 id="createaccount"><span class="short-header">Create a SendGrid account</span>Create a SendGrid account</h2>
+<a id="createaccount"> </a>
+<h2><span class="short-header">Create a SendGrid account</span>Create a SendGrid account</h2>
 
 To get started with SendGrid, evaluate pricing and sign up information
 at [http://sendgrid.com][1]. Windows Azure customers receive a [special offer][] of 25,000 free emails per month from SendGrid. To sign-up for
@@ -52,7 +55,8 @@ documentation at
 about additional services provided by SendGrid, see
 [http://sendgrid.com/features][].
 
-<h2 id="reference"><span class="short-header">Reference SendGrid library</span>Reference the SendGrid .NET class library</h2>
+<a id="reference"> </a>
+<h2><span class="short-header">Reference SendGrid library</span>Reference the SendGrid .NET class library</h2>
 
 The SendGrid NuGet package is the easiest way to get the SendGrid API
 and to configure your application with all dependencies. NuGet is a
@@ -99,7 +103,8 @@ the SendGrid APIs.
     using SendGridMail;
     using SendGridMail.Transport;
 
-<h2 id="createemail"><span class="short-header">Create an email</span>How to: Create an email</h2>
+<a id="createemail"> </a>
+<h2><span class="short-header">Create an email</span>How to: Create an email</h2>
 
 Use the static **SendGrid.GenerateInstance** method to create an email
 message that is of type **SendGrid**. Once the message is created, you
@@ -154,7 +159,8 @@ The following example demonstrates how to create an empty email object:
 For more information on all properties and methods supported by the
 **SendGrid** type, see [sendgrid-csharp][] on GitHub.
 
-<h2 id="sendemail"><span class="short-header">Send an email</span>How to: Send an email</h2>
+<a id="sendemail"> </a>
+<h2><span class="short-header">Send an email</span>How to: Send an email</h2>
 
 After creating an email message, you can send it using either SMTP or
 the Web API provided by SendGrid. For details about the benefits and
@@ -213,7 +219,8 @@ to send a message using both SMTP and the Web API.
     // Send the email.
     transportREST.Deliver(myMessage);
 
-<h2 id="addattachment"><span class="short-header">Add an attachment</span>How to: Add an attachment</h2>
+<a id="addattachment"> </a>
+<h2><span class="short-header">Add an attachment</span>How to: Add an attachment</h2>
 
 Attachments can be added to a message by calling the **AddAttachment**
 method and specifying the name and path of the file you want to attach.
@@ -229,7 +236,8 @@ an attachment to a message:
 
     myMessage.AddAttachment(@"C:\file1.txt");
 
-<h2 id="usefilters"><span class="short-header">Use filters</span>How to: Use filters to enable footers, tracking, and analytics</h2>
+<a id="usefilters"> </a>
+<h2><span class="short-header">Use filters</span>How to: Use filters to enable footers, tracking, and analytics</h2>
 
 SendGrid provides additional email functionality through the use of
 filters. These are settings that can be added to an email message to
@@ -273,13 +281,15 @@ filters:
     // should also be overwritten for link tracking purposes. 
     myMessage.EnableClickTracking(true);
 
-<h2 id="useservices"><span class="short-header">More SendGrid services</span>How to: Use additional SendGrid services</h2>
+<a id="useservices"> </a>
+<h2><span class="short-header">More SendGrid services</span>How to: Use additional SendGrid services</h2>
 
 SendGrid offers web-based APIs that you can use to leverage additional
 SendGrid functionality from your Windows Azure application. For full
 details, see the [SendGrid API documentation][].
 
-<h2 id="nextsteps"><span class="short-header">Next steps</span>Next steps</h2>
+<a id="nextsteps"> </a>
+<h2><span class="short-header">Next steps</span>Next steps</h2>
 
 Now that you’ve learned the basics of the SendGrid Email service, follow
 these links to learn more.
@@ -288,7 +298,7 @@ these links to learn more.
 *   SendGrid API documentation: [http://docs.sendgrid.com/documentation/api/][SendGrid API documentation]
 *   SendGrid special offer for Windows Azure customers: [http://sendgrid.com/azure.html][]
 
-  [Next Steps]: #nextsteps
+  [Next steps]: #nextsteps
   [What is the SendGrid Email Service?]: #whatis
   [Create a SendGrid Account]: #createaccount
   [Reference the SendGrid .NET Class Library]: #reference
