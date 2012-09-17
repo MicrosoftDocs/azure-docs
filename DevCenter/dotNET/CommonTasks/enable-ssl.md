@@ -15,7 +15,8 @@ This task includes the following steps:
 -   [Step 3: Upload the deployment package and certificate][]
 -   [Step 4: Connect to the role instance by using HTTPS][]
 
-<h2 id="step1"><span class="short-header">Get an SSL cert</span>Step 1: Get an SSL certificate</h2>
+<a id="step1"> </a>
+<h2><span class="short-header">Get an SSL cert</span>Step 1: Get an SSL certificate</h2>
 
 To configure SSL for an application, you first need to get an SSL
 certificate that has been signed by a Certificate Authority (CA), a
@@ -41,7 +42,8 @@ See [How to Create a Certificate for a Role][].
 Next, you must include information about the certificate in your service
 definition and service configuration files.
 
-<h2 id="step2"><span class="short-header">Modify svc / config files</span>Step 2: Modify the service definition and configuration files</h2>
+<a id="step2"> </a>
+<h2><span class="short-header">Modify svc / config files</span>Step 2: Modify the service definition and configuration files</h2>
 
 Your application must be configured to use the certificate, and an HTTPS
 endpoint must be added. As a result, the service definition and service
@@ -121,7 +123,8 @@ you are using **cspack**, ensure that you don't use the
 **/generateConfigurationFile** flag, as that will overwrite the
 certificate information you just inserted.
 
-<h2 id="step3"><span class="short-header">Upload to Windows Azure</span>Step 3: Upload the deployment package and certificate</h2>
+<a id="step3"> </a>
+<h2><span class="short-header">Upload to Windows Azure</span>Step 3: Upload the deployment package and certificate</h2>
 
 Your deployment package has been updated to use the certificate, and an
 HTTPS endpoint has been added. Now you can upload the package and
@@ -142,7 +145,8 @@ certificate to Windows Azure with the Management Portal.
 
 6.  Click the **Complete** button to create your cloud service. When the deployment has reached the **Ready** status, you can proceed to the next steps.
 
-<h2 id="step4"><span class="short-header">Connect using HTTPS</span>Step 4: Connect to the role instance by using HTTPS</h2>
+<a id="step4"> </a>
+<h2><span class="short-header">Connect using HTTPS</span>Step 4: Connect to the role instance by using HTTPS</h2>
 
 Now that your deployment is up and running in Windows Azure, you can
 connect to it using HTTPS.
