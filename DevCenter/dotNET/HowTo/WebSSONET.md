@@ -1,3 +1,5 @@
+﻿<div chunk="../chunks/article-left-menu.md" />
+
 # How to implement single sign-on with Windows Azure Active Directory - ASP.NET Application#
 
 <h2>Table of Contents</h2>
