@@ -1,4 +1,4 @@
-﻿<div chunk="../chunks/article-left-menu.md" />
+<div chunk="../chunks/article-left-menu.md" />
 
 # Deploying an ASP.NET Web Application to a Windows Azure Cloud Service and SQL Database
 
@@ -402,24 +402,13 @@ when it is deployed to the cloud.
           <add name="DefaultConnection" connectionString="data source=<serverName>.database.windows.net;Initial Catalog=ToDoDb;User ID=<user>@<serverName>;Password=<password>;Encrypt=true;Trusted_Connection=false;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)" />
         </connectionStrings>
 
-<div class="dev-callout-new">
-    <strong>Note <span>Click to collapse</span></strong>
-    <div class="dev-callout-content">
-        <p>The administrative user has access to all the databases on
-    the server. To create a SQL Database user with more restricted
-    permissions, follow the steps in [Adding Users to Your SQL Database Instance][]. Then, modify the connection string in Web.Release.config to use the
-    newly created user and password instead of the administrative user
-    and password.</p>
-    </div>
-</div>  
+The administrative user has access to all the databases on
+the server. To create a SQL Database user with more restricted
+permissions, follow the steps in [Adding Users to Your SQL Database Instance][]. Then, modify the connection string in Web.Release.config to use the
+newly created user and password instead of the administrative user
+and password.
 
-<div class="dev-callout-new">
-    <strong>Note <span>Click to collapse</span></strong>
-    <div class="dev-callout-content">
-        <p>In order to use provider-based features such as membership, profile, role manager, and session state, the application must use the Microsoft ASP.NET universal providers. To use the universal providers with SQL Server Express (the default for Visual Studio 2010), use the [Microsoft.AspNet.Providers][UniversalProviders] NuGet package. To use the universal providers with SQL Server Express LocalDB (the default for Visual Studio 2012), use the [Microsoft.AspNet.Providers.LocalDB][UniversalProvidersLocalDB] NuGet package.  The project templates for MVC and Web Forms install the appropriate NuGet package by default.</p>
-    </div>
-</div>  
-  
+In order to use provider-based features such as membership, profile, role manager, and session state, the application must use the Microsoft ASP.NET universal providers. To use the universal providers with SQL Server Express (the default for Visual Studio 2010), use the [Microsoft.AspNet.Providers][UniversalProviders] NuGet package. To use the universal providers with SQL Server Express LocalDB (the default for Visual Studio 2012), use the [Microsoft.AspNet.Providers.LocalDB][UniversalProvidersLocalDB] NuGet package.  The project templates for MVC and Web Forms install the appropriate NuGet package by default.
 
 <h2><a name="running"></a><span class="short-header">Run the app</span>Run the application in the cloud</h2>
 
