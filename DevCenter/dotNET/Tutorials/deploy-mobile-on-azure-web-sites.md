@@ -1,8 +1,9 @@
 <properties umbracoNaviHide="0" pageTitle="Deploying Applications" metaKeywords="Windows Azure deployment, Azure deployment, Azure configuration changes, Azure deployment update, Windows Azure .NET deployment, Azure .NET deployment, Azure .NET configuration changes, Azure .NET deployment update, Windows Azure C# deployment, Azure C# deployment, Azure C# configuration changes, Azure C# deployment update, Windows Azure VB deployment, Azure VB deployment, Azure VB configuration changes, Azure VB deployment update" metaDescription="Learn how to deploy applications to Windows Azure, make configuration changes, and and make major and minor updates." linkid="dev-net-fundamentals-deploying-applications" urlDisplayName="Deploying Applications" headerExpose="" footerExpose="" disqusComments="1" />
 
+<div chunk="../chunks/article-left-menu.md" />
 # Deploy an ASP.NET MVC Mobile Web Application on Windows Azure Web Sites
 
-This tutorial will teach you the basics of how to deploy a web application to to a Windows Azure web site. For the purposes of this tutorial we will work with mobile features in an ASP.NET MVC 4 developer preview web application. To perform the steps in this tutorial, you can use Microsoft Visual Web Developer 2010 Express Service Pack 1 ("Visual Web Developer"), which is a free version of Microsoft Visual Studio. Or you can use Visual Studio 2010 SP1 if you already have that.
+This tutorial will teach you the basics of how to deploy a web application to to a Windows Azure web site. For the purposes of this tutorial we will work with mobile features in an ASP.NET MVC 4 developer preview web application. To perform the steps in this tutorial, you can use Microsoft Visual Studio 2012. You can also use [Visual Studio Express 2012][] or Visual Web Developer 2010 Express Service Pack 1 ("Visual Web Developer or VWD"), which are a free versions of Microsoft Visual Studio. 
 
 ## You will learn:
 
@@ -21,13 +22,8 @@ For this tutorial, you'll add mobile features to the simple conference-listing a
 
 Before you start, make sure you've installed the prerequisites listed below.
 
-- [Visual Studio Web Developer Express SP1 prerequisites][VSWDExpresPrerequites]
-- [ASP.NET MVC 4 Developer Preview][MVC4DeveloperPreview]
+- Microsoft Visual Studio 2012 or [Visual Studio Express 2012][]
 - [Windows Azure SDK for .NET - June 2012][WebDeployUpdate]
-
-Apply the following update to Visual Studio 2010
-
-- [Updates to web deploy][WebDeployUpdate]
 
 You will also need a mobile browser emulator. Any of the following will work:
 
@@ -106,7 +102,7 @@ In this section, you'll create a mobile-specific layout file.
 
 A significant new feature in ASP.NET MVC 4 is a simple mechanism that lets you override any view (including layouts and partial views) for mobile browsers in general, for an individual mobile browser, or for any specific browser. To provide a mobile-specific view, you can copy a view file and add .Mobile to the file name. For example, to create a mobile Index view, copy *Views\Home\Index.cshtml* to *Views\Home\Index.Mobile.cshtml*.
 
-To start, copy *Views\Shared\_Layout.cshtml* to* Views\Shared\_Layout.Mobile.cshtml*. Open *_Layout.Mobile.cshtml* and change the title from **MVC4 Conference** to **Conference (Mobile)**.
+To start, copy *Views\Shared\\_Layout.cshtml* to *Views\Shared\\_Layout.Mobile.cshtml*. Open *_Layout.Mobile.cshtml* and change the title from **MVC4 Conference** to **Conference (Mobile)**.
 
 In each **Html.ActionLink** call, remove "Browse by" in each link ActionLink. The following code shows the completed body section of the mobile layout file.
 
@@ -148,47 +144,66 @@ In contrast, the desktop display has not changed.
 
 In this section you'll install the jQuery.Mobile.MVC NuGet package, which installs jQuery Mobile and a view-switcher widget.
 
-The jQuery Mobile library provides a user interface framework that works on all the major mobile browsers. jQuery Mobile applies progressive enhancement to mobile browsers that support CSS and JavaScript. Progressive enhancement allows all browsers to display the basic content of a web page, while allowing more powerful browsers and devices to have a richer display. The JavaScript and CSS files that are included with jQuery Mobile style many elements to fit mobile browsers without making any markup changes.
+The [jQuery Mobile][jquerydocs] library provides a user interface framework that works on all the major mobile browsers. jQuery Mobile applies progressive enhancement to mobile browsers that support CSS and JavaScript. Progressive enhancement allows all browsers to display the basic content of a web page, while allowing more powerful browsers and devices to have a richer display. The JavaScript and CSS files that are included with jQuery Mobile style many elements to fit mobile browsers without making any markup changes.
 
-1. Rename *Views\Home\AllTags.Mobile.cshtml* to *Views\Home\AllTags.iPhone.cshtml.hide*. Because the files no longer have a .cshtml extension, they won't be used by the ASP.NET MVC runtime to render the AllTags view.
-2. Install the jQuery.Mobile.MVC NuGet package by doing this:
+1. Delete the *Shared\\_Layout.Mobile.cshtml* file that you created earlier.
+2. Rename the *Views\Home\AllTags.Mobile.cshtml* to *Views\Home\AllTags.Mobile.cshtml.hide* (you will use this file again later.) Because the file no longer has a .cshtml extension, it will not be used by the ASP.NET MVC runtime to render the *AllTags* view.
+3. Install the jQuery.Mobile.MVC NuGet package by doing this:
 
 	1. From the **Tools** menu, select **Package Manager** Console, and then select **Library Package Manager**.
 
 		![Library package manager][jquery1]
-	2. In the **Package Manager Console**, enter *Install-Package jQuery.Mobile.MVC*
+	2. In the **Package Manager Console**, enter *Install-Package jQuery.Mobile.MVC -version 1.0.0*
 
 		![Package manager console][jquery2]
 
-		If you get the following error:
-
-		The file C:\my_script.ps1 cannot be loaded. The execution of scripts is disabled on this system. Please see "Get-Help about_signing" for more details
-
-		See Scott Hanselman’s blog Signing PowerShell Scripts. You can run the following in a power shell script to allow signed scripts to run:
-
-			Set-ExecutionPolicy AllSigned
-
-		This command requires administrator privileges. Changes to the execution policy are recognized immediately.
-
 The jQuery.Mobile.MVC NuGet package installs the following:
 
-- jQuery Mobile (jquery.mobile-1.0b3.js and the minified version jquery.mobile-1.0b3.min.js).
-- A jQuery Mobile-styled layout file (Views\Shared\_Layout.Mobile.cshtml).
-- A jQuery Mobile CSS file (jquery.mobile-1.0b3.css and the minified version jquery.mobile-1.0b3.min.css)
-- Several .png image files in the Content\images folder.
-- A view-switcher partial view (MvcMobile\Views\Shared\_ViewSwitcher.cshtml) that provides a link at the top of each page to switch from desktop view to mobile view and vice versa.
-- A ViewSwitcher controller widget (Controllers\ViewSwitcherController.cs).
-- jQuery.Mobile.MVC.dll, a DLL that provides view context extensions used to determine if view overrides exist.
+- The *App_Start\BundleMobileConfig.cs* file, which is needed to reference the jQuery JavaScript and CSS files added. You must follow the instructions below and reference the mobile bundle defined in this file.
+- jQuery Mobile CSS files.
+- A ViewSwitcher controller widget (*Controllers\ViewSwitcherController.cs)*. 
+- jQuery Mobile JavaScript files.
+- A jQuery Mobile-styled layout file (*Views\Shared\_Layout.Mobile.cshtml*). 
+- A view-switcher partial view (*MvcMobile\Views\Shared\_ViewSwitcher.cshtml*) that provides a link at the top of each page to switch from desktop view to mobile view and vice versa.
+- Several .png  and .gif image files in the Content\images folder. 
 
-The installation process also upgrades jQuery from version 1.62 to 1.63. The starter application uses jQuery 1.63. If you create a new ASP.NET MVC project, you'll have to manually change the script references from jQuery version 1.62 to 1.63 in the layout file.
+Open the *Global.asax* file and add the following code as the last line of the Application_Start method.
 
+ 	BundleMobileConfig.RegisterBundles(BundleTable.Bundles);
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>Verify that the jQuery and jQuery Mobile version numbers in the layout file match the version numbers in your project. If the NuGet package updates a new ASP.NET MVC 4 project you create, you will have to change *MvcMobile\Views\Shared\_Layout.Mobile.cshtml* to reference 1.6.3 instead of 1.6.2..</p> 
-</div>
+The following code shows the complete Global.asax file.
 
-Open the *MvcMobile\Views\Shared\_Layout.Mobile.cshtml* file and add the following markup directly after the *Html.Partial* call:
+	using System; 
+	using System.Web.Http; 
+	using System.Web.Mvc; 
+	using System.Web.Optimization; 
+	using System.Web.Routing; 
+	using System.Web.WebPages; 
+	 
+	namespace MvcMobile 
+	{ 
+	 
+	    public class MvcApplication : System.Web.HttpApplication 
+	    { 
+	        protected void Application_Start() 
+	        { 
+	            DisplayModeProvider.Instance.Modes.Insert(0, new DefaultDisplayMode("iPhone") 
+	            { 
+	                ContextCondition = (context => context.GetOverriddenUserAgent().IndexOf 
+	                    ("iPhone", StringComparison.OrdinalIgnoreCase) >= 0) 
+	            }); 
+	            AreaRegistration.RegisterAllAreas(); 
+	 
+	            WebApiConfig.Register(GlobalConfiguration.Configuration); 
+	            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters); 
+	            RouteConfig.RegisterRoutes(RouteTable.Routes); 
+	            BundleConfig.RegisterBundles(BundleTable.Bundles); 
+	            BundleMobileConfig.RegisterBundles(BundleTable.Bundles); 
+	        } 
+	    } 
+	}
+
+Open the *MvcMobile\Views\Shared\\_Layout.Mobile.cshtml* file and add the following markup directly after the *Html.Partial* call:
 
 	<div data-role="header" align="center">
 	    @Html.ActionLink("Home", "Index", "Home")
@@ -196,6 +211,7 @@ Open the *MvcMobile\Views\Shared\_Layout.Mobile.cshtml* file and add the followi
 	    @Html.ActionLink("Speaker", "AllSpeakers")
 	    @Html.ActionLink("Tag", "AllTags")
 	</div>
+
 The complete body section looks like this:
 
 	<body>
@@ -216,37 +232,55 @@ The complete body section looks like this:
 	        </div>
 	    </div>
 	</body>
+
 Build the application, and in your mobile browser emulator browse to the AllTags view. You see the following:
 
 ![After install jquery through nuget.][jquery3]
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>If your mobile browser doesn't display the **Home**, **Speaker**, **Tag**, and **Date** links as buttons, the reference to the jQuery Mobile script file is probably not correct. Verify that the jQuery Mobile file version referenced in the mobile layout file matches the version in the Scripts folder.</p> 
+<p>You can debug the mobile specific code by [setting the user agent string][setuseragent] for IE or Chrome to iPhone and then using the F-12 developer tools.  If your mobile browser doesn't display the <strong>Home</strong>, <strong>Speaker</strong>, <strong>Tag</strong>, and <strong>Date</strong> links as buttons, the references to jQuery Mobile scripts and CSS files are probably not correct.</p> 
 </div>
 
 In addition to the style changes, you see **Displaying mobile view** and a link that lets you switch from mobile view to desktop view. Choose the **Desktop view link**, and the desktop view is displayed.
 
-![Display desktop view][jquery4]
+<!--![Display desktop view][jquery4]-->
 
-The desktop view doesn't provide a way to directly navigate back to the mobile view. You'll fix that now. Open the *Views\Shared\_Layout.cshtml* file. Just under the page div element, add the following code, which renders the view-switcher widget:
+The desktop view doesn't provide a way to directly navigate back to the mobile view. You'll fix that now. Open the *Views\Shared\\_Layout.cshtml* file. Just under the &lt;body> element, add the following code, which renders the view-switcher widget:
 
     @Html.Partial("_ViewSwitcher")
 
 Here's the completed code:
 
-     <body>
-        <div class="page">
-            @Html.Partial("_ViewSwitcher")
-            <div id="header">
+	<body>
+	    @Html.Partial("_ViewSwitcher")
+	
+	    <div id="title">
+	        <h1> MVC4 Conference </h1>
+	    </div>
 
-            @*Items removed for clarity.*@
-            </div>
-        </div>
-    </body>
+		@*Items removed for clarity.*@
+	</body>
+
 Refresh the **AllTags** view is the mobile browser. You can now navigate between desktop and mobile views.
 
 ![Navigate to mobile views.][jquery5]
+
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>You can add the following code to the end of the Views\Shared\_ViewSwitcher.cshtml to help debug views when using a browser the user agent string set to a mobile device.
+</p> 
+<pre>
+	else 
+	{ 
+	     @:Not Mobile/Get 
+	} 
+</pre>
+<p>and adding the following heading to the Views\Shared\_Layout.cshtml file.</p> <br/>
+<pre>
+	&lt;h1>Non Mobile Layout MVC4 Conference&lt;/h1>
+</pre>
+</div>
 
 Browse to the AllTags page in a desktop browser. The view-switcher widget is not displayed in a desktop browser because it's added only to the mobile layout page. Later in the tutorial you'll see how you can add the view-switcher widget to the desktop view.
 
@@ -266,11 +300,11 @@ You can globally disable a default (non-mobile) view from rendering inside a mob
         Layout = "~/Views/Shared/_Layout.cshtml";
         DisplayModes.RequireConsistentDisplayMode = true;
     }
-When RequireConsistentDisplayMode is set to true, the mobile layout (*_Layout.Mobile.cshtml*) is used only for mobile views. (That is, the view file is of the form ViewName.Mobile.cshtml.) You might want to set RequireConsistentDisplayMode to true if your mobile layout doesn't work well with your non-mobile views. The screenshot below shows how the Speakers page renders when RequireConsistentDisplayMode is set to true.
+When *RequireConsistentDisplayMode* is set to true, the mobile layout (*_Layout.Mobile.cshtml*) is used only for mobile views. (That is, the view file is of the form ViewName.Mobile.cshtml.) You might want to set *RequireConsistentDisplayMode* to true if your mobile layout doesn't work well with your non-mobile views. The screenshot below shows how the Speakers page renders when *RequireConsistentDisplayMode* is set to true.
 
 ![][SpeakerList4]
 
-You can disable consistent display mode in a view by setting RequireConsistentDisplayMode to false in the view file. The following markup in the *Views\Home\AllSpeakers.cshtml* file sets RequireConsistentDisplayMode to false:
+You can disable consistent display mode in a view by setting *RequireConsistentDisplayMode* to false in the view file. The following markup in the *Views\Home\AllSpeakers.cshtml* file sets *RequireConsistentDisplayMode* to false:
 
     @model IEnumerable<string>
     @{
@@ -444,14 +478,16 @@ Refresh the mobile browser. The following image reflects the code changes that y
 1.	In your browser, open the Preview Management Portal.
 2.	In the **Web Sites** tab, click the name of the site you created earlier.
 
-	![][DeployApplication1]	
-3.	Select the Quickstart tab and then click **Download publishing profile**.
+	<!--![][DeployApplication1]	-->
+3.	On the **Dashboard** in the quick **glance section**, click **Download publishing profile**.
 
 	![][DeployApplication2]	
+
 	This step downloads a file that contains all of the settings that you need to deploy an application to your Web Site. You'll import this file into Visual Studio so you don't have to enter this information manually.
 4.	Save the .publishsettings file in a folder that you can access from Visual Studio.
 
 	![][DeployApplication3]
+
 5.	In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
 
 	![][DeployApplication4]	
@@ -459,27 +495,29 @@ Refresh the mobile browser. The following image reflects the code changes that y
 	The **Publish Web** wizard opens.
 6.	In the **Profile** tab of the **Publish Web** wizard, click **Import**.
 
-	![][DeployApplication5]	
+	<!--![][DeployApplication5]-->
+
 7.	Select the .publishsettings file you downloaded earlier, and then click **Open**.
 
-	![][DeployApplication6]	
-8.	Click **Next**.
+	<!--![][DeployApplication6]-->
 
-	![][DeployApplication7]	
-11.	In the Settings tab, click **Next**.
+8.	In the **Settings** and **Connection** tabs, click **Next**.
 	
-	![][DeployApplication8]	
-12.	Click **Publish**.
+	<!--![][DeployApplication8]-->
+	
+9.	Click **Publish**.
 	Visual Studio begins the process of copying the files to the Windows Azure server.
 
-	![][DeployApplication9]
+	<!--![][DeployApplication9]-->
 14.	The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
 
 15. The default browser automatically opens to the URL of the deployed site. The application you created is now running in the cloud.
 
 	![][DeployApplication10]
 
+You can test your live website using the phone emulator by browsing to the site URL in the mobile browser.
 
+<!-- Internal Links -->
 [Create a Windows Azure web site]: #bkmk_createaccount
 [Setup the starter Project]: #bbkmk_setupstarterproject
 [Override the Views, Layouts, and Partial Views]: #bkmk_overrideviews
@@ -492,6 +530,7 @@ Refresh the mobile browser. The following image reflects the code changes that y
 [Improve the SessionByCode View]: #bkmk_improvesessionbycode
 [Deploy the Applciation to the Windows Azure Web Site]: #bkmk_deployapplciation
 
+<!-- Images -->
 [CreateWebSite1]: ../media/depoly_mobile_new_website_1.png
 [CreateWebSite2]: ../media/depoly_mobile_new_website_2.png
 [CreateWebSite3]: ../media/depoly_mobile_new_website_3.png
@@ -502,8 +541,8 @@ Refresh the mobile browser. The following image reflects the code changes that y
 [ASPNetPage]: ../media/ASPNetPage.png
 [Overrideviews1]: ../media/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p2m_layouttags_mobile_thumb.png
 [Overrideviews2]: ../media/Windows-Live-Writer_ASP_NET-MVC-4-Mobile-Features_D2FF_p2_layoutTagsDesktop_thumb.png
-[jquery1]: ../media/Windows-Live-Writer_ASP_NET-MVC-4-Mobile-Features_D2FF_p3_packageMgr_thumb.png
-[jquery2]: ../media/Windows-Live-Writer_ASP_NET-MVC-4-Mobile-Features_D2FF_p3_packageMgrConsole_thumb.png
+[jquery1]: ../media/deploy-mobile-open-packagmanager.png
+[jquery2]: ../media/deploy-mobile-open-install-jquey.png
 [jquery3]: ../media/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_afternuget_thumb.png
 [jquery4]: ../media/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_desktopviewwithmobilelink_thumb.png
 [jquery5]: ../media/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_desktopviewwithmobilelink_thumb.png
@@ -536,14 +575,16 @@ Refresh the mobile browser. The following image reflects the code changes that y
 [DeployApplication9]: ../media/depoly_mobile_new_website_14.png
 [DeployApplication10]: ../media/depoly_mobile_new_website_15.png
 
+<!-- External Links -->
 [VSWDExpresPrerequites]: http://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack
 [MVC4DeveloperPreview]: http://www.asp.net/mvc/mvc4
 [WebDeployUpdate]: http://www.windowsazure.com/en-us/develop/net/
+[Visual Studio Express 2012]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-express-products
 
 [MVC4StarterProject]: http://go.microsoft.com/fwlink/?LinkId=228307
 [FinishedProject]: http://go.microsoft.com/fwlink/?LinkId=228306
 
-[Win7PhoneEmulator]: http://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack
+[Win7PhoneEmulator]: http://msdn.microsoft.com/en-us/library/ff402530(VS.92).aspx
 [OperaMobileEmulator]: http://www.opera.com/developer/tools/mobile/
 [AppleSafari]: http://www.apple.com/safari/download/
 [HowToSafari]: http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html
@@ -551,3 +592,6 @@ Refresh the mobile browser. The following image reflects the code changes that y
 [FireFoxUserAgentSwitcher]: https://addons.mozilla.org/en-US/firefox/addon/user-agent-switcher/
 
 [CSSMediaQuries]: http://www.w3.org/TR/css3-mediaqueries/
+
+[jquerydocs]: http://jquerymobile.com/demos/1.0b3/#/demos/1.0b3/docs/about/intro.html
+[setuseragent]: http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/
