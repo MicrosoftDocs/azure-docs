@@ -15,6 +15,8 @@ This task includes the following steps:
 -   [Step 3: Upload the deployment package and certificate][]
 -   [Step 4: Connect to the role instance by using HTTPS][]
 
+This task will use a production deployment; information on using a staging deployment is provided at the end of this topic.
+
 <a id="step1"> </a>
 <h2><span class="short-header">Get an SSL cert</span>Step 1: Get an SSL certificate</h2>
 
@@ -32,12 +34,12 @@ certificates in Windows Azure:
 -   The certificate's subject name must match the domain used to access
     the cloud service. You cannot acquire an SSL certificate for the
     cloudapp.net domain, so the certificate's subject name must match
-    the custom domain name used to access your application.
+    the custom domain name used to access your application. This documentation uses sslexample.cloudapp.net as the web site URL, so the common name (CN) used in the certificate is **sslexample.cloudapp.net**.
 -   The certificate must use a minimum of 2048-bit encryption.
 
 For test purposes, you can create and use a self-signed certificate. For
 details about how to create a self-signed certificate using IIS Manager,
-See [How to Create a Certificate for a Role][].
+See [How to create a certificate for a role][].
 
 Next, you must include information about the certificate in your service
 definition and service configuration files.
@@ -67,7 +69,7 @@ configuration files need to be updated.
     its location, and the name of the store where it is located. We have
     chosen to store the certificate in the CA (Certificate Authority)
     store, but you can choose other options as well. See [How to
-    Associate a Certificate with a Service][] for more information.
+    associate a certificate with a service][] for more information.
 
 2.  In your service definition file, add an **InputEndpoint** element
     within the **Endpoints** section to enable HTTPS:
@@ -132,18 +134,23 @@ certificate to Windows Azure with the Management Portal.
 
 1. Log into the [Windows Azure Management Portal][]. 
 2. Click **New**, click **Cloud Service**, and then click **Custom Create**.
-3. In the **Create a cloud service** dialog, enter values for the URL, region/affinity group, subscription. Ensure **Deploy a cloud service package now** is checked and click the **Next** button.
-3. In the **Publish your cloud service** dialog, enter the required information for your cloud service, and ensure **Add certificates now** is checked.   
+3. In the **Create a cloud service** dialog, enter values for the URL, region/affinity group, and subscription. Ensure **Deploy a cloud service package now** is checked, and click the **Next** button.
+3. In the **Publish your cloud service** dialog, enter the required information for your cloud service, select **Production** for the environment, and ensure **Add certificates now** is checked. (If any of your roles contain a single instance, ensure **Deploy even if one or more roles contain a single instance** is checked.) 
 
-    ![][0]
+    ![Publish your cloud service][0]
 
 4.  Click the **Next** button.
 5.  In the **Add Certificate** dialog, enter the location for the SSL
     certificate .pfx file, the password for the certificate, and click
     **attach certificate**.  
-    ![][1]
 
-6.  Click the **Complete** button to create your cloud service. When the deployment has reached the **Ready** status, you can proceed to the next steps.
+    ![Add certificate][1]
+
+6.  Ensure your certificate is listed in the **Attached Certificates** section.
+
+    ![Attached certificates][4]
+
+7.  Click the **Complete** button to create your cloud service. When the deployment has reached the **Ready** status, you can proceed to the next steps.
 
 <a id="step4"> </a>
 <h2><span class="short-header">Connect using HTTPS</span>Step 4: Connect to the role instance by using HTTPS</h2>
@@ -153,33 +160,36 @@ connect to it using HTTPS.
 
 1.  In the Management Portal, select your deployment, then click the link under **Site URL**.
 
-    ![][2]
+    ![Determine site URL][2]
 
 2.  In your web browser, modify the link to use **https** instead of **http**, and then visit the page.
 
     **Note:** If you are using a self-signed certificate, when you
     browse to an HTTPS endpoint that's associated with the self-signed
     certificate you will see a certificate error in the browser. Using a
-    certificate signed by a certification authority will eliminate this
-    problem; in the meantime, you can ignore the error.
+    certificate signed by a trusted certification authority will eliminate this problem; in the meantime, you can ignore the error. (Another option is to add the self-signed certificate to the user's trusted certificate authority certificate store.)
 
-    ![][3]
+    ![SSL example web site][3]
 
-## Additional Resources
+If you want to use SSL for a staging deployment instead of a production deployment, you'll first need to determine the URL used for the staging deployment. Deploy your cloud service to the staging environment without including a certificate or any certificate information. Once deployed, you can determine the GUID-based URL, which is listed in the management portal's **Site URL** field. Create a certificate with the common name (CN) equal to the GUID-based URL (for example, **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**), use the management portal to add the certificate to your staged cloud service, add the certificate information to your CSDEF and CSCFG files, repackage your application, and update your staged deployment to use the new package and CSCFG file.
 
-[How to Associate a Certificate with a Service][]
+<a id="additional_resources"> </a>
+<h2><span class="short-header">Additional Resources</span>Additional Resources</h2>
 
-[How to Configure an SSL Certificate on an HTTPS Endpoint][]
+* [How to associate a certificate with a service][]
+
+* [How to configure an SSL certificate on an HTTPS endpoint][]
 
   [Step 1: Get an SSL certificate]: #step1
   [Step 2: Modify the service definition and configuration files]: #step2
   [Step 3: Upload the deployment package and certificate]: #step3
   [Step 4: Connect to the role instance by using HTTPS]: #step4
-  [How to Create a Certificate for a Role]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432987.aspx
-  [How to Associate a Certificate with a Service]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
+  [How to create a certificate for a role]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432987.aspx
+  [How to associate a certificate with a service]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
   [Windows Azure Management Portal]: http://manage.windowsazure.com
-  [0]: ../../../DevCenter/Shared/Media/ssl-01.png
-  [1]: ../../../DevCenter/Shared/Media/ssl-02.png
-  [2]: ../../../DevCenter/Shared/Media/ssl-03.png
-  [3]: ../../../DevCenter/Shared/Media/ssl-04.png
-  [How to Configure an SSL Certificate on an HTTPS Endpoint]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
+  [0]: ../../../DevCenter/Shared/Media/CreateCloudService.png
+  [1]: ../../../DevCenter/Shared/Media/AddCertificate.png
+  [2]: ../../../DevCenter/Shared/Media/CopyURL.png
+  [3]: ../../../DevCenter/Shared/Media/SSLCloudService.png
+  [4]: ../../../DevCenter/Shared/Media/AddCertificateComplete.png  
+  [How to configure an SSL certificate on an HTTPS endpoint]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
