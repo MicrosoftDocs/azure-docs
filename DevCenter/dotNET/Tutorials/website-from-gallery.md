@@ -1,3 +1,4 @@
+<div chunk="../chunks/article-left-menu.md" />
 # Create an Orchard CMS web site from the gallery in Windows Azure
 
 The gallery makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the gallery do not require installation of any software other than the browser used to connect to the [Windows Azure Management Portal](http://manage.windowsazure.com). 
@@ -63,7 +64,7 @@ After you click **Complete** Windows Azure will initiate build and deploy operat
 
 10. Follow the details in the [Orchard Getting Started Guide](http://orcharddocs.apphb.com/Documentation/Getting-Started) to learn more about Orchard and configure your new site.
 
-## Next Steps
+## Next steps
 * [Develop and deploy a web site with Microsoft WebMatrix](/en-us/develop/net/tutorials/website-with-webmatrix) -- Learn how to edit a Windows Azure web site in WebMatrix. 
 * [Deploying an ASP.NET Web Application to a Windows Azure Web Site and SQL Database](/en-us/develop/net/tutorials/web-site-with-sql-database/)-- Learn how to creat a new web site from Visual Studio.
 
