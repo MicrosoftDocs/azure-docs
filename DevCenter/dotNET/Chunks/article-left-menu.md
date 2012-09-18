@@ -1,26 +1,21 @@
-<div class="floating-nav left-nav">
-<ul class="menu-dotnet-compute">
-<li><a href="/en-us/develop/net/Compute/">Compute</a></li>
-</ul>
-<ul class="menu-dotnet-data">
-<li><a href="/en-us/develop/net/Data/">Data</a></li>
-</ul>
-<ul class="menu-dotnet-app-services">
-<li><a href="/en-us/develop/net/App-Services/">App Services</a></li>
-</ul>
-<ul class="menu-dotnet-reference">
-<li><a href="/en-us/develop/net/Reference/">Reference</a></li>
-</ul>
-<ul class="menu-dotnet-guidance">
-<li><a href="/en-us/develop/net/Guidance/">Guidance</a></li>
-</ul>
-<ul class="menu-dotnet-end-to-end-apps">
-<li><a href="/en-us/develop/net/End-to-End-Apps/">End-to-End Apps</a></li>
+<div class="left-nav">
+<div class="static-nav">
+<ul>
+<li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
+<li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
+<li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
+<li><a href="/en-us/develop/net/reference/">Reference</a></li>
+<li><a href="/en-us/develop/net/guidance/">Guidance</a></li>
+<li><a href="/en-us/develop/net/samples/">Samples</a></li>
+<li><a href="/en-us/develop/net/end-to-end-Apps/">Scenario-Based Tutorials</a></li>
 </ul>
 <ul class="links">
 <li class="forum"><a href="/en-us/support/forums/">Forums</a></li>
 </ul>
-<ul class="default">
-<li><a href="#">In this article</a></li>
+</div>
+<div class="floating-nav jump-to">
+<ul>
+<li>On the page (jump to):</li>
 </ul>
+</div>
 </div>
