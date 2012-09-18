@@ -58,25 +58,21 @@ SQL Database is a cloud-based relational database service that is built on SQL S
 ![Create with Database link in Management Portal][Image013]<br/>
 The **New Web Site - Create with Database** wizard opens. The Create with Database wizard enables you to create a web site and a database at the same time.
 4. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application.<br/>The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "todolistapp", but if someone has already taken that URL you have to choose a different one.
-5. In the **Database** drop-down list, choose **Create a new SQL database**.
 6. In the **Region** drop-down list, choose the region that is closest to you.<br/>
 This setting specifies which data center your VM will run in. 
+5. In the **Database** drop-down list, choose **Create a new SQL database**.
+8. In the **DB Connection String Name** box, enter a name for the connection string to use to connect to the database.
 7. Click the arrow that points to the right at the bottom of the box.<br/>
 ![Create a New Web Site step of New Web Site - Create with Database wizard][Image014]<br/>
-The wizard advances to the **Database Settings** step.
+The wizard advances to the **Specify database settings** step.
 8. In the **Name** box, enter a name for your database.
-9. In the **Server** box, select **New SQL Database server**.
-9. Click the arrow that points to the right at the bottom of the box.<br/>
-![Database Settings step of New Web Site - Create with Database wizard][Image015]<br/>
-The wizard advances to the **Create a Server** step.
+9. In the **Server** box, select **New SQL Database Server**.
 9. Enter an administrator name and password.<br/>
 You aren't entering an existing name and password here. You're entering a new name and password that you're defining now to use later when you access the database.
 9. In the **Region** box, choose the same region that you chose for the web site.<br/>
 Keeping the web server and the database server in the same region gives you the best performance. 
-9. Make sure that **Allow Windows Azure Services to access the server** is selected.<br/>
-This option is selected by default. It creates a firewall rule that allows your Windows Azure Web Site to access this database.
 9. Click the check mark at the bottom of the box to indicate you're finished.<br/>
-![Create a Server step of New Web Site - Create with Database wizard][Image016]<br/>
+![Database Settings step of New Web Site - Create with Database wizard][Image015]<br/>
 The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon, and the number of databases appears next to the **SQL Databases** icon.<br/>
 ![Web Sites page of Management Portal, website created][Image018]<br/>
 
