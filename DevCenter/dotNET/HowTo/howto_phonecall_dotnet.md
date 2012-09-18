@@ -1,10 +1,10 @@
 <properties umbracoNaviHide="0" pageTitle="Deploying Applications" metaKeywords="Windows Azure deployment, Azure deployment, Azure configuration changes, Azure deployment update, Windows Azure .NET deployment, Azure .NET deployment, Azure .NET configuration changes, Azure .NET deployment update, Windows Azure C# deployment, Azure C# deployment, Azure C# configuration changes, Azure C# deployment update, Windows Azure VB deployment, Azure VB deployment, Azure VB configuration changes, Azure VB deployment update" metaDescription="Learn how to deploy applications to Windows Azure, make configuration changes, and and make major and minor updates." linkid="dev-net-fundamentals-deploying-applications" urlDisplayName="Deploying Applications" headerExpose="" footerExpose="" disqusComments="1" />
 
-# How to Make a Phone Call Using Twilio in a Web Role on Windows Azure
+# How to make a phone call using Twilio in a web role on Windows Azure
 
 The following example shows you how you can use Twilio to make a call from a web page hosted in Windows Azure. The resulting application will prompt the user for phone call values, as shown in the following screen shot.
-
-![Windows Azure Call Form Using Twilio and ASP.NET][twilio_dotnet_basic_form]
+<div chunk="../chunks/article-left-menu.md" />
+![Windows Azure call form using Twilio and ASP.NET][twilio_dotnet_basic_form]
 
 You will need to do the following to use the code in this topic:
 
@@ -92,7 +92,7 @@ The following code, which is called when the user completes the form, creates th
                 if (this.toNumber.Text == "" || this.message.Text == "")
                 {
                     this.varDisplay.Items.Add(
-                            "You must enter a phonenumber and a message.");
+                            "You must enter a phone number and a message.");
                 }
                 else
                 {
@@ -134,7 +134,7 @@ The following code, which is called when the user completes the form, creates th
 
 In addition to making the call, the Twilio endpoint, API version, and the call status are displayed. The following screen shot show an example of the output of a sample run:
 
-![Windows Azure Call Response Using Twilio and ASP.NET][twilio_dotnet_basic_form_output]
+![Windows Azure call response using Twilio and ASP.NET][twilio_dotnet_basic_form_output]
 
 More information about TwiML can be found at [http://www.twilio.com/docs/api/twiml][twiml], and more information about &lt;Say&gt; and other Twilio verbs can be found at [http://www.twilio.com/docs/api/twiml/say][twilio_say].
 
@@ -147,8 +147,8 @@ This code was provided to show you basic functionality using Twilio in an ASP.NE
 
 For additional information about Twilio, see [https://www.twilio.com/docs][twilio_docs].
 
-## See Also
-* [How to Use Twilio for Voice and SMS Capabilities in a Web Role][howto_twilio_voice_sms_dotnet]
+## See also
+* [How to use Twilio for voice and SMS capabilities in a web role][howto_twilio_voice_sms_dotnet]
 
 
 [twilio_pricing]: http://www.twilio.com/pricing
