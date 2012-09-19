@@ -96,7 +96,7 @@ version of one that has already been deployed to production, you can
 VIPs][Step 2: Deploy an application to production by swapping VIPs].
 
 <a name="step2"> </a>
-<h2><span class="short-header">Upgrade by swapping VIPs</span>Upgrade an application in production by swapping VIPs</h2>
+<h2><span class="short-header">Deploy by swapping VIPs</span>Step 2: Deploy an application to production by swapping VIPs</h2>
 
 After you have verified the upgraded version of an application in the
 staging environment, you can quickly make it available in production by
