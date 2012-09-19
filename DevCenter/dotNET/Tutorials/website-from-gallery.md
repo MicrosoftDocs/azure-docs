@@ -44,7 +44,7 @@ After you click **Complete** Windows Azure will initiate build and deploy operat
 
 <h2><span class="short-header">Launch and manage site</span>Launch and manage your Orchard site</h2>
 
-1. Click on your new site from the **Web Sites** page to open the dashboard for the site.
+1. Click the name of your new site on the **Web Sites** page to open the dashboard for the site.
 
 	![launch dashboard][5]
 
@@ -54,7 +54,7 @@ After you click **Complete** Windows Azure will initiate build and deploy operat
 
 	![login to Orchard][7]
 
-3. You'll have a new Orchard site that looks similar to the screenshot below.  
+	You'll have a new Orchard site that looks similar to the screenshot below.  
 
 	![your Orchard site][13]
 
