@@ -117,7 +117,7 @@ application.</p>
 
 	![VIP swap dialog][vip-swap-dialog]
 
-3.  Review the information, and then click **OK**. The two deployments
+3.  Review the information, and then click **Yes**. The two deployments
     begin updating as the staging deployment switches to production and
     the production deployment switches to staging.
 
