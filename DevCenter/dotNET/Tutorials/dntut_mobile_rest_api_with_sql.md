@@ -1,4 +1,5 @@
 <div chunk="../chunks/article-left-menu.md" />
+
 # Mobile-friendly REST service using ASP.NET Web API and SQL Database 
 
 This tutorial shows how to deploy an ASP.NET web application that uses the ASP.NET Web API to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012. If you prefer, you can follow the tutorial steps by using Visual Web Developer Express 2010, Visual Studio 2010, Visual Studio 2012 for Web Express.
@@ -39,8 +40,8 @@ To start, set up your development environment by installing the Windows Azure SD
 1. To install the Windows Azure SDK for .NET, click the button that corresponds to the version of Visual Studio you are using. If you don't have Visual Studio installed yet, use the Visual Studio 2012 button.<br/>
 <a href="http://go.microsoft.com/fwlink/?LinkId=254364&clcid=0x409" class="site-arrowboxcta download-cta">Get Tools and SDK for Visual Studio 2012</a><br/>
 <a href="http://go.microsoft.com/fwlink/?LinkID=254269&clcid=0x409" class="site-arrowboxcta download-cta">Get Tools and SDK for Visual Studio 2010</a>
-2. When you are prompted to run or save vwdorvs11azurepack.exe (VWDOrVs2010SP1AzurePack.exe if you are installing the tools and SDK for Visual Studio 2010), click **Run**.<br/>
-![run the WindowsAzureSDKForNet.exe file][setup001]
+2. When you are prompted to run or save vwdorvs11azurepack.exe (VWDOrVs2010SP1AzurePack.exe if you are installing the tools and SDK for Visual Studio 2010), click **Run**.
+	<!--<br/>![run the WindowsAzureSDKForNet.exe file][setup001]-->
 3. In the Web Platform Installer window, click **Install** and proceed with the installation.
 	<!--[Web Platform Installer - Windows Azure SDK for .NET][setup002]<br/>-->
 4. If you are using Visual Studio 2010 or Visual Web Developer 2010 Express, install [MVC 4][MVC4Install].
