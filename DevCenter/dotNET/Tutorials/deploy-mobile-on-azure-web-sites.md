@@ -3,7 +3,7 @@
 <div chunk="../chunks/article-left-menu.md" />
 # Deploy an ASP.NET MVC Mobile Web Application on Windows Azure Web Sites
 
-This tutorial will teach you the basics of how to deploy a web application to to a Windows Azure web site. For the purposes of this tutorial we will work with mobile features in an ASP.NET MVC 4 developer preview web application. To perform the steps in this tutorial, you can use Microsoft Visual Studio 2012. You can also use [Visual Studio Express 2012][] or Visual Web Developer 2010 Express Service Pack 1 ("Visual Web Developer or VWD"), which are a free versions of Microsoft Visual Studio. 
+This tutorial will teach you the basics of how to deploy a web application to to a Windows Azure web site. For the purposes of this tutorial we will work with mobile features in an ASP.NET MVC 4 web application. To perform the steps in this tutorial, you can use Microsoft Visual Studio 2012. You can also use [Visual Studio Express 2012][] or Visual Web Developer 2010 Express Service Pack 1 ("Visual Web Developer or VWD"), which are a free versions of Microsoft Visual Studio. 
 
 ## You will learn:
 
@@ -28,6 +28,7 @@ Before you start, make sure you've installed the prerequisites listed below.
 You will also need a mobile browser emulator. Any of the following will work:
 
 - [Windows 7 Phone Emulator][Win7PhoneEmulator]. (This is the emulator that's used in most of the screen shots in this tutorial.)
+- Change the user agent string to emulate an iPhone. See [this blog entry][setuseragent] on How-To Geek.
 - [Opera Mobile Emulator][OperaMobileEmulator].
 - [Apple Safari][AppleSafari] with the user agent set to iPhone. For instructions on how to set the user agent in Safari to "iPhone", see [How to let Safari pretend it's IE][HowToSafari] on David Alison's blog.
 - [FireFox][FireFox] with the [FireFox User Agent Switcher][FireFoxUserAgentSwitcher].
@@ -55,7 +56,7 @@ This tutorial shows code in C#. However, the starter project and completed proje
 
 Your Windows Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Windows Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to a Windows Azure cloud service. Cloud services run on dedicated VMs that you can configure according to your needs.
 
-1.	In the Preview Management Portal, click **New**.
+1.	1.	Log on to the [Windows Azure Management Portal][managementportal]. In the Preview Management Portal, click **New**.
 
 	![][CreateWebSite1]
 2.	Click **Web Site**, then click **Quick Create**.
@@ -65,7 +66,7 @@ Your Windows Azure Web Site will run in a shared hosting environment, which mean
 
 	![][CreateWebSite3]
 
-	The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "MyMobileMVC4WebSite", but if someone has already taken that URL you will have to choose a different one.
+	The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "MyMobileMVC4WebSite", but if someone has already taken that URL you will have to choose a different one. Select the **REGION** in which you are located.
 4. Click the check mark at the bottom of the box to indicate you're finished.
 
 The Preview Management Portal returns to the Web Sites page and the Status column shows that the site is being created. After a while (typically less than a minute) the Status column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears in the Web Sites icon, and the number of databases appears in the SQL Databases icon.
@@ -74,9 +75,9 @@ The Preview Management Portal returns to the Web Sites page and the Status colum
 
 <a name="bkmk_setupstarterproject"></a><h3>Setup the starter project.</h3>
 
-1.	Download the conference-listing application starter project.
+1.	Download the [conference-listing application starter project][MVC4StarterProject].
 2. 	Then in Windows Explorer, right-click the MvcMobileStarterBeta.zip file and choose Properties.
-3. 	In the MvcMobileStarterBeta.zip Properties dialog box, choose the Unblock button. (Unblocking prevents a security warning that occurs when you try to use a .zip file that you've downloaded from the web.)
+3. 	In the MvcMobileRTMStarter.zip Properties dialog box, choose the Unblock button. (Unblocking prevents a security warning that occurs when you try to use a .zip file that you've downloaded from the web.)
 
 	![Properties dialog box.][PropertiesPopup]
 4.	Right-click the MvcMobile.zip file and select Extract All to unzip the file.
@@ -239,7 +240,7 @@ Build the application, and in your mobile browser emulator browse to the AllTags
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>You can debug the mobile specific code by [setting the user agent string][setuseragent] for IE or Chrome to iPhone and then using the F-12 developer tools.  If your mobile browser doesn't display the <strong>Home</strong>, <strong>Speaker</strong>, <strong>Tag</strong>, and <strong>Date</strong> links as buttons, the references to jQuery Mobile scripts and CSS files are probably not correct.</p> 
+<p>You can debug the mobile specific code by setting the user agent string for IE or Chrome to iPhone and then using the F-12 developer tools.  If your mobile browser doesn't display the <strong>Home</strong>, <strong>Speaker</strong>, <strong>Tag</strong>, and <strong>Date</strong> links as buttons, the references to jQuery Mobile scripts and CSS files are probably not correct.</p> 
 </div>
 
 In addition to the style changes, you see **Displaying mobile view** and a link that lets you switch from mobile view to desktop view. Choose the **Desktop view link**, and the desktop view is displayed.
@@ -327,6 +328,7 @@ As you just saw, the Speakers view is readable, but the links are small and are 
 	            <li>@Html.ActionLink(speaker, "SessionsBySpeaker", new { speaker })</li>
 	        }
 	    </ul>
+
 3.	Refresh the mobile browser. The updated view looks like this:
 
 	![][MobileSpeakersView1]
@@ -473,9 +475,9 @@ Refresh the mobile browser. The following image reflects the code changes that y
 
 ![][SessionByCode4]
 
-## <a name="bkmk_deployapplciation"></a> Deploy the Applciation to the Windows Azure Web Site
+## <a name="bkmk_deployapplciation"></a> Deploy the Application to the Windows Azure Web Site
 
-1.	In your browser, open the Preview Management Portal.
+1.	In your browser, open the [Preview Management Portal][managementportal].
 2.	In the **Web Sites** tab, click the name of the site you created earlier.
 
 	<!--![][DeployApplication1]	-->
@@ -486,7 +488,7 @@ Refresh the mobile browser. The following image reflects the code changes that y
 	This step downloads a file that contains all of the settings that you need to deploy an application to your Web Site. You'll import this file into Visual Studio so you don't have to enter this information manually.
 4.	Save the .publishsettings file in a folder that you can access from Visual Studio.
 
-	![][DeployApplication3]
+	<!--![][DeployApplication3]-->
 
 5.	In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
 
@@ -497,13 +499,15 @@ Refresh the mobile browser. The following image reflects the code changes that y
 
 	<!--![][DeployApplication5]-->
 
-7.	Select the .publishsettings file you downloaded earlier, and then click **Open**.
+7.	Select the .publishsettings file you downloaded earlier, and then click **Open**. Keep the default settings.
 
 	<!--![][DeployApplication6]-->
 
-8.	In the **Settings** and **Connection** tabs, click **Next**.
+8.	Verifiy **Connection** is selected in left pane, then click **Next**. Click  **Validate Connection**.  You now move to **Settings**. Keep the defaults setting.
 	
 	<!--![][DeployApplication8]-->
+
+9. Click **Next** to move to the **Preview** tab. Click **Preview**. Review the file list.
 	
 9.	Click **Publish**.
 	Visual Studio begins the process of copying the files to the Windows Azure server.
@@ -595,3 +599,4 @@ You can test your live website using the phone emulator by browsing to the site 
 
 [jquerydocs]: http://jquerymobile.com/demos/1.0b3/#/demos/1.0b3/docs/about/intro.html
 [setuseragent]: http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/
+[managementportal]: https://manage.windowsazure.com

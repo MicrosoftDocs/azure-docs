@@ -1,9 +1,9 @@
 <div chunk="../chunks/article-left-menu.md" />
 # Mobile-friendly REST service using ASP.NET Web API and SQL Database 
 
-This tutorial shows how to deploy an ASP.NET web application that uses the ASP.NET Web API to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2010. If you prefer, you can follow the tutorial steps by using Visual Web Developer Express 2010, Visual Studio 2012 RC or Visual Studio 2012 for Web Express RC.
+This tutorial shows how to deploy an ASP.NET web application that uses the ASP.NET Web API to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012. If you prefer, you can follow the tutorial steps by using Visual Web Developer Express 2010, Visual Studio 2010, Visual Studio 2012 for Web Express.
 
-You can open a Windows Azure account for free, and if you don't already have Visual Studio 2010, the SDK automatically installs Visual Studio 2012 for Web Express. So you can start developing for Windows Azure entirely for free.
+You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. So you can start developing for Windows Azure entirely for free.
 
 This tutorial assumes that you have no prior experience using Windows Azure. On completing this tutorial, you'll have a data-driven web application up and running in the cloud and using a cloud database.
 
@@ -37,13 +37,13 @@ In this tutorial:
 To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. (If you already have Visual Studio or Visual Web Developer, the SDK isn't required for this tutorial. It will be required later if you follow the suggestions for further learning at the end of the tutorial.)
 
 1. To install the Windows Azure SDK for .NET, click the button that corresponds to the version of Visual Studio you are using. If you don't have Visual Studio installed yet, use the Visual Studio 2012 button.<br/>
-<a href="http://go.microsoft.com/fwlink/?LinkID=252834" class="site-arrowboxcta download-cta">Get Tools and SDK for Visual Studio 2012</a><br/>
-<a href="http://go.microsoft.com/fwlink/?LinkID=252835" class="site-arrowboxcta download-cta">Get Tools and SDK for Visual Studio 2010</a>
-2. When you are prompted to run or save WindowsAzureSDKForNet.exe, click Run.<br/>
+<a href="http://go.microsoft.com/fwlink/?LinkId=254364&clcid=0x409" class="site-arrowboxcta download-cta">Get Tools and SDK for Visual Studio 2012</a><br/>
+<a href="http://go.microsoft.com/fwlink/?LinkID=254269&clcid=0x409" class="site-arrowboxcta download-cta">Get Tools and SDK for Visual Studio 2010</a>
+2. When you are prompted to run or save vwdorvs11azurepack.exe (VWDOrVs2010SP1AzurePack.exe if you are installing the tools and SDK for Visual Studio 2010), click **Run**.<br/>
 ![run the WindowsAzureSDKForNet.exe file][setup001]
-3. In the Web Platform Installer window, click **Install** and proceed with the installation.<br/>
-![Web Platform Installer - Windows Azure SDK for .NET][setup002]<br/>
-4. If you are using Visual Studio 2010 or Visual Web Developer 2010 Express, install [Visual Studio 2010 Web Publish Update][WTEInstall] and [MVC 4][MVC4Install].
+3. In the Web Platform Installer window, click **Install** and proceed with the installation.
+	<!--[Web Platform Installer - Windows Azure SDK for .NET][setup002]<br/>-->
+4. If you are using Visual Studio 2010 or Visual Web Developer 2010 Express, install [MVC 4][MVC4Install].
 
 When the installation is complete, you have everything necessary to start developing
 
@@ -74,18 +74,12 @@ The wizard advances to the **Database Settings** step.
 7. In the **Name** box, enter a name for your database.
 8. In the **Server** box, select **New SQL Database server**.
 9. Click the arrow that points to the right at the bottom of the box.<br/>
-![Database Settings step of New Web Site - Create with Database wizard][setup007]<br/>
-The wizard advances to the **Create a Server** step.
-10. Enter an administrator name and password.
+10. Enter an administrator **LOGIN NAME** and **PASSWORD**.
 You aren't entering an existing name and password here. You're entering a new name and password that you're defining now to use later when you access the database.
-11. In the **Region** box, choose the same region that you chose for the web site.
-Keeping the web server and the database server in the same region gives you the best performance.
-12. Make sure that **Allow Windows Azure Services to access the server** is selected.
-This option is selected by default. It creates a firewall rule that allows your Windows Azure web site to access this database.
-13. Click the check mark at the bottom of the box to indicate you're finished.
-![Create a Server step of New Web Site - Create with Database wizard][setup008]<br/>
+11. Click the check mark at the bottom of the box to indicate you're finished.
+![Database Settings step of New Web Site - Create with Database wizard][setup007]<br/>
 The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon, and the number of databases appears next to the **SQL Databases** icon.<br/>
-![Web Sites page of Management Portal, website created][setup009]
+<!-- [Web Sites page of Management Portal, website created][setup009] -->
 
 <h2><a name="bkmk_createmvc4app"></a>Create an ASP.NET MVC 4 application</h2>
 
@@ -93,8 +87,10 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 ### Create the project
 
-1. Start Visual Studio 2010 .
-2. From the **File** menu click **New** and select **Project**.<br/>![New Project in File menu][newapp001]
+1. Start Visual Studio 2012.
+2. From the **File** menu click **New** and select **Project**.<br/>
+![New Project in File menu][newapp001]
+
 3. In the **New Project** dialog box, expand **Visual C#** and select **Web** under **Installed Templates** and then select **ASP.NET MVC 4 Web Application**.
 3. In the **.NET Framework** make sure **.NET Framework 4** is selected.
 4. Name the application **ContactManager** and click **OK**.<br/>
@@ -107,7 +103,9 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 First you will configure the initial layout and view elements for the application.
 
-1. In **Solution Explorer**, expand the Views\Shared folder and open the \_Layout.cshtml file.<br/>![_Layout.cshtml in Solution Explorer][newapp004]
+1. In **Solution Explorer**, expand the Views\Shared folder and open the \_Layout.cshtml file.<br/>
+	![_Layout.cshtml in Solution Explorer][newapp004]
+
 2. In the **&lt;title&gt;** element, change "My ASP.NET MVC Application" to "Contact Manager".
 
 	    <head>
@@ -143,18 +141,13 @@ First you will configure the initial layout and view elements for the applicatio
                 <div class="float-left">
                     <p>&copy; @DateTime.Now.Year - Contact Manager</p>
                 </div>
-6. In the **&lt;footer&gt;** element, remove following code.
 
-        <div class="float-right">
-            <ul id="social">
-                <li><a href="http://facebook.com" class="facebook">Facebook</a></li>
-                <li><a href="http://twitter.com" class="twitter">Twitter</a></li>
-            </ul>
-        </div>
+6. Right-click the \_LoginPartial.cshtml file and click **Delete**.
+		<!--<br/>![Delete context menu for _logingpartial.cshtml][newapp004.1]-->
 
-7. Right-click the \_LoginPartial.cshtml file and click **Delete**.<br/>![Delete context menu for _logingpartial.cshtml][newapp004.1]
-8. Expand the Views\Home folder and delete the About.cshtml and Contact.cshtml files.
-9. Right-click the Account folder under views and click **Delete**.<br/>![Delete context menu for the accounts folder][newapp004.2]
+7. Expand the Views\Home folder and delete the About.cshtml and Contact.cshtml files.
+8. Right-click the Account folder under views and click **Delete**.
+		<!--<br/>![Delete context menu for the accounts folder][newapp004.2]-->
 
 ### Run the application locally
 
@@ -181,16 +174,17 @@ This step downloads a file that contains all of the settings that you need in or
 The **Publish Web** wizard opens.
 6. In the **Profile** tab of the **Publish Web** wizard, click **Import**.<br/>
 ![Import button in Publish Web wizard][firsdeploy004]
-7. Select the .publishsettings file you downloaded earlier, and then click **Open**.<br/>
-![Import Publish Settings dialog box][firsdeploy005]
-8. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.<br/>
-![Connection tab of Publish Web wizard][firsdeploy006]<br/>
+7. Select the .publishsettings file you downloaded earlier, and then click **Open**.
+	<!--<br/>![Import Publish Settings dialog box][firsdeploy005]-->
+8. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.
+	<!--<br/>![Connection tab of Publish Web wizard][firsdeploy006]<br/>-->
 When the connection has been validated, a green check mark is shown next to the **Validate Connection** button.
-9. Click **Next**.<br/>
-![connection successful icon and Next button in Connection tab][firsdeploy007]
+9. Click **Next**.
+	<br/>![connection successful icon and Next button in Connection tab][firsdeploy007]
 10. In the **Settings** tab, click **Next**.<br/>
-You can accept all of the default settings on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server. The **DefaultConnection** entry under **Databases** is for the ASP.NET membership (log on) functionality built into the default MVC 4 project template. You aren't using that membership functionality for this tutorial, so you don't need to enter any settings for **DefaultConnection**.<br/>
-![Settings tab of the Publish Web wizard][firsdeploy008]
+You can accept all of the default settings on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server. The **DefaultConnection** entry under **Databases** is for the ASP.NET membership (log on) functionality built into the default MVC 4 project template. You aren't using that membership functionality for this tutorial, so you don't need to enter any settings for **DefaultConnection**.
+	<!--<br/>![Settings tab of the Publish Web wizard][firsdeploy008]-->
+
 12. In the **Preview** tab, click **Start Preview**.<br/>
 The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed.<br/>
 ![StartPreview button in the Preview tab][firsdeploy009]<br/>
@@ -198,8 +192,8 @@ The tab displays a list of the files that will be copied to the server. Displayi
 Visual Studio begins the process of copying the files to the Windows Azure server.
 13. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
 14. The default browser automatically opens to the URL of the deployed site.<br/>
-The application you created is now running in the cloud.<br/>
-![To Do List home page running in Windows Azure][newapp005]
+The application you created is now running in the cloud.
+	<br/>![To Do List home page running in Windows Azure][newapp005]
 
 <h2><a name="bkmk_addadatabase"></a>Add a database to the application</h2>
 
@@ -255,20 +249,20 @@ Visual Studio compiles the data model classes that you created and makes them av
 5. In the **Add Controller** dialog box, enter "HomeController" as your controller name, and select the **MVC Controller with read/write actions and views, using Entity Framework** template.
 6. Select **Contacts** as your model class and **&lt;New data context...>** as your data context class.<br/>
 ![Add Controller dialog box][addcode002]<br/>
-7. On the **New Data Context** dialog box, click OK.<br/>
-![Add Controller dialog box][addcode002.1]<br/>
+7. On the **New Data Context** dialog box, click OK.
+	<!--<br/>![Add Controller dialog box][addcode002.1]<br/>-->
 8. On the **Add Controller** dialog box, and then click **Add**.<br/>
 The MVC template created a default home page for your application, and you are replacing the default functionality with the contact list read and update functionality.<br/>
-9. On the **Add Controller** overwrite dialog, make sure all options are checked and click **OK**.<br/>
-![Add Controller message box][addcode003] <br/>
+9. On the **Add Controller** overwrite dialog, make sure all options are checked and click **OK**.
+	<!--<br/>![Add Controller message box][addcode003] <br/>-->
 Visual Studio creates a controller and views for each of the four main database operations (create, read, update, delete) for **Contacts** objects.
 
 ## Enable Migrations, create the database, add sample data and a data initializer ##
 
 The next task is to enable the Code First Migrations feature in order to create the database based on the data model you created.
 
-1. In the **Tools** menu, select **Library Package Manager** and then **Package Manager Console**.<br/>
-![Package Manager Console in Tools menu][addcode008]
+1. In the **Tools** menu, select **Library Package Manager** and then **Package Manager Console**.
+	<br/>![Package Manager Console in Tools menu][addcode008]
 2. In the **Package Manager Console** window, enter the following commands:<br/>
 
 		enable-migrations
@@ -311,7 +305,8 @@ Visual Studio compiles the data model classes that you created and makes them av
 
 <h2><a name="bkmk_addview"></a>Add a view for the data</h2>
 
-1. Expand the Views\Shared folder and open the Index.cshtml file.<br/>![Modify index.cshtml in views\home folder context menu][addcode004]
+1. Expand the Views\Home folder and open the Index.cshtml file.
+	<!--<br/>![Modify index.cshtml in views\home folder context menu][addcode004]-->
 2. Replace the contents of the file with the following code.
 
 		@model IEnumerable<ContactManager.Models.Contact>
@@ -407,8 +402,10 @@ Visual Studio compiles the data model classes that you created and makes them av
 		    </fieldset>
 		</form>
 
-3. Right-click the Content folder and click **Add**, and then click **New Item...**.<br/>![Add style sheet in Content folder context menu][addcode005]
-4. In the **Add New Item** dialog box, expand C# and select Web under Installed Templates and then select **Style Sheet**.<br/>![Add New Item dialog box][addcode006]
+3. Right-click the Content folder and click **Add**, and then click **New Item...**.
+	<!--<br/>![Add style sheet in Content folder context menu][addcode005]-->
+4. In the **Add New Item** dialog box, expand C# and select Web under Installed Templates and then select **Style Sheet**.
+	<!--<br/>![Add New Item dialog box][addcode006]-->
 5. Name the file **Contacts.css** and click **Add**. Replace the contents of the file with the following code.
 
 		.column {
@@ -473,11 +470,12 @@ Visual Studio compiles the data model classes that you created and makes them av
 	    	text-decoration: none;
 		}
 
-6. Expand the App\_Start folder and open the BundleConfig.cs file.<br/>![Modify BundleConfig.cs in App_Start folder context menu][addcode007]
+6. Expand the App\_Start folder and open the BundleConfig.cs file.
+	<!--<br/>![Modify BundleConfig.cs in App_Start folder context menu][addcode007]-->
 7. Add the following statement to register the knockout plugin.
 
 		bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
-		            "~/Scripts/knockout-2.0.0.js"));
+		            "~/Scripts/knockout-{version}.js"));
 	This sample using knockout to simplify dynamic JavaScript code that handles the screen templates.
 
 8. Modify the contents/css entry to register the contacts.css style sheet.
@@ -488,11 +486,11 @@ Visual Studio compiles the data model classes that you created and makes them av
 
 <h2><a name="bkmk_addwebapi"></a>Add a Web API Restful interface</h2>
 
-1. In **Solution Explorer**, right-click Controllers and click **Add**, and then click **New Folder**.<br/>
-![Add new folder context menu][addwebapi001]
+1. In **Solution Explorer**, right-click Controllers and click **Add**, and then click **New Folder**.
+	<!--<br/>![Add new folder context menu][addwebapi001]-->
 2. Enter "Apis" and the press the **Enter** key.
-3. Right-click on the Apis folder and click **Add**, and then click **Controller...**.<br/>
-![Add class in  folder context menu][addwebapi002]
+3. Right-click on the Apis folder and click **Add**, and then click **Controller...**.
+	<!--<br/>![Add class in  folder context menu][addwebapi002]-->
 4. In the **Add Controller** dialog box, enter "ContactsController" as your controller name, select the **API controller with empty read/write actions, using Entity Framework** template
 5. In **Model Class** select Contact (ContactManager.Models) and it **Data Context Class** select ContactManagerContext (ContactManager.Models).
 6. Click **Add**.<br/>![Add controller dialog box for web api][addwebapi003]
@@ -515,9 +513,6 @@ Visual Studio compiles the data model classes that you created and makes them av
 		    {
 		        public static void Configure(HttpConfiguration config)
 		        {
-		            // Filters
-		            config.Filters.Add(new QueryableAttribute());
-
 		            config.Routes.MapHttpRoute(
 		                name: "DefaultApi",
 		                routeTemplate: "api/{controller}/{id}",
@@ -534,27 +529,6 @@ Visual Studio compiles the data model classes that you created and makes them av
             routeTemplate: "api/{controller}/{id}",
             defaults: new { id = RouteParameter.Optional }
         );
-11. Open Global.asax file and add the following line to the beginning of the Appplication_Start method.
-
-		WebApiConfig.Configure(GlobalConfiguration.Configuration);
-
-	The resulting code should read as follows:
- 
-	    public class MvcApplication : System.Web.HttpApplication
-	    {
-	         protected void Application_Start()
-	         {
-	             WebApiConfig.Configure(GlobalConfiguration.Configuration);
-	 
-	             AreaRegistration.RegisterAllAreas();
-	 
-	             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-	             RouteConfig.RegisterRoutes(RouteTable.Routes);
-	             BundleConfig.RegisterBundles(BundleTable.Bundles);
-	    
-	        }
-	    }
-
 
 ### Run the application locally
 
@@ -562,8 +536,10 @@ Visual Studio compiles the data model classes that you created and makes them av
 ![Index page][intro001]
 2. Enter a contact and click **Add**. The app returns to the home page and displays the contact you entered.<br/>
 ![Index page with to-do list items][addwebapi004]
-3. Copy the URL from the address bar. Open a new browser window and paste the URL into the address bar and add /api/contacts to the URL.<br/>
-![Index page with to-do list items][addwebapi005]<br/>
+3. Copy the URL from the address bar. Open a new browser window and paste the URL into the address bar and add /api/contacts to the URL.
+The resulting URL will resemble http://localhost:54009/api/contacts.
+
+	<!--<br/>![Index page with to-do list items][addwebapi005]<br/>-->
 The RESTful web API you added returns the stored contacts.<br/>
 ![Web API save dialog][addwebapi006]<br/>
 	You can open the returned contacts in notepad or a browser.
