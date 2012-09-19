@@ -57,7 +57,7 @@ SQL Database is a cloud-based relational database service that is built on SQL S
 2. Click **Web Site**, and then click **Create with Database**.<br/>
 ![Create with Database link in Management Portal][Image013]<br/>
 The **New Web Site - Create with Database** wizard opens. The Create with Database wizard enables you to create a web site and a database at the same time.
-4. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application.<br/>The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "todolistapp", but if someone has already taken that URL you have to choose a different one.
+4. In the **Create Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application.<br/>The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "todolistapp", but if someone has already taken that URL you have to choose a different one.
 6. In the **Region** drop-down list, choose the region that is closest to you.<br/>
 This setting specifies which data center your VM will run in. 
 5. In the **Database** drop-down list, choose **Create a new SQL database**.
