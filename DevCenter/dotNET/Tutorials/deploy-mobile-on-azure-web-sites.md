@@ -50,13 +50,13 @@ This tutorial shows code in C#. However, the starter project and completed proje
 - [Improve the Dates List][]
 - [Improve the SessionsTable View][]
 - [Improve the SessionByCode View][]
-- [Deploy the Applciation to the Windows Azure Web Site][]
+- [Deploy the Application to the Windows Azure Web Site][]
 
 <h3>Create a web site in Windows Azure</h3>
 
 Your Windows Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Windows Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to a Windows Azure cloud service. Cloud services run on dedicated VMs that you can configure according to your needs.
 
-1.	1.	Log on to the [Windows Azure Management Portal][managementportal]. In the Preview Management Portal, click **New**.
+1.	Log on to the [Windows Azure Management Portal][managementportal]. In the Preview Management Portal, click **New**.
 
 	![][CreateWebSite1]
 2.	Click **Web Site**, then click **Quick Create**.
@@ -67,6 +67,7 @@ Your Windows Azure Web Site will run in a shared hosting environment, which mean
 	![][CreateWebSite3]
 
 	The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "MyMobileMVC4WebSite", but if someone has already taken that URL you will have to choose a different one. Select the **REGION** in which you are located.
+
 4. Click the check mark at the bottom of the box to indicate you're finished.
 
 The Preview Management Portal returns to the Web Sites page and the Status column shows that the site is being created. After a while (typically less than a minute) the Status column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears in the Web Sites icon, and the number of databases appears in the SQL Databases icon.
@@ -532,7 +533,7 @@ You can test your live website using the phone emulator by browsing to the site 
 [Improve the Dates List]: #bkmk_improvedates
 [Improve the SessionsTable View]: #bkmk_improvesessionstable
 [Improve the SessionByCode View]: #bkmk_improvesessionbycode
-[Deploy the Applciation to the Windows Azure Web Site]: #bkmk_deployapplciation
+[Deploy the Application to the Windows Azure Web Site]: #bkmk_deployapplciation
 
 <!-- Images -->
 [CreateWebSite1]: ../media/depoly_mobile_new_website_1.png
