@@ -145,7 +145,7 @@ The **remote** command adds a named reference to a remote repository, in this ca
 
 <h3 id="Step7">Deploy files from GitHub or CodePlex</h3>
 
-Deploying files from either GitHub or CodePlex requires that you have published your local project to one of these services. For more information on publishing your project to these services, see [Create a Repo](GitHub) or [Using Git with CodePlex].
+Deploying files from either GitHub or CodePlex requires that you have published your local project to one of these services. For more information on publishing your project to these services, see [Create a Repo (GitHub)] or [Using Git with CodePlex].
 
 1. Once your project has been published to GitHub or CodePlex, select **Deploy from my GitHub project** or **Deploy from My CodePlex project**. The following steps are based on deploying from a CodePlex project, however the steps are identical for GitHub projects.
 
@@ -277,5 +277,5 @@ The following are errors or problems commonly encountered when using Git to publ
 [git-notmaster]: ../Media/git-notmaster.png
 [git-deployment-trigger]: ../Media/git-deployment-trigger.png
 
-[Create a Repo]: https://help.github.com/articles/create-a-repo
+[Create a Repo (GitHub)]: https://help.github.com/articles/create-a-repo
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
