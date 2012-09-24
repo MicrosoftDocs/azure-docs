@@ -18,7 +18,7 @@ This guide demonstrates how to perform common programming tasks with the Twilio 
 * [How to: Use additional Twilio services](#AdditionalServices)
 * [Next steps](#NextSteps)
 
-<h2><a id="WhatIs"></a><span class="short-header">What is Twilio?"</span>What is Twilio?</h2>
+<h2><a id="WhatIs"></a><span class="short-header">What is Twilio?</span>What is Twilio?</h2>
 Twilio is a telephony web-service API that lets you use your existing web languages and skills to build voice and SMS applications. Twilio is a third-party service (not a Windows Azure feature and not a Microsoft product).
 
 **Twilio Voice** allows your applications to make and receive phone calls. **Twilio SMS** allows your applications to make and receive SMS messages. **Twilio Client** allows your applications to enable voice communication using existing Internet connections, including mobile connections.
@@ -131,7 +131,7 @@ By default, Microsoft Visual Studio 2010 installs version 1.2 of NuGet. Installi
 6.  Click **Install** on the Twilio package.
 
 
-<h2><a id="howto_make_call"></a><span class="short-header">Make an outgoing call</span>How to: Make an outgoing call</h2>
+<h2><a id="howto_make_call"></a><span class="short-header">Make a call</span>How to: Make an outgoing call</h2>
 The following screenshot shows how to make an outgoing call using the **TwilioRestClient** class. This code also uses a Twilio-provided site to return the Twilio Markup Language (TwiML) response. Substitute your values for the **From** and **To** phone numbers, and ensure that you verify the **From** phone number for your Twilio account prior to running the code.
 
     // Use your account SID and authentication token instead
