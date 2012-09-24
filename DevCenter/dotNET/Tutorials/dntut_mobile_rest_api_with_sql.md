@@ -2,7 +2,7 @@
 
 # Mobile-friendly REST service using ASP.NET Web API and SQL Database 
 
-This tutorial shows how to deploy an ASP.NET web application that uses the ASP.NET Web API to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012. If you prefer, you can follow the tutorial steps by using Visual Web Developer Express 2010, Visual Studio 2010, Visual Studio 2012 for Web Express.
+This tutorial shows how to deploy an ASP.NET web application that uses the ASP.NET Web API to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012. If you prefer, you can follow the tutorial steps by using Visual Web Developer Express 2010, Visual Studio 2010, or Visual Studio 2012 for Web Express.
 
 You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. So you can start developing for Windows Azure entirely for free.
 
@@ -273,7 +273,7 @@ The next task is to enable the Code First Migrations feature in order to create 
 	The **add-migration Initial** command generates a class named **Initial** that creates the database. You can see the new class files in **Solution Explorer**.<br/>
 	In the **Initial** class, the **Up** method creates the Contacts table, and the **Down** method (used when you want to return to the previous state) drops it.<br/>
 3. Right-click the Migrations folder and open the **Configuration.cs** file. 
-4. Add the folloing to list of namespaces. 
+4. Add the follwoing to list of namespaces. 
 
     	 using ContactManager.Models;
 
