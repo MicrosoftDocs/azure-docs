@@ -1,11 +1,12 @@
 <properties umbracoNaviHide="0" pageTitle="Deploying Applications" metaKeywords="Windows Azure deployment, Azure deployment, Azure configuration changes, Azure deployment update, Windows Azure .NET deployment, Azure .NET deployment, Azure .NET configuration changes, Azure .NET deployment update, Windows Azure C# deployment, Azure C# deployment, Azure C# configuration changes, Azure C# deployment update, Windows Azure VB deployment, Azure VB deployment, Azure VB configuration changes, Azure VB deployment update" metaDescription="Learn how to deploy applications to Windows Azure, make configuration changes, and and make major and minor updates." linkid="dev-net-fundamentals-deploying-applications" urlDisplayName="Deploying Applications" headerExpose="" footerExpose="" disqusComments="1" />
 
 <div chunk="../chunks/article-left-menu.md" />
+
 # Deploy an ASP.NET MVC Mobile Web Application on Windows Azure Web Sites
 
 This tutorial will teach you the basics of how to deploy a web application to to a Windows Azure web site. For the purposes of this tutorial we will work with mobile features in an ASP.NET MVC 4 web application. To perform the steps in this tutorial, you can use Microsoft Visual Studio 2012. You can also use [Visual Studio Express 2012][] or Visual Web Developer 2010 Express Service Pack 1 ("Visual Web Developer or VWD"), which are a free versions of Microsoft Visual Studio. 
 
-## You will learn:
+<h2>You will learn:</h2>
 
 - How the ASP.NET MVC 4 templates use the HTML5 viewport attribute and adaptive rendering to improve display on mobile devices.
 - How to create mobile-specific views.
@@ -18,7 +19,7 @@ For this tutorial, you'll add mobile features to the simple conference-listing a
 
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
-## SETTING UP THE DEVELOPMENT ENVIRONMENT
+<h2>Setting up the development environment</h2>
 
 Before you start, make sure you've installed the prerequisites listed below.
 
@@ -38,7 +39,7 @@ This tutorial shows code in C#. However, the starter project and completed proje
 - [Starter project download][MVC4StarterProject]
 - [Completed project download][FinishedProject]
 
-## Steps in this tutorial
+<h2>Steps in this tutorial</h2>
 
 - [Create a Windows Azure web site][]
 - [Setup the starter Project][]
@@ -98,7 +99,7 @@ The display is very readable on a mobile device. Choose the ASP.NET link.
 
 The ASP.NET tag view is very cluttered. For example, the Date column is very difficult to read. Later in the tutorial you'll create a version of the AllTags view that's specifically for mobile browsers and that will make the display readable.
 
-## <a name="bkmk_overrideviews"></a><h3>Override the Views, Layouts, and Partial Views</h3>
+<h2><a name="bkmk_overrideviews"></a>Override the Views, Layouts, and Partial Views</h2>
 
 In this section, you'll create a mobile-specific layout file.
 
@@ -142,7 +143,7 @@ In contrast, the desktop display has not changed.
 
 ![Show desktop tags view][Overrideviews2]
 
-## <a name="bkmk_usejquerymobile"></a>Use jQuery Mobile to define the mobile broswer interface
+<h2><a name="bkmk_usejquerymobile"></a>Use jQuery Mobile to define the mobile broswer interface</h2>
 
 In this section you'll install the jQuery.Mobile.MVC NuGet package, which installs jQuery Mobile and a view-switcher widget.
 
@@ -288,7 +289,7 @@ Browse to the AllTags page in a desktop browser. The view-switcher widget is not
 
 ![View desktop experience.][jquery6]
 
-## <a name="bkmk_Improvespeakerslist"></a> Improve the Speakers List
+<h2><a name="bkmk_Improvespeakerslist"></a> Improve the Speakers List</h2>
 
 In the mobile browser and select the **Speakers** link. Because there's no mobile view(*AllSpeakers.Mobile.cshtml*), the default speakers display (*AllSpeakers.cshtml*) is rendered using the mobile layout view (*_Layout.Mobile.cshtml*).
 
@@ -313,7 +314,7 @@ You can disable consistent display mode in a view by setting *RequireConsistentD
         ViewBag.Title = "All speakers";
         DisplayModes.RequireConsistentDisplayMode = false;
     }
-## <a name="bkmk_mobilespeakersview"></a>Create a Mobile Speakers View
+<h2><a name="bkmk_mobilespeakersview"></a>Create a Mobile Speakers View</h2>
 
 As you just saw, the Speakers view is readable, but the links are small and are difficult to tap on a mobile device. In this section, you'll create a mobile-specific Speakers view that looks like a modern mobile application — it displays large, easy-to-tap links and contains a search box to quickly find speakers.
 
@@ -346,7 +347,7 @@ As you type each letter in the search box, jQuery Mobile filters the displayed l
 
 ![][MobileSpeakersView3]
 
-## <a name="bkmk_improvetags"></a> Improve the Tags List
+<h2><a name="bkmk_improvetags"></a> Improve the Tags List</h2>
 
 Like the default Speakers view, the Tags view is readable, but the links are small and difficult to tap on a mobile device. In this section, you'll fix the Tags view the same way you fixed the Speakers view.
 
@@ -359,7 +360,7 @@ The image below shows the tags page filtering on the letter J.
 
 ![][TagsList1]
 
-## <a name="bkmk_improvedates"></a> Improve the Dates List
+<h2><a name="bkmk_improvedates"></a> Improve the Dates List</h2>
 
 You can improve the Dates view like you improved the **Speakers** and **Tags** views, so that it's easier to use on a mobile device.
 
@@ -393,7 +394,7 @@ This code groups all sessions by days. It creates a list divider for each new da
 
 ![][DatesList2]
 
-## <a name="bkmk_improvesessionstable"></a> Improve the SessionsTable View
+<h2><a name="bkmk_improvesessionstable"></a> Improve the SessionsTable View</h2>
 
 In this section, you'll create a mobile-specific view of sessions. The changes we make will be more extensive than in other views we have created.
 
@@ -425,7 +426,7 @@ The code removes the room and tags columns, and formats the title, speaker, and 
 
 ![][SessionView3]
 
-## <a name="bkmk_improvesessionbycode"></a> Improve the SessionByCode View
+<h2><a name="bkmk_improvesessionbycode"></a> Improve the SessionByCode View</h2>
 
 Finally, you'll create a mobile-specific view of the **SessionByCode** view. In the mobile browser, tap the **Speaker** button, then enter Sc in the search box.
 
@@ -476,7 +477,7 @@ Refresh the mobile browser. The following image reflects the code changes that y
 
 ![][SessionByCode4]
 
-## <a name="bkmk_deployapplciation"></a> Deploy the Application to the Windows Azure Web Site
+<h2><a name="bkmk_deployapplciation"></a> Deploy the Application to the Windows Azure Web Site</h2>
 
 1.	In your browser, open the [Preview Management Portal][managementportal].
 2.	In the **Web Sites** tab, click the name of the site you created earlier.
