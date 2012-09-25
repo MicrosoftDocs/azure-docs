@@ -9,12 +9,12 @@ This guide demonstrates how to use Twilio to make a call from a web page hosted 
 
 
 
-<h2><span class="short-header">Table of Contents</span>Contents</h2>
+<h2><span class="short-header">Contents</span>Table of Contents</h2>
 - [Prerequisites](#twilio-prereqs)
 - [How to: Create a web form for making a call](#howtocreateform)
 - [How to: Create the code to make the call](#howtocreatecode)
 - [Next steps](#nextsteps)
-- [See Also](#seealso)
+- [See also](#seealso)
 
 
 <h2><a name="twilio-prereqs"></a><span class="short-header">Prerequisites</span>Prerequisites</h2>
@@ -159,7 +159,7 @@ This code was provided to show you basic functionality using Twilio in an ASP.NE
 * Read the Twilio security guidelines at [https://www.twilio.com/docs/security][twilio_docs_security].
 * Learn more about Twilio at [https://www.twilio.com/docs][twilio_docs].
 
-<h2><a id="seealso"></a><span class="short-header">See Also</span>See Also</h2>
+<h2><a id="seealso"></a><span class="short-header">See also</span>See also</h2>
 * [How to use Twilio for voice and SMS capabilities in a web role][howto_twilio_voice_sms_dotnet]
 
 
