@@ -108,7 +108,7 @@ To configure an A record you must configure a CNAME record used to verify the do
 5. On the **Manage custom domains** dialog locate **The IP Address to use when configuring A records** and copy the IP address. 
 6. Log on to your DNS registrar's website, and go to the page for managing DNS. You might find this in a section, such as Domain Name, DNS, or Name Server Management.
 7. Configure the domain name and the IP address you copied in step 5.
-For example, the following DNS examples forwards all traffic from *www.contoso.com* to *172.16.48.1*.
+For example, the following DNS examples forwards all traffic from *contoso.com* to *172.16.48.1*.
 
 	<br/>
 	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
@@ -125,7 +125,7 @@ For example, the following DNS examples forwards all traffic from *www.contoso.c
 			<td>awverify.mysite.azurewebsites.net</td>
 		</tr>
 		<tr>
-		  	<td>www.contoso.com</td>
+		  	<td>contoso.com</td>
 		  	<td>7200</td>
 		    <td>A</td>
 			<td>172.16.48.1</td>
