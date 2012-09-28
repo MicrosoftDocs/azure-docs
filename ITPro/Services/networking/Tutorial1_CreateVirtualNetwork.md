@@ -5,20 +5,15 @@
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-This tutorial walks you through the steps to create a Windows Azure virtual network using the Windows Azure (Preview) Management Portal.
+This tutorial walks you through the steps to create a [Windows Azure virtual network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx) using the Windows Azure (Preview) Management Portal.
 
 This tutorial assumes you have no prior experience using Windows Azure.
 
 After completing this tutorial, you will have a virtual network to which you can deploy your Windows Azure services.
 
-For information about creating a virtual network with cross-premises connectivity (i.e., connecting to Active Directory or SharePoint located at your company), see the following tutorials:
+For information about creating a virtual network with cross-premises connectivity (i.e., connecting to Active Directory or SharePoint located at your company), see [Create a Virtual Network for Cross-Premises Connectivity](../cross-premises-connectivity/).
 
-
-*  [Create a Virtual Network for Cross-Premises Connectivity](../cross-premises-connectivity/)
-
-*  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](../replica-domain-controller/)
-
-*  [Install a new Active Directory forest in Windows Azure](../active-directory-forest/)
+For guidelines about deploying AD DS on Windows Azure Virtual Machines, see [Guidelines for Deploying Windows Server Active Directory on Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
 
 ##  Objectives
 
@@ -87,12 +82,17 @@ In this tutorial you will learn:
 ##  Next Steps
 If you'd like, you can continue with the following tutorials:
 
-
 - [Add a Virtual Machine to a Virtual Network](../add-a-vm-to-a-virtual-network/)
 
-*  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](../replica-domain-controller/)
+*  [Install a new Active Directory forest in Windows Azure](../active-directory-forest/) - Use this tutorial to install a new Active Directory forest without connectivity to any other network. The tutorial will explain the specific steps required to create virtual machines (VMs) for a new forest installation. If you plan to use this tutorial, do not create any VMs via the Management Portal.  
 
-*  [Install a new Active Directory forest in Windows Azure](../active-directory-forest/)
+## See Also
+
+-  [Windows Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
+
+-  [Configuring a Virtual Network Using Network Configuration Files](http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx)
+
+-  [Windows Azure Name Resolution Overview](http://go.microsoft.com/fwlink/?LinkId=248097)
 
 
 [Image1]: ../media/VNTut1_00_New.png
