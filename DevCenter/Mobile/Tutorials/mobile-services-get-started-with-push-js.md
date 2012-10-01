@@ -84,46 +84,34 @@ Both your mobile service and your app are now configured to work with WNS.
 
 <a name="add-push"></a><h2><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
 
-1. Open the file App.xaml.cs and add the following using statement:
+1. Open the file default.js and insert the following code fragment into the app.OnActivated method overload, just after the args.setPromise method:
 
-        using Windows.Networking.PushNotifications;
+        // Get the channel for the application.
+        var channel;
+        var channelOperation = Windows.Networking.PushNotifications
+            .PushNotificationChannelManager
+            .createPushNotificationChannelForApplicationAsync()
+            .then(function (newChannel) {
+                channel = newChannel;
+            });
 
-2. Add the following to App.xaml.cs:
-	
-        public static PushNotificationChannel CurrentChannel { get; private set; }
-
-	    private async void AcquirePushChannel()
-	    {
-	            CurrentChannel =  
-	                await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-        }
-
-   This code acquires and stores a push notification channel.
-    
-3. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **AcquirePushChannel** method:
-
-        AcquirePushChannel();
-
-   This guarantees that the **CurrentChannel** property is initialized each time the application is launched.
+   This code acquires and stores a push notification channel each time the application is launched.
 		
-4. Open the project file MainPage.xaml.cs and add the following new attributed property to the **TodoItem** class:
+5. Replace the **click** event listener definition for **buttonSave** with the following code:
+        
+	        buttonSave.addEventListener("click", function () {
+	            insertTodoItem({
+	                text: textInput.value,
+	                complete: false,
+	                channel: channel.uri
+	            });
+	        });
 
-         [DataMember(Name = "channel")]
-         public string Channel { get; set; }
+   This sets the client's current channel value on the item before it is sent to the mobile service.
 
     <div class="dev-callout"><b>Note</b>
 	<p>When dynamic schema is enabled on your mobile service, a new 'channel' column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>
     </div>
-
-5. Replace the **ButtonSave_Click** event handler method with the following code:
-
-	        private void ButtonSave_Click(object sender, RoutedEventArgs e)
-	        {
-	            var todoItem = new TodoItem { Text = TextInput.Text, Channel = App.CurrentChannel.Uri };
-	            InsertTodoItem(todoItem);
-            }
-
-   This sets the client's current channel value on the item before it is sent to the mobile service.
 
 6. (Optional) If you are not using the Management Portal-generated quickstart project, open the Package.appxmanifest file and make sure that in the **Application UI** tab, **Toast capable** is set to **Yes**.
 
