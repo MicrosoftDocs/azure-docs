@@ -180,7 +180,7 @@ When you enable continuous deployment, it will default to the **master** branch 
 
 1. In the portal, select your website and then select **CONFIGURE**.
 
-2. In the **git** section of the page, enter the branch you wish to use in the **BRANCH** field, and then hit enter. Finally, click **SAVE**.
+2. In the **git** section of the page, enter the branch you wish to use in the **BRANCH TO DEPLOY** field, and then hit enter. Finally, click **SAVE**.
 
 	![Chaning the branch to use the notmaster branch][git-notmaster]
 
