@@ -147,7 +147,7 @@ The **remote** command adds a named reference to a remote repository, in this ca
 
 Deploying files from either GitHub or CodePlex requires that you have published your local project to one of these services. For more information on publishing your project to these services, see [Create a Repo (GitHub)] or [Using Git with CodePlex].
 
-1. Once your project has been published to GitHub or CodePlex, select **Deploy from my GitHub project** or **Deploy from My CodePlex project**. The following steps are based on deploying from a CodePlex project, however the steps are identical for GitHub projects.
+1. Once your project has been published to GitHub or CodePlex, select **Deploy from my GitHub repository** or **Deploy from My CodePlex project**. The following steps are based on deploying from a CodePlex project, however the steps are identical for GitHub repositories.
 
 	![deployment links for GitHub and Codeplex][deploy-git-links]
 
