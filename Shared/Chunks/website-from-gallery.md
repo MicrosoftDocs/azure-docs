@@ -1,4 +1,4 @@
-﻿The gallery makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the gallery do not require installation of any software other than the browser used to connect to the Windows Azure Management Portal. 
+The gallery makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the gallery do not require installation of any software other than the browser used to connect to the Windows Azure Management Portal. 
 
 In this tutorial, you'll learn:
 
@@ -12,7 +12,7 @@ You'll build a Word press blog that uses a default template. The following illus
 ![Wordpress blog][13]
 
 <div class="dev-callout"><strong>Note</strong>
-<p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Web Sites feature enabled. You can create a free trial account and enable preview features in just a couple of minutes. For details, see <a href="../create-a-windows-azure-account/" target="_blank">Create a Windows Azure account and enable preview features</a>.</p>
+<p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Web Sites feature enabled. You can create a free trial account and enable preview features in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/create-a-windows-azure-account/" target="_blank">Create a Windows Azure account and enable preview features</a>.</p>
 </div>
 <br />
 
