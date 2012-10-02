@@ -10,8 +10,8 @@
 </div>
 <div class="article blue">
 <h3><a href="./identity/">Identity</a></h3>
-<p>Learn how to use Windows Azure Active Directory features to provide security and identity functionality to your cloud-based services and applications.</p></div>
-
+<p>Learn how to use Windows Azure Active Directory features to provide security and identity functionality to your cloud-based services and applications.</p>
+</div>
 <div class="article blue">
 <h3><a href="./media-services/">Media Services</a></h3>
 <p>Learn how to manage media services in the cloud with Windows Azure.</p>
@@ -28,12 +28,10 @@
 <h3><a href="./other/SQL-reporting/">SQL Reporting</a></h3>
 <p>Learn the ins and outs of SQL reporting, by seeing what goes into the important task of creating a a meaninful report out of a sizable datastore.</p>
 </div>
-
 <div class="article red">
 <h3><a href="./storage/">Storage</a></h3>
 <p>Learn how to create, configure, manage, and monitor storage accounts in Windows Azure.</p>
 </div>
-
 <div class="article red">
 <h3><a href="./web-sites/">Web Sites</a></h3>
 <p>Learn how to create, configure, manage, monitor, and scale web sites in Windows Azure.</p>
