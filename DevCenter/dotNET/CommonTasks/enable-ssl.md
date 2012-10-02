@@ -17,7 +17,7 @@ This task includes the following steps:
 
 This task will use a production deployment; information on using a staging deployment is provided at the end of this topic.
 
-<a id="step1"> </a>
+<a name="step1"> </a>
 <h2><span class="short-header">Get an SSL cert</span>Step 1: Get an SSL certificate</h2>
 
 To configure SSL for an application, you first need to get an SSL
@@ -44,7 +44,7 @@ See [How to create a certificate for a role][].
 Next, you must include information about the certificate in your service
 definition and service configuration files.
 
-<a id="step2"> </a>
+<a name="step2"> </a>
 <h2><span class="short-header">Modify svc / config files</span>Step 2: Modify the service definition and configuration files</h2>
 
 Your application must be configured to use the certificate, and an HTTPS
@@ -125,7 +125,7 @@ you are using **cspack**, ensure that you don't use the
 **/generateConfigurationFile** flag, as that will overwrite the
 certificate information you just inserted.
 
-<a id="step3"> </a>
+<a name="step3"> </a>
 <h2><span class="short-header">Upload to Windows Azure</span>Step 3: Upload the deployment package and certificate</h2>
 
 Your deployment package has been updated to use the certificate, and an
@@ -152,7 +152,7 @@ certificate to Windows Azure with the Management Portal.
 
 7.  Click the **Complete** button to create your cloud service. When the deployment has reached the **Ready** status, you can proceed to the next steps.
 
-<a id="step4"> </a>
+<a name="step4"> </a>
 <h2><span class="short-header">Connect using HTTPS</span>Step 4: Connect to the role instance by using HTTPS</h2>
 
 Now that your deployment is up and running in Windows Azure, you can
@@ -173,7 +173,7 @@ connect to it using HTTPS.
 
 If you want to use SSL for a staging deployment instead of a production deployment, you'll first need to determine the URL used for the staging deployment. Deploy your cloud service to the staging environment without including a certificate or any certificate information. Once deployed, you can determine the GUID-based URL, which is listed in the management portal's **Site URL** field. Create a certificate with the common name (CN) equal to the GUID-based URL (for example, **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**), use the management portal to add the certificate to your staged cloud service, add the certificate information to your CSDEF and CSCFG files, repackage your application, and update your staged deployment to use the new package and CSCFG file.
 
-<a id="additional_resources"> </a>
+<a name="additional_resources"> </a>
 <h2><span class="short-header">Additional Resources</span>Additional Resources</h2>
 
 * [How to associate a certificate with a service][]
