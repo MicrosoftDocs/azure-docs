@@ -270,8 +270,8 @@ Once you have completed the data series, try one of these other tutorials:
 [Validate and modify data with scripts]: ./mobile-services-validate-and-modify-data-js.md
 [Refine queries with paging]: ./mobile-services-paging-data-js.md
 [Get started with Mobile Services]: ./mobile-services-get-started.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
+[Get started with authentication]: ./mobile-services-get-started-with-users-js.md
+[Get started with push notifications]: ./mobile-services-get-started-with-push-js.md
 [C# and XAML]: ./mobile-services-get-started-with-data-dotnet.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
