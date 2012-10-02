@@ -23,22 +23,22 @@ TODO: Considering this may be the first time the customer encounters information
 TODO: This section provides a conceptual overview of the feature or service.  A diagram is sometimes useful in visualizing how things are related to one another.  Thie information in this section is generally programming-language-neutral.  For third party services, it's fine to provide a brief overview and link to other documentation on the service provider's website for more information.
 
 <a id="prereq1"></a>
-<h2><span>Short prereq1 title</span>TODO: Insert prereq1 title, using sentence casing</h2>
+<h2><span class="short-header">Short prereq1 title</span>TODO: Insert prereq1 title, using sentence casing</h2>
 
 TODO: These are optional, non-obvious tasks that may be required for the how-tos to be completed successfully.
 
 <a id="prereq"></a>
-<h2><span>Short prereq2 title</span>TODO: Insert prereq2 title, using sentence casing</h2>
+<h2><span class="short-header">Short prereq2 title</span>TODO: Insert prereq2 title, using sentence casing</h2>
 
 (TODO: These are optional, non-obvious tasks that may be required for the how-tos to be completed successfully.)
 
 <a id="howto1"></a>
-<h2><span>Short howto1 title</span>Insert howTo1 title, using sentence casing</h2>
+<h2><span class="short-header">Short howto1 title</span>Insert howTo1 title, using sentence casing</h2>
 
 TODO: Describe how to complete a common task for the feature. This section will often include code. The heading should be heading formatted as "How to: `<use the feature>`."  For example, "How to: Send an email". 
 
 <a id="howto2"></a>
-<h2><span>Short howto2 title</span>Insert howTo2 title, using sentence casing</h2>
+<h2><span class="short-header">Short howto2 title</span>Insert howTo2 title, using sentence casing</h2>
 
 
 TODO: Describe how to complete a common task for the feature. This section will often include code. The heading should be heading formatted as "How to: `<use the feature>`."  For example, "How to: Send an email". 
