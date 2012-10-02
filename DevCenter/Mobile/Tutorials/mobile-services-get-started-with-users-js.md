@@ -1,10 +1,10 @@
-<properties linkid="mobile-get-started-with-users-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with authentication in Mobile Services" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="mobile-get-started-with-users-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with authentication in Mobile Services" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app, JavaScript" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
 <div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/" title=".NET client version" class="current">C# and XAML</a>
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-js/" title="JavaScript client version">JavaScript and HTML</a>
+  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/" title=".NET client version">C# and XAML</a>
+  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-js/" title="JavaScript client version" class="current">JavaScript and HTML</a>
   <span>Tutorial</span>
 </div>
 
@@ -113,66 +113,89 @@ Next, you will update the app to authenticate users with Live Connect before req
 
   This adds a reference to the Live SDK to the project.
 
-5. Open the project file mainpage.xaml.cs and add the following using statements:
+3. Open the default.html project file and add the following &lt;script&gt; element in the &lt;head&gt; element. 
 
-        using Microsoft.Live;
-        using Windows.UI.Popups;
+        <script src="///LiveSDKHTML/js/wl.js"></script>
 
-6. Add the following code snippet to the MainPage class:
+   This enables Microsoft IntelliSense in the default.html file.
+
+
+5. Open the project file default.js and add the following comment to the top of the file. 
+
+        /// <reference path="///LiveSDKHTML/js/wl.js" />
+
+   This enables Microsoft IntelliSense in the default.js file.
+
+6. In the default.js file, insert the following code fragment into the app.OnActivated method overload just before the line of code that creates the MobileServiceClient: 
 	
-        private LiveConnectSession session;
-        private async System.Threading.Tasks.Task Authenticate()
-        {
-            LiveAuthClient liveIdClient = new LiveAuthClient("<< INSERT REDIRECT DOMAIN HERE >>");
+        // Initialize the Live Connect client, with the redirect URI.
+        WL.init({redirect_uri: "<< INSERT REDIRECT DOMAIN HERE >>"});
 
-            while (session == null)
+        // Force a logout to make it easier to test with multiple Microsoft Accounts.
+        if (WL.canLogout) {
+            WL.logout().then (function(response)
             {
-                // Force a logout to make it easier to test with multiple Microsoft Accounts
-                if (liveIdClient.CanLogout)
-                    liveIdClient.Logout();
-	
-                LiveLoginResult result = await liveIdClient.LoginAsync(new[] { "wl.basic" });
-                if (result.Status == LiveConnectSessionStatus.Connected)
-                {
-                    session = result.Session;
-                    LiveConnectClient client = new LiveConnectClient(result.Session);
-                    LiveOperationResult meResult = await client.GetAsync("me");
-                    MobileServiceUser loginResult = await App.MobileService.LoginAsync(result.Session.AuthenticationToken);
-	
-                    string title = string.Format("Welcome {0}!", meResult.Result["first_name"]);
-                    var message = string.Format("You are now logged in - {0}", loginResult.UserId);
-                    var dialog = new MessageDialog(message, title);
-                    dialog.Commands.Add(new UICommand("OK"));
-                    await dialog.ShowAsync();
-                }
-                else
-                {
-                    session = null;
-                    var dialog = new MessageDialog("You must log in.", "Login Required");
-                    dialog.Commands.Add(new UICommand("OK"));
-                    await dialog.ShowAsync();
-                }
-            }
-         }
+                // Define the scope of the login operation.
+                WL.login({scope: ["wl.signin", "wl.basic"]
+                }).then(function (response) {
 
-    This creates a member variable for storing the current Live Connect session and a method to handle the authentication process.
+                    // Get the returned authentication token.
+                    var authToken = response.session.authentication_token;
+
+                    if (response.status === "connected") {
+
+                        // Request info about the logged-in user.
+                        WL.api({
+                            path: "me",
+                            method: "GET"
+                        }).then(function (response) {
+
+                            // Display info about the logged-in user.
+                            var title = "Welcome " + response.first_name + "!";
+                            var message = "You are now logged in as: " + response.id;
+                            var dialog = new Windows.UI.Popups.MessageDialog(
+                                message, title);
+                            dialog.showAsync();
+
+    This initializes the Live Connect client, attempts to logout the user, sends a login request to Live Connect, and then requests and displays information about the logged-in user. 
 
     <div class="dev-callout"><b>Note</b>
 	<p>This code forces a logout, when possible, to make sure that the user is prompted for credentials each time the application runs. This makes it easier to test the application with different Microsoft Accounts to ensure that the authentication is working correctly. This mechanism will only work if the logged in user does not have a connected Microsoft account.</p>
     </div>
 	
-
 7. Update string _<< INSERT REDIRECT DOMAIN HERE >>_ from the previous step with the redirect domain that was specified when setting up the app in Live Connect, in the format **https://_service-name_.azure-mobile.net/**.
 
-8. Replace the existing **OnNavigatedTo** event handler with the handler that calls the new **Authenticate** method:
+8. Insert the following code fragment just after the line of code that creates the MobileServiceClient: 
+                               
+        // Request a login from Mobile Services, using the Live Connect authentication token.
+        var loginResult = client.login(authToken).then(function (response) {
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-            await Authenticate();
-            RefreshTodoItems();
-        }
+   This sends a login request to Mobile Services.
+
+9. Insert the following code fragment just after the line of code that calls the **refreshTodoItems** method:
+                                    
+                            }, function (responseFailed) {
+
+                                // Create the error message dialog and set its content to the error
+                                // message contained in the response.
+                                var msg = new Windows.UI.Popups.MessageDialog(
+                                    responseFailed.message);
+                                msg.showAsync();
+                            });
+                        },
+                        function (responseFailed) {
+                            // Create the error message dialog and set its content to the error
+                            // message contained in the response.
+                            var msg = new Windows.UI.Popups.MessageDialog(
+                                responseFailed.error.message,responseFailey.error.code);
+                            msg.showAsync();
+                        });
+                    }
+                });
+            });
+        }        
 		
-9. Press the F5 key to run the app and sign into Live Connect with your Microsoft Account. 
+8. Press the F5 key to run the app and sign into Live Connect with your Microsoft Account. 
 
    When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
@@ -203,17 +226,17 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [13]: ../Media/mobile-identity-tab.png
 [14]: ../Media/mobile-portal-data-tables.png
 [15]: ../Media/mobile-portal-change-table-perms.png
-[16]: ../Media/mobile-add-reference-live-dotnet.png
+[16]: ../Media/mobile-add-reference-live-js.png
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: ./mobile-services-get-started.md
-[Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
-[Authorize users with scripts]: ./mobile-services-authorize-users-dotnet.md
+[Get started with data]: ./mobile-services-get-started-with-data-js.md
+[Get started with authentication]: ./mobile-services-get-started-with-users-js.md
+[Get started with push notifications]: ./mobile-services-get-started-with-push-js.md
+[Authorize users with scripts]: ./mobile-services-authorize-users-js.md
 [JavaScript and HTML]: ./mobile-services-get-started-with-users-js.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
