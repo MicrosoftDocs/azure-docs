@@ -77,15 +77,18 @@ application.
     <div class="dev-callout-new-collapsed">
     <strong>Need to set up publishing credentials? <span>Click to expand</span></strong>
     <div class="dev-callout-content">
-        <p>TBD -- details here.</p>
+        <p><ol>
+           <li>On the <strong>Windows Azure Publish Sign In</strong> page, click the <strong>Sign in to download credentials</strong> link. You will be prompted to sign in to the Windows Azure Management Portal, and then to download a .publishsettings file.</li>
+           <li>Save the .publishsettings file locally.</li>
+           <li>Click the <strong>Import</strong> button and select the .publishsettings file you just downloaded.</li>
+           <li>Back on the <strong>Windows Azure Publish Sign In</strong> page, the subscription associated with the .publishsettings file you just imported will be selected. Click <strong>Next</strong> to continue.
+           </ol></p>
     </div>
-</div>  
+    </div>  
 
-
-3.  On the **Windows Azure Publish Settings** page, select the hosted
-    service in which to publish the application, production or staging
+3.  On the **Windows Azure Publish Settings** page, select the cloud service to which you want to deploy, the production or staging
     environment, the build configuration, and the service configuration.
-    Make sure **Remote desktop connections for all roles** is selected,
+    Make sure **Enable Remote Desktop for all roles** is selected,
     and then click **Next**.
 4.  On the **Windows Azure Publish Summary** page, review the settings,
     and then click **Publish**.
