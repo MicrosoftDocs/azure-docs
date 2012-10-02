@@ -522,7 +522,7 @@ Visual Studio compiles the data model classes that you created and makes them av
 		        }
 		    }
 		}
-	This defined the HTTP routing for the RESTful API call. When a
+	This defines the HTTP routing for the RESTful API call.
 10. Open the RouteConfig.cs and remove the following code.
 
         routes.MapHttpRoute(
