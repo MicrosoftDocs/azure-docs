@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-net-tutorials-hybrid-solution" urldisplayname="Hybrid Application" headerexpose="" pagetitle="Hybrid On-Premise /Cloud Application" metakeywords="Azure Service Bus tutorial, Azure Service Bus relay tutorial, Azure hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop an application that uses the Windows Azure Service Bus relay to connect between two applications." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-tutorials-hybrid-solution" urldisplayname="Hybrid Application" headerexpose="" pagetitle="Hybrid On-Premise /Cloud Application" metakeywords="Azure Service Bus tutorial, Azure Service Bus relay tutorial, Azure hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop an application that uses the Windows Azure Service Bus relay to connect between two applications." umbraconavihide="0" disquscomments="1"></properties>
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -104,22 +104,29 @@ To create a service namespace:
 
 1.  Log on to the [Windows Azure Management Portal][].
 
-2.  In the lower left navigation pane of the Management Portal, click
-    **Service Bus, Access Control & Caching**.
+2.  In the left navigation pane of the Management Portal, click
+    **Service Bus**.
 
-3.  In the upper left pane of the Management Portal, click the **Service
-    Bus** node, and then click the **New** button.   
+3.  In the lower pane of the Management Portal, click **Create**.   
     ![][5]
 
-4.  In the **Create a new Service Namespace** dialog, enter a
-    **Namespace**, and then to make sure that it is unique, click the
-    **Check Availability** button.   
+4.  In the **Add a new namespace** dialog, enter a namespace name.
+    The system immediately checks to see if the name is available.   
     ![][6]
 
 5.  After making sure the namespace name is available, choose the
     country or region in which your namespace should be hosted (make
     sure you use the same country/region in which you are deploying your
-    compute resources), and then click the **Create Namespace** button.
+    compute resources).
+
+    IMPORTANT: Pick the **same region** that you intend to choose for
+    deploying your application. This will give you the best performance.
+
+6.	Click the check mark. The system now creates your service
+    namespace and enables it. You might have to wait several minutes as
+    the system provisions resources for your account.
+
+	![][38]
 
 The namespace you created will then appear in the Management Portal and
 takes a moment to activate. Wait until the status is **Active** before
@@ -131,24 +138,21 @@ In order to perform management operations, such as creating a queue, on
 the new namespace, you need to obtain the management credentials for the
 namespace.
 
-1.  In the left navigation pane, click the **Service Bus** node, to
-    display the list of available namespaces:   
-    ![][5]
+1.  In the main window, click the name of your service namespace.   
 
-2.  Select the namespace you just created from the list shown:   
-    ![][7]
+	![][39]
+  
 
-3.  The right-hand **Properties** pane will list the properties for the
-    new namespace:   
-    ![][8]
+2.  Click **Access Key**.   
 
-4.  The **Default Key** is hidden. Click the **View** button to display
-    the security credentials:   
-    ![][9]
+	![][40]
 
-5.  Make a note of the **Default Issuer** and the **Default Key** as you
-    will use this information below to perform operations with the
-    namespace.
+
+3.  In the **Connect to your namespace** pane, find the **Default Issuer** and **Default Key** entries.   
+    
+
+4.  Make a note of the key, or copy it to the clipboard.
+
 
 <h2><span class="short-header">CREATE AN ON-PREMISES SERVER</span>CREATE AN ON-PREMISES SERVER</h2>
 
@@ -187,15 +191,15 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
 4.  Click **OK** to create the **ProductsServer** project.
 5.  In the **Solution Explorer**, right-click **ProductsServer**, then
     click **Properties**.
-6.  Click the **Application** tab on the left, then select **.NET
-    Framework 4** from the **Target framework:** dropdown. Click **Yes**
+6.  Click the **Application** tab on the left, then ensure that **.NET
+    Framework 4** appears in the **Target framework:** dropdown. If not, select it from the dropdown and then click **Yes**
     when prompted to reload the project.
 
     ![][12]
 
 7.  In **Solution Explorer**, right-click **References**, then click
     **Manage NuGet Packages**...
-8.  Search for ‘**WindowsAzure.ServiceBus**’ and select the **Windows
+8.  Search for ‘**WindowsAzure**’ and select the **Windows
     Azure Service Bus** item. Click **Install** to complete the
     installation, then close this dialog.
 
@@ -341,7 +345,7 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
 
 <h2><span class="short-header">CREATE AN ASP.NET APPLICATION</span>CREATE AN ASP.NET MVC 3 APPLICATION</h2>
 
-In this section you will build a simple MVC 3 application that will
+In this section you will build a simple MVC 4 application that will
 display data retrieved from your product service.
 
 ### CREATE THE PROJECT
@@ -356,7 +360,7 @@ display data retrieved from your product service.
 2.  In Visual Studio, on the **File** menu, click **New**, and then
     click **Project**.
 3.  From **Installed Templates**, under **Visual C#**, click **ASP.NET
-    MVC 3 Web Application**. Name the project **ProductsPortal**. Then
+    MVC 4 Web Application**. Name the project **ProductsPortal**. Then
     click **OK**.
 
     ![][15]
@@ -414,42 +418,55 @@ display data retrieved from your product service.
 
     ![][18]
 
-4.  Next, change the page title by replacing the header text in
-    _Layout.cshtml with the text "LITWARE'S Products". Double-click
-    _Layout.cshtml to open it in the Visual Studio editor.
+4.  Next, double-click _Layout.cshtml to open it in the Visual Studio editor.
 
-5.  Within the body tag, find the title of the page enclosed in h1 tags.
-    Change the title text from My MVC Application to LITWARE's Products.
-    Here is where you type this in:
+5.  Within the body tag, find the title of the page enclosed in `title` tags.
+    Change the title text from My MVC Application to LITWARE's Products. Also change **your logo here** to **LITWARE's Products**.
 
-    ![][19]
+6. Remove the **Home**, **About**, and **Contact** links. Delete the highlighted code:
 
-6.  In **Solution Explorer**, expand Views\Home:
+	![][41]
+
+7.  In **Solution Explorer**, expand Views\Home:
 
     ![][20]
 
-7.  Double-click Index.cshtml to open it in the Visual Studio editor.
+8.  Double-click Index.cshtml to open it in the Visual Studio editor.
     Replace the entire contents of the file with the following code:
+	
+		@model IEnumerable<ProductsPortal.Models.Product>
 
-        @model IEnumerable<ProductsWeb.Models.Product>
-        @{
-          ViewBag.Title = "Product Inventory";
-        }
-        <h2>Product Inventory</h2>
-        <table>
-        <tr>
-          <th>Name</th><th>Quantity</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-          <tr>
-          <td>@item.Name</td>
-          <td>@item.Quantity</td>
-        </tr>
-        }
-        </table>
+		@{
+    		ViewBag.Title = "Index";
+		}
 
-8.  To verify the accuracy of your work so far, you can press **F6** or
+		<h2>Prod Inventory</h2>
+
+		<table>
+    		<tr>
+        		<th>
+            		@Html.DisplayNameFor(model => model.Name)
+        		</th>
+        		<th>
+            		@Html.DisplayNameFor(model => model.Quantity)
+        		</th>
+    		</tr>
+	
+		@foreach (var item in Model) {
+    		<tr>
+        		<td>
+            		@Html.DisplayFor(modelItem => item.Name)
+        		</td>
+        		<td>
+            		@Html.DisplayFor(modelItem => item.Quantity)
+        		</td>
+    		</tr>	
+		}
+
+</table>
+
+
+9.  To verify the accuracy of your work so far, you can press **F6** or
     **Ctrl+Shift+B** to build the project.
 
 ### RUN YOUR APPLICATION LOCALLY
@@ -726,7 +743,7 @@ Run the application to verify that it works.
   [3]: ../../../DevCenter/dotNet/Media/getting-started-4.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [4]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-32.png
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [5]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
   [6]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
   [7]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
@@ -761,3 +778,7 @@ Run the application to verify that it works.
   [35]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-41.png
   [36]: ../../../DevCenter/dotNet/Media/App3.png
   [37]: ../../../DevCenter/dotNet/Media/hy-service1.png
+  [38]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-27.png
+  [39]: ../../../DevCenter/dotNet/Media/sb-queues-09.png
+  [40]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
+  [41]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-40.png

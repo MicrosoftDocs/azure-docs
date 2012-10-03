@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-net-how-to-service-bus-queues" urldisplayname="Service Bus Queues" headerexpose="" pagetitle="Service Bus Queues - How To - .NET - Develop" metakeywords="Get Started Service Bus queues, Get started Azure Service Bus queues, Azure messaging, Azure brokered messaging, Azure messaging queue, Service Bus queue, Azure Service Bus queue, Azure messaging .NET, Azure messaging queue .NET, Azure Service Bus queue .NET, Service Bus queue .NET, Azure messaging C#, Azure messaging queue C#, Azure Service Bus queue C#, Service Bus queue C#" footerexpose="" metadescription="Get started with Windows Azure Service Bus queues, including how to create queues, how to send and receive messages, and how to delete queues." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-how-to-service-bus-queues" urldisplayname="Service Bus Queues" headerexpose="" pagetitle="Service Bus Queues - How To - .NET - Develop" metakeywords="Get Started Service Bus queues, Get started Azure Service Bus queues, Azure messaging, Azure brokered messaging, Azure messaging queue, Service Bus queue, Azure Service Bus queue, Azure messaging .NET, Azure messaging queue .NET, Azure Service Bus queue .NET, Service Bus queue .NET, Azure messaging C#, Azure messaging queue C#, Azure Service Bus queue C#, Service Bus queue C#" footerexpose="" metadescription="Get started with Windows Azure Service Bus queues, including how to create queues, how to send and receive messages, and how to delete queues." umbraconavihide="0" disquscomments="1"></properties>
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -51,55 +51,55 @@ To create a service namespace:
 
 1.  Log on to the [Windows Azure Management Portal][].
 
-2.  In the lower left navigation pane of the Management Portal, click
-    **Service Bus, Access Control & Caching**.
+2.  In the left navigation pane of the Management Portal, click
+    **Service Bus**.
 
-3.  In the upper left pane of the Management Portal, click the **Service
-    Bus** node, and then click the **New** button.   
+3.  In the lower pane of the Management Portal, click **Create**.   
     ![][0]
 
-4.  In the **Create a new Service Namespace** dialog, enter a
-    **Namespace**, and then to make sure that it is unique, click the
-    **Check Availability** button.   
+4.  In the **Add a new namespace** dialog, enter a namespace name.
+    The system immediately checks to see if the name is available.   
     ![][1]
 
 5.  After making sure the namespace name is available, choose the
     country or region in which your namespace should be hosted (make
     sure you use the same country/region in which you are deploying your
-    compute resources), and then click the **Create Namespace** button.
+    compute resources).
+
+    IMPORTANT: Pick the **same region** that you intend to choose for
+    deploying your application. This will give you the best performance.
+
+6. 	Click the check mark. The system now creates your service
+    namespace and enables it. You might have to wait several minutes as
+    the system provisions resources for your account.
+
+	![][5]
 
 The namespace you created will then appear in the Management Portal and
 takes a moment to activate. Wait until the status is **Active** before
-moving on.
+continuing.
 
 <h2><span class="short-header">Obtain Management Credentials</span>Obtain the Default Management Credentials for the Namespace</h2>
 
 In order to perform management operations, such as creating a queue, on
-the new namespace, you need to obtain the management credentials for the
+the new namespace, you must obtain the management credentials for the
 namespace.
 
 1.  In the left navigation pane, click the **Service Bus** node, to
     display the list of available namespaces:   
-    ![][0]
+    ![][6]
 
 2.  Select the namespace you just created from the list shown:   
     ![][2]
 
-3.  The right-hand **Properties** pane will list the properties for the
-    new namespace:   
+3.  Click **Access Key**.   
     ![][3]
 
-4.  The **Default Key** is hidden. Click the **View** button to display
-    the security credentials:   
-    ![][4]
-
-5.  Make a note of the **Default Issuer** and the **Default Key** as you
-    will use this information below to perform operations with the
-    namespace.
+4.  In the **Connect to your namespace** dialog, find the **Default Issuer** and **Default Key** entries. Make a note of these values, as you will use this information below to perform operations with the namespace.
 
 <h2><span class="short-header">Configure the Application</span>Configure the Application to Use Service Bus</h2>
 
-When you create an application that uses Service Bus, you will need to
+When you create an application that uses Service Bus, you must
 add a reference to the Service Bus assembly and include the
 corresponding namespaces.
 
@@ -384,11 +384,12 @@ links to learn more.
   [How to: Receive Messages from a Queue]: #receive-messages
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
   [Queue Concepts]: ../../../DevCenter/dotNet/Media/sb-queues-08.png
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [0]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
   [1]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
-  [2]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
+  [2]: ../../../DevCenter/dotNet/Media/sb-queues-09.png
   [3]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
-  [4]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
+  [5]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-27.png
+  [6]: ../../../DevCenter/dotNet/Media/sb-queues-13.png
   [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
   [Service Bus Brokered Messaging .NET Tutorial]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367512.aspx
