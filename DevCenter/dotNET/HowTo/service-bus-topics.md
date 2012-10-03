@@ -1,4 +1,4 @@
-﻿<properties umbraconavihide="0" pagetitle="Service Bus Topics - How To - .NET - Develop" metakeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Azure Service Bus topic, Service Bus topic, Azure messaging topics and subscriptions .NET, Azure Service Bus topic .NET, Service Bus topic .NET, Azure messaging topics and subscriptions C#, Azure Service Bus topic C#, Service Bus topic C#" metadescription="Get Started with Windows Azure Service Bus topics and subscriptions, including creating topics and subscriptions, creating subscription filters, sending messages to a topic, receiving messages from a subscription, and deleting topics and subscriptions." linkid="dev-net-how-to-service-bus-topics" urldisplayname="Service Bus Topics" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties umbraconavihide="0" pagetitle="Service Bus Topics - How To - .NET - Develop" metakeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Azure Service Bus topic, Service Bus topic, Azure messaging topics and subscriptions .NET, Azure Service Bus topic .NET, Service Bus topic .NET, Azure messaging topics and subscriptions C#, Azure Service Bus topic C#, Service Bus topic C#" metadescription="Get Started with Windows Azure Service Bus topics and subscriptions, including creating topics and subscriptions, creating subscription filters, sending messages to a topic, receiving messages from a subscription, and deleting topics and subscriptions." linkid="dev-net-how-to-service-bus-topics" urldisplayname="Service Bus Topics" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -50,27 +50,29 @@ To create a service namespace:
 
 1.  Log on to the [Windows Azure Management Portal][].
 
-2.  In the lower left navigation pane of the Management Portal, click
-    **Service Bus, Access Control & Caching**.
+2.  In the left navigation pane of the Management Portal, click
+    **Service Bus**.
 
-3.  In the upper left pane of the Management Portal, click the **Service
-    Bus** node, and then click the **New** button.   
+3.  In the lower pane of the Management Portal, click **Create**.   
     ![][0]
 
-4.  In the **Create a new Service Namespace** dialog, enter a
-    **Namespace**, and then to make sure that it is unique, click the
-    **Check Availability** button.   
+4.  In the **Add a new namespace** dialog, enter a namespace name.
+    The system immediately checks to see if the name is available.   
     ![][2]
 
-5.  After making sure the **Namespace** name is available, choose the
+5.  After making sure the namespace name is available, choose the
     country or region in which your namespace should be hosted (make
-    sure you use the same **Country/Region** in which you are deploying
-    your compute resources), and then click the **Create Namespace**
-    button.
+    sure you use the same country/region in which you are deploying your
+    compute resources).
 
-The namespace you created will then appear in the Management Portal and
-takes a moment to activate. Wait until the status is **Active** before
-moving on.
+	IMPORTANT: Pick the **same region** that you intend to choose for
+    deploying your application. This will give you the best performance.
+
+6. 	Click the check mark. The system now creates your service
+    namespace and enables it. You might have to wait several minutes as
+    the system provisions resources for your account.
+
+	![][6]
 
 <h2><span class="short-header">Obtain the Management Credentials</span>Obtain the Default Management Credentials for the Namespace</h2>
 
@@ -85,17 +87,11 @@ credentials for the namespace.
 2.  Select the namespace you just created from the list shown:   
     ![][3]
 
-3.  The right-hand **Properties** pane will list the properties for the
-    new namespace:   
+3.  Click **Access Key**.   
     ![][4]
 
-4.  The **Default Key** is hidden. Click the **View** button to display
-    the security credentials:   
-    ![][5]
-
-5.  Make a note of the **Default Issuer** and the **Default Key** as you
-    will use this information below to perform operations with the
-    namespace.
+4.  In the **Connect to your namespace** dialog, find the **Default Issuer** and **Default Key** entries. Make a note of these values, as you will use this information below to perform operations with the namespace.   
+  
 
 <h2><span class="short-header">Configure the Application</span>Configure the Application to Use Service Bus</h2>
 
@@ -483,12 +479,13 @@ links to learn more.
   [How to: Delete Topics and Subscriptions]: #delete-topics
   [1]: #next-steps
   [Topic Concepts]: ../../../DevCenter/dotNet/Media/sb-topics-01.png
-  [Windows Azure Management Portal]: http://windows.azure.com
-  [0]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [0]: ../../../DevCenter/dotNet/Media/sb-queues-13.png
   [2]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
-  [3]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
+  [3]: ../../../DevCenter/dotNet/Media/sb-queues-09.png
   [4]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [5]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
+  [6]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-27.png
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
