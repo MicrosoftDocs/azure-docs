@@ -43,7 +43,7 @@ This SQL Server installation contains the following components.
 * Analysis Services
 * Integration Services
 * Reporting Services (configured in Native mode)
-* AlwaysOn Availability Groups are available in SQL Server 2012 but need additional configuration before they can be used.
+* AlwaysOn Availability Groups are available in SQL Server 2012 but need additional configuration before they can be used. See below for more information.
 * Replication
 * Full-Text and Semantic Extractions for Search (Semantic Extractions in SQL Server 2012 only)
 * Data Quality Services (SQL Server 2012 only)
@@ -102,6 +102,10 @@ Provide a connection string similar to
 	&lt;add name ="connection" connectionString ="Data Source=VM_Name;Integrated Security=true;" providerName ="System.Data.SqlClient"/&gt;
 
 where VM_Name is the name you provided for this virtual machine during setup.
+ 
+### Configuring AlwaysOn Availability Groups
+
+AlwaysOn availability groups are currently supported in Windows Azure Virtual Machine Preview Release without Listeners. An availability group that has one or more replicas in Windows Azure Virtual Machines cannot have a listener. Before adding a replica on a Windows Azure Virtual Machine to an on-premises availability group, drop the availability group listener. If the availability group has a listener, a failover to the replica on the Windows Azure Virtual Machine will fail. For more information about configuring AlwaysOn availability groups, see SQL Server Books Online.
 
 <h2 id="Next">Next steps</h2>
 
