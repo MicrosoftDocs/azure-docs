@@ -130,7 +130,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
   This adds a reference to the Mobile Services client to the project.
 
-2. In the default.htm project files, add the following script reference in the page header:
+2. In the default.html project file, add the following script reference in the page header:
 
         <script type="text/javascript" src="/MobileServicesJavaScriptClient/MobileServices.js"></script>
 

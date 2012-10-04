@@ -44,6 +44,7 @@ Next, you will modify the push notifications app to store data in this new table
 ## <a name="update-app"></a>Update your app
 
 1. In Visual Studio 2012 Express for Windows 8, open the project from the tutorial [Get started with push notifications], open up file default.js, and replace the **click** event listener definition for **buttonSave** with the original version, as follows:
+
         buttonSave.addEventListener("click", function () {
             insertTodoItem({
                 text: textInput.value,

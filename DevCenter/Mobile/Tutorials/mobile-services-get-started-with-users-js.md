@@ -126,74 +126,54 @@ Next, you will update the app to authenticate users with Live Connect before req
 
    This enables Microsoft IntelliSense in the default.js file.
 
-6. In the default.js file, insert the following code fragment into the app.OnActivated method overload just before the line of code that creates the MobileServiceClient: 
+6. In the **app.OnActivated** method overload, replace the call to the **refreshTodoItems** method  with the following code: 
 	
-        // Initialize the Live Connect client, with the redirect URI.
-        WL.init({redirect_uri: "<< INSERT REDIRECT DOMAIN HERE >>"});
+        var session = null;                     
 
-        // Force a logout to make it easier to test with multiple Microsoft Accounts.
-        if (WL.canLogout) {
-            WL.logout().then (function(response)
-            {
-                // Define the scope of the login operation.
-                WL.login({scope: ["wl.signin", "wl.basic"]
-                }).then(function (response) {
+        var login = function () {
+            return new WinJS.Promise(function (complete) {                    
+                WL.login({ scope: "wl.basic"}).then(function (result) {
+                    session = result.session;
 
-                    // Get the returned authentication token.
-                    var authToken = response.session.authentication_token;
-
-                    if (response.status === "connected") {
-
-                        // Request info about the logged-in user.
-                        WL.api({
-                            path: "me",
-                            method: "GET"
-                        }).then(function (response) {
-
-                            // Display info about the logged-in user.
-                            var title = "Welcome " + response.first_name + "!";
-                            var message = "You are now logged in as: " + response.id;
-                            var dialog = new Windows.UI.Popups.MessageDialog(
-                                message, title);
-                            dialog.showAsync();
-
-    This initializes the Live Connect client, attempts to logout the user, sends a login request to Live Connect, and then requests and displays information about the logged-in user. 
-
-    <div class="dev-callout"><b>Note</b>
-	<p>This code forces a logout, when possible, to make sure that the user is prompted for credentials each time the application runs. This makes it easier to test the application with different Microsoft Accounts to ensure that the authentication is working correctly. This mechanism will only work if the logged in user does not have a connected Microsoft account.</p>
-    </div>
-	
-7. Update string _<< INSERT REDIRECT DOMAIN HERE >>_ from the previous step with the redirect domain that was specified when setting up the app in Live Connect, in the format **https://_service-name_.azure-mobile.net/**.
-
-8. Insert the following code fragment just after the line of code that creates the MobileServiceClient: 
-                               
-        // Request a login from Mobile Services, using the Live Connect authentication token.
-        var loginResult = client.login(authToken).then(function (response) {
-
-   This sends a login request to Mobile Services.
-
-9. Insert the following code fragment just after the line of code that calls the **refreshTodoItems** method:
-                                    
-                            }, function (responseFailed) {
-
-                                // Create the error message dialog and set its content to the error
-                                // message contained in the response.
-                                var msg = new Windows.UI.Popups.MessageDialog(
-                                    responseFailed.message);
-                                msg.showAsync();
-                            });
-                        },
-                        function (responseFailed) {
-                            // Create the error message dialog and set its content to the error
-                            // message contained in the response.
-                            var msg = new Windows.UI.Popups.MessageDialog(
-                                responseFailed.error.message,responseFailey.error.code);
-                            msg.showAsync();
-                        });
-                    }
+                    WinJS.Promise.join([
+                        WL.api({ path: "me", method: "GET" }),
+                        client.login(result.session.authentication_token)
+                    ]).done(function (results) {
+                        var profile = results[0];
+                        var mobileServicesUser = results[1];
+                        refreshTodoItems();
+                        var title = "Welcome " + profile.first_name + "!";
+                        var message = "You are now logged in as: " + mobileServicesUser.userId;
+                        var dialog = new Windows.UI.Popups.MessageDialog(message, title);
+                        dialog.showAsync().done(complete);                                
+                    });                       
+                }, function (error) {                        
+                    session = null;
+                    var dialog = new Windows.UI.Popups.MessageDialog("You must log in.", "Login Required");
+                    dialog.showAsync().done(complete);                        
                 });
             });
-        }        
+        }
+
+        var authenticate = function () {                
+            login().then(function () {
+                if (session === null) {
+
+                    // Authentication failed, try again.
+                    authenticate();
+                }
+            });
+        }
+
+        WL.init({
+            redirect_uri: "<< INSERT REDIRECT DOMAIN HERE >>"
+        });           
+            
+        authenticate();
+
+    This initializes the Live Connect client, sends a login request to Live Connect, sends the returned authentication token to Mobile Services, and then displays information about the logged-in user. 
+	
+7. Update string _<< INSERT REDIRECT DOMAIN HERE >>_ from the previous step with the redirect domain that was specified when setting up the app in Live Connect, in the format **https://_service-name_.azure-mobile.net/**.
 		
 8. Press the F5 key to run the app and sign into Live Connect with your Microsoft Account. 
 
