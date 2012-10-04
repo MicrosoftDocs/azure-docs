@@ -3,7 +3,8 @@
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-This tutorial walks you through the steps to create a new Active Directory forest on a virtual machine (VM) on [Windows Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx). In this tutorial, the virtual network for the VM is not connected to the network at your company.
+This tutorial walks you through the steps to create a new Active Directory forest on a virtual machine (VM) on [Windows Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx). In this tutorial, the virtual network for the VM is not connected to the network at your company. For conceptual guidance about installing Active Directory Domain Services (AD DS) on Windows Azure Virtual Network, see [Guidelines for Deploying Windows Server Active Directory on Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
+
 
 ##Table of Contents##
 
@@ -24,7 +25,8 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 2.  Then install AD DS using the steps in the tutorial below.
 	<div class="dev-callout"> 
 	<b>Important</b>
-	<p>It's important that you create your virtual machine using the PowerShell procedure in the tutorial below instead of creating the virtual machine via the Management Portal.</p>
+	<p>It's important that you create your virtual machine using the Windows Azure PowerShell procedure in the tutorial below instead of creating the virtual machine via the Management Portal.</p>
+
 	</div>
 -	**Create a virtual network *with* connectivity to another network**, such as an Active Directory environment on premises by doing the following in the order listed: 
 1.	First, [Create a Virtual Network for Cross-Premises Connectivity](../cross-premises-connectivity/). 
@@ -84,6 +86,9 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 	</div>
 
 
+5.	Run the following cmdlet:
+
+
 	    cls
 		
 	    Import-Module "C:\Program Files (x86)\Microsoft SDKs\Windows Azure\PowerShell\Azure\Azure.psd1"
@@ -98,7 +103,7 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 		$myDNS = New-AzureDNS -Name 'myDNS' -IPAddress '127.0.0.1'
 		$vmname = 'ContosoDC1'
 		# OS Image to Use
-		$image = 'MSFT__Win2K8R2SP1-120612-1520-121206-01-en-us-30GB.vhd'
+		$image = 'MSFT__Win2K8R2SP1-Datacenter-201207.01-en.us-30GB.vhd'
 		$service = 'myazuredemodcsvc'
 		$AG = 'YourAffinityGroup'
 		$vnet = 'YourVirtualNetwork'
@@ -116,12 +121,14 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 	<p>If you rerun the script, you need to supply a unique value for $service.</p>
 	</div>
 
+
 9.	Sign on to Windows Azure.
 
 	![Sign1] (../media/Sign1.png)
 
 
-10.	Click **YourVMachine**.
+
+10.	Click the name of the VM you created.
 
 	![Sign2] (../media/Sign2.png)
 
@@ -133,8 +140,8 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 
 	![Sign4] (../media/ADDS_SpecifyDiskSize.png)
 
-
 13.	Repeat steps 11 and 12 to attach a second disk.
+
 
 14.	Click **Connect**.
 
@@ -162,7 +169,7 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 
 <h2 id="Step2">Step 2: Install Active Directory Domain Services</h2>
 
-1.	In the RDP session for YourVMachine, Click **Start**, right-click **Computer** and click **Manage**. 
+1.	In the RDP session, Click **Start**, right-click **Computer** and click **Manage**. 
 
 	![InstallDC1] (../media/InstallDC1.png)
 
@@ -172,7 +179,9 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 
 	![] (../media/ADDS_InitializeDisks.png)
 
-4.	Right-click the remaining disk that is not formatted, and click **New Simple Volume**. Accept the default values in the wizard and finish creating the volume.
+
+4.	Right-click the remaining disk that is not formatted, and click **New Simple Volume**. Accept the default values in the wizard and finish creating the volume, and then create a new folder named **NTDS** on the volume in order to store the Active Directory database and logg files.
+
 
 5.	Click **Start**, type **dcpromo**, and press ENTER.
 
@@ -193,7 +202,9 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 
 	![InstallDC5] (../media/InstallDC5.png)
 
-9.	On the **Name the Forest Root Domain** page, type the fully qualified domain name (FQDN) of the forest root domain (for example, hq.liwareinc.com) and click **Next**.  
+
+9.	On the **Name the Forest Root Domain** page, type the fully qualified domain name (FQDN) of the forest root domain (for example, hq.litwareinc.com) and click **Next**.  
+
 
 	![InstallDC6] (../media/InstallDC6.png)
 
@@ -261,7 +272,7 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 
 <h2 id="Step4">Step 4: Backup the domain controller</h2>
 
-1.	Connect to YourVMachine.
+1.	Connect to the VM.
 
 2.	Click **Start**, Click **Server Manager**, click **Add Features**, and then select **Windows Server Backup Features**. Follow the instructions to install Windows Server Backup.
 
@@ -270,6 +281,7 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 4.	Click **Different options**, then click **Next**.
 
 5.	Click **Full Server**, then click **Next**.
+
 
 6.	Click **Local drives**, then click **Next**.
 
@@ -286,37 +298,34 @@ For more information about using Windows PowerShell, see [Getting Started with W
 
 <h2 id="Step5">Step 5: Provisioning a Virtual Machine that is Domain Joined on Boot</h2>
 
-1.	To create additional virtual machines that are domain-joined when they first boot, open Windows Azure PowerShell ISE, paste the following script, replace the placeholders with your own values and run it. 
+1.	To create an additional virtual machine that is domain-joined when it first boots, open Windows Azure PowerShell ISE, paste the following script, replace the placeholders with your own values and run it. 
 
-	To determine the Internal IP address of the domain controller, click **Virtual Machines** and then click the VM that runs the guest domain controller. 
+	To determine the Internal IP address of the domain controller, click the name of virtual network where it is running. 
 
-	In the following example, the Internal IP address of the domain controller is 10.4.3.1.The Add-AzureProvisioningConfig also takes a -MachineObjectOU parameter which if specified (requires the full distinguished name in Active Directory) allows for setting group policy settings on all of the virtual machines in that container.
+	In the following example, the Internal IP address of the domain controller is 10.4.3.1.The Add-AzureProvisioningConfig also takes a -MachineObjectOU parameter which if specified (requires the full distinguished name in Active Directory) allows for setting Group Policy settings on all of the virtual machines in that container.
 
-		#Deploy a new VM and join them to the domain
+	After the virtual machines are provisioned, log on by specifying a domain account using User Principal Name (UPN) format, such as administrator@corp.contoso.com. 
+
+		#Deploy a new VM and join it to the domain
 		#-------------------------------------------
 		#Specify my DC's DNS IP (10.4.3.1)
-		$myDC = New-AzureDNS -Name 'ContosoDC13' -IPAddress '10.4.3.1'
+		$myDNS = New-AzureDNS -Name 'ContosoDC13' -IPAddress '10.4.3.1'
 		
 		# OS Image to Use
-		$image = 'MSFT__Sql-Server-11EVAL-11.0.2215.0-05152012-en-us-30GB.vhd'
+		$image = 'MSFT__Sql-Server-11EVAL-11.0.2215.0-08022012-en-us-30GB.vhd'
 		$service = 'myazuresvcindomainM1'
-		$AG = 'YourAffinityGroup3'
-		$vnet = 'YourVirtualNetwork3'
+		$AG = 'YourAffinityGroup'
+		$vnet = 'YourVirtualNetwork'
+		$pwd = 'p@$$w0rd'
+		$size = 'Small'
 		
 		#VM Configuration
 		$vmname = 'MyTestVM1'
-		$MyVM1 = New-AzureVMConfig -name $vmname -InstanceSize 'Small' -ImageName $image |
-		    Add-AzureProvisioningConfig -WindowsDomain -Password 'p@$$w0rd' -Domain 'corp' -DomainPassword 'p@$$w0rd' -DomainUserName 'Administrator' -JoinDomain 'corp.contoso.com'|
+		$MyVM1 = New-AzureVMConfig -name $vmname -InstanceSize $size -ImageName $image |
+		    Add-AzureProvisioningConfig -WindowsDomain -Password $pwd -Domain 'corp' -DomainPassword 'p@$$w0rd' -DomainUserName 'Administrator' -JoinDomain 'corp.contoso.com'|
 		    Set-AzureSubnet -SubnetNames 'BackEnd'
 		
-		$vmname = 'MyTestVM2'
-		$MyVM2 = New-AzureVMConfig -name $vmname -InstanceSize 'Small' -ImageName $image |
-		    Add-AzureProvisioningConfig -WindowsDomain -Password ' p@$$w0rd ' -Domain ' corp ' -DomainPassword 'p@$$w0rd' -DomainUserName ' Administrator ' -JoinDomain ' corp.contoso.com '|
-		    Set-AzureSubnet -SubnetNames 'BackEnd '
-		
-		
-		New-AzureVM -ServiceName $service -AffinityGroup $AG -VMs $MyVM1, $MyVM2 -DnsSettings $myDNS -VNetName $vnet
-
+		New-AzureVM -ServiceName $service -AffinityGroup $AG -VMs $MyVM1 -DnsSettings $myDNS -VNetName $vnet
 		
 ## See Also
 
