@@ -380,7 +380,7 @@ To delete a deployment, use the **deleteDeployment** method. The following examp
 
 <h2 id="CreateStorageService">How to: Create a storage service</h2>
 
-A [storage service] gives you access to Windows Azure [Blobs][azure-blobs], [Tables][azure-tables], and [Queues][azure-queues]. To create a storage service, you need a name for the service (between 3 and 24 lowercase characters and unique within Windows Azure), a label (a base-64 encoded name for the service, up to 100 characters), and either a location or an affinity group. Providing a description for the service is optional. The location, affinity group, and description are set in a [CreateStorageServiceOptions] object, which is passed to the **createStorageService** method. The following example shows how to create a storage service by specifying a location. If you want to use an affinity group, you have to create an affinity group first (see [How to: Create an affinity group](#CreateAffinityGroup)) and set it with the **CreateStorageServiceOptions->setAffinityGroup** method.
+A [storage service] gives you access to Windows Azure [Blobs][azure-blobs], [Tables][azure-tables], and [Queues][azure-queues]. To create a storage service, you need a name for the service (between 3 and 24 lowercase characters and unique within Windows Azure), a label (a base-64 encoded name for the service, up to 100 characters), and either a location or an affinity group. Providing a description for the service is optional. The location, affinity group, and description are set in a [CreateServiceOptions] object, which is passed to the **createStorageService** method. The following example shows how to create a storage service by specifying a location. If you want to use an affinity group, you have to create an affinity group first (see [How to: Create an affinity group](#CreateAffinityGroup)) and set it with the **CreateServiceOptions->setAffinityGroup** method.
 
 	require_once 'vendor\autoload.php';
 	 
@@ -537,7 +537,6 @@ You can delete an affinity group by passing the group name to the **deleteAffini
 [download-SDK-PHP]: https://www.windowsazure.com/en-us/develop/php/common-tasks/download-php-sdk/
 [Composer]: http://getcomposer.org/
 [ServiceManagementSettings]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementSettings.php
-[CreateStorageServiceOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/CreateStorageServiceOptions.php
 [cloud service]: http://www.windowsazure.com/en-us/manage/services/cloud-services/what-is-a-cloud-service/
 [CreateServiceOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/CreateServiceOptions.php
 [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/ListHostedServicesResult.php
