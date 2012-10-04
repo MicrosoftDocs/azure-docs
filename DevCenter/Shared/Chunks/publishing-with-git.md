@@ -147,7 +147,7 @@ The **remote** command adds a named reference to a remote repository, in this ca
 
 Deploying files from either GitHub or CodePlex requires that you have published your local project to one of these services. For more information on publishing your project to these services, see [Create a Repo (GitHub)] or [Using Git with CodePlex].
 
-1. Once your project has been published to GitHub or CodePlex, select **Deploy from my GitHub project** or **Deploy from My CodePlex project**. The following steps are based on deploying from a CodePlex project, however the steps are identical for GitHub projects.
+1. Once your project has been published to GitHub or CodePlex, select **Deploy from my GitHub repository** or **Deploy from My CodePlex project**. The following steps are based on deploying from a CodePlex project, however the steps are identical for GitHub repositories.
 
 	![deployment links for GitHub and Codeplex][deploy-git-links]
 
@@ -180,7 +180,7 @@ When you enable continuous deployment, it will default to the **master** branch 
 
 1. In the portal, select your website and then select **CONFIGURE**.
 
-2. In the **git** section of the page, enter the branch you wish to use in the **BRANCH** field, and then hit enter. Finally, click **SAVE**.
+2. In the **git** section of the page, enter the branch you wish to use in the **BRANCH TO DEPLOY** field, and then hit enter. Finally, click **SAVE**.
 
 	![Chaning the branch to use the notmaster branch][git-notmaster]
 
