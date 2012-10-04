@@ -116,7 +116,7 @@ Next, you need to update the Windows Store app to display this new column.
 
 The Mobile Service client will ignore any data in a response that it cannot serialize into properties on the defined type. The final step is to update the client to display this new data.
 
-1. In Visual Studio, open the file MainPage.xaml.cs, then add the following HTML element in the TemplateItem grid:
+1. In Visual Studio, open the file default.html, then add the following HTML element in the TemplateItem grid:
 	      
         <div style="-ms-grid-column: 4; -ms-grid-row-align: center; margin-left: 5px" 
             data-win-bind="innerText: createdAt"></div>  
