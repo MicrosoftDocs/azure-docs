@@ -1,94 +1,93 @@
-<properties linkid="mobile-get-started-with-users-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with authentication in Mobile Services" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="single-sign-on-win8-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Authenticate your Windows Store app with Mobile Services using Live Connect single sign-on" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Authenticate your Windows Store app for Windows Azure Mobile Services using Live Connect." umbraconavihide="0" disquscomments="1"></properties>
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
 <div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/" title=".NET client version" class="current">C# and XAML</a>
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-js/" title="JavaScript client version">JavaScript and HTML</a>
+  <a href="/en-us/develop/mobile/tutorials/single-sign-on-win8-dotnet/" title=".NET client version" class="current">C# and XAML</a>
+  <a href="/en-us/develop/mobile/tutorials/single-sign-on-win8-js/" title="JavaScript client version">JavaScript and HTML</a>
   <span>Tutorial</span>
 </div>
 
-# Get started with authentication in Mobile Services
+# Authenticate your Windows Store app with Live Connect single sign-on
 
-This topic shows you how to authenticate users in Windows Azure Mobile Services from your app.  In this tutorial, you add authentication to the quickstart project using your choice of authentication provider supported by Mobile Services. After being successfully authenticated by the authentication provider and authorized by Mobile Services, a logged-in user is welcomed by name and the user ID value is displayed.  
+This topic shows you how to use Live Connect single sign-on to authenticate users in Windows Azure Mobile Services from a Windows Store app.  In this tutorial, you add authentication to the quickstart project using Live Connect. When successfully authenticated by Live Connect, a logged-in user is welcomed by name and the user ID value is displayed.  
 
-This tutorial walks you through these basic steps to enable authentication in your app:
+<div class="dev-callout"><b>Note</b>
+	<p>This tutorial demonstrates the benefits of using the single sign-on experience provided by Live Connect for Windows Store apps. This enables you to more easily authenticate an already logged-on user with you mobile service. For a more generalized authentication experience that supports multiple authentication providers, see the topic <a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/">Get started with authentication</a>. </p>
+</div>
+
+This tutorial walks you through these basic steps to enable Live Connect authentication:
 
 1. [Register your app for authentication and configure Mobile Services]
 2. [Restrict table permissions to authenticated users]
 3. [Add authentication to the app]
 
-This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
+This tutorial requires the following:
 
-Mobile Services currently supports the following authentication providers:
++ [Live SDK for Windows]
++ Microsoft Visual Studio 2012 Express for Windows 8 RC, or a later version
 
-- Microsoft Live Connect
-- Facebook
-- Twitter
-- Google
+This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services].
 
-<div class="dev-callout"><b>Note</b>
-	<p>This tutorial demonstrates the basic method provided by Mobile Services to authenticate users by using a variety of authentication providers. This method is easy to configure, and it supports multiple authentication providers. However, this method also requires users to log-in every time your app starts. To instead use Live Connect to provide a single sign-on experience in your Windows Store app, see the topic <a href="/en-us/develop/mobile/tutorials/get-started">Single sign-on for Windows Store apps by using Live Connect</a>.</p>
-</div>
+<a name="register"></a><h2><span class="short-header">Register your app</span>Register your app for the Windows Store</h2>
 
-<a name="register"></a><h2><span class="short-header">Register your app</span>Register your app for authentication and configure Mobile Services</h2>
+To be able to authenticate users, you must submit your app to the Windows Store. You must then register the client secret to integrate Live Connect with Mobile Services.
 
-To be able to authenticate users, you must register your app with an authentication provider. You must then register a client secret with Mobile Services.
+1. If you have not already registered your app, navigate to the [Submit an app page] at the Dev Center for Windows Store apps, log on with your Microsoft account, and then click **App name**.
 
-1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
+   ![][0]
+
+2. Type a name for your app in **App name**, click **Reserve app name**, and then click **Save**.
+
+   ![][1]
+
+   This creates a new Windows Store registration for your app.
+
+3. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services].
+
+4. In solution explorer, right-click the project, click **Store**, and then click **Associate App with the Store...**. 
+
+  ![][2]
+
+   This displays the **Associate Your App with the Windows Store** Wizard.
+
+5. In the wizard, click **Sign in** and then login with your Microsoft account.
+
+6. Select the app that you registered in step 2, click **Next**, and then click **Associate**.
+
+   ![][3]
+
+   This adds the required Windows Store registration information to the application manifest.    
+
+7. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
    ![][4]
 
-2. Click the **Dashboard** tab and make a note of the **Site URL** value.
+8. Click the **Dashboard** tab and make a note of the **Site URL** value.
 
    ![][5]
 
-    You will provide this value to the authentication provider when you register your app.
+    You will use this value to define the redirect domain.
 
-3. Expand your chosen authentication provider and follow the steps to register your app with the provider.
+9. Navigate to the [My Applications] page in the Live Connect Developer Center and click on your app in the **My applications** list.
 
-    <div class="dev-callout-new-collapsed">
-    <strong>Microsoft Live Connect<span>Click to expand</span></strong>
-      <div class="dev-callout-content">
-      <p>Use the following procedure to register your app for authentication by using a Microsoft Account.</p>
-      <!-- start copied HTML source -->
-      <!-- end copied HTML source -->
-      </div>
-    </div>  
+   ![][6] 
 
-    <div class="dev-callout-new-collapsed">
-      <strong>Facebook<span>Click to expand</span></strong>
-      <div class="dev-callout-content">
-      <p>Use the following procedure to register your app for authentication by using a Facebook login.</p>
-      <!-- start copied HTML source -->
-      <!-- end copied HTML source -->
-      </div>
-    </div> 
+10. Click **Edit settings**, then **API Settings** and make a note of the value of **Client secret**. 
 
-    <div class="dev-callout-new-collapsed">
-       <strong>Twitter<span>Click to expand</span></strong>
-       <div class="dev-callout-content">
-      <p>Use the following procedure to register your app for authentication by using a Twitter login.</p>
-      <!-- start copied HTML source -->
+   ![][7]
 
-      <!-- end copied HTML source -->
-      </div>
-    </div> 
-
-    <div class="dev-callout-new-collapsed">
-       <strong>Google<span>Click to expand</span></strong>
-       <div class="dev-callout-content">
-      <p>Use the following procedure to register your app for authentication by using a Google login.</p>
-      <!-- start copied HTML source -->
-      <!-- end copied HTML source -->
-      </div>
+    <div class="dev-callout"><b>Security Note</b>
+	<p>The client secret is an important security credential. Do not share the client secret with anyone or distribute it with your app.</p>
     </div>
 
-4. Back in the Management Portal, click the **Identity** tab, enter the app identifier and shared secret values obtained from your authentication provider, and click **Save**.
+11. In **Redirect domain**, enter the URL of your mobile service from Step 8, and then click **Save**.
+
+16. Back in the Management Portal, click the **Identity** tab, enter the **Client secret** obtained from Windows Store, and click **Save**.
 
    ![][13]
 
-Both your mobile service and your app are now configured to work with your chosed authenication provider.
+Both your mobile service and your app are now configured to work with Live Connect.
 
 <a name="permissions"></a><h2><span class="short-header">Restrict permissions</span>Restrict permissions to authenticated users</h2>
 
@@ -110,12 +109,22 @@ Next, you will update the app to authenticate users with Live Connect before req
 
 <a name="add-authentication"></a><h2><span class="short-header">Add authentication</span>Add authentication to the app</h2>
 
-5. Open the project file mainpage.xaml.cs and add the following using statement:
+1. Download and install the [Live SDK for Windows].
 
+2. In the **Project** menu in Visual Studio, click **Add Reference**, then expand **Windows**, click **Extensions**, check **Live SDK**, and then click **OK**. 
+
+  ![][16]
+
+  This adds a reference to the Live SDK to the project.
+
+5. Open the project file mainpage.xaml.cs and add the following using statements:
+
+        using Microsoft.Live;
         using Windows.UI.Popups;
 
 6. Add the following code snippet to the MainPage class:
 	
+        private LiveConnectSession session;
         private async System.Threading.Tasks.Task Authenticate()
         {
             LiveAuthClient liveIdClient = new LiveAuthClient("<< INSERT REDIRECT DOMAIN HERE >>");
@@ -204,7 +213,6 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Single sign-on for Windows Store apps by using Live Connect]: ./mobile-services-single-sign-on-win8-dotnet.md
 [Get started with Mobile Services]: ./mobile-services-get-started.md
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
 [Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
