@@ -128,7 +128,20 @@ Next, you will update the app to authenticate users with Live Connect before req
 
 6. In the **app.OnActivated** method overload, replace the call to the **refreshTodoItems** method  with the following code: 
 	
-        var session = null;                     
+        var session = null;   
+
+        var logout = function () {
+            return new WinJS.Promise(function (complete) {
+                WL.getLoginStatus().then(function () {
+                    if (WL.canLogout()) {
+                        WL.logout(complete);                            
+                    }
+                    else {
+                        complete();
+                    }
+                });
+            });
+        };                  
 
         var login = function () {
             return new WinJS.Promise(function (complete) {                    
@@ -155,10 +168,10 @@ Next, you will update the app to authenticate users with Live Connect before req
             });
         }
 
-        var authenticate = function () {                
-            login().then(function () {
+        var authenticate = function () {
+            // Force a logout to make it easier to test with multiple Microsoft Accounts
+            logout().then(login).then(function () {
                 if (session === null) {
-
                     // Authentication failed, try again.
                     authenticate();
                 }
@@ -171,7 +184,11 @@ Next, you will update the app to authenticate users with Live Connect before req
             
         authenticate();
 
-    This initializes the Live Connect client, sends a login request to Live Connect, sends the returned authentication token to Mobile Services, and then displays information about the logged-in user. 
+    This initializes the Live Connect client, forces a logout, sends a new login request to Live Connect, sends the returned authentication token to Mobile Services, and then displays information about the logged-in user. 
+
+    <div class="dev-callout"><b>Note</b>
+	<p>This code forces a logout, when possible, to make sure that the user is prompted for credentials each time the application runs. This makes it easier to test the application with different Microsoft Accounts to ensure that the authentication is working correctly. This mechanism will only work if the logged in user does not have a connected Microsoft account.</p>
+    </div>
 	
 7. Update string _<< INSERT REDIRECT DOMAIN HERE >>_ from the previous step with the redirect domain that was specified when setting up the app in Live Connect, in the format **https://_service-name_.azure-mobile.net/**.
 		
