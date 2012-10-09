@@ -116,48 +116,40 @@ Next, you will update the app to authenticate users with Live Connect before req
 
 6. Add the following code snippet to the MainPage class:
 	
+        private MobileServiceUser user;
         private async System.Threading.Tasks.Task Authenticate()
         {
-            LiveAuthClient liveIdClient = new LiveAuthClient("<< INSERT REDIRECT DOMAIN HERE >>");
-
-            while (session == null)
+            while (user == null)
             {
-                // Force a logout to make it easier to test with multiple Microsoft Accounts
-                if (liveIdClient.CanLogout)
-                    liveIdClient.Logout();
-	
-                LiveLoginResult result = await liveIdClient.LoginAsync(new[] { "wl.basic" });
-                if (result.Status == LiveConnectSessionStatus.Connected)
+
+                user = await App.MobileService
+                    .Login(
+                    MobileServiceAuthenticationProvider.Facebook);
+                if (user.UserId == null)
                 {
-                    session = result.Session;
-                    LiveConnectClient client = new LiveConnectClient(result.Session);
-                    LiveOperationResult meResult = await client.GetAsync("me");
-                    MobileServiceUser loginResult = await App.MobileService.LoginAsync(result.Session.AuthenticationToken);
-	
-                    string title = string.Format("Welcome {0}!", meResult.Result["first_name"]);
-                    var message = string.Format("You are now logged in - {0}", loginResult.UserId);
-                    var dialog = new MessageDialog(message, title);
+
+                    var message = 
+                        string.Format("You are now logged in - {0}", user.UserId);
+                    var dialog = new MessageDialog(message);
                     dialog.Commands.Add(new UICommand("OK"));
                     await dialog.ShowAsync();
                 }
                 else
                 {
-                    session = null;
-                    var dialog = new MessageDialog("You must log in.", "Login Required");
+                    user = null;
+                    var dialog = 
+                        new MessageDialog("You must log in.", "Login Required");
                     dialog.Commands.Add(new UICommand("OK"));
                     await dialog.ShowAsync();
                 }
-            }
-         }
+            }       
+        }
 
-    This creates a member variable for storing the current Live Connect session and a method to handle the authentication process.
+    This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login.
 
     <div class="dev-callout"><b>Note</b>
-	<p>This code forces a logout, when possible, to make sure that the user is prompted for credentials each time the application runs. This makes it easier to test the application with different Microsoft Accounts to ensure that the authentication is working correctly. This mechanism will only work if the logged in user does not have a connected Microsoft account.</p>
+	<p>If you are using an authentication provider other than Facebook, change the value of MobileServiceAuthenticationProvider above to the value for your provider.</p>
     </div>
-	
-
-7. Update string _<< INSERT REDIRECT DOMAIN HERE >>_ from the previous step with the redirect domain that was specified when setting up the app in Live Connect, in the format **https://_service-name_.azure-mobile.net/**.
 
 8. Replace the existing **OnNavigatedTo** event handler with the handler that calls the new **Authenticate** method:
 
@@ -167,7 +159,7 @@ Next, you will update the app to authenticate users with Live Connect before req
             RefreshTodoItems();
         }
 		
-9. Press the F5 key to run the app and sign into Live Connect with your Microsoft Account. 
+9. Press the F5 key to run the app and sign into the app with your chosen authentication provider. 
 
    When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
