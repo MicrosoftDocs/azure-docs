@@ -331,7 +331,7 @@ In this section you will extend the basic application created by the **express**
 3. Replace the content after the `//Routes` comment with the following code. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is then password to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
 
         var TaskList = require('./routes/tasklist');
-		var Task = require('./models/tasks.js');
+		var Task = require('./models/task');
 		var task = new Task(
 		    azure.createTableService(accountName, accountKey)
 		    , tableName
