@@ -4,11 +4,11 @@ create a storage account [using the REST API].)
 
 1.  Log into the [Windows Azure Management Portal].
 
-2.  At the bottom of the navigation pane, click **New**.
+2.  At the bottom of the navigation pane, click **NEW**.
 
 	![+new][plus-new]
 
-3.  Click **Storage**, and then click **Quick Create**.
+3.  Click **DATA SERVICES**, then **STORAGE**, and then click **QUICK CREATE**.
 
 	![Quick create dialog][quick-create-storage]
 
@@ -23,9 +23,11 @@ create a storage account [using the REST API].)
     application, select the same region where you will deploy your
     application.
 
-6.  Click **Create Storage Account**.
+6. Optionally, you can enable geo-replication.
+
+6.  Click **CREATE STORAGE ACCOUNT**.
 
 [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
 [Windows Azure Management Portal]: http://manage.windowsazure.com
 [plus-new]: ../../Shared/Media/plus-new.png
-[quick-create-storage]: ../../Shared/Media/quick-storage.png
+[quick-create-storage]: ../../Shared/Media/quick-storage-2.png
