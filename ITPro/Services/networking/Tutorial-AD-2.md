@@ -22,12 +22,8 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 
 -	**Create a virtual network *without* connectivity to another network** by doing the following in the order listed: 
 1.  First, [Create a virtual network in Windows Azure](../Tutorial1_CreateVirtualNetwork/). 
-2.  Then install AD DS using the steps in the tutorial below.
-	<div class="dev-callout"> 
-	<b>Important</b>
-	<p>It's important that you create your virtual machine using the Windows Azure PowerShell procedure in the tutorial below instead of creating the virtual machine via the Management Portal.</p>
-
-	</div>
+2.  Then install AD DS using the steps in the tutorial below. It's important that you create your virtual machine using the Windows Azure PowerShell procedure in the tutorial below instead of creating the virtual machine via the Management Portal.
+	
 -	**Create a virtual network *with* connectivity to another network**, such as an Active Directory environment on premises by doing the following in the order listed: 
 1.	First, [Create a Virtual Network for Cross-Premises Connectivity](../cross-premises-connectivity/). 
 2.	Next, [Add a Virtual Machine to a Virtual Network](../add-a-vm-to-a-virtual-network/). 
@@ -67,24 +63,17 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 
 		Get-AzurePublishSettingsFile
 
-	You will be prompted to sign on to the Windows Azure portal and then prompted to save a .publishsettings file. Save the file in a directory, for example, E:\PowerShell\MyAccount.publishsettings.
+	You will be prompted to sign on to the Windows Azure portal and then prompted to save a .publishsettings file. Save the file in a directory, for example, E:\PowerShell\MyAccount.publishsettings. To subsequently run any other Windows Azure PowerShell cmdlets, steps 4 through 6 do not need to be repeated because they only need to be completed once. 
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	To subsequently run any other Windows Azure PowerShell cmdlets, steps 4 through 6 do not need to be repeated because they only need to be completed once. 
-	</div>
+
 
 7.	Run the following cmdlet to open Windows Azure PowerShell ISE:
 
 		powershell ise
 
-8.	Paste the following script into Windows Azure PowerShell ISE, replacing the placeholders with your own values, and the run the script. If necessary, click **Networks** in the Management Portal to obtain the subscription name. The storage account name is the name you specified in step 1.
+8.	Paste the following script into Windows Azure PowerShell ISE, replacing the placeholders with your own values, and the run the script. If necessary, click **Networks** in the Management Portal to obtain the subscription name. The storage account name is the name you specified in step 1. The following script installs Windows Server 2008 R2 with Service Pack 1 (SP1). You can install Windows Server 2012 instead, but be aware that the virtualized domain controller safeguards that are built into Windows Server 2012 are not available on Windows Azure Virtual Networks. The virtualized domain controller safeguards require support for VM-GenerationID, which Windows Azure Virtual Networks do not provide at the present time. For more information about virtualized domain controller safeguards, see <a href="http://technet.microsoft.com/en-us/library/hh831734.aspx">Introduction to Active Directory Domain Services (AD DS) Virtualization (Level 100)</a>. To get a list of available images, run <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj152878.aspx">Get-AzureVMImage</a>.
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	The following script installs Windows Server 2008 R2 with Service Pack 1 (SP1). You can install Windows Server 2012 instead, but be aware that the virtualized domain controller safeguards that are built into Windows Server 2012 are not available on Windows Azure Virtual Networks. The virtualized domain controller safeguards require support for VM-GenerationID, which Windows Azure Virtual Networks do not provide at the present time. For more information about virtualized domain controller safeguards, see <a href="http://technet.microsoft.com/en-us/library/hh831734.aspx">Introduction to Active Directory Domain Services (AD DS) Virtualization (Level 100)</a>. To get a list of available images, run <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj152878.aspx">Get-AzureVMImage</a>.
-	</div>
-
+	
 
 5.	Run the following cmdlet:
 
@@ -116,10 +105,7 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 		New-AzureVM -ServiceName $service -AffinityGroup $AG -VMs $MyDC -DnsSettings $myDNS -VNetName $vnet
 
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
 	<p>If you rerun the script, you need to supply a unique value for $service.</p>
-	</div>
 
 
 9.	Sign on to Windows Azure.
@@ -209,25 +195,19 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 	![InstallDC6] (../media/InstallDC6.png)
 
 
-10.	On the **Set Forest Functional level** page, click **Windows Server 2008 R2** and then click **Next**.
+10.	On the **Set Forest Functional level** page, click **Windows Server 2008 R2** and then click **Next**. If you choose a different value, you also need to select a value for the domain functional level. 
 
 	![InstallDC7] (../media/InstallDC7.png)
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	If you choose a different value, you also need to select a value for the domain functional level. 
-	</DIV>
+	
 
 11.	On the **Additional Domain Controller Options** page, make sure **DNS server** is selected and click **Next**.
 
 	![InstallDC8] (../media/InstallDC8.png)
 
 
-12.	On the Static IP assignment warning, click **Yes, the computer will use an IP address automatically assigned by a DHCP server (not recommended)** 
-	<div class="dev-callout"> 
-	<b>Important</b>
-	Although the IP address on the Windows Azure Virtual Network is dynamic, its lease lasts for the duration of the VM. Therefore, you do not need to set a static IP address on the domain controller that you install on the virtual network. Setting a static IP address in the VM will cause communication failures. 
-	</div>
+12.	On the Static IP assignment warning, click **Yes, the computer will use an IP address automatically assigned by a DHCP server (not recommended)**. Although the IP address on the Windows Azure Virtual Network is dynamic, its lease lasts for the duration of the VM. Therefore, you do not need to set a static IP address on the domain controller that you install on the virtual network. Setting a static IP address in the VM will cause communication failures. 
+	
 	
 	![InstallDC9] (../media/InstallDC9.png)
 
