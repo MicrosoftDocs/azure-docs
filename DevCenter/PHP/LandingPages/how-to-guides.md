@@ -26,7 +26,10 @@ Service Bus Topics provide a publish/subscribe messaging model to support one-to
 PowerShell for Windows Azure provides a command-line environment for developing and deploying applications for Windows Azure through a  Windows PowerShell cmdlets. This guide describes how to use Windows PowerShell cmdlets to create, test, deploy, and manage Windows Azure Services. 
 
 ### [Command-Line Tools for Mac and Linux](/en-us/develop/php/how-to-guides/command-line-tools/ "Command-Line Tools for Mac and Linux") ###
-The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Windows Azure services. Use the command-line tools to create and manage websites and virtual machines in Windows Azure. 
+The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Windows Azure services. Use the command-line tools to create and manage websites and virtual machines in Windows Azure.
+
+### [Service Management]
+The Service Management API is a REST API that provides programmatic access to much of the service management functionality available through the Windows Azure management portal. All API operations are performed over SSL and mutually authenticated using X.509 v3 certificates. The management service may be accessed from within a service running in Windows Azure, or directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.
 
 ## Additional guides ##
 
@@ -36,7 +39,7 @@ Windows Azure applications can use SendGrid to include email functionality.  Sen
 ### [Twilio](/en-us/develop/php/how-to-guides/twilio-voice-and-sms-service/ "Twilio") ###
 Windows Azure applications can use Twilio to incorporate phone call and Short Message Service (SMS) message functionality.  Use the Twilio APIs to make and receive phone calls, make and receive SMS messages, and enable voice communication using existing internet connections, including mobile connections.
 
-### [Single sign-on with Windows Azure Active Directory][Single sign-on with Windows Azure Active Directory]
+### [Single sign-on with Windows Azure Active Directory]
 You can use web single sign-on (also called identity federation) to provide single sign-on access through a federated mechanism that relies on a Security Token Service (STS).  This guide shows you how to accomplish this using the STS in your Office 365 tenant provided by Windows Azure Active Directory.
 
 [client-libs]: http://go.microsoft.com/fwlink/?LinkId=252719
@@ -44,4 +47,5 @@ You can use web single sign-on (also called identity federation) to provide sing
 [Blob Service]: /en-us/develop/nodejs/how-to-guides/blob-storage/
 [Service Bus Queues]: /en-us/develop/php/how-to-guides/service-bus-queues/
 [Service Bus Topics]: /en-us/develop/php/how-to-guides/service-bus-topics/
-[Single sign-on with Windows Azure Active Directory for Office 365 users]: /en-us/develop/php/how-to-guides/web-sso/
+[Single sign-on with Windows Azure Active Directory]: /en-us/develop/php/how-to-guides/web-sso/
+[Service Management]: /en-us/develop/how-to-guides/service-management/

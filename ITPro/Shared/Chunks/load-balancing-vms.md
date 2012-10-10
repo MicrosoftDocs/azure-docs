@@ -33,7 +33,7 @@ To set up load balancing for virtual machines, you add an endpoint to the first 
 
 ## <a id="addmachines"> </a>Step 3: Add virtual machines to the cloud service ##
 
-When you create a virtual machine, a cloud service is automatically created to contain the machine. You can connect multiple virtual machines under the same cloud service to enable the machines to communicate with each other, to balance the load of network traffic to the machines, and to maintain high availability of the machines. For more information about connecting virtual machines, see [How to connect virtual machines in a cloud service] [].
+When you create a virtual machine, a cloud service is automatically created to contain the machine. You can connect multiple virtual machines under the same cloud service to enable the machines to communicate with each other, to balance the load of network traffic to the machines, and to maintain high availability of the machines. For more information about connecting virtual machines, see [How to connect virtual machines in a cloud service] []. For more information about managing the availability of your application, see [Manage the availability of virtual machines] [].
 
 ## <a id="loadbalance"> </a>Step 4: Set up load balancing of the virtual machines ##
 
@@ -115,6 +115,7 @@ The previous command produces the following results:
 [List endpoint]:../media/listendpoints.png
 
 [How to quickly create a virtual machine]:../../Windows/HowTo/howto-quick-create-vm.md
+[Manage the availability of virtual machines]:../../Windows/CommonTasks/manage-vm-availability.md
 [How to create a custom virtual machine]:../../Windows/HowTo/howto-custom-create-vm.md
 [How to set up communication with a virtual machine]:../../Windows/HowTo/howto-setup-endpoints-vm.md
 [How to connect virtual machines in a cloud service]:../../Windows/HowTo/howto-connect-vm-cloud-service.md

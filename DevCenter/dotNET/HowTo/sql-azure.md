@@ -1,16 +1,19 @@
 <properties umbraconavihide="0" pagetitle="SQL Database - How To - .NET - Develop" metakeywords="Get started SQL Database, Getting started SQL Database, SQL Database instance connection, SQL Database ADO.NET, SQL Database ODBC, SQL Database EntityClient" metadescription="Get started with SQL Database. Learn how to create a SQL Database instance and connect to it using ADO.NET, ODBC, and EntityClient Provider." linkid="dev-net-how-to-sql-azure" urldisplayname="SQL Database" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
-# How to Use SQL Database in .NET applications
+<div chunk="../chunks/article-left-menu.md" />
+
+# How to use Windows Azure SQL Database in .NET applications
 
 This guide shows you how to create a logical server and database instance on Windows Azure SQL Database and connect to
 the database using the following .NET Framework data provider technologies:
 ADO.NET, ODBC, and EntityClient Provider.
 
-<h2 id="Whatis">What is SQL Database?</h2>
 
-SQL Database provides relational database management services on Windows Azure, and is based on SQL Server technology. With SQL Database, you can easily provision and deploy database instances, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing. 
+<h2 id="Whatis">What is SQL Database</h2>
 
-## Table of Contents
+SQL Database provides a relational database management system for Windows Azure and is based on SQL Server technology. With a SQL Database instance, you can easily provision and deploy relational database solutions to the cloud, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing.
+
+<h2>Table of Contents</h2>
 
 * [Sign in to Windows Azure][] 
 * [Create and Configure SQL Database][]
@@ -30,23 +33,25 @@ SQL Database provides relational data storage, access, and management services o
 2. Your account is now created. You are ready to get started.
 
 
-<h2 id="PreReq2">Create and configure SQL Database</h2>
+<h2 id="PreReq2"><span class="short-header">Create and configure SQL Database</span></h2>
 
 Next, you'll create and configure a database and server. In the new Windows Azure (Preview) Management Portal, revised workflows let you create the database first, and follow up with server provisioning. 
 
 <h3 id="createsrvr">Create a database instance and logical server</h3>
 
-1. Sign in at [http://www.windowsazure.com](http://www.windowsazure.com),
+1. Sign in at [http://www.windowsazure.com](http://www.windowsazure.com).
 
 2. Click **+NEW** at the bottom of the page.
 
-3. Click **SQL Database**.
+3. Click **Data Services**.
 
-4. Click **Custom Create**. 
+4. Click **SQL Database**.
 
-5. In Name, enter a database name.
+5. Click **Custom Create**. 
 
-6. Choose an edition, maximum size, and collation. For the purposes of this guide, you can use the default values. 
+6. In Name, enter a database name.
+
+7. Choose an edition, maximum size, and collation. For the purposes of this guide, you can use the default values. 
 
  SQL Database provides two database editions. Web Edition grows up to a size of 5 GB. Business Edition grows up to a size of 50 GB.
 
@@ -59,23 +64,23 @@ replicas of that database. This is done to ensure high availability.
 Failover is transparent and part of the service. The [Service Level
 Agreement][] provides 99.9% uptime for SQL Database.
 
-7. In Server, select **New SQL Database Server**. 
+8. In Server, select **New SQL Database Server**. 
 
-8. Click the arrow to go on to the next page.
+9. Click the arrow to go on to the next page.
 
-9. In Server Settings, enter a SQL Server authentication login name.
+10. In Server Settings, enter a SQL Server authentication login name.
 
   SQL Database uses SQL Authentication over an encrypted connection. A new SQL Server authentication login assigned to the sysadmin fixed server role will be created using the name you provide. 
 
   The login cannot be an email address, Windows user account, or a Windows Live ID. Neither Claims nor Windows authentication is supported on SQL Database.
 
-6. Provide a strong password that is over eight characters, using a combination of upper and lower case values, and a number or symbol.
+11. Provide a strong password that is over eight characters, using a combination of upper and lower case values, and a number or symbol.
 
-7. Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you. Keeping your Windows Azure application and database in the same region saves you on egress bandwidth cost and data latency.
+12. Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you. Keeping your Windows Azure application and database in the same region saves you on egress bandwidth cost and data latency.
 
-8. Be sure to keep the **Allow Windows Azure Services to access the server** option selected so that you can connect to this database using the Management Portal for SQL Database, storage services, and other services on Windows Azure. 
+13. Be sure to keep the **Allow Windows Azure Services to access the server** option selected so that you can connect to this database using the Management Portal for SQL Database, storage services, and other services on Windows Azure. 
 
-9. Click the checkmark at the bottom of the page when you are finished.
+14. Click the checkmark at the bottom of the page when you are finished.
 
 Notice that you did not specify a server name. SQL Database auto-generates the server name to ensure there are no duplicate DNS entries. The server name is a ten-character alphanumeric string. You cannot change the name of your SQL Database server.
 
@@ -89,11 +94,13 @@ In the next step, you will configure the firewall so that connections from appli
 
 1. Click **SQL Databases**, click **Servers** at the top of the page, and then click on the server you just created.
 
+   ![Image2] []
+
 2. Click **Configure**. 
 
 3. Copy the current client IP address. If you are connecting from a network, this is the IP address that your  router or proxy server is listening on. SQL Database detects the IP address used by the current connection so that you can create a firewall rule to accept connection requests from this device. 
 
-4. Paste the IP address into both the beginning and end range. Later, if you encounter connection errors indicating that the range is too narrow, you can edit this rule to widen the range.
+4. Paste the IP address into both the START IP ADDRESS and END IP ADDRESS to establish the range addresses that are allowed to access the server. Later, if you encounter connection errors indicating that the range is too narrow, you can edit this rule to widen the range.
 
   If client computers use dynamically assigned IP addresses, you must specify a range that is broad enough to include IP addresses assigned to computers in your network. Start with a narrow range, and then expand it only if you need to.
 
@@ -101,18 +108,20 @@ In the next step, you will configure the firewall so that connections from appli
 
 6. Click the checkmark next to the rule to save it.
 
+    ![Image3] []
+
 7. Click **Save** at the bottom of the page to complete the step. If you do not see **Save**, refresh the browser page.
 
 You now have a database instance, logical server, a firewall rule that allows inbound connections from your IP address, and an administrator login. You are now ready to connect to the database programmatically.
 
 
 
-<h2 id="Connect-DB">Connect to SQL Database</h2>
+<h2 id="Connect-DB"><span class="short-header">Connect to SQL Database</span></h2>
 
 This section shows how to connect to SQL Database instance using different
 .NET Framework data providers.
 
-If you choose to use Visual Studio 2010 and your configuration doesn't
+If you choose to use Visual Studio and your configuration doesn't
 include a Windows Azure web application as a front-end, there are no
 additional tools or SDKs needed to be installed on the development
 computer. You can just start developing your application.
@@ -230,7 +239,7 @@ following resources to learn more about SQL Database.
 -   [SQL Database][]
 
 
-  [What is SQL Database?]: #WhatIs
+  [What is SQL Database]: #WhatIs
   [Sign in to Windows Azure]: #PreReq1
   [Create and Configure SQL Database]: #PreReq2
   [Connect to SQL Database]: #connect-db
@@ -240,10 +249,10 @@ following resources to learn more about SQL Database.
   [Next Steps]: #next-steps
   [Windows Azure Free Trial]: {localLink:2187} "Free Trial"
   [Windows Azure Management Portal]: http://windows.azure.com
-
-
-[Image1]: ../Media/SQLDbDashboard.png
-
+  
+  [Image1]: ../media/SQLDbDashboard.png
+  [Image2]: ../media/SQLDbFirewall.png
+  [Image3]: ../media/SQLDbIPRange.png
 
   [How to Create a SQL Database Server]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-server.aspx
   [Management Portal for SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx

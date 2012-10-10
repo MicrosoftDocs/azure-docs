@@ -11,7 +11,7 @@ You will learn:
 
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
-## Create a web site from the Windows Azure portal
+## Create a web site with the Windows Azure portal
 
 1. Login to the [Windows Azure Portal](http://manage.windowsazure.com).
 2. Click **New** at the bottom left of the Windows Azure portal.
@@ -47,7 +47,7 @@ The bakery sample includes a simulated order form that sends an email message wi
 
 	![][modify1]
 
-2. Open the *Order.cshtml* page.
+2. Open the *Order.cshtml* page by double-clicking the file name.
 
 	![][modify2]
 
@@ -87,7 +87,7 @@ The bakery sample includes a simulated order form that sends an email message wi
 
 	![Publishing Complete][publishcomplete]
 
-4. Click on the link to open the web site in your browser:
+3. Click on the link to open the web site in your browser:
 
 	![Bakery Sample Site][bakerysample]
 

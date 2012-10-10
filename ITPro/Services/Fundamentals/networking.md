@@ -1,2 +1,2 @@
-<properties umbracoNaviHide="0" pageTitle="Networking in Windows Azure" metaKeywords="" metaDescription="" linkid="manage-services-fundamentals-networking" urlDisplayName="Intro to Windows Azure" headerExpose="" footerExpose="" disqusComments="1" />
-<div chunk="../../../DevCenter/Shared/Chunks/networking.md" />
+<properties umbracoNaviHide="0" pageTitle="Windows Azure Networking" metaKeywords="" metaDescription="" linkid="manage-services-networking" urlDisplayName="Networking" headerExpose="" footerExpose="" disqusComments="1" />
+<div chunk="../../../devcenter/Shared/Chunks/windows-azure-networking.md" />

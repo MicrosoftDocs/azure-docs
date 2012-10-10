@@ -1,5 +1,7 @@
 <properties umbraconavihide="0" pagetitle="Service Bus Topics - How To - .NET - Develop" metakeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Azure Service Bus topic, Service Bus topic, Azure messaging topics and subscriptions .NET, Azure Service Bus topic .NET, Service Bus topic .NET, Azure messaging topics and subscriptions C#, Azure Service Bus topic C#, Service Bus topic C#" metadescription="Get Started with Windows Azure Service Bus topics and subscriptions, including creating topics and subscriptions, creating subscription filters, sending messages to a topic, receiving messages from a subscription, and deleting topics and subscriptions." linkid="dev-net-how-to-service-bus-topics" urldisplayname="Service Bus Topics" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
+<div chunk="../chunks/article-left-menu.md" />
+
 # How to Use Service Bus Topics/Subscriptions
 
 <span>This guide will show you how to use Service Bus topics and
@@ -10,23 +12,7 @@ messages from a subscription**, and **deleting topics and
 subscriptions**. For more information on topics and subscriptions, see
 the [Next Steps][] section. </span>
 
-## Table of Contents
-
--   [What are Service Bus Topics and Subscriptions][]
--   [Create a Service Namespace][]
--   [Obtain the Default Management Credentials for the Namespace][]
--   [Configure Your Application to Use Service Bus][]
--   [How to: Set Up a Service Bus Connection String][]
--   [How to: Configure your Connection String][]
--   [How to: Create a Topic][]
--   [How to: Create Subscriptions][]
--   [How to: Send Messages to a Topic][]
--   [How to: Receive Messages from a Subscription][]
--   [How to: Handle Application Crashes and Unreadable Messages][]
--   [How to: Delete Topics and Subscriptions][]
--   [Next Steps][1]
-
-## <a name="what-is"> </a>What are Service Bus Topics and Subscriptions
+<h2><span class="short-header">What are Topics and Subscriptions</span>What are Service Bus Topics and Subscriptions</h2>
 
 Service Bus topics and subscriptions support a **publish/subscribe
 messaging communication** model. When using topics and subscriptions,
@@ -53,7 +39,7 @@ Service Bus topics and subscriptions enable you to scale to process a
 very large number of messages across a very large number of users and
 applications.
 
-## <a name="create-namespace"> </a>Create a Service Namespace
+<h2><span class="short-header">Create a Service Namespace</span>Create a Service Namespace</h2>
 
 To begin using Service Bus topics and subscriptions in Windows Azure,
 you must first create a service namespace. A service namespace provides
@@ -64,29 +50,31 @@ To create a service namespace:
 
 1.  Log on to the [Windows Azure Management Portal][].
 
-2.  In the lower left navigation pane of the Management Portal, click
-    **Service Bus, Access Control & Caching**.
+2.  In the left navigation pane of the Management Portal, click
+    **Service Bus**.
 
-3.  In the upper left pane of the Management Portal, click the **Service
-    Bus** node, and then click the **New** button.   
+3.  In the lower pane of the Management Portal, click **Create**.   
     ![][0]
 
-4.  In the **Create a new Service Namespace** dialog, enter a
-    **Namespace**, and then to make sure that it is unique, click the
-    **Check Availability** button.   
+4.  In the **Add a new namespace** dialog, enter a namespace name.
+    The system immediately checks to see if the name is available.   
     ![][2]
 
-5.  After making sure the **Namespace** name is available, choose the
+5.  After making sure the namespace name is available, choose the
     country or region in which your namespace should be hosted (make
-    sure you use the same **Country/Region** in which you are deploying
-    your compute resources), and then click the **Create Namespace**
-    button.
+    sure you use the same country/region in which you are deploying your
+    compute resources).
 
-The namespace you created will then appear in the Management Portal and
-takes a moment to activate. Wait until the status is **Active** before
-moving on.
+	IMPORTANT: Pick the **same region** that you intend to choose for
+    deploying your application. This will give you the best performance.
 
-## <a name="obtain-creds"> </a>Obtain the Default Management Credentials for the Namespace
+6. 	Click the check mark. The system now creates your service
+    namespace and enables it. You might have to wait several minutes as
+    the system provisions resources for your account.
+
+	![][6]
+
+<h2><span class="short-header">Obtain the Management Credentials</span>Obtain the Default Management Credentials for the Namespace</h2>
 
 In order to perform management operations, such as creating a topic or
 subscription, on the new namespace, you need to obtain the management
@@ -99,19 +87,13 @@ credentials for the namespace.
 2.  Select the namespace you just created from the list shown:   
     ![][3]
 
-3.  The right-hand **Properties** pane will list the properties for the
-    new namespace:   
+3.  Click **Access Key**.   
     ![][4]
 
-4.  The **Default Key** is hidden. Click the **View** button to display
-    the security credentials:   
-    ![][5]
+4.  In the **Connect to your namespace** dialog, find the **Default Issuer** and **Default Key** entries. Make a note of these values, as you will use this information below to perform operations with the namespace.   
+  
 
-5.  Make a note of the **Default Issuer** and the **Default Key** as you
-    will use this information below to perform operations with the
-    namespace.
-
-## <a name="configure-app"> </a>Configure Your Application to Use Service Bus
+<h2><span class="short-header">Configure the Application</span>Configure the Application to Use Service Bus</h2>
 
 When you create an application that uses Service Bus, you will need to
 add a reference to the Service Bus assembly and include the
@@ -134,7 +116,7 @@ Service Bus topics and subscriptions:
 
 You are now ready to write code against Service Bus.
 
-## <a name="set-up-connstring"> </a>How to Set Up a Service Bus Connection String
+<h2><span class="short-header">How to Set Up the Connection String</span>How to Set Up a Service Bus Connection String</h2>
 
 The Service Bus uses a connection string to store endpoints and credentials. You can put your connection string in a configuration file, rather than hard-coding it in code:
 
@@ -190,7 +172,7 @@ When using Web Sites or Virtual Machines, it is recommended you use the .NET con
 Use the issuer and key values retrieved from the Management Portal as
 described in the previous section.
 
-## <a name="create-topic"> </a>How to Create a Topic
+<h2><span class="short-header">How to Create a Topic</span>How to Create a Topic</h2>
 
 You can perform management operations for Service Bus topics and subscriptions via the **NamespaceManager** class. The **NamespaceManager** class provides methods to create, enumerate, and delete queues. 
 
@@ -242,7 +224,7 @@ default message time-to-live of 1 minute.
 objects to check if a topic with a specified name already exists within
 a service namespace.
 
-## <a name="create-subscriptions"> </a>How to Create Subscriptions
+<h2><span class="short-header">How to Create Subscriptions</span>How to Create Subscriptions</h2>
 
 You can also create topic subscriptions with the **NamespaceManager**
 class. Subscriptions are named and can have an optional filter that
@@ -310,7 +292,7 @@ subscription, and selectively delivered to receivers subscribed to the
 "HighMessages" and "LowMessages" topic subscriptions (depending upon the
 message content).
 
-## <a name="send-messages"> </a>How to Send Messages to a Topic
+<h2><span class="short-header">Send Messages to a Topic</span>How to Send Messages to a Topic</h2>
 
 To send a message to a Service Bus topic, your application creates a
 **TopicClient** object using the connection string.
@@ -363,7 +345,7 @@ held in a topic but there is a cap on the total size of the messages
 held by a topic. This queue size is defined at creation time, with an
 upper limit of 5 GB.
 
-## <a name="receive-messages"> </a>How to Receive Messages from a Subscription
+<h2><span class="short-header">Receive Messages from a Subscription</span>How to Receive Messages from a Subscription</h2>
 
 The easiest way to receive messages from a subscription is to use a
 **SubscriptionClient** object. **SubscriptionClient** objects can work in two
@@ -430,7 +412,7 @@ path*\>/subscriptions/<*subscription name*\>".
        }
     } 
 
-## <a name="handle-crashes"> </a>How to Handle Application Crashes and Unreadable Messages
+<h2><span class="short-header">Application Crashes and Unreadable Messages</span>How to Handle Application Crashes and Unreadable Messages</h2>
 
 The Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
@@ -456,7 +438,7 @@ to handle duplicate message delivery. This is often achieved using the
 **MessageId** property of the message, which will remain constant across
 delivery attempts.
 
-## <a name="delete-topics"> </a>How to Delete Topics and Subscriptions
+<h2><span class="short-header">Delete Topics and Subscriptions</span>How to Delete Topics and Subscriptions</h2>
 
 The example below demonstrates how to delete the topic named
 **TestTopic** from the **HowToSample** service namespace:
@@ -471,7 +453,7 @@ following code demonstrates how to delete a subscription named
 
       namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 
-## <a name="next-steps"> </a> <a name="nextsteps"> </a>Next Steps
+<h2><span class="short-header">Next Steps</span>Next Steps</h2>
 
 Now that you've learned the basics of Service Bus topics and subscriptions, follow these
 links to learn more.
@@ -497,12 +479,13 @@ links to learn more.
   [How to: Delete Topics and Subscriptions]: #delete-topics
   [1]: #next-steps
   [Topic Concepts]: ../../../DevCenter/dotNet/Media/sb-topics-01.png
-  [Windows Azure Management Portal]: http://windows.azure.com
-  [0]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [0]: ../../../DevCenter/dotNet/Media/sb-queues-13.png
   [2]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
-  [3]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
+  [3]: ../../../DevCenter/dotNet/Media/sb-queues-09.png
   [4]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [5]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
+  [6]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-27.png
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx

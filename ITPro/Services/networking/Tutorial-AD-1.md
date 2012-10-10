@@ -3,7 +3,7 @@
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-This tutorial walks you through the steps to install an additional domain controller from your Corp Active Directory forest on a virtual machine (VM) on Windows Azure Virtual Network. In this tutorial, the virtual network for the VM is connected to the network at your company.
+This tutorial walks you through the steps to install an additional domain controller from your Corp Active Directory forest on a virtual machine (VM) on [Windows Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx). In this tutorial, the virtual network for the VM is connected to the network at your company.
 
 ##Table of Contents##
 
@@ -31,12 +31,15 @@ This tutorial walks you through the steps to install an additional domain contro
 	- Preferred DNS server: on-premises DNS server 
 	- Alternate DNS server: loopback address or, if possible, another DNS server running on a DC on the same virtual network.
 
-**Note**
->You need to provide your own DNS infrastructure to support AD DS on Windows Azure Virtual Network. The Windows Azure-provided DNS infrastructure for this release does not support some features that AD DS requires, such as dynamic SRV resource record registration. 
+<div class="dev-callout"> 
+<b>Note</b>
+You need to provide your own DNS infrastructure to support AD DS on Windows Azure Virtual Network. The Windows Azure-provided DNS infrastructure for this release does not support some features that AD DS requires, such as dynamic SRV resource record registration. 
+</div>
 
-**Note**
->If you already completed the steps in [Install a new Active Directory forest in Windows Azure](/en-us/manage/services/networking/active-directory-forest/), you might need to remove AD DS from the domain controller on the Windows Azure virtual network before you begin this tutorial. For more information about how to remove AD DS, see [Removing a Domain Controller from a Domain](http://technet.microsoft.com/en-us/library/cc771844(v=WS.10).aspx).
-
+<div class="dev-callout"> 
+<b>Note</b>
+If you already completed the steps in <a href="/en-us/manage/services/networking/active-directory-forest/">Install a new Active Directory forest in Windows Azure</a>, you might need to remove AD DS from the domain controller on the Windows Azure virtual network before you begin this tutorial. For more information about how to remove AD DS, see <a href="http://technet.microsoft.com/en-us/library/cc771844(v=WS.10).aspx">Removing a Domain Controller from a Domain</a>.
+</div>
 
 
 <h2 id="verifystaticip">Step 1: Verify static IP address for YourPrimaryDC</h2>
@@ -131,7 +134,7 @@ This tutorial walks you through the steps to install an additional domain contro
 	![CreateSubnetsandSites3](../media/CreateSubnetsandSites3.png)
 
 
-5.	In Name:, type **CloudSite**, select **DEFAULTIPSITELINK** and click **OK**. 
+5.	In Name, type **CloudSite**, select **DEFAULTIPSITELINK** and click **OK**. 
 
 	![CreateSubnetsandSites4](../media/CreateSubnetsandSites4.png)
 
@@ -277,3 +280,11 @@ For more information about using Windows PowerShell, see [Getting Started with W
 Log on to the client VM in each site and create a shared folder on the VM
 
 2.	Test access to the shared folder using different accounts and groups and permissions. 
+
+## See Also
+
+-  [Windows Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
+
+-  [Windows Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx)
+
+-  [Windows Azure Management Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841)

@@ -1,11 +1,12 @@
 <properties linkid="dev-net-e2e-multi-tier" urldisplayname="Multi-Tier Application" headerexpose="" pagetitle=".NET Multi-Tier Application" metakeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET Service Bus queue tutorial, Azure .NET queue tutorial, Azure .NET worker role tutorial, Azure C# Service Bus queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop a multi-tier application in Windows Azure that includes web and worker roles and uses Service Bus queues to communicate between tiers." umbraconavihide="0" disquscomments="1"></properties>
 
+<div chunk="../chunks/article-left-menu.md" />
+
 # .NET Multi-Tier Application Using Service Bus Queues
 
-Developing for Windows Azure is easy using Visual Studio 2010 and the
+Developing for Windows Azure is easy using Visual Studio 2012 and the
 free Windows Azure SDK for .NET. If you do not already have Visual
-Studio 2010, the SDK will automatically install Visual Web Developer
-2010 Express, so you can start developing for Windows Azure entirely for
+Studio 2012, the SDK will automatically install Visual Web Developer Express, so you can start developing for Windows Azure entirely for
 free. This guide assumes you have no prior experience using Windows
 Azure. On completing this guide, you will have an application that uses
 multiple Windows Azure resources running in your local environment and
@@ -30,7 +31,7 @@ shown below:
 
 <div chunk="../../Shared/Chunks/create-account-note.md" />
 
-## Scenario Overview: Inter-Role Communication
+<h2><span class="short-header">Inter-Role Communication</span>Scenario Overview: Inter-Role Communication</h2>
 
 To submit an order for processing, the front end UI component, running
 in the web role, needs to interact with the middle tier logic running in
@@ -89,7 +90,7 @@ messaging, namely:
 The following sections discuss the code that implements this
 architecture.
 
-## Set Up the Development Environment
+<h2><span class="short-header">Set Up Environment</span>Set Up the Development Environment</h2>
 
 Before you can begin developing your Windows Azure application, you need
 to get the tools and set-up your development environment.
@@ -114,7 +115,7 @@ to get the tools and set-up your development environment.
     do not have Visual Studio installed, it also installs the free
     Visual Web Developer Express.
 
-## <a name="create-namespace"> </a>Set up the Service Bus Namespace
+<h2><span class="short-header">Set up the Namespace</span>Set up the Service Bus Namespace</h2>
 
 The next step is to create a service namespace, and to obtain a shared
 secret key. A service namespace provides an application boundary for
@@ -124,44 +125,46 @@ created. The combination of service namespace and shared secret key
 provides a credential for Service Bus to authenticate access to an
 application.
 
-1.  Log into the [Windows Azure Management Portal][]. Note that for this tutorial, you must use the production version of the portal. If you are using the preview version of the portal, hover over the **Preview** text at the top of the page, and then click **Take me to the previous portal**.
+1.  Log into the [Windows Azure Management Portal][].
 
-2.  In the lower left navigation pane of the Management Portal, click
-    **Service Bus, Access Control & Caching**.
+2.  In the left navigation pane of the Management Portal, click
+    **Service Bus**.
 
-3.  In the upper left pane of the Management Portal, click the **Service
-    Bus** node, then click **New**.
+3.  In the lower pane of the Management Portal, click **Create**.
 
     ![][6]
 
-4.  In the **Create a new Service Namespace** dialog, enter a namespace,
-    and then to make sure that it is unique, click **Check
-    Availability**.   
+4.  In the **Add a new namespace** dialog, enter a namespace name.
+    The system immediately checks to see if the name is available.   
     ![][7]
 
 5.  After making sure the namespace name is available, choose the
     country or region in which your namespace should be hosted (make
     sure you use the same country/region in which you are deploying your
-    compute resources), and then click **Create Namespace**. Also,
-    choose a country/region from the dropdown, a connection pack size,
-    and the name of the subscription you want to use:
+    compute resources).
 
     IMPORTANT: Pick the **same region** that you intend to choose for
     deploying your application. This will give you the best performance.
 
-6.  Click **Create Namespace**. The system now creates your service
+6.  Click the check mark. The system now creates your service
     namespace and enables it. You might have to wait several minutes as
     the system provisions resources for your account.
 
+	![][27]
+
 7.  In the main window, click the name of your service namespace.
 
-8.  In the **Properties** pane on the right-hand side, find the
-    **Default Key** entry.
+	![][30]
 
-9.  In Default Key, click **View**. Make a note of the key, or copy it
-    to the clipboard.
+8. Click **Access Key**.
 
-## Create a Web Role
+	![][31]
+
+9.  In the **Connect to your namespace** pane, find the **Default Issuer** and **Default Key** entries.
+
+10.  Make a note of the key, or copy it to the clipboard.
+
+<h2><span class="short-header">Create a Web Role</span>Create a Web Role</h2>
 
 In this section, you will build the front end of your application. You
 will first create the various pages that your application displays.
@@ -171,9 +174,9 @@ Queue and displaying status information about the queue.
 ### Create the Project
 
 1.  Using administrator privileges, start either Microsoft Visual Studio
-    2010 or Microsoft Visual Web Developer Express 2010. To start Visual
+    2012 or Microsoft Visual Web Developer Express. To start Visual
     Studio with administrator privileges, right-click **Microsoft Visual
-    Studio 2010 (or Microsoft Visual Web Developer Express 2010)** and
+    Studio 2012 (or Microsoft Visual Web Developer Express)** and
     then click Run as administrator. The Windows Azure compute emulator,
     discussed later in this guide, requires that Visual Studio be
     launched with administrator privileges.
@@ -189,7 +192,7 @@ Queue and displaying status information about the queue.
 
     ![][9]
 
-3.  From **.NET Framework 4** roles, double-click **ASP.NET MVC 3 Web
+3.  From **.NET Framework 4** roles, double-click **ASP.NET MVC 4 Web
     Role**.
 
     ![][10]
@@ -318,12 +321,19 @@ displays.
     **Views\Shared\\_Layout.cshtml** file to open it in the Visual
     Studio editor.
 
-9.  Locate **&lt;h1>My MVC Application&lt;/h1>**, and replace it with
-    **&lt;h1>LITWARE'S Awesome Products&lt;/h1>**:
+9.  Replace all occurrences of **My ASP.NET MVC Application** with
+    **LITWARE'S Awesome Products**.
 
-    ![][16]
+10.	Replace **"your logo here"** with **LITWARE'S Awesome Products**:
 
-10. Finally, tweak the submission page to include some information about
+	![][16]
+
+11. Remove the **Home**, **About**, and **Contact** links. Delete the highlighted code:
+
+	![][28]
+  
+
+12. Finally, tweak the submission page to include some information about
     the queue. In the **Solution Explorer**, double-click the
     **Views\Home\Submit.cshtml** file to open it in the Visual Studio
     editor. Add the following line after **&lt;h2>Submit&lt;/h2>**. For now,
@@ -332,7 +342,7 @@ displays.
         <p>Current Number of Orders in Queue Waiting to be Processed: @ViewBag.MessageCount</p>
              
 
-11. You now have implemented your UI. You can press **F5** to run your
+13. You now have implemented your UI. You can press **F5** to run your
     application and confirm it looks as expected.
 
     ![][17]
@@ -346,7 +356,7 @@ information. Then, you will initialize your connection from
 created earlier in **HomeController.cs** to actually submit items to a
 Service Bus Queue.
 
-1.  In Solution Explorer, right-click **FrontendWebRole** (right-click the class, not the role). Click **Add**, and then click **Class**.
+1.  In Solution Explorer, right-click **FrontendWebRole** (right-click the project, not the role). Click **Add**, and then click **Class**.
 
 2.  Name the class **QueueConnector.cs**. Click **Add** to create the class.
 
@@ -470,7 +480,7 @@ Service Bus Queue.
 
     ![][18]
 
-## Cloud Configuration Manager
+<h2><span class="short-header">Configuration Manager</span>Cloud Configuration Manager</h2>
 
 Windows Azure supports a set of managed API that provides a consistent way to create new instances of Windows Azure service clients (such as the Service Bus) across Microsoft cloud services. The API enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in websites, or in a persistent VM Role. You can also use these API to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The API are located in the [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] class. There are also APIs on the client side.
 
@@ -503,7 +513,7 @@ The following code retrieves the connection string, creates a queue, and initial
 
 The code in the following section uses these configuration management APIs.
 
-## Create the Worker Role
+<h2><span class="short-header">Create Worker Role</span>Create the Worker Role</h2>
 
 You will now create the worker role that processes the order
 submissions. This example uses the **Worker Role with Service Bus Queue** Visual Studio project template. First, you will use Server Explorer in Visual Studio to obtain the required credentials.
@@ -545,7 +555,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
 12. Browse to the subfolder for **FrontendWebRole\Models**, and double-click **OnlineOrder.cs** to add it to this project.
 
-13. Replace the value of the **QueueName** variable in **WorkerRole.cs** from `“ProcessingQueue”` to `“OrdersQueue”` as in the following code:
+13. Replace the value of the **QueueName** variable in **WorkerRole.cs** from `“ProcessingQueue"` to `“OrdersQueue"` as in the following code:
 
 		// The name of your queue
 		const string QueueName = "OrdersQueue";
@@ -563,7 +573,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
         	// Add these two lines of code
         	// View the message as an OnlineOrder
-			OnlineOrder order = receivedMessage.Get<OnlineOrder>();
+			OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
         	Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
 
         	receivedMessage.Complete();
@@ -587,7 +597,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
   [4]: ../Media/getting-started-4.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [5]: ../Media/getting-started-12.png
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [6]: ../Media/sb-queues-03.png
   [7]: ../Media/sb-queues-04.png
   [8]: ../Media/getting-started-multi-tier-09.png
@@ -604,9 +614,13 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
   [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]:http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudconfigurationmanager.aspx
   [19]: ../Media/getting-started-multi-tier-38.png
   [20]: ../Media/getting-started-multi-tier-39.png
-  [21]: ../Media/SBExplorer.jpg
-  [22]: ../Media/SBExplorerAddConnect.jpg
-  [23]: ../Media/SBWorkerRole1.jpg
-  [24]: ../Media/SBExplorerProperties.jpg
-  [25]: ../Media/SBWorkerRoleProperties.jpg
-  [26]: ../Media/SBNewWorkerRole.jpg
+  [21]: ../Media/SBExplorer.png
+  [22]: ../Media/SBExplorerAddConnect.png
+  [23]: ../Media/SBWorkerRole1.png
+  [24]: ../Media/SBExplorerProperties.png
+  [25]: ../Media/SBWorkerRoleProperties.png
+  [26]: ../Media/SBNewWorkerRole.png
+  [27]: ../Media/getting-started-multi-tier-27.png
+  [28]: ../Media/getting-started-multi-tier-40.png
+  [30]: ../Media/sb-queues-09.png
+  [31]: ../Media/sb-queues-06.png

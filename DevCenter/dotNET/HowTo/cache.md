@@ -1,5 +1,7 @@
 <properties umbraconavihide="0" pagetitle="How to Use Windows Azure Caching from .NET" metakeywords="Windows Azure cache, Windows Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" metadescription="Learn how to use Windows Azure caching: add and remove objects from the cache, store ASP.NET session state in the cache, and enable ASP.NET page output caching." linkid="Contact - Support" urldisplayname="Caching" headerexpose="" footerexpose="" disquscomments="1"></properties>
 
+<div chunk="../chunks/article-left-menu.md" />
+
 # How to Use Windows Azure Caching (Preview)
 
 This guide will show you how to get started using 
@@ -23,7 +25,7 @@ information on using Windows Azure Caching (Preview), refer to the [Next Steps][
 	-   [How To: Store ASP.NET Page Output Caching in the Cache][]
 -   [Next Steps][]
 
-## <a name="what-is"> </a>What is Windows Azure Caching?
+<a name="what-is"></a><h2><span class="short-header">What is Windows Azure Caching?</span>What is Windows Azure Caching?</h2>
 
 Windows Azure Caching provides a caching layer to your Windows Azure applications. Caching increases performance by temporarily storing information in-memory from
 other backend sources, and can reduce the costs associated with database
@@ -74,7 +76,7 @@ To use caching on role instances, you need to configure a cache cluster, and the
 -	[Configure the cache cluster][]
 -	[Configure the cache clients][]
 
-## <a name="enable-caching"> </a>Configure the cache cluster
+<a name="enable-caching"></a><h2><span class="short-header">Configure the cache cluster</span>Configure the cache cluster</h2>
 
 To configure a **Co-located Role** cache cluster, select the role in which you wish to host the cache cluster. Right-click the role properties in **Solution Explorer** and choose **Properties**.
 
@@ -120,7 +122,7 @@ When **Co-located Role** caching is specified, the cache size is determined by t
 
 Once the cache cluster is configured, you can configure the cache clients to allow access to the cache.
 
-## <a name="NuGet"> </a>Configure the cache clients
+<a name="NuGet"></a><h2><span class="short-header">Configure the cache clients</span>Configure the cache clients</h2>
 
 To access a Windows Azure Caching (Preview) cache, the clients must be within the same deployment. If the cache cluster is a dedicated role cache cluster, then the clients are other roles in the deployment. If the cache cluster is a co-located role cache cluster, then the clients could be either  the other roles in the deployment, or the roles themselves that host the cache cluster. A NuGet package is provided that can be used to configure each client role that accesses the cache. To configure a role to access a cache cluster using the Caching NuGet package, right-click the role project in **Solution Explorer** and choose **Manage NuGet Packages**. 
 
@@ -184,7 +186,7 @@ The steps in this section describe how to perform common tasks with caching.
 -   [How To: Store ASP.NET Session State in the Cache][]
 -   [How To: Store ASP.NET Page Output Caching in the Cache][]
 
-## <a name="create-cache-object"> </a>How To: Create a DataCache Object
+<a name="create-cache-object"></a><h2><span class="short-header">Create a DataCache Object</span>How To: Create a DataCache Object</h2>
 
 In order to programatically work with a cache, you need a reference to the cache. Add the following to the top of any file from which you want to use
 Windows Azure Caching:
@@ -207,7 +209,7 @@ The second way uses an abbreviated syntax. Using this method, you do not need to
 
     DataCache cache = new DataCache("default");
 
-## <a name="add-object"> </a>How To: Add and Retrieve an Object from the Cache
+<a name="add-object"></a><h2><span class="short-header">Add and Retrieve an Object from the Cache</span>How To: Add and Retrieve an Object from the Cache</h2>
 
 To add an item to the cache, the **Add** method or the **Put** method
 can be used. The **Add** method adds the specified object to the cache,
@@ -247,7 +249,7 @@ if it does not exist, or replaces the object if it does exist.
     // replace it.
     cache.Put("item", "value");
 
-## <a name="specify-expiration"> </a>How To: Specify the Expiration of an Object in the Cache
+<a name="specify-expiration"></a><h2><span class="short-header">Specify the Expiration of an Object in the Cache</span>How To: Specify the Expiration of an Object in the Cache</h2>
 
 By default items in the cache expire 10 minutes after they are placed in the cache. This can be configured in the **Time to Live (min)** setting in the role properties of the role that hosts the cache cluster.
 
@@ -274,7 +276,7 @@ the remaining timeout interval.
     DataCacheItem item = cache.GetCacheItem("item");
     TimeSpan timeRemaining = item.Timeout;
 
-## <a name="store-session"> </a>How To: Store ASP.NET Session State in the Cache
+<a name="store-session"></a><h2><span class="short-header">Store ASP.NET Session State in the Cache</span>How To: Store ASP.NET Session State in the Cache</h2>
 
 The Session State Provider for Windows Azure Caching is an
 out-of-process storage mechanism for ASP.NET applications. This provider
@@ -297,7 +299,7 @@ Session State Provider for Windows Azure Caching, paste the following snippet in
 For more information about using the Caching service session state
 provider, see [Session State Provider for Windows Azure Caching][].
 
-## <a name="store-page"> </a>How To: Store ASP.NET Page Output Caching in the Cache
+<a name="store-page"></a><h2><span class="short-header">Store ASP.NET Page Output Caching in the Cache</span>How To: Store ASP.NET Page Output Caching in the Cache</h2>
 
 The Output Cache Provider for Windows Azure Caching is an out-of-process storage mechanism for output cache data. This data is specifically for full HTTP
 responses (page output caching). The provider plugs into the new output
@@ -325,7 +327,7 @@ In this example the cached page data will remain in the cache for 60 seconds, an
 
 For more information about using the Output Cache Provider for Windows Azure Caching, see [Output Cache Provider for Windows Azure Caching][].
 
-## <a name="next-steps"> </a>Next Steps
+<a name="next-steps"></a><h2><span class="short-header">Next Steps</span>Next Steps</h2>
 
 Now that you've learned the basics of Windows Azure Caching,
 follow these links to learn how to do more complex caching tasks.

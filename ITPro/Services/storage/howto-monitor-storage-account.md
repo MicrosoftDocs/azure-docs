@@ -65,7 +65,9 @@ On the dashboard, you can choose up to six metrics to plot on the metrics chart 
 
 	![Monitoring_nmore] (../media/storage_Monitoring_nmore.png)
   
-3. To change the time range the metrics chart displays, select 6 hours, 24 hours, or 7 days at the top of the chart.
+3. By default, the chart shows trends, displaying only the current value of each metric (the **Relative** option at the top of the chart). To display a Y axis so you can see absolute values, select **Absolute**.
+
+4. To change the time range the metrics chart displays, select 6 hours, 24 hours, or 7 days at the top of the chart.
      
 
 <h2 id="customizemonitorpage">How to: Customize the Monitor page</h2>
@@ -123,7 +125,9 @@ Use the following procedures to choose which storage metrics to view in the metr
 
 1. On the **Monitor** page for the storage account, in the metrics table, select up to 6 metrics to plot on the metrics chart. To select a metric, click the check box on its left side. To remove a metric from the chart, clear the check box.
 
-2. To change the time range the metrics chart displays, select **6 hours**, **24 hours**, or **7 days** at the top of the chart.
+2. To switch the chart between relative values (final value only displayed) and absolute values (Y axis displayed), select **Relative** or **Absolute** at the top of the chart.
+
+3.	To change the time range the metrics chart displays, select **6 hours**, **24 hours**, or **7 days** at the top of the chart.
 
 
 

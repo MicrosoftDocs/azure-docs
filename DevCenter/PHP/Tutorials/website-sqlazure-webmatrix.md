@@ -206,7 +206,7 @@ You've seen how to create and deploy a web site from WebMatrix to Windows Azure.
 [sql-database-editions]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx
 [php-site-from-template]: ../../Shared/Media/php_site_from_template.png
 [php-empty-site-template-installed]: ../../Shared/Media/php_empty_site_template_installed.png
-[go-to-dashboard]: ../Media/go_to_dashboard.jpg
+[go-to-dashboard]: ../Media/go_to_dashboard.png
 [download-publish-profile]: ../Media/download-publish-profile.png
 [download-site]: ../Media/download-site-1.png
 [site-from-template]: ../Media/site-from-template.png

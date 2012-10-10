@@ -167,7 +167,7 @@ Add the library that contains the **javax.servlet.jsp.JspWriter** class to your 
 1. In Eclipse's Project Explorer, right-click **MyACSHelloWorld**, click **Java Build Path**, click **Configure Build Path**, click the **Libraries** tab, and click **Add External JARs**.
 2. In the **JAR Selection** dialog, navigate to the necessary JAR, select it, and click **Open**.
 3. With the **Properties for MyACSHelloWorld** dialog still open, click **Deployment Assembly**.
-4. In the **Web Deployment Assembly** assembly, click **Add**.
+4. In the **Web Deployment Assembly** dialog, click **Add**.
 5. In the **New Assembly Directive** dialog, click **Java Build Path Entries** and click **Next**.
 6. Select the appropriate library and click **Finish**.
 7. Click **OK** to close the **Properties for MyACSHelloWorld** dialog.

@@ -1,3 +1,5 @@
+﻿<div chunk="../chunks/article-left-menu.md" />
+
 # How to implement single sign-on with Windows Azure Active Directory - ASP.NET Application#
 
 <h2>Table of Contents</h2>
@@ -12,7 +14,7 @@
 <li><a href="#step4">Step 4 - Configure the ASP.NET application for single sign-on with multiple tenants</a></li>	
 
 <a name="overview"></a>
-## Overview ##
+<h2><span class="short-header">Overview</span>Overview</h2>
 This guide provides instructions for creating an ASP.NET MVC application and configuring it to leverage Windows Azure Active Directory. 
 
 Imagine the following scenario:
@@ -35,8 +37,13 @@ In the instructions provided in this guide, we will play the roles of both Fabri
 
 - Create a simple ASP.NET MVC application (performed by Fabrikam)
 - Provision an ASP.NET MVC web application in Windows Azure Active Directory (performed by Awesome Computers).
+	<div class="dev-callout-new">
+    <strong>Note <span>Click to collapse</span></strong>
+    <div class="dev-callout-content">
+        <p>As part of this step, Awesome Computers must in turn be provisioned by the Fabrikam as a customer of their ASP.NET application. Basically, Fabrikam needs to know that users from the Office 365 tenant with the domain **awesomecomputers.onmicrosoft.com** should be granted access to their ASP.NET application.</p>
+    </div>
+</div>
 
-	**Note:* As part of this step, Awesome Computers must in turn be provisioned by the Fabrikam as a customer of their ASP.NET application. Basically, Fabrikam needs to know that users from the Office 365 tenant with the domain **awesomecomputers.onmicrosoft.com** should be granted access to their ASP.NET application. *
 - Protect the ASP.NET MVC application with WS-Federation and onboard the first customer (performed by Fabrikam)
 - Modify the ASP.NET MVC application to handle single sign-on with multiple tenants (performed by Fabrikam)
 
@@ -45,7 +52,7 @@ In the instructions provided in this guide, we will play the roles of both Fabri
 This guide is available together with several code samples and scripts that can help you with some of the most time-consuming tasks. All materials are available at [Azure Active Directory SSO for .Net](https://github.com/WindowsAzure/azure-sdk-for-dotnet-samples) for you to study and modify to fit your environment. 
 
 <a name="prerequisites"></a>
-## Prerequisites ##
+<h2><span class="short-header">Prerequisites</span>Prerequisites</h2>
 
 To complete the tasks in this guide, you will need the following:
 
@@ -70,7 +77,7 @@ To complete the tasks in this guide, you will need the following:
 </ul>
 
 <a name="step1"></a>
-## Step 1 - Create an ASP.NET MVC application ##
+<h2><span class="short-header">Step 1 - Create an ASP.NET MVC application</span>Step 1 - Create an ASP.NET MVC application</h2>
 
 The instructions in this step demonstrate how to create a simple ASP.NET MVC application. In our scenario, this step is performed by Fabrikam.
 
@@ -96,14 +103,25 @@ The instructions in this step demonstrate how to create a simple ASP.NET MVC app
 
 	<img src="../../../DevCenter/dotNet/Media/ssostep1Step6.png" />	
 
-*Note:* Make sure to record this value. This identifier will be the AppPrincipalId used in further steps in this guide when provisioning this ASP.NET applicaiton in Office 365.
+	<div class="dev-callout-new">
+	    <strong>Note <span>Click to collapse</span></strong>
+	    <div class="dev-callout-content">
+	        <p>Make sure to record this value. This identifier will be the AppPrincipalId used in further steps in this guide when provisioning this ASP.NET applicaiton in Office 365.</p>
+	    </div>
+	</div>  
 
 <a name="step2"></a>
-## Step 2 - Provision the ASP.NET MVC application in Windows Azure Active Directory ##
+<h2><span class="short-header">Step 2 - Provision the ASP.NET MVC application in Windows Azure Active Directory</span>Step 2 - Provision the ASP.NET MVC application in Windows Azure Active Directory</h2>
+
 
 Instructions in this step demonstrate how you can provision the ASP.NET application in Windows Azure Active Directory. In our scenario, this step is performed by Awesome Computers who then provides the application owner (Fabrikam) with the data Fabrikam needs in order to set up single sign-on access for Awesome Computers's users. 
 
-Note: If you don’t have access to an Office 365, you can obtain one by applying for a FREE TRIAL subscription on the [Office 365’s Sign-up page](http://www.microsoft.com/en-us/office365/online-software.aspx#fbid=8qpYgwknaWN). 
+<div class="dev-callout-new">
+    <strong>Note <span>Click to collapse</span></strong>
+    <div class="dev-callout-content">
+        <p>If you don’t have access to an Office 365, you can obtain one by applying for a FREE TRIAL subscription on the [Office 365’s Sign-up page](http://www.microsoft.com/en-us/office365/online-software.aspx#fbid=8qpYgwknaWN).</p>
+    </div>
+</div>  
 
 To provision the ASP.NET application in Windows Azure Active Directory, Awesome Computers creates a new Service Principal for it in the directory. In order to create a new Service principal for the ASP.NET application in the directory, Awesome Computers must obtain the following information from Fabrikam:
 
@@ -145,7 +163,8 @@ The Fabrikam's application has been successfully provisioned in the directory te
 Now Fabrikam must provision Awesome Computers as a customer of the ASP.NET application. In other words, Fabrikam must know that users from the Office 365 tenant with domain *awesomecomputers.onmicrosoft.com* should be granted access. How that information reaches Fabrikam depends on how the subscriptions are handled. In this guide, the instructions for this provisioning step are not provided. 
 
 <a name="step3"></a>
-## Step 3 - Protect the ASP.NET application via WS-Federation and onboard the first customer##
+<h2><span class="short-header">Step 3 - Protect the ASP.NET application via WS-Federation and onboard the first customer</span>Step 3 - Protect the ASP.NET application via WS-Federation and onboard the first customer</h2>
+
 
 The instructions in this step demonstrate how to add support for federated login to the ASP.NET application created in Step 1. In our scenario, this step is performed by Fabrikam. 
 
@@ -171,8 +190,12 @@ You can use this Audience URI to add the first customer to our solution:
 	<img src="../../../DevCenter/dotNet/Media/ssostep3Step2.5.png" />
 
 3. The next page of the wizard allows you to configure the STS for your web application.  Select **Use an existing STS**, and then enter the location for the WS-Federation metadata document (https://accounts.accesscontrol.windows.net/FederationMetadata/2007-06/FederationMetadata.xml?realm=awesomecomputers.onmicrosoft.com).
-
-	*NOTE:* This is the same URL you used in Step 1 to get the correct realm to create the Audience URI.
+	<div class="dev-callout-new">
+    <strong>Note <span>Click to collapse</span></strong>
+    <div class="dev-callout-content">
+        <p>This is the same URL you used in Step 1 to get the correct realm to create the Audience URI.</p>
+    </div>
+</div>
 
 	<img src="../../../DevCenter/dotNet/Media/ssostep3Step3.png" />
 
@@ -233,7 +256,7 @@ You can use this Audience URI to add the first customer to our solution:
 If, however, you are developing applications that need to be accessed by more than one tenant, the next step can help you modify your code to accommodate multiple tenants.  
 
 <a name="step4"></a>
-## Step 4 - Configure the ASP.NET application for single sign-on with Multiple tenants ##
+<h2><span class="short-header">Step 4 - Configure the ASP.NET application for single sign-on with Multiple tenants</span>Step 4 - Configure the ASP.NET application for single sign-on with Multiple tenants</h2>
 
 What if Fabrikam wants to provide access to its application to multiple customers? The steps we performed in this guide so far ensure that single sign-on works with only one trusted provider. Fabrikam's developers must make some changes to their ASP.NET application in order to provide single sign-on to whatever future customers they obtain. The main new features needed are:
 
@@ -250,7 +273,12 @@ Let's add another fictitious customer to our scenario, Trey research Inc. Trey R
 
 	<img src="../../../DevCenter/dotNet/Media/ssostep4Step2.png" />
 
-	*Note:* Behind the scenes the script retrieves the federation metadata to get the issuer identifier for generating the realm’s SPN value.
+	<div class="dev-callout-new">
+    <strong>Note <span>Click to collapse</span></strong>
+    <div class="dev-callout-content">
+        <p>Behind the scenes the script retrieves the federation metadata to get the issuer identifier for generating the realm’s SPN value.</p>
+    </div>
+</div> 
 
 3.	Open the XML file and include the generated node:
 
@@ -305,7 +333,12 @@ Let's add another fictitious customer to our scenario, Trey research Inc. Trey R
 
 	<img src="../../../DevCenter/dotNet/Media/ssostep4Step11.png" />
 
-*Note:* The home realm discovery strategy of presenting an explicit list of trusted providers is not always feasible in practice. Here it is used for the sake of simplicity.
+<div class="dev-callout-new">
+    <strong>Note <span>Click to collapse</span></strong>
+    <div class="dev-callout-content">
+        <p>The home realm discovery strategy of presenting an explicit list of trusted providers is not always feasible in practice. Here it is used for the sake of simplicity.</p>
+    </div>
+</div>
 
 Once you see the list of the trusted identity providers in your browser, you can navigate to either provider: the authentication flow will unfold in the same way described in the former section. The application will validate the incoming token accordingly. You can try to delete entries in trusted.issuers.xml, as it would happen, for example, once a subscription expires, and verify that the application then will reject authentication attempts from the corresponding provider. 
 

@@ -203,7 +203,7 @@ You've seen how to create and deploy a web site from WebMatrix to Windows Azure.
 [custom-create]: ../Media/custom_create.jpg
 [website-details]: ../../Shared/Media/website_details.jpg
 [new-mysql-db]: ../Media/new_mysql_db.jpg
-[go-to-dashboard]: ../Media/go_to_dashboard.jpg
+[go-to-dashboard]: ../Media/go_to_dashboard.png
 [download-publish-profile]: ../Media/download-publish-profile.png
 [download-site]: ../Media/download-site-1.png
 [site-from-template]: ../Media/site-from-template.png

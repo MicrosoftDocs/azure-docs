@@ -17,13 +17,13 @@ The following resources must be available to complete this task:
     <TH>Architecture</TH>
   </TR>
   <TR>
-    <TD>Windows Server 2012 RC (en\_us)</TD>
+    <TD>Windows Server 2012 (en\_us)</TD>
     <TD>All editions</TD>
     <TD>N/A</TD>
     <TD>x64</TD>
   </TR>
   <TR>
-    <TD>Windows Server 2008 R2(en\_us)</TD>
+    <TD>Windows Server 2008 R2 (en\_us)</TD>
     <TD>All editions</TD>
     <TD>SP1</TD>
     <TD>x64</TD>
@@ -219,7 +219,7 @@ For this task, you upload the VHD file to be used as an image for creating virtu
 
 2. Upload the VHD file by using the following command and replacing **Subscriptionid** and **CertThumbprint** with the values that you obtained earlier:
 
-	`csupload Add-PersistentVMImage –Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>" -Label <VHDName> -LiteralPath <PathToVHDFile> -OS Windows`
+	`csupload Add-PersistentVMImage -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>" -Label <VHDName> -LiteralPath <PathToVHDFile> -OS Windows`
 
 Where **BlobStorageURL** is the URL for the storage account that you created earlier. You can place the VHD file anywhere within your Blog storage. **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the VHD. **PathToVHDFile** is the full path and name of the VHD file.
 
