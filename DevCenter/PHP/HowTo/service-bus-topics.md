@@ -7,9 +7,9 @@ subscriptions. The samples are written in PHP and use the [Windows Azure SDK for
 
 ## Table of Contents
 
--   [What are Service Bus Topics and Subscriptions?](#WhatAreTopicsAndSubscriptions)
--   [Create a Service Namespace](#CreateNamespace)
--   [Obtain the Default Management Credentials for the Namespace](#GetDefaultCredentials)
+-   [What are Service Bus Topics and Subscriptions?](#what-are-service-bus-topics)
+-   [Create a Service Namespace](#create-a-service-namespace)
+-   [Obtain the Default Management Credentials for the Namespace](#obtain-default-credentials)
 - 	[Create a PHP application](#CreateApplication)
 -	[Get the Windows Azure Client Libraries](#GetClientLibrary)
 -   [Configure Your Application to Use Service Bus](#ConfigureApp)
@@ -21,64 +21,7 @@ subscriptions. The samples are written in PHP and use the [Windows Azure SDK for
 -   [How to: Delete Topics and Subscriptions](#DeleteTopicsAndSubscriptions)
 -   [Next Steps](#NextSteps)
 
-<h2 id="WhatAreTopicsAndSubscriptions">What are Service Bus topics and subscriptions?</h2>
-
-Service Bus topics and subscriptions support a **publish/subscribe
-messaging communication** model. When using topics and subscriptions,
-components of a distributed application do not communicate directly with
-each other, they instead exchange messages via a topic, which acts as an
-intermediary.
-
-![Service Bus Topics diagram][]
-
-In contrast to Service Bus queues, where each message is processed by a
-single consumer, topics and subscriptions provide a **one-to-many** form
-of communication, using a publish/subscribe pattern. It is possible to
-register multiple subscriptions to a topic. When a message is sent to a
-topic, it is then made available to each subscription to handle/process
-independently.
-
-A topic subscription resembles a virtual queue that receives copies of
-the messages that were sent to the topic. You can optionally register
-filter rules for a topic on a per-subscription basis, which allows you
-to filter/restrict which messages are received by a subscription.
-
-Service Bus topics and subscriptions enable you to scale to process a
-very large number of messages across a very large number of users and
-applications.
-
-<h2 id="CreateNamespace">Create a service namespace</h2>
-
-To begin using Service Bus queues in Windows Azure, you must first
-create a service namespace. A service namespace provides a scoping
-container for addressing Service Bus resources within your application.
-
-To create a service namespace:
-
-1.  Log on to the [Windows Azure Management Portal][].
-2.  In the lower left navigation pane of the Management Portal, click
-    **Service Bus, Access Control & Caching**.
-3.  In the upper left pane of the Management Portal, click the **Service
-    Bus** node, and then click the **New** button. 
- 
-    ![Service Bus Node screenshot][]
-
-4.  In the **Create a new Service Namespace** dialog, enter a
-    **Namespace**, and then to make sure that it is unique, click the
-    **Check Availability** button. 
- 
-    ![Create a New Namespace screenshot][]
-
-5.  After making sure the namespace name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same country/region in which you are deploying your
-    compute resources), and then click the **Create Namespace** button.
-    Having a compute instance is optional, and the service bus can be
-    consumed from any application with internet access.  
-      
-    The namespace you created will then appear in the Management Portal
-    and takes a moment to activate. Wait until the status is **Active**
-    before moving on.
+<div chunk="../../shared/chunks/howto-service-bus-topics.md" />
 
 <h2 id="CreateApplication">Create a PHP application</h2>
 
