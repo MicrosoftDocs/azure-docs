@@ -1,10 +1,10 @@
-<properties linkid="mobile-get-started-with-users-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with authentication in Mobile Services" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="mobile-get-started-with-users-js" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with authentication in Mobile Services" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
 <div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/" title=".NET client version" class="current">C# and XAML</a>
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-js/" title="JavaScript client version">JavaScript and HTML</a>
+  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/" title=".NET client version">C# and XAML</a>
+  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-js/" title="JavaScript client version" class="current">JavaScript and HTML</a>
   <span>Tutorial</span>
 </div>
 
@@ -110,40 +110,46 @@ Next, you will update the app to authenticate users with Live Connect before req
 
 <a name="add-authentication"></a><h2><span class="short-header">Add authentication</span>Add authentication to the app</h2>
 
-5. Open the project file mainpage.xaml.cs and add the following using statement:
+1. Open the default.html project file and add the following &lt;script&gt; element in the &lt;head&gt; element. 
 
-        using Windows.UI.Popups;
+        <script src="///LiveSDKHTML/js/wl.js"></script>
 
-6. Add the following code snippet to the MainPage class:
+   This enables Microsoft IntelliSense in the default.html file.
+
+5. Open the project file default.js and add the following comment to the top of the file. 
+
+        /// <reference path="///LiveSDKHTML/js/wl.js" />
+
+   This enables Microsoft IntelliSense in the default.js file.
+
+5. In the **app.OnActivated** method overload, replace the call to the **refreshTodoItems** method  with the following code: 
 	
-        private MobileServiceUser user;
-        private async System.Threading.Tasks.Task Authenticate()
-        {
-            while (user == null)
-            {
-
-                user = await App.MobileService
-                    .Login(
-                    MobileServiceAuthenticationProvider.Facebook);
-                if (user.UserId == null)
-                {
-
-                    var message = 
-                        string.Format("You are now logged in - {0}", user.UserId);
-                    var dialog = new MessageDialog(message);
-                    dialog.Commands.Add(new UICommand("OK"));
-                    await dialog.ShowAsync();
-                }
-                else
-                {
-                    user = null;
+        // Request authentication from Mobile Services using a Facebook login.
+        var login = function () {
+            return new WinJS.Promise(function (complete) {
+                client.login("facebook").done(function (results) {
+                    var mobileServiceUser = results[0];
+                    refreshTodoItems();
+                    var message = "You are now logged in as: " 
+                        + mobileServicesUser.userId;
                     var dialog = 
-                        new MessageDialog("You must log in.", "Login Required");
-                    dialog.Commands.Add(new UICommand("OK"));
-                    await dialog.ShowAsync();
+                        new Windows.UI.Popups.MessageDialog(message);
+                    dialog.showAsync().done(complete);
+                });
+            });
+        }            
+
+        var authenticate = function () {
+            login().then(function () {
+                if (user === null) {
+
+                    // Authentication failed, try again.
+                    authenticate();
                 }
-            }       
+            });
         }
+
+        authenticate();
 
     This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login.
 
@@ -151,14 +157,6 @@ Next, you will update the app to authenticate users with Live Connect before req
 	<p>If you are using an identity provider other than Facebook, change the value of MobileServiceAuthenticationProvider above to the value for your provider.</p>
     </div>
 
-8. Replace the existing **OnNavigatedTo** event handler with the handler that calls the new **Authenticate** method:
-
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-            await Authenticate();
-            RefreshTodoItems();
-        }
-		
 9. Press the F5 key to run the app and sign into the app with your chosen identity provider. 
 
    When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
@@ -190,18 +188,17 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [13]: ../Media/mobile-identity-tab.png
 [14]: ../Media/mobile-portal-data-tables.png
 [15]: ../Media/mobile-portal-change-table-perms.png
-[16]: ../Media/mobile-add-reference-live-dotnet.png
+[16]: ../Media/mobile-add-reference-live-js.png
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Single sign-on for Windows Store apps by using Live Connect]: ./mobile-services-single-sign-on-win8-dotnet.md
+[Single sign-on for Windows Store apps by using Live Connect]: ./mobile-services-single-sign-on-win8-js.md
 [Get started with Mobile Services]: ./mobile-services-get-started.md
-[Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
-[Authorize users with scripts]: ./mobile-services-authorize-users-dotnet.md
-[JavaScript and HTML]: ./mobile-services-get-started-with-users-js.md
+[Get started with data]: ./mobile-services-get-started-with-data-js.md
+[Get started with authentication]: ./mobile-services-get-started-with-users-js.md
+[Get started with push notifications]: ./mobile-services-get-started-with-push-js.md
+[Authorize users with scripts]: ./mobile-services-authorize-users-js.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/

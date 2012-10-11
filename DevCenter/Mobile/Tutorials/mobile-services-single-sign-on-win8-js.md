@@ -120,13 +120,13 @@ Next, you will update the app to authenticate users with Live Connect before req
    This enables Microsoft IntelliSense in the default.html file.
 
 
-5. Open the project file default.js and add the following comment to the top of the file. 
+4. Open the project file default.js and add the following comment to the top of the file. 
 
         /// <reference path="///LiveSDKHTML/js/wl.js" />
 
    This enables Microsoft IntelliSense in the default.js file.
 
-6. In the **app.OnActivated** method overload, replace the call to the **refreshTodoItems** method  with the following code: 
+5. In the **app.OnActivated** method overload, replace the call to the **refreshTodoItems** method  with the following code: 
 	
         var session = null;   
 
