@@ -22,81 +22,7 @@ messages to a topic**, **receiving messages from a subscription**, and
 -   [How to: Delete Topics and Subscriptions][]
 -   [Next Steps][]
 
-## <a name="bkmk_WhatAreSvcBusTopics"> </a>What are Service Bus Topics and Subscriptions?
-
-Service Bus topics and subscriptions support a **publish/subscribe
-messaging communication** model. When using topics and subscriptions,
-components of a distributed application do not communicate directly with
-each other, they instead exchange messages via a topic, which acts as an
-intermediary.  
-![Service Bus Topics diagram][]
-
-In contrast to Service Bus queues, where each message is processed by a
-single consumer, topics and subscriptions provide a **one-to-many** form
-of communication, using a publish/subscribe pattern. It is possible to
-register multiple subscriptions to a topic. When a message is sent to a
-topic, it is then made available to each subscription to handle/process
-independently.
-
-A topic subscription resembles a virtual queue that receives copies of
-the messages that were sent to the topic. You can optionally register
-filter rules for a topic on a per-subscription basis, which allows you
-to filter/restrict which messages to a topic are received by which topic
-subscriptions.
-
-Service Bus topics and subscriptions enable you to scale to process a
-very large number of messages across a very large number of users and
-applications.
-
-## <a name="bkmk_CreateSvcNamespace"> </a>Create a Service Namespace
-
-To begin using Service Bus topics in Windows Azure, you must first
-create a service namespace. A service namespace provides a scoping
-container for addressing Service Bus resources within your application.
-
-**To create a service namespace:**
-
-1.  Log on to the [Windows Azure Management Portal][].
-2.  In the lower left navigation pane of the Management Portal, click
-    **Service Bus, Access Control & Caching**.
-3.  In the upper left pane of the Management Portal, click the **Service
-    Bus** node, and then click the **New** button.   
-    ![Service Bus Node screenshot][]
-4.  In the **Create a new Service Namespace** dialog, enter a
-    **Namespace**, and then to make sure that it is unique, click the
-    **Check Availability** button.   
-    ![Create a New Namespace ][]
-5.  After making sure the namespace name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same country/region in which you are deploying your
-    compute resources), and then click the **Create Namespace** button.
-    Having a compute instance is optional, and the service bus can be
-    consumed from any application with internet access.  
-      
-     The namespace you created will then appear in the Management Portal
-    and takes a moment to activate. Wait until the status is **Active**
-    before moving on.
-
-## <a name="bkmk_ObtainDefaultMngmntCredentials"> </a>Obtain the Default Management Credentials for the Namespace
-
-In order to perform management operations, such as creating a topic, on
-the new namespace, you need to obtain the management credentials for the
-namespace.
-
-1.  In the left navigation pane, click the **Service Bus** node, to
-    display the list of available namespaces:   
-    ![Available Namespaces ][Service Bus Node screenshot]
-2.  Select the namespace you just created from the list shown:  
-    ![Namespace List screenshot][]
-3.  The right-hand **Properties** pane will list the properties for the
-    new namespace:   
-    ![Properties Pane screenshot][]
-4.  The **Default Key** is hidden. Click the **View** button to display
-    the security credentials:   
-    ![Default Key screenshot][]
-5.  Make a note of the **Default Issuer** and the **Default Key** as you
-    will use this information below to perform operations with the
-    namespace.
+<div chunk="../../shared/chunks/howto-service-bus-topics.md" />
 
 ## <a name="bkmk_ConfigYourApp"> </a>Configure Your Application to Use Service Bus
 
@@ -409,9 +335,9 @@ Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Queues, Topics, and Subscriptions][] for more information.
 
   [Windows Azure SDK for Java]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=vs.103).aspx
-  [What are Service Bus Topics and Subscriptions?]: #bkmk_WhatAreSvcBusTopics
-  [Create a Service Namespace]: #bkmk_CreateSvcNamespace
-  [Obtain the Default Management Credentials for the Namespace]: #bkmk_ObtainDefaultMngmntCredentials
+  [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
+  [Create a Service Namespace]: #create-a-service-namespace
+  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
   [Configure Your Application to Use Service Bus]: #bkmk_ConfigYourApp
   [How to: Create a Topic]: #bkmk_HowToCreateTopic
   [How to: Create Subscriptions]: #bkmk_HowToCreateSubscrip
