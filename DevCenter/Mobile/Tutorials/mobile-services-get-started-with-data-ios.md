@@ -269,4 +269,4 @@ Next, try one of these other iOS tutorials:
 [Management Portal]: https://manage.windowsazure.com/
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Developer Code Samples site]:  http://go.microsoft.com/fwlink/?LinkId=262308
+[Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=268622

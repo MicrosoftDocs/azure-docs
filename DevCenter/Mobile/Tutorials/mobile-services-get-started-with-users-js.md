@@ -20,15 +20,8 @@ This tutorial walks you through these basic steps to enable authentication in yo
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
 
-Mobile Services currently supports the following identity providers for authentication:
-
-- Microsoft Live Connect
-- Facebook
-- Twitter
-- Google
-
 <div class="dev-callout"><b>Note</b>
-	<p>This tutorial demonstrates the basic method provided by Mobile Services to authenticate users by using a variety of identity providers. This method is easy to configure and supports multiple providers. However, this method also requires users to log-in every time your app starts. To instead use Live Connect to provide a single sign-on experience in your Windows Store app, see the topic <a href="/en-us/develop/mobile/tutorials/get-started">Single sign-on for Windows Store apps by using Live Connect</a>.</p>
+	<p>This tutorial demonstrates the basic method provided by Mobile Services to authenticate users by using a variety of identity providers. This method is easy to configure and supports multiple providers. However, this method also requires users to log-in every time your app starts. To instead use Live Connect to provide a single sign-on experience in your Windows Store app, see the topic <a href="/en-us/develop/mobile/tutorials/single-sign-on-win8-js">Single sign-on for Windows Store apps by using Live Connect</a>.</p>
 </div>
 
 <a name="register"></a><h2><span class="short-header">Register your app</span>Register your app for authentication and configure Mobile Services</h2>
@@ -45,44 +38,12 @@ To be able to authenticate users, you must register your app with an identity pr
 
     You may need to provide this value to the identity provider when you register your app.
 
-3. Expand your chosen identity provider and follow the steps to register your app with the provider.
+3. Choose a supported identity provider from the list below and follow the steps to register your app with that provider:
 
-    <div class="dev-callout-new-collapsed">
-    <strong>Microsoft Live Connect<span>Click to expand</span></strong>
-      <div class="dev-callout-content">
-      <p>Use the following procedure to register your app for authentication by using a Microsoft Account.</p>
-      <!-- start copied HTML source -->
-      <!-- end copied HTML source -->
-      </div>
-    </div>  
-
-    <div class="dev-callout-new-collapsed">
-      <strong>Facebook<span>Click to expand</span></strong>
-      <div class="dev-callout-content">
-      <p>Use the following procedure to register your app for authentication by using a Facebook login.</p>
-      <!-- start copied HTML source -->
-      <!-- end copied HTML source -->
-      </div>
-    </div> 
-
-    <div class="dev-callout-new-collapsed">
-       <strong>Twitter<span>Click to expand</span></strong>
-       <div class="dev-callout-content">
-      <p>Use the following procedure to register your app for authentication by using a Twitter login.</p>
-      <!-- start copied HTML source -->
-
-      <!-- end copied HTML source -->
-      </div>
-    </div> 
-
-    <div class="dev-callout-new-collapsed">
-       <strong>Google<span>Click to expand</span></strong>
-       <div class="dev-callout-content">
-      <p>Use the following procedure to register your app for authentication by using a Google login.</p>
-      <!-- start copied HTML source -->
-      <!-- end copied HTML source -->
-      </div>
-    </div>
+ - <a href="/en-us/develop/mobile/howto/register-ms-account-auth" target="_blank">Microsoft Account</a>
+ - <a href="/en-us/develop/mobile/howto/register-facebook-auth" target="_blank">Facebook login</a>
+ - <a href="/en-us/develop/mobile/howto/register-twitter-auth" target="_blank">Twitter login</a>
+ - <a href="/en-us/develop/mobile/howto/register-google-auth" target="_blank">Google login</a>
 
 4. Back in the Management Portal, click the **Identity** tab, enter the app identifier and shared secret values obtained from your identity provider, and click **Save**.
 
@@ -124,16 +85,21 @@ Next, you will update the app to authenticate users with Live Connect before req
 
 5. In the **app.OnActivated** method overload, replace the call to the **refreshTodoItems** method  with the following code: 
 	
+        var userId = null;
+
         // Request authentication from Mobile Services using a Facebook login.
         var login = function () {
             return new WinJS.Promise(function (complete) {
-                client.login("facebook").done(function (results) {
-                    var mobileServiceUser = results[0];
+                client.login("facebook").done(function (results) {;
+                    userId = results.userId;
                     refreshTodoItems();
-                    var message = "You are now logged in as: " 
-                        + mobileServicesUser.userId;
-                    var dialog = 
-                        new Windows.UI.Popups.MessageDialog(message);
+                    var message = "You are now logged in as: " + userId;
+                    var dialog = new Windows.UI.Popups.MessageDialog(message);
+                    dialog.showAsync().done(complete);
+                }, function (error) {
+                    userId = null;
+                    var dialog = new Windows.UI.Popups
+                        .MessageDialog("An error occurred during login", "Login Required");
                     dialog.showAsync().done(complete);
                 });
             });
@@ -191,6 +157,10 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [16]: ../Media/mobile-add-reference-live-js.png
 
 <!-- URLs. -->
+[Microsoft Account login]: ../HowTo/mobile-services-register-ms-account-auth.md
+[Facebook login]: ../HowTo/mobile-services-register-facebook-auth.md
+[Twitter login]: ../HowTo/mobile-services-register-twitter-auth.md
+[Google login]: ../HowTo/mobile-services-register-google-auth.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
