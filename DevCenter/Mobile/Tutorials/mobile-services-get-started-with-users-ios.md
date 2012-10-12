@@ -1,10 +1,10 @@
-<properties linkid="mobile-get-started-with-users-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with authentication in Mobile Services" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="get-started-with-users-ios" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with authentication in Mobile Services" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started with authentication in Mobile Services with your iOS apps" umbraconavihide="0" disquscomments="1"></properties>
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
 <div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/" title=".NET client version" class="current">C# and XAML</a>
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-js/" title="JavaScript client version">JavaScript and HTML</a>
+  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/" title="Windows Store version">Windows Store app</a>
+  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios/" title="iOS version" class="current">iOS app</a>
   <span>Tutorial</span>
 </div>
 
@@ -61,9 +61,9 @@ Both your mobile service and your app are now configured to work with your chose
 
    ![][15]
 
-3. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
+3. In Xcode, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
 
-4. Press the F5 key to run this quickstart-based app; verify that an exception with a status code of 401 (Unauthorized) is raised. 
+4. Press the **Run** button to build the project and start the app in the iPhone emulator; verify that an exception with a status code of 401 (Unauthorized) is raised. 
    
    This happens because the app is accessing Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
@@ -120,7 +120,7 @@ Next, you will update the app to authenticate users with Live Connect before req
             RefreshTodoItems();
         }
 		
-9. Press the F5 key to run the app and sign into the app with your chosen identity provider. 
+9. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
 
    When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
@@ -158,11 +158,10 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Single sign-on for Windows Store apps by using Live Connect]: ./mobile-services-single-sign-on-win8-dotnet.md
-[Get started with Mobile Services]: ./mobile-services-get-started.md
-[Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
-[Authorize users with scripts]: ./mobile-services-authorize-users-dotnet.md
-[JavaScript and HTML]: ./mobile-services-get-started-with-users-js.md
+[Get started with Mobile Services]: ./mobile-services-get-started-ios.md
+[Get started with data]: ./mobile-services-get-started-with-data-ios.md
+[Get started with authentication]: ./mobile-services-get-started-with-users-ios.md
+[Get started with push notifications]: ./mobile-services-get-started-with-push-ios.md
+[Authorize users with scripts]: ./mobile-services-authorize-users-ios.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/

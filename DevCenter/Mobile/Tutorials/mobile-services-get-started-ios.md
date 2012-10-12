@@ -1,20 +1,20 @@
-<properties linkid="mobile-services-get-started" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with Mobile Services in Windows Azure" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="mobile-services-get-started" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with Mobile Services in Windows Azure" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, iOS, iPad app, iPhone app, " footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your iOS apps." umbraconavihide="0" disquscomments="1"></properties>
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14812" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umbversionid="254ca664-c4f3-4815-8073-c86d43f4aa16" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
 <div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/get-started/" title="Windows Store version" class="current">Windows Store app</a>
-  <a href="/en-us/develop/mobile/tutorials/get-started-ios/" title="iOS version">iOS app</a>
+  <a href="/en-us/develop/mobile/tutorials/get-started/" title="Windows Store version">Windows Store app</a>
+  <a href="/en-us/develop/mobile/tutorials/get-started-ios/" title="iOS version" class="current">iOS app</a>
   <span>Tutorial</span>
 </div>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
-This tutorial shows you how to add a cloud-based backend service to a Windows Store app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. 
+This tutorial shows you how to add a cloud-based backend service to an iOS app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. 
 
 A screenshot from the completed app is below:
 
 ![][0]
 
-Completing this guide is a prerequisite for all other Mobile Services tutorials for Windows Store apps. 
+Completing this guide is a prerequisite for all other Mobile Services tutorials for iOS apps. 
 
 <div chunk="../../Shared/Chunks/create-account-and-mobile-note.md" />
 
@@ -57,50 +57,49 @@ Follow these steps to create a new mobile service.
 
 You have now created a new mobile service that can be used by your mobile apps.
 
-## <h2><span class="short-header">Create a new app</span>Create a new Windows Store app</h2>
+## <h2><span class="short-header">Create a new app</span>Create a new iOS app</h2>
 
 Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
 
-In this section you will create a new Windows Store app that is connected to your mobile service.
+In this section you will create a new iOS app that is connected to your mobile service.
 
 1.  In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
 
-   
-2. In the quickstart tab, click **Windows** under **Choose platform** and expand **Create a new Windows Store app**.
+2. In the quickstart tab, click **iOS** under **Choose platform** and expand **Create a new iOS app**.
 
    ![][6]
 
-   This displays the three easy steps to create a Windows Store app connected to your mobile service.
+   This displays the three easy steps to create an iOS app connected to your mobile service.
 
   ![][7]
 
-3. If you haven't already done so, download and install [Visual Studio 2012 Express for Windows 8] and the [Mobile Services SDK] on your local computer or virtual machine.
+3. If you haven't already done so, download and install [Xcode] and the [Mobile Services iOS SDK] on your local computer or virtual machine.
 
 4. Click **Create TodoItems table** to create a table to store app data.
 
-5. Under **Download and run application**, select a language for your app, then click **Download**. 
+5. Under **Download and run app**, click **Download**. 
 
   This downloads the project for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 
-## Run your Windows app
+## Run your iOS app
 
 The final stage of this tutorial is to build and run your new app.
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio 2012 Express for Windows 8.
+1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the project file using Xcode.
 
    ![][8]
 
-2. Press the **F5** key to rebuild the project and start the app.
+2. Press the **Run** button to build the project and start the app in the iPhone emulator, which is the default for this project.
 
-3. In the app, type meaningful text, such as _Complete the tutorial_, in **Insert a TodoItem**, and then click **Save**.
+3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (**+**) icon.
 
    ![][10]
 
-   This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
+   This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
-   	<p>You can review the code that accesses your mobile service to query and insert data, which is found in either the MainPage.xaml.cs file (C#/XAML project) or the default.js (JavaScript/HTML project) file.</p> 
+   	<p>You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.m file.</p> 
  	</div>
 
 4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
@@ -130,27 +129,26 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-[0]: ../Media/mobile-quickstart-completed.png
+[0]: ../Media/mobile-quickstart-completed-ios.png
 [1]: ../../Shared/Media/plus-new.png
 [2]: ../Media/mobile-create.png
 [3]: ../Media/mobile-create-page1.png
 [4]: ../Media/mobile-create-page2.png
 [5]: ../Media/mobile-services-selection.png
-[6]: ../Media/mobile-portal-quickstart.png
-[7]: ../Media/mobile-quickstart-steps.png
-[8]: ../Media/mobile-vs-project.png
+[6]: ../Media/mobile-portal-quickstart-ios.png
+[7]: ../Media/mobile-quickstart-steps-ios.png
+[8]: ../Media/mobile-xcode-project.png
 [9]: ../Media/mobile-quickstart-download-app.png
-[10]: ../Media/mobile-quickstart-startup.png
+[10]: ../Media/mobile-quickstart-startup-ios.png
 [11]: ../Media/mobile-data-tab.png
 [12]: ../Media/mobile-data-browse.png
 [13]: ../Media/mobile-services-diagram.png
 
 <!-- URLs. -->
-[Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
-[Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
-[Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[JavaScript and HTML]: mobile-services-win8-javascript/
+[Get started with data]: ./mobile-services-get-started-with-data-ios.md
+[Get started with authentication]: ./mobile-services-get-started-with-users-ios.md
+[Get started with push notifications]: ./mobile-services-get-started-with-push-ios.md
+[Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
