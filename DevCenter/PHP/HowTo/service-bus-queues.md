@@ -21,7 +21,7 @@ messages**, and **deleting queues**.
 -   [How to: Handle application crashes and unreadable messages](#HandleCrashes)
 -   [Next steps](#NextSteps)
 
-<div chunk="../../shared/chunks/howto-service-bus-queues.md" />
+<div chunk="../../Shared/Chunks/howto-service-bus-queues.md" />
 
 <h2 id="CreateApplication">Create a PHP application</h2>
 
@@ -62,7 +62,7 @@ In the examples below, the `require_once` statement will be shown always, but on
 
 To instantiate a Windows Azure Service Bus client you must first have a valid connection string following this format:
 
-	Endpoint=[yourEndpoint];SharedSecretIssuer=[yourWrapAuthenticationName];SharedSecretValue=[yourWrapPassword]
+	Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]
 
 Where the Endpoint is typically of the format `https://[yourNamespace].servicebus.windows.net`.
 
@@ -78,6 +78,8 @@ For the examples outlined here, the connection string will be passed directly.
 	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
+
+	$connectionString = "Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]";
 
 	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
@@ -186,7 +188,7 @@ The example below demonstrates how a message can be received and processed using
 	try	{
 		// Set the receive mode to PeekLock (default is ReceiveAndDelete).
 		$options = new ReceiveMessageOptions();
-		$options->setPeekLock(true);
+		$options->setPeekLock();
 		
 		// Receive message.
 		$message = $serviceBusRestProxy->receiveQueueMessage("myqueue", $options);
@@ -197,7 +199,7 @@ The example below demonstrates how a message can be received and processed using
 			Process message here.
 		----------------------------*/
 		
-		// Delete message.
+		// Delete message. Not necessary if peek lock is not set.
 		echo "Message deleted.<br />";
 		$serviceBusRestProxy->deleteMessage($message);
 	}

@@ -38,28 +38,6 @@ In this guide, you will use service features which can be called within a PHP ap
 
 <div chunk="../../Shared/Chunks/get-client-libraries.md" />
 
-<h2 id="GetDefaultCredentials">Obtain the default management credentials for the namespace</h2>
-
-In order to perform management operations on the new namespace (such as creating a topic or subscription), you need to obtain the management credentials for the namespace.
-
-1.  In the left navigation pane, click the **Service Bus** node, to display the list of available namespaces:  
- 
-    ![Available Namespaces screenshot][]
-
-2.  Select the namespace you just created from the list shown:
-   
-    ![Namespace List screenshot][]
-
-3.  The right-hand **Properties** pane will list the properties for the new namespace: 
-  
-    ![Properties Pane screenshot][]
-
-4.  The **Default Key** is hidden. Click the **View** button to display the security credentials: 
-  
-    ![Default Key screenshot][]
-
-5.  Make a note of the **Default Issuer** and the **Default Key** as you will use this information below to perform operations with the namespace.
-
 <h2 id="ConfigureApp">Configure your application to use Service Bus</h2>
 
 To use the Windows Azure Service Bus topic APIs, you need to:
@@ -84,7 +62,7 @@ In the examples below, the `require_once` statement will be shown always, but on
 
 To instantiate a Windows Azure Service Bus client you must first have a valid connection string following this format:
 
-	Endpoint=[yourEndpoint];SharedSecretIssuer=[yourWrapAuthenticationName];SharedSecretValue=[yourWrapPassword]
+	Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]
 
 Where the Endpoint is typically of the format `https://[yourNamespace].servicebus.windows.net`.
 
@@ -100,6 +78,8 @@ For the examples outlined here, the connection string will be passed directly.
 	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
+	
+	$connectionString = "Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]";
 
 	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
@@ -275,7 +255,7 @@ The example below demonstrates how a message can be received and processed using
 	try	{
 		// Set receive mode to PeekLock (default is ReceiveAndDelete)
 		$options = new ReceiveMessageOptions();
-		$options->setPeekLock(true);
+		$options->setPeekLock();
 	
 		// Get message.
 		$message = $serviceBusRestProxy->receiveSubscriptionMessage("mytopic", 
@@ -288,7 +268,7 @@ The example below demonstrates how a message can be received and processed using
 			Process message here.
 		----------------------------*/
 		
-		// Delete message.
+		// Delete message. Not necessary if peek lock is not set.
 		echo "Deleting message...<br />";
 		$serviceBusRestProxy->deleteMessage($message);
 	}
