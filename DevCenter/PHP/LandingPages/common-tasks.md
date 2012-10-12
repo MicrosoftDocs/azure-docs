@@ -6,6 +6,9 @@ The Windows Azure SDK for PHP includes everything you need to build PHP applicat
 ### [Publishing with Git][]
 Git is a popular, open source, distributed version control system. Windows Azure Web Sites allow you to enable a Git repository for your site, which allows you to quickly and easily push code changes to your site. This common task provides details about how to get started using Git with Windows Azure
 
+### [Configuring PHP in Web Sites]
+Windows Azure Web Sites has PHP enabled by default. This article shows you how to change the configuration of the default PHP runtime, provide a custom PHP runtime, and enable extensions.
+
 ### [Managing Windows Azure SQL Database using SQL Server Management Studio][]
 You can use SQL Server Management Studio to manage SQL Database logical servers and databases. This article includes details about creating and managing databases, creating and managing logins, and monitoring using Dynamic Management Views.
 
@@ -27,6 +30,7 @@ The Windows Azure Content Delivery Network (CDN) offers a global solution for de
 
 [Downloading the Windows Azure SDK for PHP]: /en-us/develop/php/common-tasks/download-php-sdk/
 [Publishing with Git]: /en-us/develop/php/common-tasks/publishing-with-git/
+[Configuring PHP in Web Sites]: /en-us/develop/php/common-tasks/configure-php-web-site/
 [Managing Windows Azure SQL Database using SQL Server Management Studio]: /en-us/develop/php/common-tasks/sql-azure-management/
 [Configuring a Custom Domain Name for a Windows Azure Web Site]: /en-us/develop/net/common-tasks/custom-dns-web-site/
 [Configuring a Custom Domain Name for a Windows Azure Cloud Service or Storage Account]: /en-us/develop/net/common-task/enable-custom-dns/
