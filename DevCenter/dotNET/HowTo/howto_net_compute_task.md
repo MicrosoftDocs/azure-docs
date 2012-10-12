@@ -328,7 +328,9 @@ namespace.
 1. On your development machine, create a .NET console application using **TSPClient** as the project name. Ensure the traget framework is set for .**NET Framework 4** (not **.NET Framework 4 Client Profile**). The target framework can be set after you create a project by the following: In Visual Studio's menu, click **Projects**, click **Properties**, click the **Application** tab, and then set the value for **Target framework**.
 2. Add in the Microsoft ServiceBus library. In Visual Studio Solution Explorer, right-click **TSPSolver**, click **Add Reference**, click the **Browse** tab, browse to **C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\2012-06\ref** and select **Microsoft.ServiceBus.dll** as a reference.
 3. Add in the System Runtime Serialization library. In Visual Studio Solution Explorer, right-click **TSPClient**, click **Add Reference**, click the **.NET** tab, and select **System.Runtime.Serialization** as a reference.
-4. Use the following code as the contents of **Program.cs**.
+4. Use the example code at the end of this section for the contents of **Program.cs**.
+5. Modify the **your\_service\_bus\_namespace**, **your\_service\_bus\_owner**, and **your\_service\_bus\_key** placeholders to use your service bus **namespace**, **Default Issuer** and **Default Key** values, respectively.
+5. Compile the application. This will create **TSPClient.exe** in your project's **bin** folder (either **bin\release** or **bin\debug**, depending on whether you're targeting a release or debug build). You can run this code from your development machine, or copy this executable and Microsoft.ServiceBus.dll to a machine that will run the client application (it does not need to be on your virtual machine).
 
 <p/>
 
@@ -441,8 +443,6 @@ namespace.
 	    }
 	}
 
-Compile the code to produce **TSPClient.exe**.
- 
 <h2>How to run the .NET applications</h2>
 Run the compute-intensive application, first to create the queue, then to solve the Traveling Saleseman Problem, which will add the current best route to the service bus queue. While the compute-intensive application is running (or afterwards), run the client to display results from the service bus queue.
 
