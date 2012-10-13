@@ -10,7 +10,7 @@
 
 # Get started with authentication in Mobile Services for iOS
 
-_The iOS client library for Mobile Services is currently under development on [GitHub]. We welcome feedback and contributions on this library._
+_The iOS client library for Mobile Services is currently under development on [GitHub]. We welcome feedback on and contributions to this library._
 
 This topic shows you how to authenticate users in Windows Azure Mobile Services from your app.  In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.  
 

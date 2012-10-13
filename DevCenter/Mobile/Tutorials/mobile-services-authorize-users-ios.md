@@ -8,7 +8,9 @@
   <span>Tutorial</span>
 </div>
 
-# Use scripts to authorize users in Mobile Services 
+# Use scripts to authorize users in Mobile Services for iOS
+
+_The iOS client library for Mobile Services is currently under development on [GitHub]. We welcome feedback on and contributions to this library._
 
 This topic shows you how to use server scripts to authorize authenticated users for accessing data in Windows Azure Mobile Services from an iOS app.  In this tutorial you register scripts with Mobile Services to filter queries based on the userId of an authenticated user, ensuring that each user can see only their own data.
 
@@ -94,6 +96,7 @@ This concludes the tutorials that demonstrate the basics of working with authent
 [3]: ../Media/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
+[GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=268784
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/p/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
