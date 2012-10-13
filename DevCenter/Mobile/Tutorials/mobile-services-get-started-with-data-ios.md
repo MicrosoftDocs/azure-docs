@@ -10,6 +10,8 @@
 
 # Get started with data in Mobile Services for iOS
 
+_The iOS client library for Mobile Services is currently under development on [GitHub][GitHub repo]. We welcome feedback on and contributions to this library._
+
 This topic shows you how to use Windows Azure Mobile Services to leverage data in an iOS app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Windows Azure Management Portal to view changes to data made when running the app.
 
 <div class="dev-callout"><b>Note</b>
@@ -283,3 +285,4 @@ Next, try the iOS tutorial [Get started with authentication] to learn how to aut
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkId=268622
+[GitHub repo]: http://go.microsoft.com/fwlink/p/?LinkId=268784

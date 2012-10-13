@@ -13,7 +13,7 @@
   <span>Tutorial</span>
 </div>
 
-# Get started with data in Mobile Services
+# Get started with data in Mobile Services for Windows Store
 
 This topic shows you how to use Windows Azure Mobile Services to leverage data in a Windows Store app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Windows Azure Management Portal to view changes to data made when running the app.
 
