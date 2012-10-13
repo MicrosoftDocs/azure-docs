@@ -8,7 +8,9 @@
   <span>Tutorial</span>
 </div>
 
-# Get started with authentication in Mobile Services
+# Get started with authentication in Mobile Services for iOS
+
+_The iOS client library for Mobile Services is currently under development on [GitHub]. We welcome feedback and contributions on this library._
 
 This topic shows you how to authenticate users in Windows Azure Mobile Services from your app.  In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.  
 
@@ -154,6 +156,7 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [16]: ../Media/mobile-add-reference-live-dotnet.png
 
 <!-- URLs. -->
+[GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=268784
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
