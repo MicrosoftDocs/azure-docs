@@ -22,9 +22,9 @@ This tutorial walks you through these basic steps to enable authentication in yo
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
 
-<div class="dev-callout"><b>Note</b>
+<!--<div class="dev-callout"><b>Note</b>
 	<p>This tutorial demonstrates the basic method provided by Mobile Services to authenticate users by using a variety of identity providers. This method is easy to configure and supports multiple providers. However, this method also requires users to log-in every time your app starts. To instead use Live Connect to provide a single sign-on experience in your Windows Store app, see the topic <a href="/en-us/develop/mobile/tutorials/single-sign-on-win8-dotnet">Single sign-on for Windows Store apps by using Live Connect</a>.</p>
-</div>
+</div>-->
 
 <a name="register"></a><h2><span class="short-header">Register your app</span>Register your app for authentication and configure Mobile Services</h2>
 
@@ -65,62 +65,71 @@ Both your mobile service and your app are now configured to work with your chose
 
 3. In Xcode, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
 
-4. Press the **Run** button to build the project and start the app in the iPhone emulator; verify that an exception with a status code of 401 (Unauthorized) is raised. 
+4. Press the **Run** button to build the project and start the app in the iPhone emulator; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. 
    
-   This happens because the app is accessing Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
+   This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
-Next, you will update the app to authenticate users with Live Connect before requesting resources from the mobile service.
+Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
 <a name="add-authentication"></a><h2><span class="short-header">Add authentication</span>Add authentication to the app</h2>
 
-5. Open the project file mainpage.xaml.cs and add the following using statement:
+5. Open the project file TodoListController.m and in the **@interface TodoListController** declaration block, add the following code: 
 
-        using Windows.UI.Popups;
+        @property (strong, nonatomic) TodoService *todoService;
 
-6. Add the following code snippet to the MainPage class:
+6. In the **@interface TodoListController** declaration block, add the following code:
 	
-        private MobileServiceUser user;
-        private async System.Threading.Tasks.Task Authenticate()
+        @synthesize todoService;
+
+7. In the **viewDidLoad** method, remove the following code that reloads the data into the table:
+
+        [todoService refreshDataOnSuccess:^{
+            [self.tableView reloadData];
+        }];
+
+7.	Just after the **viewDidLoad** method, add the following code:
+
+        - (void)viewDidAppear:(BOOL)animated
         {
-            while (user == null)
+            // If user is already logged in, no need to ask for auth
+            if (todoService.client.currentUser == nil)
             {
+                // We want the login view to be presented after the this run loop has completed
+                // Here we use a delay to ensure this.
+                [self performSelector:@selector(login) withObject:self afterDelay:0.1];
+            }
+        }
 
-                user = await App.MobileService
-                    .Login(
-                    MobileServiceAuthenticationProvider.Facebook);
-                if (user.UserId == null)
-                {
-
-                    var message = 
-                        string.Format("You are now logged in - {0}", user.UserId);
-                    var dialog = new MessageDialog(message);
-                    dialog.Commands.Add(new UICommand("OK"));
-                    await dialog.ShowAsync();
+        - (void) login
+        {
+            UINavigationController *controller =
+    
+            [self.todoService.client
+                loginViewControllerWithProvider:@"facebook"
+                completion:^(MSUser *user, NSError *error) {
+         
+                if (error) {
+                        NSLog(@"Authentication Error: %@", error);
+                        // Note that error.code == -1302 indicates
+                        // that the user canceled the dialog
+                } else {
+                    // No error, so load the data
+                    [self.todoService refreshDataOnSuccess:^{
+                        [self.tableView reloadData];
+                    }];
                 }
-                else
-                {
-                    user = null;
-                    var dialog = 
-                        new MessageDialog("You must log in.", "Login Required");
-                    dialog.Commands.Add(new UICommand("OK"));
-                    await dialog.ShowAsync();
-                }
-            }       
+         
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }];
+    
+            [self presentViewController:controller animated:YES completion:nil];
         }
 
     This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login.
 
     <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than Facebook, change the value of MobileServiceAuthenticationProvider above to the value for your provider.</p>
+	<p>If you are using an identity provider other than Facebook, change the value passed to <strong>loginViewControllerWithProvider</strong> above to one of the following: <i>microsoftaccount</i>, <i>facebook</i>, <i>twitter</i>, or <i>google</i>.</p>
     </div>
-
-8. Replace the existing **OnNavigatedTo** event handler with the handler that calls the new **Authenticate** method:
-
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-            await Authenticate();
-            RefreshTodoItems();
-        }
 		
 9. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
 

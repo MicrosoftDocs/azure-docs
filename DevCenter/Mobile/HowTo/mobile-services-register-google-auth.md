@@ -10,7 +10,7 @@ This topic shows you how to register your apps to be able to use Google to authe
 <p>To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</p>
 </div> 
 
-1. Navigate to the [Google apis] web site, sign-in with your Google account credentials, and then click **Create project...**.
+1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> web site, sign-in with your Google account credentials, and then click **Create project...**.
 
    ![][1]   
 
@@ -22,7 +22,7 @@ This topic shows you how to register your apps to be able to use Google to authe
 
    ![][3]
 
-4. Under **Client ID Settings**, select **Web application**, type your mobile service URL in **Your site or hostname**, click **more options**, add your mobile service URL to the list of **Authorized Redirect URIs**, and then click **Create client ID**.
+4. Under **Client ID Settings**, select **Web application**, type your mobile service URL in **Your site or hostname**, click **more options**, replace the generated URL in **Authorized Redirect URIs** with the URL of your mobile service appended with the path _/login/google_, and then click **Create client ID**.
 
    ![][4]
 

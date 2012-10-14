@@ -63,11 +63,11 @@ Both your mobile service and your app are now configured to work with your chose
 
 3. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
 
-4. Press the F5 key to run this quickstart-based app; verify that an exception with a status code of 401 (Unauthorized) is raised. 
+4. Press the F5 key to run this quickstart-based app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. 
    
-   This happens because the app is accessing Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
+   This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
-Next, you will update the app to authenticate users with Live Connect before requesting resources from the mobile service.
+Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
 <a name="add-authentication"></a><h2><span class="short-header">Add authentication</span>Add authentication to the app</h2>
 
@@ -120,7 +120,7 @@ Next, you will update the app to authenticate users with Live Connect before req
     This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login.
 
     <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than Facebook, change the value of MobileServiceAuthenticationProvider above to the value for your provider.</p>
+	<p>If you are using an identity provider other than Facebook, change the value passed to the <strong>login</strong> method above to one of the following: <i>microsoftaccount</i>, <i>facebook</i>, <i>twitter</i>, or <i>google</i>.</p>
     </div>
 
 9. Press the F5 key to run the app and sign into the app with your chosen identity provider. 
