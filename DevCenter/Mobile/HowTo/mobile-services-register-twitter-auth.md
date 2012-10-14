@@ -18,6 +18,10 @@ This topic shows you how to register your apps to be able to use Twitter to auth
 
    ![][2]
 
+    <div class="dev-callout"><b>Note</b>
+    <p>The **Website** value is required but is not used.</p>
+    </div> 
+
 3.  At the bottom the page, read and accept the terms, type the correct CAPTCHA words, and then click **Create your Twitter application**. 
 
    ![][3]

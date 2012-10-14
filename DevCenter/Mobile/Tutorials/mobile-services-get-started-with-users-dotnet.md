@@ -84,9 +84,9 @@ Next, you will update the app to authenticate users before requesting resources 
             {
 
                 user = await App.MobileService
-                    .Login(
+                    .LoginAsync(
                     MobileServiceAuthenticationProvider.Facebook);
-                if (user.UserId == null)
+                if (user.UserId != null)
                 {
 
                     var message = 
@@ -109,7 +109,7 @@ Next, you will update the app to authenticate users before requesting resources 
     This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login.
 
     <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than Facebook, change the value of <strong>MobileServiceAuthenticationProvider</strong> above to the value for your provider.</p>
+	<p>If you are using an identity provider other than Facebook, change the value of MobileServiceAuthenticationProvider above to the value for your provider.</p>
     </div>
 
 8. Replace the existing **OnNavigatedTo** event handler with the handler that calls the new **Authenticate** method:
