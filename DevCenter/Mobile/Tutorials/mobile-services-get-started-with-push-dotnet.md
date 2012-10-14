@@ -2,13 +2,14 @@
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14799" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
-<div class="dev-center-os-selector">
+<!--<div class="dev-center-os-selector">
   <a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" title=".NET client version" class="current">C# and XAML</a>
   <a href="/en-us/develop/mobile/tutorials/get-started-with-push-js/" title="JavaScript client version">JavaScript and HTML</a>
   <span>Tutorial</span>
-</div>
+</div>-->
 
-# Get started with push notifications in Mobile Services
+# Get started with push notifications in Mobile Services for Windows Store
+<h3><strong>Windows Store C#</strong> / <a href="/en-us/develop/mobile/tutorials/get-started-with-push-js">Windows Store JavaScript</a></h3>
 
 This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Windows Store app. 
 In this tutorial you add push notifications using the Windows Push Notification service (WNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.

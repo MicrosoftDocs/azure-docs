@@ -10,7 +10,7 @@ This topic shows you how to register your apps to be able to use Live Connect as
 <p>When you intend to also provide single sign-on or push notifications from a Windows Store app, consider also registering your app with the Windows Store. For more information, see <a href="/en-us/develop/mobile/howto/register-for-live-connect-auth">Register your Windows Store apps for Windows Live Connect authentication</a>.</p>
 </div>
 
-1. Navigate to the [My Applications] page in the Live Connect Developer Center, and log on with your Microsoft account, if required. 
+1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">My Applications</a> page in the Live Connect Developer Center, and log on with your Microsoft account, if required. 
 
 2. Click **Create application**, then type an **Application name** and click **I accept**.
 
@@ -18,7 +18,7 @@ This topic shows you how to register your apps to be able to use Live Connect as
 
    This registers the application with Live Connect.
 
-10. Make a note of the value of **Client ID** and **Client secret**. 
+10. Click **Application settings page**, then **API Settings** and make a note of the values of the **Client ID** and **Client secret**. 
 
    ![][2]
 
@@ -26,14 +26,15 @@ This topic shows you how to register your apps to be able to use Live Connect as
 	<p>The client secret is an important security credential. Do not share the client secret with anyone or distribute it with your app.</p>
     </div>
 
+11. In **Redirect domain**, enter the URL of your mobile service from Step 8, and then click **Save**.
+
 You are now ready to use a Microsoft Account for authentication in your app by providing the client ID and client secret values to Mobile Services.
 
 <!-- Anchors. -->
 
 <!-- Images. -->
 [1]: ../Media/mobile-services-live-connect-add-app.png
-[2]: ../Media/mobile-services-live-connect-app-details.png
-
+[2]: ../Media/mobile-live-connect-app-api-settings.png
 <!-- URLs. -->
 [Single sign-on for Windows Store apps by using Live Connect]: ./mobile-services-register-for-single-sign-in.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582

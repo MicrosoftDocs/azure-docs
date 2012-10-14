@@ -2,13 +2,13 @@
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
-<div class="dev-center-os-selector">
+<!--<div class="dev-center-os-selector">
   <a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/" title="Windows Store version">Windows Store app</a>
   <a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios/" title="iOS version" class="current">iOS app</a>
-  <span>Tutorial</span>
-</div>
+</div>-->
 
 # Get started with data in Mobile Services for iOS
+<h3><a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet">Windows Store C#</a> / <a href="/en-us/develop/mobile/tutorials/get-started-with-data-js">Windows Store JavaScript</a> / <strong>iOS</strong></h3>
 
 _The iOS client library for Mobile Services is currently under development on [GitHub][GitHub repo]. We welcome feedback on and contributions to this library._
 
@@ -20,13 +20,13 @@ This topic shows you how to use Windows Azure Mobile Services to leverage data i
 
 This tutorial walks you through these basic steps:
 
-1. [Download the Windows Store app project][Get the Windows Store app] 
+1. [Download the iOS app project][GitHub] 
 2. [Create the mobile service]
 3. [Add a data table for storage]
 4. [Update the app to use Mobile Services]
 5. [Test the app against Mobile Services]
 
-This tutorial requires the [Mobile Services iOS SDK] and [XCode][Install Xcode]. 
+This tutorial requires the [Mobile Services iOS SDK] and [XCode 4.5][Install Xcode] or a later version. 
 
 ## <a name="download-app"></a><h2><span class="short-header">Download the project</span>Download the GetStartedWithData project</h2>
 
@@ -36,7 +36,7 @@ This tutorial is built on the [GetStartedWithData app][GitHub], which is an iOS 
 
 2. In Xcode, open the downloaded project and examine the TodoService.m file.
 
-   Notice that there are five // TODO comments that specify the steps you must take to make this app work with your mobile service.
+   Notice that there are eight // TODO comments that specify the steps you must take to make this app work with your mobile service.
 
 3. Press the **Run** button (or the Command+R key) to rebuild the project and start the app.
 
@@ -122,27 +122,31 @@ You are now ready to use the new mobile service as data storage for the app.
 
 Now that your mobile service is ready, you can update the app to store items in Mobile Services instead of the local collection. 
 
-0. If you haven't already installed the [Mobile Services SDK], install it now.
+1. If you haven't already installed the [Mobile Services iOS SDK], install it now.
 
-1. In the Project Navigator in Xcode, open both the TodoService.m and TodoService.h files located in the Quickstart folder, and add the following import statement: 
+2. In the Project Navigator in Xcode, open both the TodoService.m and TodoService.h files located in the Quickstart folder, and add the following import statement: 
 
         #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>  
 
-2. In Xcode, open the file TodoService.m, and locate the following commented line of code:
-
-        // Create an MSTable property for your items. 
-
-   After this comment, create a property representation for your mobile services table by adding the following line of code inside the @interface declaration:
-
-        @property (nonatomic, strong)   MSTable *table;
-
-4. Open the ToDoService.h file and locate following commented line of code:
+3. In the ToDoService.h file, locate the following commented line of code:
 
         // Create an MSClient property comment in the #interface declaration for the TodoService. 
 
-   After this comment, add the following line of code to create a property that represents the MSClient that connects to the service:
+   After this comment, add the following line of code:
 
         @property (nonatomic, strong)   MSClient *client;
+
+   This creates a property that represents the MSClient that connects to the service
+
+4. In the file TodoService.m, locate the following commented line of code:
+
+        // Create an MSTable property for your items. 
+
+   After this comment, add the following line of code inside the @interface declaration:
+
+        @property (nonatomic, strong)   MSTable *table;
+
+   This creates a property representation for your mobile services table.
 
 6. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
 
@@ -152,13 +156,15 @@ Now that your mobile service is ready, you can update the app to store items in 
 
   You will need these values when accessing the mobile service from your app code.
 
-8. Back in Xcode, open the TodoService.m and locate the following commented line of code:
+8. Back in Xcode, open TodoService.m and locate the following commented line of code:
 
-        // Initialize the Mobile Service client with your URL and key
+        // Initialize the Mobile Service client with your URL and key.
 
-    After this comment, add the following line of code that creates a client instance:
+    After this comment, add the following line of code:
 
         self.client = [MSClient clientWithApplicationURLString:@”APPURL” withApplicationKey:@"APPKEY"];
+
+    This creates an instance of the Mobile Services client.
 
 9. Replace the values of **APPURL** and **APPKEY** in this code with the URL and application key from the mobile service that you acquired in step 6.
 
@@ -166,17 +172,21 @@ Now that your mobile service is ready, you can update the app to store items in 
 
         // Create an MSTable instance to allow us to work with the TodoItem table.
 
-    After this comment, add the following line of code that creates a table instance:
+    After this comment, add the following line of code:
 
-        self.table = [_client getTable:@"TodoItem"];
+        self.table = [self.client getTable:@"TodoItem"];
+
+    This creates the TodoItem table instance.
 
 11. Locate the following commented line of code:
 
  	    // Create a predicate that finds items where complete is false comment in the refreshDataOnSuccess method. 
 
-   After this comment, add the following line of code that creates a query to find all tasks that have not yet been completed:
+    After this comment, add the following line of code:
 
         NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
+
+    This creates a query to return all tasks that have not yet been completed.
 
 12. Locate the following commented line of code:
 
@@ -185,9 +195,9 @@ Now that your mobile service is ready, you can update the app to store items in 
    Replace that comment and the subsequent **completion** block invocation with the following code:
 
         // Query the TodoItem table and update the items property with the results from the service
-        [self.table readWhere:predicate completion:^(NSArray *results, NSInteger totalCount, NSError *error) {
-           items = [results mutableCopy];
- 
+        [self.table readWhere:predicate completion:^(NSArray *results, NSInteger totalCount, NSError *error) 
+        {
+           self.items = [results mutableCopy];
            completion();
         }]; 
 

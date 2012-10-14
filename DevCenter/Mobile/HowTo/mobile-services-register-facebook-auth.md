@@ -10,7 +10,7 @@ This topic shows you how to register your apps to be able to use Facebook to aut
 <p>To complete the procedure in this topic, you must have a Facebook account that has a verified email address and a mobile phone number. To create a new Facebook account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">facebook.com</a>.</p>
 </div> 
 
-1. Navigate to the [Facebook Developers] web site and sign-in with your Facebook account credentials.
+1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268286" target="_blank">Facebook Developers</a> web site and sign-in with your Facebook account credentials.
 
 2. (Optional) If you have not already registered, click **Register Now** button, accept the policy, provide any and then click **Done**. 
 
