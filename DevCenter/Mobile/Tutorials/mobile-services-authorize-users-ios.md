@@ -2,13 +2,13 @@
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14810" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
-<div class="dev-center-os-selector">
+<!--<div class="dev-center-os-selector">
   <a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/" title="Windows Store version">Windows Store app</a>
   <a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios/" title="iOS version" class="current">iOS app</a>
-  <span>Tutorial</span>
-</div>
+</div>-->
 
 # Use scripts to authorize users in Mobile Services for iOS
+<h3><a href="authorize-users-in-scripts-dotnet">Windows Store</a> / <strong>iOS</strong></h3>
 
 _The iOS client library for Mobile Services is currently under development on [GitHub]. We welcome feedback on and contributions to this library._
 

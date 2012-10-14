@@ -2,13 +2,13 @@
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
-<div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/" title="Windows Store version">Windows Store app</a>
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios/" title="iOS version" class="current">iOS app</a>
-  <span>Tutorial</span>
-</div>
+<!--<div class="dev-center-os-selector">
+  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/" title="Windows Store version">Windows Store</a>
+  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios/" title="iOS version" class="current">iOS</a>  
+</div>-->
 
 # Get started with authentication in Mobile Services for iOS
+<h3><a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet">Windows Store C#</a> / <a href="/en-us/develop/mobile/tutorials/get-started-with-users-js">Windows Store JavaScript</a> / <strong>iOS</strong></h3>
 
 _The iOS client library for Mobile Services is currently under development on [GitHub]. We welcome feedback on and contributions to this library._
 

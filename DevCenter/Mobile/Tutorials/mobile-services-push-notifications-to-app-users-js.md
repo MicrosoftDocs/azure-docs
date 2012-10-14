@@ -2,13 +2,14 @@
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14827" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
-<div class="dev-center-os-selector">
+<!--<div class="dev-center-os-selector">
   <a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet/" title=".NET client version" class="current">C# and XAML</a>
   <a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-js/" title="JavaScript client version">JavaScript and HTML</a>
   <span>Tutorial</span>
-</div>
+</div>-->
 
-# Push notifications to users by using Mobile Services
+# Push notifications to users by using Mobile Services for Windows Store
+<h3><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet">Windows Store C#</a> / <strong>Windows Store JavaScript</strong></h3>
 
 This topic extends the [previous push notification tutorial][Get started with push notifications] by adding a new table to store Windows Push Notification Service (WNS) channel URIs. These channels can then be used to send push notifications to users of the Windows Store app.  
 

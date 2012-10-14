@@ -2,13 +2,13 @@
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
-<div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/" title=".NET client version" class="current">C# and XAML</a>
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-js/" title="JavaScript client version">JavaScript and HTML</a>
-  <span>Tutorial</span>
-</div>
+<!--<div class="dev-center-os-selector">
+  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/" title="Windows Store version" class="current">Windows Store</a>
+  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios/" title="iOS version">iOS</a>
+</div>-->
 
-# Get started with authentication in Mobile Services
+# Get started with authentication in Mobile Services for Windows Store
+<h3><strong>Windows Store C#</strong> / <a href="/en-us/develop/mobile/tutorials/get-started-with-users-js">Windows Store JavaScript</a> / <a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios">iOS</a></h3>
 
 This topic shows you how to authenticate users in Windows Azure Mobile Services from your app.  In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.  
 
