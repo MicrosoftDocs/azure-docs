@@ -24,7 +24,7 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 	<p>This tutorial demonstrates the basic method provided by Mobile Services to authenticate users by using a variety of identity providers. This method is easy to configure and supports multiple providers. However, this method also requires users to log-in every time your app starts. To instead use Live Connect to provide a single sign-on experience in your Windows Store app, see the topic <a href="/en-us/develop/mobile/tutorials/single-sign-on-win8-js">Single sign-on for Windows Store apps by using Live Connect</a>.</p>
 </div>
 
-<a name="register"></a><h2><span class="short-header">Register your app</span>Register your app for authentication and configure Mobile Services</h2>
+<h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for authentication and configure Mobile Services</h2>
 
 To be able to authenticate users, you must register your app with an identity provider. You must then register the provider-generated client secret with Mobile Services.
 
@@ -51,7 +51,7 @@ To be able to authenticate users, you must register your app with an identity pr
 
 Both your mobile service and your app are now configured to work with your chosed authenication provider.
 
-<a name="permissions"></a><h2><span class="short-header">Restrict permissions</span>Restrict permissions to authenticated users</h2>
+<h2><a name="permissions"></a><span class="short-header">Restrict permissions</span>Restrict permissions to authenticated users</h2>
 
 1. In the Management Portal, click the **Data** tab, and then click the **TodoItem** table. 
 
@@ -69,7 +69,7 @@ Both your mobile service and your app are now configured to work with your chose
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
-<a name="add-authentication"></a><h2><span class="short-header">Add authentication</span>Add authentication to the app</h2>
+<h2><a name="add-authentication"></a><span class="short-header">Add authentication</span>Add authentication to the app</h2>
 
 1. Open the default.html project file and add the following &lt;script&gt; element in the &lt;head&gt; element. 
 
