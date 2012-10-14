@@ -14,7 +14,9 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## <a name="sign-up"></a>Sign up for a SendGrid account
 
-1. Navigate to the [sign up page] at sendgrid.com for a free SendGrid account. Click the **Sign Up Now** button and then follow the instructions to setup your account.
+To get started with SendGrid, evaluate pricing and sign up information at http://sendgrid.com. Windows Azure customers receive a special offer of 25,000 free emails per month from SendGrid. 
+
+1. Navigate to the [sign up page] at sendgrid.com to take advantage of the special offer for Windows Azure customers. Click the **Sign Up Now** button and then follow the instructions to setup your account.
 
     <div class="dev-callout"><b>Note</b>
 	<p>The provisioning process for a SendGrid account can take several hours.</p>
