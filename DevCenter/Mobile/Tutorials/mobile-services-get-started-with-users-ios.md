@@ -51,7 +51,7 @@ To be able to authenticate users, you must register your app with an identity pr
 
    ![][13]
 
-Both your mobile service and your app are now configured to work with your chosed authenication provider.
+Both your mobile service and your app are now configured to work with your chosen authentication provider.
 
 <h2><a name="permissions"></a><span class="short-header">Restrict permissions</span>Restrict permissions to authenticated users</h2>
 
@@ -110,8 +110,8 @@ Next, you will update the app to authenticate users before requesting resources 
          
                 if (error) {
                         NSLog(@"Authentication Error: %@", error);
-                        // Note that error.code == -1302 indicates
-                        // that the user canceled the dialog
+                        // Note that error.code == -1503 indicates
+                        // that the user cancelled the dialog
                 } else {
                     // No error, so load the data
                     [self.todoService refreshDataOnSuccess:^{

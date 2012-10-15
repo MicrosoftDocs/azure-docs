@@ -49,7 +49,7 @@ To be able to authenticate users, you must register your app with an identity pr
 
    ![][13]
 
-Both your mobile service and your app are now configured to work with your chosed authenication provider.
+Both your mobile service and your app are now configured to work with your chosen authentication provider.
 
 <h2><a name="permissions"></a><span class="short-header">Restrict permissions</span>Restrict permissions to authenticated users</h2>
 
