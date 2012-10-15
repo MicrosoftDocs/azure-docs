@@ -9,7 +9,15 @@
 # <a name="getting-started"> </a>Get started with Mobile Services for Windows Store
 <h3><strong>Windows Store</strong> / <a href="/en-us/develop/mobile/tutorials/get-started-ios">iOS</a></h3>
 
-This tutorial shows you how to add a cloud-based backend service to a Windows Store app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. 
+<div class="dev-onpage-video-wrapper"><a style="background-image: url('/media/scott-mobile-video-2012.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=262813&amp;clcid=0x409" target="_blank" class="dev-onpage-video"><span class="icon"><span>Play Video</span></span><span class="time">10:08</span></a></div>   
+
+This tutorial shows you how to add a cloud-based backend service to a Windows Store app using Windows Azure Mobile Services. 
+
+If you prefer to watch a video, the clip to the right follows the same steps as this tutorial. In the video, Scott Guthrie provides an introduction to Mobile Services and walks through creating your first mobile service and connecting to it from a Windows Store app.
+
+<p></p>
+
+In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. 
 
 A screenshot from the completed app is below:
 
@@ -17,11 +25,8 @@ A screenshot from the completed app is below:
 
 Completing this guide is a prerequisite for all other Mobile Services tutorials for Windows Store apps. 
 
-<div chunk="../../Shared/Chunks/create-account-and-mobile-note.md" />
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Mobile Services feature enabled.</p> <ul> <li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02" target="_blank">Windows Azure Free Trial</a>.</li> <li>If you have an existing account but need to enable the Windows Azure Mobile Services preview, see <a href="../create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li> </ul> </div>
 
-<div class="dev-callout"><strong>Note</strong>
-<p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Mobile Services feature enabled. You can create a free trial account and enable preview features in just a couple of minutes. For details, see <a href="../create-a-windows-azure-account/" target="_blank">Create a Windows Azure account and enable preview features</a>. </p>
-</div>
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 Follow these steps to create a new mobile service.
