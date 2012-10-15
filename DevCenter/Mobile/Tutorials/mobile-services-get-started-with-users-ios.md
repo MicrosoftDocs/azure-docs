@@ -42,10 +42,10 @@ To be able to authenticate users, you must register your app with an identity pr
 
 3. Choose a supported identity provider from the list below and follow the steps to register your app with that provider:
 
- - <a href="/en-us/develop/mobile/howto/register-ms-account-auth" target="_blank">Microsoft Account</a>
- - <a href="/en-us/develop/mobile/howto/register-facebook-auth" target="_blank">Facebook login</a>
- - <a href="/en-us/develop/mobile/howto/register-twitter-auth" target="_blank">Twitter login</a>
- - <a href="/en-us/develop/mobile/howto/register-google-auth" target="_blank">Google login</a>
+ - <a href="/en-us/develop/mobile/how-to-guides/register-for-microsoft-authentication/" target="_blank">Microsoft Account</a>
+ - <a href="/en-us/develop/mobile/how-to-guides/register-for-facebook-authentication/" target="_blank">Facebook login</a>
+ - <a href="/en-us/develop/mobile/how-to-guides/register-for-twitter-authentication/" target="_blank">Twitter login</a>
+ - <a href="/en-us/develop/mobile/how-to-guides/register-for-google-authentication/" target="_blank">Google login</a>
 
 4. Back in the Management Portal, click the **Identity** tab, enter the app identifier and shared secret values obtained from your identity provider, and click **Save**.
 
