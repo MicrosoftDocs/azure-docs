@@ -79,8 +79,9 @@ This concludes the tutorials that demonstrate the basics of working with authent
 * [Get started with data]
   <br/>Learn more about storing and querying data using Mobile Services.
 
-* [Get started with push notifications] 
+<!--* [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
+-->
 
 * [Mobile Services server script reference]
   <br/>Learn more about registering and using server scripts.
