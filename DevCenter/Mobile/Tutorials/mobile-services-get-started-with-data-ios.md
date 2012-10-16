@@ -162,7 +162,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
     After this comment, add the following line of code:
 
-        self.client = [MSClient clientWithApplicationURLString:@”APPURL” withApplicationKey:@"APPKEY"];
+        self.client = [MSClient clientWithApplicationURLString:@"APPURL" withApplicationKey:@"APPKEY"];
 
     This creates an instance of the Mobile Services client.
 
