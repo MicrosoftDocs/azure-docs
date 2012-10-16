@@ -1,526 +1,444 @@
 <div chunk="../chunks/article-left-menu.md" />
+# Configuring and Deploying the Azure Email Service application
 
-# .NET Multi-Tier Application Using Storage Tables, Queues, and Blobs
+This is the second tutorial in a series of five that show how to build and deploy the Azure Email Service sample application.  For information about the application and the tutorial series, see the [first tutorial in the series][firsttutorial].
 
-This tutorial series shows how to create a multi-tier ASP.NET web application that uses Windows Azure Storage tables, queues, and blobs. The tutorial assumes that you have no prior experience using Windows Azure. On completing the tutorial, you'll have a robust and scalable data-driven web application up and running in the cloud.
+This tutorial shows how to configure your computer for Azure development and how to deploy the Azure Email Service application to a Windows Azure Cloud Service by using  Visual Studio 2012 or Visual Studio 2010 Express for Web. 
 
-<h2><a name="whyanemaillistapp"></a><span class="short-header">Why Choose This App</span>Why an Email List Service Application</h2>
+You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. So you can start developing for Windows Azure entirely for free.
 
-We chose an email list service for this sample application because it is the kind of application that needs to be robust and scalable, two features that make it especially appropriate for Windows Azure. 
+In this tutorial you'll learn:
 
-### Robust 
+* How to set up your computer for Windows Azure development by installing the Windows Azure SDK.
+* How to configure and test the Azure Email Service application on your local machine.
+* How to publish the email service to to Windows Azure.
 
-If a server fails while sending out emails to a large list, you want to be able to stand up a new server easily and quickly, and you want the application to pick up where it left off without losing or duplicating any emails. A Windows Azure Cloud Service web or worker role (virtual machine) is automatically replaced if it fails. And Windows Azure Storage queues and tables provide a means to implement server-to-server communication that can survive a failure without losing work.
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+ 
+### Tutorial segments
 
-### Scalable
+1. [Set up the development environment][]
+2. [Set up a free Windows Azure Account][]
+3. [Create a Windows Azure Storage Account][]
+4. [Optional: Install Azure Storage Explorer][]
+5. [Create a Cloud Server in the Management Portal][]
+6. [Download and Configure the Completed Solution][]
+7. [Run the Application from Visual Studio][]
+8. [Viewing Developer Storage in Visual Studio][]
+9. [Configure the Application for Azure Storage][]
+10. [Deploy the Application to Azure][]
+11. [Promote the Application from Staging to Production][]
+12. [Get a SendGrid account][]
+13. [Configure and View Trace Data][]
 
-An email service also must be able to handle spikes in traffic, since sometimes you are sending emails to small lists and sometimes to very large lists.  In many hosting environments, you have to purchase and maintain sufficient hardware to handle the spikes in workload, and you're paying for all that capacity 100% of the time although you might only use it 5% of the time.  With Windows Azure, you pay only for the amount of computing power that you actually need for only as long as you need it.  To scale up for a large mailing, you just change a configuration setting to increase the number of servers you have available to process the workload, and this can be done programmatically.
+<h2><a name="setupdevenv"></a><span class="short-header">Set up environment</span>Set up the development environment</h2>
 
-<h2><a name="whatyoulllearn"></a><span class="short-header">What You'll Learn</span>What You'll Learn</h2>
+To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. 
 
-In this tutorial series you'll learn the following:
+1. To install the Windows Azure SDK for .NET, click the link that corresponds to the version of Visual Studio you are using. If you don't have Visual Studio installed yet, use the Visual Studio 2012 link.<br/>
+[Windows Azure SDK for Visual Studio 2010][]<br/>
+[Windows Azure SDK for Visual Studio 2012][]<br/>
+If you don't have Visual Studio installed yet, it will be installed by the link.<br/>
 
-* How to enable your machine for Windows Azure development by installing the Windows Azure SDK.
-* How to create a Visual Studio cloud project with an MVC 4 web role and two worker roles.
-* How to publish the cloud project to a Windows Azure Cloud Service.
-* How to publish the MVC 4 project to a Windows Azure Web Site if you prefer, and still use the worker roles in the Cloud Service.
-* How to use Windows Azure storage queues for communication between tiers or between worker roles.
-* How to use Windows Azure storage tables as a highly scalable data store for non-relational data.
-* How to use Windows Azure storage blobs to store files in the cloud.
-* How to use Azure Storage Explorer to work with tables, queues, and blobs.
+2. When you are prompted to run or save VWDOrVs11AzurePack.exe, click **Run**.
 
-<h2><a name="wawsvswacs"></a><span class="short-header">Application architecture</span>Overview of application architecture</h2>
+3. In the Web Platform Installer window, click **Install** and proceed with the installation.
 
-This is the first tutorial in a series, and it provides an overview of the application and its architecture.
+   ![Web Platform Installer - Windows Azure SDK for .NET][mtas-wpi-installer]<br/>
 
-The front-end is a set of web pages and a service method that enable administrators to manage email lists, and subscribers to subscribe and unsubscribe. The front-end uses ASP.NET MVC 4 and Web API, and it runs in a web role in a Windows Azure Cloud Service. The back-end is a pair of worker roles running in the same Cloud Service and do the work of sending emails.
+When the installation is complete, you have everything necessary to start developing.
 
-The application stores email lists and subscriber information in Windows Azure storage tables.  It stores email content in blobs (a plain text file and an HTML file for each email). It uses Windows Azure storage queues for communication between the front-end service method and the one of the back-end worker roles, and between the two worker roles. 
+<h2><a name="setupwindowsazure"></a><span class="short-header">Create Windows Azure Account</span>Set up a free Windows Azure Account</h2>
 
-The following diagram provides a high-level picture of the application architecture that is used in this tutorial.
+The next step is to create a Windows Azure account.
 
-![Application architecture overview][mtas-architecture-overview]
+1. Browse to [Windows Azure](http://www.windowsazure.com "Windows Azure").
 
-An alternative architecture that would also work is to run the front-end in a Windows Azure Web Site. 
+2. Click  the **Free trial** link and follow the instructions. 
 
-![Alternative application architecture][mtas-alternative-architecture]
+<h2><a name="createWASA"></a><span class="short-header">Create Storage Account</span>Create a Windows Azure Storage Account</h2>
 
-This alternative architecture might offer some cost benefits, because a Windows Azure Web Site may be less expensive for similar capacity compared to a web role running in a Cloud Service. For this tutorial we have the entire application in a Cloud Service because that simplifies configuration and deployment. The tutorial explains the differences between the two architectures, so that when you implement your own application you can choose the architecture that you prefer.
+1. In your browser, open the [Windows Azure Management Portal][NewPortal].
 
-<h2><a name="frontendoverview"></a><span class="short-header">Front-end overview</span>Front-end overview</h2>
+2. In the [Windows Azure Management Portal][NewPortal], click **Storage**, then click **New**.
 
-The front-end includes web pages that administrators of the service use to manage email lists and to create and schedule messages to be sent to the lists.
+   ![New Storage][mtas-portal-new-storage]
 
-![Mailing List Index Page][mtas-mailing-list-index-page]
+3. Click **Quick Create**.
 
-![Subscriber Index Page][mtas-subscribers-index-page]
+   Alternatively, you can click the **Create a Storage Account** link, which also selects the Quick Create link.
 
-![Message Index Page][mtas-message-index-page]
+   ![Quick Create][mtas-storage-quick]
 
-![Message Create Page][mtas-message-create-page]
+4. In the URL input box, enter a URL prefix. Set the region to the area where you will deploy the application. Uncheck the **Enable Geo-Replication** check box. <ins>Why?</ins> Finally, click **Create Storage Account**. In the image below, a storage account is created with the URL aestest.core.windows.net.
 
-Clients of the service are companies that give their customers an opportunity to sign up for a list on the client web site. For example, Contoso University wants a list for History Department announcements. When a student interested in History Department announcements clicks a link on the Contoso University web site, Contoso University makes a web service call to this application. The service method causes an email to be sent to the customer. That email contains a link, and when the recipient clicks the link, a page welcoming the customer to the History Department Announcements list is displayed.
+   ![create storage with URL prefix][mtas-create-storage-url-test]
 
-![Welcome to list page][mtas-subscribe-confirmation-page]
+   This step can take several minutes to complete. While you are waiting, you can repeat these steps and create a production storage acccount. It's often convenient to have a test storage account to use for local development, another test storage account for testing in Windows Azure, and a production storage account. In this tutorial we will primarly use the Azure storage test account when we are running the application from Visual Studio.
 
-Every email sent by the service includes a hyperlink that can be used to unsubscribe. If a recipient clicks the link, a web page asks for confirmation of intent to unsubscribe. If the recipient clicks the Confirm button, a page is displayed confirming that the person has been removed from the list.
+5. Click the test account you created in the previous step, then click the **Manage Keys** icon.
 
-![Confirm unsubscribe page][mtas-unsubscribe-query-page]
+   ![Manage Keys][mtas-manage-keys]<br/>
 
-![!Unsubscribe confirmed page][mtas-unsubscribe-confirmation-page]
+   ![Keys GUID][mtas-guid-keys]<br/>
 
-<h2><a name="backendoverview"></a><span class="short-header">Back-end overview</span>Back-end overview</h2>
+   You will need the primary or secondary access key throughout this tutorial. The **Primary Access Key** and **Secondary Access Key** both provide a shared secret that you can use to access storage. The secondary key gives the same access as the primary key and is used for backup purposes. You can regenerate each key independently and rotate keys to help insure they are secure. The keys in the image above are not valid, they were regenerated after the image was captured.
 
-Email lists and email messages scheduled to be sent are stored in Windows Azure Storage tables. When an administrator schedules an email to be sent, a row containing the scheduled date and other data is placed on the Message table. A worker role (virtual machine) running in a Windows Azure Cloud Service periodically scans the Message table looking for messages that need to be sent (we'll call this Worker Role A). When Worker Role A finds a message needing to be sent, it looks up all the email addresses in the destination email list, puts the information needed to send the email in the Message table, and creates a work item on a queue for each email that needs to be sent. A second worker role (Worker Role B) polls the queue for work items. When Worker Role B finds a work item, it processes the item by sending the email and then deletes the work item from the queue. The following diagram shows these relationships.
+<h2><a name="installASE"></a><span class="short-header">Install ASE</span>Optional: Install Azure Storage Explorer</h2><ins>I don't think we should make this optional.</ins>
 
-![Worker roles A and B][mtas-worker-roles-a-and-b]
+Azure Storage Explorer is a tool that you can use to query and update Windows Azure storage tables, queues, and blobs. You will use it throughout these tutorials to verify that data is updated correctly and to create test data.
 
-When Worker Role A creates a queue work item, it also adds a row to the Message table.  Worker Role A reads this row to get the information it needs to send the email.
+1. Install  [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/ ).
 
-The row in the Message table that provides information for one email also includes a property that indicates whether the email has actually been sent. When Worker Role B sends an email, it updates this property to indicate that the email has been sent. If Worker Role A goes down while creating queue work items for a message, it might create duplicate queue work items when it restarts, but the tracking row ensures that duplicate emails won't be sent. (Worker Role B checks the row before sending an email.)
+2. Launch Azure Storage Explorer and click **Add Account**.
 
-![Queue message creation and processing][mtas-message-processing]
+   ![Add ASE Account][mtas-ase-add]<br/>
 
-<h2><a name="tables"></a><span class="short-header">Tables</span>Windows Azure Storage Tables</h2>
+3. Enter the name of the test storage account and a key that you created previously.
 
-Windows Azure storage tables are a NoSQL data store, not a relational database. That makes them a good choice when scalability is more important than data normalization and relational integrity. For example, in this application, worker roles create a row every time a queue workitem is created and the row is updated every time an email is sent, which might be a performance bottleneck if a relational database were used.
+   ![Add ASE Account][mtas-ase-add2]<br/>
 
-In a Windows Azure storage table, every row has a *partition key* and a *row key* that uniquely identifies the row. The partition key divides the table up both logically and physically into partitions. Within a partition, the row key uniquely identifies a row.
+   In the image below, a new table called *mytable* is created.
 
-### MailingList table ###
+   ![Add ASE Account][mtas-ase-add3]<br/>
 
-The MailingList table stores information about mailing lists and information about the subscribers to mailing lists. Administrators use web pages to create and edit mailing lists, and clients and subscribers use a set of web pages and service method to subscribe and unsubscribe.
+<h2><a name="createcloudsvc"></a><span class="short-header">Create Cloud Service</span>Create a Cloud Service in the Management Portal</h2>
 
-In NoSQL tables, different rows can have different schemas, and this flexibility is commonly used to make one table store data that would require multiple tables in a relational database. For example, to store mailing list data in SQL Database you could use three tables: a MailingList table that stores information about the list, a Subscriber table that stores information about subscribers, and a MailingListSubscriber table that associates mailing lists with subscribers and vice versa. In the NoSQL table in this application, all of those functions are rolled into one table named MailingList. 
+1. In your browser, open the [Windows Azure Management Portal][NewPortal].
 
-The row key for the MailingList table can be one of two things:  the constant "0" or the email address of the subscriber. Rows that have row key "0" include information about the mailing list. Rows that have the email address as the row key have information about the subscribers to the list.
+2. Click **Cloud Services** then click the **New** icon.
 
-In other words, rows with row key "0" are equivalent to a MailingList table in a relational database. Rows with row key = email address are equivalent to a Subscriber table and a MailingListSubscriber association table in a relational database.
+   ![Quick Cloud][mtas-new-cloud]<br/>
 
-Making one table serve multiple purposes in this way facilitates better performance. In a relational database three tables would have to be read, then three sets of rows would have to be sorted and matched up against each other, which takes time. Here just one table is read and its rows are automatically returned in partition key and row key order.
+   Alternatively, you can click the **Create a Cloud Service** link, which also slects Quick Create.
 
-The following grid shows row properties for the rows that show mailing list information (row key = "0").
-
-<table border="1">
-<tr>
-<th>Property</td>
-<th>Data Type</td>
-<th>Description</td>
-</tr>
-<tr>
-<td>PartitionKey</td>
-<td>String</td>
-<td>ListName:  The name (unique identifier) of the mailing list. The typical use for the table is to retrieve all information for a mailing list, so this is an efficient way to partition the table.</td>
-</tr>
-<tr>
-<td>RowKey</td>
-<td>String</td>
-<td>The constant "0".</td>
-</tr>
-<tr>
-<td>Description</td>
-<td>String</td>
-<td>Description of the mailing List, for example: "Contoso University History Department announcements".</td>
-</tr>
-<tr>
-<td>FromEmailAddress</td>
-<td>String</td>
-<td>The "From" email address in the emails sent to this list, for example: "contoso.edu".</td>
-</tr></table>
-
-The following grid shows row properties for the rows that contain subscriber information for the list (row key = email address).
-
-<table border="1">
-<tr>
-<th>Property</td>
-<th>Data Type</td>
-<th>Description</td>
-</tr>
-<tr>
-<td>PartitionKey</td>
-<td>String</td>
-<td>ListName:  The name (unique identifier) of the mailing list.</td>
-</tr>
-<tr>
-<td>RowKey</td>
-<td>String</td>
-<td>EmailAddress:  The subscriber email address.</td>
-</tr>
-<tr>
-<td>SubscriberGUID</td>
-<td>String</td>
-<td>Generated when the email address is added to a list, used in subscribe and unsubscribe links so that it's not too easy to subscribe or unsubscribe someone else's email address. Not expecting major spikes in subscribe/unsubscribe requests, so no need to create a table with this as row key for efficient retrieval..</td>
-</tr>
-<tr>
-<td>Status</td>
-<td>String</td>
-<td>"Pending" or "Verified." When a customer clicks on a subscribe link in a web site, a row for the subscriber is created and set to Pending, and an email is sent to the submitted email address. That email contains a hyperlink that the recipient can click in order to confirm the subscription. When the recipient clicks that link, the status is changed to "Verified". While the status is "Pending", no emails are sent to the address except for the initial email with the Confirm Subscription link.</td>
-</tr></table>
-
-The following list shows an example of what data in the table might look like.
-
-<table border="1">
-<tr>
-<th width="200">Partition Key</th>
-<td>contoso1</td>
-</tr>
-<tr>
-<th>Row Key</td>
-<td>0</td>
-</tr>
-<tr>
-<th>Description</th>
-<td>Contoso University History Department announcements</td>
-</tr>
-<tr>
-<th>FromEmailAddress</th>
-<td>donotreply@contoso.edu</td>
-</tr>
-</table>
-
-<hr/>
-
-<table border="1">
-<tr>
-<th width="200">Partition Key</th>
-<td>contoso1</td>
-</tr>
-<tr>
-<th>Row Key</td>
-<td>student1@domain.com</td>
-</tr>
-<tr>
-<th>SubscriberGUID</th>
-<td>6f32b03b-90ed-41a9-b8ac-c1310c67b66a</td>
-</tr>
-<tr>
-<th>Status</th>
-<td>Verified</td>
-</tr>
-</table>
-
-<hr/>
-
-<table border="1">
-<tr>
-<th width="200">Partition Key</th>
-<td>contoso1</td>
-</tr>
-<tr>
-<th>Row Key</td>
-<td>student2@domain.com</td>
-</tr>
-<tr>
-<th>SubscriberGUID</th>
-<td>01234567-90ed-41a9-b8ac-c1310c67b66a</td>
-</tr>
-<tr>
-<th>Status</th>
-<td>Verified</td>
-</tr>
-</table>
-
-<hr/>
-
-<table border="1">
-<tr>
-<th width="200">Partition Key</th>
-<td>fabrikam1</td>
-</tr>
-<tr>
-<th>Row Key</td>
-<td>0</td>
-</tr>
-<tr>
-<th>Description</th>
-<td>Fabrikam Engineering job postings</td>
-</tr>
-<tr>
-<th>FromEmailAddress</th>
-<td>donotreply@fabrikam.com</td>
-</tr>
-</table>
-
-<hr/>
-
-<table border="1">
-<tr>
-<th width="200">Partition Key</th>
-<td>fabrikam1</td>
-</tr>
-<tr>
-<th>Row Key</td>
-<td>applicant1@domain.com</td>
-</tr>
-<tr>
-<th>SubscriberGUID</th>
-<td>76543210-90ed-41a9-b8ac-c1310c67b66a</td>
-</tr>
-<tr>
-<th>Status</th>
-<td>Verified</td>
-</tr>
-</table>
-
-### Message table ###
-
-The Message table stores information about messages that are scheduled to be sent to a mailing list. Administrators create and edit rows in this table using a web page, and the worker roles use it to pass information about each email from Worker Role A to Worker Role B.
-
-The row key for the Message table can be one of two things:  the constant "0" or the email address of the subscriber. Rows that have row key "0" include information about the message. Rows that have the email address as the row key have information about the message, the mailing list, and the subscriber -- everything needed to send an email.
-
-In relational database terms, rows with row key "0" are equivalent to a Message table. Rows with row key = email address are equivalent to a join query view for MailingList, Message, and Subscriber information. 
-
-The following grid shows row properties for the Message table rows that have information about the message itself.
-
-<table border="1">
-<tr>
-<th>Property</td>
-<th>Data Type</td>
-<th>Description</td>
-</tr>
-<tr>
-<td>PartitionKey</td>
-<td>String</td>
-<td>MessageRef:  A unique value created by getting the Ticks value from <code>DateTime.Now</code> when the row is created. Since rows are returned in partition key order this ensures that when browsing through messages in the UI, they are displayed in the order in which they were created. (A GUID could be used here but would result in random order, and a sort would be necessary).</td>
-</tr>
-<tr>
-<td>RowKey</td>
-<td>String</td>
-<td>The constant "0".</code>.</td>
-</tr>
-<td>ScheduledDate</td>
-<td>String</td>
-<td>The date the message is scheduled to be sent.</td>
-</tr>
-<tr>
-<tr>
-<td>SubjectLine</td>
-<td>String</td>
-<td>The subject line of the email.</td>
-</tr>
-<tr>
-<td>ListName</td>
-<td>String</td>
-<td>The name of the list that this message is to be sent to. The same as the partition key of the MailingList table.</td>
-</tr>
-<tr>
-<td>Status</td>
-<td>String</td>
-<td><ul><li>"Pending" -- Worker Role A still needs to create queue messages to schedule emails, on the scheduled date.</li>
-<li>"Processing" -- Queue messages have been created for all emails in the list.</li>
-<li>"Completed" -- Worker Role B has finished processing all queue messages (all emails have been sent).</li></ul></td>
-</tr>
-</table>
-
-The following grid shows row properties for the rows in the Message table that contain information for an individual email.  These rows also help ensure that a message is sent to each email address only once, and they help determine when all emails for a message have been sent. When Worker Role A creates a queue message for an email to be sent to a list, it creates a row in this table. Worker Role B updates the EmailSent property to true when it sends the email. When the EmailSent property is true for all rows for a Message whose status is Processing, Worker Role A sets the Message status to Completed. 
-
-<table border="1">
-<tr>
-<th>Property</td>
-<th>Data Type</td>
-<th>Description</td>
-</tr>
-<tr>
-<td>PartitionKey</td>
-<td>String</td>
-<td>MessageRef.</td>
-</tr>
-<tr>
-<td>RowKey</td>
-<td>String</td>
-<td>EmailAddress:  The destination email address from the MailingList table.</code>.
-</td>
-<tr>
-<td>ScheduledDate</td>
-<td>DateTime</td>
-<td>The date the message is scheduled to be sent, from the Message table.</td>
-</tr>
-<tr>
-</tr>
-<tr>
-<td>From EmailAddress</td>
-<td>String</td>
-<td>The "From" email address, from the MailingList table.</td>
-</tr>
-<tr>
-<td>SubjectLine</td>
-<td>String</td>
-<td>The subject line of the email, from the Message table.</td>
-</tr>
-<tr>
-<td>EmailSent</td>
-<td>Boolean</td>
-<td>null or false means the email has not been sent yet; true means the email has been sent.</td>
-</tr>
-</table>
-
-(These rows don't have blob references for the email body .html and .txt files that contain the body of the email, because that value is derived from the MessageRef value.)
-
-The following list shows an example of what data in the table might look like.
-
-<table border="1">
-<tr>
-<th width="200">Partition Key</th>
-<td>634852858215726983</td>
-</tr>
-<tr>
-<th>Row Key</td>
-<td>0</td>
-</tr>
-<tr>
-<th>ScheduledDate</th>
-<td>2012-10-15</td>
-</tr>
-<tr>
-<th>SubjectLine</th>
-<td>New lecture series</td>
-</tr>
-<tr>
-<th>ListName</th>
-<td>contoso1</td>
-</tr>
-<tr>
-<th>Status</th>
-<td>Processing</td>
-</tr>
-</table>
-
-<hr/>
-
-<table border="1">
-<tr>
-<th width="200">Partition Key</th>
-<td>634852858215726983</td>
-</tr>
-<tr>
-<th>Row Key</td>
-<td>student1@contoso.edu</td>
-</tr>
-<tr>
-<th>ScheduledDate</th>
-<td>2012-10-15</td>
-</tr>
-<tr>
-<th>FromEmailAddress</th>
-<td>donotreply@contoso.edu</td>
-</tr>
-<tr>
-<th>SubjectLine</th>
-<td>New lecture series</td>
-</tr>
-<tr>
-<th>EmailSent</th>
-<td>true</td>
-</tr>
-</table>
-
-<hr/>
-
-<table border="1">
-<tr>
-<th width="200">Partition Key</th>
-<td>634852858215726983</td>
-</tr>
-<tr>
-<th>Row Key</td>
-<td>student2@contoso.edu</td>
-</tr>
-<th>Row Key</td>
-<td>student1@contoso.edu</td>
-</tr>
-<tr>
-<th>ScheduledDate</th>
-<td>2012-10-15</td>
-</tr>
-<tr>
-<th>FromEmailAddress</th>
-<td>donotreply@contoso.edu</td>
-</tr>
-<tr>
-<tr>
-<th>SubjectLine</th>
-<td>New lecture series</td>
-</tr>
-<tr>
-<th>EmailSent</th>
-<td>false</td>
-</tr>
-</table>
-
-<table border="1">
-<tr>
-<th width="200">Partition Key</th>
-<td>634852858215123456</td>
-</tr>
-<tr>
-<th>Row Key</td>
-<td>0</td>
-</tr>
-<tr>
-<th>ScheduledDate</th>
-<td>2012-10-31</td>
-</tr>
-<tr>
-<th>SubjectLine</th>
-<td>New display at Henry Art Gallery</td>
-</tr>
-<tr>
-<th>ListName</th>
-<td>contoso2</td>
-</tr>
-<tr>
-<th>Status</th>
-<td>Pending</td>
-</tr>
-</table>
-
-<h2><a name="queues"></a><span class="short-header">Queues</span>Windows Azure Storage Queues</h2>
-
-Windows Azure storage queues facilitate communication between tiers of a multi-tier application, and between servers (worker roles) in the back-end tier. Windows Azure also provides another kind of queue service that has more features but is more complex to configure and program:  Service Bus queues.  For information about the difference between storage queues and Service Bus queues, see [Windows Azure Queues and Windows Azure Service Bus Queues - Compared and Contrasted][].
-
-The Azure Email Service application uses two queues.
-
-### AzureMailQueue ###
-
-The AzureMailQueue queue coordinates the sending of emails to email lists.  Worker Role A places a work item on the queue for each email to be sent, and Worker Role B pulls a work item from the queue and sends the email. 
-
-The queue message string contains MessageRef (partition key to the Message table) and EmailAddress (row key to the Message table) values. Worker Role B uses these values to look up the row in the Message table that contains all of the information needed to send the email.
-
-When traffic spikes, the Cloud Service can be reconfigured so that multiple instances of Worker Role B are instantiated, and each of them can independently pull work items off the queue.
-
-### AzureMailSubscribeQueue ###
-
-The AzureMailSubscribeQueue queue coordinates the sending of subscription confirmation emails to email lists.  In response to a subscribe service call, the Web API service method places a work item on the queue for the email address that needs confirmation.  Worker Role B pulls a work item from the queue and sends the email. 
-
-The queue message string contains the subscriber GUID.  This value uniquely identifies an email address and the list to subscribe it to, which is all Worker Role B needs to send a confirmation email. The subscriber GUID is not the partition key or the row key, but the volume of subscriptions is not expected to be high enough to cause the search for GUID to be a performance bottleneck.
-
-<h2><a name="blobs"></a><span class="short-header">Blobs</span>Windows Azure Storage Blobs</h2>
-
-The body of an email is stored in .html and .txt files, and in the Create and Edit pages for Messages, administrators upload both file types for each message.  When the files are uploaded, they are stored in blobs.
-
-There is a single blob container, named AzureMailBlobContainer.  The name of the blobs in the container is derived by concatenating the MessageRef value with the file extension.
-
-<h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>
-
-In the next tutorial, you'll download the sample project, configure your environment and configure the project for your environment, and test it locally and in the cloud.  In tutorials that we'll add later, we'll show you how to build the project from scratch.
-
-
-[Windows Azure Queues and Windows Azure Service Bus Queues - Compared and Contrasted]: http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx
+3. Click **Quick Create**.
 
+4. In the URL input box, enter a URL prefix. Set the region to the area where you will deploy the application. Finally, click **Create Cloud Service**. 
+
+   In the image below, a cloud service is created with the URL aescloud.cloudapp.net.
+
+   ![create storage with URL prefix][mtas-create-cloud]
+
+   You can move on to the next step without waiting for this step to complete.
+
+<h2><a name="downloadcnfg"></a><span class="short-header">Download and Configure</span>Download and Configure the Completed Solution</h2>
+
+1. Download the [completed solution](http://code.msdn.microsoft.com/site/search?f%5B0%5D.Type=SearchText&f%5B0%5D.Value=dykstra&sortBy=Date).
+
+2. Unzip the downloaded file and open it in Visual Studio.
+
+3. In **Solution Explorer**, right-click on MvcWebRole and click **Properties**.
+
+   ![Right Click Properties][mtas-rt-prop]<br/>
+
+4. Click the **Settings** tab and press the **Add Setting** button.  
+    ![Blob6][]
+
+    A new **Setting1** entry will then show up in the settings grid.
+
+    **Note:** Don't change the default **Service Configuration** value of **All Configurations**.
+
+5.  In the **Type** drop-down of the new **Setting1** entry, choose
+    **Connection String**.  
+    ![Blob7][]
+
+6.  Click the ellipsis (**...**) button at the right end of the **Setting1** entry.
+
+    The **Storage Account Connection String** dialog will open.
+
+7.  Keep the default radio button **Use the Windows Azure storage emulator** (the Windows  Azure storage simulated on your local machine).
+
+    ![Blob8][]
+
+8.  Change the entry **Name** from **Setting1** to **StorageConnectionString**. You will reference this connection string throughout this series.  
+
+    ![Blob9][]
+
+### What's Happening Under the Hood
+
+When you add a new setting with the **Add Settings** button, the new setting is added to the XML in the *ServiceDefinition.csdf* file and in each of the two *.cscfg* configuration files. The following XML is added by Visual Studio to the *ServiceDefinition.csdf* file.
+
+    <ConfigurationSettings>
+      <Setting name="StorageConnectionString" />
+    </ConfigurationSettings>
+
+The following XML is added to each *.cscfg* configuration file.
+
+	<Setting name="StorageConnectionString" value="UseDevelopmentStorage=true" />
+
+You can manually add settings to the *ServiceDefinition.csdf* file and the two *.cscfg* configuration files, but using the properties editor has the following advantages for connection strings:
+
+- You only add the new setting in one place, and the correct setting XML is added to all three files.
+- The correct XML is generated for the three settings files. The *ServiceDefinition.csdf* file defines settings that must be in each *.cscfg* configuration file. If the *ServiceDefinition.csdf* file and the two *.cscfg* configuration files settings are inconsistent, you can get the following error message from Visual Studio: *The current service model is out of sync. Make sure both the service configuration and definition files are valid.*
+
+   ![Config error][mtas-er1]<ins>Image missing</ins>
+
+The properties editor will not work until you resolve the problem.
+
+Examine the *ServiceConfiguration.Local.cscfg* file. The XML for worker role A and worker role B also contains a storage connection string specifying the development storage emulator. The storage connection strings in the two worker roles were provided by the download.
+
+<h2><a name="runVS"></a><span class="short-header">Run in VS</span>Run the Application from Visual Studio</h2>
+
+When you run the solution from Visual Studio, the *ServiceConfiguration.Local.cscfg* file is used.  Later in the tutorial when you package the application for Azure deployment, the *ServiceConfiguration.Cloud.cscfg* file is used.
+
+1. Press CTRL+F5 to run the application.
+The application home page appears in your browser.
+
+   ![Run the App.][mtas-mailinglist1]
+
+2. Click  the **Create New** button and enter some test data, then click the **Create** button.
+
+   ![Run the App.][mtas-create1]
+
+3. Create a couple more mailing list entries.
+
+   ![Mailing List Index Page][mtas-mailing-list-index-page]
+
+4. Click  the *Subscribers* button and add some subscribers.
+
+   ![Subscriber Index Page][mtas-subscribers-index-page]
+
+4. Click the *Messages* button and add some messages. Don't change the scheduled date which defaults to one week in the future. The application can't send messages until you configure SendGrid.
+
+   ![Message Create Page][mtas-message-create-page]
+	<br/><br/>
+   ![Message Index Page][mtas-message-index-page]
+
+<h2><a name="StorageExpVS"></a><span class="short-header">Dev Storage</span>Viewing Developer Storage in Visual Studio</h2>
+
+1. Display **Server Explorer** in Visual Studio. From the menu bar choose **View, Server Explorer**.
+
+2. Expand the **(Development)** node underneath the **Windows Azure Storage** node. The following figure shows the blob and table resources you created in the previous steps.
+
+   ![Server Explorer][mtas-serverExplorer]
+
+3. Double click the **MailingList** table. The following image shows a portion of the data in the Message table. Notice the two different schemas in the table.
+
+   ![VS storage explorer][mtas-wasVSdata]
+
+   The **Windows Azure Storage** browser in **Server Explorer** provides a convienent read-only view of Windows Azure Storage resources. You can't use **Server Explorer** to delete Windows Azure Storage resources. You can use [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/ ) to delete development storage resources. 
+
+<h2><a name="conf4azureStorage"></a><span class="short-header">Configure Storage</span>Configure the Application for Azure Storage</h2>
+1. In your browser, open the [Windows Azure Management Portal][NewPortal].
+2. Click the **Storage** Tab, then click the test account you created in the previous step, and then click the **Manage Keys** icon.
+
+   ![Manage Keys][mtas-manage-keys]<br/>
+
+   ![Keys GUID][mtas-guid-keys]<br/>
+
+3. Copy the primary or secondary access key.
+
+4. In Solution Explorer, right-click on MvcWebRole and click **Properties**.
+
+   ![Right Click Properties][mtas-rt-prop]<br/>
+
+5. Click the **Settings** tab. In the **Service Configuration** drop down box, select **Local**.
+
+6. Click the ellipsis (**...**) button at the right end of the **StorageConnectionString** entry. The **Storage Account Connection String** dialog opens.
+
+   ![Right Click Properties][mtas-elip]<br/>
+
+7. In the **Storage Account Connection String** dialog, select the **Enter storage account credentials** radio button. Enter the name of your storage account and the primary or secondary access key you copied from the portal. Click the **OK** button.
+
+   ![Right Click Properties][mtas-enter]<br/>
+
+8. Open the **ServiceConfiguration.Local.cscfg** file and examine the XML markup in the role element for MvcWebRole. The storage account connection string editor updated the storage connection string using the account name and key you provided. Rather than use the  storage account connection string editor to update the storage connection string for the two worker roles, copy and paste the MvcWebRole storage connection string element over the storage connection string element in the two worker role elements.
+
+9. Press CTRL+F5 to run the application. Enter some data by clicking the Mailing Lists, Messages and Subscribers links as did previously in this tutorial.
+
+10. Open Azure Storage Explorer and verify the data you entered has been saved to Azure Storage.
+
+   ![ASE][mtas-ase1]<br/>
+
+11. In *Server Explorer*, right click **Windows Azure Storage** and click **Add New Storage Account**.
+
+   ![ASE][mtas-se1]<br/>
+
+12. Enter the name of your storage account and a primary or secondary access key.
+
+   ![ASE][mtas-se2]<br/>
+
+   You can now use Visual Studio to view data stored in Windows Azure storage.
+
+   ![ASE][mtas-se3]<br/>
+
+11. **Optional** <ins>Explain why they might or might not want to do this</ins> Disable Azure Storage Emulator automatic startup. In **Solution Explorer**, right click the **AzureEmailService** cloud project and select **properties**.
+
+   ![ASE][mtas-aesp]<br/>
+
+12. **Optional** Set **Start Windows Azure storage emulator** to **False**.
+
+   ![ASE][mtas-1]<br/>
+
+   **Note**: You should only set this to false if you are not using the storage emulator. This dialog also provides a way to change the **Service Configuration** file from **Local** to **Cloud** (from *ServiceConfiguration.Local.cscfg* to *ServiceConfiguration.Cloud.cscfg*.
+
+13. **Optional** In the Windows system tray, right click on the compute emulator icon and click **Shutdown Storage Emulator**.
+
+   ![ASE][mtas-se4]<br/>
+
+<h2><a name="deployAz"></a><span class="short-header">Deploy to Windows Azure</span>Deploy the Application to Windows Azure</h2>
+
+There are several alternatives for publishing applications to Windows Azure. The Windows Azure Tools for Visual Studio allow you to both create and publish the service package to the Windows Azure environment directly from Visual Studio.  The Windows Azure Management Portal provides the means to publish and manage your service using only your browser.
+
+In this section of the tutorial, you publish the application to the staging environment using the Management Portal.
+
+1. Open the cloud configuration file (*ServiceConfiguration.Cloud.cscfg*)  and set the StorageConnectionString setting using the account name and access key from the management portal. If you set the the StorageConnectionString setting to the same account name used in the  *ServiceConfiguration.Local.cscfg* file,  your deployed application and local application will use the same azure storage. It's often helpful to use a different account for the storage connection string setting  when deploying to Windows Azure. 
+
+2. Verify that the web role and two worker role elements all define the same StorageConnectionString.
+
+2. If it is not already open, launch Visual Studio as administrator and open the AzureEmailService solution.
+
+3.	Generate the package to publish to the cloud. To do this, right-click the **AzureEmailService** cloud project and select **Package**.
+
+   ![Package][mtas-2]<br/>
+
+4. In the **Package Windows Azure Application** dialog, verify the **Service Configuration**  is set to **Cloud**, then click **Package**. 
+
+   ![Cloud Package][mtas-pack]<br/>
+
+   Visual Studio builds the project and generates the service package. File Explorer opens with the current folder set to the location where the generated package was created. 
+
+   ![File][mtas-fe]<br/>
+
+   **Note**: Using the package approach requires that you create a new package each time you make changes to the application (any of the web or worker roles).
+
+   **Note**: Although the procedure is not shown here, you can use the Publish Cloud Service feature in the Windows Azure Tools to publish your service package directly from Visual Studio.
+
+4.	Switch back to the Management Portal browser window and click the cloud service you created.
+
+   ![Cloud Service][mtas-c1]<br/>
+
+5. Click **Staging**, then click **Upload a New Staging Deployment**.
+
+   ![Staging][mtas-c2]<br/>
+
+6. Enter a deployment name. Click the **Package** and **Configuration** input boxes and browse to the *app.publish* folder that Visual Studio created and opened in a previous step. Select the package and configuration files. Check the check box **Deploy even if one or more roles contains a single instance**. Finally, click the check icon to upload the package. This step can take several minutes to complete.<ins>We should explain the single instance issue.</ins>
+
+   ![Staging2][mtas-c3]<br/>
+
+7. In the portal, click **Dashboard**.
+
+   ![Dashboard][mtas-c4]<br/>
+
+8. Click the **Site URL** to launch the application.
+
+   ![Dashboard][mtas-c5]<br/>
+
+9. Enter some data to test the application.
+
+**Note**: To deploy changes to the application, you must follow the steps in this section to create a new cloud package, then upload the new package and configuration files.
+
+<h2><a name="swap"></a><span class="short-header">Production</span>Promote the Application from Staging to Production</h2>
+
+1. Click the Cloud icon in the left pane, then click your cloud service, finally click  **Swap**.
+
+2. Click **Yes** to complete the VIP Swap. This step can take several minutes to complete.
+
+   ![Dashboard][mtas-c6]
+
+3. Click the Cloud icon in the left pane, then click your cloud service, finally click  **Production**.
+
+4. Notice the **Site URL** has changed from a GUID prefix to the name of your cloud service. Click or copy the **Site URL** to test the application in production. 
+
+   ![Dashboard][mtas-c7]
+
+   If you haven't changed the storage account settings, the data you entered while testing the staged version of the application is retained.
+
+<h2><a name="sendGrid"></a><span class="short-header">SendGrid</span>Get a SendGrid account</h2>
+
+1. Follow the instructions in [How to Send Email Using SendGrid with Windows Azure](http://www.windowsazure.com/en-us/develop/net/how-to-guides/sendgrid-email-service/ "SendGrid") to sign up for a free account.
+
+<h2><a name="trace"></a><span class="short-header">Trace</span>Configure and View Trace Data</h2>
+1. Edit the *ServiceConfiguration.*.cscfg* files. Find the Trace (diagnostics) settings element in the ConfigurationSettings element. The followng code shows the diagnostics setting element:
+
+		<ConfigurationSettings>
+		  <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" 
+		           value="UseDevelopmentStorage=true" />
+		</ConfigurationSettings>
+
+2. Change the value attribute from "UseDevelopmentStorage=true" to the following:
+
+      value="DefaultEndpointsProtocol=https;AccountName=[StorageAccount];AccountKey=[Account Key]"
+
+   where "[StorageAccount]" and "[Account Key]" are your storage account and keys obtained from from the storage tab of the Windows Azure portal. 
+
+   **Note:** The storage account doesn't need to be the same account the application uses for reading and writing application data. It's often more convienent to use a test or trace account to store trace data.
+
+[Set Up the development environment]: #setupdevenv
+[Set up a free Windows Azure Account]: #setupwindowsazure
+[Create a Windows Azure Storage Account]: #createWASA
+[Optional: Install Azure Storage Explorer]: #installASE
+[Create a Cloud Server in the Management Portal]: #createcloudsvc
+[Download and Configure the Completed Solution]: #downloadcnfg
+[Run the Application from Visual Studio]: #runVS
+[Viewing Developer Storage in Visual Studio]: #StorageExpVS
+[Configure the Application for Azure Storage]: #conf4azureStorage
+[Deploy the Application to Azure]: #deployAz
+[Promote the Application from Staging to Production]: #swap
+[Get a SendGrid account]: #sendGrid
+[Configure and View Trace Data]: #trace
+
+
+[firsttutorial]: http://
+
+
+[mtas-wpi-installer]: ../Media/mtas-wpi-installer.png
+[mtas-portal-new-storage]: ../Media/mtas-portal-new-storage.png
+[mtas-storage-quick]: ../Media/mtas-storage-quick.png
+[mtas-create-storage-url-test]: ../Media/mtas-create-storage-url-test.png
+[mtas-manage-keys]: ../Media/mtas-manage-keys.png
+[mtas-guid-keys]: ../Media/mtas-guid-keys.PNG
+[mtas-new-cloud]: ../Media/mtas-new-cloud.png
+[mtas-create-cloud]: ../Media/mtas-create-cloud.png
+[mtas-ase-add]: ../Media/mtas-ase-add.png
+[mtas-ase-add2]: ../Media/mtas-ase-add2.png
+[mtas-ase-add3]: ../Media/mtas-ase-add3.png
+[mtas-rt-prop]: ../Media/mtas-rt-prop.png
+[mtas-mailinglist1]: ../Media/mtas-mailinglist1.png
+[mtas-create1]: ../Media/mtas-create1.png
+[mtas-mailing-list-index-page]: ../Media/mtas-mailing-list-index-page.png
+[mtas-subscribers-index-page]: ../Media/mtas-subscribers-index-page.png
+[mtas-message-create-page]: ../Media/mtas-message-create-page.png
+[mtas-message-index-page]: ../Media/mtas-message-index-page.png
+[mtas-serverExplorer]: ../Media/mtas-serverExplorer.png
+[mtas-wasVSdata]: ../Media/mtas-wasVSdata.png
+[mtas-elip]: ../Media/mtas-elip.png
+[mtas-enter]: ../Media/mtas-enter.png
+[mtas-ase1]: ../Media/mtas-ase1.png
+[mtas-se1]: ../Media/mtas-se1.png
+[mtas-se2]: ../Media/mtas-se2.png
+[mtas-se3]: ../Media/mtas-se3.png
+[mtas-aesp]: ../Media/mtas-aesp.png
+[mtas-1]: ../Media/mtas-1.png
+[mtas-se4]: ../Media/mtas-se4.png
+[mtas-2]: ../Media/mtas-2.png
+[mtas-pack]: ../Media/mtas-pack.png
+
+[mtas-fe]: ../Media/mtas-fe.png
+[mtas-c1]: ../Media/mtas-c1.png
+[mtas-c2]: ../Media/mtas-c2.png
+[mtas-c3]: ../Media/mtas-c3.png
+[mtas-c4]: ../Media/mtas-c4.png
+[mtas-c5]: ../Media/mtas-c5.png
+[mtas-c6]: ../Media/mtas-c6.png
+[mtas-c7]: ../Media/mtas-c7.png
+[mtas-er1]: ../Media/mtas-er1.png
+[mtas-]: ../Media/mtas-.png
+[mtas-]: ../Media/mtas-.png
+[mtas-]: ../Media/mtas-.png
+[mtas-]: ../Media/mtas-.png
+
+
+
+[blob6]: ../Media/blob6.png
+[blob7]: ../Media/blob7.png
+[blob8]: ../Media/blob8.png
+[blob9]: ../Media/blob9.png
+
+[mtas-storage-quick-SM]: ../Media/mtas-storage-quick-SM.png
 [0]: ../../Shared/media/antares-iaas-preview-01.png
 [1]: ../../Shared/media/antares-iaas-preview-05.png
 [2]: ../../Shared/media/antares-iaas-preview-06.png
-[mtas-architecture-overview]: ../Media/mtas-architecture-overview.png
-[mtas-alternative-architecture]: ../Media/mtas-alternative-architecture.png
-[mtas-mailing-list-index-page]: ../Media/mtas-mailing-list-index-page.png
-[mtas-subscribers-index-page]: ../Media/mtas-subscribers-index-page.png
-[mtas-message-index-page]: ../Media/mtas-message-index-page.png
-[mtas-message-create-page]: ../Media/mtas-message-create-page.png
-[mtas-subscribe-confirmation-page]: ../Media/mtas-subscribe-confirmation-page.png
-[mtas-unsubscribe-query-page]: ../Media/mtas-unsubscribe-query-page.png
-[mtas-unsubscribe-confirmation-page]: ../Media/mtas-unsubscribe-confirmation-page.png
-[mtas-worker-roles-a-and-b]: ../Media/mtas-worker-roles-a-and-b.png
-[mtas-message-processing]: ../Media/mtas-message-processing.png
-[mtas-unsubscribe-confirmed-page]: ../Media/unsubscribe-confirmed-page.png
-[mtas-unsubscribe-confirmed-page]: ../Media/unsubscribe-confirmed-page.png
+[Image001]: ../Media/Dev-net-getting-started-001.png
 
