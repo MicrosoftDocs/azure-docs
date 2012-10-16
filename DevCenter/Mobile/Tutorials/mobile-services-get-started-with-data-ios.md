@@ -212,7 +212,7 @@ Now that your mobile service is ready, you can update the app to store items in 
             completion(index);
         }];
 
-    This code send an insert request to the mobile service.
+    This code sends an insert request to the mobile service.
 
 14. Locate the **completeItem** method, and replace the body of the method with the following code:
 
