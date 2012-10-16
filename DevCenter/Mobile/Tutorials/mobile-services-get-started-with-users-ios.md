@@ -26,7 +26,7 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 	<p>This tutorial demonstrates the basic method provided by Mobile Services to authenticate users by using a variety of identity providers. This method is easy to configure and supports multiple providers. However, this method also requires users to log-in every time your app starts. To instead use Live Connect to provide a single sign-on experience in your Windows Store app, see the topic <a href="/en-us/develop/mobile/tutorials/single-sign-on-win8-dotnet">Single sign-on for Windows Store apps by using Live Connect</a>.</p>
 </div>-->
 
-<a name="register"></a><h2><span class="short-header">Register your app</span>Register your app for authentication and configure Mobile Services</h2>
+<h2><span class="short-header">Register your app</span><a name="register"></a>Register your app for authentication and configure Mobile Services</h2>
 
 To be able to authenticate users, you must register your app with an identity provider. You must then register the provider-generated client secret with Mobile Services.
 
@@ -53,7 +53,7 @@ To be able to authenticate users, you must register your app with an identity pr
 
 Both your mobile service and your app are now configured to work with your chosen authentication provider.
 
-<a name="permissions"></a><h2><span class="short-header">Restrict permissions</span>Restrict permissions to authenticated users</h2>
+<h2><span class="short-header">Restrict permissions</span><a name="permissions"></a>Restrict permissions to authenticated users</h2>
 
 1. In the Management Portal, click the **Data** tab, and then click the **TodoItem** table. 
 
@@ -71,23 +71,15 @@ Both your mobile service and your app are now configured to work with your chose
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
-<a name="add-authentication"></a><h2><span class="short-header">Add authentication</span>Add authentication to the app</h2>
+<h2><span class="short-header">Add authentication</span><a name="add-authentication"></a>Add authentication to the app</h2>
 
-5. Open the project file TodoListController.m and in the **@interface TodoListController** declaration block, add the following code: 
-
-        @property (strong, nonatomic) TodoService *todoService;
-
-6. In the **@interface TodoListController** declaration block, add the following code:
-	
-        @synthesize todoService;
-
-7. In the **viewDidLoad** method, remove the following code that reloads the data into the table:
+1. Open the project file TodoListController.m and in the **viewDidLoad** method, remove the following code that reloads the data into the table:
 
         [todoService refreshDataOnSuccess:^{
             [self.tableView reloadData];
         }];
 
-7.	Just after the **viewDidLoad** method, add the following code:
+2.	Just after the **viewDidLoad** method, add the following code:
 
         - (void)viewDidAppear:(BOOL)animated
         {
@@ -131,7 +123,7 @@ Next, you will update the app to authenticate users before requesting resources 
 	<p>If you are using an identity provider other than Facebook, change the value passed to <strong>loginViewControllerWithProvider</strong> above to one of the following: <i>microsoftaccount</i>, <i>facebook</i>, <i>twitter</i>, or <i>google</i>.</p>
     </div>
 		
-9. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
+3. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
 
    When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
