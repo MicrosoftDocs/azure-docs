@@ -201,7 +201,20 @@ Now that your mobile service is ready, you can update the app to store items in 
            completion();
         }]; 
 
-13. Locate the **completeItem** method, and replace the body of the method with the following code:
+13. Locate the **addItem** method, and replace the body of the method with the following code:
+
+        // Insert the item into the TodoItem table and add to the items array on completion
+        [self.table insert:item completion:^(NSDictionary *result, NSError *error) {
+            NSUInteger index = [items count];
+            [(NSMutableArray *)items insertObject:item atIndex:index];
+
+            // Let the caller know that we finished
+            completion(index);
+        }];
+
+    This code send an insert request to the mobile service.
+
+14. Locate the **completeItem** method, and replace the body of the method with the following code:
 
         // Update the item in the TodoItem table and remove from the items array on completion
         [self.table update:mutable completion:^(NSDictionary *item, NSError *error) {
