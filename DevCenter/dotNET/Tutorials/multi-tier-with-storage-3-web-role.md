@@ -1,526 +1,1147 @@
 <div chunk="../chunks/article-left-menu.md" />
 
-# .NET Multi-Tier Application Using Storage Tables, Queues, and Blobs
+# Building the web role for the Azure Email Service application - 3 of 5. 
 
-This tutorial series shows how to create a multi-tier ASP.NET web application that uses Windows Azure Storage tables, queues, and blobs. The tutorial assumes that you have no prior experience using Windows Azure. On completing the tutorial, you'll have a robust and scalable data-driven web application up and running in the cloud.
+This is the third tutorial in a series of five that show how to build and deploy the Azure Email Service sample application.  For information about the application and the tutorial series, see the [first tutorial in the series][firsttutorial].
 
-<h2><a name="whyanemaillistapp"></a><span class="short-header">Why Choose This App</span>Why an Email List Service Application</h2>
+In this tutorial you'll learn:
 
-We chose an email list service for this sample application because it is the kind of application that needs to be robust and scalable, two features that make it especially appropriate for Windows Azure. 
+* How to create a solution that contains a Cloud Service project, an ASP.NET MVC 4 web role, and a worker role; or how to create a solution that contains an ASP.NET MVC 4 web project and a Cloud Service project with a worker role.
+* How to configure the web role or web project to use your Windows Azure Storage account.
+* How to create MVC 4 controllers and views that work with Windows Azure tables.
+* How to create a Web API controller that works with Windows Azure tables and queues.
+ 
+### Tutorial segments
 
-### Robust 
+1. [Create the Visual Studio solution][createsolution]
+2. [Create and test the Mailing List controller and views][mailinglist]
+3. [Create and test the Message controller and views][message]
+4. [Create and test the Subscriber controller and views][subscriber]
+5. [Create and test the Web API controller and service method][webapi]
+4. [Create and test the Subscribe controller and view][subscribe]
+4. [Create and test the Unsubscribe controller and view][unsubscribe]
+8. [Next steps][nextsteps]
 
-If a server fails while sending out emails to a large list, you want to be able to stand up a new server easily and quickly, and you want the application to pick up where it left off without losing or duplicating any emails. A Windows Azure Cloud Service web or worker role (virtual machine) is automatically replaced if it fails. And Windows Azure Storage queues and tables provide a means to implement server-to-server communication that can survive a failure without losing work.
+<h2><a name="cloudproject"></a><span class="short-header">Create cloud project</span>Create the Visual Studio solution</h2>
 
-### Scalable
+Begin by deciding whether you want to build the application architecture used in the downloaded sample: a Windows Azure Cloud Service with a web role and two worker roles. The alternative is to run the web UI and Web API service method in a Windows Azure Web Site, and keep only the worker roles in a Cloud Service. Then follow the steps in whichever of the two following "Create the project" sections that applies to your chosen architecture.
 
-An email service also must be able to handle spikes in traffic, since sometimes you are sending emails to small lists and sometimes to very large lists.  In many hosting environments, you have to purchase and maintain sufficient hardware to handle the spikes in workload, and you're paying for all that capacity 100% of the time although you might only use it 5% of the time.  With Windows Azure, you pay only for the amount of computing power that you actually need for only as long as you need it.  To scale up for a large mailing, you just change a configuration setting to increase the number of servers you have available to process the workload, and this can be done programmatically.
+### Create a Cloud Service project with a web role and a worker role
 
-<h2><a name="whatyoulllearn"></a><span class="short-header">What You'll Learn</span>What You'll Learn</h2>
+Skip this section if you want to run the web UI and Web API service method in a Windows Azure Web Site.
 
-In this tutorial series you'll learn the following:
+1. Start Visual Studio 2012 or Visual Studio 2012 for Web Express, with administrative privileges.
 
-* How to enable your machine for Windows Azure development by installing the Windows Azure SDK.
-* How to create a Visual Studio cloud project with an MVC 4 web role and two worker roles.
-* How to publish the cloud project to a Windows Azure Cloud Service.
-* How to publish the MVC 4 project to a Windows Azure Web Site if you prefer, and still use the worker roles in the Cloud Service.
-* How to use Windows Azure storage queues for communication between tiers or between worker roles.
-* How to use Windows Azure storage tables as a highly scalable data store for non-relational data.
-* How to use Windows Azure storage blobs to store files in the cloud.
-* How to use Azure Storage Explorer to work with tables, queues, and blobs.
+   The Windows Azure compute emulator which enables you to test your cloud project locally requires administrative privileges.
 
-<h2><a name="wawsvswacs"></a><span class="short-header">Application architecture</span>Overview of application architecture</h2>
+2. From the **File** menu select **New Project**.
 
-This is the first tutorial in a series, and it provides an overview of the application and its architecture.
+   ![New Project menu][mtas-file-new-project]
 
-The front-end is a set of web pages and a service method that enable administrators to manage email lists, and subscribers to subscribe and unsubscribe. The front-end uses ASP.NET MVC 4 and Web API, and it runs in a web role in a Windows Azure Cloud Service. The back-end is a pair of worker roles running in the same Cloud Service and do the work of sending emails.
+3. In the **New Project** dialog box, make sure that the **.NET Framework** drop-down list is set to **.NET Framework 4**. 
 
-The application stores email lists and subscriber information in Windows Azure storage tables.  It stores email content in blobs (a plain text file and an HTML file for each email). It uses Windows Azure storage queues for communication between the front-end service method and the one of the back-end worker roles, and between the two worker roles. 
+   As this tutorial is being written, Windows Azure Web Sites and Windows Azure Cloud Service web roles do not support ASP.NET 4.5.
 
-The following diagram provides a high-level picture of the application architecture that is used in this tutorial.
+1. Expand **C#** and select **Cloud** under **Installed Templates** and then select **Windows Azure Cloud Service**.
 
-![Application architecture overview][mtas-architecture-overview]
+2. Name the application **AzureEmailService** and click **OK**.<br/>
 
-An alternative architecture that would also work is to run the front-end in a Windows Azure Web Site. 
+   ![New Project dialog box][mtas-new-cloud-project]
 
-![Alternative application architecture][mtas-alternative-architecture]
+5. In the **New Windows Azure Cloud Service** dialog box, select **ASP.NET MVC 4 Web Role** and click the arrow that points to the right.
 
-This alternative architecture might offer some cost benefits, because a Windows Azure Web Site may be less expensive for similar capacity compared to a web role running in a Cloud Service. For this tutorial we have the entire application in a Cloud Service because that simplifies configuration and deployment. The tutorial explains the differences between the two architectures, so that when you implement your own application you can choose the architecture that you prefer.
+   ![New Windows Azure Cloud Project dialog box][mtas-new-cloud-service-dialog]
 
-<h2><a name="frontendoverview"></a><span class="short-header">Front-end overview</span>Front-end overview</h2>
+6. In the column on the right, hover the pointer over **MvcWebRole1**, and then click the pencil icon to change the name of the web role. 
 
-The front-end includes web pages that administrators of the service use to manage email lists and to create and schedule messages to be sent to the lists.
+7. Enter MvcWebRole as the new name, then click **OK**.
 
-![Mailing List Index Page][mtas-mailing-list-index-page]
+   ![New Windows Azure Cloud Project dialog box - renaming the web role][mtas-new-cloud-service-dialog-rename]
 
-![Subscriber Index Page][mtas-subscribers-index-page]
+8. Follow the same procedure to add a **Worker Role**, name it WorkerRoleA, and then click **OK**.
 
-![Message Index Page][mtas-message-index-page]
+   ![New Windows Azure Cloud Project dialog box - adding a worker role][mtas-new-cloud-service-add-worker-a]
 
-![Message Create Page][mtas-message-create-page]
+5. In the **New ASP.NET MVC 4 Project** dialog box, select the **Internet Application** template.
 
-Clients of the service are companies that give their customers an opportunity to sign up for a list on the client web site. For example, Contoso University wants a list for History Department announcements. When a student interested in History Department announcements clicks a link on the Contoso University web site, Contoso University makes a web service call to this application. The service method causes an email to be sent to the customer. That email contains a link, and when the recipient clicks the link, a page welcoming the customer to the History Department Announcements list is displayed.
+6. In the **View Engine** drop-down list make sure that **Razor** is selected, and then click **OK**.
 
-![Welcome to list page][mtas-subscribe-confirmation-page]
+   ![New Project dialog box][mtas-new-mvc4-project]
 
-Every email sent by the service includes a hyperlink that can be used to unsubscribe. If a recipient clicks the link, a web page asks for confirmation of intent to unsubscribe. If the recipient clicks the Confirm button, a page is displayed confirming that the person has been removed from the list.
+### Create a web application project and add a Cloud Service project with a web role to the solution
 
-![Confirm unsubscribe page][mtas-unsubscribe-query-page]
+Skip this section if you are running the web UI and Web API service method in a Cloud Service web role.
 
-![!Unsubscribe confirmed page][mtas-unsubscribe-confirmation-page]
+1. Start Visual Studio 2012 or Visual Studio 2012 for Web Express, with administrative privileges.
+   
+2. From the **File** menu select **New Project**.
 
-<h2><a name="backendoverview"></a><span class="short-header">Back-end overview</span>Back-end overview</h2>
+1. Select **Web** under **Installed Templates**, and then select the **ASP.NET MVC 4 Web Application** template. 
 
-Email lists and email messages scheduled to be sent are stored in Windows Azure Storage tables. When an administrator schedules an email to be sent, a row containing the scheduled date and other data is placed on the Message table. A worker role (virtual machine) running in a Windows Azure Cloud Service periodically scans the Message table looking for messages that need to be sent (we'll call this Worker Role A). When Worker Role A finds a message needing to be sent, it looks up all the email addresses in the destination email list, puts the information needed to send the email in the Message table, and creates a work item on a queue for each email that needs to be sent. A second worker role (Worker Role B) polls the queue for work items. When Worker Role B finds a work item, it processes the item by sending the email and then deletes the work item from the queue. The following diagram shows these relationships.
+2. Name the application **AzureEmailService** and click **OK**.
 
-![Worker roles A and B][mtas-worker-roles-a-and-b]
+5. In the **New ASP.NET MVC 4 Project** dialog box, select the **Internet Application** template.
 
-When Worker Role A creates a queue work item, it also adds a row to the Message table.  Worker Role A reads this row to get the information it needs to send the email.
+6. In the **View Engine** drop-down list make sure that **Razor** is selected, and then click **OK**.
 
-The row in the Message table that provides information for one email also includes a property that indicates whether the email has actually been sent. When Worker Role B sends an email, it updates this property to indicate that the email has been sent. If Worker Role A goes down while creating queue work items for a message, it might create duplicate queue work items when it restarts, but the tracking row ensures that duplicate emails won't be sent. (Worker Role B checks the row before sending an email.)
+7. In **Solution Explorer**, right-click the new solution and select **Add Project**.
 
-![Queue message creation and processing][mtas-message-processing]
+3. In the **New Project** dialog box, make sure that the **.NET Framework** drop-down list is set to **.NET Framework 4**. 
 
-<h2><a name="tables"></a><span class="short-header">Tables</span>Windows Azure Storage Tables</h2>
+1. Expand **C#** and select **Cloud** under **Installed Templates** and then select **Windows Azure Cloud Service**.
 
-Windows Azure storage tables are a NoSQL data store, not a relational database. That makes them a good choice when scalability is more important than data normalization and relational integrity. For example, in this application, worker roles create a row every time a queue workitem is created and the row is updated every time an email is sent, which might be a performance bottleneck if a relational database were used.
+2. Name the project **WindowsAzureCloudService** and click **OK**.
 
-In a Windows Azure storage table, every row has a *partition key* and a *row key* that uniquely identifies the row. The partition key divides the table up both logically and physically into partitions. Within a partition, the row key uniquely identifies a row.
+5. In the **New Windows Azure Cloud Service** dialog box, select **Worker Role** and click the arrow that points to the right.
 
-### MailingList table ###
+6. In the column on the right, hover the pointer over **WorkerRole1**, and then click the pencil icon to change the name of the worker role. 
 
-The MailingList table stores information about mailing lists and information about the subscribers to mailing lists. Administrators use web pages to create and edit mailing lists, and clients and subscribers use a set of web pages and service method to subscribe and unsubscribe.
+7. Enter WorkerRoleA as the new name, then click **OK**.
 
-In NoSQL tables, different rows can have different schemas, and this flexibility is commonly used to make one table store data that would require multiple tables in a relational database. For example, to store mailing list data in SQL Database you could use three tables: a MailingList table that stores information about the list, a Subscriber table that stores information about subscribers, and a MailingListSubscriber table that associates mailing lists with subscribers and vice versa. In the NoSQL table in this application, all of those functions are rolled into one table named MailingList. 
+### Set the page header, menu, and footer
 
-The row key for the MailingList table can be one of two things:  the constant "0" or the email address of the subscriber. Rows that have row key "0" include information about the mailing list. Rows that have the email address as the row key have information about the subscribers to the list.
+In this section you update the headers, footers, and menu items that are shown on every page for the administrator web UI.  The application will have three sets of administrator web pages:  one for Mailing Lists, one for Messages, and one for Subscribers.
 
-In other words, rows with row key "0" are equivalent to a MailingList table in a relational database. Rows with row key = email address are equivalent to a Subscriber table and a MailingListSubscriber association table in a relational database.
+1. In **Solution Explorer**, expand the Views\Shared folder and open the &#95;Layout.cshtml file.
 
-Making one table serve multiple purposes in this way facilitates better performance. In a relational database three tables would have to be read, then three sets of rows would have to be sorted and matched up against each other, which takes time. Here just one table is read and its rows are automatically returned in partition key and row key order.
+   ![_Layout.cshtml in Solution Explorer][mtas-opening-layout-cshtml]
 
-The following grid shows row properties for the rows that show mailing list information (row key = "0").
+2. In the **&lt;title&gt;** element, change "My ASP.NET MVC Application" to "To Do List".
 
-<table border="1">
-<tr>
-<th>Property</td>
-<th>Data Type</td>
-<th>Description</td>
-</tr>
-<tr>
-<td>PartitionKey</td>
-<td>String</td>
-<td>ListName:  The name (unique identifier) of the mailing list. The typical use for the table is to retrieve all information for a mailing list, so this is an efficient way to partition the table.</td>
-</tr>
-<tr>
-<td>RowKey</td>
-<td>String</td>
-<td>The constant "0".</td>
-</tr>
-<tr>
-<td>Description</td>
-<td>String</td>
-<td>Description of the mailing List, for example: "Contoso University History Department announcements".</td>
-</tr>
-<tr>
-<td>FromEmailAddress</td>
-<td>String</td>
-<td>The "From" email address in the emails sent to this list, for example: "contoso.edu".</td>
-</tr></table>
-
-The following grid shows row properties for the rows that contain subscriber information for the list (row key = email address).
-
-<table border="1">
-<tr>
-<th>Property</td>
-<th>Data Type</td>
-<th>Description</td>
-</tr>
-<tr>
-<td>PartitionKey</td>
-<td>String</td>
-<td>ListName:  The name (unique identifier) of the mailing list.</td>
-</tr>
-<tr>
-<td>RowKey</td>
-<td>String</td>
-<td>EmailAddress:  The subscriber email address.</td>
-</tr>
-<tr>
-<td>SubscriberGUID</td>
-<td>String</td>
-<td>Generated when the email address is added to a list, used in subscribe and unsubscribe links so that it's not too easy to subscribe or unsubscribe someone else's email address. Not expecting major spikes in subscribe/unsubscribe requests, so no need to create a table with this as row key for efficient retrieval..</td>
-</tr>
-<tr>
-<td>Status</td>
-<td>String</td>
-<td>"Pending" or "Verified." When a customer clicks on a subscribe link in a web site, a row for the subscriber is created and set to Pending, and an email is sent to the submitted email address. That email contains a hyperlink that the recipient can click in order to confirm the subscription. When the recipient clicks that link, the status is changed to "Verified". While the status is "Pending", no emails are sent to the address except for the initial email with the Confirm Subscription link.</td>
-</tr></table>
-
-The following list shows an example of what data in the table might look like.
-
-<table border="1">
-<tr>
-<th width="200">Partition Key</th>
-<td>contoso1</td>
-</tr>
-<tr>
-<th>Row Key</td>
-<td>0</td>
-</tr>
-<tr>
-<th>Description</th>
-<td>Contoso University History Department announcements</td>
-</tr>
-<tr>
-<th>FromEmailAddress</th>
-<td>donotreply@contoso.edu</td>
-</tr>
-</table>
-
-<hr/>
-
-<table border="1">
-<tr>
-<th width="200">Partition Key</th>
-<td>contoso1</td>
-</tr>
-<tr>
-<th>Row Key</td>
-<td>student1@domain.com</td>
-</tr>
-<tr>
-<th>SubscriberGUID</th>
-<td>6f32b03b-90ed-41a9-b8ac-c1310c67b66a</td>
-</tr>
-<tr>
-<th>Status</th>
-<td>Verified</td>
-</tr>
-</table>
-
-<hr/>
-
-<table border="1">
-<tr>
-<th width="200">Partition Key</th>
-<td>contoso1</td>
-</tr>
-<tr>
-<th>Row Key</td>
-<td>student2@domain.com</td>
-</tr>
-<tr>
-<th>SubscriberGUID</th>
-<td>01234567-90ed-41a9-b8ac-c1310c67b66a</td>
-</tr>
-<tr>
-<th>Status</th>
-<td>Verified</td>
-</tr>
-</table>
-
-<hr/>
-
-<table border="1">
-<tr>
-<th width="200">Partition Key</th>
-<td>fabrikam1</td>
-</tr>
-<tr>
-<th>Row Key</td>
-<td>0</td>
-</tr>
-<tr>
-<th>Description</th>
-<td>Fabrikam Engineering job postings</td>
-</tr>
-<tr>
-<th>FromEmailAddress</th>
-<td>donotreply@fabrikam.com</td>
-</tr>
-</table>
-
-<hr/>
-
-<table border="1">
-<tr>
-<th width="200">Partition Key</th>
-<td>fabrikam1</td>
-</tr>
-<tr>
-<th>Row Key</td>
-<td>applicant1@domain.com</td>
-</tr>
-<tr>
-<th>SubscriberGUID</th>
-<td>76543210-90ed-41a9-b8ac-c1310c67b66a</td>
-</tr>
-<tr>
-<th>Status</th>
-<td>Verified</td>
-</tr>
-</table>
-
-### Message table ###
-
-The Message table stores information about messages that are scheduled to be sent to a mailing list. Administrators create and edit rows in this table using a web page, and the worker roles use it to pass information about each email from Worker Role A to Worker Role B.
-
-The row key for the Message table can be one of two things:  the constant "0" or the email address of the subscriber. Rows that have row key "0" include information about the message. Rows that have the email address as the row key have information about the message, the mailing list, and the subscriber -- everything needed to send an email.
-
-In relational database terms, rows with row key "0" are equivalent to a Message table. Rows with row key = email address are equivalent to a join query view for MailingList, Message, and Subscriber information. 
-
-The following grid shows row properties for the Message table rows that have information about the message itself.
-
-<table border="1">
-<tr>
-<th>Property</td>
-<th>Data Type</td>
-<th>Description</td>
-</tr>
-<tr>
-<td>PartitionKey</td>
-<td>String</td>
-<td>MessageRef:  A unique value created by getting the Ticks value from <code>DateTime.Now</code> when the row is created. Since rows are returned in partition key order this ensures that when browsing through messages in the UI, they are displayed in the order in which they were created. (A GUID could be used here but would result in random order, and a sort would be necessary).</td>
-</tr>
-<tr>
-<td>RowKey</td>
-<td>String</td>
-<td>The constant "0".</code>.</td>
-</tr>
-<td>ScheduledDate</td>
-<td>String</td>
-<td>The date the message is scheduled to be sent.</td>
-</tr>
-<tr>
-<tr>
-<td>SubjectLine</td>
-<td>String</td>
-<td>The subject line of the email.</td>
-</tr>
-<tr>
-<td>ListName</td>
-<td>String</td>
-<td>The name of the list that this message is to be sent to. The same as the partition key of the MailingList table.</td>
-</tr>
-<tr>
-<td>Status</td>
-<td>String</td>
-<td><ul><li>"Pending" -- Worker Role A still needs to create queue messages to schedule emails, on the scheduled date.</li>
-<li>"Processing" -- Queue messages have been created for all emails in the list.</li>
-<li>"Completed" -- Worker Role B has finished processing all queue messages (all emails have been sent).</li></ul></td>
-</tr>
-</table>
-
-The following grid shows row properties for the rows in the Message table that contain information for an individual email.  These rows also help ensure that a message is sent to each email address only once, and they help determine when all emails for a message have been sent. When Worker Role A creates a queue message for an email to be sent to a list, it creates a row in this table. Worker Role B updates the EmailSent property to true when it sends the email. When the EmailSent property is true for all rows for a Message whose status is Processing, Worker Role A sets the Message status to Completed. 
-
-<table border="1">
-<tr>
-<th>Property</td>
-<th>Data Type</td>
-<th>Description</td>
-</tr>
-<tr>
-<td>PartitionKey</td>
-<td>String</td>
-<td>MessageRef.</td>
-</tr>
-<tr>
-<td>RowKey</td>
-<td>String</td>
-<td>EmailAddress:  The destination email address from the MailingList table.</code>.
-</td>
-<tr>
-<td>ScheduledDate</td>
-<td>DateTime</td>
-<td>The date the message is scheduled to be sent, from the Message table.</td>
-</tr>
-<tr>
-</tr>
-<tr>
-<td>From EmailAddress</td>
-<td>String</td>
-<td>The "From" email address, from the MailingList table.</td>
-</tr>
-<tr>
-<td>SubjectLine</td>
-<td>String</td>
-<td>The subject line of the email, from the Message table.</td>
-</tr>
-<tr>
-<td>EmailSent</td>
-<td>Boolean</td>
-<td>null or false means the email has not been sent yet; true means the email has been sent.</td>
-</tr>
-</table>
-
-(These rows don't have blob references for the email body .html and .txt files that contain the body of the email, because that value is derived from the MessageRef value.)
-
-The following list shows an example of what data in the table might look like.
-
-<table border="1">
-<tr>
-<th width="200">Partition Key</th>
-<td>634852858215726983</td>
-</tr>
-<tr>
-<th>Row Key</td>
-<td>0</td>
-</tr>
-<tr>
-<th>ScheduledDate</th>
-<td>2012-10-15</td>
-</tr>
-<tr>
-<th>SubjectLine</th>
-<td>New lecture series</td>
-</tr>
-<tr>
-<th>ListName</th>
-<td>contoso1</td>
-</tr>
-<tr>
-<th>Status</th>
-<td>Processing</td>
-</tr>
-</table>
-
-<hr/>
-
-<table border="1">
-<tr>
-<th width="200">Partition Key</th>
-<td>634852858215726983</td>
-</tr>
-<tr>
-<th>Row Key</td>
-<td>student1@contoso.edu</td>
-</tr>
-<tr>
-<th>ScheduledDate</th>
-<td>2012-10-15</td>
-</tr>
-<tr>
-<th>FromEmailAddress</th>
-<td>donotreply@contoso.edu</td>
-</tr>
-<tr>
-<th>SubjectLine</th>
-<td>New lecture series</td>
-</tr>
-<tr>
-<th>EmailSent</th>
-<td>true</td>
-</tr>
-</table>
-
-<hr/>
-
-<table border="1">
-<tr>
-<th width="200">Partition Key</th>
-<td>634852858215726983</td>
-</tr>
-<tr>
-<th>Row Key</td>
-<td>student2@contoso.edu</td>
-</tr>
-<th>Row Key</td>
-<td>student1@contoso.edu</td>
-</tr>
-<tr>
-<th>ScheduledDate</th>
-<td>2012-10-15</td>
-</tr>
-<tr>
-<th>FromEmailAddress</th>
-<td>donotreply@contoso.edu</td>
-</tr>
-<tr>
-<tr>
-<th>SubjectLine</th>
-<td>New lecture series</td>
-</tr>
-<tr>
-<th>EmailSent</th>
-<td>false</td>
-</tr>
-</table>
-
-<table border="1">
-<tr>
-<th width="200">Partition Key</th>
-<td>634852858215123456</td>
-</tr>
-<tr>
-<th>Row Key</td>
-<td>0</td>
-</tr>
-<tr>
-<th>ScheduledDate</th>
-<td>2012-10-31</td>
-</tr>
-<tr>
-<th>SubjectLine</th>
-<td>New display at Henry Art Gallery</td>
-</tr>
-<tr>
-<th>ListName</th>
-<td>contoso2</td>
-</tr>
-<tr>
-<th>Status</th>
-<td>Pending</td>
-</tr>
-</table>
-
-<h2><a name="queues"></a><span class="short-header">Queues</span>Windows Azure Storage Queues</h2>
-
-Windows Azure storage queues facilitate communication between tiers of a multi-tier application, and between servers (worker roles) in the back-end tier. Windows Azure also provides another kind of queue service that has more features but is more complex to configure and program:  Service Bus queues.  For information about the difference between storage queues and Service Bus queues, see [Windows Azure Queues and Windows Azure Service Bus Queues - Compared and Contrasted][].
-
-The Azure Email Service application uses two queues.
-
-### AzureMailQueue ###
-
-The AzureMailQueue queue coordinates the sending of emails to email lists.  Worker Role A places a work item on the queue for each email to be sent, and Worker Role B pulls a work item from the queue and sends the email. 
-
-The queue message string contains MessageRef (partition key to the Message table) and EmailAddress (row key to the Message table) values. Worker Role B uses these values to look up the row in the Message table that contains all of the information needed to send the email.
-
-When traffic spikes, the Cloud Service can be reconfigured so that multiple instances of Worker Role B are instantiated, and each of them can independently pull work items off the queue.
-
-### AzureMailSubscribeQueue ###
-
-The AzureMailSubscribeQueue queue coordinates the sending of subscription confirmation emails to email lists.  In response to a subscribe service call, the Web API service method places a work item on the queue for the email address that needs confirmation.  Worker Role B pulls a work item from the queue and sends the email. 
-
-The queue message string contains the subscriber GUID.  This value uniquely identifies an email address and the list to subscribe it to, which is all Worker Role B needs to send a confirmation email. The subscriber GUID is not the partition key or the row key, but the volume of subscriptions is not expected to be high enough to cause the search for GUID to be a performance bottleneck.
-
-<h2><a name="blobs"></a><span class="short-header">Blobs</span>Windows Azure Storage Blobs</h2>
-
-The body of an email is stored in .html and .txt files, and in the Create and Edit pages for Messages, administrators upload both file types for each message.  When the files are uploaded, they are stored in blobs.
-
-There is a single blob container, named AzureMailBlobContainer.  The name of the blobs in the container is derived by concatenating the MessageRef value with the file extension.
+3. In the **&lt;p&gt;** element with class "site-title", change "your logo here" to "Azure Email Service" and change "Home" to "MailingList".
+
+    ![title and header in _Layout.cshtml][mtas-title-and-logo-in-layout]
+
+4. Delete the login and menu sections:
+
+    ![menu in _Layout.cshtml][mtas-menu-in-layout]
+
+4. Insert a new menu section:
+
+        <ul id="menu">
+            <li>@Html.ActionLink("Mailing Lists", "Index", "MailingList")</li>
+            <li>@Html.ActionLink("Messages", "Index", "Message")</li>
+            <li>@Html.ActionLink("Subscribers", "Index", "Subscriber")</li>
+        </ul>
+
+4. In the **&lt;footer&gt;** element, change "My ASP.NET MVC Application" to "To Do List".<br/>
+
+![footer in _Layout.cshtml][mtas-footer-in-layout]
+
+### Run the application locally
+
+1. Press CTRL+F5 to run the application.
+The application home page appears in the default browser.<br/>
+
+   ![home page][mtas-home-page-before-adding-controllers]
+
+   If you created a cloud service, the application runs in the Windows Azure compute emulator.  You can see the compute emulator icon in the Windows system tray:
+
+   ![Compute emulator in system tray][mtas-compute-emulator-icon]
+
+
+
+
+
+
+<h2><a name="mailinglist"></a><span class="short-header">Mailing List</span>Create and test the Mailing List controller and views</h2>
+
+### Add the MailingList entity class to the Models folder
+
+The MailingList entity class is used for the rows in the MailingList table that contain information about the list, such as its description and the "From" email address for emails sent to the list.  
+
+1. In **Solution Explorer**, right-click the Models folder in the MVC project, and choose **Add Existing Item**.
+
+   ![Add existing item to Models folder][mtas-add-existing-item-to-models]
+
+2. Navigate to the folder where you downloaded the sample application, select the MailingList.cs file in the Models folder, and click **Add**.
+
+3. Open MailingList.cs to see the code.
+
+		public class MailingList : TableServiceEntity
+		{
+		    public MailingList()
+		    {
+		        this.RowKey = "0";
+		    }
+		    
+		    [Required]
+		    [RegularExpression(@"^[^/\\#?]*$",
+		     ErrorMessage = @"/ \ # ? are not allowed")]
+            [Display(Name="List Name")]
+		    public string ListName
+		    {
+		        get
+		        {
+		            return this.PartitionKey;
+		        }
+		        set
+		        {
+		            this.PartitionKey = value;
+		        }
+		    }
+		
+		    [Required]
+		    [Display(Name="'From' Email Address")]
+		    public string FromEmailAddress { get; set; }
+
+		    public string Description { get; set; }
+		}
+		
+
+   The class derives from TableServiceEntity. The Windows Azure Tables API requires that entity classes you use for table operations include PartitionKey, RowKey, and TimeStamp fields. The TableServiceEntity abstract class defines these for you.
+
+   ![TableServiceEntity][mtas-tableserviceentity]
+
+   The TimeStamp field is intended only for system use.
+
+   The MailingList class defines a default constructor that sets RowKey to "0", because all of these rows must have that value as their row key. (For an explanation of the table structure, see the [first tutorial in the series][firsttutorial].) Any constant value could have been chosen for this purpose, as long as it would never be the same as an email address, which is the row key for the subscriber rows in this table.
+
+   The partition key is the list name. In this model class the partition key value can be accessed either by using the PartitionKey property (defined in TableServiceEntity) or the ListName property (defined here).  The ListName property uses PartitionKey as its backing variable. Defining the ListName property enables you to use a more descriptive variable name in code and makes it easier to program the web UI, since formatting and validation DataAnnotations attributes can be added to the property.
+
+   The RegularExpression attribute on the ListName property causes MVC to validate user input to ensure that the list name value entered does not contain any characters that are not allowed in Windows Azure table partition keys.
+
+   The list name and the "from" email address must always be entered when a new MailingList entity is created, so they have Required attributes.
+
+   The Display attributes specify the default caption to be used for the field in the MVC UI. 
+
+### Add the MailingList controller
+
+1. In **Solution Explorer**, right-click the Controllers folder in the MVC project, and choose **Add Existing Item**.
+
+   ![Add existing item to Controllers folder][mtas-add-existing-item-to-controllers]
+
+2. Navigate to the folder where you downloaded the sample application, select the MailingListController.cs file in the Controllers folder, and click **Add**.
+
+3. Open MailingListController.cs to see the code.
+
+   The default constructor creates a context object that you can use to work with the MailingList table.
+
+        public MailingListController()
+        {
+            var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+            // If this is running in a Windows Azure Web Site (not a Cloud Service) use the Web.config file:
+            //    var storageAccount = CloudStorageAccount.Parse(ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
+         
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+            tableClient.CreateTableIfNotExist("MailingList");
+            serviceContext = tableClient.GetDataServiceContext();
+        }
+
+   The code gets the credentials for your Windows Azure Storage account from the Cloud Service project settings file in order to make a connection to the storage account. (You'll see how to set up those settings before you test the controller.) If you are going to run the MVC project in a Windows Azure Web Site, you can get the connection string from the Web.config file instead.
+
+   The code then creates the context object and makes sure that the MailingList table used in this controller exists.
+
+   Next is a method that is called whenever the controller needs to look up a specific row of the MailingList table, such as to edit or delete a row. The code uses LINQ to look up and pass back a single MailingList entity using the partition key and row key values passed in to it.
+
+        private MailingList FindRow(string partitionKey, string rowKey)
+        {
+            // Using .Single() to throw exception if not found.
+            var mailingList =
+                (from e in serviceContext.CreateQuery<MailingList>("MailingList")
+                 where e.PartitionKey == partitionKey && e.RowKey == rowKey
+                 select e).Single();
+            return mailingList;
+        }
+        
+   The Index page displays all of the mailing list rows, so the Index method returns all MailingList entities that have "0" as the row key (the other rows in the table have email address as the row key and they contain subscriber information).
+
+        public ActionResult Index()
+        {
+            CloudTableQuery<MailingList> query =
+                (from e in serviceContext.CreateQuery<MailingList>("MailingList")
+                 where e.RowKey == "0"
+                select e).AsTableServiceQuery<MailingList>();
+            var lists = new List<MailingList>();
+            foreach (MailingList list in query)
+            {
+                lists.Add(list);
+            }
+            return View(lists);
+        }
+
+   When the user clicks the Create button on the Create page, the MVC model binder creates a MailingList entity from input entered in the view, and the HttpPost method adds the entity to the table.
+
+        [HttpPost]
+        public ActionResult Create(MailingList mailingList)
+        {
+            if (ModelState.IsValid)
+            {
+                serviceContext.AddObject("MailingList", mailingList);
+                serviceContext.SaveChangesWithRetries();
+                return RedirectToAction("Index");
+            }
+
+            return View(mailingList);
+        }
+
+	For the Edit page, the HttpGet method looks up the row, and the HttpPost method updates the row by using the MVC model binder.
+
+        public ActionResult Edit(string partitionKey, string rowKey)
+        {
+            var mailingList = FindRow(partitionKey, rowKey);
+            return View(mailingList);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(string partitionKey, string rowKey, MailingList editedMailingList)
+        {
+            if (ModelState.IsValid)
+            {
+                var mailingList = FindRow(partitionKey, rowKey);
+                UpdateModel(mailingList);
+                serviceContext.UpdateObject(mailingList);
+                serviceContext.SaveChangesWithRetries();
+                return RedirectToAction("Index");
+            }
+            return View(editedMailingList);
+        }
+
+   For the Delete page, the HttpGet method looks up the row and the HttpPost method deletes the row.
+
+        public ActionResult Delete(string partitionKey, string rowKey)
+        {
+            var mailingList = FindRow(partitionKey, rowKey);
+            return View(mailingList);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(string partitionKey, string rowKey)
+        {
+            var mailingList = FindRow(partitionKey, rowKey);
+            serviceContext.DeleteObject(mailingList);
+            serviceContext.SaveChangesWithRetries();
+            return RedirectToAction("Index");
+        }
+
+### Create the MVC views
+
+2. In **Solution Explorer**, create a new folder under the Views folder  in the MVC project, and name it MailingList.
+
+1. Right-click the new Views\MailingList folder, and choose **Add Existing Item**.
+
+   ![Add existing item to Views folder][mtas-add-existing-item-to-views]
+
+2. Navigate to the folder where you downloaded the sample application, select all four of the .cshtml files in the Views\MailingList folder, and click **Add**.
+
+3. Open the Edit.cshtml file to see the code.
+
+		@model AzureEmailService.Models.MailingList
+		
+		@{
+		    ViewBag.Title = "Edit Mailing List";
+		}
+		
+		<h2>Edit Mailing List</h2>
+		
+		@using (Html.BeginForm()) {
+		    @Html.ValidationSummary(true)
+		
+		    <fieldset>
+		        <legend>MailingList</legend>
+		
+		        <div class="editor-label">
+		            @Html.LabelFor(model => model.ListName)
+		        </div>
+		        <div class="editor-field">
+		            @Html.DisplayFor(model => model.ListName)
+		        </div>
+		
+		        <div class="editor-label">
+		            @Html.LabelFor(model => model.Description)
+		        </div>
+		        <div class="editor-field">
+		            @Html.EditorFor(model => model.Description)
+		            @Html.ValidationMessageFor(model => model.Description)
+		        </div>
+		
+		        <div class="editor-label">
+		            @Html.LabelFor(model => model.FromEmailAddress)
+		        </div>
+		        <div class="editor-field">
+		            @Html.EditorFor(model => model.FromEmailAddress)
+		            @Html.ValidationMessageFor(model => model.FromEmailAddress)
+		        </div>
+		
+		        <p>
+		            <input type="submit" value="Save" />
+		        </p>
+		    </fieldset>
+		}
+		
+		<div>
+		    @Html.ActionLink("Back to List", "Index")
+		</div>
+		
+		@section Scripts {
+		    @Scripts.Render("~/bundles/jqueryval")
+		}
+		
+   This code is typical for MVC views.  Notice that the ListName field has a DisplayFor helper instead of an EditorFor helper. We didn't enable the MailingList Edit page to change the list name, because that would have required complex code in the controller:  the HttpPost Edit method would have had to delete the existing mailing list row and all associated subscriber rows, and re-insert them with the new key value. In a production application you might decide that the additional complexity is worthwhile. As you'll see later in the Subscriber controller and views, we do allow list name changes there, since only one row at a time is affected. 
+
+   The Create.cshtml and Delete.cshtml code is similar to Edit.cshtml.
+
+4. Open Index.cshtml to see the code.
+
+		@model IEnumerable<AzureEmailService.Models.MailingList>
+		
+		@{
+		    ViewBag.Title = "Mailing Lists";
+		}
+		
+		<h2>Mailing Lists</h2>
+		
+		<p>
+		    @Html.ActionLink("Create New", "Create")
+		</p>
+		<table>
+		    <tr>
+		        <th>
+		            @Html.DisplayNameFor(model => model.ListName)
+		        </th>
+		        <th>
+		            @Html.DisplayNameFor(model => model.Description)
+		        </th>
+		        <th>
+		            @Html.DisplayNameFor(model => model.FromEmailAddress)
+		        </th>
+		        <th></th>
+		    </tr>
+		
+		@foreach (var item in Model) {
+		    <tr>
+		        <td>
+		            @Html.DisplayFor(modelItem => item.ListName)
+		        </td>
+		        <td>
+		            @Html.DisplayFor(modelItem => item.Description)
+		        </td>
+		        <td>
+		            @Html.DisplayFor(modelItem => item.FromEmailAddress)
+		        </td>
+		        <td>
+		            @Html.ActionLink("Edit", "Edit", new { PartitionKey = item.PartitionKey, RowKey=item.RowKey }) |
+		            @Html.ActionLink("Delete", "Delete", new { PartitionKey = item.PartitionKey, RowKey=item.RowKey  })
+		        </td>
+		    </tr>
+		}
+		
+   This code is typical for MVC views also. The Edit and Delete hyperlinks specify partition key and row key query string parameters in order to identify a specific row.  As noted earlier, for MailingList entities only the partition key is actually needed (since row key is always "0"), but both are kept for consistency across all controllers and views.
+
+### Make MailingList the default controller
+
+1. Open Route.config.cs in the App_Start folder.
+
+2. In the line that specifies defaults, change the default controller from "Home" to "MailingList".
+
+         routes.MapRoute(
+             name: "Default",
+             url: "{controller}/{action}/{id}",
+             defaults: new { controller = "MailingList", action = "Index", id = UrlParameter.Optional }
+
+### Configure the web role to use your test Windows Azure Storage account
+
+If you are running the web project in a Windows Azure Web Site instead of a web role, skip this section.
+
+You are going to enter settings for your test storage account, which you only want to use while running the project locally, but to add a new setting you have to add it for both cloud and local. You can change the cloud value later. You'll also add the same settings for worker role A later.
+
+1. In Solution Explorer, right-click **MvcWebRole** under **Roles** in the **AzureEmailService** cloud project, and then choose **Properties**.
+
+   ![Web role properties][mtas-mvcwebrole-properties-menu]
+
+2. Select **All Configurations** in the **Service Configuration** drop-down list.
+
+2. Select the **Settings** tab and then click **Add Setting**.
+
+3. Enter StorageConnectionString in the **Name** column.
+
+4. Select **Connection String** in the **Type** drop-down list.  
+  
+5. Click the ellipsis (...) at the right end of the line to create a new connection string.
+
+   ![Click ellipsis to create connection string][mtas-mvcwebrole-settings-tab]
+
+6. In the **Storage Account Connection String** dialog box, select *Enter storage account credentials*.
+
+   ![Storage Account Connection String dialog box][mtas-storage-acct-conn-string-dialog]
+
+   Next, you'll get the values that need to go in the **Account name** and **Account key** boxes.
+
+7. In a browser window, go to the Windows Azure management portal.
+
+8. Select the **Storage** tab, and then click **Manage keys** at the bottom of the page.
+
+   ![Selecting Manage keys in the portal][mtas-manage-keys-in-portal]
+
+   ![Manage Access Keys dialog box][mtas-manage-access-keys-dialog]
+
+9. Copy the **Storage account name** value, and paste it into the **Account name** box in the **Storage Account Connection String** dialog box in Visual Studio.
+
+9. Copy the **Primary access key** value, and paste it into the **Account key** box in the **Storage Account Connection String** dialog box in Visual Studio.
+
+10. Press CTRL-S to save your changes.
+
+### Store a connection string for your test Windows Azure Storage account in the Web.config file
+
+Use this section only if you are running the MVC web project in a Windows Azure Web Site. If you are running the MVC web project in a Cloud Service web role, skip this section.
+
+8. Add a new connection string named StorageConnectionString to the Web.config file, as shown in the following example:
+
+       <connectionStrings>
+          <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-MvcWebRole-20121010185535;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-MvcWebRole-20121010185535.mdf" providerName="System.Data.SqlClient" />
+          <add name="StorageConnectionString" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[primarykey]" />
+       </connectionStrings>
+
+7. In a browser window, go to the Windows Azure management portal.
+
+8. Select the **Storage** tab, and then click **Manage keys** at the bottom of the page.
+
+9. Copy the **Storage account name** value, and paste it over [accountname] in the Web.config file connection string.
+
+9. Copy the **Primary access key** value, and paste it over [primarykey] in the Web.config file connection string.
+
+### Test the application
+
+1. Run the project by pressing F5
+
+    ![Empty MailingList Index page][mtas-mailing-list-empty-index-page]
+
+2. Use the Create function to add some mailing lists, and try the Edit and Delete functions to make sure they work.
+
+    ![MailingList Index page with rows][mtas-mailing-list-index-page]
+
+
+
+
+
+
+<h2><a name="subscriber"></a><span class="short-header">Subscriber</span>Create and test the Subscriber controller and views</h2>
+
+### Add the Subscriber entity class to the Models folder
+
+The Subscriber entity class is used for the rows in the MailingList table that contain information about subscribers to a list, such as the person's email address and whether the address is verified.  
+
+1. In **Solution Explorer**, right-click the Models folder in the MVC project, and choose **Add Existing Item**.
+
+2. Navigate to the folder where you downloaded the sample application, select the Subscriber.cs file in the Models folder, and click **Add**.
+
+3. Open Subscriber.cs to see the code.
+
+        using Microsoft.WindowsAzure.StorageClient;
+        using System.Collections.Generic;
+        using System.ComponentModel.DataAnnotations;
+
+		namespace AzureEmailService.Models
+		{
+		    public class Subscriber : TableServiceEntity
+		    {
+		        [Required]
+		        public string ListName
+		        {
+		            get
+		            {
+		                return this.PartitionKey;
+		            }
+		            set
+		            {
+		                this.PartitionKey = value;
+		            }
+		        }
+		
+		        [Required]
+		        [Display(Name = "Email Address")]
+		        public string EmailAddress
+		        {
+		            get
+		            {
+		                return this.RowKey;
+		            }
+		            set
+		            {
+		                this.RowKey = value;
+		            }
+		        }
+		
+		        [Display(Name = "Subscriber GUID")]
+		        public string SubscriberGUID { get; set; }
+		
+		        public string Status { get; set; }
+		
+		    }
+		}
+		
+
+   Like the MailingList entity class, the Subscriber entity class is used to read and write rows in the MailingList table. Subscriber rows have email address instead of the constant "0" in the row key.  (For an explanation of the table structure, see the [first tutorial in the series][firsttutorial].) Therefore an EmailAddress property is defined, with the RowKey property as its backing field, the same way that ListName uses PartitionKey as its backing field.
+   As explained earlier, this enables you to put formatting and validation DataAnnotations attributes on the properties.
+
+   The SubscriberGUID value is generated when the email address is added to a list. It is used in subscribe and unsubscribe links so that it's difficult to subscribe or unsubscribe someone else's email address.
+ 
+   When a row is initially created for a new subscriber, the Status value is Pending. The status changes to Verified only after the new subscriber clicks the Confirm hyperlink in the welcome email. If a message is sent to the list while the subscriber row is in Pending status, no email is sent to the prospective subscriber.
+
+### Add the Subscriber controller
+
+1. In **Solution Explorer**, right-click the Controllers folder in the MVC project, and choose **Add Existing Item**.
+
+2. Navigate to the folder where you downloaded the sample application, select the Subscriber.cs file in the Controllers folder, and click **Add**. (Make sure that you get Subscriber.cs and not Subscribe.cs; you'll add Subscribe.cs later.)
+
+3. Open Subscriber.cs to see the code.
+
+   Most of the code in this controller is similar to what you saw in the MailingList controller. Even the table name is the same because subscriber information is kept in the MailingList table. After the FindRow method you see a GetListNames method. This method gets the data for a drop-down list on the Create and Edit pages from which you can select the mailing list to subscribe an email address to.
+
+        private List<MailingList> GetListNames()
+        {
+            CloudTableQuery<MailingList> query =
+                (from e in serviceContext.CreateQuery<MailingList>("MailingList")
+                 where e.RowKey == "0"
+                 select e).AsTableServiceQuery<MailingList>();
+            var lists = new List<MailingList>();
+            foreach (MailingList list in query)
+            {
+                lists.Add(list);
+            }
+            return lists;
+        }
+
+   This is the same query you saw in the MailingList controller. For this list you want the rows that have information about the mailing lists, so you select only those that have RowKey = "0".
+
+   For the method that retrieves data for the Index page, you want the rows that have subscriber information, so you select all rows that do not have RowKey = "0".
+
+        public ActionResult Index()
+        {
+            CloudTableQuery<Subscriber> query =
+                 (from e in serviceContext.CreateQuery<Subscriber>("MailingList")
+                  where e.RowKey != "0"
+                  select e).AsTableServiceQuery<Subscriber>();
+            var subscribers = new List<Subscriber>();
+            foreach (Subscriber subscriber in query)
+            {
+                subscribers.Add(subscriber);
+            }
+
+            return View(subscribers);
+        }
+
+   In the Create HttpGet method, you set up data for the drop-down list; and in the Create HttpPost method, you set default values before saving the new entity.
+
+        public ActionResult Create()
+        {
+            var lists = GetListNames();
+            ViewBag.ListName = new SelectList(lists, "ListName", "Description");
+            var model = new Subscriber() {   Status = "Pending"};
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Create(Subscriber subscriber)
+        {
+            if (ModelState.IsValid)
+            {
+                subscriber.SubscriberGUID = Guid.NewGuid().ToString();
+                if (string.IsNullOrEmpty(subscriber.Status))
+                {
+                    subscriber.Status = "Pending";
+                }
+
+                serviceContext.AddObject("MailingList", subscriber);
+                serviceContext.SaveChangesWithRetries();
+                return RedirectToAction("Index");
+            }
+
+            var lists = GetListNames();
+            ViewBag.ListName = new SelectList(lists, "ListName", "Description", subscriber.ListName);
+
+            return View(subscriber);
+        }
+
+
+	The Edit HttpPost page is more complex than what you saw in the MailingList controller because the Subscriber page enables you to change the list name or email address, which are key fields. If the user changes one of these fields, you have to delete the existing record and add a new one instead of updating the existing record.
+
+        [HttpPost]
+        public ActionResult Edit(string partitionKey, string rowKey, string listName, string emailAddress)
+        {
+            var subscriber = FindRow(partitionKey, rowKey);
+
+            if (ModelState.IsValid)
+            {
+                if (listName == partitionKey && emailAddress == rowKey)
+                {
+                    //Keys didn't change -- Update the row
+                    UpdateModel(subscriber, "", null, new string[] { "PartitionKey", "RowKey" });
+                    serviceContext.UpdateObject(subscriber);
+                    serviceContext.SaveChangesWithRetries();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    //Keys changed -- Add a new row and delete the old row.
+                    var newSubscriber = new Subscriber();
+                    UpdateModel(newSubscriber, "", null, new string[] { "PartitionKey", "RowKey" });
+                    serviceContext.AddObject("MailingList", newSubscriber);
+                    serviceContext.DeleteObject(subscriber);
+                    serviceContext.SaveChangesWithRetries();
+                    return RedirectToAction("Index");
+                }
+            }
+
+            var lists = GetListNames();
+            ViewBag.ListName = new SelectList(lists, "ListName", "Description", listName);
+
+            return View(subscriber);
+        }
+
+    The parameters to this method include the original list name and email address values (in the partitionKey and rowKey parameters) and the values entered by the user (in the listName and emailAddress parameters). If either key value changes, the existing record is deleted and a new one created.
+
+### Create the MVC views
+
+2. In **Solution Explorer**, create a new folder under the Views folder  in the MVC project, and name it Subscriber.
+
+1. Right-click the new Views\MailingList folder, and choose **Add Existing Item**.
+
+2. Navigate to the folder where you downloaded the sample application, select all five of the .cshtml files in the Views\MailingList folder, and click **Add**.
+
+3. Open the Edit.cshtml file to see the code.
+
+		@model AzureEmailService.Models.MailingList
+		
+		@{
+		    ViewBag.Title = "Edit Mailing List";
+		}
+		
+		<h2>Edit Mailing List</h2>
+		
+		@using (Html.BeginForm()) {
+		    @Html.ValidationSummary(true)
+		
+		    @Html.HiddenFor(model => model.SubscriberGUID)
+		
+		    <fieldset>
+		        <legend>MailingList</legend>
+		
+		        <div class="editor-label">
+		            @Html.LabelFor(model => model.ListName)
+		        </div>
+		        <div class="editor-field">
+		            @Html.DisplayFor(model => model.ListName)
+		        </div>
+		
+		        <div class="editor-label">
+		            @Html.LabelFor(model => model.Description)
+		        </div>
+		        <div class="editor-field">
+		            @Html.EditorFor(model => model.Description)
+		            @Html.ValidationMessageFor(model => model.Description)
+		        </div>
+		
+		        <div class="editor-label">
+		            @Html.LabelFor(model => model.FromEmailAddress)
+		        </div>
+		        <div class="editor-field">
+		            @Html.EditorFor(model => model.FromEmailAddress)
+		            @Html.ValidationMessageFor(model => model.FromEmailAddress)
+		        </div>
+		
+		        <p>
+		            <input type="submit" value="Save" />
+		        </p>
+		    </fieldset>
+		}
+		
+		<div>
+		    @Html.ActionLink("Back to List", "Index")
+		</div>
+		
+		@section Scripts {
+		    @Scripts.Render("~/bundles/jqueryval")
+		}
+		
+   This code is similar to what you saw earlier for the MailingList Edit view. The SubscriberGUID value is not editable, so the code specifies the DisplayFor helper for it instead of the EditorFor. This means the value is not automatically provided in a form field for the HttpPost controller method, so a hidden field is specified to preserve this value.
+
+   The other views contain code that is similar to what you already saw for the MailingList controller.
+
+### Test the application
+
+1. Run the project by pressing F5
+
+    ![Empty Subscriber Index page][mtas-subscribers-empty-index-page]
+
+2. Use the Create function to add some mailing lists, and try the Edit and Delete functions to make sure they work.
+
+    ![Subscribers Index page with rows][mtas-subscribers-index-page]
+
+
+
+
+
+
+<h2><a name="message"></a><span class="short-header">Message</span>Create and test the Message controller and views</h2>
+
+### Add the Message entity class to the Models folder
+
+The Message entity class is used for the rows in the Message table that contain information about a message that is scheduled to be sent to a list, such as the subject line, the list to send it to, and the scheduled date to send it. 
+
+1. In **Solution Explorer**, right-click the Models folder in the MVC project, and choose **Add Existing Item**.
+
+2. Navigate to the folder where you downloaded the sample application, select the Message.cs file in the Models folder, and click **Add**.
+
+3. Open Message.cs to see the code.
+
+		using Microsoft.WindowsAzure.StorageClient;
+		using System;
+		using System.ComponentModel.DataAnnotations;
+		
+		namespace AzureEmailService.Models
+		{
+		    public class Message : TableServiceEntity
+		    {
+		        public Message()
+		        {
+		            this.RowKey = "0";
+                    this.PartitionKey = DateTime.Now.Ticks.ToString();
+		        }
+		
+		        [Required]
+		        [Display(Name = "Scheduled Date")]
+		        // DataType.Date shows Date only (not time) and allows easy hook-up of jQuery DatePicker
+		        [DataType(DataType.Date)]
+		        public DateTime? ScheduledDate { get; set; }
+		
+		        public long MessageRef
+		        {
+		            get
+		            {
+		                return long.Parse(this.PartitionKey);
+		            }
+		            set
+		            {
+		                this.PartitionKey = value.ToString();
+		            }
+		        }
+		
+		        [Required]
+		        [Display(Name = "List Name")]
+		        public string ListName { get; set; }
+		
+		        [Required]
+		        [Display(Name = "Subject Line")]
+		        public string SubjectLine { get; set; }
+		
+		        [Display(Name = "Status")]
+		        public string Status { get; set; }
+		        
+		    }
+		}
+
+		
+   The Message class defines a default constructor that sets the partition key (also known as MessageRef) to a unique identifier for the message. The constructor also sets the row key to "0".  In the Message table, there is a row with row key = "0" for each message, followed by rows with row key = email address for each email to be sent or that has been sent. 
+
+   The MessageRef is created by getting the Ticks value from DateTime.Now. This ensures that by default when paging through messages in the web UI they will be displayed in the order in which they were created. (You could use a GUID for this field, but then the default retrieval order would be random.)
+
+   For more information about the Message table structure, see the [first tutorial in the series][firsttutorial].
+
+### Add the Message controller
+
+1. In **Solution Explorer**, right-click the Controllers folder in the MVC project, and choose **Add Existing Item**.
+
+2. Navigate to the folder where you downloaded the sample application, select the Message.cs file in the Controllers folder, and click **Add**.
+
+3. Open Message.cs to see the code.
+
+   Most of the code in this controller is similar to what you saw in the Subscriber controller. What is new here is code for working with blobs. For each message, the HTML and plain text content of the email is uploaded in the form of .htm and .txt files.
+
+   Blobs are stored in blob containers. The application stores all of its blobs in a single blob container named "azuremailblobcontainer", and code in the controller constructor creates the container if it doesn't already exist:
+
+        public MessageController()
+        {
+            var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+            // If this is running in a Windows Azure Web Site (not a Cloud Service) use the Web.config file:
+            //    var storageAccount = CloudStorageAccount.Parse(ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
+
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+            tableClient.CreateTableIfNotExist("Message");
+            serviceContext = tableClient.GetDataServiceContext();
+
+            // Create blob container for email body blobs.
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            blobContainer = blobClient.GetContainerReference("azuremailblobcontainer");
+            blobContainer.CreateIfNotExist();
+        }
+
+   The MVC view provides information about a file that the user has selected for upload in an HttpPostedFile object. When the user creates a new message, the HttpPostedFile object is used to save the file to a blob. When the user edits a message, the user can choose to upload a replacement file, in which case the existing blob is deleted and a new one saved.
+
+   The controller includes a method that the Create and Edit HttpPost method calls to save a blob:
+
+        private void SaveBlob(string blobName, HttpPostedFileBase httpPostedFile)
+        {
+            // Retrieve reference to a blob 
+            CloudBlob blob = blobContainer.GetBlobReference(blobName);
+            // Create or overwrite the  blob with contents from a local file
+            using (var fileStream = httpPostedFile.InputStream)
+            {
+                blob.UploadFromStream(fileStream);
+            }
+        }
+
+   The HttpPost Create method saves the two blobs and then adds the Message table row. Blobs are named by concatenating the MessageRef value with the file extension ".htm" or ".txt". 
+
+        [HttpPost]
+        public ActionResult Create(Message message, HttpPostedFileBase file, HttpPostedFileBase TxtFile)
+        {
+
+            if (file == null)
+                ModelState.AddModelError("", "Please provide an HTML file path");
+
+            if (TxtFile == null)
+                ModelState.AddModelError("", "Please provide an Text file path");
+
+
+            if (ModelState.IsValid)
+            {
+                message.MessageRef = DateTime.Now.Ticks;
+                message.Status = "Pending";
+
+                SaveBlob(message.MessageRef + ".htm", file);
+                SaveBlob(message.MessageRef + ".txt", TxtFile);
+
+                serviceContext.AddObject("Message", message);
+                serviceContext.SaveChangesWithRetries();
+
+                return RedirectToAction("Index");
+            }
+
+            var lists = GetListNames();
+            ViewBag.ListName = new SelectList(lists, "ListName", "Description");
+            return View(message);
+        }
+
+   In the HttpPost Edit method, the code deletes the existing blob and saves a new one only if the user chose to upload a new file. 
+ 
+        [HttpPost]
+        public ActionResult Edit(string partitionKey, string rowKey, Message editedMsg,
+            DateTime scheduledDate, HttpPostedFileBase httpFile, HttpPostedFileBase txtFile)
+        {
+
+            if (ModelState.IsValid)
+            {
+                var message = FindRow(partitionKey, rowKey);
+
+                var excludePropLst = new List<string>();
+                excludePropLst.Add("PartitionKey");
+                excludePropLst.Add("RowKey");
+
+
+                if (httpFile == null)
+                {
+                    // They didn't enter a path, so don't update the file
+                    excludePropLst.Add("HtmlPath");
+                }
+                else
+                {
+                    // They DID navigate to a file, assume it's changed
+                    SaveBlob(editedMsg.MessageRef + ".htm", httpFile);
+                }
+
+                if (txtFile == null)
+                {
+                    excludePropLst.Add("TextPath");
+                }
+                else
+                {
+                    SaveBlob(editedMsg.MessageRef + ".txt", httpFile);
+                }
+
+                string[] excludeProperties = excludePropLst.ToArray();
+
+                UpdateModel(message, "", null, excludeProperties);
+                serviceContext.UpdateObject(message);
+                serviceContext.SaveChangesWithRetries();
+                return RedirectToAction("Index");
+            }
+
+            var lists = GetListNames();
+            ViewBag.ListName = new SelectList(lists, "ListName", "Description", editedMsg.ListName);
+
+            return View(editedMsg);
+        }
+
+   The HttpPost Delete method deletes the blobs when it deletes the row in the table:
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(String partitionKey, string rowKey)
+        {
+            var message = FindRow(partitionKey, rowKey);
+
+            DeleteBlob(message.MessageRef + ".htm");
+            DeleteBlob(message.MessageRef + ".txt");
+            serviceContext.DeleteObject(message);
+            serviceContext.SaveChangesWithRetries();
+            return RedirectToAction("Index");
+        }
+
+        private void DeleteBlob(string blobName)
+        {
+            // Retrieve reference to a blob 
+            CloudBlob blob = blobContainer.GetBlobReference(blobName);
+            blob.Delete();
+        }
+
+
+
+### Create the MVC views
+
+2. In **Solution Explorer**, create a new folder under the Views folder  in the MVC project, and name it Message.
+
+1. Right-click the new Views\Message folder, and choose **Add Existing Item**.
+
+2. Navigate to the folder where you downloaded the sample application, select all five of the .cshtml files in the Views\Message folder, and click **Add**.
+
+3. Open the Edit.cshtml file to see the code.
+
+		@model AzureEmailService.Models.Message
+		
+		@{
+		    ViewBag.Title = "Edit Message";
+		}
+		
+		<h2>Edit Message</h2>
+		
+		@using (Html.BeginForm("Edit", "Message", FormMethod.Post, new { enctype = "multipart/form-data" }))
+		{
+		    @Html.ValidationSummary(true)
+		
+		    <fieldset>
+		        <legend>Message</legend>
+		
+		        @Html.HiddenFor(model => model.MessageRef)
+		        @Html.HiddenFor(model => model.PartitionKey)
+		        @Html.HiddenFor(model => model.RowKey)
+		
+		        <div class="editor-label">
+		            @Html.LabelFor(model => model.ListName, "MailingList")
+		        </div>
+		        <div class="editor-field">
+		            @Html.DropDownList("ListName", String.Empty)
+		            @Html.ValidationMessageFor(model => model.ListName)
+		        </div>
+		
+		        <div class="editor-label">
+		            @Html.LabelFor(model => model.ScheduledDate)
+		        </div>
+		        <div class="editor-field">
+		            @Html.EditorFor(model => model.ScheduledDate)
+		            @Html.ValidationMessageFor(model => model.ScheduledDate)
+		        </div>
+		
+		        <div class="editor-label">
+		            @Html.LabelFor(model => model.SubjectLine)
+		        </div>
+		        <div class="editor-field">
+		            @Html.EditorFor(model => model.SubjectLine)
+		            @Html.ValidationMessageFor(model => model.SubjectLine)
+		        </div>
+		
+		        <div class="editor-label">
+		            HTML Path: Leave blank to keep current HTML File.
+		        </div>
+		        <div class="editor-field">
+		            <input type="file" name="file" />
+		        </div>
+		
+		
+		        <div class="editor-label">
+		            Text Path: Leave blank to keep current Text File.
+		        </div>
+		        <div class="editor-field">
+		            <input type="file" name="TxtFile" />
+		        </div>
+		
+		        <div class="display-label">
+		            @Html.DisplayNameFor(model => model.Status)
+		        </div>
+		        <div class="editor-field">
+		            @Html.EditorFor(model => model.Status)
+		        </div>
+		       <p>
+		            <input type="submit" value="Save" />
+		        </p>
+		    </fieldset>
+		}
+		
+		<div>
+		    @Html.ActionLink("Back to List", "Index")
+		</div>
+		
+		@section Scripts {
+		    @Scripts.Render("~/bundles/jqueryval")
+		}
+		
+   The HttpPost Edit method needs the partition key and row key, so the code provides these in hidden fields. The hidden fields were not needed in the Subscriber controller because (a) the ListName and EmailAddress properties in the Subscriber model update the PartitionKey and RowKey properties, and (b) the ListName and EmailAddress properties were included with EditorFor helpers in the Edit view. When the MVC model binder for the Subscriber model updates the ListName property, the PartitionKey property is automatically updated, and when the MVC model binder updates the EmailAddress property in the Subscriber model, the RowKey property is automatically updated. In the Message model, the fields that map to partition key and row key are not editable fields, so they don't get set that way.
+
+   A hidden field is also included for the MessageRef property. This is the same value as the partition key, but it is included for code clarity in the HttpPost Edit method. Including the MessageRef hidden field enables the code in the HttpPost method to refer to the MessageRef value by that name when it constructs file names for the blobs. 
+   
+   The other views contain code that is similar to the Edit view or the other views you saw for the other controllers.
+
+### Test the application
+
+1. Run the project by pressing F5
+
+    ![Empty Message Index page][mtas-message-empty-index-page]
+
+2. Use the Create function to add some mailing lists, and try the Edit and Delete functions to make sure they work.
+
+    ![Subscribers Index page with rows][mtas-message-index-page]
 
 <h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>
 
-In the next tutorial, you'll download the sample project, configure your environment and configure the project for your environment, and test it locally and in the cloud.  In tutorials that we'll add later, we'll show you how to build the project from scratch.
+[createsolution]: #cloudproject
+[mailinglist]: #mailinglist
+[message]: #message
+[subscriber]: #subscriber
+[webapi]: #webapi
+[nextsteps]: #nextsteps
 
+[firsttutorial]: http://
 
-[Windows Azure Queues and Windows Azure Service Bus Queues - Compared and Contrasted]: http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx
-
-[0]: ../../Shared/media/antares-iaas-preview-01.png
-[1]: ../../Shared/media/antares-iaas-preview-05.png
-[2]: ../../Shared/media/antares-iaas-preview-06.png
-[mtas-architecture-overview]: ../Media/mtas-architecture-overview.png
-[mtas-alternative-architecture]: ../Media/mtas-alternative-architecture.png
+[mtas-compute-emulator-icon]: ../Media/mtas-compute-emulator-icon.png
+[mtas-home-page-before-adding-controllers]: ../Media/mtas-home-page-before-adding-controllers.png
+[mtas-menu-in-layout]: ../Media/mtas-menu-in-layout.png
+[mtas-footer-in-layout]: ../Media/mtas-footer-in-layout.png
+[mtas-title-and-logo-in-layout]: ../Media/mtas-title-and-logo-in-layout.png
+[mtas-new-cloud-service-dialog-rename]: ../Media/mtas-new-cloud-service-dialog-rename.png
+[mtas-new-mvc4-project]: ../Media/mtas-new-mvc4-project.png
+[mtas-new-cloud-service-dialog]: ../Media/mtas-new-cloud-service-dialog.png
+[mtas-new-cloud-project]: ../Media/mtas-new-cloud-project.png
+[mtas-new-cloud-service-add-worker-a]: ../Media/mtas-new-cloud-service-add-worker-a.png
+[mtas-mailing-list-empty-index-page]: ../Media/mtas-mailing-list-empty-index-page.png
 [mtas-mailing-list-index-page]: ../Media/mtas-mailing-list-index-page.png
+[mtas-file-new-project]: ../Media/mtas-file-new-project.png
+[mtas-opening-layout-cshtml]: ../Media/mtas-opening-layout-cshtml.png
+[mtas-tableserviceentity]: ../Media/mtas-tableserviceentity.png
+[mtas-add-existing-item-to-models]: ../Media/mtas-add-existing-item-to-models.png
+[mtas-add-existing-item-to-controllers]: ../Media/mtas-add-existing-item-to-controllers.png
+[mtas-add-existing-item-to-views]: ../Media/mtas-add-existing-item-to-views.png
+[mtas-mvcwebrole-properties-menu]: ../Media/mtas-mvcwebrole-properties-menu.png
+[mtas-mvcwebrole-settings-tab]: ../Media/mtas-mvcwebrole-settings-tab.png
+[mtas-storage-acct-conn-string-dialog]: ../Media/mtas-storage-acct-conn-string-dialog.png
+[mtas-manage-keys-in-portal]: ../Media/mtas-manage-keys-in-portal.png
+[mtas-manage-access-keys-dialog]: ../Media/mtas-manage-access-keys-dialog.png
+[mtas-subscribers-empty-index-page]: ../Media/mtas-subscribers-empty-index-page.png
 [mtas-subscribers-index-page]: ../Media/mtas-subscribers-index-page.png
+[mtas-message-empty-index-page]: ../Media/mtas-message-empty-index-page.png
 [mtas-message-index-page]: ../Media/mtas-message-index-page.png
-[mtas-message-create-page]: ../Media/mtas-message-create-page.png
-[mtas-subscribe-confirmation-page]: ../Media/mtas-subscribe-confirmation-page.png
-[mtas-unsubscribe-query-page]: ../Media/mtas-unsubscribe-query-page.png
-[mtas-unsubscribe-confirmation-page]: ../Media/mtas-unsubscribe-confirmation-page.png
-[mtas-worker-roles-a-and-b]: ../Media/mtas-worker-roles-a-and-b.png
-[mtas-message-processing]: ../Media/mtas-message-processing.png
-[mtas-unsubscribe-confirmed-page]: ../Media/unsubscribe-confirmed-page.png
-[mtas-unsubscribe-confirmed-page]: ../Media/unsubscribe-confirmed-page.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
 
