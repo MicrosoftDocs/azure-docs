@@ -50,13 +50,13 @@ Follow these steps to create a Windows Azure Web Site, and then enable Git publi
 
 ##Build and test your application locally
 
-In this section, you will create a **server.js** file containing the 'hello world' example from [nodejs.org]. This example has been modified from the original example by adding process.env.port as the port to listen on when running in a Windows Azure Web Site.
+In this section, you will create a **server.js** file containing the 'hello world' example from [nodejs.org]. This example has been modified from the original example by adding process.env.PORT as the port to listen on when running in a Windows Azure Web Site.
 
 1. Using a text editor, create a new file named **server.js** in the **helloworld** directory. If the **helloworld** directory does not exist, create it.
 2. Add the following as the contents of the **server.js** file, and then save it:
 
         var http = require('http')
-        var port = process.env.port || 1337;
+        var port = process.env.PORT || 1337;
         http.createServer(function(req, res) {
           res.writeHead(200, { 'Content-Type': 'text/plain' });
           res.end('Hello World\n');
