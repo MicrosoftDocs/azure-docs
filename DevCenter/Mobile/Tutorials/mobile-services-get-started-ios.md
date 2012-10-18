@@ -16,9 +16,11 @@ A screenshot from the completed app is below:
 
 ![][0]
 
-Completing this guide is a prerequisite for all other Mobile Services tutorials for iOS apps. 
+Completing this tutorial requires XCode 4.5 and iOS 5.0 or later versions. 
 
 <div chunk="../../Shared/Chunks/create-account-and-mobile-note.md" />
+
+Completing this tutorial is a prerequisite for all other Mobile Services tutorials for iOS apps.
 
 <div class="dev-callout"><strong>Note</strong>
 <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Mobile Services feature enabled. You can create a free trial account and enable preview features in just a couple of minutes. For details, see <a href="../create-a-windows-azure-account/" target="_blank">Create a Windows Azure account and enable preview features</a>. </p>

@@ -86,7 +86,7 @@ Next, you will update the app to authenticate users before requesting resources 
                 try
                 {
                     user = await App.MobileService
-                        LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
                     message = 
                         string.Format("You are now logged in - {0}", user.UserId);
                 }

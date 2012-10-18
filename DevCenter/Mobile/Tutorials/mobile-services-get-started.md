@@ -15,7 +15,7 @@ A screenshot from the completed app is below:
 
 ![][0]
 
-Completing this guide is a prerequisite for all other Mobile Services tutorials for Windows Store apps. 
+Completing this tutorial is a prerequisite for all other Mobile Services tutorials for Windows Store apps. 
 
 <div chunk="../../Shared/Chunks/create-account-and-mobile-note.md" />
 

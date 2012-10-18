@@ -26,7 +26,7 @@ This tutorial walks you through these basic steps:
 4. [Update the app to use Mobile Services]
 5. [Test the app against Mobile Services]
 
-This tutorial requires the [Mobile Services iOS SDK] and [XCode 4.5][Install Xcode] or a later version. 
+This tutorial requires the [Mobile Services iOS SDK] and [XCode 4.5][Install Xcode] and iOS 5.0 or later versions. 
 
 ## <a name="download-app"></a><h2><span class="short-header">Download the project</span>Download the GetStartedWithData project</h2>
 
@@ -148,15 +148,15 @@ Now that your mobile service is ready, you can update the app to store items in 
 
    This creates a property representation for your mobile services table.
 
-6. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
+5. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
 
-7. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
+6. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
 
    ![][8]
 
   You will need these values when accessing the mobile service from your app code.
 
-8. Back in Xcode, open TodoService.m and locate the following commented line of code:
+7. Back in Xcode, open TodoService.m and locate the following commented line of code:
 
         // Initialize the Mobile Service client with your URL and key.
 
@@ -166,9 +166,9 @@ Now that your mobile service is ready, you can update the app to store items in 
 
     This creates an instance of the Mobile Services client.
 
-9. Replace the values of **APPURL** and **APPKEY** in this code with the URL and application key from the mobile service that you acquired in step 6.
+8. Replace the values of **APPURL** and **APPKEY** in this code with the URL and application key from the mobile service that you acquired in step 6.
 
-10. Locate the following commented line of code:
+9. Locate the following commented line of code:
 
         // Create an MSTable instance to allow us to work with the TodoItem table.
 
@@ -178,7 +178,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
     This creates the TodoItem table instance.
 
-11. Locate the following commented line of code:
+10. Locate the following commented line of code:
 
  	    // Create a predicate that finds items where complete is false comment in the refreshDataOnSuccess method. 
 
@@ -188,7 +188,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
     This creates a query to return all tasks that have not yet been completed.
 
-12. Locate the following commented line of code:
+11. Locate the following commented line of code:
 
         // Query the TodoItem table and update the items property with the results from the service.
 
@@ -201,7 +201,7 @@ Now that your mobile service is ready, you can update the app to store items in 
            completion();
         }]; 
 
-13. Locate the **addItem** method, and replace the body of the method with the following code:
+12. Locate the **addItem** method, and replace the body of the method with the following code:
 
         // Insert the item into the TodoItem table and add to the items array on completion
         [self.table insert:item completion:^(NSDictionary *result, NSError *error) {
@@ -214,7 +214,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
     This code sends an insert request to the mobile service.
 
-14. Locate the **completeItem** method, and replace the body of the method with the following code:
+13. Locate the **completeItem** method, and replace the body of the method with the following code:
 
         // Update the item in the TodoItem table and remove from the items array on completion
         [self.table update:mutable completion:^(NSDictionary *item, NSError *error) {
