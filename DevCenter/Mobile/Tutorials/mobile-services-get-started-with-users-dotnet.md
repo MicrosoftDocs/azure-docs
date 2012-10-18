@@ -21,7 +21,7 @@ This tutorial walks you through these basic steps to enable authentication in yo
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
 
 <div class="dev-callout"><b>Note</b>
-	<p>This tutorial demonstrates the basic method provided by Mobile Services to authenticate users by using a variety of identity providers. This method is easy to configure and supports multiple providers. However, this method also requires users to log-in every time your app starts. To instead use Live Connect to provide a single sign-on experience in your Windows Store app, see the topic <a href="/en-us/develop/mobile/tutorials/single-sign-on-win8-dotnet">Single sign-on for Windows Store apps by using Live Connect</a>.</p>
+	<p>This tutorial demonstrates the basic method provided by Mobile Services to authenticate users by using a variety of identity providers. This method is easy to configure and supports multiple providers. However, this method also requires users to log-in every time your app starts. To instead use Live Connect to provide a single sign-on experience in your Windows Store app, see the topic <a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet">Single sign-on for Windows Store apps by using Live Connect</a>.</p>
 </div>
 
 <h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for authentication and configure Mobile Services</h2>
@@ -82,28 +82,23 @@ Next, you will update the app to authenticate users before requesting resources 
         {
             while (user == null)
             {
-
-                user = await App.MobileService
-                    .LoginAsync(
-                    MobileServiceAuthenticationProvider.Facebook);
-                if (user.UserId != null)
+                string message;
+                try
                 {
-
-                    var message = 
+                    user = await App.MobileService
+                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+                    message = 
                         string.Format("You are now logged in - {0}", user.UserId);
-                    var dialog = new MessageDialog(message);
-                    dialog.Commands.Add(new UICommand("OK"));
-                    await dialog.ShowAsync();
                 }
-                else
+                catch (InvalidOperationException)
                 {
-                    user = null;
-                    var dialog = 
-                        new MessageDialog("You must log in.", "Login Required");
-                    dialog.Commands.Add(new UICommand("OK"));
-                    await dialog.ShowAsync();
+                    message = "You must log in. Login Required";
                 }
-            }       
+                        
+                var dialog = new MessageDialog(message);
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+            }
         }
 
     This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login.
