@@ -22,6 +22,8 @@ This tutorial walks you through these basic steps to enable authentication in yo
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
 
+Completing this tutorial requires XCode 4.5 and iOS 5.0 or later versions. 
+
 <!--<div class="dev-callout"><b>Note</b>
 	<p>This tutorial demonstrates the basic method provided by Mobile Services to authenticate users by using a variety of identity providers. This method is easy to configure and supports multiple providers. However, this method also requires users to log-in every time your app starts. To instead use Live Connect to provide a single sign-on experience in your Windows Store app, see the topic <a href="/en-us/develop/mobile/tutorials/single-sign-on-win8-dotnet">Single sign-on for Windows Store apps by using Live Connect</a>.</p>
 </div>-->
@@ -73,21 +75,13 @@ Next, you will update the app to authenticate users before requesting resources 
 
 <h2><a name="add-authentication"></a><span class="short-header">Add authentication</span>Add authentication to the app</h2>
 
-5. Open the project file TodoListController.m and in the **@interface TodoListController** declaration block, add the following code: 
-
-        @property (strong, nonatomic) TodoService *todoService;
-
-6. In the **@interface TodoListController** declaration block, add the following code:
-	
-        @synthesize todoService;
-
-7. In the **viewDidLoad** method, remove the following code that reloads the data into the table:
+1. Open the project file TodoListController.m and in the **viewDidLoad** method, remove the following code that reloads the data into the table:
 
         [todoService refreshDataOnSuccess:^{
             [self.tableView reloadData];
         }];
 
-7.	Just after the **viewDidLoad** method, add the following code:
+2.	Just after the **viewDidLoad** method, add the following code:
 
         - (void)viewDidAppear:(BOOL)animated
         {
@@ -131,11 +125,11 @@ Next, you will update the app to authenticate users before requesting resources 
 	<p>If you are using an identity provider other than Facebook, change the value passed to <strong>loginViewControllerWithProvider</strong> above to one of the following: <i>microsoftaccount</i>, <i>facebook</i>, <i>twitter</i>, or <i>google</i>.</p>
     </div>
 		
-9. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
+3. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
 
    When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
-## <a name="next-steps"> </a>Next steps
+## <a name="next-steps"></a>Next steps
 
 In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
 
