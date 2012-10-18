@@ -2,13 +2,14 @@
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14799" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
-<div class="dev-center-os-selector">
+<!--<div class="dev-center-os-selector">
   <a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" title=".NET client version" class="current">C# and XAML</a>
   <a href="/en-us/develop/mobile/tutorials/get-started-with-push-js/" title="JavaScript client version">JavaScript and HTML</a>
   <span>Tutorial</span>
-</div>
+</div>-->
 
-# Get started with push notifications in Mobile Services
+# Get started with push notifications in Mobile Services for Windows Store
+<h3><a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet">Windows Store C#</a> / <strong>Windows Store JavaScript</strong></h3>
 
 This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Windows Store app. 
 In this tutorial you add push notifications using the Windows Push Notification service (WNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
@@ -30,7 +31,7 @@ This tutorial requires the following:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 
-<a name="register"></a><h2><span class="short-header">Register your app</span>Register your app for the Windows Store</h2>
+<h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for the Windows Store</h2>
 
 To be able to send push notifications to Windows Store apps from Mobile Services, you must submit your app to the Windows Store. You must then configure your mobile service to integrate with WNS.
 
@@ -82,7 +83,7 @@ To be able to send push notifications to Windows Store apps from Mobile Services
 
 Both your mobile service and your app are now configured to work with WNS.
 
-<a name="add-push"></a><h2><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
+<h2><a name="add-push"></a><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
 
 1. Open the file default.js and insert the following code fragment into the app.OnActivated method overload, just after the args.setPromise method:
 
@@ -119,7 +120,7 @@ Both your mobile service and your app are now configured to work with WNS.
 
    This makes sure that your app can raise toast notifications. These notifications are already enabled in the downloaded quickstart project.
 
-<a name="update-scripts"></a><h2><span class="short-header">Update the insert script</span>Update the registered insert script in the Management Portal</h2>
+<h2><a name="update-scripts"></a><span class="short-header">Update the insert script</span>Update the registered insert script in the Management Portal</h2>
 
 1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
 
@@ -151,7 +152,7 @@ Both your mobile service and your app are now configured to work with WNS.
 
    This registers a new insert script, which sends a push notification (the inserted text) to the channel provided in the insert request.
 
-<a name="test"></a><h2><span class="short-header">Test the app</span>Test push notifications in your app</h2>
+<h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
 
 1. In Visual Studio, press the F5 key to run the app.
 

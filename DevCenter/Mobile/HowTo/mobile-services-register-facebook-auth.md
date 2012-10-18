@@ -4,13 +4,13 @@
 
 # Register your apps for Facebook authentication with Mobile Services
 
-This topic shows you how to register your apps to be able to use Facebook as an authentication provider Windows Azure Mobile Services. 
+This topic shows you how to register your apps to be able to use Facebook to authenticate with Windows Azure Mobile Services. 
 
 <div class="dev-callout"><b>Note</b>
-<p>To complete the procedure in this topic, you must have a Facebook account that has a verified email address and a mobile phone number. To create a new Facebook account, go to facebook.com.</p>
+<p>To complete the procedure in this topic, you must have a Facebook account that has a verified email address and a mobile phone number. To create a new Facebook account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">facebook.com</a>.</p>
 </div> 
 
-1. Navigate to [Facebook Developers] web site and sign-in with your Facebook account credentials.
+1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268286" target="_blank">Facebook Developers</a> web site and sign-in with your Facebook account credentials.
 
 2. (Optional) If you have not already registered, click **Register Now** button, accept the policy, provide any and then click **Done**. 
 
@@ -19,8 +19,6 @@ This topic shows you how to register your apps to be able to use Facebook as an 
 3. Click **Apps**, then click **Create New App**.
 
    ![][1]
-
-   This displays the 
 
 4. Choose a unique name for your app, select **OK**.
 
@@ -32,7 +30,7 @@ This topic shows you how to register your apps to be able to use Facebook as an 
 
    ![][3]
 
-6. Make a note of the value of **App ID** and **App Secret**. 
+6. Make a note of the values of **App ID** and **App Secret**. 
 
    ![][4]
 
@@ -40,7 +38,7 @@ This topic shows you how to register your apps to be able to use Facebook as an 
 	<p>The app secret is an important security credential. Do not share this secret with anyone or distribute it with your app.</p>
     </div>
 
-You are now ready to integrate authentication by using Facebook into your app by providing the App ID and App Secret values to Mobile Services.
+You are now ready to use a Facebook login for authentication in your app by providing the App ID and App Secret values to Mobile Services. 
 
 <!-- Anchors. -->
 
@@ -52,7 +50,8 @@ You are now ready to integrate authentication by using Facebook into your app by
 [4]: ../Media/mobile-services-facebook-completed.png
 
 <!-- URLs. -->
-[Facebook Developers]: http://developer.facebook.com
+[facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
+[Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/

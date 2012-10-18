@@ -9,9 +9,9 @@ messages**, and **deleting queues**.
 
 ## Table of Contents
 
--   [What are Service Bus queues?](#WhatAreQueues)
--   [Create a service namespace](#CreateNamespace)
--   [Obtain the default management credentials for the namespace](#GetDefaultCredentials)
+-   [What are Service Bus queues?](#what-are-service-bus-queues)
+-   [Create a service namespace](#create-a-service-namespace)
+-   [Obtain the default management credentials for the namespace](#obtain-default-credentials)
 - 	[Create a PHP application](#CreateApplication)
 -	[Get the Windows Azure Client Libraries](#GetClientLibrary)
 -   [Configure your application to use Service Bus](#ConfigureApp)
@@ -21,95 +21,7 @@ messages**, and **deleting queues**.
 -   [How to: Handle application crashes and unreadable messages](#HandleCrashes)
 -   [Next steps](#NextSteps)
 
-<h2 id="WhatAreQueues">What are Service Bus queues?</h2>
-
-Service Bus Queues support a **brokered messaging communication** model.
-When using queues, components of a distributed application do not
-communicate directly with each other, they instead exchange messages via
-a queue, which acts as an intermediary. A message producer (sender)
-hands off a message to the queue and then continues its processing.
-Asynchronously, a message consumer (receiver) pulls the message from the
-queue and processes it. The producer does not have to wait for a reply
-from the consumer in order to continue to process and send further
-messages. Queues offer **First In, First Out (FIFO)** message delivery
-to one or more competing consumers. That is, messages are typically
-received and processed by the receivers in the order in which they were
-added to the queue, and each message is received and processed by only
-one message consumer.
-
-![Service Bus Queue Diagram][]
-
-Service Bus queues are a general-purpose technology that can be used for
-a wide variety of scenarios:
-
--   Communication between web and worker roles in a multi-tier Windows
-    Azure application
--   Communication between on-premises apps and Windows Azure hosted apps
-    in a hybrid solution
--   Communication between components of a distributed application
-    running on-premises in different organizations or departments of an
-    organization
-
-Using queues can enable you to scale out your applications better, and
-enable more resiliency to your architecture.
-
-<h2 id="CreateNamespace">Create a service namespace</h2>
-
-To begin using Service Bus queues in Windows Azure, you must first
-create a service namespace. A service namespace provides a scoping
-container for addressing Service Bus resources within your application.
-
-To create a service namespace:
-
-1.  Log on to the [Windows Azure Management Portal][].
-2.  In the lower left navigation pane of the Management Portal, click
-    **Service Bus, Access Control & Caching**.
-3.  In the upper left pane of the Management Portal, click the **Service
-    Bus** node, and then click the **New** button. 
- 
-    ![Service Bus Node screenshot][]
-
-4.  In the **Create a new Service Namespace** dialog, enter a
-    **Namespace**, and then to make sure that it is unique, click the
-    **Check Availability** button. 
- 
-    ![Create a New Namespace screenshot][]
-
-5.  After making sure the namespace name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same country/region in which you are deploying your
-    compute resources), and then click the **Create Namespace** button.
-    Having a compute instance is optional, and the service bus can be
-    consumed from any application with internet access.  
-      
-    The namespace you created will then appear in the Management Portal
-    and takes a moment to activate. Wait until the status is **Active**
-    before moving on.
-
-<h2 id="GetDefaultCredentials">Obtain the default management credentials for the namespace</h2>
-
-In order to perform management operations, such as creating a queue, on
-the new namespace, you need to obtain the management credentials for the
-namespace.
-
-1.  In the left navigation pane, click the **Service Bus** node, to
-    display the list of available namespaces:  
- 
-    ![Available Namespaces screenshot][]
-
-2.  Select the namespace you just created from the list shown: 
-  
-    ![Namespace List screenshot][]
-
-3.  The right-hand **Properties** pane will list the properties for the new namespace:   
-
-    ![Properties Pane screenshot][]
-
-4.  The **Default Key** is hidden. Click the **View** button to display the security credentials:  
- 
-    ![Default Key screenshot][]
-
-5.  Make a note of the **Default Issuer** and the **Default Key** as you will use this information below to perform operations with the  namespace.
+<div chunk="../../Shared/Chunks/howto-service-bus-queues.md" />
 
 <h2 id="CreateApplication">Create a PHP application</h2>
 
@@ -150,7 +62,7 @@ In the examples below, the `require_once` statement will be shown always, but on
 
 To instantiate a Windows Azure Service Bus client you must first have a valid connection string following this format:
 
-	Endpoint=[yourEndpoint];SharedSecretIssuer=[yourWrapAuthenticationName];SharedSecretValue=[yourWrapPassword]
+	Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]
 
 Where the Endpoint is typically of the format `https://[yourNamespace].servicebus.windows.net`.
 
@@ -166,6 +78,8 @@ For the examples outlined here, the connection string will be passed directly.
 	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
+
+	$connectionString = "Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]";
 
 	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
@@ -274,7 +188,7 @@ The example below demonstrates how a message can be received and processed using
 	try	{
 		// Set the receive mode to PeekLock (default is ReceiveAndDelete).
 		$options = new ReceiveMessageOptions();
-		$options->setPeekLock(true);
+		$options->setPeekLock();
 		
 		// Receive message.
 		$message = $serviceBusRestProxy->receiveQueueMessage("myqueue", $options);
@@ -285,7 +199,7 @@ The example below demonstrates how a message can be received and processed using
 			Process message here.
 		----------------------------*/
 		
-		// Delete message.
+		// Delete message. Not necessary if peek lock is not set.
 		echo "Message deleted.<br />";
 		$serviceBusRestProxy->deleteMessage($message);
 	}

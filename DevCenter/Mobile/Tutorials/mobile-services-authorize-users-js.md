@@ -2,13 +2,19 @@
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14810" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
+<!--<div class="dev-center-os-selector">
+  <a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js/" title="Windows Store version" class="current">Windows Store app</a>
+  <a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios/" title="iOS version">iOS app</a>
+  <span>Tutorial</span>
+</div>
 <div class="dev-center-os-selector">
   <a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/" title=".NET client version" class="current">C# and XAML</a>
   <a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js/" title="JavaScript client version">JavaScript and HTML</a>
   <span>Tutorial</span>
-</div>
+</div>-->
 
-# Use scripts to authorize users in Mobile Services 
+# Use scripts to authorize users in Mobile Services for Windows Store
+<h3><strong>Windows Store</strong> / <a href="authorize-users-in-scripts-ios">iOS</a></h3>
 
 This topic shows you how to use server scripts to authorize authenticated users for accessing data in Windows Azure Mobile Services from a Windows Store app.  In this tutorial you register scripts with Mobile Services to filter queries based on the userId of an authenticated user, ensuring that each user can see only their own data.
 
@@ -56,7 +62,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
 1. In Visual Studio 2012 Express for Windows 8, open the project that you modified when you completed the tutorial [Get started with authentication].
 
-2. Press the F5 key to run the app and sign into Live Connect with your Microsoft Account. 
+2. Press the F5 key to run the app, then log-on with your chosen identity provider. 
 
    Notice that this time, although there are items already in the TodoItem table from preview tutorials, no items are returned. This happens because previous items were inserted without the userId column and now have null values.
 
@@ -68,7 +74,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
 5. Back in the **todoitem** table in the [Management Portal][Windows Azure Management Portal], click **Browse** and verify that each newly added item how has an associated userId value.
 
-6. (Optional) If you have an additional Microsoft Account, you can verify that users can only see their own data by closing the app (Alt+F4) and then running it again. When the login credentials dialog is displayed, enter a different Microsoft account, and then verify that the items entered under the previous account are not displayed. 
+6. (Optional) If you have additional login accounts, you can verify that users can only see their own data by closing the app (Alt+F4) and then running it again. When the login credentials dialog is displayed, enter a different login, and then verify that the items entered under the previous account are not displayed. 
 
 ## Next steps
 

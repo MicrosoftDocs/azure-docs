@@ -2,13 +2,14 @@
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
-<div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/" title=".NET client version">C# and XAML</a>
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-js/" title="JavaScript client version" class="current">JavaScript and HTML</a>
+<!--<div class="dev-center-os-selector">
+  <a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/" title=".NET client version">C# and XAML</a>
+  <a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js/" title="JavaScript client version" class="current">JavaScript and HTML</a>
   <span>Tutorial</span>
-</div>
+</div>-->
 
-# Get started with authentication in Mobile Services
+# Get started with authentication in Mobile Services for Windows Store
+<h3><a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet">Windows Store C#</a> / <strong>Windows Store JavaScript</strong></h3>
 
 This topic shows you how to authenticate users in Windows Azure Mobile Services from a Windows Store app.  In this tutorial, you add authentication to the quickstart project using Live Connect. When successfully authenticated by Live Connect, a logged-in user is welcomed by name and the user ID value is displayed.  
 
@@ -120,13 +121,13 @@ Next, you will update the app to authenticate users with Live Connect before req
    This enables Microsoft IntelliSense in the default.html file.
 
 
-5. Open the project file default.js and add the following comment to the top of the file. 
+4. Open the project file default.js and add the following comment to the top of the file. 
 
         /// <reference path="///LiveSDKHTML/js/wl.js" />
 
    This enables Microsoft IntelliSense in the default.js file.
 
-6. In the **app.OnActivated** method overload, replace the call to the **refreshTodoItems** method  with the following code: 
+5. In the **app.OnActivated** method overload, replace the call to the **refreshTodoItems** method  with the following code: 
 	
         var session = null;   
 

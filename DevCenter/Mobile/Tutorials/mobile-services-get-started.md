@@ -1,9 +1,21 @@
 <properties linkid="mobile-services-get-started" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with Mobile Services in Windows Azure" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14812" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umbversionid="254ca664-c4f3-4815-8073-c86d43f4aa16" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
-# <a name="getting-started"> </a>Get started with Mobile Services
+
+<!--<div class="dev-center-os-selector">
+  <a href="/en-us/develop/mobile/tutorials/get-started/" title="Windows Store version" class="current">Windows Store</a>
+  <a href="/en-us/develop/mobile/tutorials/get-started-ios/" title="iOS version">iOS</a>
+</div>-->
+
+# <a name="getting-started"> </a>Get started with Mobile Services for Windows Store
+<h3><strong>Windows Store</strong> / <a href="/en-us/develop/mobile/tutorials/get-started-ios">iOS</a></h3>
+
+<div class="dev-onpage-video-wrapper"><a style="background-image: url('/media/scott-mobile-video-2012.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=262813&amp;clcid=0x409" target="_blank" class="dev-onpage-video"><span class="icon"><span>Play Video</span></span><span class="time">10:08</span></a></div>   
+
 This tutorial shows you how to add a cloud-based backend service to a Windows Store app using Windows Azure Mobile Services. 
 
-![][13]
+If you prefer to watch a video, the clip to the right follows the same steps as this tutorial. In the video, Scott Guthrie provides an introduction to Mobile Services and walks through creating your first mobile service and connecting to it from a Windows Store app.
+
+<p></p>
 
 In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. 
 
@@ -11,13 +23,10 @@ A screenshot from the completed app is below:
 
 ![][0]
 
-Completing this guide is a prerequisite for all other Mobile Services tutorials. 
+Completing this tutorial is a prerequisite for all other Mobile Services tutorials for Windows Store apps. 
 
-<div chunk="../../Shared/Chunks/create-account-and-mobile-note.md" />
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Mobile Services feature enabled.</p> <ul> <li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02" target="_blank">Windows Azure Free Trial</a>.</li> <li>If you have an existing account but need to enable the Windows Azure Mobile Services preview, see <a href="../create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li> </ul> </div>
 
-<div class="dev-callout"><strong>Note</strong>
-<p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Mobile Services feature enabled. You can create a free trial account and enable preview features in just a couple of minutes. For details, see <a href="../create-a-windows-azure-account/" target="_blank">Create a Windows Azure account and enable preview features</a>. </p>
-</div>
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 Follow these steps to create a new mobile service.
@@ -54,7 +63,7 @@ Follow these steps to create a new mobile service.
 
 You have now created a new mobile service that can be used by your mobile apps.
 
-## Create a new app
+## <h2><span class="short-header">Create a new app</span>Create a new Windows Store app</h2>
 
 Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
 
@@ -63,7 +72,7 @@ In this section you will create a new Windows Store app that is connected to you
 1.  In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
 
    
-2. In the quickstart tab, expand **Create a new Windows 8 application**.
+2. In the quickstart tab, click **Windows** under **Choose platform** and expand **Create a new Windows Store app**.
 
    ![][6]
 
@@ -115,7 +124,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
   <br/>Learn more about storing and querying data using Mobile Services.
 
 * [Get started with authentication]
-  <br/>Learn how to authenticate users of your app with Windows Account.
+  <br/>Learn how to authenticate users of your app with an identity provider.
 
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
