@@ -5,7 +5,6 @@
 
 This tutorial walks you through the steps to create a new Active Directory forest on a virtual machine (VM) on [Windows Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx). In this tutorial, the virtual network for the VM is not connected to the network at your company. For conceptual guidance about installing Active Directory Domain Services (AD DS) on Windows Azure Virtual Network, see [Guidelines for Deploying Windows Server Active Directory on Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
 
-
 ##Table of Contents##
 
 * [Prerequisites](#Prerequisites)
@@ -21,7 +20,7 @@ This tutorial walks you through the steps to create a new Active Directory fores
 Before you install Active Directory Domain Services (AD DS) on a Windows Azure virtual machine, you need to create a virtual network using one of the following options:
 
 -	**Create a virtual network *without* connectivity to another network** by doing the following in the order listed: 
-1.  First, [Create a virtual network in Windows Azure](../Tutorial1_CreateVirtualNetwork/). 
+1.  First, [Create a virtual network in Windows Azure](http://www.windowsazure.com/en-us/manage/services/networking/create-a-virtual-network/). 
 2.  Then install AD DS using the steps in the tutorial below. It's important that you create your virtual machine using the Windows Azure PowerShell procedure in the tutorial below instead of creating the virtual machine via the Management Portal.
 	
 -	**Create a virtual network *with* connectivity to another network**, such as an Active Directory environment on premises by doing the following in the order listed: 
@@ -39,7 +38,7 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 
 2.	Install [Windows Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx). The VM where you plan to install AD DS must be created using Windows Azure PowerShell in order for the DNS client settings of the domain controller to persist after service healing. 
 
-	a.  Go to [https://www.windowsazure.com/en-us/](https://www.windowsazure.com/en-us/)
+	a.  Go to [https://www.windowsazure.com/en-us/](https://www.windowsazure.com/en-us/).
 
 	b.  Click **Manage**, then click **Downloads**.
 
@@ -66,7 +65,6 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 	You will be prompted to sign on to the Windows Azure portal and then prompted to save a .publishsettings file. Save the file in a directory, for example, E:\PowerShell\MyAccount.publishsettings. To subsequently run any other Windows Azure PowerShell cmdlets, steps 4 through 6 do not need to be repeated because they only need to be completed once. 
 
 
-
 7.	Run the following cmdlet to open Windows Azure PowerShell ISE:
 
 		powershell ise
@@ -74,9 +72,6 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 8.	Paste the following script into Windows Azure PowerShell ISE, replacing the placeholders with your own values, and the run the script. If necessary, click **Networks** in the Management Portal to obtain the subscription name. The storage account name is the name you specified in step 1. The following script installs Windows Server 2008 R2 with Service Pack 1 (SP1). You can install Windows Server 2012 instead, but be aware that the virtualized domain controller safeguards that are built into Windows Server 2012 are not available on Windows Azure Virtual Networks. The virtualized domain controller safeguards require support for VM-GenerationID, which Windows Azure Virtual Networks do not provide at the present time. For more information about virtualized domain controller safeguards, see <a href="http://technet.microsoft.com/en-us/library/hh831734.aspx">Introduction to Active Directory Domain Services (AD DS) Virtualization (Level 100)</a>. To get a list of available images, run <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj152878.aspx">Get-AzureVMImage</a>.
 
 	
-
-5.	Run the following cmdlet:
-
 
 	    cls
 		
@@ -105,13 +100,11 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 		New-AzureVM -ServiceName $service -AffinityGroup $AG -VMs $MyDC -DnsSettings $myDNS -VNetName $vnet
 
 
-	<p>If you rerun the script, you need to supply a unique value for $service.</p>
-
+	If you rerun the script, you need to supply a unique value for $service.
 
 9.	Sign on to Windows Azure.
 
 	![Sign1] (../media/Sign1.png)
-
 
 
 10.	Click the name of the VM you created.
@@ -126,8 +119,8 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 
 	![Sign4] (../media/ADDS_SpecifyDiskSize.png)
 
-13.	Repeat steps 11 and 12 to attach a second disk.
 
+13.	Repeat steps 11 and 12 to attach a second disk.
 
 14.	Click **Connect**.
 
@@ -165,9 +158,7 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 
 	![] (../media/ADDS_InitializeDisks.png)
 
-
-4.	Right-click the remaining disk that is not formatted, and click **New Simple Volume**. Accept the default values in the wizard and finish creating the volume, and then create a new folder named **NTDS** on the volume in order to store the Active Directory database and logg files.
-
+4.	Right-click the remaining disk that is not formatted, and click **New Simple Volume**. Accept the default values in the wizard and finish creating the volume, and then create a new folder named **NTDS** on the volume in order to store the Active Directory database and log files.
 
 5.	Click **Start**, type **dcpromo**, and press ENTER.
 
@@ -188,9 +179,7 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 
 	![InstallDC5] (../media/InstallDC5.png)
 
-
 9.	On the **Name the Forest Root Domain** page, type the fully qualified domain name (FQDN) of the forest root domain (for example, hq.litwareinc.com) and click **Next**.  
-
 
 	![InstallDC6] (../media/InstallDC6.png)
 
@@ -199,7 +188,6 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 
 	![InstallDC7] (../media/InstallDC7.png)
 
-	
 
 11.	On the **Additional Domain Controller Options** page, make sure **DNS server** is selected and click **Next**.
 
@@ -262,7 +250,6 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 
 5.	Click **Full Server**, then click **Next**.
 
-
 6.	Click **Local drives**, then click **Next**.
 
 7.	Select the destination drive that does not host the operating system files or the Active Directory database, then click **Next**.
@@ -306,6 +293,7 @@ For more information about using Windows PowerShell, see [Getting Started with W
 		    Set-AzureSubnet -SubnetNames 'BackEnd'
 		
 		New-AzureVM -ServiceName $service -AffinityGroup $AG -VMs $MyVM1 -DnsSettings $myDNS -VNetName $vnet
+
 		
 ## See Also
 
