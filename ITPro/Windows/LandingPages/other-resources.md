@@ -4,7 +4,7 @@
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-###[Active Directory on Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx)
+###[Guidelines for Deploying Windows Server Active Directory on Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx)
 
 Learn about the differences between deploying Windows Server Active Directory Domain Services (AD DS) and Active Directory Federations Services (AD FS) on-premises versus deploying on Windows Azure Virtual Machines. Understand the decisions that affect design and deployment that you have to make.
 
