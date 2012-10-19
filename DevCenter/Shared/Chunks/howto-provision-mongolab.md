@@ -20,9 +20,9 @@ The MongoLab store entry displays.
 1. Review your store purchase information and click **Purchase** to confirm.  
 ![Next][button-purchase] 
 1. The toolbar progress button provides your provisioning status.  
-![button-progress]  
+![ProgressButton][button-progress]  
 A success message displays when provisioning completes.  
-![message-success]
+![SuccessMessage][message-success]
 
 Congratulations! MongoLab has just provisioned a MongoDB database in the Azure region you selected. You now have access to our management UI and 24/7 support.
 
