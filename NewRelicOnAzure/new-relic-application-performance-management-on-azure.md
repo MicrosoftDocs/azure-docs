@@ -135,14 +135,50 @@ After you select your app from the list on the Applications menu, the Overview d
 
 In addition to the <a href="https://newrelic.com/docs/site/the-new-relic-ui#functions">standard New Relic UI</a> and <a href="https://newrelic.com/docs/site/the-new-relic-ui#drilldown">dashboard drill-down</a> functions, the Applications Overview dashboard has additional functions.
 
-If you want to...         | Do this ...
-:-------------------------| :---------------------------------------------------------------------
-Show dashboard information for the selected app's server or browser | Click the **App Server** or **Browser** button.
-View threshold levels for your app's <a href="https://newrelic.com/docs/site/apdex")>Apdex</a> score | Point to the Apdex score **?** icon.
-View worldwide Apdex details | From the Overview's **Browser** view, point anywhere on the Global Apdex map. **Tip:** To go directly to the selected app's <a href="https://newrelic.com/docs/site/geography">Geography</a> dashboard, click the **Global Apdex** title, or click anywhere on the Global Apdex map.
-View the <a href="https://newrelic.com/docs/site/web-transactions">Web Transactions</a> dashboard | Click the Web Transactions table on the Applications Overview dashboard. Or, to view details about a specific web transaction (including any <a href="https://newrelic.com/docs/site/key-transactions">Key Transactions</a>), click its name.
-View the <a href="https://newrelic.com/docs/site/errors">Errors</a> dashboard | Click the Error rate chart's title on the Applications Overview dashboard. **Tip:** You can also view the Errors dashboard from **Applications > (your app) > Events > Errors**.
-View the app's server details | Do any of the following:<br>* Toggle between a table view of the hosts or breakout metric details of each host.<br>* OR Click an individual server's name. OR Point to an individual server's Apdex score.<br>* OR Click an individual server's CPU usage or Memory.
+<table>
+<td><table>
+  <thead>
+    <tr>
+      <th><b>If you want to...</b></th>
+      <th><b>Do this...</b></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+       <td>Show dashboard information for the selected app&#39;s server or browser</td>
+       <td>Click the <b>App Server</b> or <b>Browser</b> button.</td>
+    </tr>
+     <tr>
+       <td>View threshold levels for your app&#39;s <a href="https://newrelic.com/docs/site/apdex" target="_blank">Apdex</a> score</td>
+       <td>Point to the Apdex score <b>?<b> icon.</b></b></td>
+    </tr>
+    <tr>
+       <td>View worldwide Apdex details</td>
+       <td>From the Overview&#39;s <b>Browser</b> view, point anywhere on the Global Apdex map.<br><b>Tip:</b> To go directly to the selected app&#39;s <a href="https://newrelic.com/docs/site/geography" target="_blank">Geography</a>dashboard, click the <b>Global Apdex</b> title, or click anywhere on the Global Apdex map.</td>
+    </tr>
+    <tr>
+       <td>View the <a href="https://newrelic.com/docs/site/web-transactions" target="_blank">Web Transactions</a> dashboard</td>
+       <td>Click the Web Transactions table on the Applications Overview dashboard. Or, to view details about a specific web transaction (including <a href="https://newrelic.com/docs/site/key-transactions" target="_blank">Key Transactions</a>), click its name.</td>
+    </tr>
+    <tr>
+       <td>View the <a href="https://newrelic.com/docs/site/errors" target="_blank">Errors</a> dashboard</td>
+       <td>Click the Error rate chart&#39;s title on the Applications Overview dashboard.<br><b>Tip:</b> You can also view the Errors dashboard from <b>Applications</b> &gt; (your app) &gt; Events &gt; Errors.</td>
+    </tr>
+    <tr>
+       <td>View the app&#39;s server details</td>
+       <td><p>Do any of the following:<p>
+        <ul>
+          <li>Toggle between a table view of the hosts or breakout metric details of each host.</li>
+          <li>Click an individual server&#39;s name.</li>
+          <li>Point to an individual server&#39;s Apdex score.</li>
+          <li>Click an individual server&#39;s CPU usage or Memory.</li>
+        </ul>
+       </p></p></td>
+    </tr>
+  </tbody>
+</table>
+</td>
+</table>
 
 TODO: Insert NewRelic_app_browser.png
 CAPTION: **Applications > (your app) > Monitoring > Overview > Browser:** Here is an example of the Applications Overview dashboard when you select the Browser view.
