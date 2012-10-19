@@ -136,7 +136,6 @@ After you select your app from the list on the Applications menu, the Overview d
 In addition to the <a href="https://newrelic.com/docs/site/the-new-relic-ui#functions">standard New Relic UI</a> and <a href="https://newrelic.com/docs/site/the-new-relic-ui#drilldown">dashboard drill-down</a> functions, the Applications Overview dashboard has additional functions.
 
 <table>
-<td><table>
   <thead>
     <tr>
       <th><b>If you want to...</b></th>
@@ -176,8 +175,6 @@ In addition to the <a href="https://newrelic.com/docs/site/the-new-relic-ui#func
        </p></p></td>
     </tr>
   </tbody>
-</table>
-</td>
 </table>
 
 TODO: Insert NewRelic_app_browser.png
