@@ -1,4 +1,4 @@
-# How To: Provision the MongoLab Add-On
+### Provision a MongoLab Add-On Database
 You can subscribe to an Azure-hosted, fully-managed MongoDB database in the AzureStore. To do so, follow these steps:
 
 1. Log into the Windows Azure Developer Portal.   
@@ -26,11 +26,11 @@ A success message displays when provisioning completes.
 
 Congratulations! MongoLab has just provisioned a MongoDB database in the Azure region you selected. You now have access to our management UI and 24/7 support.
 
-[button-new]: ../Media/MongoLab/button-new.png
-[button-store]: ../Media/MongoLab/button-store.png
-[button-next]: ../Media/MongoLab/button-next.png
-[button-purchase]: ../Media/MongoLab/button-purchase.png
-[button-progress]: ../Media/MongoLab/button-progress.png
-[entry-mongolab]: ../Media/MongoLab/entry-mongolab.png 
-[screen-newmongolab]: ../Media/MongoLab/screen-newmongolab.png 
-[message-success]: ../Media/MongoLab/message-provisionsuccess.png
+[button-new]: ../Media/button-new.png
+[button-store]: ../Media/button-store.png
+[button-next]: ../Media/button-next.png
+[button-purchase]: ../Media/button-purchase.png
+[button-progress]: ../Media/button-progress.png
+[entry-mongolab]: ../Media/entry-mongolab.png 
+[screen-newmongolab]: ../Media/screen-newmongolab.png 
+[message-success]: ../Media/message-provisionsuccess.png
