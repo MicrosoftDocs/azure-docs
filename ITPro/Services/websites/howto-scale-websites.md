@@ -1,11 +1,11 @@
-﻿<properties umbracoNaviHide="0" pageTitle="How to Scale Website" metaKeywords="Windows Azure Websites, Azure deployment, Azure configuration changes, Azure deployment update, Windows Azure .NET deployment, Azure .NET deployment" metaDescription="Learn how to configure Websites in Windows Azure to use a SQL or MySQL database, and learn how to configure diagnostics and download logs." linkid="itpro-windows-howto-configure-websites" urlDisplayName="How to Configure Websites" headerExpose="" footerExpose="" disqusComments="1" />
+<properties umbracoNaviHide="0" pageTitle="How to Scale Website" metaKeywords="Windows Azure Websites, Azure deployment, Azure configuration changes, Azure deployment update, Windows Azure .NET deployment, Azure .NET deployment" metaDescription="Learn how to configure Websites in Windows Azure to use a SQL or MySQL database, and learn how to configure diagnostics and download logs." linkid="itpro-windows-howto-configure-websites" urlDisplayName="How to Configure Websites" headerExpose="" footerExpose="" disqusComments="1" />
 
 
 # How to Scale Websites #
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-You use the Windows Azure (Preview) Management Portal to scale your websites, and to specify whether you want to run them in Shared website mode or Reserved website mode.  
+You use the Windows Azure (Preview) Management Portal to scale your websites, and to specify whether you want to run them in Free website mode, Shared website mode or Reserved website mode.  
 
 ## Table of Contents ##
 
@@ -33,7 +33,7 @@ For this reason it is recommended that you configure any  "proof of concept” w
 
 ##<a name="sharedmode"></a>Shared Website Mode
 
-A website that is configured as or updated to **Shared** mode use a low-cost scaling mode that provides more performance than **Free** mode. Changing to **Shared** mode is easily done in the **Scale** tab of the management portal. These changes take only seconds to apply, and do not require code to be changed or the application to be redeployed.
+A website that is configured as or updated to **Shared** mode uses a low-cost scaling mode that provides more performance than **Free** mode. Changing to **Shared** mode is easily done in the **Scale** tab of the management portal. These changes take only seconds to apply, and do not require code to be changed or the application to be redeployed.
 
 A website in **Shared** mode is deployed in the same multi-tenant environment as one in **Free** mode, but has no quotas or upper limit to the amount of bandwidth it can serve. The first 5 GB of bandwidth served on a **Shared** website is free; subsequent bandwidth is charged at the standard "pay-as-you-go" rate for outbound bandwidth.
 
@@ -48,11 +48,11 @@ When you configure a website as Reserved, you specify the size of the website (*
 You also specify a value for **Reserved Instance Count** (from 1 to 3).
 Increasing the value for **Reserved Instance Count** will provide fault tolerance and improved performance through scale out.
 
-Before switching a website from **Shared** website mode to **Reserved** website mode you must first remove spending caps in place for your Web Site subscription.
+Before switching a website from **Free** website mode to **Reserved** website mode you must first remove spending caps in place for your Web Site subscription.
 
 
 ##<a name="howtochangescale"></a>How to: Change Scale Options for a Website
-A website that is configured to run in **Shared** website mode has access to the resources associated with an **ExtraSmall** Virtual Machine Size described in the table at [How to: Configure Virtual Machine Sizes][configvmsizes]. 
+A website that is configured to run in **Free** or **Shared** website mode has access to the resources associated with an **ExtraSmall** Virtual Machine Size described in the table at [How to: Configure Virtual Machine Sizes][configvmsizes]. 
 
 To change scale options for a Website, in the Management Portal open the website's **Scale** management page to configure the following scaling options:
 
