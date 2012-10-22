@@ -52,12 +52,13 @@ Your sample app will make use of a Visual Studio template to get started. Be sur
 1. Select **File > New Project**. The New Project dialog displays:    
 ![NewProject][dialog-mongolab-csharp-newproject]
 1. Select **Installed > Templates > Visual C# > Web**.
-1. Select **.NET Framework 4** from the .NET version drop-down menu.
-1. Choose **ASP.NET MVC 4 Web Application**.
+1. Select **.NET Framework 4** from the .NET version drop-down menu (*note: Framework 4.5 does not work at this time*).
+![ProjectFramework][dotNet-framework-four]
+1. Choose **ASP.NET MVC 4 Web Application**.  
 1. Enter _mongoNotes_ as your **Project Name**. If you choose a different name, you will need to modify the code provided in throughout tutorial.
-1. Click **Next**. The Project Template dialog displays:  
+1. Click **OK**. The Project Template dialog displays:  
 ![ProjectTemplate][dialog-mongolab-csharp-projecttemplate]
-1. Select **Internet Application** and click **Next**. The project is built.
+1. Select **Internet Application** and click **OK**. The project is built.
 1. Select **Tools > Library Package Manager > Package Manager Console**. At the PM Console, type **Install-Package mongocsharpdriver** and press **Enter**.  
 ![PMConsole][focus-mongolab-csharp-pmconsole] 
 The MongoDB C# Driver is integrated with the project, and the following line is automatically added to the _packages.config_ file:
@@ -227,8 +228,8 @@ For more information about leveraging the C# MongoDB driver, check out the [CSha
 ### Add a Create View
 Now you'll add a view for creating a new note.
 
-1. Right-click the **Views > Home** entry in the Solution Explorer and select **Add > View**. Call this new class *Create* and click **Add**.
-1. Replace the auto-generated code for this view with the following:  
+1. Right-click the **Views > Home** entry in the Solution Explorer and select **Add > View**. Call this new view *Create* and click **Add**.
+1. Replace the auto-generated code for this view (**Create.cshtml**) with the following:  
 
 		@model mongoNotes.Models.Note
 		
@@ -428,4 +429,5 @@ Congratulations! You've just launched a C# ASP.NET application backed by a Mongo
 [entry-mongolab]: ../../Shared/Media/entry-mongolab.png 
 [button-connectioninfo]: ../../Shared/Media/button-connectioninfo.png
 [screen-connectioninfo]: ../../Shared/Media/dialog-mongolab_connectioninfo.png
+[dotNet-framework-four]: ../Media/focus-dotNet-Framework4-mongolab.png
 
