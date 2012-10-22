@@ -1,4 +1,3 @@
-# Access the MongoLab Web UI
 At any time after provisioning a MongoLab database, you can access the MongoLab web UI for managing that database. We offer convenient SSO access through the Azure portal.
 
 You can use the MongoLab UI to perform most database tasks, such as inserting and querying for documents, obtaining database statistics, and running useful database commands.
