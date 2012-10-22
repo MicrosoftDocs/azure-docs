@@ -385,6 +385,8 @@ The Web Site Dashboard displays.
 1. Click **Save** on the toolbar.  
 ![SaveWebSite][button-website-save]
 
+Azure adds the **CUSTOMCONNSTR\_** prefix to this variable, which is why the code above references **CUSTOMCONNSTR\_MONGOLAB_URI.**
+
 ### Publish the Web Site
 1. In Visual Studio, right-click the **mongoNotes** project in the Solution Explorer and select **Publish**. The Publish dialog displays:  
 ![Publish][dialog-mongolab-vspublish]
