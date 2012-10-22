@@ -1,4 +1,4 @@
-You can subscribe to an Azure-hosted, fully-managed MongoDB database in the AzureStore. To do so, follow these steps:
+You can subscribe to an Azure-hosted, fully-managed MongoDB database in the Azure Store. To do so, follow these steps:
 
 1. Log into the Windows Azure Developer Portal.   
 1. Click **New**.  

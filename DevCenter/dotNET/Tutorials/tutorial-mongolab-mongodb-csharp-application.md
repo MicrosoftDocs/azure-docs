@@ -1,25 +1,53 @@
 # Create an Azure C# ASP.NETApplication with MongoDB using the MongoLab Add-On
 
-Greetings, adventurers! Welcome to Azure. In this tutorial we're going to:
+Greetings, adventurers! Welcome to MongoDB-as-a-Service. In this tutorial you will:
 
 1. Provision a MongoDB database from [MongoLab](mongolab.com) in the Azure Store - This db will be provisioned in the Azure cloud and managed by MongoLab's expert team.
 2. Create a C# ASP.NET application - It'll be a simple MVC app for making notes.
 3. Deploy the app - By tying a few configuration hooks together, we'll make pushing our code a breeze.
-4. Manage the database - Finally, we'll send you to MongoLab's kick-ass database portal for managing, querying, and seeding MongoDB databases.
+4. Manage the database - Finally, you will use MongoLab's kick-ass database portal for managing, querying, and seeding MongoDB databases.
 
 At any time throughout this tutorial, feel free to kick off an email to [support@mongolab.com](mailto:support@mongolab.com) if you have any questions.
+
+## (For the impatient)
+1. In the Azure Store
+
+![Store][button-store]  
+Click on the MongoLab icon 
+
+![MongoLab][entry-mongolab] 
+
+2. In Visual Studio, install the Mongo C# Driver : Select **Tools > Library Package Manager > Package Manager Console**. At the PM Console, type **Install-Package mongocsharpdriver** and press **Enter**. 
+
+
+3.
+        // In your code 
+        using MongoDB.Driver;  
+ 		...
+ 		private string connectionString = System.Environment.GetEnvironmentVariable("CUSTOMCONNSTR_MONGOLAB_URI");
+ 		...
+ 		MongoServer server = MongoServer.Create(connectionString);
+4. Back in the Azure Portal, copy the **Connection Info**  
+![ConnectionInfoButton][button-connectioninfo]  
+that your MongoLab URI displays:  
+![ConnectionInfoScreen][screen-connectioninfo]  
+5. And paste it into here, in the Configuration menu of your Azure Web application:
+ ![WebSiteConnectionStrings][focus-mongolab-websiteconnectionstring]
+1. For **Key**, enter MONGOLAB_URI.
+1. For **Value**, paste the connection string we obtained in the previous section.
+1. Select **Custom** in the Type drop-down (instead of the default **SQLAzure**).
 
 ## Provision the Database
 
 <div chunk="../../Shared/Chunks/howto-provision-mongolab.md" />
 
 ## Create the App
-In this section, we'll cover the creation of a C# ASP.NET Visual Studio project and walk through the use of the C# MongoDB driver to create a simple Note app. We want to be able to visit our web site, write a note, and view all the notes we've left.
+In this section, you'll cover the creation of a C# ASP.NET Visual Studio project and walk through the use of the C# MongoDB driver to create a simple Note app. You want to be able to visit your web site, write a note, and view all the notes that have left.
 
-We'll perform this development in Visual Studio Express 2012 for Web
+You'll perform this development in Visual Studio Express 2012 for Web.
 
 ### Create the Project
-Our sample app will make use of a Visual Studio template to get us started. Be sure to use .NET Framework 4.0.
+Your sample app will make use of a Visual Studio template to get started. Be sure to use .NET Framework 4.0.
 
 1. Select **File > New Project**. The New Project dialog displays:    
 ![NewProject][dialog-mongolab-csharp-newproject]
@@ -37,7 +65,7 @@ The MongoDB C# Driver is integrated with the project, and the following line is 
 		< package id="mongocsharpdriver" version="1.6" targetFramework="net40" / >
 
 ### Add a Note Model
-First, we'll establish a model for our Notes, with simply a date and a text content.
+First, establish a model for Notes, with simply a date and a text content.
 
 1. Right-click **Models** in the Solution Explorer and select **Add > Class**. Call this new class *Note.cs*.
 1. Replace the auto-generated code for this class with the following:  
@@ -76,7 +104,7 @@ First, we'll establish a model for our Notes, with simply a date and a text cont
 		}
 
 ### Add a Data Access Layer
-It's important that we establish a means of accessing MongoDB to retrieve and save our notes. Our data access layer will make use of the Note model and be tied into our HomeController later on.
+It's important that you establish a means of accessing MongoDB to retrieve and save the notes. Your data access layer will make use of the Note model and be tied into your HomeController later on.
 
 1. Right-click the **mongoNotes** project in the Solution Explorer and select **Add > New Folder**. Call the folder **DAL**.
 1. Right-click **DAL** in the Solution Explorer and select **Add > Class**. Call this new class *Dal.cs*.
@@ -182,9 +210,9 @@ It's important that we establish a means of accessing MongoDB to retrieve and sa
 		private string connectionString = System.Environment.GetEnvironmentVariable("CUSTOMCONNSTR_MONGOLAB_URI");
 		
 		private string dbName = "myMongoApp";  
-Here, we access an environment variable that we'll configure later. If you have a local mongo instance running for development purposes, you may want to temporarily set this value to "localhost".  
+Here, you access an environment variable that you'll configure later. If you have a local mongo instance running for development purposes, you may want to temporarily set this value to "localhost".  
   
-  We also set our database name specifically. **Set the dbName value to the name you entered when we provisioned the MongoLab Add-On**.
+  Also set your database name. Specifically, **set the dbName value to the name you entered when you provisioned the MongoLab Add-On**.
 1. Finally, examine the following code in **GetNotesCollection()**:  
 
 		MongoServer server = MongoServer.Create(connectionString);
@@ -197,7 +225,7 @@ Here, we access an environment variable that we'll configure later. If you have 
 For more information about leveraging the C# MongoDB driver, check out the [CSharp Driver QuickStart](http://www.mongodb.org/display/DOCS/CSharp+Driver+Quickstart "CSharp Driver Quickstart") at mongodb.org.
 
 ### Add a Create View
-Now we'll ad a view for creating a new note.
+Now you'll add a view for creating a new note.
 
 1. Right-click the **Views > Home** entry in the Solution Explorer and select **Add > View**. Call this new class *Create* and click **Add**.
 1. Replace the auto-generated code for this view with the following:  
@@ -228,7 +256,7 @@ Now we'll ad a view for creating a new note.
 		}
 
 ### Replace the Index.cshtml
-Next, we'll drop in a simple layout for viewing and creating notes on our web site.
+Next, drop in a simple layout for viewing and creating notes on your web site.
 
 1. Open **Index.cshtml** under **Views > Home** and replace its contents with the following:  
 
@@ -263,7 +291,7 @@ Next, we'll drop in a simple layout for viewing and creating notes on our web si
 		<div>  @Html.Partial("Create", new mongoNotes.Models.Note())</div>
 
 ### Replace the Home Controller
-Finally, our HomeController needs to instantiate our data access layer and leverage it against our views.
+Finally, your HomeController needs to instantiate your data access layer and apply it against your views.
 
 1. Open **HomeController.cs** under **Controllers** in the Solution Explorer and replace its contents with the following:  
 
@@ -348,7 +376,7 @@ Finally, our HomeController needs to instantiate our data access layer and lever
 	
 ## Deploy the App
 
-Now that the application has been developed, it's time to create an Azure Web Site to host it, configure that web site, and deploy the code. Central to this section is the use of the MongoDB connection string (URI). When we provisioned the MongoLab database, MongoLab transmitted our URI to Azure. Transfer this URI--which we can access from your Add-On page--to an environment variable in the web site. This will allow the URI to change without requiring a redeployment. Tolerance for changing resource locations is critical in cloud development!
+Now that the application has been developed, it's time to create an Azure Web Site to host it, configure that web site, and deploy the code. Central to this section is the use of the MongoDB connection string (URI).  Transfer this URI--which you can access from your Add-on page--to an environment variable in the web site. This will keep the URI separate from your code.  You should treat the URI as sensitive information as it contains credentials to connect to your database.
 
 ### Create a New Web Site and Obtain the Publish Settings File
 Creating a web site in Azure is very easy, especially as Azure auto-generates a publish profile for Visual Studio.
@@ -357,7 +385,7 @@ Creating a web site in Azure is very easy, especially as Azure auto-generates a 
 ![New][button-new]
 1. Select **Compute > Web Site > Quick Create**.  
 ![CreateSite][screen-mongolab-newwebsite]
-1. Enter a URL prefix. Choose a name you prefer, as mongoNotes will not be available.
+1. Enter a URL prefix. Choose a name you prefer, as "mongoNotes" will not be available.
 1. Click **Create Web Site**.
 1. When the web site creation completes, click the web site name in the web site list. The web site dashboard displays.  
 ![WebSiteDashboard][screen-mongolab-websitedashboard]
@@ -369,23 +397,8 @@ Creating a web site in Azure is very easy, especially as Azure auto-generates a 
 <div chunk="../../Shared/Chunks/howto-get-connectioninfo-mongolab.md" />
 
 ### Add the Connection String to the Web Site's Environment Variables
-While it's possible to paste the MongoLab URI into the code, we recommend configuring it in the environment for ease of management. This way, if the URI changes, we can update it through the Azure Portal without going to the code.
 
-1. In the Azure Portal, select **Web Sites**.
-1. Click the name of the web site in the web site list.  
-![WebSiteEntry][entry-website]
-The Web Site Dashboard displays.  
-![WebSiteDashboard][screen-mongolab-websitedashboard]
-1. Click **Configure** in the menu bar.
-1. Scroll down to the Connection Strings section.  
-![WebSiteConnectionStrings][focus-mongolab-websiteconnectionstring]
-1. For **Key**, enter MONGOLAB_URI.
-1. For **Value**, paste the connection string we obtained in the previous section.
-1. Select **Custom** in the Type drop-down (instead of the default **SQLAzure**).
-1. Click **Save** on the toolbar.  
-![SaveWebSite][button-website-save]
-
-Azure adds the **CUSTOMCONNSTR\_** prefix to this variable, which is why the code above references **CUSTOMCONNSTR\_MONGOLAB_URI.**
+<div chunk="../../Shared/Chunks/howto-save-connectioninfo-mongolab.md" />
 
 ### Publish the Web Site
 1. In Visual Studio, right-click the **mongoNotes** project in the Solution Explorer and select **Publish**. The Publish dialog displays:  
@@ -402,11 +415,8 @@ Azure adds the **CUSTOMCONNSTR\_** prefix to this variable, which is why the cod
 
 Congratulations! You've just launched a C# ASP.NET application backed by a MongoLab-hosted MongoDB database! Now that you have a MongoLab database, you can contact [support@mongolab.com](mailto:support@mongolab.com) with any questions or concerns about your database, or for help with MongoDB or the C# driver itself. Good luck out there!
 
-[entry-website]: ..\Media\entry-website.png
 [screen-mongolab-sampleapp]: ..\Media\screen-mongolab-sampleapp.png
 [dialog-mongolab-vspublish]: ..\Media\dialog-mongolab-vspublish.png
-[button-website-save]: ..\Media\button-website-save.png
-[focus-mongolab-websiteconnectionstring]: ..\Media\focus-mongolab-websiteconnectionstring.png
 [button-website-downloadpublishprofile]: ..\Media\button-website-downloadpublishprofile.png
 [screen-mongolab-websitedashboard]: ..\Media\screen-mongolab-websitedashboard.png
 [screen-mongolab-newwebsite]: ..\Media\screen-mongolab-newwebsite.png
@@ -414,3 +424,8 @@ Congratulations! You've just launched a C# ASP.NET application backed by a Mongo
 [dialog-mongolab-csharp-newproject]: ..\Media\dialog-mongolab-csharp-newproject.png
 [dialog-mongolab-csharp-projecttemplate]: ..\Media\dialog-mongolab-csharp-projecttemplate.png
 [focus-mongolab-csharp-pmconsole]: ..\Media\focus-mongolab-csharp-pmconsole.png
+[button-store]: ../../Shared/Media/button-store.png
+[entry-mongolab]: ../../Shared/Media/entry-mongolab.png 
+[button-connectioninfo]: ../../Shared/Media/button-connectioninfo.png
+[screen-connectioninfo]: ../../Shared/Media/dialog-mongolab_connectioninfo.png
+
