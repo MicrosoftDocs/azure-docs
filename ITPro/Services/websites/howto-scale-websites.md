@@ -1,4 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="How to Scale Website" metaKeywords="Windows Azure Websites, Azure deployment, Azure configuration changes, Azure deployment update, Windows Azure .NET deployment, Azure .NET deployment" metaDescription="Learn how to configure Websites in Windows Azure to use a SQL or MySQL database, and learn how to configure diagnostics and download logs." linkid="itpro-windows-howto-configure-websites" urlDisplayName="How to Configure Websites" headerExpose="" footerExpose="" disqusComments="1" />
+﻿<properties umbracoNaviHide="0" pageTitle="How to Scale Website" metaKeywords="Windows Azure Websites, Azure deployment, Azure configuration changes, Azure deployment update, Windows Azure .NET deployment, Azure .NET deployment" metaDescription="Learn how to configure Websites in Windows Azure to use a SQL or MySQL database, and learn how to configure diagnostics and download logs." linkid="itpro-windows-howto-configure-websites" urlDisplayName="How to Configure Websites" headerExpose="" footerExpose="" disqusComments="1" />
 
 
 # How to Scale Websites #
@@ -9,30 +9,39 @@ You use the Windows Azure (Preview) Management Portal to scale your websites, an
 
 ## Table of Contents ##
 
+- [Free Website Mode](#freemode)
 - [Shared Website Mode](#sharedmode)
 - [Reserved Website Mode](#reservedmode)
 - [How to: Change Scale Options for a Website](#howtochangescale)
 
-##<a name="sharedmode"></a>Shared Website Mode
+##<a name="freemode"></a>Free Website Mode
 
-When a website is first created it runs in **Shared** website mode, meaning that it shares available compute resources with other subscribers that are also running websites in Shared website mode. 
+When a website is first created it runs in **Free** website mode, meaning that it shares available compute resources with other subscribers that are also running websites in Free or Shared website mode.
 
-A single instance of a website configured to run in Shared mode will provide somewhat limited performance when compared to other configurations but should still provide sufficient performance to complete development tasks or proof of concept work. 
+A single instance of a website configured to run in Free mode will provide somewhat limited performance when compared to other configurations but should still provide sufficient performance to complete development tasks or proof of concept work. 
 
-If a website that is configured to run in a single instance using Shared website mode is put into production, the resources available to the website may prove to be inadequate as the average number of client requests increases over time. 
+If a website that is configured to run in a single instance using Free website mode is put into production, the resources available to the website may prove to be inadequate as the average number of client requests increases over time.
 
 Before putting a website into production, estimate the load that the website will be expected to handle and consider scaling up / scaling out the website by changing configuration options available on the website's **Scale** management page.
 
 <strong>Warning</strong><br />Scale options applied to a website are also applied to all websites that meet the following conditions:
 <ol>
-<li>Are configured to run in Reserved website mode.</li>
+<li>Are configured to run in Shared or Reserved website mode.</li>
 <li>Exist in the same region as the website for which scale options are modified.</li>
 </ol>
-For this reason it is recommended that you configure any  "proof of concept” websites to run in Shared website mode or create the websites in a different region than websites you plan to scale up or scale out.
+For this reason it is recommended that you configure any  "proof of concept” websites to run in Free website mode or create the websites in a different region than websites you plan to scale up or scale out.
+
+##<a name="sharedmode"></a>Shared Website Mode
+
+A website that is configured as or updated to **Shared** mode use a low-cost scaling mode that provides more performance than **Free** mode. Changing to **Shared** mode is easily done in the **Scale** tab of the management portal. These changes take only seconds to apply, and do not require code to be changed or the application to be redeployed.
+
+A website in **Shared** mode is deployed in the same multi-tenant environment as one in **Free** mode, but has no quotas or upper limit to the amount of bandwidth it can serve. The first 5 GB of bandwidth served on a **Shared** website is free; subsequent bandwidth is charged at the standard "pay-as-you-go" rate for outbound bandwidth.
+
+A website running in **Shared** mode also now supports the ability to receive mapping for multiple custom DNS domain names, using both CNAME and A-records. Using A-records allows websites to be accessed using only the domain name (e.g. http://microsoft.com in addition to http://www.microsoft.com). In the future, SNI-based SSL will also be available for websites running in **Shared** mode.
  
 ##<a name="reservedmode"></a>Reserved Website Mode
 
-A website that is configured as **Reserved** will provide more consistent performance than a website that is configured as **Shared**. 
+A website that is configured as **Reserved** will provide more consistent performance than a website that is configured as **Free** or **Shared**. 
 
 When you configure a website as Reserved, you specify the size of the website (**Small**, **Medium** or **Large**). A website that is configured with a larger **Reserved Instance Size** will perform better under load. 
 
@@ -47,7 +56,7 @@ A website that is configured to run in **Shared** website mode has access to the
 
 To change scale options for a Website, in the Management Portal open the website's **Scale** management page to configure the following scaling options:
 
-- **WebSite Mode** - Set to **Shared** by default.  When you change the **WebSite Mode** from **Shared** to **Reserved** the website is scaled up to run in a Small compute instance on a single dedicated core with access to additional memory, disk space and bandwidth. For more information, see [How to: Configure Virtual Machine Sizes][configvmsizes]. 
+- **WebSite Mode** - Set to **Free** by default.  When you change the **WebSite Mode** from **Free** or **Shared** to **Reserved**, the website is scaled up to run in a Small compute instance on a single dedicated core with access to additional memory, disk space and bandwidth. For more information, see [How to: Configure Virtual Machine Sizes][configvmsizes]. 
 
 - **Reserved Instance Size** - Provides options for additional scale up of a website running in **Reserved** website mode. If **Reserved Instance Size** is changed from **Small** to **Medium** or **Large**, the website will run in a compute instance of corresponding size with access to associated resources for each size. For more information, see [How to: Configure Virtual Machine Sizes][configvmsizes].
 
