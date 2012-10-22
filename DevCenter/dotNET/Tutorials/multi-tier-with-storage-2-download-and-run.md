@@ -1,4 +1,5 @@
 <div chunk="../chunks/article-left-menu.md" />
+
 # Configuring and Deploying the Azure Email Service application
 
 This is the second tutorial in a series of five that show how to build and deploy the Azure Email Service sample application.  For information about the application and the tutorial series, see the [first tutorial in the series][firsttutorial].
@@ -11,7 +12,7 @@ In this tutorial you'll learn:
 
 * How to set up your computer for Windows Azure development by installing the Windows Azure SDK.
 * How to configure and test the Azure Email Service application on your local machine.
-* How to publish the email service to to Windows Azure.
+* How to publish the email service to Windows Azure.
 
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
  
@@ -40,7 +41,7 @@ To start, set up your development environment by installing the Windows Azure SD
 [Windows Azure SDK for Visual Studio 2012][]<br/>
 If you don't have Visual Studio installed yet, it will be installed by the link.<br/>
 
-2. When you are prompted to run or save VWDOrVs11AzurePack.exe, click **Run**.
+2. When you are prompted to run or save vwdorvs11azurepack.exe, click **Run**.
 
 3. In the Web Platform Installer window, click **Install** and proceed with the installation.
 
@@ -70,11 +71,11 @@ The next step is to create a Windows Azure account.
 
    ![Quick Create][mtas-storage-quick]
 
-4. In the URL input box, enter a URL prefix. Set the region to the area where you will deploy the application. Uncheck the **Enable Geo-Replication** check box. <ins>Why?</ins> Finally, click **Create Storage Account**. In the image below, a storage account is created with the URL aestest.core.windows.net.
+4. In the URL input box, enter a URL prefix. Set the region to the area where you will deploy the application. Uncheck the **Enable Geo-Replication** check box. When geo-replication is turned on for a storage account, the stored content is replicated to a secondary location to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. See [How To Manage Storage Accounts](http://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/ "Geo-Rep") for more information.  Finally, click **Create Storage Account**. In the image below, a storage account is created with the URL aestest.core.windows.net.
 
    ![create storage with URL prefix][mtas-create-storage-url-test]
 
-   This step can take several minutes to complete. While you are waiting, you can repeat these steps and create a production storage acccount. It's often convenient to have a test storage account to use for local development, another test storage account for testing in Windows Azure, and a production storage account. In this tutorial we will primarly use the Azure storage test account when we are running the application from Visual Studio.
+   This step can take several minutes to complete. While you are waiting, you can repeat these steps and create a production storage account. It's often convenient to have a test storage account to use for local development, another test storage account for testing in Windows Azure, and a production storage account. In this tutorial we will primarily use the Azure storage test account when we are running the application from Visual Studio.
 
 5. Click the test account you created in the previous step, then click the **Manage Keys** icon.
 
@@ -84,7 +85,7 @@ The next step is to create a Windows Azure account.
 
    You will need the primary or secondary access key throughout this tutorial. The **Primary Access Key** and **Secondary Access Key** both provide a shared secret that you can use to access storage. The secondary key gives the same access as the primary key and is used for backup purposes. You can regenerate each key independently and rotate keys to help insure they are secure. The keys in the image above are not valid, they were regenerated after the image was captured.
 
-<h2><a name="installASE"></a><span class="short-header">Install ASE</span>Optional: Install Azure Storage Explorer</h2><ins>I don't think we should make this optional.</ins>
+<h2><a name="installASE"></a><span class="short-header">Install ASE</span> Install Azure Storage Explorer</h2>
 
 Azure Storage Explorer is a tool that you can use to query and update Windows Azure storage tables, queues, and blobs. You will use it throughout these tutorials to verify that data is updated correctly and to create test data.
 
@@ -172,9 +173,9 @@ You can manually add settings to the *ServiceDefinition.csdf* file and the two *
 - You only add the new setting in one place, and the correct setting XML is added to all three files.
 - The correct XML is generated for the three settings files. The *ServiceDefinition.csdf* file defines settings that must be in each *.cscfg* configuration file. If the *ServiceDefinition.csdf* file and the two *.cscfg* configuration files settings are inconsistent, you can get the following error message from Visual Studio: *The current service model is out of sync. Make sure both the service configuration and definition files are valid.*
 
-   ![Config error][mtas-er1]<ins>Image missing</ins>
+   ![Config error][mtas-er1]
 
-The properties editor will not work until you resolve the problem.
+The properties editor will not work until you resolve inconsistency problems.
 
 Examine the *ServiceConfiguration.Local.cscfg* file. The XML for worker role A and worker role B also contains a storage connection string specifying the development storage emulator. The storage connection strings in the two worker roles were provided by the download.
 
@@ -213,7 +214,7 @@ The application home page appears in your browser.
 
    ![Server Explorer][mtas-serverExplorer]
 
-3. Double click the **MailingList** table. The following image shows a portion of the data in the Message table. Notice the two different schemas in the table.
+3. Double click the **MailingList** table. The following image shows a portion of the data in the Message table. Notice the two different schema's in the table.
 
    ![VS storage explorer][mtas-wasVSdata]
 
@@ -243,7 +244,7 @@ The application home page appears in your browser.
 
    ![Right Click Properties][mtas-enter]<br/>
 
-8. Open the **ServiceConfiguration.Local.cscfg** file and examine the XML markup in the role element for MvcWebRole. The storage account connection string editor updated the storage connection string using the account name and key you provided. Rather than use the  storage account connection string editor to update the storage connection string for the two worker roles, copy and paste the MvcWebRole storage connection string element over the storage connection string element in the two worker role elements.
+8. Open the **ServiceConfiguration.Local.cscfg** file and examine the XML markup in the role element for MvcWebRole. The storage account connection string editor updated the storage connection string using the account name and key you provided. Rather than use the  storage account connection string editor to update the storage connection string for the two worker roles, copy and paste the MvcWebRole storage connection string element over the storage connection string element in the two worker role elements. For more information on the configuration files, see [Configuring a Windows Azure Project ](http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx)
 
 9. Press CTRL+F5 to run the application. Enter some data by clicking the Mailing Lists, Messages and Subscribers links as did previously in this tutorial.
 
@@ -263,7 +264,7 @@ The application home page appears in your browser.
 
    ![ASE][mtas-se3]<br/>
 
-11. **Optional** <ins>Explain why they might or might not want to do this</ins> Disable Azure Storage Emulator automatic startup. In **Solution Explorer**, right click the **AzureEmailService** cloud project and select **properties**.
+11. **Optional** Disable Azure Storage Emulator automatic startup. If you are not using the storage emulator, you can increase project start time and use less local resources by disabling automatic startup. In **Solution Explorer**, right click the **AzureEmailService** cloud project and select **properties**.
 
    ![ASE][mtas-aesp]<br/>
 
@@ -313,7 +314,7 @@ In this section of the tutorial, you publish the application to the staging envi
 
    ![Staging][mtas-c2]<br/>
 
-6. Enter a deployment name. Click the **Package** and **Configuration** input boxes and browse to the *app.publish* folder that Visual Studio created and opened in a previous step. Select the package and configuration files. Check the check box **Deploy even if one or more roles contains a single instance**. Finally, click the check icon to upload the package. This step can take several minutes to complete.<ins>We should explain the single instance issue.</ins>
+6. Enter a deployment name. Click the **Package** and **Configuration** input boxes and browse to the *app.publish* folder that Visual Studio created and opened in a previous step. Select the package and configuration files. Check the check box **Deploy even if one or more roles contains a single instance**. The web role and two worker roles are created as a single instance. At this point in the tutorial we don't need multiple instances of each role. Instances are defined by the **Instances** element in the *ServiceConfiguration.Cloud.cscfg* file. Later in the tutorial we show how to scale the application by increasing the instance count of worker role B. Finally, click the check icon to upload the package. This step can take several minutes to complete.
 
    ![Staging2][mtas-c3]<br/>
 
@@ -363,7 +364,7 @@ In this section of the tutorial, you publish the application to the staging envi
 
    where "[StorageAccount]" and "[Account Key]" are your storage account and keys obtained from from the storage tab of the Windows Azure portal. 
 
-   **Note:** The storage account doesn't need to be the same account the application uses for reading and writing application data. It's often more convienent to use a test or trace account to store trace data.
+   **Note:** The storage account doesn't need to be the same account the application uses for reading and writing application data. It's often more convenient to use a test or trace account to store trace data.
 
 [Set Up the development environment]: #setupdevenv
 [Set up a free Windows Azure Account]: #setupwindowsazure
@@ -379,7 +380,8 @@ In this section of the tutorial, you publish the application to the staging envi
 [Get a SendGrid account]: #sendGrid
 [Configure and View Trace Data]: #trace
 
-
+[Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=254269
+[Windows Azure SDK for Visual Studio 2012]:  http://go.microsoft.com/fwlink/?LinkId=254364
 [firsttutorial]: http://
 
 
@@ -431,10 +433,10 @@ In this section of the tutorial, you publish the application to the staging envi
 
 
 
-[blob6]: ../Media/blob6.png
-[blob7]: ../Media/blob7.png
-[blob8]: ../Media/blob8.png
-[blob9]: ../Media/blob9.png
+[blob6]: ../MediaTmp/blob6.png
+[blob7]: ../MediaTmp/blob7.png
+[blob8]: ../MediaTmp/blob8.png
+[blob9]: ../MediaTmp/blob9.png
 
 [mtas-storage-quick-SM]: ../Media/mtas-storage-quick-SM.png
 [0]: ../../Shared/media/antares-iaas-preview-01.png
