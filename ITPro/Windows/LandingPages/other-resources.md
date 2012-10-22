@@ -8,11 +8,9 @@
 
 Learn about the differences between deploying Windows Server Active Directory Domain Services (AD DS) and Active Directory Federations Services (AD FS) on-premises versus deploying on Windows Azure Virtual Machines. Understand the decisions that affect design and deployment that you have to make.
 
-###[SharePoint Deployment on Windows Azure Virtual Machines](http://www.microsoft.com/en-us/download/details.aspx?id=34598)
+###[SharePoint Deployment on Windows Azure Virtual Machines](/en-us/manage/windows/other-resources/sharepoint-on-azure/)
 
 The *SharePoint Deployment on Windows Azure Virtual Machines* white paper provides guidance about the benefits of Windows Azure Virtual Machines and explains how to deploy SharePoint Server 2010 on Windows Azure Virtual Machines.
-
-You can [download the whitepaper](http://www.microsoft.com/en-us/download/details.aspx?id=34598) on the Microsoft Download Center.
 
 ###[Windows Azure Training Kit](/en-us/manage/windows/other-resources/training-kit/)
 
