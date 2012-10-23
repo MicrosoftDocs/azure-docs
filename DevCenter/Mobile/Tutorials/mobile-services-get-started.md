@@ -7,7 +7,7 @@
 </div>-->
 
 # <a name="getting-started"> </a>Get started with Mobile Services for Windows Store
-<h3><strong>Windows Store</strong> / <a href="/en-us/develop/mobile/tutorials/get-started-ios">iOS</a></h3>
+<h3><strong>Windows Store</strong> / <a href="/en-us/develop/mobile/tutorials/get-started-wp8">Windows Phone 8</a> / <a href="/en-us/develop/mobile/tutorials/get-started-ios">iOS</a></h3>
 
 <div class="dev-onpage-video-wrapper"><a style="background-image: url('/media/scott-mobile-video-2012.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=262813&amp;clcid=0x409" target="_blank" class="dev-onpage-video"><span class="icon"><span>Play Video</span></span><span class="time">10:08</span></a></div>   
 
