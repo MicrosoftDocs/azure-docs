@@ -226,7 +226,10 @@ namespace.
 	        try {
 	
 	            Configuration config = ServiceBusConfiguration.configureWithWrapAuthentication(
-	                    "your_service_bus_namespace", "your_service_bus_owner", "your_service_bus_key");
+	                    "your_service_bus_namespace", "your_service_bus_owner",
+                        "your_service_bus_key",
+                        ".servicebus.windows.net",
+                        "-sb.accesscontrol.windows.net/WRAPv0.9");
 	
 	            service = ServiceBusService.create(config);
 	
@@ -328,7 +331,9 @@ namespace.
 	
 	                Configuration config;
 	                config = ServiceBusConfiguration.configureWithWrapAuthentication(
-	                        namespace, issuer, key);
+	                        namespace, issuer, key,
+                            ".servicebus.windows.net",
+                            "-sb.accesscontrol.windows.net/WRAPv0.9");
 	
 	                ServiceBusContract service = ServiceBusService.create(config);
 	
