@@ -140,6 +140,8 @@ Select **Windows Azure Caching**, click **Install**, and then click **I Accept**
 
 The NuGet package does several things: it adds the required configuration to the config file of the role, it adds a cache client diagnostic level setting to the ServiceConfiguration.cscfg file of the Windows Azure application, and it adds the required assembly references.
 
+>For ASP.NET web roles, the Caching NuGet package also adds two commented out sections to web.config. The first section enables session state to be stored in the cache, and the second section enables ASP.NET page output caching. For more information, see [How To: Store ASP.NET Session State in the Cache] and [How To: Store ASP.NET Page Output Caching in the Cache][].
+
 The NuGet package adds the following configuration elements into your role's web.config or app.config. A **dataCacheClients** section and a **cacheDiagnostics** section are added under the **configSections** element. If there is no **configSections** element present, one is created as a child of the **configuration** element.
 
     <configSections>
@@ -220,20 +222,22 @@ Windows Azure Caching:
     using Microsoft.ApplicationServer.Caching;
 
 >If Visual Studio doesn't recognize the types in the using
-statement even after adding the references, ensure that the target
-profile for the project is .NET Framework 2.0 or higher, and be sure to select one of the profiles that does not specify **Client Profile**.
+statement even after installing the Caching NuGet package, which adds the necessary references, ensure that the target
+profile for the project is .NET Framework 2.0 or higher, and be sure to select one of the profiles that does not specify **Client Profile**. For instructions on configuring cache clients, see [Configure the cache clients][].
 
-There are two ways to create a DataCache object. To use the first way, create a new **DataCacheFactory** object in your application using the default constructor. This causes the cache client to use the settings in the configuration file. Call either the **GetDefaultCache** method of the new **DataCacheFactory** instance which returns a **DataCache** object, or the **GetCache** method and pass in the name of your cache. These methods return a **DataCache** object that can then be used to programmatically access the cache.
+There are two ways to create a **DataCache** object. The first way is to simply create a **DataCache**, passing in the name of the desired cache.
+
+    DataCache cache = new DataCache("default");
+
+Once the **DataCache** is instantiated, you can use it to interact with the cache, as described in the following sections.
+
+To use the second way, create a new **DataCacheFactory** object in your application using the default constructor. This causes the cache client to use the settings in the configuration file. Call either the **GetDefaultCache** method of the new **DataCacheFactory** instance which returns a **DataCache** object, or the **GetCache** method and pass in the name of your cache. These methods return a **DataCache** object that can then be used to programmatically access the cache.
 
     // Cache client configured by settings in application configuration file.
     DataCacheFactory cacheFactory = new DataCacheFactory();
     DataCache cache = cacheFactory.GetDefaultCache();
     // Or DataCache cache = cacheFactory.GetCache("MyCache");
     // cache can now be used to add and retrieve items.	
-
-The second way uses an abbreviated syntax. Using this method, you do not need to create a **DataCacheFactory**, and you can instead **new** up an instance of a **DataCache** object that references the desired cache.
-
-    DataCache cache = new DataCache("default");
 
 <a name="add-object"></a><h2><span class="short-header">Add and Retrieve an Object from the Cache</span>How To: Add and Retrieve an Object from the Cache</h2>
 
