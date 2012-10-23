@@ -71,7 +71,7 @@ SQL Database (formerly known as SQL Azure) is a cloud-based relational database 
 
    ![Create with Database link in Management Portal][Image013]
 
-   The **New Web Site - Create with Database** wizard opens. The Create with Database wizard enables you to create a web site and a database at the same time.
+   The **New Web Site - Create with Database** wizard opens. The **Create with Database** wizard enables you to create a web site and a database at the same time.
 
 4. In the **Create Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application.
 
@@ -79,7 +79,7 @@ SQL Database (formerly known as SQL Azure) is a cloud-based relational database 
 
 6. In the **Region** drop-down list, choose the region that is closest to you.
 
-   This setting specifies which data center your VM will run in. 
+   This setting specifies which data center your web site will run in. 
 
 5. In the **Database** drop-down list, choose **Create a new SQL database**.
 
@@ -215,7 +215,7 @@ When the connection has been validated, a green check mark is shown next to the 
 
 1. In the **Settings** tab, click **Next**.
 
-   You can accept all of the default settings on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server. The **DefaultConnection** entry under **Databases** is for the ASP.NET membership (log on) functionality built into the default MVC 4 project template. You aren't using that membership functionality for this tutorial, so you don't need to enter any settings for **DefaultConnection**.
+   You can accept all of the default settings on this page.  You are deploying a Release build configuration, you don't need any of the options in the **File Publish Options** section, and you aren't deploying a database yet.
 
    ![Settings tab of the Publish Web wizard][Image039]
 
@@ -389,7 +389,7 @@ To publish the application, you repeat the procedure you followed earlier, addin
 
    ![Settings tab of Publish Web wizard][Image060]<br/>
 
-   (As was noted earlier, the **DefaultConnection** database is for the ASP.NET membership system. You are not using membership functionality in this tutorial, so you aren't configuring this database for deployment.)
+   (The other database entries are created by the MVC 4 project template for user profiles. You aren't using user profiles for this tutorial, so you don't need to configure the other database entries for deployment.)
 
 8. Click **Publish**.
 
