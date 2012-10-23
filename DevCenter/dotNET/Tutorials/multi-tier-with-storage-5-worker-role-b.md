@@ -1,20 +1,18 @@
 <div chunk="../chunks/article-left-menu.md" />
 
-# Building worker role B for the Azure Email Service application - 5 of 5. 
+# Building worker role B (email sender) for the Azure Email Service application - 5 of 5. 
 
 This is the fifth tutorial in a series of five that show how to build and deploy the Azure Email Service sample application.  For information about the application and the tutorial series, see the [first tutorial in the series][firsttutorial].
 
 In this tutorial you'll learn:
 
 * How to add a worker role to a cloud service project.
+* How to poll a queue and process work items from the queue.
+* How to send emails by using SendGrid.
  
-### Tutorial segments
-
-1. [Add worker role B to the cloud service project][addworkerrole]
-2. [Add start and run code]
-8. [Next steps][nextsteps]
-
 <h2><a name="addworkerrole"></a><span class="short-header">Add worker role B</span>Add worker role B to the cloud service project</h2>
+
+### Add the worker role B project
 
 1. In Solution Explorer, right-click the cloud service project, and choose **New Worker Role Project**.
 
@@ -24,6 +22,10 @@ In this tutorial you'll learn:
 
    ![New role project dialog box][mtas-add-new-role-project-dialog]
 
+### Add a reference to the web project
+
+You need a reference to the web project because that is where the entity classes are defined. You'll use the entity classes in worker role B to read and write data in the Windows Azure tables that the application uses.
+
 4. Right-click the WorkerRoleB project, and choose **Add Reference**.
 
    ![Add reference in WorkerRoleB project][mtas-worker-b-add-reference-menu]
@@ -31,6 +33,24 @@ In this tutorial you'll learn:
 4. In **Reference Manager**, add a reference to the MvcWebRole project (or to the web application project if you are running the web UI in a Windows Azure Web Site).
 
    ![Add reference to MvcWebRole][mtas-worker-b-reference-manager]
+
+### Add the SendGrid NuGet package
+
+To send email by using SendGrid, you need to install the SendGrid NuGet package.
+
+1. In **Solution Explorer**, right-click the WorkerRoleB project and choose **Manage NuGet Packages**.
+
+   ![Manage NuGet Packages][mtas-worker-b-manage-nuget]
+
+2. In the **Manage NuGet Packages** dialog box, select the Online tab, enter "sendgrid" in the search box, and press Enter.
+
+3. Click **Install** on the **Sendgrid** package.
+
+   ![Install the Sendgrid package][mtas-worker-b-install-sendgrid]
+
+4. Close the dialog box.
+
+### Add code that runs when the worker role starts
 
 4. In the WorkerRoleB project, delete WorkerRole.cs.
 
@@ -40,9 +60,11 @@ In this tutorial you'll learn:
 
 2. Navigate to the folder where you downloaded the sample application, select the WorkerRoleB.cs file in the WorkerRoleB project, and click **Add**.
 
-3. Open WorkerRoleB.cs to see the code.
+3. Open WorkerRoleB.cs and examine the code.
 
-   The OnStart method initializes the context classes you need to work with Windows Azure storage entities and makes that all of the tables, queues, and blob containers you need in the Run method exist.
+   As you already saw in worker role A, the OnStart method initializes the context classes that you need in order to work with Windows Azure storage entities. It also makes sure that all of the tables, queues, and blob containers you need in the Run method exist.  
+
+   The difference here compared to worker role A is the addition of the blob container and the subscribe queue among the resources to create if they don't already exist. You'll use the blob container to get the files that contain email body HTML and plain text, and subscribe queue is used for sending subscription confirmation emails.
 
         public override bool OnStart()
         {
@@ -102,9 +124,7 @@ In this tutorial you'll learn:
             return base.OnStart();
         }
 
-   You have seen this pattern already in WorkerRoleA.cs. The only difference is the addition of the blob container and the subscribe queue among the resources to create if they don't already exist.
-
-   The Run method processes work items from two queues: the queue used for messages sent to email lists (work items created by worker role A), and the queue used for subscription emails (work items created by the subscribe API method in the MvcWebRole project).
+   The Run method processes work items from two queues: the queue used for messages sent to email lists (work items created by worker role A), and the queue used for subscription confirmation emails (work items created by the subscribe API method in the MvcWebRole project).
 
         public override void Run()
         {            
@@ -142,15 +162,9 @@ In this tutorial you'll learn:
             }
         }
 
-   If a work item is found in the main queue, the code processes it and then checks the subscribe queue. If nothing is waiting in the main queue, the code sleeps 5 seconds before continuing with the loop.
+   This code runs in an infinite loop until the worker role is shut down. If a work item is found in the main queue, the code processes it and then checks the subscribe queue. If nothing is waiting in the main queue, the code sleeps 5 seconds before continuing with the loop.  The sleep time prevents the worker role from unnecessarily using too much CPU time.
 
-   The method that processes a queue message performs the following tasks:
-
-   * Parses the queue message into MessageRef and EmailAddress values.
-   * Gets the Message table row that has info needed to send the email.
-   * Calls a method to send the email.
-   * Deletes the queue work item.
-   * Updates the Message table row to indicate the email has been sent.
+   The Run method calls ProcessQueueMessage when it finds a work item in the main queue:
 
         private void ProcessQueueMessage(CloudQueueMessage msg)
         {
@@ -160,10 +174,7 @@ In this tutorial you'll learn:
             var messageRef = messageParts[0];
             var emailAddress = messageParts[1];
 
-            // Get the row in the Message table that has data we need to send the email..
-            // Using Single rather than SingleOrDefault so that if a row isn't found,
-            // an exception will be thrown.
-            
+            // Get the row in the Message table that has data we need to send the email.
             var sendEmailRow =
                 (from e in tableServiceContext.CreateQuery<SendEmail>("MailingList")
                  where e.PartitionKey == messageRef && e.RowKey == emailAddress
@@ -185,19 +196,16 @@ In this tutorial you'll learn:
             // Delete the queue message 
             this.sendEmailQueue.DeleteMessage(msg);
 
-            // Update the tracking row in SentEmail table.
-            // Using Single rather than SingleOrDefault so that if a tracking row isn't found,
-            // an exception will be thrown.
-            var sentEmailRowToUpdate =
-                (from e in tableServiceContext.CreateQuery<SendEmail>("MailingList")
-                 where e.PartitionKey == messageRef && e.RowKey == emailAddress
-                 select e).Single();
-            sentEmailRowToUpdate.EmailSent = true;
-            tableServiceContext.UpdateObject(sentEmailRowToUpdate);
-            tableServiceContext.SaveChangesWithRetries();
-
             Trace.TraceInformation("Completed send-email-to-list queue message processing.");
         }
+
+   This code performs the following tasks:
+
+   * Parses the queue message into MessageRef and EmailAddress values.
+   * Gets the Message table row that has info needed to send the email.
+   * Calls a method to send the email.
+   * Updates the Message table row to indicate the email has been sent.   
+   * Deletes the queue work item.
 
    The actual work of sending the email by using SendGrid is done by the SendEmailToList method. If you wanted to use a different service than SendGrid, all you have to do is change the code in this method.
 
@@ -218,12 +226,7 @@ In this tutorial you'll learn:
             transportREST.Deliver(email);
         }
 
-   The Run method calls ProcessSubscribeQueueMessage when it finds a subscribe queue work item. This method performs the following tasks:
-
-   * Gets the subscriber GUID from the queue message.
-   * Uses the GUID to get subscriber information from the MailingList table.
-   * Sends a confirmation email to the new subscriber.
-   * Deletes the queue message.
+   The Run method calls ProcessSubscribeQueueMessage when it finds a work item in the subscribe queue:
 
         private void ProcessSubscribeQueueMessage(CloudQueueMessage msg)
         {
@@ -251,6 +254,13 @@ In this tutorial you'll learn:
             Trace.TraceInformation("Completed subscribe queue message processing.");
         }
 
+   This method performs the following tasks:
+
+   * Gets the subscriber GUID from the queue message.
+   * Uses the GUID to get subscriber information from the MailingList table.
+   * Sends a confirmation email to the new subscriber.
+   * Deletes the queue message.
+
    As with emails sent to lists, the actual sending of the email is in a separate method, making it easy for you to change to a different email service if you want to do that.
 
         private static void SendSubscribeEmail(string subscriberGUID, Subscriber subscriber, MailingList mailingList)
@@ -273,7 +283,26 @@ In this tutorial you'll learn:
 
 <h2><a name="testing"></a><span class="short-header">Testing</span>Testing Worker Role B</h2>
 
+1. Run the application by pressing F5.
+
+2. Go to the Messages page to see the message you created to test worker role A. After a minute or so, refresh the web page and you will see the status has changed from Processing to Completed.
+
+   ![New message in pending status][mtas-worker-b-test-completed]
+
+4. Check the email inbox where you expect to get the email. Note that there might be delays in sending of emails by SendGrid or delivery to your email client, so you might have to wait a while to see the email.
+
+
+
+
 <h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>
+
+You have now build the Windows Azure Email Service application from scratch, and what you have is the same as the completed project that you downloaded.  To deploy to the cloud, test in the cloud, and promote to production, you can use the same procedures you saw in [the second tutorial][tut2].
+
+To learn more about how to work with the Windows Azure Table service, Queue service, and Blob service, see the following resources:
+
+* [How to use the Queue Storage Service][queuehowto]
+* [How to use the Table Storage Service][tablehowto]
+* [How to use the Windows Azure Blob Storage Service in .NET][blobhowto]
 
 [createsolution]: #cloudproject
 [mailinglist]: #mailinglist
@@ -282,16 +311,17 @@ In this tutorial you'll learn:
 [webapi]: #webapi
 [nextsteps]: #nextsteps
 
-[firsttutorial]: http://
+[firsttutorial]: http://windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+[tut2]: http://windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
 
 [mtas-new-worker-role-project]: ../Media/mtas-new-worker-role-project.png
 [mtas-add-new-role-project-dialog]: ../Media/mtas-add-new-role-project-dialog.png
 [mtas-worker-b-add-existing]: ../Media/mtas-worker-b-add-existing.png
 [mtas-worker-b-add-reference-menu]: ../Media/mtas-worker-b-add-reference-menu.png
 [mtas-worker-b-reference-manager]: ../Media/mtas-worker-b-reference-manager.png
-[]: ../Media/.png
-[]: ../Media/.png
-[]: ../Media/.png
+[mtas-worker-b-manage-nuget]: ../Media/mtas-worker-b-manage-nuget.png
+[mtas-worker-b-install-sendgrid]: ../Media/mtas-worker-b-install-sendgrid.png
+[mtas-worker-b-test-completed]: ../Media/mtas-worker-b-test-completed.png
 []: ../Media/.png
 []: ../Media/.png
 []: ../Media/.png
