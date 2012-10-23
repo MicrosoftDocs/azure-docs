@@ -1,13 +1,16 @@
-When you provision a MongoLab database, we transmit a MongoDB URI to Azure. This value is used to initiate a MongoDB connection through your choice of MongoDB driver.
+When you provision a MongoLab database, MongoLab transmits a connection URI to Azure in MongoDB's standard connection string format. This value is used to initiate a MongoDB connection through your choice of MongoDB driver. For more information about connection strings, see [Connections](http://www.mongodb.org/display/DOCS/Connections) at mongodb.org.
+
+
+**You should take care to protect the URI as it includes credentials to access your database.**
 
 You can retrieve this URI in the Azure Portal using the following steps:
 
 1. Select **Add-ons**.  
 ![AddonsButton][button-addons]
-1. Locate your MongoLab service in your list of add-ons.  
+1. Locate your MongoLab service in your add-on list.  
 ![MongolabEntry][entry-mongolabaddon]
 1. Cick the name of your add-on to reach the add-on page.
-1. Click **Connection Info**  
+1. Click **Connection Info**.  
 ![ConnectionInfoButton][button-connectioninfo]  
 Your MongoLab URI displays:  
 ![ConnectionInfoScreen][screen-connectioninfo]  
