@@ -53,23 +53,23 @@ Follow these steps to create a new mobile service.
 
 You have now created a new mobile service that can be used by your mobile apps.
 
-## <h2><span class="short-header">Create a new app</span>Create a new iOS app</h2>
+## <h2><span class="short-header">Create a new app</span>Create a new Windows Phone app</h2>
 
 Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
 
-In this section you will create a new iOS app that is connected to your mobile service.
+In this section you will create a new Windows Phone 8 app that is connected to your mobile service.
 
 1.  In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
 
-2. In the quickstart tab, click **iOS** under **Choose platform** and expand **Create a new iOS app**.
+2. In the quickstart tab, click **Windows Phone 8** under **Choose platform** and expand **Create a new Windows Phone 8 app**.
 
    ![][6]
 
-   This displays the three easy steps to create an iOS app connected to your mobile service.
+   This displays the three easy steps to create a Windows Phone app connected to your mobile service.
 
   ![][7]
 
-3. If you haven't already done so, download and install [Visual Studio 2012 Express for Windows Phone 8] and the [Mobile Services SDK] on your local computer or virtual machine.
+3. If you haven't already done so, download and install [Visual Studio 2012 Express for Windows Phone] and the [Mobile Services SDK] on your local computer or virtual machine.
 
 4. Click **Create TodoItems table** to create a table to store app data.
 
@@ -81,13 +81,13 @@ In this section you will create a new iOS app that is connected to your mobile s
 
 The final stage of this tutorial is to build and run your new app.
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio 2012 Express for Windows Phone 8.
+1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio 2012 Express for Windows Phone.
 
    ![][8]
 
 2. Press the **F5** key to rebuild the project and start the app.
 
-3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (**+**) icon.
+3. In the app, type meaningful text, such as _Complete the tutorial_ and then click **Save**.
 
    ![][10]
 
@@ -135,7 +135,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [5]: ../Media/mobile-services-selection.png
 [6]: ../Media/mobile-portal-quickstart-wp8.png
 [7]: ../Media/mobile-quickstart-steps-wp8.png
-[8]: ../Media/mobile-xcode-project.png
+[8]: ../Media/mobile-vs-project-wp8.png
 [9]: ../Media/mobile-quickstart-download-app.png
 [10]: ../Media/mobile-quickstart-startup-wp8.png
 [11]: ../Media/mobile-data-tab.png
@@ -146,7 +146,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Get started with data]: ./mobile-services-get-started-with-data-wp8.md
 [Get started with authentication]: ./mobile-services-get-started-with-users-wp8.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-wp8.md
-[Visual Studio 2012 Express for Windows Phone 8]: https://go.microsoft.com/fwLink/p/?LinkID=268374
+[Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/

@@ -9,7 +9,7 @@
 </div>-->
 
 # Validate and modify data in Mobile Services for Windows Store by using server scripts
-<h3><strong>Windows Store C#</strong> / <a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js">Windows Store JavaScript</a></h3>
+<h3><strong>Windows Store C#</strong> / <a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js">Windows Store JavaScript</a> / <a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8">Windows Phone 8</a> / <a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios">iOS</a> </h3>
 
 This topic shows you how to leverage server scripts in Windows Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update your Windows Store app to take advantage of these new behaviors.
 

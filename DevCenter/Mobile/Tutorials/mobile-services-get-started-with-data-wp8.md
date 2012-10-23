@@ -20,7 +20,7 @@ This topic shows you how to use Windows Azure Mobile Services to leverage data i
 
 This tutorial walks you through these basic steps:
 
-1. [Download the iOS app project][GitHub] 
+1. [Download the Windows Phone 8 app project][Developer Code Samples site] 
 2. [Create the mobile service]
 3. [Add a data table for storage]
 4. [Update the app to use Mobile Services]
@@ -41,7 +41,7 @@ This tutorial is built on the [GetStartedWithData app][Developer Code Samples si
 3. Press the **F5** key to rebuild the project and start the app.
 
 
-4. In the app, type some text in the text box, then click the **+** button.
+4. In the app, type some text in the text box, then click the **Save** button.
 
    ![][0]  
 
@@ -155,68 +155,23 @@ Now that your mobile service is ready, you can update the app to store items in 
 
    This code creates a mobile services-aware binding collection (**items**) and a proxy class for the SQL Database table **TodoItem** (**todoTable**). 
 
-9. Locate the following commented line of code:
+7. In the **InsertTodoItem** method, remove the line of code that sets the **TodoItem**.**Id** property, add the **async** modifier to the method, and uncomment the following line of code:
 
-        // Create an MSTable instance to allow us to work with the TodoItem table.
+        await todoTable.InsertAsync(todoItem);
 
-    After this comment, add the following line of code:
+  This code inserts a new item into the table.
 
-        self.table = [self.client getTable:@"TodoItem"];
+8. In the **RefreshTodoItems** method, uncomment the following line of code:
 
-    This creates the TodoItem table instance.
+        items = todoTable.ToCollectionView();
 
-10. Locate the following commented line of code:
+   This sets the binding to the collection of items in the todoTable, which contains all TodoItem objects returned from the mobile service. 
 
- 	    // Create a predicate that finds items where complete is false comment in the refreshDataOnSuccess method. 
+9. In the **UpdateCheckedTodoItem** method, add the **async** modifier to the method, and uncomment the following line of code:
 
-    After this comment, add the following line of code:
+         await todoTable.UpdateAsync(item);
 
-        NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
-
-    This creates a query to return all tasks that have not yet been completed.
-
-11. Locate the following commented line of code:
-
-        // Query the TodoItem table and update the items property with the results from the service.
-
-   Replace that comment and the subsequent **completion** block invocation with the following code:
-
-        // Query the TodoItem table and update the items property with the results from the service
-        [self.table readWhere:predicate completion:^(NSArray *results, NSInteger totalCount, NSError *error) 
-        {
-           self.items = [results mutableCopy];
-           completion();
-        }]; 
-
-12. Locate the **addItem** method, and replace the body of the method with the following code:
-
-        // Insert the item into the TodoItem table and add to the items array on completion
-        [self.table insert:item completion:^(NSDictionary *result, NSError *error) {
-            NSUInteger index = [items count];
-            [(NSMutableArray *)items insertObject:item atIndex:index];
-
-            // Let the caller know that we finished
-            completion(index);
-        }];
-
-    This code sends an insert request to the mobile service.
-
-13. Locate the **completeItem** method, and replace the body of the method with the following code:
-
-        // Update the item in the TodoItem table and remove from the items array on completion
-        [self.table update:mutable completion:^(NSDictionary *item, NSError *error) {
-    
-            // TODO
-            // Get a fresh index in case the list has changed
-            NSUInteger index = [items indexOfObjectIdenticalTo:mutable];
-    
-            [mutableItems removeObjectAtIndex:index];
-    
-            // Let the caller know that we have finished
-            completion(index);
-	    }]; 
-
-   This code removes TodoItems after they are marked as completed. 
+   This sends an item update to the mobile service.
 
 Now that the app has been updated to use Mobile Services for backend storage, it's time to test the app against Mobile Services.
 
@@ -224,7 +179,7 @@ Now that the app has been updated to use Mobile Services for backend storage, it
 
 1. In Visual Studio, press the F5 key to run the app.
 
-2. As before, type text in the textbox, and then click the **+** button..
+2. As before, type text in the textbox, and then click **Save**.
 
    This sends a new item as an insert to the mobile service.
 
@@ -240,19 +195,17 @@ This concludes the **Get started with data** tutorial for Windows Phone 8.
 
 ## <a name="next-steps"> </a>Next steps
 
-This tutorial demonstrated the basics of enabling a Windows Phone 9 app to work with data in Mobile Services. 
-
-<!--Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:
+This tutorial demonstrated the basics of enabling a Windows Phone 8 app to work with data in Mobile Services. Next, consider completing the following tutorial that is based on the GetStartedWithData app that you created in this tutorial:
 
 * [Validate and modify data with scripts]
   <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
 
-* [Refine queries with paging]
+<!-- * [Refine queries with paging]
   <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
 
 Once you have completed the data series, -->
 
-Next, try the following Windows Phone 8 tutorials:
+You can also try one of the following Windows Phone 8 tutorials:
 
 * [Get started with authentication] 
   <br/>Learn how to authenticate users of your app.
@@ -296,4 +249,3 @@ Next, try the following Windows Phone 8 tutorials:
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/?LinkId=262308
-[GitHub repo]: http://go.microsoft.com/fwlink/p/?LinkId=268784
