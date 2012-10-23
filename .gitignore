@@ -3,3 +3,7 @@
 *-MarkdownPadPreview.html
 *-VerifyMarkdown.html
 
+# Mac Cruft #
+#############
+*.DS_store
+*~
