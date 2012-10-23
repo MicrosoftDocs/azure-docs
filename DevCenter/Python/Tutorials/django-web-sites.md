@@ -13,34 +13,34 @@ You’ll also need to install Git for pushing the site to Azure – we recommend
 
 The first step in creating your app is to create the web site via the Windows Azure Portal.  To do this you’ll need to login to the Windows Azure portal and then select the WEB SITES from the left hand side:
 
-![](../Media/php_website_01_image001.png)
+![](../Media/python_website_01_image001.png)
 
 Then click on the NEW button in the bottom left corner:
 
-![](../Media/php_website_02_image002.png)
+![](../Media/python_website_02_image002.png)
 
 And then click Quick Create, enter an URL, and select Create Web Site:
 
-![](../Media/php_website_03_image003.png)
+![](../Media/python_website_03_image003.png)
 
 The site will be quickly setup:
 
-![](../Media/php_website_04_image004.png)
+![](../Media/python_website_04_image004.png)
 
 And then you can click on the site name to go to the dashboard.  
 
-![](../Media/php_website_05_image005.png)
+![](../Media/python_website_05_image005.png)
 
 Next, we want to add support for publishing via Git.  This can quickly be done by clicking on the “Set up Git publishing” button along the right hand side.  As you can see there’s a couple of other options to how you can setup publishing as well.  After setting up Git publishing you’ll momentarily see a page informing you the repo is being created and then you’ll be taken to the deployments tab after the repo has been created which includes instructions on how to connect.  
 
-![](../Media/php_website_06_image006.png)
+![](../Media/python_website_06_image006.png)
 
 
 ## Web Site Development
 
 Now that we’ve created our Git repo in Windows Azure we’ll start filling it in with the web site from our local machine.  The first step we’ll do is clone the existing empty site using the url provided:
 
-![](../Media/php_website_07_image007.png)
+![](../Media/python_website_07_image007.png)
 
 From here we’re ready to setup the enlistment with the web site.  We’ll need to do a few things:
 
@@ -50,27 +50,27 @@ From here we’re ready to setup the enlistment with the web site.  We’ll need
 
 First, we’ll include the Python distribution.  To do this we’ll create a new directory called Python and copy our installed version of Python there.  First we need to make a new Python directory and running “xcopy /s C:\Python27\* .” to copy the Python runtime.
 
-![](../Media/php_website_08_image008.png)
+![](../Media/python_website_08_image008.png)
 
 Then we need to copy python27.dll to be included as well.  If you’re on a 64-bit operating system and deploying a 32-bit Python you’ll need to copy this from %WINDIR%\SysWow64.  Otherwise you’ll find it in %WINDIR%\System32.  If it’s not in either then you have a per-user install of Python and it’ll already be copied over.
 
-![](../Media/php_website_09_image009.png)
+![](../Media/python_website_09_image009.png)
  
 Next we’ll go ahead and create our initial Django application.  You can do this just as you’d create any other Django application from the command line or you can use [Python Tools for Visual Studio](http://pytools.codeplex.com/) to create the project.  We’ll show you both of the options here.
 
 **Option 1:** 
 To create the new project from the command line you just need to run the command: “Python\python.exe -m django.bin.django-admin startproject DjangoApplication” which will create the Django application into the DjangoApplication folder.  This option is using the same Python interpreter and libraries that we’ll be deploying to the web site which is also a good test that everything is setup correctly.
 
-![](../Media/php_website_10_image010.png)
+![](../Media/python_website_10_image010.png)
 
 **Option 2:**  
 You can also create your new site using Python Tools for Visual Studio.  Simply start Visual Studio with Python Tools for Visual Studio installed and select File->New Project.  Drill into the Python projects under Other Languages and select “Django Application”.  Enter “DjangoApplication” for the name of the project, and make sure that “Create directory for solution” is unchecked to get the exact same directory structure as creating a Django application from the command line.  This option will get you setup with a Visual Studio solution and project file giving you a great local development experience including template debugging and intellisense.
 
-![](../Media/php_website_11_image011.png)
+![](../Media/python_website_11_image011.png)
 
 Now we’re getting close to have our app setup, and there’s one last step.  We need to add the wfastcgi.py script which will be handling our requests.  This can be downloaded from [http://pytools.codeplex.com/releases](http://pytools.codeplex.com/releases) - you can always get the latest version from the latest release.  We’ll download that and save it in our C:\PythonWebSite directory:
 
-![](../Media/php_website_12_image012.png)
+![](../Media/python_website_12_image012.png)
 
 Now we just need to add all of the files we’ve just added and push the site to Git.  To do this we need to run a few commands:
 
@@ -81,11 +81,11 @@ Now we just need to add all of the files we’ve just added and push the site to
 
 The first command will save the files will add our untracked files to be tracked.  The second command will commit the files we just added into the repo.  The third command adds a remote with the name “azure” for our repo.  And finally we take the changes and push them to the remote repo which will also kick off the deployment.  After doing this we should see a result like:
 
-![](../Media/php_website_13_image013.png)
+![](../Media/python_website_13_image013.png)
 
 After doing the push we’ll see the web browser opened to the Windows Azure portal refresh and display the active deployment:
 
-![](../Media/php_website_14_image014.png)
+![](../Media/python_website_14_image014.png)
 
 ## Web Site Configuration
 
@@ -102,13 +102,13 @@ Finally we need to configure our handler mapping.  For this we register the hand
 
 At this point we’re ready to click on the Save button at the bottom, and these two sections should look like:
 
-![](../Media/php_website_15_image015.png)
+![](../Media/python_website_15_image015.png)
 
-![](../Media/php_website_16_image016.png)
+![](../Media/python_website_16_image016.png)
 
 Finally we can go back to the Dashboard, and go down to the SITE URL on the left hand side and click on the link and we’ll open our new Django site:
 
-![](../Media/php_website_17_image017.png)
+![](../Media/python_website_17_image017.png)
 
 ## Next Steps
 
