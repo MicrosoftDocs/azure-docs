@@ -62,7 +62,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
 1. In Visual Studio 2012 Express for Windows 8, open the project that you modified when you completed the tutorial [Get started with authentication].
 
-2. Press the F5 key to run the app and sign into Live Connect with your Microsoft Account. 
+2. Press the F5 key to run the app, then log-on with your chosen identity provider. 
 
    Notice that this time, although there are items already in the TodoItem table from preview tutorials, no items are returned. This happens because previous items were inserted without the userId column and now have null values.
 

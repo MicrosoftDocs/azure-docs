@@ -64,11 +64,7 @@ Now that the mobile service is validating data and sending error responses, you 
 	<b>Note</b> 
 	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>	
 
-6. 	Open the file MainPage.xaml.cs, then add the following **using** statement:
-
-        using Windows.UI.Popups;
-
-7. Replace the existing **InsertTodoItem** method with the following:
+6. 	Open the file MainPage.xaml.cs, then replace the existing **InsertTodoItem** method with the following:
 
         private async void InsertTodoItem(TodoItem todoItem)
         {
@@ -88,7 +84,7 @@ Now that the mobile service is validating data and sending error responses, you 
             }
         }
 
-   This version of the method includes error handling for the **MobileServiceInvalidOperationException** that displays the error response in a popup.
+   This version of the method includes error handling for the **MobileServiceInvalidOperationException** that displays the error response in a MessageBox.
 
 ## <a name="add-timestamp"></a>Add a timestamp
 
