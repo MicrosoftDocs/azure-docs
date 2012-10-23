@@ -8,7 +8,7 @@
 </div>-->
 
 # <a name="getting-started"> </a>Get started with Mobile Services for iOS
-<h3><a href="/en-us/develop/mobile/tutorials/get-started">Windows Store</a> / <strong>iOS</strong></h3>
+<h3><a href="/en-us/develop/mobile/tutorials/get-started">Windows Store</a> / <a href="/en-us/develop/mobile/tutorials/get-started-wp8">Windows Phone 8</a> / <strong>iOS</strong></h3>
 
 This tutorial shows you how to add a cloud-based backend service to an iOS app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. 
 

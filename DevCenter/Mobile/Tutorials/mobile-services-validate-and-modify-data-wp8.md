@@ -3,15 +3,15 @@
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14808" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
 <!--<div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/" title=".NET client version">C# and XAML</a>
-  <a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js/" title="JavaScript client version" class="current">JavaScript and HTML</a>
+  <a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/" title=".NET client version" class="current">C# and XAML</a>
+  <a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js/" title="JavaScript client version">JavaScript and HTML</a>
   <span>Tutorial</span>
 </div>-->
 
-# Validate and modify data in Mobile Services for Windows Store by using server scripts 
-<h3><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet">Windows Store C#</a> / <strong>Windows Store JavaScript</strong> / <a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8">Windows Phone 8</a> / <a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios">iOS</a> </h3>
+# Validate and modify data in Mobile Services for Windows Phone 8 by using server scripts
+<h3><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet">Windows Store C#</a> / <a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js">Windows Store JavaScript</a> / <strong>Windows Phone 8</strong> / <a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios">iOS</a> </h3>
 
-This topic shows you how to leverage server scripts in Windows Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update your Windows Store app to take advantage of these new behaviors.
+This topic shows you how to leverage server scripts in Windows Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update your Windows Phone 8 app to take advantage of these new behaviors.
 
 This tutorial walks you through these basic steps:
 
@@ -54,33 +54,37 @@ It is always a good practice to validate the length of data that is submitted by
 
 Now that the mobile service is validating data and sending error responses, you need to update your app to be able to handle error responses from validation.
 
-1. In Visual Studio 2012 Express for Windows 8, open the project that you modified when you completed the tutorial [Get started with data].
+1. In Visual Studio 2012 Express for Windows Phone, open the project that you modified when you completed the tutorial [Get started with data].
 
-2. Press the **F5** key to run the app, then type text longer than 10 characters in **Insert a TodoItem** and click **Save**.
+2. Press the **F5** key to run the app, then type text longer than 10 characters in the textbox and click **Save**.
 
-   Notice that the app raises an unhandled error as a result of the 400 response (Bad Request) returned by the mobile service.
+   Notice that the app raises an unhandled **MobileServiceInvalidOperationException** as a result of the 400 response (Bad Request) returned by the mobile service.
 
     <div class="dev-callout"> 
 	<b>Note</b> 
 	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>	
 
-6. 	Open the file default.js, then replace the existing **InsertTodoItem** method with the following:
+6. 	Open the file MainPage.xaml.cs, then replace the existing **InsertTodoItem** method with the following:
 
-        var insertTodoItem = function (todoItem) {
-            // Inserts a new row into the database. When the operation completes
-            // and Mobile Services has assigned an id, the item is added to the binding list.
-            todoTable.insert(todoItem).done(function (item) {
-                todoItems.push(item);
-            }, function (error) {
-                // Create the error message dialog and set its content to the error
-                // message contained in the response.
-                var msg = new Windows.UI.Popups.MessageDialog(
-                    error.request.responseText);
-                msg.showAsync();
-            });
-        };
+        private async void InsertTodoItem(TodoItem todoItem)
+        {
+            // This code inserts a new TodoItem into the database. When the operation completes
+            // and Mobile Services has assigned an Id, the item is added to the CollectionView
+            try
+            {
+                await todoTable.InsertAsync(todoItem);
+                items.Add(todoItem);
+            }
+            catch (MobileServiceInvalidOperationException e)
+            {
+                MessageBox.Show(e.Response.Content,
+                    string.Format("{0} (HTTP {1})",
+                    e.Response.StatusDescription,
+                    e.Response.StatusCode), MessageBoxButton.OK);
+            }
+        }
 
-   This version of the method includes error handling that displays the error response in a dialog.
+   This version of the method includes error handling for the **MobileServiceInvalidOperationException** that displays the error response in a MessageBox.
 
 ## <a name="add-timestamp"></a>Add a timestamp
 
@@ -100,10 +104,10 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
     This function augments the previous insert script by adding a new **createdAt** timestamp property to the object before it gets inserted by the call to **request**.**execute**. 
 
     <div class="dev-callout"><b>Note</b>
-	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>createdAt</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published to the Windows Store.</p>
+	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>createdAt</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published to the Windows Phone Store.</p>
     </div>
 
-2. In Visual Studio, press the **F5** key to run the app, then type text (shorter than 10 characters) in **Insert a TodoItem** and click **Save**.
+2. In Visual Studio, press the **F5** key to run the app, then type text (shorter than 10 characters) in the textbox and click **Save**.
 
    Notice that the new timestamp does not appear in the app UI.
 
@@ -111,36 +115,57 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
    
    Notice that there is now a **createdAt** column, and the new inserted item has a timestamp value.
   
-Next, you need to update the Windows Store app to display this new column.
+Next, you need to update the Windows Phone app to display this new column.
 
 ## <a name="update-client-timestamp"></a>Update the client again
 
 The Mobile Service client will ignore any data in a response that it cannot serialize into properties on the defined type. The final step is to update the client to display this new data.
 
-1. In Visual Studio, open the file default.html, then add the following HTML element in the TemplateItem grid:
-	      
-        <div style="-ms-grid-column: 4; -ms-grid-row-align: center; margin-left: 5px" 
-            data-win-bind="innerText: createdAt"></div>  
+1. In Visual Studio, open the file MainPage.xaml.cs, then replace the existing **TodoItem** class with the following definition:
 
-   This displays the new **createdAt** property. 
+	    public class TodoItem
+	    {
+	        public int Id { get; set; }
+          
+            [DataMember(Name="text")]
+	        public string Text { get; set; }
+
+            [DataMember(Name="complete")]
+	        public bool Complete { get; set; }
+	        
+            [DataMember(Name="createdAt")]
+	        public DateTime? CreatedAt { get; set; }
+	    }
+	
+    This new class definition includes the new timestamp property, as a nullable DateTime type.
+  
+    <div class="dev-callout"><b>Note</b>
+	<p>The <strong>DataMemberAttribute</strong> tells the client to map the new <strong>CreatedAt</strong> property in the app to the <strong>createdAt</strong> column defined in the TodoItem table, which has a different casing. By using this attribute, your app can have property names on objects that differ from column names in the SQL Database. Without this attribute, an error would occur because of the casing differences.</p>
+    </div>
+
+5. Add the following XAML element just below the **CheckBoxComplete** element in the MainPage.xaml file:
+	      
+        <TextBlock Name="WhenCreated" Text="{Binding CreatedAt}" VerticalAlignment="Center"/>
+
+   This displays the new **CreatedAt** property in a text box. 
 	
 6. Press the **F5** key to run the app. 
 
    Notice that the timestamp is only displayed for items inserted after you updated the insert script.
 
-7. In the default.js file, replace the existing **RefreshTodoItems** method with the following code:
+7. Replace the existing **RefreshTodoItems** method with the following code:
 
-        var refreshTodoItems = function () {
-            // More advanced query that filters out completed items. 
-            todoTable.where(function () {
-                return (this.complete === false && this.createdAt !== null);
-            })
-            .read()
-            .done(function (results) {
-                todoItems = new WinJS.Binding.List(results);
-                listItems.winControl.itemDataSource = todoItems.dataSource;
-            });
-        };
+        private void RefreshTodoItems()
+        {
+            // This query filters out completed TodoItems and 
+            // items without a timestamp. 
+            items = todoTable
+               .Where(todoItem => todoItem.Complete == false
+                   && todoItem.CreatedAt != null)
+               .ToCollectionView();
+
+            ListItems.ItemsSource = items;
+        }
 
    This method updates the query to also filter out items that do not have a timestamp value.
 	
@@ -181,12 +206,11 @@ Server scripts are also used when authorizing users and for sending push notific
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Get started with Mobile Services]: ../get-started/#create-new-service
-[Authorize users with scripts]: ./mobile-services-authorize-users-js.md
-[Refine queries with paging]: ./mobile-services-paging-data-js.md
-[Get started with data]: ./mobile-services-get-started-with-data-js.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-js.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-js.md
-[C# and XAML]: ./mobile-services-validate-and-modify-data-dotnet.md
+[Authorize users with scripts]: ./mobile-services-authorize-users-wp8.md
+[Refine queries with paging]: ./mobile-services-paging-data-wp8.md
+[Get started with data]: ./mobile-services-get-started-with-data-wp8.md
+[Get started with authentication]: ./mobile-services-get-started-with-users-wp8.md
+[Get started with push notifications]: ./mobile-services-get-started-with-push-wp8.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
