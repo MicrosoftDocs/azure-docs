@@ -1,4 +1,4 @@
-While it's possible to paste the MongoLab URI into the code, we recommend configuring it in the environment for ease of management. This way, if the URI changes, we can update it through the Azure Portal without going to the code.
+While it's possible to paste a MongoLab URI into your code, we recommend configuring it in the environment for ease of management. This way, if the URI changes, you can update it through the Azure Portal without going to the code.
 
 1. In the Azure Portal, select **Web Sites**.
 1. Click the name of the web site in the web site list.  
@@ -14,7 +14,7 @@ The Web Site Dashboard displays.
 1. Click **Save** on the toolbar.  
 ![SaveWebSite][button-website-save]
 
-Azure adds the **CUSTOMCONNSTR\_** prefix to this variable, which is why the code above references **CUSTOMCONNSTR\_MONGOLAB_URI.**
+Note: Azure adds the **CUSTOMCONNSTR\_** prefix to this variable, which is why the code above references **CUSTOMCONNSTR\_MONGOLAB_URI.**
 
 [entry-website]: ..\Media\entry-website.png
 [focus-mongolab-websitedashboard-config]: ..\Media\focus-mongolab-websitedashboard-config.png
