@@ -1,8 +1,8 @@
-New Relic Application Performance Management on Azure
+New Relic Application Performance Management on Windows Azure
 ==
 
 This guide describes how to add New Relic's world-class performance
-monitoring to your Azure hosted applications. We'll cover the fast and simple
+monitoring to your Windows Azure hosted applications. We'll cover the fast and simple
 process to add New Relic to your application and introduce you to some of
 New Relic's features. For more information about using New Relic, see [Using New Relic](#using-new-relic).
 
@@ -19,10 +19,10 @@ the server and your users' browsers. It shows how much time you spend in the
 database, analyzes slow queries and web requests, provides uptime monitoring and
 alerting, tracks application exceptions, and a whole lot more.
 
-New Relic special pricing through the Azure Store
+New Relic special pricing through the Windows Azure Store
 --
 
-New Relic Standard is free to Azure users
+New Relic Standard is free to Windows Azure users
 New Relic Pro is offered in three packages
 
 * 1 host        $50
@@ -31,7 +31,7 @@ New Relic Pro is offered in three packages
 
 For hosts counts greater than 10 please contact New Relic (sales@newrelic.com) for volume pricing.
 
-Azure customers receive a 2 week trial subscription of New Relic Pro when they deploy the New Relic agent.
+Windows Azure customers receive a 2 week trial subscription of New Relic Pro when they deploy the New Relic agent.
 
 Sign up for New Relic using the Windows Azure Store
 --
@@ -40,19 +40,11 @@ New Relic integrates seamlessly with Windows Azure Web Roles and Worker roles.
 
 To sign up for New Relic directly from the Windows Azure Store, follow these three easy steps.
 
-### Step 1. Sign up through the Azure Store
-
-FIXME: This description is based on us going through the dev version of the new
-Azure Store.  Please update these instructions when development on the store is
-finalized.
-
-Log in to the Azure portal at windows.azure.com.
+### Step 1. Sign up through the Windows Azure Store
 
 1. Log in to the [Windows Azure Management Portal](https://manage.windowsazure.com).
 2. In the lower pane of the management portal, click **New**.
 3. Click **Store**.
-
-    ![New Windows Azure Store][new_wa_store]
 
 4. In the **Choose a service** dialog, select **New Relic** and click **Next**.
 5. In the **Personalize Service** dialog, select the New Relic plan that you want.
@@ -64,78 +56,74 @@ Log in to the Azure portal at windows.azure.com.
 9. Click **Next**.
 10. In the **Review Purchase** dialog, review the plan and pricing information,
     and review the legal terms. If you agree to the terms, click **Purchase**.
-
-After you click **Purchase**, your New Relic account will begin the creation process. You can monitor the status in the Windows Azure management portal.
-
-To retrieve your New Relic license key, click **Output Values** (Screenshot?).
-Copy the license key that appears. You will need to enter it when you install 
-the New Relic Nuget package.
+11. After you click **Purchase**, your New Relic account will begin the creation process. You can monitor the status in the Windows Azure management portal.
+12. To retrieve your New Relic license key, click **Output Values**. 
+13. Copy the license key that appears. You will need to enter it when you install the New Relic Nuget package.
 
 ### Step 2. Install the Nuget package
 
 1. Open your Visual Studio solution, or create a new one by selecting
    **File > New > Project**.
 
-TODO: insert NewRelicAzureNuget01.png
+	![Visual Studio](../media/NewRelicAzureNuget01.png)
 
 2. If you don't already have a Windows Azure Cloud Service Project in your
    solution, add one by right-clicking your app in the Solution Explorer and
    selecting **Add Windows Azure Cloud Service Project**.
 
-TODO: insert NewRelicAzureNuget02.png
+	![Create cloud service](../media/NewRelicAzureNuget02.png)
 
 3. Open the Package Manager console by selecting **Tools > Library Package Manager > 
    Package Manager Console**. Set your project to be the Default Project at the
    top of the Package Manager Console window.
 
-TODO: insert NewRelicAzureNuget04.png
+	![Package manager console](../media/NewRelicAzureNuget04.png)
 
 4. On the Package Manager command prompt, type `Install-Package
    NewRelicWindowsAzure` and press **Enter**.
 
-TODO: insert NewRelicAzureNuget06.png
+	![install in package manager](../media/NewRelicAzureNuget06.png)
 
 5. At the license key prompt, enter the license key you received from the Windows Azure Store.
 
-TODO: NewRelicAzureNuget07.png
+	![enter license key](../media/NewRelicAzureNuget07.png)
 
 6. Optional: At the application name prompt, enter your app's name as it will
    appear in New Relic's dashboard. Or, use your solution name as the default.
 
-TODO: NewRelicAzureNuget08.png
+	![enter application name](../media/NewRelicAzureNuget08.png)
 
 7. From the Solution Explorer, right-click your Windows Azure Cloud Service Project, and select **Publish**.
 
-TODO: NewRelicAzureNuget09.png
+	![public the cloud project](../media/NewRelicAzureNuget09.png)
 
 
-**Note:** If this is your first time deploying this app to Azure, you will be prompted to enter your 
-Azure credentials. For more information, see [xx](xx). FIXME: Either go through these steps or link to another doc about setting up Azure credentials.
+**Note:** If this is your first time deploying this app to Windows Azure, you will be prompted to enter your 
+Azure credentials. For more information, see <a href="/en-us/develop/net/tutorials/get-started/">Deploying an ASP.NET Web Application to a Windows Azure Web Site</a>.
 
-TODO: NewRelicAzureNuget10.png
+![publish settings](../media/NewRelicAzureNuget10.png)
 
 ### Step 3. Check out your application's performance in New Relic.
 
 To view your New Relic dashboard:
 
-1. From the Azure portal, click the **Manage** button.
+1. From the Windows Azure portal, click the **Manage** button.
 2. Sign in with your New Relic account email and password.
 3. From the New Relic menu bar, select **Applications > (application's name)**.
 
-The **Monitoring > Overview** dashboard automatically appears.
+	The **Monitoring > Overview** dashboard automatically appears.
 
-TODO: Insert NewRelic_app.png 
-CAPTION:
-**Applications > (your app) > Monitoring > Overview:** After you select an app from the list on your Applications menu, the Overview dashboard shows current app server and browser information.
+	![New Relic monitoring dashboard](../media/NewRelic_app.png)
 
-<a id="using-new-relic"></a>Using New Relic
---
+	After you select an app from the list on your **Applications** menu, the **Overview** dashboard shows current app server and browser information.
+
+### <a id="using-new-relic"></a>Using New Relic
 
 After you select your app from the list on the Applications menu, the Overview dashboard shows current app server and browser information. To toggle between the two views, click the **App server** or **Browser** button.
 
 In addition to the <a href="https://newrelic.com/docs/site/the-new-relic-ui#functions">standard New Relic UI</a> and <a href="https://newrelic.com/docs/site/the-new-relic-ui#drilldown">dashboard drill-down</a> functions, the Applications Overview dashboard has additional functions.
 
-<table>
+<table border="1">
   <thead>
     <tr>
       <th><b>If you want to...</b></th>
@@ -153,7 +141,7 @@ In addition to the <a href="https://newrelic.com/docs/site/the-new-relic-ui#func
     </tr>
     <tr>
        <td>View worldwide Apdex details</td>
-       <td>From the Overview&#39;s <b>Browser</b> view, point anywhere on the Global Apdex map.<br><b>Tip:</b> To go directly to the selected app&#39;s <a href="https://newrelic.com/docs/site/geography" target="_blank">Geography</a>dashboard, click the <b>Global Apdex</b> title, or click anywhere on the Global Apdex map.</td>
+       <td>From the Overview&#39;s <b>Browser</b> view, point anywhere on the Global Apdex map.<br /><b>Tip:</b> To go directly to the selected app&#39;s <a href="https://newrelic.com/docs/site/geography" target="_blank">Geography</a>dashboard, click the <b>Global Apdex</b> title, or click anywhere on the Global Apdex map.</td>
     </tr>
     <tr>
        <td>View the <a href="https://newrelic.com/docs/site/web-transactions" target="_blank">Web Transactions</a> dashboard</td>
@@ -161,7 +149,7 @@ In addition to the <a href="https://newrelic.com/docs/site/the-new-relic-ui#func
     </tr>
     <tr>
        <td>View the <a href="https://newrelic.com/docs/site/errors" target="_blank">Errors</a> dashboard</td>
-       <td>Click the Error rate chart&#39;s title on the Applications Overview dashboard.<br><b>Tip:</b> You can also view the Errors dashboard from <b>Applications</b> &gt; (your app) &gt; Events &gt; Errors.</td>
+       <td>Click the Error rate chart&#39;s title on the Applications Overview dashboard.<br /><b>Tip:</b> You can also view the Errors dashboard from <b>Applications</b> &gt; (your app) &gt; Events &gt; Errors.</td>
     </tr>
     <tr>
        <td>View the app&#39;s server details</td>
@@ -177,10 +165,13 @@ In addition to the <a href="https://newrelic.com/docs/site/the-new-relic-ui#func
   </tbody>
 </table>
 
-TODO: Insert NewRelic_app_browser.png
-CAPTION: **Applications > (your app) > Monitoring > Overview > Browser:** Here is an example of the Applications Overview dashboard when you select the Browser view.
+Below is an example of the Applications Overview dashboard when you select the Browser view.
 
-Additional documentation resources include:
+![Package manager console](../media/NewRelic_app_browser.png)
+
+## Next steps
+
+Check out these additional resources for more information:
 
  * [Installing the .NET Agent on Azure](https://newrelic.com/docs/dotnet/installing-the-net-agent-on-azure): New Relic .NET Agent installation procedures 
  * [The New Relic User Interface](https://newrelic.com/docs/site/the-new-relic-ui): 
