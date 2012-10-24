@@ -7,8 +7,14 @@
   <a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios/" title="iOS version" class="current">iOS</a>  
 </div>-->
 
-# Get started with authentication in Mobile Services for iOS
-<h3><a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet">Windows Store C#</a> / <a href="/en-us/develop/mobile/tutorials/get-started-with-users-js">Windows Store JavaScript</a> / <strong>iOS</strong></h3>
+# Get started with authentication in Mobile Services
+<div class="dev-center-tutorial-selector"> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone 8">Windows Phone 8</a> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS" class="current">iOS</a> 
+</div>
+
 
 _The iOS client library for Mobile Services is currently under development on [GitHub]. We welcome feedback on and contributions to this library._
 

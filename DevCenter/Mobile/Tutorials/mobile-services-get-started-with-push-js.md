@@ -8,8 +8,13 @@
   <span>Tutorial</span>
 </div>-->
 
-# Get started with push notifications in Mobile Services for Windows Store
-<h3><a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet">Windows Store C#</a> / <strong>Windows Store JavaScript</strong></h3>
+# Get started with push notifications in Mobile Services
+<div class="dev-center-tutorial-selector"> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone 8">Windows Phone 8</a> 
+</div>	
+
 
 This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Windows Store app. 
 In this tutorial you add push notifications using the Windows Push Notification service (WNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.

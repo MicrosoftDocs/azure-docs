@@ -8,8 +8,13 @@
   <span>Tutorial</span>
 </div>-->
 
-# Refine Mobile Services for Windows Store queries with paging
-<h3><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet">Windows Store C#</a> / <strong>Windows Store JavaScript</strong></h3>
+# Refine Mobile Services queries with paging
+<div class="dev-center-tutorial-selector"> 
+	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
+	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-wp8" title="Windows Phone 8">Windows Phone 8</a> 
+</div>
+
 
 This topic shows you how to use paging to manage the amount of data returned to your Windows Store app from Windows Azure Mobile Services. In this tutorial, you will use the **Take** and **Skip** query methods on the client to request specific "pages" of data.
 

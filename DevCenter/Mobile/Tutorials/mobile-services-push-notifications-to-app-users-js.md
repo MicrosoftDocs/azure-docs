@@ -8,8 +8,12 @@
   <span>Tutorial</span>
 </div>-->
 
-# Push notifications to users by using Mobile Services for Windows Store
-<h3><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet">Windows Store C#</a> / <strong>Windows Store JavaScript</strong></h3>
+# Push notifications to users by using Mobile Services
+<div class="dev-center-tutorial-selector"> 
+	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
+</div>
+
 
 This topic extends the [previous push notification tutorial][Get started with push notifications] by adding a new table to store Windows Push Notification Service (WNS) channel URIs. These channels can then be used to send push notifications to users of the Windows Store app.  
 
