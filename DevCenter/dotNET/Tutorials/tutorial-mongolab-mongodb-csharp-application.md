@@ -1,8 +1,10 @@
-# Create C# ASP.NETApplication on Azure with MongoDB using the MongoLab Add-On
+<div chunk="../chunks/article-left-menu.md" />
+
+# Create an ASP.NET Application on Windows Azure with MongoDB using the MongoLab Add-On
 
 Greetings, adventurers! Welcome to MongoDB-as-a-Service. In this tutorial you will:
 
-1. [Provision the Database][provision] - The Azure Store [MongoLab](mongolab.com) add-on will provide you with a MongoDB database hosted in the Azure cloud and managed by MongoLab's cloud database platform.
+1. [Provision the Database][provision] - The Windows Azure Store [MongoLab](mongolab.com) add-on will provide you with a MongoDB database hosted in the Windows Azure cloud and managed by MongoLab's cloud database platform.
 1. [Create the App][create] - It'll be a simple C# ASP.NET MVC app for making notes.
 1. [Deploy the app][deploy] - By tying a few configuration hooks together, we'll make pushing our code a breeze.
 1. [Manage the database][manage] - Finally, we'll show you MongoLab's web-based database management portal where you can search, visualize, and modify data with ease.
@@ -10,9 +12,9 @@ Greetings, adventurers! Welcome to MongoDB-as-a-Service. In this tutorial you wi
 At any time throughout this tutorial, feel free to kick off an email to [support@mongolab.com](mailto:support@mongolab.com) if you have any questions.
 
 ## Quick start
-If you've already got an Azure application and website that you want to work with or you have some familiarity with the Azure Store, use this section to get a quick start. Otherwise, continue to [Provision the Database][provision] the Database below.
+If you've already got a Windows Azure application and website that you want to work with or you have some familiarity with the Windows Azure Store, use this section to get a quick start. Otherwise, continue to [Provision the Database][provision] the Database below.
  
-1. Open the Azure Store.  
+1. Open the Windows Azure Store.  
 ![Store][button-store]
 1. Purchase the MongoLab Add-On.  
 ![MongoLab][entry-mongolab]
@@ -20,7 +22,7 @@ If you've already got an Azure application and website that you want to work wit
 ![ConnectionInfoButton][button-connectioninfo]  
 1. Copy the MONGOLAB_URI to your clipboard.  
 ![ConnectionInfoScreen][screen-connectioninfo]  
-1. Add the value to the Connection Strings list in the Configuration menu of your Azure Web application:  
+1. Add the value to the Connection Strings list in the Configuration menu of your Windows Azure Web application:  
 ![WebSiteConnectionStrings][focus-website-connectinfo]
 1. For **Key**, enter MONGOLAB\_URI.
 1. For **Value**, paste the connection string we obtained in the previous section.
@@ -33,7 +35,7 @@ If you've already got an Azure application and website that you want to work wit
  		private string connectionString = System.Environment.GetEnvironmentVariable("CUSTOMCONNSTR_MONGOLAB_URI");
  		...
  		MongoServer server = MongoServer.Create(connectionString);  
-Note: Azure adds the **CUSTOMCONNSTR\_** prefix to the originally-declared key, which is why the code  references **CUSTOMCONNSTR\_MONGOLAB\_URI.** instead of **MONGOLAB\_URI**.
+Note: Windows Azure adds the **CUSTOMCONNSTR\_** prefix to the originally-declared key, which is why the code  references **CUSTOMCONNSTR\_MONGOLAB\_URI.** instead of **MONGOLAB\_URI**.
 
 Now, on to the full tutorial...
 
@@ -79,7 +81,7 @@ First, establish a model for Notes, with simply a date and a text content.
 		using MongoDB.Bson.Serialization.Attributes;
 		using MongoDB.Bson.Serialization.IdGenerators;
 		using MongoDB.Bson;
-		
+				
 		namespace mongoNotes.Models
 		{
 		    public class Note
@@ -88,8 +90,8 @@ First, establish a model for Notes, with simply a date and a text content.
 		        {
 		            Date = DateTime.UtcNow;
 		        }
-		
-		        private DateTime date;
+	            
+	            private DateTime date;
 		
 		        [BsonId(IdGenerator = typeof(CombGuidGenerator))]
 		        public Guid Id { get; set; }
@@ -241,15 +243,13 @@ Now you'll add a view for creating a new note.
 		    @Html.ValidationSummary(true)
 		    <fieldset>
 		        <legend>New Note</legend>
-		        <h3>New Note</h3>
-		
+		        <h3>New Note</h3>		
 		        <div class="editor-label">
 		            @Html.LabelFor(model => model.Text)
 		        </div>
 		        <div class="editor-field">
 		            @Html.EditorFor(model => model.Text)
 		        </div>
-		
 		       <p>
 		       	    <input type="submit" value="Create" />
 		   	   </p>
@@ -272,8 +272,7 @@ Next, drop in a simple layout for viewing and creating notes on your web site.
 		<table border="1">
 		    <tr>
 		        <th>Date</th>
-		        <th>Note Text</th>
-		
+		        <th>Note Text</th>		
 		    </tr>
 		
 		@foreach (var item in Model) {
@@ -283,8 +282,7 @@ Next, drop in a simple layout for viewing and creating notes on your web site.
 		        </td>
 		        <td>
 		            @Html.DisplayFor(modelItem => item.Text)
-		        </td>
-		
+		        </td>		
 		    </tr>
 		}
 		
@@ -377,12 +375,12 @@ Finally, your HomeController needs to instantiate your data access layer and app
 	
 <h2><a name="deploy"></a>Deploy the app</h2>
 
-Now that the application has been developed, it's time to create an Azure Web Site to host it, configure that web site, and deploy the code. Central to this section is the use of the MongoDB connection string (URI). You're going to configure an environment variable in your web site with this URI to keep the URI separate from your code.  You should treat the URI as sensitive information as it contains credentials to connect to your database.
+Now that the application has been developed, it's time to create a Windows Azure Web Site to host it, configure that web site, and deploy the code. Central to this section is the use of the MongoDB connection string (URI). You're going to configure an environment variable in your web site with this URI to keep the URI separate from your code.  You should treat the URI as sensitive information as it contains credentials to connect to your database.
 
 ### Create a New Web Site and Obtain the Publish Settings File
-Creating a web site in Azure is very easy, especially as Azure auto-generates a publish profile for Visual Studio.
+Creating a web site in Windows Azure is very easy, especially as Windows Azure auto-generates a publish profile for Visual Studio.
 
-1. In the Azure Portal, click **New**.  
+1. In the Windows Azure portal, click **New**.  
 ![New][button-new]
 1. Select **Compute > Web Site > Quick Create**.  
 ![CreateSite][screen-mongolab-newwebsite]
@@ -431,4 +429,8 @@ Congratulations! You've just launched a C# ASP.NET application backed by a Mongo
 [screen-connectioninfo]: ../../Shared/Media/dialog-mongolab_connectioninfo.png
 [dotNet-framework-four]: ../Media/focus-dotNet-Framework4-mongolab.png
 [focus-website-connectinfo]: ../Media/focus-mongolab-websiteconnectionstring.png
+[provision]: #provision
+[create]: #create
+[deploy]: #deploy
+[manage]: #manage
 
