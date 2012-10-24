@@ -101,7 +101,7 @@ The final stage of this tutorial is to build and run your new app.
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
-   	<p>You can review the code that accesses your mobile service to query and insert data, which is found in either the MainPage.xaml.cs file (C#/XAML project) or the default.js (JavaScript/HTML project) file.</p> 
+   	<p>You can review the code that accesses your mobile service to query and insert data, which is found in the MainPage.xaml.cs file.</p> 
  	</div>
 
 4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.

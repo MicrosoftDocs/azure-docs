@@ -72,15 +72,13 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
    Notice that this time, although there are items already in the TodoItem table from preview tutorials, no items are returned. This happens because previous items were inserted without the userId column and now have null values.
 
-3. In the app, enter text in **Insert a TodoItem** and then click **Save**.
+3. In the app, enter text in the textbox and then click **Save**.
 
    ![][3]
 
-   This inserts both the text and the userId in the TodoItem table in the mobile service. Because the new item has the correct userId value, it is returned by the mobile service and displayed in the second column.
+   This inserts both the text and the userId in the TodoItem table in the mobile service. Because the new item has the correct userId value, it is returned by the mobile service.
 
 5. Back in the **todoitem** table in the [Management Portal][Windows Azure Management Portal], click **Browse** and verify that each newly added item how has an associated userId value.
-
-6. (Optional) If you have an additional Microsoft Account, you can verify that users can only see their own data by closing the app (Alt+F4) and then running it again. When the login credentials dialog is displayed, enter a different Microsoft account, and then verify that the items entered under the previous account are not displayed. 
 
 ## Next steps
 
@@ -103,7 +101,7 @@ This concludes the tutorials that demonstrate the basics of working with authent
 [0]: ../Media/mobile-services-selection.png
 [1]: ../Media/mobile-portal-data-tables.png
 [2]: ../Media/mobile-insert-script-users.png
-[3]: ../Media/mobile-quickstart-startup.png
+[3]: ../Media/mobile-quickstart-startup-wp8.png
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
