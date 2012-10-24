@@ -134,7 +134,7 @@ While the steps in this article use the Windows Azure Portal to create a web sit
 * [Windows Azure PowerShell]
 * [Windows Azure Command-Line Tools for Mac and Linux]
 
-[Windows Azure PowerShell]: en-us/develop/nodejs/how-to-guides/powershell-cmdlets/
+[Windows Azure PowerShell]: /en-us/develop/nodejs/how-to-guides/powershell-cmdlets/
 [Node]: http://nodejs.org/
 [nodejs.org]: http://nodejs.org/
 [Git]: http://git-scm.com/
