@@ -73,6 +73,9 @@ To set up your Python and Django environments, please see the [Installation Guid
 
 	![IIS config1](../media/django-helloworld-iis1.png) 
 
+1. Tell the FastCGI to WSGI gateway which WSGI handler to use:
+%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python27\python.exe', arguments='C:\inetpub\wwwroot\wfastcgi.py'].environmentVariables.[name='WSGI_HANDLER',value='django.core.handlers.wsgi.WSGIHandler()']" /commit:apphost
+
 
 1. Download wfastcgi.py from [http://pytools.codeplex.com/releases/view/88766](http://pytools.codeplex.com/releases/view/88766) and save it to C:\inetpub\wwwroot.  This is the location the previous commands used for registering the FastCGI handler.
 
