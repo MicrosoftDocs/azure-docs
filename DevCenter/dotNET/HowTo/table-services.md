@@ -4,6 +4,12 @@
 
 # How to use the Table Storage Service
 
+<div class="dev-center-tutorial-selector">
+<a href="/en-us/develop/net/how-to-guides/table-services-v17/" title="version 1.7" class="current">version 1.7</a>
+<a href="/en-us/develop/net/how-to-guides/table-services/" title="version 2.0">version 2.0</a> 
+</div>
+
+
 This guide will show you how to perform common scenarios using the
 Windows Azure Table storage service. The samples are written in C\# code
 and use the .NET API. The scenarios covered include **creating and
