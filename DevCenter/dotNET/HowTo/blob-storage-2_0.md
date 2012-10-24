@@ -4,6 +4,12 @@
 
 # How to use the Windows Azure Blob Storage Service in .NET
 
+<div class="dev-center-tutorial-selector">
+<a href="/en-us/develop/net/how-to-guides/blob-storage-v17/" title="version 1.7">version 1.7</a>
+<a href="/en-us/develop/net/how-to-guides/blob-storage/" title="version 2.0" class="current">version 2.0</a> 
+</div>
+
+
 This guide will demonstrate how to perform common scenarios using the
 Windows Azure Blob storage service. The samples are written in C\# and
 use the Windows Azure Storage Client Library for .NET (Version 2.0). The scenarios covered include

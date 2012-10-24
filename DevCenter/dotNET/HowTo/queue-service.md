@@ -2,6 +2,12 @@
 
 # How to use the Queue Storage Service
 
+<div class="dev-center-tutorial-selector">
+<a href="/en-us/develop/net/how-to-guides/queue-service-v17/" title="version 1.7" class="current">version 1.7</a>
+<a href="/en-us/develop/net/how-to-guides/queue-service/" title="version 2.0">version 2.0</a> 
+</div>
+
+
 This guide will show you how to perform common scenarios using the
 Windows Azure Queue storage service. The samples are written in C\# code
 and use the .NET API. The scenarios covered include **inserting**,
