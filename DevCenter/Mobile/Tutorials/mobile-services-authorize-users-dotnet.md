@@ -80,7 +80,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
 5. Back in the **todoitem** table in the [Management Portal][Windows Azure Management Portal], click **Browse** and verify that each newly added item how has an associated userId value.
 
-6. (Optional) If you have an additional Microsoft Account, you can verify that users can only see their own data by closing the app (Alt+F4) and then running it again. When the login credentials dialog is displayed, enter a different Microsoft account, and then verify that the items entered under the previous account are not displayed. 
+6. (Optional) If you have additional login accounts, you can verify that users can only see their own data by closing the app (Alt+F4) and then running it again. When the login credentials dialog is displayed, enter a different login, and then verify that the items entered under the previous account are not displayed. 
 
 ## Next steps
 

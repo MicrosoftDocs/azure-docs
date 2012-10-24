@@ -119,7 +119,7 @@ Next, you will update the app to authenticate users before requesting resources 
 	<p>If you are using an identity provider other than Facebook, change the value of <strong>MobileServiceAuthenticationProvider</strong> above to the value for your provider.</p>
     </div>
 
-8. Replace the existing **OnNavigatedTo** event handler with the handler that calls the new **Authenticate** method:
+8. Replace the existing **OnNavigatedTo** method override with the following method that calls the new **Authenticate** method:
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
