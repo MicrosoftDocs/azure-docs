@@ -103,15 +103,28 @@ Next, you will update the app to authenticate users before requesting resources 
 	<p>If you are using an identity provider other than Facebook, change the value of <strong>MobileServiceAuthenticationProvider</strong> above to the value for your provider.</p>
     </div>
 
-8. Replace the existing **OnNavigatedTo** event handler with the handler that calls the new **Authenticate** method:
+8. Delete or comment-out the existing **OnNavigatedTo** method override and replace it with the following method that handles the **Loaded** event for the page. 
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             await Authenticate();
             RefreshTodoItems();
         }
+
+   This method calls the new **Authenticate** method. 
+
+9. Replace the MainPage constructor with the following code:
+
+        // Constructor
+        public MainPage()
+        {
+            InitializeComponent();
+            this.Loaded += MainPage_Loaded;
+        }
+
+   This constructor also registers the handler for the Loaded event.
 		
-9. Press the F5 key to run the app and sign into the app with your chosen identity provider. 
+10. Press the F5 key to run the app and sign into the app with your chosen identity provider. 
 
    When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 

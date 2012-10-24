@@ -120,13 +120,13 @@ The final stage of this tutorial is to build and run your new app.
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
-* [Get started with data]
+* **Get started with data** ( [C#][Get started with data] / [JavaScript][Get started with data JS] )
   <br/>Learn more about storing and querying data using Mobile Services.
 
-* [Get started with authentication]
+* **Get started with authentication** ( [C#][Get started with authentication] / [JavaScript][Get started with authentication JS] )
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-* [Get started with push notifications] 
+* **Get started with push notifications** ( [C#][Get started with push notifications] / [JavaScript][Get started with push notifications JS] )
   <br/>Learn how to send a very basic push notification to your app.
 
 <!-- Anchors. -->
@@ -155,6 +155,9 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
 [Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
+[Get started with data JS]: ./mobile-services-get-started-with-data-js.md
+[Get started with authentication JS]: ./mobile-services-get-started-with-users-js.md
+[Get started with push notifications JS]: ./mobile-services-get-started-with-push-js.md
 [Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/

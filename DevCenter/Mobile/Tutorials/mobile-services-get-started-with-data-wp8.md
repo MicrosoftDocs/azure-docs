@@ -1,21 +1,14 @@
-<properties linkid="mobile-services-get-started-with-data-ios" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with data in Windows Azure Mobile Services" metakeywords="access and change data, Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, iPhone, iPad, iOS app" footerexpose="" metadescription="More in-depth review of how to access and change in your iOS-based app using Windows Azure Mobile Services." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="mobile-services-get-started-with-data-wp8" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with data in Windows Azure Mobile Services" metakeywords="access and change data, Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows Phone 8 app," footerexpose="" metadescription="More in-depth review of how to access and change in your Windows Phone 8-based app using Windows Azure Mobile Services." umbraconavihide="0" disquscomments="1"></properties>
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
-
-<!--<div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/" title="Windows Store version">Windows Store app</a>
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios/" title="iOS version" class="current">iOS app</a>
-</div>-->
 
 # Get started with data in Mobile Services for Windows Phone 8
 <h3><a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet">Windows Store C#</a> / <a href="/en-us/develop/mobile/tutorials/get-started-with-data-js">Windows Store JavaScript</a> / <strong>Windows Phone 8</strong> / <a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios">iOS</a> </h3>
 
-_The Windows Phone 8 client library for Mobile Services is currently under development on [GitHub][GitHub repo]. We welcome feedback on and contributions to this library._
-
-This topic shows you how to use Windows Azure Mobile Services to leverage data in an iOS app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Windows Azure Management Portal to view changes to data made when running the app.
+This topic shows you how to use Windows Azure Mobile Services to leverage data in a Windows Phone 8 app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Windows Azure Management Portal to view changes to data made when running the app.
 
 <div class="dev-callout"><b>Note</b>
-<p>This tutorial is intended to help you better understand how Mobile Services enables you to use Windows Azure to store and retrieve data from an iOS app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-ios">Get started with Mobile Services</a>.</p>
+<p>This tutorial is intended to help you better understand how Mobile Services enables you to use Windows Azure to store and retrieve data in a Windows Phone 8 app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-wp8">Get started with Mobile Services</a>.</p>
 </div>
 
 This tutorial walks you through these basic steps:
@@ -131,7 +124,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
   This adds a reference to the Mobile Services client to the project.
 
-2. In both the MainPage.xaml.cs and App.xaml.cs project files, add the following **using** statement:
+2. In both the MainPage.xaml.cs and App.xaml.cs project files, add or uncomment the following **using** statement:
 
         using Microsoft.WindowsAzure.MobileServices;
 
