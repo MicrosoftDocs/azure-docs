@@ -1,6 +1,6 @@
 <div chunk="../chunks/article-left-menu.md" />
 
-# Create an ASP.NET Application on Windows Azure with MongoDB using the MongoLab Add-On
+# Create a C# ASP.NET Application on Windows Azure with MongoDB using the MongoLab Add-On
 
 Greetings, adventurers! Welcome to MongoDB-as-a-Service. In this tutorial you will:
 
@@ -22,9 +22,10 @@ If you've already got a Windows Azure application and website that you want to w
 ![ConnectionInfoButton][button-connectioninfo]  
 1. Copy the MONGOLAB_URI to your clipboard.  
 ![ConnectionInfoScreen][screen-connectioninfo]  
+**This URI contains your database user name and password.  Treat it as sensitive information and do not share it.**
 1. Add the value to the Connection Strings list in the Configuration menu of your Windows Azure Web application:  
 ![WebSiteConnectionStrings][focus-website-connectinfo]
-1. For **Key**, enter MONGOLAB\_URI.
+1. For **Name**, enter MONGOLAB\_URI.
 1. For **Value**, paste the connection string we obtained in the previous section.
 1. Select **Custom** in the Type drop-down (instead of the default **SQLAzure**).
 1. In Visual Studio, install the Mongo C# Driver by selecting **Tools > Library Package Manager > Package Manager Console**. At the PM Console, type **Install-Package mongocsharpdriver** and press **Enter**.
@@ -35,7 +36,7 @@ If you've already got a Windows Azure application and website that you want to w
  		private string connectionString = System.Environment.GetEnvironmentVariable("CUSTOMCONNSTR_MONGOLAB_URI");
  		...
  		MongoServer server = MongoServer.Create(connectionString);  
-Note: Windows Azure adds the **CUSTOMCONNSTR\_** prefix to the originally-declared key, which is why the code  references **CUSTOMCONNSTR\_MONGOLAB\_URI.** instead of **MONGOLAB\_URI**.
+Note: Windows Azure adds the **CUSTOMCONNSTR\_** prefix to the originally-declared connection string, which is why the code references **CUSTOMCONNSTR\_MONGOLAB\_URI.** instead of **MONGOLAB\_URI**.
 
 Now, on to the full tutorial...
 
@@ -215,7 +216,7 @@ It's important that you establish a means of accessing MongoDB to retrieve and s
 		private string dbName = "myMongoApp";  
 Here, you access an environment variable that you'll configure later. If you have a local mongo instance running for development purposes, you may want to temporarily set this value to "localhost".  
   
-  Also set your database name. Specifically, _set the **dbName** value to the name you entered when you provisioned the MongoLab Add-On_.
+  Also set your database name. Specifically, set the **dbName** value to the name you entered when you provisioned the MongoLab Add-On.
 1. Finally, examine the following code in **GetNotesCollection()**:  
 
 		MongoServer server = MongoServer.Create(connectionString);
