@@ -7,8 +7,14 @@
   <span>Tutorial</span>
 </div>-->
 
-# <a name="getting-started"> </a>Get started with Mobile Services for Windows Phone 8
-<h3><a href="/en-us/develop/mobile/tutorials/get-started">Windows Store</a> / <strong>Windows Phone 8</strong> / <a href="/en-us/develop/mobile/tutorials/get-started-ios">iOS</a> </h3>
+# <a name="getting-started"> </a>Get started with Mobile Services
+
+<div class="dev-center-tutorial-selector"> 
+	<a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store">Windows Store</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone 8" class="current">Windows Phone 8</a> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a> 
+</div>
+
 
 This tutorial shows you how to add a cloud-based backend service to a Windows Phone 8 app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. 
 

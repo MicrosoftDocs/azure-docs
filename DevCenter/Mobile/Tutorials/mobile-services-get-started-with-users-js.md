@@ -7,8 +7,14 @@
   <a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios/" title="iOS version">iOS</a>
 </div>-->
 
-# Get started with authentication in Mobile Services for Windows Store
-<h3><a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet">Windows Store C#</a> / <strong>Windows Store JavaScript</strong> / <a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios">iOS</a></h3>
+# Get started with authentication in Mobile Services
+<div class="dev-center-tutorial-selector"> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone 8">Windows Phone 8</a> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a> 
+</div>
+
 
 This topic shows you how to authenticate users in Windows Azure Mobile Services from your app.  In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.  
 

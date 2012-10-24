@@ -6,8 +6,13 @@
   <a href="/en-us/develop/mobile/tutorials/get-started-ios/" title="iOS version">iOS</a>
 </div>-->
 
-# <a name="getting-started"> </a>Get started with Mobile Services for Windows Store
-<h3><strong>Windows Store</strong> / <a href="/en-us/develop/mobile/tutorials/get-started-wp8">Windows Phone 8</a> / <a href="/en-us/develop/mobile/tutorials/get-started-ios">iOS</a></h3>
+# <a name="getting-started"> </a>Get started with Mobile Services
+<div class="dev-center-tutorial-selector"> 
+	<a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store" class="current">Windows Store</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone 8">Windows Phone 8</a> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a> 
+</div>
+
 
 <div class="dev-onpage-video-wrapper"><a style="background-image: url('/media/scott-mobile-video-2012.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=262813&amp;clcid=0x409" target="_blank" class="dev-onpage-video"><span class="icon"><span>Play Video</span></span><span class="time">10:08</span></a></div>   
 

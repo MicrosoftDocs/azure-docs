@@ -7,8 +7,14 @@
   <a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios/" title="iOS version" class="current">iOS app</a>
 </div>-->
 
-# Get started with data in Mobile Services for iOS
-<h3><a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet">Windows Store C#</a> / <a href="/en-us/develop/mobile/tutorials/get-started-with-data-js">Windows Store JavaScript</a> / <a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8">Windows Phone 8</a> / <strong>iOS</strong></h3>
+# Get started with data in Mobile Services
+<div class="dev-center-tutorial-selector"> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone 8">Windows Phone 8</a> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS" class="current">iOS</a> 
+</div>	
+
 
 _The iOS client library for Mobile Services is currently under development on [GitHub][GitHub repo]. We welcome feedback on and contributions to this library._
 

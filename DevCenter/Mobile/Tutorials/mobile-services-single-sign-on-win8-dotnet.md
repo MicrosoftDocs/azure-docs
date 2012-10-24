@@ -9,7 +9,11 @@
 </div>-->
 
 # Authenticate your Windows Store app with Live Connect single sign-on
-<h3><strong>Windows Store C#</strong> / <a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js">Windows Store JavaScript</a></h3>
+<div class="dev-center-tutorial-selector"> 
+	<a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
+	<a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
+</div>	
+
 
 This topic shows you how to use Live Connect single sign-on to authenticate users in Windows Azure Mobile Services from a Windows Store app.  In this tutorial, you add authentication to the quickstart project using Live Connect. When successfully authenticated by Live Connect, a logged-in user is welcomed by name and the user ID value is displayed.  
 
