@@ -45,9 +45,8 @@ To sign up for New Relic directly from the Windows Azure Store, follow these thr
 1. Log in to the [Windows Azure Management Portal](https://manage.windowsazure.com).
 2. In the lower pane of the management portal, click **New**.
 3. Click **Store**.
-
-4. In the **Choose a service** dialog, select **New Relic** and click **Next**.
-5. In the **Personalize Service** dialog, select the New Relic plan that you want.
+4. In the **Choose an Add-on** dialog, select **New Relic** and click **Next**.
+5. In the **Personalize Add-on** dialog, select the New Relic plan that you want.
 6. Enter a promotion code, if applicable.
 7. Enter a name for how the New Relic service will appear in your Windows Azure
    settings, or use the default value **NewRelic**. This name must be unique in
