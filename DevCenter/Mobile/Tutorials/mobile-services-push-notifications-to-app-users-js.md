@@ -12,6 +12,7 @@
 <div class="dev-center-tutorial-selector"> 
 	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet" title="Windows Store C#">Windows Store C#</a>
 	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
+    <a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone 8">Windows Phone 8</a>
 </div>
 
 

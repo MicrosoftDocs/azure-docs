@@ -94,10 +94,10 @@ Next, you will modify the push notifications app to store data in this new table
                 CurrentChannel.Open();
                 CurrentChannel.BindToShellTile();
             }
-               
-            IMobileServiceTable<Channel> channelTable = App.MobileService.GetTable<Channel>();
-            var channel = new Channel { Uri = CurrentChannel.ChannelUri.ToString() };
-            channelTable.InsertAsync(channel);
+                  
+           IMobileServiceTable<Channel> channelTable = App.MobileService.GetTable<Channel>();
+           var channel = new Channel { Uri = CurrentChannel.ChannelUri.ToString() };
+           channelTable.InsertAsync(channel);
         }
 
      This code inserts the a channel into the Channel table.
