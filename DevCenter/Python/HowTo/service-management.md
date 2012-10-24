@@ -1,15 +1,13 @@
-<properties umbracoNaviHide="0" pageTitle="How to use Service Management from PHP" metaKeywords="Windows Azure, Service Management, ServiceManagement, PHP" metaDescription="Learn how to use Windows Azure service management from Python applications." linkid="" urlDisplayName="How to use Service Management from Python" headerExpose="" footerExpose="" disqusComments="1" />
+<properties umbracoNaviHide="0" pageTitle="How to use Service Management from Python" metaKeywords="Windows Azure, Service Management, ServiceManagement, Python" metaDescription="Learn how to use Windows Azure service management from Python applications." linkid="" urlDisplayName="How to use Service Management from Python" headerExpose="" footerExpose="" disqusComments="1" />
 
 # How to use Service Management from Python
 
-This guide will show you how to programmatically perform common service management tasks from Python. The **ServiceManagementService** class in the [Widows Azure SDK for Python][download-SDK-Python] supports programmatic access to much of the service management-related functionality that is available in the [management portal][management-portal] (such as **creating, updating, and deleting cloud services, deployments, storage services, and affinity groups**). This functionality can be useful in building applications that need programmatic access to service management. 
+This guide will show you how to programmatically perform common service management tasks from Python. The **ServiceManagementService** class in the [Windows Azure SDK for Python][download-SDK-Python] supports programmatic access to much of the service management-related functionality that is available in the [management portal][management-portal] (such as **creating, updating, and deleting cloud services, deployments, storage services, virtual machines and affinity groups**). This functionality can be useful in building applications that need programmatic access to service management. 
 
 ##Table of Contents
 
 * [What is Service Management](#WhatIs)
 * [Concepts](#Concepts)
-* [Create a Python application](#CreateApplication)
-* [Get the Windows Azure Client Libraries](#GetClientLibraries)
 * [How to: Connect to service management](#Connect)
 * [How to: List available locations](#ListAvailableLocations)
 * [How to: Create a cloud service](#CreateCloudService)
@@ -22,6 +20,12 @@ This guide will show you how to programmatically perform common service manageme
 * [How to: Delete a storage service](#DeleteStorageService)
 * [How to: Create an affinity group](#CreateAffinityGroup)
 * [How to: Delete an affinity group](#DeleteAffinityGroup)
+* [How to: List available operating systems](#ListOperatingSystems)
+* [How to: Create an operating system image](#CreateVMImage)
+* [How to: Delete an operating system image](#DeleteVMImage)
+* [How to: Create a virtual machine](#CreateVM)
+* [How to: Delete a virtual machine](#DeleteVM)
+* [Next Steps](#NextSteps)
 
 <h2 id="WhatIs">What is Service Management</h2>
 The Service Management API provides programmatic access to much of the service management functionality available through the [management portal][management-portal]. The Windows Azure SDK for Python allows you to manage your cloud services, storage accounts, and affinity groups.
@@ -30,16 +34,6 @@ To use the Service Management API, you will need to [create a Windows Azure acco
 
 <h2 id="Concepts">Concepts</h2>
 The Windows Azure SDK for Python wraps the [Windows Azure Service Management API][svc-mgmt-rest-api], which is a REST API. All API operations are performed over SSL and mutually authenticated using X.509 v3 certificates. The management service may be accessed from within a service running in Windows Azure, or directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.
-
-<h2 id="CreateApplication">Create a Python application</h2>
-
-The only requirement for creating a Python application that uses Windows Azure Service Management is the referencing of classes in the Windows Azure SDK for Python from within your code. You can use any development tools to create your application, including Notepad.
-
-In this guide, you will use service features which can be called within a Python application locally, or in code running within a Windows Azure web role, worker role, or web site.
-
-<h2 id="GetClientLibraries">Get the Windows Azure Client Libraries</h2>
-
-<div chunk="../../Shared/Chunks/get-client-libraries.md" />
 
 <h2 id="Connect">How to: Connect to service management</h2>
 To connect to the Service Management endpoint, you need your Windows Azure subscription ID and the path to a valid management certificate. You can obtain your subscription ID through the [management portal][management-portal], and you can create management certificates in a number of ways. In this guide [OpenSSL](http://www.openssl.org/) is used, which you can [download for Windows](http://www.openssl.org/related/binaries.html) and run in a console.
@@ -56,10 +50,10 @@ For more information about Windows Azure certificates, see [Overview of Certific
 
 After you have created these files, you will need to upload the `.cer` file to Windows Azure via the [management portal][management-portal], and you will need to make note of where you saved the `.pem` file.
 
-After you have obtained your subscription ID, created a certificate, and uploaded the `.cer` file to Windows Azure, you can connect to the Windows Azure managent endpoint by passing it to **ServiceManagementService**:
+After you have obtained your subscription ID, created a certificate, and uploaded the `.cer` file to Windows Azure, you can connect to the Windows Azure managent endpoint by passing the subscription id and the path to the `.pem` file to **ServiceManagementService**:
 
 	from azure import *
-	from azure.managementservice import *
+	from azure.servicemanagement import *
 
 	subscription_id = '<your_subscription_id>'
 	certificate_path = '<path_to_.pem_certificate>'
@@ -68,12 +62,12 @@ After you have obtained your subscription ID, created a certificate, and uploade
 
 In the example above, `sms` is a **ServiceManagementService** object. The **ServiceManagementService** class is the primary class used to manage Windows Azure services. 
 
-<h2 id="ListAvailableLocations">How to: List Available Locations</h2>
+<h2 id="ListAvailableLocations">How to: List available locations</h2>
 
 To list the locations that are available for hosting services, use the **list\_locations** method:
 
 	from azure import *
-	from azure.managementservice import *
+	from azure.servicemanagement import *
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -97,7 +91,7 @@ When you create a cloud service, storage service, or affinity group, you will ne
 When you create an application and run it in Windows Azure, the code and configuration together are called a Windows Azure [cloud service] (known as a *hosted service* in earlier Windows Azure releases). The **create\_hosted\_service** method allows you to create a new hosted service by providing a hosted service name (which must be unique in Windows Azure), a label (automatically encoded to base64), a description and a location. You can specify an affinity group instead of a location for your service. 
 
 	from azure import *
-	from azure.managementservice import *
+	from azure.servicemanagement import *
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -144,16 +138,16 @@ Note that before you can delete a service, all deployments for the the service m
 The **create\_deployment** method uploads a new [service package] and creates a new deployment in the staging or production environment. The parameters for this method are as follows:
 
 * **name**: The name of the hosted service.
-* **deploymentName**: The name of the deployment.
-* **slot**: An enumeration indicating the staging or production slot.
+* **deployment\_name**: The name of the deployment.
+* **slot**: A string indicating the `staging` or `production` slot.
 * **package_url**: The URL for the deployment package (a .cspgk file). The package file must be stored in a Windows Azure Blob Storage account under the same subscription as the hosted service to which the package is being uploaded. You can create a deployment package with the [Windows Azure PowerShell cmdlets], or with the [cspack commandline tool].
 * **configuration**: The service configuration file (.cscfg file) encoded to base64.
 * **label**: The label for the hosted service name (automatically encoded to base64).
 
-The following example creates a new deployement in the production slot of a hosted service called `myhostedservice`:
+The following example creates a new deployment `v1` for a hosted service called `myhostedservice`:
 
 	from azure import *
-	from azure.managementservice import *
+	from azure.servicemanagement import *
 	import base64
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
@@ -193,7 +187,7 @@ A deployment can be updated by using the **change\_deployment\_configuration** m
 The **change\_deployment\_configuration** method allows you to upload a new service configuration (`.cscfg`) file, which will change any of several service settings (including the number of instances in a deployment). For more information, see [Windows Azure Service Configuration Schema (.cscfg)]. The following example demonstrates how to upload a new service configuration file:
 
 	from azure import *
-	from azure.managementservice import *
+	from azure.servicemanagement import *
 	import base64
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
@@ -210,10 +204,10 @@ The **change\_deployment\_configuration** method allows you to upload a new serv
 
 Note in the example above that the status of the **change\_deployment\_configuration** operation can be retrieved by passing the result returned by **change\_deployment\_configuration** to the **get\_operation\_status** method.
 
-The **update\_deployment\_status** method allows you to set a deployment status to RUNNING or SUSPENDED. The following example demonstrates how to set the status to RUNNING for a deployment named 'v1' of a hosted service called `myhostedservice`:
+The **update\_deployment\_status** method allows you to set a deployment status to RUNNING or SUSPENDED. The following example demonstrates how to set the status to RUNNING for a deployment named `v1` of a hosted service called `myhostedservice`:
 
 	from azure import *
-	from azure.managementservice import *
+	from azure.servicemanagement import *
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -229,7 +223,7 @@ Windows Azure provides two deployment environments: staging and production. Typi
 The following example shows how to use the **swap\_deployment** method to swap two deployments (with deployment names `v1` and `v2`). In the example, prior to calling **swap\_deployment**, deployment `v1` is in the production slot and deployment `v2` is in the staging slot. After calling **swap\_deployment**, `v2` is in production and `v1` is in staging.  
 
 	from azure import *
-	from azure.managementservice import *
+	from azure.servicemanagement import *
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -240,7 +234,7 @@ The following example shows how to use the **swap\_deployment** method to swap t
 To delete a deployment, use the **delete\_deployment** method. The following example shows how to delete a deployment named `v1`.
 
 	from azure import *
-	from azure.managementservice import *
+	from azure.servicemanagement import *
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -251,7 +245,7 @@ To delete a deployment, use the **delete\_deployment** method. The following exa
 A [storage service] gives you access to Windows Azure [Blobs][azure-blobs], [Tables][azure-tables], and [Queues][azure-queues]. To create a storage service, you need a name for the service (between 3 and 24 lowercase characters and unique within Windows Azure), a description, a label (up to 100 characters, automatically encoded to base64), and either a location or an affinity group. The following example shows how to create a storage service by specifying a location. If you want to use an affinity group, you have to create an affinity group first (see [How to: Create an affinity group](#CreateAffinityGroup)) and set it with the **affinity\_group** parameter.
 
 	from azure import *
-	from azure.managementservice import *
+	from azure.servicemanagement import *
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -270,7 +264,7 @@ Note in the example above that the status of the **create\_storage\_account** op
 You can list your storage accounts and their properties with the **list\_storage\_accounts** method:
 
 	from azure import *
-	from azure.managementservice import *
+	from azure.servicemanagement import *
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -286,7 +280,7 @@ You can list your storage accounts and their properties with the **list\_storage
 You can delete a storage service by passing the storage service name to the **delete\_storage\_account** method. Deleting a storage service will delete all data stored in the service (blobs, tables and queues).
 
 	from azure import *
-	from azure.managementservice import *
+	from azure.servicemanagement import *
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -294,12 +288,12 @@ You can delete a storage service by passing the storage service name to the **de
 
 <h2 id="CreateAffinityGroup">How to: Create an affinity group</h2>
 
-An affinity group is a logical grouping of Azure services that tells Windows Azure to locate the services for optimized performance. For example, you might create an affinity group in the “West US” location, then create a [cloud Service](#CreateCloudService) in that affinity group. If you then create a storage service in the same affinity group, Windows Azure knows to put it in the “West US” location and optimize within the data center for the best performance with the cloud services in the same affinity group.
+An affinity group is a logical grouping of Azure services that tells Windows Azure to locate the services for optimized performance. For example, you might create an affinity group in the “West US” location, then create a [cloud service](#CreateCloudService) in that affinity group. If you then create a storage service in the same affinity group, Windows Azure knows to put it in the “West US” location and optimize within the data center for the best performance with the cloud services in the same affinity group.
 
 To create an affinity group, you need a name, label (automatically encoded to base64), and location. You can optionally provide a description:
 
 	from azure import *
-	from azure.managementservice import *
+	from azure.servicemanagement import *
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -327,11 +321,149 @@ You can list affinity groups and inspect their properties by calling the **list\
 You can delete an affinity group by passing the group name to the **delete\_affinity\_group** method. Note that before you can delete an affinity group, the affinity group must be disassociated from any services (or services that use the affinity group must be deleted).
 
 	from azure import *
-	from azure.managementservice import *
+	from azure.servicemanagement import *
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
 	sms.delete_affinity_group('myAffinityGroup')
+
+<h2 id="ListOperatingSystems">How to: List available operating systems</h2>
+
+To list the operating systems that are available for hosting services, use the **list\_operating\_systems** method:
+
+	from azure import *
+	from azure.servicemanagement import *
+
+	sms = ServiceManagementService(subscription_id, certificate_path)
+
+	result = sms.list_operating_systems()
+
+	for os in result:
+		print('OS: ' + os.label)
+		print('Family: ' + os.family_label)
+		print('Active: ' + str(os.is_active))
+
+Alternatively, you can use the **list\_operating\_system\_families** method, which groups the operating systems by family:
+
+	result = sms.list_operating_system_families()
+
+	for family in result:
+		print('Family: ' + family.label)
+		for os in family.operating_systems:
+			if os.is_active:
+				print('OS: ' + os.label)
+				print('Version: ' + os.version)
+		print('')
+
+<h2 id="CreateVMImage">How to: Create an operating system image</h2>
+
+To add an operating system image to the image repository, use the **add\_os\_image** method:
+
+	from azure import *
+	from azure.servicemanagement import *
+
+	sms = ServiceManagementService(subscription_id, certificate_path)
+
+	name = 'mycentos'
+	label = 'mycentos'
+	os = 'Linux' # Linux or Windows
+	media_link = 'url_to_storage_blob_for_source_image_vhd'
+
+	result = sms.add_os_image(label, media_link, name, os)
+
+	operation_result = sms.get_operation_status(result.request_id)
+	print('Operation status: ' + operation_result.status)
+
+To list the operating system images that are available, use the **list\_os\_images** method. This includes all platform images and user images:
+
+	result = sms.list_os_images()
+
+	for image in result:
+		print('Name: ' + image.name)
+		print('Label: ' + image.label)
+		print('OS: ' + image.os)
+		print('Category: ' + image.category)
+		print('Description: ' + image.description)
+		print('Location: ' + image.location)
+		print('Affinity group: ' + image.affinity_group)
+		print('Media link: ' + image.media_link)
+		print('')
+
+<h2 id="DeleteVMImage">How to: Delete an operating system image</h2>
+
+To delete a user image, use the **delete\_os\_image** method:
+
+	from azure import *
+	from azure.servicemanagement import *
+
+	sms = ServiceManagementService(subscription_id, certificate_path)
+
+	result = sms.delete_os_image('mycentos')
+
+	operation_result = sms.get_operation_status(result.request_id)
+	print('Operation status: ' + operation_result.status)
+
+<h2 id="CreateVM">How to: Create a virtual machine</h2>
+
+To create a virtual machine, you first need to create a [cloud service](#CreateCloudService).  Then create the virtual machine deployment using the **create\_virtual\_machine\_deployment** method:
+
+	from azure import *
+	from azure.servicemanagement import *
+
+	sms = ServiceManagementService(subscription_id, certificate_path)
+
+	name = 'myvm'
+	location = 'West US'
+
+	# You can either set the location or an affinity_group
+	sms.create_hosted_service(service_name=name,
+		label=name,
+		location=location)
+
+	# Name of an os image as returned by list_os_images
+	image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-en-us-30GB.vhd'
+
+	# Destination storage account container/blob where the VM disk
+	# will be created
+	media_link = 'url_to_target_storage_blob_for_vm_hd'
+
+	# Linux VM configuration, you can use WindowsConfigurationSet
+	# for a Windows VM instead
+	linux_config = LinuxConfigurationSet('myhostname', 'myuser', 'mypassword', True)
+
+	os_hd = OSVirtualHardDisk(image_name, media_link)
+
+	sms.create_virtual_machine_deployment(service_name=name,
+		deployment_name=name,
+		deployment_slot='production',
+		label=name,
+		role_name=name,
+		system_config=linux_config,
+		os_virtual_hard_disk=os_hd,
+		role_size='Small')
+
+<h2 id="DeleteVM">How to: Delete a virtual machine</h2>
+
+To delete a virtual machine, you first delete the deployment using the **delete\_deployment** method:
+
+	from azure import *
+	from azure.servicemanagement import *
+
+	sms = ServiceManagementService(subscription_id, certificate_path)
+
+	sms.delete_deployment(service_name='myvm',
+		deployment_name='myvm')
+
+The cloud service can then be deleted using the **delete\_hosted\_service** method:
+
+	sms.delete_hosted_service(service_name='myvm')
+
+<h2 id="NextSteps">Next Steps</h2>
+
+Now that you've learned the basics of service management, follow these links to do more complex tasks.
+
+-   See the MSDN Reference: [Cloud Services][]
+-   See the MSDN Reference: [Virtual Machines][]
 
 [management-portal]: https://manage.windowsazure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx
@@ -348,3 +480,5 @@ You can delete an affinity group by passing the group name to the **delete\_affi
 [azure-tables]: https://www.windowsazure.com/en-us/develop/python/how-to-guides/table-service/
 [azure-queues]: https://www.windowsazure.com/en-us/develop/python/how-to-guides/queue-service/
 [Windows Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
+[Cloud Services]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
+[Virtual Machines]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156003.aspx
