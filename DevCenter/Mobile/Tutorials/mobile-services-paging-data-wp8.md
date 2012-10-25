@@ -25,7 +25,7 @@ This topic shows you how to use paging to manage the amount of data returned to 
 
 This tutorial builds on the steps and the sample app from the previous tutorial [Get started with data]. Before you begin this tutorial, you must complete at least the first tutorial in the working with data series&#151;[Get started with data]. 
 
-1. In Visual Studio 2012 Express for Windows 8, open the project that you modified when you completed the tutorial [Get started with data].
+1. In Visual Studio 2012 Express for Windows Phone, open the project that you modified when you completed the tutorial [Get started with data].
 
 2. Press the **F5** key to run the app, then type text in the textbox and click **Save**.
 
