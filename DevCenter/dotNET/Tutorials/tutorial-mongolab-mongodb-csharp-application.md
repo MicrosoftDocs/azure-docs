@@ -57,7 +57,8 @@ Your sample app will make use of a Visual Studio template to get started. Be sur
 ![NewProject][dialog-mongolab-csharp-newproject]
 1. Select **Installed > Templates > Visual C# > Web**.
 1. Select **.NET Framework 4** from the .NET version drop-down menu (*note: Framework 4.5 does not work at this time*).
-![ProjectFramework][dotNet-framework-four]
+
+	![ProjectFramework][dotNet-framework-four]
 1. Choose **ASP.NET MVC 4 Web Application**.  
 1. Enter _mongoNotes_ as your **Project Name**. If you choose a different name, you will need to modify the code provided in throughout the tutorial.
 1. Click **OK**. The Project Template dialog displays:  
