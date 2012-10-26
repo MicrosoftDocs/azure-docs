@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-how-to-sendgrid-email-service" urldisplayname="SendGrid Email Service" headerexpose="" pagetitle="SendGrid Email Service - How To - Node.js - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkname="dev-nodejs-how-to-sendgrid-email-service" urldisplayname="SendGrid Email Service" headerexpose="" pagetitle="SendGrid Email Service - How To - Node.js - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Send Email Using SendGrid from Node.js
 
@@ -22,7 +22,7 @@ email, see the [Next Steps][] section.
 * [How to: Use Additional SendGrid Services][]   
 * [Next Steps][1]
 
-## <a id="whatis"> </a>What is the SendGrid Email Service?
+## <a name="whatis"> </a>What is the SendGrid Email Service?
 
 SendGrid is a cloud-based email service that provides reliable email
 delivery, scalability, and real-time analytics. along with flexible APIs
@@ -39,21 +39,11 @@ include:
 
 For more information, see [http://sendgrid.com][].
 
-## <a id="createaccount"> </a>Create a SendGrid Account
+## <a name="createaccount"> </a>Create a SendGrid Account
 
-To get started with SendGrid, evaluate pricing and sign up information
-at [http://sendgrid.com/azure.html][]. Windows Azure customers receive a
-[special offer][] of 25,000 free emails per month from SendGrid. To
-sign-up for this offer, or get more information, please visit
-[http://www.sendgrid.com/azure.html][special offer].
+<div chunk="../../Shared/Chunks/sendgrid-sign-up.md" />
 
-For more detailed information on the signup process, see the SendGrid
-documentation at
-[http://docs.sendgrid.com/documentation/get-started/][]. For information
-about additional services provided by SendGrid, see
-[http://sendgrid.com/features][].
-
-## <a id="reference"> </a>Reference the SendGrid Node.js Module
+## <a name="reference"> </a>Reference the SendGrid Node.js Module
 
 The SendGrid module for Node.js can be installed through the node
 package manager (npm) by using the following command:
@@ -69,7 +59,7 @@ The SendGrid module exports the **SendGrid** and **Email** functions.
 **SendGrid** is responsible for sending email through either SMTP or Web
 API, while **Email** encapsulates an email message.
 
-## <a id="createemail"> </a>How to: Create an Email
+## <a name="createemail"> </a>How to: Create an Email
 
 Creating an email message using the SendGrid module involves first
 creating an email message using the Email function, and then sending it
@@ -94,7 +84,7 @@ text content for clients that cannot support HTML messages.
 For more information on all properties supported by the Email function,
 see [sendgrid-nodejs][].
 
-## <a id="sendemail"> </a>How to: Send an Email
+## <a name="sendemail"> </a>How to: Send an Email
 
 After creating an email message using the Email function, you can send
 it using either SMTP or the Web API provided by SendGrid. For details
@@ -141,7 +131,7 @@ functions by directly specifying email properties. For example:</p>
 </pre>
 </div>
 
-## <a id="addattachment"> </a>How to: Add an Attachment
+## <a name="addattachment"> </a>How to: Add an Attachment
 
 Attachments can be added to a message by specifying the file name(s) and
 path(s) in the **files** property. The following example demonstrates
@@ -164,7 +154,7 @@ sending an attachment:
 through <a href="http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile">fs.readFile</a>. If the file you wish to attach is hosted in Windows Azure Storage, such as in a Blob container, you must first copy the file to local storage or to a Windows Azure drive before it can be sent as an attachment using the <strong>files</strong> property.</p>
 </div>
 
-## <a id="usefilters"> </a>How to: Use Filters to Enable Footers, Tracking, and Twitter
+## <a name="usefilters"> </a>How to: Use Filters to Enable Footers, Tracking, and Twitter
 
 SendGrid provides additional email functionality through the use of
 filters. These are settings that can be added to an email message to
@@ -228,7 +218,7 @@ Twitter filters:
         }
     });
 
-## <a id="updateproperties"> </a>How to: Update Email Properties
+## <a name="updateproperties"> </a>How to: Update Email Properties
 
 Some email properties can be overwritten using **set*Property*** or
 appended using **add*Property***. For example, you can add additional
@@ -249,13 +239,13 @@ or set a filter by using
 
 For more information, see [sendgrid-nodejs][].
 
-## <a id="useservices"> </a>How to: Use Additional SendGrid Services
+## <a name="useservices"> </a>How to: Use Additional SendGrid Services
 
 SendGrid offers web-based APIs that you can use to leverage additional
 SendGrid functionality from your Windows Azure application. For full
 details, see the [SendGrid API documentation][].
 
-## <a id="nextsteps"> </a>Next Steps
+## <a name="nextsteps"> </a>Next Steps
 
 Now that you’ve learned the basics of the SendGrid Email service, follow
 these links to learn more.
