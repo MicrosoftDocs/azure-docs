@@ -10,8 +10,6 @@ This guide will show you how to configure the default PHP runtime, provide a cus
 * [How to: Change the default PHP configuration](#ChangeDefaultPHP)
 * [How to: Enable extensions in the default PHP runtime](#EnableExtDefaultPHP)
 * [How to: Use a custom PHP runtime](#UseCustomPHP)
-* [How to: Enable XDebug](#EnableXDebug)
-* [How to: Get error logs](#GetErrorLogs)
 * [Next steps](#NextSteps)
 
 <h2 id="WhatIs">What is Windows Azure Web Sites?</h2>
