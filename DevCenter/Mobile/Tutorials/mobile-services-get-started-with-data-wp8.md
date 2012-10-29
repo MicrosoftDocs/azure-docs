@@ -246,4 +246,4 @@ You can also try one of the following Windows Phone 8 tutorials:
 [Management Portal]: https://manage.windowsazure.com/
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
-[Developer Code Samples site]:  http://go.microsoft.com/fwlink/?LinkId=262308
+[Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
