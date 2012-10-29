@@ -104,6 +104,9 @@ You are now ready to perform the how-to tasks in this guide.
 
 <h2> <a name="configure-access"> </a><span  class="short-header">Access programmatically</span>How to: Programmatically access blob storage</h2>
 
+<h3>Obtaining the assembly</h3>
+To obtain version 2.0 of the Windows Azure Storage Client Library, you can use NuGet. Right-click your project in Solution Explorer and choose Manage NuGet Packages. Type "windowsazure.storage" (including the quotes) into the search box to locate the package.
+
 <h3>Namespace declarations</h3>
 Add the following namespace declarations to the top of any C\# file
 in which you wish to programmatically access Windows Azure Storage:
