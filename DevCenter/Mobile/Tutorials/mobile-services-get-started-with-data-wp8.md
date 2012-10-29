@@ -198,12 +198,10 @@ This tutorial demonstrated the basics of enabling a Windows Phone 8 app to work 
 * [Validate and modify data with scripts]
   <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
 
-<!-- * [Refine queries with paging]
+* [Refine queries with paging]
   <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
 
-Once you have completed the data series, -->
-
-You can also try one of the following Windows Phone 8 tutorials:
+Once you have completed the data series, you can also try one of the following Windows Phone 8 tutorials:
 
 * [Get started with authentication] 
   <br/>Learn how to authenticate users of your app.
@@ -246,4 +244,4 @@ You can also try one of the following Windows Phone 8 tutorials:
 [Management Portal]: https://manage.windowsazure.com/
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
-[Developer Code Samples site]:  http://go.microsoft.com/fwlink/?LinkId=262308
+[Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
