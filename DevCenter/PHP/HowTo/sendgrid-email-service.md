@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-php-how-to-sendgrid-email-service" urldisplayname="SendGrid Email Service" headerexpose="" pagetitle="SendGrid Email Service - How To - PHP - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-php-how-to-sendgrid-email-service" urldisplayname="SendGrid Email Service" headerexpose="" pagetitle="SendGrid Email Service - How To - PHP - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Use the SendGrid Email Service from PHP
 
@@ -38,16 +38,7 @@ For more information, see [http://sendgrid.com][].
 
 ## <a name="bkmk_CreateSendGrid"> </a>Create a SendGrid Account
 
-To get started with SendGrid, evaluate pricing and sign up at
-[http://sendgrid.com/pricing.html][]. Windows Azure customers receive a
-[special offer][] of 25,000 free emails per month from SendGrid. To
-sign-up for this offer, or get more information, please visit
-[http://www.sendgrid.com/azure.html][special offer].
-
-For more detailed information, see the SendGrid documentation at
-[http://docs.sendgrid.com/documentation/get-started/][]. For information
-about additional services provided by SendGrid, see
-[http://sendgrid.com/features][].
+<div chunk="../../Shared/Chunks/sendgrid-sign-up.md" />
 
 ## <a name="bkmk_UsingSendGridfromPHP"> </a>Using SendGrid from your PHP Application
 

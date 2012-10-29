@@ -41,15 +41,7 @@ For more information, see [http://sendgrid.com][].
 
 ## <a name="bkmk_CreateSendGridAcct"> </a>Create a SendGrid account
 
-To get started with SendGrid, evaluate pricing and sign up here:
-[http://sendgrid.com/pricing.html][]. Windows Azure customers receive a
-special offer of 25,000 free emails per month from SendGrid. To sign-up
-for this offer, or get more information, please visit
-[http://www.sendgrid.com/azure.html][]. For more detailed information on
-the signup process, see the SendGrid documentation at
-[http://docs.sendgrid.com/documentation/get-started][]. For information
-about additional services provided by SendGrid, see
-[http://sendgrid.com/features][].
+<div chunk="../../Shared/Chunks/sendgrid-sign-up.md" />
 
 ## <a name="bkmk_HowToUseJavax"> </a>How to: Use the javax.mail libraries
 
