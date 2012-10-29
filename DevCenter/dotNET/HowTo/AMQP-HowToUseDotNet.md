@@ -297,7 +297,7 @@ Support for the AMQP 1.0 protocol in the Windows Azure Service Bus (“AMQP Prev
 
 * [AMQP 1.0 support in Azure Service Bus](http://aka.ms/pgr3dp)
 * [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](http://aka.ms/ll1fm3)
-* [Service Bus AMQP Preview Developers Guide (included in the Service Bus AMQP Preview NuGet package)](http://aka.ms/tnwtu4)
+* [Service Bus AMQP Preview Developers Guide (included in the ServiceBus.Preview NuGet package)](http://aka.ms/tnwtu4)
 * [How to Use Service Bus Queues](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)
 
 

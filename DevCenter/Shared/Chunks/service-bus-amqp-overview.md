@@ -1,4 +1,4 @@
-﻿# AMQP 1.0 support in Windows Azure Service Bus
+# AMQP 1.0 support in Windows Azure Service Bus
 
 
 >New AMQP 1.0 support in Service Bus allows you to build cross-platform, hybrid applications using an open standard protocol. Applications can be constructed using components built using different languages and frameworks and running on different operating systems. All these components can connect to Service Bus and seamlessly exchange structured business messages efficiently and at full-fidelity.
@@ -97,7 +97,7 @@ The Developer Guide accompanying the preview release provides information about 
 *    [OASIS Advanced Message Queuing Protocol (AMQP) Version 1.0](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 *    [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](http://aka.ms/ll1fm3)
 *    [How to use AMQP 1.0 with the .NET Service Bus .NET API](http://aka.ms/lym3vk)
-*    [Service Bus AMQP Preview Developers Guide (included in the Service Bus AMQP Preview NuGet package)](http://aka.ms/tnwtu4)
+*    [Service Bus AMQP Preview Developers Guide (included in the ServiceBus.Preview NuGet package)](http://aka.ms/tnwtu4)
 
 [0]: ../Media/Example1.png
 
