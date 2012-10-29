@@ -279,7 +279,7 @@ Running the application produces output of the form:
 
 So far this guide has shown how to send messages to Service Bus using JMS and also how to receive those messages using JMS. However, one of the key benefits of AMQP 1.0 is that it enables applications to be built from components built using different languages with messages exchanged messages reliably and at full-fidelity.
 
-Using the sample JMS application described above and a similar .NET application taken from a companion guide (How to use AMQP 1.0 with the .NET Service Bus .NET API) TODO, it’s possible to exchange messages between .NET and Java. 
+Using the sample JMS application described above and a similar .NET application taken from a companion guide, [How to use AMQP 1.0 with the .NET Service Bus .NET API](http://aka.ms/lym3vk), it’s possible to exchange messages between .NET and Java. 
 
 More information on the details of cross-platform messaging using Service Bus and AMQP 1.0 can be found in the Service Bus AMQP Preview Developers Guide.
 
@@ -365,8 +365,8 @@ Support for the AMQP 1.0 protocol in the Windows Azure Service Bus (“AMQP Prev
 
 ## Further information
 
-* AMQP 1.0 support in Azure Service Bus [link to article previously submitted] TODO
-* How to use AMQP 1.0 with the .NET Service Bus .NET API [link to sister article] TODO
-* Service Bus AMQP Preview Developers Guide[ included in the Service Bus AMQP Preview NuGet package] TODO
-* [How to Use Service Bus Queues](https://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)
+* [AMQP 1.0 support in Azure Service Bus](http://aka.ms/pgr3dp)
+* [How to use AMQP 1.0 with the .NET Service Bus .NET API](http://aka.ms/lym3vk)
+* [Service Bus AMQP Preview Developers Guide (included in the Service Bus AMQP Preview NuGet package)](http://aka.ms/tnwtu4)
+* [How to Use Service Bus Queues](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)
 

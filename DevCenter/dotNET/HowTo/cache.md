@@ -62,8 +62,6 @@ In addition, caching on role instances offers these configurable options:
 
 This guide provides an overview of getting started with Windows Azure Caching. For more detailed information on these features that are beyond the scope of this getting started guide, see [Overview of Windows Azure Caching][].
 
->In addition to the new caching on role instances introduced in Windows Azure Caching, you can still create caches using Windows Azure Shared Caching. Windows Azure Shared Caching is the current multi-tenant cache offering that provides several caching tiers from 128MB to 4GB. In addition to memory and cost differences, each tier varies in other resource quotas such as bandwidth, transactions, and client connections, and these are configured using the [Windows Azure Management Portal][]. For more information on using Windows Azure Shared Caching, see [Windows Azure Shared Caching][].
-
 <a name="getting-started-cache-role-instance"></a><h2><span class="short-header">Getting Started with Windows Azure Caching</span>Getting Started with Windows Azure Caching</h2>
 
 Windows Azure Caching provides a way to enable caching using the memory that is on the virtual machines that host your role instances. The role instances that host your caches are known as a **cache cluster**. There are two deployment topologies for caching on role instances:

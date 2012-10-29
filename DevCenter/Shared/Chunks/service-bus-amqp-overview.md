@@ -82,7 +82,6 @@ At this time the following client libraries are known to work with Service Bus:
   </tr>
 </table>
 
-</table>
 
 **Figure 2: Table of AMQP 1.0 client libraries**
 
@@ -96,9 +95,9 @@ The Developer Guide accompanying the preview release provides information about 
 ## References
 
 *    [OASIS Advanced Message Queuing Protocol (AMQP) Version 1.0](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
-*    How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0 TODO
-*    How to use AMQP 1.0 with the .NET Service Bus .NET API TODO
-*    Service Bus AMQP Preview Developers Guide, included in the Service Bus AMQP Preview NuGet package.
+*    [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](http://aka.ms/ll1fm3)
+*    [How to use AMQP 1.0 with the .NET Service Bus .NET API](http://aka.ms/lym3vk)
+*    [Service Bus AMQP Preview Developers Guide (included in the Service Bus AMQP Preview NuGet package)](http://aka.ms/tnwtu4)
 
 [0]: ../Media/Example1.png
 

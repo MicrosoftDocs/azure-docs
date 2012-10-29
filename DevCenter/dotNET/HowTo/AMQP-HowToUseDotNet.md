@@ -49,7 +49,7 @@ When using AMQP, the Connection String is appended with “;TransportType=Amqp�
 
 ### Configuring the Entity Name
 
-This sample application uses the “EntityName” setting in the <appSettings> of the App.config file to configure the name of the queue with which the application will exchange messages.
+This sample application uses the “EntityName” setting in the **appSettings** of the App.config file to configure the name of the queue with which the application will exchange messages.
 
 ### A simple .NET application using a Service Bus Queue
 
@@ -201,7 +201,7 @@ Running the application produces output of the form:
 
 So far this guide has shown how to send messages to Service Bus using .NET and also how to receive those messages using .NET. However, one of the key benefits of AMQP 1.0 is that it enables applications to be built from components built using different languages with messages exchanged messages reliably and at full-fidelity.
 
-Using the sample .NET application described above and a similar Java application taken from a companion guide (How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0) TODO, it’s possible to exchange messages between .NET and Java. 
+Using the sample .NET application described above and a similar Java application taken from a companion guide, [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](http://aka.ms/ll1fm3), it’s possible to exchange messages between .NET and Java. 
 
 More information on the details of cross-platform messaging using Service Bus and AMQP 1.0 can be found in the Service Bus AMQP Preview Developers Guide.
 
@@ -294,8 +294,9 @@ Support for the AMQP 1.0 protocol in the Windows Azure Service Bus (“AMQP Prev
 
 ## Further information
 
-* AMQP 1.0 support in Azure Service Bus [link to article previously submitted] TODO
-* How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0 [link to sister article] TODO
-* Service Bus AMQP Preview Developers Guide[ included in the Service Bus AMQP Preview NuGet package] TODO
-* [How to Use Service Bus Queues](https://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)
+* [AMQP 1.0 support in Azure Service Bus](http://aka.ms/pgr3dp)
+* [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](http://aka.ms/ll1fm3)
+* [Service Bus AMQP Preview Developers Guide (included in the Service Bus AMQP Preview NuGet package)](http://aka.ms/tnwtu4)
+* [How to Use Service Bus Queues](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)
+
 
