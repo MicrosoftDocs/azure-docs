@@ -1,3 +1,4 @@
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to use AMQP 1.0 with the .NET Service Bus .NET API
 
