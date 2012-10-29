@@ -15,7 +15,7 @@ application. The application will be hosted in a Windows Azure Preview Portal vi
 
 A screenshot of the completed application is below:
 
-![A browser window displaying the hello world page on Windows Azure]
+![A browser window displaying the hello world page on Windows Azure][1]
 
 <div chunk="../../Shared/Chunks/create-account-and-vms-note.md" />
 
@@ -125,7 +125,7 @@ To set up your Python and Django environments, please see the [Installation Guid
 
 When you're done with this tutorial, shutdown and/or remove your newly created Windows Azure virtual machine to free up resources for other tutorials and avoid incurring Windows Azure usage charges.
 
-[A browser window displaying the hello world page on Windows Azure]: ../Media/django-helloworld-browser-azure.png
+[1]: ../Media/django-helloworld-browser-azure.png
 [A command prompt displaying the django directory creation]: ../Media/django-helloworld-ps-create-dir.png
 [The result of the New-AzureService command]: ../Media/django-helloworld-cmd-new-azure-service.png
 [A directory listing of the service folder]: ../Media/django-helloworld-ps-service-dir.png
