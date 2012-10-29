@@ -12,7 +12,7 @@ This walkthrough is intended for .NET developers who want to integrate a multi-t
 
 The companion sample application for this walkthrough can be [downloaded here][]. The sample can be run without changes, but you may need to change your [port assignment in Visual Studio][]. All code snippets in the steps below have been taken from the sample.
 
-NOTE: The multi-tenant directory app sample is provided for illustration purposes only.  This sample (including its helper library classes) should not be used in production. 
+<div class="dev-callout"><strong>Note</strong><p>The multi-tenant directory app sample is provided for illustration purposes only.  This sample (including its helper library classes) should not be used in production.</p></div>
 
 
 <h3>Prerequisites</h3>
@@ -51,7 +51,7 @@ To generate a Client ID and Client Secret, you will need to enter the following 
 
 **App Domain**: The hostname of your application, for example “contoso.com”. This property must not contain any port number. During development, this property should be set to "localhost".
 
-**App Redirect URL**: The redirect URL where Windows Azure AD will send a response after user sign-in and when an organization has authorized your application, for example: https://contoso.com/”. During development, this property should be set to "https://localhost:<port number>"
+**App Redirect URL**: The redirect URL where Windows Azure AD will send a response after user sign-in and when an organization has authorized your application, for example: "https://contoso.com/." During development, this property should be set to "https://localhost:<port number>"
 
 <h3>Step 3: Configure Your Application to Use the Client ID and Client Secret</h3>
 This step requires the Client ID and Client Secret that were generated during signup on the Seller Dashboard. The Client ID is used for SSO, and both the Client ID and Client Secret will be used later to obtain an access token to call the Windows Azure AD Graph API.  
@@ -77,7 +77,7 @@ The sample application has been pre-wired to use Windows Azure AD, and loads the
 
 This section describes how to enable customers to sign up for your application using Windows Azure AD. Before a customer can use an application integrated with Windows Azure AD, a tenant administrator must authorize the application. This authorization process starts with a consent request from your application to Windows Azure, which generates a response that must be handled by your application. The following steps describe how to generate a consent request and handle the response.
 
-The steps in this section use helper classes from the sample application. These classes are contained in the Microsoft.IdentityModel.WAAD.Preview library of the sample, and they make it easier to focus on application code rather than identity and protocol specifics.
+The steps in this section use helper classes from the sample application. These classes are contained in the *Microsoft.IdentityModel.WAAD.Preview* library of the sample, and they make it easier to focus on application code rather than identity and protocol specifics.
 
 <h3>Step 1: Requesting Consent for Your Application</h3>
 The following example interaction demonstrates the process of requesting consent for your application:
@@ -87,7 +87,7 @@ The following example interaction demonstrates the process of requesting consent
 3.	The customer either grants or denies consent for your application.
 4.	Windows Azure AD redirects the customer to your specified App Redirect URL. You specified this URL when you generated a Client ID and Client Secret on the Microsoft Seller Dashboard.  The redirect request indicates the result of the consent request, including information about their tenant if consent was granted.
 
-To generate the redirect request in step 2 above, you must append querystring parameters to the following URL for the Windows Azure AD authorization page: http://activedirectory.windowsazure.com/Consent/AuthorizeApplication.aspx
+To generate the redirect request in step 2 above, you must append querystring parameters to the following URL for the Windows Azure AD authorization page: *http://activedirectory.windowsazure.com/Consent/AuthorizeApplication.aspx*
 
 The querystring parameters are described below:
 
@@ -106,9 +106,12 @@ There are three possible values for this parameter:
 The default value is “None” if the parameter is unspecified or incorrectly specified.
 
 The following is an example valid consent request URL:
-https://activedirectory.windowsazure.com/Consent/AuthorizeApplication.aspx?ApplicationId=33E48BD5-1C3E-4862-BA79-1C0D2B51FB26&RequestedPermissions=DirectoryReader
+*https://activedirectory.windowsazure.com/Consent/AuthorizeApplication.aspx?ApplicationId=33E48BD5-1C3E-4862-BA79-1C0D2B51FB26&RequestedPermissions=DirectoryReader*
 
 In the sample application, the “Register” link contains a similar URL for consent request, as shown below:
+
+<img src="/media/devcenter/dotnet/login.png" />
+
 
 <div class="dev-callout"><strong>Note</strong><p>When you test your unpublished application, you will go through a consent experience that is similar to your customers. However, the authorization page for an unpublished application looks different than the authorization page for a published application. A published application displays your app name, logo, and publisher details, whereas an unpublished application does not.</p></div>
 
@@ -120,13 +123,13 @@ After a customer has granted or denied consent for your application, the Windows
 **Consent**: The value will be set to “Granted” if the application has been authorized, or “Denied” if the request has been rejected.
 
 The following is an example valid response to the consent request that indicates the application has been authorized:
-https://app.litware.com/redirect.aspx&TenantId=7F3CE253-66DB-4AEF-980A-D8312D76FDC2&Consent=Granted
+*https://app.litware.com/redirect.aspx&TenantId=7F3CE253-66DB-4AEF-980A-D8312D76FDC2&Consent=Granted*
 
 Your application will need to maintain context such that the request sent to the Windows Azure AD authorization page is tied to the response (and would reject any responses without an associated request).
 
 <div class="dev-callout"><strong>Note</strong><p>After consent is granted, Windows Azure AD may take some time before SSO and Graph access are provisioned. Your first customer may see sign-in errors until the provisioning completes.</p></div>
 
-After a customer has granted consent to your application, it’s important to associate and store the newly created tenant in your application with the TenantId returned by the consent response. The sample application contains an HttpModule in the Microsoft.IdentityModel.WAAD.Preview.Consent namespace that automatically records the TenantId to a customer/TenantId “data store” on all successful consent responses.  The code for this is included below, and recording of the TenantId to a “Customer TenantId Data Store” is performed by the TrustedIssuers.Add method:
+After a customer has granted consent to your application, it’s important to associate and store the newly created tenant in your application with the TenantId returned by the consent response. The sample application contains an HttpModule in the *Microsoft.IdentityModel.WAAD.Preview.Consent* namespace that automatically records the TenantId to a customer/TenantId “data store” on all successful consent responses.  The code for this is included below, and recording of the TenantId to a customer/TenantId "data store"” is performed by the *TrustedIssuers.Add* method:
 
 	private void Application_BeginRequest(Object source,
              EventArgs e)
@@ -151,27 +154,31 @@ Before you can test the consent request/response code for your application, you 
 <h3>Step 3: Get a Windows Azure AD Tenant to Test Your Application</h3>
 To test your application’s ability to integrate with Windows Azure AD, you’ll need a Windows Azure AD tenant. If you already have a tenant that you use for testing another application, you can reuse it. We recommend getting at least two tenants to ensure your app can be tested and used by multiple tenants. We do not recommend using a production tenant for this purpose. [Get a Windows Azure AD tenant][].
 
-Once you have obtained a Windows Azure AD tenant, you can build and run the application by pressing F5. Additionally, you can try to sign up for your application using the new  tenant. 
+Once you have obtained a Windows Azure AD tenant, you can build and run the application by pressing **F5**. Additionally, you can try to sign up for your application using the new  tenant. 
 
-<h2><a name="enablesso"></a>Part 3: Enable Single Sign-On </h2>
+<h2><a name="enablesso"></a>Part 3: Enable Single Sign-On</h2>
 
 This section shows you how to enable Single Sign-On (SSO). The process starts with constructing a sign-in request to Windows Azure AD that authenticates a user to your application, then verifies in the sign-in response that the customer belongs to a tenant that has authorized your application. The sign-in request requires your Client ID from the Seller Dashboard and the Tenant ID of the customer’s organization.
 
 The sign-in request is specific to a directory tenant, and must include a TenantID.  A TenantID can be determined from a Windows Azure AD directory tenant’s domain name. There are two common ways to get this domain name from the end user as they sign-in:
 
-* If the URL of the application is https://contoso.myapp.com or https://myapp.com/contoso.com, contoso and contoso.com represent the Windows Azure AD domain name and myapp.com represents your application’s URL. 
+* If the URL of the application is *https://contoso.myapp.com* or *https://myapp.com/contoso.com*, *contoso* and *contoso.com* represent the Windows Azure AD domain name and myapp.com represents your application’s URL. 
 * Your application can prompt the user for their email address or their Windows Azure AD domain name. This approach is used in the sample application, where the user must enter their Windows Azure AD domain name, as shown below:
 
+<img src="/media/devcenter/dotnet/login.png" />
+
 <h3>Step 1: Look up the Tenant ID</h3>
-Using the Windows Azure AD domain name supplied by the customer, you can look up their Tenant ID by parsing the Windows Azure AD federation metadata. In the sample application, this process is handled by the Domain2TenantId method of the Microsoft.IdentityModel.WAAD.Preview.TenantUtils.Globals class.
+Using the Windows Azure AD domain name supplied by the customer, you can look up their Tenant ID by parsing the Windows Azure AD federation metadata. In the sample application, this process is handled by the Domain2TenantId method of the *Microsoft.IdentityModel.WAAD.Preview.TenantUtils.Globals* class.
 
 To demonstrate this process, the following steps use the contoso.com domain name.
 
-1.	Get the FederationMetadata.xml file for the Windows Azure AD tenant. For example:  
-https://accounts.accesscontrol.windows.net/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
-2.	In the FederationMetadata.xml file, locate the <Entity Descriptor> entry. The Tenant ID is included as part of the entityID property following the @ sign, as shown below:
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="spn:00000001-0001-0000-c000-000000000000@a7456b11-6fe2-4e5b-bc83-67508c201e4b" ID="_97a1b555-b6df-4136-b9cd-8d9467e4f276"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-3.	In your application’s customer/TenantId “data store,” you should store the domain and  its associated TenantID.  These two values can be used together for future sign-in requests and eliminate the need to get the FederationMetadata.xml each time. The sample application does not feature this optimization.
+1.	Get the **FederationMetadata.xml** file for the Windows Azure AD tenant. For example:  
+*https://accounts.accesscontrol.windows.net/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml*
+2.	In the **FederationMetadata.xml** file, locate the **<Entity Descriptor>** entry. The Tenant ID is included as part of the **entityID** property following the @ sign, as shown below:
+
+		 <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="spn:00000001-0001-0000-c000-000000000000@a7456b11-6fe2-4e5b-bc83-67508c201e4b" ID="_97a1b555-b6df-4136-b9cd-8d9467e4f276"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#"> 
+In this case, the TenantID's value is **a7456b11-6fe2-4e5b-bc83-67508c201e4b**.
+3.	In your application’s customer/TenantId “data store,” you should store the domain and its associated TenantID.  These two values can be used together for future sign-in requests and eliminate the need to get the **FederationMetadata.xml** each time. The sample application does not feature this optimization.
 
 <h3>Step 2: Generate the Sign-In Request</h3>
 When a customer signs in to your application, such as by clicking a sign-in button, the sign-in request must be generated by using the customer’s Tenant ID and your application’s Client ID. In the sample application, this request is generated by the GenerateSignInMessage method of the Microsoft.IdentityModel.WAAD.Preview.WebSSO.URLUtils class. This method verifies that the customer’s TenantID represents an organization that has authorized your application, and it generates the destination URL for the sign-in button, as shown below:
@@ -184,7 +191,7 @@ When a customer signs in to your application, you need to validate that their te
 
 To perform this validation, you must get the TenantID from the Issuer property in the token and ensure that it exists in the customer/TenantId “data store”. In the sample application, this validation is achieved by creating a custom token handler class that extends Windows Identity Foundation’s Saml2SecurityTokenHandler. The custom token handler verifies the incoming security token and makes its claims and properties available to the application so that the TenantID can be validated. The code snippet for this class is shown below.
 
-In the sample application, the original code can be found under the Microsoft.IdentityModel.WAAD.Preview.WebSSO namespace. The token handler also uses the Contains method of the Microsoft.IdentityModel.WAAD.Preview.WebSSO.TrustedIssuers class, which verifies that the TenantID is persisted in the Customer TenantId Data Store.
+In the sample application, the original code can be found under the *Microsoft.IdentityModel.WAAD.Preview.WebSSO* namespace. The token handler also uses the Contains method of the *Microsoft.IdentityModel.WAAD.Preview.WebSSO.TrustedIssuers* class, which verifies that the TenantID is persisted in the Customer TenantId Data Store.
 
 	/// <summary>
     /// Extends the out of the box SAML2 token handler by ensuring
@@ -217,7 +224,7 @@ Before your application can call the Windows Azure AD Graph, it must authenticat
 2.	Acquire an access token using Windows Azure Authentication Library (AAL) 
 3.	Call the Azure AD Graph to get a list of tenant users
 
-NOTE: The sample application helper library Microsoft.IdentityModel.WAAD.Preview already contains an auto-generated proxy class (created by adding a Service Reference to https://graph.windows.net/<domain name> called GraphService). The application will use this proxy class to call into the Windows Azure AD Graph service.
+<div class="dev-callout"><strong>Note</strong><p>The sample application helper library *Microsoft.IdentityModel.WAAD.Preview* already contains an auto-generated proxy class (created by adding a Service Reference to *https://graph.windows.net/your-domain-name* called GraphService). The application will use this proxy class to call into the Windows Azure AD Graph service.</p>
 
 <h3>Step 1: Use the Proxy Class to Call the Azure AD Graph</h3>
 In this step, we are going to use the sample application to show you how to:
@@ -226,7 +233,7 @@ In this step, we are going to use the sample application to show you how to:
 2.	Use the endpont to instantiate the proxy, with which we’ll call the Azure AD Graph, and 
 3.	Add the authorization header (which will contain an access token) to the request and getting the token.  (Token acquisition itself is shown in the next step.)
 
-In the sample application, these calls to the API are handled by the GraphInterface method in the Microsoft.IdentityModel.WAAD.Preview.Graph.GraphInterface class, as shown in the following code.
+In the sample application, these calls to the API are handled by the GraphInterface method in the *Microsoft.IdentityModel.WAAD.Preview.Graph.GraphInterface* class, as shown in the following code.
 
 	public GraphInterface()
     {
@@ -252,9 +259,9 @@ In the sample application, these calls to the API are handled by the GraphInterf
     }
 
 <h3>Step 2: Acquire an Access Token Using Windows Azure Authentication Library</h3>
-The sample application uses the Windows Azure Authentication Library (AAL) to acquire tokens for accessing the Graph API.  The token acquisition process is managed by the GetAuthorizationHeader method in the Microsoft.IdentityModel.WAAD.Preview.Graph.GraphInterface class, and is shown below.  
+The sample application uses the Windows Azure Authentication Library (AAL) to acquire tokens for accessing the Graph API.  The token acquisition process is managed by the GetAuthorizationHeader method in the *Microsoft.IdentityModel.WAAD.Preview.Graph.GraphInterface* class, and is shown below.  
 
-NOTE:  AAL is available as a NuGet package and can be installed within Visual Studio.
+<div class="dev-callout"><strong>Note</strong><p>AAL is available as a NuGet package and can be installed within Visual Studio.</p></div>
 
 	/// <summary>
     /// Method to get the Oauth2 Authorization header from ACS
@@ -286,14 +293,14 @@ NOTE:  AAL is available as a NuGet package and can be installed within Visual St
         return authzHeader;
     }
 
-To acquire the access token the following information is used, as demonstrated in the code above:
+The following information is used to acquire the access token, as demonstrated in the code above:
 
 1.	App’s information (ClientID, ServicePrincipalKey and AppHostname)
 2.	Target information (this is the Azure AD Graph and is called ServiceRealm above)
 3.	TenantDomainName (that you acquired earlier)
 
-<h3>Step 3:  Calling the Azure AD Graph to Get a List of Users</h3>
-The following method in the Microsoft.IdentityModel.WAAD.Preview.Graph.GraphInterface class gets a list of all users for your tenant, using the DataService proxy generated earlier.
+<h3>Step 3: Call the Windows Azure AD Graph to Get a List of Users</h3>
+The following method in the *Microsoft.IdentityModel.WAAD.Preview.Graph.GraphInterface* class gets a list of all users for your tenant, using the *DataService* proxy generated earlier.
 
 	public List<User> GetUsers()
     {
@@ -313,7 +320,7 @@ This method is called from the HomeController.cs file to show the list of user o
 
 Once you have thoroughly tested your application, you can create an application listing and publish your application listing on the Windows Azure Marketplace. These steps are performed on the Microsoft Seller Dashboard.  
 
-NOTE:  Your app is responsible for managing any billing relationship with your customers. The Windows Azure Marketplace only provides links to your application’s web site and information about it.
+<div class="dev-callout"><strong>Note</strong><p>Your app is responsible for managing any billing relationship with your customers. The Windows Azure Marketplace only provides links to your application’s web site and information about it.</p></div>
 
 <h3>Step 1: Creating an Application Manifest and App Listing</h3>
 
@@ -348,13 +355,13 @@ Two application manifest examples are included below. The first demonstrates per
       </AppPermissionRequests>
     </AppRequiredPermissions>
 
-The Policy attribute in the examples above describes the type of application permission being requested. Currently, only the “AppOnly” permission attribute is supported. This permission type indicates that the application only accesses the Directory as itself. 
+The *Policy* attribute in the examples above describes the type of application permission being requested. Currently, only the “AppOnly” permission attribute is supported. This permission type indicates that the application only accesses the Directory as itself. 
 
-The optional Reason element allows you to specify (in multiple cultures) your justification for the required permission level.  This text is displayed on the consent page to aid the customer when they are approving or rejecting your application.
+The optional *Reason* element allows you to specify (in multiple cultures) your justification for the required permission level. This text is displayed on the consent page to aid the customer when they are approving or rejecting your application.
 
-Using your new Client ID and your application manifest, you can create an application listing by following the instructions in [Add Apps in the Microsoft Seller Dashboard][]. When creating an application listing, make sure to select the Azure Active Directory app type.  Once you have finished creating your application listing, click “submit” to publish your application to the Windows Azure Marketplace.  You’ll need to wait until your application is approved before publication completes.
+Using your new Client ID and your application manifest, you can create an application listing by following the instructions in [Add Apps in the Microsoft Seller Dashboard][]. When creating an application listing, make sure to select the Windows Azure AD application type. Once you have finished creating your application listing, click “submit” to publish your application to the Windows Azure Marketplace. You’ll need to wait until your application is approved before publication completes.
 
-NOTE:  If you are prompted to “add tax and payout information”, you can skip this step because you are selling your application directly to customer and not through Microsoft.
+<div class="dev-callout"><strong>Note</strong><p>If you are prompted to “add tax and payout information”, you can skip this step because you are selling your application directly to customer and not through Microsoft.</p></div>
 
 <h3>Step 2: Finalize Testing and Make Your Application Public</h3>
 Once your application listing is approved, you should test your application again end-to-end. For example, make sure that your application has been updated with the production ClientID and Client Secret.  Run through the testing checklist a final time, ensuring that the consent page now shows the information you included in your application listing.
