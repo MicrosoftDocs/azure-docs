@@ -1,6 +1,9 @@
 Windows Azure customers receive a special offer of 2 months of SendGrid's Bronze Plan for free. This will give you 40,000 free emails per month and all the bronze features free of charge for the first two months. For information about additional services provided by SendGrid, see the [SendGrid Features][] page.
 
-1. In the [Windows Azure Management Portal][].
+### To sign up for a SendGrid account
+
+1. Log in to the [Windows Azure Management Portal][].
+
 2. In the lower pane of the management portal, click **New**.
 
 	![command-bar-new][]
