@@ -115,6 +115,8 @@ in which you wish to programmatically access Windows Azure Storage:
     using Microsoft.WindowsAzure.Storage.Auth;
 	using Microsoft.WindowsAzure.Storage.Blob;
 
+Make sure you reference the Microsoft.WindowsAzure.Storage.dll assembly.
+
 <h3>Retrieving your connection string</h3>
 You can use the **CloudStorageAccount** type to represent 
 your Storage Account information. If you are using a Windows 
