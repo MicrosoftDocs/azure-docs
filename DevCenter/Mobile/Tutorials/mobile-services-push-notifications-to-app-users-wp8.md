@@ -226,9 +226,9 @@ This concludes the tutorials that demonstrate the basics of working with push no
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Get started with Mobile Services]: ./mobile-services-get-started-wp8.md
-[Get started with data]: ./mobile-services-get-started-with-data-wp8.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-wp8.md
+[Get started with Mobile Services]: ../tutorials/mobile-services-get-started-wp8.md
+[Get started with data]: ../tutorials/mobile-services-get-started-with-data-wp8.md
+[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-wp8.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-wp8.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
