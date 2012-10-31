@@ -14,6 +14,7 @@
 	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet" title="Windows Store C#">Windows Store C#</a>
 	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
 	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-wp8" title="Windows Phone 8" class="current">Windows Phone 8</a> 
+    <a href="/en-us/develop/mobile/tutorials/add-paging-to-data-ios" title="iOS">iOS</a>
 </div>
 
 

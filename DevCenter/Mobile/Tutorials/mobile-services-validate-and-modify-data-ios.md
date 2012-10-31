@@ -10,10 +10,10 @@
 
 # Validate and modify data in Mobile Services by using server scripts
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
+	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a>
 	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
 	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone 8">Windows Phone 8</a> 
-	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a>
+	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS" class="current">iOS</a> 
 </div>
 
 
@@ -60,44 +60,74 @@ It is always a good practice to validate the length of data that is submitted by
 
 Now that the mobile service is validating data and sending error responses, you need to update your app to be able to handle error responses from validation.
 
-1. In Visual Studio 2012 Express for Windows 8, open the project that you modified when you completed the tutorial [Get started with data].
+1. In Xcode, open the project that you modified when you completed the tutorial [Get started with data].
 
-2. Press the **F5** key to run the app, then type text longer than 10 characters in **Insert a TodoItem** and click **Save**.
+2. Press the **Run** button (Command + R) to build the project and start the app, then type text longer than 10 characters in the textbox and click the  plus (**+**) icon.
 
-   Notice that the app raises an unhandled **MobileServiceInvalidOperationException** as a result of the 400 response (Bad Request) returned by the mobile service.
+   Notice that the app raises an unhandled error as a result of the 400 response (Bad Request) returned by the mobile service.
 
     <div class="dev-callout"> 
 	<b>Note</b> 
 	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>	
 
-6. 	Open the file MainPage.xaml.cs, then add the following **using** statement:
+3. In the TodoService.m file, locate the following line of code in the **addItem** method:
+    
+        [self logErrorIfNotNil:error]; 
 
-        using Windows.UI.Popups;
+   After this line of code, replace the remainder of the completion block with the following code:
 
-7. Replace the existing **InsertTodoItem** method with the following:
+        BOOL badRequest = ((error) && (error.code == -1302));
 
-        private async void InsertTodoItem(TodoItem todoItem)
+        // detect text validation error from service.
+        if (!badRequest) // The service responded appropriately
         {
-            // This code inserts a new TodoItem into the database. When the operation completes
-            // and Mobile Services has assigned an Id, the item is added to the CollectionView
-            try
-            {
-                await todoTable.InsertAsync(todoItem);
-                items.Add(todoItem);
-            }
-            catch (MobileServiceInvalidOperationException e)
-            {
-                MessageDialog errormsg = new MessageDialog(e.Response.Content, 
-                    string.Format("{0} (HTTP {1})",                     
-                    e.Response.StatusDescription,
-                    e.Response.StatusCode));
-                var ignoreAsyncOpResult = errormsg.ShowAsync();
-            }
+            NSUInteger index = [itemscount];
+            [(NSMutableArray *)itemsinsertObject:result atIndex:index];
+
+            // Let the caller know that we finished
+            completion(index);
         }
 
-   This version of the method includes error handling for the **MobileServiceInvalidOperationException** that displays the error response in a popup.
+    This checks for an error in the request with an error code of –1302, which indicates a bad request.
 
-## <a name="add-timestamp"></a>Add a timestamp
+4. Rebuild and start the app again and check the output window to see that the following bad request error from the mobile service was handled: 
+
+        2012-10-23 22:01:32.169 Quickstart[5932:11303] ERROR Error
+        Domain=com.Microsoft.WindowsAzureMobileServices.ErrorDomain Code=-1302 "Text length must be under 10"
+        UserInfo=0x7193850 {NSLocalizedDescription=Text length must be under 10,
+        com.Microsoft.WindowsAzureMobileServices.ErrorResponseKey=<NSHTTPURLResponse: 0x755b470>, 
+        com.Microsoft.WindowsAzureMobileServices.ErrorRequestKey=<NSMutableURLRequest 
+        https://task.azure-mobile.net/tables/TodoItem>}
+
+3. In the TodoService.m file, locate the following line of code in the **logErrorIfNotNil** method: 
+        
+        NSLog(@"ERROR %@", error); add the following if block:
+
+   After this code, add the following if block:
+
+        // added to display description of bad request
+        if (error.code == -1302){
+
+            UIAlertView *av =
+            [[UIAlertView alloc]
+              initWithTitle:@"Request Failed"
+              message:error.localizedDescription
+              delegate:nil
+              cancelButtonTitle:@"OK"
+              otherButtonTitles:nil
+             ];
+            [av show];
+        }
+
+   This handles the logging of errors to the output window. 
+
+4. Rebuild and start the app. 
+
+   ![][4]
+
+  Notice that error is handled and the error messaged is displayed to the user.
+
+<!--## <a name="add-timestamp"></a>Add a timestamp
 
 The previous tasks validated an insert and either accepted or rejected it. Now, you will update inserted data by using a server script that adds a timestamp property to the object before it gets inserted.
 
@@ -126,7 +156,7 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
    
    Notice that there is now a **createdAt** column, and the new inserted item has a timestamp value.
   
-Next, you need to update the Windows Store app to display this new column.
+Next, you need to update the iOS app to display this new column.
 
 ## <a name="update-client-timestamp"></a>Update the client again
 
@@ -184,7 +214,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
    Notice that all items created without timestamp value disappear from the UI.
 
-You have completed this working with data tutorial.
+You have completed this working with data tutorial.-->
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -213,16 +243,16 @@ Server scripts are also used when authorizing users and for sending push notific
 [1]: ../Media/mobile-portal-data-tables.png
 [2]: ../Media/mobile-insert-script-users.png
 [3]: ../Media/mobile-quickstart-startup.png
+[4]: ../Media/mobile-quickstart-data-error-ios.png
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Get started with Mobile Services]: ../get-started/#create-new-service
-[Authorize users with scripts]: ./mobile-services-authorize-users-dotnet.md
-[Refine queries with paging]: ./mobile-services-paging-data-dotnet.md
-[Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
-[JavaScript and HTML]: ./mobile-services-validate-and-modify-data-js.md
+[Get started with Mobile Services]: ./mobile-services-get-started-ios.md
+[Authorize users with scripts]: ./mobile-services-authorize-users-ios.md
+[Refine queries with paging]: ./mobile-services-paging-data-ios.md
+[Get started with data]: ./mobile-services-get-started-with-data-ios.md
+[Get started with authentication]: ./mobile-services-get-started-with-users-ios.md
+[Get started with push notifications]: ./mobile-services-get-started-with-push-ios.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
