@@ -57,16 +57,16 @@ For more information on getting started with SendGrid, see [SendGrid Getting Sta
 
 <!--images-->
 
-[command-bar-new]: ..\media\sendgrid_BAR_NEW.PNG
-[sendgrid-store]: ..\media\sendgrid_offerings_store.png
-[store-screen-1]: ..\media\sendgrid_store_scrn1.png
-[store-screen-2]: ..\media\sendgrid_store_scrn2.png
-[store-screen-3]: ..\media\sendgrid_store_scrn3.png
-[sendgrid-purchasing-message]: ..\media\sendgrid_purchasing_message.png
-[sendgrid-add-on-dashboard]: ..\media\sendgrid_add-on_dashboard.png
-[sendgrid-connection-info]: ..\media\sendgrid_connection_info.png
-[sendgrid-connection-info-button]: ..\media\sendgrid_connection_info_button.png
-[sendgrid-control-panel]: ..\media\sendgrid_control_panel.png
+[command-bar-new]: ../media/sendgrid_BAR_NEW.PNG
+[sendgrid-store]: ../media/sendgrid_offerings_store.png
+[store-screen-1]: ../media/sendgrid_store_scrn1.png
+[store-screen-2]: ../media/sendgrid_store_scrn2.png
+[store-screen-3]: ../media/sendgrid_store_scrn3.png
+[sendgrid-purchasing-message]: ../media/sendgrid_purchasing_message.png
+[sendgrid-add-on-dashboard]: ../media/sendgrid_add-on_dashboard.png
+[sendgrid-connection-info]: ../media/sendgrid_connection_info.png
+[sendgrid-connection-info-button]: ../media/sendgrid_connection_info_button.png
+[sendgrid-control-panel]: ../media/sendgrid_control_panel.png
 
 <!--Links-->
 

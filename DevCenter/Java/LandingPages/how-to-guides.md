@@ -16,7 +16,7 @@ Service Bus Topics provide a publish/subscribe messaging model to support one-to
 
 ### [Service Bus AMQP][service_bus_amqp]
 
-The Advanced Message Queuing Protocol (AMQP) 1.0 is an efficient, reliable, wire-level messaging protocol that can be used to build robust, cross-platform, messaging applications. This How-To Guide explains how to use the Service Bus brokered messaging features (queues and publish/subscribe topics) from Java applications using the popular Java Message Service (JMS) API standard. For a complete overview of AMQP support in Windows Azure, see [AMQP 1.0 support in Windows Azure Service Bus][service_bus_amqp_overview].
+The Advanced Message Queuing Protocol (AMQP) 1.0 is an efficient, reliable, wire-level messaging protocol that can be used to build robust, cross-platform, messaging applications. This guide explains how to use the Service Bus brokered messaging features (queues and publish/subscribe topics) from Java applications using the popular Java Message Service (JMS) API standard. For a complete overview of AMQP support in Windows Azure, see [AMQP 1.0 support in Windows Azure Service Bus][service_bus_amqp_overview].
 
 
 ### [Queue Service][queue_service]

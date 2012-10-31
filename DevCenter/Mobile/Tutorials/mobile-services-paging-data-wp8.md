@@ -96,9 +96,9 @@ This concludes the set of tutorials that demonstrate the basics of working with 
 
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service/
-[Get started with data]: ./mobile-services-get-started-with-data-wp8.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-wp8.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-wp8.md
+[Get started with data]: ../tutorials/mobile-services-get-started-with-data-wp8.md
+[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-wp8.md
+[Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-wp8.md
 [Fiddler]: http://go.microsoft.com/fwlink/?LinkId=262412
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
