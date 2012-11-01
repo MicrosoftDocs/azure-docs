@@ -28,9 +28,11 @@ Information Services (IIS), so that the Node.js service can be written
 as if it were an http service. You can create a simple Node.js 'hello
 world' service using the Windows Azure PowerShell using these steps:
 
-1.  From the **Start** menu, select [**Windows Azure PowerShell**].
+1. From the **Start Menu** or **Start Screen**, search for **Windows Azure PowerShell**. Finally, right-click **Windows Azure PowerShell** and select **Run As Administrator**.
 
-    ![][0]
+	![Windows Azure PowerShell icon][powershell-menu]
+
+	<div chunk="../Chunks/install-dev-tools.md" />
 
 2.  Create a new service, using **New-AzureServiceProject** cmdlet provided with a unique service name. This service name will determine the URL of your service in Windows Azure.
 
@@ -44,8 +46,7 @@ world' service using the Windows Azure PowerShell using these steps:
 
     ![][3]
 
-Now that you have an http service published to Windows Azure, you will
-need to obtain an SSL certificate and configure your service to use it
+Note the **Created Website URL** value returned by the **Publish-AzureServiceProject** cmdlet. You will need to obtain an SSL certificate for this specific URL adn deploy it to Windows Azure.
 
 ## <a name="step2"> </a>Step 2: Get an SSL Certificate
 
@@ -63,35 +64,31 @@ certificates in Windows Azure:
 -   The certificate's subject name must match the domain used to access
     the cloud service. You cannot acquire an SSL certificate for the
     cloudapp.net domain, so the certificate's subject name must match
-    the custom domain name used to access your application.
+    the custom domain name used to access your application. For example, __mysecuresite.cloudapp.net__.
 -   The certificate must use a minimum of 2048-bit encryption.
 
-## <a name="step3"> </a>Step 3: Upload the SSL Certificate to the cloud
+## <a name="step3"> </a>Step 3: Import the SSL certificate
 
-Now that you have an SSL certificate, you must upload the certificate to
-your service in Windows Azure, following these steps:
+Once you have a certificate, install it into the certificate store on your development machine by performing the following steps:
 
-1.   Log on to the [Windows Azure Management Portal][], select **Cloud Services** and select the service you created in step 1.
+1.   Using Windows Explorer, navigate to the directory where the **.pfx** file containing the certificate is located and then double-click on the certificate. This will display the Certificate Import Wizard.
 	
-	![cloud services][cloud-services]
+	![certificate wizard][cert-wizard]
 
-2.   Click on **Certificates** entry for the cloud service and
-    select **Add Certificate** or **Upload** to upload a certificate.
+2.   In the **Store Location** section, select **Current User** and then click **Next**. This will install the certificate into the certificate store for your user account.
 
-    ![add certificate page][add-certificate]
+3.   Continue through the wizard, accepting the defaults, until you arrive at the **Private key protection** screen. Here, you must enter the password (if any) for the certificate. You must also select **Mark this key as exportable**. Finally, click **Next**.
 
-3.   In the **Add a Certificate** dialog, enter the location of
-    the SSL certificate .pfx file, the password for the certificate, and
-    click the **Checkmark**.
+	![private key protection][key-protection]
 
-	![add certificate dialog][add-certificate-dialog]
+4. Continue through the wizard, accepting the defaults, until the certificate has successfully been installed.
 
-Now you must modify your service definition to use the certificate you
-have uploaded.
+Now you must modify your service definition to reference the certificate you
+have installed.
 
 ## <a name="step4"> </a>Step 4: Modify the Service Definition and Configuration Files
 
-Your application must be configured to use the certificate, and an HTTPS
+Your application must be configured to reference the certificate, and an HTTPS
 endpoint must be added. As a result, the service definition and service
 configuration files need to be updated.
 
@@ -103,15 +100,13 @@ configuration files need to be updated.
         ...
             <Certificates>
                 <Certificate name="SampleCertificate" 
-                    storeLocation="LocalMachine" storeName="CA" />
+                    storeLocation="LocalMachine" storeName="My" />
             </Certificates>
         ...
         </WebRole>
 
     The **Certificates** section defines the name of the certificate,
-    its location, and the name of the store where it is located. We have
-    chosen to store the certificate in the CA (Certificate Authority)
-    store, but you can choose other options as well. See [How to
+    its location, and the name of the store where it is located. Since we installed the certificate to the user certificate store, a value of "My" is used. Other certificate store locations can also be used. See [How to
     Associate a Certificate with a Service] for more information.
 
 2.  In your service definition file, update the http **InputEndpoint** element within the **Endpoints** section to enable HTTPS:
@@ -150,7 +145,7 @@ configuration files need to be updated.
     your service again. At the Windows Azure PowerShell
     prompt, type **Publish-AzureServiceProject** from the service directory.
 
-    ![][6]
+	As part of the publish process, the referenced certificate will be copied from the local certificate store and included in the deployment package.
 
 ## <a name="step5"> </a>Step 5: Connect to the Role Instance by Using HTTPS
 
@@ -163,9 +158,14 @@ connect to it using HTTPS.
 
     ![the site url][site-url]
 
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>If the Site URL displayed in the portal does not specify HTTPS, then you must manually enter the URL in the browser using HTTPS instead of HTTP.</p>
+	</div>
+
 3.  A new browser will open and display your website.
 
-    Your browser will display the address in green to indicate that it is
+    Your browser will display a lock icon to indicate that it is
     using an HTTPS connection. This also indicates that your application
     has been configured correctly for SSL.
 
@@ -198,3 +198,7 @@ connect to it using HTTPS.
   [site-url]: ../Media/site-url.png
   [8]: ../Media/enable-ssl-08.png
   [How to Configure an SSL Certificate on an HTTPS Endpoint]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
+  [powershell-menu]: ../../Shared/Media/azure-powershell-start.png
+  [cert-wizard]: ../Media/certificateimport.png
+  [key-protection]: ../Media/exportable.png
+  
