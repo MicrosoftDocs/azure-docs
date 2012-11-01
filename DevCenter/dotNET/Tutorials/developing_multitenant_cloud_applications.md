@@ -1,4 +1,4 @@
-﻿# Integrating Multi-Tenant Cloud Applications with Windows Azure Active Directory
+# Integrating Multi-Tenant Cloud Applications with Windows Azure Active Directory
 
 <h2><a name="introduction"></a>Introduction</h2>
 
@@ -48,7 +48,7 @@ To generate a Client ID and Client Secret, you will need to enter the following 
 
 **App Domain**: The hostname of your application, for example "contoso.com". This property must not contain any port number. During development, this property should be set to "localhost".
 
-**App Redirect URL**: The redirect URL where Windows Azure AD will send a response after user sign-in and when an organization has authorized your application, for example: "https://contoso.com/." During development, this property should be set to "https://localhost:&lt;port number&gt;"
+**App Redirect URL**: The redirect URL where Windows Azure AD will send a response after user sign-in and when an organization has authorized your application, for example: "https://contoso.com/." During development, this property should be set to "https://localhost:<port number>"
 
 <h3>Step 3: Configure Your Application to Use the Client ID and Client Secret</h3>
 This step requires the Client ID and Client Secret that were generated during signup on the Seller Dashboard. The Client ID is used for SSO, and both the Client ID and Client Secret will be used later to obtain an access token to call the Windows Azure AD Graph API.  
@@ -171,7 +171,7 @@ To demonstrate this process, the following steps use the contoso.com domain name
 
 1.	Get the **FederationMetadata.xml** file for the Windows Azure AD tenant. For example:  
 *https://accounts.accesscontrol.windows.net/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml*
-2.	In the **FederationMetadata.xml** file, locate the **&lt;Entity Descriptor&gt;** entry. The Tenant ID is included as part of the **entityID** property following the @ sign, as shown below:
+2.	In the **FederationMetadata.xml** file, locate the **<Entity Descriptor>** entry. The Tenant ID is included as part of the **entityID** property following the @ sign, as shown below:
 
 		 <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="spn:00000001-0001-0000-c000-000000000000@a7456b11-6fe2-4e5b-bc83-67508c201e4b" ID="_97a1b555-b6df-4136-b9cd-8d9467e4f276"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#"> 
 In this case, the TenantID's value is **a7456b11-6fe2-4e5b-bc83-67508c201e4b**.
