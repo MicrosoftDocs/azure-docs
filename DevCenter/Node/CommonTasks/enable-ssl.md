@@ -46,7 +46,7 @@ world' service using the Windows Azure PowerShell using these steps:
 
     ![][3]
 
-Note the **Created Website URL** value returned by the **Publish-AzureServiceProject** cmdlet. You will need to obtain an SSL certificate for this specific URL adn deploy it to Windows Azure.
+Note the **Created Website URL** value returned by the **Publish-AzureServiceProject** cmdlet. You will need to obtain an SSL certificate for this specific URL and deploy it to Windows Azure.
 
 ## <a name="step2"> </a>Step 2: Get an SSL Certificate
 
