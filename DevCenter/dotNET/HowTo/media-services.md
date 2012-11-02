@@ -43,21 +43,7 @@ The current release of Media Services provides the following feature set for dev
 - **Protect**. Protecting content means encrypting live streaming or on demand content for secure transport, storage, and delivery. Media Services provide a DRM technology-agnostic solution for protecting content.  Currently supported DRM technologies are Microsoft PlayReady Protection and MPEG Common Encryption. Support for additional DRM technologies will be available. 
 - **Stream**. Streaming content involves sending it live or on demand to clients, or you can retrieve or download specific media files from the cloud. Media Services provide a format-agnostic solution for streaming content.  Media Services provide  streaming origin support for Smooth Streaming, Apple HTTP Live Streaming, and MP4 formats. Support for additional formats will be available. You can also seamlessly deliver streaming content by using Windows Azure CDN or a third-party CDN, which enables the option  to scale to millions of users.   
 
-
-###Media Services Client Development
-Extend the reach of your Media Services solution by using SDKs and player frameworks to build media client applications. These clients are for developers who want to build Media Services applications that offer compelling user experiences across a range of devices and platforms. Depending on the devices that you want to build client applications for, there are options for SDKs and player frameworks available from Microsoft and other third-party partners.  
-
-The following provides a list of available client SDKs and player frameworks.  For more information on these and other planned SDKs and player frameworks, and the functionality they can support, see [Media Services Client Development][]. 
-
--   **Mac and PC client support**.  Use Microsoft Silverlight to develop streaming clients.
--   **Windows 8 desktop applications**. Windows 8 supported development languages and constructs including HTML, Javascript, XAML, C# and C+.
--   **Embedded or dedicated devices**. Devices such as connected TVs, set-top boxes, Blu-Ray players, OTT TV boxes, and mobile devices that have a custom application development framework and a custom media pipeline.
--   **Windows Phone**. Use a Microsoft SDK to build premium Windows Phone applications.
--   **iOS devices**. Use a Microsoft SDK to build clients for iPhone, iPod, and iPad.
--   **Android devices**. Use SDKs provided by Microsoft partners to build Android clients.
-
-
-###Development Scenarios
+###Media Services Development Scenarios
 Media Services support several common media development scenarios as described in the following table. 
 <table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
   <thead>
@@ -81,6 +67,50 @@ Media Services support several common media development scenarios as described i
     </tr>
   </tbody>
 </table>
+
+<br/>
+###Media Services Client Development
+Extend the reach of your Media Services solution by using SDKs and player frameworks to build media client applications. These clients are for developers who want to build Media Services applications that offer compelling user experiences across a range of devices and platforms. Depending on the devices that you want to build client applications for, there are options for SDKs and player frameworks available from Microsoft and other third-party partners.  
+
+The following provides a list of available client SDKs and player frameworks.  For more information on these and other planned SDKs and player frameworks, and the functionality they can support, see [Media Services Client Development][]. 
+
+####Mac and PC client support  
+For PCs and Macs you can target a streaming experience using Microsoft Silverlight. An SDK for Flash client development will be available soon.
+
+-	[Smooth Streaming Client for Silverlight](http://www.iis.net/download/smoothclient)
+-	[Microsoft Media Platform: Player Framework for Silverlight](http://smf.codeplex.com/documentation)
+
+####Windows 8 applications
+For Windows 8, you can build Windows Store applications using any of the supported development languages and constructs like HTML, Javascript, XAML, C# and C+.
+
+-	[Smooth Streaming Client SDK for Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). For more information on how to create a Windows Store application using this SDK, see [How to Build a Smooth Streaming Windows Store Application](http://go.microsoft.com/fwlink/?LinkId=271647).
+
+-	[Microsoft Media Platform: Player Framework for Windows 8 Windows Store Applications](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home)
+
+####Xbox
+Xbox supports Xbox LIVE applications that can consume Smooth Streaming content. The Xbox LIVE Application Development Kit (ADK) includes:
+
+-	Smooth Streaming client for Xbox LIVE ADK
+-	Microsoft Media Platform: Player Framework for Xbox LIVE ADK
+
+####Embedded or dedicated devices
+Devices such as connected TVs, set-top boxes, Blu-Ray players, OTT TV boxes, and mobile devices that have a custom application development framework and a custom media pipeline. Microsoft provides the following porting kits that can be licensed, and enables partners to port Smooth Streaming playback for the platform.
+
+-	[Smooth Streaming Client Porting Kit](http://www.microsoft.com/en-us/mediaplatform/sspk.aspx)
+-	[Microsoft PlayReady Device Porting Kit](http://www.microsoft.com/PlayReady/Licensing/device_technology.mspx)
+
+####Windows Phone
+Microsoft provides an SDK that can be used to build premium video applications for Windows Phone. 
+
+-	[Smooth Streaming Client for Silverlight](http://www.iis.net/download/smoothclient)
+-	[Microsoft Media Platform: Player Framework for Silverlight](http://smf.codeplex.com/documentation)
+
+####iOS devices
+For iOS devices including iPhone, iPod, and iPad, Microsoft ships an SDK that you can use to build applications for these platforms to deliver premium video content: Smooth Streaming SDK for iOS Devices with PlayReady.  The SDK is available only to licensees, so for more information, please [email Microsoft](mailto:askdrm@microsoft.com). For information on iOS development, see the [iOS Developer Center](https://developer.apple.com/devcenter/ios/index.action).
+
+####Android devices
+Several Microsoft partners ship SDKs for the Android platform that add the capability to play back Smooth Streaming on an Android device. Please [email Microsoft](mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices) for more details on the partners.
+
 
 <br />
 
@@ -540,6 +570,8 @@ Now that you have learned how to set up for Media Services development and perfo
 -   [Building Applications with the Media Services SDK for .NET][]
 -   [Building Applications with the Windows Azure Media Services REST API][]
 -   [Media Services Forum][]
+-	[How to Monitor a Media Services Account](http://www.windowsazure.com/en-us/manage/services/media-services/how-to-monitor-a-media-services-account/)
+-	[How to Manage Content in Media Services](http://www.windowsazure.com/en-us/manage/services/media-services/howto-manage-content-in-media-services/)
 
 
 <!-- Reusable paths. -->
