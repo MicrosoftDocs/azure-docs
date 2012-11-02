@@ -18,7 +18,7 @@ The companion sample application for this walkthrough can be [downloaded here][]
 <h3>Prerequisites</h3>
 The following developer prerequisites are required for this walkthrough:
 
-* [Visual Studio 2012 Express][]
+* [Visual Studio 2012][]
 * [WCF Data Services for OData][]
 
 <h3>Table of Contents</h3>
@@ -48,25 +48,26 @@ To generate a Client ID and Client Secret, you will need to enter the following 
 
 **App Domain**: The hostname of your application, for example "contoso.com". This property must not contain any port number. During development, this property should be set to "localhost".
 
-**App Redirect URL**: The redirect URL where Windows Azure AD will send a response after user sign-in and when an organization has authorized your application, for example: "https://contoso.com/." During development, this property should be set to "https://localhost:<port number>"
+**App Redirect URL**: The redirect URL where Windows Azure AD will send a response after user sign-in and when an organization has authorized your application, for example: "https://contoso.com/." During development, this property should be set to "https://localhost:&#60;port number&#62;"
 
 <h3>Step 3: Configure Your Application to Use the Client ID and Client Secret</h3>
 This step requires the Client ID and Client Secret that were generated during signup on the Seller Dashboard. The Client ID is used for SSO, and both the Client ID and Client Secret will be used later to obtain an access token to call the Windows Azure AD Graph API.  
 
 The sample application has been pre-wired to use Windows Azure AD, and loads the Client ID and Client Secret from config. In the **Web.config** file in the sample application, make the following changes: 
 
-1. In the **appSettings** node, replace the values for "clientId" and "SymmetricKey" with your Client ID and Client Secret: 
+1. In the **appSettings** node, replace the values for "clientId" and "SymmetricKey" with your Client ID, Client Secret, and your App Domain: 
 
 		<appSettings>
-    		<add key ="clientId" value="<Your Client ID value>"/>
-	    	<add key="SymmetricKey" value="<Your Client Secret value"/>
+    		<add key="clientId" value="(Your Client ID value)"/>
+	    	<add key="SymmetricKey" value="(Your Client Secret value)"/>
+			<add key="AppHostname" value="(Your App Domain)"/>
 		</appSettings>
 
 2. In the **audienceUris** node of **system.identityModel**, insert your Client ID after "spn:":
 
 		<system.identityModel>
     		<audienceUris>
-            	<add value="spn:<Your Client ID value>" />
+            	<add value="spn:(Your Client ID value)" />
     		</audienceUris>
 
 
@@ -124,7 +125,7 @@ The following is an example valid response to the consent request that indicates
 
 Your application will need to maintain context such that the request sent to the Windows Azure AD authorization page is tied to the response (and would reject any responses without an associated request).
 
-<div class="dev-callout"><strong>Note</strong><p>After consent is granted, Windows Azure AD may take some time before SSO and Graph access are provisioned. Your first customer may see sign-in errors until the provisioning completes.</p></div>
+<div class="dev-callout"><strong>Note</strong><p>After consent is granted, Windows Azure AD may take some time before SSO and Graph access are provisioned. The first user in each organization that signs up for your application may see see sign-in errors until the provisioning completes.</p></div>
 
 After a customer has granted consent to your application, it's important to associate and store the newly created tenant in your application with the TenantId returned by the consent response. The sample application contains an *HttpModule* in the *Microsoft.IdentityModel.WAAD.Preview.Consent* namespace that automatically records the TenantId to a customer/TenantId “data store" on all successful consent responses.  The code for this is included below, and recording of the TenantId to a customer/TenantId "data store" is performed by the *TrustedIssuers.Add* method:
 
@@ -153,6 +154,8 @@ To test your application's ability to integrate with Windows Azure AD, you'll ne
 
 Once you have obtained a Windows Azure AD tenant, you can build and run the application by pressing **F5**. Additionally, you can try to sign up for your application using the new  tenant. 
 
+<div class="dev-callout"><strong>Note</strong><p>If your customers sign up for a new Windows Azure AD tenant, it may take some time for that tenant to be fully provisioned. Users may see errors on the consent page until the provisioning completes.</p></div>
+
 <h2><a name="enablesso"></a>Part 3: Enable Single Sign-On</h2>
 
 This section shows you how to enable Single Sign-On (SSO). The process starts with constructing a sign-in request to Windows Azure AD that authenticates a user to your application, then verifies in the sign-in response that the customer belongs to a tenant that has authorized your application. The sign-in request requires your Client ID from the Seller Dashboard and the Tenant ID of the customer's organization.
@@ -171,7 +174,7 @@ To demonstrate this process, the following steps use the contoso.com domain name
 
 1.	Get the **FederationMetadata.xml** file for the Windows Azure AD tenant. For example:  
 *https://accounts.accesscontrol.windows.net/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml*
-2.	In the **FederationMetadata.xml** file, locate the **<Entity Descriptor>** entry. The Tenant ID is included as part of the **entityID** property following the @ sign, as shown below:
+2.	In the **FederationMetadata.xml** file, locate the **Entity Descriptor** entry. The Tenant ID is included as part of the **entityID** property following the @ sign, as shown below:
 
 		 <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="spn:00000001-0001-0000-c000-000000000000@a7456b11-6fe2-4e5b-bc83-67508c201e4b" ID="_97a1b555-b6df-4136-b9cd-8d9467e4f276"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#"> 
 In this case, the TenantID's value is **a7456b11-6fe2-4e5b-bc83-67508c201e4b**.
@@ -215,7 +218,7 @@ Once the token is validated, the user is signed in to the application. Run the a
 
 <h2><a name="accessgraph"></a>Part 4: Access Windows Azure AD Graph</h2>
 
-This section describes how to obtain an access token and call the Windows Azure AD Graph API to access a tenant's directory data. The Azure AD Graph can provide additional information about users in the tenant. For example, while the token obtained during sign in contains user information such as a name and email address, your application may need information such as group memberships or the name of the user's manager. This information can be obtained from the tenant's directory by using the Graph API. For more information about the Graph API, see [this topic][].
+This section describes how to obtain an access token and call the Windows Azure AD Graph API to access a tenant's directory data. For example, while the token obtained during sign in contains user information such as a name and email address, your application may need information such as group memberships or the name of the user's manager. This information can be obtained from the tenant's directory by using the Graph API. For more information about the Graph API, see [this topic][].
 
 Before your application can call the Windows Azure AD Graph, it must authenticate itself and obtain an access token. Access tokens are obtained by authenticating your application with its Client ID and Client Secret. The following steps will show you how to:
 
@@ -223,7 +226,7 @@ Before your application can call the Windows Azure AD Graph, it must authenticat
 2.	Acquire an access token using Windows Azure Authentication Library (AAL) 
 3.	Call the Azure AD Graph to get a list of tenant users
 
-<div class="dev-callout"><strong>Note</strong><p>The sample application helper library *Microsoft.IdentityModel.WAAD.Preview* already contains an auto-generated proxy class (created by adding a Service Reference to *https://graph.windows.net/your-domain-name* called GraphService). The application will use this proxy class to call into the Windows Azure AD Graph service.</p></div>
+<div class="dev-callout"><strong>Note</strong><p>The sample application helper library Microsoft.IdentityModel.WAAD.Preview already contains an auto-generated proxy class (created by adding a Service Reference to https://graph.windows.net/your-domain-name called GraphService). The application will use this proxy class to call into the Windows Azure AD Graph service.</p></div>
 
 <h3>Step 1: Use the Proxy Class to Call the Windows Azure AD Graph</h3>
 In this step, we are going to use the sample application to show you how to:
@@ -382,7 +385,7 @@ Integrating with Windows Azure AD allows your customers to sign up and sign in t
 [Part 4: Access Windows Azure AD Graph]: #accessgraph
 [Part 5: Publish Your Application]: #publish
 [Summary]: #summary
-[Visual Studio 2012 Express]: http://g.microsoftonline.com/1AX00en/123
+[Visual Studio 2012]: http://www.microsoft.com/visualstudio/eng/downloads
 [AAL x86 NuGet  Package]: http://g.microsoftonline.com/1AX00en/124
 [AAL x64 NuGet Package]: http://g.microsoftonline.com/1AX00en/125
 [Visual Studio Identity & Access Tool]: http://g.microsoftonline.com/1AX00en/126
