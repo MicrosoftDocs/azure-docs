@@ -22,17 +22,18 @@ email, see the [Next Steps][] section.
 ## <a name="bkmk_WhatIsSendGrid"> </a>What is the SendGrid Email Service?
 
 SendGrid is a cloud-based email service that provides reliable email
-delivery, scalability, and real-time analytics along with flexible APIs
+delivery, scalability, and real-time analytics, along with flexible APIs
 that make custom integration easy. Common SendGrid usage scenarios
 include:
 
--   Automatically sending receipts to customers.
+-   Automatically sending receipts to customers
 -   Administering distribution lists for sending customers monthly
-    e-fliers and special offers.
+    e-fliers and special offers
 -   Collecting real-time metrics for things like blocked e-mail, and
-    customer responsiveness.
--   Generating reports to help identify trends.
--   Forwarding customer inquiries.
+    customer responsiveness
+-   Generating reports to help identify trends
+-   Forwarding customer inquiries
+- Email notifications from your application
 
 For more information, see [http://sendgrid.com][].
 
@@ -54,7 +55,7 @@ deploy your application by following the methods outlined here:
 ## <a name="bkmk_HowToSendEmail"> </a>How to: Send an Email
 
 You can send email using either SMTP or the Web API provided by
-SendGrid. For details about the benefits and drawbacks of each API, see
+SendGrid. For details about the benefits and differences of each API, see
 [SMTP vs. Web API][] in the SendGrid documentation.
 
 ### SMTP API
