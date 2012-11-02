@@ -1,6 +1,6 @@
-# How to Manage Content in Windows Azure Media Services #
+# How to Manage Content in Media Services #
 
-The Windows Azure Media Services content view allows you to manage Windows Azure Media content for your Media Services account.
+The Windows Azure Media Services content view allows you to manage media content for your Media Services account.
 
 Currently you can perform the following content operations directly from the portal:
 
