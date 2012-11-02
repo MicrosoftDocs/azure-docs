@@ -288,9 +288,7 @@ For more information about using Windows PowerShell, see [Getting Started with W
 	![BackupDC](../media/BackupDC.png)
 
 
-8.	Click OK if necessary to confirm if the destination volume is included in the backup and then click Backup.
-
-
+8.	Confirm the backup settings you selected and then click **Backup**.
 
 <h2 id="test">Step 8: Test authentication and authorization</h2>
 

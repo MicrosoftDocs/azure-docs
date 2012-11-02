@@ -250,11 +250,10 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 6.	Click **Local drives**, then click **Next**.
 
 7.	Select the destination drive that does not host the operating system files or the Active Directory database, then click **Next**.
+    ![Backup the DC](../media/BackupDC.png)
 
-8.	Click **OK**, if necessary, to confirm if the destination volume is included in the backup, and then click **Backup**. 
+8.	Confirm the settings you selected and then click **Backup**. 
 
-
-![](http://)
 
 <h2 id="Step5">Step 5: Provisioning a Virtual Machine that is Domain Joined on Boot</h2>
 After the DC is configured, run the following Windows PowerShell script to provision additional virtual machines and have them automatically join the domain when they are provisioned. The DNS client resolver settings for the VMs must be configured when the VMs are provisioned.  
