@@ -28,17 +28,18 @@ filters**. For more information on SendGrid and sending email, see the
 <h2>What is the SendGrid Email Service?</h2>
 
 SendGrid is a cloud-based email service that provides reliable email
-delivery, scalability, and real-time analytics. along with flexible APIs
+delivery, scalability, and real-time analytics, along with flexible APIs
 that make custom integration easy. Common SendGrid usage scenarios
 include:
 
--   Automatically sending receipts to customers.
+-   Automatically sending receipts to customers
 -   Administering distribution lists for sending customers monthly
-    e-fliers and special offers.
+    e-fliers and special offers
 -   Collecting real-time metrics for things like blocked e-mail, and
-    customer responsiveness.
--   Generating reports to help identify trends.
--   Forwarding customer inquiries.
+    customer responsiveness
+-   Generating reports to help identify trends
+-   Forwarding customer inquiries
+- Email notifications from your application
 
 For more information, see [http://sendgrid.com][].
 
@@ -156,7 +157,7 @@ For more information on all properties and methods supported by the
 
 After creating an email message, you can send it using either SMTP or
 the Web API provided by SendGrid. For details about the benefits and
-drawbacks of each API, see [SMTP vs. Web API][] in the SendGrid
+differences of each API, see [SMTP vs. Web API][] in the SendGrid
 documentation.
 
 Sending email with either protocol requires that you supply your
