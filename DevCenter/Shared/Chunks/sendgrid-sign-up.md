@@ -16,7 +16,7 @@ Windows Azure customers receive a special offer of 2 months of SendGrid's Bronze
 
 5. In the **Personalize Add-on** dialog select the **SendGrid** plan you want to sign up for.
 
-6. To receive the 2 months of SendGrid's Bronze Plan for free, enter the promotion code "bronzesendgridmsft".
+6. To receive the two months of SendGrid's Bronze Plan for free, enter the promotion code "bronzesendgridmsft".
 
 7. Enter a name to identify your **SendGrid** service in your Windows Azure settings, or use the default value of **SendGrid**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Windows Azure Store Items.
 

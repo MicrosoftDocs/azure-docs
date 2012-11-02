@@ -74,7 +74,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-            var todoItem = new TodoItem { Text = TextInput.Text, 
+            var todoItem = new TodoItem { Text = TodoInput.Text, 
                 Channel = App.CurrentChannel.ChannelUri.ToString() };
             InsertTodoItem(todoItem);
         }
