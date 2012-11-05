@@ -489,9 +489,7 @@ details, see the [SendGrid API documentation][].
 Now that you’ve learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
--   SendGrid API documentation:
-    [http://docs.sendgrid.com/documentation/api/][SendGrid API
-    documentation]
+-   SendGrid API documentation: <http://docs.sendgrid.com/documentation/api/>
 -   SendGrid special offer for Windows Azure customers:
     [http://sendgrid.com/azure.html][]
 
@@ -503,6 +501,7 @@ these links to learn more.
   [How To: Add an Attachment]: #bkmk_HowToAddAttachment
   [How to: Use Filters to Enable Footers, Tracking, and Analytics]: #bkmk_HowToUseFilters
   [How to: Use Additional SendGrid Services]: #bkmk_HowToUseAdditionalSvcs
+
   [http://sendgrid.com]: http://sendgrid.com
   [http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html
   [special offer]: http://www.sendgrid.com/azure.html

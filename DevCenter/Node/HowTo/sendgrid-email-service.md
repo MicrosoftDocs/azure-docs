@@ -1,6 +1,4 @@
-<properties linkid="dev-nodejs-how-to-sendgrid-email-service" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Node.js) - Windows Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Node.js, Azure email Node.js" metaDescription="Learn how send email with the SendGrid email service on Windows Azure. Code samples written using the Node.js API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
-
-
+<properties linkname="dev-nodejs-how-to-sendgrid-email-service" urldisplayname="SendGrid Email Service" headerexpose="" pagetitle="SendGrid Email Service - How To - Node.js - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 # How to Send Email Using SendGrid from Node.js
 
@@ -255,8 +253,7 @@ these links to learn more.
 
 -   SendGrid Node.js module repository: [sendgrid-nodejs][]
 -   SendGrid API documentation:
-    [http://docs.sendgrid.com/documentation/api/][SendGrid API
-    documentation]
+    <http://docs.sendgrid.com/documentation/api/>
 -   SendGrid special offer for Windows Azure customers:
     [http://sendgrid.com/azure.html][]
 
@@ -271,6 +268,7 @@ these links to learn more.
   [How to: Update Email Properties]: #updateproperties
   [How to: Use Additional SendGrid Services]: #useservices
   [1]: #nextsteps
+
   [http://sendgrid.com]: http://sendgrid.com/
   [http://sendgrid.com/azure.html]: http://sendgrid.com/azure.html
   [special offer]: http://www.sendgrid.com/azure.html
