@@ -60,7 +60,7 @@ Windows Azure applications can use Twilio to incorporate phone call and Short Me
 [blob_service]: ../howto/blob-storage.md
 [service_bus_queues]: ../howto/service-bus-queues.md
 [service_bus_topics]: ../howto/service-bus-topics.md
-[service_bus_amqp]: ../howto/service-bus-amqp.md
+[service_bus_amqp]: /en-us/develop/java/how-to-guides/service-bus-amqp/
 [service_bus_amqp_overview]: ../howto/service-bus-amqp-overview.md
 [queue_service]: ../howto/queue-storage.md
 [table_service]: ../howto/table-storage.md

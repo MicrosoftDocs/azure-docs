@@ -60,7 +60,7 @@ After you click **Complete** Windows Azure will initiate build and deploy operat
 
 	![your Orchard site][13]
 
-4. Follow the details in the [Orchard Getting Started Guide](http://orcharddocs.apphb.com/Documentation/Getting-Started) to learn more about Orchard and configure your new site.
+4. Follow the details in the [Orchard Documentation](http://docs.orchardproject.net/) to learn more about Orchard and configure your new site.
 
 <h2><span class="short-header">Next steps</span>Next step</h2>
 * [Develop and deploy a web site with Microsoft WebMatrix](/en-us/develop/net/tutorials/website-with-webmatrix) -- Learn how to edit a Windows Azure web site in WebMatrix. 
