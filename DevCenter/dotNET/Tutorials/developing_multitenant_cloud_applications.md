@@ -1,13 +1,9 @@
-<properties linkid="develop-net-tutorials-multitenant-apps-for-active-direcotry" urlDisplayName="Multi-Tenant Cloud App Security" pageTitle="Developing multi-tenant apps for Windows Azure Active Directory" metaKeywords="" metaDescription="Learn how to develop multi-tenant cloud applications using Windows Azure Active Directory." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+﻿<properties linkid="develop-net-tutorials-multitenant-apps-for-active-direcotry" urlDisplayName="Multi-Tenant Cloud App Security" pageTitle="Developing multi-tenant apps for Windows Azure Active Directory" metaKeywords="" metaDescription="Learn how to develop multi-tenant cloud applications using Windows Azure Active Directory." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-
-
-
-
-
-
+<div chunk="../chunks/article-left-menu.md" />
 
 # Integrating Multi-Tenant Cloud Applications with Windows Azure Active Directory
+
 <h2><a name="introduction"></a>Introduction</h2>
 
 Windows Azure Active Directory (Windows Azure AD) is a modern, REST-based service that provides identity management and access control capabilities for cloud applications. Windows Azure AD easily integrates with cloud services as well as Windows Azure, Microsoft Office 365, Dynamics CRM Online, and Windows Intune. Existing on-premise Active Directory deployments can also take full advantage of Windows Azure AD. To learn more, see the [Identity page][] on [windowsazure.com][].
