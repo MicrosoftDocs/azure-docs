@@ -1,5 +1,13 @@
-<div chunk="../chunks/article-left-menu.md" />
+<properties linkid="develop-net-tutorials-multi-tier-web-site-2-download-and-run" urlDisplayName="Step 2: Download and Run" pageTitle="Multi-tier web site tutorial - Step 2: Download and run" metaKeywords="Windows Azure tutorial, deploying email service app, publishing email service" metaDescription="The second tutorial in a series that teaches how to configure your computer for Windows Azure development and deploy the Email Service app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+
+
+
+
+
+
+
+<div chunk="../chunks/article-left-menu.md" />
 # Configuring and Deploying the Azure Email Service application
 
 This is the second tutorial in a series of five that show how to build and deploy the Azure Email Service sample application.  For information about the application and the tutorial series, see the [first tutorial in the series][firsttutorial].

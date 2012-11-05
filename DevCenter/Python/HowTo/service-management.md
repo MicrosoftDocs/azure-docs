@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to use Service Management from Python" metaKeywords="Windows Azure, Service Management, ServiceManagement, Python" metaDescription="Learn how to use Windows Azure service management from Python applications." linkid="" urlDisplayName="How to use Service Management from Python" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-python-service-management" urlDisplayName="Service Management" pageTitle="How to use the service management API (Python) - feature guide" metaKeywords="" metaDescription="Learn how to programmatically perform common service management tasks from Python." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # How to use Service Management from Python
 

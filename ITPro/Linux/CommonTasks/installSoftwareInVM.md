@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Install software on your Linux virtual machine in Windows Azure" metaKeywords="" metaDescription="" linkid="manage-linux-common-tasks-install-software" urlDisplayName="Install software on VM" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-linux-commontasks-install-software" urlDisplayName="Install software on VM" pageTitle="Install software on a Linux virtual machine - Windows Azure" metaKeywords="" metaDescription="Learn how to install software on your Linux virtual machine in Windows Azure by using CentOS/Red Hat or Ubuntu." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 #Install software on your Linux virtual machine in Windows Azure
 
 <div chunk="../../shared/chunks/disclaimer.md" />

@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Create and Configure SQL Database" metaKeywords="Windows Azure SQL database, SQL database, create sql database, configure sql database" metaDescription="Learn how to manage Windows Azure SQL database." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-how-to-configure-a-sqldb" urlDisplayName="How to configure" pageTitle="How to configure a SQL Database - Windows Azure" metaKeywords="Azure creating SQL Server, Azure configuring SQL Server" metaDescription="Learn how to create and configure a logical server using SQL Server in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 
 <h1 id="configLogical">How to Create and Configure SQL Database</h1>

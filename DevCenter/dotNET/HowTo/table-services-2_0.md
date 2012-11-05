@@ -1,4 +1,6 @@
-<properties umbraconavihide="0" pagetitle="How to Use the Table Storage Service from .NET" metakeywords="Get started Azure table, Azure nosql, Azure large structured data store, Azure table, Azure table storage, Azure table .NET, Azure table storage .NET, Azure table C#, Azure table storage C#" metadescription="Get started with Windows Azure table storage. Learn how to use the Windows Azure table storage service to create and delete tables and insert and query entities in a table." linkid="dev-net-how-to-table-services" urldisplayname="Table Service" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties linkid="dev-net-2-how-to-table-services" urlDisplayName="Table Service (2.0)" pageTitle="How to use table storage - Windows Azure feature guide" metaKeywords="Get started Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage   Azure table .NET   Azure table storage .NET   Azure table C#   Azure table storage C#" metaDescription="Learn how to use table storage to create and delete tables and insert and query entities in a table." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 

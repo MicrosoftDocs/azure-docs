@@ -1,5 +1,7 @@
-<div chunk="../chunks/article-left-menu.md" />
+<properties linkid="develop-net-how-to-guides-media-services" urlDisplayName="Media Services" pageTitle="How to use Media Services (.NET) - Windows Azure feature guide" metaKeywords="Windows Azure Media Services, Windows Azure media, windows azure streaming, azure media, azure streaming, azure encoding" metaDescription="Describes how to use Windows Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+
+<div chunk="../chunks/article-left-menu.md" />
 #How to Use Media Services
 
 This guide shows you how to start programming with Windows Azure Media Services. The guide includes a technical overview of Media Services, steps to configure your Windows Azure account for Media Services, a setup guide for development, and topics that show how to accomplish typical programming tasks. The scenarios demonstrated include: uploading assets, encrypting or encoding assets, and delivering assets by downloading or by generating URLs for streaming content. The samples are written in C# and use the Media Services SDK for .NET. For more information on Windows Azure Media Services, refer to the [Next Steps][] section.

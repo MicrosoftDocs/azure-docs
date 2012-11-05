@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="" metaKeywords="Windows Azure virtual machine, Azure virtual machine, Azure java worker load, Azure java service bus, Azure java compute intensive" metaDescription="With Windows Azure, you can use a virtual machine to handle compute-intensive tasks; for example, a virtual machine could handle tasks and deliver results to client machines or mobile applications." linkid="dev-java-compute-load" urlDisplayName="Java compute load" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Windows Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" metaDescription="Learn how to create a Windows Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # How to run a compute-intensive task in Java on a virtual machine
 

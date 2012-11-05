@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Deploy a Database to Windows Azure" metaKeywords="Windows Azure SQL database, SQL database, deploy sql database" metaDescription="Learn how to deploy a database to Windows Azure." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-how-to-deploy-a-sqldb" urlDisplayName="How to deploy" pageTitle="How to deploy a SQL Database - Windows Azure" metaKeywords="" metaDescription="Learn how to deploy a SQL Server database to Windows Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 
 <h1 id="howtodeploySQLdb">How to Deploy a Database to Windows Azure</h1>

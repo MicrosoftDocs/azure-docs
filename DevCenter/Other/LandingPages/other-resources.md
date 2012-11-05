@@ -1,5 +1,7 @@
-# Developer Center - Other Resources
+<properties linkid="develop-other-otherresources" urlDisplayName="Other Resources" pageTitle="Windows Azure other resources" metaKeywords="Azure develop resource" metaDescription="Find other developer resources for Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+# Developer Center - Other Resources
 ### [Samples and toolkits][]
 Provides links to Windows Azure .NET code samples along with toolkits that provide scenario-focused samples of mobile applications, games, and more.
 

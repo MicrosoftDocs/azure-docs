@@ -1,5 +1,7 @@
-<div chunk="../chunks/article-left-menu.md" />
+<properties linkid="develop-net-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" pageTitle="How to use AMQP 1.0 with the .NET Service Bus API - Windows Azure" metaKeywords="" metaDescription="Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Windows Azure .NET Service Bus API." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+
+<div chunk="../chunks/article-left-menu.md" />
 # How to use AMQP 1.0 with the .NET Service Bus .NET API
 
 ## Introduction

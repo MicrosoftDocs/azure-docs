@@ -1,4 +1,6 @@
-<properties umbraconavihide="0" pagetitle="How to Use Windows Azure Caching from .NET" metakeywords="Windows Azure cache, Windows Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" metadescription="Learn how to use Windows Azure caching: add and remove objects from the cache, store ASP.NET session state in the cache, and enable ASP.NET page output caching." linkid="Contact - Support" urldisplayname="Caching" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties linkid="Contact - Support" urlDisplayName="Caching" pageTitle="How to use Caching (.NET) - Windows Azure feature guide" metaKeywords="Windows Azure cache, Windows Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" metaDescription="Learn how to use Windows Azure Caching. The samples are written in C# code and use the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 

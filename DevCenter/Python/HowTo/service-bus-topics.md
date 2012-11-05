@@ -1,5 +1,7 @@
-# How to Use Service Bus Topics/Subscriptions
+<properties linkid="develop-python-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Python) - Windows Azure" metaKeywords="Get started Azure Service Bus topics publising subscribe messaging Python" metaDescription="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for Python applications." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+
+# How to Use Service Bus Topics/Subscriptions
 This guide will show you how to use Service Bus topics and subscriptions
 from Python applications. The scenarios covered include **creating
 topics and subscriptions, creating subscription filters, sending

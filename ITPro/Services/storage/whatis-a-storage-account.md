@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="What is a Storage Account" metaKeywords="Windows Azure storage, storage service, service, storage account, account, create storage account, create account" metaDescription="Learn about Windows Azure storage accounts." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-what-is-a-storage-account" urlDisplayName="What is a Storage Account" pageTitle="What is a storage account - Windows Azure service management" metaKeywords="" metaDescription="An introduction to storage accounts in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 #What is a Storage Account?
 

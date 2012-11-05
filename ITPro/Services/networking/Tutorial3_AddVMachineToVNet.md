@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Tutorial 3: Adding a Virtual Machine to a Virtual Network" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Learn how to configure Windows Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-add-a-vm-to-a-virtual-network" urlDisplayName="Add a VM to virtual network" pageTitle="Add a virtual machine to a virtual network - Windows Azure" metaKeywords="" metaDescription="A tutorial that teaches you how to create a storage account and virtual machine (VM) that you add to a Windows Azure virtual network." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 
 <h1 id="vnet3">Add a Virtual Machine to a Virtual Network</h1>

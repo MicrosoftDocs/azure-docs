@@ -1,5 +1,7 @@
-<div chunk="../chunks/article-left-menu.md" />
+<properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" urlDisplayName="Step 1: Overview" pageTitle="Multi-tier ASP.NET MVC 4 Web Site Tutorial - Step 1: Overview" metaKeywords="Windows Azure tutorial, email list service app, email service architecture, Azure tutorial overview" metaDescription="Learn about the five part multi-tier web site tutorial." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+
+<div chunk="../chunks/article-left-menu.md" />
 # .NET Multi-Tier Application Using Storage Tables, Queues, and Blobs
 
 This tutorial series shows how to create a multi-tier ASP.NET web application that uses Windows Azure Storage tables, queues, and blobs. The tutorials assume that you have no prior experience using Windows Azure. On completing the series, you'll know how to build a resilient and scalable data-driven web application and deploy it to the cloud.

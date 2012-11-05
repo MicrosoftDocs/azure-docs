@@ -1,5 +1,7 @@
-<div chunk="../chunks/article-left-menu.md" />
+<properties linkid="develop-dotnet-rest-service-using-web-api" urlDisplayName="REST service using Web API" pageTitle=".NET REST service using Web API - Windows Azure tutorial" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" metaDescription="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to a Windows Azure web site by using Visual Studio." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+
+<div chunk="../chunks/article-left-menu.md" />
 # Mobile-friendly REST service using ASP.NET Web API and SQL Database 
 
 This tutorial shows how to deploy an ASP.NET web application that uses the ASP.NET Web API to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012. If you prefer, you can follow the tutorial steps by using Visual Web Developer Express 2010, Visual Studio 2010, or Visual Studio 2012 for Web Express.

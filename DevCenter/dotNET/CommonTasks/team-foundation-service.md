@@ -1,4 +1,6 @@
-<properties linkid="dev-net-common-tasks-team-foundation-service" urldisplayname="Team Foundation Service" headerexpose="" pagetitle="Continuous Delivery of a Cloud Service by Using Team Foundation Service" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-common-tasks-publishing-with-tfs" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Team Foundation Service in Windows Azure" metaKeywords="" metaDescription="Learn how to configure your Team Foundation Service team projects to automatically build and deploy to Windows Azure web sites or cloud services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 # Continuous delivery to Windows Azure by using Team Foundation Service

@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Installing MySQL on a OpenSUSE Linux Virtual Machine in Windows Azure" metaKeywords="" metaDescription="" linkid="manage-linux-common-tasks-MongoDB" urlDisplayName="Install MongoDB" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-linux-common-task-mysql-virtual-machine" urlDisplayName="Install MySQL" pageTitle="Install MySQL on a Linux virtual machine in Windows Azure" metaKeywords="Azure vm OpenSUSE, Linux vm" metaDescription="Learn how to create a Windows Azure virtual machine with OpenSUSE Linux, and then use SSH or PuTTY to install MySQL." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 #Install MySQL on a virtual machine running OpenSUSE Linux in Windows Azure
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />

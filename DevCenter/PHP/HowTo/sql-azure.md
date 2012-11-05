@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Access Windows Azure SQL Database from PHP" metaKeywords="Windows Azure, SQL Database, PHP" metaDescription="Learn how to use PHP to access Windows Azure SQL Database." linkid="dev-php-howto-sql-database" urlDisplayName="How to Access Windows Azure SQL Database from PHP" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-php-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (PHP) - Windows Azure feature guides" metaKeywords="Azure SQL Database PHP, SQL Database PHP" metaDescription="Learn how to create and connect to a Windows Azure SQL Database from PHP." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 #How to Access Windows Azure SQL Database from PHP
 

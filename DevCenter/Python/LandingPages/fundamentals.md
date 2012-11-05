@@ -1,4 +1,6 @@
-<properties linkid="devnav-python-fundamentals" urlDisplayName="Windows Azure Intro" headerExpose="" pageTitle="Windows Azure Python Fundamentals" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="devnav-python-fundamentals" urlDisplayName="Windows Azure Intro" pageTitle="Windows Azure Python fundamentals" metaKeywords="Windows Azure Python, Azure Python, Python Azure, Azure Python basics" metaDescription="Find introductory topics about using Python in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+
+
 
 # Python Developer Center - Fundamentals
 

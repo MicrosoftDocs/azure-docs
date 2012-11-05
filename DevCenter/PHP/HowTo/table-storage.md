@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Use the Table Service from PHP" metaKeywords="Windows Azure, Table Service, Table Storage, PHP" metaDescription="Learn how to use the Windows Azure Table Service from PHP applications." linkid="dev-php-howto-table-service" urlDisplayName="How to Use the Table Service from PHP" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-php-table-service" urlDisplayName="Table Service" pageTitle="How to use table storage (PHP) - Windows Azure feature guide" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" metaDescription="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # How to use the Table service from PHP
 

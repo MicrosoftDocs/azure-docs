@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Create a PHP Website with a SQL Database and Deploy Using Git" metaKeywords="Windows Azure, Windows Azure Websites, SQL Database, PHP, Git, Git deploy" metaDescription="Learn how to create a Windows Azure PHP website with a SQL Database and deploy to it using Git." linkid="dev-php-tutorials-php-site-sql-database-git" urlDisplayName="Create a PHP Website with a SQL Database and Deploy Using Git" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-php-website-with-sql-database-and-git" urlDisplayName="Web w/ SQL + Git" pageTitle="PHP web site with SQL Database and Git - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to create a PHP web site that stores data in SQL Database and use Git deployment to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 #Create a PHP website with a SQL Database and deploy using Git
 

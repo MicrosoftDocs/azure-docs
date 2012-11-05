@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="" metaKeywords="Windows Azure web site" metaDescription="This tutorial shows how to deploy an ASP.NET web application to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012 or Visual Studio 2012 for Web Express." linkid="dev-net-mvc4-web-site" urlDisplayName="ASP.NET to Windows Azure Web Site" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-net-tutorials-get-started" urlDisplayName="Get started with Windows Azure" pageTitle="Get started with Windows Azure for .NET" metaKeywords="" metaDescription="This tutorial shows you how to deploy an ASP.NET web site to Windows Azure. In less than 15 minutes you'll have an app up-and-running in the cloud." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 

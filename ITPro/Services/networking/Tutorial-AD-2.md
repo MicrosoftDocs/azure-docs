@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Install a new Active Directory forest in Windows Azure" metaKeywords="Windows Azure, virtual network, domain controller, active directory, AD, tutorial" metaDescription="Learn how to install a replica AD domain control in a Windows Azure virtual network." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-networking-active-directory-forest" urlDisplayName="Active Directory forest" pageTitle="Install Active Directory forest in a Windows Azure network" metaKeywords="" metaDescription="A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on Windows Azure Virtual Network." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 #Install a new Active Directory forest in Windows Azure
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />

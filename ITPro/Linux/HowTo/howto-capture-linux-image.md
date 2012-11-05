@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Capture an Image of a Virtual Machine Running Linux" metaKeywords="Windows Azure virtual machine, Azure virtual machine, Azure image, capture an image, image" metaDescription="Learn how to capture your own images to create customized virtual machines." linkid="manage-linux-how-to-guide-virtual-machines" urlDisplayName="Virtual Machines" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-linux-howto-capture-an-image" urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Linux" metaKeywords="Azure Linux vm, Linux vm" metaDescription="Learn how to capture an image of a Windows Azure virtual machine (VM) running Linux. " metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 # How to Capture an Image of a Virtual Machine Running Linux ##
 
 <div chunk="../../shared/chunks/disclaimer.md" />

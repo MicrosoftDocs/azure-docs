@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Create Management Certificates for Linux" metaKeywords="Windows Azure virtual machine, Azure virtual machine, certificates, management certificates" metaDescription="Learn how to create management certificates for Linux on Windows Azure." linkid="manage-linux-how-to-guide-virtual-machines" urlDisplayName="How To Guides" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-linux-common-tasks-manage-certs" urlDisplayName="Manage certificates" pageTitle="Manage certificates for Linux virtual machines in Windows Azure" metaKeywords="Azure management certs, uploading management certs, Azure Service Management API" metaDescription="Learn how to create and upload management certificates for Linux in Windows Azure. The certificate is required if you use the Service Management API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 #Create management certificates for Linux in Windows Azure
 
 <div chunk="../../shared/chunks/disclaimer.md" />

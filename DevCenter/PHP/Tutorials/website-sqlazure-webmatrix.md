@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="PHP-MySQL Windows Azure Website using WebMatrix" metaKeywords="Windows Azure deployment, Azure deployment, Windows Azure Websites, Windows Azure SQL Database, SQL Database, PHP, WebMatrix" metaDescription="Learn how to create and deploy a PHP website and a SQL Database to Windows Azure using WebMatrix." linkid="dev-php-tutorials-sql-database-website-webmatrix" urlDisplayName="Create and Deploy a PHP Website and SQL Database Using WebMatrix" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-php-website-with-sql-database-and-webmatrix" urlDisplayName="Web w/ SQL + WebMatrix" pageTitle="PHP web site with SQL Database and WebMatrix - Windows Azure" metaKeywords="" metaDescription="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web site that stores data in SQL Database." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 #Create and Deploy a PHP Website and SQL Database using WebMatrix
 

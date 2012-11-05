@@ -1,5 +1,7 @@
-# How to Use the Blob Storage Service from Python
+<properties linkid="develop-python-blob-service" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) - Windows Azure feature guide" metaKeywords="Azure blob Python, Azure blob service Python" metaDescription="Learn how to upload, list, download, and delete blobs in Windows Azure using the Python API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+
+# How to Use the Blob Storage Service from Python
 This guide will show you how to perform common scenarios using the
 Windows Azure Blob storage service. The samples are written using the
 Python API. The scenarios covered include **uploading**, **listing**,

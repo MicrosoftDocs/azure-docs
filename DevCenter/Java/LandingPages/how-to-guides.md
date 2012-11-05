@@ -1,5 +1,7 @@
-# Java Developer Center - How To Guides
+<properties linkid="devnav-java-howto" urlDisplayName="How To Guides" pageTitle="Windows Azure Java feature guides" metaKeywords="Azure Java" metaDescription="Find topics about using Windows Azure services and features in Java." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+# Java Developer Center - How To Guides
 ## Data management and integration
 
 ### [Blob Service][blob_service]

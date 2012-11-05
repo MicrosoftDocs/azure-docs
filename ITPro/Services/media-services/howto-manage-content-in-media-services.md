@@ -1,5 +1,13 @@
-# How to Manage Content in Media Services #
+<properties linkid="manage-services-mediaservices-manage-media-services-content" urlDisplayName="How to manage media content" pageTitle="How to manage media content - Windows Azure Media Services" metaKeywords="" metaDescription="Learn how to manage your media content in Windows Azure Media Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+
+
+
+
+
+
+
+# How to Manage Content in Media Services #
 The Windows Azure Media Services content view allows you to manage media content for your Media Services account.
 
 Currently you can perform the following content operations directly from the portal:

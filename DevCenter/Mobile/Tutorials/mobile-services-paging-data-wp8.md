@@ -1,4 +1,6 @@
-<properties linkid="mobile-services-paging-data-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Refine Mobile Services queries with paging" metakeywords="access and change data, Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Validate and modify data sent to the Windows Azure Mobile Services from a Windows app." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-mobile-tutorials-add-paging-to-data-wp8" urlDisplayName="Add Paging to Your Data" pageTitle="Add paging to data (Windows Phone) - Mobile Services" metaKeywords="" metaDescription="Learn how to add paging to your data in a Windows Phone 8 app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14809" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 

@@ -1,4 +1,6 @@
-<properties linkid="mobile-services-get-started" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with Mobile Services in Windows Azure" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-mobile-tutorials-get-started" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Mobile Services" metaKeywords="" metaDescription="Follow this tutorial to get started using Windows Azure Mobile Services for Windows Store development in C#, VB, or JavaScript. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14812" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umbversionid="254ca664-c4f3-4815-8073-c86d43f4aa16" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
 <!--<div class="dev-center-os-selector">

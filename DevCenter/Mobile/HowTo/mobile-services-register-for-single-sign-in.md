@@ -1,4 +1,6 @@
-<properties linkid="register-for-facebook-auth" urldisplayname="Mobile Services" headerexpose="" pagetitle="Register your apps for Microsoft Live Connect authentication with Mobile Services" metakeywords="Facebook, mobile devices, Windows Azure, mobile, authentication" footerexpose="" metadescription="Windows Live Connect registration steps for Mobile Services using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-mobile-how-to-guides-register-for-single-sign-on" urlDisplayName="Register for single sign on" pageTitle="Register for single sign-on - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to register for single sign-on authentication in your Windows Azure Mobile Services application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 

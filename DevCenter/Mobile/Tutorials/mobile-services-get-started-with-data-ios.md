@@ -1,4 +1,6 @@
-<properties linkid="mobile-services-get-started-with-data-ios" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with data in Windows Azure Mobile Services" metakeywords="access and change data, Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, iPhone, iPad, iOS app" footerexpose="" metadescription="More in-depth review of how to access and change in your iOS-based app using Windows Azure Mobile Services." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-mobile-tutorials-get-started-with-data-ios" urlDisplayName="Get Started with Data" pageTitle="Get started with data (iOS) - Windows Azure Mobile Services" metaKeywords="Windows Azure iOS data, Azure mobile services data, " metaDescription="Learn how to store and access data from your Windows Azure Mobile Services iOS app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 

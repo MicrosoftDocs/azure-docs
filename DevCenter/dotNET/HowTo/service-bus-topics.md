@@ -1,4 +1,6 @@
-<properties umbraconavihide="0" pagetitle="Service Bus Topics - How To - .NET - Develop" metakeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Azure Service Bus topic, Service Bus topic, Azure messaging topics and subscriptions .NET, Azure Service Bus topic .NET, Service Bus topic .NET, Azure messaging topics and subscriptions C#, Azure Service Bus topic C#, Service Bus topic C#" metadescription="Get Started with Windows Azure Service Bus topics and subscriptions, including creating topics and subscriptions, creating subscription filters, sending messages to a topic, receiving messages from a subscription, and deleting topics and subscriptions." linkid="dev-net-how-to-service-bus-topics" urldisplayname="Service Bus Topics" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties linkid="dev-net-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (.NET) - Windows Azure" metaKeywords="Get started Azure Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions C# " metaDescription="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for .NET applications. " metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 

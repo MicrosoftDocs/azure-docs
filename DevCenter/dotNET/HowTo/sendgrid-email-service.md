@@ -1,4 +1,6 @@
-<properties linkname="dev-net-how-to-sendgrid-email-service" urldisplayname="SendGrid Email Service" headerexpose="" pagetitle="SendGrid Email Service - How To - .NET - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-how-to-sendgrid-email-service" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (.NET) - Windows Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid .NET, Azure email .NET, Azure SendGrid C#, Azure email C#" metaDescription="Learn how send email with the SendGrid email service on Windows Azure. Code samples written in C# and use the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 

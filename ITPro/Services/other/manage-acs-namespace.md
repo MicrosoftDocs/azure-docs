@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Managing your ACS namespace" metaKeywords="" metaDescription="" linkid="manage-services-other-acs" urlDisplayName="Access Control" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-manage-acs" urlDisplayName="Manage ACS" pageTitle="Access Control Service - Windows Azure service management" metaKeywords="" metaDescription="Learn how to manage your Windows Azure Access Control Service (ACS) using certificates and keys." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 # Managing Your ACS Namespace #
 
 This topic outlines management tasks that it is recommended you perform regularly so that your applications that use the Windows Azure Acccess Control Service (ACS) continue to function properly and without interruptions. These management tasks are as follows:

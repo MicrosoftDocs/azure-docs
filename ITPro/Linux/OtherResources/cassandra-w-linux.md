@@ -1,5 +1,7 @@
-<h1 id = "" > Running Cassandra with Linux on Windows Azure and Accessing it from Node.js </h1>
+<properties linkid="services-linux-cassandra-with-linux" urlDisplayName="Cassandra with Linux" pageTitle="Run Cassandra with Linux on Windows Azure" metaKeywords="" metaDescription="Explains how to run a Cassandra cluster on Linux in Windows Azure Virtual Machines." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+
+<h1 id = "" > Running Cassandra with Linux on Windows Azure and Accessing it from Node.js </h1>
 **Author:** Hanu Kommalapati
 
 ## Table of Contents##
