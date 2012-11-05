@@ -1,2 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="How to Detach a Data Disk from a Virtual Machine" metaKeywords="" metaDescription="" linkid="manage-linux-howto-detach-disk" urlDisplayName="Detach disk" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-linux-how-to-guides-detach-a-disk" urlDisplayName="Detach a Disk" pageTitle="Detach a disk from a Linux Virtual Machine in Windows Azure" metaKeywords="Azure detaching disk, vm detached disk" metaDescription="Learn how to detach a data disk from a Windows Azure virtual machine." metaCanonical="http://www.windowsazure.com/en-us/manage/windows/how-to-guides/detach-a-disk/" disqusComments="1" umbracoNaviHide="0" />
+
+
 <div chunk="../../Shared/Chunks/howto-detach-disk-windows-linux.md" />

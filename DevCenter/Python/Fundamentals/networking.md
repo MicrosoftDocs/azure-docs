@@ -1,1 +1,3 @@
-<properties umbracoNaviHide="0" pageTitle="Networking" metaKeywords="" linkid="dev-python-fundamentals-networking" urlDisplayName="Networking" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-python-networking" urlDisplayName="Networking" pageTitle="Networking (Python) - Windows Azure fundamentals" metaKeywords="Azure virtual network, Azure connect, Azure traffic manager" metaDescription="An introduction to Windows Azure networking." metaCanonical="http://www.windowsazure.com/en-us/develop/net/fundamentals/networking/" disqusComments="1" umbracoNaviHide="0" />
+
+

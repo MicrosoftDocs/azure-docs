@@ -1,5 +1,7 @@
-# PHP Developer Center - How To Guides #
+<properties linkid="devnav-php-howto" urlDisplayName="How To Guides" pageTitle="Windows Azure PHP feature guides" metaKeywords="Azure PHP" metaDescription="Find topics about using Windows Azure services and features in PHP." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+# PHP Developer Center - How To Guides #
 ## Data management and integration ##
 
 ### [Blob Service](/en-us/develop/php/how-to-guides/blob-service/ "Blob Service") ###

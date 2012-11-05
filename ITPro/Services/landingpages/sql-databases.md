@@ -1,5 +1,7 @@
-# SQL Database articles
+<properties linkid="develop-net" urlDisplayName="SQL Databases" pageTitle="SQL Databases - Windows Azure service management" metaKeywords="SQL databases Windows Auzure, SQL databases Azure, SQL Azure, SQL Server Azure" metaDescription="Find topics about using SQL Databases in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+# SQL Database articles
 SQL Database provides relational database management services on Windows Azure, and is based on SQL Server technology. With SQL Database, you can easily provision and deploy database instances, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing. 
 
 ## Tutorials

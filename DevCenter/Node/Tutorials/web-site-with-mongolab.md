@@ -1,4 +1,6 @@
-<properties linkid="dev-nodejs-website-mongodb" urldisplayname="Node.js Website with MongoDB" headerexpose="" pagetitle="Node.js Application using MongoDB - MongoLab" metakeywords="Azure Node.js tutorial MongoDB, Azure Node.js, Azure Node.js tutorial, MongoLab" footerexpose="" metadescription="A tutorial that demonstrates a Node.js application in a Windows Azure Website, that talks to MongoDB using MongoLab" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-nodejs-tutorials-web-site-with-mongodb-mongolab" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on MongoLab - Windows Azure" metaKeywords="" metaDescription="Learn how to create a Node.js Windows Azure Web Site that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # Node.js Web Application with Storage on MongoDB (MongoLab)
 This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on Windows Azure. [MongoDB] is a popular open source, high performance NoSQL database. This tutorial assumes that you have some prior experience using node, MongoDB, and [Git].

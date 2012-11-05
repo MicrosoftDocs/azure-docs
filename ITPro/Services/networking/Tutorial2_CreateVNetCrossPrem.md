@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Tutorial 2: Creating a Virtual Network for Cross-Premises Connectivity" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Learn how to configure Windows Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-cross-premises-connectivity" urlDisplayName="Cross-premises Connectivity" pageTitle="Create a cross-premises virtual network - Windows Azure" metaKeywords="" metaDescription="Learn how to create a Windows Azure Virtual Network with cross-premises connectivity." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 <h1 id="vnettut1">Create a Virtual Network for Cross-Premises Connectivity</h1>
 

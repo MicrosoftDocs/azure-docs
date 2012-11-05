@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="" metaKeywords="Windows Azure web site with SQL Database" metaDescription="This tutorial shows how to deploy an ASP.NET web application to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012 or Visual Studio 2012 for Web Express." linkid="web-app-with-sql-azure" urlDisplayName="ASP.NET with SQL Database to Windows Azure Web Site" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="dev-net-tutorials-web-app-with-sql-azure" urlDisplayName="Web Site with SQL Database" pageTitle=".NET Web Site with SQL Database - Windows Azure tutorial" metaKeywords="Azure hello world tutorial, Azure getting started tutorial, SQL Database tutorial, Azure .NET hello world tutorial, Azure C# hello world tutorial, SQL Azure C# tutorial" metaDescription="A tutorial that helps you develop an ASP.NET MVC 4 website with a SQL Database back-end deploy it to Windows Azure." metaCanonical=" " disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 

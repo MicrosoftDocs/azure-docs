@@ -1,4 +1,6 @@
-﻿<properties linkid="dev-net-e2e-multi-tier" urldisplayname="Multi-Tier Application" headerexpose="" pagetitle="Java Multi-Tier Application" metakeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure Java Service Bus queue tutorial, Azure Java queue tutorial, Azure Java worker role tutorial, AzureJava Service Bus queue tutorial, Azure Java queue tutorial, Azure Java worker role tutorial " footerexpose="" metadescription="An end-to-end Java tutorial that helps you develop a multi-tier application in Windows Azure that includes web and worker roles and uses Service Bus queues to communicate between tiers." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-java-tutorials-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle="Java Multi-Tier application - Windows Azure tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure Service Bus queue tutorial, Azure .NET worker role tutorial, Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial" metaDescription="A tutorial that helps you develop a multi-tier application in Windows Azure that uses Service Bus queues to communicate between tiers." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 # Java Multi-Tier Application Using Service Bus Queues
 

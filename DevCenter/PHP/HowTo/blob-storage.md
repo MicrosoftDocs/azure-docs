@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Use the Blob Service from PHP" metaKeywords="Windows Azure, Blob Service, Blob Storage, PHP" metaDescription="Learn how to use the Windows Azure Blob Service from PHP applications." linkid="dev-php-howto-blob-service" urlDisplayName="How to Use the Blob Service from PHP" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-php-blob-service" urlDisplayName="Blob Service" pageTitle="How to use blob storage (PHP) - Windows Azure feature guide" metaKeywords="Azure blob service PHP, Azure blobs PHP" metaDescription="Learn how to use the Windows Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 #How to use the Blob service from PHP
 

@@ -1,4 +1,6 @@
-<properties linkid="devnav-other-fundamentals" urlDisplayName="Windows Azure Intro" headerExpose="" pageTitle="Windows Azure .NET Fundamentals" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="devnav-other-fundamentals" urlDisplayName="Fundamentals" pageTitle="Windows Azure other fundamentals" metaKeywords="Azure basics, Azure introductory, overview Azure" metaDescription="Find introductory topics about Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+
+
 
 #Developer Center - Fundamentals
 

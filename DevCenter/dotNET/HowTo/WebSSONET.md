@@ -1,5 +1,7 @@
-﻿<div chunk="../chunks/article-left-menu.md" />
+<properties linkid="develop-net-how-to-guides-web-sso" urlDisplayName="Web SSO" pageTitle="Single sign-on with Windows Azure Active Directory (.NET)" metaKeywords="Azure .NET web app, Azure single sign-on, Azure .NET Active Directory" metaDescription="Learn how to create a ASP.NET MVC web application that uses single sign-on with Windows Azure Active Directory." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+
+<div chunk="../chunks/article-left-menu.md" />
 # How to implement single sign-on with Windows Azure Active Directory - ASP.NET Application#
 
 <h2>Table of Contents</h2>

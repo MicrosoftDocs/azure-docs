@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Manage Websites" metaKeywords="Windows Azure Websites, deployment, configuration changes, deployment update, Windows Azure .NET deployment, .NET deployment" metaDescription="Learn how to configure Websites in Windows Azure to use a SQL or MySQL database, and learn how to configure diagnostics and download logs." linkid="itpro-windows-howto-configure-websites" urlDisplayName="How to Configure Websites" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-scenarios-how-to-manage-websites" urlDisplayName="How to manage" pageTitle="How to manage web sites - Windows Azure service management" metaKeywords="Azure portal website management" metaDescription="A reference for the Portal web site management pages in Windows Azure. Details are provided for each web site management page." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 
 #<a name="howtomanage"></a>How to Manage Websites

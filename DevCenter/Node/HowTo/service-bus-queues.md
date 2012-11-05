@@ -1,4 +1,6 @@
-<properties linkid="dev-nodejs-how-to-service-bus-queues" urldisplayname="Service Bus Queues" headerexpose="" pagetitle="Service Bus Queues - How To - Node.js - Develop" metakeywords="Azure messaging, Azure brokered messaging, Azure messaging queue, Service Bus queue, Azure Service Bus queue, Azure messaging Node.js, Azure messaging queue Node.js, Azure Service Bus queue Node.js, Service Bus queue Node.js" footerexpose="" metadescription="Learn about Windows Azure Service Bus queues, including how to create queues, how to send and receive messages, and how to delete queues." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Node.js) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Node.js" metaDescription="Learn how to use Service Bus queues in Windows Azure. Code samples written in Node.js." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # How to Use Service Bus Queues
 

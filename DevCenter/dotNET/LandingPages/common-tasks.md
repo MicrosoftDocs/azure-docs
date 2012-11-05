@@ -1,5 +1,7 @@
-#.NET Developer Center - Common tasks
+<properties linkid="dev-net-common-tasks" urlDisplayName="Common Tasks" pageTitle="Windows Azure .NET Common Tasks" metaKeywords="Azure .NET" metaDescription="Find topics about common tasks when using .NET in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+#.NET Developer Center - Common tasks
 ### [Publishing with Git][]
 Git is a popular, open source, distributed version control system. Windows Azure Web Sites allow you to enable a Git repository for your site, which allows you to quickly and easily push code changes to your site. This common task provides details about how to get started using Git with Windows Azure
 

@@ -1,4 +1,6 @@
-<properties linkid="dev-net-e2e-multi-tier" urldisplayname="Multi-Tier Application" headerexpose="" pagetitle=".NET Multi-Tier Application" metakeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET Service Bus queue tutorial, Azure .NET queue tutorial, Azure .NET worker role tutorial, Azure C# Service Bus queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop a multi-tier application in Windows Azure that includes web and worker roles and uses Service Bus queues to communicate between tiers." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-e2e-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Windows Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" metaDescription="A tutorial that helps you develop a multi-tier app in Windows Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 

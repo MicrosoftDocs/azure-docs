@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Tutorial 1: Creating a Virtual Network in Windows Azure" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Learn how to configure Windows Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-create-a-virtual-network" urlDisplayName="Create a virtual network" pageTitle="Create a virtual network - Windows Azure service management" metaKeywords="" metaDescription="Learn how to create a Windows Azure Virtual Network." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 
 <h1 id="vnettut1">Create a Virtual Network in Windows Azure</h1>

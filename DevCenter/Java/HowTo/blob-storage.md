@@ -1,4 +1,6 @@
-<properties linkid="dev-java-how-to-use-blog-storage-service-java" urldisplayname="Blob Storage" headerexpose="" pagetitle="How to Use the Blob Storage Service from Java" metakeywords="Azure Blob Storage Java" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-how-to-use-blog-storage-service-java" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Java) - Windows Azure feature guide" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" metaDescription="Learn how to use the Windows Azure blob service to upload, download, list, and delete blob content. Samples written in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # How to use Blob Storage from Java
 

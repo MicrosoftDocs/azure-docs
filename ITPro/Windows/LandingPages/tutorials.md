@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Tutorials" metaKeywords="Windows Azure cloud services, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-windows-tutorials" urlDisplayName="Tutorials" pageTitle="Windows virtual machine tutorials - Windows Azure" metaKeywords="Windows virtual machine tutorials Windows Azure, Windows virtual machine tutorials Azure, Azure Windows virtual machine tutorials, Azure Windows virtual machine, Azure Windows vm" metaDescription="Find tutorials about using Windows virtual machines with Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+
+
 #Tutorials for Windows virtual machines
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />

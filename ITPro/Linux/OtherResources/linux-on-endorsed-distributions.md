@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Linux on Windows Azure-Endorsed Distributions" metaKeywords="Windows Azure virtual machine, Azure virtual machine, certificates, management certificates" metaDescription="Learn how to create management certificates for Linux on Windows Azure." linkid="manage-linux-how-to-guide-virtual-machines" urlDisplayName="How To Guides" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-linux-other-resources-endorsed-distributions" urlDisplayName="Endorsed distributions" pageTitle="Endorsed distributions of Linux in Windows Azure" metaKeywords="" metaDescription="Learn about Linux on Windows Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, and SUSE." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 #Linux on Windows Azure-Endorsed Distributions
 

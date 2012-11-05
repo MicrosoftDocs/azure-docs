@@ -1,5 +1,7 @@
-# Ruby on Rails on Windows Azure
+<properties linkid="develop-other-tutorials-ruby-on-rails" urlDisplayName="Ruby on Rails" pageTitle="Ruby on Rails on a Windows Azure virtual machine" metaKeywords="" metaDescription="Create and host a Ruby on Rails application on a Windows Azure virtual machine." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+# Ruby on Rails on Windows Azure
 Ruby on Rails is a full stack framework, providing the ability to talk with the web server, communicate with the database, and render templates. Many of today's popular sites use Rails, including GitHub. In this article, we are going to outline the basic steps to getting Ruby on Rails working on a Linux instance in Windows Azure. We will prepare our Windows Azure environment, build a simple app, and deploy it.
 
 We will be using the following components to make up our "cloud stack":

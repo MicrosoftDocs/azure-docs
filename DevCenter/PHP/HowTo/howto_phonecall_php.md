@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="1" pageTitle="How to Make a Phone Call Using Twilio in a PHP Application on Windows Azure" metaKeywords="Windows Azure, Azure, Twilio, Telephony, PHP" metaDescription="Learn how to use Twilio and PHP to make a phone call from Windows Azure." linkid="dev-php-howto-twilio-phone-call" urlDisplayName="Twilio Phone Call" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-php-how-to-twilio-phone-call" urlDisplayName="Twilio Phone Call" pageTitle="How to make a phone call from Twilio (PHP) - Windows Azure" metaKeywords="Windows Azure PHP Twilio, Windows Azure Twilio, Azure phone calls, Azure twilio, Windows Azure SMS, Azure SMS, Windows Azure voice calls, azure voice calls, Windows Azure text messages, Azure text messages, PHP twilio Azure" metaDescription="Learn how to make a phone call and send a SMS message with the Twilio API service on Windows Azure. Samples are for PHP application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 # How to Make a Phone Call Using Twilio in a PHP Application on Windows Azure 
 

@@ -1,3 +1,5 @@
+<properties linkid="develop-python-web-site-with-django" urlDisplayName="Web Sites with Django" pageTitle="Python Web Sites with Django - Windows Azure tutorial" metaKeywords="Windows Azure django   django website" metaDescription="A tutorial that introduces you to running a Python web site on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
 
 # Creating Web Sites with Django
 

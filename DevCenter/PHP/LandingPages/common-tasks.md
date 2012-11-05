@@ -1,5 +1,7 @@
-#PHP Developer Center - Common tasks
+<properties linkid="devnav-php-commontasks" urlDisplayName="Common Tasks" pageTitle="Windows Azure PHP Common Tasks" metaKeywords="Azure PHP" metaDescription="Find topics about using PHP in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+#PHP Developer Center - Common tasks
 ### [Downloading the Windows Azure SDK for PHP][]
 The Windows Azure SDK for PHP includes everything you need to build PHP applications for Windows Azure. This task provides details about how to install the components of the Windows Azure SDK for PHP: the **PHP client libraries for Windows Azure**, the **Windows Azure Command-Line Tools for Mac and Linux**, the **Windows Azure PowerShell cmdlets**, and the **Windows Azure Emulators**.
 

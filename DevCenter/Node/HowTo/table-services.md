@@ -1,4 +1,6 @@
-﻿<properties umbraconavihide="0" pagetitle="Table Services - How To - Node.js - Develop" metakeywords="Azure nosql Node.js, Azure large structured data store Node.js, Azure table Node.js, Azure table storage Node.js" metadescription="Learn how to use the Windows Azure table storage service to create and delete tables and insert and query entities in a table from your Node.js application." linkid="dev-nodejs-how-to-table-services" urldisplayname="Table Service" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) - Windows Azure feature guide" metaKeywords="Windows Azure table storage service, Azure table service Node.js, table storage Node.js" metaDescription="Learn how to use the table storage service in Windows Azure. Code samples are written using the Node.js API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # How to Use the Table Service from Node.js
 

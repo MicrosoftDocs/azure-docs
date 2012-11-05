@@ -1,5 +1,7 @@
-# Python Developer Center - How To Guides
+<properties linkid="devnav-python-howto" urlDisplayName="How To Guides" pageTitle="Windows Azure Python feature guides" metaKeywords="Azure Python" metaDescription="Find topics about using Windows Azure service and features in Python." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+# Python Developer Center - How To Guides
 ## Data management and integration
 
 ### [Blob Service]

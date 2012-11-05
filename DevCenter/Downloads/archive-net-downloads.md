@@ -1,5 +1,7 @@
-<h1>Previous Versions: Windows Azure SDK for .NET</h1>
-<p><strong>Note:</strong> Before downloading the SDK files, review the <a href="#install">installation steps</a> to understand the process and dependencies involved in installing the SDK.</p>
+<properties linkid="downloads-.net-archive" urlDisplayName="Windows Azure SDK Previous Releases" pageTitle="Windows Azure SDK for .NET previous release downloads" metaKeywords="download Azure SDK .NET" metaDescription="Download previous versions of Windows Azure SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
+<h1>Previous Versions: Windows Azure SDK for .NET</h1><p><strong>Note:</strong> Before downloading the SDK files, review the <a href="#install">installation steps</a> to understand the process and dependencies involved in installing the SDK.</p>
 <table border="1" cellspacing="0" cellpadding="10" style="border: #000000 0px solid;">
 <tbody>
 

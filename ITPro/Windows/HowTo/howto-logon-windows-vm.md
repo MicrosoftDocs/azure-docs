@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Log on to a Virtual Machine Running Windows Server 2008 R2" metaKeywords="Windows Azure virtual machine, Azure virtual machine, logon virtual machines, log on virtual machine" metaDescription="Learn how to logon to a virtual machine that is running Windows Server ." linkid="manage-windows-how-to-guide-virtual-machines" urlDisplayName="How to: virtual machines" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-windows-howto-logon" urlDisplayName="Log on to a VM" pageTitle="Log on to a virtual machine running Windows Server" metaKeywords="Azure logging on vm, vm portal" metaDescription="Learn how to log on to a virtual machine running Windows Server 2008 R2 by using the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 #How to Log on to a Virtual Machine Running Windows Server 2008 R2 #
 
 <div chunk="../../shared/chunks/disclaimer.md" />

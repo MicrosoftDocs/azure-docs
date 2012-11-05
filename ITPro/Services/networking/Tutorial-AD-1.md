@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network" metaKeywords="Windows Azure, virtual network, domain controller, active directory, AD, tutorial" metaDescription="Learn how to install a replica AD domain control in a Windows Azure virtual network." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-networking-replica-domain-controller" urlDisplayName="Replica domain controller" pageTitle="Install a replica domain controller in Windows Azure" metaKeywords="" metaDescription="A tutorial that teaches you how to install a domain controller from your Corp Active Directory forest on your Windows Azure virtual machine." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 #Install a Replica Active Directory Domain Controller in Windows Azure Virtual Networks
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />

@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How To Monitor a Media Services Account" metaKeywords="Windows Azure Media Services, service, media services account, monitor media services" metaDescription="Learn how to monitor a Media Services account." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: Media Services accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-mediaservices-monitor-a-media-services-account" urlDisplayName="How to monitor" pageTitle="Monitor a Media Services Account - Windows Azure" metaKeywords="" metaDescription="Describes how to configure monitoring for your Media Services account in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 
 <h1 id="monitormediaservicesaccount">How to Monitor a Media Services Account</h1>

@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Create a Virtual Machine Running Linux" metaKeywords="Windows Azure virtual machine, Azure virtual machine, create a VM, VM" metaDescription="Learn how to create a virtual machine running Linux in Windows Azure." linkid="manage-linux-tutorial-create-a-virtual-machine" urlDisplayName="Create a virtual machine" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-linux-tutorial-vm-from-galllery" urlDisplayName="Create a virtual machine" pageTitle="Create a virtual machine running Linux in Windows Azure" metaKeywords="Azure Linux vm, Linux vm" metaDescription="Learn how to capture an image of a Windows Azure virtual machine (VM) running Linux. " metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 #Create a Virtual Machine Running Linux 
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />

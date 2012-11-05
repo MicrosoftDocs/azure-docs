@@ -1,4 +1,6 @@
-﻿
+<properties linkid="dev-net-how-to-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (.NET) - Windows Azure feature guide" metaKeywords="Azure Access Control Service authentication C#" metaDescription="Learn how to use Access Control Service (ACS) in your Windows Azure application to authenticate users when they try to gain access to a web app." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 <properties umbraconavihide="0" pagetitle="Access Control - How To - .NET - Develop" metakeywords="Azure Access Control Service, Azure ACS, Azure authentication, Azure authentication LiveID, Azure authentication Google, Azure authentication Facebook, Azure authentication .NET, Azure authentication C#" metadescription="Learn how to use Windows Azure Access Control Service (ACS) in your Windows Azure application to authenticate users from identity providers like Windows Live, Google, or Facebook when they try to gain access to a web application." linkid="dev-net-how-to-access-control" urldisplayname="Access Control" headerexpose="" footerexpose="" disquscomments="0"></properties>
 <div chunk="../chunks/article-left-menu.md" />
 # How to Authenticate Web Users with Windows Azure Access Control Service
