@@ -80,17 +80,22 @@ to get the tools and set-up your development environment.
 
     [Get Tools and SDK][]
 
-2.  When prompted to run or save **WindowsAzureSDKForNet.exe**, click
+2. 	Click **install the SDK**.
+
+3. 	Choose the link for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2012:
+
+	![][42]
+
+4.  When prompted to run or save **WindowsAzureSDKForNet.exe**, click
     **Run**:
 
     ![][2]
 
-3.  Click on **Install** in the installer window and proceed with the
-    installation:
+5.  In the Web Platform Installer, click **Install** and proceed with the installation:
 
     ![][3]
 
-4.  Once the installation is complete, you will have everything
+6.  Once the installation is complete, you will have everything
     necessary to start developing. The SDK includes tools that let you
     easily develop Windows Azure applications in Visual Studio. If you
     do not have Visual Studio installed, it also installs the free
@@ -740,9 +745,9 @@ Run the application to verify that it works.
 
   [0]: ../../../DevCenter/dotNet/Media/hybrid.png
   [1]: ../../../DevCenter/dotNet/Media/App2.png
-  [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkID=234939&clcid=0x409
+  [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [2]: ../../../DevCenter/dotNet/Media/getting-started-3.png
-  [3]: ../../../DevCenter/dotNet/Media/getting-started-4.png
+  [3]: ../../../DevCenter/dotNet/Media/getting-started-4-WebPI.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [4]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-32.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
@@ -784,3 +789,4 @@ Run the application to verify that it works.
   [39]: ../../../DevCenter/dotNet/Media/sb-queues-09.png
   [40]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [41]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-40.png
+  [42]: ../Media/getting-started-41.png
