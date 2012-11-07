@@ -645,6 +645,8 @@ Clients that can use the memcache protocol (such as PHP and Node.js) can then co
 		console.log("Connected to the localhost memcache on port 11211!");
 	});
 
+For information about Caching pricing, see [Pricing Details][pricing-details-caching].
+
 <h2 id="StopStartRemove">How to: Stop, start, and remove a service</h2>
 
 A deployed application, even if it is not running, continues to accrue
@@ -808,4 +810,5 @@ The command above will require confirmation that you want to delete the specifie
   [Configuring SSL for a Node.js Application in Windows Azure]: http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/enable-ssl/
 [wpi-installer]: http://go.microsoft.com/fwlink/?LinkId=253447
 [sql-database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336230.aspx
+[pricing-details-caching]: http://www.windowsazure.com/en-us/pricing/details/#header-8
 
