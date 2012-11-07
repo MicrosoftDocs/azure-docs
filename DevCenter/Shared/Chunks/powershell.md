@@ -26,8 +26,10 @@ service**, and **stopping, starting, and removing a service**.
  * [How to: Use a storage account with more than one service](#StorageAcctMultipleServices)  
  * [How to: Deploy a cloud service to Windows Azure](#Deploy)   
  * [How to: Update a deployed service](#Update)   
- * [How to: Scale out a service](#Scale)   
+ * [How to: Scale out a service](#Scale)
+ * [How to: Create a dedicated cache](#Cache)   
  * [How to: Stop, start, and remove a service](#StopStartRemove)
+ * [How to: Create and manage a Windows Auzre Web Site](#WebSite)
  * [How to: Create, modify, and remove a SQL Database server](#SqlDatabase)
 
 <h2 id="WhatIs">What is Windows Azure PowerShell</h2>
@@ -174,9 +176,9 @@ must download your subscription information (by using
 **Import-AzurePublishSettingsFile**).
 
 The **Get-AzurePublishSettingsFile** cmdlet opens a web page on the
-Customer Portal from which you can
-download the publishing profile. You will need to log on to the Customer
-Portal using the credentials for your Windows Azure account.
+[Windows Azure Management Portal] from which you can
+download the publishing profile. You will need to login to the
+portal using the credentials for your Windows Azure account.
 
 When you download the publishing profile, note the path and the name of
 your settings file. You must provide this information when you use
@@ -616,6 +618,33 @@ The following example shows how to update the MyService service by changing the 
 
 Note that the **Set-AzureRole** cmdlet does not require you to republish the service since it updates the deployed service configuration file.
 
+<h2 id="Cache">How to: Create a dedicated cache</h2>
+
+The Windows Azure PowerShell cmdlets allow you set up a worker role as a dedicated cache, and configure web roles to access the cache using the memcache protocol.
+
+To create a dedicated cache in an existing project, use the **Add-AzureCacheWorkerRole** cmdlet. The following example adds a role called `mycacherole`:
+
+	PS C:\app\MyService New-AzureCacheWorkerRole -Name mycacherole
+
+You can then configure a web role to access the dedicated cache using the memcache protocol by using the **Enable-AzureMemcacheRole** cmdlet. The following example configures an existing web role (called `mywebrole`) to access the dedicated cache (`mycacherole`):
+
+	PS C:\app\MyService Enable-AzureMemcacheRole mywebrole mycacherole
+
+Clients that can use the memcache protocol (such as PHP and Node.js) can then connect to the dedicated cache using the host name `localhost_mywebrole` (on port 11211 by default). The following examples show example connection code for PHP and Node.js:
+
+**PHP**
+
+	$memcache = new Memcache;
+	$memcache->connect('localhost_mywebrole', 11211) or die ("Could not connect");
+
+**Node.js**
+
+	var mc = require("mc");
+	var mcclient = new mc.Client('localhost_mywebrole');
+	mcclient.connect(function() {    
+		console.log("Connected to the localhost memcache on port 11211!");
+	});
+
 <h2 id="StopStartRemove">How to: Stop, start, and remove a service</h2>
 
 A deployed application, even if it is not running, continues to accrue
@@ -651,6 +680,25 @@ To remove a service, use the **Remove-AzureService** cmdlet. If a service has as
 You can bypass the prompt by using the **-Force** option with the **Remove-AzureService** cmdlet. The following example shows how to delete all deployments associated with the MyService service, and the service itself.
 
     PS C:\app\MyService> Remove-AzureService -ServiceName MyService -Force 
+
+<h2 id="WebSite">How to: Create and manage a Windows Azure Web Site</h2>
+
+Many of the website creation and management tasks that you can perform in the [Windows Azure Management Portal] can be performed using the Windows Azure Powershell cmdlets. The sections below show you how to perform some basic tasks. For a complete list of website cmdlets, use the `help` command:
+
+	PS C:\app\MySite> help websites
+
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>The examples below assume that the root directory of your local site is <code>MySite</code>.</p> 
+</div>
+
+###Create a website
+
+####Deploy with Git
+
+####Deploy from GitHub
+
+###Configure application settings
 
 <h2 id="SqlDatabase">How to: Create, modify, and remove a SQL Database server</h2>
 
