@@ -89,7 +89,7 @@ Next, you will update the app to authenticate users with Live Connect before req
 
 1. Download and install the [Live SDK for Windows and Windows Phone].
 
-2. In the **Project** menu in Visual Studio, click **Add Reference**, then expand **Asemblies**, click **Extensions**, check **Live SDK**, and then click **OK**. 
+2. In the **Project** menu in Visual Studio, click **Add Reference**, then expand **Asemblies**, click **Extensions**, check **Microsoft.Live**, and then click **OK**. 
 
    ![][16]
 
@@ -104,7 +104,7 @@ Next, you will update the app to authenticate users with Live Connect before req
         private LiveConnectSession session;
         private async System.Threading.Tasks.Task Authenticate()
         {
-            LiveAuthClient liveIdClient = new LiveAuthClient("<< INSERT REDIRECT DOMAIN HERE >>");
+            LiveAuthClient liveIdClient = new LiveAuthClient("<< INSERT CLIENT ID HERE >>");
 
             while (session == null)
             {
@@ -143,15 +143,28 @@ Next, you will update the app to authenticate users with Live Connect before req
     </div>
 	
 
-7. Update string _<< INSERT REDIRECT DOMAIN HERE >>_ from the previous step with the redirect domain that was specified when setting up the app in Live Connect, in the format **https://_service-name_.azure-mobile.net/**.
+7. Update string _<< INSERT CLIENT ID HERE >>_ from the previous step with the client ID value that was generated when you registered your app with Live Connect.
 
-8. Replace the existing **OnNavigatedTo** event handler with the handler that calls the new **Authenticate** method:
+8. Delete or comment-out the existing **OnNavigatedTo** method override and replace it with the following method that handles the **Loaded** event for the page. 
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             await Authenticate();
             RefreshTodoItems();
         }
+
+   This method calls the new **Authenticate** method. 
+
+9. Replace the MainPage constructor with the following code:
+
+        // Constructor
+        public MainPage()
+        {
+            InitializeComponent();
+            this.Loaded += MainPage_Loaded;
+        }
+
+   This constructor also registers the handler for the Loaded event.
 		
 9. Press the F5 key to run the app and sign into Live Connect with your Microsoft Account. 
 
