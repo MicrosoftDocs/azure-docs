@@ -160,7 +160,7 @@ You have completed this working with data tutorial.
 
 ## <a name="next-steps"> </a>Next steps
 
-Now that you have completed this tutorial, consider continuing on with the final tutorial in the data series: 
+Now that you have completed this tutorial, consider continuing on with the final tutorial in the data series: [Refine queries with paging].
 
 Server scripts are also used when authorizing users and for sending push notifications. For more information see the following tutorials:
 

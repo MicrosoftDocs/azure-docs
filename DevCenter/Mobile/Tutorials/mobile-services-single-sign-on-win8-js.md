@@ -205,7 +205,7 @@ Next, you will update the app to authenticate users with Live Connect before req
 
 ## <a name="next-steps"> </a>Next steps
 
-In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
+In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. For information about how to use other identity providers for authentication, see [Get started with authentication].
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
@@ -227,7 +227,7 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [10]: ../Media/mobile-services-win8-app-connect-redirect-uri.png
 [11]: ../Media/mobile-services-win8-app-push-connect.png
 [12]: ../Media/mobile-services-win8-app-connect-auth.png
-[13]: ../Media/mobile-identity-tab.png
+[13]: ../Media/mobile-identity-tab-ma-only.png
 [14]: ../Media/mobile-portal-data-tables.png
 [15]: ../Media/mobile-portal-change-table-perms.png
 [16]: ../Media/mobile-add-reference-live-js.png

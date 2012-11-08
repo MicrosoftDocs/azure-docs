@@ -18,7 +18,7 @@
     <a href="/en-us/develop/mobile/tutorials/add-paging-to-data-ios" title="iOS" class="current">iOS</a>
 </div>
 
-This topic shows you how to use paging to manage the amount of data returned to your iOS app from Windows Azure Mobile Services. In this tutorial, you will use the **Take** and **Skip** query methods on the client to request specific "pages" of data.
+This topic shows you how to use paging to manage the amount of data returned to your iOS app from Windows Azure Mobile Services. In this tutorial, you will use the **fetchLimit** and **fetchOffset** query properties on the client to request specific "pages" of data.
 
 <div class="dev-callout"><b>Note</b>
 <p>To prevent data overflow in mobile device clients, Mobile Services implements an automatic page limit, which defaults to a maximum of 50 items in a response. By specifying the page size, you can explicitly request up to 1,000 items in the response.</p>

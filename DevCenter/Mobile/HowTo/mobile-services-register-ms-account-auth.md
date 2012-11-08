@@ -28,7 +28,7 @@ This topic shows you how to register your apps to be able to use Live Connect as
 	<p>The client secret is an important security credential. Do not share the client secret with anyone or distribute it with your app.</p>
     </div>
 
-11. In **Redirect domain**, enter the URL of your mobile service from Step 8, and then click **Save**.
+11. In **Redirect domain**, enter the URL of your mobile service, and then click **Save**.
 
 You are now ready to use a Microsoft Account for authentication in your app by providing the client ID and client secret values to Mobile Services.
 

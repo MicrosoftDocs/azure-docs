@@ -187,7 +187,7 @@ You have completed this working with data tutorial.
 
 Now that you have completed this tutorial, consider continuing on with the final tutorial in the data series: 
 
-Server scripts are also used when authorizing users and for sending push notifications. For more information see the following tutorials:
+Server scripts are also used when authorizing users and for sending push notifications. For more information see the following tutorials: [Refine queries with paging].
 
 * [Authorize users with scripts]
   <br/>Learn how to filter data based on the ID of an authenticated user.
