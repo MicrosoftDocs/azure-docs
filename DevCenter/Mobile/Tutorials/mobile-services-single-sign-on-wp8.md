@@ -1,4 +1,4 @@
-<properties linkid="single-sign-on-win8-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Authenticate your Windows Phone 8 app with Mobile Services using Live Connect single sign-on" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows Phone 8, Windows Phone app" footerexpose="" metadescription="Authenticate your Windows Store app for Windows Azure Mobile Services using Live Connect." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="single-sign-on-wp8" urldisplayname="Mobile Services" headerexpose="" pagetitle="Authenticate your Windows Phone 8 app with Mobile Services using Live Connect single sign-on" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows Phone 8" footerexpose="" metadescription="Authenticate your Windows Phone 8 app for Windows Azure Mobile Services using Live Connect." umbraconavihide="0" disquscomments="1"></properties>
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
@@ -168,11 +168,11 @@ Next, you will update the app to authenticate users with Live Connect before req
 		
 9. Press the F5 key to run the app and sign into Live Connect with your Microsoft Account. 
 
-   When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+   After you are successfully logged-in, the app runs without errors, and you are able to query Mobile Services and make updates to data.
 
 ## <a name="next-steps"> </a>Next steps
 
-In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
+In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. For information about how to use other identity providers for authentication, see [Get started with authentication]. 
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
@@ -198,11 +198,10 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 <!-- URLs. -->
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows and Windows Phone]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: ./mobile-services-get-started.md
-[Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
-[Authorize users with scripts]: ./mobile-services-authorize-users-dotnet.md
-[JavaScript and HTML]: ./mobile-services-get-started-with-users-js.md
+[Get started with Mobile Services]: ./mobile-services-get-started-wp8.md
+[Get started with data]: ./mobile-services-get-started-with-data-wp8.md
+[Get started with authentication]: ./mobile-services-get-started-with-users-wp8.md
+[Get started with push notifications]: ./mobile-services-get-started-with-push-wp8.md
+[Authorize users with scripts]: ./mobile-services-authorize-users-wp8.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
