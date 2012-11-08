@@ -225,7 +225,7 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [10]: ../Media/mobile-services-win8-app-connect-redirect-uri.png
 [11]: ../Media/mobile-services-win8-app-push-connect.png
 [12]: ../Media/mobile-services-win8-app-connect-auth.png
-[13]: ../Media/mobile-identity-tab.png
+[13]: ../Media/mobile-identity-tab-ma-only.png
 [14]: ../Media/mobile-portal-data-tables.png
 [15]: ../Media/mobile-portal-change-table-perms.png
 [16]: ../Media/mobile-add-reference-live-js.png

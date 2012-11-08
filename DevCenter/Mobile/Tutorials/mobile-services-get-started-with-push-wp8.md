@@ -117,7 +117,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             });
         }
 
-   This registers a new insert script, which sends a push notification (the inserted text) to the channel provided in the insert request.
+   This registers a new insert script, which uses the [mpns object] to send a push notification (the inserted text) to the channel provided in the insert request.
 
 <h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
 
@@ -178,4 +178,5 @@ In this simple example a user receives a push notification with the data that wa
 [Authorize users with scripts]: ./mobile-services-authorize-users-wp8.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
+[mpns object]: http://go.microsoft.com/fwlink/p/?LinkId=271130
 

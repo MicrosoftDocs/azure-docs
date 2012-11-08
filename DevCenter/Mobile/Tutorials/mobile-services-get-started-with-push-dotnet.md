@@ -167,7 +167,7 @@ Both your mobile service and your app are now configured to work with WNS.
             });
         }
 
-   This registers a new insert script, which sends a push notification (the inserted text) to the channel provided in the insert request.
+   This registers a new insert script, which uses the [wns object] to send a push notification (the inserted text) to the channel provided in the insert request.
 
 <h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
 
@@ -224,3 +224,4 @@ In this simple example a user receives a push notification with the data that wa
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
