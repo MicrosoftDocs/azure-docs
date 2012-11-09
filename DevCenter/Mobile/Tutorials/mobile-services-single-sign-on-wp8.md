@@ -107,30 +107,23 @@ Next, you will update the app to authenticate users with Live Connect before req
 
             while (session == null)
             {
-                // Force a logout to make it easier to test with multiple Microsoft Accounts
-                if (liveIdClient.CanLogout)
-                    liveIdClient.Logout();
-	
                 LiveLoginResult result = await liveIdClient.LoginAsync(new[] { "wl.basic" });
                 if (result.Status == LiveConnectSessionStatus.Connected)
                 {
                     session = result.Session;
                     LiveConnectClient client = new LiveConnectClient(result.Session);
                     LiveOperationResult meResult = await client.GetAsync("me");
-                    MobileServiceUser loginResult = await App.MobileService.LoginAsync(result.Session.AuthenticationToken);
-	
+                    MobileServiceUser loginResult = 
+                        await App.MobileService.LoginAsync(result.Session.AuthenticationToken);
+
                     string title = string.Format("Welcome {0}!", meResult.Result["first_name"]);
                     var message = string.Format("You are now logged in - {0}", loginResult.UserId);
-                    var dialog = new MessageDialog(message, title);
-                    dialog.Commands.Add(new UICommand("OK"));
-                    await dialog.ShowAsync();
+                    MessageBox.Show(message, title, MessageBoxButton.OK);                    
                 }
                 else
                 {
                     session = null;
-                    var dialog = new MessageDialog("You must log in.", "Login Required");
-                    dialog.Commands.Add(new UICommand("OK"));
-                    await dialog.ShowAsync();
+                    MessageBox.Show("You must log in.", "Login Required", MessageBoxButton.OK);                    
                 }
             }
          }
