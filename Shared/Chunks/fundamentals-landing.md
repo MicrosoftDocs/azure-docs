@@ -11,7 +11,12 @@ Learn about the technologies in Windows Azure that help you work with both relat
 ### [Windows Azure Networking][]
 Learn about how to connect to applications and data by using Virtual Network, Connect, and Traffic Manager in Windows Azure.
 
+### [Windows Azure Poster][]
+Use this poster to better understand Windows Azure features, services, and common uses. The poster is for both developer and IT pro audiences.
+
+
 [Introduction to Windows Azure]: ../fundamentals/intro-to-windows-azure/
 [Windows Azure Execution Models]: ../fundamentals/compute/
 [Data Management and Business Analytics]: ../fundamentals/cloud-storage/
 [Windows Azure Networking]: ../fundamentals/networking/
+[Windows Azure Poster]: http://go.microsoft.com/fwlink/p/?LinkId=270860
