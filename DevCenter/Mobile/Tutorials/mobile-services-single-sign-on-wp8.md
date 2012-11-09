@@ -9,7 +9,6 @@
     <a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-phone-8" title="Windows Phone" class="current">Windows Phone</a>
 </div>	
 
-
 This topic shows you how to use Live Connect single sign-on to authenticate users in Windows Azure Mobile Services from a Windows Phone 8 app.  In this tutorial, you add authentication to the quickstart project using Live Connect. When successfully authenticated by Live Connect, a logged-in user is welcomed by name and the user ID value is displayed.  
 
 <div class="dev-callout"><b>Note</b>

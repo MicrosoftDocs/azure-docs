@@ -4,10 +4,10 @@
 
 # Register your Windows Store apps to use Windows Live Connect single sign-on
 
-This topic shows you how to register your Windows Store apps to be able to use Live Connect for single sign-on as the identity provider for Windows Azure Mobile Services. This step is also required to use push notifications.
+This topic shows you how to register your app with the Windows Store to be able to use Live Connect for single sign-on as the identity provider for Windows Azure Mobile Services. This step is also required to use push notifications.
 
 <div class="dev-callout"><b>Note</b>
-<p>when your Windows Store app does not require single sign-on or push notifications, consider also registering your app with the Windows Store. For more information, see <a href="/en-us/develop/mobile/howto/register-ms-account-auth">Register your Windows Store apps to use a Microsoft Account login</a>.</p>
+<p>You do not need to register your app with the Windows Store to be able to use Microsoft Account for authentication before you publish your app. When your Windows Store app does not require single sign-on or push notifications, you can just register your app with Live Connect to use a Microsoft Account login.  For more information, see <a href="/en-us/develop/mobile/how-to-guides/register-for-microsoft-authentication">Register your Windows Store apps to use a Microsoft Account login</a>.</p>
 </div>
 
 1. If you have not already registered your app, navigate to the [Submit an app page] at the Dev Center for Windows Store apps, log on with your Microsoft Account, and then click **App name**.
