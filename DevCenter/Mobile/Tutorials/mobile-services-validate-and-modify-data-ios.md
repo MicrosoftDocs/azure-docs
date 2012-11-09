@@ -76,45 +76,36 @@ Now that the mobile service is validating data and sending error responses, you 
 
    After this line of code, replace the remainder of the completion block with the following code:
 
-        BOOL badRequest = ((error) && (error.code == -1302));
+        BOOL goodRequest = !((error) && (error.code == MSErrorMessageErrorCode));
 
         // detect text validation error from service.
-        if (!badRequest) // The service responded appropriately
+        if (goodRequest) // The service responded appropriately
         {
             NSUInteger index = [items count];
             [(NSMutableArray *)items insertObject:result atIndex:index];
-
+        
             // Let the caller know that we finished
             completion(index);
         }
-
-    This checks for an error in the request with an error code of –1302, which indicates a bad request.
-
-4. Rebuild and start the app again and check the output window to see that the following bad request error from the mobile service was handled: 
-
-     2012-10-23 22:01:32.169 Quickstart[5932:11303] ERROR Error        Domain=com.Microsoft.WindowsAzureMobileServices.ErrorDomain Code=-1302 _"Text length must be under 10"_         UserInfo=0x7193850 {NSLocalizedDescription=Text length must be under 10, com.Microsoft.WindowsAzureMobileServices.ErrorResponseKey=<NSHTTPURLResponse: 0x755b470>, com.Microsoft.WindowsAzureMobileServices.ErrorRequestKey=<NSMutableURLRequest https://task.azure-mobile.net/tables/TodoItem>}
-
-3. In the TodoService.m file, locate the following line of code in the **logErrorIfNotNil** method: 
+        else{
         
-        NSLog(@"ERROR %@", error); 
-
-   After this code, add the following if block:
-
-        // added to display description of bad request
-        if (error.code == -1302){
-
-            UIAlertView *av =
-            [[UIAlertView alloc]
-              initWithTitle:@"Request Failed"
-              message:error.localizedDescription
-              delegate:nil
-              cancelButtonTitle:@"OK"
-              otherButtonTitles:nil
-             ];
-            [av show];
+            // if there's an error that came from the service
+            // log it, and popup up the returned string.
+            if (error && error.code == MSErrorMessageErrorCode) {
+                NSLog(@"ERROR %@", error);
+                UIAlertView *av =
+                [[UIAlertView alloc]
+                 initWithTitle:@"Request Failed"
+                 message:error.localizedDescription
+                 delegate:nil
+                 cancelButtonTitle:@"OK"
+                 otherButtonTitles:nil
+                 ];
+                [av show];
+            }
         }
 
-   This handles the logging of errors to the output window. 
+   This logs the error to the output window and displays it to the user. 
 
 4. Rebuild and start the app. 
 
