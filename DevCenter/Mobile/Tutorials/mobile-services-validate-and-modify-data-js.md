@@ -58,6 +58,10 @@ It is always a good practice to validate the length of data that is submitted by
 
     This script checks the length of the **TodoItem.text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** method is called to complete the insert.
 
+    <div class="dev-callout"> 
+	<b>Note</b> 
+	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>	
+
 ## <a name="update-client-validation"></a>Update the client
 
 Now that the mobile service is validating data and sending error responses, you need to update your app to be able to handle error responses from validation.
@@ -67,10 +71,6 @@ Now that the mobile service is validating data and sending error responses, you 
 2. Press the **F5** key to run the app, then type text longer than 10 characters in **Insert a TodoItem** and click **Save**.
 
    Notice that the app raises an unhandled error as a result of the 400 response (Bad Request) returned by the mobile service.
-
-    <div class="dev-callout"> 
-	<b>Note</b> 
-	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>	
 
 6. 	Open the file default.js, then replace the existing **InsertTodoItem** method with the following:
 

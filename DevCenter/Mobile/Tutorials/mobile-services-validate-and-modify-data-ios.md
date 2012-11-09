@@ -19,14 +19,14 @@
 </div>
 
 
-This topic shows you how to leverage server scripts in Windows Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update your Windows Store app to take advantage of these new behaviors.
+This topic shows you how to leverage server scripts in Windows Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update your iOS app to take advantage of these new behaviors.
 
 This tutorial walks you through these basic steps:
 
 1. [Add string length validation]
 2. [Update the client to support validation]
-3. [Add a timestamp on insert]
-4. [Update the client to display the timestamp]
+<!--3. [Add a timestamp on insert]
+4. [Update the client to display the timestamp]-->
 
 This tutorial builds on the steps and the sample app from the previous tutorial [Get started with data]. Before you begin this tutorial, you must first complete [Get started with data].  
 
@@ -58,6 +58,10 @@ It is always a good practice to validate the length of data that is submitted by
 
     This script checks the length of the **TodoItem.text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** method is called to complete the insert.
 
+    <div class="dev-callout"> 
+	<b>Note</b> 
+	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>
+
 ## <a name="update-client-validation"></a>Update the client
 
 Now that the mobile service is validating data and sending error responses, you need to update your app to be able to handle error responses from validation.
@@ -66,11 +70,7 @@ Now that the mobile service is validating data and sending error responses, you 
 
 2. Press the **Run** button (Command + R) to build the project and start the app, then type text longer than 10 characters in the textbox and click the  plus (**+**) icon.
 
-   Notice that the app raises an unhandled error as a result of the 400 response (Bad Request) returned by the mobile service.
-
-    <div class="dev-callout"> 
-	<b>Note</b> 
-	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>	
+   Notice that the app raises an unhandled error as a result of the 400 response (Bad Request) returned by the mobile service.	
 
 3. In the TodoService.m file, locate the following line of code in the **addItem** method:
     
@@ -78,50 +78,36 @@ Now that the mobile service is validating data and sending error responses, you 
 
    After this line of code, replace the remainder of the completion block with the following code:
 
-        BOOL badRequest = ((error) && (error.code == -1302));
+        BOOL goodRequest = !((error) && (error.code == MSErrorMessageErrorCode));
 
         // detect text validation error from service.
-        if (!badRequest) // The service responded appropriately
+        if (goodRequest) // The service responded appropriately
         {
-            NSUInteger index = [itemscount];
-            [(NSMutableArray *)itemsinsertObject:result atIndex:index];
-
+            NSUInteger index = [items count];
+            [(NSMutableArray *)items insertObject:result atIndex:index];
+        
             // Let the caller know that we finished
             completion(index);
         }
-
-    This checks for an error in the request with an error code of –1302, which indicates a bad request.
-
-4. Rebuild and start the app again and check the output window to see that the following bad request error from the mobile service was handled: 
-
-        2012-10-23 22:01:32.169 Quickstart[5932:11303] ERROR Error
-        Domain=com.Microsoft.WindowsAzureMobileServices.ErrorDomain Code=-1302 "Text length must be under 10"
-        UserInfo=0x7193850 {NSLocalizedDescription=Text length must be under 10,
-        com.Microsoft.WindowsAzureMobileServices.ErrorResponseKey=<NSHTTPURLResponse: 0x755b470>, 
-        com.Microsoft.WindowsAzureMobileServices.ErrorRequestKey=<NSMutableURLRequest 
-        https://task.azure-mobile.net/tables/TodoItem>}
-
-3. In the TodoService.m file, locate the following line of code in the **logErrorIfNotNil** method: 
+        else{
         
-        NSLog(@"ERROR %@", error); add the following if block:
-
-   After this code, add the following if block:
-
-        // added to display description of bad request
-        if (error.code == -1302){
-
-            UIAlertView *av =
-            [[UIAlertView alloc]
-              initWithTitle:@"Request Failed"
-              message:error.localizedDescription
-              delegate:nil
-              cancelButtonTitle:@"OK"
-              otherButtonTitles:nil
-             ];
-            [av show];
+            // if there's an error that came from the service
+            // log it, and popup up the returned string.
+            if (error && error.code == MSErrorMessageErrorCode) {
+                NSLog(@"ERROR %@", error);
+                UIAlertView *av =
+                [[UIAlertView alloc]
+                 initWithTitle:@"Request Failed"
+                 message:error.localizedDescription
+                 delegate:nil
+                 cancelButtonTitle:@"OK"
+                 otherButtonTitles:nil
+                 ];
+                [av show];
+            }
         }
 
-   This handles the logging of errors to the output window. 
+   This logs the error to the output window and displays it to the user. 
 
 4. Rebuild and start the app. 
 
@@ -147,7 +133,7 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
     This function augments the previous insert script by adding a new **createdAt** timestamp property to the object before it gets inserted by the call to **request**.**execute**. 
 
     <div class="dev-callout"><b>Note</b>
-	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>createdAt</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published to the Windows Store.</p>
+	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>createdAt</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published.</p>
     </div>
 
 2. In Visual Studio, press the **F5** key to run the app, then type text (shorter than 10 characters) in **Insert a TodoItem** and click **Save**.
