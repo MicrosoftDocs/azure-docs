@@ -1,33 +1,51 @@
-<properties linkid="dev-net-how-to-blob-storage" urldisplayname="Blob Service" headerexpose="" pagetitle="How to Use the Blob Storage Service from .NET" metakeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob .NET, Azure blob storage .NET, Azure blob C#, Azure blob storage C#" footerexpose="" metadescription="Get started using the Windows Azure blob storage service to upload, download, list, and delete blob content." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (.NET) - Windows Azure feature guide" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob .NET, Azure blob C#, Azure blob C#" metaDescription="Learn how to use the Windows Azure blob service to upload, download, list, and delete blob content. Samples written in C# and use the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-# How to Use the Blob Storage Service
+
+
+
+
+
+
+
+
+
+
+<div chunk="../chunks/article-left-menu.md" />
+
+# How to use the Windows Azure Blob Storage Service in .NET
+
+<div class="dev-center-tutorial-selector">
+<a href="/en-us/develop/net/how-to-guides/blob-storage-v17/" title="version 1.7" class="current">version 1.7</a>
+<a href="/en-us/develop/net/how-to-guides/blob-storage/" title="version 2.0">version 2.0</a> 
+</div>
+
 
 This guide will demonstrate how to perform common scenarios using the
 Windows Azure Blob storage service. The samples are written in C\# and
 use the .NET API. The scenarios covered include
-**uploading** ,**listing**, **downloading**, and **deleting** blobs. For
-more information on blobs, see the [Next Steps][] section.
+**uploading**, **listing**, **downloading**, and **deleting** blobs. For
+more information on blobs, see the [Next steps][] section.
 
-## Table of Contents
+<h2>Table of contents</h2>
 
 -   [What is Blob Storage][]
 -   [Concepts][]
--   [Create a Windows Azure Storage Account][]
--   [Setup a Windows Azure Storage Connection String][]
--   [How To: Programmatically access Blob Storage Using .NET][]
--   [How To: Create a Container][]
--   [How To: Upload a Blob into a Container][]
--   [How To: List the Blobs in a Container][]
--   [How To: Download Blobs][]
--   [How To: Delete a Blob][]
--   [Next Steps][]
+-   [Create a Windows Azure Storage account][]
+-   [Setup a storage connection string][]
+-   [How to: Programmatically access blob storage][]
+-   [How to: Create a container][]
+-   [How to: Upload a blob into a container][]
+-   [How to: List the blobs in a container][]
+-   [How to: Download blobs][]
+-   [How to: Delete blobs][]
+-   [Next steps][]
 
 <div chunk="../../Shared/Chunks/howto-blob-storage.md" />
 
-## <a name="create-account"> </a>Create a Windows Azure Storage Account
+<h2><a name="create-account"></a><span  class="short-header">Create an account</span>Create a Windows Azure Storage account</h2>
 <div chunk="../../Shared/Chunks/create-storage-account.md" />
 
-## <a name="setup-connection-string"> </a>Setup a Windows Azure Storage Connection String
+<h2><a name="setup-connection-string"></a><span  class="short-header">Setup a connection string</span>Setup a storage connection string</h2>
 
 The Windows Azure .NET storage API supports using a storage connection
 string to configure endpoints and credentials for accessing storage
@@ -37,7 +55,7 @@ file, rather than hard-coding it in code:
 - When using Windows Azure Cloud Services, it is recommended you store your connection string using the Windows Azure service configuration system (`*.csdef` and `*.cscfg` files).
 - When using Windows Azure Web Sites or Windows Azure Virtual Machines, it is recommended you store your connection string using the .NET configuration system (e.g. `web.config` file).
 
-In both cases, you can retrieve your connection string using the `CloudConfigurationManager.GetSetting` method as shown later in this guide.
+In both cases, you can retrieve your connection string using the `CloudConfigurationManager.GetSetting` method, as shown later in this guide.
 
 ### Configuring your connection string when using Cloud Services
 
@@ -52,10 +70,10 @@ configuration:
 1.  Within the Solution Explorer of Visual Studio, in the **Roles**
     folder of your Windows Azure Deployment Project, right-click your
     web role or worker role and click **Properties**.  
-    ![Blob5][]
+    ![Select the properties on a Cloud Service role in Visual Studio][Blob5]
 
 2.  Click the **Settings** tab and press the **Add Setting** button.  
-    ![Blob6][]
+    ![Add a Cloud Service setting in visual Studio][Blob6]
 
     A new **Setting1** entry will then show up in the settings grid.
 
@@ -66,7 +84,7 @@ configuration:
 4.  Click the **...** button at the right end of the **Setting1** entry.
     The **Storage Account Connection String** dialog will open.
 
-5.  Choose whether you want to target the storage emulator (the Windows
+5.  Choose whether you want to target the storage emulator (Windows
     Azure storage simulated on your local machine) or an actual storage
     account in the cloud. The code in this guide works with either
     option. Enter the **Primary Access Key** value copied from the
@@ -74,7 +92,7 @@ configuration:
     storage account we created earlier on Windows Azure.   
     ![Blob8][]
 
-6.  Change the entry **Name** from **Setting1** to a "friendlier" name
+6.  Change the entry **Name** from **Setting1** to a friendlier name
     like **StorageConnectionString**. You will reference this
     connection string later in the code in this guide.  
     ![Blob9][]
@@ -92,9 +110,9 @@ When using Web Sites or Virtual Machines, it is recommended you use the .NET con
 
 Read [Configuring Connection Strings][] for more information on storage connection strings.
 	
-You are now ready to perform the How To's in this guide.
+You are now ready to perform the how-to tasks in this guide.
 
-## <a name="configure-access"> </a>How to Programmatically access Blob Storage Using .NET
+<h2> <a name="configure-access"> </a><span  class="short-header">Access programmatically</span>How to: Programmatically access blob storage</h2>
 
 Add the following code namespace declarations to the top of any C\# file
 in which you wish to programmatically access Windows Azure Storage:
@@ -104,7 +122,7 @@ in which you wish to programmatically access Windows Azure Storage:
 
 You can use the **CloudStorageAccount** type and
 **CloudConfigurationManager** type
-to retrieve your storage connection-string and storage account
+to retrieve your storage connection string and storage account
 information from the Windows Azure service configuration:
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -117,13 +135,13 @@ account object we retrieved above:
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-## <a name="create-container"> </a>How to Create a Container
+<h2> <a name="create-container"> </a><span  class="short-header">Create a container</span>How to: Create a container</h2>
 
 All storage blobs reside in a container. You can use a
 **CloudBlobClient** object to get a reference to the container you want
 to use. You can create the container if it doesn't exist:
 
-    // Retrieve storage account from connection-string
+    // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -143,12 +161,13 @@ to everyone, you can set the container to be public using the following
 code:
 
     container.SetPermissions(
-       new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob }); 
+        new BlobContainerPermissions { PublicAccess = 
+ 	    BlobContainerPublicAccessType.Blob }); 
 
 Anyone on the Internet can see blobs in a public container, but you can
 modify or delete them only if you have the appropriate access key.
 
-## <a name="upload-blob"> </a>How to Upload a Blob into a Container
+<h2> <a name="upload-blob"> </a><span  class="short-header">Upload to a container</span>How to: Upload a blob into a container</h2>
 
 To upload a file to a blob, get a container reference and use it to get
 a blob reference. Once you have a blob reference, you can upload any
@@ -157,7 +176,7 @@ blob reference. This operation will create the blob if it didn't exist,
 or overwrite it if it did. The below code sample shows this, and assumes
 that the container was already created.
 
-    // Retrieve storage account from connection-string
+    // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -176,14 +195,14 @@ that the container was already created.
         blob.UploadFromStream(fileStream);
     } 
 
-## <a name="list-blob"> </a>How to List the Blobs in a Container
+<h2> <a name="list-blob"> </a><span  class="short-header">List blobs in a container</span>How to: List the blobs in a container</h2>
 
 To list the blobs in a container, first get a container reference. You
 can then use the container's **ListBlobs** method to retrieve the blobs
 within it. The following code demonstrates how to retrieve and output
 the **Uri** of each blob in a container:
 
-    // Retrieve storage account from connection-string
+    // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -212,10 +231,9 @@ this case, directories '2010' and '2011', as well as photo 'rootphoto1'
 would be returned. Optionally, you can pass in a new
 **BlobRequestOptions** class with **UseFlatBlobListing** set to
 **true**. This would result in every blob being returned, regardless of
-directory. For more information, see [CloudBlobContainer.ListBlobs][] on
-MSDN.
+directory. For more information, see [CloudBlobContainer.ListBlobs][].
 
-## <a name="download-blobs"> </a>How to Download Blobs
+<h2> <a name="download-blobs"> </a><span  class="short-header">Download blobs</span>How to: Download blobs</h2>
 
 To download blobs, first retrieve a blob reference. The following
 example uses the **DownloadToStream** method to transfer the blob
@@ -223,7 +241,7 @@ contents to a stream object that you can then persist to a local file.
 You could also call the blob's **DownloadToFile**, **DownloadByteArray**,
 or **DownloadText** methods.
 
-    // Retrieve storage account from connection-string
+    // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -242,12 +260,12 @@ or **DownloadText** methods.
         blob.DownloadToStream(fileStream);
     } 
 
-## <a name="delete-blobs"> </a>How to Delete Blobs
+<h2> <a name="delete-blobs"> </a><span  class="short-header">Delete blobs</span>How to: Delete blobs</h2>
 
 Finally, to delete a blob, get a blob reference, and then call the
 **Delete** method on it.
 
-    // Retrieve storage account from connection-string
+    // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -263,32 +281,46 @@ Finally, to delete a blob, get a blob reference, and then call the
     // Delete the blob
     blob.Delete(); 
 
-## <a name="next-steps"> </a>Next Steps
+<h2> <a name="next-steps"></a><span  class="short-header">Next steps</span>Next steps</h2>
 
 Now that you've learned the basics of blob storage, follow these links
 to learn how to do more complex storage tasks.
-
--   See the MSDN Reference: [Storing and Accessing Data in Windows
-    Azure][]
--   Visit the [Windows Azure Storage Team Blog][]
+<ul>
+<li>View the blob service reference documentation for complete details about available APIs:
+  <ul>
+    <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/wl_svchosting_mref_reference_home">.NET client library reference</a>
+    </li>
+    <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/dd179355">REST API reference</a></li>
+  </ul>
+</li>
+<li>Learn about more advanced tasks you can perform with Windows Azure Storage at <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Windows Azure</a>.</li>
+<li>View more feature guides to learn about additional options for storing data in Windows Azure.
+  <ul>
+    <li>Use <a href="/en-us/develop/net/how-to-guides/table-services/">Table Storage</a> to store structured data.</li>
+    <li>Use <a href="/en-us/develop/net/how-to-guides/sql-database/">SQL Database</a> to store relational data.</li>
+  </ul>
+</li>
+</ul>
 
   [Next Steps]: #next-steps
   [What is Blob Storage]: #what-is
   [Concepts]: #concepts
   [Create a Windows Azure Storage Account]: #create-account
-  [Setup a Windows Azure Storage Connection String]: #setup-connection-string
-  [How To: Programmatically access Blob Storage Using .NET]: #configure-access
+  [Setup a storage Connection String]: #setup-connection-string
+  [How To: Programmatically access Blob Storage]: #configure-access
   [How To: Create a Container]: #create-container
   [How To: Upload a Blob into a Container]: #upload-blob
   [How To: List the Blobs in a Container]: #list-blob
   [How To: Download Blobs]: #download-blobs
-  [How To: Delete a Blob]: #delete-blobs
+  [How To: Delete blobs]: #delete-blobs
   [Blob5]: ../../../DevCenter/dotNet/Media/blob5.png
   [Blob6]: ../../../DevCenter/dotNet/Media/blob6.png
   [Blob7]: ../../../DevCenter/dotNet/Media/blob7.png
   [Blob8]: ../../../DevCenter/dotNet/Media/blob8.png
   [Blob9]: ../../../DevCenter/dotNet/Media/blob9.png
   [CloudBlobContainer.ListBlobs]: http://msdn.microsoft.com/en-us/library/windowsazure/ee772878.aspx
-  [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/gg433040.aspx
+  [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx
+  [.NET client library reference]: http://msdn.microsoft.com/en-us/library/windowsazure/wl_svchosting_mref_reference_home
+  [REST API reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355

@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Create and Deploy a Website" metaKeywords="Windows Azure Websites, deployment, configuration changes, deployment update, Windows Azure .NET deployment, .NET deployment" metaDescription="Learn how to configure Websites in Windows Azure to use a SQL or MySQL database, and learn how to configure diagnostics and download logs." linkid="itpro-windows-howto-configure-websites" urlDisplayName="How to Configure Websites" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-how-to-create-websites" urlDisplayName="How to create" pageTitle="How to create web sites - Windows Azure service management" metaKeywords="Azure creating web site, Azure deleting website" metaDescription="Learn how to create a web site using the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 #How to Create and Deploy a Website
 

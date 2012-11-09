@@ -1,5 +1,7 @@
-#Thanks for downloading the Windows Azure SDK for Mac
+<properties linkid="dev-downloads-cli-tools-install" urlDisplayName="CLI Tools Install" pageTitle="Windows Azure Command-Line Tools for Mac and Linux Install" metaKeywords="" metaDescription="Get started using the Windows Azure command-line tools for Mac and Linux." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+
+#Thanks for downloading the Windows Azure SDK for Mac
 This page provides resources to help you get started using the Windows Azure SDK for [node.js][], [PHP][], or [Python][].
 
 ## <a id="node"></a>Node.js

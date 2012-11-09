@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Access Windows Azure SQL Database from Node.js" metaKeywords="Windows Azure, SQL Database, Node.js" metaDescription="Learn how to use Node.js to access Windows Azure SQL Database." linkid="dev-node-howto-sql-database" urlDisplayName="How to Access Windows Azure SQL Database from Node.js" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-node-how-to-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (Node.js) - Windows Azure feature guide" metaKeywords="" metaDescription="Learn how to use Windows Azure SQL Database from Node.js." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 #How to Access Windows Azure SQL Database from Node.js
 

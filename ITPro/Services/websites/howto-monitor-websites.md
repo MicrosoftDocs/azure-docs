@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Monitor Websites" metaKeywords="Windows Azure Websites, Azure deployment, Azure configuration changes, Azure deployment update, Windows Azure .NET deployment, Azure .NET deployment" metaDescription="Learn how to monitor Websites in Windows Azure." linkid="itpro-windows-howto-configure-websites" urlDisplayName="How to Configure Websites" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor web sites - Windows Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" metaDescription="Learn how to monitor Windows Azure web sites by using the Monitor page in the Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 #<a name="howtomonitor"></a>How to Monitor Websites
 

@@ -1,11 +1,15 @@
-<properties linkid="dev-net-tutorials-hybrid-solution" urldisplayname="Hybrid Application" headerexpose="" pagetitle="Hybrid On-Premise /Cloud Application" metakeywords="Azure Service Bus tutorial, Azure Service Bus relay tutorial, Azure hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop an application that uses the Windows Azure Service Bus relay to connect between two applications." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Windows Azure" metaKeywords="Azure Service Bus tutorial  hybrid .NET" metaDescription="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Windows Azure Service Bus Relay." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # .NET On-Premises/Cloud Hybrid Application Using Service Bus Relay
 
-## INTRODUCTION
+<h2><span class="short-header">INTRODUCTION</span>INTRODUCTION</h2>
 
 Developing hybrid cloud applications with Windows Azure is easy using
-Visual Studio 2010 and the free Windows Azure SDK for .NET. This guide
+Visual Studio 2012 and the free Windows Azure SDK for .NET. This guide
 assumes you have no prior experience using Windows Azure. In less than
 30 minutes, you will have an application that uses multiple Windows
 Azure resources up and running in the cloud.
@@ -16,6 +20,8 @@ You will learn:
     web solution.
 -   How to use the Windows Azure Service Bus relay to share data between
     a Windows Azure application and a web service hosted elsewhere.
+
+<div chunk="../../Shared/Chunks/create-account-note.md" />
 
 ### HOW THE SERVICE BUS RELAY HELPS WITH HYBRID SOLUTIONS
 
@@ -65,7 +71,7 @@ below.
 
 ![][1]
 
-## SET UP THE DEVELOPMENT ENVIRONMENT
+<h2><span class="short-header">SET UP THE ENVIRONMENT</span>SET UP THE DEVELOPMENT ENVIRONMENT</h2>
 
 Before you can begin developing your Windows Azure application, you need
 to get the tools and set-up your development environment.
@@ -74,31 +80,28 @@ to get the tools and set-up your development environment.
 
     [Get Tools and SDK][]
 
-2.  When prompted to run or save **WindowsAzureSDKForNet.exe**, click
+2. 	Click **install the SDK**.
+
+3. 	Choose the link for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2012:
+
+	![][42]
+
+4.  When prompted to run or save **WindowsAzureSDKForNet.exe**, click
     **Run**:
 
     ![][2]
 
-3.  Click on **Install** in the installer window and proceed with the
-    installation:
+5.  In the Web Platform Installer, click **Install** and proceed with the installation:
 
     ![][3]
 
-4.  Once the installation is complete, you will have everything
+6.  Once the installation is complete, you will have everything
     necessary to start developing. The SDK includes tools that let you
     easily develop Windows Azure applications in Visual Studio. If you
     do not have Visual Studio installed, it also installs the free
     Visual Web Developer Express.
 
-## CREATE A WINDOWS AZURE ACCOUNT
-
-In order to set up the Service Bus Service Namespace and later deploy
-your application to Windows Azure, you need an account. If you do not
-have one you can create a free trial account.
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-## CREATE A SERVICE NAMESPACE
+<h2><span class="short-header">CREATE A NAMESPACE</span>CREATE A SERVICE NAMESPACE</h2>
 
 To begin using Service Bus features in Windows Azure, you must first
 create a service namespace. A service namespace provides a scoping
@@ -108,53 +111,57 @@ To create a service namespace:
 
 1.  Log on to the [Windows Azure Management Portal][].
 
-2.  In the lower left navigation pane of the Management Portal, click
-    **Service Bus, Access Control & Caching**.
+2.  In the left navigation pane of the Management Portal, click
+    **Service Bus**.
 
-3.  In the upper left pane of the Management Portal, click the **Service
-    Bus** node, and then click the **New** button.   
+3.  In the lower pane of the Management Portal, click **Create**.   
     ![][5]
 
-4.  In the **Create a new Service Namespace** dialog, enter a
-    **Namespace**, and then to make sure that it is unique, click the
-    **Check Availability** button.   
+4.  In the **Add a new namespace** dialog, enter a namespace name.
+    The system immediately checks to see if the name is available.   
     ![][6]
 
 5.  After making sure the namespace name is available, choose the
     country or region in which your namespace should be hosted (make
     sure you use the same country/region in which you are deploying your
-    compute resources), and then click the **Create Namespace** button.
+    compute resources).
+
+    IMPORTANT: Pick the **same region** that you intend to choose for
+    deploying your application. This will give you the best performance.
+
+6.	Click the check mark. The system now creates your service
+    namespace and enables it. You might have to wait several minutes as
+    the system provisions resources for your account.
+
+	![][38]
 
 The namespace you created will then appear in the Management Portal and
 takes a moment to activate. Wait until the status is **Active** before
 moving on.
 
-## OBTAIN THE DEFAULT MANAGEMENT CREDENTIALS FOR THE NAMESPACE
+<h2><span class="short-header">OBTAIN MANAGEMENT CREDENTIALS</span>OBTAIN THE DEFAULT MANAGEMENT CREDENTIALS FOR THE NAMESPACE</h2>
 
 In order to perform management operations, such as creating a queue, on
 the new namespace, you need to obtain the management credentials for the
 namespace.
 
-1.  In the left navigation pane, click the **Service Bus** node, to
-    display the list of available namespaces:   
-    ![][5]
+1.  In the main window, click the name of your service namespace.   
 
-2.  Select the namespace you just created from the list shown:   
-    ![][7]
+	![][39]
+  
 
-3.  The right-hand **Properties** pane will list the properties for the
-    new namespace:   
-    ![][8]
+2.  Click **Access Key**.   
 
-4.  The **Default Key** is hidden. Click the **View** button to display
-    the security credentials:   
-    ![][9]
+	![][40]
 
-5.  Make a note of the **Default Issuer** and the **Default Key** as you
-    will use this information below to perform operations with the
-    namespace.
 
-## CREATE AN ON-PREMISES SERVER
+3.  In the **Connect to your namespace** pane, find the **Default Issuer** and **Default Key** entries.   
+    
+
+4.  Make a note of the key, or copy it to the clipboard.
+
+
+<h2><span class="short-header">CREATE AN ON-PREMISES SERVER</span>CREATE AN ON-PREMISES SERVER</h2>
 
 First, you will build a (mock) on-premises product catalog system. It
 will be fairly simple; you can see this as representing an actual
@@ -173,10 +180,10 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
 ### CREATE THE PROJECT
 
 1.  Using administrator privileges, launch either Microsoft Visual
-    Studio 2010 or Microsoft Visual Web Developer Express 2010. To
+    Studio 2012 or Microsoft Visual Web Developer Express. To
     launch Visual Studio with administrator privileges, right-click
-    **Microsoft Visual Studio 2010 (or Microsoft Visual Web Developer
-    Express 2010)** and then click **Run as administrator**.
+    **Microsoft Visual Studio 2012 (or Microsoft Visual Web Developer
+    Express)** and then click **Run as administrator**.
 2.  In Visual Studio, on the **File** menu, click **New**, and then
     click **Project**.
 
@@ -191,15 +198,15 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
 4.  Click **OK** to create the **ProductsServer** project.
 5.  In the **Solution Explorer**, right-click **ProductsServer**, then
     click **Properties**.
-6.  Click the **Application** tab on the left, then select **.NET
-    Framework 4** from the **Target framework:** dropdown. Click **Yes**
+6.  Click the **Application** tab on the left, then ensure that **.NET
+    Framework 4** appears in the **Target framework:** dropdown. If not, select it from the dropdown and then click **Yes**
     when prompted to reload the project.
 
     ![][12]
 
 7.  In **Solution Explorer**, right-click **References**, then click
     **Manage NuGet Packages**...
-8.  Search for ‘**WindowsAzure.ServiceBus**’ and select the **Windows
+8.  Search for ‘**WindowsAzure**’ and select the **Windows
     Azure Service Bus** item. Click **Install** to complete the
     installation, then close this dialog.
 
@@ -315,10 +322,10 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
         <system.serviceModel>
           <extensions>
              <behaviorExtensions>
-                <add name="transportClientEndpointBehavior" type="Microsoft.ServiceBus.Configuration.TransportClientEndpointBehaviorElement, Microsoft.ServiceBus, Version=1.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add name="transportClientEndpointBehavior" type="Microsoft.ServiceBus.Configuration.TransportClientEndpointBehaviorElement, Microsoft.ServiceBus, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
               </behaviorExtensions>
               <bindingExtensions>
-                 <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=1.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                 <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
               </bindingExtensions>
           </extensions>
           <services>
@@ -343,24 +350,24 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
 14. Press **F6** to build the application to verify the accuracy of your
     work so far.
 
-## CREATE AN ASP.NET MVC 3 APPLICATION
+<h2><span class="short-header">CREATE AN ASP.NET APPLICATION</span>CREATE AN ASP.NET MVC 3 APPLICATION</h2>
 
-In this section you will build a simple MVC 3 application that will
+In this section you will build a simple MVC 4 application that will
 display data retrieved from your product service.
 
 ### CREATE THE PROJECT
 
 1.  Using administrator privileges, launch either Microsoft Visual
-    Studio 2010 or Microsoft Visual Web Developer Express 2010. To
+    Studio 2012 or Microsoft Visual Web Developer Express. To
     launch Visual Studio with administrator privileges, right-click
-    **Microsoft Visual Studio 2010 (or Microsoft Visual Web Developer
-    Express 2010)** and then click Run as administrator. The Windows
+    **Microsoft Visual Studio 2012 (or Microsoft Visual Web Developer
+    Express)** and then click Run as administrator. The Windows
     Azure compute emulator, discussed later in this guide, requires that
     Visual Studio be launched with administrator privileges.
 2.  In Visual Studio, on the **File** menu, click **New**, and then
     click **Project**.
 3.  From **Installed Templates**, under **Visual C#**, click **ASP.NET
-    MVC 3 Web Application**. Name the project **ProductsPortal**. Then
+    MVC 4 Web Application**. Name the project **ProductsPortal**. Then
     click **OK**.
 
     ![][15]
@@ -418,43 +425,57 @@ display data retrieved from your product service.
 
     ![][18]
 
-4.  Next, change the page title by replacing the header text in
-    _Layout.cshtml with the text "LITWARE'S Products". Double-click
-    _Layout.cshtml to open it in the Visual Studio editor.
+4.  Next, double-click _Layout.cshtml to open it in the Visual Studio editor.
 
-5.  Within the body tag, find the title of the page enclosed in h1 tags.
-    Change the title text from My MVC Application to LITWARE's Products.
-    Here is where you type this in:
+5.  Within the body tag, find the title of the page enclosed in `title` tags.
+    Change the title text from My MVC Application to LITWARE's Products. Also change **your logo here** to **LITWARE's Products**.
 
-    ![][19]
+6. Remove the **Home**, **About**, and **Contact** links. Delete the highlighted code:
 
-6.  In **Solution Explorer**, expand Views\Home:
+	![][41]
+
+7.  In **Solution Explorer**, expand Views\Home:
 
     ![][20]
 
-7.  Double-click Index.cshtml to open it in the Visual Studio editor.
+8.  Double-click Index.cshtml to open it in the Visual Studio editor.
     Replace the entire contents of the file with the following code:
+	
+		@model IEnumerable<ProductsPortal.Models.Product>
 
-        @model IEnumerable<ProductsWeb.Models.Product>
-        @{
-          ViewBag.Title = "Product Inventory";
-        }
-        <h2>Product Inventory</h2>
-        <table>
-        <tr>
-          <th>Name</th><th>Quantity</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-          <tr>
-          <td>@item.Name</td>
-          <td>@item.Quantity</td>
-        </tr>
-        }
-        </table>
+		@{
+    		ViewBag.Title = "Index";
+		}
 
-8.  To verify the accuracy of your work so far, you can press **F6** or
+		<h2>Prod Inventory</h2>
+
+		<table>
+    		<tr>
+        		<th>
+            		@Html.DisplayNameFor(model => model.Name)
+        		</th>
+        		<th>
+            		@Html.DisplayNameFor(model => model.Quantity)
+        		</th>
+    		</tr>
+	
+		@foreach (var item in Model) {
+    		<tr>
+        		<td>
+            		@Html.DisplayFor(modelItem => item.Name)
+        		</td>
+        		<td>
+            		@Html.DisplayFor(modelItem => item.Quantity)
+        		</td>
+    		</tr>	
+		}
+
+		</table>
+
+
+9.  To verify the accuracy of your work so far, you can press **F6** or
     **Ctrl+Shift+B** to build the project.
+
 
 ### RUN YOUR APPLICATION LOCALLY
 
@@ -468,7 +489,7 @@ Run the application to verify that it works.
 
     ![][21]
 
-    ## MAKE YOUR APPLICATION READY TO DEPLOY TO WINDOWS AZURE
+    <h2><span class="short-header">DEPLOY TO WINDOWS AZURE</span>MAKE YOUR APPLICATION READY TO DEPLOY TO WINDOWS AZURE</h2>
 
     Now, you will prepare your application to run in a Windows Azure
     hosted service. Your application already includes a Windows Azure
@@ -494,16 +515,16 @@ Run the application to verify that it works.
         and it will look and function the same way it did when you ran
         it earlier as a regular ASP.NET MVC 3 application.
 
-    ## PUT THE PIECES TOGETHER
+    <h2><span class="short-header">PUT THE PIECES TOGETHER</span>PUT THE PIECES TOGETHER</h2>
 
     The next step is to hook up the on-premises products server with the
     ASP.NET MVC3 application.
 
     1.  If it is not already open, in Visual Studio re-open the
-        **ProductsPortal** project you created in the “Creating an
-        ASP.NET MVC 3 Application” section.
+        **ProductsPortal** project you created in the "Creating an
+        ASP.NET MVC 3 Application" section.
 
-    2.  Similar to the step in the “Create an On-Premises Server”
+    2.  Similar to the step in the "Create an On-Premises Server"
         section, add the NuGet package to the project References. In
         Solution Explorer, right-click **References**, then click
         **Manage NuGet Packages**.
@@ -601,7 +622,7 @@ Run the application to verify that it works.
 
         ![][26]
 
-    ## RUN THE APPLICATION
+    <h2><span class="short-header">RUN THE APPLICATION</span>RUN THE APPLICATION</h2>
 
     1.  From the **File** menu in Visual Studio, click **Save All**.
 
@@ -614,7 +635,7 @@ Run the application to verify that it works.
 
         ![][1]
 
-    ## DEPLOY YOUR APPLICATION TO WINDOWS AZURE
+    <h2><span class="short-header">DEPLOY THE APPLICATION</span>DEPLOY YOUR APPLICATION TO WINDOWS AZURE</h2>
 
     1.  Right-click on the **ProductsPortal** project in **Solution
         Explorer** and click **Publish to Windows Azure**.
@@ -695,7 +716,7 @@ Run the application to verify that it works.
 
         ![][37]
 
-    ## STOP AND DELETE YOUR APPLICATION
+    <h2><span class="short-header">DELETE THE APPLICATION</span>STOP AND DELETE YOUR APPLICATION</h2>
 
     After deploying your application, you may want to disable it so you
     can build and deploy other applications within the free 750
@@ -725,25 +746,25 @@ Run the application to verify that it works.
 
   [0]: ../../../DevCenter/dotNet/Media/hybrid.png
   [1]: ../../../DevCenter/dotNet/Media/App2.png
-  [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkID=234939&clcid=0x409
-  [2]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-3.png
-  [3]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-4.png
+  [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
+  [2]: ../../../DevCenter/dotNet/Media/getting-started-3.png
+  [3]: ../../../DevCenter/dotNet/Media/getting-started-4-WebPI.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [4]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-32.png
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [5]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
   [6]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
   [7]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
   [8]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [9]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
   [Using the NuGet Service Bus Package]: http://go.microsoft.com/fwlink/?LinkId=234589
-  [10]: ../../../DevCenter/dotNet/Media/hy-web-1.jpg
+  [10]: ../../../DevCenter/dotNet/Media/hy-web-1.png
   [11]: ../../../DevCenter/dotNet/Media/hy-con-1.jpg
   [12]: ../../../DevCenter/dotNet/Media/hy-con-3.png
-  [13]: ../../../DevCenter/dotNet/Media/hy-con-2.png
+  [13]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-13.png
   [14]: ../../../DevCenter/dotNet/Media/hy-con-4.png
   [15]: ../../../DevCenter/dotNet/Media/hy-web-2.jpg
-  [16]: ../../../DevCenter/dotNet/Media/hy-web-4.jpg
+  [16]: ../../../DevCenter/dotNet/Media/hy-web-4.png
   [17]: ../../../DevCenter/dotNet/Media/hy-web-7.jpg
   [18]: ../../../DevCenter/dotNet/Media/hy-web-10.jpg
   [19]: ../../../DevCenter/dotNet/Media/getting-started-8.png
@@ -765,3 +786,8 @@ Run the application to verify that it works.
   [35]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-41.png
   [36]: ../../../DevCenter/dotNet/Media/App3.png
   [37]: ../../../DevCenter/dotNet/Media/hy-service1.png
+  [38]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-27.png
+  [39]: ../../../DevCenter/dotNet/Media/sb-queues-09.png
+  [40]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
+  [41]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-40.png
+  [42]: ../Media/getting-started-41.png

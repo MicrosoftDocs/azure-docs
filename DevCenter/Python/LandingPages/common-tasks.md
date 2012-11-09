@@ -1,5 +1,7 @@
-# Python Developer Center - Common tasks
+<properties linkid="devnav-python-commontasks" urlDisplayName="Common Tasks" pageTitle="Windows Azure Python common tasks" metaKeywords="Azure Python" metaDescription="Find topics about common tasks when using Python with Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+# Python Developer Center - Common tasks
 
 ### [Installing Python and the SDK][]
 Python is easy to setup on Windows and comes pre-installed on Mac and Linux.  This guide walks you through installation and getting your machine ready for use with Windows Azure.

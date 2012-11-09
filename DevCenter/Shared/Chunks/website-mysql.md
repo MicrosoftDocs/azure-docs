@@ -47,6 +47,6 @@ Follow these steps to create a Windows Azure Website and a MySQL database:
 [custom-create]: ../Media/custom_create.jpg
 [website-details]: ../Media/website_details.jpg
 [new-mysql-db]: ../Media/new_mysql_db.jpg
-[go-to-dashboard]: ../Media/go_to_dashboard.jpg
+[go-to-dashboard]: ../Media/go_to_dashboard.png
 [download-publish-profile]: ../Media/download_publish_profile.jpg
 [preview-portal]: https://manage.windowsazure.com

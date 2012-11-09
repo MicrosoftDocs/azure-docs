@@ -195,7 +195,7 @@ For a complete list of commands for creating and managing virtual machines, use 
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [http://www.windowsazure.com]: http://www.windowsazure.com
-[Windows Azure Website]: ../media/create-account-01.png
+[Windows Azure Website]: ../media/create-account-01-mac.png
 [open preview features tab]: ../media/antares-iaas-preview-01.png
 [select a preview feature]: ../media/antares-iaas-preview-02.png
 [select subscription]: ../media/antares-iaas-preview-03.png

@@ -1,4 +1,6 @@
-<properties linkid="dev-nodejs-how-to-service-bus-queues" urldisplayname="Queue Service" headerexpose="" pagetitle="Queue Service - How To - Node.js - Develop" metakeywords="Azure asynchronous processing Node.js, Azure queue Node.js, Azure queue storage Node.js" footerexpose="" metadescription="Learn how to use the Windows Azure queue service to create and delete queues and insert, peek, get, and delete queue messages from your Node.js application." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Node.js) - Windows Azure" metaKeywords="Windows Azure Queue Service get messages Node.js" metaDescription="Learn how to use the Windows Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # How to Use the Queue Service from Node.js
 
@@ -338,7 +340,7 @@ to learn how to do more complex storage tasks.
   [Windows Azure Management Portal]: http://windows.azure.com
   [Create and deploy a Node.js application to a Windows Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
-  [Node.js Web Application with Storage]: en-us/develop/nodejs/tutorials/web-site-with-storage/
+  [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
 
   [plus-new]: ../../Shared/Media/plus-new.png
   [quick-create-storage]: ../../Shared/Media/quick-storage.png
@@ -348,4 +350,4 @@ to learn how to do more complex storage tasks.
   [Node.js Cloud Service]: {localLink:2221} "Web App with Express"
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/
+  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/

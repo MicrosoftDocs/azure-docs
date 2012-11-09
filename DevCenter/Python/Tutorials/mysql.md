@@ -1,4 +1,6 @@
-<properties linkid="dev-python-mysql" urlDisplayName="Web App with MySQL" headerExpose="" pageTitle="Django Hello World - MySQL Edition" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="develop-python-web-app-with-django-and-mysql" urlDisplayName="Web with Django + MySQL" pageTitle="Python web app with Django and MySQL - Windows Azure tutorial" metaKeywords="Azure django web app, Azure Django MySQL, Azure django Python" metaDescription="A tutorial that teaches you how to use MySQL in with Django on a Windows Azure virtual machine. Code samples written in Python." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 # Django Hello World - MySQL Windows Edition #
   
 This tutorial describes how to use MySQL in conjunction with Django on a single Windows Azure virtual machine. This guide assumes that you have some prior experience using Windows Azure and Django. For an introduction to Windows Azure and Django, see [Django Hello World] [djangohelloworld]. The guide also assumes that you have some knowledge of MySQL. For an overview of MySQL, see the [MySQL website][mysqldoc].
@@ -15,6 +17,8 @@ You will expand upon the [Django Hello World] [djangohelloworld] sample by utili
 
 The project files for this tutorial will be stored in **C:\django\helloworld** and the completed application will look similar to:
 ![][0]
+
+<div chunk="../../Shared/Chunks/create-account-and-vms-note.md" />
 
 ## Setting up a virtual machine to host MySQL and Django
 1. Follow the instructions given [here ][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Windows Server 2008 R2* flavor.

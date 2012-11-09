@@ -1,5 +1,7 @@
-# Java Developer Center - Common Tasks
+<properties linkid="devnav-java-commontasks" urlDisplayName="Common Tasks" pageTitle="Windows Azure Java Common Tasks" metaKeywords="Azure Java" metaDescription="Find topics about using Java in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+# Java Developer Center - Common Tasks
 ### [Adding a Certificate to the Java CA Certificates Store][add_ca_cert]
 
 Describes how to add a certificate authority (CA) certificate to the JRE cacerts store.
@@ -18,15 +20,10 @@ By default, Windows Azure applications and storage accounts can be accessed thro
 
 ### [Using CDN for Windows Azure][cdn]
 
-The Windows Azure Content Delivery Network (CDN) offers a global solution for delivering high-bandwidth content by caching blobs and static content at physical nodes around the world. This common task describes how to enable CDN and add, access, and delete content.
-
-### [Configuring SSL for an Application in Windows Azure][ssl]
-
-Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
+The Content Delivery Network (CDN) offers a global solution for delivering high-bandwidth content by caching blobs and static content at physical nodes around the world. This common task describes how to enable CDN and add, access, and delete content.
 
 [add_ca_cert]: ../Commontasks/add_ca_cert.md 
 [manage_sql]: ../CommonTasks/sql-azure-management.md
 [custom_domain_name]: ../CommonTasks/custom-dns.md
 [cdn]: ../CommonTasks/cdn.md
-[ssl]: ../CommonTasks/enable-ssl.md
 [remote-desktop]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690951

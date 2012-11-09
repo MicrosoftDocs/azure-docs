@@ -1,4 +1,6 @@
-<properties linkid="dev-nodejs-website-sql" urldisplayname="Node.js Website with sql" headerexpose="" pagetitle="Node.js Application using the Windows Azure SQL Database" metakeywords="Azure Node.js tutorial sql, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates deploying a Node.js application using the Windows Azure SQL Database" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-nodejs-tutorials-web-site-with-sql-database" urlDisplayName="Web site with SQL Database" pageTitle="Node.js web site with SQL Database - Windows Azure tutorial" metaKeywords="" metaDescription="Learn how to create a Node.js website that accesses a SQL Database and is deployed to Windows Azure" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 # Node.js Web Application using the Windows Azure SQL Database
 
 This tutorial shows you how to use SQL Database provided by Windows Azure Data Management to store and access data from a [node] application hosted on Windows Azure. This tutorial assumes that you have some prior experience using node and [Git].
@@ -48,11 +50,7 @@ Before following the instructions in this article, you should ensure that you ha
 
 * A web browser
 
-##Enable the Windows Azure Web Site feature
-
-If you do not already have a Windows Azure subscription, you can sign up [for free]. After signing up, follow these steps to enable the Windows Azure Web Site feature.
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md"></div>
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
 ##Create a web site with database
 
@@ -92,7 +90,7 @@ Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
 8. To enable Git publishing, you must provide a user name and password. Make a note of the user name and password you create. (If you have set up a Git repository before, this step will be skipped.)
 
-	![Create publishing credentials][credentials]
+	![Create publishing credentials][portal-git-username-password]
 
 	It will take a few seconds to set up your repository.
 
@@ -471,7 +469,7 @@ Once the changes have been deployed to Windows Azure, your web application shoul
 [for free]: http://windowsazure.com
 [Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
-[Node.js Web Application with MongoDB]: ./web-site-with-mongodb-Mac
+[Node.js Web Application with MongoDB]: ../website-with-mongodb-(mac)/
 [Windows Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Create and deploy a Node.js application to a Windows Azure Web Site]: ./web-site-with-mongodb-Mac
 [Publishing to Windows Azure Web Sites with Git]: ../CommonTasks/publishing-with-git
@@ -490,12 +488,12 @@ Once the changes have been deployed to Windows Azure, your web application shoul
 [website-details-sqlazure]: ../Media/website_details_sqlazure.jpg
 [database-settings]: ../Media/database_settings.jpg
 [create-server]: ../Media/create_server.jpg
-[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.jpg
-[setup-git-publishing]: ../Media/setup_git_publishing.jpg
-[credentials]: ../Media/credentials.jpg
+[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.png
+[setup-git-publishing]: ../../Shared/Media/setup_git_publishing.png
+[portal-git-username-password]: ../../Shared/Media/git-deployment-credentials.png
 [creating-repo]: ../Media/creating_repo.jpg
 [push-files]: ../Media/push_files.jpg
-[git-instructions]: ../Media/git_instructions.jpg
+[git-instructions]: ../../Shared/Media/git_instructions.png
 [linked-resources]: ../Media/linked_resources.jpg
 [new-website]: ../../Shared/Media/new_website.jpg
 [custom-create]: ../../Shared/Media/custom_create.jpg

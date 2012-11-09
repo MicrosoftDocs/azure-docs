@@ -1,4 +1,6 @@
-<properties linkid="dev-java-how-to-use-blog-storage-service-java" urldisplayname="Blob Storage" headerexpose="" pagetitle="How to Use the Blob Storage Service from Java" metakeywords="Azure Blob Storage Java" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-how-to-use-blog-storage-service-java" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Java) - Windows Azure feature guide" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" metaDescription="Learn how to use the Windows Azure blob service to upload, download, list, and delete blob content. Samples written in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # How to use Blob Storage from Java
 
@@ -57,12 +59,7 @@ you want to use Windows Azure storage APIs to access blobs:
 ## <a name="ConnectionString"> </a>Setup a Windows Azure storage connection string
 
 A Windows Azure storage client uses a storage connection string to store
-endpoints and credentials for accessing storage services. When running
-in a client application, you must provide the storage connection string
-in the following format, using the name of your storage account and the
-Primary access key for the storage account listed in the Management
-Portal for the *AccountName* and *AccountKey* values. This example shows
-how you can declare a static field to hold the connection string:
+endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Management Portal for the *AccountName* and *AccountKey* values. This example shows how you can declare a static field to hold the connection string:
 
     // Define the connection-string with your values
     public static final String storageConnectionString = 

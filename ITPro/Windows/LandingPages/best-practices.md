@@ -1,5 +1,7 @@
-# Best practices
+<properties linkid="manage-windows-best-practices" urlDisplayName="Best practices" pageTitle="Windows Azure Windows virtual machine best practices" metaKeywords="Azure best practices" metaDescription="Find topics about best practices in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+# Best practices
 The content in this section will help you manage robust Windows Azure solutions. New content will be added frequently, so please visit this page for new topics. You can also use the Disqus section below to suggest new topics.
 
 ## Key guidance areas
@@ -14,6 +16,6 @@ This topic focuses on two key security areas, identity and access. You will lear
 This topic provides an overview of performance considerations for cloud-based applications, as well as guidance around monitoring application performance. It also provides links to additional content to help guide you through all stages of designing and deploying your application.
 
 
-[Troubleshooting in Windows Azure]: /en-us/develop/net/best-practices/troubleshooting/
-[Best Practices for Designing Secure Windows Azure Applications]: /en-us/develop/net/best-practices/security/
-[Best Practices for Performance in Windows Azure Applications]: /en-us/develop/net/best-practices/performance/
+[Troubleshooting in Windows Azure]: ./troubleshooting/
+[Best Practices for Designing Secure Windows Azure Applications]: ./security/
+[Best Practices for Performance in Windows Azure Applications]: ./performance/

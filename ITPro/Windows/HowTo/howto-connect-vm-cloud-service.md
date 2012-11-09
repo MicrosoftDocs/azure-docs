@@ -1,2 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="How to Connect Virtual Machines in a Cloud Service" metaKeywords="" metaDescription="" linkid="manage-windows-howto-connect-cloud-service" urlDisplayName="Networking" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-windows-howto-connect-to-cloud-service" urlDisplayName="Connect to a virtual machine" pageTitle="Connect virtual machines in a Windows Azure cloud service" metaKeywords="Azure connecting vm to cloud" metaDescription="Learn how to connect a virtual machine to a Windows Azure cloud service." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 <div chunk="../../Shared/Chunks/howto-connect-vm-cloud-service.md" />

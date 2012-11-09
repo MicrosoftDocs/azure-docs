@@ -1,5 +1,7 @@
-<h1>Web Scenarios</h1>
+<properties linkid="develop-net" urlDisplayName="Web" pageTitle="Web Sites - Windows Azure .NET Scenarios" metaKeywords="web site scenarios Windows Azure, web sites Windows Azure, web sites Azure, websites Windows Azure, websites Azure" metaDescription="Find topics with common scenarios when using web sites in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+<h1>Web Scenarios</h1>
 <p>With Windows Azure, you can quickly and easily deploy web sites to a highly scalable cloud environment.  Our web tutorials show you how to get started developing Windows Azure Web Sites and Cloud Services using a variety of development tools and deployment options including FTP, Git, and TFS.</p>
 
 <div class="dev-articles">

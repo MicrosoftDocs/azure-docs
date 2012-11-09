@@ -43,6 +43,8 @@ You can upload and attach a data disk that already contains data to the virtual 
   </TABLE>
 </P>
 
+For more information about using data disks, see [Manage disks and images] [].
+
 <h2 id="attachexisting">How to: Attach an existing disk</h2>
 
 
@@ -175,6 +177,7 @@ The data disk that you just attached to the virtual machine is offline and not i
 
 [logon]: /en-us/manage/windows/how-to-guides/log-on-a-windows-vm/
 [logonlinux]: /en-us/manage/linux/how-to-guides/log-on-a-linux-vm/
+[Manage disks and images]:http://go.microsoft.com/fwlink/?LinkId=263439
 [Attach data disk]: ../media/attachexistingdiskwindows.png
 [Enter data disk details]: ../media/attachexistingdisk.png
 [Data disk successfully attached]: ../media/attachsuccess.png

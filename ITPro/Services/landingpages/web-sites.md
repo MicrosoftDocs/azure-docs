@@ -1,5 +1,7 @@
-<div class="dev-center">
-<h1>Web Sites</h1>
+<properties linkid="develop-net" urlDisplayName="Web Sites" pageTitle="Web Sites - Windows Azure service management" metaKeywords="Windows Azure web sites, Windows Azure website, Azure web site, Azure website" metaDescription="Find how to topics about web sites hosted in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+
+
+<div class="dev-center"><h1>Web Sites</h1>
 <div class="hero">
 <h1>Configure,monitor, and scale your web sites in Windows Azure</h1>
 <div style="cursor: pointer; background-image: url('/media/dev-video-net.png')!important;" class="video" onclick="document.location.href='http://go.microsoft.com/fwlink/?LinkID=234412'">4 minutes, 32 seconds</div>

@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Create a PHP Website with a SQL Database and Deploy Using Git" metaKeywords="Windows Azure, Windows Azure Websites, SQL Database, PHP, Git, Git deploy" metaDescription="Learn how to create a Windows Azure PHP website with a SQL Database and deploy to it using Git." linkid="dev-php-tutorials-php-site-sql-database-git" urlDisplayName="Create a PHP Website with a SQL Database and Deploy Using Git" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-php-website-with-sql-database-and-git" urlDisplayName="Web w/ SQL + Git" pageTitle="PHP web site with SQL Database and Git - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to create a PHP web site that stores data in SQL Database and use Git deployment to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 #Create a PHP website with a SQL Database and deploy using Git
 
@@ -19,15 +21,9 @@ By following this tutorial, you will build a simple registration web application
 
 ![Windows Azure PHP Website][running-app]
 
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+
 ##Create a Windows Azure Website and set up Git publishing
-
-### Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
 Follow these steps to create a Windows Azure Website and a SQL Database:
 
@@ -305,12 +301,12 @@ To publish changes to application, follow these steps:
 [website-details-sqlazure]: ../Media/website_details_sqlazure.jpg
 [database-settings]: ../Media/database_settings.jpg
 [create-server]: ../Media/create_server.jpg
-[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.jpg
-[setup-git-publishing]: ../Media/setup_git_publishing.jpg
+[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.png
+[setup-git-publishing]: ../../Shared/Media/setup_git_publishing.png
 [credentials]: ../Media/credentials.jpg
 [creating-repo]: ../Media/creating_repo.jpg
 [push-files]: ../Media/push_files.jpg
-[git-instructions]: ../Media/git_instructions.jpg
+[git-instructions]: ../../Shared/Media/git_instructions.png
 [linked-resources]: ../Media/linked_resources.jpg
 [connection-string]: ../Media/connection_string.jpg
 [preview-portal]: https://manage.windowsazure.com/
