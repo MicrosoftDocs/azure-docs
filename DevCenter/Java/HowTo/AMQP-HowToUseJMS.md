@@ -342,7 +342,7 @@ To demonstrate .NET to JMS messaging:
 	Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
 	exit
 
-<h2><span class="short-header">Unsupported features</span>ported features and restrictions</h2>
+<h2><span class="short-header">Unsupported features</span>Unsupported features and restrictions</h2>
 
 There are several JMS features that are not currently supported with this preview release of AMQP 1.0 support in the Service Bus, namely:
 
