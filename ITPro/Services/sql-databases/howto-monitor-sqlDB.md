@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Monitor Logical Servers and Database Instances" metaKeywords="Windows Azure SQL database, SQL database, monitor sql database" metaDescription="Learn how to monitor Windows Azure SQL database." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-how-to-monitor-a-sqldb" urlDisplayName="How to monitor" pageTitle="How to monitor a SQL Database - Windows Azure service management" metaKeywords="" metaDescription="Learn how to monitor a SQL Database using the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 
 <h1 id="monitor">How to Monitor Logical Servers and Database Instances</h1>

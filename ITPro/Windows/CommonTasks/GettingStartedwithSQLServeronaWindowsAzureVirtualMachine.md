@@ -1,10 +1,12 @@
-<properties umbracoNaviHide="0" pageTitle="Getting started with SQL Server on a Windows Azure virtual machine" metaKeywords="Windows Azure, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-windows-common-tasks-sql-server-on-a-vm" urlDisplayName="Get started with SQL Server" pageTitle="Get started with SQL Server on a virtual machine in Windows Azure" metaKeywords="Azure virtual machines, Azure gallery, Azure SQL Server images, Azure Windows images, Azure VM" metaDescription="Learn about Windows Azure virtual machines, including the Windows Server 2008 R2 and SQL Server images available in the Windows Azure gallery." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 # Getting started with SQL Server on a Windows Azure virtual machine
 
 <div chunk="../../shared/chunks/disclaimer.md" />
 
-The Windows Azure virtual machine gallery provides Windows Azure virtual machine images of Microsoft Windows Server 2008 R2, Service Pack 1 (64-bit) with  a complete 64-bit installation of SQL Server. A version of this virtual machine is available with SQL Server 2012 Evaluation (64-bit).
+The Windows Azure virtual machine gallery provides Windows Azure virtual machine images of Microsoft Windows Server 2008 R2, Service Pack 1 (64-bit) with  a complete 64-bit installation of SQL Server. A version of this virtual machine is available with SQL Server 2012 Evaluation (64-bit). This topic describes the virtual machine that is installed from the library, and provides links to additional configuration tasks. Many of the additional tasks are described in a step-by-step tutorial on installing a virtual machine and connecting to SQL Server. To review the tutorial, see [Provision a SQL Server virtual machine on Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=248281).
 
 <div class="dev-callout"> 
 <strong>Note</strong> 
@@ -17,8 +19,6 @@ In this topic contains:
 - [How to connect to this instance of SQL Server](#Connect)
 - [Next steps](#Next)
 - [Links to additional information](#Links)
-
-For a step-by-step tutorial on installing a virtual machine and connecting to SQL Server, see [Provision a SQL Server virtual machine on Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=248281).
 
 <h2 id="About">About this virtual machine image</h2>
 
@@ -45,7 +45,7 @@ This SQL Server installation contains the following components.
 * Analysis Services
 * Integration Services
 * Reporting Services (configured in Native mode)
-* AlwaysOn Availability Groups are available in SQL Server 2012 but need additional configuration before they can be used.
+* AlwaysOn Availability Groups are available in SQL Server 2012 but need additional configuration before they can be used. See below for more information.
 * Replication
 * Full-Text and Semantic Extractions for Search (Semantic Extractions in SQL Server 2012 only)
 * Data Quality Services (SQL Server 2012 only)
@@ -104,6 +104,10 @@ Provide a connection string similar to
 	&lt;add name ="connection" connectionString ="Data Source=VM_Name;Integrated Security=true;" providerName ="System.Data.SqlClient"/&gt;
 
 where VM_Name is the name you provided for this virtual machine during setup.
+ 
+### Configuring AlwaysOn Availability Groups
+
+AlwaysOn availability groups are currently supported in Windows Azure Virtual Machine Preview Release without Listeners. An availability group that has one or more replicas in Windows Azure Virtual Machines cannot have a listener. Before adding a replica on a Windows Azure Virtual Machine to an on-premises availability group, drop the availability group listener. If the availability group has a listener, a failover to the replica on the Windows Azure Virtual Machine will fail. For more information about configuring AlwaysOn availability groups, see SQL Server Books Online.
 
 <h2 id="Next">Next steps</h2>
 
@@ -134,6 +138,7 @@ The SQL Server setup media is saved on the virtual machine in the **C:\SQLServer
 * [Provision a SQL Server virtual machine on Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=248281)
 * [Running SQL Server in Windows Azure Virtual Machine - Performance Guidelines for Preview](http://go.microsoft.com/fwlink/?LinkID=254744)
 * [Migrating with Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156159)
+* [Best Practices for Running SQL Server in Windows Azure Virtual Machine](http://social.technet.microsoft.com/wiki/contents/articles/11578.best-practices-for-running-sql-server-in-windows-azure-virtual-machine-en-us.aspx)
 * [How to Attach a Data Disk to a Virtual Machine](http://www.windowsazure.com/en-us/manage/windows/how-to-guides/attach-a-disk/)
 * To change the size of a VM, see [Set-AzureVMSize](http://msdn.microsoft.com/en-us/library/windowsazure/jj152814)
 * [SQL Server in Windows Azure Virtual Machine Early Adoption Cook Book](http://social.technet.microsoft.com/wiki/contents/articles/11554.sql-server-in-windows-azure-virtual-machine-early-adoption-cook-book-en-us.aspx)
@@ -146,4 +151,4 @@ The SQL Server setup media is saved on the virtual machine in the **C:\SQLServer
 
 
 
-[Image1]: ../media/SQLVMConnectionsOnAzure.png
+[Image1]: ../media/SQLVMConnectionsOnAzure.GIF

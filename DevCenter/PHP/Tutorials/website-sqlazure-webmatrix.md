@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="PHP-MySQL Windows Azure Website using WebMatrix" metaKeywords="Windows Azure deployment, Azure deployment, Windows Azure Websites, Windows Azure SQL Database, SQL Database, PHP, WebMatrix" metaDescription="Learn how to create and deploy a PHP website and a SQL Database to Windows Azure using WebMatrix." linkid="dev-php-tutorials-sql-database-website-webmatrix" urlDisplayName="Create and Deploy a PHP Website and SQL Database Using WebMatrix" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-php-website-with-sql-database-and-webmatrix" urlDisplayName="Web w/ SQL + WebMatrix" pageTitle="PHP web site with SQL Database and WebMatrix - Windows Azure" metaKeywords="" metaDescription="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web site that stores data in SQL Database." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 #Create and Deploy a PHP Website and SQL Database using WebMatrix
 
@@ -17,6 +19,8 @@ You will learn:
 By following this tutorial, you will build a simple Tasklist web application in PHP. The application will be hosted in a Windows Azure Website. A screenshot of the running application is below:
 
 ![Windows Azure PHP Website][running-app]
+
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
 ##Prerequisites
 
@@ -37,16 +41,6 @@ By following this tutorial, you will build a simple Tasklist web application in 
 		2> GO
 
 	This step is only necessary if you want to test your application locally.
-
-<h2 id="CreateWebsite">Create a Windows Azure Website and SQL Database</h2>
-
-### Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
 ## Create a website and SQL Database
 
@@ -214,7 +208,7 @@ You've seen how to create and deploy a web site from WebMatrix to Windows Azure.
 [sql-database-editions]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx
 [php-site-from-template]: ../../Shared/Media/php_site_from_template.png
 [php-empty-site-template-installed]: ../../Shared/Media/php_empty_site_template_installed.png
-[go-to-dashboard]: ../Media/go_to_dashboard.jpg
+[go-to-dashboard]: ../Media/go_to_dashboard.png
 [download-publish-profile]: ../Media/download-publish-profile.png
 [download-site]: ../Media/download-site-1.png
 [site-from-template]: ../Media/site-from-template.png

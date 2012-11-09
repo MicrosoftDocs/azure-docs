@@ -1,7 +1,9 @@
-<properties umbracoNaviHide="0" pageTitle="Create and Upload a Linux Virtual Hard Disk (VHD) to Windows Azure" metaKeywords="" metaDescription="" linkid="manage-linux-common-tasks-upload-vhd" urlDisplayName="Upload VHD" headerExpose="" footerExpose="" disqusComments="1" />
-# Create and Upload a Linux virtual hard disk (VHD) to Windows Azure 
+<properties linkid="manage-linux-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Linux VHD in Windows Azure" metaKeywords="Azure VHD, uploading Linux VHD" metaDescription="Learn to create and upload a Windows Azure virtual hard disk (VHD) that has the Linux operating system." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-<div chunk="../../shared/chunks/disclaimer.md" />
+
+# Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System 
+
+To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
 
 A virtual machine that you create in Windows Azure runs the operating system that you choose from the supported operating system versions. You can customize the operating system settings of the virtual machine to facilitate running your application. The configuration that you set is stored on disk. You create a virtual machine in Windows Azure by using a virtual hard disk (VHD) file. You can choose to create a virtual machine by using a VHD file that is supplied for you in the Image Gallery, or you can choose to create your own image and upload it to Windows Azure in a VHD file.
 
@@ -344,7 +346,7 @@ After the connection string is set, you use the CSUpload command-line tool to up
 
 2. Set the connection string by using the following command and replacing **Subscriptionid** and **CertThumbprint** with the values that you obtained earlier:
 
-		csupload Add-PersistentVMImage –Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>" -Label <VHDName> -LiteralPath <PathToVHDFile> -OS Windows
+		csupload Add-PersistentVMImage -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>" -Label <VHDName> -LiteralPath <PathToVHDFile> -OS Windows
 
 	Where **BlobStorageURL** is the URL for the storage account that you created earlier. You can place the VHD file anywhere within your Blog storage. **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the VHD. **PathToVHDFile** is the full path and name of the VHD file.
 

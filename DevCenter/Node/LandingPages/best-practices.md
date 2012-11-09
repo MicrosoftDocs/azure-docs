@@ -1,5 +1,7 @@
-#Node.js Developer Center - Best Practices
+<properties linkid="devnav-node-bestpractices" urlDisplayName="Best Practices" pageTitle="Windows Azure Node.js best practices" metaKeywords="Windows Azure best practices, Azure best practices" metaDescription="Find topics about best practices in Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/net/best-practices/" disqusComments="0" umbracoNaviHide="0" />
 
+
+#Node.js Developer Center - Best Practices
 The content in this section will help you develop robust Windows Azure solutions. New content will be added frequently, so please visit this page for new topics. You can also use the Disqus section below to suggest new topics.
 
 ## Key guidance areas

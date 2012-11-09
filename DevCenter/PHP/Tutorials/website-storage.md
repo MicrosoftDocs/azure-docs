@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Create a PHP Website using Windows Azure Storage" metaKeywords="Windows Azure, Windows Azure Websites, PHP, Storage" metaDescription="Learn how to create a PHP website using Windows Azure storage" linkid="dev-php-tutorials-php-site-storage" urlDisplayName="Create a PHP Website using Windows Azure Storage" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-php-website-with-storage" urlDisplayName="Web w/ Storage" pageTitle="PHP web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" metaDescription="This tutorial shows you how to create a PHP website and use the Windows Azure Tables storage service in the back-end." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 #Create a PHP Website using Windows Azure Storage
 
@@ -15,20 +17,39 @@ You will build a simple Tasklist web application in PHP. A screenshot of the com
 
 ![Windows Azure PHP Website][ws-storage-app]
 
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
 ##Installing the Windows Azure client libraries
 
-To install the PHP Client Libraries for Windows Azure as a PEAR package, follow these steps:
+To install the PHP Client Libraries for Windows Azure via Composer, follow these steps:
 
-1. [Install PEAR][install-pear].
-2. Set-up the Windows Azure PEAR channel:
+1. [Install Git][install-git]. 
 
-		pear channel-discover pear.windowsazure.com
-3. Install the PEAR package:
+	<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>On Windows, you will also need to add the Git executable to your PATH environment variable.</p>
+	</div>
 
-		pear install pear.windowsazure.com/WindowsAzure-0.1.0
+2. Create a file named **composer.json** in the root of your project and add the following code to it:
 
-After the installation completes, you can reference class libraries from your application.
+		{
+			"require": {
+				"microsoft/windowsazure": "*"
+			},			
+			"repositories": [
+				{
+					"type": "pear",
+					"url": "http://pear.php.net"
+				}
+			],
+			"minimum-stability": "dev"
+		}
+
+3. Download **[composer.phar][composer-phar]** in your project root.
+
+4. Open a command prompt and execute this in your project root
+
+		php composer.phar install
 
 ##Getting started with the client libraries
 
@@ -38,33 +59,31 @@ There are four basic steps that have to be performed before you can make a call 
 
 * First, include the autoloader script:
 
-		require_once "WindowsAzure/WindowsAzure.php"; 
+		require_once 'vendor\autoload.php'; 
 	
 * Include the namespaces you are going to use.
 
-	Since the third step is creating a configuration object containing the account credentials you need to include `Configuration` namespace:
+	To create any Windows Azure service client you need to use the **ServicesBuilder** class:
 
-		use WindowsAzure\Common\Configuration;
+		use WindowsAzure\Common\ServicesBuilder;
+
+	To catch exceptions produced by any API call you need the **ServiceException** class:
+
+		use WindowsAzure\Common\ServiceException;
 	
-	This tutorial uses the Windows Azure Table service. Two namespaces are necessary to create a wrapper around the Table service calls:
+* To instantiate the service client you will also need a valid connection string. The format for the table service connection strings is:
+
+	For accessing a live service:
 	
-		use WindowsAzure\Table\TableService;
-		use WindowsAzure\Table\TableSettings;
+		DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
 	
-* Objects of the `Configuration` class carry your authentication information and are required for instantiating any Azure REST call wrapper.  If you do not have a storage account you can copy this code as is and create one in the section for that near the end of this guide.
+	For accessing the emulator storage:
+	
+		UseDevelopmentStorage=true
 
-		$config = new Configuration();
-		$config->setProperty(TableSettings::ACCOUNT_NAME, 
-			'[YOUR_STORAGE_ACCOUNT_NAME]');
-		$config->setProperty(TableSettings::ACCOUNT_KEY,
-			'[YOUR_STORAGE_ACCOUNT_KEY]');
-		$config->setProperty(TableSettings::URI, 
-			'http://' . '[YOUR_STORAGE_ACCOUNT_NAME]' .
-			'.table.core.azure-preview.com');
+* Use the `ServicesBuilder::createTableService` factory method to instantiate a wrapper around Table service calls.
 
-* Use the `TableService` factory to instantiate a wrapper around Table service calls.
-
-		$tableRestProxy = TableService::create($config);
+		$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	`$tableRestProxy` contains a method for every REST call available on Azure Tables.
 
@@ -104,6 +123,19 @@ The home page of the Tasklist application should list all existing tasks and all
 		<html>
 		<head>
 			<title>Index</title>
+			<style type="text/css">
+			    body { background-color: #fff; border-top: solid 10px #000;
+			        color: #333; font-size: .85em; margin: 20; padding: 20;
+			        font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+			    }
+			    h1, h2, h3,{ color: #000; margin-bottom: 0; padding-bottom: 0; }
+			    h1 { font-size: 2em; }
+			    h2 { font-size: 1.75em; }
+			    h3 { font-size: 1.2em; }
+			    table { margin-top: 0.75em; }
+			    th { font-size: 1.2em; text-align: left; border: none; padding-left: 0; }
+			    td { padding: 0.25em 2em 0.25em 0em; border: 0 none; }
+			</style>
 		</head>
 		<body>
 		<h1>My ToDo List <font color="grey" size="5">(powered by PHP and Azure Tables) </font></h1>
@@ -127,7 +159,7 @@ The home page of the Tasklist application should list all existing tasks and all
 			
 		for ($i = 0; $i < count($entities); $i++) {
 
-* Once you get an `Entity`, the model for reading data is `Entity->getProperty('[name]')->getValue()`:
+* Once you get an `Entity`, the model for reading data is `Entity->getPropertyValue('[name]')`:
 
 			if ($i == 0) {
 				echo "<table border='1'>
@@ -141,10 +173,10 @@ The home page of the Tasklist application should list all existing tasks and all
 			}
 			echo "
 				<tr>
-					<td>".$entities[$i]->getProperty('name')->getValue()."</td>
-					<td>".$entities[$i]->getProperty('category')->getValue()."</td>
-					<td>".$entities[$i]->getProperty('date')->getValue()."</td>";
-					if ($entities[$i]->getProperty('complete')->getValue() == false)
+					<td>".$entities[$i]->getPropertyValue('name')."</td>
+					<td>".$entities[$i]->getPropertyValue('category')."</td>
+					<td>".$entities[$i]->getPropertyValue('date')."</td>";
+					if ($entities[$i]->getPropertyValue('complete') == false)
 						echo "<td><a href='markitem.php?complete=true&pk=".$entities[$i]->getPartitionKey()."&rk=".$entities[$i]->getRowKey()."'>Mark Complete</a></td>";
 					else
 						echo "<td><a href='markitem.php?complete=false&pk=".$entities[$i]->getPartitionKey()."&rk=".$entities[$i]->getRowKey()."'>Unmark Complete</a></td>";
@@ -233,7 +265,7 @@ The task list app has the ability to mark an item as complete as well as to unma
 
 * The first step to updating an entity is fetching it from the Table:
 		
-		$result = $tableRestProxy->queryEntities(TABLE_NAME, 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');		
+		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');		
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 
@@ -246,7 +278,7 @@ The task list app has the ability to mark an item as complete as well as to unma
 * And the `updateEntity` method performs the update:
 
 		try{
-			$result = $tableRestProxy->updateEntity(TABLE_NAME, $entity);
+			$result = $tableRestProxy->updateEntity('tasks', $entity);
 		}
 		catch(ServiceException $e){
 			$code = $e->getCode();
@@ -267,7 +299,7 @@ Deleting an item is accomplished with a single call to `deleteItem`. The passed 
 		<?php
 		
 		require_once "init.php";		
-		$tableRestProxy->deleteEntity(TABLE_NAME, $_GET['pk'], $_GET['rk']);		
+		$tableRestProxy->deleteEntity('tasks', $_GET['pk'], $_GET['rk']);		
 		header('Location: index.php');
 		
 		?>
@@ -307,14 +339,6 @@ To make your application store data into the cloud you need to first create a st
 
 
 ## Create a Windows Azure Website and Set up Git Publishing
-
-### Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
 Follow these steps to create a Windows Azure Website:
 
@@ -363,12 +387,14 @@ Follow these steps to create a Windows Azure Website:
 
 To publish your application with Git, follow the steps below.
 
-<div class="dev-callout">
-<b>Note</b>
-<p>These are the same steps noted at the end of the <b>Create a Windows Azure Website and Set up Git Publishing</b> section.</p>
-</div>
+1. Open the **vendor/microsoft/windowsazure** folder under the root of the application and delete the following files and folders:
+	* .git
+	* .gitattributes
+	* .gitignore
+			
+	When the Composer package manager downloads the Windows Azure client libraries and their dependencies it does so by cloning the GitHub repository that they reside in. In the next step, the application will be deployed via Git by creating a repository out of the root folder of the application. Git will ignore the sub-repository where the client libraries live unless the repository-specific files are removed.
 
-1. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:
+2. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application, and run the following commands (**Note:** these are the same steps noted at the end of the **Create a Windows Azure Website and Set up Git Publishing** section):
 
 		git init
 		git add .
@@ -378,8 +404,8 @@ To publish your application with Git, follow the steps below.
 
 	You will be prompted for the password you created earlier.
 
-2. Browse to **http://[your website domain]/createtable.php** to create the table for the application.
-3. Browse to **http://[your website domain]/index.php** to begin using the application.
+3. Browse to **http://[your website domain]/createtable.php** to create the table for the application.
+4. Browse to **http://[your website domain]/index.php** to begin using the application.
 
 After you have published your application, you can begin making changes to it and use Git to publish them. 
 
@@ -401,6 +427,8 @@ To publish changes to application, follow these steps:
 [install-php]: http://www.php.net/manual/en/install.php
 [install-pear]: http://pear.php.net/manual/en/installation.getting.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
+[install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+[composer-phar]: http://getcomposer.org/composer.phar
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
 [msdn-errors]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
 [tasklist-mysql-download]: http://go.microsoft.com/fwlink/?LinkId=252506
@@ -418,9 +446,9 @@ To publish changes to application, follow these steps:
 [storage-manage-keys]: ../../Shared/Media/storage-manage-keys.png
 [storage-access-keys]: ../../Shared/Media/storage-access-keys.png
 [website-details]: ../../Shared/Media/website_details.jpg
-[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.jpg
-[setup-git-publishing]: ../Media/setup_git_publishing.jpg
+[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.png
+[setup-git-publishing]: ../../Shared/Media/setup_git_publishing.png
 [credentials]: ../Media/credentials.jpg
 [creating-repo]: ../Media/creating_repo.jpg
 [push-files]: ../Media/push_files.jpg
-[git-instructions]: ../Media/git_instructions.jpg
+[git-instructions]: ../../Shared/Media/git_instructions.png

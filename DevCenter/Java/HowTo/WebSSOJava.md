@@ -1,5 +1,7 @@
-# How to implement single sign-on with Windows Azure Active Directory -Java Application#
+<properties linkid="develop-java-how-to-guides-web-sso" urlDisplayName="Web SSO" pageTitle="Single sign-on with Windows Azure Active Directory (Java)" metaKeywords="Azure Java web app, Azure single sign-on, Azure Java Active Directory" metaDescription="Learn how to create a Java web application that uses single sign-on with Windows Azure Active Directory." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+
+# How to implement single sign-on with Windows Azure Active Directory -Java Application#
 <h2>Table of Contents</h2>
 <li>
 <a href="#overview">Overview</a>
@@ -42,7 +44,7 @@ In the instructions provided in this guide, we will play the roles of both Fabri
 
 **Assets**
 
-This guide is available together with several code samples and scripts that can help you with some of the most time-consuming tasks. All materials are available at [Azure Active Directory SSO for .Net](https://github.com/WindowsAzure/azure-sdk-for-net-samples) for you to study and modify to fit your environment. 
+This guide is available together with several code samples and scripts that can help you with some of the most time-consuming tasks. All materials are available at [Azure Active Directory SSO for Java](https://github.com/WindowsAzure/azure-sdk-for-java-samples/) for you to study and modify to fit your environment. 
 
 <a name="prerequisites"></a>
 ## Prerequisites ##
@@ -79,11 +81,11 @@ The instructions in this step demonstrate how to create a simple Java applicatio
 2.	Create a new project: **File** -> **New Project** -> **Maven Project**.
 3.	In the first wizard window select the ‘**Create a simple project**’ option and click **Next**.
 
-	<img src="../../../DevCenter/Java/Media/javastep1step1.jpg" />	
+	![step3] (../../../DevCenter/Java/Media/javastep1step1.jpg)	
 
 4.	Provide a **Group Id**, an **Artifact Id**, and for **Packaging** select war. Click **Finish**.
 
-	<img src="../../../DevCenter/Java/Media/javastep1step4.jpg" />	
+	![step4] (../../../DevCenter/Java/Media/javastep1step4.jpg)			
 
 5.	Open the pom.xml file in the sample project and add the following xml inside the project node to configure the repositories for the external libraries and plugins and to target the project to Java 1.6.
 
@@ -137,11 +139,11 @@ The instructions in this step demonstrate how to create a simple Java applicatio
 
 6.	Right-click the **sample** project and select **Maven** -> **Update Project Configuration…** to refresh the project and apply **pom.xml** file changes. Select both projects and click **OK**.
 
-	<img src="../../../DevCenter/Java/Media/javastep1step6.png" />	
+	![step6] (../../../DevCenter/Java/Media/javastep1step6.png)		
 
 7.	Select the sample project, right-click and select New -> JSP File (name it index.jsp).
 
-	<img src="../../../DevCenter/Java/Media/javastep1step7.png" />
+	![step7] (../../../DevCenter/Java/Media/javastep1step7.png)	
 
 8.	Replace the generated code with the following:
 
@@ -196,11 +198,11 @@ To provision the Java web application in Windows Azure Active Directory, Awesome
 
 	When asked to provide a name for your Service Principal, type in a descriptive name that you can remember in case you wish to inspect or remove the Service Principal later on.
 
-	<img src="../../../DevCenter/Java/Media/ssostep2Step45.png" />
+	![step4] (../../../DevCenter/Java/Media/ssostep2step45.png)		
 
 5.	When prompted, enter your administration credentials for your Office365 tenant:
 
-	<img src="../../../DevCenter/Java/Media/ssostep2Step5.png" />
+	![step5] (../../../DevCenter/Java/Media/ssostep2step5.png)		
 
 6.	If the script runs successfully, your screen will look similar to the figure below. Make sure to record the values of the following for use later in this guide:
 
@@ -209,7 +211,7 @@ To provision the Java web application in Windows Azure Active Directory, Awesome
 - App Principal Secret
 - Audience URI
 
-	<img src="../../../DevCenter/dotNet/Media/ssostep2Step6.png" />
+	![step6] (../../../DevCenter/Java/Media/ssostep2step6.png)		
 
 	*Note: In the command shown here, AppPrincipalId values are those provided by Fabrikam.*
 
@@ -226,11 +228,11 @@ This step is performed by using the waad-federation library and adding some extr
 
 1.	Import the **waad-federation** library from JBoss Developer Studio in the same workspace you created the sample application: **File** -> **Import** -> **Existing Maven Projects**. 
 
-	<img src="../../../DevCenter/Java/Media/javastep3Step1.png" />
+	![step1] (../../../DevCenter/Java/Media/javastep3step1.png)	
 
 2.	Select the folder where the **waad-federation** library is located and click **Finish**.
 
-	<img src="../../../DevCenter/Java/Media/javastep3Step2.png" />
+	![step2] (../../../DevCenter/Java/Media/javastep3step2.png)		
 
 3.	Open the **pom.xml** file in the sample project and add the following xml inside project node to configure the project’s dependencies.
 
@@ -249,11 +251,11 @@ This step is performed by using the waad-federation library and adding some extr
 
 4.	Right-click the **sample** project and select **Maven** -> **Update Project Configuration…** to refresh the project and apply pom.xml file changes. Select both projects and click **OK**.
 
-	<img src="../../../DevCenter/Java/Media/javastep3Step4.png" />
+	![step4] (../../../DevCenter/Java/Media/javastep3step4.png)		
 
 5.	Create a Filter. Right-click the **sample** project and select **New** -> **Filter**. For “Class name” enter FederationFilter and click **Finish**.
 ****
-	<img src="../../../DevCenter/Java/Media/javastep3Step5.png" />
+	![step5] (../../../DevCenter/Java/Media/javastep3step5.png)		
 
 6.	Replace the generated code with the following:
 
@@ -333,7 +335,7 @@ This step is performed by using the waad-federation library and adding some extr
 
 8.	Create a login page. Select the sample project, right-click and select **New** -> **JSP File** (name it login.jsp) 
 
-	<img src="../../../DevCenter/Java/Media/javastep3Step8.png" />
+	![step8] (../../../DevCenter/Java/Media/javastep3step8.png)		
 
 9.	Replace the generated code with the following:
 
@@ -366,7 +368,7 @@ This step is performed by using the waad-federation library and adding some extr
 
 11.	Create the new Servlet. Right-click the sample project and select **New** -> **Other** -> **Servlet**. Name it **FederationServlet**, click **Next** and then **Finish**.
 
-	<img src="../../../DevCenter/Java/Media/javastep3Step11.png" />
+	![step11] (../../../DevCenter/Java/Media/javastep3step11.png)		
 
 12.	Open the FederationServlet.java file and replace the generated code with the following:
 
@@ -467,15 +469,15 @@ This step is performed by using the waad-federation library and adding some extr
 
 16.	Right-click the **sample** project and select **Run As** -> **Run on Server**, click **Finish** and you should be able to see the login page with the “Awesome Computers” link.
 
-	<img src="../../../DevCenter/Java/Media/javastep3Step16.png" />
+	![step16] (../../../DevCenter/Java/Media/javastep3step16.png)	
 
 17.	Once on the Office 365 identity provider page, you can log in using your awesomecomputers.onmicrosoft.com credentials (e.g. john.doe@awesomecomputers.onmicrosoft.com).
 
-	<img src="../../../DevCenter/Java/Media/javastep3Step17.png" />
+	![step17] (../../../DevCenter/Java/Media/javastep3step17.png)		
 
 18.	Finally, if the login process is successful, you will be redirected to the secured page (sample/index.jsp) as an authenticated user.
 	
-	<img src="../../../DevCenter/Java/Media/javastep3Step18.png" />
+	![step18] (../../../DevCenter/Java/Media/javastep3step18.png)	
 
 
 **Important:** If your application is meant to work with a single Windows Azure Active Directory tenant, for example, if you are writing a LoB application, you can stop following the instructions in this guide at this point. By running the three steps above, you have successfully set up Windows Azure AD-enabled single sign-on to a simple Java web application for the users in one tenant.
@@ -494,11 +496,11 @@ Let's add another fictitious customer to our scenario, Trey research Inc. Trey R
 
 1.	From JBoss Developer Studio, right-click the src/main/resources folder in the sample project, select New -> Xml File and provide “trusted.issuers.xml” as the file name. This file will contain a list of the trusted issuers for the application (in this case with Awesome Computers and Trey Research Inc.) which will be used by the dynamic audience Uri validator.
 
-	<img src="../../../DevCenter/Java/Media/javastep4Step1.png" />
+	![step1] (../../../DevCenter/Java/Media/javastep4step1.png)		
 
 2.	Go to the scripts folder and open the Microsoft.Samples.Waad.Federation.PS link to generate the trusted issuers’ nodes to add to the XML repository. It will ask you for the AppPrincipalId and the AppDomain name to generate the issuer node as depicted below:
 
-	<img src="../../../DevCenter/Java/Media/javastep4Step2.png" />
+	![step2] (../../../DevCenter/Java/Media/javastep4step2.png)		
 
 	*Note: The script retrieves the federation metadata directly from Windows Azure Active Directory to get the issuer identifier for generating the realm’s SPN value.	*
 
@@ -537,7 +539,7 @@ Let's add another fictitious customer to our scenario, Trey research Inc. Trey R
 
 8.	Also in the FederationServlet.java file, replace the import declaration com.microsoft.samples.federation.FederatedLoginManager with com.microsoft.samples.waad.federation.ConfigurableFederatedLoginManager.
 
-	<img src="../../../DevCenter/Java/Media/javastep4Step8.png" />
+	![step8] (../../../DevCenter/Java/Media/javastep4step8.png)		
 
 9.	Open the FederationFilter.java file and replace the FederatedLoginManager class with ConfigurableFederatedLoginManager.
 	
@@ -545,11 +547,11 @@ Let's add another fictitious customer to our scenario, Trey research Inc. Trey R
 
 10.	Also in the FederationFilter.java file, replace the import declaration com.microsoft.samples.federation.FederatedLoginManager with com.microsoft.samples.waad.federation.ConfigurableFederatedLoginManager.
 
-	<img src="../../../DevCenter/Java/Media/javastep4Step10.png" />
+	![step10] (../../../DevCenter/Java/Media/javastep4step10.png)		
 
 11.	Right-click the sample project and select Run As -> Run on Server, and you should see a list with the links for each trusted identity provider retrieved from the “trusted.issuers.xml” repository.
 
-	<img src="../../../DevCenter/Java/Media/javastep4Step11.png" />
+	![step11] (../../../DevCenter/Java/Media/javastep4step11.png)		
 
 	*Note: The home realm discovery strategy of presenting an explicit list of trusted providers is not always feasible in practice. Here it is used for the sake of simplicity.*
 

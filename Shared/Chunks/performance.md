@@ -10,11 +10,22 @@ Note that there are many advantages to using Windows Azure: performance is only 
 
 The definition has two sides to it: metrics and resources. Performance metrics are numbers that must be achieved in order to satisfy business requirements. They include things like response time, throughput, availability, etc. Performance also includes the level of resource usage required to reach a given level of performance metrics. Since cost is almost always a business requirement, and resources cost money, performance implies using resources as efficiently as possible. 
 
-### Proof of Concept Performance Testing ###
+### Performance Life Cycle
+You can affect performance at two different points in the application life cycle:
+
+- during design, where you make fundamental architectural decisions that can affect performance; and
+- at run-time, where you identify bottlenecks, carry out monitoring and measurement, etc.
+
+Both activities are necessary. This whitepaper focuses mainly on the design phase, because architectural mistakes are harder to fix at runtime.
+
+#### Application modeling
+It is important to build a model of your application's most important customer scenarios. Here, "important" means having the largest impact on performance. Identifying these scenarios, and the required application activities, will enable you to carry out proof of concept testing.
+
+#### Proof of Concept Performance Testing ###
 
 Full end-to-end performance testing is a critical step during application design and deployment. Windows Azure applications consist of many parts, which may include custom-built components as well as those provided by Microsoft. Microsoft cannot performance test every possible combination of these components. Therefore, fully and properly performance testing your application is a critical step of any deployment. 
 
-You should build a proof of concept of your application as soon as possible and conduct a performance and load test to validate application architecture, to make sure that your application meets performance requirements in terms of scalability and latency. It is extremely important to validate your initial architecture and assumptions. You don’t want to find out that your application is unable to sustain the expected load when it goes live! Visual Studio provides facilities for carrying out load testing, described in [Visual Studio Load Test in Windows Azure Overview](http://go.microsoft.com/fwlink/?LinkId=252657). 
+Based on the application model you built, next you should carry out proof of concept testing of your application as soon as possible, and load test it to validate the application architecture, to make sure that your application meets performance requirements in terms of scalability and latency. It is extremely important to validate your initial architecture and assumptions. You don’t want to find out that your application is unable to sustain the expected load when it goes live! Visual Studio provides facilities for carrying out load testing, described in [Visual Studio Load Test in Windows Azure Overview](http://go.microsoft.com/fwlink/?LinkId=252657). 
 
 ### What’s Different about Performance in Windows Azure ###
 
@@ -61,10 +72,16 @@ Since specifics vary, we will discuss how to do these in terms of the following 
 
 ### Scenario: SQL Database in a Cloud Service ###
 
-The two key design activities are: 
+Most principles of good database design still apply to Windows Azure SQL Database. There is an immense body of material describing how to design effective SQL Server or Windows Azure SQL Database schemas. Several references on SQL database schema design are: 
 
-* Locating data appropriately: this means moving some relational data into Windows Azure Blobs, or Windows Azure Tables when appropriate. 
-* Ensuring maximum scalability: this means deciding whether, and how to partition your data, and whether to do so by using the Federations feature, or a custom sharding method. 
+* [Database Design and Modeling Fundamentals]( http://go.microsoft.com/fwlink/?LinkId=252675) 
+* [Stairway to Database Design](http://go.microsoft.com/fwlink/?LinkId=252676) 
+* [Database Design](http://go.microsoft.com/fwlink/?LinkId=252677) 
+
+There are two key design activities that are different with Windows Azure: 
+
+* Locating data appropriately: this may entail moving some relational data into Windows Azure Blobs, or Windows Azure Tables when appropriate. 
+* Ensuring maximum scalability: deciding whether, and how to partition your data. 
 
 #### Data Architecture: Moving Data out of a SQL Database ####
 
@@ -74,7 +91,7 @@ Some data which often resides in an on-premises SQL Server should be moved elsew
 
 Blob data such as images or documents should not be stored in a SQL database, but in Windows Azure Blob storage. Although such data is often stored in on-premises SQL Server, in the cloud it is much cheaper to use Blob Storage. Typically you would replace foreign keys that pointed to the blob data with Blob Storage identifiers, to maintain the ability to retrieve the blob data, and queries that referenced the data would require modification. 
 
-##### Moving SQL Tables into Table Storage #####
+##### Moving SQL Tables into Windows Azure Table Storage #####
 
 In deciding whether to use Windows Azure Table Storage, you must look at cost and performance. Table Storage is much more economical than the same data stored in a SQL database. However you must carefully consider to what extent the data makes use of SQL’s relational features such as joins, filtering, queries, etc. If the data makes little use of such features then it is a good candidate for storage in a Windows Azure Table. 
 
@@ -82,7 +99,8 @@ One common design pattern where you can consider Table Storage involves a table 
 
 For more discussion of Table Storage, see: 
 
-* [Azure Table Storage Performance Considerations](http://go.microsoft.com/fwlink/?LinkId=252663). 
+* [Windows Azure Table Storage and Windows Azure SQL Database - Compared and Contrasted](http://msdn.microsoft.com/en-us/library/jj553018.aspx)
+* [Azure Table Storage Performance Considerations](http://go.microsoft.com/fwlink/?LinkId=252663) 
 * [SQL Database and Windows Azure Table Storage](http://go.microsoft.com/fwlink/?LinkId=252664) 
 * [Improving Performance by Batching Azure Table Storage Inserts](http://go.microsoft.com/fwlink/?LinkID=252665), which discusses some performance results. 
 * [SQL Database Performance and Elasticity Guide](http://go.microsoft.com/fwlink/?LinkId=221876) 
@@ -91,32 +109,15 @@ For more discussion of Table Storage, see:
 
 One of the most frequently partitioned resources is data. If you are creating a Windows Azure Cloud Service, then you should consider the use of SQL Database’s built-in sharding available via Federations. 
 
-Be sure to build a proof of concept to determine that Federations provides the needed partitioning for your application. If SQL Database Federations does not meet your scalability requirements, there are numerous examples of “do-it-yourself” partitioning that you can research. 
+For an overview of SQL Database Federations, see [Federations in SQL Database]( http://go.microsoft.com/fwlink/?LinkId=252668).  
 
-##### Federations Limitations and Scalability Tradeoffs #####
+##### Design Tasks for SQL Federations #####
 
-It is important to understand that use of Federations involves trade-offs in exchange for the scalability that you gain. 
+Use of SQL Database Federations in a Windows Azure Cloud Service requires some modification of classic design principles. However, most things true of good design for an on-premises SQL Server database are a necessary starting point for designing SQL Database Federations. There are two major design tasks, deciding: 
 
-Federations is easiest to implement for new development, and for existing applications with databases that contain a relatively small number of tables, because Federations requires changes to the database schema as well as corresponding changes to the application layer (for example, Entity Framework code) described below. When you have a large existing database with hundreds of tables, you may decide the required changes are too extensive. 
+* what to federate on; and 
 
-Your “proof of concept” application must validate Federation scalability: when you partition a group of tables, rows that contain a key within a specified range occupy one of a number of Federation members, each of which is a separate database. If your partitioning scheme requires 20 partitions, for example, you should performance test your application with that amount of partitioning. If your performance requirements are not achieved, you can consider “do-it-yourself” partitioning, several examples of which are described later.
-
-Another major trade off is that the transaction model becomes that of “eventual consistency”, because each Federation member is a separate database, and SQL Database does not support cross-database joins. 
-
-One consequence of this is that if you need to do a fan-out query that crosses federation member boundaries (for example, get all Orders made this month), you will need to use logic in the application layer to support it. This blog post describes the basics of doing this: [Introduction to Fan-out Queries for Federations in SQL Database (Part 1): Scalable Queries over Multiple Federation Members, MapReduce Style!](http://go.microsoft.com/fwlink/?LinkID=252667) 
-
-
-Another limitation to consider is hybrid applications where you have portions of the database located in the cloud, and part on premises. If the federated part of the data exists in both places, then you will have to maintain two versions of the application code, since Federations is not implemented on premises. 
-
-##### SQL Federations #####
-
-For an overview of SQL Database Federations, see [Federations in SQL Database]( http://go.microsoft.com/fwlink/?LinkId=252668). 
-
-Federating for scalability requires some modifications to your already well-designed database schema. There are two major issues: 
-
-* What to federate on 
-
-* Where to place non-federated tables. 
+* where to place non-federated tables. 
 
 In order to decide what to federate on, you need to examine your database schema and identify aggregations of related tables. An aggregate is a set of tables, all of which are related by 1-to-many relationships through their foreign keys, except for the root of the aggregate. 
 
@@ -130,17 +131,7 @@ Once you decide which tables to federate, you must add the primary key of the ag
 
 After deciding what tables to federate on, another issue is the location of reference tables, as well as other database objects. There is a thorough discussion of this subject at [Scale-First Approach to Database Design with Federations: Part 2 – Annotating and Deploying Schema for Federations](http://go.microsoft.com/fwlink/?LinkId=252672). Doing more advanced queries is described in [Part 2]( http://go.microsoft.com/fwlink/?LinkId=252673). 
 
-##### Prerequisite: Good Database Design
-
-If your application uses a relational database, then good database design is always a prerequisite for creating a performant application. There is an immense body of material describing how to design effective SQL Server or Windows Azure SQL Database schemas. Several references on SQL database schema design are: 
-
-* [Database Design and Modeling Fundamentals]( http://go.microsoft.com/fwlink/?LinkId=252675) 
-* [Stairway to Database Design](http://go.microsoft.com/fwlink/?LinkId=252676) 
-* [Database Design](http://go.microsoft.com/fwlink/?LinkId=252677) 
-
-Use of SQL Database Federations in a Windows Azure Cloud Service requires some modification of classic design principles. However, most things true of good design for an on-premises SQL Server database are a necessary starting point for converting to SQL Database Federations. If you are considering changing an application that uses a SQL database over to use Federations, validate the existing schema design. Implementing Federations assumes that the original database is well-designed. 
-
-
+                                            
 ##### Do-It-Yourself Partitioning #####
 
 There are a number of samples that show ways of partitioning data. If you decide not to use Federations to partition your SQL Database instance, you must choose a method of partitioning that is appropriate to your application. Here are some examples: 

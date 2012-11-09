@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Installing MongoDB on a CentOS Linux Virtual Machine in Windows Azure" metaKeywords="" metaDescription="" linkid="manage-linux-common-tasks-MongoDB" urlDisplayName="Install MongoDB" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-linux-common-task-mongodb-virtual-machine" urlDisplayName="Install MongoDB" pageTitle="Install MongoDB on a Linux virtual machine in Windows Azure" metaKeywords="Azure vm CentOS, Azure vm Linux, Linux vm, Linux MongoDB" metaDescription="Learn how to create a Windows Azure virtual machine with CentOS Linux, and then use SSH or PuTTY to install MongoDB." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 #Install MongoDB on a virtual machine running CentOS Linux in Windows Azure
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />

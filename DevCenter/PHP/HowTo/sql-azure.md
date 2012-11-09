@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Access Windows Azure SQL Database from PHP" metaKeywords="Windows Azure, SQL Database, PHP" metaDescription="Learn how to use PHP to access Windows Azure SQL Database." linkid="dev-php-howto-sql-database" urlDisplayName="How to Access Windows Azure SQL Database from PHP" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-php-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (PHP) - Windows Azure feature guides" metaKeywords="Azure SQL Database PHP, SQL Database PHP" metaDescription="Learn how to create and connect to a Windows Azure SQL Database from PHP." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 #How to Access Windows Azure SQL Database from PHP
 
@@ -37,11 +39,11 @@ Alternatively, you can set up your environment manually:
 Follow these steps to create a Windows Azure SQL Database:
 
 1. Login to the [Preview Management Portal][preview-portal].
-2. Click the **+ New** icon on the bottom left of the portal.
+2. Click the **+ NEW** icon on the bottom left of the portal.
 
 	![Create New Windows Azure Website][new-website]
 
-3. Click **SQL Database**, then **Custom Create**.
+3. Click **DATA SERVICES**, **SQL DATABASE** then **CUSTOM CREATE**.
 
 	![Custom Create a new SQL Database][custom-create]
 
@@ -63,7 +65,7 @@ To get SQL Database connection information, click on **SQL DATABASES** in the po
 
 ![View database information][go-to-db-info]
 
-Then, click on **Show connection strings**.
+Then, click on **View SQL Database connection strings for ADO.NET, ODBC, PHP, and JDBC**.
 
 ![Show connection strings][show-connection-string]
 
@@ -115,8 +117,8 @@ As mentioned earlier, using SQL Database is very similar to using SQL Server. On
 [install-sql-express]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
 [preview-portal]: https://manage.windowsazure.com
 [prod-portal-instructions]: http://blogs.msdn.com/b/brian_swan/archive/2010/02/12/getting-started-with-php-and-sql-azure.aspx
-[new-website]: ../../Shared/Media/new_website.jpg
-[custom-create]: ../../Shared/Media/create_custom_sql_db.jpg
+[new-website]: ../../Shared/Media/plus-new.png
+[custom-create]: ../../Shared/Media/create_custom_sql_db-2.png
 [database-settings]: ../Media/new-sql-db.png
 [create-server]: ../Media/db-server-settings.png
 [sql-dbs-servers]: ../Media/sql-dbs-portal.png
@@ -125,5 +127,5 @@ As mentioned earlier, using SQL Database is very similar to using SQL Server. On
 [connection-string]: ../Media/connection_string.jpg
 [wpi-installer]: http://go.microsoft.com/fwlink/?LinkId=253447
 [go-to-db-info]: ../Media/go-to-db-info.png
-[show-connection-string]: ../Media/show-connection-string.png
+[show-connection-string]: ../Media/show-connection-string-2.png
 

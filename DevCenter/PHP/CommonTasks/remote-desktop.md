@@ -1,2 +1,4 @@
-<properties linkid="dev-php-commons-tasks-remote-desktop" urlDisplayName="Remote Desktop" headerExpose="" pageTitle="Enable Remote Desktop - PHP - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="dev-node-remotedesktop" urlDisplayName="Enable Remote Desktop" pageTitle="Enable remote desktop for cloud services (PHP) - Windows Azure" metaKeywords="Azure PHP remote access, Azure PHP remote connection, Azure PHP VM access, Azure PHP virtual machine access" metaDescription="Learn how to enable remote-desktop access for the virtual machines hosting your Windows Azure PHP application." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 <div chunk="../../Shared/Chunks/remote-desktop.md" />

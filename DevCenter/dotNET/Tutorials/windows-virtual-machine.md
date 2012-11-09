@@ -1,7 +1,10 @@
-<properties umbracoNaviHide="0" pageTitle="Create a Virtual Machine Running Windows Server 2008 R2" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
-# Create a Virtual Machine Running Windows Server 2008 R2 #
+<properties linkid="dev-net-tutorials-windows-virtual-machine" urlDisplayName="Windows Virtual Machine" pageTitle="Create a virtual machine (.NET) - Windows Azure tutorial" metaKeywords="" metaDescription="Learn how to create a Windows Azure virtual machine with Windows Server 2008 R2." metaCanonical="http://www.windowsazure.com/en-us/manage/windows/tutorials/virtual-machine-from-gallery/" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
+
+
+<div chunk="../chunks/article-left-menu.md" />
+
+# Create a Virtual Machine Running Windows Server 2008 R2 #
 
 It's easy to create a virtual machine that is running the Windows Server operating system when you use the Image Gallery in the Windows Azure Management Portal. This tutorial will teach you how to create a virtual machine running Windows Server in the cloud that you can then access and customize. You don't need prior experience with Windows Azure to use this tutorial. 
 
@@ -12,8 +15,11 @@ You will learn:
 - [How to log on to the virtual machine after you create it] []
 - [How to attach a data disk to the new virtual machine] []
 - [How to set up communication with the virtual machine] []
+- [Next steps] []
 
-## <a id="virtualmachine"> </a>What a virtual machine is in Windows Azure ##
+<div chunk="../../Shared/Chunks/create-account-and-vms-note.md" />
+
+<h2><a id="virtualmachine"> </a><span class="short-header">What is a virtual machine?</span>What a virtual machine is in Windows Azure</h2>
 
 A virtual machine in Windows Azure is a server in the cloud that you can control and manage. After you create a virtual machine in Windows Azure, you can delete and re-create it whenever you need to, and you can access the virtual machine just like any other server. You use virtual hard disk (VHD) files to create a virtual machine. You can use the following types of VHDs to create a virtual machine:
 
@@ -25,7 +31,7 @@ You can use the following options to create a virtual machine from an image:
 - Create a virtual machine by using an image from the Image Gallery of the Windows Azure Management Portal.
 - Create and upload a VHD file that contains an image to Windows Azure, and then create a virtual machine using the image. For more information about how to create and upload a custom image, see [Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System](/en-us/manage/windows/common-tasks/upload-a-vhd/).
 
-## <a id="custommachine"> </a>How to use the Management Portal to create a custom virtual machine running Windows Server ##
+<h2><a id="custommachine"> </a><span class="short-header">Create the virtual machine</span>How to use the Management Portal to create a custom virtual machine running Windows Server</h2>
 
 You use the **From Gallery** feature to create a custom virtual machine in the Management Portal. When you create this virtual machine, you can define the size of the virtual machine, the connected resources, the DNS name, and the network connectivity if needed.
 
@@ -81,7 +87,7 @@ You use the **From Gallery** feature to create a custom virtual machine in the M
 
 	![Successful virtual machine creation] (../../../ITPro/Windows/media/vmsuccesswindows.png)
 
-## <a id="logon"> </a>How to log on to the virtual machine after you create it ##
+<h2><a id="logon"> </a><span class="short-header">Log on to the virtual machine</span>How to log on to the virtual machine after you create it</h2>
 
 You can log on to the virtual machine that you created to manage both its settings and the applications that are running on it.
 
@@ -111,7 +117,7 @@ You can log on to the virtual machine that you created to manage both its settin
 
 	You can now work with the virtual machine just like you would a server in your office.
 
-## <a id="attachdisk"> </a>How to attach a data disk to the new virtual machine ##
+<h2><a id="attachdisk"> </a><span class="short-header">Attach a data disk</span>How to attach a data disk to the new virtual machine</h2>
 
 Your application might need to store data. To set this up, attach a data disk to the virtual machine. The easiest way to do this is to attach an empty data disk to the virtual machine.
 
@@ -161,7 +167,7 @@ After you attach the data disk to the virtual machine, the disk is offline and n
 
 	![Initialization success] (../media/initializesuccess.png)
 
-## <a id="endpoints"> </a>How to set up communication with the virtual machine ##
+<h2><a id="endpoints"> </a><span class="short-header">Set up communication</span>How to set up communication with the virtual machine</h2>
 
 All virtual machines that you create in Windows Azure can automatically communicate with other virtual machines in the same cloud service or virtual network. However, you need to add an endpoint to a virtual machine for other resources on the Internet or other virtual networks to communicate with it. You can associate specific ports and a protocol to endpoints.
 
@@ -197,8 +203,23 @@ All virtual machines that you create in Windows Azure can automatically communic
 
 	![Endpont successfully created] (../../../ITPro/Windows/media/endpointwindowsnew.png)
 
+<h2><a id="nextsteps"> </a><span class="short-header">Next steps</span>Next steps</h2>
+
+- [How to connect virtual machines in a cloud service] [] - To ensure availability of your application and to balance the load of traffic to your application you must connect virtual machines together under a cloud service.
+- [Load balance virtual machines] [] - After you connect virtual machines under a cloud service, you can define how the traffic load is balanced for the application.
+- [Manage the availability of virtual machines] [] - By using availability sets, you can make sure that your application is always available.
+- [Add a virtual machine to a virtual network] [] - You can add your new virtual machine to a virtual network.
+
+[How to connect virtual machines in a cloud service]:../../../ITPro/Windows/HowTo/howto-connect-vm-cloud-service.md
+[Load balance virtual machines]:../../../ITPro/Windows/CommonTasks/LoadBalancingVirtualMachines.md
+[Manage the availability of virtual machines]:../../../ITPro/Windows/CommonTasks/manage-vm-availability.md
+[Add a virtual machine to a virtual network]:../../../ITPro/Services/networking/Tutorial3_AddVMachineToVNet.md
+
+
+
 [What a virtual machine is in Windows Azure]: #virtualmachine
 [How to use the Management Portal to create a custom virtual machine running Windows Server]: #custommachine
 [How to log on to the virtual machine after you create it]: #logon
 [How to attach a data disk to the new virtual machine]: #attachdisk
 [How to set up communication with the virtual machine]: #endpoints
+[Next steps]: #nextsteps

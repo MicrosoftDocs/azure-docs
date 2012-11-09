@@ -1,4 +1,6 @@
-<properties linkid="dev-php-how-to-service-bus-queues" urldisplayname="Service Bus Queues" headerexpose="" pagetitle="Service Bus Queues - How To - PHP - Develop" metakeywords="Windows Azure, PHP, Service Bus, Queues, Service Bus Queues" footerexpose="" metadescription="Learn how to use Windows Azure Service Bus Queues from PHP." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-php-how-to-guides-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (PHP) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues PHP" metaDescription="Learn how to use Service Bus queues in Windows Azure. Code samples written in PHP." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # How to Use Service Bus Queues
 
@@ -9,9 +11,9 @@ messages**, and **deleting queues**.
 
 ## Table of Contents
 
--   [What are Service Bus queues?](#WhatAreQueues)
--   [Create a service namespace](#CreateNamespace)
--   [Obtain the default management credentials for the namespace](#GetDefaultCredentials)
+-   [What are Service Bus queues?](#what-are-service-bus-queues)
+-   [Create a service namespace](#create-a-service-namespace)
+-   [Obtain the default management credentials for the namespace](#obtain-default-credentials)
 - 	[Create a PHP application](#CreateApplication)
 -	[Get the Windows Azure Client Libraries](#GetClientLibrary)
 -   [Configure your application to use Service Bus](#ConfigureApp)
@@ -21,95 +23,7 @@ messages**, and **deleting queues**.
 -   [How to: Handle application crashes and unreadable messages](#HandleCrashes)
 -   [Next steps](#NextSteps)
 
-<h2 id="WhatAreQueues">What are Service Bus queues?</h2>
-
-Service Bus Queues support a **brokered messaging communication** model.
-When using queues, components of a distributed application do not
-communicate directly with each other, they instead exchange messages via
-a queue, which acts as an intermediary. A message producer (sender)
-hands off a message to the queue and then continues its processing.
-Asynchronously, a message consumer (receiver) pulls the message from the
-queue and processes it. The producer does not have to wait for a reply
-from the consumer in order to continue to process and send further
-messages. Queues offer **First In, First Out (FIFO)** message delivery
-to one or more competing consumers. That is, messages are typically
-received and processed by the receivers in the order in which they were
-added to the queue, and each message is received and processed by only
-one message consumer.
-
-![Service Bus Queue Diagram][]
-
-Service Bus queues are a general-purpose technology that can be used for
-a wide variety of scenarios:
-
--   Communication between web and worker roles in a multi-tier Windows
-    Azure application
--   Communication between on-premises apps and Windows Azure hosted apps
-    in a hybrid solution
--   Communication between components of a distributed application
-    running on-premises in different organizations or departments of an
-    organization
-
-Using queues can enable you to scale out your applications better, and
-enable more resiliency to your architecture.
-
-<h2 id="CreateNamespace">Create a service namespace</h2>
-
-To begin using Service Bus queues in Windows Azure, you must first
-create a service namespace. A service namespace provides a scoping
-container for addressing Service Bus resources within your application.
-
-To create a service namespace:
-
-1.  Log on to the [Windows Azure Management Portal][].
-2.  In the lower left navigation pane of the Management Portal, click
-    **Service Bus, Access Control & Caching**.
-3.  In the upper left pane of the Management Portal, click the **Service
-    Bus** node, and then click the **New** button. 
- 
-    ![Service Bus Node screenshot][]
-
-4.  In the **Create a new Service Namespace** dialog, enter a
-    **Namespace**, and then to make sure that it is unique, click the
-    **Check Availability** button. 
- 
-    ![Create a New Namespace screenshot][]
-
-5.  After making sure the namespace name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same country/region in which you are deploying your
-    compute resources), and then click the **Create Namespace** button.
-    Having a compute instance is optional, and the service bus can be
-    consumed from any application with internet access.  
-      
-    The namespace you created will then appear in the Management Portal
-    and takes a moment to activate. Wait until the status is **Active**
-    before moving on.
-
-<h2 id="GetDefaultCredentials">Obtain the default management credentials for the namespace</h2>
-
-In order to perform management operations, such as creating a queue, on
-the new namespace, you need to obtain the management credentials for the
-namespace.
-
-1.  In the left navigation pane, click the **Service Bus** node, to
-    display the list of available namespaces:  
- 
-    ![Available Namespaces screenshot][]
-
-2.  Select the namespace you just created from the list shown: 
-  
-    ![Namespace List screenshot][]
-
-3.  The right-hand **Properties** pane will list the properties for the new namespace:   
-
-    ![Properties Pane screenshot][]
-
-4.  The **Default Key** is hidden. Click the **View** button to display the security credentials:  
- 
-    ![Default Key screenshot][]
-
-5.  Make a note of the **Default Issuer** and the **Default Key** as you will use this information below to perform operations with the  namespace.
+<div chunk="../../Shared/Chunks/howto-service-bus-queues.md" />
 
 <h2 id="CreateApplication">Create a PHP application</h2>
 
@@ -128,47 +42,66 @@ In this guide, you will use service features which can be called within a PHP ap
 
 <h2 id="ConfigureApp">Configure your application to use Service Bus</h2>
 
-To use the Windows Azure Service Bus queue APIs, you need to:
+To use the Windows Azure Servise Bus queue APIs, you need to:
 
-1. Reference the `WindowsAzure.php` file (from the Windows Azure SDK for PHP) using the [require_once][require_once] statement, and
+1. Reference the autoloader file using the [require_once][require_once] statement, and
 2. Reference any classes you might use.
 
-The following example shows how to include the `WindowsAzure.php` file and reference the **ServiceBusService** class:
+The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
 
-	require_once 'WindowsAzure\WindowsAzure.php';
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>This example (and other examples in this article) assume you have installed the PHP Client Libraries for Windows Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the <code>WindowsAzure.php</code> autoloader file.</p> 
+</div>
 
-	use WindowsAzure\ServiceBus\ServiceBusService;
+	require_once 'vendor\autoload.php';
+	use WindowsAzure\Common\ServicesBuilder;
 
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
+
+<h2 id="ConnectionString">Setup a Windows Azure Service Bus connection</h2>
+
+To instantiate a Windows Azure Service Bus client you must first have a valid connection string following this format:
+
+	Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]
+
+Where the Endpoint is typically of the format `https://[yourNamespace].servicebus.windows.net`.
+
+To create any Windows Azure service client you need to use the **ServicesBuilder** class. You can:
+
+* pass the connection string directly to it or
+* use the **CloudConfigurationManager (CCM)** to check multiple external sources for the connection string:
+	* by default it comes with support for one external source - environmental variables
+	* you can add new sources by extending the **ConnectionStringSource** class
+
+For the examples outlined here, the connection string will be passed directly.
+
+	require_once 'vendor\autoload.php';
+
+	use WindowsAzure\Common\ServicesBuilder;
+
+	$connectionString = "Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]";
+
+	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
+
 
 <h2 id="CreateQueue">How to: Create a queue</h2>
 
 Management operations for Service Bus queues can be performed via the
 **ServiceBusRestProxy** class. A **ServiceBusRestProxy** object is
-constructed via the **ServiceBusService::create** factory method with an appropriate configuration that encapsulates the
-token permissions to manage it.
+constructed via the **ServicesBuilder::createServiceBusService** factory method with an appropriate connection string that encapsulates the token permissions to manage it.
 
-The example below shows how create a **Configuration** object, instantiate **ServiceBusRestProxy** via the **ServiceBusService::create** factory method, and call **ServiceBusRestProxy->createQueue** to create a queue named `myqueue` within a `MySBNamespace` service namespace:
+The example below shows how to instantiate a **ServiceBusRestProxy** and call **ServiceBusRestProxy->createQueue** to create a queue named `myqueue` within a `MySBNamespace` service namespace:
 
-    require_once 'WindowsAzure\WindowsAzure.php';
+    require_once 'vendor\autoload.php';
 
-	use WindowsAzure\ServiceBus\ServiceBusService;
-	use WindowsAzure\ServiceBus\Models\QueueInfo;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
-
-	$issuer = "<obtained from portal>";
-	$key = "<obtained from portal>";
-
-	// Create configuration object.
-	$config = new Configuration();
-	ServiceBusSettings::configureWithWrapAuthentication( $config,
-														 "MySBNamespace",
-														 $issuer,
-														 $key);
+	use WindowsAzure\ServiceBus\Models\QueueInfo;
 
 	// Create Service Bus REST proxy.
-	$serviceBusRestProxy = ServiceBusService::create($config);
+		$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 	
 	try	{
 		$queueInfo = new QueueInfo("myqueue");
@@ -195,24 +128,14 @@ The example below shows how create a **Configuration** object, instantiate **Ser
 To send a message to a Service Bus queue, your application will call the **ServiceBusRestProxy->sendQueueMessage** method. The code below demonstrates how to send a message to the `myqueue` queue we created above within the
 `MySBNamespace` service namespace.
 
-	require_once 'WindowsAzure\WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\ServiceBus\ServiceBusService;
+	use WindowsAzure\Common\ServicesBuilder;
+	use WindowsAzure\Common\ServiceException;
 	use WindowsAzure\ServiceBus\models\BrokeredMessage;
-	use WindowsAzure\Common\ServiceException;	
-
-	$issuer = "<obtained from portal>";
-	$key = "<obtained from portal>";
-
-	// Create configuration object.
-	$config = new Configuration();
-	ServiceBusSettings::configureWithWrapAuthentication( $config,
-														 "MySBNamespace",
-														 $issuer,
-														 $key);	
 
 	// Create Service Bus REST proxy.
-	$serviceBusRestProxy = ServiceBusService::create($config);
+	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 		
 	try	{
 		// Create message.
@@ -255,29 +178,19 @@ In **PeekLock** mode, receiving a message becomes a two stage operation, which m
 
 The example below demonstrates how a message can be received and processed using **PeekLock** mode (not the default mode).
 
-	require_once 'WindowsAzure\WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\ServiceBus\ServiceBusService;
-	use WindowsAzure\ServiceBus\models\ReceiveMessageOptions;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
-
-	$issuer = "<obtained from portal>";
-	$key = "<obtained from portal>";
-
-	// Create configuration object.
-	$config = new Configuration();
-	ServiceBusSettings::configureWithWrapAuthentication( $config,
-														 "MySBNamespace",
-														 $issuer,
-														 $key);	
+	use WindowsAzure\ServiceBus\models\ReceiveMessageOptions;
 
 	// Create Service Bus REST proxy.
-	$serviceBusRestProxy = ServiceBusService::create($config);
+	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 		
 	try	{
 		// Set the receive mode to PeekLock (default is ReceiveAndDelete).
 		$options = new ReceiveMessageOptions();
-		$options->setPeekLock(true);
+		$options->setPeekLock();
 		
 		// Receive message.
 		$message = $serviceBusRestProxy->receiveQueueMessage("myqueue", $options);
@@ -288,7 +201,7 @@ The example below demonstrates how a message can be received and processed using
 			Process message here.
 		----------------------------*/
 		
-		// Delete message.
+		// Delete message. Not necessary if peek lock is not set.
 		echo "Message deleted.<br />";
 		$serviceBusRestProxy->deleteMessage($message);
 	}

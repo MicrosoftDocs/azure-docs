@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Tutorial 3: Adding a Virtual Machine to a Virtual Network" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Learn how to configure Windows Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-add-a-vm-to-a-virtual-network" urlDisplayName="Add a VM to virtual network" pageTitle="Add a virtual machine to a virtual network - Windows Azure" metaKeywords="" metaDescription="A tutorial that teaches you how to create a storage account and virtual machine (VM) that you add to a Windows Azure virtual network." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 
 <h1 id="vnet3">Add a Virtual Machine to a Virtual Network</h1>
@@ -8,15 +10,15 @@
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-This tutorial walks you through the steps to create a Windows Azure storage account and virtual machine that you add to a virtual network.
+This tutorial walks you through the steps to create a Windows Azure storage account and virtual machine (VM) that you add to a [virtual network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
 
 This tutorial assumes you have no prior experience using Windows Azure.
 
-For information about creating adding Active Directory connection to your virtual network, see the following:
+<div class="dev-callout"> 
+<b>Important</b>
 
--  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](/en-us/manage/services/networking/replica-domain-controller/)
-
--  [Install a New Active Directory Forest in Windows Azure](/en-us/manage/services/networking/active-directory-forest/)
+<p>If you plan on creating a VM in order to install a new Active Directory forest, follow the instructions in <a href="../active-directory-forest/">Install a new Active Directory forest in Windows Azure</a>.</p>
+</div>
 
 
 ## Objectives ##
@@ -121,7 +123,11 @@ In this tutorial you will learn:
 
 -  **VIRTUAL NETWORK SUBNETS:** Select **FrontEndSubnet**.
 	
-	**NOTE:** You should select at least one subnet and DO NOT select the gateway subnet. 
+	<div class="dev-callout"> 
+	<b>NOTE</b> 
+
+	<p>You should select at least one subnet and DO NOT select the gateway subnet.</p>
+	</div> 
  
 	![VMOptions] []
 
@@ -134,13 +140,13 @@ In this tutorial you will learn:
 	![AllTab] []
 
 ## Next Steps ##
-If you'd like to connect to Active Directory, you can continue with the following tutorials:
-	<!-- UPDATE THE FOLLOWING LIST ONCE WE HAVE THE LINKS FOR TUTORIALS 4 & 5 -->
-	
--  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](/en-us/manage/services/networking/replica-domain-controller/)
+To install an additional domain controller for your on-premises Active Directory domain on the VM you just created, see [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](/en-us/manage/services/networking/replica-domain-controller/).
 
--  [Install a New Active Directory Forest in Windows Azure](/en-us/manage/services/networking/active-directory-forest/)
+## See Also
 
+-  [Windows Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
+
+-  [Configuring a Virtual Network Using Network Configuration Files](http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx)
 
 <!-- LINKS -->
 
@@ -149,7 +155,6 @@ If you'd like to connect to Active Directory, you can continue with the followin
 [Tut1_VN]: ..Tutorial1_CreateVirtualNetwork
 
 <!-- INTERNAL LINKS -->
-
 
 <!-- IMAGES -->
 

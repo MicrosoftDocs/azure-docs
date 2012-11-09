@@ -1,6 +1,8 @@
-#Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System #
+<properties linkid="manage-windows-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Windows Server VHD to Windows Azure" metaKeywords="Azure VHD, uploading VHD" metaDescription="Learn how to create and upload a virtual hard disk (VHD) in Windows Azure that has the Windows Server operating system." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-<div chunk="../../shared/chunks/disclaimer.md" />
+
+#Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System #
+To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
 
 A virtual machine that you create in Windows Azure runs the operating system that you choose from the supported operating system versions. You can customize the operating system settings of the virtual machine to facilitate running your application. The configuration that you set is stored on disk. You create a virtual machine in Windows Azure by using a virtual hard disk (VHD) file. You can choose to create a virtual machine by using a VHD file that is supplied for you in the Image Gallery, or you can choose to create your own image and upload it to Windows Azure in a VHD file.
 
@@ -17,13 +19,13 @@ The following resources must be available to complete this task:
     <TH>Architecture</TH>
   </TR>
   <TR>
-    <TD>Windows Server 2012 RC (en\_us)</TD>
+    <TD>Windows Server 2012 (en\_us)</TD>
     <TD>All editions</TD>
     <TD>N/A</TD>
     <TD>x64</TD>
   </TR>
   <TR>
-    <TD>Windows Server 2008 R2(en\_us)</TD>
+    <TD>Windows Server 2008 R2 (en\_us)</TD>
     <TD>All editions</TD>
     <TD>SP1</TD>
     <TD>x64</TD>
@@ -84,7 +86,7 @@ An image is a virtual hard disk (VHD) file that you can use as a template to cre
 
 	- **Name** - the name of the .vhd file. This is the file that you upload to Windows Azure.
 	- **Location** - the folder where the .vhd file is located. You should store the VHD file in a secure location.
-	- **Size** - the size of the virtual machine. You must ensure that the size of the virtual machine is one of the values in the following table and that the size corresponds to the size that you choose for the virtual machine when you create it in the Windows Azure Management Portal.
+	- **Size** - the size of the virtual hard disk. The maximum size for a virtual hard disk that is intended for an operating system disk in Windows Azure is 127 GB.
   
 5. On the **Installation Options** page, select **Install an operating system from a boot CD/DVD –ROM media**, and then choose the method that is appropriate for your installation media.
 
@@ -219,7 +221,7 @@ For this task, you upload the VHD file to be used as an image for creating virtu
 
 2. Upload the VHD file by using the following command and replacing **Subscriptionid** and **CertThumbprint** with the values that you obtained earlier:
 
-	`csupload Add-PersistentVMImage –Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>" -Label <VHDName> -LiteralPath <PathToVHDFile> -OS Windows`
+	`csupload Add-PersistentVMImage -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>" -Label <VHDName> -LiteralPath <PathToVHDFile> -OS Windows`
 
 Where **BlobStorageURL** is the URL for the storage account that you created earlier. You can place the VHD file anywhere within your Blog storage. **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the VHD. **PathToVHDFile** is the full path and name of the VHD file.
 

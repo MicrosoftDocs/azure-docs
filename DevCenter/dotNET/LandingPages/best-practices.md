@@ -1,5 +1,7 @@
-#.NET Developer Center - Best practices
+<properties linkid="dev-net-best-practices" urlDisplayName="Best Practices" pageTitle="Windows Azure .NET best practices" metaKeywords="Azure solutions best practices" metaDescription="Best practices for developing robust Windows Azure solutions." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+
+#.NET Developer Center - Best practices
 The content in this section will help you develop robust Windows Azure solutions. New content will be added frequently, so please visit this page for new topics. You can also use the Disqus section below to suggest new topics.
 
 ## Key guidance areas

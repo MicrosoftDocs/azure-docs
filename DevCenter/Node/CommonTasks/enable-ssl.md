@@ -1,4 +1,6 @@
-<properties linkid="dev-nodejs-enablessl" urldisplayname="Enable SSL" headerexpose="" pagetitle="Enable SSL - Node.js - Develop" metakeywords="Node.js Azure SSL, Node.js Azure HTTPS" footerexpose="" metadescription="Learn how to specify an HTTPS endpoint for a Node.js web role and how to upload an SSL certificate to secure your application." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-enablessl" urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service (Node.js) - Windows Azure" metaKeywords="Node.js Azure SSL, Node.js Azure HTTPS" metaDescription="Learn how to specify an HTTPS endpoint for a Node.js web role and how to upload an SSL certificate to secure your application." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # Configuring SSL for a Node.js Application in Windows Azure
 
@@ -6,6 +8,11 @@ Secure Socket Layer (SSL) encryption is the most commonly used method of
 securing data sent across the internet. This common task discusses how
 to specify an HTTPS endpoint for a Node.js web role and how to upload an
 SSL certificate to secure your application.
+
+<div class="dev-callout">
+	<b>Note</b>
+	<p>The steps in this article only apply to node applications hosted as a Windows Azure Cloud Service.</p>
+	</div>
 
 This task includes the following steps:
 

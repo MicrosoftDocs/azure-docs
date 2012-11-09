@@ -1,5 +1,7 @@
-# Cloud services management articles
+<properties linkid="develop-net" urlDisplayName="Cloud Services" pageTitle="Cloud Services - Windows Azure service management" metaKeywords="Azure cloud services" metaDescription="Find topics about cloud services in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+# Cloud services management articles
 When you create an application and run it in Windows Azure, the code and configuration together are called a Windows Azure cloud service (known as a *hosted service* in earlier Windows Azure releases). For more information, see [What is a Cloud Service?](./whatis-a-cloud-service/) 
 
 ## How to guides
