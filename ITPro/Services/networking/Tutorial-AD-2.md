@@ -103,41 +103,38 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 
 	If you rerun the script, you need to supply a unique value for $service. After the Windows Azure PowerShell cmdlet successfully completes, the VM will initially appear in the UI in the management portal in a stopped state, followed by a provisioning process. After the VM is provisioned, continue with the next steps.
 
-9.	In the management portal, click the name of the VM you created.
+9.	In the management portal, click the name of the VM you created, and on the bottom of the screen, click **Attach**, and click **Attach Empty Disk**.
 
 
 	![Sign2] (../media/Sign2.png)
 
 
-10.	On the bottom of the screen, click **Attach**, and click **Attach Empty Disk**.
-
-
-11. Type the size of hard disk (in GB) you want, such as 30, and click the **Check** button. 
+10. Type the size of hard disk (in GB) you want, such as 30, and click the **Check** button. 
 
 	![Sign4] (../media/ADDS_SpecifyDiskSize.png)
 
-12.	Repeat steps 11 and 12 to attach a second disk.
+11.	Repeat steps 9 and 10 to attach a second disk.
 
 
-13.	Click **Connect**.
+12.	Click **Connect**.
 
 	![Sign5] (../media/Sign5.png)
 
 
-14.	Click **Open**.
+13.	Click **Open**.
 
 	![Sign6] (../media/Sign6.png)
 
-15.	In RDP connection dialog, click **Don’t ask me again for connections to this computer**, and click **Connect**.
+14.	In RDP connection dialog, click **Don’t ask me again for connections to this computer**, and click **Connect**.
 
 	![Sign7] (../media/Sign7.png)
 
-16.	Type your credentials.
+15.	Type your credentials.
 
 	![Sign8] (../media/Sign8.png)
 
 
-17. In Remote Desktop Connection, click **Yes**.
+16. In Remote Desktop Connection, click **Yes**.
 
 	![Sign9] (../media/Sign9.png)
 
@@ -204,7 +201,7 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 	![InstallDC10] (../media/InstallDC10.png)
 
 
-14.	On the **Location for Active Directory database, log files and SYSVOL** page, click **Browse** and type or select a location on the data disk for the Active Directory files, and click **Next**. 
+14.	On the **Location for Active Directory database, log files and SYSVOL** page, click **Browse** and type or select the NTDS folder location you created previously on the additional data disk for the Active Directory files, and click **Next**. 
 
 	![InstallDC11] (../media/InstallDC11.png)
 
