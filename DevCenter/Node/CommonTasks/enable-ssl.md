@@ -175,6 +175,8 @@ connect to it using HTTPS.
 
 [How to Associate a Certificate with a Service]
 
+[Configuring SSL for a Node.js Application in a Windows Azure Worker Role]
+
 [How to Configure an SSL Certificate on an HTTPS Endpoint]
 
   [Step 1: Create a Node.js service and publish the service to the cloud]: #step1
@@ -201,4 +203,4 @@ connect to it using HTTPS.
   [powershell-menu]: ../../Shared/Media/azure-powershell-start.png
   [cert-wizard]: ../Media/certificateimport.png
   [key-protection]: ../Media/exportable.png
-  
+  [Configuring SSL for a Node.js Application in a Windows Azure Worker Role]: /en-us/develop/nodejs/common-tasks/enable-ssl-worker/
