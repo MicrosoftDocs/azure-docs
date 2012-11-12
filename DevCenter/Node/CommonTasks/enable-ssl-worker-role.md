@@ -1,10 +1,10 @@
-<properties linkid="dev-nodejs-enablessl-worker" urldisplayname="Enable SSL" headerexpose="" pagetitle="Enable SSL - Node.js - Develop" metakeywords="Node.js Azure SSL, Node.js Azure HTTPS" footerexpose="" metadescription="Learn how to specify an HTTPS endpoint for a Node.js worker role." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-enablessl-worker" urldisplayname="Enable Worker Role SSL" headerexpose="" pagetitle="Enable SSL for a Node.js application in a worker role" metakeywords="Node.js Azure SSL, Node.js Azure HTTPS" footerexpose="" metadescription="Learn how to specify an HTTPS endpoint for a Node.js worker role." umbraconavihide="0" disquscomments="1"></properties>
 
 # Configuring SSL for a Node.js Application in a Windows Azure Worker Role
 
 Secure Socket Layer (SSL) encryption is the most commonly used method of
 securing data sent across the internet. This common task discusses how
-to specify an HTTPS endpoint for a Node.js application hosted as a Windows Azure Cloud Service.
+to specify an HTTPS endpoint for a Node.js application hosted as a Windows Azure Cloud Service in a worker role.
 
 <div class="dev-callout">
 	<b>Note</b>
