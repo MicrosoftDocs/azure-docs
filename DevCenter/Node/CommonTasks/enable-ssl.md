@@ -15,14 +15,14 @@ SSL certificate to secure your application.
 This task includes the following steps:
 
 -   [Step 1: Create a Node.js service and publish the service to the cloud]
--   [Step 2: Get an SSL Certificate]
--   [Step 3: Upload the SSL Certificate to the cloud]
+-   [Step 2: Get an SSL certificate]
+-   [Step 3: Import the SSL certificate]
 -   [Step 4: Modify the Service Definition and Configuration Files]
 -   [Step 5: Connect to the Role Instance by Using HTTPS]
 
 ## <a name="step1"> </a>Step 1: Create a Node.js service and publish the service to the cloud
 
-When a Node.js service is deployed to a Windows Azure web role, the
+When a Node.js application is deployed to a Windows Azure web role, the
 server certificate and SSL connection are managed by Internet
 Information Services (IIS), so that the Node.js service can be written
 as if it were an http service. You can create a simple Node.js 'hello
@@ -178,8 +178,8 @@ connect to it using HTTPS.
 [How to Configure an SSL Certificate on an HTTPS Endpoint]
 
   [Step 1: Create a Node.js service and publish the service to the cloud]: #step1
-  [Step 2: Get an SSL Certificate]: #step2
-  [Step 3: Upload the SSL Certificate to the cloud]: #step3
+  [Step 2: Get an SSL certificate]: #step2
+  [Step 3: Import the SSL certificate]: #step3
   [Step 4: Modify the Service Definition and Configuration Files]: #step4
   [Step 5: Connect to the Role Instance by Using HTTPS]: #step5
   [**Windows Azure PowerShell**]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
