@@ -38,7 +38,7 @@ In this tutorial you will learn:
 
 	![Image1][]
 
-3.	In the navigation pane, click **Network**, and then click **Custom Create**.
+3.	In the navigation pane, click **Networks**, click **Virtual Network**, and then click **Custom Create**.
 
 	![Image2][]
 
@@ -75,7 +75,7 @@ In this tutorial you will learn:
  
 	![Image5] []
 
-7.	You now have a virtual network in Windows Azure, which you can see on the portal's **Virtual Network** tab.
+7.	You now have a virtual network in Windows Azure, which you can see on the portal's **Virtual Networks** tab.
 
 
 	![Image6] []
@@ -86,7 +86,7 @@ If you'd like, you can continue with the following tutorials:
 
 - [Add a Virtual Machine to a Virtual Network](../add-a-vm-to-a-virtual-network/)
 
-*  [Install a new Active Directory forest in Windows Azure](../active-directory-forest/) - Use this tutorial to install a new Active Directory forest without connectivity to any other network. The tutorial will explain the specific steps required to create virtual machines (VMs) for a new forest installation. If you plan to use this tutorial, do not create any VMs via the Management Portal.  
+*  [Install a new Active Directory forest in Windows Azure](../active-directory-forest/) - Use this tutorial to install a new Active Directory forest without connectivity to any other network. The tutorial will explain the specific steps required to create a virtual machine (VM) for a new forest installation. If you plan to use this tutorial, do not create any VMs via the Management Portal.  
 
 ## See Also
 
