@@ -110,7 +110,9 @@ You are now ready to perform the how-to tasks in this guide.
 <h2><a name="access"></a><span  class="short-header">Access programmatically</span>How to: Programmatically access queues using .NET</h2>
 
 <h3>Obtaining the assembly</h3>
-To obtain version 2.0 of the Windows Azure Storage Client Library, you can use NuGet. Right-click your project in Solution Explorer and choose Manage NuGet Packages. Type "windowsazure.storage" (including the quotes) into the search box to locate the package.
+You can use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dll` assembly. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.  Search online for "WindowsAzure.Storage" and click **Install** to install the Windows Azure Storage package and dependencies.
+
+`Microsoft.WindowsAzure.Storage.dll` is also included in the Windows Azure SDK for .NET October 2012, which can be downloaded from the <a href="http://www.windowsazure.com/en-us/develop/net/#">.NET Developer Center</a>. The assembly is installed to the `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\2012-10\ref\` directory.
 
 <h3>Namespace declarations</h3>
 Add the following code namespace declarations to the top of any C\# file
@@ -120,7 +122,7 @@ in which you wish to programmatically access Windows Azure Storage:
     using Microsoft.WindowsAzure.Storage.Auth;
 	using Microsoft.WindowsAzure.Storage.Queue;
 
-Make sure you reference the Microsoft.WindowsAzure.Storage.dll assembly.
+Make sure you reference the `Microsoft.WindowsAzure.Storage.dll` assembly.
 
 <h3>Retrieving your connection string</h3>
 You can use the **CloudStorageAccount** type to represent 
@@ -358,7 +360,7 @@ to learn how to do more complex storage tasks.
 <ul>
 <li>View the queue service reference documentation for complete details about available APIs:
   <ul>
-    <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/wl_svchosting_mref_reference_home">.NET client library reference</a>
+    <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/wa_storage_api_ref_reference_home.aspx">Storage Client Library for .NET reference</a>
     </li>
     <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/dd179355">REST API reference</a></li>
   </ul>
