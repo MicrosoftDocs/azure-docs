@@ -73,13 +73,13 @@ You are now ready to integrate authentication by using Live Connect into your ap
 [9]: ../Media/mobile-services-win8-app-connect-redirect.png
 
 <!-- URLs. -->
-[Single sign-on for Windows Store apps by using Live Connect]: ./mobile-services-single-sign-on-win8-dotnet.md
+[Single sign-on for Windows Store apps by using Live Connect]: ../tutorials/mobile-services-single-sign-on-win8-dotnet.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Get started with Mobile Services]: ./mobile-services-get-started.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
-[Authorize users with scripts]: ./mobile-services-authorize-users-dotnet.md
-[JavaScript and HTML]: ./mobile-services-get-started-with-users-js.md
+[Get started with Mobile Services]: ../tutorials/mobile-services-get-started.md
+[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-dotnet.md
+[Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-dotnet.md
+[Authorize users with scripts]: ../tutorials/mobile-services-authorize-users-dotnet.md
+[JavaScript and HTML]: ../tutorials/mobile-services-get-started-with-users-js.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
