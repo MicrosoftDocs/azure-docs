@@ -1,10 +1,18 @@
-# Working with Windows Azure Media Assets #
+<properties linkid="manage-services-mediaservices-manage-media-services-content" urlDisplayName="How to manage media content" pageTitle="How to manage media content - Windows Azure Media Services" metaKeywords="" metaDescription="Learn how to manage your media content in Windows Azure Media Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-The Windows Azure Media Services content view allows you to manage Windows Azure Media content for your Media Services account.
+
+
+
+
+
+
+
+# How to Manage Content in Media Services #
+The Windows Azure Media Services content view allows you to manage media content for your Media Services account.
 
 Currently you can perform the following content operations directly from the portal:
 
-- View content information like published state, published URL, Size, and datetime of last update.
+- View content information like published state, published URL, size, and datetime of last update.
 - Upload new content
 - Encode content
 - Play content video
@@ -12,7 +20,7 @@ Currently you can perform the following content operations directly from the por
 - Delete content
 
 
-## How to: Upload New Assets ##
+## How to: Upload content ##
 
 
 1. In the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name.
@@ -39,7 +47,7 @@ Currently you can perform the following content operations directly from the por
 
 
 
-## How to: Encode New Assets ##
+## How to: Encode content ##
 
 1. In the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name.
 2. Click the **Content** view at the top of the page.
@@ -54,14 +62,14 @@ Currently you can perform the following content operations directly from the por
 5. In the Windows Azure Media Encoder dialog, enter the desired friendly output content name or accept the default. Then click the check button to start the encoding operation and you can track progress from the bottom of the portal.
 
 
-## Publishing Assets ##
+## How to: Publish content ##
 
 1. In the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name.
 2. Click the **Content** view at the top of the page.
 3. Click an asset which is not published. The click the publish button to publish to a public URL. Once the content is published to a URL, the URL can be opened by a client player capable of rendering the encoded content.
 
 
-## How to: Play Videos from the Portal ##
+## How to: Play content from the portal ##
 
 
 1. In the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name.

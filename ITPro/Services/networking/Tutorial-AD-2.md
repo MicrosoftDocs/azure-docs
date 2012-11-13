@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Install a new Active Directory forest in Windows Azure" metaKeywords="Windows Azure, virtual network, domain controller, active directory, AD, tutorial" metaDescription="Learn how to install a replica AD domain control in a Windows Azure virtual network." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-networking-active-directory-forest" urlDisplayName="Active Directory forest" pageTitle="Install Active Directory forest in a Windows Azure network" metaKeywords="" metaDescription="A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on Windows Azure Virtual Network." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 #Install a new Active Directory forest in Windows Azure
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
@@ -101,41 +103,38 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 
 	If you rerun the script, you need to supply a unique value for $service. After the Windows Azure PowerShell cmdlet successfully completes, the VM will initially appear in the UI in the management portal in a stopped state, followed by a provisioning process. After the VM is provisioned, continue with the next steps.
 
-9.	In the management portal, click the name of the VM you created.
+9.	In the management portal, click the name of the VM you created, and on the bottom of the screen, click **Attach**, and click **Attach Empty Disk**.
 
 
 	![Sign2] (../media/Sign2.png)
 
 
-10.	On the bottom of the screen, click **Attach**, and click **Attach Empty Disk**.
-
-
-11. Type the size of hard disk (in GB) you want, such as 30, and click the **Check** button. 
+10. Type the size of hard disk (in GB) you want, such as 30, and click the **Check** button. 
 
 	![Sign4] (../media/ADDS_SpecifyDiskSize.png)
 
-12.	Repeat steps 11 and 12 to attach a second disk.
+11.	Repeat steps 9 and 10 to attach a second disk.
 
 
-13.	Click **Connect**.
+12.	Click **Connect**.
 
 	![Sign5] (../media/Sign5.png)
 
 
-14.	Click **Open**.
+13.	Click **Open**.
 
 	![Sign6] (../media/Sign6.png)
 
-15.	In RDP connection dialog, click **Don’t ask me again for connections to this computer**, and click **Connect**.
+14.	In RDP connection dialog, click **Don’t ask me again for connections to this computer**, and click **Connect**.
 
 	![Sign7] (../media/Sign7.png)
 
-16.	Type your credentials.
+15.	Type your credentials.
 
 	![Sign8] (../media/Sign8.png)
 
 
-17. In Remote Desktop Connection, click **Yes**.
+16. In Remote Desktop Connection, click **Yes**.
 
 	![Sign9] (../media/Sign9.png)
 
@@ -202,7 +201,7 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 	![InstallDC10] (../media/InstallDC10.png)
 
 
-14.	On the **Location for Active Directory database, log files and SYSVOL** page, click **Browse** and type or select a location on the data disk for the Active Directory files, and click **Next**. 
+14.	On the **Location for Active Directory database, log files and SYSVOL** page, click **Browse** and type or select the NTDS folder location you created previously on the additional data disk for the Active Directory files, and click **Next**. 
 
 	![InstallDC11] (../media/InstallDC11.png)
 
@@ -250,11 +249,10 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 6.	Click **Local drives**, then click **Next**.
 
 7.	Select the destination drive that does not host the operating system files or the Active Directory database, then click **Next**.
+    ![Backup the DC](../media/BackupDC.png)
 
-8.	Click **OK**, if necessary, to confirm if the destination volume is included in the backup, and then click **Backup**. 
+8.	Confirm the settings you selected and then click **Backup**. 
 
-
-![](http://)
 
 <h2 id="Step5">Step 5: Provisioning a Virtual Machine that is Domain Joined on Boot</h2>
 After the DC is configured, run the following Windows PowerShell script to provision additional virtual machines and have them automatically join the domain when they are provisioned. The DNS client resolver settings for the VMs must be configured when the VMs are provisioned.  

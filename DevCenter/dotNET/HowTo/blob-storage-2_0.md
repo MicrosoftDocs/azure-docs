@@ -1,4 +1,6 @@
-<properties linkid="dev-net-how-to-blob-storage" urldisplayname="Blob Service" headerexpose="" pagetitle="How to Use the Blob Storage Service from .NET" metakeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob .NET, Azure blob storage .NET, Azure blob C#, Azure blob storage C#" footerexpose="" metadescription="Get started using the Windows Azure blob storage service to upload, download, list, and delete blob content." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-2-how-to-blob-storage" urlDisplayName="Blob Service (2.0)" pageTitle="How to use blob storage - Windows Azure feature guide" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" metaDescription="Learn how to use the Windows Azure blob service to upload,  download, list, and delete blob content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -104,6 +106,11 @@ You are now ready to perform the how-to tasks in this guide.
 
 <h2> <a name="configure-access"> </a><span  class="short-header">Access programmatically</span>How to: Programmatically access blob storage</h2>
 
+<h3>Obtaining the assembly</h3>
+You can use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dll` assembly. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.  Search online for "WindowsAzure.Storage" and click **Install** to install the Windows Azure Storage package and dependencies.
+
+`Microsoft.WindowsAzure.Storage.dll` is also included in the Windows Azure SDK for .NET October 2012, which can be downloaded from the <a href="http://www.windowsazure.com/en-us/develop/net/#">.NET Developer Center</a>. The assembly is installed to the `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\2012-10\ref\` directory.
+
 <h3>Namespace declarations</h3>
 Add the following namespace declarations to the top of any C\# file
 in which you wish to programmatically access Windows Azure Storage:
@@ -111,6 +118,8 @@ in which you wish to programmatically access Windows Azure Storage:
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
 	using Microsoft.WindowsAzure.Storage.Blob;
+
+Make sure you reference the `Microsoft.WindowsAzure.Storage.dll` assembly.
 
 <h3>Retrieving your connection string</h3>
 You can use the **CloudStorageAccount** type to represent 
@@ -210,34 +219,42 @@ returned **IListBlobItem**, you must cast it to a **CloudBlockBlob**,
 **CloudPageBlob**, or **CloudBlobDirectory** object.  If the type is unknown, you can use a 
 type check to determine which to cast it to.  The following code 
 demonstrates how to retrieve and output the URI of each item in 
-a container:
+the `photos` container:
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the blob client.
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    // Create the blob client. 
+	CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Retrieve reference to a previously created container.
-    CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
+	// Retrieve reference to a previously created container.
+	CloudBlobContainer container = blobClient.GetContainerReference("photos");
 
-    // Loop over items within the container and output the length.
-    foreach (IListBlobItem item in container.ListBlobs(null, true))
-    {
-        if (item.GetType() == typeof(CloudBlockBlob))
-        {
-            Console.WriteLine("It's a block blob of length: " + ((CloudBlockBlob)item).Properties.Length);
-        }
-        else if (item.GetType() == typeof(CloudPageBlob))
-        {
-            Console.WriteLine("It's a page blob of length: " + ((CloudPageBlob)item).Properties.Length);
-        }
-        else if (item.GetType() == typeof(CloudBlobDirectory))
-        {
-            Console.WriteLine("It's a directory!");
-        }
-    }
+	// Loop over items within the container and output the length and URI.
+	foreach (IListBlobItem item in container.ListBlobs(null, false))
+	{
+		if (item.GetType() == typeof(CloudBlockBlob))
+		{
+			CloudBlockBlob blob = (CloudBlockBlob)item;
+
+			Console.WriteLine("Block blob of length {0}: {1}", blob.Properties.Length, blob.Uri);
+                                        
+		}
+		else if (item.GetType() == typeof(CloudPageBlob))
+		{
+			CloudPageBlob pageBlob = (CloudPageBlob)item;
+
+			Console.WriteLine("Page blob of length {0}: {1}", pageBlob.Properties.Length, pageBlob.Uri);
+
+		}
+		else if (item.GetType() == typeof(CloudBlobDirectory))
+		{
+			CloudBlobDirectory directory = (CloudBlobDirectory)item;
+			
+			Console.WriteLine("Directory: {0}", directory.Uri);
+		}
+	}
 
 As shown above, the blob service has the concept of directories within containers, as
 well. This is so that you can organize your blobs in a more folder-like
@@ -245,70 +262,51 @@ structure. For example, consider the following set of block blobs in a container
 named `photos`:
 
 	photo1.jpg
-	photo2.jpg
-	2010/photo3.jpg
+	2010/architecture/description.txt
+	2010/architecture/photo3.jpg
 	2010/architecture/photo4.jpg
-	2010/architecture/photo5.jpg
-	2011/photo6.jpg
+	2011/architecture/photo5.jpg
+	2011/architecture/photo6.jpg
+	2011/architecture/description.txt
 	2011/photo7.jpg
 
 When you call **ListBlobs** on the 'photos' container (as in the above sample), the collection returned
 will contain **CloudBlobDirectory** and **CloudBlockBlob** objects
-representing the directories and blobs contained at the top level.
-Here is code that would accomplish this:
+representing the directories and blobs contained at the top level. Here would be the resulting output:
 
-    foreach (IListBlobItem item in container.ListBlobs(null, false))
-    {
-        if (item.GetType() == typeof(CloudBlockBlob))
-        {
-            Console.WriteLine("CloudBlockBlob: {0}", ((CloudBlockBlob)item).Uri);
-        }
-        else if (item.GetType() == typeof(CloudBlobDirectory))
-        {
-            Console.WriteLine("CloudBlobDirectory: {0}", ((CloudBlobDirectory)item).Uri);
-        }
-    }
-
-Here would be the resulting output:
-
-	CloudBlockBlob: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
-	CloudBlockBlob: https://<accountname>.blob.core.windows.net/photos/photo2.jpg
-	CloudBlockBlob: https://<accountname>.blob.core.windows.net/photos/2010/photo3.jpg
-	CloudBlockBlob: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo4.jpg
-	CloudBlockBlob: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo5.jpg
-	CloudBlockBlob: https://<accountname>.blob.core.windows.net/photos/2011/photo6.jpg
-	CloudBlockBlob: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
-
+	Directory: https://<accountname>.blob.core.windows.net/photos/2010/
+	Directory: https://<accountname>.blob.core.windows.net/photos/2011/
+	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
 Optionally, you can set the **UseFlatBlobListing** parameter of of the **ListBlobs** method to 
 **true**. This would result in every blob being returned as a **CloudBlockBlob**
 , regardless of directory.  Here would be the call to **ListBlobs**:
 
-    foreach (CloudBlockBlob blob in container.ListBlobs(null, true))
-    {
-        Console.WriteLine("CloudBlockBlob: {0}", blob.Uri);
-    }
+    // Loop over items within the container and output the length and URI.
+	foreach (IListBlobItem item in container.ListBlobs(null, true))
+	{
+	   ...
+	}
 
 and here would be the results:
 
-	CloudBlockBlob: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
-	CloudBlockBlob: https://<accountname>.blob.core.windows.net/photos/photo2.jpg
-	CloudBlockBlob: https://<accountname>.blob.core.windows.net/photos/2010/photo3.jpg
-	CloudBlockBlob: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo4.jpg
-	CloudBlockBlob: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo5.jpg
-	CloudBlockBlob: https://<accountname>.blob.core.windows.net/photos/2011/photo6.jpg
-	CloudBlockBlob: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
+	Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
+	Block blob of length 314618: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo3.jpg
+	Block blob of length 522713: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo4.jpg
+	Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2011/architecture/description.txt
+	Block blob of length 419048: https://<accountname>.blob.core.windows.net/photos/2011/architecture/photo5.jpg
+	Block blob of length 506388: https://<accountname>.blob.core.windows.net/photos/2011/architecture/photo6.jpg
+	Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
+	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 For more information, see [CloudBlobContainer.ListBlobs][].
 
 <h2> <a name="download-blobs"> </a><span  class="short-header">Download blobs</span>How to: Download blobs</h2>
 
-To download blobs, first retrieve a blob reference. The following
+To download blobs, first retrieve a blob reference and then call the **DownloadToStream** method. The following
 example uses the **DownloadToStream** method to transfer the blob
 contents to a stream object that you can then persist to a local file.
-You could also call the blob's **DownloadToFile**, **DownloadByteArray**,
-or **DownloadText** methods.
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -320,14 +318,36 @@ or **DownloadText** methods.
     // Retrieve reference to a previously created container.
     CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-    // Retrieve reference to a blob named "myblob.txt".
-    CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");
+    // Retrieve reference to a blob named "photo1.jpg".
+    CloudBlockBlob blockBlob = container.GetBlockBlobReference("photo1.jpg");
 
-    // Save blob contents to disk.
+    // Save blob contents to a file.
     using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
     {
         blockBlob.DownloadToStream(fileStream);
     } 
+
+You can also use the **DownloadToStream** method to download the contents of a blob as a text string.
+
+	// Retrieve storage account from connection string.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    // Create the blob client.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+    // Retrieve reference to a previously created container.
+    CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
+
+	// Retrieve reference to a blob named "myblob.txt"
+	CloudBlockBlob blockBlob2 = container.GetBlockBlobReference("myblob.txt");
+
+	string text;
+	using (var memoryStream = new MemoryStream())
+	{
+		blockBlob2.DownloadToStream(memoryStream);
+		text = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
+	}
 
 <h2> <a name="delete-blobs"> </a><span  class="short-header">Delete blobs</span>How to: Delete blobs</h2>
 
@@ -357,7 +377,7 @@ to learn how to do more complex storage tasks.
 <ul>
 <li>View the blob service reference documentation for complete details about available APIs:
   <ul>
-    <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/wl_svchosting_mref_reference_home">.NET client library reference</a>
+    <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/wa_storage_api_ref_reference_home.aspx">Storage Client Library for .NET reference</a>
     </li>
     <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/dd179355">REST API reference</a></li>
   </ul>

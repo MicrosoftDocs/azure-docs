@@ -1,17 +1,14 @@
-<properties linkid="single-sign-on-win8-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Authenticate your Windows Store app with Mobile Services using Live Connect single sign-on" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Authenticate your Windows Store app for Windows Azure Mobile Services using Live Connect." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-mobile-tutorials-single-sign-on-windows-8-dotnet" urlDisplayName="Authenticate with single sign-on" pageTitle="Authenticate your Windows Store app with Live Connect" metaKeywords="Windows Azure Live Connect, Azure SSO, SSO Live Connect, mobile services sso, Windows Store app sso" metaDescription="Learn how to use Live Connect single sign-on in Windows Azure Mobile Services from a Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
-
-<!--<div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/single-sign-on-win8-dotnet/" title=".NET client version" class="current">C# and XAML</a>
-  <a href="/en-us/develop/mobile/tutorials/single-sign-on-win8-js/" title="JavaScript client version">JavaScript and HTML</a>
-  <span>Tutorial</span>
-</div>-->
 
 # Authenticate your Windows Store app with Live Connect single sign-on
 <div class="dev-center-tutorial-selector"> 
 	<a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
 	<a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
+    <!--<a href="/en-us/develop/mobile/tutorials/single-sign-on-wp8" title="Windows Phone" class="current">Windows Phone</a>-->
 </div>	
 
 
@@ -187,7 +184,7 @@ Next, you will update the app to authenticate users with Live Connect before req
 
 ## <a name="next-steps"> </a>Next steps
 
-In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
+In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. For information about how to use other identity providers for authentication, see [Get started with authentication].
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
@@ -209,7 +206,7 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [10]: ../Media/mobile-services-win8-app-connect-redirect-uri.png
 [11]: ../Media/mobile-services-win8-app-push-connect.png
 [12]: ../Media/mobile-services-win8-app-connect-auth.png
-[13]: ../Media/mobile-identity-tab.png
+[13]: ../Media/mobile-identity-tab-ma-only.png
 [14]: ../Media/mobile-portal-data-tables.png
 [15]: ../Media/mobile-portal-change-table-perms.png
 [16]: ../Media/mobile-add-reference-live-dotnet.png

@@ -13,7 +13,7 @@
 	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
 	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
 	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone 8">Windows Phone 8</a> 
-	<!--<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a> -->
+	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a>
 </div>
 
 
@@ -56,6 +56,10 @@ It is always a good practice to validate the length of data that is submitted by
 
     This script checks the length of the **TodoItem.text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** method is called to complete the insert.
 
+    <div class="dev-callout"> 
+	<b>Note</b> 
+	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>
+
 ## <a name="update-client-validation"></a>Update the client
 
 Now that the mobile service is validating data and sending error responses, you need to update your app to be able to handle error responses from validation.
@@ -64,11 +68,7 @@ Now that the mobile service is validating data and sending error responses, you 
 
 2. Press the **F5** key to run the app, then type text longer than 10 characters in **Insert a TodoItem** and click **Save**.
 
-   Notice that the app raises an unhandled **MobileServiceInvalidOperationException** as a result of the 400 response (Bad Request) returned by the mobile service.
-
-    <div class="dev-callout"> 
-	<b>Note</b> 
-	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>	
+   Notice that the app raises an unhandled **MobileServiceInvalidOperationException** as a result of the 400 response (Bad Request) returned by the mobile service.	
 
 6. 	Open the file MainPage.xaml.cs, then add the following **using** statement:
 
@@ -188,7 +188,7 @@ You have completed this working with data tutorial.
 
 ## <a name="next-steps"> </a>Next steps
 
-Now that you have completed this tutorial, consider continuing on with the final tutorial in the data series: 
+Now that you have completed this tutorial, consider continuing on with the final tutorial in the data series: [Refine queries with paging].
 
 Server scripts are also used when authorizing users and for sending push notifications. For more information see the following tutorials:
 

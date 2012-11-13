@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Create a PHP-MySQL Windows Azure web site and Deploy Using Git" metaKeywords="Windows Azure, Windows Azure Web Sites, PHP, MySQL, Git" metaDescription="Learn how to create a PHP-MySQL web site in Windows Azure, and deploy to it using Git." linkid="dev-php-tutorials-php-mysql-site-git" urlDisplayName="Create a PHP-MySQL Windows Azure web site and deploy using Git" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-php-website-with-mysql-and-git" urlDisplayName="Web w/ MySQL + Git" pageTitle="PHP web site with MySQL and Git - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to create a PHP web site that stores data in MySQL and use Git deployment to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 #Create a PHP-MySQL Windows Azure web site and deploy using Git
 

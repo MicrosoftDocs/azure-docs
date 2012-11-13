@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How To Manage Storage Accounts" metaKeywords="Windows Azure storage, storage service, service, storage account, account, manage storage account, manage, geo-replication, regenerate storage access keys" metaDescription="Learn how to manage Windows Azure storage accounts." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-how-to-manage-a-storage-account" urlDisplayName="How to manage" pageTitle="How to manage a storage account - Windows Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" metaDescription="Learn how to manage storage accounts in Windows Azure by using the Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 
 <h1 id="managestorageaccounts">How To Manage Storage Accounts</h1>

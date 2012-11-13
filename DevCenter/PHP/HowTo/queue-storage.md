@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Use the Queue Service from PHP" metaKeywords="Windows Azure, Queue Service, Queue Storage, PHP" metaDescription="Learn how to use the Windows Azure Queue Service from PHP applications." linkid="dev-php-howto-queue-service" urlDisplayName="How to Use the Queue Service from PHP" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-php-queue-service" urlDisplayName="Queue Service" pageTitle="How to use the queue service (PHP) - Windows Azure feature guide" metaKeywords="Windows Azure Queue Service messaging PHP" metaDescription="Learn how to use the Windows Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # How to use the Queue service from PHP
 

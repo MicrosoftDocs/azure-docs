@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Tutorial 3: Adding a Virtual Machine to a Virtual Network" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Learn how to configure Windows Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-add-a-vm-to-a-virtual-network" urlDisplayName="Add a VM to virtual network" pageTitle="Add a virtual machine to a virtual network - Windows Azure" metaKeywords="" metaDescription="A tutorial that teaches you how to create a storage account and virtual machine (VM) that you add to a Windows Azure virtual network." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 
 <h1 id="vnet3">Add a Virtual Machine to a Virtual Network</h1>
@@ -52,13 +54,13 @@ In this tutorial you will learn:
 
 	![NewStorAcct] []
 
-2.	In the navigation pane, click **STORAGE**, and then **QUICK CREATE**.
+2.	In the navigation pane, click **DATA SERVICES**, **STORAGE**, and then **QUICK CREATE**.
 
 	![QuickCreate] []
 
 3.	Enter the following information, and then click the check mark on the bottom right of the screen.
 
--  **URL:** Type *yourstorageaccount*.
+-  **URL:** Type *yourstorage*.
 
 -  **REGION/AFFINITY GROUP:** From the drop-down list, select **YourAffinityGroup**.
 
@@ -77,15 +79,15 @@ In this tutorial you will learn:
 
 	![NewVM] []
 
-2.	In the navigation pane, click **VIRTUAL MACHINES**, and then click **FROM GALLERY**.
+2.	In the navigation pane, click **COMPUTE**, **VIRTUAL MACHINE**, and then click **FROM GALLERY**.
  
 	![FromGallery] []
 
-3.	On the **VM OS Selection** screen, select **Windows Server 2008 R2 SP1, March 2012**, and then click the next arrow.
+3.	On the **VM OS Selection** screen, select **Windows Server 2008 R2 SP1, October 2012** (or the most recent version available), and then click the next arrow.
  
 	![VMOS] []
 
-4.	On the **VM Configuration** screen, enter the following information, and then click the next arrow. 
+4.	On the **Virtual machine configuration** screen, enter the following information, and then click the next arrow. 
 	<!-- SHOULD WE TELL USERS TO WRITE DOWN USER NAME AND PASS?? -->
 
 	**Tip:** Write down the user name and password because these are the credentials you will use to log in to your new virtual machine.
@@ -98,23 +100,23 @@ In this tutorial you will learn:
 
 -  **CONFIRM PASSWORD:** Re-enter password.
 
--  **SIZE:** Select **Large**.
+-  **SIZE:** Select **Small**.
  
 	![VMConfig] []
 
-5.	On the **VM Mode** screen, enter the following information, and then click the next arrow.
+5.	On the **Virtual machine mode** screen, enter the following information, and then click the next arrow.
 
 -  **Standalone Virtual Machine:** Leave this option selected.
 
--  **DNS NAME:** Type *yourcloudapp*.
+-  **DNS NAME:** Type *yourcloudapplication*.
 
--  **STORAGE ACCOUNT:** Select **yourstorageaccount**.
+-  **STORAGE ACCOUNT:** Select **yourstorage**.
 
 -  **REGION/AFFINITY GROUP/VIRTUAL NETWORK:** From the drop-down list, select **YourVirtualNetwork**.
  
 	![VMMode] []
 
-6.	On the **VM Options** screen, enter the following information, and then click the check mark button. Your virtual machine will now be created. It can take up to 10 minutes for the new machine to be created.
+6.	On the **Virtual machine options** screen, enter the following information, and then click the check mark button. Your virtual machine will now be created. It can take up to 10 minutes for the new machine to be created.
 	<!-- CONFIRM HOW LONG IT CAN TAKE ON AVG FOR VMACHINE TO BE CREATED -->
 
 -  **AVAILABILITY SET:** Select **none**.

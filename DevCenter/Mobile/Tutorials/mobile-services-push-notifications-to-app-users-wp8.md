@@ -1,4 +1,6 @@
-<properties linkid="mobile-services-push-notifications-to-app-users-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Push notifications to users by using Mobile Services" metakeywords="push notifications with Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app, push notifications" footerexpose="" metadescription="Push notifications to your Windows Store app users by using Windows Azure Mobile Services." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-net-tutorials-push-notifications-to-users-wp8" urlDisplayName="Push Notifications to Users (WP8)" pageTitle="Push notifications to users (Windows Phone) - Mobile Services" metaKeywords="" metaDescription="Learn how to push notifications to your Windows Store app users by using Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14827" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
@@ -226,9 +228,9 @@ This concludes the tutorials that demonstrate the basics of working with push no
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Get started with Mobile Services]: ./mobile-services-get-started-wp8.md
-[Get started with data]: ./mobile-services-get-started-with-data-wp8.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-wp8.md
+[Get started with Mobile Services]: ../tutorials/mobile-services-get-started-wp8.md
+[Get started with data]: ../tutorials/mobile-services-get-started-with-data-wp8.md
+[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-wp8.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-wp8.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/

@@ -1,6 +1,9 @@
-Windows Azure customers receive a special offer of 2 months of SendGrid's Bronze Plan for free. This will give you 40,000 free emails per month and all the bronze features free of charge for the first two months. For information about additional services provided by SendGrid, see the [SendGrid Features][] page.
+Windows Azure customers receive a special offer of two months of SendGrid's Bronze Plan for free. This will give you 40,000 free emails per month and all the bronze features free of charge for the first two months. For information about additional services provided by SendGrid, see the [SendGrid Features][] page.
 
-1. In the [Windows Azure Management Portal][].
+### To sign up for a SendGrid account
+
+1. Log in to the [Windows Azure Management Portal][].
+
 2. In the lower pane of the management portal, click **New**.
 
 	![command-bar-new][]
@@ -13,7 +16,7 @@ Windows Azure customers receive a special offer of 2 months of SendGrid's Bronze
 
 5. In the **Personalize Add-on** dialog select the **SendGrid** plan you want to sign up for.
 
-6. To receive the 2 months of SendGrid's Bronze Plan for free, enter the promotion code "bronzesendgridmsft".
+6. To receive the two months of SendGrid's Bronze Plan for free, enter the promotion code "bronzesendgridmsft".
 
 7. Enter a name to identify your **SendGrid** service in your Windows Azure settings, or use the default value of **SendGrid**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Windows Azure Store Items.
 
@@ -57,16 +60,16 @@ For more information on getting started with SendGrid, see [SendGrid Getting Sta
 
 <!--images-->
 
-[command-bar-new]: ..\media\sendgrid_BAR_NEW.PNG
-[sendgrid-store]: ..\media\sendgrid_offerings_store.png
-[store-screen-1]: ..\media\sendgrid_store_scrn1.png
-[store-screen-2]: ..\media\sendgrid_store_scrn2.png
-[store-screen-3]: ..\media\sendgrid_store_scrn3.png
-[sendgrid-purchasing-message]: ..\media\sendgrid_purchasing_message.png
-[sendgrid-add-on-dashboard]: ..\media\sendgrid_add-on_dashboard.png
-[sendgrid-connection-info]: ..\media\sendgrid_connection_info.png
-[sendgrid-connection-info-button]: ..\media\sendgrid_connection_info_button.png
-[sendgrid-control-panel]: ..\media\sendgrid_control_panel.png
+[command-bar-new]: ../media/sendgrid_BAR_NEW.PNG
+[sendgrid-store]: ../media/sendgrid_offerings_store.png
+[store-screen-1]: ../media/sendgrid_store_scrn1.png
+[store-screen-2]: ../media/sendgrid_store_scrn2.png
+[store-screen-3]: ../media/sendgrid_store_scrn3.png
+[sendgrid-purchasing-message]: ../media/sendgrid_purchasing_message.png
+[sendgrid-add-on-dashboard]: ../media/sendgrid_add-on_dashboard.png
+[sendgrid-connection-info]: ../media/sendgrid_connection_info.png
+[sendgrid-connection-info-button]: ../media/sendgrid_connection_info_button.png
+[sendgrid-control-panel]: ../media/sendgrid_control_panel.png
 
 <!--Links-->
 

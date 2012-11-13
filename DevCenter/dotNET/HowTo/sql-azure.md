@@ -1,4 +1,6 @@
-<properties umbraconavihide="0" pagetitle="SQL Database - How To - .NET - Develop" metakeywords="Get started SQL Database, Getting started SQL Database, SQL Database instance connection, SQL Database ADO.NET, SQL Database ODBC, SQL Database EntityClient" metadescription="Get started with SQL Database. Learn how to create a SQL Database instance and connect to it using ADO.NET, ODBC, and EntityClient Provider." linkid="dev-net-how-to-sql-azure" urldisplayname="SQL Database" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties linkid="dev-net-how-to-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (.NET) - Windows Azure feature guide" metaKeywords="Get started SQL Azure, Getting started SQL Azure, SQL Azure database connection, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" metaDescription="Get started with SQL Database. Learn how to create a SQL Database instance and connect to it using ADO.NET, ODBC, and EntityClient Provider." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 

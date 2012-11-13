@@ -1,3 +1,5 @@
+<properties linkid="develop-python-web-site-with-django" urlDisplayName="Web Sites with Django" pageTitle="Python Web Sites with Django - Windows Azure tutorial" metaKeywords="Windows Azure django   django website" metaDescription="A tutorial that introduces you to running a Python web site on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
 
 # Creating Web Sites with Django
 
@@ -91,12 +93,13 @@ After doing the push we’ll see the web browser opened to the Windows Azure por
 
 Finally we just need to configure the web site to know about our Django project and to use our handler.  To do this we can click on the Configure tab along the top of the screen where we’ll want to scroll down to the bottom half of the page which contains app settings and handler mappings.  
 
-First let’s add our app settings.  All of the settings that are set here will turn into environment variables during the actual request.  This means that we can use this to configure the DJANGO_SETTINGS_MODULE environment variable as well as PYTHONPATH.  If your application has other configuration values you could assign these here and pick them up out of the environment.  Sometimes you’ll want to set something which is a path to a file in your web site, for example we’ll want to do this for PYTHONPATH.  When running as a Windows Azure web site your web site will live in “D:\home\site\wwwroot\” so you can use that in any location where you need a full path to a file on disk.
+First let’s add our app settings.  All of the settings that are set here will turn into environment variables during the actual request.  This means that we can use this to configure the DJANGO\_SETTINGS\_MODULE environment variable as well as PYTHONPATH and WSGI\_HANDLER.  If your application has other configuration values you could assign these here and pick them up out of the environment.  Sometimes you’ll want to set something which is a path to a file in your web site, for example we’ll want to do this for PYTHONPATH.  When running as a Windows Azure web site your web site will live in “D:\home\site\wwwroot\” so you can use that in any location where you need a full path to a file on disk.
 
-For setting up a Django application we need to set two environment variables.  The first is DJANGO_SETTINGS_MODULE which provides the module name of the Django application which will be used to configure everything.  The second is the PYTHONPATH environment variable so that we can find the package which the settings module lives in.  So for these variables we will set them up as:
+For setting up a Django application we need to set three environment variables.  The first is DJANGO\_SETTINGS\_MODULE which provides the module name of the Django application which will be used to configure everything.  The second is the PYTHONPATH environment variable so that we can find the package which the settings module lives in.  The third is WSGI\_HANDLER.  It's a module/package name, followed by the attribute in the module to be used; for example mypackage.mymodule.handler.  Add parentheses to indicate that the attribute should be called.  So for these variables we will set them up as:
                 
 	DJANGO_SETTINGS_MODULE    DjangoApplication.settings
 	PYTHONPATH                D:\home\site\wwwroot\DjangoApplication
+	WSGI_HANDLER              django.core.handlers.wsgi.WSGIHandler()
 
 Finally we need to configure our handler mapping.  For this we register the handler for all extensions (*), we set the script processor path to the Python interpreter path (D:\home\site\wwwroot\Python\python.exe), and for additional arguments we provide the path to the wfastcgi.py script (D:\home\site\wwwroot\wfastcgi.py).
 

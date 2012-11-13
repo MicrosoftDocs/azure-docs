@@ -1,10 +1,12 @@
-# Windows Azure Training Kit
+﻿# Windows Azure Training Kit
 
 The Windows Azure Training Kit includes a comprehensive set of technical
 content designed to help you learn how to use Windows Azure. The kit
 includes hands-on labs, presentations, demos, and code samples for every
 aspect of developing applications for Windows Azure. You can use the
 resources in the training kit to teach yourself or train others.
+
+<p><a href="http://go.microsoft.com/fwlink/?LinkID=130354" class="site-arrowboxcta download-cta">download</a></p>
 
 You can [download and install the kit][] on Microsoft Download Center.
 The kit downloads as a .EXE file. Once it downloads, install the

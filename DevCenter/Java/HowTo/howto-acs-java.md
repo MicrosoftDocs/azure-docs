@@ -1,4 +1,6 @@
-<properties linkid="dev-java-how-to-use-acs-java" urldisplayname="Access Control" headerexpose="" pagetitle="How to Use the Access Control Service from Eclipse" metakeywords="Azure Access Control Service Java" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-java-how-to-guides-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (Java) - Windows Azure feature guide" metaKeywords="" metaDescription="Learn how to develop and use Access Control with Java in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # How to Authenticate Web Users with Windows Azure Access Control Service Using Eclipse
 

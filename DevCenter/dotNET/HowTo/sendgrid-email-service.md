@@ -1,6 +1,7 @@
 <properties linkname="dev-net-how-to-sendgrid-email-service" urldisplayname="SendGrid Email Service" headerexpose="" pagetitle="SendGrid Email Service - How To - .NET - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 <div chunk="../chunks/article-left-menu.md" />
+
 # How to Send Email Using SendGrid with Windows Azure
 
 This guide demonstrates how to perform common programming tasks with the
@@ -286,7 +287,7 @@ Now that you’ve learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
 * SendGrid C\# library repo: [sendgrid-csharp][]
-*   SendGrid API documentation: [http://docs.sendgrid.com/documentation/api/][SendGrid API documentation]
+*   SendGrid API documentation: <http://docs.sendgrid.com/documentation/api/>
 *   SendGrid special offer for Windows Azure customers: [http://sendgrid.com/azure.html][]
 
   [Next steps]: #nextsteps

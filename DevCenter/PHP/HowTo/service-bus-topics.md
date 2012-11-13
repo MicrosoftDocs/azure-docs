@@ -1,4 +1,6 @@
-<properties linkid="dev-php-how-to-service-bus-topics" urldisplayname="Service Bus Topics" headerexpose="" pagetitle="Service Bus Topics - How To - PHP - Develop" metakeywords="Windows Azure Service Bus, Service Bus topics, Service Bus subscriptions, PHP" footerexpose="" metadescription="Learn how to use Windows Azure Service Bus topics and subscriptions with PHP." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-php-how-to-guides-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (PHP) - Windows Azure" metaKeywords="" metaDescription="Learn how to use Service Bus topics with PHP in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # How to Use Service Bus Topics/Subscriptions
 

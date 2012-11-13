@@ -1,4 +1,6 @@
-<properties linkid="dev-python-django-getting-started" urldisplayname="Python Django Web Application" headerexpose="" pagetitle="Python/Django Getting Started Guide" metakeywords="Azure Python Django getting started, Azure Python Django tutorial, Azure Python Django tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop a simple Python Django web application and deploy it to Windows Azure." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-python-django-with-visual-studio" urlDisplayName="Django with Visual Studio" pageTitle="Django with Visual Studio (Python) - Windows Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" metaDescription="A tutorial that teaches you how to build a Django web application hosted in a Windows Azure virtual machine." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # Python Django Web Application using Visual Studio
 

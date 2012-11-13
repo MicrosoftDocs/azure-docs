@@ -1,4 +1,6 @@
-<properties linkid="mobile-services-paging-data-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Refine Mobile Services queries with paging" metakeywords="access and change data, Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Validate and modify data sent to the Windows Azure Mobile Services from a Windows app." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-mobile-tutorials-add-paging-to-data-wp8" urlDisplayName="Add Paging to Your Data" pageTitle="Add paging to data (Windows Phone) - Mobile Services" metaKeywords="" metaDescription="Learn how to add paging to your data in a Windows Phone 8 app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14809" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
@@ -14,6 +16,7 @@
 	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet" title="Windows Store C#">Windows Store C#</a>
 	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
 	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-wp8" title="Windows Phone 8" class="current">Windows Phone 8</a> 
+    <a href="/en-us/develop/mobile/tutorials/add-paging-to-data-ios" title="iOS">iOS</a>
 </div>
 
 
@@ -70,7 +73,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
    This query skips the first three results and returns the next three after that. This is effectively the second "page" of data, where the page size is three items.
 
     <div class="dev-callout"><b>Note</b>
-    <p>This tutorial uses a simplified scenario by passing hard-coded paging values to the <strong>Take</strong> and <strong>Skip</strong> methods. In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages. You can also call the  <strong>IncludeTotalCount</strong> method to get the total count of all rows returned, along with the paged data.</p>
+    <p>This tutorial uses a simplified scenario by passing hard-coded paging values to the <strong>Take</strong> and <strong>Skip</strong> methods. In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages. You can also call the  <strong>IncludeTotalCount</strong> method to get the total count of items available on the server, along with the paged data.</p>
     </div>
 
 6. (Optional) Again view the URI of the request sent to the mobile service. 
@@ -96,9 +99,9 @@ This concludes the set of tutorials that demonstrate the basics of working with 
 
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service/
-[Get started with data]: ./mobile-services-get-started-with-data-wp8.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-wp8.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-wp8.md
+[Get started with data]: ../tutorials/mobile-services-get-started-with-data-wp8.md
+[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-wp8.md
+[Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-wp8.md
 [Fiddler]: http://go.microsoft.com/fwlink/?LinkId=262412
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/

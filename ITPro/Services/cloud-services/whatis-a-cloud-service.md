@@ -1,5 +1,7 @@
-#What is a cloud service?
+<properties linkid="manage-services-what-is-a-cloud-service" urlDisplayName="What is a Cloud Service" pageTitle="What is a cloud service - Windows Azure service management" metaKeywords="Azure cloud services intro, cloud services overview, cloud services basics" metaDescription="An introduction to the cloud service in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+
+#What is a cloud service?
 When you create an application and run it in Windows Azure, the code and configuration together are called a Windows Azure cloud service (known as a *hosted service* in earlier Windows Azure releases).
 
 By creating a cloud service, you can deploy a multi-tier application in Windows Azure, defining multiple roles to distribute processing and allow flexible scaling of your application. A cloud service consists of one or more web roles and/or worker roles, each with its own application files and configuration.

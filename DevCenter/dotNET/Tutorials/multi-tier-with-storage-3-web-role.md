@@ -1,5 +1,7 @@
-<div chunk="../chunks/article-left-menu.md" />
+<properties linkid="develop-net-tutorials-multi-tier-web-site-3-web-role" urlDisplayName="Step 3: Web Role" pageTitle="Multi-tier web site tutorial - Step 3: Web role" metaKeywords="Windows Azure tutorial, Email Service application, ASP.NET MVC 4 web role, MVC 4 controllers, Web API controller, Cloud Service project" metaDescription="The third tutorial in a series that teaches how to configure your computer for Windows Azure development and deploy the Email Service app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+
+<div chunk="../chunks/article-left-menu.md" />
 # Building the web role for the Windows Azure Email Service application - 3 of 5. 
 
 This is the third tutorial in a series of five that show how to build and deploy the Windows Azure Email Service sample application.  For information about the application and the tutorial series, see the [first tutorial in the series][firsttutorial].

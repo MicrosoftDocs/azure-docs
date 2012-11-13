@@ -1,5 +1,7 @@
-<div chunk="../chunks/article-left-menu.md" />
+<properties linkid="develop-net-how-to-guides-media-services" urlDisplayName="Media Services" pageTitle="How to use Media Services (.NET) - Windows Azure feature guide" metaKeywords="Windows Azure Media Services, Windows Azure media, windows azure streaming, azure media, azure streaming, azure encoding" metaDescription="Describes how to use Windows Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+
+<div chunk="../chunks/article-left-menu.md" />
 #How to Use Media Services
 
 This guide shows you how to start programming with Windows Azure Media Services. The guide includes a technical overview of Media Services, steps to configure your Windows Azure account for Media Services, a setup guide for development, and topics that show how to accomplish typical programming tasks. The scenarios demonstrated include: uploading assets, encrypting or encoding assets, and delivering assets by downloading or by generating URLs for streaming content. The samples are written in C# and use the Media Services SDK for .NET. For more information on Windows Azure Media Services, refer to the [Next Steps][] section.
@@ -24,7 +26,7 @@ You can also program Media Services using the OData-based REST APIs. You can bui
 -   [Next Steps][]
  
 
-<h2><span class="short header"><a name="what-are"> </a>What are Media Services?</span></h2> 
+<h2><span class="short header"><a name="what-are"></a>What are Media Services?</span>What are Media Services?</h2> 
 Windows Azure Media Services form an extensible media platform that integrates the best of the Microsoft Media Platform and third-party media components in Windows Azure. Media Services provide a media pipeline in the cloud that enables industry partners to extend or replace component technologies. ISVs and media providers can use Media Services to build end-to-end media solutions. This overview describes the general architecture and common development scenarios for Media Services.
 
 The following diagram illustrates the basic Media Services architecture.
@@ -43,21 +45,7 @@ The current release of Media Services provides the following feature set for dev
 - **Protect**. Protecting content means encrypting live streaming or on demand content for secure transport, storage, and delivery. Media Services provide a DRM technology-agnostic solution for protecting content.  Currently supported DRM technologies are Microsoft PlayReady Protection and MPEG Common Encryption. Support for additional DRM technologies will be available. 
 - **Stream**. Streaming content involves sending it live or on demand to clients, or you can retrieve or download specific media files from the cloud. Media Services provide a format-agnostic solution for streaming content.  Media Services provide  streaming origin support for Smooth Streaming, Apple HTTP Live Streaming, and MP4 formats. Support for additional formats will be available. You can also seamlessly deliver streaming content by using Windows Azure CDN or a third-party CDN, which enables the option  to scale to millions of users.   
 
-
-###Media Services Client Development
-Extend the reach of your Media Services solution by using SDKs and player frameworks to build media client applications. These clients are for developers who want to build Media Services applications that offer compelling user experiences across a range of devices and platforms. Depending on the devices that you want to build client applications for, there are options for SDKs and player frameworks available from Microsoft and other third-party partners.  
-
-The following provides a list of available client SDKs and player frameworks.  For more information on these and other planned SDKs and player frameworks, and the functionality they can support, see [Media Services Client Development][]. 
-
--   **Mac and PC client support**.  Use Microsoft Silverlight to develop streaming clients.
--   **Windows 8 desktop applications**. Windows 8 supported development languages and constructs including HTML, Javascript, XAML, C# and C+.
--   **Embedded or dedicated devices**. Devices such as connected TVs, set-top boxes, Blu-Ray players, OTT TV boxes, and mobile devices that have a custom application development framework and a custom media pipeline.
--   **Windows Phone**. Use a Microsoft SDK to build premium Windows Phone applications.
--   **iOS devices**. Use a Microsoft SDK to build clients for iPhone, iPod, and iPad.
--   **Android devices**. Use SDKs provided by Microsoft partners to build Android clients.
-
-
-###Development Scenarios
+###Media Services Development Scenarios
 Media Services support several common media development scenarios as described in the following table. 
 <table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
   <thead>
@@ -82,9 +70,53 @@ Media Services support several common media development scenarios as described i
   </tbody>
 </table>
 
+<br/>
+###Media Services Client Development
+Extend the reach of your Media Services solution by using SDKs and player frameworks to build media client applications. These clients are for developers who want to build Media Services applications that offer compelling user experiences across a range of devices and platforms. Depending on the devices that you want to build client applications for, there are options for SDKs and player frameworks available from Microsoft and other third-party partners.  
+
+The following provides a list of available client SDKs and player frameworks.  For more information on these and other planned SDKs and player frameworks, and the functionality they can support, see [Media Services Client Development][]. 
+
+####Mac and PC client support  
+For PCs and Macs you can target a streaming experience using Microsoft Silverlight. An SDK for Flash client development will be available soon.
+
+-	[Smooth Streaming Client for Silverlight](http://www.iis.net/download/smoothclient)
+-	[Microsoft Media Platform: Player Framework for Silverlight](http://smf.codeplex.com/documentation)
+
+####Windows 8 applications
+For Windows 8, you can build Windows Store applications using any of the supported development languages and constructs like HTML, Javascript, XAML, C# and C+.
+
+-	[Smooth Streaming Client SDK for Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). For more information on how to create a Windows Store application using this SDK, see [How to Build a Smooth Streaming Windows Store Application](http://go.microsoft.com/fwlink/?LinkId=271647). For information on how to create a smooth streaming player in HTML5, see [Walkthrough: Building Your First HTML5 Smooth Streaming Player](http://msdn.microsoft.com/en-us/library/jj573656(v=vs.90).aspx).
+
+-	[Microsoft Media Platform: Player Framework for Windows 8 Windows Store Applications](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home)
+
+####Xbox
+Xbox supports Xbox LIVE applications that can consume Smooth Streaming content. The Xbox LIVE Application Development Kit (ADK) includes:
+
+-	Smooth Streaming client for Xbox LIVE ADK
+-	Microsoft Media Platform: Player Framework for Xbox LIVE ADK
+
+####Embedded or dedicated devices
+Devices such as connected TVs, set-top boxes, Blu-Ray players, OTT TV boxes, and mobile devices that have a custom application development framework and a custom media pipeline. Microsoft provides the following porting kits that can be licensed, and enables partners to port Smooth Streaming playback for the platform.
+
+-	[Smooth Streaming Client Porting Kit](http://www.microsoft.com/en-us/mediaplatform/sspk.aspx)
+-	[Microsoft PlayReady Device Porting Kit](http://www.microsoft.com/PlayReady/Licensing/device_technology.mspx)
+
+####Windows Phone
+Microsoft provides an SDK that can be used to build premium video applications for Windows Phone. 
+
+-	[Smooth Streaming Client for Silverlight](http://www.iis.net/download/smoothclient)
+-	[Microsoft Media Platform: Player Framework for Silverlight](http://smf.codeplex.com/documentation)
+
+####iOS devices
+For iOS devices including iPhone, iPod, and iPad, Microsoft ships an SDK that you can use to build applications for these platforms to deliver premium video content: Smooth Streaming SDK for iOS Devices with PlayReady.  The SDK is available only to licensees, so for more information, please [email Microsoft](mailto:askdrm@microsoft.com). For information on iOS development, see the [iOS Developer Center](https://developer.apple.com/devcenter/ios/index.action).
+
+####Android devices
+Several Microsoft partners ship SDKs for the Android platform that add the capability to play back Smooth Streaming on an Android device. Please [email Microsoft](mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices) for more details on the partners.
+
+
 <br />
 
-<h2><span class="short header"><a name="setup-account"> </a>Setting up a Windows Azure account for Media Services</span></h2>
+<h2><span class="short header"><a name="setup-account"> </a>Setting up an account</span>Setting up a Windows Azure account for Media Services</h2>
 
 To set up your Media Services account, you can use one of the following options:
 
@@ -133,7 +165,7 @@ This section shows you how to create a project in Visual Studio and set it up fo
    - System.Spatial.dll
    5. Add a reference to the following assembly from the Media Services SDK.
    <br />
-   Default installation path:  C:\Program Files (x86)\Microsoft SDKs\Windows Azure Media Services\Services SDK\v1.0\
+   Default installation path:  C:\Program Files (x86)\Microsoft SDKs\Windows Azure Media Services\Services\v1.0\
    - Microsoft.WindowsAzure.MediaServices.Client.dll
    6. Add a reference to the .NET Framework 4 assembly named System.Configuration. You can find this assembly on the **.NET** tab of the **Add References** dialog.
    7. Add the following using statement to the top of any code modules (before the namespace declaration) to reference the required namespaces for the Media Services SDK.
@@ -142,7 +174,7 @@ This section shows you how to create a project in Visual Studio and set it up fo
 
 At this point, you are ready to start developing a Media Services application.    
    
-<h2><span class="short header"><a name="connect"> </a>How to: Connect to Media Services programmatically</span></h2> 
+<h2><span class="short header"><a name="connect"> </a>Connect to Media Services</span>How to: Connect to Media Services programmatically</h2> 
 
 Nearly everything you do in Media Services programming requires you to have a reference to the server context object. The server context gives you programmatic access to all Media Services programming objects.
 
@@ -156,7 +188,7 @@ To get a reference to the server context, return a new instance of the context t
 
 It is often useful to define a module-level variable of type **CloudMediaContext** to hold a reference to the server context returned by a method such as **GetContext**. The rest of the code examples in this topic use a variable called **_context** to refer to the server context. 
 
-<h2><span class="short header"><a name="create-asset"> </a>How to: Create an encrypted Asset and upload to storage</span></h2>
+<h2><span class="short header"><a name="create-asset"> </a>Create an encrypted Asset and upload to storage</span>How to: Create an encrypted Asset and upload to storage</h2>
 
 To get media content into Media Services, first create an asset and add files to it, and then upload the asset. This process is also called ingesting content. You can create an asset, add files, and upload it with a single line of code as in the following example. To encrypt an asset for transport and storage to protect its contents, pass the parameter **AssetCreationOptions.StorageEncrypted** to the method. To keep the asset unencrypted, pass the parameter **AssetCreationOptions.None** to the method.
 
@@ -165,7 +197,7 @@ The following line of code creates an asset with a single file, encrypts the ass
 	IAsset theAsset = _context.Assets.Create(inputMediaFilePath,
 	    AssetCreationOptions.StorageEncrypted);
 
-<h2><span class="short header"><a name="get-mediaproc"> </a>How to: Get a Media Processor instance</span></h2>
+<h2><span class="short header"><a name="get-mediaproc"> </a>Get a Media Processor instance</span>How to: Get a Media Processor instance</h2>
 
 In Media Services a media processor is a component that handles a specific processing task, such as encoding, format conversion, encrypting, or decrypting media content. You typically create a media processor when you are creating a task to encode, encrypt, or convert the format of media content.
 
@@ -225,7 +257,7 @@ To create a media processor instance, create a method like the following example
 	    return processor;
 	}
 
-<h2><span class="short header"><a name="encode-asset"> </a>How to: Encode an Asset</span></h2>
+<h2><span class="short header"><a name="encode-asset"> </a>Encode an Asset</span>How to: Encode an Asset</h2>
 
 For media content on the server, you can encode the content with a number of media encodings and formats using Windows Azure Media Encoder. You can also use an encoder provided by a Media Services partner; third-party encoders are available through the [Windows Azure Marketplace][]. You can specify the details of encoding tasks by using preset strings defined for your encoder, or by using preset configuration files. 
 
@@ -271,7 +303,7 @@ The following method combines the previous steps to encode a media file:
 	    job.Submit();
 	}
 
-<h2><span class="short header"><a name="playready"> </a>How to: Protect an Asset with PlayReady Protection</span></h2>
+<h2><span class="short header"><a name="playready"> </a>Protect an Asset</span>How to: Protect an Asset with PlayReady Protection</h2>
 
 In Media Services you can submit a job that integrates with Microsoft PlayReady Protection to encrypt a set of media files. The code in this section takes several streaming files from an input folder, creates a task and encrypts them with PlayReady Protection. 
 
@@ -327,7 +359,7 @@ The following code example shows how to implement the steps:
 	}
 
 
-<h2><span class="short header"><a name="manage-asset"> </a>How to: Manage Assets in storage</span></h2>
+<h2><span class="short header"><a name="manage-asset"> </a>Manage Assets</span>How to: Manage Assets in storage</h2>
 
 After you create media assets and upload them to Media Services, you can access and manage the assets on the server. You can also manage other objects on the server that are part of Media Services, including jobs, tasks, access policies, locators, and more.
 
@@ -389,7 +421,7 @@ To list all assets that you have available on the server, you can use code simil
 	}
 
 
-<h2><span class="short header"><a name="download-asset"> </a>How to: Deliver an Asset by download</span></h2>
+<h2><span class="short header"><a name="download-asset"> </a>Deliver an Asset by download</span>How to: Deliver an Asset by download</h2>
 
 This section shows options for delivering media assets that you have previously added to Media Services. You can deliver Media Services content in numerous application scenarios. You can download media assets, or access them by using locator URLs (these are the delivery scenarios described in this topic). You can send media content to another application or to another content provider. For improved performance and scalability, you can also deliver content by using a Content Delivery Network (CDN), such as the Windows Azure CDN.
 
@@ -418,9 +450,9 @@ The code example in this section shows how to download media assets from Media S
 	    }
 	}
 
-<h2><span class="short header"><a name="stream-asset"> </a>How to: Deliver streaming content</span></h2>
+<h2><span class="short header"><a name="stream-asset"> </a>Deliver smooth streaming content</span>How to: Deliver streaming content</h2>
 
-In addition to downloading media content from Media Services, you can use adaptive streaming to deliver content. For example, you can create a direct URL, called a locator, to streaming content on a Media Services origin server. Client applications such as Microsoft Silverlight can play the streaming content directly if you provide the locator.
+In addition to downloading media content from Media Services, you can use adaptive bitrate streaming to deliver content. For example, you can create a direct URL, called a locator, to streaming content on a Media Services origin server. Client applications such as Microsoft Silverlight can play the streaming content directly if you provide the locator.
 
 The following code example shows the necessary steps to create an origin locator for an output asset produced by a job. The example assumes that you have already obtained a reference to an asset that contains smooth streaming files, and the variable named **assetToStream** is referenced in the code. After you have run this code to generate an origin locator on the asset, you should be able to use the resulting locator URL to directly play back the streaming content in a streaming client player such as Silverlight.
 
@@ -465,7 +497,7 @@ The following code shows how to implement the steps:
 	    Console.WriteLine(urlForClientStreaming);
 	}
 
-<h2><span class="short header"><a name="stream-HLS"> </a>How to: Deliver Apple HLS streaming content</span></h2>
+<h2><span class="short header"><a name="stream-HLS"> </a>Deliver Apple HLS streaming content</span>How to: Deliver Apple HLS streaming content</h2>
 
 A previous section shows how to create a locator to streaming media content on a Media Services origin server. This section shows how to create a locator to Apple HTTP Live Streaming (HLS) content on a Media Services origin server. Using this approach, you can build a URL to Apple HLS content, and provide it to Apple iOS devices for playback. The basic approach to building the locator URL is the same. Build a locator to the Apple HLS streaming asset path on an origin server, and then build a full URL that links to the manifest for the streaming content.
 
@@ -508,7 +540,7 @@ The following code shows how to implement the steps:
 	    Console.WriteLine();
 	}
 
-<h2><span class="short header"><a name="enable-cdn"> </a>How to: Enable Windows Azure CDN</span></h2>
+<h2><span class="short header"><a name="enable-cdn"> </a>Enable Windows Azure CDN support</span>How to: Enable Windows Azure CDN support</h2>
 
 You can use a Content Delivery Network (CDN) to improve performance, scalability, and availability of content provided over the Internet. This section describes how to enable a Windows Azure CDN with a Media Services origin server.
 
@@ -531,7 +563,7 @@ To enable your Windows Azure CDN endpoint with a Media Services origin, send ema
     4. Select the CDN endpoint associated with the storage account.  
     5. In the **Properties** for the CDN endpoint, copy the value for the **Default HTTP endpoint**.  This is the value to supply in your email.  
 
-<h2><span class="short header"><a name="next-steps"> </a>Next steps</span></h2>
+<h2><span class="short header"><a name="next-steps"> </a>Next steps</span>Next steps</h2>
 
 Now that you have learned how to set up for Media Services development and perform some typical programming tasks, see the following resources to learn more about building Media Services applications.
 
@@ -540,6 +572,8 @@ Now that you have learned how to set up for Media Services development and perfo
 -   [Building Applications with the Media Services SDK for .NET][]
 -   [Building Applications with the Windows Azure Media Services REST API][]
 -   [Media Services Forum][]
+-	[How to Monitor a Media Services Account](http://www.windowsazure.com/en-us/manage/services/media-services/how-to-monitor-a-media-services-account/)
+-	[How to Manage Content in Media Services](http://www.windowsazure.com/en-us/manage/services/media-services/how-to-manage-content-in-media-services/)
 
 
 <!-- Reusable paths. -->

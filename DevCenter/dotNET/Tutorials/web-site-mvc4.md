@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="" metaKeywords="Windows Azure web site" metaDescription="This tutorial shows how to deploy an ASP.NET web application to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012 or Visual Studio 2012 for Web Express." linkid="dev-net-mvc4-web-site" urlDisplayName="ASP.NET to Windows Azure Web Site" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-net-tutorials-get-started" urlDisplayName="Get started with Windows Azure" pageTitle="Get started with Windows Azure for .NET" metaKeywords="" metaDescription="This tutorial shows you how to deploy an ASP.NET web site to Windows Azure. In less than 15 minutes you'll have an app up-and-running in the cloud." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -121,7 +123,10 @@ The application you created is now running in the cloud.<br/>
 
 <h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>
 
-You've seen how to deploy a web application to a Windows Azure Web Site. To learn more about how to configure, manage, and scale Windows Azure Web Sites, see the how-to topics on the [Common Tasks][CommonTasks] page.
+You've seen how to deploy a web application to a Windows Azure Web Site.
+
+* To learn more about how to configure, manage, and scale Windows Azure Web Sites, see the how-to topics on the [Web Sites management][WebSitesManagement] page.
+* Or, to learn how create a Web Site with a SQL Database, see the [Deploying an ASP.NET Web Application to a Windows Azure Web Site and SQL Database][WebWithSQL] tutorial.
 
 When you are finished with your deployed web site, you can delete it in the Windows Azure management portal. In the **Web Sites** tab, click the name of the site you want to delete and click **Delete**.
 
@@ -135,7 +140,8 @@ When you are finished with your deployed web site, you can delete it in the Wind
 [PreviewPortal]: http://manage.windowsazure.com
 [MVC4Install]: http://www.asp.net/mvc/mvc4
 [windowsazure.com]: http://www.windowsazure.com
-[CommonTasks]: http://www.windowsazure.com/en-us/develop/net/common-tasks/
+[WebSitesManagement]: http://www.windowsazure.com/en-us/manage/services/web-sites/
+[WebWithSQL]: http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/
 
 [AppRunningLocally]: ../Media/AppRunningLocally.png
 [ClickQuickCreate]: ../Media/ClickQuickCreate.png

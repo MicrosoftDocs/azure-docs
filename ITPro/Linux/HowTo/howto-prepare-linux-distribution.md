@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Prepare a Linux Distribution for Running in Windows Azure" metaKeywords="Windows Azure virtual machine, Azure virtual machine, linux, centos, ubuntu, suse, opensuse" metaDescription="Learn how to use the service management api." linkid="manage-linux-how-to-guide-virtual-machines" urlDisplayName="How To Guides" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-linux-howto-linux-agent" urlDisplayName="Prepare a distribution" pageTitle="Prepare a distribution of Linux in Windows Azure" metaKeywords="Azure Git CodePlex, Azure website CodePlex, Azure website Git" metaDescription="Learn how to use Git to publish to a Windows Azure web site, as well as enable continuous deployment from GitHub and CodePlex." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 #How to Prepare a Linux Distribution for Windows Azure
 
 <div chunk="../../shared/chunks/disclaimer.md" />

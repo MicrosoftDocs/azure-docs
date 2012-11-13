@@ -1,4 +1,6 @@
-<properties linkid="dev-net-common-tasks-continuous-delivery" urldisplayname="Continuous Delivery" headerexpose="" pagetitle="Continuous Delivery for Cloud Applications in Windows Azure" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Windows Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous deliver PowerShell" metaDescription="Learn how to set up continuous delivery for Windows Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 # Continuous Delivery for Cloud Services in Windows Azure

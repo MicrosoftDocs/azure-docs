@@ -1,5 +1,7 @@
-#Node.js Developer Center - Common tasks
+<properties linkid="devnav-node-commontasks" urlDisplayName="Common Tasks" pageTitle="Windows Azure Node.js common tasks" metaKeywords="Azure node, Azure node.js" metaDescription="Find topics about using Node.js in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+#Node.js Developer Center - Common tasks
 ## Deployment
 
 ### [Publishing with Git]

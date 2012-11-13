@@ -1,4 +1,6 @@
-<properties linkid="dev-nodejs-getting-started" urldisplayname="Node.js Web Application" headerexpose="" pagetitle="Node.js Getting Started Guide" metakeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Windows Azure." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-getting-started" urlDisplayName="Cloud Service" pageTitle="Node.js Getting Started Guide - Windows Azure Tutorial" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" metaDescription="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # Build and deploy a Node.js application to a Windows Azure Cloud Service
 

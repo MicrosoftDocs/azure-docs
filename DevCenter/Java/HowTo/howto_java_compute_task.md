@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="" metaKeywords="Windows Azure virtual machine, Azure virtual machine, Azure java worker load, Azure java service bus, Azure java compute intensive" metaDescription="With Windows Azure, you can use a virtual machine to handle compute-intensive tasks; for example, a virtual machine could handle tasks and deliver results to client machines or mobile applications." linkid="dev-java-compute-load" urlDisplayName="Java compute load" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Windows Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" metaDescription="Learn how to create a Windows Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # How to run a compute-intensive task in Java on a virtual machine
 
@@ -60,7 +62,7 @@ For purposes of this tutorial, a JDK will be installed from Oracle's site.
 5. Click the download executable for **Windows x64 (64-bit)**.
 6. Follow the prompts and respond as needed to install the JDK to your virtual machine. 
 
-Note that the Service Bus functionality requires the GTE CyberTrust Global Root certificate to be installed as part of your JRE's **cacerts** store. This certificate is automatically included in the JRE used by this tutorial. If you do not have this certificate in your JRE **cacerts** store, it can be installed by copying the certificate contents from <https://secure.omniroot.com/cacert/ct_root.der>, saving the contents to a **.cer** file, and adding it to the **cacerts** store via **keytool**. For more detailed instructions on adding a certificate to the **cacerts** store, see [Adding a Certificate to the Java CA Certificate Store][add_ca_cert].
+Note that the Service Bus functionality requires the GTE CyberTrust Global Root certificate to be installed as part of your JRE's **cacerts** store. This certificate is automatically included in the JRE used by this tutorial. If you do not have this certificate in your JRE **cacerts** store, it can be downloaded from <https://www.globaltrustpoint.com/x509/x509trustcenter_list.jsp>, saved as a **.cer** file, and added to the **cacerts** store via **keytool**. For more detailed instructions on adding a certificate to the **cacerts** store, see [Adding a Certificate to the Java CA Certificate Store][add_ca_cert].
 
 ## How to create a service bus namespace
 

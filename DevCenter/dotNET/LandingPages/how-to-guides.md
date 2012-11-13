@@ -1,5 +1,7 @@
-# .NET Developer Center - How To Guides #
+<properties linkid="dev-net-how-to-guides" urlDisplayName="How To Guides" pageTitle="Windows Azure .NET feature guides" metaKeywords="Azure .NET" metaDescription="Find topics about using Windows Azure services and features in .NET." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+# .NET Developer Center - How To Guides #
 ## Data storage and management ##
 
 ### [Blob Service](/en-us/develop/net/how-to-guides/blob-storage/ "Blob Service") ###

@@ -1,4 +1,6 @@
-<properties linkid="mobile-services-push-notifications-to-app-users-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Push notifications to users by using Mobile Services" metakeywords="push notifications with Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app, push notifications" footerexpose="" metadescription="Push notifications to your Windows Store app users by using Windows Azure Mobile Services." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-net-tutorials-push-notifications-to-users-js" urlDisplayName="Push Notifications to Users (JS)" pageTitle="Push notifications to users (JavaScript) - Mobile Services" metaKeywords="" metaDescription="Learn how to push notifications to  users in Windows Store apps that use Windows Azure Mobile Services." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet/" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14827" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 

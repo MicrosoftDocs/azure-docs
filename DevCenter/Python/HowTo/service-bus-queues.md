@@ -1,5 +1,7 @@
-# How to Use Service Bus Queues
+<properties linkid="develop-python-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Python) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Python" metaDescription="Learn how to use Service Bus queues in Windows Azure. Code samples written in Python." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+
+# How to Use Service Bus Queues
 This guide will show you how to use Service Bus queues. The samples are
 written in Python and use the Python Azure module. The scenarios
 covered include **creating queues, sending and receiving messages**, and

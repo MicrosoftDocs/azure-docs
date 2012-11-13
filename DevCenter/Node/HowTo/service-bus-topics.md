@@ -1,4 +1,6 @@
-<properties umbraconavihide="0" pagetitle="Service Bus Topics - How To - Node.js - Develop" metakeywords="Service Bus topics Node.js, getting started service bus topics node.js, getting started service bus subscriptions node.j" metadescription="" linkid="dev-nodejs-how-to-service-bus-topics" urldisplayname="Service Bus Topics" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Node.js) - Windows Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Node.js" metaDescription="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for Node.js applications." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # How to Use Service Bus Topics/Subscriptions
 
