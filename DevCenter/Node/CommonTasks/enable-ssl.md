@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-<properties linkid="dev-nodejs-enablessl" urldisplayname="Enable Web Role SSL" headerexpose="" pagetitle="Enable SSL for a Node.js application in a web role" metakeywords="Node.js Azure SSL, Node.js Azure HTTPS" footerexpose="" metadescription="Learn how to specify an HTTPS endpoint for a Node.js web role and how to upload an SSL certificate to secure your application." umbraconavihide="0" disquscomments="1"></properties>
-=======
 <properties linkid="dev-nodejs-enablessl" urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service (Node.js) - Windows Azure" metaKeywords="Node.js Azure SSL, Node.js Azure HTTPS" metaDescription="Learn how to specify an HTTPS endpoint for a Node.js web role and how to upload an SSL certificate to secure your application." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-
->>>>>>> eb5ac98a57a184e35f038b3d436ff34ae836f3cf
 
 # Configuring SSL for a Node.js Application in a Windows Azure Web Role
 
