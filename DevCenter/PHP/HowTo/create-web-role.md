@@ -1,5 +1,7 @@
 #How to create PHP Web or Worker Roles
 
+In addition to describing how to create a deploy PHP Web or Worker Roles to Windows Azure, this topic also describes how to choose a specific version of PHP from the "built-in" versions available, how to change the PHP configuration, and how to enable extensions. It also describes how to configure a Web or Worker role to use a PHP runtime (with custom configuration and extensions) that you provide.
+
 <h2 id="WhatIs">What are PHP Web and Worker roles?</h2>
 
 <h2 id="DownloadSdk">Download the Windows Azure SDK for PHP</h2>
@@ -73,6 +75,89 @@ To to customize the built-in PHP runtime, follow these steps:
 </div>
 
 <h2 id="OwnPHP">How to: Use your own PHP runtime</h2>
+In some cases, instead of selecting a built-in PHP runtime and configuring it as described above, you may want to provide your own PHP runtime. For example, you can use the same PHP runtime in a Web or Worker role that you use in your development environment, making it easier to ensure that application will not change behavior in your production environment.
+
+<h3 id="OwnPHPWebRole">Configuring a Web Role to use your own PHP runtime</h3>
+
+To configure a Web Role to use a PHP runtime that you provide, follow the steps below.
+
+1. Create a Windows Azure Service project and add a PHP Web Role as described in the [How to: Create a cloud services project](#CreateProject) and [How to: Add PHP Web or Worker Roles](#AddRole) sections above.
+2. Create a `php` folder in the `bin` folder that is in your Web Role's root directory, then add your PHP runtime (all binaries, configuration files, subfolders, etc.) to the `php` folder.
+3. (OPTIONAL) If your PHP runtime uses [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers], you will need to configure your Web Role to install [SQL Server Native Client 2012][sql native client] when it is provisioned. To do this, add the `sqlncli.msi` installer to the `bin` folder in your Web Role's root directory. You can download the installer here: [sqlncli.msi x64 installer]. The startup script described in the next step will silently run the installer when the role is provisioned. If your PHP runtime does not use the Microsoft Drivers for PHP for SQL Server, you can remove the following line from the script described in the next step:
+
+		msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+
+4. The next step is to define a startup task that configures [Internet Information Services (IIS)][iis.net] to use your PHP runtime to handle requests for `.php` pages. To do this, open the `setup_web.cmd` file (in the `bin` file of your Web Role's root directory) in a text editor and replace its contents with the following script:
+
+		@ECHO ON
+		cd "%~dp0"
+		
+		msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+		
+		SET PHP_FULL_PATH=%~dp0php\php-cgi.exe
+		SET NEW_PATH=%PATH%;%RoleRoot%\base\x86
+		
+		%WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='%PHP_FULL_PATH%',maxInstances='12',idleTimeout='60000',activityTimeout='3600',requestTimeout='60000',instanceMaxRequests='10000',protocol='NamedPipe',flushNamedPipe='False']" /commit:apphost
+		%WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='%PHP_FULL_PATH%'].environmentVariables.[name='PATH',value='%NEW_PATH%']" /commit:apphost
+		%WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='%PHP_FULL_PATH%'].environmentVariables.[name='PHP_FCGI_MAX_REQUESTS',value='10000']" /commit:apphost
+		%WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/handlers /+"[name='PHP',path='*.php',verb='GET,HEAD,POST',modules='FastCgiModule',scriptProcessor='%PHP_FULL_PATH%',resourceType='Either',requireAccess='Script']" /commit:apphost
+		%WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /"[fullPath='%PHP_FULL_PATH%'].queueLength:50000"
+
+5. Add your application files to your Web Role's root directory. This will be the web server's root directory.
+
+6. Publish your application as described in the [How to: Publish your applicaiton](#Publish) section below.
+
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>The <code>download.ps1</code> script (in the <code>bin</code> folder of the Web Role's root directory) can be deleted after following the steps described above for using your own PHP runtime.</p> 
+</div>
+
+<h3 id="OwnPHPWorkerRole">Configuring a Worker Role to use your own PHP runtime</h3>
+
+To configure a Worker Role to use a PHP runtime that you provide, follow the steps below.
+
+1. Create a Windows Azure Service project and add a PHP Worker Role as described in the [How to: Create a cloud services project](#CreateProject) and [How to: Add PHP Web or Worker Roles](#AddRole) sections above.
+2. Create a `php` folder in the Worker Role's root directory, then add your PHP runtime (all binaries, configuration files, subfolders, etc.) to the `php` folder.
+3. (OPTIONAL) If your PHP runtime uses [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers], you will need to configure your Worker Role to install [SQL Server Native Client 2012][sql native client] when it is provisioned. To do this, add the `sqlncli.msi` installer to the Worker Role's root directory. You can download the installer here: [sqlncli.msi x64 installer]. The startup script described in the next step will silently run the installer when the role is provisioned. If your PHP runtime does not use the Microsoft Drivers for PHP for SQL Server, you can remove the following line from the script described in the next step:
+
+		msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+
+4. The next step is to define a startup task that adds your `php.exe` executable to the Worker Role's PATH environment variable when the role is provisioned. To do this, open the `setup_worker.cmd` file (in the Worker Role's root directory) in a text editor and replace its contents with the following script:
+
+		@echo on
+
+		cd "%~dp0"
+
+		echo Granting permissions for Network Service to the web root directory...
+		icacls ..\ /grant "Network Service":(OI)(CI)W
+		if %ERRORLEVEL% neq 0 goto error
+		echo OK
+
+		if "%EMULATED%"=="true" exit /b 0
+
+		msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+
+		setx Path "%PATH%;%~dp0php" /M
+
+		if %ERRORLEVEL% neq 0 goto error
+
+		echo SUCCESS
+		exit /b 0
+
+		:error
+
+		echo FAILED
+		exit /b -1	
+
+5. Add your application files to your Worker Role's root directory.
+
+6. Publish your application as described in the [How to: Publish your applicaiton](#Publish) section below.
+
+<h2 id="Publish">How to: Publish your application</h2>
 
 [service definition (.csdef)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758711.aspx
 [service configuration (.cscfg)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
+[iis.net]: http://www.iis.net/
+[sql native client]: http://msdn.microsoft.com/en-us/sqlserver/aa937733.aspx
+[sqlsrv drivers]: http://php.net/sqlsrv
+[sqlncli.msi x64 installer]: http://go.microsoft.com/fwlink/?LinkID=239648
