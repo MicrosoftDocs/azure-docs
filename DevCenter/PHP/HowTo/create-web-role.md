@@ -3,6 +3,7 @@
 In addition to describing how to create a deploy PHP Web or Worker Roles to Windows Azure, this topic also describes how to choose a specific version of PHP from the "built-in" versions available, how to change the PHP configuration, and how to enable extensions. It also describes how to configure a Web or Worker role to use a PHP runtime (with custom configuration and extensions) that you provide.
 
 <h2 id="WhatIs">What are PHP Web and Worker roles?</h2>
+Windows Azure provides three execution models for running applications: [Windows Azure Web Sites][execution model-web sites], [Windows Azure Virtual Machines][execution model-vms], and [Windows Azure Cloud Services][execution model-cloud services]. While all three models support PHP, Web and Worker Roles are in the category of Cloud Services. 
 
 <h2 id="DownloadSdk">Download the Windows Azure SDK for PHP</h2>
 
@@ -155,6 +156,9 @@ To configure a Worker Role to use a PHP runtime that you provide, follow the ste
 
 <h2 id="Publish">How to: Publish your application</h2>
 
+[execution model-web sites]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/#WebSites
+[execution model-vms]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/#VMachine
+[execution model-cloud services]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/#CloudServices
 [service definition (.csdef)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758711.aspx
 [service configuration (.cscfg)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
