@@ -30,7 +30,7 @@ world' service using the Windows Azure PowerShell using these steps:
 
 	<div chunk="../Chunks/install-dev-tools.md" />
 
-2.  Create a new service, using **New-AzureServiceProject** cmdlet provided with a unique service name. This service name will determine the URL of your service in Windows Azure.
+2.  Create a new service, using **New-AzureServiceProject** cmdlet.
 
 	![][1]
 
@@ -62,6 +62,8 @@ certificates in Windows Azure:
     cloudapp.net domain, so the certificate's subject name must match
     the custom domain name used to access your application. For example, __mysecuresite.cloudapp.net__.
 -   The certificate must use a minimum of 2048-bit encryption.
+
+The **.pfx** file containing the certificate will be added to your service project and deployed to Windows Azure in the following steps.
 
 ## <a name="step3"> </a>Step 3: Modify the Application to use the SSL certificate
 

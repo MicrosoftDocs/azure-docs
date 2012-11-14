@@ -35,7 +35,7 @@ world' service using the Windows Azure PowerShell using these steps:
 
 	<div chunk="../Chunks/install-dev-tools.md" />
 
-2.  Create a new service, using **New-AzureServiceProject** cmdlet provided with a unique service name. This service name will determine the URL of your service in Windows Azure.
+2.  Create a new service project using the **New-AzureServiceProject** cmdlet. 
 
 	![][1]
 
@@ -70,7 +70,9 @@ certificates in Windows Azure:
 
 ## <a name="step3"> </a>Step 3: Import the SSL certificate
 
-Once you have a certificate, install it into the certificate store on your development machine by performing the following steps:
+Once you have a certificate, install it into the certificate store on your development machine. This certificate will be retrieved and uploaded to Windows Azure as part of your application deployment package based on configuration changes you make in a subsequent step.
+
+To import the SSL certificate, perform the following steps:
 
 1.   Using Windows Explorer, navigate to the directory where the **.pfx** file containing the certificate is located and then double-click on the certificate. This will display the Certificate Import Wizard.
 	
