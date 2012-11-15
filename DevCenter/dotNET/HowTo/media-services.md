@@ -611,7 +611,7 @@ Now that you have learned how to set up for Media Services development and perfo
   [Media Services Forum]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
   [Getting Started with the Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=252966
   [Building Applications with the Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=247821
-  [Windows Azure Management Portal]: https://windows.azure.com/
+  [Windows Azure Management Portal]: https://manage.windowsazure.com/
   [How to Create a Media Services Account]: http://go.microsoft.com/fwlink/?linkid=256662
   [Supported File Types for Media Services]: http://msdn.microsoft.com/en-us/library/hh973634
 
