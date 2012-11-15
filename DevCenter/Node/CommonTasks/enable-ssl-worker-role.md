@@ -42,7 +42,12 @@ world' service using the Windows Azure PowerShell using these steps:
 
     ![][3]
 
-Note the **Created Website URL** value returned by the **Publish-AzureServiceProject** cmdlet. You will need to obtain an SSL certificate for this specific URL and deploy it to Windows Azure.
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>If you have not previously imported publish settings for your Windows Azure subscription, you will receive an error when trying to publish. For information on downloading and importing the publish settings for your subscription, see <a href="https://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings">How to Use the Windows Azure PowerShell for Node.js</a></p>
+	</div>
+
+The **Created Website URL** value returned by the **Publish-AzureServiceProject** cmdlet contains the fully qualified domain name for your hosted application. You will need to obtain an SSL certificate for this specific fully qualified domain name and deploy it to Windows Azure.
 
 ## <a name="step2"> </a>Step 2: Get an SSL Certificate
 
@@ -113,7 +118,7 @@ Since your application is now listening over port 443, you must also modify the 
 
 	After making this change, save the **ServiceDefinition.csdef** file.
 
-4.  To refresh your updated configuration in the cloud, you must publish
+4.  Refresh your updated configuration in the cloud by publishing
     your service again. At the Windows Azure PowerShell
     prompt, type **Publish-AzureServiceProject** from the service directory.
 

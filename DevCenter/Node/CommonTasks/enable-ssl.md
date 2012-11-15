@@ -47,7 +47,12 @@ world' service using the Windows Azure PowerShell using these steps:
 
     ![][3]
 
-Note the **Created Website URL** value returned by the **Publish-AzureServiceProject** cmdlet. You will need to obtain an SSL certificate for this specific URL and deploy it to Windows Azure.
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>If you have not previously imported publish settings for your Windows Azure subscription, you will receive an error when trying to publish. For information on downloading and importing the publish settings for your subscription, see <a href="https://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings">How to Use the Windows Azure PowerShell for Node.js</a></p>
+	</div>
+
+The **Created Website URL** value returned by the **Publish-AzureServiceProject** cmdlet contains the fully qualified domain name for your hosted application. You will need to obtain an SSL certificate for this specific fully qualified domain name and deploy it to Windows Azure.
 
 ## <a name="step2"> </a>Step 2: Get an SSL Certificate
 
@@ -71,6 +76,11 @@ certificates in Windows Azure:
 ## <a name="step3"> </a>Step 3: Import the SSL certificate
 
 Once you have a certificate, install it into the certificate store on your development machine. This certificate will be retrieved and uploaded to Windows Azure as part of your application deployment package based on configuration changes you make in a subsequent step.
+
+<div class="dev-callout">
+<strong>Note</strong>
+<p>The steps used in this section are based on the Windows 8 version of the Certificate Import Wizard. If you are using a previous version of Windows, the steps listed here may not match the order used in your version of the wizard. If this is the case, fully read this section before using the Certificate Import Wizard so that you understand what overall actions must be performed.</p>
+</div>
 
 To import the SSL certificate, perform the following steps:
 
@@ -144,7 +154,7 @@ configuration files need to be updated.
         ...
         </Role>
 
-4.  To refresh your service configuration in the cloud, you must publish
+4.  Refresh your service configuration in the cloud by publishing
     your service again. At the Windows Azure PowerShell
     prompt, type **Publish-AzureServiceProject** from the service directory.
 
