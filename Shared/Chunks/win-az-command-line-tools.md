@@ -5,7 +5,7 @@ To install the tool on a Mac, download and run the [Windows Azure SDK installer]
 
 To install the tool on Linux, install the latest version of Node.JS and then use NPM to install:
 
-    npm install azure -g
+    npm install azure -cli -g
 
 Optional parameters are shown in square brackets (for example, [parameter]). All other parameters are required.
 
@@ -98,14 +98,15 @@ Windows virtual machines can enable RDP later by adding port 3389 as an endpoint
 
 The following optional parameters are supported for this command:
 
-**-c** create the virtual machine inside an already created deployment in a hosting service. If -vmname is not used with this option, the name of the new virtual machine will be generated automatically.<br />
-**--vm-name** Specify the name of the virtual machine. This parameter takes hosting service name by default. If -vmname is not specified, the name for the new virtual machine is generated as &lt;service-name>&lt;id>, where &lt;id> is the number of existing virtual machines in the service plus 1 For example, if you use this command to add a new virtual machine to a hosting service MyService that has one existing virtual machine, the new virtual machine is named MyService2.<br /> 
+**-c, --connect** create the virtual machine inside an already created deployment in a hosting service. If -vmname is not used with this option, the name of the new virtual machine will be generated automatically.<br />
+**-n, --vm-name** Specify the name of the virtual machine. This parameter takes hosting service name by default. If -vmname is not specified, the name for the new virtual machine is generated as &lt;service-name>&lt;id>, where &lt;id> is the number of existing virtual machines in the service plus 1 For example, if you use this command to add a new virtual machine to a hosting service MyService that has one existing virtual machine, the new virtual machine is named MyService2.<br /> 
 **-u --blob-url** Specify the blob storage URL from which to create the virtual machine system disk. <br />
-**--vm-size** Specify the size of the virtual machine. Valid values are "extrasmall", "small", "medium", "large", "extralarge". The default value is "small". <br />
-**-r** Adds RDP connectivity to a Windows virtual machine. <br />
-**-s** Adds SSH connectivity to a Linux virtual machine. This option can be used only when the virtual machine is created. <br />
-**--location** specifies the location (for example, "North Central US"). <br />
-**--affinity-group** specifies the affinity group.<br />
+**-z, --vm-size** Specify the size of the virtual machine. Valid values are "extrasmall", "small", "medium", "large", "extralarge". The default value is "small". <br />
+**-r, --rdp [port]** Adds RDP connectivity to a Windows virtual machine. <br />
+**-e, --ssh [port]** Adds SSH connectivity to a Linux virtual machine. This option can be used only when the virtual machine is created. <br />
+**-s, --subscription &lt;id>** specifies the subscription id to be used. <br />
+**-l, --location** specifies the location (for example, "North Central US"). <br />
+**-a, --affinity-group** specifies the affinity group.<br />
 **-w, --virtual-network-name** Specify the virtual network on which to add the new vitual machine. Virtual networks can be set up and managed from the Windows Azure portal.<br />
 **-b, --subnet-names** Specifies the subnet names to assign the virtual machine.
 
