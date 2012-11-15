@@ -687,7 +687,7 @@ You can bypass the prompt by using the **-Force** option with the **Remove-Azure
 
 Many of the website creation and management tasks that you can perform in the [Windows Azure Management Portal] can be performed using the Windows Azure Powershell cmdlets. The sections below show you how to perform some basic tasks. For a complete list of website cmdlets, use the `help` command:
 
-	PS C:\app\MySite> help websites
+	PS C:\MySite> help website
 
 <div class="dev-callout"> 
 <b>Note</b> 
@@ -696,9 +696,32 @@ Many of the website creation and management tasks that you can perform in the [W
 
 ###Create a website
 
+You can create a website with the **New-AzureWebsite** command. The following command shows how to create a new site called `mysite`. The URL for the site will be `mysite.azurewebsites.net`.
+
+	PS C:\MySite> New-AzureWebsite mysite
+
 ####Deploy with Git
 
+To create a website that is Git-enabled, you must have Git installed locally, and the Git executable must be in your Path environment variable. The following example shows you how to create a website (`mysite`) that is Git-enabled:
+
+	PS C:\MySite> New-AzureWebsite mysite -Git
+
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>When you run the command above from a directory that is not a Git repository, you will receive the following message, even though the command was successful: <code>fatal: Not a git repository (or any of the parent directories): .git</code>.</p> 
+</div>
+
+If the local directory is not a Git repository, the command will create one for you. After the repository has been created (or if it was a repository to begin with), the command will also create a remote repository (`azure`) and create a reference to it in your local repository. You can then proceed to add, commit, and push changes to the remote repository:
+
+	git add .
+	git commit -m "your commit comments"
+	git push azure master
+
 ####Deploy from GitHub
+
+After you have pushed changes, you can use the **Get-AzureWebsiteDeployment** cmdlet to get deployment information:
+
+	PS C:\MySite> Get-AzureWebsiteDeployment
 
 ###Configure application settings
 
