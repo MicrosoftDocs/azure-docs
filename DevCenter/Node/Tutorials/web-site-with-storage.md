@@ -477,7 +477,7 @@ If you do not already have a Windows Azure subscription, you can sign up [for fr
 
 To install the command-line tools, use the following command:
 	
-	npm install azure -g
+	npm install azure-cli -g
 
 <div class="dev-callout">
 <strong>Note</strong>

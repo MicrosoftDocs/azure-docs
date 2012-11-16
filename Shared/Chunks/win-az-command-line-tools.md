@@ -5,7 +5,7 @@ To install the tool on a Mac, download and run the [Windows Azure SDK installer]
 
 To install the tool on Linux, install the latest version of Node.JS and then use NPM to install:
 
-    npm install azure -g
+    npm install azure-cli -g
 
 Optional parameters are shown in square brackets (for example, [parameter]). All other parameters are required.
 

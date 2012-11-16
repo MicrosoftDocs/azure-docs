@@ -1,4 +1,4 @@
-<properties linkid="develop-net-architecture-multitenant" urlDisplayName="Multitenant applications" pageTitle="Multitenant applications in Windows Azure" metaKeywords="Multitenant Pattern Architecture" metaDescription="Multitenant patterns and application architecture using Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/net/architecture" umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="develop-net-architecture-multitenant" urlDisplayName="Multitenant applications" pageTitle="Multitenant applications in Windows Azure" metaKeywords="Multitenant multi-tenant Pattern Architecture" metaDescription="Multitenant patterns and application architecture using Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/net/architecture" umbracoNaviHide="0" disqusComments="1" />
 
 # Multitenant Applications in Windows Azure
 
@@ -6,22 +6,22 @@ A multitenant application is a shared resource that allows separate users, or "t
 
 The typical scenario that lends itself to a multitenant application is one in which all users of the application may wish to customize the user experience, have the same basic business requirements, and the data, with appropriate security considerations, can be stored in a single database.
 
-Examples of large multitenant applications are Office 365 and Outlook.com.
+Examples of large multitenant applications are Office 365, Outlook.com, and visualstudio.com.
 
-From an application provider's perspective, the benefits of multi-tenancy mostly relate to operational and cost efficiencies. One instance of your application can meet the needs of many tenants/customers, allowing consolidation of system administration tasks such as monitoring, performance tuning, software maintenance, and data backups. 
+From an application provider's perspective, the benefits of multitenancy mostly relate to operational and cost efficiencies. One version of your application can meet the needs of many tenants/customers, allowing consolidation of system administration tasks such as monitoring, performance tuning, software maintenance, and data backups. 
 
 A properly implemented multitenant application provides the following benefits.
 
-- The application scales and continues to perform well as the user population grows.
-- The work of one tenant does not adversely affect the work of other tenants.
-- Each tenant can customize the application to meet their requirements.
-- The application maintains the security and privacy of each tenant's data, even though multiple tenants share one or more system resources such as database, application, and web servers.
+- Isolation. This is the most important requirement in a multi-tenant application. Individual tenants do not want the activities of other tenants to affect their use of the application. They also need to be sure that other tenants cannot access their data. Tenants want the application to appear as though they have exclusive use of it.
+- Availability. Individual tenants want the application to be constantly available, perhaps with guarantees defined in an SLA. Again, the activities of other tenants should not affect the availability of the application.
+- Scalability. Even though multiple tenants share a multi-tenant application, an individual tenant will expect the application to be scalable and be able to meet his level of demand. The presence and actions of other tenants should not affect the performance of the application.
+- Costs. One of the expectations of using a multi-tenant application is that the costs will be lower than running a dedicated, single-tenant application because multi-tenancy enables the sharing of resources. Tenants also need to understand the charging model so that they can anticipate the likely costs of using the application.
+- Customizability. An individual tenant may require the ability to customize the application in various ways such as adding or removing features, changing colors and logos, or even adding their own code or script.
+- Regulatory Compliance. A tenant may need to ensure that the application complies ith specific industry or regulatory laws and limitations, such as those that relate to storing personally identifiable information (PII) or processing data outside of a defined geographical area. Different tenants may have different requirements.
 
-Many changes in a multitenant environment are performed via simple configuration. For example, the colors or fonts displayed in the UI are simple configuration options that can be "plugged in" wgithout actually changing the behavior of the application. Other tenants may also lease the application, yet the application is deployed only one time on a central, hosted server and changes its behavior based on the tenant (or tenant's end-users) accessing it. In a more complex scenario, you may need to change business logic on a per-tenant basis. For example, a specific tenant leasing space on the application may want to change the way a value is calculated using some complex custom logic.
+All changes in a multitenant environment are performed through configuration updates. For example, the colors or fonts displayed in the UI are simple configuration options that can be "plugged in" wgithout actually changing the underlying behavior of the application. Other tenants may also lease the application, yet the application is deployed only one time on a central, hosted server and changes its behavior based on the tenant (or tenant's end-users) accessing it. In a more complex scenario, you may need to change business logic on a per-tenant basis. For example, a specific tenant leasing space on the application may want to change the way a value is calculated using some complex custom logic.
 
-Any application can have multiple users. The term multi-user does not imply anything for the architecture and implementation of the application. On the other hand, while a multitenant system is a multi-user system, multi-tenancy enforces certain aspects of the architecture and implementation of the application: namely that multiple users share the same application. It is possible to implement a multi-user application which is not multi-tenant.
-
-The basic method is to create one application that one or more users can access through a client front end.  Each user client can be customized to suit the needs of that user. The application handles the work load and business customizations.  The data store maintains the data for all the users. 
+The basic approach is to create one application that one or more clients can access through a client front end.  Each user client can be customized to suit the needs of that user. The application handles the work load and business customizations.  The data store maintains the data for all the users. 
 
 The following diagram shows a high-level overview of sample architecture for multitenant application.
 

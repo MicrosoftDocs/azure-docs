@@ -102,13 +102,13 @@ The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line
 
 * **Linux**: Install the latest version of [Node.js][nodejs-org] (see [Install Node.js via Package Manager][install-node-linux]), then run the following command:
 
-		npm install azure -g
+		npm install azure-cli -g
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
 	<p>You may need to run this command with elevated privileges:
 	
-		sudo npm install azure -g
+		sudo npm install azure-cli -g
 	</p> 
 	</div>
 

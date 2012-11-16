@@ -2,9 +2,11 @@
 
 The Smooth Streaming Client SDK for Windows 8 enables developers to build Windows Store applications that can play on-demand and live Smooth Streaming content from [IIS Media Services](http://www.iis.net/media) or [Windows Azure Media Services](http://www.windowsazure.com/en-us/develop/net/how-to-guides/media-services/). In addition to the basic playback of Smooth Streaming content, the SDK also provides rich features like Microsoft PlayReady protection, quality level restriction, Live DVR, audio stream switching, listening for status updates (such as quality level changes) and error events, and so on. For more information of the supported features, see the [release notes](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-beta-2-for-windows-store-apps-release-notes).
 
-This tutorial covers the APIs. For player development, Microsoft strongly recommends using [Player Framework for Windows 8](http://playerframework.codeplex.com/). Player framework makes it easier to build applications and provides many additional features. 
+This tutorial covers the APIs. For player development, Microsoft <strong>strongly</strong> recommends using [Player Framework for Windows 8](http://playerframework.codeplex.com/). Player framework makes it easier to build applications and provides many additional features. 
 
-This tutorial contains two lessons. In the first lesson, you will create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content. In the second lesson, you will add a slider to control the progress of the media. 
+This tutorial contains two lessons. In the first lesson, you will create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content. In the second lesson, you will add a slider to control the progress of the media.
+
+For creating a player in HTML5 and the reference documentation that describes the Smooth Streaming Client SDK for Windows 8 APIs, see [Microsoft Smooth Streaming Client for Windows 8](http://msdn.microsoft.com/en-us/library/jj573703(v=vs.90).aspx).
 
 #Prerequisites
 - Windows 8 32-bit or 64-bit. You can get [Windows 8 Enterprise Evaluation](http://msdn.microsoft.com/en-us/evalcenter/jj554510.aspx) from MSDN.
@@ -459,7 +461,6 @@ This lesson contains the following procedures:
 You have completed lesson 2.  In this lesson you added a slider to application.  We will continue to add more lessons to this tutorial to explore other functions of the Smooth Streaming Client SDK for Windows 8.
 
 #Other Resources:
-- [How to build your first HTML5 Windows 8 Smooth Streaming Application](http://blogs.iis.net/cenkd/archive/2012/03/28/How-to-build-your-first-html5-metro-style-smooth-streaming-player.aspx)
 - [How to build a Smooth Streaming Windows 8 JavaScript application with advanced features](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
 - [Smooth Streaming Technical Overview](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
