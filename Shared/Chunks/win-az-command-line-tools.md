@@ -334,7 +334,7 @@ Data disks are .vhd files in blob storage that can be used by a virtual machine.
 
 The commands for attaching data disks (azure vm disk attach and azure vm disk attach-new) assign a Logical Unit Number (LUN) to the attached data disk, as required by the SCSI protocol. The first data disk attached to a virtual machine is assigned LUN 0, the next is assigned LUN 1, and so on.
 
-When you detach a data disk with the azure vm disk detach command, use the <lun> parameter to indicate which disk to detach. Note that you should always detach data disks in reverse order, starting with the highest-numbered LUN that has been assigned. The Linux SCSI layer does not support detaching a lower-numbered LUN while a higher-numbered LUN is still attached. For example, you should not detach LUN 0 if LUN 1 is still attached.
+When you detach a data disk with the azure vm disk detach command, use the &lt;lun&gt; parameter to indicate which disk to detach. Note that you should always detach data disks in reverse order, starting with the highest-numbered LUN that has been assigned. The Linux SCSI layer does not support detaching a lower-numbered LUN while a higher-numbered LUN is still attached. For example, you should not detach LUN 0 if LUN 1 is still attached.
 
 **vm disk show [options] &lt;name>**
 
