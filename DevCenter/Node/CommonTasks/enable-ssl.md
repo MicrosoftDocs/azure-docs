@@ -79,7 +79,7 @@ Once you have a certificate, install it into the certificate store on your devel
 
 <div class="dev-callout">
 <strong>Note</strong>
-<p>The steps used in this section are based on the Windows 8 version of the Certificate Import Wizard. If you are using a previous version of Windows, the steps listed here may not match the order used in your version of the wizard. If this is the case, fully read this section before using the Certificate Import Wizard so that you understand what overall actions must be performed.</p>
+<p>The steps used in this section are based on the Windows 8 version of the Certificate Import Wizard. If you are using a previous version of Windows, the steps listed here may not match the order displayed in the wizard. If this is the case, fully read this section before using the Certificate Import Wizard so that you understand what overall actions must be performed.</p>
 </div>
 
 To import the SSL certificate, perform the following steps:
