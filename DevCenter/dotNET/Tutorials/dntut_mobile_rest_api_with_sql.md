@@ -95,7 +95,7 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 ![New Project in File menu][newapp001]
 
 3. In the **New Project** dialog box, expand **Visual C#** and select **Web** under **Installed Templates** and then select **ASP.NET MVC 4 Web Application**.
-4. In the **.NET Framework** make sure **.NET Framework 4** is selected.
+4. In the **.NET Framework** make sure **.NET Framework 4.5** is selected.
 5. Name the application **ContactManager** and click **OK**.<br/>
 	![New Project dialog box][newapp002]
 6. In the **New ASP.NET MVC 4 Project** dialog box, select the **Internet Application** template.
@@ -151,7 +151,7 @@ First you will configure the initial layout and view elements for the applicatio
 7. Expand the Views\Home folder and delete the About.cshtml and Contact.cshtml files.
 8. Right-click the Account folder under views and click **Delete**.
 		<!--<br/>![Delete context menu for the accounts folder][newapp004.2]-->
-9. Expand the filters folder and delete the InitializeSimpleMembershipAttribute.cs file.
+
 
 ### Run the application locally
 
@@ -210,7 +210,7 @@ You begin by creating a simple data model in code.
 1. In **Solution Explorer**, right-click the Models folder, click **Add**, and then **Class**.<br/>
 ![Add Class in Models folder context menu][adddb001]
 
-3. In the **Add New Item** dialog box, name the new class file Contact.cs, and then click **Add**.<br/>
+2. In the **Add New Item** dialog box, name the new class file Contact.cs, and then click **Add**.<br/>
 ![Add New Item dialog box][adddb002]
 3. Replace the contents of the Contacts.cs file with the following code.
 
@@ -237,6 +237,7 @@ You begin by creating a simple data model in code.
 		}
 The **Contacts** class defines the data that you want to store for each contact, plus a primary key, ContactID, that is needed by the database.
 4. Expand the Models folder and delete the AccountModels.cs file.
+5. Expand the Filters folder and delete the InitializeSimpleMembershipAttribute.cs file.
 
 ### Create web pages that enable app users to work with the contacts
 
@@ -244,7 +245,7 @@ In ASP.NET MVC the scaffolding feature can automatically generate code that perf
 
 <h2><a name="bkmk_addcontroller"></a>Add a Controller and a view for the data</h2>
 
-1. In **Solution Explorer**, left-click Controllers and expand the folder.
+1. In **Solution Explorer**, expand the Controllers folder.
 2. Delete the AccountController.cs file.
 3. Build the project. For example, you can press F6.<br/>
 Visual Studio compiles the data model classes that you created and makes them available for the following steps that enable Code First Migrations and use MVC scaffolding.
@@ -269,7 +270,7 @@ The next task is to enable the Code First Migrations feature in order to create 
 	<br/>![Package Manager Console in Tools menu][addcode008]
 2. In the **Package Manager Console** window, enter the following commands:<br/>
 
-		enable-migrations<br/>
+		enable-migrations
 		add-migration Initial
 
 	The **enable-migrations** command creates a Migrations folder and a **Configuration** class that the Entity Framework uses to control database updates.<br/>
@@ -410,7 +411,7 @@ Visual Studio compiles the data model classes that you created and makes them av
 	<!--<br/>![Add style sheet in Content folder context menu][addcode005]-->
 4. In the **Add New Item** dialog box, expand C# and select Web under Installed Templates and then select **Style Sheet**.
 	<!--<br/>![Add New Item dialog box][addcode006]-->
-5. Name the file **Contacts.css** and click **Add**. Replace the contents of the file with the following code.
+5. Name the file Contacts.css and click **Add**. Replace the contents of the file with the following code.
 
 		.column {
 	    	float: left;
@@ -487,6 +488,15 @@ Visual Studio compiles the data model classes that you created and makes them av
         bundles.Add(new StyleBundle("~/Content/css").Include(
                     "~/Content/site.css",
                     "~/Content/contacts.css"));
+
+### Add a controller for the Web API Restful interface
+
+1. In **Solution Explorer**, right-click Controllers and click **Add**, and then click **New Folder**. 
+2. Enter "Apis" and the press the **Enter** key. 
+3. Right-click on the Apis folder and click Add, and then click **Controller....** 
+4. In the **Add Controller** dialog box, enter "ContactsController" as your controller name, select the **API controller with empty read/write actions, using Entity Framework** template. 
+5. In **Model Class** select Contact (ContactManager.Models) and it **Data Context Class** select ContactManagerContext (ContactManager.Models). 
+6. Click **Add**.
 
 ### Run the application locally
 
