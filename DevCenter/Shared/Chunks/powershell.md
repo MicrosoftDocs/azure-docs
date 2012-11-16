@@ -719,11 +719,30 @@ If the local directory is not a Git repository, the command will create one for 
 
 ####Deploy from GitHub
 
+If you have a local clone of a GitHub repository or if you have a local repository with single remote reference to a GitHub repository, you can use the **-Github** flag when creating a new website to enable publishing from GitHub:
+
+	PS C:\MySite> New-AzureWebsite mysite -Github
+
+This command will immediately publish content in your GitHub repository. From then on, any changes pushed to the repository will automatically be published. 
+
 After you have pushed changes, you can use the **Get-AzureWebsiteDeployment** cmdlet to get deployment information:
 
 	PS C:\MySite> Get-AzureWebsiteDeployment
 
-###Configure application settings
+###Configure app settings
+
+App settings are key-value pairs that are available to your application at runtime. In ASP.NET web applications, app settings are accessible via the [Configuration.AppSettings] property and will override settings with the same key defined in the Web.config file. For Node.js and PHP applications, app settings are available as environment variables. The following example shows you how to set a key-value pair:
+
+	PS C:\MySite> $settings = @{"myKey" = "myValue"}
+	PS C:\MySite> Set-AzureWebsite -AppSettings $settings
+
+###Start, stop, or restart a website
+
+The Windows Azure PowerShell cmdlets allow you to start, stop, or restart a website with the following commands:
+
+	PS C:\MySite> Start-AzureWebsite
+	PS C:\MySite> Stop-AzureWebsite
+	PS C:\MySite> Restart-AzureWebsite
 
 <h2 id="SqlDatabase">How to: Create, modify, and remove a SQL Database server</h2>
 
@@ -834,4 +853,4 @@ The command above will require confirmation that you want to delete the specifie
 [wpi-installer]: http://go.microsoft.com/fwlink/?LinkId=253447
 [sql-database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336230.aspx
 [pricing-details-caching]: http://www.windowsazure.com/en-us/pricing/details/#header-8
-
+[Configuration.AppSettings]: http://msdn.microsoft.com/en-us/library/system.configuration.configurationmanager.appsettings.aspx
