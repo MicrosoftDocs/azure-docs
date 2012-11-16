@@ -2,7 +2,7 @@
 
 # Load Testing in Windows Azure
 
-The primary goal of a load test is to simulate many users accessing a web application at the same time. The load test simulates multiple users opening simultaneous connections to the application and making multiple requests against an application or directly against a data repository such as SQL Azure. The goal is to subject the application to ever increasing amounts of load in order to determine the point at which response times become unacceptable or the application begins to generate errors. The load test can help determine if there is a point at which the application fails entirely. Because your goal is discovery of actual capacity rather than confirmation of a particular load level, you want to exceed the anticipated peak by a healthy margin. For example, you may have 1000 concurrent users during normal usage; but, you want to determine if you can handle anticipated growth to 2000 users. You can create a test that will ramp gradually to a peak of 3000 concurrent or more users. When the test is complete, you will know if tuning or enhancements are required to reliably handle potential peak loads plus a safety margin. Issues that can eventually come out as the result of load testing may include load balancing problems and processing capacity of the existing system.
+The primary goal of a load test is to simulate many users accessing a web application at the same time. The load test simulates multiple users opening simultaneous connections to the application and making multiple requests against an application or directly against a data repository such as SQL Azure. You can run a load test with a constant load pattern or an ever increasing load in order to determine the point at which response times become unacceptable or the application begins to generate errors. For example, one of the uses of a load test is to help determine if there is a point at which the application fails entirely. Because your goal is discovery of actual capacity rather than confirmation of a particular load level, you want to exceed the anticipated peak by a healthy margin. For example, you may have 1000 concurrent users during normal usage; but, you want to determine if you can handle anticipated growth to 2000 users. You can create a test that will ramp gradually to a peak of 3000 concurrent or more users. When the test is complete, you will know if tuning or enhancements are required to reliably handle potential peak loads plus a safety margin. Issues that can eventually come out as the result of load testing may include load balancing problems and processing capacity of the existing system.
 
 A load test allows you to:
 
@@ -16,26 +16,25 @@ Windows Azure provides value to your application in its ability to handle an ela
 
 You can build your test rig using custom code or a variety of third party tools. Combining [Windows Azure and Visual Studio Ultimate][],  you can build a large, distributed test rig in a fast and automated way. Virtualization of computing resources eliminates the need for dedicated hardware for load testing. Different approaches and topologies can be used to provision a load test rig in Windows Azure.
 
-The advantages of adopting load test harness hosted in Windows Azure are multiple:
+Load tests are simulated with using a test controller and a set of test agents which are part of the load simulation architecture 
+
+The basic method is to create one "controller" and one or more "agents." You have one controller, but as many agents as you require. You can scale out the load by adding additional agents, depending on the amount of load you are required to generate. Each agent generates a part of the load. The controller agents and records the results of the test. The recommended approach when running load that simulates realistic loads typically requires at least two computers: the first runs the controller, and the second runs the agent or agents. You also need a results repository, which could be hosted on same computer as controller, or on a different computer. A different computer is usually recommended for the repository.
+ 
+![generic_rig][]
+
+The advantages of adopting a load test harness hosted in Windows Azure are multiple:
 
 - **Entry Cost**: The cost of doing load tests decreases greatly after the initial investment. Once deployed, the cost of the test rig depends on Windows Azure Pay-As-You-Go pricing model. 
 - Maintenance Cost: you can create an easily maintain a test harness in Windows Azure. 
 - **Elasticity**: The load test can be easily modified to accommodate different scenarios and conditions. For example, you can configure the Azure hosted test rig with a larger number of test agents. 
 - **Repeatability**: After the initial investment, you can use the same artifacts (VS cloud project or VM images) to deploy a new test rig in Windows Azure, run a load test for the necessary time and undeploy it. 
 
-Load tests can be used with a set of computers known as a rig, which consists of agents and a controller. 
-
-The basic method is to create one "controller" and one or more "agents." You have one controller, but as many agents as you require. Each agent generates a part of the load. The controller directs the lifetime of the agent or agents, and records the results of the test. However running a load test typically requires at least two computers: the first runs the controller, and the second runs the agent or agents.
- 
-![generic_rig][]
-
-With Windows Azure, you can create worker roles to take the place of multiple computers.
-
+With Windows Azure, you can host the controller and agent processes in different worker role instances.
 
 The major components are:
 
-- **Agents**: Agents generate a part of the load. Using worker roles you take advantage of the elastic nature of Windows Azure compute instances. 
-- **Controller**: The Controller plays must communicate with both the agents, to send them work to do and collect their performance data, and the system being tested, to collect performance data. You can use either a worker role or an on on-premise computer that communicates with the worker roles using Windows Azure Connect. For information on determining which configuration works best, see [Running Load Tests In Mixed Environments]. 
+- **Agents**: Using worker roles you take advantage of the elastic nature of Windows Azure compute instances to scale out the agents and generate the required load more easily.  
+- **Controller**: The controller must communicate with the different agents in the rig. It starts and stops the tests in the different agents, tracks agent status and collects test results. It also collects performance data from the agents and the system being tested. You can use either a worker role or an on on-premise computer that communicates with the worker roles using Windows Azure Connect. For information on determining which configuration works best, see [Running Load Tests In Mixed Environments]. 
 - **Windows Azure Connect**: The Windows Azure Connect endpoint software must be active on all Azure instances and on the Controller machine as well. This allows IP connectivity between them and, given that the firewall is properly configured, allows the Controller to send workloads to the agents. In parallel, and using the LAN, the Controller will collect the performance data on the stressed systems, using the traditional WMI mechanisms. 
 
 The following diagram shows how applying the Windows Azure features to the test rig facilitates your implementation.
