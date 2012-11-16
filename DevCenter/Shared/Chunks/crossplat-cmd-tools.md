@@ -102,6 +102,8 @@ You are now ready to being creating and managing Windows Azure Websites and Wind
 
 <h2 id="WebSites">How to create and manage a Windows Azure Web Site</h2>
 
+###Create a Web Site
+
 To create a Windows Azure Website, first create an empty directory called `MySite` and browse into that directory.
 
 Then, run the following command:
@@ -119,6 +121,38 @@ You can then add content to your website directory. Use the regular git flow (`g
 
 	git push azure master
 
+###Set up publishing from GitHub
+
+To set up continuous publishing from a GitHub repository, use the `--GitHub` option when creating a site:
+
+	auzre site create MySite --github --githubusername username --githubpassword password --githubrepository githubuser/reponame
+
+If you have a local clone of a GitHub repository or if you have a repository with a single remote reference to a GitHub repository, this command will automatically publish code in the GitHub repository to your site. From then on, any changes pushed to the GitHub repository will automatically be published to your site.
+
+When you set up publishing from GitHub, the default branch used is the master branch. To specify a different branch, execute the following command from your local repository:
+
+	azure site repository <branch name>
+
+###Configure app settings
+
+App settings are key-value pairs that are available to your application at runtime. When set for a Windows Azure Web Site, app setting values will override settings with the same key that are defined in your site's Web.config file. For Node.js and PHP applications, app settings are available as environment variables. The following example shows you how to set a key-value pair:
+
+	azure site config add <key>=<value> 
+
+To see a list of all key/value pairs, use the following:
+
+	azure site config list 
+
+Or if you know the key and want to see the value, you can use:
+
+	azure site config get <key> 
+
+If you want to change the value of an existing key you must first clear the existing key and then re-add it. The clear command is:
+
+	azure site config clear <key> 
+
+###List and show sites
+
 To list your websites, use the following command:
 
 	azure site list
@@ -127,10 +161,15 @@ To get detailed information about a site, use the `site show` command. The follo
 
 	azure site show MySite
 
-You can stop or start a site with the `site stop` and `site start` commands:
+###Stop, start, or restart a site
+
+You can stop, start, or restart a site with the `site stop`, `site start`, or `site restart` commands:
 
 	azure site stop MySite
 	azure site start MySite
+	azure site restart MySite
+
+###Delete a site
 
 Finally, you can delete a site with the `site delete` command:
 
