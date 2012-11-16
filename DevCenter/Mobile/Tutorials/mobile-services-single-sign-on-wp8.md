@@ -7,6 +7,7 @@
 	<a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet" title="Windows Store C#">Windows Store C#</a>
 	<a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
     <a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-phone-8" title="Windows Phone" class="current">Windows Phone</a>
+    <a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-phone-8" title="Windows Phone" class="current">Windows Phone</a>
 </div>	
 
 This topic shows you how to use Live Connect single sign-on to authenticate users in Windows Azure Mobile Services from a Windows Phone 8 app.  In this tutorial, you add authentication to the quickstart project using Live Connect. When successfully authenticated by Live Connect, a logged-in user is welcomed by name and the user ID value is displayed.  
@@ -88,7 +89,7 @@ Next, you will update the app to authenticate users with Live Connect before req
 
 1. Download and install the [Live SDK for Windows and Windows Phone].
 
-2. In the **Project** menu in Visual Studio, click **Add Reference**, then expand **Asemblies**, click **Extensions**, check **Microsoft.Live**, and then click **OK**. 
+2. In the **Project** menu in Visual Studio, click **Add Reference**, then expand **Assemblies**, click **Extensions**, check **Microsoft.Live**, and then click **OK**. 
 
    ![][16]
 
