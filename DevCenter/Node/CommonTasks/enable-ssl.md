@@ -216,4 +216,4 @@ connect to it using HTTPS.
   [powershell-menu]: ../../Shared/Media/azure-powershell-start.png
   [cert-wizard]: ../Media/certificateimport.png
   [key-protection]: ../Media/exportable.png
-  [Configuring SSL for a Node.js Application in a Windows Azure Worker Role]: /en-us/develop/nodejs/common-tasks/enable-ssl-worker/
+  [Configuring SSL for a Node.js Application in a Windows Azure Worker Role]: /en-us/develop/nodejs/common-tasks/enable-ssl-worker-role/
