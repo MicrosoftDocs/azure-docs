@@ -1,1 +1,0 @@
-#Ruby Developer Center - Tutorials

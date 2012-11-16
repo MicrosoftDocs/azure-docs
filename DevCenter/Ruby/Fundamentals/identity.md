@@ -1,1 +1,0 @@
-<properties umbracoNaviHide="0" pageTitle="Identity" metaKeywords="" metaDescription="" linkid="develop-ruby-fundamentals-identity" urlDisplayName="Identity" headerExpose="" footerExpose="" disqusComments="1" />
