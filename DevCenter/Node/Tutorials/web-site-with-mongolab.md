@@ -330,7 +330,7 @@ The steps in this section use the Windows Azure command-line tools to create a n
 
 To install the command-line tools, use the following command:
 	
-	sudo npm install azure -g
+	sudo npm install azure-cli -g
 
 <div class="dev-callout">
 <strong>Note</strong>

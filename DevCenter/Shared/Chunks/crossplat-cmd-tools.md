@@ -31,11 +31,11 @@ The following list contains information for installing the command-line tools, d
 
 * **Linux** and **Windows**: Install the latest version of [Node.js][nodejs-org] (see [Install Node.js via Package Manager][install-node-linux]), then run the following command:
 
-		npm install azure -g
+		npm install azure-cli -g
 
 	**Note**: On Linux, you may need to run this command with elevated privileges:
 
-		sudo npm install azure -g
+		sudo npm install azure-cli -g
 
 	On Windows, you may need to run the command from a prompt with elevated privileges.
 
