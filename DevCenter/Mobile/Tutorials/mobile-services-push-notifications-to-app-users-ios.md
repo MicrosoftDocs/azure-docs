@@ -55,7 +55,7 @@ Next, you will modify the push notifications app to store data in this new table
 
 2. In TodoService.m, add the following variable and static method inside the @implementation of the TodoService: 
 
-        // Add an instance variable to support Singleton creation.
+        // Add a variable to support Singleton creation.
         TodoService *instance;
 
         // Add static method to return TodoService instance.
@@ -101,12 +101,12 @@ Next, you will modify the push notifications app to store data in this new table
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
         (NSData *)deviceToken {
 
-            // Register the APNS deviceToken with the Mobile Service Devices table.
-            NSCharacterSet *angleBrackets = [NSCharacterSet characterSetWithCharactersInString:@"<>"];
-            NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:angleBrackets];
+           // Register the APNS deviceToken with the Mobile Service Devices table.
+           NSCharacterSet *angleBrackets = [NSCharacterSet characterSetWithCharactersInString:@"<>"];
+           NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:angleBrackets];
         	
-            TodoService *instance = [TodoService getCurrent];
-            [instance registerDeviceToken:token];
+           TodoService *instance = [TodoService getCurrent];
+           [instance registerDeviceToken:token];
         }
 
 6. In the TodoListController.m file, in the **(void)viewDidLoad** method, locate the following line of code:
@@ -193,7 +193,7 @@ Your app has now been updated to use the new Devices table to store device token
                   success: function(devices) {
                       // Set timeout to delay the notifications, 
                       // to provide time for the app to be closed 
-                      // on the phone to demonstrate toast notifications.
+                      // on the device to demonstrate toast notifications.
                       setTimeout(function() {
                           devices.forEach(function(device) {
 
