@@ -133,10 +133,6 @@ Next, you will modify the push notifications app to store data in this new table
                         devices.forEach(function(device) {
                             push.apns.send(device.token, {
                                 payload: item.text
-                            }, {
-                                success: function(pushResponse) {
-                                    console.log("Sent push:", pushResponse);
-                                }
                             });
                         });
                     }
