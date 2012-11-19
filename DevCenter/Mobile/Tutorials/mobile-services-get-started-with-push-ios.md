@@ -4,7 +4,7 @@
 
 # Get started with push notifications in Mobile Services
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone 8">Windows Phone 8</a> <a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS" class="current">iOS</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS" class="current">iOS</a>
 </div>	
 
 This topic shows you how to use Windows Azure Mobile Services to send push notifications to an iOS app. 
@@ -16,8 +16,9 @@ In this tutorial you add push notifications using the Apple Push Notification se
 
 This tutorial walks you through these basic steps to enable push notifications:
 
-1. [Generate client certificates] 
-2. [Register your app for push notifications]
+1. [Generate the certificate signing request] 
+2. [Register your app and enable push notifications]
+3. [Create a provisioning profile for the app]
 3. [Configure Mobile Services]
 4. [Add push notifications to the app]
 5. [Update scripts to send push notifications]
@@ -27,192 +28,308 @@ This tutorial requires the following:
 
 + [Mobile Services iOS SDK]
 + [XCode 4.5][Install Xcode] 
-+ iOS 5.0 or later versions
++ An iOS 5.0 (or later version) capable device
 + iOS Developer Program membership
+
+   <div class="dev-callout"><b>Note</b>
+   <p>Because of push notification configuration requirements, you must deploy and test push notifications by using an iOS capable device (iPhone or iPad) instead of in the emulator.</p>
+   </div>
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 
-<h2><a name="certificates"></a><span class="short-header">Generate certificates</span>Generate client certificates</h2>
+The Apple Push Notification Service (APNS) uses certificates to authenticate to your mobile service. Follow these instructions to create the necessary certificates and upload it to your Mobile Service. For the official APNS feature documentation, see [Apple Push Notification Service].
 
-Push notifications uses certificates to XXXXX. You can generate certificates in Xcode and upload them to APNS.
+<h2><a name="certificates"></a><span class="short-header">Generate CSR file</span>Generate the Certificate Signing Request file</h2>
 
-1. In Xcode, open the project and determine the bundle identifier. RALPH HOW DO WE DO THIS????
+First you must generate the Certificate Signing Request (CSR) file, which is used by Apple to generate a signed certificate.
 
-2. From the Applications\Utilities folder, run the Keychain Access tool.
+1. From the Utilities folder, run the Keychain Access tool.
 
-3. Click **Keychain Access**, expand **Certificate Assistant**, then click **Request a Certificate from a Certificate Authority...**.
+2. Click **Keychain Access**, expand **Certificate Assistant**, then click **Request a Certificate from a Certificate Authority...**.
 
-   ![][1]
+  ![][5]
 
-4. Type your information in the **User Email Address** and **Common Name** fields, make sure that **Saved to disk** is selected, and then click **Continue**.
+3. Select your **User Email Address**, type **Common Name** and **CA Email Address** values, make sure that **Saved to disk** is selected, and then click **Continue**.
 
-  ![][2]
+  ![][6]
 
-5. Type a name for the Certificate Signing Request (CSR) file in **Save As**, select the location in **Where**, then click **Save**.
+4. Type a name for the Certificate Signing Request (CSR) file in **Save As**, select the location in **Where**, then click **Save**.
 
-  ![][3]
+  ![][7]
   
-  This saves the CSR file is the selected location; the default location is in the Desktop. Remember the location chosen for this file.
+  This saves the CSR file in the selected location; the default location is in the Desktop. Remember the location chosen for this file.
 
-5.  
+Next, you will register your app with Apple, enable push notifications, and upload this exported CSR to use for signing.
 
 <h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for push notifications</h2>
 
-To be able to send push notifications to an iOS app from Mobile Services, you must register your app with Apple and provision your app with . 
+To be able to send push notifications to an iOS app from mobile services, you must register your application with Apple and also register for push notifications.  
 
-1. If you have not already registered your app, navigate to the [iOS Provisioning Portal] at the Apple Developer Center, log on with your Apple ID, and then click **App ID**.
-
-   ![][0]
-
-2. Type a name for your app in **App name**, click **Reserve app name**, and then click **Save**.
+1. If you have not already registered your app, navigate to the [iOS Provisioning Portal] at the Apple Developer Center, log on with your Apple ID, click **App IDs**, then click **New App ID**.
 
    ![][1]
 
-   This creates a new Windows Store registration for your app.
+3. Type a name for your app in **Description**, enter the value _Quickstart_ in **Bundle Identifier**, then click **Submit**. 
 
-3. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services].
+   ![][2]
 
-4. In solution explorer, right-click the project, click **Store**, and then click **Associate App with the Store...**. 
+   This generates your app ID.
 
-  ![][2]
+    <div class="dev-callout"><b>Note</b>
+	<p>If you choose to supply a <strong>Bundle Identifier</strong> value other than <i>Quickstart</i>, you must also update the bundle identifier value in your Xcode project.</p>
+    </div>
 
-   This displays the **Associate Your App with the Windows Store** Wizard.
-
-5. In the wizard, click **Sign in** and then login with your Microsoft account.
-
-6. Select the app that you registered in step 2, click **Next**, and then click **Associate**.
+4. Locate the app ID that you just created, then click **Configure**. 
 
    ![][3]
 
-   This adds the required Windows Store registration information to the application manifest.    
+5. Check the **Enable for Apple Push Notification service** check box, then click the **Continue** button for the **Development Push SSL Certificate**.
 
-7. Navigate to the [My Applications] page in the Live Connect Developer Center and click on your app in the **My applications** list.
+   ![][4]
 
-   ![][4] 
-
-8. Under **API Settings**, make a note of the values of **Client secret** and **Package security identifier (SID)**. 
-
-   ![][5]
-
-    <div class="dev-callout"><b>Security Note</b>
-	<p>The client secret and package SID are important security credentials. Do not share these secrets with anyone or distribute them with your app.</p>
-    </div> 
-
-9. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
-
-   ![][9]
-
-10. Click the **Push** tab, enter the **Client secret** and **Package SID** values obtained from WNS in Step 4, and then click **Save**.
-
-   ![][10]
-
-Both your mobile service and your app are now configured to work with WNS.
-
-<h2><a name="configure"></a><span class="short-header">Configure the service</span>Congfigure Mobile Services</h2>
-After you have registered your app with APNS and configured your project, you must then configure your mobile service to integrate with APNS.
-
-1. 
-
-<h2><a name="add-push"></a><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
-
-1. Open the file App.xaml.cs and add the following using statement:
-
-        using Windows.Networking.PushNotifications;
-
-2. Add the following to App.xaml.cs:
-	
-        public static PushNotificationChannel CurrentChannel { get; private set; }
-
-	    private async void AcquirePushChannel()
-	    {
-	            CurrentChannel =  
-	                await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-        }
-
-   This code acquires and stores a push notification channel.
-    
-3. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **AcquirePushChannel** method:
-
-        AcquirePushChannel();
-
-   This guarantees that the **CurrentChannel** property is initialized each time the application is launched.
-		
-4. Open the project file MainPage.xaml.cs and add the following new attributed property to the **TodoItem** class:
-
-         [DataMember(Name = "channel")]
-         public string Channel { get; set; }
+   This displays the Apple Push Notification service SSL Certificate Assistant. 
 
     <div class="dev-callout"><b>Note</b>
-	<p>When dynamic schema is enabled on your mobile service, a new 'channel' column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>
+	<p>This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.</p>
     </div>
 
-5. Replace the **ButtonSave_Click** event handler method with the following code:
+6. Click **Browse**, browse to the location where you saved the CSR file that you created in the first task, then click **Generate**. 
 
-	        private void ButtonSave_Click(object sender, RoutedEventArgs e)
-	        {
-	            var todoItem = new TodoItem { Text = TextInput.Text, Channel = App.CurrentChannel.Uri };
-	            InsertTodoItem(todoItem);
-            }
+  ![][8]
 
-   This sets the client's current channel value on the item before it is sent to the mobile service.
+7. After the certificate is created by the portal, click **Continue** and on the next screen click **Download**. 
+ 
+   This downloads the signing certificate and saves it to your computer in your Downloads folder. 
 
-6. (Optional) If you are not using the Management Portal-generated quickstart project, open the Package.appxmanifest file and make sure that in the **Application UI** tab, **Toast capable** is set to **Yes**.
+  ![][9]
+
+    <div class="dev-callout"><b>Note</b>
+	<p>By default, the downloaded file a development certificate is named <strong>aps_development.cer</strong>.</p>
+    </div>
+
+Later, you will upload this certificate to Mobile Services.
+
+<h2><a name="profile"></a><span class="short-header">Provision the app</span>Create a provisioning profile for the app</h2>
+ 
+1. Back in the [iOS Provisioning Portal], select **Provisioning**, then click **New Profile**.
+
+   ![][12]
+
+2. Enter a **Profile Name**, select the **Certificates** and **Devices** to use for testing, select the **App ID**, then click **Submit**.
+
+   ![][13]
+
+  This creates a new provisioning profile.
+
+3. From the list of provisioning profiles, click the **Download** button for this new profile.
+
+   ![][14]
+
+   This downloads the profile to the local computer.
+
+    <div class="dev-callout"><b>Note</b>
+	<p>You may need to refresh the page to see the new profile.</p>
+    </div>
+
+4. In Xcode, open the Organizer select the Devices view, select **Provisioning Profiles** in the **Library** section in the left pane, and then click the **Import** button at the very bottom of the middle pane. 
 
    ![][15]
 
-   This makes sure that your app can raise toast notifications. These notifications are already enabled in the downloaded quickstart project.
+5. Locate the downloaded provisioning profile and click **Open**.
+
+   ![][16] 
+
+6. Under **Targets**, click **Quickstart**, expand **Code Signing Identity**, then under **Debug** select the new profile.
+
+   ![][17]
+
+This ensures that the Xcode project uses the new profile for code signing. Next, you must upload the certificate to Mobile Services.
+
+<a name="configure"></a><h2><span class="short-header">Configure the service</span>Congfigure Mobile Services to send push requests</h2>
+
+After you have registered your app with APNS and configured your project, you must next configure your mobile service to integrate with APNS.
+
+1. In Keychain Access, right-click the new certificate, click **Export**, name your file QuickstartPusher, select the **.p12** format, then click **Save**.
+
+   ![][28]
+
+  Make a note of the file name and location of the exported certificate.
+
+    <div class="dev-callout"><b>Note</b>
+	<p>This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.</p>
+    </div>
+
+2. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
+
+   ![][18]
+
+3. Click the **Push** tab and click **Upload**.
+
+   ![][19]
+
+   This displays the Upload Certificate dialog.
+
+4. Click **File**, select the exported certificate QuickstartPusher.p12 file, enter the **Password**, make sure that the correct **Mode** is selected, click the check icon, then click **Save**.
+
+   ![][20] 
+
+    <div class="dev-callout"><b>Note</b>
+	<p>This tutorial uses developement certificates.</p>
+    </div>
+
+Both your mobile service is now configured to work with APNS.
+
+<a name="add-push"></a><h2><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
+
+1. In Xcode, open the AppDelegate.h file and add the following property:
+
+        @property (strong, nonatomic) NSString *deviceToken;
+
+    <div class="dev-callout"><b>Note</b>
+	<p>When dynamic schema is enabled on your mobile service, a new 'deviceToken' column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>
+    </div>
+
+2. In AppDelegate.m, replace the following handler method inside the implementation: 
+
+        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
+        (NSDictionary *)launchOptions
+        {
+            // Register for remote notifications
+            [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+            UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+            return YES;
+        }
+
+3. In AppDelegate.m, add the following handler method inside the implementation: 
+
+        // We are registered, so now store the device token (as a string) on the AppDelegate instance
+        // taking care to remove the angle brackets first.
+        - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
+        (NSData *)deviceToken {
+            NSCharacterSet *angleBrackets = [NSCharacterSet characterSetWithCharactersInString:@"<>"];
+            self.deviceToken = [[deviceToken description] stringByTrimmingCharactersInSet:angleBrackets];
+        }
+
+4. In AppDelegate.m, add the following handler method inside the implementation: 
+
+        // Handle any failure to register. In this case we set the deviceToken to an empty
+        // string to prevent the insert from failing.
+        - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:
+        (NSError *)error {
+            NSLog(@"Failed to register for remote notifications: %@", error);
+            self.deviceToken = @"";
+        }
+
+5. In AppDelegate.m, add the following handler method inside the implementation:  
+
+        // Because toast alerts don't work when the app is running, the app handles them.
+        // This uses the userInfo in the payload to display a UIAlertView.
+        - (void)application:(UIApplication *)application didReceiveRemoteNotification:
+        (NSDictionary *)userInfo {
+            NSLog(@"%@", userInfo);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
+            [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
+            @"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+
+5. In TodoListController.m, import the AppDelegate.h file so that you can use the delegate to obtain the device token: 
+
+        #import "AppDelegate.h"
+
+6. In TodoListController.m, modify the **(IBAction)onAdd** action by locating the following line: 
+
+        NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @(NO) }; 
+ 
+   Replace this with the following code:
+
+        // Get a reference to the AppDelegate to easily retrieve the deviceToken
+        AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    
+        NSDictionary *item = @{
+            @"text" : itemText.text,
+            @"complete" : @(NO),
+            // add the device token property to our todo item payload
+            @"deviceToken" : delegate.deviceToken
+        };
+
+   This adds a reference to the **AppDelegate** to obtain the device token and then modifies the request payload to include that device token.
+
+   <div class="dev-callout"><b>Note</b>
+   <p>You must add this code before to the call to the <strong>addItem</strong> method.</p>
+   </div>
+
+Your app is now updated to support push notifications.
 
 <h2><a name="update-scripts"></a><span class="short-header">Update the insert script</span>Update the registered insert script in the Management Portal</h2>
 
 1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
 
-   ![][11]
+   ![][21]
 
 2. In **todoitem**, click the **Script** tab and select **Insert**.
    
-  ![][12]
+  ![][22]
 
    This displays the function that is invoked when an insert occurs in the **TodoItem** table.
 
 3. Replace the insert function with the following code, and then click **Save**:
 
         function insert(item, user, request) {
-            request.execute({
-                success: function() {
-                    // Write to the response and then send the notification in the background
-                    request.respond();
-                    push.wns.sendToastText04(item.channel, {
-                        text1: item.text
-                    }, {
-                        success: function(pushResponse) {
-                            console.log("Sent push:", pushResponse);
-                        }
-                    });
-                }
-            });
+            request.execute();
+            // Set timeout to delay the notification, to provide time for the 
+            // app to be closed on the phone to demonstrate toast notifications
+            setTimeout(function() {
+                push.apns.send(item.deviceToken, {
+                    alert: "Toast: " + item.text,
+                    payload: {
+                        inAppMessage: "Hey, a new item arrived: '" + item.text + "'"
+                    }
+                });
+            }, 2500);
         }
 
-   This registers a new insert script, which uses the [wns object] to send a push notification (the inserted text) to the channel provided in the insert request.
+   This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request. 
+
+
+   <div class="dev-callout"><b>Note</b>
+   <p>This script delays sending the notification to give you time to close the app to receive a toast notification.</p>
+   </div> 
 
 <h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
 
-1. In Visual Studio, press the F5 key to run the app.
+1. Press the **Run** button to build the project and start the app in an iOS capable device, then click **OK** to accept push notifications
 
-2. In the app, type text in **Insert a TodoItem**, and then click **Save**.
+  ![][23]
 
-   ![][13]
+    <div class="dev-callout"><b>Note</b>
+    <p>You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.</p>
+    </div>
 
-   Note that after the insert completes, the app receives a push notification from WNS.
+2. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the plus (**+**) icon.
 
-   ![][14]
+  ![][24]
+
+3. Verify that a notification is received, then click **OK** to dismiss the notification.
+
+  ![][25]
+
+4. Repeat step 2 and immediately close the app, then verify that the following toast is shown.
+
+  ![][26]
+
+You have successfully completed this tutorial.
+
+
 
 ## <a name="next-steps"> </a>Next steps
 
-In this simple example a user receives a push notification with the data that was just inserted. The channel used by WNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Channel table in which to store channel URIs and send a push notification out to all stored channels when an insert occurs. 
+In this simple example a user receives a push notification with the data that was just inserted. The device token used by APNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Devices table in which to store device tokens and send a push notification out to all stored channels when an insert occurs. 
 
 <!-- Anchors. -->
-[Generate client certificates]: #certificates
-[Register your app for push notifications]: #register
+[Generate the certificate signing request]: #certificates
+[Register your app and enable push notifications]: #register
+[Create a provisioning profile for the app]: #profile
 [Configure Mobile Services]: #configure
 [Update scripts to send push notifications]: #update-scripts
 [Add push notifications to the app]: #add-push
@@ -220,26 +337,39 @@ In this simple example a user receives a push notification with the data that wa
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-[1]: ../Media/mobile-services-ios-push-step2.png
-[2]: ../Media/mobile-services-ios-push-step3.png
-[3]: ../Media/mobile-services-ios-push-step4.png
-[4]: ../Media/mobile-live-connect-apps-list.png
-[5]: ../Media/mobile-live-connect-app-details.png
-[6]: ../Media/mobile-services-win8-app-advanced.png
-[7]: ../Media/mobile-services-win8-app-push-connect.png
-[8]: ../Media/mobile-services-win8-app-push-auth.png
-[9]: ../Media/mobile-services-selection.png
-[10]: ../Media/mobile-push-tab.png
-[11]: ../Media/mobile-portal-data-tables.png
-[12]: ../Media/mobile-insert-script-push2.png
-[13]: ../Media/mobile-quickstart-push1.png
-[14]: ../Media/mobile-quickstart-push2.png
-[15]: ../Media/mobile-app-enable-toast-win8.png
+[1]: ../Media/mobile-services-ios-push-step1.png
+[2]: ../Media/mobile-services-ios-push-step2.png
+[3]: ../Media/mobile-services-ios-push-step3.png
+[4]: ../Media/mobile-services-ios-push-step4.png
+[5]: ../Media/mobile-services-ios-push-step5.png
+[6]: ../Media/mobile-services-ios-push-step6.png
+[7]: ../Media/mobile-services-ios-push-step7.png
+[8]: ../Media/mobile-services-ios-push-step8.png
+[9]: ../Media/mobile-services-ios-push-step9.png
+[10]: ../Media/mobile-services-ios-push-step10.png
+[11]: ../Media/mobile-services-ios-push-step11.png
+[12]: ../Media/mobile-services-ios-push-step12.png
+[13]: ../Media/mobile-services-ios-push-step13.png
+[14]: ../Media/mobile-services-ios-push-step14.png
+[15]: ../Media/mobile-services-ios-push-step15.png
+[16]: ../Media/mobile-services-ios-push-step16.png
+[17]: ../Media/mobile-services-ios-push-step17.png
+[18]: ../Media/mobile-services-selection.png
+[19]: ../Media/mobile-push-tab-ios.png
+[20]: ../Media/mobile-push-tab-ios-upload.png
+[21]: ../Media/mobile-portal-data-tables.png
+[22]: ../Media/mobile-insert-script-push2.png
+[23]: ../Media/mobile-quickstart-push1-ios.png
+[24]: ../Media/mobile-quickstart-push2-ios.png
+[25]: ../Media/mobile-quickstart-push3-ios.png
+[26]: ../Media/mobile-quickstart-push4-ios.png
+[28]: ../Media/mobile-services-ios-push-step18.png
 
 <!-- URLs. -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/?LinkId=272456
+[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started-ios.md
 [Get started with data]: ../tutorials/mobile-services-get-started-with-data-ios.md
 [Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-ios.md

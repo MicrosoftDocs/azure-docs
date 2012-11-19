@@ -11,14 +11,14 @@ This topic extends the [previous push notification tutorial][Get started with pu
 
 This tutorial walks you through these steps to update push notifications in your app:
 
-1. [Create the Channel table]
+1. [Create the Devices table]
 2. [Update the app]
 3. [Update server scripts]
 4. [Verify the push notification behavior] 
 
 This tutorial is based on the Mobile Services quickstart and builds on the previous tutorial [Get started with push notifications]. Before you start this tutorial, you must first complete [Get started with push notifications].  
 
-## <a name="create-table"></a>Create a new table
+## <a name="create-table"></a><h2><span class="short-header">Create the table</span>Create the new Devices table</h2>
 
 1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
 
@@ -30,91 +30,83 @@ This tutorial is based on the Mobile Services quickstart and builds on the previ
 
    This displays the **Create new table** dialog.
 
-3. Keeping the default **Anybody with the application key** setting for all permissions, type _Channel_ in **Table name**, and then click the check button.
+3. Keeping the default **Anybody with the application key** setting for all permissions, type _Devices_ in **Table name**, and then click the check button.
 
    ![][2]
 
-  This creates the **Channel** table, which stores the channel URIs used to send push notifications separate from item data.
+  This creates the **Devices** table, which stores the device tokens used to send push notifications separate from item data.
 
 Next, you will modify the push notifications app to store data in this new table instead of in the **TodoItem** table.
 
 ## <a name="update-app"></a>Update your app
 
-1. In Visual Studio 2012 Express for Windows 8, open the project from the tutorial [Get started with push notifications], open up file MainPage.xaml.cs, and remove the **Channel** property from the **TodoItem** class. It should now look like this:
+1. In Xcode, open the XXXXXXX file and remove the **deviceToken ** property from the **TodoItem** class. It should now look like this:
 
-        public class TodoItem
+        // The original class definition
+
+2. Replace the XXXXX event handler method with the original version of this method, as follows:
+
+        // Back to the original save method.
+
+3. Add the following code that creates a new **Devices** class:
+
+        // Need an iOS equivalent of this....
+	    public class Devices
         {
-        	public int Id { get; set; }
-
-        	[DataMember(Name = "text")]
-	        public string Text { get; set; }
-	
-	        [DataMember(Name = "complete")]
-	        public bool Complete { get; set; }
-        }
-
-2. Replace the **ButtonSave_Click** event handler method with the original version of this method, as follows:
-
-        private void ButtonSave_Click(object sender, RoutedEventArgs e)
-        {
-            var todoItem = new TodoItem { Text = TextInput.Text };
-            InsertTodoItem(todoItem);
-        }
-
-3. Add the following code that creates a new **Channel** class:
-
-	    public class Channel
-	    {
-	        public int Id { get; set; }
-	
-	        [DataMember(Name = "uri")]
-	        public string Uri { get; set; }
+	        public int id { get; set; }
+	        public string token { get; set; }
 	    }
 
-4. Open the file App.xaml.cs and replace **AcquirePushChannel** method with the following code:
+4. Open the AppDelegate file and replace the current implementation with the following code:
 
-	    private async void AcquirePushChannel()
-	    {
-	        CurrentChannel = 
-                await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-	
-	        IMobileServiceTable<Channel> channelTable = App.MobileService.GetTable<Channel>();
-	        var channel = new Channel { Uri = CurrentChannel.Uri };
-	        await channelTable.InsertAsync(channel);
+        @implementation AppDelegate
+
+        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+        {
+            [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert];
+            return YES;
         }
 
-     This code inserts the current channel into the Channel table.
+        - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+            NSLog(@"%@", deviceToken);
+            self.deviceToken = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+        }
+
+     This code inserts the token for the current device into the Devices table.
 
 ## <a name="update-scripts"></a>Update server scripts
 
-1. In the Management Portal, click the **Data** tab and then click the **Channel** table. 
+1. In the Management Portal, click the **Data** tab and then click the **Devices** table. 
 
    ![][3]
 
-2. In **channel**, click the **Script** tab and select **Insert**.
+2. In **devices**, click the **Script** tab and select **Insert**.
    
    ![][4]
 
-   This displays the function that is invoked when an insert occurs in the **Channel** table.
+   This displays the function that is invoked when an insert occurs in the **Devices** table.
 
 3. Replace the insert function with the following code, and then click **Save**:
 
-		function insert(item, user, request) {
-			var channelTable = tables.getTable('Channel');
-			channelTable
-				.where({ uri: item.uri })
-				.read({ success: insertChannelIfNotFound });
+	    // This is just a guess....
+	    function insert(item, user, request) {
+	        var devicesTable = tables.getTable('Devices');
+	        devicesTable.where({
+	            token: item.token
+	        }).read({
+	            success: insertTokenIfNotFound
+	        });
 
-	        function insertChannelIfNotFound(existingChannels) {
-        	    if (existingChannels.length > 0) {
-            	    request.respond(200, existingChannels[0]);
-        	    } else {
-            	    request.execute();
-        	    }
-    	    }
+	        function insertTokenIfNotFound(existingTokens) {
+	            if (existingTokens.length > 0) {
+	                request.respond(200, existingTokens[0]);
+	            } else {
+	                request.execute();
+	            }
+	        }
 	    }
 
-   This script checks the **Channel** table for an existing channel with the same URI. The insert only proceeds if no matching channel was found. This prevents duplicate channel records.
+   This script checks the **Devices** table for an existing device with the same token. The insert only proceeds when no matching device is found. This prevents duplicate device records.
 
 4. Click **TodoItem**, click **Script** and select **Insert**. 
 
@@ -122,49 +114,42 @@ Next, you will modify the push notifications app to store data in this new table
 
 5. Replace the insert function with the following code, and then click **Save**:
 
-	    function insert(item, user, request) {
-    	    request.execute({
-        	    success: function() {
-            	    request.respond();
-            	    sendNotifications();
-        	    }
-    	    });
+        // Need to update this with the apns one...
+        function insert(item, user, request) {
+            request.execute({
+                success: function() {
+                    request.respond();
+                    sendNotifications();
+                }
+            });
 
-	        function sendNotifications() {
-        	    var channelTable = tables.getTable('Channel');
-        	    channelTable.read({
-            	    success: function(channels) {
-                	    channels.forEach(function(channel) {
-                    	    push.wns.sendToastText04(channel.uri, {
-                        	    text1: item.text
-                    	    }, {
-                        	    success: function(pushResponse) {
-                            	    console.log("Sent push:", pushResponse);
-                        	    }
-                    	    });
-                	    });
-            	    }
-        	    });
-    	    }
-	    }
+            function sendNotifications() {
+                var devicesTable = tables.getTable('Devices');
+                devicesTable.read({
+                    success: function(devices) {
+                        devices.forEach(function(device) {
+                            push.apns.send(device.token, {
+                                payload: item.text
+                            });
+                        });
+                    }
+                });
+            }
+        }
 
-    This insert script sends a push notification (with the text of the inserted item) to all channels stored in the **Channel** table.
+    This insert script sends a push notification (with the text of the inserted item) to all devices stored in the **Devices** table.
 
 ## <a name="test-app"></a>Test the app
 
-1. In Visual Studio, press the F5 key to run the app.
+1. Press the **Run** button to build the project and start the app in the iPhone emulator, which is the default for this project.
 
-2. In the app, type text in **Insert a TodoItem**, and then click **Save**.
+2. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (+) icon.
 
-   ![][6]
+  ![][23]
 
-   Note that after the insert completes, the app still receives a push notification from WNS.
+3. Verify that a notification is received.
 
-   ![][7]
-
-9. (Optional) Run the app on two machines at the same time, and repeat the previous step. 
-
-    The notification is sent to all running app instances.
+  ![][24]
 
 ## Next steps
 
@@ -180,7 +165,7 @@ This concludes the tutorials that demonstrate the basics of working with push no
   <br/>Learn more about registering and using server scripts.
 
 <!-- Anchors. -->
-[Create the Channel table]: #create-table
+[Create the Devices table]: #create-table
 [Update the app]: #update-app
 [Update server scripts]: #update-scripts
 [Verify the push notification behavior]: #test-app
@@ -189,9 +174,9 @@ This concludes the tutorials that demonstrate the basics of working with push no
 <!-- Images. -->
 [0]: ../Media/mobile-services-selection.png
 [1]: ../Media/mobile-create-table.png
-[2]: ../Media/mobile-create-channel-table.png
-[3]: ../Media/mobile-portal-data-tables-channel.png
-[4]: ../Media/mobile-insert-script-channel.png
+[2]: ../Media/mobile-create-devices-table.png
+[3]: ../Media/mobile-portal-data-tables-devices.png
+[4]: ../Media/mobile-insert-script-devices.png
 [5]: ../Media/mobile-insert-script-push2.png
 [6]: ../Media/mobile-quickstart-push1.png
 [7]: ../Media/mobile-quickstart-push2.png
