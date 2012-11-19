@@ -3,11 +3,9 @@
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
 # Authenticate your Windows Phone 8 app with Live Connect single sign-on
+
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
-    <a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-phone-8" title="Windows Phone" class="current">Windows Phone</a>
-    <a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-phone-8" title="Windows Phone" class="current">Windows Phone</a>
+	<a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-phone-8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-phone-8" title="Windows Phone" class="current">Windows Phone</a>
 </div>	
 
 This topic shows you how to use Live Connect single sign-on to authenticate users in Windows Azure Mobile Services from a Windows Phone 8 app.  In this tutorial, you add authentication to the quickstart project using Live Connect. When successfully authenticated by Live Connect, a logged-in user is welcomed by name and the user ID value is displayed.  
@@ -191,10 +189,10 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 <!-- URLs. -->
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows and Windows Phone]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: ./mobile-services-get-started-wp8.md
-[Get started with data]: ./mobile-services-get-started-with-data-wp8.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-wp8.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-wp8.md
-[Authorize users with scripts]: ./mobile-services-authorize-users-wp8.md
+[Get started with Mobile Services]: ../tutorials/mobile-services-get-started-wp8.md
+[Get started with data]: ../tutorials/mobile-services-get-started-with-data-wp8.md
+[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-wp8.md
+[Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-wp8.md
+[Authorize users with scripts]: ../tutorials/mobile-services-authorize-users-wp8.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/

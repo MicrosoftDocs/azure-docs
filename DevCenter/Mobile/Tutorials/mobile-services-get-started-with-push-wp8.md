@@ -5,9 +5,7 @@
 
 # Get started with push notifications in Mobile Services
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone 8" class="current">Windows Phone 8</a> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone 8" class="current">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a>
 </div>
 
 This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Windows Phone 8 app. 
@@ -170,12 +168,12 @@ In this simple example a user receives a push notification with the data that wa
 <!-- URLs. -->
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
-[Get started with Mobile Services]: ./mobile-services-get-started-wp8.md
-[Get started with data]: ./mobile-services-get-started-with-data-wp8.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-wp8.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-wp8.md
-[Push notifications to app users]: ./mobile-services-push-notifications-to-app-users-wp8.md
-[Authorize users with scripts]: ./mobile-services-authorize-users-wp8.md
+[Get started with Mobile Services]: ../tutorials/mobile-services-get-started-wp8.md
+[Get started with data]: ../tutorials/mobile-services-get-started-with-data-wp8.md
+[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-wp8.md
+[Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-wp8.md
+[Push notifications to app users]: ../tutorials/mobile-services-push-notifications-to-app-users-wp8.md
+[Authorize users with scripts]: ../tutorials/mobile-services-authorize-users-wp8.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [mpns object]: http://go.microsoft.com/fwlink/p/?LinkId=271130

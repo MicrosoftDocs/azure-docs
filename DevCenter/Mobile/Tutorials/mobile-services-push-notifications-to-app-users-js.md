@@ -4,17 +4,10 @@
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14827" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
-<!--<div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet/" title=".NET client version" class="current">C# and XAML</a>
-  <a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-js/" title="JavaScript client version">JavaScript and HTML</a>
-  <span>Tutorial</span>
-</div>-->
-
 # Push notifications to users by using Mobile Services
+
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
-    <a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone 8">Windows Phone 8</a>
+	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-ios" title="iOS">iOS</a>
 </div>
 
 
@@ -184,9 +177,9 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Get started with Mobile Services]: ../get-started/#create-new-service
-[Get started with data]: ./mobile-services-get-started-with-data-js.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-js.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-js.md
+[Get started with data]: ../tutorials/mobile-services-get-started-with-data-js.md
+[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-js.md
+[Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-js.md
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
