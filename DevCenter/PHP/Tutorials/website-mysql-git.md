@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-php-website-with-mysql-and-git" urlDisplayName="Web w/ MySQL + Git" pageTitle="PHP web site with MySQL and Git - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to create a PHP web site that stores data in MySQL and use Git deployment to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-php-website-with-mysql-and-git" urlDisplayName="Web w/ MySQL + Git" pageTitle="PHP web site with MySQL and Git - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to create a PHP web site that stores data in MySQL and use Git deployment to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 
@@ -260,7 +260,7 @@ To publish changes to application, follow these steps:
 [new-mysql-db]: ../../Shared/Media/new_mysql_db.jpg
 [go-to-dashboard]: ../../Shared/Media/go_to_dashboard.png
 [setup-git-publishing]: ../../Shared/Media/setup_git_publishing.png
-[credentials]: ../Media/credentials.jpg
+[credentials]: ../../Shared/Media/git-deployment-credentials.png
 [creating-repo]: ../Media/creating_repo.jpg
 [push-files]: ../Media/push_files.jpg
 [git-instructions]: ../../Shared/Media/git_instructions.png
