@@ -1,6 +1,6 @@
 #How to create PHP web or worker roles
 
-This guide will show you how to create PHP web or worker roles in a Windows development evironment, choose a specific version of PHP from the "built-in" versions available, change the PHP configuration, enable extensions, and finally, how to deploy to Windows Azure. It also describes how to configure a web or worker role to use a PHP runtime (with custom configuration and extensions) that you provide.
+This guide will show you how to create PHP web or worker roles in a Windows development environment, choose a specific version of PHP from the "built-in" versions available, change the PHP configuration, enable extensions, and finally, how to deploy to Windows Azure. It also describes how to configure a web or worker role to use a PHP runtime (with custom configuration and extensions) that you provide.
 
 <h2 id="TableOfContents">Table of Contents</h2>
 * [What are PHP web and worker roles?](#WhatIs)
@@ -13,7 +13,7 @@ This guide will show you how to create PHP web or worker roles in a Windows deve
 * [How to: Publish your application](#Publish) 
 
 <h2 id="WhatIs">What are PHP web and worker roles?</h2>
-Windows Azure provides three execution models for running applications: [Windows Azure Web Sites][execution model-web sites], [Windows Azure Virtual Machines][execution model-vms], and [Windows Azure Cloud Services][execution model-cloud services]. While all three models support PHP, web and worker roles are in the category of Cloud Services. Cloud Services provide *Platform as a Service (PaaS)*, making it easy to focus on your application instead of the platform or infrastructure your application runs on. Within a cloud service, a web role provides a dedicated Internet Information Services (IIS) web-server used for hosting front-end web applications, while a worker role can run asynchronous, long-running or perpetual tasks independent of user interaction or input.
+Windows Azure provides three compute models for running applications: [Windows Azure Web Sites][execution model-web sites], [Windows Azure Virtual Machines][execution model-vms], and [Windows Azure Cloud Services][execution model-cloud services]. All three models support PHP. Cloud Services, which include web and worker roles, provide *Platform as a Service (PaaS)*. Within a cloud service, a web role provides a dedicated Internet Information Services (IIS) web-server used for hosting front-end web applications, while a worker role can run asynchronous, long-running or perpetual tasks independent of user interaction or input.
 
 For more information, see [What is a Cloud Service?].
 
@@ -27,19 +27,19 @@ The first step in creating a PHP web or worker role is to create a Windows Azure
 
 To create a new Windows Azure Servcie project, execute the following command:
 
-	PS C:\>New-AzureServiceProject projectName
+	PS C:\>New-AzureServiceProject myProject
 
-This command will create a new directory (`projectName`) to which you can add web and worker roles.
+This command will create a new directory (`myProject`) to which you can add web and worker roles.
 
 <h2 id="AddRole">How to: Add PHP web or worker roles</h2>
 
-To add a PHP web role to a project, use the following command:
+To add a PHP web role to a project, run the following command from within the project's root directory:
 
-	Add-AzurePHPWebRole roleName
+	PS C:\myProject> Add-AzurePHPWebRole roleName
 
 For a worker role, use this command:
 
-	Add-AzurePHPWorkerRole roleName
+	PS C:\myProject> Add-AzurePHPWorkerRole roleName
 
 <div class="dev-callout"> 
 <b>Note</b> 
@@ -47,11 +47,12 @@ For a worker role, use this command:
 </div>
 
 <h2 id="SpecifyPHPVerison">How to: Specify the built-in PHP Version</h2>
+
 When you add a PHP web or worker role to a project, the project's configuration files are modified so that PHP will be installed on each web or worker instance of your application when it is deployed. To see the version of PHP that will be installed by default, run the following command:
 
-	Get-AzureServiceProjectRoleRuntime
+	PS C:\myProject> Get-AzureServiceProjectRoleRuntime
 
-The output from the command above will look similar to the output below. In this example, the `IsDefault` flag is set to `true` for PHP 5.3.17, indicating that it will be the default PHP version installed. 
+The output from the command above will look similar to what is shown below. In this example, the `IsDefault` flag is set to `true` for PHP 5.3.17, indicating that it will be the default PHP version installed. 
 
 	Runtime Version		PackageUri						IsDefault
 	------- ------- 	----------  					---------
@@ -63,9 +64,9 @@ The output from the command above will look similar to the output below. In this
     PHP 5.3.17          http://nodertncu.blob.core...   True
     PHP 5.4.0           http://nodertncu.blob.core...   False
 
-You can set the PHP runtime version to any of the PHP versions listed in the output above. For example, to set the PHP version (for a role with name `roleName`) to 5.4.0, use the following command:
+You can set the PHP runtime version to any of the PHP versions that are listed. For example, to set the PHP version (for a role with name `roleName`) to 5.4.0, use the following command:
 
-	Set-AzureServiceProjectRole roleName php 5.4.0
+	PS C:\myProject> Set-AzureServiceProjectRole roleName php 5.4.0
 
 <div class="dev-callout"> 
 <b>Note</b> 
@@ -73,6 +74,7 @@ You can set the PHP runtime version to any of the PHP versions listed in the out
 </div>
 
 <h2 id="CustomizePHP">How to: Customize the built-in PHP runtime</h2>
+
 You have complete control over the configuration of the PHP runtime that is installed when you follow the steps above, including modification of `php.ini` settings and enabling of extensions.
 
 To to customize the built-in PHP runtime, follow these steps:
@@ -98,7 +100,7 @@ To configure a web role to use a PHP runtime that you provide, follow the steps 
 
 1. Create a Windows Azure Service project and add a PHP web role as described in the [How to: Create a cloud services project](#CreateProject) and [How to: Add PHP web or worker roles](#AddRole) sections above.
 2. Create a `php` folder in the `bin` folder that is in your web role's root directory, then add your PHP runtime (all binaries, configuration files, subfolders, etc.) to the `php` folder.
-3. (OPTIONAL) If your PHP runtime uses [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers], you will need to configure your web role to install [SQL Server Native Client 2012][sql native client] when it is provisioned. To do this, add the `sqlncli.msi` installer to the `bin` folder in your web role's root directory. You can download the installer here: [sqlncli.msi x64 installer]. The startup script described in the next step will silently run the installer when the role is provisioned. If your PHP runtime does not use the Microsoft Drivers for PHP for SQL Server, you can remove the following line from the script described in the next step:
+3. (OPTIONAL) If your PHP runtime uses [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers], you will need to configure your web role to install [SQL Server Native Client 2012][sql native client] when it is provisioned. To do this, add the `sqlncli.msi` installer to the `bin` folder in your web role's root directory. You can download the installer here: [sqlncli.msi x64 installer]. The startup script described in the next step will silently run the installer when the role is provisioned. If your PHP runtime does not use the Microsoft Drivers for PHP for SQL Server, you can remove the following line from the script shown in the next step:
 
 		msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 
@@ -135,7 +137,7 @@ To configure a worker role to use a PHP runtime that you provide, follow the ste
 
 1. Create a Windows Azure Service project and add a PHP worker role as described in the [How to: Create a cloud services project](#CreateProject) and [How to: Add PHP web or worker roles](#AddRole) sections above.
 2. Create a `php` folder in the worker role's root directory, then add your PHP runtime (all binaries, configuration files, subfolders, etc.) to the `php` folder.
-3. (OPTIONAL) If your PHP runtime uses [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers], you will need to configure your worker role to install [SQL Server Native Client 2012][sql native client] when it is provisioned. To do this, add the `sqlncli.msi` installer to the worker role's root directory. You can download the installer here: [sqlncli.msi x64 installer]. The startup script described in the next step will silently run the installer when the role is provisioned. If your PHP runtime does not use the Microsoft Drivers for PHP for SQL Server, you can remove the following line from the script described in the next step:
+3. (OPTIONAL) If your PHP runtime uses [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers], you will need to configure your worker role to install [SQL Server Native Client 2012][sql native client] when it is provisioned. To do this, add the `sqlncli.msi` installer to the worker role's root directory. You can download the installer here: [sqlncli.msi x64 installer]. The startup script described in the next step will silently run the installer when the role is provisioned. If your PHP runtime does not use the Microsoft Drivers for PHP for SQL Server, you can remove the following line from the script shown in the next step:
 
 		msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 
