@@ -112,11 +112,15 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 8. Double-click the downloaded push certificate **aps_development.cer**.
 
-  ![][10]
+   This installs the new certificate in the Keychain, as shown below:
 
-   This installs the new certificate in the Keychain.
+   ![][10]
 
-Later, you will export the private key from this certificate and upload it to Mobile Services.
+    <div class="dev-callout"><b>Note</b>
+	<p>The name in your certificate might be different, but it will be prefixed with <strong>Apple Development iOS Push Notification Services:</strong>.</p>
+    </div>
+
+Later, you will use this certificate to generate a .p12 file and upload it to Mobile Services to enable authentication with APNS.
 
 <h2><a name="profile"></a><span class="short-header">Provision the app</span>Create a provisioning profile for the app</h2>
  

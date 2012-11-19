@@ -43,39 +43,102 @@ Next, you will modify the push notifications app to store data in this new table
 
 ## <a name="update-app"></a>Update your app
 
-1. In Xcode, open the XXXXXXX file and remove the **deviceToken ** property from the **TodoItem** class. It should now look like this:
+1. In Xcode, open the TodoService.h file and add the following method declarations: 
 
-        // The original class definition
+        // Declare the singleton instance for other users
+        + (TodoService *) getCurrent;
 
-2. Replace the XXXXX event handler method with the original version of this method, as follows:
+        // Declare method to register device token for other users
+        - (void) registerDeviceToken:(NSString *)deviceToken;
 
-        // Back to the original save method.
+   This enables other callers to get an instance of the TodoService and register a deviceToken with the Mobile Service.
 
-3. Add the following code that creates a new **Devices** class:
+2. In TodoService.m, add the following variable and static method inside the @implementation of the TodoService: 
 
-        // Need an iOS equivalent of this....
-	    public class Devices
+        // Add an instance variable to support Singleton creation.
+        TodoService *instance;
+
+        // Add static method to return TodoService instance.
+        + (TodoService *)getCurrent
         {
-	        public int id { get; set; }
-	        public string token { get; set; }
-	    }
-
-4. Open the AppDelegate file and replace the current implementation with the following code:
-
-        @implementation AppDelegate
-
-        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-        {
-            [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert];
-            return YES;
+            if (instance == nil) {
+                instance = [[TodoService alloc] init];
+            }
+            return instance;
         }
 
-        - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-            NSLog(@"%@", deviceToken);
-            self.deviceToken = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+   This enables the singleton pattern for the TodoService class.
+
+3. In TodoService.m, underneath the preceding code, add the following instance method:
+
+        // Instance method to register deviceToken in Devices table.
+        // Called in AppDelegate.m when APNS registration succeeds.
+        - (void)registerDeviceToken:(NSString *)deviceToken
+        {
+            MSTable* devicesTable = [self.client getTable:@"Devices"]; 
+            NSDictionary *device = @{ @"deviceToken" : deviceToken };
+    
+            // Insert the item into the devices table and add to the items array on completion
+            [devicesTable insert:device completion:^(NSDictionary *result, NSError *error) {
+                if (error) {
+                    NSLog(@"ERROR %@", error);
+                }
+            }];
         }
 
-     This code inserts the token for the current device into the Devices table.
+   This allows other callers to register the device token with Mobile Services.
+
+4. In the AppDelegate.m file, add the following import statement:
+
+        #import "TodoService.h"
+
+     This code makes the AppDelegate aware of the TodoService implementation.
+
+5. In AppDelegate.m, replace the **didRegisterForRemoteNotificationsWithDeviceToken** method with the following code:
+
+        // We have registered, so now store the device token (as a string) on the AppDelegate instance
+        // taking care to remove the angle brackets first.
+        - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
+        (NSData *)deviceToken {
+
+            // Register the APNS deviceToken with the Mobile Service Devices table.
+            NSCharacterSet *angleBrackets = [NSCharacterSet characterSetWithCharactersInString:@"<>"];
+            NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:angleBrackets];
+        	
+            TodoService *instance = [TodoService getCurrent];
+            [instance registerDeviceToken:token];
+        }
+
+6. In the TodoListController.m file, in the **(void)viewDidLoad** method, locate the following line of code:
+
+        self.todoService = [[TodoService alloc]init]; 
+
+   Replace this with the following code:
+
+        // Create the todoService.
+        self.todoService = [TodoService getCurrent]; 
+
+   This creates the Mobile Service client inside the wrapped service using the new singleton.
+
+7. In TodoListController.m, locate the **(IBAction)onAdd** method and remove the following code:
+
+        // Get a reference to the AppDelegate to easily retrieve the deviceToken
+        AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    
+        NSDictionary *item = @{
+            @"text" : itemText.text,
+            @"complete" : @(NO),
+            // add the device token property to our todo item payload
+            @"deviceToken" : delegate.deviceToken
+        };
+ 
+   Replace this with the following code:
+
+        // We removed the delegate; this application no longer passes the deviceToken here.
+        // Remove the device token from the payload
+        NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @(NO) };
+
+Your app has now been updated to use the new Devices table to store device tokens that are used to send push notifications back to the device.
 
 ## <a name="update-scripts"></a>Update server scripts
 
@@ -91,23 +154,22 @@ Next, you will modify the push notifications app to store data in this new table
 
 3. Replace the insert function with the following code, and then click **Save**:
 
-	    // This is just a guess....
-	    function insert(item, user, request) {
-	        var devicesTable = tables.getTable('Devices');
-	        devicesTable.where({
-	            token: item.token
-	        }).read({
-	            success: insertTokenIfNotFound
-	        });
+        function insert(item, user, request) {
+           var devicesTable = tables.getTable('Devices');
+           devicesTable.where({
+               token: item.token
+           }).read({
+               success: insertTokenIfNotFound
+           });
 
-	        function insertTokenIfNotFound(existingTokens) {
-	            if (existingTokens.length > 0) {
-	                request.respond(200, existingTokens[0]);
-	            } else {
-	                request.execute();
-	            }
-	        }
-	    }
+           function insertTokenIfNotFound(existingTokens) {
+               if (existingTokens.length > 0) {
+                   request.respond(200, existingTokens[0]);
+               } else {
+                   request.execute();
+               }
+           }
+        }
 
    This script checks the **Devices** table for an existing device with the same token. The insert only proceeds when no matching device is found. This prevents duplicate device records.
 
@@ -117,42 +179,56 @@ Next, you will modify the push notifications app to store data in this new table
 
 5. Replace the insert function with the following code, and then click **Save**:
 
-        // Need to update this with the apns one...
         function insert(item, user, request) {
-            request.execute({
-                success: function() {
-                    request.respond();
-                    sendNotifications();
-                }
-            });
+          request.execute({
+              success: function() {
+                  request.respond();
+                  sendNotifications();
+              }
+          });
 
-            function sendNotifications() {
-                var devicesTable = tables.getTable('Devices');
-                devicesTable.read({
-                    success: function(devices) {
-                        devices.forEach(function(device) {
-                            push.apns.send(device.token, {
-                                payload: item.text
-                            });
-                        });
-                    }
-                });
-            }
-        }
+          function sendNotifications() {
+              var devicesTable = tables.getTable('Devices');
+              devicesTable.read({
+                  success: function(devices) {
+                      // Set timeout to delay the notifications, 
+                      // to provide time for the app to be closed 
+                      // on the phone to demonstrate toast notifications.
+                      setTimeout(function() {
+                          devices.forEach(function(device) {
+
+                              push.apns.send(device.deviceToken, {
+                                  alert: "Toast: " + item.text,
+                                  payload: {
+                                      inAppMessage: 
+                                      "Hey, a new item arrived: '" + 
+                                      item.text + "'"
+                                  }
+                              });
+                          });
+                      }, 2500);
+                  }
+              });
+          }
+      }
 
     This insert script sends a push notification (with the text of the inserted item) to all devices stored in the **Devices** table.
 
-## <a name="test-app"></a>Test the app
+<h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
 
-1. Press the **Run** button to build the project and start the app in the iPhone emulator, which is the default for this project.
-
-2. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (+) icon.
-
-  ![][23]
-
-3. Verify that a notification is received.
+1. Press the **Run** button to build the project and start the app in an iOS capable device, then in the app, type meaningful text, such as _A new Mobile Services task_ and then click the plus (**+**) icon.
 
   ![][24]
+
+3. Verify that a notification is received, then click **OK** to dismiss the notification.
+
+  ![][25]
+
+4. Repeat step 2 and immediately close the app, then verify that the following toast is shown.
+
+  ![][26]
+
+You have successfully completed this tutorial.
 
 ## Next steps
 
@@ -183,6 +259,10 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [5]: ../Media/mobile-insert-script-push2.png
 [6]: ../Media/mobile-quickstart-push1.png
 [7]: ../Media/mobile-quickstart-push2.png
+[23]: ../Media/mobile-quickstart-push1-ios.png
+[24]: ../Media/mobile-quickstart-push2-ios.png
+[25]: ../Media/mobile-quickstart-push3-ios.png
+[26]: ../Media/mobile-quickstart-push4-ios.png
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
