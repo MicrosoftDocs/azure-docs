@@ -4,10 +4,7 @@
 
 # Get started with push notifications in Mobile Services
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone 8">Windows Phone 8</a> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS" class="current">iOS</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone 8">Windows Phone 8</a> <a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS" class="current">iOS</a>
 </div>	
 
 This topic shows you how to use Windows Azure Mobile Services to send push notifications to an iOS app. 
@@ -243,12 +240,12 @@ In this simple example a user receives a push notification with the data that wa
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Get started with Mobile Services]: ./mobile-services-get-started-ios.md
-[Get started with data]: ./mobile-services-get-started-with-data-ios.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-ios.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-ios.md
-[Push notifications to app users]: ./mobile-services-push-notifications-to-app-users-ios.md
-[Authorize users with scripts]: ./mobile-services-authorize-users-ios.md
+[Get started with Mobile Services]: ../tutorials/mobile-services-get-started-ios.md
+[Get started with data]: ../tutorials/mobile-services-get-started-with-data-ios.md
+[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-ios.md
+[Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-ios.md
+[Push notifications to app users]: ../tutorials/mobile-services-push-notifications-to-app-users-ios.md
+[Authorize users with scripts]: ../tutorials/mobile-services-authorize-users-ios.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
