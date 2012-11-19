@@ -288,7 +288,7 @@ Your app is now updated to support push notifications.
         function insert(item, user, request) {
             request.execute();
             // Set timeout to delay the notification, to provide time for the 
-            // app to be closed on the phone to demonstrate toast notifications
+            // app to be closed on the device to demonstrate toast notifications
             setTimeout(function() {
                 push.apns.send(item.deviceToken, {
                     alert: "Toast: " + item.text,
@@ -329,8 +329,6 @@ Your app is now updated to support push notifications.
   ![][26]
 
 You have successfully completed this tutorial.
-
-
 
 ## <a name="next-steps"> </a>Next steps
 
