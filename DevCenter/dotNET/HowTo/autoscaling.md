@@ -538,7 +538,7 @@ autoscaling scenarios:
   [files configured by autoscaling NuGet package]: ../../../DevCenter/dotNet/Media/auotscaling02.png
   [image]: ../../../DevCenter/dotNet/Media/autoscaling03.png
   [Set Copy to Output Directory value]: ../../../DevCenter/dotNet/Media/autoscaling04.png
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [1]: ../../../DevCenter/dotNet/Media/autoscaling05.png
   [2]: ../../../DevCenter/dotNet/Media/autoscaling06.png
   [3]: ../../../DevCenter/dotNet/Media/autoscaling07.png
