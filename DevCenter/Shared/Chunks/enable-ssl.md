@@ -1,3 +1,5 @@
+<properties linkid="dev-shared-common-tasks-enable-ssl" urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service - Windows Azure" metaKeywords="Azure SSL, Azure HTTPS, Windows Azure SSL, Windows Azure HTTPS" metaDescription="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="" editor="mollybos" manager="jeffreyg" />
+
 # Configuring SSL for an Application in Windows Azure
 
 Secure Socket Layer (SSL) encryption is the most commonly used method of
@@ -27,31 +29,20 @@ certificates in Windows Azure:
 
 -   The certificate must contain a private key.
 -   The certificate must be created for key exchange (.pfx file).
--   The certificate's subject name must match the domain used to access
-    the cloud service. You cannot acquire an SSL certificate for the
-    cloudapp.net domain, so the certificate's subject name must match
-    the custom domain name used to access your application.
+-   The certificate's subject name must match the domain used to access the cloud service. You cannot obtain an SSL certificate from a certificate authority (CA) for the cloudapp.net domain. You must acquire a custom domain name to use when access your service. When you request a certificate from a CA the certificate's subject name must match the custom domain name used to access your application. For example, if your custom domain name is **contoso.com** you would request a certificate from your CA for ***.contoso.com** or **www.contoso.com**.
 -   The certificate must use a minimum of 2048-bit encryption.
 
-For test purposes, you can create and use a self-signed certificate. For
-details about how to create a self-signed certificate using IIS Manager,
-See [How to Create a Certificate for a Role][].
+For test purposes, you can create and use a self-signed certificate. For details about how to create a self-signed certificate using IIS Manager, See [How to Create a Certificate for a Role][].
 
-Next, you must include information about the certificate in your service
-definition and service configuration files.
+Next, you must include information about the certificate in your service definition and service configuration files.
 
 <a name="step2"> </a>
 
 ## Step 2: Modify the Service Definition and Configuration Files
 
-Your application must be configured to use the certificate, and an HTTPS
-endpoint must be added. As a result, the service definition and service
-configuration files need to be updated.
+Your application must be configured to use the certificate, and an HTTPS endpoint must be added. As a result, the service definition and service configuration files need to be updated.
 
-1.  In your development environment, open the service definition file
-    (CSDEF), add a **Certificates** section within the **WebRole**
-    section, and include the following information about the
-    certificate:
+1.  In your development environment, open the service definition file (CSDEF), add a **Certificates** section within the **WebRole** section, and include the following information about the certificate:
 
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
@@ -62,13 +53,9 @@ configuration files need to be updated.
         ...
         </WebRole>
 
-    The **Certificates** section defines the name of our certificate,
-    its location, and the name of the store where it is located. We have
-    chosen to store the certificate in the CA (Certificate Authority)
-    store, but you can choose other options as well. See [How to Associate a Certificate with a Service][] for more information.
+    The **Certificates** section defines the name of our certificate, its location, and the name of the store where it is located. We have Authority) store, but you can choose other options as well. See [How to Associate a Certificate with a Service][] for more information.
 
-2.  In your service definition file, add an **InputEndpoint** element
-    within the **Endpoints** section to enable HTTPS:
+2.  In your service definition file, add an **InputEndpoint** element within the **Endpoints** section to enable HTTPS:
 
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
@@ -79,9 +66,7 @@ configuration files need to be updated.
         ...
         </WebRole>
 
-3.  In your service definition file, add a **Binding** element within
-    the **Sites** section. This adds an HTTPS binding to map the
-    endpoint to your site:
+3.  In your service definition file, add a **Binding** element within the **Sites** section. This adds an HTTPS binding to map the endpoint to your site:
 
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
@@ -95,13 +80,9 @@ configuration files need to be updated.
         ...
         </WebRole>
 
-    All of the required changes to the service definition file have been
-    completed, but you still need to add the certificate information to
-    the service configuration file.
+    All of the required changes to the service definition file have been completed, but you still need to add the certificate information to the service configuration file.
 
-4.  In your service configuration file (CSCFG), add a **Certificates**
-    section within the **Role** section, replacing the sample thumbprint
-    value below with that of your certificate:
+4.  In your service configuration file (CSCFG), add a **Certificates** section within the **Role** section, replacing the sample thumbprint value below with that of your certificate:
 
         <Role name="Deployment">
         ...
@@ -113,11 +94,7 @@ configuration files need to be updated.
         ...
         </Role>
 
-Now that the service definition and service configuration files have
-been updated, package your deployment for uploading to Windows Azure. If
-you are using **cspack**, ensure that you don't use the
-**/generateConfigurationFile** flag, as that will overwrite the
-certificate information you just inserted.
+Now that the service definition and service configuration files have been updated, package your deployment for uploading to Windows Azure. If you are using **cspack**, ensure that you don't use the **/generateConfigurationFile** flag, as that will overwrite the certificate information you just inserted.
 
 <a name="step3"> </a>
 
