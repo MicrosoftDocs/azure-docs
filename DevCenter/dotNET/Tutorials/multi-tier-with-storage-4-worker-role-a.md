@@ -1,10 +1,10 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-4-worker-role-a" urlDisplayName="Step 4: Worker Role A" pageTitle="Multi-tier web site tutorial - Step 4: Worker role A" metaKeywords="Windows Azure tutorial, .NET multi-tier app, multi-tier architecture" metaDescription="The fourth tutorial in a series that teaches how to configure your computer for Windows Azure development and deploy the Email Service app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-
 <div chunk="../chunks/article-left-menu.md" />
-# Building worker role A (email scheduler) for the Azure Email Service application - 4 of 5. 
 
-This is the fifth tutorial in a series of five that show how to build and deploy the Azure Email Service sample application.  For information about the application and the tutorial series, see the [first tutorial in the series][firsttutorial].
+# Building worker role A (email scheduler) for the Windows Azure Email Service application - 4 of 5. 
+
+This is the fourth tutorial in a series of five that show how to build and deploy the Windows Azure Email Service sample application.  For information about the application and the tutorial series, see the [first tutorial in the series][firsttutorial].
 
 In this tutorial you'll learn:
 
@@ -32,7 +32,9 @@ You need a reference to the web project because that is where the entity classes
 
 <h2><a name="addmodel"></a><span class="short-header">Add SendEmail model</span>Add the SendEmail model</h2>
 
-Worker role A will work with the `SendEmail` rows in the `Message` table, so it needs a model class to use in Windows Azure Table queries.  Since both worker role A and B work with these `Message` table rows, and since all of the other model classes are defined in the web project, it makes sense to define this one in the web project also.
+Worker role A will work with the `SendEmail` rows in the `Message` table, so it needs a model class to use in Windows Azure Table queries.  Since both worker role A and B work with these `Message` table rows, and since all of the other model classes are defined in the web project, it makes sense to define this one in the web project also. The following image shows a `Message` row and three `SendEmail` rows in the `Message` table.
+
+   ![message table with sendmail][mtas-sendMailTbl]
 
 1. In **Solution Explorer**, right-click the Models folder in the web project and choose **Add Existing Item**.
 
@@ -78,9 +80,9 @@ Worker role A will work with the `SendEmail` rows in the `Message` table, so it 
 	        public bool? EmailSent { get; set; }
 	    }
 	
-   The code here is similar to the other model classes, except that no DataAnnotations attributes are included because there is no UI associated with this model -- it is not used in an MVC controller.
+   The code here is similar to the other model classes, except that no DataAnnotations attributes are included because there is no UI associated with this model -- it is not used in an MVC controller. Notice the `MessageRef` property is just an alias for the partition key, and `EmailAddress` is an alias for the row key.
 
-   These rows in the Message table serve several purposes:
+   These rows in the `Message` table serve several purposes:
    * They provide all of the information that worker role B needs in order to send a single email.
    * They track whether an email has been sent, in order to prevent duplicates from being sent in case a worker role restarts after a failure.
    * They make it possible for worker role A to determine when all emails for a message have been sent, so that it can be marked as `Complete`.
@@ -128,55 +130,32 @@ Worker role A will work with the `SendEmail` rows in the `Message` table, so it 
 
 3. Open WorkerRoleA.cs and examine the code.
 
-   The `OnStart` method initializes the context objects that you need in order to work with Windows Azure storage entities. It also makes sure that all of the tables, queues, and blob containers that you'll be using in the `Run` method exist. The code that performs these tasks is similar to what you saw earlier in the MVC controller constructors. You'll configure the connection strings that this method uses later.
+   The `OnStart` method initializes the context objects that you need in order to work with Windows Azure storage entities. It also makes sure that all of the tables, queues, and blob containers that you'll be using in the `Run` method exist. The code that performs these tasks is similar to what you saw earlier in the MVC controller constructors. You'll configure the connection string that this method uses later.
 
+   
         public override bool OnStart()
         {
-            // Set the maximum number of concurrent connections 
-            ServicePointManager.DefaultConnectionLimit = 12;
+            ServicePointManager.DefaultConnectionLimit = Environment.ProcessorCount;
 
-            ConfigDiagnostics();
-            Trace.TraceInformation("Initializing storage account");
+            ConfigureDiagnostics();
+            Trace.TraceInformation("Initializing storage account in WorkerA");
             var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
 
             CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
             this.sendEmailQueue = queueClient.GetQueueReference("azuremailqueue");
-            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+            var tableClient = storageAccount.CreateCloudTableClient();
             tableServiceContext = tableClient.GetDataServiceContext();
 
             // Create if not exists for queue, blob container, SentEmail table. 
-            bool storageInitialized = false;
-             while (!storageInitialized)
-            {
-                try
-                {
-
-                    sendEmailQueue.CreateIfNotExist();
-                    tableClient.CreateTableIfNotExist("Message");
-                    tableClient.CreateTableIfNotExist("MailingList");
-                    storageInitialized = true;
-                }
-                catch (StorageClientException e)
-                {
-                    if (e.ErrorCode == StorageErrorCode.TransportError)
-                    {
-                        Trace.TraceError(
-                          "Storage services initialization failure. "
-                        + "Check your storage account configuration settings. If running locally, "
-                        + "ensure that the Development Storage service is running. Message: '{0}'",
-                        e.Message);
-                        System.Threading.Thread.Sleep(5000);
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-            }
+            sendEmailQueue.CreateIfNotExist();
+            tableClient.CreateTableIfNotExist("Message");
+            tableClient.CreateTableIfNotExist("MailingList");
 
             return base.OnStart();
         }
 
+   (You may have seen earlier documentation on working with Windows Azure Storage that shows the initialization code in a loop that checks for transport errors. This is no longer necessary because the API now has a built-in retry mechanism that absorbs transient network failures for up to 3 additional attempts.)
+   
    The `ConfigureDiagnostics` method that the `OnStart` method calls sets up tracing so that you will be able to see the output from Trace.Information and Trace.Error methods.
 
         private void ConfigureDiagnostics()
@@ -196,85 +175,150 @@ Worker role A will work with the `SendEmail` rows in the `Message` table, so it 
                 config);
         }
 
-   The `Run` method processes performs two functions:
+
+   	The `OnStop` method is called when the web role is shutting down for one of the following reasons:
+
+	* Windows Azure needs to reboot the virtual machine that hosts you your worker role or the physical machine that hosts the virtual machine.
+	* You stopped your cloud service by using the **Stop** button on the Windows Azure Management Portal.
+	* You deployed an update to your cloud service project.
+
+    `The `OnStop` method sets the global variable `onStopCalled` to true`, then it sleeps for two minutes in order to give the `Run` method plenty of time to finish any tasks it has started.
+
+        public override void OnStop()
+        {
+            onStopCalled = true;
+            Trace.TraceInformation("OnStop called");
+            // Give the Run() method 2 minutes for a graceful exit.
+            System.Threading.Thread.Sleep(1000 * 60 * 2);
+        }
+
+    The Run method monitors the variable `onStopCalled` and stops pulling any new work items to process when that variable changes to `true`. This coordination between the `OnStop` and `Run` methods enables a gracefull shutdown of the worker process.
+
+	Windows Azure periodically installs operating system updates in order to ensure that the platform is secure, reliable, and performs well. These updates typically require the machines that host your cloud service to shut down and reboot. For more information see the following resources:
+
+	* [Windows Azure Host Updates: Why, When, and How](http://blogs.technet.com/b/markrussinovich/archive/2012/08/22/3515679.aspx "Azure Updates")
+	* [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
+
+   The `Run` method performs two functions:
 
    * Scans the Message table looking for messages scheduled to be sent today or earlier, for which queue work items haven't been created yet.
 
-   * Scans the Message table looking for messages that have a status indicating that all of the queue work items were created but the all of the emails haven't been sent yet. If it finds one, it scans the Message table to see if all emails were sent, and if they were, it updates the status to `Completed`.
+   * Scans the Message table looking for messages that have a status indicating that all of the queue work items were created but not all of the emails have been sent yet. If it finds one, it scans the `Message` table to see if all emails were sent, and if they were, it updates the status to `Completed`.
+
+	The method also checks the global variable `onStopCalled`. When the variable is `true`, the method stops pulling new work items to process, and it returns when already-started tasks are completed.
 
         public override void Run()
         {
-            Trace.TraceInformation("WorkerRoleA posting queue messages");
-
-            // In the loop we'll look for messages scheduled to be sent today or earlier.
-            var tomorrow = DateTime.Today.AddDays(1.0);
+            Trace.TraceInformation("WorkerRoleA entering Run()");
 
             while (true)
             {
+                var tomorrow = DateTime.Today.AddDays(1.0);
+
+                // If OnStop has been called, return to do a graceful shutdown.
+                if (onStopCalled == true)
+                {
+                    Trace.TraceInformation("onStopCalled WorkerRoleB");
+                    return;
+                }
+
+                // Retrieve all messages that are scheduled for tomorrow or earlier
+                // and are in Pending or Queueing status.
                 var messagesToProcess =
                     (from e in tableServiceContext.CreateQuery<Message>("Message")
                      where e.RowKey == "Message" && e.ScheduledDate < tomorrow
-                       && e.Status == "Pending"
+                       && (e.Status == "Pending" || e.Status == "Queueing")
                      select e);
 
+                // Process each message (queue emails to be sent).
                 foreach (Message messageToProcess in messagesToProcess)
                 {
-                    ProcessMessage(messageToProcess);
+                    try
+                    {
+                        // Set message status to Queueing before beginning, and
+                        // set status to Processing when all emails for the message
+                        // have been queued.
+                        messageToProcess.Status = "Queueing";
+                        tableServiceContext.UpdateObject(messageToProcess);
+                        tableServiceContext.SaveChangesWithRetries();
 
-                    messageToProcess.Status = "Processing";
-                    tableServiceContext.UpdateObject(messageToProcess);
-                    tableServiceContext.SaveChangesWithRetries();
+                        ProcessMessage(messageToProcess);
+
+                        messageToProcess.Status = "Processing";
+                        tableServiceContext.UpdateObject(messageToProcess);
+                        tableServiceContext.SaveChangesWithRetries();
+                    }
+                    catch (Exception ex)
+                    {
+                        string err = ex.Message;
+                        if (ex.InnerException != null)
+                        {
+                            err += " Inner Exception: " + ex.InnerException.Message;
+                        }
+                        Trace.TraceError(err);
+                        // Don't fill up Trace storage if we have a bug in queue process loop.
+                        System.Threading.Thread.Sleep(1000 * 60);
+                    }
                 }
 
-                // If message is marked Proccessing, check if every email has been sent
-                // If all emails are sent, change status from "Processing" to "Complete"
-                
-                var messageMarkedProcessing =
+                // Retrieve all messages that are in Processing status.
+                var messagesMarkedProcessing =
                   (from e in tableServiceContext.CreateQuery<Message>("Message")
                    where e.RowKey == "Message" && e.Status == "Processing"
                    select e);
 
-                foreach (Message messageToPossiblyChangeStatus in messageMarkedProcessing)
+                // For each message that is in Processing status,
+                // check if every email has been sent. If all emails have been sent
+                // for a message, change its status from "Processing" to "Complete"
+                foreach (Message messageToPossiblyChangeStatus in messagesMarkedProcessing)
                 {
                     CheckAndUpdateStatusIfComplete(messageToPossiblyChangeStatus);
                 }
-                // Sleep for one minute to minimize query costs.
-                // Subscribers will have up to a one minute additional delay.
-                System.Threading.Thread.Sleep(1000*60);
+
+                // Sleep for one minute to minimize query costs. 
+                System.Threading.Thread.Sleep(1000 * 60);
             }
         }
 
-   The first loop processes a query for `Message` rows in the `Message` table that are still in `Pending` status and have scheduled date before tomorrow. 
+   The first loop processes a query for `Message` rows in the `Message` table that have scheduled date before tomorrow and are in `Pending` or `Queueing` status:
 
-                var messagesToProcess =
-                    (from e in tableServiceContext.CreateQuery<Message>("Message")
-                     where e.RowKey == "Message" && e.ScheduledDate < tomorrow
-                       && e.Status == "Pending"
-                     select e);
+        var messagesToProcess =
+            (from e in tableServiceContext.CreateQuery<Message>("Message")
+             where e.RowKey == "Message" && e.ScheduledDate < tomorrow
+               && (e.Status == "Pending" || e.Status == "Queueing")
+             select e);
 
-   In the loop it calls the ProcessMessage method to create the queue work items to send emails for the message, then it sets the `Message` row status to `Processing`.
+   If a message is in `Pending` status, processing has not yet begun; if it is in `Queueing` status, processing did begun earlier but was interrupted before all queue messages were created.
 
-                foreach (Message messageToProcess in messagesToProcess)
-                {
-                    ProcessMessage(messageToProcess);
+   In the loop that processes each message returned by this query, the code sets the `Message` row status to `Queueing`, calls the `ProcessMessage` method to create the queue work items to send emails for the message, then sets the `Message` row status to `Processing`.
 
-                    messageToProcess.Status = "Processing";
-                    tableServiceContext.UpdateObject(messageToProcess);
-                    tableServiceContext.SaveChangesWithRetries();
-                }
+            messageToProcess.Status = "Queueing";
+            tableServiceContext.UpdateObject(messageToProcess);
+            tableServiceContext.SaveChangesWithRetries();
 
-   If worker role A goes down while it is creating queue work items for a message, when it starts up again the Message row will still be in Pending status, which means it will be picked up by this query again. In that case it will start all over creating queue work items. Some queue work items will then be duplicates of the ones created before the failure happened, but as you will see when you get to worker role B, the `EmailSent` flag in the email address rows of the `Message` table keeps duplicate emails from being sent.
+            ProcessMessage(messageToProcess);
+
+            messageToProcess.Status = "Processing";
+            tableServiceContext.UpdateObject(messageToProcess);
+            tableServiceContext.SaveChangesWithRetries();
+
+   If worker role A aborts while it is creating queue work items for a message, when it starts up again the Message row will be in `Queueing` status, which means it will be picked up by this query again. In that case it will start all over creating queue work items. Some queue work items will then be duplicates of the ones created before the failure happened, but as you will see when you get to worker role B, the `EmailSent` flag in the email address rows of the `Message` table keeps duplicate emails from being sent.
 
    The second loop processes a query for `Message` rows in the `Message` table that are in `Processing` status.
  
-                var messageMarkedProcessing =
+                var messagesMarkedProcessing =
                   (from e in tableServiceContext.CreateQuery<Message>("Message")
                    where e.RowKey == "Message" && e.Status == "Processing"
                    select e);
 
    In the loop it calls a method that checks if all of the emails for the message were sent, and if they were, it sets the Message row status to `Complete`.
 
-   After completing both loops, the code sleeps for one minute.  There is a minimal charge for every Windows Azure Storage query, even if it doesn't return any data, so continuously re-scanning would unnecessarily add to your Windows Azure expenses.
+   After completing both loops, the code sleeps for one minute.  
+
+                // Sleep for one minute to minimize query costs.
+                System.Threading.Thread.Sleep(1000*60);
+
+   There is a minimal charge for every Windows Azure Storage query, even if it doesn't return any data, so continuously re-scanning would unnecessarily add to your Windows Azure expenses. As this tutorial is being written, the cost is $0.10 per million transactions (a query counts as a transaction), so the sleep time could be made much less than a minute and the cost of scanning the tables for messages to be sent would still be minimal. For information about pricing, see the [Windows Azure pricing calculator][WApricingcalculator] page.
 
    The `ProcessMessage` method gets all of the email addresses for the destination email list, and creates a queue work item for each email address. As it creates queue work items, it also creates `SendEmail` rows in the `Message` table. These rows provide worker role B with the information it needs to send emails and includes an `EmailSent` property that tracks whether each email has been sent.
 
@@ -285,7 +329,6 @@ Worker role A will work with the `SendEmail` rows in the `Message` table, so it 
                 (from e in tableServiceContext.CreateQuery<MailingList>("MailingList")
                  where e.PartitionKey == messageToProcess.ListName && e.RowKey == "MailingList"
                  select e).Single();
-
             // Get email addresses for this Mailing List.
             var subscribers =
                 (from e in tableServiceContext.CreateQuery<Subscriber>("MailingList")
@@ -294,12 +337,13 @@ Worker role A will work with the `SendEmail` rows in the `Message` table, so it 
 
             foreach (Subscriber subscriber in subscribers)
             {
-                if (subscriber.Verified == false)                  {
+                if (subscriber.Verified == false)
+                {
                     Trace.TraceInformation("Subscriber " + subscriber.EmailAddress + " Not Verified, so not enqueueing ");
                     continue;
                 }
 
-                // Create a row in the SentEmail table.              
+                // Create a SendEmail row in the Message table.              
                 var sendEmailRow = new SendEmail
                 {
                     EmailAddress = subscriber.EmailAddress,
@@ -309,20 +353,27 @@ Worker role A will work with the `SendEmail` rows in the `Message` table, so it 
                     FromEmailAddress = mailingList.FromEmailAddress,
                     SubjectLine = messageToProcess.SubjectLine
                 };
+
+                // When we try to add a row, an exception might happen if this worker role went 
+                // down after processing some of the email addresses and then restarted.
+                // In that case the row might already be present.
+                // If the exception happens, we log it and continue in order to create
+                // the queue message, because it's possible that a row was created during
+                // the first run before the failure but a queue message wasn't.
+                // This might result in creating a duplicate queue message, but we nevertheless
+                // don't send a duplicate email because worker role B checks the EmailSent
+                // property of the SendEmail row before it sends an email.
                 try
                 {
                     tableServiceContext.AddObject("Message", sendEmailRow);
                     tableServiceContext.SaveChangesWithRetries();
                 }
-                // This exception will happen if this worker role goes down after creating some of
-                // the rows/queue work items for emails to be sent, then restarts. In that case
-                // the row will already be present and we get an exception when SaveChanges executes.
                 catch (DataServiceRequestException DSRex)
                 {
-                    string err = DSRex.Message;
+                    string err = "Error creating SendEmail row:  " + DSRex.Message;
                     if (DSRex.InnerException != null)
                     {
-                        err += " InnerEx: " + DSRex.InnerException;
+                        err += " Inner Exception: " + DSRex.InnerException;
                     }
                     Trace.TraceError(err);
                 }
@@ -335,7 +386,8 @@ Worker role A will work with the `SendEmail` rows in the `Message` table, so it 
                 sendEmailQueue.AddMessage(queueMessage);
             }
 
-            Trace.TraceInformation("Created queue message and tracking row.");
+            Trace.TraceInformation("ProcessMessage end PK: "
+                + messageToProcess.PartitionKey);
         }
 
    The code first gets the `MailingList` row from the `MailingList` table for the destination mailing list.  This row has the "from" email address which needs to be provided to worker role B for sending emails.
@@ -374,20 +426,17 @@ Worker role A will work with the `SendEmail` rows in the `Message` table, so it 
                     tableServiceContext.AddObject("Message", sendEmailRow);
                     tableServiceContext.SaveChangesWithRetries();
                 }
-                // This exception will happen if this worker role goes down after creating some of
-                // the rows/queue work items for emails to be sent, then restarts. In that case
-                // the row will already be present and we get an exception when SaveChanges executes.
                 catch (DataServiceRequestException DSRex)
-                {
-                    string err = DSRex.Message;
+                { 
+                    string err = "Error creating SendEmail row:  " + DSRex.Message;
                     if (DSRex.InnerException != null)
                     {
-                        err += " InnerEx: " + DSRex.InnerException;
+                        err += " Inner Exception: " + DSRex.InnerException;
                     }
                     Trace.TraceError(err);
                 }
 
-   The last task to be done for each email address is to create the queue work item that will trigger worker role B to send and email. The queue work item contains the `MessageRef` value and the email address, which are the partition key and row key to the `SendEmail` row in the `Message` table. This row contains all of the information worker role B needs in order to send an email.
+   The last task to be done for each email address is to create the queue work item that will trigger worker role B to send an email. The queue work item contains the `MessageRef` value and the email address, which are the partition key and row key to the `SendEmail` row in the `Message` table. This row contains all of the information worker role B needs in order to send an email.
 
                 // Create the queue message.
                 string queueMessageString =
@@ -407,12 +456,10 @@ Worker role A will work with the `SendEmail` rows in the `Message` table, so it 
                  e.RowKey != "Message" &&
                  e.EmailSent == false
                  select e).ToList();
-
             if (emailsToBeSent.Count > 0)
             {
                 return;
             }
-
             messageToCheck.Status = "Complete";
             tableServiceContext.UpdateObject(messageToCheck);
             tableServiceContext.SaveChangesWithRetries();
@@ -500,6 +547,8 @@ You can follow the same procedure that you used for the MVC Web Role to add the 
 
 You have now built worker role A and verified that it creates the queue messages and table rows that worker role B needs in order to send emails. In the [next tutorial][tut5], you'll build and test worker role B.
 
+For links to additional resources for working with Windows Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
+
 [createsolution]: #cloudproject
 [mailinglist]: #mailinglist
 [message]: #message
@@ -509,6 +558,7 @@ You have now built worker role A and verified that it creates the queue messages
 
 [firsttutorial]: http://windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
 [tut5]: http://windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
+[WApricingcalculator]: http://www.windowsazure.com/en-us/pricing/calculator/?scenario=data-management
 
 [mtas-new-worker-role-project]: ../Media/mtas-new-worker-role-project.png
 [mtas-add-new-role-project-dialog]: ../Media/mtas-add-new-role-project-dialog.png
@@ -522,5 +572,5 @@ You have now built worker role A and verified that it creates the queue messages
 [mtas-worker-a-tst-ase-queue-detail]: ../Media/mtas-worker-a-test-ase-queue-detail.png
 [mtas-worker-a-test-ase-message-table]: ../Media/mtas-worker-a-test-ase-message-table.png
 [mtas-worker-a-test-ase-sendemail-row]: ../Media/mtas-worker-a-test-ase-sendemail-row.png
-
+[mtas-sendMailTbl]: ../Media/mtas-sendMailTbl.png
 
