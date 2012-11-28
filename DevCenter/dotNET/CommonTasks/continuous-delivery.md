@@ -1,4 +1,4 @@
-<properties linkid="dev-net-common-tasks-continuous-delivery" urldisplayname="Continuous Delivery" headerexpose="" pagetitle="Continuous Delivery for Cloud Applications in Windows Azure" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-net-common-tasks-continuous-delivery" urldisplayname="Continuous Delivery" headerexpose="" pagetitle="Continuous Delivery for Cloud Applications in Windows Azure" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 <div chunk="../chunks/article-left-menu.md" />
 # Continuous Delivery for Cloud Services in Windows Azure
@@ -787,7 +787,7 @@ Write-Output "$(Get-Date –f $timeStampFormat) - Azure Cloud Service deploy scr
   [0]: ../../../DevCenter/dotNet/Media/tfs-01.png
   [2]: ../../../DevCenter/dotNet/Media/tfs-02.png
   [Windows Azure PowerShell Cmdlets]: http://go.microsoft.com/fwlink/?LinkId=256262
-  [the .publishsettings file]: https://windows.azure.com/download/publishprofile.aspx?wa=wsignin1.0
+  [the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
   [end of this article]: #script
   [http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx
   [3]: ../media/common-task-tfs-03.png
