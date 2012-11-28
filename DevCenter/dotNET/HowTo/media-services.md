@@ -26,7 +26,7 @@ You can also program Media Services using the OData-based REST APIs. You can bui
 -   [Next Steps][]
  
 
-<h2><span class="short header"><a name="what-are"></a>What are Media Services?</span>What are Media Services?</h2> 
+<h2><a name="what-are"></a><span class="short header">What are Media Services?</span>What are Media Services?</h2> 
 Windows Azure Media Services form an extensible media platform that integrates the best of the Microsoft Media Platform and third-party media components in Windows Azure. Media Services provide a media pipeline in the cloud that enables industry partners to extend or replace component technologies. ISVs and media providers can use Media Services to build end-to-end media solutions. This overview describes the general architecture and common development scenarios for Media Services.
 
 The following diagram illustrates the basic Media Services architecture.
@@ -116,7 +116,7 @@ Several Microsoft partners ship SDKs for the Android platform that add the capab
 
 <br />
 
-<h2><span class="short header"><a name="setup-account"> </a>Setting up an account</span>Setting up a Windows Azure account for Media Services</h2>
+<h2><a name="setup-account"></a><span class="short header">Setting up an account</span>Setting up a Windows Azure account for Media Services</h2>
 
 To set up your Media Services account, you can use one of the following options:
 
@@ -124,7 +124,7 @@ To set up your Media Services account, you can use one of the following options:
 
 -   Use a manual setup process with Powershell scripts. This option is also helpful for users who want to automate the account setup process. For more information see [Media Services Preview Account Setup][].
 
-<h2><span class="short header"><a name="setup-dev"> </a>Setting up for Media Services development</span></h2> 
+<h2><a name="setup-dev"> </a><span class="short header">Setting up for Media Services development</span></h2> 
 This section contains general prerequisites for Media Services development using the Media Services SDK for .NET. It also shows developers how to create a Visual Studio application for Media Services SDK development. 
 
 ###Prerequisites
@@ -174,7 +174,7 @@ This section shows you how to create a project in Visual Studio and set it up fo
 
 At this point, you are ready to start developing a Media Services application.    
    
-<h2><span class="short header"><a name="connect"> </a>Connect to Media Services</span>How to: Connect to Media Services programmatically</h2> 
+<h2><a name="connect"> </a><span class="short header">Connect to Media Services</span>How to: Connect to Media Services programmatically</h2> 
 
 Nearly everything you do in Media Services programming requires you to have a reference to the server context object. The server context gives you programmatic access to all Media Services programming objects.
 
@@ -188,7 +188,7 @@ To get a reference to the server context, return a new instance of the context t
 
 It is often useful to define a module-level variable of type **CloudMediaContext** to hold a reference to the server context returned by a method such as **GetContext**. The rest of the code examples in this topic use a variable called **_context** to refer to the server context. 
 
-<h2><span class="short header"><a name="create-asset"> </a>Create an encrypted Asset and upload to storage</span>How to: Create an encrypted Asset and upload to storage</h2>
+<h2><a name="create-asset"> </a><span class="short header">Create an encrypted Asset and upload to storage</span>How to: Create an encrypted Asset and upload to storage</h2>
 
 To get media content into Media Services, first create an asset and add files to it, and then upload the asset. This process is also called ingesting content. You can create an asset, add files, and upload it with a single line of code as in the following example. To encrypt an asset for transport and storage to protect its contents, pass the parameter **AssetCreationOptions.StorageEncrypted** to the method. To keep the asset unencrypted, pass the parameter **AssetCreationOptions.None** to the method.
 
@@ -197,7 +197,7 @@ The following line of code creates an asset with a single file, encrypts the ass
 	IAsset theAsset = _context.Assets.Create(inputMediaFilePath,
 	    AssetCreationOptions.StorageEncrypted);
 
-<h2><span class="short header"><a name="get-mediaproc"> </a>Get a Media Processor instance</span>How to: Get a Media Processor instance</h2>
+<h2><a name="get-mediaproc"> </a><span class="short header">Get a Media Processor instance</span>How to: Get a Media Processor instance</h2>
 
 In Media Services a media processor is a component that handles a specific processing task, such as encoding, format conversion, encrypting, or decrypting media content. You typically create a media processor when you are creating a task to encode, encrypt, or convert the format of media content.
 
@@ -257,7 +257,7 @@ To create a media processor instance, create a method like the following example
 	    return processor;
 	}
 
-<h2><span class="short header"><a name="encode-asset"> </a>Encode an Asset</span>How to: Encode an Asset</h2>
+<h2><a name="encode-asset"> </a><span class="short header">Encode an Asset</span>How to: Encode an Asset</h2>
 
 For media content on the server, you can encode the content with a number of media encodings and formats using Windows Azure Media Encoder. You can also use an encoder provided by a Media Services partner; third-party encoders are available through the [Windows Azure Marketplace][]. You can specify the details of encoding tasks by using preset strings defined for your encoder, or by using preset configuration files. 
 
@@ -303,7 +303,7 @@ The following method combines the previous steps to encode a media file:
 	    job.Submit();
 	}
 
-<h2><span class="short header"><a name="playready"> </a>Protect an Asset</span>How to: Protect an Asset with PlayReady Protection</h2>
+<h2><a name="playready"> </a><span class="short header">Protect an Asset</span>How to: Protect an Asset with PlayReady Protection</h2>
 
 In Media Services you can submit a job that integrates with Microsoft PlayReady Protection to encrypt a set of media files. The code in this section takes several streaming files from an input folder, creates a task and encrypts them with PlayReady Protection. 
 
@@ -359,7 +359,7 @@ The following code example shows how to implement the steps:
 	}
 
 
-<h2><span class="short header"><a name="manage-asset"> </a>Manage Assets</span>How to: Manage Assets in storage</h2>
+<h2><a name="manage-asset"> </a><span class="short header">Manage Assets</span>How to: Manage Assets in storage</h2>
 
 After you create media assets and upload them to Media Services, you can access and manage the assets on the server. You can also manage other objects on the server that are part of Media Services, including jobs, tasks, access policies, locators, and more.
 
@@ -421,7 +421,7 @@ To list all assets that you have available on the server, you can use code simil
 	}
 
 
-<h2><span class="short header"><a name="download-asset"> </a>Deliver an Asset by download</span>How to: Deliver an Asset by download</h2>
+<h2><a name="download-asset"> </a><span class="short header">Deliver an Asset by download</span>How to: Deliver an Asset by download</h2>
 
 This section shows options for delivering media assets that you have previously added to Media Services. You can deliver Media Services content in numerous application scenarios. You can download media assets, or access them by using locator URLs (these are the delivery scenarios described in this topic). You can send media content to another application or to another content provider. For improved performance and scalability, you can also deliver content by using a Content Delivery Network (CDN), such as the Windows Azure CDN.
 
@@ -450,7 +450,7 @@ The code example in this section shows how to download media assets from Media S
 	    }
 	}
 
-<h2><span class="short header"><a name="stream-asset"> </a>Deliver smooth streaming content</span>How to: Deliver streaming content</h2>
+<h2><a name="stream-asset"> </a><span class="short header">Deliver smooth streaming content</span>How to: Deliver streaming content</h2>
 
 In addition to downloading media content from Media Services, you can use adaptive bitrate streaming to deliver content. For example, you can create a direct URL, called a locator, to streaming content on a Media Services origin server. Client applications such as Microsoft Silverlight can play the streaming content directly if you provide the locator.
 
@@ -497,7 +497,7 @@ The following code shows how to implement the steps:
 	    Console.WriteLine(urlForClientStreaming);
 	}
 
-<h2><span class="short header"><a name="stream-HLS"> </a>Deliver Apple HLS streaming content</span>How to: Deliver Apple HLS streaming content</h2>
+<h2><a name="stream-HLS"> </a><span class="short header">Deliver Apple HLS streaming content</span>How to: Deliver Apple HLS streaming content</h2>
 
 A previous section shows how to create a locator to streaming media content on a Media Services origin server. This section shows how to create a locator to Apple HTTP Live Streaming (HLS) content on a Media Services origin server. Using this approach, you can build a URL to Apple HLS content, and provide it to Apple iOS devices for playback. The basic approach to building the locator URL is the same. Build a locator to the Apple HLS streaming asset path on an origin server, and then build a full URL that links to the manifest for the streaming content.
 
@@ -540,7 +540,7 @@ The following code shows how to implement the steps:
 	    Console.WriteLine();
 	}
 
-<h2><span class="short header"><a name="enable-cdn"> </a>Enable Windows Azure CDN support</span>How to: Enable Windows Azure CDN support</h2>
+<h2><a name="enable-cdn"> </a><span class="short header">Enable Windows Azure CDN support</span>How to: Enable Windows Azure CDN support</h2>
 
 You can use a Content Delivery Network (CDN) to improve performance, scalability, and availability of content provided over the Internet. This section describes how to enable a Windows Azure CDN with a Media Services origin server.
 
@@ -563,7 +563,7 @@ To enable your Windows Azure CDN endpoint with a Media Services origin, send ema
     4. Select the CDN endpoint associated with the storage account.  
     5. In the **Properties** for the CDN endpoint, copy the value for the **Default HTTP endpoint**.  This is the value to supply in your email.  
 
-<h2><span class="short header"><a name="next-steps"> </a>Next steps</span>Next steps</h2>
+<h2><a name="next-steps"> </a><span class="short header">Next steps</span>Next steps</h2>
 
 Now that you have learned how to set up for Media Services development and perform some typical programming tasks, see the following resources to learn more about building Media Services applications.
 
