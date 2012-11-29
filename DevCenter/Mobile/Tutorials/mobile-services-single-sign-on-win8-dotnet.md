@@ -168,6 +168,10 @@ Next, you will update the app to authenticate users with Live Connect before req
 
 7. Update string _<< INSERT REDIRECT DOMAIN HERE >>_ from the previous step with the redirect domain that was specified when setting up the app in Live Connect, in the format **https://_service-name_.azure-mobile.net/**.
 
+    <div class="dev-callout"><b>Note</b>
+	<p>In a Windows Store app, an instance of the <strong>LiveAuthClient</strong> class is created by passing the redirect domain URI value to the class constructor. In a <a href="/en-us/develop/mobile/tutorials/single-sign-on-wp8/">Windows Phone 8 app</a>, the same class is instantiated by passing the client ID.</p>
+    </div>
+
 8. Replace the existing **OnNavigatedTo** event handler with the handler that calls the new **Authenticate** method:
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)

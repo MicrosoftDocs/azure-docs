@@ -14,7 +14,7 @@ This tutorial walks you through these basic steps to enable email functionality:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 
-<a name="sign-up"></a><h2><span class="short-header">Create a new account</span>Create a new SendGrid account<h2>
+<a name="sign-up"></a><h2><span class="short-header">Create a new account</span>Create a new SendGrid account</h2>
 
 <div chunk="../../Shared/Chunks/sendgrid-sign-up.md" />
 
