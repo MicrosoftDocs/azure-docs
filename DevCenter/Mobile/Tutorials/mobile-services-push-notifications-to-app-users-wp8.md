@@ -92,7 +92,7 @@ Next, you will modify the push notifications app to store data in this new table
            channelTable.InsertAsync(channel);
         }
 
-     This code inserts the a channel into the Channel table.
+     This code inserts a channel into the Channel table.
 
 ## <a name="update-scripts"></a>Update server scripts
 

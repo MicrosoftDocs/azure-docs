@@ -21,14 +21,14 @@ This topic shows you how to register your apps to be able to use Twitter to auth
    ![][2]
 
     <div class="dev-callout"><b>Note</b>
-    <p>The **Website** value is required but is not used.</p>
+    <p>The <strong>Website</strong> value is required but is not used.</p>
     </div> 
 
 3.  At the bottom the page, read and accept the terms, type the correct CAPTCHA words, and then click **Create your Twitter application**. 
 
    ![][3]
 
-   This reigsters the app displays the application details.
+   This registers the app displays the application details.
 
 6. Make a note of the values of **Consumer key** and **Consumer secret**. 
 
