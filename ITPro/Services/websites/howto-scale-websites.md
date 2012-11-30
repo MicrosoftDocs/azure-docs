@@ -22,7 +22,8 @@ When a website is first created it runs in **Free** website mode, meaning that i
 
 A single instance of a website configured to run in Free mode will provide somewhat limited performance when compared to other configurations but should still provide sufficient performance to complete development tasks or proof of concept work. 
 
-If a website that is configured to run in a single instance using Free website mode is put into production, the resources available to the website may prove to be inadequate as the average number of client requests increases over time.
+If a website that is configured to run in a single instance using Free website mode is put into production, the resources available to the website may prove to be inadequate as the average number of client requests increases over time. If the CPU time quota is exceeded for the website, all websites in the same subscription are stopped (Website instances normally unload after going idle for 20 minutes). The websites are started again at the next quota interval. 
+
 
 Before putting a website into production, estimate the load that the website will be expected to handle and consider scaling up / scaling out the website by changing configuration options available on the website's **Scale** management page.
 
