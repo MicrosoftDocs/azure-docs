@@ -47,9 +47,12 @@ Follow these steps to change configuration options for a website.
 	<li><strong>App Settings</strong> – Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be 
 	injected into your .NET configuration AppSettings at runtime, overriding existing settings. For PHP and Node sites these settings will be 
 	available as environment variables at runtime.</li>
-	<li><strong>Connections Strings</strong> – View connection strings for linked resources. For .NET sites, these connection strings will be injected into your 
-	.NET configuration connectionStrings settings at runtime, overriding existing entries where the key equals the linked database name. For PHP 
-	and Node sites these settings will be available as environment variables at runtime.<br />
+	<li><strong>Connections Strings</strong> – View connection strings for linked resources. For .NET sites, these connection strings will be injected into your .NET configuration connectionStrings settings at runtime, overriding existing entries where the key equals the linked database name. For PHP 
+	and Node sites these settings will be available as environment variables at runtime, prefixed with the connection type. The environment variable prefixes are as follows: <br />
+<ul><li>SqlServer: SQLCONNSTR_</li>
+<li>MySql: MYSQLCONNSTR_</li>
+<li>Sql Azure: SQLAZURECONNSTR_</li>
+<li>Custom: CUSTOMCONNSTR_</li></ul>For example, if a MySql connection string were named connectionstring1, it would be accessed through the environment variable <code>MYSQLCONNSTR_connectionString1</code>.
 	<strong>Note</strong><br />Connection strings are created when you link a database resource to a website and are read only when viewed on the 
 	configuration management page.</li>
 	<li><strong>Default Documents</strong> – Add your website's default document to this list if it is not already in the list. A website’s default 
