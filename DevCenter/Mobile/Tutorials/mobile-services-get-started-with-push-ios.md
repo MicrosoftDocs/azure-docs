@@ -155,7 +155,7 @@ Later, you will use this certificate to generate a .p12 file and upload it to Mo
 
 This ensures that the Xcode project uses the new profile for code signing. Next, you must upload the certificate to Mobile Services.
 
-<a name="configure"></a><h2><span class="short-header">Configure the service</span>Congfigure Mobile Services to send push requests</h2>
+<a name="configure"></a><h2><span class="short-header">Configure the service</span>Configure Mobile Services to send push requests</h2>
 
 After you have registered your app with APNS and configured your project, you must next configure your mobile service to integrate with APNS.
 
