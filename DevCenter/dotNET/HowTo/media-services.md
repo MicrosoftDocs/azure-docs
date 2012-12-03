@@ -18,6 +18,7 @@ The most up-to-date Media Services SDK documentation is located [here](http://ms
 -   [How to: Connect to Media Services Programmatically][]
 -   [How to: Create an Encrypted Asset and Upload to Storage][]
 -   [How to: Get a Media Processor Instance][]
+-   [How to: Check Job Progress][]
 -   [How to: Encode an Asset][]
 -   [How to: Protect an Asset with PlayReady Protection][]
 -   [How to: Manage Assets in Storage][]
