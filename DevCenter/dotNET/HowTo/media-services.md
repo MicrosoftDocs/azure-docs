@@ -73,7 +73,6 @@ Media Services support several common media development scenarios as described i
   </tbody>
 </table>
 
-<br/>
 ###Media Services Client Development
 Extend the reach of your Media Services solution by using SDKs and player frameworks to build media client applications. These clients are for developers who want to build Media Services applications that offer compelling user experiences across a range of devices and platforms. Depending on the devices that you want to build client applications for, there are options for SDKs and player frameworks available from Microsoft and other third-party partners.  
 
@@ -116,9 +115,6 @@ For iOS devices including iPhone, iPod, and iPad, Microsoft ships an SDK that yo
 ####Android devices
 Several Microsoft partners ship SDKs for the Android platform that add the capability to play back Smooth Streaming on an Android device. Please [email Microsoft](mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices) for more details on the partners.
 
-
-<br />
-
 <h2><a name="setup-account"></a><span class="short header">Setting up an account</span>Setting up a Windows Azure account for Media Services</h2>
 
 To set up your Media Services account, use the Windows Azure Management Portal (recommended). See the topic [How to Create a Media Services Account][]. After creating your account in the Management Portal, you are ready to set up your computer for Media Services development. 
@@ -142,29 +138,20 @@ This section shows you how to create a project in Visual Studio and set it up fo
    1. Create a new C# **Console Application** in Visual Studio 2012 or Visual Studio 2010 SP1. Enter the **Name**, **Location**, and **Solution name**, and then click **OK**.
    2. Add a reference to **System.Configuration** assembly. To add a reference to **System.Configuration**, in **Solution Explorer**, right-click the **References** node and select **Add Reference…**. In the **Manage References** dialog, select **System.Configuration** and click **OK**.
    3. Add references to **Windows Azure SDK for .NET.** (Microsoft.WindowsAzure.StorageClient.dll), **Windows Azure Media Services SDK for .NET** (Microsoft.WindowsAzure.MediaServices.Client.dll), and **WCF Data Services 5.0 for OData V3** (Microsoft.Data.OData.dll) libraries using the [windowsazure.mediaservices Nuget](http://nuget.org/packages/windowsazure.mediaservices) package. 
-<br/>
-To add references using Nuget, do the following. In Visual Studio **Main Menu**, select **TOOLS** -> **Library Package Manager** -> **Package Manager Console**. In the console window type **Install-Package windowsazure.mediaservices** and press **Enter**.
+
+	To add references using Nuget, do the following. In Visual Studio **Main Menu**, select **TOOLS** -> **Library Package Manager** -> **Package Manager Console**. In the console window type **Install-Package windowsazure.mediaservices** and press **Enter**.
    4. Overwrite the existing using statements at the beginning of the Program.cs file with the following code.
-<br/>
-   using System;
-<br/>
-using System.Linq;
-<br/>
-using System.Configuration;
-<br/>
-using System.IO;
-<br/>
-using System.Text;
-<br/>
-using System.Threading;
-<br/>
-using System.Threading.Tasks;
-<br/>
-using System.Collections.Generic;
-<br/>
-using Microsoft.WindowsAzure;
-<br/>
-using Microsoft.WindowsAzure.MediaServices.Client;
+
+   		using System;
+		using System.Linq;
+		using System.Configuration;
+		using System.IO;
+		using System.Text;
+		using System.Threading;
+		using System.Threading.Tasks;
+		using System.Collections.Generic;
+		using Microsoft.WindowsAzure;
+		using Microsoft.WindowsAzure.MediaServices.Client;
 
 At this point, you are ready to start developing a Media Services application.    
    
@@ -237,7 +224,7 @@ static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCr
 
     return asset;
 }
-</pre></code>
+</code></pre>
 
 The following code shows how to upload multiple files.
 
@@ -264,7 +251,7 @@ static public IAsset CreateAssetAndUploadMultipleFiles( AssetCreationOptions ass
         throw new FileNotFoundException(String.Format("No files in directory, check folderPath: {0}", folderPath));
     }
 
-    var uploadTasks = new List<Task>();
+    var uploadTasks = new List&lt;Task&gt;();
     foreach (var filePath in filePaths)
     {
         var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
@@ -298,7 +285,7 @@ static void blobTransferClient_TransferProgressChanged(object sender, BlobTransf
     }
 }
 
-</pre></code>
+</code></pre>
 
 <h2><a name="get-mediaproc"> </a><span class="short header">Get a Media Processor instance</span>How to: Get a Media Processor instance</h2>
 
@@ -312,8 +299,6 @@ The following table provides the name and description of each available media pr
        <th>Media Processor Name</th>
        <th>Description</th>
     </tr>
-  </thead>
-  <tbody>
   </thead>
   <tbody>
     <tr>
@@ -350,7 +335,7 @@ private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcess
 
     return processor;
 }
-</pre></code>
+</code></pre>
 
 <h2><a name="check-job-progress"> </a><span class="short header">Check Job Progress</span>How to: Check Job Progress</h2>
 
@@ -431,7 +416,7 @@ private static string JobIdAsFileName(string jobID)
 {
     return jobID.Replace(":", "_");
 }
-</pre></code>
+</code></pre>
 <h2><a name="encode-asset"> </a><span class="short header">Encode an Asset</span>How to: Encode an Asset</h2>
 
 For media content on the server, you can encode the content with a number of media encodings and formats using Windows Azure Media Encoder. You can also use an encoder provided by a Media Services partner; third-party encoders are available through the [Windows Azure Marketplace][]. You can specify the details of encoding tasks by using preset strings defined for your encoder, or by using preset configuration files. 
@@ -476,7 +461,7 @@ static IJob CreateEncodingJob(string inputMediaFilePath, string outputFolder)
 
     // Use the following event handler to check job progress.  
     job.StateChanged += new
-            EventHandler<JobStateChangedEventArgs>(StateChanged);
+            EventHandler&lt;JobStateChangedEventArgs&gt;(StateChanged);
 
     // Launch the job.
     job.Submit();
@@ -506,7 +491,7 @@ static IJob CreateEncodingJob(string inputMediaFilePath, string outputFolder)
 }
 
 
-</pre></code>
+</code></pre>
 
 <h2><a name="playready"> </a><span class="short header">Protect an Asset</span>How to: Protect an Asset with PlayReady Protection</h2>
 
@@ -581,7 +566,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
 
     // Use the following event handler to check job progress. 
     job.StateChanged += new
-            EventHandler<JobStateChangedEventArgs>(StateChanged);
+            EventHandler&lt;JobStateChangedEventArgs&gt;(StateChanged);
     // Launch the job.
     job.Submit();
 
@@ -608,7 +593,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
     return job;
 }
 
-</pre></code>
+</code></pre>
 
 
 <h2><a name="manage-asset"> </a><span class="short header">Manage Assets</span>How to: Manage Assets in storage</h2>
@@ -629,7 +614,7 @@ static IAsset GetAsset(string assetId)
 
     return asset;
 }
-</pre></code> 
+</code></pre> 
 
 To list all assets that you have available on the server, you can use code similar to the following example. Iterate through the assets collection, and optionally, you can display details about each asset.
 <pre><code> 
@@ -668,14 +653,14 @@ static void ListAssets()
     // Display output in console.
     Console.Write(builder.ToString());
 }
-</pre></code> 
+</code></pre>
 The following example deletes all the assets from the collection.
 <pre><code>
 foreach (IAsset asset in _context.Assets)
 {
     asset.Delete();
 }
-</pre></code>
+</code></pre>
 
 For more information, see [Manage Assets](http://msdn.microsoft.com/en-us/library/jj129589.aspx).
 
@@ -723,7 +708,7 @@ static void DownloadProgress(object sender, DownloadProgressChangedEventArgs e)
 {
     Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
 }
-</pre></code>
+</code></pre>
 <h2><a name="stream-asset"> </a><span class="short header">Deliver smooth streaming content</span>How to: Deliver streaming content</h2>
 
 In addition to downloading media content from Media Services, you can use adaptive bitrate streaming to deliver content. For example, you can create a direct URL, called a locator, to streaming content on a Media Services origin server. Client applications such as Microsoft Silverlight can play the streaming content directly if you provide the locator.
@@ -784,7 +769,7 @@ private static ILocator GetStreamingOriginLocator( string targetAssetID)
     // Return the locator. 
     return originLocator;
 }
-</pre></code>
+</code></pre>
 
 <h2><a name="stream-HLS"> </a><span class="short header">Deliver Apple HLS streaming content</span>How to: Deliver Apple HLS streaming content</h2>
 
@@ -838,7 +823,7 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
     // Return the locator. 
     return originLocator;
 }
-</pre></code>
+</code></pre>
 
 For more information, see [Deliver Assets](http://msdn.microsoft.com/en-us/library/jj129575.aspx).
 
