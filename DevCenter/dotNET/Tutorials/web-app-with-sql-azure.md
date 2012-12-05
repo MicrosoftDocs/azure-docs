@@ -1,4 +1,4 @@
-<properties linkid="dev-net-tutorials-web-app-with-sql-azure" urlDisplayName="Web Site with SQL Database" pageTitle=".NET Web Site with SQL Database - Windows Azure tutorial" metaKeywords="Azure hello world tutorial, Azure getting started tutorial, SQL Database tutorial, Azure .NET hello world tutorial, Azure C# hello world tutorial, SQL Azure C# tutorial" metaDescription="A tutorial that helps you develop an ASP.NET MVC 4 website with a SQL Database back-end deploy it to Windows Azure." metaCanonical=" " disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="dev-net-tutorials-web-app-with-sql-azure" urlDisplayName="Web Site with SQL Database" pageTitle=".NET Web Site with SQL Database - Windows Azure tutorial" metaKeywords="Windows Azure hello world tutorial, Windows Azure getting started tutorial, Windows Azure SQL Database tutorial, Windows Azure .NET hello world tutorial, Windows Azure C# hello world tutorial, SQL Azure C# tutorial" metaDescription="A tutorial that helps you develop an ASP.NET MVC 4 web application with a SQL Database back-end deploy it to Windows Azure." metaCanonical=" " disqusComments="1" umbracoNaviHide="1" />
 
 
 
@@ -111,7 +111,7 @@ SQL Database (formerly known as SQL Azure) is a cloud-based relational database 
 
    The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon, and the number of databases appears next to the **SQL Databases** icon.
 
-   ![Web Sites page of Management Portal, website created][Image018]<br/>
+   ![Web Sites page of Management Portal, web site created][Image018]<br/>
 
 
 
@@ -432,7 +432,7 @@ To learn how to deploy an application to a Windows Azure Cloud Service, see [The
 * You want to use Remote Desktop Connection to access the web server that the application runs on. 
 * Your application is multi-tier and you want to distribute work across multiple virtual servers (web and workers).
 
-Another way to store data in a Windows Azure application is to use Windows Azure Storage Services, which provides non-relational data storage in the form of blobs and tables. The to-do list application could have been designed to use Windows Azure Storage instead of SQL Database. For more information about both SQL Database and Windows Azure Storage, see [Data Storage Offerings on Windows Azure][WindowsAzureDataStorageOfferings].
+Another way to store data in a Windows Azure application is to use Windows Azure Blob, Queue, and Table services, which provide non-relational data storage in the form of blobs and tables. The to-do list application could have been designed to use Windows Azure Storage instead of SQL Database. For more information about both SQL Database and Windows Azure Storage, see [Data Storage Offerings on Windows Azure][WindowsAzureDataStorageOfferings].
 
 To learn more about how to use SQL Database, see the following resources:
 
