@@ -69,11 +69,11 @@ SQL Database (formerly known as SQL Azure) is a cloud-based relational database 
 
    ![New button in Management Portal][Image011]
 
-2. Click **Web Site**, and then click **Create with Database**.
+2. Click **Web Site**, and then click **Custom Create**.
 
    ![Create with Database link in Management Portal][Image013]
 
-   The **New Web Site - Create with Database** wizard opens. The **Create with Database** wizard enables you to create a web site and a database at the same time.
+   The **New Web Site - Custom Create** wizard opens. The **Custom Create** wizard enables you to create a web site and a database at the same time.
 
 4. In the **Create Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application.
 
