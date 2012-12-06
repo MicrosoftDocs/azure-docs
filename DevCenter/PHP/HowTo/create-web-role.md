@@ -1,4 +1,6 @@
-#How to create PHP web or worker roles
+<properties linkid="dev-php-how-to-cloud-services" urlDisplayName="PHP Cloud Services" pageTitle="How to create PHP web and worker roles" metaKeywords="Azure PHP cloud services, web role, worker role" metaDescription="Learn how to create PHP web and worker roles in Windows Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer=“bswan" editor="mollybos" manager="paulettm" />
+
+#How to create PHP web and worker roles
 
 This guide will show you how to create PHP web or worker roles in a Windows development environment, choose a specific version of PHP from the "built-in" versions available, change the PHP configuration, enable extensions, and finally, how to deploy to Windows Azure. It also describes how to configure a web or worker role to use a PHP runtime (with custom configuration and extensions) that you provide.
 
