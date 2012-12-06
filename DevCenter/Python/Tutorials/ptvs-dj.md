@@ -33,8 +33,9 @@ A screenshot of the completed application is below:
 
 Before you can begin developing your Windows Azure application, you need to get the tools and set up your development environment. For details about getting and installing the Windows Azure SDK for Python, see [How to Install Python][].
 
-NOTE
-This tutorial requires Python 2.7 and Django 1.4. These versions are included in the current Windows Azure SDK for Python.
+**Note:** This tutorial requires Python 2.7 and Django 1.4. These versions are included in the current Windows Azure SDK for Python.
+
+**Note:** Deployment to the compute emulator and/or Windows Azure requires the full version of Visual Studio (the integrated shell isn't supported).
 
 ## Creating a New Django Application
 
@@ -118,7 +119,11 @@ You can now **click the stop button** and move onto running in the Windows Azure
 
 ## Running Your Application Locally in the Emulator	
 
-To run inside of the compute emulator you simply need to add a Windows Azure deployment project to your solution for the Django project.  This can be done by right clicking on the Django project node in Solution Explorer and selecting **"Add Windows Azure Cloud Service Project"**:
+To run inside of the compute emulator you simply need to add a Windows Azure deployment project to your solution for the Django project.  
+
+**Note:** Deployment to the compute emulator and/or Windows Azure requires the full version of Visual Studio (the integrated shell isn't supported).
+
+This can be done by right clicking on the Django project node in Solution Explorer and selecting **"Add Windows Azure Cloud Service Project"**:
 
 ![Add Deployment Project](../Media/ptvs-dj-AddDeploymentProject.png)
 
