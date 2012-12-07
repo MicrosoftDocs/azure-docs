@@ -1,3 +1,4 @@
+<properties linkid="dev-nodejs-nodeversion" urlDisplayName="Node.js Versions" pageTitle="Specifying a Node.js version - Windows Azure" metaKeywords="node.js version azure" metaDescription="Learn how to specify the Node.js version used by your application" metaCanonical="http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/node-version" umbracoNaviHide="0" disqusComments="1" writer="larryfr" editor="mollybos" manager="paulettm" /> 
 
 When hosting a Node.js application, you may want to ensure that your application uses a specific version of Node.js. There are several ways to accomplish this for applications hosted on Windows Azure.
 
@@ -5,7 +6,11 @@ When hosting a Node.js application, you may want to ensure that your application
 
 Currently Windows Azure provides Node.js versions 0.6.17, 0.6.20, and 0.8.4. Unless otherwise specified, 0.6.20 is the default version that will be used.
 
-If you are hosting your application in a Windows Azure Cloud Service (web or worker role,) and it is the first time you have deployed the application, Windows Azure will attempt to use the same version of Node.js as you have installed on your development environment if it matches one of the versions available on Windows Azure by default.
+<div class="dev-callout">
+<strong>Note</strong>
+<p>If you are hosting your application in a Windows Azure Cloud Service (web or worker role,) and it is the first time you have deployed the application, Windows Azure will attempt to use the same version of Node.js as you have installed on your development environment if it matches one of the default versions available on Windows Azure.</p>
+</div>
+
 
 ##Versioning with package.json
 
@@ -21,32 +26,25 @@ Since 0.6.22 is not one of the versions available in the hosting environment, th
 
 ##Versioning Cloud Services with PowerShell
 
- If you are hosting the application in a Cloud Service, and are deploying the application using Windows Azure PowerShell, you can override the default Node.js version using the **Set-AzureServiceProjectRole** PowerShell cmdlet. For example:
+If you are hosting the application in a Cloud Service, and are deploying the application using Windows Azure PowerShell, you can override the default Node.js version by using the **Set-AzureServiceProjectRole** PowerShell cmdlet. For example:
 
 	Set-AzureServiceProjectRole WebRole1 node 0.8.4
 
-If you are using a Windows development system, you can use the **Get-AzureServiceProjectRoleRuntime** to retrieve a list of Node.js versions available for applications hosted as a Cloud Service.
+You can also use the **Get-AzureServiceProjectRoleRuntime** to retrieve a list of Node.js versions available for applications hosted as a Cloud Service.
 
-##Using a custom version
+##Using a custom version with Windows Azure Web Sites
 
-While the hosting environment provides several versions of Node.js, you may want to use a version that is not available by default. This can be accomplished for both Windows Azure Web Sites and Windows Azure Cloud Services using the **iisnode.yml** file.
+While Windows Azure provides several default versions of Node.js, you may want to use a version that is not provided by default. If your application is hosted as a Windows Azure Web Site, you can accomplish this by using the **iisnode.yml** file. The following steps walk through the process of using a custom version of Node.Js with a Windows Azure Web Site:
 
-Note
-For Cloud Services, the <strong>iisnode.yml</strong> file can only be used with applications that are hosted in a Web Role.
+1. Create a new directory, and then create a **server.js** file within the directory. The **server.js** file should contain the following:
 
-To verify that you are using correct Node.js version, you can use a server.js file such as the following:
+		var http = require('http');
+		http.createServer(function(req,res) {
+		  res.writeHead(200, {'Content-Type': 'text/html'});
+		  res.end('Hello from Windows Azure running node version: ' + process.version + '</br>');
+		}).listen(process.env.PORT || 3000);
 
-	var http = require('http');
-	http.createServer(function(req,res) {
-	  res.writeHead(200, {'Content-Type': 'text/html'});
-	  res.end('Hello from Windows Azure running node version: ' + process.version + '</br>');
-	}).listen(process.env.PORT || 3000);
-
-This will display the Node.js version being used when you browse the web site.
-
-###Custom version with Windows Azure Web Sites
-
-1. Create a new directory and **server.js** file. The **server.js** file should contain the example code above.
+	This will display the Node.js version being used when you browse the web site.
 
 2. Create a new Web Site and note the name of the site. For example, the following uses the [Windows Azure Command-line tools] to create a new Windows Azure Web Site named **mywebsite**, and then enable a Git repository for the web site.
 
@@ -62,12 +60,9 @@ This will display the Node.js version being used when you browse the web site.
 
 5. Create an **iisnode.yml** file in the same directory as the **server.js** file, and then add the following content to the **iisnode.yml** file:
 
-		nodeProcessCommandLine: "C:\DWASFiles\Sites\mywebsite\VirtualDirectory0\site\wwwroot\bin\node.exe" "D:\Program Files (x86)\iisnode\logger.js"
+		nodeProcessCommandLine: "D:\home\site\wwwroot\bin\node.exe"
 
-	Note
-	You must replace the *mywebsite* value with the web site name you specified when creating your Windows Azure Web Site.
-
-	This path is where the **node.exe** file downloaded earlier will be located once you have published your application to the Windows Azure Web Site you created
+	This path is where the **node.exe** file within your project will be located once you have published your application to the Windows Azure Web Site.
 
 6. Publish your application. For example, since I created a new web site with the --git parameter earlier, the following commands will add the application files to my local Git repository, and then push them to the web site repository:
 
@@ -75,4 +70,13 @@ This will display the Node.js version being used when you browse the web site.
 		git commit -m "testing node v0.8.1"
 		git push azure master
 
-###Custom version with Windows Azure Cloud Services
+	After the application has published, open the web site in a browser. You should see a message stating "Hello from Windows Azure running node version: v0.8.1".
+
+##Next Steps
+
+Now that you understand how to specify the version of Node.js used by your application, learn how to [work with modules], [build and deploy a Node.js Web Site], and [How to use the Windows Azure Command-Line Tools for Mac and Linux].
+
+[How to use the Windows Azure Command-Line Tools for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
+[Windows Azure Command-line tools]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
+[work with modules]: /en-us/develop/nodejs/common-tasks/node-modules
+[build and deploy a Node.js Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/

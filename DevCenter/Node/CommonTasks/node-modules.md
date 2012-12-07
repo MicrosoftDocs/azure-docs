@@ -1,3 +1,4 @@
+<properties linkid="dev-nodejs-nodemodules" urlDisplayName="Using Node.js Modules" pageTitle="Working with Node.js modules - Windows Azure" metaKeywords="node.js modules azure" metaDescription="Learn how to use Node.js modules with Windows Azure Web Sites and Cloud Services" metaCanonical="http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/node-modules" umbracoNaviHide="0" disqusComments="1" writer="larryfr" editor="mollybos" manager="paulettm" /> 
 
 This document provides guidance on using Node.js modules with applications hosted on Windows Azure. It provides guidance on ensuring that your application uses a specific version of module as well as using native modules with Windows Azure.
 
@@ -12,9 +13,8 @@ The following table is a quick reference of what module deployment methods are s
 <th>Cloud Service</th>
 </tr>
 <tr>
-<td>native_module folder</td>
-<td>Yes
-<br>Required for native modules</td>
+<td>node_modules folder</td>
+<td>Yes</td>
 <td>Yes</td>
 </tr>
 <tr>
@@ -28,7 +28,7 @@ The following table is a quick reference of what module deployment methods are s
 <td>No</td>
 </tr>
 </table>
-<br>
+
 <div class="dev-callout">
 <strong>Note</strong>
 <p>Windows Azure Virtual Machines are not included in the above table, as the deployment experience will be dependent on the operating system hosted by the Virtual Machine.</p>
@@ -44,9 +44,11 @@ When deploying an application, it is usually undesirable to deploy the **node\_m
 
 ###Native Modules
 
-While most modules are simply plain-text JavaScript files, some modules are platform-specific binary images. These modules are compiled at install time, usually by using Python and node-gyp. One specific limitation of Windows Azure Web Sites is that while it natively understands how to install modules specified in a **package.json** or **npm-shrinkwrap.json** file, it does not provide Python or node-gyp.
+While most modules are simply plain-text JavaScript files, some modules are platform-specific binary images. These modules are compiled at install time, usually by using Python and node-gyp. One specific limitation of Windows Azure Web Sites is that while it natively understands how to install modules specified in a **package.json** or **npm-shrinkwrap.json** file, it does not provide Python or node-gyp and cannot build native modules.
 
-If you are deploying to a Windows Azure Web Site, and you are using a native module, you must first install the module locally on a Windows development system and then deploy the **node\_modules** folder with your application. This will copy the compiled native module to the Windows Azure Web Site environment instead of attempting to build it for that environment.
+Since Windows Azure Cloud Services rely on the **node\_modules** folder being deployed as part of the application, any native module included as part of the installed modules should work in a cloud service as long as it was installed and compiled on a Windows development system. 
+
+With Windows Azure Web Sites, there is no guarantee that a native module will work even if you deploy the **node\_modules** folder containing the compiled binary image as part of your application. Microsoft is currently investigating how to best enable native modules for Windows Azure Web Sites.
 
 ###Using a package.json file
 
@@ -76,14 +78,13 @@ When your application is ready for production, you can lock-down version require
 npm ERR! `cmd "/c" "node-gyp configure build"` failed with 1</pre>
 </div>
 
-##Additional resources
+##Next Steps
 
-* [Publishing with Git]
+Now that you understand how to use Node.js modules with Windows Azure, learn how to [specify the Node.js version], [build and deploy a Node.js Web Site], and [How to use the Windows Azure Command-Line Tools for Mac and Linux].
 
-* [Build and deploy a Node.js application to a Windows Azure Cloud Service]
-
-* [Node.js Web Application with Storage on MongoDB (MongoLab)]
-
+[specify the Node.js version]: /en-us/develop/nodejs/common-tasks/node-version
+[How to use the Windows Azure Command-Line Tools for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
+[build and deploy a Node.js Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
 [Node.js Web Application with Storage on MongoDB (MongoLab)]: /en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/
 [Publishing with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
 [Build and deploy a Node.js application to a Windows Azure Cloud Service]: /en-us/develop/nodejs/tutorials/getting-started/
