@@ -12,6 +12,11 @@ If you are already familiar with using Node.js modules, **package.json** and **n
 <p>Windows Azure Virtual Machines are not discussed in this article, as the deployment experience in a VM will be dependent on the operating system hosted by the Virtual Machine.</p>
 </div>
 
+<div class="dev-callout">
+<strong>Note</strong>
+<p>It is possible to enable support for installing modules using <b>package.json</b> or <b>npm-shrinkwrap.json</b> files on Windows Azure, however this requires customization of the default scripts used by Cloud Service projects. For an example of how to accomplish this, see <a href="http://nodeblog.azurewebsites.net/startup-task-to-run-npm-in-azure">Windows Azure Startup task to run npm install to avoid deploying node modules </a></p>
+</div>
+
 ##Node.js Modules
 
 Modules are loadable JavaScript packages that provide specific functionality for your application. A module is usually installed using the **npm** command-line tool, however some (such as the http module) are provided as part of the core Node.js package.
