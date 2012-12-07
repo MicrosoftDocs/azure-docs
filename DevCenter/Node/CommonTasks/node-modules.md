@@ -2,38 +2,14 @@
 
 This document provides guidance on using Node.js modules with applications hosted on Windows Azure. It provides guidance on ensuring that your application uses a specific version of module as well as using native modules with Windows Azure.
 
-##Node.js module installation on Windows Azure
+If you are already familiar with using Node.js modules, **package.json** and **npm-shrinkwrap.json** files, the following is a quick summary of what is discussed in this article:
 
-The following table is a quick reference of how Node.js modules must be referenced when your application is deployed to Windows Azure.
-
-<table border=1>
-<tr>
-<th>Module deployment</th>
-<th>Web Site</th>
-<th>Cloud Service</th>
-</tr>
-<tr>
-<td>node_modules folder</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>package.json</td>
-<td>Yes</td>
-<td>No</td>
-</tr>
-<tr>
-<td>npm-shrinkwrap.json</td>
-<td>Yes</td>
-<td>No</td>
-</tr>
-</table>
-
-So for Windows Azure Web Sites, you can reference module dependencies in the **package.json** or **npm-shrinkwrip.json** file and the hosting environment understands how to install those modules. For Windows Azure Cloud Services, the modules must be installed locally on your development environment and the **node\_modules** folder included as part of the deployment.
+* Windows Azure Web Sites understand **package.json** and **npm-shrinkwrap.json** files and can install modules based on entries in these files.
+* Windows Azure Cloud Services expect all modules to be installed on the development environment, and the **node\_modules** directory to be included as part of the deployment package.
 
 <div class="dev-callout">
 <strong>Note</strong>
-<p>Windows Azure Virtual Machines are not included in the above table, as the deployment experience will be dependent on the operating system hosted by the Virtual Machine.</p>
+<p>Windows Azure Virtual Machines are not discussed in this article, as the deployment experience in a VM will be dependent on the operating system hosted by the Virtual Machine.</p>
 </div>
 
 ##Node.js Modules
