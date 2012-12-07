@@ -247,7 +247,7 @@ links to learn more.
   [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
   [1]: #Next_Steps
   [Topic Concepts]: ../../../DevCenter/dotNet/Media/sb-topics-01.png
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [image]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
   [2]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
   [3]: ../../../DevCenter/dotNet/Media/sb-queues-05.png

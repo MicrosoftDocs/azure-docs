@@ -279,6 +279,6 @@ data.contoso.com custom subdomain that maps to a blob in your
   [VIP swaps]: http://msdn.microsoft.com/en-us/library/ee517253.aspx
   [Create a CNAME record that associates the subdomain with the storage account]:
     #create-cname
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [Validate Custom Domain dialog box]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
   [How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
