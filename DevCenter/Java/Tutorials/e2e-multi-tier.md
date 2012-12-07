@@ -97,7 +97,7 @@ container for addressing Service Bus resources within your application.
 
 To create a service namespace:
 
-1.  Log on to the [Windows Azure Management Portal](http://windows.azure.com) (note this is not the same portal as the Windows Azure Preview Management Portal).
+1.  Log on to the [Windows Azure Management Portal](http://manage.windowsazure.com).
 2.  In the lower left navigation pane of the Management Portal, click
     **Service Bus, Access Control & Caching**.
 3.  In the upper left pane of the Management Portal, click the **Service
@@ -347,7 +347,7 @@ provided.
 
 - In the **Publish Azure Project** dialog, click **Publish**. When prompted to perform a full build, click **Yes**. This may take several minutes for the first build.
 
-- A **Windows Azure Activity Log** will display in your Eclipse tabbed views section. You can use that view, as well as the **Console** view, to see the progress of your deployment. An alternative is to log in to the Windows Azure Management Portal, http://windows.azure.com, and use the **Hosted Services** section to monitor the status.
+- A **Windows Azure Activity Log** will display in your Eclipse tabbed views section. You can use that view, as well as the **Console** view, to see the progress of your deployment. An alternative is to log in to the Windows Azure Management Portal, http://manage.windowsazure.com, and use the **Hosted Services** section to monitor the status.
 
 - Because this was a deployment to a staging environment, the DNS will be of the form http://<guid>.cloudapp.net. You can see the DNS name if you click the deployment name in the Windows Azure Platform Management Portal (you may need to expand the Hosted Service node to see the deployment name); the DNS name is in the right hand pane of the portal.
 

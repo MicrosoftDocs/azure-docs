@@ -251,7 +251,7 @@ links to learn more.
   [How to: Receive Messages from a Queue]: #receive-messages
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
   [Queue Concepts]: ../../dotNet/Media/sb-queues-08.png
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [image]: ../../dotNet/Media/sb-queues-03.png
   [1]: ../../dotNet/Media/sb-queues-04.png
   [2]: ../../dotNet/Media/sb-queues-05.png

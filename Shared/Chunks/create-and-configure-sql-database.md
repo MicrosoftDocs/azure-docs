@@ -138,7 +138,7 @@ Failover is transparent and part of the service. The [Service Level
 Agreement] provides 99.9% uptime for SQL Database.
 
 [Windows Azure Free Trial]: {localLink:2187} "Free Trial"
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [0]: ../../DevCenter/dotNet/Media/sql-01.png
   [1]: ../../DevCenter/dotNet/Media/sql-02.png
   [How to Create a SQL Database Server]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-server.aspx

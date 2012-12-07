@@ -341,7 +341,7 @@ topic [Queues, Topics, and Subscriptions][] for more information.
 [How to: Delete Topics and Subscriptions]: #bkmk_HowToDeleteTopics
 [Next Steps]: #bkmk_NextSteps
 [Service Bus Topics diagram]: ../../../DevCenter/Java/Media/SvcBusTopics_01_FlowDiagram.jpg
-[Windows Azure Management Portal]: http://windows.azure.com/
+[Windows Azure Management Portal]: http://manage.windowsazure.com/
 [Service Bus Node screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
 [Create a New Namespace screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
 [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
