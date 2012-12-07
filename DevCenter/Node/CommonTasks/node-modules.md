@@ -48,7 +48,7 @@ While most modules are simply plain-text JavaScript files, some modules are plat
 
 Since Windows Azure Cloud Services rely on the **node\_modules** folder being deployed as part of the application, any native module included as part of the installed modules should work in a cloud service as long as it was installed and compiled on a Windows development system. 
 
-With Windows Azure Web Sites, there is no guarantee that a native module will work even if you deploy the **node\_modules** folder containing the compiled binary image as part of your application. Microsoft is currently investigating how to best enable native modules for Windows Azure Web Sites.
+Native modules are not supported with Windows Azure Web Sites. Some modules such as JSDOM and MongoDB have optional native dependencies, and will work with applications hosted in Windows Azure Web Sites.
 
 ###Using a package.json file
 
