@@ -530,7 +530,7 @@ autoscaling scenarios:
   [How To: Define your Service Model]: #DefineServiceModel
   [How To: Define your Autoscaling Rules]: #DefineAutoscalingRules
   [How To: Configure the Autoscaling Application Block]: #Configure
-  [diagram of sample autoscaling]: ../../../DevCenter/dotNet/Media/auotscaling01.png
+  [diagram of sample autoscaling]: ../../../DevCenter/dotNET/Media/auotscaling01.png
   [Using Performance Counters in Windows Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
   [files configured by autoscaling NuGet package]: ../../../DevCenter/dotNet/Media/auotscaling02.png
