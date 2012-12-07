@@ -79,10 +79,11 @@ Extend the reach of your Media Services solution by using SDKs and player framew
 The following provides a list of available client SDKs and player frameworks.  For more information on these and other planned SDKs and player frameworks, and the functionality they can support, see [Media Services Client Development][]. 
 
 ####Mac and PC client support  
-For PCs and Macs you can target a streaming experience using Microsoft Silverlight. An SDK for Flash client development will be available soon.
+For PCs and Macs you can target a streaming experience using Microsoft Silverlight or Adobe Open Source Media Framework.
 
 -	[Smooth Streaming Client for Silverlight](http://www.iis.net/download/smoothclient)
 -	[Microsoft Media Platform: Player Framework for Silverlight](http://smf.codeplex.com/documentation)
+-	[Smooth Streaming Plugin for OSMF 2.0](http://go.microsoft.com/fwlink/?LinkId=275022). For more information, see [How to Use Smooth Streaming Plugin for Adobe Open Source Media Framework](http://go.microsoft.com/fwlink/?LinkId=275022).
 
 ####Windows 8 applications
 For Windows 8, you can build Windows Store applications using any of the supported development languages and constructs like HTML, Javascript, XAML, C# and C+.
