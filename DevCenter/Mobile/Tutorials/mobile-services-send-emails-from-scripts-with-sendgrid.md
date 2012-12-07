@@ -22,7 +22,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 <a name="add-script"></a><h2><span class="short-header">Register a script</span>Register a new script that sends emails</h2>
 
-1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
+1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
 2. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
 
