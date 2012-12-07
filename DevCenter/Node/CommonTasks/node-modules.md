@@ -4,7 +4,7 @@ This document provides guidance on using Node.js modules with applications hoste
 
 ##Node.js module installation on Windows Azure
 
-The following table is a quick reference of what module deployment methods are supported by Windows Azure:
+The following table is a quick reference of how Node.js modules must be referenced when your application is deployed to Windows Azure.
 
 <table border=1>
 <tr>
@@ -29,6 +29,8 @@ The following table is a quick reference of what module deployment methods are s
 </tr>
 </table>
 
+So for Windows Azure Web Sites, you can reference module dependencies in the **package.json** or **npm-shrinkwrip.json** file and the hosting environment understands how to install those modules. For Windows Azure Cloud Services, the modules must be installed locally on your development environment and the **node\_modules** folder included as part of the deployment.
+
 <div class="dev-callout">
 <strong>Note</strong>
 <p>Windows Azure Virtual Machines are not included in the above table, as the deployment experience will be dependent on the operating system hosted by the Virtual Machine.</p>
@@ -36,11 +38,11 @@ The following table is a quick reference of what module deployment methods are s
 
 ##Node.js Modules
 
-Modules are loadable JavaScript packages that provide specific functionality for your application. A module is usually installed using the **npm** utility, however some (such as the http module) are provided as part of the core Node.js package.
+Modules are loadable JavaScript packages that provide specific functionality for your application. A module is usually installed using the **npm** command-line tool, however some (such as the http module) are provided as part of the core Node.js package.
 
-When a module is installed, are stored in the **node\_modules** directory at the root of your application directory structure. Each module within the **node\_modules** directory each maintains its own **node\_directory** that contains any modules that it depend on, and this repeats again for every module all the way down the dependency chain. This allows each module installed to have its own version requirements for the modules it depends on, however it can result in quite a large directory structure.
+When modules are installed, they are stored in the **node\_modules** directory at the root of your application directory structure. Each module within the **node\_modules** directory maintains its own **node\_modules** directory that contains any modules that it depend on, and this repeats again for every module all the way down the dependency chain. This allows each module installed to have its own version requirements for the modules it depends on, however it can result in quite a large directory structure.
 
-When deploying an application, it is usually undesirable to deploy the **node\_modules** directory as it increases the deployment size; however, it does guarantee that the version of the modules used in production are the same as those used in development.
+When deploying the **node\_modules** directory as part of your application, it will increase the size of the deployment compared to using a **package.json** or **npm-shrinkwrap.json** file; however, it does guarantee that the version of the modules used in production are the same as those used in development.
 
 ###Native Modules
 
