@@ -2,8 +2,7 @@
 
 
 #Getting Started with Windows Azure SQL Database
-In this tutorial you will learn the fundamentals of Windows Azure SQL Database administration using the Windows Azure Management portal. If you are new to database administration, you can follow these lessons to learn essential skills in about 30 minutes.
- 
+In this tutorial you will learn the fundamentals of Windows Azure SQL Database administration using the Windows Azure (Preview) Management portal. If you are new to database administration, you can follow these lessons to learn essential skills in about 30 minutes. 
 
 This tutorial does not assume prior experience with SQL Server or Windows Azure SQL Database. Upon completing this tutorial, you will have a sample database on Windows Azure and an understanding of how to perform basic administration tasks using the Management Portal.
 
@@ -21,7 +20,6 @@ You will create and provision a sample database on Windows Azure and query syste
 * [Step 7: Query sample and system data in the Management Portal for SQL Database](#QueryDBSysData)
 * [Step 8: Create a database login and assign permissions](#DBLogin)
 * [Step 9: Connect from other applications](#ClientConnection)
-* [Step 10: Configure SQL Data Sync](#ConfigureDataSync)
 
 
 <h2 id="Subscribe">Step 1: Create a Windows Azure account</h2>
@@ -70,7 +68,7 @@ To get started with a free account, click free trial in the upper right corner a
 
 * Provide a strong password that is over eight characters, using a combination of upper and lower case values, and a number or symbol.
 
-* Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you or your users. Keeping your Windows Azure application and database in the same region saves you on egress bandwidth cost and data latency.
+* Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you. Keeping your Windows Azure application and database in the same region saves you on egress bandwidth cost and data latency.
 
 * Be sure to keep the **Allow Windows Azure Services to access this server**  checkbox selected so that you can connect to this database using the Management Portal for SQL Database, Excel in Office 365, or Windows Azure SQL Reporting.
 
@@ -113,7 +111,9 @@ To configure the firewall so that connections are allowed through, you'll enter 
 
 4. Click **Save** at the bottom of the page to complete the step. If you do not see **Save**, refresh the browser page.
 
-You now have a SQL Database server on Windows Azure, a firewall rule that enables access to the server, a database object, and an administrator login. Next, you will use the query window in the Management Portal for SQL Database to run a Transact-SQL script to create a predefined database.
+You now have a SQL Database server on Windows Azure, a firewall rule that enables access to the server, a database object, and an administrator login. But you still don't have a working database that you can query. To do that, your database must have a schema and actual data.
+
+Because this tutorial uses just the tools at hand, you'll use the query window in the Management Portal for SQL Database to run Transact-SQL script that builds a predefined database.
 
 As your skills increase, you will want to explore additional ways of creating a database, including programmatic approaches or the designer in SQL Server Data Tools. If you already have an existing SQL Server database that runs on a local server, you can easily migrate that database to the Windows Azure server that you just set up. Use the links at the end of this tutorial to find out how. 
 
@@ -134,7 +134,7 @@ In this step, you run two scripts. The first one creates a schema that defines t
 
    ![Image9] []
 
-3. Click **Manage** at the bottom of the page. If it is not visible, refresh the browser window. This will open the Management Portal for SQL Database. This portal is separate from the Windows Azure Management Portal. You'll use this portal to run Transact-SQL commands and queries. 
+3. Click **Manage** at the bottom of the page. If it is not visible, refresh the browser window. This will open the Management Portal for SQL Database. This portal is separate from the Windows Azure (Preview) Management Portal. You'll use this portal to run Transact-SQL commands and queries. 
 
 	![Image10] []
 
@@ -760,7 +760,7 @@ After you create a SQL Server authentication login, the next step is to assign t
 
 4. Open a new query window and then enter and run the next statement. This statement runs a built-in stored procedure that assigns the db_datareader role to the new user you just created. 
 
-        EXEC sp_addrolemember 'db_datareader', 'SQLDBUser';
+        EXEC sp&#95;addrolemember 'db&#95;datareader', 'SQLDBUser';
 
 You now have a new SQL Server authentication login that has read-only permission to the **School** database. Using these steps, you can create other SQL Server authentication logins to allow different levels of access to your data.
 
@@ -780,9 +780,7 @@ If Excel 2010 is installed on your computer, you can use the following steps to 
 
 2. In the Data Connection wizard, enter the fully-qualified domain name of your SQL Database server, followed by a SQL Server authentication login that has permission to access the database. 
 
-  You can find the server name on the **Database** page under **Quick Links**. The server name can also be found on the Windows Azure management portal, on SQL Database, on Server page, on the Dashboard, in **Manage URL**.
-
-  The server name consists of a series of letters and numbers, followed by '.database.windows.net'. Specify this name in the Database Connection wizard. Do not include the http:// or https:// prefix when specifying the name.
+  The server name can be found on the Windows Azure management portal, on SQL Database, on Server page, on the Dashboard, in **Manage URL**. The server name consists of a series of letters and numbers, followed by '.database.windows.net'. Specify this name in the Database Connection wizard. Do not include the http:// or https:// prefix when specifying the name.
 
   Enter a SQL Server authentication login. For testing purposes, you can use the administrator login that you created when you set up the server. For regular data access, use a database user login similar to the one you just created.
 
@@ -803,15 +801,6 @@ If Excel 2010 is installed on your computer, you can use the following steps to 
 
 Using just Excel, you can import only one table at a time. A better approach is to use the PowerPivot for Excel add-in, which lets you import and work with multiple tables as a single data set. Working with PowerPivot is beyond the scope of this tutorial, but you can get more information on this [Microsoft web site](http://www.microsoft.com/en-us/bi/powerpivot.aspx).
 
-<h2 id="ConfigureDataSync">Step 9: Configure SQL Data Sync</h2>
-
-<h4>SQL Data Sync</h4>
-
-Now that you've created your SQL Database instances, you can leverage SQL Data Sync to keep your high value data synchronized across multiple locations.
-
-SQL Data Sync is a feature of SQL Database that enables you to synchronize selected data, either on a schedule or on-demand, without writing any code or scripts. SQL Data Sync supports synchronization between SQL Database instances or hybrid topologies that include SQL Databases and instances of SQL Server.
-
-For more information about SQL Data Sync, see [Getting Started with SQL Data Sync](http://go.microsoft.com/fwlink/?LinkId=274959).
 
 <h2 id="NextSteps">Next steps</h2>
 
