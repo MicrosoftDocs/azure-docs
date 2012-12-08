@@ -1,8 +1,8 @@
-<properties linkid="manage-services-getting-started-with-sqlds" urlDisplayName="Get started tutorial" pageTitle="Getting started with SQL Data Sync - Windows Azure" metaKeywords="" metaDescription="Get started creating and managing SQL Databases in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-services-getting-started-with-sqlds" urlDisplayName="How to configure SQL Data Sync" pageTitle="Getting started with SQL Data Sync - Windows Azure" metaKeywords="" metaDescription="Use this tutorial to learn how to synchronize data using SQL Data Sync in the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 #Getting Started with Windows Azure SQL Data Sync
-In this tutorial, you learn the fundamentals of Windows Azure SQL Data Sync using the Windows Azure (Preview) portal. 
+In this tutorial, you learn the fundamentals of Windows Azure SQL Data Sync using the Windows Azure Management Portal. 
 
 This tutorial assumes minimal prior experience with SQL Server and Windows Azure SQL Database. In this tutorial, you create a hybrid (SQL Server and SQL Database instances) sync group fully configured and synchronizing on the schedule you set.
 
@@ -108,7 +108,7 @@ This returns you to the **SYNC** page under SQL Databases. This sync group is no
 
 ![Image5] []
 
-<h2 id="SyncRules">Step 5: Define the data to sync</h2>
+<h2 id="DefineSyncData">Step 5: Define the data to sync</h2>
 
 Windows Azure SQL Data Sync allows you to select tables and columns to synchronize. If you also want to filter a column so that only rows with specific values (such as, Age>=65) are synchronized, use the SQL Data Sync portal at Windows Azure and the documentation at Select the Tables, Columns, and Rows to Synchronize to define the data to sync.
 
@@ -128,7 +128,7 @@ Columns with unsupported data types cannot be selected.<br>If no columns in a ta
 ![Image6] []
 
 
-<h2 id="Configure">Step 6: Configure your sync group</h2>
+<h2 id="ConfigureSG">Step 6: Configure your sync group</h2>
 
 You can always synchronize a sync group by clicking SYNC at the bottom of the Data Sync landing page.
 If you want a sync group to synchronize on a schedule, you configure the sync group.
