@@ -2,7 +2,8 @@
 
 
 #Getting Started with Windows Azure SQL Database
-In this tutorial you will learn the fundamentals of Windows Azure SQL Database administration using the Windows Azure Management portal. If you are new to database administration, you can follow these lessons to learn essential skills in about 30 minutes. 
+In this tutorial you will learn the fundamentals of Windows Azure SQL Database administration using the Windows Azure Management portal. If you are new to database administration, you can follow these lessons to learn essential skills in about 30 minutes.
+ 
 
 This tutorial does not assume prior experience with SQL Server or Windows Azure SQL Database. Upon completing this tutorial, you will have a sample database on Windows Azure and an understanding of how to perform basic administration tasks using the Management Portal.
 
