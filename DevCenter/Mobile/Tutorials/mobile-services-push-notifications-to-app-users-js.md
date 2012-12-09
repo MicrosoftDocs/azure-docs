@@ -80,7 +80,6 @@ Next, you will modify the push notifications app to store data in this new table
 			channelTable
 				.where({ uri: item.uri })
 				.read({ success: insertChannelIfNotFound });
-
 	        function insertChannelIfNotFound(existingChannels) {
         	    if (existingChannels.length > 0) {
             	    request.respond(200, existingChannels[0]);
