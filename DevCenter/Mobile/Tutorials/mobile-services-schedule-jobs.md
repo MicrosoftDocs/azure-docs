@@ -4,27 +4,31 @@
 
 # Schedule backend jobs in Mobile Services 
 
-This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define.
+This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define. In this case, the script removes duplicate push notification channel URIs from a table. Duplicate records can occur when you do not check for duplicates before you insert a new channel URI. Duplicate URIs might result in a push notification being sent multiple times to the same device. Some other periodic tasks that can be scheduled include:
 
-<div class="dev-callout"><b>Note</b>
-<p>You can use the Mobile Services job scheduler to define as many jobs as you want. However, when you run your mobile service in <i>free</i> mode, you are only able to run one scheduled job at a time. In <i>reserved</i> mode, you can run up to ten scheduled jobs at a time.</p>
-</div>
++ Archiving old data records. 
++ Requesting and storing external data, such as tweets, RSS entries, and location information.
++ Processing or resizing stored images.
 
-This tutorial walks you through these basic steps to demonstrate how to use the job scheduler to create a job that removes duplicate push notification channle URIs from the Channel table:
+This tutorial walks you through these basic steps to demonstrate how to use the job scheduler to create a job that removes duplicate push notification channel URIs from the Channel table:
 
 1. [Update Channel table scripts]
 2. [Insert data to create duplicate channels]
 3. [Create a new scheduled job]
 
-This tutorial  create a new job that runs a script that removes any duplicate URIs from the Channel table. This table is created when you complete the tutorial [Push notifications to app users for Windows Store apps] or [Push notifications to app users for Windows Phone 8 apps]. Completing one of these tutorials is a prerequisite for completing this tutorial.
+This tutorial uses the Channel table. This table is created when you complete the tutorial [Push notifications to app users for Windows Store apps] or [Push notifications to app users for Windows Phone 8 apps]. Completing one of these tutorials is a prerequisite for completing this tutorial. This approach can be used to clean up any duplicate data, no matter how it was generated.
 
 <a name="update-scripts"></a><h2><span class="short-header">Update scripts</span>Update Channel table scripts</h2>
 
-1. In the Management Portal, click the **Data** tab and then click the **Channel** table. 
+1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
+
+   ![][3]
+
+2. Click the **Data** tab, then click the **Channel** table. 
 
    ![][1]
 
-2. In **channel**, click the **Script** tab, select **Insert**, copy the existing code to a text file, click **Clear**, then click **Yes** to confirm.
+3. In **channel**, click the **Script** tab, select **Insert**, click **Clear**, then click **Yes** to confirm.
    
    ![][2]
 
@@ -42,9 +46,7 @@ Now that you have disabled duplicate checking on the Channel table, you can run 
 
 2.  Press the **F5** key to rebuild the project and start the app.
 
-3.  In the app, enter text in the text box and then click **Save**.
-
-4.  Stop or close the app and repeat steps 2 and 3. 
+3.  Stop or close the app and repeat steps 2. 
 
    This adds duplicate channel URIs into the Channel table.
 
@@ -54,28 +56,29 @@ Now that you have disabled duplicate checking on the Channel table, you can run 
 
    Notice that there are two or more entries in the table with the same **Uri** value.
 
+6. Click the back arrow to return to the mobile service page.
+
 <a name="add-job"></a><h2><span class="short-header">Create a new job</span>Create a new scheduled job</h2>  
- 
-
-1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
-
-   ![][3]
 
 2. Click the **Scheduler** tab, then click **+Create**. 
 
    ![][4]
 
+    <div class="dev-callout"><b>Note</b>
+    <p>When you run your mobile service in <i>free</i> mode, you are only able to run one scheduled job at a time. In <i>reserved</i> mode, you can run up to ten scheduled jobs at a time.</p>
+    </div>
+
 3. In the scheduler dialog, enter <i>cleanup_channel</i> for the **Job Name**, set the schedule interval and units, then click the check button. 
    
    ![][5]
 
-   This create a new job named **cleanup_channel**. 
+   This creates a new job named **cleanup_channels**. 
 
 4. Click the new job you just created, then click the **Script** tab.
 
    ![][6] 
 
-4. Replace the placeholder function **cleanup_channel** with the following code:
+5. Replace the placeholder function **cleanup_channels** with the following code:
 
         function cleanup_channels() {
             var sql = "SELECT MAX(Id) as Id, Uri FROM Channel " + 
