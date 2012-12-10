@@ -80,5 +80,5 @@ Now that you understand how to specify the version of Node.js used by your appli
 
 [How to use the Windows Azure Command-Line Tools for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Windows Azure Command-line tools]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
-[work with modules]: /en-us/develop/nodejs/common-tasks/node-modules
+[work with modules]: /en-us/develop/nodejs/common-tasks/working-with-node-modules/
 [build and deploy a Node.js Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/

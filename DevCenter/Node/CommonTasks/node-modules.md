@@ -67,7 +67,7 @@ npm ERR! `cmd "/c" "node-gyp configure build"` failed with 1</pre>
 
 Now that you understand how to use Node.js modules with Windows Azure, learn how to [specify the Node.js version], [build and deploy a Node.js Web Site], and [How to use the Windows Azure Command-Line Tools for Mac and Linux].
 
-[specify the Node.js version]: /en-us/develop/nodejs/common-tasks/node-version
+[specify the Node.js version]: /en-us/develop/nodejs/common-tasks/specifying-a-node-version/
 [How to use the Windows Azure Command-Line Tools for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [build and deploy a Node.js Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
 [Node.js Web Application with Storage on MongoDB (MongoLab)]: /en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/
