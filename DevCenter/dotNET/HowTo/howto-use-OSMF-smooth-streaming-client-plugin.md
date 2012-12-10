@@ -1,3 +1,5 @@
+<div chunk="../chunks/article-left-menu.md" />
+
 # How to Use the Microsoft® Smooth Streaming Plugin for the Adobe Open Source Media Framework #
 
 ##Overview ##
@@ -334,49 +336,47 @@ Smooth Streaming OSMF dynamic plugin is compatible with [Strobe Media Playback (
 3. Set the src to a Smooth Streaming source, (for example, http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest  make the desired configuration changes and click “Preview and Update” (Your content web server needs a valid crossdomain.xml )
 4. Copy the preview code and paste the code to a simple HTML page using your favorite text editor.
 
-`
-<html>
-<body>
-<object width="920" height="640"> 
-<param name="movie" value="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"></param>
-<param name="flashvars" value="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest &autoPlay=true"></param>
-<param name="allowFullScreen" value="true"></param>
-<param name="allowscriptaccess" value="always"></param>
-<param name="wmode" value="direct"></param>
-<embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf" 
-    type="application/x-shockwave-flash" 
-    allowscriptaccess="always" 
-    allowfullscreen="true" 
-    wmode="direct" 
-    width="920" 
-    height="640" 
-    flashvars=" src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true"></embed>
-</object>
-</body>
-</html>
-`
+
+		<html>
+		<body>
+		<object width="920" height="640"> 
+		<param name="movie" value="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"></param>
+		<param name="flashvars" value="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest &autoPlay=true"></param>
+		<param name="allowFullScreen" value="true"></param>
+		<param name="allowscriptaccess" value="always"></param>
+		<param name="wmode" value="direct"></param>
+		<embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf" 
+		    type="application/x-shockwave-flash" 
+		    allowscriptaccess="always" 
+		    allowfullscreen="true" 
+		    wmode="direct" 
+		    width="920" 
+		    height="640" 
+		    flashvars=" src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true"></embed>
+		</object>
+		</body>
+		</html>
+
 
 5. Add Smooth Streaming OSMF plugin to the embed code and save.
 
-`
-<html>
-<object width="920" height="640"> 
-<param name="movie" value="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"></param>
-<param name="flashvars" value="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true&plugin_SmoothStreamingPlugin=http://yourdoamin/SmoothStreamingPlugin-vx.x-osmf-v2.0.swf&SmoothStreamingPlugin_retryLive=true&SmoothStreamingPlugin_retryInterval=10"></param>
-<param name="allowFullScreen" value="true"></param>
-<param name="allowscriptaccess" value="always"></param>
-<param name="wmode" value="direct"></param>
-<embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf" 
-    type="application/x-shockwave-flash" 
-    allowscriptaccess="always" 
-    allowfullscreen="true" 
-    wmode="direct" 
-    width="920" 
-    height="640" 
-    flashvars="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true&plugin_SmoothStreamingPlugin=http://yourdoamin/SmoothStreamingPlugin-vx.x-osmf-v2.0.swf&SmoothStreamingPlugin_retryLive=true&SmoothStreamingPlugin_retryInterval=10"></embed>
-</object>
-</html>
-`
+		<html>
+		<object width="920" height="640"> 
+		<param name="movie" value="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"></param>
+		<param name="flashvars" value="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true&plugin_SmoothStreamingPlugin=http://yourdoamin/SmoothStreamingPlugin-vx.x-osmf-v2.0.swf&SmoothStreamingPlugin_retryLive=true&SmoothStreamingPlugin_retryInterval=10"></param>
+		<param name="allowFullScreen" value="true"></param>
+		<param name="allowscriptaccess" value="always"></param>
+		<param name="wmode" value="direct"></param>
+		<embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf" 
+		    type="application/x-shockwave-flash" 
+		    allowscriptaccess="always" 
+		    allowfullscreen="true" 
+		    wmode="direct" 
+		    width="920" 
+		    height="640" 
+		    flashvars="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true&plugin_SmoothStreamingPlugin=http://yourdoamin/SmoothStreamingPlugin-vx.x-osmf-v2.0.swf&SmoothStreamingPlugin_retryLive=true&SmoothStreamingPlugin_retryInterval=10"></embed>
+		</object>
+		</html>
 
 6. Save your HTML page and publish to a web server. Browse the published web page using your favorite Flash runtime enabled internet browser (eg. IE, Chrome, Firefox, so on).
 

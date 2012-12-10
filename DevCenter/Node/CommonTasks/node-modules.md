@@ -1,5 +1,7 @@
 <properties linkid="dev-nodejs-nodemodules" urlDisplayName="Using Node.js Modules" pageTitle="Working with Node.js modules - Windows Azure" metaKeywords="node.js modules azure" metaDescription="Learn how to use Node.js modules with Windows Azure Web Sites and Cloud Services" metaCanonical="http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/node-modules" umbracoNaviHide="0" disqusComments="1" writer="larryfr" editor="mollybos" manager="paulettm" /> 
 
+# Using Node.js Modules with Windows Azure applications
+
 This document provides guidance on using Node.js modules with applications hosted on Windows Azure. It provides guidance on ensuring that your application uses a specific version of module as well as using native modules with Windows Azure.
 
 If you are already familiar with using Node.js modules, **package.json** and **npm-shrinkwrap.json** files, the following is a quick summary of what is discussed in this article:
@@ -65,7 +67,7 @@ npm ERR! `cmd "/c" "node-gyp configure build"` failed with 1</pre>
 
 Now that you understand how to use Node.js modules with Windows Azure, learn how to [specify the Node.js version], [build and deploy a Node.js Web Site], and [How to use the Windows Azure Command-Line Tools for Mac and Linux].
 
-[specify the Node.js version]: /en-us/develop/nodejs/common-tasks/node-version
+[specify the Node.js version]: /en-us/develop/nodejs/common-tasks/specifying-a-node-version/
 [How to use the Windows Azure Command-Line Tools for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [build and deploy a Node.js Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
 [Node.js Web Application with Storage on MongoDB (MongoLab)]: /en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/

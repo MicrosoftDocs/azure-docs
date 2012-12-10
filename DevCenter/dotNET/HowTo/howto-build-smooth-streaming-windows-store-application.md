@@ -1,3 +1,5 @@
+﻿<div chunk="../chunks/article-left-menu.md" />
+
 #How to Build a Smooth Streaming Windows Store Application
 
 The Smooth Streaming Client SDK for Windows 8 enables developers to build Windows Store applications that can play on-demand and live Smooth Streaming content from [IIS Media Services](http://www.iis.net/media) or [Windows Azure Media Services](http://www.windowsazure.com/en-us/develop/net/how-to-guides/media-services/). In addition to the basic playback of Smooth Streaming content, the SDK also provides rich features like Microsoft PlayReady protection, quality level restriction, Live DVR, audio stream switching, listening for status updates (such as quality level changes) and error events, and so on. For more information of the supported features, see the [release notes](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-beta-2-for-windows-store-apps-release-notes).
