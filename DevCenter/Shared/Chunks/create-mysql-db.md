@@ -76,7 +76,7 @@ To create a MySQL database as a linked resource when you create a [Windows Azure
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>Connection strings are accessible to your web site application by connection string name. In .NET applications, connection strings are availble in the **connectionStrings** object. In other programming languages, connection strings are accessible as environment variables. For more information, see <a href="/en-us/manage/services/web-sites/how-to-configure-websites/">How to Configure Web Sites</a>.</p> 
+<p>Connection strings are accessible to your web site application by connection string name. In .NET applications, connection strings are availble in the <b>connectionStrings</b> object. In other programming languages, connection strings are accessible as environment variables. For more information, see <a href="/en-us/manage/services/web-sites/how-to-configure-websites/">How to Configure Web Sites</a>.</p> 
 </div>
 
 [ClearDB]: http://www.cleardb.com/
