@@ -1,4 +1,4 @@
-<properties linkid="manage-services-getting-started-with-sqlds" urlDisplayName="Get started tutorial" pageTitle="Getting started with SQL Data Sync - Windows Azure" metaKeywords="" metaDescription="Get started creating and managing SQL Databases in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-services-getting-started-with-sqlds" urlDisplayName="How to create and provision" pageTitle="Getting started with SQL Data Sync - Windows Azure" metaKeywords="" metaDescription="Get started creating and managing SQL Databases in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 #Getting Started with Windows Azure SQL Data Sync
