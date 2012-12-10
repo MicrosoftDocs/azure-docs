@@ -83,7 +83,7 @@ For PCs and Macs you can target a streaming experience using Microsoft Silverlig
 
 -	[Smooth Streaming Client for Silverlight](http://www.iis.net/download/smoothclient)
 -	[Microsoft Media Platform: Player Framework for Silverlight](http://smf.codeplex.com/documentation)
--	[Smooth Streaming Plugin for OSMF 2.0](http://go.microsoft.com/fwlink/?LinkId=275022). For more information, see [How to Use Smooth Streaming Plugin for Adobe Open Source Media Framework](http://go.microsoft.com/fwlink/?LinkId=275022).
+-	[Smooth Streaming Plugin for OSMF 2.0](http://go.microsoft.com/fwlink/?LinkId=275022). For information on how to use this plug-in, see [How to Use Smooth Streaming Plugin for Adobe Open Source Media Framework](http://go.microsoft.com/fwlink/?LinkId=275034).
 
 ####Windows 8 applications
 For Windows 8, you can build Windows Store applications using any of the supported development languages and constructs like HTML, Javascript, XAML, C# and C+.
