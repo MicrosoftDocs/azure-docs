@@ -539,24 +539,24 @@ autoscaling scenarios:
   [How To: Define your Service Model]: #DefineServiceModel
   [How To: Define your Autoscaling Rules]: #DefineAutoscalingRules
   [How To: Configure the Autoscaling Application Block]: #Configure
-  [diagram of sample autoscaling]: ../../../DevCenter/dotNET/Media/auotscaling01.png
+  [diagram of sample autoscaling]: ../../../DevCenter/dotNET/Media/autoscaling01.png
   [Using Performance Counters in Windows Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
-  [files configured by autoscaling NuGet package]: ../../../DevCenter/dotNet/Media/auotscaling02.png
-  [image]: ../../../DevCenter/dotNet/Media/autoscaling03.png
-  [Set Copy to Output Directory value]: ../../../DevCenter/dotNet/Media/autoscaling04.png
+  [files configured by autoscaling NuGet package]: ../../../DevCenter/dotNET/Media/autoscaling02.png
+  [image]: ../../../DevCenter/dotNET/Media/autoscaling03.png
+  [Set Copy to Output Directory value]: ../../../DevCenter/dotNET/Media/autoscaling04.png
   [Windows Azure Management Portal]: http://windows.azure.com
-  [1]: ../../../DevCenter/dotNet/Media/autoscaling05.png
-  [2]: ../../../DevCenter/dotNet/Media/autoscaling06.png
-  [3]: ../../../DevCenter/dotNet/Media/autoscaling07.png
-  [4]: ../../../DevCenter/dotNet/Media/autoscaling08.png
-  [5]: ../../../DevCenter/dotNet/Media/autoscaling09.png
+  [1]: ../../../DevCenter/dotNET/Media/autoscaling05.png
+  [2]: ../../../DevCenter/dotNET/Media/autoscaling06.png
+  [3]: ../../../DevCenter/dotNET/Media/autoscaling07.png
+  [4]: ../../../DevCenter/dotNET/Media/autoscaling08.png
+  [5]: ../../../DevCenter/dotNET/Media/autoscaling09.png
   [Storing Your Service Information Data]: http://msdn.microsoft.com/en-us/library/hh680878(PandP.50).aspx
-  [6]: ../../../DevCenter/dotNet/Media/auotscaling10.png
-  [7]: ../../../DevCenter/dotNet/Media/autoscaling11.png
-  [8]: ../../../DevCenter/dotNet/Media/autoscaling12.png
-  [9]: ../../../DevCenter/dotNet/Media/autoscaling13.png
-  [10]: ../../../DevCenter/dotNet/Media/autoscaling14.png
+  [6]: ../../../DevCenter/dotNET/Media/autoscaling10.png
+  [7]: ../../../DevCenter/dotNET/Media/autoscaling11.png
+  [8]: ../../../DevCenter/dotNET/Media/autoscaling12.png
+  [9]: ../../../DevCenter/dotNET/Media/autoscaling13.png
+  [10]: ../../../DevCenter/dotNET/Media/autoscaling14.png
   [Hosting the Autoscaling Application Block in a Worker Role]: http://msdn.microsoft.com/en-us/library/hh680914(PandP.50).aspx
   [Implementing Throttling Behavior]: http://msdn.microsoft.com/en-us/library/hh680896(PandP.50).aspx
   [Understanding Rule Ranks and Reconciliation]: http://msdn.microsoft.com/en-us/library/hh680923(PandP.50).aspx
