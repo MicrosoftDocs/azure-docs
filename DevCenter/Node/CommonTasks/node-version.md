@@ -1,5 +1,7 @@
 <properties linkid="dev-nodejs-nodeversion" urlDisplayName="Node.js Versions" pageTitle="Specifying a Node.js version - Windows Azure" metaKeywords="node.js version azure" metaDescription="Learn how to specify the Node.js version used by your application" metaCanonical="http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/node-version" umbracoNaviHide="0" disqusComments="1" writer="larryfr" editor="mollybos" manager="paulettm" /> 
 
+# Specifying a Node.js version in a Windows Azure application
+
 When hosting a Node.js application, you may want to ensure that your application uses a specific version of Node.js. There are several ways to accomplish this for applications hosted on Windows Azure.
 
 ##Default versions
