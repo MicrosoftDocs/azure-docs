@@ -80,7 +80,7 @@ You can set the PHP runtime version to any of the PHP versions that are listed. 
 
 You have complete control over the configuration of the PHP runtime that is installed when you follow the steps above, including modification of `php.ini` settings and enabling of extensions.
 
-To to customize the built-in PHP runtime, follow these steps:
+To customize the built-in PHP runtime, follow these steps:
 
 1. Add a new folder, named `php`, to the `bin` directory of your web role. For a worker role, add it to the role's root directory.
 2. In the `php` folder, create another folder called `ext`. Put any `.dll` extension files (e.g. `php_mongo.dll`) you want to enable in this folder.
