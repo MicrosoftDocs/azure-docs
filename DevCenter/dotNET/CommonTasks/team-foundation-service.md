@@ -1,6 +1,4 @@
-<properties linkid="dev-net-common-tasks-publishing-with-tfs" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Team Foundation Service in Windows Azure" metaKeywords="" metaDescription="Learn how to configure your Team Foundation Service team projects to automatically build and deploy to Windows Azure web sites or cloud services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
-
-
+﻿<properties linkid="dev-net-common-tasks-publishing-with-tfs" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Team Foundation Service in Windows Azure" metaKeywords="" metaDescription="Learn how to configure your Team Foundation Service team projects to automatically build and deploy to Windows Azure web sites or cloud services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 <div chunk="../chunks/article-left-menu.md" />
 # Continuous delivery to Windows Azure by using Team Foundation Service
@@ -11,7 +9,7 @@ This tutorial assumes you have Visual Studio 2012 and the Windows Azure SDK inst
 
 To set up a cloud service to automatically build and deploy to Windows Azure by using Team Foundation Service, follow these steps:
 
--   [Step 1: Sign up for TFS Preview.][]
+-   [Step 1: Sign up for TFS.][]
 
 -   [Step 2: Check in a project to TFS.][]
 
@@ -25,9 +23,11 @@ To set up a cloud service to automatically build and deploy to Windows Azure by 
 
 <h2> <a name="step1"></a><span class="short-header">Sign up for TFS</span>Step 1: Sign up for TFS Preview</h2>
 
-1.	Create a TFS account by navigating to [https://tfspreview.com](http://tfspreview.com).
+1.	Create a TFS account by navigating to [http://tfs.visualstudio.com](http://tfs.visualstudio.com). Click the **Sign up for free** link.
+  You will need to sign-in using a Microsoft account. After you log in, create a TFS account URL.
+![][0]
  
-2.	Create a team project by navigating to your TFS account page. Your account will have the form: http://&lt;username&gt;.tfspreview.com.  You will need to sign-in using a Microsoft account.<br/>
+2.	Create a team project by navigating to your TFS account page. Your account will have the form: https://&lt;username&gt;.visualstudio.com.<br/>
 ![][1]
 
 3. Select Create a Team Project. Give a name and description to your project and click the **Create Project** button.<br/>
@@ -174,6 +174,7 @@ For more information, see [Team Foundation Service](http://go.microsoft.com/fwli
 [Step 4: Make changes and trigger a rebuild and redeployment.]: #step4
 [Step 5: Redeploy an earlier build (optional)]: #step5
 [Step 6: Change the Production deployment (cloud services only)]: #step6
+[0]: ../../../DevCenter/dotNet/Media/tfs0.PNG
 [1]: ../../../DevCenter/dotNet/Media/tfs1.png
 [2]: ../../../DevCenter/dotNet/Media/tfs2.png
 [3]: ../../../DevCenter/dotNet/Media/tfs3.png
