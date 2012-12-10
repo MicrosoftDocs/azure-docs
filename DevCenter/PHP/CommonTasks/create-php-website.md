@@ -4,9 +4,9 @@
 
 This article will show you how to create a PHP web site in [Windows Azure Web Sites][waws] by using the [Windows Azure Management Portal], the [Windows Azure Command Line Tools for Mac and Linux][xplat-tools], or the [Windows Azure PowerShell cmdlets][powershell-cmdlets].
 
-In general, creating a PHP web site is no different that creating *any* web site Windows Azure Web Sites. By default, PHP is enabled for all web sites. For information about configuring PHP (or providing your own customized PHP runtime), see [How to configure PHP in Windows Azure Web Sites][configure-php].
+In general, creating a PHP web site is no different that creating *any* web site in Windows Azure Web Sites. By default, PHP is enabled for all web sites. For information about configuring PHP (or providing your own customized PHP runtime), see [How to configure PHP in Windows Azure Web Sites][configure-php].
 
-Each option described below shows you how to create a web site in a shared hosting environment at no cost, but with some limitations on CPU usage and bandwidth usage. For more information, see [Windows Azure Web Sites Pricing][web sites-pricing]. For information about how to upgrade and scale your web site, see [How to scale Web Sites][scale-web sites].
+Each option described below shows you how to create a web site in a shared hosting environment at no cost, but with some limitations on CPU usage and bandwidth usage. For more information, see [Windows Azure Web Sites Pricing][websites-pricing]. For information about how to upgrade and scale your web site, see [How to scale Web Sites][scale-websites].
 
 ##Table of Contents
 * [Create a web site using the Windows Azure Portal](#portal)
@@ -15,7 +15,7 @@ Each option described below shows you how to create a web site in a shared hosti
 
 <h2 id="portal">Create a PHP web site using the Windows Azure Portal</h2>
 
-When you create a web site in the Windows Azure Portal, you have three options: **QUICK CREATE**, **CREATE WITH DATABASE**, and **FROM GALLERY**. The instructions below will cover the **QUICK CREATE** option. For information about the other two options, see [Create a PHP-MySQL Windows Azure web site and deploy using Git][web site-mysql-git] and [Create a WordPress web site from the gallery in Windows Azure][wordpress-gallery].
+When you create a web site in the Windows Azure Portal, you have three options: **QUICK CREATE**, **CREATE WITH DATABASE**, and **FROM GALLERY**. The instructions below will cover the **QUICK CREATE** option. For information about the other two options, see [Create a PHP-MySQL Windows Azure web site and deploy using Git][website-mysql-git] and [Create a WordPress web site from the gallery in Windows Azure][wordpress-gallery].
 
 To create a PHP web site using the Windows Azure Portal, do the following:
 
@@ -30,7 +30,9 @@ To create a PHP web site using the Windows Azure Command Line Tools for Mac and 
 
 1. Install the Windows Azure Command Line Tools by following the instructions here: [How to install the Windows Azure Command Line Tools for Mac and Linux](/en-us/develop/php/how-to-guides/command-line-tools/#Download).
 
-2. Run the following command from a command prompt:
+2. Download and import your publish settings file by following the instructions here: [How to download and import publish settings](/en-us/develop/php/how-to-guides/command-line-tools/#Account).
+
+3. Run the following command from a command prompt:
 
 		azure site create MySiteName
 
@@ -49,7 +51,10 @@ For information about additional options, see [How to create and manage a Window
 To create a PHP web site using the Windows Azure PowerShell cmdlets, do the following:
 
 1. Install the Windows Azure PowerShell cmdlets by following the instructions here: [Get started with Windows Azure PowerShell](/en-us/develop/php/how-to-guides/powershell-cmdlets/#GetStarted).
-2. Open a PowerShell command prompt and execute the following command:
+
+2. Download and import your publish settings file by following the instructions here: [How to: Import publish settings](/en-us/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings).
+
+3. Open a PowerShell command prompt and execute the following command:
 
 		New-AzureWebSite MySiteName
 
@@ -67,11 +72,11 @@ For information about additional options, see [How to: Create and manage a Windo
 
 Now that you have created a PHP web site in Windows Azure Web Sites, you can manage, configure, monitor, deploy to, and scale your site. For more information, see the following links:
 
-* [How to configure Web Sites](/en-us/manage/services/web-sites/how-to-configure-web sites/)
+* [How to configure Web Sites](/en-us/manage/services/web-sites/how-to-configure-websites/)
 * [How to configure PHP in Windows Azure Web Sites][configure-php]
-* [How to manage Web Sites](/en-us/manage/services/web-sites/how-to-manage-web sites/)
-* [How to monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-web sites/)
-* [How to scale Web Sites](/en-us/manage/services/web-sites/how-to-monitor-web sites/)
+* [How to manage Web Sites](/en-us/manage/services/web-sites/how-to-manage-websites/)
+* [How to monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/)
+* [How to scale Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/)
 * [Publishing with Git](/en-us/develop/php/common-tasks/publishing-with-git/)
 
 For end-to-end tutorials, visit the [PHP Developer Center - Tutorials](/en-us/develop/php/tutorials/) page.
@@ -81,8 +86,8 @@ For end-to-end tutorials, visit the [PHP Developer Center - Tutorials](/en-us/de
 [xplat-tools]: /en-us/develop/php/how-to-guides/command-line-tools/
 [powershell-cmdlets]: /en-us/develop/php/how-to-guides/powershell-cmdlets/
 [configure-php]: /en-us/develop/php/common-tasks/configure-php-web-site/
-[web site-mysql-git]: /en-us/develop/php/tutorials/web site-w-mysql-and-git/
-[wordpress-gallery]: /en-us/develop/php/tutorials/web site-from-gallery/
-[web sites-pricing]: /en-us/pricing/details/#header-1
-[scale-web sites]: /en-us/manage/services/web-sites/how-to-scale-web sites/
+[website-mysql-git]: /en-us/develop/php/tutorials/website-w-mysql-and-git/
+[wordpress-gallery]: /en-us/develop/php/tutorials/website-from-gallery/
+[websites-pricing]: /en-us/pricing/details/#header-1
+[scale-websites]: /en-us/manage/services/web-sites/how-to-scale-websites/
 
