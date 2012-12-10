@@ -57,7 +57,7 @@ In this section you will create a new Node application and use npm to add module
 
 2. Enter the following command to install express.
 
-	sudo npm install express -g
+	npm install express -g
  
 	<div class="dev-callout">
 	<strong>Note</strong>
