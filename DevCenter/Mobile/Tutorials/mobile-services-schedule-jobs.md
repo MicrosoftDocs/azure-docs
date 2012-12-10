@@ -68,7 +68,7 @@ Now that you have disabled duplicate checking on the Channel table, you can run 
     <p>When you run your mobile service in <i>free</i> mode, you are only able to run one scheduled job at a time. In <i>reserved</i> mode, you can run up to ten scheduled jobs at a time.</p>
     </div>
 
-3. In the scheduler dialog, enter <i>cleanup_channel</i> for the **Job Name**, set the schedule interval and units, then click the check button. 
+3. In the scheduler dialog, enter <i>cleanup_channels</i> for the **Job Name**, set the schedule interval and units, then click the check button. 
    
    ![][5]
 
