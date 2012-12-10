@@ -67,10 +67,10 @@ In this section you will create a new Node application and use npm to add module
     The output of this command should appear similar to the following:
 
 		express@2.5.9 /usr/local/lib/node_modules/express
-		â”œâ”€â”€ mime@1.2.4 
-		â”œâ”€â”€ mkdirp@0.3.0 
-		â”œâ”€â”€ qs@0.4.2 
-		â””â”€â”€ connect@1.8.7 
+		├── mime@1.2.4 
+		├── mkdirp@0.3.0 
+		├── qs@0.4.2 
+		└── connect@1.8.7 
  
 	<div class="dev-callout">
 	<strong>Note</strong>
@@ -113,13 +113,14 @@ The **package.json** file is one of the files created by the **express** command
     The output of this command should appear similar to the following:
 
 		express@2.5.8 ./node_modules/express
-		â”œâ”€â”€ mime@1.2.4
-		â”œâ”€â”€ qs@0.4.2
-		â”œâ”€â”€ mkdirp@0.3.0
-		â””â”€â”€ connect@1.8.7
+		├── mime@1.2.4
+		├── qs@0.4.2
+		├── mkdirp@0.3.0
+		├── connect@1.8.7
 		jade@0.26.0 ./node_modules/jade
-		â”œâ”€â”€ commander@0.5.2
-		â””â”€â”€ mkdirp@0.3.0
+		├── commander@0.5.2
+		└── mkdirp@0.3.0
+
 
 	This installs all of the default modules that Express needs.
 
@@ -130,8 +131,8 @@ The **package.json** file is one of the files created by the **express** command
 	The output of this command should appear similar to the following:
 
 		mongoose@2.6.5 ./node_modules/mongoose
-		â”œâ”€â”€ hooks@0.2.1
-		â””â”€â”€ mongodb@1.0.2
+		├── hooks@0.2.1
+		└── mongodb@1.0.2
 
     <div class="dev-callout">
 	<strong>Note</strong>
