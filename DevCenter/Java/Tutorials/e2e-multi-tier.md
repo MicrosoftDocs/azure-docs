@@ -182,11 +182,11 @@ The application will look similar to the following:
 
 - In the **Select JSP Template** dialog, for purposes of this tutorial select **New JSP File (html)** and click **Finish**.
 
-- When the index.jsp file opens in Eclipse, add in text to display Hello World! within the existing <body> element. Your updated <body> content should appear as the following. Save index.jsp.
+- When the index.jsp file opens in Eclipse, add in text to display Hello World! within the existing <body> element. Your updated `<body>` content should appear as the following. Save index.jsp.
 
-			<body>
-			  <b><% out.println("Hello World!"); %></b>
-			</body>
+		<body>
+			<b><% out.println("Hello World!"); %></b>
+		</body>
 
 - In the left-hand pane of the **Properties** dialog, click **Java Build Path**.
 
