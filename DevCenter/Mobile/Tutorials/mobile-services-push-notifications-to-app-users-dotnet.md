@@ -76,15 +76,15 @@ Next, you will modify the push notifications app to store data in this new table
 
 4. Open the file App.xaml.cs and replace **AcquirePushChannel** method with the following code:
 
-	   private async void AcquirePushChannel()
-	   {
+	    private async void AcquirePushChannel()
+	    {
 	       CurrentChannel = 
                await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 	
 	       IMobileServiceTable<Channel> channelTable = App.MobileService.GetTable<Channel>();
 	       var channel = new Channel { Uri = CurrentChannel.Uri };
 	       await channelTable.InsertAsync(channel);
-       }
+        }
 
      This code inserts the current channel into the Channel table.
 
@@ -107,7 +107,6 @@ Next, you will modify the push notifications app to store data in this new table
 			channelTable
 				.where({ uri: item.uri })
 				.read({ success: insertChannelIfNotFound });
-
 	        function insertChannelIfNotFound(existingChannels) {
         	    if (existingChannels.length > 0) {
             	    request.respond(200, existingChannels[0]);

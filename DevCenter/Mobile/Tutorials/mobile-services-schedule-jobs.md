@@ -4,63 +4,144 @@
 
 # Schedule backend jobs in Mobile Services 
 
-This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define. These jobs are ...
+This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define.
 
-<a name="about"></a><h2><span class="short-header">About</span>About the job scheduler</h2>
+<div class="dev-callout"><b>Note</b>
+<p>You can use the Mobile Services job scheduler to define as many jobs as you want. However, when you run your mobile service in <i>free</i> mode, you are only able to run one scheduled job at a time. In <i>reserved</i> mode, you can run up to ten scheduled jobs at a time.</p>
+</div>
 
-Intro material here.
+This tutorial walks you through these basic steps to demonstrate how to use the job scheduler to create a job that removes duplicate push notification channle URIs from the Channel table:
 
+1. [Update Channel table scripts]
+2. [Insert data to create duplicate channels]
+3. [Create a new scheduled job]
 
-<a name="add-job"></a><h2><span class="short-header">Schedule a job</span>How to: schedule a new job</h2>
+This tutorial  create a new job that runs a script that removes any duplicate URIs from the Channel table. This table is created when you complete the tutorial [Push notifications to app users for Windows Store apps] or [Push notifications to app users for Windows Phone 8 apps]. Completing one of these tutorials is a prerequisite for completing this tutorial.
 
-1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
+<a name="update-scripts"></a><h2><span class="short-header">Update scripts</span>Update Channel table scripts</h2>
+
+1. In the Management Portal, click the **Data** tab and then click the **Channel** table. 
 
    ![][1]
 
-2. Click the **Schedule** tab, then click **+Create**. 
-
+2. In **channel**, click the **Script** tab, select **Insert**, copy the existing code to a text file, click **Clear**, then click **Yes** to confirm.
+   
    ![][2]
 
-   This displays the scheduler dialo
+   This removes the code that checks for duplicate URI values before inserting them into the Channel table.
 
-3. Supply a **Job Name**, set the schedule interval and units, then click the check button. 
-   
+    <div class="dev-callout"><b>Note</b>
+    <p>To restore the original functionality of the push notifications tutorial, replace the copied <strong>insert</strong> function code.</p>
+    </div>
+
+Now that you have disabled duplicate checking on the Channel table, you can run the app to insert duplicate records.
+
+<a name="insert-duplicates"></a><h2><span class="short-header">Generate duplicates</span>Insert data to create duplicate channels</h2>  
+
+1. In the appropriate version of Visual Studio 2012 Express, open the app project from either [Push notifications to app users for Windows Store apps] or [Push notifications to app users for Windows Phone 8 apps].
+
+2.  Press the **F5** key to rebuild the project and start the app.
+
+3.  In the app, enter text in the text box and then click **Save**.
+
+4.  Stop or close the app and repeat steps 2 and 3. 
+
+   This adds duplicate channel URIs into the Channel table.
+
+5. Back in the Management Portal, click **Browse** 
+
+  ![][8]
+
+   Notice that there are two or more entries in the table with the same **Uri** value.
+
+<a name="add-job"></a><h2><span class="short-header">Create a new job</span>Create a new scheduled job</h2>  
+ 
+
+1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
+
    ![][3]
 
-   This creates a new job named **cleanup_tables** that runs once an hour.
+2. Click the **Scheduler** tab, then click **+Create**. 
 
-    <div class="dev-callout"> 
-	<b>Note</b> 
-	<p>If you want to create your job but start running it at a later date, or if you only want to run the job manually from the Management Portal, select <strong>On demand</strong> under <strong>Schedule</strong>.</p> 
-	</div>
+   ![][4]
 
-4. Replace the function **cleanup_tables** with the following code:
+3. In the scheduler dialog, enter <i>cleanup_channel</i> for the **Job Name**, set the schedule interval and units, then click the check button. 
+   
+   ![][5]
 
-        // Cleanup code goes here.
+   This create a new job named **cleanup_channel**. 
 
+4. Click the new job you just created, then click the **Script** tab.
 
-6. Click the **Save** button. You have now configured a script that is executed at the scheduled interval. 
+   ![][6] 
 
-Congratulations, you have successfully created a new job schedule in your mobile service. This job will execute as scheduled until you disable or modify it.
+4. Replace the placeholder function **cleanup_channel** with the following code:
+
+        function cleanup_channels() {
+            var sql = "SELECT MAX(Id) as Id, Uri FROM Channel " + 
+                "GROUP BY Uri HAVING COUNT(*) > 1";
+            var channelTable = tables.getTable('Channel');
+ 
+            mssql.query(sql, {
+                success: function(results) {
+                    if (results.length > 0) {
+                        for (var i = 0; i < results.length; i++) {
+                            channelTable.del(results[i].Id);
+                            console.log('Deleted duplicate channel:' + 
+                            results[i].Uri);
+                        }
+                    } else {
+                        console.log('No duplicate rows found.');
+                    }
+                }
+            });
+        }
+
+6. Click **Save**, then **Run Once** to test the script. 
+
+  ![][7]
+
+   This executes the job while it remains disabled in the scheduler.
+
+7. Click the back button, click **Logs**, locate the **Deleted duplicate...** item, click **Details**, and verify that a duplicate row was deleted.
+
+   ![][9]
+
+8. Click **Scheduler**, select **cleanup_channels**, then click **Enable**.
+
+   ![][10]
+
+   This enables the job to run on the specified schedule, in this case every hour.
+
+Congratulations, you have successfully created a new job schedule in your mobile service. This job will be executed as scheduled until you disable or modify it.
 
 ## <a name="nextsteps"> </a>Next Steps
-
 
 * [Mobile Services server script reference]
   <br/>Learn more about registering and using server scripts.
 
 <!-- Anchors. -->
-[About the job scheduler]: #about
-[How to: schedule a new job]: #add-job
+[Update Channel table scripts]: #update-scripts
+[Insert data to create duplicate channels]: #insert-duplicates
+[Create a new scheduled job]: #add-job
 [Next steps]: #next-steps
 
 <!-- Images. -->
-[1]: ../Media/mobile-services-selection.png
-[2]: ../Media/mobile-schedule-new-job.png
-[3]: ../Media/mobile-create-job-dialog.png
-[4]: ../Media/mobile-receive-email.png
+[1]: ../Media/mobile-portal-data-tables-channel.png
+[2]: ../Media/mobile-insert-script-channel-clear.png
+[3]: ../Media/mobile-services-selection.png
+[4]: ../Media/mobile-schedule-new-job.png
+[5]: ../Media/mobile-create-job-dialog.png
+[6]: ../Media/mobile-schedule-job-script-new.png
+[7]: ../Media/mobile-schedule-job-script.png
+[8]: ../Media/mobile-verify-channel-duplicates.png
+[9]: ../Media/mobile-schedule-job-logs.png
+[10]: ../Media/mobile-schedule-job-enabled.png
 
 <!-- URLs. -->
+[Push notifications to app users for Windows Store apps]: ../tutorials/mobile-services-push-notifications-to-app-users-dotnet.md
+[Push notifications to app users for Windows Phone 8 apps]: ../tutorials/mobile-services-push-notifications-to-app-users-wp8.md
+[Push notifications to app users]: ../tutorials/mobile-services-push-notifications-to-app-users-ios.md
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
