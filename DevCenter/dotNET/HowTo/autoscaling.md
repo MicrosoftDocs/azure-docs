@@ -230,8 +230,7 @@ You must replace the values in square brackets with values specific to
 your environment and target application. To find many of these values,
 you will need to log in to the [Windows Azure Management Portal][].
 
-Within the management portal, click **Hosted Services, Storage Accounts
-& CDN**.
+Sign in to the management portal.
 
 -   **[subscriptionname]:** Choose a friendly name to refer to the
     Windows Azure subscription that contains the application in which
