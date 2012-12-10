@@ -1,4 +1,4 @@
-<properties linkname="dev-net-how-to-sendgrid-email-service" urldisplayname="SendGrid Email Service" headerexpose="" pagetitle="SendGrid Email Service - How To - .NET - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkname="dev-net-how-to-sendgrid-email-service" urldisplayname="SendGrid Email Service" headerexpose="" pagetitle="SendGrid Email Service - How To - .NET - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -11,8 +11,7 @@ email**, **sending email**, **adding attachments**, and **using
 filters**. For more information on SendGrid and sending email, see the
 [Next steps][] section.
 
-<a name="toc"> </a>
-<h2>Table of contents</h2>
+<h2><a name="toc"></a>Table of contents</h2>
 
 [What is the SendGrid Email Service?][]   
 [Create a SendGrid account][]   
@@ -92,7 +91,6 @@ the SendGrid APIs.
     using SendGridMail;
     using SendGridMail.Transport;
 
-
 <h2><a name="createemail"></a><span  class="short-header">How to: Create an email</span>How to: Create an email</h2>
 
 Use the static **SendGrid.GenerateInstance** method to create an email
@@ -147,7 +145,6 @@ The following example demonstrates how to create an empty email object:
 
 For more information on all properties and methods supported by the
 **SendGrid** type, see [sendgrid-csharp][] on GitHub.
-
 
 <h2><a name="sendemail"></a><span  class="short-header">How to: Send an email</span>How to: Send an email</h2>
 
@@ -207,7 +204,6 @@ to send a message using both SMTP and the Web API.
 
     // Send the email.
     transportREST.Deliver(myMessage);
-
 
 <h2><a name="addattachment"></a><span  class="short-header">How to: Add an attachment</span>How to: Add an attachment</h2>
 

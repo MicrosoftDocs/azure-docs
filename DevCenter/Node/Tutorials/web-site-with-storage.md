@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" metaDescription="A tutorial that teaches you how to use the Windows Azure Table service to store data from a Node application hosted on a Windows Azure web site." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+﻿<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" metaDescription="A tutorial that teaches you how to use the Windows Azure Table service to store data from a Node application hosted on a Windows Azure web site." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 
 # Node.js Web Application using the Windows Azure Table Service
@@ -637,7 +637,7 @@ While the steps in this article describe using the Table Service to store inform
 [for free]: http://windowsazure.com
 [Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
-[Node.js Web Application with MongoDB]: ./web-site-with-mongodb-Mac
+[Node.js Web Application with MongoDB]: /en-us/develop/nodejs/tutorials/web-site-with-mongodb-(Mac)/
 [Windows Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Create and deploy a Node.js application to a Windows Azure Web Site]: ./web-site-with-mongodb-Mac
 [Publishing to Windows Azure Web Sites with Git]: ../CommonTasks/publishing-with-git
