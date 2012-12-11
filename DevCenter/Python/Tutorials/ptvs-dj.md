@@ -52,7 +52,7 @@ To create a new Django application first launch Visual Studio and then create a 
 
 ![Visual Studio opened to your first Django project](../Media/ptvs-dj-FirstProject.png)
 
-Next you'll want to start developing the first Django app.  You can right click on the project node and select **Add New Django app**... to setup a new app within your project:
+Next you'll want to start developing the first Django app.  You can right click on the module node and select **Add New Django app**... to setup a new app within your project:
 
 ![Add New App menu item](../Media/ptvs-dj-AddNewApp.png)
 
@@ -141,20 +141,23 @@ When running in the compute emulator you can rapidly iterate on your application
 
 ## Deploying the Application to Windows Azure
 
-Now you're ready to deploy the project to Windows Azure. To do this all you need to do is right click the Windows Azure deployment project in Solution Explorer and **selecting Publish**:
+Now you're ready to deploy the project to Windows Azure. To do this all you need to do is right click the Windows Azure deployment project in Solution Explorer and **select Publish**:
 
 ![Package App Menu](../Media/ptvs-dj-publish1.png)
 
 After selecting Publish you will be prompted to sign in to Windows Azure.  You can either import your existing credentials here or setup new credentials:
 
-![Package Settings](../Media/ptvs-dj-publish2.png)
+![Package Subscription](../Media/ptvs-dj-publish2.png)
 
 After selecting the credentials you'll see the Windows Azure Publish Settings screen.  You can select the various options on how your deployment will proceed, or you can just **press Publish**:
 
 ![Package Settings](../Media/ptvs-dj-publish3.png)
 
-You'll now need to wait for the application be setup and deployed. Once it's all setup
-you can click on the link below DNS Name to view your web site running in the cloud:
+You'll now need to wait for the application be setup and deployed.
+
+![Package Deployment](../Media/ptvs-dj-publish4.png)
+
+Once it's all setup you can click on the link below DNS Name to view your web site running in the cloud:
 
 
 ![Your Django app in the cloud](../Media/ptvs-dj-FirstAppInCloud.png)
