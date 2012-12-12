@@ -15,8 +15,8 @@
 <li><a href="#step3">Step 3 - Protect the Java web application via WS-Federation and onboard the first customer</a></li>
 <li><a href="#step4">Step 4 - Configure the Java web application for single sign-on with multiple tenants</a></li>	<li><a href="#appendix">Appendix: Deploying to JBOSS on Solaris</a></li>
 
-<a name="overview"></a>
-## Overview ##
+<h2><a name="overview"></a>Overview</h2>
+
 This guide provides instructions for creating a Java web application and configuring it to leverage Windows Azure Active Directory. 
 
 Imagine the following scenario:
@@ -48,8 +48,7 @@ In the instructions provided in this guide, we will play the roles of both Fabri
 
 This guide is available together with several code samples and scripts that can help you with some of the most time-consuming tasks. All materials are available at [Azure Active Directory SSO for Java](https://github.com/WindowsAzure/azure-sdk-for-java-samples/) for you to study and modify to fit your environment. 
 
-<a name="prerequisites"></a>
-## Prerequisites ##
+<h2><a name="prerequisites"></a>Prerequisites</h2>
 
 To complete the tasks in this guide, you will need the following:
 
@@ -69,9 +68,7 @@ To complete the tasks in this guide, you will need the following:
     </li>
 
 
-
-<a name="step1"></a>
-## Step 1 - Create a Java web application ##
+<h2><a name="step1"></a>Step 1 - Create a Java web application</h2>
 
 The instructions in this step demonstrate how to create a simple Java application. In our scenario, this step is performed by Fabrikam.
 
@@ -173,8 +170,7 @@ The instructions in this step demonstrate how to create a simple Java applicatio
 
 	*Note:* Make sure to record this value. This identifier will be the AppPrincipalId used in further steps in this guide when provisioning this Jav web applicaiton in Office 365. 
 
-<a name="step2"></a>
-## Step 2 - Provision the Java web application in Windows Azure Active Directory ##
+<h2><a name="step2"></a>Step 2 - Provision the Java web application in Windows Azure Active Directory</h2>
 
 Instructions in this step demonstrate how you can provision the Java web application in Windows Azure Active Directory. In our scenario, this step is performed by Awesome Computers.  Then Awesome Computers provides the application owner (Fabrikam) with the data Fabrikam needs in order to set up single sign-on access for Awesome Computers's users. 
 
@@ -221,8 +217,7 @@ The Fabrikam's application has been successfully provisioned in the directory te
 
 Now Fabrikam must provision Awesome Computers as a customer of the Java application. In other words, Fabrikam must know that users from the Office 365 tenant with domain *awesomecomputers.onmicrosoft.com* should be granted access to the Java applicaiton. How that information reaches Fabrikam depends on how the subscriptions are handled. In this guide, the instructions for this provisioning step are not provided. 
 
-<a name="step3"></a>
-## Step 3 - Protect the Java web application via WS-Federation and onboard the first customer##
+<h2><a name="step3"></a>Step 3 - Protect the Java web application via WS-Federation and onboard the first customer</h2>
 
 The instructions in this step demonstrate how to add support for federated login to the Java web application created in Step 1. In our scenario, this step is performed by Fabrikam. 
 
@@ -486,8 +481,7 @@ This step is performed by using the waad-federation library and adding some extr
 
 If, however, you are developing applications that need to be accessed by more than one tenant, the next step can help you modify your code to accommodate multiple tenants.  
 
-<a name="step4"></a>
-## Step 4 - Configure the Java web application for single sign-on with Multiple tenants ##
+<h2><a name="step4"></a>Step 4 - Configure the Java web application for single sign-on with Multiple tenants</h2>
 
 What if Fabrikam wants to provide access to its application to multiple customers? The steps we performed in this guide so far ensure that single sign-on works with only one trusted provider. Fabrikam's developers must make some changes to their Java web application in order to provide single sign-on to whatever future customers they obtain. The main new features needed are:
 
@@ -559,8 +553,7 @@ Let's add another fictitious customer to our scenario, Trey research Inc. Trey R
 
 	Once you see the list of the trusted identity providers in your browser, you can navigate to either provider: the authentication flow will unfold in the same way described in the former section. The application will validate the incoming token accordingly. You can try to delete entries in trusted.issuers.xml, as it would happen, for example, once a subscription expires, and verify that the application then will reject authentication attempts from the corresponding provider. 
 
-<a name="appendix"></a>
-## Appendix: Deploying to JBOSS on Solaris ##
+<h2><a name="appendix"></a>Appendix: Deploying to JBOSS on Solaris</h2>
 This sample has been tested on JBOSS 7.1 running on Solaris. 
 
 **To deploy to JBOSS on Solaris:**
