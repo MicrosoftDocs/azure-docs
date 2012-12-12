@@ -1,6 +1,6 @@
 <properties linkid="develop-php-website-with-sql-database-and-webmatrix" urlDisplayName="Web w/ SQL + WebMatrix" pageTitle="PHP web site with SQL Database and WebMatrix - Windows Azure" metaKeywords="" metaDescription="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web site that stores data in SQL Database." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-
+<div chunk="../chunks/article-left-menu.md" />
 
 #Create and Deploy a PHP Website and SQL Database using WebMatrix
 
