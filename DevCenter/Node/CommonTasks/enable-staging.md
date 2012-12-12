@@ -2,6 +2,7 @@
 
 
 
+<div chunk="../chunks/article-left-menu.md" />
 
 # Staging an Application in Windows Azure
 

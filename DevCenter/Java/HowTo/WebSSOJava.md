@@ -1,7 +1,9 @@
-<properties linkid="develop-java-how-to-guides-web-sso" urlDisplayName="Web SSO" pageTitle="Single sign-on with Windows Azure Active Directory (Java)" metaKeywords="Azure Java web app, Azure single sign-on, Azure Java Active Directory" metaDescription="Learn how to create a Java web application that uses single sign-on with Windows Azure Active Directory." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+﻿<properties linkid="develop-java-how-to-guides-web-sso" urlDisplayName="Web SSO" pageTitle="Single sign-on with Windows Azure Active Directory (Java)" metaKeywords="Azure Java web app, Azure single sign-on, Azure Java Active Directory" metaDescription="Learn how to create a Java web application that uses single sign-on with Windows Azure Active Directory." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+<div chunk="../chunks/article-left-menu.md" />
 
-# How to implement single sign-on with Windows Azure Active Directory -Java Application#
+# How to implement single sign-on with Windows Azure Active Directory - Java Application#
+
 <h2>Table of Contents</h2>
 <li>
 <a href="#overview">Overview</a>
