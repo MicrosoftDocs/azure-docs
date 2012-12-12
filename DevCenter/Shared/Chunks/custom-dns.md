@@ -14,9 +14,7 @@ This task will show you how to:
 -   [Expose Your Application on a Custom Domain][]
 -   [Expose Your Data on a Custom Domain][]
 
-<a name="access-app"> </a>
-
-<h2>Expose your application on a custom domain</h2>
+<h2><a name="access-app"></a>Expose your application on a custom domain</h2>
 
 There are two ways you can configure the Domain Name Server (DNS) settings on your domain
 registrar to point to your Windows Azure hosted service:
@@ -83,9 +81,7 @@ end user.
 	settings, or create an A record as described earlier.</p>
 </div>
 
-<a name="access-data"> </a>
-
-<h2>Expose your data on a custom domain</h2>
+<h2><a name="access-data"></a>Expose your data on a custom domain</h2>
 
 This section describes how to associate your own custom domain with a
 Windows Azure storage account. When you complete the tasks in this
