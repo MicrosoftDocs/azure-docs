@@ -1,6 +1,7 @@
-<properties linkid="dev-java-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Java) - Windows Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Java" metaDescription="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for Java applications." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+﻿<properties linkid="dev-java-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Java) - Windows Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Java" metaDescription="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for Java applications." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to Use Service Bus Topics/Subscriptions
 

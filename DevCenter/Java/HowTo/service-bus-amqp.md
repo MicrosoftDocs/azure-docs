@@ -1,7 +1,6 @@
-﻿
-How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0
+﻿<div chunk="../chunks/article-left-menu.md" />
 
-# 
+# How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0
 
 # Introduction
 

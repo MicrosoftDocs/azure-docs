@@ -1,5 +1,6 @@
 ﻿<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" metaDescription="A tutorial that teaches you how to use the Windows Azure Table service to store data from a Node application hosted on a Windows Azure web site." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+<div chunk="../chunks/article-left-menu.md" />
 
 # Node.js Web Application using the Windows Azure Table Service
 

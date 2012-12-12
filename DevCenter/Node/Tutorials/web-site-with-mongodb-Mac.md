@@ -1,6 +1,7 @@
-<properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on a VM - Windows Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" metaDescription="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/" disqusComments="1" umbracoNaviHide="1" />
+﻿<properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on a VM - Windows Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" metaDescription="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/" disqusComments="1" umbracoNaviHide="1" />
 
 
+<div chunk="../chunks/article-left-menu.md" />
 
 # Node.js Web Application with Storage on MongoDB (Virtual Machine)
 This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on Windows Azure. [MongoDB] is a popular open source, high performance NoSQL database. This tutorial assumes that you have some prior experience using node, MongoDB, and [Git].
