@@ -1,4 +1,4 @@
-<properties linkid="manage-services-getting-started-with-sqlds" urlDisplayName="Get started tutorial" pageTitle="Getting started with SQL Data Sync - Windows Azure" metaKeywords="" metaDescription="Get started creating and managing SQL Data Sync sync groups in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-services-getting-started-with-sqlds" urlDisplayName="How to create and provision" pageTitle="Getting started with SQL Data Sync - Windows Azure" metaKeywords="" metaDescription="Get started creating and managing SQL Databases in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 #Getting Started with Windows Azure SQL Data Sync
@@ -36,7 +36,7 @@ This step is required only if you are going to have an on-premises SQL Server da
 <h3 id="InstallRequiredSoftware">Step 2a: Install the required software</h3>
 Be sure that you have the following installed on the computer you install the Client Agent.
 <bl>
-	<li>**.NET Framework 4.0**<br>You can install .NET Framework 4.0 from [here](http://go.microsoft.com/fwlink/?linkid=205836).</li>
+	<li>**.NET Framework 4.0**<br>You can install .NET Framework 4.0 from <link></li>
 <li>**Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86)**<br>You can install the Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86) from [http://www.microsoft.com/download/en/details.aspx?id=26728](http://www.microsoft.com/download/en/details.aspx?id=26728)</li>
 <li>**Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86)**<br>You can install the Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86) from [http://www.microsoft.com/download/en/details.aspx?id=26728](http://www.microsoft.com/download/en/details.aspx?id=26728)</li>
 </bl>
