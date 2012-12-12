@@ -21,7 +21,7 @@ To set up a cloud service to automatically build and deploy to Windows Azure by 
 
 -   [Step 6: Change the Production deployment (cloud services only)][]
 
-<h2> <a name="step1"></a><span class="short-header">Sign up for TFS</span>Step 1: Sign up for TFS Preview</h2>
+<h2> <a name="step1"></a><span class="short-header">Sign up for TFS</span>Step 1: Sign up for TFS</h2>
 
 1.	Create a TFS account by navigating to [http://tfs.visualstudio.com](http://tfs.visualstudio.com). Click the **Sign up for free** link.
   You will need to sign-in using a Microsoft account. After you log in, create a TFS account URL.
@@ -65,7 +65,7 @@ Note the options to include or exclude specific changes when you check in. If de
 
 <h2> <a name="step3"> </a><span class="short-header">Connect the project to Windows Azure</span>Step 3: Connect the project to Windows Azure</h2>
 
-1. Now that you have a TFS team project with some source code in it, you are ready to connect your team project to Windows Azure.  In the [Windows Azure Preview Portal](http://manage.windowsazure.com), select your cloud service or web site, or create a new one by selecting the + icon at the bottom left and choosing **Cloud Service** or **Web Site** and then **Quick Create**. Choose the **Set up TFS publishing** link.<br/>
+1. Now that you have a TFS team project with some source code in it, you are ready to connect your team project to Windows Azure.  In the [Windows Azure Portal](http://manage.windowsazure.com), select your cloud service or web site, or create a new one by selecting the + icon at the bottom left and choosing **Cloud Service** or **Web Site** and then **Quick Create**. Choose the **Set up TFS publishing** link.<br/>
 ![][10]
 
 2. In the wizard, type the name of your TFS account in the textbox and click the **Authorize Now** link. You might be asked to sign in.<br/>
@@ -144,7 +144,7 @@ or if there is no storage account, it creates one.
 12. If you double-click the build name, Visual Studio shows a **Build Summary**, including any test results from associated unit test projects.<br/>
 ![][29]
 
-13. In the [Windows Azure Preview Portal](http://manage.windowsazure.com), you can view the associated deployment on the Deployments tab when the staging environment is selected.<br/>
+13. In the [Windows Azure Portal](http://manage.windowsazure.com), you can view the associated deployment on the Deployments tab when the staging environment is selected.<br/>
 ![][30]
 
 14.	Choose the URL in the **Quick Glance** section of the **Dashboard** page that shows the Staging environment for a cloud service. For a web site, just click the Browse button on the command bar. Deployments from continuous integration for cloud services are published to the Staging environment by default. You can change this by setting the Alternate Cloud Service Environment property to Production. Web sites have no Staging or Production environments. <br/>
@@ -168,7 +168,7 @@ This step applies only to cloud services, not web sites. When you are ready, you
 
 For more information, see [Team Foundation Service](http://go.microsoft.com/fwlink/?LinkId=253861).
 
-[Step 1: Sign up for TFS Preview.]: #step1
+[Step 1: Sign up for TFS.]: #step1
 [Step 2: Check in a project to TFS.]: #step2
 [Step 3: Connect the project to Windows Azure.]: #step3
 [Step 4: Make changes and trigger a rebuild and redeployment.]: #step4
