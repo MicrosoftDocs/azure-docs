@@ -1,4 +1,4 @@
-#Troubleshooting in Windows Azure
+﻿#Troubleshooting in Windows Azure
 
 *Troubleshooting* refers to the general task of locating and
 understanding unexpected application behavior and correcting it. When developing applications, developers test, run, and debug
@@ -57,7 +57,7 @@ describe how to implement them.
 * [Windows Azure Services](#PlatformServices)
 * [SQL Database Troubleshooting](#SQLTroubleshooting)
 
-<h2 id="BestPractices">Best Practices for Troubleshooting in Windows Azure</h2>
+<h2><a id="BestPractices"></a>Best Practices for Troubleshooting in Windows Azure</h2>
 
 This section describes best practices that apply to Windows Azure
 applications no matter which hosting model or language you use. It
@@ -381,7 +381,7 @@ failed request tracing for Windows Azure web sites, **all** failed
 requests are captured. For more information on how to view failed
 request logs see: [View the results of failed request tracing].
 
-<h2 id="Cloudservices">Windows Azure Cloud Services</h2>
+<h2><a id="Cloudservices"></a>Windows Azure Cloud Services</h2>
 
 Because of the distributed nature of Windows Azure Cloud Services, it’s
 important to defend your application by making calls asynchronously and
@@ -475,7 +475,7 @@ demonstrated include:
 
 Documentation for the cmdlets can be found here: [http://wappowershell.codeplex.com/documentation]. Michael Washam's [blog] gives some good example scripts.
 
-<h2 id="Vms">Windows Azure Virtual Machines</h2>
+<h2><a id="Vms"></a>Windows Azure Virtual Machines</h2>
 
 Troubleshooting applications running on Windows Azure Virtual Machines
 typically involve the same troubleshooting techniques that you would use
@@ -497,7 +497,7 @@ with the operating systems and platforms in use. For example:
     start with the product documentation, see [https://help.ubuntu.com/].
 -   CentOS 6.2 Linux. For more information, see [http://centos.org/].
 
-<h2 id="PlatformServices">Troubleshooting Windows Azure Services</h2>
+<h2><a id="PlatformServices"></a>Troubleshooting Windows Azure Services</h2>
 
 Many of the Windows Azure services such as Windows Azure SQL Database, Windows Azure
 Active Directory, and Windows Azure storage have troubleshooting advice
@@ -536,7 +536,7 @@ these will allow you to see Diagnostics files and Windows Azure Storage
 Analytics files. Cloudberry Lab's [Explorer for Azure Blob Storage] provides a user interface to enable Storage Analytics directly in the
 application by clicking **Storage Settings**.
 
-<h2 id="Misc">Windows Azure Service Bus Troubleshooting</h2>
+<h2><a id="Misc"></a>Windows Azure Service Bus Troubleshooting</h2>
 
 This section provides high-level guidance about how to develop an
 application that uses the Windows Azure Service Bus in a robust and
@@ -647,7 +647,7 @@ Troubleshooting
 -   ACS Service limitations:
     [http://msdn.microsoft.com/en-us/library/windowsazure/gg185909.aspx]
 
-<h2 id="SQLTroubleshooting">Windows Azure SQL Database Troubleshooting</h2>
+<h2><a id="SQLTroubleshooting"></a>Windows Azure SQL Database Troubleshooting</h2>
 
 When interacting with a Windows Azure SQL database extra care must be taken to
 deal with the distributed nature of Windows Azure SQL Database applications. This
@@ -752,7 +752,7 @@ following articles:
     by SQL Database:
     [http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx]
 
-<h2 id="Cache">Windows Azure Caching</h2>
+<h2><a id="Cache"></a>Windows Azure Caching</h2>
 Windows Azure Caching comes in two flavors: the Windows Azure Shared Caching and role-based Windows Azure Caching (Preview). Shared Caching is a multitenent Windows Azure service that provides caching services. Windows Azure Caching (Preview) hosts caching on a role by using a portion of the memory from the virtual machines that host your role instances. To troubleshoot Windows Azure Caching, observe the behavior of the cache by checking error codes and catching exceptions. When using role-based Cachineg(Preview),you can also use performance counters. Caching problems generally fall into one of the following categories:
 
 - 	Quota-related errors - a quota has been exceeded (Shared Caching)

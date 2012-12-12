@@ -20,7 +20,7 @@ The task includes the following steps:
 	* [Deploy files from GitHub, CodePlex, or BitBucket](#Step7)
 * [Troubleshooting](#Step8)
 
-<h2 id="Step1">Installing Git</h2>
+<h2><a id="Step2"></a>Installing Git</h2>
 
 The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distributions and installation guidance.
 
@@ -29,7 +29,7 @@ The steps required to install Git vary between operating systems. See [Installin
 <p>On some operating systems, both a command-line and GUI version of Git will are available. The instructions provided in this article use the command-line version.</p>
 </div>
 
-<h2 id="Step2">Create a local repository</h2>
+<h2><a id="Step2"></a>Create a local repository</h2>
 
 Perform the following tasks to create a new Git repository.
 
@@ -43,7 +43,7 @@ Perform the following tasks to create a new Git repository.
 
 	This should return a message such as **Initialized empty Git repository in [path]**.
 
-<h2 id="Step3">Add a web page</h2>
+<h2><a id="Step3"></a>Add a web page</h2>
 
 Windows Azure Web Sites support a applications created in a variety of programming languages. For this example, you will use a static .html file. For information on publishing web sites in other programming languages to Windows Azure, see the [Windows Azure Developer Center].
 
@@ -63,7 +63,7 @@ Windows Azure Web Sites support a applications created in a variety of programmi
 		 1 file changed, 1 insertion(+)
 		 create mode 100644 index.html
 
-<h2 id="Step4">Enable the web site repository</h2>
+<h2><a id="Step4"></a>Enable the web site repository</h2>
 
 Perform the following steps to enable a Git repository for your web site by using the Windows Azure portal:
 
@@ -85,13 +85,13 @@ Perform the following steps to enable a Git repository for your web site by usin
 
 	![Repository ready][portal-repository-ready]
 
-<h2 id="Step5">Deploy your project</h2>
+<h2><a id="Step5"></a>Deploy your project</h2>
 
 Pushing local files to Windows Azure allows you to manually push updates from a local project to your Windows Azure Web Site, while deploying from GitHub, CodePlex, or BitBucket results in a continuous deployment process where Windows Azure will pull in the most recent updates to your GitHub, CodePlex, or BitBucket project.
 
 While both methods result in your project being deployed to a Windows Azure Web Site, continuous deployment is useful when you have multiple people working on a project and want to ensure that the latest version is always published regardless of who made the most recent update. Continuous deployment is also useful if you are using GitHub, Codeplex, or BitBucket as the central repository for your application.
 
-<h3 id="Step6">Pushing local files to Windows Azure</h3>
+<h3><a id="Step6"></a>Pushing local files to Windows Azure</h3>
 
 Once the repository is ready, select **Push my local files to Windows Azure** in the portal for instructions on publishing your local files.
 
@@ -143,7 +143,7 @@ The **remote** command adds a named reference to a remote repository, in this ca
 
 	![A webpage containing 'Yay!'][yay]
 
-<h3 id="Step7">Deploy files from GitHub, CodePlex, or BitBucket</h3>
+<h3><a id="Step7"></a>Deploy files from GitHub, CodePlex, or BitBucket</h3>
 
 Deploying files from either GitHub, CodePlex, or BitBucket requires that you have published your local project to one of these services. For more information on publishing your project to these services, see [Create a Repo (GitHub)], [Using Git with CodePlex], or [Create a Repo (BitBucket)].
 
@@ -198,7 +198,7 @@ When updates are made to your GitHub, CodePlex, or BitBucket repository, a POST 
 
 To discontinue continuous deployment, simply remove the URL from the configuration settings of your GitHub, CodePlex, BitBucket repository.
 
-<h2 id="Step8">Troubleshooting</h2>
+<h2><a id="Step8"></a>Troubleshooting</h2>
 
 The following are errors or problems commonly encountered when using Git to publish to a Windows Azure Website:
 
