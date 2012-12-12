@@ -1,4 +1,4 @@
-# How to use Windows Azure PowerShell
+﻿# How to use Windows Azure PowerShell
 
 This guide describes how to use Windows PowerShell cmdlets to create,
 test, deploy, and manage Windows Azure Services. The
@@ -29,10 +29,10 @@ service**, and **stopping, starting, and removing a service**.
  * [How to: Scale out a service](#Scale)
  * [How to: Create a dedicated cache](#Cache)   
  * [How to: Stop, start, and remove a service](#StopStartRemove)
- * [How to: Create and manage a Windows Auzre Web Site](#WebSite)
+ * [How to: Create and manage a Windows Azure Web Site](#WebSite)
  * [How to: Create, modify, and remove a SQL Database server](#SqlDatabase)
 
-<h2 id="WhatIs">What is Windows Azure PowerShell</h2>
+<h2><a id="WhatIs"></a>What is Windows Azure PowerShell</h2>
 
 Windows Azure PowerShell provides a command-line environment
 for developing and deploying applications for Windows Azure through
@@ -52,7 +52,7 @@ The following tasks are supported:
 -   Enable and disable remote access to service role instances.
 -   Start, stop, and remove services.
 
-<h2 id="GetStarted">Get started using Windows Azure PowerShell</h2>
+<h2> <a id="GetStarted"></a>Get started using Windows Azure PowerShell</h2>
 
 The recommended way to install the Windows Azure PowerShell cmdlets is via the [Microsoft Web Platform Installer][wpi-installer]. After installing and launching the Web Platform Installer, select **Windows Azure PowerShell** and follow the prompts to install the cmdlets. The Web Platform Installer will install all dependencies for the Windows Azure PowerShell cmdlets. Note that you can also select **Windows Azure SDK for Node.js - July 2012** or **Windows Azure SDK for PHP - July 2012** as these SDKs will include the Windows Azure PowerShell cmdlets.
 
@@ -163,7 +163,7 @@ service are entered at the following command prompt:
 
     C:\app\MyService>
 
-<h2 id="ImportPubSettings">How to: Import publishing settings</h2>
+<h2><a id="ImportPubSettings"></a>How to: Import publishing settings</h2>
 
 To deploy your applications in Windows Azure, you must have a
 Windows Azure subscription. If you do not have a Windows Azure
@@ -216,7 +216,7 @@ about your subscriptions, you can get it from the <a href="http://windows.azure.
 </div>
 
 
-<h2 id="CreateService">How to: Create a Windows Azure service</h2>
+<h2><a id="CreateService"></a>How to: Create a Windows Azure service</h2>
 
 Use the **New-AzureServiceProject** cmdlet to create the scaffolding for a
 cloud service for your application.
@@ -265,7 +265,7 @@ instances.
 
     PS C:\app\MyService> Add-AzureNodeWebRole MyWebRole -I 2
 
-<h2 id="TestLocally">How to: Test a service locally in the Windows Azure Emulators</h2>
+<h2><a id="TestLocally"></a>How to: Test a service locally in the Windows Azure Emulators</h2>
 
 The [Start-AzureEmulator][] cmdlet starts the service in the Windows
 Azure compute emulator and also starts the Windows Azure storage
@@ -291,7 +291,7 @@ the emulator.
 
     PS C:\app\MyService> Stop-AzureEmulator
 
-<h2 id="DefaultDeploymentOptions">How to: Set default deployment options for a service</h2>
+<h2><a id="DefaultDeploymentOptions"></a>How to: Set default deployment options for a service</h2>
 
 You can use the **Set-AzureServiceProject** cmdlet with the **-Location**, **-Slot**, **-Subscription** and **-Storage** parameters to set the default deployment location, slot (Staging or Production), Windows Azure subscription, and
 storage account to use when you deploy a service. The default options
@@ -359,7 +359,7 @@ default subscription to use for the MyService service.
 
     PS C:\app\MyService> Set-AzureServiceProject -Subscription Contoso_Finance
 
-<h2 id="StorageAcctMultipleServices">How to: Use a storage account with more than one service</h2>
+<h2><a id="StorageAcctMultipleServices"></a>How to: Use a storage account with more than one service</h2>
 
 When you deploy a new service, by default, a new storage account is
 created in the deployment location, and the application package and
@@ -406,7 +406,7 @@ service directory.
 
     PS C:\app\MyService> Set-AzureServiceProject -Storage ContosoUS
 
-<h2 id="Deploy">How to: Deploy a cloud service to Windows Azure</h2>
+<h2><a id="Deploy"></a>How to: Deploy a cloud service to Windows Azure</h2>
 
 When you are ready to deploy your service to Windows Azure, use the
 **Publish-AzureServiceProject** cmdlet. When you deploy a new cloud service,
@@ -559,7 +559,7 @@ the current service deployment.
 
     PS C:\app\MyService> Publish-AzureServiceProject -Subscription ContosoFinance -Sl staging -L "North Central US"
 
-<h2 id="Update">How To: Update a deployed service</h2>
+<h2><a id="Update"></a>How To: Update a deployed service</h2>
 
 When you use **Publish-AzureServiceProject** on a deployed service, the service is either
 updated in place or a new deployment is created. The update method
@@ -607,7 +607,7 @@ location is used.
 
     PS C:\app\MyService> Publish-AzureServiceProject -Location "North Europe" -StorageAccountName NorthEuropeStore
 
-<h2 id="Scale">How to: Scale out a service</h2>
+<h2><a id="Scale"></a>How to: Scale out a service</h2>
 
 You can scale a running service out or in by using the **Set-AzureRole** cmdlet to add or remove instances to
 a web role or a worker role.
@@ -647,7 +647,7 @@ Clients that can use the memcache protocol (such as PHP and Node.js) can then co
 
 For information about Caching pricing, see [Pricing Details][pricing-details-caching].
 
-<h2 id="StopStartRemove">How to: Stop, start, and remove a service</h2>
+<h2><a id="StopStartRemove"></a>How to: Stop, start, and remove a service</h2>
 
 A deployed application, even if it is not running, continues to accrue
 billable time for your subscription. Therefore, it is important that you
@@ -683,7 +683,7 @@ You can bypass the prompt by using the **-Force** option with the **Remove-Azure
 
     PS C:\app\MyService> Remove-AzureService -ServiceName MyService -Force 
 
-<h2 id="WebSite">How to: Create and manage a Windows Azure Web Site</h2>
+<h2><a id="WebSite"></a>How to: Create and manage a Windows Azure Web Site</h2>
 
 Many of the website creation and management tasks that you can perform in the [Windows Azure Management Portal] can be performed using the Windows Azure Powershell cmdlets. The sections below show you how to perform some basic tasks. For a complete list of website cmdlets, use the `help` command:
 
@@ -744,7 +744,7 @@ The Windows Azure PowerShell cmdlets allow you to start, stop, or restart a webs
 	PS C:\MySite> Stop-AzureWebsite
 	PS C:\MySite> Restart-AzureWebsite
 
-<h2 id="SqlDatabase">How to: Create, modify, and remove a SQL Database server</h2>
+<h2><a id="SqlDatabase"></a>How to: Create, modify, and remove a SQL Database server</h2>
 
 Windows Azure SQL Database is a cloud-based relational database platform built on SQL Server technologies. (For more information, see [Introducing Windows Azure SQL Database][sql-database].) Windows Azure Powershell provides cmdlets that allow you to create, modify, and remove SQL Database servers.
 

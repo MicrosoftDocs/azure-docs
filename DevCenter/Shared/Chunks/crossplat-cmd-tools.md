@@ -11,7 +11,7 @@ This guide describes how to use the Windows Azure Command-Line Tools for Mac and
 * [How to create and manage a Windows Azure Virtual Machine](#VMs)
 
 
-<h2 id="Overview">What are the Windows Azure Command-Line Tools for Mac and Linux</h2>
+<h2><a id="Overview"></a>What are the Windows Azure Command-Line Tools for Mac and Linux</h2>
 
 The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Windows Azure services.
  
@@ -23,7 +23,7 @@ The supported tasks include the following:
 
 For a complete list of supported commands, type `azure -help` at the command line after installing the tools, or see the [reference documentation][reference-docs].
 
-<h2 id="Download">How to install the Windows Azure Command-Line Tools for Mac and Linux</h2>
+<h2><a id="Download"></a>How to install the Windows Azure Command-Line Tools for Mac and Linux</h2>
 
 The following list contains information for installing the command-line tools, depending on your operating system:
 
@@ -42,7 +42,7 @@ The following list contains information for installing the command-line tools, d
 
 To test the installation, type `azure` at the command prompt. If the installation was successful, you will see a list of all the available `azure` commands.
 
-<h2 id="CreateAccount">How to create a Windows Azure account</h2>
+<h2><a id="CreateAccount"><a>How to create a Windows Azure account</h2>
 
 To use the Windows Azure Command-Line Tools for Mac and Linux, you will need a Windows Azure account.
 
@@ -64,7 +64,7 @@ To use the Windows Azure Command-Line Tools for Mac and Linux, you will need a W
 
 	![select subscription][]
 
-<h2 id="Account">How to download and import publish settings</h2>
+<h2><a id="Account"></a>How to download and import publish settings</h2>
 
 To get started, you need to first download and import your publish settings. This will allow you to use the tools to create and manage Azure Services. To download your publish settings, use the `account download` command:
 
@@ -100,7 +100,7 @@ After importing your publish settings, you should delete the `.publishsettings` 
 
 You are now ready to being creating and managing Windows Azure Websites and Windows Azure Virtual Machines.  
 
-<h2 id="WebSites">How to create and manage a Windows Azure Web Site</h2>
+<h2><a id="WebSites"></a>How to create and manage a Windows Azure Web Site</h2>
 
 ###Create a Web Site
 
@@ -181,7 +181,7 @@ To see a complete list of `site` commands, use the `-help` option:
 
 	azure site -help 
 
-<h2 id="VMs">How to create and manage a Windows Azure Virtual Machine</h2>
+<h2><a id="VMs"></a>How to create and manage a Windows Azure Virtual Machine</h2>
 
 A Windows Azure Virtual Machine is created from a virtual machine image (a .vhd file) that you provide or that is available in the Image Gallery. To see images that are available, use the `vm image list` command:
 
