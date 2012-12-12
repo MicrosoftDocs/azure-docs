@@ -1,6 +1,6 @@
 <properties linkid="dev-php-common-tasks-download-php-sdk" urlDisplayName="Download PHP SDK" pageTitle="Download the Windows Azure SDK for PHP" metaKeywords="" metaDescription="Learn how to download and install the Windows Azure SDK for PHP." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
-
+<div chunk="../chunks/article-left-menu.md" />
 
 #Download the Windows Azure SDK for PHP
 
