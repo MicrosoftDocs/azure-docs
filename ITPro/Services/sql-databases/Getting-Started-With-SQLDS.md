@@ -35,17 +35,18 @@ This step is required only if you are going to have an on-premises SQL Server da
 
 <h3 id="InstallRequiredSoftware">Step 2a: Install the required software</h3>
 Be sure that you have the following installed on the computer you install the Client Agent.
-<bl>
-	<li>**.NET Framework 4.0** 
 
-You can install .NET Framework 4.0 from [here](http://go.microsoft.com/fwlink/?linkid=205836).</li>
-<li>**Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86)**
+- **.NET Framework 4.0** 
 
-You can install the Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86) from [here](http://www.microsoft.com/download/en/details.aspx?id=26728)</li>
-<li>**Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86)**
+ You can install .NET Framework 4.0 from [here](http://go.microsoft.com/fwlink/?linkid=205836).
 
-You can install the Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86) from [here](http://www.microsoft.com/download/en/details.aspx?id=26728)</li>
-</bl>
+- **Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86)**
+
+ You can install the Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86) from [here](http://www.microsoft.com/download/en/details.aspx?id=26728)
+
+- **Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86)**
+
+ You can install the Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86) from [here](http://www.microsoft.com/download/en/details.aspx?id=26728)</li></bl>
 
 
 <h3 id="InstallClient">Step 2b: Install a new Client Agent</h3>
