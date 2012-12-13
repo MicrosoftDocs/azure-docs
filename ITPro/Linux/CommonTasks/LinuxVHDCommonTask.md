@@ -13,8 +13,8 @@ The following resources must be available to complete this task:
 - **Linux operating system media.** Before you start this task, you must make sure that you have access to media that contains the Linux operating system. The following are supported Linux distributions:
 	- Open SUSE 12.1
 	- SLES 11 SP2
-	- CentOS 6.2
-	- Ubuntu 12.04
+	- CentOS 6.3
+	- Ubuntu 12.04, 12.10
 - **Linux Azure command-line tool.** If you are using a Linux operating system to create your image, you use this tool to upload the VHD file. To download the tool, see [Windows Azure Command-Line Tools for Linux and Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409).
 - **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. You must use the tools available in Windows Azure SDK - June 2012 or later to upload VHDs to Windows Azure. To download the SDK and the tools, see [Windows Azure Downloads](/en-us/develop/downloads/).
 
@@ -25,6 +25,18 @@ This task includes the following steps:
 - [Step 3: Create a storage account in Windows Azure] []
 - [Step 4: Prepare the image to be uploaded] []
 - [Step 5: Upload the image to Windows Azure] []
+
+We also  have a generic section at the end with [Information for Non Endorsed Distributions][].
+
+For all distributions note the following:
+
+The Windows Azure Linux Agent (Waagent) is not compatible with NetworkManager. Networking configuration should use the ifcfg-eth0 file and should be controllable via the ifup/ifdown scripts. Waagent will refuse to install if the NetworkManager package is detected.
+
+NUMA is not supported because the Linux kernel versions below 2.6.37 have a bug. The installation of waagent will automatically disable NUMA in the GRUB configuration for the Linux kernel command line.
+
+The Windows Azure Linux Agent Requires python-pyasn1 package installed.
+
+All of your VHDs for the OS must have sizes that are multiples of 1 MB.
 
 ## <a id="hyperv"> </a>Step 1: Install the Hyper-V role on your server ##
 
@@ -127,7 +139,7 @@ A storage account represents the highest level of the namespace for accessing th
 
 ## <a id="prepimage"> </a>Step 4: Prepare the image to be uploaded ##
 
-### Prepare the CentOS 6.2 operating system ###
+### Prepare the CentOS 6.2 and CentOS 6.3 operating system ###
 
 You must complete specific configuration steps in the operating system for the virtual machine to run in Windows Azure.
 
@@ -163,7 +175,7 @@ You must complete specific configuration steps in the operating system for the v
 
 7. Install the drivers for the Linux Integration Services.
 	
-	a) Obtain the .iso file that contains the drivers for the Linux Integration Services from [Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=28188).
+	a) Obtain the .iso file that contains the drivers for the Linux Integration Services from [Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=34603).
 
 	b) In Hyper-V Manager, in the **Actions** pane, click **Settings**.
 
@@ -190,40 +202,55 @@ You must complete specific configuration steps in the operating system for the v
 8. Install python-pyasn1 by running the following command:
 
 		yum install python-pyasn1
+9. Retrieve the Kernel Compatibility Patch for Azure released  by OpenLogic from [this location](http://go.microsoft.com/fwlink/?LinkID=275153&clcid=0x409) and install it using the following command:
 
-9.	Download the [Windows Azure Linux Agent](http://go.microsoft.com/fwlink/?LinkID=251942&clcid=0x409) and then install it by running the following command:
+		rpm -ivh <Openlogic Kernel package>.rpm
 
-		rpm –ivh WALinuxAgent-1.0-1.noarch.rpm
+10.	Download the [Windows Azure Linux Agent](http://go.microsoft.com/fwlink/?LinkID=251942&clcid=0x409) and then install it by running the following command:
 
-10.	Run the following commands to deprovision the virtual machine:
+	rpm –ivh WALinuxAgent-1.2-1.noarch.rpm
+
+11. Ensure that you have modified the kernel boot line to include lines for 
+
+-	console=ttyS0 ( this will enable serial console output)
+
+-	rootdelay=300
+12. It is recomended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
+ 
+13. Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
+
+14.	Comment out Defaults targetpw in /etc/sudoers
+15.	SSH Server should be included by default
+16.	No SWAP on Host OS DISK should be created 
+	SWAP if needed can be requested for creation on the local resource disk by the Linux Agent. You may modify /etc/waagent.conf appropriately.
+17.	Run the following commands to deprovision the virtual machine:
 
 		waagent –force –deprovision
 		export HISTSIZE=0
 		logout
 
-11. Click **Shutdown** in Hyper-V Manager.
+18. Click **Shutdown** in Hyper-V Manager.
 
-### Prepare the Ubunutu 12.04 operating system ###
+### Prepare the Ubunutu 12.04 and 12.10 operating system ###
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
 2. Click **Connect** to open the window for the virtual machine.
 
-3. Update the operating system to the latest kernel by running the following commands:
+3. Update the operating system to the latest kernel by running the following commands with sudo: 
 
 		apt-get update
 		apt-get install linux-image-virtual
 		apt-get install linux-headers-virtual
 
-4. Disable the legacy ATA driver by adding the following to the kernel command line in /boot/grub/grub.cfg: 
+4. (For Ubuntu 12.04.x only) You will need to install a backported ata_piix driver using and LBA [avaiable at this location](http://go.microsoft.com/fwlink/?LinkID=275152&clcid=0x409) as well as through the Ubuntu Package repositories.
 
-		ata_piix.disable_driver
+	**Note:** This is only required for Ubuntu 12.04 images as the 12.10 kernel icnludes the correct version of the ATA_PiiX driver already.
 
-	**Note:** this kernel option was only recently added by  Canonical to its kernel tree and might not have been released by the time you are attempting this. You can put the following to the kernel command line in /boot/grub/grub.cfg: reserve=0x1f0, 0x8. (This option reserves this I/O region and prevents ata_piix from loading).
+5.	 Install the agent by running the following commands with sudo:
 
-5.	Download the [Windows Azure Linux Agent](http://go.microsoft.com/fwlink/?LinkID=251942&clcid=0x409) and then install it by running the following command:
-
-		rpm –ivh WALinuxAgent-1.0-1.noarch.rpm
+		apt-get update
+		apt-get install walinuxagent 
 
 6.	Fix the Grub timeout. Ubuntu waits at Grub for user input after a system crash. To prevent this, complete the following steps:
 
@@ -235,13 +262,28 @@ You must complete specific configuration steps in the operating system for the v
 
 	d) Run update-grub.
 
-7.	Run the following commands to deprovision the virtual machine:
+7. Ensure that you have modified the kernel boot line to include lines for 
+
+-	console=ttyS0 ( this will enable serial console output)
+
+-	rootdelay=300
+
+8. It is recomended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
+
+9. Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
+10.	Comment out Defaults targetpw in /etc/sudoers
+11.	SSH Server should be included by default
+12.	No SWAP on Host OS DISK should be created 
+	SWAP if needed can be requested for creation on the local resource disk by the Linux Agent. You may modify /etc/waagent.conf appropriately.
+	
+
+13.	Run the following commands to deprovision the virtual machine:
 
 		waagent –force –deprovision
 		export HISTSIZE=0
 		logout
 
-8. Click **Shutdown** in Hyper-V Manager.
+14. Click **Shutdown** in Hyper-V Manager.
 
 ### Prepare the SUSE Linux Enterprise Server 11 SP2 operating system ###
 
@@ -253,25 +295,67 @@ You must complete specific configuration steps in the operating system for the v
 
 	**Note:** The SLES kernel update does not currently contain an important fix on the kernel to improve storage performance. It is expected that this fix will be available soon after release. It is recommended that you use an image from the [SUSE Studio gallery]( http://www.susestudio.com) to take advantage of all the functionality in Windows Azure.
 
-4. Disable the legacy ATA driver by completing the following steps:
+4. Add the repository containing the latest agent and the latest kernel
+ For SLES 11 SP2:
+-	   # zypper ar -r http://download.opensuse.org/repositories/Cloud:/Tools/SLE_11_SP2/Cloud:Tools.repo
 
-	a) Create a file named modprobe.d in /etc that contains the text: **install ata_piix  { /sbin/modprobe hv_storvsc 2>&1 || /sbin/modprobe --ignore-install ata_piix; }**
+5.	Check if the update repositories are disabled:
 
-	b) Run mkinitrd.
+-   # zypper lr
 
-5.	Disable automatic DVD ROM probing.
+    | Alias                        | Name                     | Enabled | Refresh
+   --+------------------------------+--------------------------+---------+--------
+   1 | Cloud_Tools                  | Cloud:Tools (SLE_11_SP2) | Yes     | No     
+   2 | susecloud:SLES11-SP1-Pool    | SLES11-SP1-Pool          | No      | Yes    
+   3 | susecloud:SLES11-SP1-Updates | SLES11-SP1-Updates       | No      | Yes    
+   4 | susecloud:SLES11-SP2-Core    | SLES11-SP2-Core          | No      | Yes    
+   5 | susecloud:SLES11-SP2-Updates | SLES11-SP2-Updates       | No      | Yes
 
-6.	Download the [Windows Azure Linux Agent](http://go.microsoft.com/fwlink/?LinkID=251942&clcid=0x409) and then install it by running the following command:
+   In case one of the relevant update repositories is not enabled,
+   enable it with following command:
 
-		rpm –ivh WALinuxAgent-1.0-1.noarch.rpm
+-	  # zypper mr -e [NUMBER OF REPOSITORY]
 
-7.	Run the following commands to deprovision the virtual machine:
+   In the above case, the command proper command would be
+
+-   # zypper mr -e 2 3 4 5 
+
+
+6.	To get the ATA Piix driver, update the kernel to the latest available 
+   version:
+
+-	   # zypper up kernel-default
+
+7.	Disable automatic DVD ROM probing.
+
+8.	Install the Windows Azure Linux Agent:
+
+-	   # zypper install WALinuxAgent-1.2.1.noarch
+
+   Note: Here a warning might be displayed that 
+   /etc/waagent.conf created as /etc/waagent.conf.rpmnew
+
+9.	To enable serial console and increase the rootdelay, adjust 
+   the kernel command line in the file '/boot/grub/menu.lst' and add the 
+   following string to the end of the kernel line:
+
+   console=ttyS0 rootdelay=300
+10.	Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
+11. It is recomended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
+
+12.	Comment out Defaults targetpw in /etc/sudoers
+13.	SSH Server should be included by default
+14.	No SWAP on Host OS DISK should be created 
+	SWAP if needed can be requested for creation on the local resource disk by the Linux Agent. You may modify /etc/waagent.conf appropriately.
+
+
+15.	Run the following commands to deprovision the virtual machine:
 
 		waagent –force –deprovision
 		export HISTSIZE=0
 		logout
 
-8. Click **Shutdown** in Hyper-V Manager.
+15. Click **Shutdown** in Hyper-V Manager.
 
 ### Prepare the OpenSuse 12.1 operating system ###
 
@@ -283,19 +367,67 @@ You must complete specific configuration steps in the operating system for the v
 
 	**Note:** The SLES kernel update does not currently contain an important fix on the kernel to improve storage performance. It is expected that this fix will be available soon after release. It is recommended that you use an image from the [SUSE Studio gallery]( http://www.susestudio.com) to take advantage of all the functionality in Windows Azure.
 
-4. Disable the legacy ATA driver by adding **reserve=0x1f0, 0x8** to the kernel command line in **/boot/grub/menu.lst**.
+4. Add the repository containing the latest agent and the latest kernel
+ For openSUSE 12.1:
+-	   # zypper ar -r http://download.opensuse.org/repositories/Cloud:/Tools/openSUSE_12.1/Cloud:Tools.repo
 
-5.	Download the [Windows Azure Linux Agent](http://go.microsoft.com/fwlink/?LinkID=251942&clcid=0x409) and then install it by running the following command:
+5.	Check if the update repositories are disabled:
 
-		rpm –ivh WALinuxAgent-1.0-1.noarch.rpm
+-   # zypper lr
 
-6.	Run the following commands to deprovision the virtual machine:
+    | Alias                        | Name                     | Enabled | Refresh
+   --+------------------------------+--------------------------+---------+--------
+   1 | Cloud_Tools                  | Cloud:Tools (SLE_11_SP2) | Yes     | No     
+   2 | susecloud:SLES11-SP1-Pool    | SLES11-SP1-Pool          | No      | Yes    
+   3 | susecloud:SLES11-SP1-Updates | SLES11-SP1-Updates       | No      | Yes    
+   4 | susecloud:SLES11-SP2-Core    | SLES11-SP2-Core          | No      | Yes    
+   5 | susecloud:SLES11-SP2-Updates | SLES11-SP2-Updates       | No      | Yes
+
+   In case one of the relevant update repositories is not enabled,
+   enable it with following command:
+
+-	  # zypper mr -e [NUMBER OF REPOSITORY]
+
+   In the above case, the command proper command would be
+
+-   # zypper mr -e 2 3 4 5 
+
+
+6.	To get the ATA Piix driver, update the kernel to the latest available 
+   version:
+
+-	   # zypper up kernel-default
+
+7.	Disable automatic DVD ROM probing.
+
+8.	Install the Windows Azure Linux Agent:
+
+-	   # zypper install WALinuxAgent-1.2.1.noarch
+
+   Note: Here a warning might be displayed that 
+   /etc/waagent.conf created as /etc/waagent.conf.rpmnew
+
+9.	To enable serial console and increase the rootdelay, adjust 
+   the kernel command line in the file '/boot/grub/menu.lst' and add the 
+   following string to the end of the kernel line:
+
+   console=ttyS0 rootdelay=300
+10.	Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
+
+11.It is recomended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
+
+12.	Comment out Defaults targetpw in /etc/sudoers
+13.	SSH Server should be included by default
+14.	No SWAP on Host OS DISK should be created 
+	SWAP if needed can be requested for creation on the local resource disk by the Linux Agent. You may modify /etc/waagent.conf appropriately.
+
+15.	Run the following commands to deprovision the virtual machine:
 
 		waagent –force –deprovision
 		export HISTSIZE=0
 		logout
 
-7. Click **Shutdown** in Hyper-V Manager.
+16. Click **Shutdown** in Hyper-V Manager.
 
 ## <a id="upload"> </a>Step 5: Upload the image to Windows Azure ##
 
@@ -328,7 +460,8 @@ You also need the ID of your subscription to upload the VHD file.
 
 You can upload an image by using the following command:
 
-		Azure vm image create --location <Location of the data center> --OS Linux <Sourcepath to the vhd>
+		Azure vm image create <image name> --location <Location of the data center> --OS Linux <Sourcepath to the vhd>
+
 
 ### Use the CSUpload command-line tool to upload the image ###
 
@@ -350,8 +483,49 @@ After the connection string is set, you use the CSUpload command-line tool to up
 
 	Where **BlobStorageURL** is the URL for the storage account that you created earlier. You can place the VHD file anywhere within your Blog storage. **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the VHD. **PathToVHDFile** is the full path and name of the VHD file.
 
+## <a id="nonendorsed"> </a>Information for Non Endorsed Distributions ##
+In essence all distributions running on Windows Azure will need to meet the following prerequisites to have a chance to properly run in the platform. 
+
+This list is by no means comprehensive as every distribution is different; and it is quite possible that even if you meet all the criteria below you will still need to significantly tweak your image to ensure that it properly runs on top of the platform .
+
+ It is for this reason that we recommend that you start with one of our [partners endorsed images](https://www.windowsazure.com/en-us/manage/linux/other-resources/endorsed-distributions/).
+
+The list below replaces step 2 of the process to create your own VHD:
+
+1.	You will need to ensure that you are running a kernel that either incorporates the latest LIS drivers for Hyper V or that you have successfully compiled them ( They have been Open Sourced). The Drivers can be found [at this location](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)
+
+2.	Your kernel should also include the latest version of the ATA PiiX driver that is used to to provision the iamges and has the fixes committed to the kernel with commit cd006086fa5d91414d8ff9ff2b78fbb593878e3c Date:   Fri May 4 22:15:11 2012 +0100   ata_piix: defer disks to the Hyper-V drivers by default
+
+3.	Your compressed intird should be less than 40 MB (* we are continuously workign to increase this number so it might be outdated by now)
+
+4.	You should add the following lines to your Kernel Boot
+
+	-	console=ttyS0 rootdelay=300
+
+5.	It is recomended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
+
+6.	You should Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
+
+7.	You will need to install the Agent following the steps in the [Agent Guide](https://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/). The Agent has been released under the Apache 2 license and you can get the latest bits at the [Agent GitHub Location](http://go.microsoft.com/fwlink/p/?LinkID=250998&clcid=0x409)
+8.	Comment out Defaults targetpw in /etc/sudoers
+
+9.	SSH Server should be included by default
+
+10.	No SWAP on Host OS DISK should be created 
+	SWAP if needed can be requested for creation on the local resource disk by the Linux Agent. You may modify /etc/waagent.conf appropriately.
+
+11.	You will need to Run the following commands to deprovision the virtual machine:
+
+        waagent –force –deprovision
+        export HISTSIZE=0
+        logout
+
+12.	You will then need to Shutdown the VM and proceed with the Upload
+
+
 [Step 1: Install the Hyper-V role on your server]: #hyperv
 [Step 2: Create the image]: #createimage
 [Step 3: Create a storage account in Windows Azure]: #createstorage
 [Step 4: Prepare the image to be uploaded]: #prepimage
 [Step 5: Upload the image to Windows Azure]: #upload
+[Information for Non Endorsed Distributions]: #nonendorsed
