@@ -53,7 +53,6 @@ Be sure that you have the following installed on the computer you install the Cl
 
 Follow the instruction at [Install a Client Agent (SQL Data Sync)](http://msdn.microsoft.com/en-us/library/jj823137.aspx) to install the agent. 
 
-    ![Image1] []
 
 <h3 id="RegisterSSDb">Step 2c: Finish the New SQL Data Sync Agent wizard</h3> 
 
@@ -168,6 +167,13 @@ If you want a sync group to synchronize on a schedule, you configure the sync gr
 ![Image7] []
 
 Congratulations. You have created a sync group that includes both a SQL Database instance and a SQL Server database.
+
+<h2 id="NextSteps">Next Steps</h2>
+For additional information on SQL Database and SQL Data Sync see:
+
+* [SQL Data Sync (WA Portal)](http://msdn.microsoft.com/en-us/library/windowsazure/jj856263.aspx)
+* [Getting Started with Windows Azure SQL Database](../getting-started-w-sql-databases/)
+* [SQL Server Database Lifecycle ](http://go.microsoft.com/fwlink/?LinkId=275193)
 
 
 [Image1]: ../media/SQLDatabaseScreen-Figure1.png
