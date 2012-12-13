@@ -36,9 +36,9 @@ This step is required only if you are going to have an on-premises SQL Server da
 <h3 id="InstallRequiredSoftware">Step 2a: Install the required software</h3>
 Be sure that you have the following installed on the computer you install the Client Agent.
 <bl>
-	<li>**.NET Framework 4.0**<br>You can install .NET Framework 4.0 from [here](http://go.microsoft.com/fwlink/?linkid=205836).</li>
-<li>**Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86)**<br>You can install the Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86) from [http://www.microsoft.com/download/en/details.aspx?id=26728](http://www.microsoft.com/download/en/details.aspx?id=26728)</li>
-<li>**Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86)**<br>You can install the Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86) from [http://www.microsoft.com/download/en/details.aspx?id=26728](http://www.microsoft.com/download/en/details.aspx?id=26728)</li>
+	<li>**.NET Framework 4.0**</br>You can install .NET Framework 4.0 from [here](http://go.microsoft.com/fwlink/?linkid=205836).</li>
+<li>**Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86)**</br>You can install the Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86) from [http://www.microsoft.com/download/en/details.aspx?id=26728](http://www.microsoft.com/download/en/details.aspx?id=26728)</li>
+<li>**Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86)**</br>You can install the Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86) from [http://www.microsoft.com/download/en/details.aspx?id=26728](http://www.microsoft.com/download/en/details.aspx?id=26728)</li>
 </bl>
 
 
@@ -86,7 +86,7 @@ To register a database with the agent, follow the instructions at [Register a SQ
 1. From the dropdown, select the SQL Database instance to serve as the sync group hub.
 2. Enter the credentials for this SQL Database instance – **HUB USERNAME** and **HUB PASSWORD**.
 3. Wait for SQL Data Sync to confirm the USERNAME and PASSWORD. A green check mark appears to the right of the PASSWORD when the credentials are confirmed.
-4. From the dropdown, select the **CONFLICT RESOLUTION** policy.<br>**Hub Wins** – any change written to the hub database is written to the reference databases, overwriting changes in the same reference database record. Functionally, this means that the first change written to the hub is propagated to the other databases.<br>
+4. From the dropdown, select the **CONFLICT RESOLUTION** policy.</br>**Hub Wins** – any change written to the hub database is written to the reference databases, overwriting changes in the same reference database record. Functionally, this means that the first change written to the hub is propagated to the other databases.</br>
 **Client Wins** – changes written to the hub are overwritten by changes in reference databases. Functionally, this means that the last change written to the hub is the one kept and propagated to the other databases.
 5.	Click the right-arrow.
 
@@ -96,14 +96,14 @@ To register a database with the agent, follow the instructions at [Register a SQ
 
 Repeat this step for each additional database you want to add to the sync group.
 
-1. From the dropdown, select the database to add.<br>Databases in the dropdown include both SQL Server databases that have been registered with the agent and SQL Database instances.
+1. From the dropdown, select the database to add.</br>Databases in the dropdown include both SQL Server databases that have been registered with the agent and SQL Database instances.
 2.	Enter credentials for this database – **USERNAME** and **PASSWORD**.
-3.	From the dropdown, select the **SYNC DIRECTION** for this database.<br>
-**Bi-directional** – changes in the reference database are written to the hub database, and changes to the hub database are written to the reference database.<br>
-**Sync from the Hub** - The database receives updates from the Hub. It does not send changes to the Hub.<br>
+3.	From the dropdown, select the **SYNC DIRECTION** for this database.</br>
+**Bi-directional** – changes in the reference database are written to the hub database, and changes to the hub database are written to the reference database.</br>
+**Sync from the Hub** - The database receives updates from the Hub. It does not send changes to the Hub.</br>
 **Sync to the Hub** - The database sends updates to the Hub. Changes in the Hub are not written to this database.
 4.	To finish creating the sync group, click the check mark in the lower right of the wizard. Wait for the SQL Data Sync to confirm the credentials. A green check indicates that the credentials are confirmed.
-5.	Click the check mark a second time.<br>
+5.	Click the check mark a second time.</br>
 This returns you to the **SYNC** page under SQL Databases. This sync group is now listed with your other sync groups and agents.
 
 ![Image5] []
@@ -120,8 +120,8 @@ Windows Azure SQL Data Sync allows you to select tables and columns to synchroni
 6.	Select the database you want to provide the sync group schema.
 7.	Click the right-arrow.
 8.	Click **REFRESH SCHEMA**.
-9.	For each table in the database, select the columns to include in the synchronizations.<br>
-Columns with unsupported data types cannot be selected.<br>If no columns in a table are selected, the table is not included in the sync group.<br>To select/unselect all the tables, click SELECT at the bottom of the screen.
+9.	For each table in the database, select the columns to include in the synchronizations.</br>
+Columns with unsupported data types cannot be selected.</br>If no columns in a table are selected, the table is not included in the sync group.</br>To select/unselect all the tables, click SELECT at the bottom of the screen.
 10.	Click **SAVE**, then wait for the sync group to finish provisioning.
 11.	To return to the Data Sync landing page, click the back-arrow in the upper left of the screen (above the sync group’s name).
 
@@ -138,10 +138,10 @@ If you want a sync group to synchronize on a schedule, you configure the sync gr
 3.	Click the **SYNC** tab.
 4.	Click the name of this sync group.
 5.	Click the **CONFIGURE** tab.
-6.	**AUTOMATIC SYNC**<br>
-To configure the sync group to sync on a set frequency, click **ON**. You can still sync on demand by clicking SYNC.<br>Click **OFF** to configure the sync group to sync only when you click SYNC.
+6.	**AUTOMATIC SYNC**</br>
+To configure the sync group to sync on a set frequency, click **ON**. You can still sync on demand by clicking SYNC.</br>Click **OFF** to configure the sync group to sync only when you click SYNC.
 7.	**SYNC FREQUENCY**
-If AUTOMATIC SYNC is ON, set the synchronization frequency.<br>The frequency must be between 5 Minutes and 1 Month.
+If AUTOMATIC SYNC is ON, set the synchronization frequency.</br>The frequency must be between 5 Minutes and 1 Month.
 8.	Click **SAVE**.
 
 ![Image7] []
