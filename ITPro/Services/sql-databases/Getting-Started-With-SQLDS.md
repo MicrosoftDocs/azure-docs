@@ -46,7 +46,7 @@ Be sure that you have the following installed on the computer you install the Cl
 
 - **Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86)**
 
- You can install the Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86) from [here](http://www.microsoft.com/download/en/details.aspx?id=26728)</li></bl>
+ You can install the Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86) from [here](http://www.microsoft.com/download/en/details.aspx?id=26728)
 
 
 <h3 id="InstallClient">Step 2b: Install a new Client Agent</h3>
