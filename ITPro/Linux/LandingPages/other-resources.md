@@ -11,6 +11,9 @@
 
 Learn which distribution versions, LIS drivers and Agent Versions have been tested to work on Windows Azure.
 
+###[Linux VMs Known Issues and FAQ ](/en-us/manage/linux/other-resources/known-issues-and-faq/)
+
+Learn about known issues and Frequently Asked questions about the Linux VMs in Windows Azure.
 
 ###[Partner solutions for Linux in Windows Azure](/en-us/manage/linux/other-resources/partner-solutions/)
 

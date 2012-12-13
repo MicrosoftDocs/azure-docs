@@ -29,6 +29,12 @@ The Windows Azure Linux Agent (waagent) manages virtual machine interaction with
   - Console redirection to the serial port
 
 The information flow from the platform to the agent occurs via two channels. A TCP endpoint exposing a REST API and a boot-time attached DVD for IaaS deployments. The DVD includes an OVF-compliant configuration file that includes all provisioning information other than the actual SSH keypairs. The deployment configuration and topology are obtained over the REST API.
+###Obtaining the Linux Agent
+You can obtain the Latest Linux Agent directly from:
+
+- [The different Distribution providers endorsing Linux on Azure](https://www.windowsazure.com/en-us/manage/linux/other-resources/endorsed-distributions/)
+- or from the [Github Open Source Repository for the Windows Azure Linux Agent](http://go.microsoft.com/fwlink/p/?LinkID=250998&clcid=0x409)
+
 
 ###Supported Linux Distributions
 - CentOS 6.0+
