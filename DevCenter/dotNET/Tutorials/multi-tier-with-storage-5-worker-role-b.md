@@ -1,4 +1,4 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-5-worker-role-b" urlDisplayName="Step 5: Worker Role B" pageTitle="Multi-tier web site tutorial - Step 5: Worker role B" metaKeywords="Windows Azure tutorial, adding worker role cloud service, C# worker role" metaDescription="The fifth tutorial in a series that teaches how to configure your computer for Windows Azure development and deploy the Email Service app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-net-tutorials-multi-tier-web-site-5-worker-role-b" urlDisplayName="Step 5: Worker Role B" pageTitle="Multi-tier web site tutorial - Step 5: Worker role B" metaKeywords="Windows Azure tutorial, adding worker role cloud service, C# worker role" metaDescription="The fifth tutorial in a series that teaches how to configure your computer for Windows Azure development and deploy the Email Service app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra" editor="mollybos" manager="wpickett" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -11,6 +11,8 @@ In this tutorial you'll learn:
 * How to add a worker role to a cloud service project.
 * How to poll a queue and process work items from the queue.
 * How to send emails by using SendGrid.
+* How to handle planned shut-downs by overriding the `OnStop` method.
+* How to handle unplanned shut-downs by making sure that no duplicate emails are sent.
  
 <h2><a name="addworkerrole"></a><span class="short-header">Add worker role B</span>Add worker role B project to the solution</h2>
 
@@ -36,6 +38,23 @@ You need a reference to the web project because that is where the entity classes
 
 
 
+<h2><a name="addref2"></a><span class="short-header">Add SCL 1.7 reference</span>Add a reference to an SCL 1.7 assembly</h2>
+
+Version 2.0 of the Storage Client Library (SCL) 2.0 does not have everything needed for diagnostics, so you have to add a reference to one of the 1.7 assemblies.
+
+4. Right-click the WorkerRoleA project, and choose **Add Reference**.
+
+5. Click the **Browse...** button at the bottom of the dialog box.
+
+6. Navigate to the following folder:
+
+        C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\2012-10\ref
+
+7. Select *Microsoft.WindowsAzure.StorageClient.dll*, and then click **Add**.
+
+8. In the **Reference Manager** dialog box, click **OK**.
+
+
 
 
 
@@ -48,7 +67,7 @@ To send email by using SendGrid, you need to install the SendGrid NuGet package.
 
    ![Manage NuGet Packages][mtas-worker-b-manage-nuget]
 
-2. In the **Manage NuGet Packages** dialog box, select the Online tab, enter "sendgrid" in the search box, and press Enter.
+2. In the **Manage NuGet Packages** dialog box, select the **Online** tab, enter "sendgrid" in the search box, and press Enter.
 
 3. Click **Install** on the **Sendgrid** package.
 
@@ -73,17 +92,23 @@ For storage account credentials, the procedure is the same as what you saw in [t
  
 2. Select the **Settings** tab.
 
-5. In the **Service Configuration** drop down box, select **Local**.
+2. Make sure that **All Configurations** is selected in the **Service Configuration** drop-down list.
 
-6. Select the **StorageConnectionString** entry, and then click the ellipsis button (**...**).
+2. Select the **Settings** tab and then click **Add Setting**.
 
-7. In the **Create Storage Connection String** dialog, click the **Your subscription** radio button, and then click **OK**.
+3. Enter "StorageConnectionString" in the **Name** column.
 
-   The settings default to the same values you entered earlier for the web role and worker role A.
+4. Select **Connection String** in the **Type** drop-down list.  
+
+6. Click the ellipsis (**...**) button at the right end of the line to open the **Storage Account Connection String** dialog box.
+
+7. In the **Create Storage Connection String** dialog, click the **Your subscription** radio button.
+
+8. Choose the same **Subscription** and **Account name** that you chose for the web role and worker role A.
 
 1. Follow the same procedure to configure settings for the **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString** connection string.
 
-Next you create and configure the three new settings that are only used by worker role B.
+Next, you create and configure the three new settings that are only used by worker role B.
 
 3. In the **Settings** tab of the **Properties** window, Click **Add Setting**, and then add three new settings of type **String**:
 
@@ -107,7 +132,7 @@ Next you create and configure the three new settings that are only used by worke
 
 3. Open WorkerRoleB.cs and examine the code.
 
-   As you already saw in worker role A, the `OnStart` method initializes the context classes that you need in order to work with Windows Azure storage entities. It also makes sure that all of the tables, queues, and blob containers you need in the Run method exist.  
+   As you already saw in worker role A, the `OnStart` method initializes the context classes that you need in order to work with Windows Azure storage entities. It also makes sure that all of the tables, queues, and blob containers you need in the `Run` method exist.  
 
    The difference compared to worker role A is the addition of the blob container and the subscribe queue among the resources to create if they don't already exist. You'll use the blob container to get the files that contain the HTML and plain text for the email body. The subscribe queue is used for sending subscription confirmation emails.
 
@@ -136,16 +161,18 @@ Next you create and configure the three new settings that are only used by worke
             tableServiceContext = tableClient.GetDataServiceContext();
 
             Trace.TraceInformation("WorkerB: Creating blob container, queue, tables, if they don't exist.");
-            this.blobContainer.CreateIfNotExist();
-            this.sendEmailQueue.CreateIfNotExist();
-            this.subscribeQueue.CreateIfNotExist();
-            tableClient.CreateTableIfNotExist("Message");
-            tableClient.CreateTableIfNotExist("MailingList");
+            this.blobContainer.CreateIfNotExists();
+            this.sendEmailQueue.CreateIfNotExists();
+            this.subscribeQueue.CreateIfNotExists();
+            var messageTable = tableClient.GetTableReference("Message");
+            messageTable.CreateIfNotExists();
+            var mailingListTable = tableClient.GetTableReference("MailingList");
+            mailingListTable.CreateIfNotExists();
 
             return base.OnStart();
         }
 
-   The Run method processes work items from two queues: the queue used for messages sent to email lists (work items created by worker role A), and the queue used for subscription confirmation emails (work items created by the subscribe API method in the MvcWebRole project).
+   The `Run` method processes work items from two queues: the queue used for messages sent to email lists (work items created by worker role A), and the queue used for subscription confirmation emails (work items created by the subscribe API method in the MvcWebRole project).
 
        
         public override void Run()
@@ -160,14 +187,14 @@ Next you create and configure the three new settings that are only used by worke
                     bool messageFound = false;
 
                     // If OnStop has been called, return to do a graceful shutdown.
-                    if (this.onStopCalled == true)
+                    if (onStopCalled == true)
                     {
                         Trace.TraceInformation("onStopCalled WorkerRoleB");
-                        this.returnedFromRunMethod = true;
+                        returnedFromRunMethod = true;
                         return;
                     }
                     // Retrieve and process a new message from the send-email-to-list queue.
-                    msg = this.sendEmailQueue.GetMessage();
+                    msg = sendEmailQueue.GetMessage();
                     if (msg != null)
                     {
                         ProcessQueueMessage(msg);
@@ -175,7 +202,7 @@ Next you create and configure the three new settings that are only used by worke
                     }
 
                     // Retrieve and process a new message from the subscribe queue.
-                    msg = this.subscribeQueue.GetMessage();
+                    msg = subscribeQueue.GetMessage();
                     if (msg != null)
                     {
                         ProcessSubscribeQueueMessage(msg);
@@ -230,13 +257,13 @@ Next you create and configure the three new settings that are only used by worke
                         System.Threading.Thread.Sleep(1000 * 60);
                     }
 
-   The purpose of the sleep time is to minimize Windows Azure Storage transaction costs. Each time you call the [GetMessage][] method counts as one storage transaction. Currently, the [cost per queue transaction](http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx)  is $0.01 (one cent) per 10,000 transactions. The 60 second sleep time was chosen to balance transaction costs and application responsiveness.  
+   The purpose of the sleep time is to minimize Windows Azure Storage transaction costs, as explained in [the previous tutorial][tut4]. 
 
-   When a queue item is pulled from the queue by the [GetMessage][]  method, that queue item becomes invisible for 30 seconds to all other worker and web roles accessing the queue. This is what ensures that only one worker role instance will pick up any given queue message for processing. You can explicitly set this *exclusive lease* time (the time the queue item is invisible) in the  `GetMessage` method by passing a  [visibility timeout](http://msdn.microsoft.com/en-us/library/windowsazure/ee758454.aspx) parameter. If the worker role could take more than 30 seconds to process a queue message, you should increase the exclusive lease time to prevent other role instances from processing the same message. 
+   When a queue item is pulled from the queue by the [GetMessage][]  method, that queue item becomes invisible for 30 seconds to all other worker and web roles accessing the queue. This is what ensures that only one worker role instance will pick up any given queue message for processing. You can explicitly set this *exclusive lease* time (the time the queue item is invisible) by passing a  [visibility timeout](http://msdn.microsoft.com/en-us/library/windowsazure/ee758454.aspx) parameter to the  `GetMessage` method. If the worker role could take more than 30 seconds to process a queue message, you should increase the exclusive lease time to prevent other role instances from processing the same message. 
 
-   On the other hand, you don't want to set the exclusive lease time to an excessively large value. For example, if the exclusive lease time is set to 48 hours and your worker role unexpectedly shuts down after dequeueing a message, another worker role would not be able to process the message for 48 hours. The exclusive lease maximum is 7 days.
+   On the other hand, you don't want to set the exclusive lease time to an excessively large value. For example, if the exclusive lease time is set to 48 hours and your worker role unexpectedly shuts down after dequeuing a message, another worker role would not be able to process the message for 48 hours. The exclusive lease maximum is 7 days.
 
-   The  [GetMessages](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storageclient.cloudqueue.getmessages.aspx)  method can be used to pull up to 32 messages from the queue in one call. Each queue access incurs a small transaction cost, and the transaction cost is the same whether 32 messages are returned or zero messages are returned. The code below fetches up to 32 messages in one call.
+   The  [GetMessages](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storageclient.cloudqueue.getmessages.aspx)  method (notice the "s" at the end of the name) can be used to pull up to 32 messages from the queue in one call. Each queue access incurs a small transaction cost, and the transaction cost is the same whether 32 messages are returned or zero messages are returned. The following code fetches up to 32 messages in one call and then processes them.
 
     	foreach (CloudQueueMessage msg in sendEmailQueue.GetMessages(32))
 	    {
@@ -252,72 +279,151 @@ Next you create and configure the three new settings that are only used by worke
         {
             // Log and delete if this is a "poison" queue message (repeatedly processed
             // and always causes an error that prevents processing from completing).
-            if (msg.DequeueCount > 3)
+            // Production applications should move the "poison" message to a "dead message"
+            // queue for analysis rather than deleting the message.           
+            if (msg.DequeueCount > 5)
             {
-                Trace.TraceError("Deleting poison message:    message {1} Role Instance {2}.",
+                Trace.TraceError("Deleting poison message:    message {0} Role Instance {1}.",
                     msg.ToString(), GetRoleInstance());
-                this.sendEmailQueue.DeleteMessage(msg);
+                sendEmailQueue.DeleteMessage(msg);
                 return;
             }
 
             // Parse message retrieved from queue.
-            // Example:  0123456789,email@domain.com
+            // Example:  2012-01-01,0123456789email@domain.com
             var messageParts = msg.AsString.Split(new char[] { ',' });
-            var messageRef = messageParts[0];
-            var emailAddress = messageParts[1];
+            var partitionKey = messageParts[0];
+            var rowKey = messageParts[1];
+            var restartFlag = messageParts[2];
 
-            Trace.TraceInformation("ProcessQueueMessage start:    email {0}  message {1} Role Instance {2}.",
-                emailAddress, messageRef, GetRoleInstance());
+            // If this is a restart, verify that the email hasn't already been sent.
+            if (restartFlag == "1")
+            {
+                var retrieveOperationForRestart = TableOperation.Retrieve<SendEmail>(partitionKey, rowKey);
+                var retrievedResultForRestart = messagearchiveTable.Execute(retrieveOperationForRestart);
+                var messagearchiveRow = retrievedResultForRestart.Result as SendEmail;
+                if (messagearchiveRow != null)
+                {
+                    Trace.TraceInformation("Email already sent: partitionKey=" + partitionKey + " rowKey= " + rowKey);
+                    return;
+                }
+            }
+
+            Trace.TraceInformation("ProcessQueueMessage start:  partitionKey {0} rowKey {1} Role Instance {2}.",
+                partitionKey, rowKey, GetRoleInstance());
 
             // Get the row in the Message table that has data we need to send the email.
-            var emailRowInMessageTable =
-                 (from e in tableServiceContext.CreateQuery<SendEmail>("Message")
-                  where e.PartitionKey == messageRef && e.RowKey == emailAddress
-                  select e).Single();
+            var retrieveOperation = TableOperation.Retrieve<SendEmail>(partitionKey, rowKey);
+            var retrievedResult = messageTable.Execute(retrieveOperation);
+            var emailRowInMessageTable = retrievedResult.Result as SendEmail;
+            if (emailRowInMessageTable == null)
+            {
+                Trace.TraceError("SendEmail row not found:  partitionKey {0} rowKey {1} Role Instance {2}.",
+                    partitionKey, rowKey, GetRoleInstance());
+                return;
+            }
 
             // Derive blob names from the MessageRef.
-            var htmlMessageBodyRef = messageRef + ".htm";
-            var textMessageBodyRef = messageRef + ".txt";
+            var htmlMessageBodyRef = emailRowInMessageTable.MessageRef + ".htm";
+            var textMessageBodyRef = emailRowInMessageTable.MessageRef + ".txt";
 
-            // If the email hasn't already been sent, send email and update the table row to Sent.
+            // If the email hasn't already been sent, send email and archive the table row.
             if (emailRowInMessageTable.EmailSent != true)
             {
-                SendEmailToList(emailAddress, emailRowInMessageTable.FromEmailAddress, emailRowInMessageTable.SubjectLine, htmlMessageBodyRef, textMessageBodyRef);
+                SendEmailToList(emailRowInMessageTable, htmlMessageBodyRef, textMessageBodyRef);
 
+                var emailRowToDelete = new SendEmail { PartitionKey = emailRowInMessageTable.PartitionKey, RowKey = emailRowInMessageTable.RowKey, ETag = "*" };
                 emailRowInMessageTable.EmailSent = true;
-                tableServiceContext.UpdateObject(emailRowInMessageTable);
-                tableServiceContext.SaveChangesWithRetries();
+
+                var upsertOperation = TableOperation.InsertOrReplace(emailRowInMessageTable);
+                messagearchiveTable.Execute(upsertOperation);
+                var deleteOperation = TableOperation.Delete(emailRowToDelete);
+                messageTable.Execute(deleteOperation);
             }
 
             // Delete the queue message.
-            this.sendEmailQueue.DeleteMessage(msg);
+            sendEmailQueue.DeleteMessage(msg);
 
-            Trace.TraceInformation("ProcessQueueMessage complete: email {0}  message {1} Role Instance {2}.",
-               emailAddress, messageRef, GetRoleInstance());
-
+            Trace.TraceInformation("ProcessQueueMessage complete:  partitionKey {0} rowKey {1} Role Instance {2}.",
+               partitionKey, rowKey, GetRoleInstance());
         }
 
-   This code performs the following tasks:
+   If the message is a "poison" message, it is logged and deleted.
 
-   * If the message is a "poison" message, it is loged and deleted.  Poison messages are those that cause the application to abort when they are processed.  If a message has been pulled from the queue more than three times, we assume that it cannot be processed and remove it from the queue so that we don't keep trying to process it. 
-   * Parses the queue message into MessageRef and EmailAddress values.
-   * Gets the Message table row that has info needed to send the email.
-   * Calls a method to send the email.
-   * Updates the Message table row to indicate the email has been sent.   
-   * Deletes the queue work item.
+            if (msg.DequeueCount > 5)
+            {
+                Trace.TraceError("Deleting poison message:    message {0} Role Instance {1}.",
+                    msg.ToString(), GetRoleInstance());
+                sendEmailQueue.DeleteMessage(msg);
+                return;
+            }
+
+   Poison messages are those that cause the application to abort when they are processed.  If a message has been pulled from the queue more than five times, we assume that it cannot be processed and remove it from the queue so that we don't keep trying to process it. Production applications should move the poison message to a "dead message" queue for analysis rather than deleting the message.
+
+   The code parses the queue message into the partition key and row key needed to retrieve the SendEmail row, and a restart flag.
+
+            var messageParts = msg.AsString.Split(new char[] { ',' });
+            var partitionKey = messageParts[0];
+            var rowKey = messageParts[1];
+            var restartFlag = messageParts[2];
+
+   If processing for this message has been restarted after an unexpected shut down, the code checks the `messagearchive` table to determine if this email has already been sent.
+
+            if (restartFlag == "1")
+            {
+                var retrieveOperationForRestart = TableOperation.Retrieve<SendEmail>(partitionKey, rowKey);
+                var retrievedResultForRestart = messagearchiveTable.Execute(retrieveOperationForRestart);
+                var messagearchiveRow = retrievedResultForRestart.Result as SendEmail;
+                if (messagearchiveRow != null)
+                {
+                    Trace.TraceInformation("Email already sent: partitionKey=" + partitionKey + " rowKey= " + rowKey);
+                    return;
+                }
+            }
+
+   Next, we get the `SendEmail` row from the `message` table. This row has all of the information needed to send the email, except for the blobs that contain the HTML and plain text body of the email.
+
+            var retrieveOperation = TableOperation.Retrieve<SendEmail>(partitionKey, rowKey);
+            var retrievedResult = messageTable.Execute(retrieveOperation);
+            var emailRowInMessageTable = retrievedResult.Result as SendEmail;
+            if (emailRowInMessageTable == null)
+            {
+                Trace.TraceError("SendEmail row not found:  partitionKey {0} rowKey {1} Role Instance {2}.",
+                    partitionKey, rowKey, GetRoleInstance());
+                return;
+            }
+
+   Then the code sends the email and archives the `SendEmail` row.
+
+            if (emailRowInMessageTable.EmailSent != true)
+            {
+                SendEmailToList(emailRowInMessageTable, htmlMessageBodyRef, textMessageBodyRef);
+
+                var emailRowToDelete = new SendEmail { PartitionKey = emailRowInMessageTable.PartitionKey, RowKey = emailRowInMessageTable.RowKey, ETag = "*" };
+                emailRowInMessageTable.EmailSent = true;
+
+                var upsertOperation = TableOperation.InsertOrReplace(emailRowInMessageTable);
+                messagearchiveTable.Execute(upsertOperation);
+                var deleteOperation = TableOperation.Delete(emailRowToDelete);
+                messageTable.Execute(deleteOperation);
+            }
+
+   Moving the row to the messagearchive table can't be done in a transaction because it affects multiple tables.
+
+   Finally, if everything else is successful, the queue message is deleted.
+
+            sendEmailQueue.DeleteMessage(msg);
 
    The actual work of sending the email by using SendGrid is done by the `SendEmailToList` method. If you want to use a different service than SendGrid, all you have to do is change the code in this method.
 
-        private void SendEmailToList(string emailAddress, string fromEmailAddress, string subjectLine, 
+        private void SendEmailToList(string emailAddress, string fromEmailAddress, string subjectLine,
             string htmlMessageBodyRef, string textMessageBodyRef)
         {
             var email = SendGrid.GenerateInstance();
             email.From = new MailAddress(fromEmailAddress);
             email.AddTo(emailAddress);
-            var blob = blobContainer.GetBlobReference(htmlMessageBodyRef);
-            email.Html = blob.DownloadText();
-            blob = blobContainer.GetBlobReference(textMessageBodyRef);
-            email.Text = blob.DownloadText();
+            email.Html = GetBlobText(htmlMessageBodyRef);
+            email.Text = GetBlobText(textMessageBodyRef);
             email.Subject = subjectLine;
             var credentials = new NetworkCredential(RoleEnvironment.GetConfigurationSettingValue("SendGridUserName"),
                 RoleEnvironment.GetConfigurationSettingValue("SendGridPassword"));
@@ -325,42 +431,62 @@ Next you create and configure the three new settings that are only used by worke
             transportREST.Deliver(email);
         }
 
+        private string GetBlobText(string blogRef)
+        {
+            var blob = blobContainer.GetBlockBlobReference(blogRef);
+            blob.FetchAttributes();
+            var blobSize = blob.Properties.Length;
+            using (var memoryStream = new MemoryStream((int)blobSize))
+            {
+                blob.DownloadToStream(memoryStream);
+                return System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
+            }
+        }
+
+   In the `GetBlobText` method, the code gets the blob size and then uses that value to initialize the `MemoryStream` object for performance reasons. If you don't provide the size, what the `MemoryStream` does is allocate 256 bytes, then when the download exceeds that, it allocates 512 more bytes, and so on, doubling the amount allocated each time. For a large blob this process would be inefficient compared to allocating the correct amount at the start of the download.
+
    The `Run` method calls `ProcessSubscribeQueueMessage` when it finds a work item in the subscribe queue:
 
         private void ProcessSubscribeQueueMessage(CloudQueueMessage msg)
         {
             // Log and delete if this is a "poison" queue message (repeatedly processed
             // and always causes an error that prevents processing from completing).
-            if (msg.DequeueCount > 3)
+            // Production applications should move the "poison" message to a "dead message"
+            // queue for analysis rather than deleting the message.  
+            if (msg.DequeueCount > 5)
             {
                 Trace.TraceError("Deleting poison subscribe message:    message {0}.",
                     msg.AsString, GetRoleInstance());
-                this.subscribeQueue.DeleteMessage(msg);
+                subscribeQueue.DeleteMessage(msg);
                 return;
             }
 
-            // Parse message retrieved from queue. It will consist only of a GUID value.
-            var subscriberGUID = msg.AsString;
+            // Parse message retrieved from queue. Message consists of
+            // subscriber GUID and list name.
+            // Example:  57ab4c4b-d564-40e3-9a3f-81835b3e102e,contoso1
+            var messageParts = msg.AsString.Split(new char[] { ',' });
+            var subscriberGUID = messageParts[0];
+            var listName = messageParts[1];
 
-            Trace.TraceInformation("ProcessSubscribeQueueMessage start:    subscriber GUID {0} Role Instance {1}.",
-                subscriberGUID, GetRoleInstance());
-
+            Trace.TraceInformation("ProcessSubscribeQueueMessage start:    subscriber GUID {0} listName {1} Role Instance {2}.",
+                subscriberGUID, listName, GetRoleInstance());
 
             // Get subscriber info. 
-            var subscriber =
-                (from e in tableServiceContext.CreateQuery<Subscriber>("MailingList")
-                 where e.SubscriberGUID == subscriberGUID
-                 select e).Single();
+            string filter = TableQuery.CombineFilters(
+                TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, listName),
+                TableOperators.And,
+                TableQuery.GenerateFilterCondition("SubscriberGUID", QueryComparisons.Equal, subscriberGUID));
+            var query = new TableQuery<Subscriber>().Where(filter);
+            var subscriber = mailingListTable.ExecuteQuery(query).ToList().Single();
 
-            // Get mailing list info. 
-            var mailingList =
-                (from e in tableServiceContext.CreateQuery<MailingList>("MailingList")
-                 where e.PartitionKey == subscriber.ListName && e.RowKey == "MailingList"
-                 select e).Single();
+            // Get mailing list info.
+            var retrieveOperation = TableOperation.Retrieve<MailingList>(subscriber.ListName, "mailinglist");
+            var retrievedResult = mailingListTable.Execute(retrieveOperation);
+            var mailingList = retrievedResult.Result as MailingList;
 
             SendSubscribeEmail(subscriberGUID, subscriber, mailingList);
 
-            this.subscribeQueue.DeleteMessage(msg);
+            subscribeQueue.DeleteMessage(msg);
 
             Trace.TraceInformation("ProcessSubscribeQueueMessage complete: subscriber GUID {0} Role Instance {1}.",
                 subscriberGUID, GetRoleInstance());
@@ -381,7 +507,8 @@ Next you create and configure the three new settings that are only used by worke
             var email = SendGrid.GenerateInstance();
             email.From = new MailAddress(mailingList.FromEmailAddress);
             email.AddTo(subscriber.EmailAddress);
-            string subscribeURL = RoleEnvironment.GetConfigurationSettingValue("AzureMailServiceURL") + "/subscribe?guid=" + subscriberGUID;
+            string subscribeURL = RoleEnvironment.GetConfigurationSettingValue("AzureMailServiceURL") +
+                "/subscribe?id=" + subscriberGUID + "&listName=" + subscriber.ListName;
             email.Html = String.Format("<p>Click the link below to subscribe to {0}. " +
                 "If you don't confirm your subscription, you won't be subscribed to the list.</p>" +
                 "<a href=\"{1}\">Confirm Subscription</a>", mailingList.Description, subscribeURL);
@@ -394,13 +521,15 @@ Next you create and configure the three new settings that are only used by worke
             transportREST.Deliver(email);
         }
 
+
+
+
+
 <h2><a name="testing"></a><span class="short-header">Testing</span>Testing Worker Role B</h2>
 
 1. Run the application by pressing F5.
 
-2. Go to the Messages page to see the message you created to test worker role A. After a minute or so, refresh the web page and you will see the status has changed from Processing to Completed.
-
-   ![New message in pending status][mtas-worker-b-test-completed]
+2. Go to the **Messages** page to see the message you created to test worker role A. After a minute or so, refresh the web page and you will see that the row has disappeared from the list because it has been archived.
 
 4. Check the email inbox where you expect to get the email. Note that there might be delays in the sending of emails by SendGrid or delivery to your email client, so you might have to wait a while to see the email. You might need to check your junk mail folder also.
 
@@ -409,15 +538,37 @@ Next you create and configure the three new settings that are only used by worke
 
 <h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>
 
-You have now built the Windows Azure Email Service application from scratch, and what you have is the same as the completed project that you downloaded.  To deploy to the cloud, test in the cloud, and promote to production, you can use the same procedures you saw in [the second tutorial][tut2].  If you chose to build the alternative architecture, see [this tutorial][getstartedtutorial] for information about how to deploy the MVC project to a Windows Azure Web Site.
+You have now built the Windows Azure Email Service application from scratch, and what you have is the same as the completed project that you downloaded.  To deploy to the cloud, test in the cloud, and promote to production, you can use the same procedures that you saw in [the second tutorial][tut2].  If you chose to build the alternative architecture, see [the Windows Azure Web Sites getting started tutorial][getstartedtutorial] for information about how to deploy the MVC project to a Windows Azure Web Site.
 
-To learn more about how to work with the Windows Azure Table service, Queue service, and Blob service, see the following resources:
+To learn more about Windows Azure storage, see the following resource:
 
-* [How to get the most out of Windows Azure Tables][getthemostoutoftables]
-* [How to use the Queue Storage Service][queuehowto]
-* [How to use the Table Storage Service][tablehowto]
+* [Essential Knowledge for Windows Azure Storage](http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-windows-azure-storage.aspx) (Bruno Terkaly's blog)
+
+To learn more about the Windows Azure Table service, see the following resources:
+
+* [Essential Knowledge for Windows Azure Table Storage](http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-azure-table-storage.aspx) (Bruno Terkaly's blog)
+* [How to get the most out of Windows Azure Tables](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx) (Windows Azure Storage team blog)
+* [How to use the Table Storage Service in .NET](http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/) 
+* [Windows Azure Storage Client Library 2.0 Tables Deep Dive](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx) (Windows Azure Storage team blog)
+* [Real World: Designing a Scalable Partitioning Strategy for Windows Azure Table Storage](http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx)
+
+To learn more about the Windows Azure Queue service and Windows Azure Service Bus queues, see the following resources:
+
+* [Windows Azure Queues and Windows Azure Service Bus Queues - Compared and Contrasted][sbqueuecomparison]
+* [How to use the Queue Storage Service in .NET][queuehowto]
+
+To learn more about the Windows Azure Blob service, see the following resource:
+
 * [How to use the Windows Azure Blob Storage Service in .NET][blobhowto]
 
+To learn more about autoscaling Windows Azure Cloud Service roles, see
+the following resources:
+
+* [How to Use the Autoscaling Application Block][autoscalingappblock]
+* [Autoscaling and Windows Azure](http://msdn.microsoft.com/en-us/library/hh680945(v=PandP.50).aspx)
+* [Building Elastic, Autoscalable Solutions with Windows Azure](http://channel9.msdn.com/Events/WindowsAzureConf/2012/B04) (MSDN channel 9 video)
+
+ 
 [createsolution]: #cloudproject
 [mailinglist]: #mailinglist
 [message]: #message
@@ -425,15 +576,18 @@ To learn more about how to work with the Windows Azure Table service, Queue serv
 [webapi]: #webapi
 [nextsteps]: #nextsteps
 
-[firsttutorial]: http://windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
-[tut2]: http://windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
-[tut3configstorage]: http://windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/#configstorage
-[getthemostoutoftables]: http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx
-[queuehowto]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/queue-service/
-[tablehowto]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/
-[blobhowto]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/
+[firsttutorial]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+[tut2]: /en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
+[tut3configstorage]: /en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/#configstorage
+[tut4]: /en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
+[queuehowto]: /en-us/develop/net/how-to-guides/queue-service/
+[tablehowto]: /en-us/develop/net/how-to-guides/table-services/
+[blobhowto]: /en-us/develop/net/how-to-guides/blob-storage/
 [GetMessage]: http://msdn.microsoft.com/en-us/library/windowsazure/ee741827.aspx
-[getstartedtutorial]: http://windowsazure.com/en-us/develop/net/tutorials/get-started
+[getstartedtutorial]: /en-us/develop/net/tutorials/get-started
+[sbqueuecomparison]: http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx
+[autoscalingappblock]: /en-us/develop/net/how-to-guides/autoscaling/
+
 
 [mtas-new-worker-role-project]: ../Media/mtas-new-worker-role-project.png
 [mtas-add-new-role-project-dialog]: ../Media/mtas-add-new-role-project-dialog.png
