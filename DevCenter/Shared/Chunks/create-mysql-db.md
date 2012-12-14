@@ -82,4 +82,4 @@ To create a MySQL database as a linked resource when you create a [Windows Azure
 [ClearDB]: http://www.cleardb.com/
 [waws]: /en-us/manage/services/web-sites/
 [Windows Azure Store]: /en-us/store/overview/
-[portal]: http://windows.azure.com/
+[portal]: http://manage.windowsazure.com
