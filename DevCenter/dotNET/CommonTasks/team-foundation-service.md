@@ -23,14 +23,14 @@ To set up a cloud service to automatically build and deploy to Windows Azure by 
 
 <h2> <a name="step1"></a><span class="short-header">Sign up for TFS</span>Step 1: Sign up for TFS</h2>
 
-1.	Create a TFS account by navigating to [http://tfs.visualstudio.com](http://tfs.visualstudio.com). Click the **Sign up for free** link.
-  You will need to sign-in using a Microsoft account. After you log in, create a TFS account URL.
+1. Create a TFS account by navigating to [http://tfs.visualstudio.com](http://tfs.visualstudio.com). Click the **Sign up for free** link.
+  You will need to sign-in using a Microsoft account. After you log in, create a TFS account URL. Your account will have the form: https://&lt;accountname&gt;.visualstudio.com.<br/>
 ![][0]
  
-2.	Create a team project by navigating to your TFS account page. Your account will have the form: https://&lt;username&gt;.visualstudio.com.<br/>
+2. Select New Team Project.<br/>
 ![][1]
 
-3. Select Create a Team Project. Give a name and description to your project and click the **Create Project** button.<br/>
+3. Give a name and description to your project and click the **Create Project** button.<br/>
 ![][2]
 
 4. When project creation is done, click the **Navigate to Project** button.<br/>
