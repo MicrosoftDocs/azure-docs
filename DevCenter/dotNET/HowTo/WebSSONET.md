@@ -1,350 +1,172 @@
-<properties linkid="develop-net-how-to-guides-web-sso" urlDisplayName="Web SSO" pageTitle="Single sign-on with Windows Azure Active Directory (.NET)" metaKeywords="Azure .NET web app, Azure single sign-on, Azure .NET Active Directory" metaDescription="Learn how to create a ASP.NET MVC web application that uses single sign-on with Windows Azure Active Directory." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+# Web Single Sign-On for .NET with Windows Azure Active Directory
 
+<h2><a name="introduction"></a>Introduction</h2>
 
-<div chunk="../chunks/article-left-menu.md" />
-# How to implement single sign-on with Windows Azure Active Directory - ASP.NET Application#
+This tutorial will show you how to leverage Windows Azure Active Directory to enable single sign-on for users of Office 365 customers. You will learn how to:
 
-<h2>Table of Contents</h2>
-<li>
-<a href="#overview">Overview</a>
-</li>
-<li>
-<a href="#prerequisites">Prerequisites</a></li>
-<li><a href="#step1">Step 1 - Create an ASP.NET MVC application</a></li>
-<li><a href="#step2">Step 2 - Provision the ASP.NET MVC application in Windows Azure Active Directory</a></li>
-<li><a href="#step3">Step 3 - Protect the ASP.NET application via WS-Federation and onboard the first customer</a></li>
-<li><a href="#step4">Step 4 - Configure the ASP.NET application for single sign-on with multiple tenants</a></li>	
+* Provision the web application in a customer's tenant
+* Protect the application using WS-Federation
 
-<a name="overview"></a>
-<h2><span class="short-header">Overview</span>Overview</h2>
-This guide provides instructions for creating an ASP.NET MVC application and configuring it to leverage Windows Azure Active Directory. 
+<h3>Prerequisites</h3>
+The following development environment prerequisites are required for this walkthrough:
 
-Imagine the following scenario:
+* Visual Studio 2010 SP1
+* Microsoft .NET Framework 4.0
+* [ASP.NET MVC 3]
+* [Windows Identity Foundation 1.0 Runtime]
+* [Windows Identity Foundation 3.5 SDK]
+* Internet Information Services (IIS) 7.5 with SSL enabled
+* Windows PowerShell
+* [Office 365 PowerShell Commandlets]
 
-- Fabrikam is an independent software vendor with an ASP.NET MVC web application
+<h3>Table of Contents</h3>
+* [Introduction][]
+* [Step 1: Create an ASP.NET MVC Application][]
+* [Step 2: Provision the Application in a Company's Directory Tenant][]
+* [Step 3: Protect the Application Using WS-Federation for Employee Sign In][]
+* [Summary][]
 
-- Awesome Computers has a subscription to Office 365
+<h2><a name="createapp"></a>Step 1: Create an ASP.NET MVC Application</h2>
+This step describes how to create a simple ASP.NET MVC application that will represent a protected resource. Access to this resource will be granted through federated authentication managed by the company's STS, which is described later in the tutorial.
 
-- Trey Research Inc. has a subscription to Office 365
+1. Open Visual Studio as an Administrator.
+2. From the **File** menu, click **New Project**. 
+3. From the template menu on the left, select **Web**, then click **ASP.NET MVC 3 Web Application**. Name the project *OrgIdFederationSample*.
+4. On the **New ASP.NET MVC 3 Project** dialog, select the **Empty** template, then click **OK**.
+5. After Visual Studio generates the new project, right click on the **Controllers** folder in **Solution Explorer**, click **Add**, then click **Controller**.
+6. On the **Add Controller** dialog, name the new controller *HomeController.cs*, then click **Add**.
+7. The **HomeController.cs** file will be created and opened. In the code file, right click on the ***Index()*** method and click **Add View...**. 
+8. On the **Add View** dialog, click **OK**. An **Index.cshtml** file will be created in a new folder named **Home**. 
+9. Right-click on your **OrgIdFederationSample** project in **Solution Explorer**, then click **Properties**.
+10. On the properties window, click **Web** on the left menu, then select **Use Local IIS Web server**. A dialog may appear asking you to create a virtual directory for the project; click **Yes** on the dialog.
+11. Build and run the application. The Index page of your Home controller will appear.
 
+<h2><a name="provisionapp"></a>Step 2: Provision the Application in a Company's Directory Tenant</h2>
+This step describes how an administrator of a Windows Azure Active Directory customer provisions the MVC application in their tenant and configures single sign-on. After this step is accomplished, the company's employees can authenticate to the web application using their Office 365 accounts.
 
+The provisioning process begins by creating a new Service Principal for the application. Service Principals are used by Windows Azure Active Directory to register and authenticate applications to the directory.
 
-Awesome Computers wants to provide their users (employees) with the access to the Fabrikam's ASP.NET application. After some deliberation, both parties agree to utilize the web single sign-on approach, also called identity federation with the end result being that Awesome Computers' users will be able to access Fabrikam's ASP.NET MVC application in exactly the same way they access Office 365 applications. 
+1. Download and install the Office 365 PowerShell Commandlets if you haven't done so already.
+2. From the **Start** menu, run the **Microsoft Online Services Module for Windows PowerShell** console. This console provides a command-line environment for configuring attributes about your Office 365 tenant, such as creating and modifying Service Principals.
+3. To import the required **MSOnlineExtended** module, type the following command and press Enter:
 
-This web single sign-on method is made possible with the help of the Windows Azure Active Directory, which is also used by Office 365. Windows Azure Active Directory provides directory, authentication, and authorization services, including a Security Token Service (STS). 
+		Import-Module MSOnlineExtended -Force
+4. To connect to your Office 365 directory, you will need to provide the company's administrator credentials. Type the following command and press Enter, then enter your credential's at the prompt:
 
-With the web single sign-on approach, Awesome Computers will provide single sign-on access to their users through a federated mechanism that relies on an STS. Since Awesome Computers does not have its own STS, they will rely on the STS provided by Windows Azure Active Directory that was provisioned for them when they acquired Office 365.
+		Connect-MsolService
+5. Now you will create a new Service Principal for the application. Type the following command and press Enter:
 
-In the instructions provided in this guide, we will play the roles of both Fabrikam and Awesome Computers and recreate this scenario by performing the following tasks: 
+		New-MsolServicePrincipal -ServicePrincipalNames @("OrgIdFederationSample/localhost") -DisplayName "Federation Sample Web Site" -Type Symmetric -Usage Verify -StartDate "12/01/2012" -EndDate "12/01/2013" 
+This step will output information similar to the following:
 
-- Create a simple ASP.NET MVC application (performed by Fabrikam)
-- Provision an ASP.NET MVC web application in Windows Azure Active Directory (performed by Awesome Computers).
-	<div class="dev-callout-new">
-    <strong>Note <span>Click to collapse</span></strong>
-    <div class="dev-callout-content">
-        <p>As part of this step, Awesome Computers must in turn be provisioned by the Fabrikam as a customer of their ASP.NET application. Basically, Fabrikam needs to know that users from the Office 365 tenant with the domain **awesomecomputers.onmicrosoft.com** should be granted access to their ASP.NET application.</p>
-    </div>
-</div>
+		The following symmetric key was created as one was not supplied qY+Drf20Zz+A4t2w e3PebCopoCugO76My+JMVsqNBFc=
+		DisplayName           : Federation Sample Web Site
+		ServicePrincipalNames : {OrgIdFederationSample/localhost}
+		ObjectId              : 59cab09a-3f5d-4e86-999c-2e69f682d90d
+		AppPrincipalId        : 7829c758-2bef-43df-a685-717089474505
+		TrustedForDelegation  : False
+		AccountEnabled        : True
+		KeyType               : Symmetric
+		KeyId                 : f1735cbe-aa46-421b-8a1c-03b8f9bb3565
+		StartDate             : 12/01/2012 08:00:00 a.m.
+		EndDate               : 12/01/2013 08:00:00 a.m.
+		Usage                 : Verify 
+	<div class="dev-callout"><strong>Note</strong><p>You should save this output, especially the generated symmetric key. This key is only revealed to you during Service Principal creation, and you will be unable to retrieve it in the future. The other values are required for using the Graph API to read and write information in the directory.</p></div>
 
-- Protect the ASP.NET MVC application with WS-Federation and onboard the first customer (performed by Fabrikam)
-- Modify the ASP.NET MVC application to handle single sign-on with multiple tenants (performed by Fabrikam)
+6. The final step sets the reply URL for your application. The reply URL is where responses are sent following authentication attempts. Type the following commands and press enter:
 
-**Assets**
+		$replyUrl = New-MsolServicePrincipalAddresses –Address "https://localhost/OrgIdFederationSample" 
 
-This guide is available together with several code samples and scripts that can help you with some of the most time-consuming tasks. All materials are available at [Azure Active Directory SSO for .Net](https://github.com/WindowsAzure/azure-sdk-for-dotnet-samples) for you to study and modify to fit your environment. 
+		Set-MsolServicePrincipal –AppPrincipalId "7829c758-2bef-43df-a685-717089474505" –Addresses $replyUrl 
+	
+The web application has now been provisioned in the directory and it can be used for web single sign-on by company employees.
 
-<a name="prerequisites"></a>
-<h2><span class="short-header">Prerequisites</span>Prerequisites</h2>
+<h2><a name="protectapp"></a>Step 3: Protect the Application Using WS-Federation for Employee Sign In</h2>
+This step shows you how to add support for federated login using Windows Identity Foundation (WIF). You will also add a login page and configure trust between the application and the directory tenant.
 
-To complete the tasks in this guide, you will need the following:
+1. In Visual Studio, right-click the **OrgIdFederationSample** project and select **"Add STS reference..."**. This context menu option was added when you installed the WIF SDK.
+2. In the **Federation Utility** dialog under **Application URI**, you need to provide the URI in the following format:
 
-**General environment requirements:**
+		spn:<Your AppPrincipalId>@<Your Directory Domain>
 
-- Internet Information Services (IIS) 7.5 (with SSL enabled)
-- Windows PowerShell 2.0
-- [Microsoft Online Services Module](http://g.microsoftonline.com/0BX10en/229)
+	**spn** specifies that the URI is a Service Principal name, **Your AppPrincpalId** is the **AppPrincipalId** GUID value generated when you created a Service Principal, and **Your Directory Domain** is the *.onmicrosoft.com domain for the directory tenant. For this sample application, a complete Application URI value is specified as shown below:
 
-**ASP.NET-specific requirements:**
+		spn:7829c758-2bef-43df-a685-717089474505@awesomecomputers.onmicrosoft.com
 
-<ul>
-    <li>Microsoft Visual Studio 2010</li>
-    <li>
-      <a href="http://www.microsoft.com/download/en/details.aspx?id=17331">Windows Identity Foundation</a>
-    </li>
-    <li>
-      <a href="http://www.microsoft.com/download/en/details.aspx?id=4451">Windows Identity Foundation SDK</a>
-    </li>
-<li>.Net Framework 4.0</li>
-<li>ASP.Net MVC 3 (http://www.asp.net/mvc/mvc3)</li>
-</ul>
+	After you have entered the Application URI, click **Next**.
 
-<a name="step1"></a>
-<h2><span class="short-header">Step 1 - Create an ASP.NET MVC application</span>Step 1 - Create an ASP.NET MVC application</h2>
+3. A warning dialog will appear stating that "The application is not hosted on a secure https connection." This is caused by the Federation Utility not recognizing the **spn:** format, but the application will still use a secure https connection anyway. Click **Yes** to continue.
 
-The instructions in this step demonstrate how to create a simple ASP.NET MVC application. In our scenario, this step is performed by Fabrikam.
+4. On the next page of the Federation Utility, select **Use an existing STS**, then under **STS WS-Federation metadata document location**, enter the URL for the WS-Federation metadata document. This URL is specified in the following format:
 
-**To create an ASP.NET Application:**
+		https://accounts.accesscontrol.windows.net/<Domain Name or Tenant ID>/FederationMetadata/2007-06/FederationMetadata.xml 
 
-1.	Open a new instance of Visual Studio 2010 using  the **Run as administrator…** option. 
-2.	To create a new project, click **File** -> **New Project** -> **Web** -> **ASP.NET MVC 3 Web Application** -> **Empty**.
+	For this application, the WS-Federation metadata location is specified as shown below:
 
-	<img src="../../../DevCenter/dotNet/Media/ssostep1Step2.png" />	
+		https://accounts.accesscontrol.windows.net/fabrikam.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml 
 
+	After you have entered the metadata location, click **Next**.
 
-3.	Create a controller/view (HomeController/Index) which will be the main page of the sample website.
+5. On the next page of the Federation Utility, select **Disable certificate chain validation**, then click **Next**.
 
-	<img src="../../../DevCenter/dotNet/Media/ssostep1Step3.png" />	
+6. On the next page of the Federation Utility, select **No encryption**, then click **Next**.
 
-4.	Right-click the **OrgIdFederationSample** project in the Solution Explorer. Select **Properties** -> **Web** and then **Use Local IIS Web server**. Click **Yes** when the dialog box is displayed.
+7. The next page of the Federation Utility displays the claims provided by the STS. Review the claims, then click **Next**.
 
-	<img src="../../../DevCenter/dotNet/Media/ssostep1Step4.png" />	
+8. Next you will configure Internet Information Services (IIS) to support SSL for your development environment. To open the IIS Manager, you can type *inetmgr* at the **Run** prompt. 
 
-5.	Run the application (F5) to see the Index view.
+9. In IIS Manager, expand the **Sites** folder in the left menu, then click on **Default Web Site Home**. From the **Actions** menu on the right, click **Bindings...**.
 
-6.	Open the Windows PowerShell 2.0 console and run the following command to generate a new GUID for this application:
+10. On the **Site Bindings** dialog, click **Add**. On the **Add Site Binding** dialog, change the **Type** dropdown to ***https***, then under **SSL certificate**, select **IIS Express Development Certificate**. Click **OK**.
 
-	<img src="../../../DevCenter/dotNet/Media/ssostep1Step6.png" />	
+11. In IIS Manager, click **Application Pools** in the left menu, then select the **ASP.NET v4.0** entry in the list and click **Advanced Settings** from the **Actions** menu on the right.
 
-	<div class="dev-callout-new">
-	    <strong>Note <span>Click to collapse</span></strong>
-	    <div class="dev-callout-content">
-	        <p>Make sure to record this value. This identifier will be the AppPrincipalId used in further steps in this guide when provisioning this ASP.NET applicaiton in Office 365.</p>
-	    </div>
-	</div>  
+12. On the **Advanced Settings** dialog, set the **Load User Profile** property to **true**. Click **OK**.
 
-<a name="step2"></a>
-<h2><span class="short-header">Step 2 - Provision the ASP.NET MVC application in Windows Azure Active Directory</span>Step 2 - Provision the ASP.NET MVC application in Windows Azure Active Directory</h2>
+13. In Visual Studio, open the **Web.config** file from **Solution Explorer** in the root of your project. 
 
+14. In the **Web.config** file, locate the **wsFederation** section and add a **reply** attribute with the same value as the **$replyUrl** variable you specified when creating the Service Principal. For example:
 
-Instructions in this step demonstrate how you can provision the ASP.NET application in Windows Azure Active Directory. In our scenario, this step is performed by Awesome Computers who then provides the application owner (Fabrikam) with the data Fabrikam needs in order to set up single sign-on access for Awesome Computers's users. 
+		<wsFederation passiveRedirectEnabled="true" issuer="https://accounts.accesscontrol.windows.net/v2/wsfederation" realm="spn: 7829c758-2bef-43df-a685-717089474505" requireHttps="false" reply="https://localhost/OrgIdFederationSample" /> 
 
-<div class="dev-callout-new">
-    <strong>Note <span>Click to collapse</span></strong>
-    <div class="dev-callout-content">
-        <p>If you don’t have access to an Office 365, you can obtain one by applying for a FREE TRIAL subscription on the [Office 365’s Sign-up page](http://www.microsoft.com/en-us/office365/online-software.aspx#fbid=8qpYgwknaWN).</p>
-    </div>
-</div>  
+15. Add a **httpRuntime** node inside the **system.web** section with the **requestValidationMode** attribute set to **2.0**. For example:
 
-To provision the ASP.NET application in Windows Azure Active Directory, Awesome Computers creates a new Service Principal for it in the directory. In order to create a new Service principal for the ASP.NET application in the directory, Awesome Computers must obtain the following information from Fabrikam:
+		<system.web>
+			<httpRuntime requestValidationMode="2.0" /> 
+			...
 
-- The value of the ServicePrincipalName (OrgIdFederationSample/localhost)
-- The AppPrincipalId (7829c758-2bef-43df-a685-717089474505)
-- The ReplyUrl 
+	Save the **Web.config** file.
 
-**To provision the ASP.NET application in Windows Azure Active Directory**
+16. Now that you have enabled authentication for the web application, the **Index** page should be modified to present an authenticated user's claims. Open the **Index.cshtml** file located in the **Home** folder of the **Views** folder.
 
-1.	Download and install a set of [Powershell scripts](https://bposast.vo.msecnd.net/MSOPMW/5164.009/amd64/administrationconfig-en.msi) from the Office 365’s online help page.
-2.	Locate the CreateServicePrincipal.ps1 script in this code example set under WAAD.WebSSO.ASPNET/Scripts.
-
-3.	Launch the Microsoft Online Services Module for Windows PowerShell console.
-
-4.	Run the SampleAppServicePrincipal.ps1 command from the Microsoft Online Services Module for Windows PowerShell Console.
-
-	<img src="../../../DevCenter/dotNet/Media/ssostep2Step4.png" />	
-
-	When asked to provide a name for your Service Principal, type in a descriptive name that you can remember in case you wish to inspect or remove the Service Principal later on.
-
-	<img src="../../../DevCenter/dotNet/Media/ssostep2Step45.png" />
-
-5.	When prompted, enter your administration credentials for your Office365 tenant:
-
-	<img src="../../../DevCenter/dotNet/Media/ssostep2Step5.png" />
-
-6.	If the script runs successfully, your screen will look similar to the figure below. Make sure to record the values of the following for use later in this guide:
-
-- company ID
-- AppPrincipal ID
-- App Principal Secret
-- Audience URI
-
-
-	<img src="../../../DevCenter/dotNet/Media/ssostep2Step6.png" />
-
-The Fabrikam's application has been successfully provisioned in the directory tenant of Awesome Computers. 
-
-Now Fabrikam must provision Awesome Computers as a customer of the ASP.NET application. In other words, Fabrikam must know that users from the Office 365 tenant with domain *awesomecomputers.onmicrosoft.com* should be granted access. How that information reaches Fabrikam depends on how the subscriptions are handled. In this guide, the instructions for this provisioning step are not provided. 
-
-<a name="step3"></a>
-<h2><span class="short-header">Step 3 - Protect the ASP.NET application via WS-Federation and onboard the first customer</span>Step 3 - Protect the ASP.NET application via WS-Federation and onboard the first customer</h2>
-
-
-The instructions in this step demonstrate how to add support for federated login to the ASP.NET application created in Step 1. In our scenario, this step is performed by Fabrikam. 
-
-With the ASP.NET application ready to authenticate requests using the WS-Federation protocol, we can add the Windows Azure AD tenant of Awesome Computers as a trusted provider. The initial setup of the federation will be done manually using FedUtil. The parameters required in the wizard will be: the audience Uri (spn:AppPrincipalId@realm) and the federation metadata (https://accounts.accesscontrol.windows.net/Federation……xml?realm=domain). 
-
-The audienceURI was generated in Step 2 when Awesome Computers's admin ran the SampleAppServicePrincipal.ps1 script to provision Fabrikam's ASP.NET application. The following is an example of the audienceURI:
-
-*appid@realm or 7829c758-2bef-43df-a685-717089474505@e4073280-196b-408f-9d40-0be89978fda0*
-
-You can use this Audience URI to add the first customer to our solution:
-
-1.	Right-click the project node in the Solution Explorer and select **Add STS reference…**.
-
-2.	Provide the value of the Application URI based on the values obtained after creating the Service Principal. The URI must begin with spn:  which indicates the URI is a service principal name. The "appId@realm" values are set as follows:
-
-- appId is the AppPrincipalId generated by the application.
-- realm is the GUID that you retrieved from the Federation Metadata Endpoint in Step 1.
-
-	<img src="../../../DevCenter/dotNet/Media/ssostep3Step2.png" />
-
-	Enter the SPN and select **Next**. When a warning dialog is displayed, select **Yes** and continue.  The Federation Utility does not recognize the spn: format but will accept the change, and the application will then use a secure https connection. 
-
-	<img src="../../../DevCenter/dotNet/Media/ssostep3Step2.5.png" />
-
-3. The next page of the wizard allows you to configure the STS for your web application.  Select **Use an existing STS**, and then enter the location for the WS-Federation metadata document (https://accounts.accesscontrol.windows.net/FederationMetadata/2007-06/FederationMetadata.xml?realm=awesomecomputers.onmicrosoft.com).
-	<div class="dev-callout-new">
-    <strong>Note <span>Click to collapse</span></strong>
-    <div class="dev-callout-content">
-        <p>This is the same URL you used in Step 1 to get the correct realm to create the Audience URI.</p>
-    </div>
-</div>
-
-	<img src="../../../DevCenter/dotNet/Media/ssostep3Step3.png" />
-
-4. Click Next and select the **Disable certificate chain validation**.
-
-	<img src="../../../DevCenter/dotNet/Media/ssostep3Step4.png" />
-
-5. After configuring the existing STS for your realm, the next page of the wizard configures the Security token encryption.  Use the default value **No encryption**. 
-
-	<img src="../../../DevCenter/dotNet/Media/ssostep3Step5.png" />
-
-6. Next, the Federation Utility shows the **Offered Claims** provided by the STS. Click **Next** to continue.
-
-	<img src="../../../DevCenter/dotNet/Media/ssostep3Step6.png" />
-
-7. Open the IIS manager and configure the **Default Web Site** to support SSL (https): select the **Default Web Site** item in the left menu, click **Bindings…** in the right-hand pane and when the **Site Bindings** dialog box appears click **Add** to set up https binding.
-
-	<img src="../../../DevCenter/dotNet/Media/ssostep3Step7.png" />
-
-8. From the IIS manager, click **Application Pools** item in the left-hand menu, select the **ASP.NET 4.0** application pool, and click **Advanced Settings…** to set the **Load User Profile** property to true.
-
-	<img src="../../../DevCenter/dotNet/Media/ssostep3Step8.png" />
-
-9. Return to Visual Studio and open the web.config file to perform the following changes:
-
-- Find the **wsFederation** section and add a new attribute with the reply Url; the node will look like this:
-
-			<wsFederation passiveRedirectEnabled="true" issuer="https://accounts.accesscontrol.windows.net/v2/wsfederation" realm="spn: 7829c758-2bef-43df-a685-717089474505@awesomecomputers.onmicrosoft.com" requireHttps="false" reply="https://localhost/OrgIdFederationSample" />		
-- Add the **httpRuntime** node inside the **system.web** section and set the requestValidationMode attribute to “2.0”.
-
-			<system.web>
-			  <httpRuntime requestValidationMode="2.0" />
-
-10. From now on the site will require authentication, so we will change the Index page to show the authenticated user information (claims). Open the Index view and add the following code snippet at the end of the page:
+17. Add the following code snippet to the **Index.cshtml** file and save it:
 
 		<p>
-		    @if (User.Identity.IsAuthenticated)
-		    {
-		    <ul>
-		        @foreach (string claim in ((Microsoft.IdentityModel.Claims.IClaimsIdentity)this.User.Identity).Claims.Select(c => c.ClaimType + " : " + c.Value))
-		        {
-		            <li>@claim</li>
-		        } 
-		    </ul>
-		    }
-		</p>
+			@if (User.Identity.IsAuthenticated)
+			{
+			<ul>
+				@foreach (string claim in ((Microsoft.IdentityModel.Claims.IClaimsIdentity)this.User.Identity).Claims.Select(c => c.ClaimType + " : " + c.Value))
+				{
+					<li>@claim</li>
+				}
+			</ul>
+			}
+		</p> 
 
-11. Press F5 to run the application and you will be redirected to the Office 365 identity provider page where you can log in using your awesomecomputers.onmicrosoft.com credentials (e.g. john.doe@awesomecomputers.onmicrosoft.com).
+18. After you have saved the changes to the **Index.cshtml** file, press **F5** to run the application. You will be redirected to the Office 365 Identity Provider page, where you can log in using your directory tenant credentials. For example, *john.doe@awesomecomputers.onmicrosoft.com*.
 
-	<img src="../../../DevCenter/dotNet/Media/ssostep3Step11.png" />
+19. After you have signed in using your credentials, you will be redirected to the Index page of your Home controller, where your account's claims are displayed. This demonstrates a user successfully authenticating to the application using single sign-on provided by Windows Azure Active Directory.
 
-12. Finally, if the login process is successful you will be redirected to the secured page (Home/Index) as an authenticated user.
+<h2><a name="summary"></a>Summary</h2>
+This tutorial has shown you how to create and configure a single tenant application that uses the single sign-on capabilities of Windows Azure Active Directory. You can also create multi-tenant applications for Windows Azure Active Directory by reading the following tutorial: [Developing Multi-Tenant Cloud Applications with Windows Azure Active Directory].
 
-	<img src="../../../DevCenter/dotNet/Media/ssostep3Step12.png" />
-
-**Important:** If your application is meant to work with a single Windows Azure Active Directory tenant, for example, if you are writing a LoB application, you can stop following the instructions in this guide at this point. By running the three steps above, you have successfully set up Windows Azure AD-enabled single sign-on to a simple ASP.NET application for the users in one tenant.
-
-If, however, you are developing applications that need to be accessed by more than one tenant, the next step can help you modify your code to accommodate multiple tenants.  
-
-<a name="step4"></a>
-<h2><span class="short-header">Step 4 - Configure the ASP.NET application for single sign-on with Multiple tenants</span>Step 4 - Configure the ASP.NET application for single sign-on with Multiple tenants</h2>
-
-What if Fabrikam wants to provide access to its application to multiple customers? The steps we performed in this guide so far ensure that single sign-on works with only one trusted provider. Fabrikam's developers must make some changes to their ASP.NET application in order to provide single sign-on to whatever future customers they obtain. The main new features needed are:
-
-- Support for multiple identity providers in the login page
-- Maintenance of the list of all trusted providers and the audienceURI they will send to the application; That list can be used to determine how to validate incoming tokens
-
-Let's add another fictitious customer to our scenario, Trey research Inc. Trey Research Inc. must register Fabrikam's ASP.NET application in its tenant the same way Awesome Computers have done in Step 2. The following is the list of configuration changes that Fabrikam needs to perform to their ASP.NET application to enable multi-tenant single sign-on, intertwined with the provisioning of Trey Research Inc.
-
-1.	From Visual Studio, add an empty XML file to the application root called “trustedIssuers.xml”. This file will contain a list of the trusted issuers for the application (in this case, Awesome Computers and Trey Research Inc.) which will be used by the dynamic audience Uri validator.
-
-	<img src="../../../DevCenter/dotNet/Media/ssostep4Step1.png" />
-
-2.	Go to the scripts folder and open the Microsoft.Samples.Waad.Federation.PS link to generate the trusted issuers’ nodes to add to the XML repository. It will prompt you for the AppPrincipalId and the AppDomain name to generate the issuer node as depicted below:
-
-	<img src="../../../DevCenter/dotNet/Media/ssostep4Step2.png" />
-
-	<div class="dev-callout-new">
-    <strong>Note <span>Click to collapse</span></strong>
-    <div class="dev-callout-content">
-        <p>Behind the scenes the script retrieves the federation metadata to get the issuer identifier for generating the realm’s SPN value.</p>
-    </div>
-</div> 
-
-3.	Open the XML file and include the generated node:
-
-		<trustedIssuers>
-		  <issuer name="awesomecomputers.onmicrosoft.com" displayName="awesomecomputers.onmicrosoft.com" realm="spn:7829c758-2bef-43df-a685-717089474505@495c4a5e-38b7-49b9-a90f-4c0050b2d7f7" />
-		</trustedIssuers>
-
-4.	Repeat Step 2 to generate Trey Research Inc. node. Notice that you can change the display name to show a user-friendly name.
-
-		<trustedIssuers>
-		  <issuer name="awesomecomputers.onmicrosoft.com" displayName="Awesome Computers" realm=" spn:7829c758-2bef-43df-a685-717089474505@495c4a5e-38b7-49b9-a90f-4c0050b2d7f7" />
-		  <issuer name=" treyresearchinc.onmicrosoft.com" displayName="Trey Research Inc." realm="spn:7829c758-2bef-43df-a685-717089474505@13292593-4861-4847-8441-6da6751cfb86" />
-		</trustedIssuers>
-
-5.	Add a reference to Microsoft.Samples.Waad.Federation assembly.
-
-	<img src="../../../DevCenter/dotNet/Media/ssostep4Step5.png" />
-
-6.	Go to the web.config and add the following snippet inside **service** under **microsoft.IdentityModel**. This is the security token handler that will validate the audience Uri dynamically using the “trustedIssuers.xml” repository.
-
-		<microsoft.identityModel>
-		  <service>
-		    <securityTokenHandlers>
-		      <remove type="Microsoft.IdentityModel.Tokens.Saml2.Saml2SecurityTokenHandler, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35"/>
-		      <add type="Microsoft.Samples.Waad.Federation.ConfigurationBasedSaml2SecurityTokenHandler, Microsoft.Samples.Waad.Federation"/>
-		    </securityTokenHandlers>
-
-7.	Since we want to create a custom login page to support both organizations, we can disable the automatic redirection. Locate the **wsFederation** node and set the attribute passiveRedirectEnabled to false.
-
-		<wsFederation passiveRedirectEnabled="false" issuer="https://accounts.accesscontrol.windows.net/v2/wsfederation" realm="spn:7829c758-2bef-43df-a685-717089474505@awesomecomputers.onmicrosoft.com" requireHttps="false" reply="https://localhost/OrgIdFederationSample" />
-
-8.	Under **system.web** replace the **** node using the following snippet. This login page will display a list of trusted providers allowing users to perform the login process with their organization credentials.
-
-		<authentication mode="Forms">
-		  <forms loginUrl="~/Account/Login" timeout="2880" />
-		</authentication>
-
-9.	Create a new controller/view (AccountController/Login)
-
-	<img src="../../../DevCenter/dotNet/Media/ssostep4Step9.png" />
-
-10.	Open the Login view and add the following code snippet (at the end) to list the available trusted providers:
-
-		<ul>
-		    @foreach (var trustedIssuer in new Microsoft.Samples.Waad.Federation.TrustedIssuersRepository().GetTrustedIdentityProviderUrls())
-		    {
-		        <li><a href="@trustedIssuer.LoginUrl">@trustedIssuer.DisplayName</a></li>
-		    }
-		</ul>
-
-11.	Run the application (F5) to see a list with the links for each trusted identity provider retrieved from the “trustedIssuers.xml” repository.
-
-	<img src="../../../DevCenter/dotNet/Media/ssostep4Step11.png" />
-
-<div class="dev-callout-new">
-    <strong>Note <span>Click to collapse</span></strong>
-    <div class="dev-callout-content">
-        <p>The home realm discovery strategy of presenting an explicit list of trusted providers is not always feasible in practice. Here it is used for the sake of simplicity.</p>
-    </div>
-</div>
-
-Once you see the list of the trusted identity providers in your browser, you can navigate to either provider: the authentication flow will unfold in the same way described in the former section. The application will validate the incoming token accordingly. You can try to delete entries in trusted.issuers.xml, as it would happen, for example, once a subscription expires, and verify that the application then will reject authentication attempts from the corresponding provider. 
-
-
-
-
-
+[Introduction]: #introduction
+[Step 1: Create an ASP.NET MVC Application]: #createapp
+[Step 2: Provision the Application in a Company's Directory Tenant]: #provisionapp
+[Step 3: Protect the Application Using WS-Federation for Employee Sign In]: #protectapp
+[Summary]: #summary
+[Developing Multi-Tenant Cloud Applications with Windows Azure Active Directory]: http://g.microsoftonline.com/0AX00en/121
+[Windows Identity Foundation 3.5 SDK]: http://www.microsoft.com/en-us/download/details.aspx?id=4451
+[Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/en-us/download/details.aspx?id=17331
+[Office 365 Powershell Commandlets]: http://onlinehelp.microsoft.com/en-us/office365-enterprises/ff652560.aspx
+[ASP.NET MVC 3]: http://www.microsoft.com/en-us/download/details.aspx?id=4211
