@@ -222,6 +222,8 @@ static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCr
     assetFile.Upload(singleFilePath);
     Console.WriteLine("Done uploading of {0} using Upload()", assetFile.Name);
 
+    locator.Delete();
+    accessPolicy.Delete();
 
     return asset;
 }
@@ -241,6 +243,9 @@ static public IAsset CreateAssetAndUploadMultipleFiles( AssetCreationOptions ass
     var locator = _context.Locators.CreateLocator(LocatorType.Sas, asset, accessPolicy);
 
     var blobTransferClient = new BlobTransferClient();
+	blobTransferClient.NumberOfConcurrentTransfers = 20;
+    blobTransferClient.ParallelTransferThreadCount = 20;
+
     blobTransferClient.TransferProgressChanged += blobTransferClient_TransferProgressChanged;
 
     var filePaths = Directory.EnumerateFiles(folderPath);
@@ -268,21 +273,17 @@ static public IAsset CreateAssetAndUploadMultipleFiles( AssetCreationOptions ass
 
     blobTransferClient.TransferProgressChanged -= blobTransferClient_TransferProgressChanged;
 
+    locator.Delete();
+    accessPolicy.Delete();
+
     return asset;
 }
 
-private static int _previousProgressPercentage;
-static void blobTransferClient_TransferProgressChanged(object sender, BlobTransferProgressChangedEventArgs e)
+static void  blobTransferClient_TransferProgressChanged(object sender, BlobTransferProgressChangedEventArgs e)
 {
     if (e.ProgressPercentage > 4) // Avoid startup jitter, as the upload tasks are added.
     {
-        // Only show progress if higher than 5% change.
-        if (e.ProgressPercentage - _previousProgressPercentage > 5)
-        {
-            _previousProgressPercentage = e.ProgressPercentage;
-            Console.WriteLine(string.Format("{0} % upload completed. Total size in bytes: {1} Trasnfered size in bytes: {2}",
-                              e.ProgressPercentage.ToString(), e.TotalBytesToTransfer, e.BytesTransferred));
-        }
+        Console.WriteLine("{0}% upload competed for {1}.", e.ProgressPercentage, e.LocalFile);
     }
 }
 
@@ -457,7 +458,6 @@ static IJob CreateEncodingJob(string inputMediaFilePath, string outputFolder)
     // This output is specified as AssetCreationOptions.None, which 
     // means the output asset is in the clear (unencrypted). 
     task.OutputAssets.AddNew("Output asset",
-        true,
         AssetCreationOptions.None);
 
     // Use the following event handler to check job progress.  
@@ -538,7 +538,6 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
     // to persist the output asset to storage, so set the shouldPersistOutputOnCompletion
     // param to false. 
     task.OutputAssets.AddNew("Streaming output asset",
-        false,
         AssetCreationOptions.None);
 
     IAsset smoothOutputAsset = task.OutputAssets[0];
@@ -562,7 +561,6 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
     // Add an output asset to contain the results of the job. Persist the output by setting 
     // the shouldPersistOutputOnCompletion param to true.
     playreadyTask.OutputAssets.AddNew("PlayReady protected output asset",
-        true,
         AssetCreationOptions.None);
 
     // Use the following event handler to check job progress. 
