@@ -26,7 +26,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 
    <div class="dev-callout"><b>Note</b>
-   <p>When you send less than 500 messages per user each day, you do not need to register or authenticate your app with Mobile Service Windows Phone Notification Service </p>
+   <p>When you send less than 500 messages per user each day, you do not need to register or authenticate your mobile service app with MPNS. </p>
    </div>
 
 <h2><a name="add-push"></a><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
