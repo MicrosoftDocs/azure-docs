@@ -1,5 +1,7 @@
 # Prepare a Linux VM for Azure 
 
+# Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System 
+
 To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
 
 A virtual machine that you create in Windows Azure runs the operating system that you choose from the supported operating system versions. You can customize the operating system settings of the virtual machine to facilitate running your application. The configuration that you set is stored on disk. You create a virtual machine in Windows Azure by using a virtual hard disk (VHD) file. You can choose to create a virtual machine by using a VHD file that is supplied for you in the Image Gallery, or you can choose to create your own image and upload it to Windows Azure in a VHD file.
@@ -199,34 +201,79 @@ You must complete specific configuration steps in the operating system for the v
 8. Install python-pyasn1 by running the following command:
 
 		yum install python-pyasn1
-9. Retrieve the Kernel Compatibility Patch for Azure released  by OpenLogic from [this location](http://go.microsoft.com/fwlink/?LinkID=275153&clcid=0x409) and install it using the following command:
 
-		rpm -ivh <Openlogic Kernel package>.rpm
+9. Replace their /etc/yum.repos.d/CentOS-Base.repo file with the following text
+> [openlogic]
+> name=CentOS-$releasever - openlogic packages for $basearch
+> baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
+> enabled=1
+> gpgcheck=0
+> 
+> [base]
+> name=CentOS-$releasever - Base
+> baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
+> gpgcheck=1
+> gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+>  
+> \#released updates
+> [updates]
+> name=CentOS-$releasever - Updates
+> baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
+> gpgcheck=1
+> gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+>  
+> \#additional packages that may be useful
+> [extras]
+> name=CentOS-$releasever - Extras
+> baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
+> gpgcheck=1
+> gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+>  
+> \#additional packages that extend functionality of existing packages
+> [centosplus]
+> name=CentOS-$releasever - Plus
+> baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/centosplus/$basearch/
+> gpgcheck=1
+> enabled=0
+> gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+>  
+> \#contrib - packages by Centos Users
+> [contrib]
+> name=CentOS-$releasever - Contrib
+> baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/contrib/$basearch/
+> gpgcheck=1
+> enabled=0
+> gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+ 
+10.	Clear the current Yum metadata
+You need to clear your current yum metadata:
+-	yum clean metadata
+11. Update a Running VM's Kernel by running
 
-10.	Download the [Windows Azure Linux Agent](http://go.microsoft.com/fwlink/?LinkID=251942&clcid=0x409) and then install it by running the following command:
+-	yum install kernel-2.6.32-279.14.1.el6.openlogic.x86_64.rpm
 
-	rpm –ivh WALinuxAgent-1.2-1.noarch.rpm
-
-11. Ensure that you have modified the kernel boot line to include lines for 
+12. Ensure that you have modified the kernel boot line to include lines for 
 
 -	console=ttyS0 ( this will enable serial console output)
 
 -	rootdelay=300
-12. It is recomended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
+13. It is recommended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
  
-13. Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
+14. Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
 
-14.	Comment out Defaults targetpw in /etc/sudoers
-15.	SSH Server should be included by default
-16.	No SWAP on Host OS DISK should be created 
+15.	Comment out Defaults targetpw in /etc/sudoers
+16.	SSH Server should be included by default
+17.	No SWAP on Host OS DISK should be created 
 	SWAP if needed can be requested for creation on the local resource disk by the Linux Agent. You may modify /etc/waagent.conf appropriately.
-17.	Run the following commands to deprovision the virtual machine:
+18. Install the Windows Azure Linux Agent by running
+-	yum install WALinuxAgent-1.2-1.noarch.rpm
+19.	Run the following commands to deprovision the virtual machine:
 
 		waagent –force –deprovision
 		export HISTSIZE=0
 		logout
 
-18. Click **Shutdown** in Hyper-V Manager.
+20. Click **Shutdown** in Hyper-V Manager.
 
 ### Prepare the Ubunutu 12.04 and 12.10 operating system ###
 
@@ -265,7 +312,7 @@ You must complete specific configuration steps in the operating system for the v
 
 -	rootdelay=300
 
-8. It is recomended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
+8. It is recommended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
 
 9. Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
 10.	Comment out Defaults targetpw in /etc/sudoers
@@ -338,7 +385,7 @@ You must complete specific configuration steps in the operating system for the v
 
    console=ttyS0 rootdelay=300
 10.	Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
-11. It is recomended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
+11. It is recommended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
 
 12.	Comment out Defaults targetpw in /etc/sudoers
 13.	SSH Server should be included by default
@@ -411,7 +458,7 @@ You must complete specific configuration steps in the operating system for the v
    console=ttyS0 rootdelay=300
 10.	Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
 
-11.It is recomended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
+11.It is recommended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
 
 12.	Comment out Defaults targetpw in /etc/sudoers
 13.	SSH Server should be included by default
@@ -499,7 +546,7 @@ The list below replaces step 2 of the process to create your own VHD:
 
 	-	console=ttyS0 rootdelay=300
 
-5.	It is recomended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
+5.	It is recommended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
 
 6.	You should Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
 
