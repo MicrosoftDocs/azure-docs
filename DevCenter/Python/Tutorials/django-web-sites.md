@@ -1,4 +1,4 @@
-<properties linkid="develop-python-web-site-with-django" urlDisplayName="Web Sites with Django" pageTitle="Python Web Sites with Django - Windows Azure tutorial" metaKeywords="Windows Azure django   django website" metaDescription="A tutorial that introduces you to running a Python web site on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+﻿<properties linkid="develop-python-web-site-with-django" urlDisplayName="Web Sites with Django" pageTitle="Python Web Sites with Django - Windows Azure tutorial" metaKeywords="Windows Azure django   django website" metaDescription="A tutorial that introduces you to running a Python web site on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 # Creating Web Sites with Django
@@ -11,13 +11,13 @@ This tutorial uses Python 2.7 and Django 1.4.  You can either get these on your 
 
 **Note**: Windows Azure web sites now come with Python 2.7 and wfastcgi handler pre-installed.  However, web frameworks such as Django are not included.  You can still use a different Python interpreter if you prefer.  You just need to include it in the Git repository and configure the web site to use that interpreter instead of the Python 2.7 interpreter already installed.
 
-You’ll also need to install Git for pushing the site to Azure – we recommend [msysgit](http://code.google.com/p/msysgit/).  There are also other deployment options available but this tutorial will cover using Git.  Once you have Python, Django, and Git installed you’ll have everything you need to get going.
+You’ll also need to install Git for pushing the site to Windows Azure – we recommend [msysgit](http://code.google.com/p/msysgit/).  There are also other deployment options available but this tutorial will cover using Git.  Once you have Python, Django, and Git installed you’ll have everything you need to get going.
 
 **Note**: TFS publishing is currently not supported for Python projects.
 
 ## Web Site Creation on Portal
 
-The first step in creating your app is to create the web site via the Windows Azure Portal.  To do this you’ll need to login to the Windows Azure portal and then select the WEB SITES from the left hand side:
+The first step in creating your app is to create the web site via the Windows Azure Management Portal.  To do this you’ll need to login to the portal and then select the WEB SITES from the left hand side:
 
 ![](../Media/python_website_01_image001.png)
 
@@ -88,7 +88,7 @@ The first command will add our untracked files to be tracked.  The second comman
 
 ![](../Media/python_website_13_image013.png)
 
-After doing the push you’ll see the Azure portal refresh and display the active deployment:
+After doing the push you’ll see the Windows Azure portal refresh and display the active deployment:
 
 ![](../Media/python_website_14_image014.png)
 

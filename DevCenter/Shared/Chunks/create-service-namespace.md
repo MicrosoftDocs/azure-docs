@@ -54,7 +54,7 @@ namespace.
     will use this information below to perform operations with the
     namespace.
 
-[Windows Azure Management Portal]: http://windows.azure.com
+[Windows Azure Management Portal]: http://manage.windowsazure.com
   [0]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
   [1]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
   [2]: ../../../DevCenter/dotNet/Media/sb-queues-05.png

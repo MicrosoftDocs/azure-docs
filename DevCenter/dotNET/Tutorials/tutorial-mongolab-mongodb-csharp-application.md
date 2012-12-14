@@ -12,7 +12,7 @@ Greetings, adventurers! Welcome to MongoDB-as-a-Service. In this tutorial you wi
 At any time throughout this tutorial, feel free to kick off an email to [support@mongolab.com](mailto:support@mongolab.com) if you have any questions.
 
 ## Quick start
-If you've already got a Windows Azure application and website that you want to work with or you have some familiarity with the Windows Azure Store, use this section to get a quick start. Otherwise, continue to [Provision the Database][provision] the Database below.
+If you've already got a Windows Azure application and web site that you want to work with or you have some familiarity with the Windows Azure Store, use this section to get a quick start. Otherwise, continue to [Provision the Database][provision] the Database below.
  
 1. Open the Windows Azure Store.  
 ![Store][button-store]

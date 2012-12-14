@@ -1,6 +1,6 @@
-# Django Hello World Web Application
+﻿# Django Hello World Web Application
 
-This tutorial describes how to host a Django-based website on Windows 
+This tutorial describes how to host a Django-based web site on Windows 
 Azure using a Windows Server 2008 R2 virtual machine. This tutorial assumes you have no prior experience using Windows Azure. Upon completing this guide, you will have a Django-based application up and running in the cloud.
 
 You will learn how to:
@@ -60,8 +60,8 @@ We recommend using Windows PowerShell for developing your Windows Azure applicat
 
     ![The result of the New-AzureService command][]
 
-    The **django-admin.py** script generates a basic structure for Django-based websites:
-    -   **manage.py** helps you to start hosting and stop hosting your Django-based website
+    The **django-admin.py** script generates a basic structure for Django-based web sites:
+    -   **manage.py** helps you to start hosting and stop hosting your Django-based web site
     -   **helloworld\settings.py** contains Django settings for your application.
     -   **helloworld\urls.py** contains the mapping code between each url and its view.
 
@@ -81,17 +81,17 @@ We recommend using Windows PowerShell for developing your Windows Azure applicat
 		)
 
 
-## Deploying and running your Django website
+## Deploying and running your Django web site
 
 1.  Close *Notepad* and switch back to the Windows PowerShell window.
-    Enter the following command to deploy your Django website:
+    Enter the following command to deploy your Django web site:
 
         PS C:\django\helloworld> $ipPort = [System.Net.Dns]::GetHostEntry("127.0.0.1")
         PS C:\django\helloworld> $ipPort = [string]$ipPort.AddressList[1]
         PS C:\django\helloworld> $ipPort += ":80"
         PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
 
-    The **runserver** parameter instructs Django to run our *helloworld* website on TCP port *80*. The results of this command should be similar to:
+    The **runserver** parameter instructs Django to run our *helloworld* web site on TCP port *80*. The results of this command should be similar to:
 
         PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
         Validating models...
@@ -105,7 +105,7 @@ We recommend using Windows PowerShell for developing your Windows Azure applicat
 
     ![A browser window displaying the hello world page on Windows Azure][]
 
-1.  To stop Django from hosting the website, simply switch to the PowerShell window and press **CTRL-C**.
+1.  To stop Django from hosting the web site, simply switch to the PowerShell window and press **CTRL-C**.
 
 
 
