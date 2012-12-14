@@ -46,7 +46,7 @@ Note that the different distributions will be incorporating the agent to their o
 		<td> Ubuntu 12.04</td>
 		<td>June 7 2012</td>
         <td>In Kernel</td>
-		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275152&clcid=0x409">Required for 12.04.x only</a></td>
+		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275152&amp;clcid=0x409">Required for 12.04.x only</a></td>
 		<td>Deb: In package repo under walinuxagent <br />
 			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
 		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254264">Download base VHD</a></td>
@@ -56,7 +56,7 @@ Note that the different distributions will be incorporating the agent to their o
 		<td> CentOS 6.2</td>
 		<td>June 7 2012</td>
 	    <td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254263">Latest LIS drivers</a></td>
-		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&clcid=0x409">Required for 6.2 and 6.3 only</a></td>
+		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&amp;clcid=0x409">Required for 6.2 and 6.3 only</a></td>
 		<td>RPM:In package repo under walinuxagent<br />
 			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
  		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254266">Download ISO</a></td>
@@ -66,7 +66,7 @@ Note that the different distributions will be incorporating the agent to their o
 		<td> SLES 11SP2</td>
 		<td>June 7 2012</td>
         <td>In Kernel</td>
-		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275154&clcid=0x409">Latest Kernel required</a></td>
+		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275154&amp;clcid=0x409">Latest Kernel required</a></td>
 		<td>RPM: In package repo under walinuxagent<br />
 			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
 		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254265">Create base image</a></td>
@@ -76,7 +76,7 @@ Note that the different distributions will be incorporating the agent to their o
 		<td> Open SUSE 12.1</td>
 		<td>June 7 2012</td>
 		<td>In Kernel</td>
-		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275155&clcid=0x409">Latest Kernel required</a></td>
+		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275155&amp;clcid=0x409">Latest Kernel required</a></td>
 		<td>RPM: In package repo under walinux<br />
 			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
 		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254265">Create base image</a></td>
