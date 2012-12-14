@@ -372,7 +372,7 @@ You need to clear your current yum metadata:
       To complete the registration, provide some additional parameters:
 
       Personal identification (mandatory) with:
-        * E-mail address :    email=<value>
+        * E-mail address :    email="me@example.com"
 
 
       You can provide these parameters with the '-a' option.
