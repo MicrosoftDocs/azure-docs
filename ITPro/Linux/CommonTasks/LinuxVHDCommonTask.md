@@ -282,15 +282,33 @@ You need to clear your current yum metadata:
 
 2. Click **Connect** to open the window for the virtual machine.
 
-3. Update the operating system to the latest kernel by running the following commands with sudo: 
+3.	Replace the current repositories in your image to use the azure repositories that carry the kernel and agent package that you will need to upgrade the VM.
 
-		apt-get update
-		apt-get install linux-image-virtual
-		apt-get install linux-headers-virtual
+	The steps for this are different depending on the distribution that you are using.
 
-4. (For Ubuntu 12.04.x only) You will need to install a backported ata_piix driver using and LBA [avaiable at this location](http://go.microsoft.com/fwlink/?LinkID=275152&clcid=0x409) as well as through the Ubuntu Package repositories.
+	Ubuntu 12.04 and 12.04.1:
+	-	sudo sed -i “s,archive.ubuntu.com,azure.archive.ubuntu.com,g” /etc/apt/sources.list
+	-	sudo apt-add-repository 'http://archive.canonical.com/ubuntu precise-backports main'
+	-	sudo apt-get update
 
-	**Note:** This is only required for Ubuntu 12.04 images as the 12.10 kernel icnludes the correct version of the ATA_PiiX driver already.
+	Ubuntu 12.10:
+	-	sudo sed -i “s,archive.ubuntu.com,azure.archive.ubuntu.com,g” /etc/apt/sources.list
+	-	sudo apt-add-repository 'http://archive.canonical.com/ubuntu quantal-backports main'
+	-	sudo apt-get update
+
+
+4. Update the operating system to the latest kernel by running the following commands : 
+
+		Ubuntu 12.04 and 12.04.1:
+	-	sudo apt-get update
+	-	sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-precise-virtual
+	-	sudo reboot
+
+	Ubuntu 12.10:
+	-	sudo apt-get update
+	-	sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-quantal-virtual
+	-	sudo reboot
+
 
 5.	 Install the agent by running the following commands with sudo:
 
@@ -336,71 +354,104 @@ You need to clear your current yum metadata:
 
 2. Click **Connect** to open the window for the virtual machine.
 
-3. Update the operating system to the latest kernel.
+3. Addd the repository containing the latest agent and the latest kernel
+  On the shell, call 'zypper lr'. If this command returns
 
-	**Note:** The SLES kernel update does not currently contain an important fix on the kernel to improve storage performance. It is expected that this fix will be available soon after release. It is recommended that you use an image from the [SUSE Studio gallery]( http://www.susestudio.com) to take advantage of all the functionality in Windows Azure.
+	 | Alias                        | Name               | Enabled | Refresh
+	
+	1 | susecloud:SLES11-SP1-Pool    | SLES11-SP1-Pool    | No      | Yes    
+	2 | susecloud:SLES11-SP1-Updates | SLES11-SP1-Updates | No      | Yes    
+	3 | susecloud:SLES11-SP2-Core    | SLES11-SP2-Core    | No      | Yes    
+	4 | susecloud:SLES11-SP2-Updates | SLES11-SP2-Updates | No      | Yes 
 
-4. Add the repository containing the latest agent and the latest kernel
- For SLES 11 SP2:
--	   # zypper ar -r http://download.opensuse.org/repositories/Cloud:/Tools/SLE_11_SP2/Cloud:Tools.repo
+		then the repositories are configured as expected, no adjustments are necessary.
 
-5.	Check if the update repositories are disabled:
+ 	In case the command returns "No repositories defined. Use the 'zypper addrepo' command to add one or more repositories." then the repositories need to be re-enabled by calling 'suse_register -r'. You    		will get following output:
 
--   # zypper lr
+      Query installed languages failed.(134)  No packages found.
+      To complete the registration, provide some additional parameters:
 
-    | Alias                        | Name                     | Enabled | Refresh
-   --+------------------------------+--------------------------+---------+--------
-   1 | Cloud_Tools                  | Cloud:Tools (SLE_11_SP2) | Yes     | No     
-   2 | susecloud:SLES11-SP1-Pool    | SLES11-SP1-Pool          | No      | Yes    
-   3 | susecloud:SLES11-SP1-Updates | SLES11-SP1-Updates       | No      | Yes    
-   4 | susecloud:SLES11-SP2-Core    | SLES11-SP2-Core          | No      | Yes    
-   5 | susecloud:SLES11-SP2-Updates | SLES11-SP2-Updates       | No      | Yes
+      Personal identification (mandatory) with:
+        * E-mail address :    email=<value>
 
-   In case one of the relevant update repositories is not enabled,
-   enable it with following command:
 
--	  # zypper mr -e [NUMBER OF REPOSITORY]
+      You can provide these parameters with the '-a' option.
+      You can use the '-a' option multiple times.
+
+      Example:
+
+      suse_register -a email="me@example.com"
+
+      To register your product manually, use the following URL:
+
+      https://secure-www.novell.com/center/regsvc-1.0/?lang=POSIX&guid=64f60dc79688491e8bf88527804e06f0&command=interactive
+
+
+      Information on Novell's Privacy Policy:
+      Submit information to help you manage your registered systems.
+      http://www.novell.com/company/policies/privacy/textonly.html
+
+   Verify your repositories have been added by calling 'zypper lr', this is the expected output:
+
+	    | Alias                        | Name               | Enabled | Refresh
+     
+      1 | susecloud:SLES11-SP1-Pool    | SLES11-SP1-Pool    | No      | Yes    
+      2 | susecloud:SLES11-SP1-Updates | SLES11-SP1-Updates | No      | Yes    
+      3 | susecloud:SLES11-SP2-Core    | SLES11-SP2-Core    | No      | Yes    
+      4 | susecloud:SLES11-SP2-Updates | SLES11-SP2-Updates | No      | Yes 
+
+   In case one of the relevant update repositories is not enabled, enable it with following command:
+
+     # zypper mr -e [NUMBER OF REPOSITORY]
 
    In the above case, the command proper command would be
 
--   # zypper mr -e 2 3 4 5 
+      # zypper mr -e 1 2 3 4
 
-
-6.	To get the ATA Piix driver, update the kernel to the latest available 
+4. To get the ATA Piix driver, update the kernel to the latest available 
    version:
 
--	   # zypper up kernel-default
+-	   \# zypper up kernel-default
 
-7.	Disable automatic DVD ROM probing.
+5. Disable automatic DVD ROM probing.
 
-8.	Install the Windows Azure Linux Agent:
+6. Install the Windows Azure Linux Agent:
 
--	   # zypper install WALinuxAgent-1.2.1.noarch
+-	   Call 'zypper up WALinuxAgent' and you will get a similar message like the following:
 
-   Note: Here a warning might be displayed that 
-   /etc/waagent.conf created as /etc/waagent.conf.rpmnew
+      "There is an update candidate for 'WALinuxAgent', but it is from different vendor. 
+      Use 'zypper install WALinuxAgent-1.2-1.1.noarch' to install this candidate."
 
-9.	To enable serial console and increase the rootdelay, adjust 
+   As the vendor of the package has changed from "Microsoft Corporation" to "SUSE LINUX Products GmbH, 
+   Nuernberg, Germany", one has to explicitely install the package as mentioned in the message.
+
+   Note: The version of the WALinuxAgent package might be slightly different.
+
+7. To enable serial console and increase the rootdelay, adjust 
    the kernel command line in the file '/boot/grub/menu.lst' and add the 
    following string to the end of the kernel line:
 
-   console=ttyS0 rootdelay=300
-10.	Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
-11. It is recommended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
+   >console=ttyS0 rootdelay=300
 
-12.	Comment out Defaults targetpw in /etc/sudoers
-13.	SSH Server should be included by default
-14.	No SWAP on Host OS DISK should be created 
+8.	Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more (The SUSE agent intallation scripts normally take care of this).
+
+9.	It is recommended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
+
+10.	Comment out Defaults targetpw in /etc/sudoers
+
+11.	SSH Server should be included by default
+
+12.	No SWAP on Host OS DISK should be created 
 	SWAP if needed can be requested for creation on the local resource disk by the Linux Agent. You may modify /etc/waagent.conf appropriately.
 
 
-15.	Run the following commands to deprovision the virtual machine:
+13.	Run the following commands to deprovision the virtual machine:
 
 		waagent –force –deprovision
 		export HISTSIZE=0
 		logout
 
-15. Click **Shutdown** in Hyper-V Manager.
+14. Click **Shutdown** in Hyper-V Manager.
 
 ### Prepare the OpenSuse 12.1 operating system ###
 
@@ -412,54 +463,75 @@ You need to clear your current yum metadata:
 
 	**Note:** The SLES kernel update does not currently contain an important fix on the kernel to improve storage performance. It is expected that this fix will be available soon after release. It is recommended that you use an image from the [SUSE Studio gallery]( http://www.susestudio.com) to take advantage of all the functionality in Windows Azure.
 
-4. Add the repository containing the latest agent and the latest kernel
- For openSUSE 12.1:
--	   # zypper ar -r http://download.opensuse.org/repositories/Cloud:/Tools/openSUSE_12.1/Cloud:Tools.repo
+4. On the shell, call 'zypper lr'. If this command returns
 
-5.	Check if the update repositories are disabled:
+         | Alias | Name | Enabled | Refresh
+      
+      1 | openSUSE_12.1_OSS     | openSUSE_12.1_OSS     | Yes     | Yes    
+      2 | openSUSE_12.1_Updates | openSUSE_12.1_Updates | Yes     | Yes
 
--   # zypper lr
+   then the repositories are configured as expected, no adjustments are necessary.
 
-    | Alias                        | Name                     | Enabled | Refresh
-   --+------------------------------+--------------------------+---------+--------
-   1 | Cloud_Tools                  | Cloud:Tools (SLE_11_SP2) | Yes     | No     
-   2 | susecloud:SLES11-SP1-Pool    | SLES11-SP1-Pool          | No      | Yes    
-   3 | susecloud:SLES11-SP1-Updates | SLES11-SP1-Updates       | No      | Yes    
-   4 | susecloud:SLES11-SP2-Core    | SLES11-SP2-Core          | No      | Yes    
-   5 | susecloud:SLES11-SP2-Updates | SLES11-SP2-Updates       | No      | Yes
+   In case the command returns "No repositories defined. Use the 'zypper addrepo' command to add one 
+   or more repositories." then the repositories need to be re-enabled:
 
-   In case one of the relevant update repositories is not enabled,
-   enable it with following command:
+      # zypper ar -f http://download.opensuse.org/distribution/12.1/repo/oss openSUSE_12.1_OSS
+      # zypper ar -f http://download.opensuse.org/update/12.1 openSUSE_12.1_Updates
 
--	  # zypper mr -e [NUMBER OF REPOSITORY]
+   Verify your repositories have been added by calling 'zypper lr', this is the expected output:
 
-   In the above case, the command proper command would be
+       | Alias | Name | Enabled | Refresh
+     
+      1 | openSUSE_12.1_OSS     | openSUSE_12.1_OSS     | Yes     | Yes    
+      2 | openSUSE_12.1_Updates | openSUSE_12.1_Updates | Yes     | Yes
 
--   # zypper mr -e 2 3 4 5 
+   In case one of the relevant update repositories is not enabled, enable it with following command:
+
+      # zypper mr -e [NUMBER OF REPOSITORY]
 
 
-6.	To get the ATA Piix driver, update the kernel to the latest available 
+5.	To get the ATA Piix driver, update the kernel to the latest available 
    version:
 
--	   # zypper up kernel-default
+	   \# zypper in perl
+
+   \# zypper up kernel-default
+
+   Note: It is necessary to install the package 'perl' before updating the kernel, as there's
+         a missing dependency in openSUSE 12.1.
+
 
 7.	Disable automatic DVD ROM probing.
 
 8.	Install the Windows Azure Linux Agent:
 
--	   # zypper install WALinuxAgent-1.2.1.noarch
+	First, add the repository containing the new WALinuxAgent:
 
-   Note: Here a warning might be displayed that 
-   /etc/waagent.conf created as /etc/waagent.conf.rpmnew
+      # zypper ar -f -r http://download.opensuse.org/repositories/Cloud:/Tools/openSUSE_12.1/Cloud:Tools.repo
+
+   Then, call 'zypper up WALinuxAgent' and you will get a similar message like the following:
+
+      "There is an update candidate for 'WALinuxAgent', but it is from different vendor. 
+      Use 'zypper install WALinuxAgent-1.2-1.1.noarch' to install this candidate."
+
+   As the vendor of the package has changed from "Microsoft Corporation" to "obs://build.opensuse.org/Cloud",
+   one has to explicitely install the package as mentioned in the message.
+
+   Note: The version of the WALinuxAgent package might be slightly different.
 
 9.	To enable serial console and increase the rootdelay, adjust 
    the kernel command line in the file '/boot/grub/menu.lst' and add the 
    following string to the end of the kernel line:
 
    console=ttyS0 rootdelay=300
-10.	Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
 
-11.It is recommended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
+ 	In the same file, remove the following part from the kernel command line:
+
+      libata.atapi_enabled=0 reserve=0x1f0,0x8
+
+10.	Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more (The SUSE agent intallation scripts normally take care of this).
+
+11.	It is recommended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
 
 12.	Comment out Defaults targetpw in /etc/sudoers
 13.	SSH Server should be included by default
