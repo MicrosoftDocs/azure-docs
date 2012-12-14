@@ -10,7 +10,7 @@ The distribution images on the Gallery are provided by the following partners an
  
 [http://www.ubuntu.com/cloud/azure](http://www.ubuntu.com/cloud/azure)
 
-Canonical engineering and open commuwww.ubuntu.com/cloud/azurenity governance drive Ubuntu's success in client, server and cloud computing,  including personal cloud services for consumers. Canonical's vision of a unified free platform in Ubuntu, from phone to cloud, with a family of coherent interfaces for the phone, tablet, TV and desktop, makes Ubuntu the first choice for diverse institutions from public cloud providers to the makers of consumer electronics, and a favorite among individual technologists.
+Canonical engineering and open community governance drive Ubuntu's success in client, server and cloud computing,  including personal cloud services for consumers. Canonical's vision of a unified free platform in Ubuntu, from phone to cloud, with a family of coherent interfaces for the phone, tablet, TV and desktop, makes Ubuntu the first choice for diverse institutions from public cloud providers to the makers of consumer electronics, and a favorite among individual technologists.
 
 With developers and engineering centers around the world, Canonical is uniquely positioned to partner with hardware makers, content providers and software developers to bring Ubuntu solutions to market, from PCs to servers and handheld devices.
 
@@ -27,7 +27,7 @@ OpenLogic is a leading provider of enterprise open source solutions for the clou
 SUSE Linux Enterprise Server on Windows Azure is a proven platform that provides superior reliability and security for cloud computing. SUSE's versatile Linux platform seamlessly integrates with Windows Azure cloud services to deliver an easily manageable cloud environment. And with more than 9,200 certified applications from over 1,800 independent software vendors for SUSE Linux Enterprise Server, SUSE ensures that workloads running supported in the data center can be confidently deployed on Windows Azure.
 
 The following table shows the different distribution versions, LIS drivers and Agent Versions that have been tested to work on Windows Azure.
-The table also inPludes a link to the Compatibility patch required by some distribution versions to work optimally in Windows Azure.
+The table also includes a link to the Kernel compatibility patch required by some distribution versions to work optimally in Windows Azure.
 
 Note that the different distributions will be incorporating the agent to their official distribution archives shortly, but for the time being we are releasing all the RPM and Deb packages for the agent plus the drivers for CentOS on the same ISO. 
 
@@ -37,7 +37,7 @@ Note that the different distributions will be incorporating the agent to their o
 	    <th>Version</th>
 	    <th>Last Verified</th>
 		<th>Drivers</th>
-		<th>Compatibility Patch</th>
+		<th>Kernel Compatibility Patch</th>
 		<th>Agent</th>
 		<th>Base Images</th>
 	</tr>

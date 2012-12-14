@@ -7,15 +7,6 @@
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-###[How to Debug a Linux VM](/en-us/manage/linux/how-to-guides/howto-debug-linux-vm/)
-
-Learn how to debug a Linux VM that is failing or cannot be provisioned in the platform using cloud based procedures as well as engaging Windows Azure Support. This HowTo is independent of the particular support process offered for supported images in the gallery.
-
-###[How to update a preview Linux VM to the latest Version ( Time Sensitive Instructions)](/en-us/manage/linux/how-to-guides/howto-upgrade-linux-preview-vm/)
-
-Learn about the changes introduced during preview that require all VMs and personal images created prior to Dec 20th to be updated. You can learn here how to update your preview Linux VMs and Personal images during the December 20th 2012 to January 13th Transition period.
-
-
 ###[How to Create a Custom Virtual Machine](/en-us/manage/linux/common-tasks/upload-a-VHD/)
 
 Learn how to create a custom virtual machine by providing advanced options, such as size, connected resources, DNS name, and network connection. You use this option if you want to connect virtual machines or if you want to use a custom image to create the machine.
