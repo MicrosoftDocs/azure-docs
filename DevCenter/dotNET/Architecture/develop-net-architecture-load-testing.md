@@ -1,4 +1,32 @@
 <properties linkid="develop-net-architecture-load-testing" urlDisplayName="Load Testing" pageTitle="Load Testing in Windows Azure" metaKeywords="Load Testing Pattern Architecture" metaDescription="Load testing patterns and application architecture using Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/net/architecture" umbracoNaviHide="0" disqusComments="1" />
+<div>
+<div class="left-nav">
+<div class="static-nav">
+<ul>
+<li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
+<li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
+<li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
+<li><a href="/en-us/develop/net/reference/">Reference</a></li>
+<li><a href="/en-us/develop/net/guidance/">Guidance</a></li>
+<li><a href="/en-us/develop/net/architecture/">Architecture</a></li>
+<li><a href="/en-us/develop/net/samples/">Samples</a></li>
+<li><a href="/en-us/develop/net/end-to-end-Apps/">Scenario-Based Tutorials</a></li>
+</ul>
+<ul class="links">
+<li class="forum"><a href="/en-us/support/forums/">Forums</a></li>
+</ul>
+</div>
+<div class="floating-nav jump-to"><br />
+<ul>
+<li>In this section (jump to):</li>
+<li><a href="/en-us/develop/net/architecture/#overviews">Application architecture overviews</a></li>
+<li><a href="/en-us/develop/net/architecture/multi-tenant-web-application-pattern/">Application pattern: Multitenant apps</a></li>
+<li><strong>Application pattern: Load testing</strong></li>
+<li><a href="/en-us/develop/net/architecture/#designpatterns">Design patterns</a></li>
+</ul>
+</div>
+</div>
+</div>
 
 # Load Testing in Windows Azure
 
