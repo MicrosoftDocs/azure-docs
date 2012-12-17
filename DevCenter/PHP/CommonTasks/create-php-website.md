@@ -38,7 +38,7 @@ To create a PHP web site using the Windows Azure Command Line Tools for Mac and 
 
 		azure site create MySiteName
 
-The URL for the newly created web site will be  `http://MySiteName.azureweb sites.net`.  
+The URL for the newly created web site will be  `http://MySiteName.azurewebsites.net`.  
  
 Note that you can execute the `azure site create` command with any of the following options:
 
@@ -60,7 +60,7 @@ To create a PHP web site using the Windows Azure PowerShell cmdlets, do the foll
 
 		New-AzureWebSite MySiteName
 
-The URL for the newly created web site will be  `http://MySiteName.azureweb sites.net`.  
+The URL for the newly created web site will be  `http://MySiteName.azurewebsites.net`.  
  
 Note that you can execute the `New-AzureWebSite` command with any of the following options:
 
