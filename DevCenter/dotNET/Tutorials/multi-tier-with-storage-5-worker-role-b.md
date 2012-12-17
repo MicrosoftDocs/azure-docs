@@ -1,6 +1,32 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-5-worker-role-b" urlDisplayName="Step 5: Worker Role B" pageTitle="Multi-tier web site tutorial - Step 5: Worker role B" metaKeywords="Windows Azure tutorial, adding worker role cloud service, C# worker role" metaDescription="The fifth tutorial in a series that teaches how to configure your computer for Windows Azure development and deploy the Email Service app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra" editor="mollybos" manager="wpickett" />
 
-<div chunk="../chunks/article-left-menu.md" />
+<div>
+<div class="left-nav">
+<div class="static-nav">
+<ul>
+<li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
+<li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
+<li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
+</ul>
+<ul class="links">
+<li class="forum"><a href="/en-us/support/forums/">Forums</a></li>
+</ul>
+<ul>
+<li>IN THIS SERIES</li>
+<li><a href="../1-overview/">1. Overview</a></li>
+<li><a href="../2-download-and-run/">2. Download and Run</a></li>
+<li><a href="../3-web-role/">3. Web Role</a></li>
+<li><a href="../4-worker-role-a/">4. Worker Role A</a></li>
+<li><strong>5. WORKER ROLE B</strong></li>
+</ul>
+</div>
+<div class="floating-nav jump-to">
+<ul>
+<li>On the page (jump to):</li>
+</ul>
+</div>
+</div>
+</div>
 
 # Building worker role B (email sender) for the Windows Azure Email Service application - 5 of 5. 
 
@@ -38,11 +64,42 @@ You need a reference to the web project because that is where the entity classes
 
 
 
+<h2><a name="sclpackage"></a><span class="short-header">Add SCL Package</span>Add the Storage Client Library NuGet package to the project</h2>
+
+When you added the project, it didn't automatically get the updated version of the Storage Client Library NuGet package. Instead, it got the old 1.7 version of the package since that is what is included in the project template. Now the solution has two versions of the Windows Azure Storage NuGet package: the 2.0 version in the MvcWebRole and WorkerRoleA projects, and the 1.7 version in the WorkerRoleB project. You need to uninstall the 1.7 version and install the 2.0 version in the WorkerRoleB project.
+
+1. From the **Tools** menu choose **Library Package Manager** and then **Manage NuGet Packages for Solution**.
+
+2. With **Installed Packages** selected in the left pane, scroll down until you get to the Windows Azure Storage package.
+
+   You'll see the package listed twice, once for the 1.7 version and once for the 2.0 version.
+
+4. Select the 1.7 version of the package and click **Manage**.
+
+   The check boxes for MvcWebRole and WorkerRoleB are cleared, and the check box for WorkerRoleB is selected.
+
+5. Clear the check box for WorkerRoleB, and then click **OK**.
+
+6. When you are asked if you want to uninstall dependent packages, click **No**.
+
+   When the uninstall finishes you have only the 2.0 version of the package in the NuGet dialog box.
+
+7. Click **Manage** for the 2.0 version of the package.
+
+   The check boxes for MvcWebRole and WorkerRoleA are selected, and the check box for WorkerRoleA is cleared.
+
+8. Select the check box for WorkerRoleA, and then click **OK**.
+
+
+
+
+
+
 <h2><a name="addref2"></a><span class="short-header">Add SCL 1.7 reference</span>Add a reference to an SCL 1.7 assembly</h2>
 
-Version 2.0 of the Storage Client Library (SCL) 2.0 does not have everything needed for diagnostics, so you have to add a reference to one of the 1.7 assemblies.
+Version 2.0 of the Storage Client Library (SCL) does not have everything needed for diagnostics, so you have to add a reference to one of the 1.7 assemblies, as you did earlier for the other two projects.
 
-4. Right-click the WorkerRoleA project, and choose **Add Reference**.
+4. Right-click the WorkerRoleB project, and choose **Add Reference**.
 
 5. Click the **Browse...** button at the bottom of the dialog box.
 
@@ -53,7 +110,6 @@ Version 2.0 of the Storage Client Library (SCL) 2.0 does not have everything nee
 7. Select *Microsoft.WindowsAzure.StorageClient.dll*, and then click **Add**.
 
 8. In the **Reference Manager** dialog box, click **OK**.
-
 
 
 
@@ -116,7 +172,7 @@ Next, you create and configure the three new settings that are only used by work
 
    * **Name**: SendGridPassword, **Value**: the SendGrid password.
 
-   * **Name**: AzureMailServiceURL, * **Value**: the base URL that the application will have when you deploy it, for example:  http://sampleurl.cloudapp.net.
+   * **Name**: AzureMailServiceURL, **Value**: the base URL that the application will have when you deploy it, for example:  http://sampleurl.cloudapp.net.
 
    ![New settings in WorkerRoleB project][mtas-worker-b-settings]
 
@@ -150,7 +206,6 @@ Next, you create and configure the three new settings that are only used by work
             CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
             this.sendEmailQueue = queueClient.GetQueueReference("azuremailqueue");
             this.subscribeQueue = queueClient.GetQueueReference("azuremailsubscribequeue");
-            //trodotr0 put these queue names in class variables
 
             // Initialize blob storage
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -275,6 +330,7 @@ Next, you create and configure the three new settings that are only used by work
 
    The `Run` method calls `ProcessQueueMessage` when it finds a work item in the main queue:
 
+       
         private void ProcessQueueMessage(CloudQueueMessage msg)
         {
             // Log and delete if this is a "poison" queue message (repeatedly processed
@@ -288,14 +344,14 @@ Next, you create and configure the three new settings that are only used by work
                 sendEmailQueue.DeleteMessage(msg);
                 return;
             }
-
             // Parse message retrieved from queue.
-            // Example:  2012-01-01,0123456789email@domain.com
+            // Example:  2012-01-01,0123456789email@domain.com,0
             var messageParts = msg.AsString.Split(new char[] { ',' });
             var partitionKey = messageParts[0];
             var rowKey = messageParts[1];
             var restartFlag = messageParts[2];
-
+            Trace.TraceInformation("ProcessQueueMessage start:  partitionKey {0} rowKey {1} Role Instance {2}.",
+                partitionKey, rowKey, GetRoleInstance());
             // If this is a restart, verify that the email hasn't already been sent.
             if (restartFlag == "1")
             {
@@ -304,15 +360,23 @@ Next, you create and configure the three new settings that are only used by work
                 var messagearchiveRow = retrievedResultForRestart.Result as SendEmail;
                 if (messagearchiveRow != null)
                 {
+                    // SendEmail row is in archive, so email is already sent. 
+                    // If there's a SendEmail Row in message table, delete it,
+                    // and delete the queue message.
                     Trace.TraceInformation("Email already sent: partitionKey=" + partitionKey + " rowKey= " + rowKey);
+                    var deleteOperation = TableOperation.Delete(new SendEmail { PartitionKey = partitionKey, RowKey = rowKey, ETag = "*" });
+                    try
+                    {
+                        messageTable.Execute(deleteOperation);
+                    }
+                    catch
+                    {
+                    }
+                    sendEmailQueue.DeleteMessage(msg);
                     return;
                 }
             }
-
-            Trace.TraceInformation("ProcessQueueMessage start:  partitionKey {0} rowKey {1} Role Instance {2}.",
-                partitionKey, rowKey, GetRoleInstance());
-
-            // Get the row in the Message table that has data we need to send the email.
+                        // Get the row in the Message table that has data we need to send the email.
             var retrieveOperation = TableOperation.Retrieve<SendEmail>(partitionKey, rowKey);
             var retrievedResult = messageTable.Execute(retrieveOperation);
             var emailRowInMessageTable = retrievedResult.Result as SendEmail;
@@ -322,17 +386,15 @@ Next, you create and configure the three new settings that are only used by work
                     partitionKey, rowKey, GetRoleInstance());
                 return;
             }
-
             // Derive blob names from the MessageRef.
             var htmlMessageBodyRef = emailRowInMessageTable.MessageRef + ".htm";
             var textMessageBodyRef = emailRowInMessageTable.MessageRef + ".txt";
-
             // If the email hasn't already been sent, send email and archive the table row.
             if (emailRowInMessageTable.EmailSent != true)
             {
                 SendEmailToList(emailRowInMessageTable, htmlMessageBodyRef, textMessageBodyRef);
 
-                var emailRowToDelete = new SendEmail { PartitionKey = emailRowInMessageTable.PartitionKey, RowKey = emailRowInMessageTable.RowKey, ETag = "*" };
+                var emailRowToDelete = new SendEmail { PartitionKey = partitionKey, RowKey = rowKey, ETag = "*" };
                 emailRowInMessageTable.EmailSent = true;
 
                 var upsertOperation = TableOperation.InsertOrReplace(emailRowInMessageTable);
@@ -348,17 +410,7 @@ Next, you create and configure the three new settings that are only used by work
                partitionKey, rowKey, GetRoleInstance());
         }
 
-   If the message is a "poison" message, it is logged and deleted.
-
-            if (msg.DequeueCount > 5)
-            {
-                Trace.TraceError("Deleting poison message:    message {0} Role Instance {1}.",
-                    msg.ToString(), GetRoleInstance());
-                sendEmailQueue.DeleteMessage(msg);
-                return;
-            }
-
-   Poison messages are those that cause the application to abort when they are processed.  If a message has been pulled from the queue more than five times, we assume that it cannot be processed and remove it from the queue so that we don't keep trying to process it. Production applications should move the poison message to a "dead message" queue for analysis rather than deleting the message.
+   Poison messages are those that cause the application to throw an exception when they are processed.  If a message has been pulled from the queue more than five times, we assume that it cannot be processed and remove it from the queue so that we don't keep trying to process it. Production applications should consider moving the poison message to a "dead message" queue for analysis rather than deleting the message.
 
    The code parses the queue message into the partition key and row key needed to retrieve the SendEmail row, and a restart flag.
 
@@ -367,7 +419,7 @@ Next, you create and configure the three new settings that are only used by work
             var rowKey = messageParts[1];
             var restartFlag = messageParts[2];
 
-   If processing for this message has been restarted after an unexpected shut down, the code checks the `messagearchive` table to determine if this email has already been sent.
+   If processing for this message has been restarted after an unexpected shut down, the code checks the `messagearchive` table to determine if this email has already been sent. If it has already been sent, the code deletes the `SendEmail` row if it exists and deletes the queue message.
 
             if (restartFlag == "1")
             {
@@ -377,6 +429,15 @@ Next, you create and configure the three new settings that are only used by work
                 if (messagearchiveRow != null)
                 {
                     Trace.TraceInformation("Email already sent: partitionKey=" + partitionKey + " rowKey= " + rowKey);
+                    var deleteOperation = TableOperation.Delete(new SendEmail { PartitionKey = partitionKey, RowKey = rowKey, ETag = "*" });
+                    try
+                    {
+                        messageTable.Execute(deleteOperation);
+                    }
+                    catch
+                    {
+                    }
+                    sendEmailQueue.DeleteMessage(msg);
                     return;
                 }
             }
@@ -399,7 +460,7 @@ Next, you create and configure the three new settings that are only used by work
             {
                 SendEmailToList(emailRowInMessageTable, htmlMessageBodyRef, textMessageBodyRef);
 
-                var emailRowToDelete = new SendEmail { PartitionKey = emailRowInMessageTable.PartitionKey, RowKey = emailRowInMessageTable.RowKey, ETag = "*" };
+                var emailRowToDelete = new SendEmail { PartitionKey = partitionKey, RowKey = rowKey, ETag = "*" };
                 emailRowInMessageTable.EmailSent = true;
 
                 var upsertOperation = TableOperation.InsertOrReplace(emailRowInMessageTable);
@@ -446,7 +507,7 @@ Next, you create and configure the three new settings that are only used by work
    In the `GetBlobText` method, the code gets the blob size and then uses that value to initialize the `MemoryStream` object for performance reasons. If you don't provide the size, what the `MemoryStream` does is allocate 256 bytes, then when the download exceeds that, it allocates 512 more bytes, and so on, doubling the amount allocated each time. For a large blob this process would be inefficient compared to allocating the correct amount at the start of the download.
 
    The `Run` method calls `ProcessSubscribeQueueMessage` when it finds a work item in the subscribe queue:
-
+ 
         private void ProcessSubscribeQueueMessage(CloudQueueMessage msg)
         {
             // Log and delete if this is a "poison" queue message (repeatedly processed
@@ -460,17 +521,14 @@ Next, you create and configure the three new settings that are only used by work
                 subscribeQueue.DeleteMessage(msg);
                 return;
             }
-
             // Parse message retrieved from queue. Message consists of
             // subscriber GUID and list name.
             // Example:  57ab4c4b-d564-40e3-9a3f-81835b3e102e,contoso1
             var messageParts = msg.AsString.Split(new char[] { ',' });
             var subscriberGUID = messageParts[0];
             var listName = messageParts[1];
-
             Trace.TraceInformation("ProcessSubscribeQueueMessage start:    subscriber GUID {0} listName {1} Role Instance {2}.",
                 subscriberGUID, listName, GetRoleInstance());
-
             // Get subscriber info. 
             string filter = TableQuery.CombineFilters(
                 TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, listName),
@@ -478,7 +536,6 @@ Next, you create and configure the three new settings that are only used by work
                 TableQuery.GenerateFilterCondition("SubscriberGUID", QueryComparisons.Equal, subscriberGUID));
             var query = new TableQuery<Subscriber>().Where(filter);
             var subscriber = mailingListTable.ExecuteQuery(query).ToList().Single();
-
             // Get mailing list info.
             var retrieveOperation = TableOperation.Retrieve<MailingList>(subscriber.ListName, "mailinglist");
             var retrievedResult = mailingListTable.Execute(retrieveOperation);
@@ -568,6 +625,19 @@ the following resources:
 * [Autoscaling and Windows Azure](http://msdn.microsoft.com/en-us/library/hh680945(v=PandP.50).aspx)
 * [Building Elastic, Autoscalable Solutions with Windows Azure](http://channel9.msdn.com/Events/WindowsAzureConf/2012/B04) (MSDN channel 9 video)
 
+
+<h2><a name="Acknowledgments"></a><span class="short-header">Acknowledgments</span>Acknowledgments</h2>
+
+These tutorials and the sample application were written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/) and Tom Dykstra. We would like to thank the following people for their assistance:
+
+* Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)) 
+* [Cory Fowler](http://blog.syntaxc4.net/) (Twitter [@SyntaxC4](https://twitter.com/SyntaxC4) ) 
+* [Joe Giardino](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Don Glover](http://social.technet.microsoft.com/Profile/don%20glover%20-%20azuredocguy) 
+* Jai Haridas
+* [Scott Hunter](http://blogs.msdn.com/b/scothu/) (Twitter: [@coolcsh](http://twitter.com/coolcsh))
+* [Brian Swan](http://blogs.msdn.com/b/brian_swan/)
+* [Daniel Wang](http://blogs.msdn.com/b/daniwang/)
  
 [createsolution]: #cloudproject
 [mailinglist]: #mailinglist

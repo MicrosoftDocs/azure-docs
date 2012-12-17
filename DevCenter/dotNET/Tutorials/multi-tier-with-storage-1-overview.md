@@ -1,6 +1,32 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" urlDisplayName="Step 1: Overview" pageTitle="Multi-tier ASP.NET MVC 4 Web Site Tutorial - Step 1: Overview" metaKeywords="Windows Azure tutorial, email list service app, email service architecture, Azure tutorial overview" metaDescription="Learn about the five part multi-tier web site tutorial." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra" editor="mollybos" manager="wpickett" />
+<properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" urlDisplayName="Step 1: Overview" pageTitle="Multi-tier ASP.NET MVC 4 Web Site Tutorial - Step 1: Overview" metaKeywords="Windows Azure tutorial, email list service app, email service architecture, Azure tutorial overview" metaDescription="Learn about the five part multi-tier web site tutorial." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra" editor="mollybos" manager="wpickett" /> 
 
-<div chunk="../chunks/article-left-menu.md" />
+<div>
+<div class="left-nav">
+<div class="static-nav">
+<ul>
+<li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
+<li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
+<li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
+</ul>
+<ul class="links">
+<li class="forum"><a href="/en-us/support/forums/">Forums</a></li>
+</ul>
+<ul>
+<li>IN THIS SERIES</li>
+<li><strong>1. OVERVIEW</strong></li>
+<li><a href="../2-download-and-run/">2. Download and Run</a></li>
+<li><a href="../3-web-role/">3. Web Role</a></li>
+<li><a href="../4-worker-role-a/">4. Worker Role A</a></li>
+<li><a href="../5-worker-role-b/">5. Worker Role B</a></li>
+</ul>
+</div>
+<div class="floating-nav jump-to">
+<ul>
+<li>On the page (jump to):</li>
+</ul>
+</div>
+</div>
+</div>
 
 # .NET Multi-Tier Application Using Storage Tables, Queues, and Blobs - 1 of 5
 
@@ -110,7 +136,7 @@ Worker role B also polls a subscription queue for work items put there by the We
 
 <h2><a name="tables"></a><span class="short-header">Tables</span>Windows Azure Tables</h2>
 
-The Windows Azure Email Service application stores data in Windows Azure Storage tables. Windows Azure tables are a NoSQL data store, not a relational database like [Windows Azure SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx). That makes them a good choice when efficiency and scalability are more important than data normalization and relational integrity. For example, in this application, one worker role creates a row every time a queue work item is created, and another one retrieves and updates a row every time an email is sent, which might become a performance bottleneck if a relational database were used. For more information about Windows Azure tables, see the resources that are listed at the end of [the last tutorial in this series][tut5].
+The Windows Azure Email Service application stores data in Windows Azure Storage tables. Windows Azure tables are a NoSQL data store, not a relational database like [Windows Azure SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx). That makes them a good choice when efficiency and scalability are more important than data normalization and relational integrity. For example, in this application, one worker role creates a row every time a queue work item is created, and another one retrieves and updates a row every time an email is sent, which might become a performance bottleneck if a relational database were used. Additionally,  Windows Azure tables are cheaper than Windows Azure SQL.  For more information about Windows Azure tables, see the resources that are listed at the end of [the last tutorial in this series][tut5].
 
 The following sections describe the contents of the Windows Azure tables that are used by the Windows Azure Email Service application. For a diagram that shows the tables and their relationships, see the [Windows Azure Email Service data diagram](#datadiagram) later in this page.
 
@@ -200,7 +226,7 @@ Some queries for the Subscribe and Unsubscribe web pages specify only the Partit
 <tr>
 <td>Verified</td>
 <td>Boolean</td>
-<td>When the row is initially created for a new subscriber, the value is false. It changes to true only after the new subscriber clicks the Confirm hyperlink in the welcome email or an administrator set it to true. If a message is sent to a list while the Verified value for one of its subscribers is false, no email is sent to that subscriber.</td>
+<td>When the row is initially created for a new subscriber, the value is false. It changes to true only after the new subscriber clicks the Confirm hyperlink in the welcome email or an administrator sets it to true. If a message is sent to a list while the Verified value for one of its subscribers is false, no email is sent to that subscriber.</td>
 </tr>
 
 </table>
@@ -338,7 +364,7 @@ The following list shows an example of what data in the table might look like.
 
 The `message` table stores information about messages that are scheduled to be sent to a mailing list. Administrators create and edit rows in this table using web pages, and the worker roles use it to pass information about each email from worker role A to worker role B.
 
-The partition key for the message table is the date the email is scheduled to be sent, in yyyy-mm-dd format. This optimizes the table for the query that is executed most often against this table, which selects rows that have `ScheduledDate` of today or earlier.
+The partition key for the message table is the date the email is scheduled to be sent, in yyyy-mm-dd format. This optimizes the table for the query that is executed most often against this table, which selects rows that have `ScheduledDate` of today or earlier. However, it does creates a potential performance bottleneck, because Windows Azure Storage tables have a maximum throughput of 500 entities per second for a partition.  For each email to be sent, the application writes a `message` table row, reads a row, and deletes a row. Therefore the shortest possible time for processing 1,000,000 emails scheduled for a single day is almost two hours, regardless of how many worker roles are added in order to handle increased loads. 
 
 The row key for the `message` table can be one of two things:  the constant "message" plus a unique key for the message called the `MessageRef`, or the `MessageRef` value plus the email address of the subscriber. Rows that have row key that begins with "message" include information about the message, such as the mailing list to send it to and when it should be sent. Rows that have the `MessageRef` and email address as the row key have all of the information needed to send an email to that email address.
 
@@ -363,7 +389,7 @@ The following grid shows row properties for the `message` table rows that have i
 <tr>
 <td>RowKey</td>
 <td>String</td>
-<td>The constant "message" concatenated with the <code>MessageRef</code> value. The <code>MessageRef</code> is a unique value created by getting the <code>Ticks</code> value from <code>DateTime.Now</code> when the row is created.</td>
+<td>The constant "message" concatenated with the <code>MessageRef</code> value. The <code>MessageRef</code> is a unique value created by getting the <code>Ticks</code> value from <code>DateTime.Now</code> when the row is created. <br/><br/>Note: High volume multi-threaded, multi-instance applications should be prepared to handle duplicate RowKey exceptions when using Ticks. Ticks are not guaranteed to be unique.</td>
 </tr>
 
 <tr>
@@ -391,7 +417,7 @@ The following grid shows row properties for the `message` table rows that have i
 <li>"Pending" -- Worker role A has not yet started to create queue messages to schedule emails.</li>
 <li>"Queuing" -- Worker role A has started to create queue messages to schedule emails.</li>
 <li>"Processing" -- Worker role A has created queue work items for all emails in the list, but not all emails have been sent yet.</li>
-<li>"Completed" -- Worker role B has finished processing all queue work items (all emails have been sent). Completed rows are archived in the <code>messagearchive</code> table, as explained later.</li></ul></td>
+<li>"Completed" -- Worker role B has finished processing all queue work items (all emails have been sent). Completed rows are archived in the <code>messagearchive</code> table, as explained later. We hope to make this property an <code>enum</code>  in the next release.</li></ul></td>
 </tr>
 
 </table>
@@ -675,7 +701,7 @@ The following list shows an example of what data in the table might look like.
 
 ### messagearchive table ###
 
-One strategy for making sure that queries execute efficiently, especially if you have to search on fields other than `PartitionKey` and `RowKey`, is to limit the size of the table. The query in worker role A that checks to see if all emails have been sent for a message needs to find email rows in the `message` table that have `EmailSent` = false. The `EmailSent` value is not in the PartitionKey or RowKey, so this would not be an efficient query for a message with a large number of email rows. Therefore, the application moves email rows to the `messagearchive` table as the emails are sent. As a result, the query to check if all emails for a message have been sent only has to query the message table on `PartitionKey` and `RowKey` because if it finds any email rows for a message at all, that means there are unsent messages and the message can't be marked complete. 
+One strategy for making sure that queries execute efficiently, especially if you have to search on fields other than `PartitionKey` and `RowKey`, is to limit the size of the table. The query in worker role A that checks to see if all emails have been sent for a message needs to find email rows in the `message` table that have `EmailSent` = false. The `EmailSent` value is not in the PartitionKey or RowKey, so this would not be an efficient query for a message with a large number of email rows. Therefore, the application moves email rows to the `messagearchive` table as the emails are sent. As a result, the query to check if all emails for a message have been sent only has to query the message table on `PartitionKey` and `RowKey` because if it finds any email rows for a message at all, that means there are unsent messages and the message can't be marked `Complete`. 
 
 The schema of rows in the `messagearchive` table is identical to that of the `message` table. Depending on what you want to do with this archival data, you could limit its size and expense by reducing the number of properties stored for each row, and by deleting rows older than a certain age.
 
@@ -836,11 +862,12 @@ The following table shows the costs for the default architecture for the Windows
 
 As you can see, role instances are a major component of the overall cost. Role instances incur a cost even if they are stopped; you must delete a role instance to not incur any charges. One cost saving approach would be to move all the code from worker role A and worker role B into one worker role. For these tutorials we deliberately chose to implement two worker instances in order to simplify scale out. The work that worker role B does is coordinated by the Windows Azure Queue service, which means that you can scale out worker role B simply by increasing the number of role instances. (Worker role B is the limiting factor for high load conditions.) The work performed by worker role A is not coordinated by queues, therefore you cannot run multiple instances of worker role A. If the two worker roles were combined and you wanted to enable scale out, you would need to implement a mechanism for ensuring that worker role A tasks run in only one instance. (One such mechanism is provided by [CloudFx](http://nuget.org/packages/Microsoft.Experience.CloudFx "CloudFX"). See the [WorkerRole.cs sample](http://code.msdn.microsoft.com/windowsazure/CloudFx-Samples-60c3a852/sourcecode?fileId=57087&pathId=528472169).)
 
-It is also possible to move all of the code from the two worker roles into the web role so that everything runs in the web role. However, performing background tasks in ASP.NET is not supported or considered robust, and this architecture would complicate scalability. For more information see [The Dangers of Implementing Recurring Background Tasks In ASP.NET](http://haacked.com/archive/2011/10/16/the-dangers-of-implementing-recurring-background-tasks-in-asp-net.aspx).
+It is also possible to move all of the code from the two worker roles into the web role so that everything runs in the web role. However, performing background tasks in ASP.NET is not supported or considered robust, and this architecture would complicate scalability. For more information see [The Dangers of Implementing Recurring Background Tasks In ASP.NET](http://haacked.com/archive/2011/10/16/the-dangers-of-implementing-recurring-background-tasks-in-asp-net.aspx). See also [How to Combine a Worker and Web Role in Windows Azure](http://www.31a2ba2a-b718-11dc-8314-0800200c9a66.com/2010/12/how-to-combine-worker-and-web-role-in.html) and [Combining Multiple Azure Worker Roles into an Azure Web Role](http://www.31a2ba2a-b718-11dc-8314-0800200c9a66.com/2012/02/combining-multiple-azure-worker-roles.html).
+
 
 Another architecture alternative that would reduce cost is to use the [Autoscaling Application Block][autoscalingappblock] to automatically deploy worker roles only during scheduled periods, and delete them when work is completed. For more information on autoscaling, see the links at the end of [the last tutorial in this series][tut5].
 
-Windows Azure in the future might provide a notification mechanism for scheduled reboots, which would allow you to only spin up an extra Web role instance for reboot time window. You wouldn't qualify for the 99.95 SLA, but you could reduce your costs by almost half and ensure your web application was response during the reboot interval.
+Windows Azure in the future might provide a notification mechanism for scheduled reboots, which would allow you to only spin up an extra web role instance for the reboot time window. You wouldn't qualify for the 99.95 SLA, but you could reduce your costs by almost half and ensure your web application remains available during the reboot interval.
 
 
 <h2><a name="auth"></a><span class="short-header">Authentication and Authorization</span>Authentication and Authorization</h2>
@@ -862,6 +889,8 @@ For more information about how to implement authentication and authorization in 
 In the [next tutorial][tut2], you'll download the sample project, configure your development environment, configure the project for your environment, and test the project locally and in the cloud.  In the following tutorials you'll see how to build the project from scratch.
 
 For links to additional resources for working with Windows Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
+
+<div><a href="../2-download-and-run/" class="site-arrowboxcta download-cta">Tutorial 2</a></div>
 
 [tut2]: /en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
 [tut3]: /en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/

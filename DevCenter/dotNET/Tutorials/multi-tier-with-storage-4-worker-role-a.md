@@ -1,6 +1,32 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-4-worker-role-a" urlDisplayName="Step 4: Worker Role A" pageTitle="Multi-tier web site tutorial - Step 4: Worker role A" metaKeywords="Windows Azure tutorial, .NET multi-tier app, multi-tier architecture" metaDescription="The fourth tutorial in a series that teaches how to configure your computer for Windows Azure development and deploy the Email Service app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra" editor="mollybos" manager="wpickett" />
 
-<div chunk="../chunks/article-left-menu.md" />
+<div>
+<div class="left-nav">
+<div class="static-nav">
+<ul>
+<li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
+<li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
+<li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
+</ul>
+<ul class="links">
+<li class="forum"><a href="/en-us/support/forums/">Forums</a></li>
+</ul>
+<ul>
+<li>IN THIS SERIES</li>
+<li><a href="../1-overview/">1. Overview</a></li>
+<li><a href="../2-download-and-run/">2. Download and Run</a></li>
+<li><a href="../3-web-role/">3. Web Role</a></li>
+<li><strong>4. WORKER ROLE A</strong></li>
+<li><a href="../5-worker-role-b/">5. Worker Role B</a></li>
+</ul>
+</div>
+<div class="floating-nav jump-to">
+<ul>
+<li>On the page (jump to):</li>
+</ul>
+</div>
+</div>
+</div>
 
 # Building worker role A (email scheduler) for the Windows Azure Email Service application - 4 of 5. 
 
@@ -38,7 +64,7 @@ You need a reference to the web project because that is where the entity classes
 
 <h2><a name="addref2"></a><span class="short-header">Add SCL 1.7 reference</span>Add a reference to an SCL 1.7 assembly</h2>
 
-Version 2.0 of the Storage Client Library (SCL) 2.0 does not have everything needed for diagnostics, so you have to add a reference to one of the 1.7 assemblies.
+Version 2.0 of the Storage Client Library (SCL) 2.0 does not have everything needed for diagnostics, so you have to add a reference to one of the 1.7 assemblies. You already did this if you followed the steps in the previous tutorial, but the instructions are included here in case you missed that step.
 
 4. Right-click the WorkerRoleA project, and choose **Add Reference**.
 
@@ -51,7 +77,6 @@ Version 2.0 of the Storage Client Library (SCL) 2.0 does not have everything nee
 7. Select *Microsoft.WindowsAzure.StorageClient.dll*, and then click **Add**.
 
 8. In the **Reference Manager** dialog box, click **OK**.
-
 
 
 
@@ -158,9 +183,9 @@ For reading and writing the `SendEmail` rows, a model class is required.  Since 
             return base.OnStart();
         }
 
-   (You may have seen earlier documentation on working with Windows Azure Storage that shows the initialization code in a loop that checks for transport errors. This is no longer necessary because the API now has a built-in retry mechanism that absorbs transient network failures for up to 3 additional attempts.)
+   You may have seen earlier documentation on working with Windows Azure Storage that shows the initialization code in a loop that checks for transport errors. This is no longer necessary because the API now has a built-in retry mechanism that absorbs transient network failures for up to 3 additional attempts.
    
-   The `ConfigureDiagnostics` method that the `OnStart` method calls sets up tracing so that you will be able to see the output from `Trace.Information` and `Trace.Error` methods.  This is the same method you saw earlier in [the first tutorial][firsttutorial].
+   The `ConfigureDiagnostics` method that the `OnStart` method calls sets up tracing so that you will be able to see the output from `Trace.Information` and `Trace.Error` methods.  This method is explained in [the second tutorial][tut2].
 
    The `OnStop` method sets the global variable `onStopCalled` to true, then it waits for the `Run` method to set the global variable `returnedFromRunMethod` to true, which signals it is ready to do a clean shutdown. 
 
@@ -192,16 +217,15 @@ For reading and writing the `SendEmail` rows, a model class is required.  Since 
 
    The method also checks the global variable `onStopCalled`. When the variable is `true`, the method stops pulling new work items to process, and it returns when already-started tasks are completed.
 
+   
         public override void Run()
         {
             Trace.TraceInformation("WorkerRoleA entering Run()");
-
             while (true)
             {
                 try
                 {
                     var tomorrow = DateTime.Today.AddDays(1.0).ToString("yyyy-MM-dd");
-
                     // If OnStop has been called, return to do a graceful shutdown.
                     if (onStopCalled == true)
                     {
@@ -209,7 +233,6 @@ For reading and writing the `SendEmail` rows, a model class is required.  Since 
                         returnedFromRunMethod = true;
                         return;
                     }
-
                     // Retrieve all messages that are scheduled for tomorrow or earlier
                     // and are in Pending or Queuing status.
                     string typeAndDateFilter = TableQuery.CombineFilters(
@@ -219,20 +242,24 @@ For reading and writing the `SendEmail` rows, a model class is required.  Since 
                     var query = (new TableQuery<Message>().Where(typeAndDateFilter));
                     var messagesToProcess = messageTable.ExecuteQuery(query).ToList();
                     TableOperation replaceOperation;
-
                     // Process each message (queue emails to be sent).
                     foreach (Message messageToProcess in messagesToProcess)
                     {
                         string restartFlag = "0";
-                        // If the message is in Pending status,
-                        // set it to Queuing and set flag to indicate
-                        // this is a restart.
+                        // If the message is already in Queuing status,
+                        // set flag to indicate this is a restart.
+                        if (messageToProcess.Status == "Queuing")
+                        {
+                            restartFlag = "1";
+                        }
+
+                        // If the message is in Pending status, change
+                        // it to Queuing.
                         if (messageToProcess.Status == "Pending")
                         {
                             messageToProcess.Status = "Queuing";
                             replaceOperation = TableOperation.Replace(messageToProcess);
                             messageTable.Execute(replaceOperation);
-                            restartFlag = "1";
                         }
 
                         // If the message is in Queuing status, 
@@ -270,7 +297,7 @@ For reading and writing the `SendEmail` rows, a model class is required.  Since 
             }
         }
 
-   Notice that all of the work is done in an infinite loop in a `while` block, and all of the code in the `while` block is wrapped in a `try`-`catch` block. In a worker role you don't want to let any exceptions go unhandled, because the worker role instance will crash and will stop processing requests. The `try` block calls `TraceError` to record the error and then sleeps for 60 seconds so that if the error is persistent the error message won't be repeated too many times.  In a production application you might send an email to an administrator in the `try` block and not call `Sleep`.
+   Notice that all of the work is done in an infinite loop in a `while` block, and all of the code in the `while` block is wrapped in a `try`-`catch` block to prevent an unhandled exception. If an unhandled exception occurs, Windows Azure will raise the [UnhandledException](http://msdn.microsoft.com/en-us/library/system.appdomain.unhandledexception.aspx) event, the worker process is terminated, and the role is taken offline. The worker role will be restarted by Windows Azure, but this takes several minutes. The `try` block calls `TraceError` to record the error and then sleeps for 60 seconds so that if the error is persistent the error message won't be repeated too many times.  In a production application you might send an email to an administrator in the `try` block.
 
    The `Run` method processes a query for `message` rows in the `message` table that have scheduled date before tomorrow:
 
@@ -283,16 +310,23 @@ For reading and writing the `SendEmail` rows, a model class is required.  Since 
                     var query = (new TableQuery<Message>().Where(typeAndDateFilter));
                     var messagesToProcess = messageTable.ExecuteQuery(query).ToList();
 
-   **Note:** One of the benefits of moving message rows to the `messagearchive` table after they are processed is that this query only needs to specify `PartitionKey` and `RowKey` as search criteria. If we did not archive processed rows, the query would also have to specify a non-key field (`Status`). 
+   **Note:** One of the benefits of moving message rows to the `messagearchive` table after they are processed is that this query only needs to specify `PartitionKey` and `RowKey` as search criteria. If we did not archive processed rows, the query would also have to specify a non-key field (`Status`) and would have to search through more rows.  The table size would increases, and the query would take longer and could start getting continuation tokens.
 
-   In the loop that processes each message returned by this query, the code sets `message` rows that are in `Pending` status to `Queuing`.  Then, for those rows plus any that were already in `Queuing` status, it calls the `ProcessMessage` method to create the queue work items to send emails for the message. 
+   If a message is in `Pending` status, processing has not yet begun; if it is in `Queuing` status, processing did begin earlier but was interrupted before all queue messages were created. In that case an additional check has to be done in worker role B when it is sending each email to make sure the email hasn't already been sent. That is the purpose of the `restartFlag` variable.
+
+                        string restartFlag = "0";
+                        if (messageToProcess.Status == "Queuing")
+                        {
+                            restartFlag = "1";
+                        }
+
+   Next, the code sets `message` rows that are in `Pending` status to `Queuing`.  Then, for those rows plus any that were already in `Queuing` status, it calls the `ProcessMessage` method to create the queue work items to send emails for the message. 
 
                         if (messageToProcess.Status == "Pending")
                         {
                             messageToProcess.Status = "Queuing";
                             replaceOperation = TableOperation.Replace(messageToProcess);
                             messageTable.Execute(replaceOperation);
-                            restartFlag = true;
                         }
 
                         if (messageToProcess.Status == "Queuing")
@@ -309,8 +343,6 @@ For reading and writing the `SendEmail` rows, a model class is required.  Since 
                         }
 
 
-   If a message is in `Pending` status, processing has not yet begun; if it is in `Queuing` status, processing did begin earlier but was interrupted before all queue messages were created. In that case an additional check has to be done in worker role B when it is sending each email to make sure the email hasn't already been sent. That is the purpose of the `restartFlag` variable.
-
    After processing a message in `Queuing` status the code sets the `Message` row status to `Processing`. Rows in the `message` table that are not in `Pending` or `Queuing` status are already in `Processing` status, and for those rows the code calls a method that checks if all of the emails for the message were sent.  If all emails have been sent, the `message` row is archived.
 
    After processing all records retrieved by the query, the code sleeps for one minute.  
@@ -320,10 +352,10 @@ For reading and writing the `SendEmail` rows, a model class is required.  Since 
 
    There is a minimal charge for every Windows Azure Storage query, even if it doesn't return any data, so continuously re-scanning would unnecessarily add to your Windows Azure expenses. As this tutorial is being written, the cost is $0.10 per million transactions (a query counts as a transaction), so the sleep time could be made much less than a minute and the cost of scanning the tables for messages to be sent would still be minimal. For more information about pricing, see the [first tutorial][firsttutorial].
 
-   **Note on threading and optimal CPU utilization:** There are two tasks in `Run` method (queuing emails and checking for completed messages), and they run sequentially in a single thread. A small virtual machine (VM) has 1.75 GB RAM and only one CPU, so it's probably OK to run these tasks sequentially with a single thread. Suppose your application needed more memory than the small VM  provided to run efficiently. A medium VM provides 3.5 GB RAM and 2 CPU's, but this application would only use one CPU, because it's single threaded. To take advantage of all the CPUs, you would need to create a worker thread for each CPU. Even so, a single CPU is not fully utilized by one thread. When a thread  makes network or I/O calls, the thread must wait for the I/O or network call to complete, and while it waits, it's not doing useful work. If the `Run` method was implemented using two threads, when one thread was waiting for a network or I/O operation to complete, the other thread could be doing useful work.
+   **Note on threading and optimal CPU utilization:** There are two tasks in the `Run` method (queuing emails and checking for completed messages), and they run sequentially in a single thread. A small virtual machine (VM) has 1.75 GB RAM and only one CPU, so it's probably OK to run these tasks sequentially with a single thread. Suppose your application needed more memory than the small VM  provided to run efficiently. A medium VM provides 3.5 GB RAM and 2 CPU's, but this application would only use one CPU, because it's single threaded. To take advantage of all the CPUs, you would need to create a worker thread for each CPU. Even so, a single CPU is not fully utilized by one thread. When a thread  makes network or I/O calls, the thread must wait for the I/O or network call to complete, and while it waits, it's not doing useful work. If the `Run` method was implemented using two threads, when one thread was waiting for a network or I/O operation to complete, the other thread could be doing useful work.
 
    The `ProcessMessage` method gets all of the email addresses for the destination email list, and creates a queue work item for each email address. As it creates queue work items, it also creates `SendEmail` rows in the `Message` table. These rows provide worker role B with the information it needs to send emails and includes an `EmailSent` property that tracks whether each email has been sent.
-
+	
         private void ProcessMessage(Message messageToProcess, string restartFlag)
         {
             // Get Mailing List info to get the "From" email address.
@@ -335,7 +367,6 @@ For reading and writing the `SendEmail` rows, a model class is required.  Since 
                 Trace.TraceError("Mailing list not found: " + messageToProcess.ListName + " for message: " + messageToProcess.MessageRef);
                 return;
             }
-
             // Get email addresses for this Mailing List.
             string filter = TableQuery.CombineFilters(
                TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, messageToProcess.ListName),
@@ -399,7 +430,6 @@ For reading and writing the `SendEmail` rows, a model class is required.  Since 
             Trace.TraceInformation("ProcessMessage end PK: "
                 + messageToProcess.PartitionKey);
         }
-
 
    The code first gets the mailing list row from the `mailinglist` table for the destination mailing list.  This row has the "from" email address which needs to be provided to worker role B for sending emails.
 
@@ -530,7 +560,7 @@ If you didn't already configure the storage account credentials for worker role 
 
 7. Choose the correct **Subscription** and **Account name**, and then click **OK**.
 
-8. Set the diagnostics connection string to use the same storage account.
+8. Set the diagnostics connection string. You can use the same storage account for the diagnostics connection string, but a best practice is to use a different storage account for trace (diagnostics) information.
 
 
 
@@ -561,7 +591,7 @@ If you didn't already configure the storage account credentials for worker role 
 
 7. Double-click a queue message, and then in the **Message Detail** dialog box select the **Message** tab.
 
-    You see the contents of the queue message: the MessageRef value and the email address, delimited by a comma.
+    You see the contents of the queue message: the partition key (date of 2012-12-14), the row key (the MessageRef value and the email address), and the restart flag, delimited by a comma.
 
    ![Queue message contents in ASE][mtas-worker-a-tst-ase-queue-detail]
 
@@ -585,6 +615,8 @@ You have now built worker role A and verified that it creates the queue messages
 
 For links to additional resources for working with Windows Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
 
+<div><a href="../5-worker-role-b/" class="site-arrowboxcta download-cta">Tutorial 5</a></div>
+
 [createsolution]: #cloudproject
 [mailinglist]: #mailinglist
 [message]: #message
@@ -594,6 +626,7 @@ For links to additional resources for working with Windows Azure Storage tables,
 
 [firsttutorial]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
 [tut5]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
+[tut2]: /en-us/develop/net/tutorials/multi-tier-web-site/2-web-role/
 [WApricingcalculator]: /en-us/pricing/calculator/?scenario=data-management
 
 [mtas-new-worker-role-project]: ../Media/mtas-new-worker-role-project.png

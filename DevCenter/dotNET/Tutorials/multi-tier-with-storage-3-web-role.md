@@ -1,6 +1,32 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-3-web-role" urlDisplayName="Step 3: Web Role" pageTitle="Multi-tier web site tutorial - Step 3: Web role" metaKeywords="Windows Azure tutorial, Email Service application, ASP.NET MVC 4 web role, MVC 4 controllers, Web API controller, Cloud Service project" metaDescription="The third tutorial in a series that teaches how to configure your computer for Windows Azure development and deploy the Email Service app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra" editor="mollybos" manager="wpickett" />
 
-<div chunk="../chunks/article-left-menu.md" />
+<div>
+<div class="left-nav">
+<div class="static-nav">
+<ul>
+<li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
+<li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
+<li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
+</ul>
+<ul class="links">
+<li class="forum"><a href="/en-us/support/forums/">Forums</a></li>
+</ul>
+<ul>
+<li>IN THIS SERIES</li>
+<li><a href="../1-overview/">1. Overview</a></li>
+<li><a href="../2-download-and-run/">2. Download and Run</a></li>
+<li><strong>3. WEB ROLE</strong></li>
+<li><a href="../4-worker-role-a/">4. Worker Role A</a></li>
+<li><a href="../5-worker-role-b/">5. Worker Role B</a></li>
+</ul>
+</div>
+<div class="floating-nav jump-to">
+<ul>
+<li>On the page (jump to):</li>
+</ul>
+</div>
+</div>
+</div>
 
 # Building the web role for the Windows Azure Email Service application - 3 of 5. 
 
@@ -99,6 +125,32 @@ In this section you update the headers, footers, and menu items that are shown o
    ![Compute emulator in system tray][mtas-compute-emulator-icon]
 
 
+<h2><a name="tracing"></a><span class="short-header">Configure Tracing</span>Configure Tracing</h2>
+
+To enable tracing data to be saved, open the *WebRole.cs* file and add the following `ConfigureDiagnostics` method. Add code that calls the new method in the `OnStart` method.
+
+    private void ConfigureDiagnostics()
+    {
+        DiagnosticMonitorConfiguration config = DiagnosticMonitor.GetDefaultInitialConfiguration();
+        config.Logs.BufferQuotaInMB = 500;
+        config.Logs.ScheduledTransferLogLevelFilter = LogLevel.Verbose;
+        config.Logs.ScheduledTransferPeriod = TimeSpan.FromMinutes(1d);
+
+        DiagnosticMonitor.Start(
+            "Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString",
+            config);
+    }
+
+    public override bool OnStart()
+    {
+        ConfigureDiagnostics();
+        return base.OnStart();
+    }
+
+The `ConfigureDiagnostics` method is explained [the second tutorial][tut2].
+
+
+
 
 
 <h2><a name="restarts"></a><span class="short-header">Restarts</span>Add code to efficiently handle restarts.</h2>
@@ -124,12 +176,11 @@ This code requires an additional `using` statement:
 
 The `OnStop` method has up to 5 minutes to exit before the application is shut down. You could add a sleep call for 5 minutes to the `OnStop` method to give your application the maximum amount of time to process the current requests, but if your application is scaled correctly, it should be able to process the remaining requests in much less than 5 minutes. It is best to stop as quickly as possible, so that the application can restart as quickly as possible and continue processing requests.
 
-Once a role is taken off-line by Windows Azure, the load balancer stops sending requests to the role instance, and after that the `OnStop` method is called. If you don't have another instance of your role, no requests will be proceesed until your role completes shutting down and restarting (which typically takes several minutes). That is why the Windows Azure service level agreement requires you to have at least two instances of each role in order to take advantage of the up-time guarantee.
+Once a role is taken off-line by Windows Azure, the load balancer stops sending requests to the role instance, and after that the `OnStop` method is called. If you don't have another instance of your role, no requests will be processed  until your role completes shutting down and is restarted (which typically takes several minutes). That is one reason why the Windows Azure service level agreement requires you to have at least two instances of each role in order to take advantage of the up-time guarantee.
 
 In the code shown for the `OnStop` method, an ASP.NET performance counter is created for `Requests Current`. The `Requests Current` counter value contains the current number of requests, including those that are queued, currently executing, or waiting to be written to the client. The `Requests Current` value is checked every second, and once it falls to zero, the `OnStop` method returns. Once `OnStop` returns, the role shuts down.
 
-
-
+Trace data is not saved when called from the `OnStop` method without performing an [On-Demand Transfer](http://msdn.microsoft.com/en-us/library/windowsazure/gg433075.aspx). You can view the `OnStop` trace information in real time with the  [dbgview](http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx) utility from a remote desktop connection.
 
 <h2><a name="updatescl"></a><span class="short-header">Update Storage Client Library</span>Update the Storage Client Library NuGet Package</h2>
 
@@ -158,6 +209,24 @@ The 1.7 version of the SCL includes a LINQ provider that simplifies coding for t
 
 
 
+
+<h2><a name="addref2"></a><span class="short-header">Add SCL 1.7 reference</span>Add a reference to an SCL 1.7 assembly</h2>
+
+Version 2.0 of the Storage Client Library (SCL) 2.0 does not have everything needed for diagnostics, so you have to add a reference to a 1.7 assembly.
+
+4. Right-click the MvcWebRole project, and choose **Add Reference**.
+
+5. Click the **Browse...** button at the bottom of the dialog box.
+
+6. Navigate to the following folder:
+
+        C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\2012-10\ref
+
+7. Select *Microsoft.WindowsAzure.StorageClient.dll*, and then click **Add**.
+
+8. In the **Reference Manager** dialog box, click **OK**.
+
+1. Repeat the process for the WorkerRoleA project.
 
 
 
@@ -371,14 +440,15 @@ The `MailingList` entity class is used for the rows in the `MailingList` table t
             }
             catch (StorageException se)
             {
-                ViewBag.errorMessage = "Timeout error, try again. " + se.Message;
+                ViewBag.errorMessage = "Timeout error, try again. ";
+                Trace.TraceError(se.Message);
                 return View("Error");
             }
 
             return View(lists);
         }
 
-   If you don't specify timeout parameters, the API automatically retries three times with exponentially increasinging timeout limits. For a web interface with a user waiting for a page to appear, this could result in unacceptably long wait times. Therefore, this code specifies linear retries (so the timeout limit doesn't increase each time) and a timeout limit that is reasonable for the user to wait. 
+   If you don't specify timeout parameters, the API automatically retries three times with exponentially increasing timeout limits. For a web interface with a user waiting for a page to appear, this could result in unacceptably long wait times. Therefore, this code specifies linear retries (so the timeout limit doesn't increase each time) and a timeout limit that is reasonable for the user to wait. 
 
    When the user clicks the **Create** button on the **Create** page, the MVC model binder creates a `MailingList` entity from input entered in the view, and the `HttpPost Create` method adds the entity to the table.
 
@@ -444,7 +514,7 @@ The `MailingList` entity class is used for the rows in the `MailingList` table t
 
    The try-catch block handles concurrency errors. A concurrency exception is raised if a user selects a mailing list for editing, then while the **Edit** page is displayed in the browser another user edits the same mailing list. When that happens, the code displays a warning message and indicates which fields were changed by the other user.  The TSL API uses the `ETag` to check for concurrency conflicts. Every time a table row is updated, the `ETag` value is changed.  When you get a row to edit, you save the `ETag` value, and when you execute an update or delete operation you pass in the `ETag` value that you saved. (The `Edit` view has a hidden field for the ETag value.) If the update operation finds that the `ETag` value on the record you are updating is different than the `ETag` value that you passed in to the update operation, it raises a concurrency exception. If you don't care about concurrency conflicts, you can set the ETag field to an asterisk ("*") in the entity that you pass in to the update operation, and conflicts are ignored. 
 
-   Note: The HTTP 412 error that is raised for concurrency errors when you update a table row is also used for other errors when you are doing different operations by using the SCL API.
+   Note: The HTTP 412 error is not unique to concurrency errors. It can be raised for other errors by the SCL API.
 
    For the **Delete** page, the `HttpGet Delete` method looks up the row in order to display its contents, and the `HttpPost` method deletes the `MailingList` row along with any `Subscriber` rows that are associated with it in the `MailingList` table.
 
@@ -477,7 +547,7 @@ The `MailingList` entity class is used for the rows in the `MailingList` table t
             return RedirectToAction("Index");
         }
 
-   In case a large number of subscribers need to be deleted, the code deletes the records in batches. The maximum number of operations that you can perform in one batch is 100. 
+   In case a large number of subscribers need to be deleted, the code deletes the records in batches. The transaction cost of deleting one row is the same as deleting 100 rows in a batch. The maximum number of operations that you can perform in one batch is 100. 
 
    Although the loop processes both `MailingList` rows and `Subscriber` rows, it reads them all into the `MailingList` entity class because the only fields needed for the `Delete` operation are the `PartitionKey`, `RowKey`, and `ETag` fields.
 
@@ -735,7 +805,7 @@ The `Subscriber` entity class is used for the rows in the `MailingList` table th
  
    When a row is initially created for a new subscriber, the `Verified ` value is `false`. The `Verified` value changes to `true` only after the new subscriber clicks the **Confirm** hyperlink in the welcome email. If a message is sent to a list while a subscriber has `Verified` = `false`, no email is sent to that subscriber.
 
-   The `Verified` property in the `Subscriber` entity is defined as nullable. When you specify that a query should return `Subscriber` entities, it is possible that some of the retrieved rows might not have a `Verified` property. Therefore the `Subscriber` entity defines its `Verified` property as nullable so that it can more accurately reflect the actual content of a row if table rows that don't have have a *Verified* property are returned by a query. You might be accustomed to working with SQL Server tables, in which every row of a table has the same schema. In a Windows Azure Storage table, each row is just a collection of properties, and each row can have a different set of properties. For example, in the Windows Azure Email Service sample application, rows that have "MailingList" as the row key don't have a `Verified` property.  If a query returns a table row that doesn't have a `Verified` property, when the `Subscriber` entity class is instantiated, the `Verified` property in the entity object will be null.  If the property were not nullable, you would get the same value of `false` for rows that have `Verified` = `false` and for rows that don't have a `Verified` property at all. Therefore, a best practice for working with Windows Azure Tables is to make each property of an entity class nullable in order to accurately read rows that were created by using different entity classes or different versions of the current entity class. 
+   The `Verified` property in the `Subscriber` entity is defined as nullable. When you specify that a query should return `Subscriber` entities, it is possible that some of the retrieved rows might not have a `Verified` property. Therefore the `Subscriber` entity defines its `Verified` property as nullable so that it can more accurately reflect the actual content of a row if table rows that don't have a *Verified* property are returned by a query. You might be accustomed to working with SQL Server tables, in which every row of a table has the same schema. In a Windows Azure Storage table, each row is just a collection of properties, and each row can have a different set of properties. For example, in the Windows Azure Email Service sample application, rows that have "MailingList" as the row key don't have a `Verified` property.  If a query returns a table row that doesn't have a `Verified` property, when the `Subscriber` entity class is instantiated, the `Verified` property in the entity object will be null.  If the property were not nullable, you would get the same value of `false` for rows that have `Verified` = `false` and for rows that don't have a `Verified` property at all. Therefore, a best practice for working with Windows Azure Tables is to make each property of an entity class nullable in order to accurately read rows that were created by using different entity classes or different versions of the current entity class. 
 
 ### Add the Subscriber MVC controller
 
@@ -766,6 +836,8 @@ The `Subscriber` entity class is used for the rows in the `MailingList` table th
         }
 
    Notice that the query specifies that data will be read into `Subscriber` objects (by specifying `<Subscriber>`) but the data will be read from the `mailinglist` table.
+
+   **Note:** The number of subscribers could grow to be too large to handle this way in a single query. In a future release of the tutorial we hope to implement paging functionality and show how to handle continuation tokens. You need to handle continuation tokens when you execute queries that would return more than 1,000 rows: Windows Azure returns 1,000 rows and a continuation token that you use to execute another query that starts where the previous one left off. For more information about large result sets and continuation tokens, see [How to get most out of Windows Azure Tables][howtogetthemost]. 
 
    In the `HttpGet Create` method, you set up data for the drop-down list; and in the `HttpPost` method, you set default values before saving the new entity.
 
@@ -1137,7 +1209,7 @@ The `Message` entity class is used for the rows in the `Message` table that cont
                 }
                 else
                 {
-                    SaveBlob(editedMsg.MessageRef + ".txt", httpFile);
+                    SaveBlob(editedMsg.MessageRef + ".txt", txtFile);
                 }
 
                 string[] excludeProperties = excludePropLst.ToArray();
@@ -1397,35 +1469,32 @@ The `UnsubscribeVM` view model is used to pass data between the `Unsubscribe` co
    This controller has an `HttpGet Index` method that displays the initial unsubscribe page, and an `HttpPost Index` method that processes the **Confirm** or **Cancel** button.
 
    The `HttpGet Index` method uses the GUID and list name in the query string to get the `MailingList` table row for the subscriber. Then it puts all the information needed by the view into the view model and displays the **Unsubscribe** page. It sets the `Confirmed` property to null in order to tell the view to display the initial version of the **Unsubscribe** page.
-
-        public ActionResult Index(string id, string listName)
-        {
-            if (string.IsNullOrEmpty(id) == true || string.IsNullOrEmpty(listName))
-            {
-                ViewBag.errorMessage = "Empty subscriber ID or list name.";
-                return View("Error");
-            }
-
-            string filter = TableQuery.CombineFilters(
-                TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, listName),
-                TableOperators.And,
-                TableQuery.GenerateFilterCondition("SubscriberGUID", QueryComparisons.Equal, id));
-            var query = new TableQuery<Subscriber>().Where(filter);
-            var subscriber = mailingListTable.ExecuteQuery(query).ToList().Single();
-
-            if (subscriber == null)
-            {
-                ViewBag.Message = "You are already unsubscribed";
-                return View("Message");
-            }
-
-            var unsubscribeVM = new UnsubscribeVM();
-            unsubscribeVM.EmailAddress = MaskEmail(subscriber.EmailAddress);
-            unsubscribeVM.ListDescription = FindRow(subscriber.ListName, "mailinglist").Description;
-            unsubscribeVM.SubscriberGUID = id;
-            unsubscribeVM.Confirmed = null;
-            return View(unsubscribeVM);
-        }
+ 
+	     public ActionResult Index(string id, string listName)
+	     {
+	         if (string.IsNullOrEmpty(id) == true || string.IsNullOrEmpty(listName))
+	         {
+	             ViewBag.errorMessage = "Empty subscriber ID or list name.";
+	             return View("Error");
+	         }
+	         string filter = TableQuery.CombineFilters(
+	             TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, listName),
+	             TableOperators.And,
+	             TableQuery.GenerateFilterCondition("SubscriberGUID", QueryComparisons.Equal, id));
+	         var query = new TableQuery<Subscriber>().Where(filter);
+	         var subscriber = mailingListTable.ExecuteQuery(query).ToList().Single();
+	         if (subscriber == null)
+	         {
+	             ViewBag.Message = "You are already unsubscribed";
+	             return View("Message");
+	         }
+	         var unsubscribeVM = new UnsubscribeVM();
+	         unsubscribeVM.EmailAddress = MaskEmail(subscriber.EmailAddress);
+	         unsubscribeVM.ListDescription = FindRow(subscriber.ListName, "mailinglist").Description;
+	         unsubscribeVM.SubscriberGUID = id;
+	         unsubscribeVM.Confirmed = null;
+	         return View(unsubscribeVM);
+	     }
 
    Note: The SubscriberGUID is not in the partition key or row key, so the performance of this query will degrade as partition size (the number of email addresses in a mailing list) increases.  For more information about alternatives to make this query more scalable, see [the first tutorial in the series][firsttutorial].
 
@@ -1594,6 +1663,8 @@ In the [next tutorial][nexttutorial] you'll configure and program worker role A,
 
 For links to additional resources for working with Windows Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
 
+<div><a href="../4-worker-role-a/" class="site-arrowboxcta download-cta">Tutorial 4</a></div>
+
 [createsolution]: #cloudproject
 [mailinglist]: #mailinglist
 [message]: #message
@@ -1603,6 +1674,7 @@ For links to additional resources for working with Windows Azure Storage tables,
 [nextsteps]: #nextsteps
 
 [tut5]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
+[tut2]: /en-us/develop/net/tutorials/multi-tier-web-site/2-web-role/
 [firsttutorial]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
 [nexttutorial]: /en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
 [TableServiceEntity]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storageclient.tableserviceentity.aspx
@@ -1613,9 +1685,8 @@ For links to additional resources for working with Windows Azure Storage tables,
 [percentinkeyfields]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/05/28/partitionkey-or-rowkey-containing-the-percent-character-causes-some-windows-azure-tables-apis-to-fail.aspx
 [tabledatamodel]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx 
 [deepdive]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx
-
-
-[mtas-compute-emulator-icon]: ../Media/mtas-compute-emulator-icon.png
+[howtogetthemost]: http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx
+[[mtas-compute-emulator-icon]: ../Media/mtas-compute-emulator-icon.png
 [mtas-home-page-before-adding-controllers]: ../Media/mtas-home-page-before-adding-controllers.png
 [mtas-menu-in-layout]: ../Media/mtas-menu-in-layout.png
 [mtas-footer-in-layout]: ../Media/mtas-footer-in-layout.png

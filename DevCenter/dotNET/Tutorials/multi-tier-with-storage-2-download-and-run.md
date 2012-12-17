@@ -1,6 +1,32 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-2-download-and-run" urlDisplayName="Step 2: Download and Run" pageTitle="Multi-tier web site tutorial - Step 2: Download and run" metaKeywords="Windows Azure tutorial, deploying email service app, publishing email service" metaDescription="The second tutorial in a series that teaches how to configure your computer for Windows Azure development and deploy the Email Service app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="riande" editor="mollybos" manager="wpickett" />
 
-<div chunk="../chunks/article-left-menu.md" />
+<div>
+<div class="left-nav">
+<div class="static-nav">
+<ul>
+<li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
+<li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
+<li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
+</ul>
+<ul class="links">
+<li class="forum"><a href="/en-us/support/forums/">Forums</a></li>
+</ul>
+<ul>
+<li>IN THIS SERIES</li>
+<li><a href="../1-overview/">1. Overview</a></li>
+<li><strong>2. DOWNLOAD AND RUN </strong></li>
+<li><a href="../3-web-role/">3. Web Role</a></li>
+<li><a href="../4-worker-role-a/">4. Worker Role A</a></li>
+<li><a href="../5-worker-role-b/">5. Worker Role B</a></li>
+</ul>
+</div>
+<div class="floating-nav jump-to">
+<ul>
+<li>On the page (jump to):</li>
+</ul>
+</div>
+</div>
+</div>
 
 # Configuring and Deploying the Windows Azure Email Service application - 2 of 5
 
@@ -165,7 +191,7 @@ When you run the sample application in Visual Studio, you can access tables, que
 
    You should create the cloud service in the same region that you created the storage account. When the cloud service and storage account are in different datacenters (different regions), latency will increase and you will be charged for bandwidth outside the data center. Bandwidth within a data center is free.
 
-	Azure affinity groups provide a mechanism to minimize the distance between resources in a data center, which can reduce latency. This tutorial does not use affinity groups.   For more information see [How to Create an Affinity Group in Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh531560.aspx "affinity")
+	Azure affinity groups provide a mechanism to minimize the distance between resources in a data center, which can reduce latency. This tutorial does not use affinity groups. For more information, see [How to Create an Affinity Group in Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh531560.aspx).
 
 6. Click **Create Cloud Service**. 
 
@@ -186,6 +212,18 @@ When you run the sample application in Visual Studio, you can access tables, que
 2. Start Visual Studio with elevated permissions.
 
    The compute emulator that enables Visual Studio to run a Windows Azure project locally requires elevated permissions.
+
+3. To keep the download size small, the completed solution is provided without the assemblies or other content for the installed NuGet packages. When you open and build the solution, NuGet automatically gets all of the package content. In order for this to work, you have to enable the NuGet package restore option in Visual Studio. If you haven't already enabled NuGet package restore, do the following steps. 
+
+      1. From the **Tools** menu, click **Library Package Manager**, and then click **Manage NuGet Packages for Solution**. 
+
+      2. In the lower left corner of the **Manage NuGet Packages** dialog, click **Settings**.
+
+      3. In the left pane of the **Options** dialog box, select **General** under **Package Manager**.
+
+      4. Select **Allow NuGet to download missing packages during build**.
+
+      ![Enabling NuGet package restore](../Media/NuGetPkgRestore.png)
 
 3. From the **File** menu choose **Open Project**, navigate to where you downloaded the solution, and then open the solution file.
 
@@ -491,7 +529,7 @@ You can use the same UI to configure the connection strings (just make sure that
 
 9. Enter some data in the **Mailing List**, **Subscriber**, and **Message** web pages to test the application.
 
-	**Note**: Delete the application after you have finished testing it to avoid paying for resources that you aren't using. If you are using a [Windows Azure 90 day free trial account](http://www.windowsazure.com/en-us/pricing/free-trial/ "free-trial account"), the three deployed roles will use up your monthly limit in a couple of weeks. 	To delete a deployment, from the Azure portal, select the cloud service. At the bottom of the page, select **DELETE** then select the production or staging deployment.
+	**Note**: Delete the application after you have finished testing it to avoid paying for resources that you aren't using. If you are using a [Windows Azure 90 day free trial account](http://www.windowsazure.com/en-us/pricing/free-trial/ "free-trial account"), the three deployed roles will use up your monthly limit in a couple of weeks. 	To delete a deployment by using the Windows Azure management portal, select the cloud service and click **DELETE** at the bottom of the page, and then select the production or staging deployment.
 <br/>
 <br/>
  ![pub][mtas-19]
@@ -551,8 +589,9 @@ Tracing is an invaluable tool for debugging a cloud application. In this section
                 config);
         }
 
-	In the code above, the `DiagnosticMonitor` is configured to store up to 500 MB of trace information (after 500 MB, the oldest data is overwritten) and to store all trace messages (LogLevel.Verbose). The `ScheduledTransferPeriod` transfers the trace data to storage every minute. You must set the `ScheduledTransferPeriod` to save trace data. 
-   The `ConfigureDiagnostics` method in each of the worker and web roles configures the trace listener to record data using the Trace API. For more information, see [Using Trace in Windows Azure Cloud Applications](http://blogs.msdn.com/b/windowsazure/archive/2012/10/24/using-trace-in-windows-azure-cloud-applications-1.aspx "Using Trace in Windows Azure")
+   In this code, the `DiagnosticMonitor` is configured to store up to 500 MB of trace information (after 500 MB, the oldest data is overwritten) and to store all trace messages (LogLevel.Verbose). The `ScheduledTransferPeriod` transfers the trace data to storage every minute. You must set the `ScheduledTransferPeriod` to save trace data. 
+
+   The `ConfigureDiagnostics` method in each of the worker and web roles configures the trace listener to record data when you call the Trace API. For more information, see [Using Trace in Windows Azure Cloud Applications](http://blogs.msdn.com/b/windowsazure/archive/2012/10/24/using-trace-in-windows-azure-cloud-applications-1.aspx "Using Trace in Windows Azure")
 
 1. In **Server Explorer**, select **WADLogsTable** for the storage account that you added previously. You can enter a [WCF Data Services filter](http://msdn.microsoft.com/en-us/library/windowsazure/ff683669.aspx "WCF filter") to limit the entities displayed. In the following image, only warning and error messages are displayed.
 
@@ -568,7 +607,7 @@ There are two approaches to scaling compute resources in Azure roles, by specify
 
 The virtual machine (VM) size is specified in the `vmsize` attribute of the `WebRole` or `WorkerRole` element in the *ServiceDefinition.csdef* file. The default setting is `Small` which provides you with one core and 1.75 GB of RAM. For applications that are multi-threaded and use lots of memory, disk, and bandwidth, you can increase the VM size for increased performance. For example, an `ExtraLarge` VM has 8 CPU cores and 14 GB of RAM. Increasing memory, cpu cores, disk, and bandwidth on a single machine is known as *scale up*. Good candidates for scale up include ASP.NET web applications that use [asynchronous methods](http://www.asp.net/mvc/tutorials/mvc-4/using-asynchronous-methods-in-aspnet-mvc-4 "Async MVC"). See [Virtual Machine Sizes](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "VM sizes") for a description of the resources provided by each VM size.
 
-Worker role B in this application is the limiting component under high load because it does the work of sending emails. (Worker role A just creates queue messages, which is not resource-intensive.) Because worker role B is not multi-threaded and does not have a large memory footprint, it's not a good candidate for scale up. See **Note on threading and optimal CPU utilization** in [Building worker role A (email scheduler) for the Windows Azure Email Service application][tut4] for more information.  Worker role B can scale linearly (that is, nearly double performance when you double the instances) by increasing the instance count. Increasing the number of compute instances is known as *scale out*. There is a cost for each instance, so you should only scale out when your application requires it. 
+Worker role B in this application is the limiting component under high load because it does the work of sending emails. (Worker role A just creates queue messages, which is not resource-intensive.) Because worker role B is not multi-threaded and does not have a large memory footprint, it's not a good candidate for scale up. Worker role B can scale linearly (that is, nearly double performance when you double the instances) by increasing the instance count. Increasing the number of compute instances is known as *scale out*. There is a cost for each instance, so you should only scale out when your application requires it. 
 
 You can scale out a web or worker role by updating the setting in the Visual Studio UI or by editing the *ServiceConfiguration.\*.cscfg* files directly. The instance count is specified in the **Configuration** tab of the role **Properties** window and in the `Instances` element in the *.cscfg* files. When you update the setting, you have to deploy the updated configuration file to make the change take effect. Alternatively, for transient increases in load, you can change the number of role instances in the Windows Azure Management Portal. You can also configure the number of instances using the Windows Azure Management API. Finally, you can use the [Autoscaling Application Block][autoscalingappblock] to automatically scale out to meet increased load. For more information on autoscaling, see the links at the end of [the last tutorial in this series][tut5].
 
@@ -606,6 +645,8 @@ The following steps explain how to scale out by using the Windows Azure Manageme
 You have now seen how to configure, deploy, and scale the completed application. The following tutorials show how to build the application from scratch. In the [next tutorial][tut3] you'll build the web role.
 
 For links to additional resources for working with Windows Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
+
+<div><a href="../3-web-role/" class="site-arrowboxcta download-cta">Tutorial 3</a></div>
 
 [Set up the development environment]: #setupdevenv
 [Set up a free Windows Azure account]: #setupwindowsazure
