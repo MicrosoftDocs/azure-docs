@@ -1,4 +1,7 @@
-<properties linkid="dev-nodejs-website-mongodb" urldisplayname="Node.js Website with MongoDB" headerexpose="" pagetitle="Node.js Application using MongoDB - MongoLab" metakeywords="Azure Node.js tutorial MongoDB, Azure Node.js, Azure Node.js tutorial, MongoLab" footerexpose="" metadescription="A tutorial that demonstrates a Node.js application in a Windows Azure Website, that talks to MongoDB using MongoLab" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-nodejs-tutorials-web-site-with-mongodb-mongolab" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on MongoLab - Windows Azure" metaKeywords="" metaDescription="Learn how to create a Node.js Windows Azure Web Site that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # Node.js Web Application with Storage on MongoDB (MongoLab)
 This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on Windows Azure. [MongoDB] is a popular open source, high performance NoSQL database. This tutorial assumes that you have some prior experience using node, MongoDB, and [Git].
@@ -37,9 +40,10 @@ Before following the instructions in this article, you should ensure that you ha
 
 ##Preparation
 
-In this section you will learn how to create a free MongoDB instance hosted in Windows Azure using MongoLab, set up your development environment, and install the MongoDB C# driver.
+In this section you will learn how to create a free MongoDB instance hosted in Windows Azure using MongoLab, set up your development environment, and install the necessary node packages and set up your node application scaffolding.
 
-###Create a free MongoDB instance using MongoLabs
+
+###Create a free MongoDB instance using MongoLab
 
 Visit [MongoLab] to create a free MongoDB instance hosted on Windows Azure.
 ![mongolab.com page showing creating a MongoDB database][mongolab-create]
@@ -51,6 +55,7 @@ Create a database named '_ACCOUNTNAME_tasks'. After you have created a MongoDB i
 ##Install modules and generate scaffolding
 
 In this section you will create a new Node application and use npm to add module packages. For the task-list application you will use the [Express] and [Mongoose] modules. The Express module provides a Model View Controller framework for node, while Mongoose is a driver for communicating with MongoDB.
+
 ###Install express and generate scaffolding
 
 1. From the command-line, change directories to the **tasklist** directory. If the **tasklist** directory does not exist, create it.
@@ -337,7 +342,23 @@ The steps in this section use the Windows Azure command-line tools to create a n
 
 <div class="dev-callout">
 <strong>Note</strong>
-<p>These steps can also be performed by using the Windows Azure portal. For steps on using the Windows Azure portal to deploy a Node.js application, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to a Windows Azure Web Site</a>.</p>
+<p>If this is the first Windows Azure Web Site you have created, you must use the Windows Azure portal to deploy this application.</p>
+</div>
+
+###Install the Windows Azure command-line tool for Mac and Linux
+
+To install the command-line tools, use the following command:
+	
+	sudo npm install azure-cli -g
+
+<div class="dev-callout">
+<strong>Note</strong>
+<p>If you have already installed the <strong>Windows Azure SDK for Node.js</strong> from the <a href="/en-us/develop/nodejs/">Windows Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure command-line tool for Mac and Linux</a>.</p>
+</div>
+
+<div class="dev-callout">
+<strong>Note</strong>
+<p>While the command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.</p>
 </div>
 
 ###Import publishing settings
@@ -477,3 +498,4 @@ The steps in this article describe using MongoLab to host a MongoDB instance on 
 [import-publishing-settings]: ../media/azureimport.png
 [mongolab-create]: ../media/mongolab-create.png
 [mongolab-view]: ../media/mongolab-view.png
+
