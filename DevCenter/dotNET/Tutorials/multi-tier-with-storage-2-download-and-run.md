@@ -426,7 +426,7 @@ If you are not using the storage emulator, you can decrease project start-up tim
 
 The sample application uses SendGrid to send emails.  In order to send emails by using SendGrid, you have to set up a SendGrid account, and then you have to update a configuration file with your SendGrid credentials.
 
-<div class="note"><p><strong>Note:</strong> If you don't want to use SendGrid, or can't use SendGrid, you can easily substitute your own email service. The code that uses SendGrid is isolated in two methods in worker role B.  <a href="http://windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/">Tutorial 5</a> explains what you have to change in order to implement a different method of sending emails. If you want to do that, you can skip this procedure and continue with this tutorial; everything else in the application will work (web pages, email scheduling, etc.) except  for the actual sending of emails.</p></div>
+<div class="note"><p><strong>Note:</strong> If you don't want to use SendGrid, or can't use SendGrid, you can easily substitute your own email service. The code that uses SendGrid is isolated in two methods in worker role B.  [Tutorial 5][tut5] explains what you have to change in order to implement a different method of sending emails. If you want to do that, you can skip this procedure and continue with this tutorial; everything else in the application will work (web pages, email scheduling, etc.) except  for the actual sending of emails.</p></div>
 
 ### Create a SendGrid account
  

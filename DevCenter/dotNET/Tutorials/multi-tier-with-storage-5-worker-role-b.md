@@ -64,7 +64,7 @@ You need a reference to the web project because that is where the entity classes
 
 
 
-<h2><a name="sclpackage"></a><span class="short-header">Add SCL Package</span>Add the Storage Client Library NuGet package to the project</h2>
+<h2><a name="sclpackage"></a><span class="short-header">Add SCL 2.0 Package</span>Add the Storage Client Library 2.0 NuGet package to the project</h2>
 
 When you added the project, it didn't automatically get the updated version of the Storage Client Library NuGet package. Instead, it got the old 1.7 version of the package since that is what is included in the project template. Now the solution has two versions of the Windows Azure Storage NuGet package: the 2.0 version in the MvcWebRole and WorkerRoleA projects, and the 1.7 version in the WorkerRoleB project. You need to uninstall the 1.7 version and install the 2.0 version in the WorkerRoleB project.
 
