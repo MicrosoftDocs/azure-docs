@@ -168,16 +168,6 @@
         </td>
         <td style="width: 400px;">This paper provides guidelines on how to deploy an existing on-premise SQL Server database into SQL Azure. It also discusses best practices related to data migration.</td>
       </tr>
-      <!--	<tr>
-		<td style="width: 200px;"><a href="http://go.microsoft.com/?linkid=9752185">Introducing the Windows Azure Platform<span style="mso-spacerun:yes">&nbsp;</span></a></td>
-		<td style="width: 400px;"></td>
-	</tr> -->
-      <tr>
-        <td style="width: 200px;">
-          <a href="http://go.microsoft.com/fwlink/?LinkID=201129">Windows Azure Marketplace DataMarket</a>
-        </td>
-        <td style="width: 400px;">This paper describes Windows Azure Marketplace, a service that was designed with the needs of ISVs, data publishers, and end customers in mind, and helps connect companies seeking innovative cloud based solutions with partners who have developed solutions that are ready to use.</td>
-      </tr>
       <tr>
         <td style="width: 200px;">
           <a href="http://go.microsoft.com/?linkid=9736947">Scaling out with SQL Azure</a>
