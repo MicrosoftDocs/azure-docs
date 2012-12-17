@@ -1,4 +1,6 @@
-# Developing Single Tenant Cloud Applications with Windows Azure Active Directory
+<div chunk="../chunks/article-left-menu.md" />
+
+# Developing Single Tenant Applications with Windows Azure Active Directory
 
 <h2><a name="introduction"></a>Introduction</h2>
 
@@ -6,6 +8,7 @@ This tutorial will show you how to leverage Windows Azure Active Directory to au
 
 * Provision the web application in a customer's tenant
 * Protect the application using WS-Federation
+* Access the directory using the Graph API
 
 <h3>Prerequisites</h3>
 The following development environment prerequisites are required for this walkthrough:
@@ -15,6 +18,7 @@ The following development environment prerequisites are required for this walkth
 * [ASP.NET MVC 3]
 * [Windows Identity Foundation 1.0 Runtime]
 * [Windows Identity Foundation 3.5 SDK]
+* [WCF Data Services for OData V3]
 * Internet Information Services (IIS) 7.5 with SSL enabled
 * Windows PowerShell
 * [Office 365 PowerShell Commandlets]
@@ -24,6 +28,7 @@ The following development environment prerequisites are required for this walkth
 * [Step 1: Create an ASP.NET MVC Application][]
 * [Step 2: Provision the Application in a Company's Directory Tenant][]
 * [Step 3: Protect the Application Using WS-Federation for Employee Sign In][]
+* [Step 4: Read Directory Data Using the Graph API][]
 * [Summary][]
 
 <h2><a name="createapp"></a>Step 1: Create an ASP.NET MVC Application</h2>
@@ -157,16 +162,58 @@ This step shows you how to add support for federated login using Windows Identit
 
 19. After you have signed in using your credentials, you will be redirected to the Index page of your Home controller, where your account's claims are displayed. This demonstrates a user successfully authenticating to the application using single sign-on provided by Windows Azure Active Directory.
 
+<h2><a name="readdata"></a>Step 4: Read Directory Data Using the Graph API</h2>
+This step shows you how to use the Graph API to connect to your Windows Azure Active Directory tenant and read data. To help you get started with the Graph API, download the following ASP.NET application: [Sample Application with Write Support for Graph API]. This application contains helper methods that make it easier to authenticate and make requests against the Graph API.
+
+You will also add permissions to your application's Service Principal that you created in Step 2. To add these permissions, you'll need the AppPrincipalId value.
+
+1. Download and extract the sample application to your desired folder.
+2. Before you can use the sample code, you must give additional permissions to the Service Principal. These permissions will make it possible for the Service Principal to read data by using the Graph API. From the **Start** menu, run the **Microsoft Online Services Module for Windows PowerShell** console.
+3. You will give read permissions to the Service Principal by adding it to the Service Support Administrator role. For more information about assigning roles to Service Principal, see [Role-Based Access Control for Graph API]. Type the following command and press Enter:
+
+		Add-MsolRoleMember -RoleMemberType "ServicePrincipal" -RoleName "Service Support Administrator" -RoleMemberObjectId $appPrincipal.ObjectId 
+
+4. The **$appPrincipal.ObjectId** variable is your Service Principal's objectId, which can be obtained by typing the following command and pressing Enter:
+
+		Get-MsolServicePrincipal -AppPrincipalId 7829c758-2bef-43df-a685-717089474505 
+
+	<div class="dev-callout"><strong>Note</strong><p>The **AppPrincipalId value above was returned when you created your Service Principal in Step 2.</p></div>
+
+5. After you have added the role to your Service Principal, start Visual Studio and open the sample application's root **Web.config** file.
+
+6. Locate the *&lt;configuration&gt;* section in the **Web.config**, then navigate to the *&lt;appSettings&gt;* section. Change the values for the *TenantDomainName*, *AppPrincipalId*, and *SymmetricKey* keys to the values for your Service Principal. For example:
+
+		<appSettings> 
+			...
+			<add key="TenantDomainName" value="awesomecomputers.onmicrosoft.com"/> 
+			...
+			<add key="AppPrincipalId" value="7829c758-2bef-43df-a685-717089474505"/>     
+			...
+			<add key="SymmetricKey" value="qY+Drf20Zz+A4t2w e3PebCopoCugO76My+JMVsqNBFc=" /> 
+			...
+		</appSettings>
+
+7. Save the **Web.config** file, then press **F5** to run the application.
+
+8. The sample application will display a menu for accessing all your users, company administrators, and more. Clicking on one of the links will return the information stored in your tenant by using the Graph API.
+
 <h2><a name="summary"></a>Summary</h2>
-This tutorial has shown you how to create and configure a single tenant application that uses the single sign-on capabilities of Windows Azure Active Directory. You can also create multi-tenant applications for Windows Azure Active Directory by reading the following tutorial: [Developing Multi-Tenant Cloud Applications with Windows Azure Active Directory].
+This tutorial has shown you how to create and configure a single tenant application that uses the single sign-on capabilities of Windows Azure Active Directory. In addition, you have accessed the tenant's directory data by using the Graph API. We recommend that you explore the sample application to understand how to take advantage of the Graph API in your own application.
+
+To learn more about the Graph API, [you can read about it on MSDN]. You can also create multi-tenant applications for Windows Azure Active Directory by reading the following tutorial: [Developing Multi-Tenant Cloud Applications with Windows Azure Active Directory].
 
 [Introduction]: #introduction
 [Step 1: Create an ASP.NET MVC Application]: #createapp
 [Step 2: Provision the Application in a Company's Directory Tenant]: #provisionapp
 [Step 3: Protect the Application Using WS-Federation for Employee Sign In]: #protectapp
+[Step 4: Read Directory Data Using the Graph API]: #readdata
 [Summary]: #summary
 [Developing Multi-Tenant Cloud Applications with Windows Azure Active Directory]: http://g.microsoftonline.com/0AX00en/121
 [Windows Identity Foundation 3.5 SDK]: http://www.microsoft.com/en-us/download/details.aspx?id=4451
 [Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/en-us/download/details.aspx?id=17331
 [Office 365 Powershell Commandlets]: http://onlinehelp.microsoft.com/en-us/office365-enterprises/ff652560.aspx
 [ASP.NET MVC 3]: http://www.microsoft.com/en-us/download/details.aspx?id=4211
+[WCF Data Services for OData V3]: http://www.microsoft.com/download/en/details.aspx?id=29306
+[Sample Application with Write Support for Graph API]: http://code.msdn.microsoft.com/Write-Sample-App-for-79e55502
+[Role-Based Access Control for Graph API]: http://msdn.microsoft.com/en-us/library/hh974466.aspx
+[you can read about it on MSDN]: http://msdn.microsoft.com/en-us/library/hh974476.aspx
