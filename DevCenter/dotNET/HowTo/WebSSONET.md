@@ -27,7 +27,7 @@ The following development environment prerequisites are required for this walkth
 * [Summary][]
 
 <h2><a name="createapp"></a>Step 1: Create an ASP.NET MVC Application</h2>
-This step describes how to create a simple ASP.NET MVC application that will represent a protected resource. Access to this resource will be granted through federated authentication managed by the company's STS, which is described later in the tutorial.
+This step describes how to create a simple ASP.NET MVC 3 application that will represent a protected resource. Access to this resource will be granted through federated authentication managed by the company's STS, which is described later in the tutorial.
 
 1. Open Visual Studio as an Administrator.
 2. From the **File** menu, click **New Project**. 
