@@ -1,4 +1,8 @@
-# Web Single Sign-On for .NET with Windows Azure Active Directory
+<properties linkid="develop-net-how-to-guides-web-sso" urlDisplayName="Web SSO" pageTitle="Web Single Sign-On with .NET and Windows Azure Active Directory" metaKeywords="Azure .NET web app, Azure single sign-on, Azure Active Directory SSO, .NET AAD SSO, ASP.NET SSO Azure" metaDescription="Learn how to create an ASP.NET web application that uses single sign-on with Windows Azure Active Directory." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
+# Web Single Sign-On with .NET and Windows Azure Active Directory
 
 <h2><a name="introduction"></a>Introduction</h2>
 
