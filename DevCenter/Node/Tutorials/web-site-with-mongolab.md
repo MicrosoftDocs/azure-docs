@@ -231,31 +231,46 @@ In this section you will extend the basic application created by the **express**
 
 ### Modify app.js
 
-1. In the **tasklist** directory, open the **app.js** file in a text editor. This file was created earlier by running the **express** command.
+1. In the **tasklist** directory, open the **app.js** file in a text editor. This file was created earlier by running the **express** command. Replace the code in the app.js file with the following code.
 
-2. In the app.js file, scroll down to where you see below code. 
+
+
+
+		var express = require('express'),
+		routes = require('./routes'),
+		user = require('./routes/user'),
+		http = require('http'),
+		path = require('path');
+
+
+		var TaskList = require('./routes/tasklist');
+		var taskList = new TaskList('mongodb://mongodbserver/ACCOUNTNAME_tasks');
+		var app = express();
 
 		app.configure(function(){
 		app.set('port', process.env.PORT || 3000);
 		app.set('views', __dirname + '/views');
 		app.set('view engine', 'jade');
-		app.use(express.favicon());
+		app.use(express.favicon());  
 		app.use(express.logger('dev'));
 		app.use(express.bodyParser());
-		app.use(express.methodOverride());
+		app.use(express.methodOverride()); 
 		app.use(app.router);
 		app.use(express.static(path.join(__dirname, 'public')));
 		});
 
-		Insert the below example code after the code above.
-		This will initialize **TaskList** with the connection string for the 
-		MongoDB	server and add the functions defined in **tasklist.js** as routes:
 
-        var TaskList = require('./routes/tasklist');
-		var taskList = new TaskList('mongodb://mongodbserver/ACCOUNTNAME_tasks');
-    	app.get('/', taskList.showTasks.bind(taskList));
-    	app.post('/addtask', taskList.addTask.bind(taskList));
-    	app.post('/completetask', taskList.completeTask.bind(taskList));
+		app.configure('development', function(){
+		app.use(express.errorHandler());
+		});
+
+
+		app.get('/', taskList.showTasks.bind(taskList));
+		app.post('/addtask', taskList.addTask.bind(taskList));
+		app.post('/completetask', taskList.completeTask.bind(taskList));
+		app.listen(process.env.port || 3000);
+
+
 
 		
 	<div class="dev-callout">
