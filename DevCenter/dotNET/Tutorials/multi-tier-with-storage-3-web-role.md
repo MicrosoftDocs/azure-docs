@@ -147,7 +147,7 @@ To enable tracing data to be saved, open the *WebRole.cs* file and add the follo
         return base.OnStart();
     }
 
-The `ConfigureDiagnostics` method is explained [the second tutorial][tut2].
+The `ConfigureDiagnostics` method is explained in [the second tutorial][tut2].
 
 
 
@@ -243,13 +243,11 @@ You could add this one-time startup code to the `OnStart` method in the *WebRole
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
-
             // Verify that all of the tables, queues, and blob containers used in this application
             // exist, and create any that don't already exist.
             CreateTablesQueuesBlobContainers();
@@ -260,18 +258,14 @@ You could add this one-time startup code to the `OnStart` method in the *WebRole
             var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
             // If this is running in a Windows Azure Web Site (not a Cloud Service) use the Web.config file:
             //    var storageAccount = CloudStorageAccount.Parse(ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
-
             var tableClient = storageAccount.CreateCloudTableClient();
             var mailingListTable = tableClient.GetTableReference("MailingList");
             mailingListTable.CreateIfNotExists();
-
             var messageTable = tableClient.GetTableReference("Message");
             messageTable.CreateIfNotExists();
-
             var blobClient = storageAccount.CreateCloudBlobClient();
             var blobContainer = blobClient.GetContainerReference("azuremailblobcontainer");
             blobContainer.CreateIfNotExists();
-
             var queueClient = storageAccount.CreateCloudQueueClient();
             var subscribeQueue = queueClient.GetQueueReference("azuremailsubscribequeue");
             subscribeQueue.CreateIfNotExists();
@@ -1026,59 +1020,59 @@ The `Message` entity class is used for the rows in the `Message` table that cont
 
 3. Open *Message.cs* and examine the code.
 
-    public class Message : TableEntity
-    {
-        private DateTime? _scheduledDate;
-        private long _messageRef;
-
-        public Message()
-        {
-            this.MessageRef = DateTime.Now.Ticks;
-            this.Status = "Pending";
-        }
-
-        [Required]
-        [Display(Name = "Scheduled Date")]
-        // DataType.Date shows Date only (not time) and allows easy hook-up of jQuery DatePicker
-        [DataType(DataType.Date)]
-        public DateTime? ScheduledDate 
-        {
-            get
-            {
-                return _scheduledDate;
-            }
-            set
-            {
-                _scheduledDate = value;
-                this.PartitionKey = value.Value.ToString("yyyy-MM-dd");
-            }
-        }
-        
-        public long MessageRef 
-        {
-            get
-            {
-                return _messageRef;
-            }
-            set
-            {
-                _messageRef = value;
-                this.RowKey = "message" + value.ToString();
-            }
-        }
-
-        [Required]
-        [Display(Name = "List Name")]
-        public string ListName { get; set; }
-
-        [Required]
-        [Display(Name = "Subject Line")]
-        public string SubjectLine { get; set; }
-
-        // Pending, Queuing, Processing, Complete
-        public string Status { get; set; }
-    }
+	    public class Message : TableEntity
+	    {
+	        private DateTime? _scheduledDate;
+	        private long _messageRef;
 	
+	        public Message()
+	        {
+	            this.MessageRef = DateTime.Now.Ticks;
+	            this.Status = "Pending";
+	        }
+	
+	        [Required]
+	        [Display(Name = "Scheduled Date")]
+	        // DataType.Date shows Date only (not time) and allows easy hook-up of jQuery DatePicker
+	        [DataType(DataType.Date)]
+	        public DateTime? ScheduledDate 
+	        {
+	            get
+	            {
+	                return _scheduledDate;
+	            }
+	            set
+	            {
+	                _scheduledDate = value;
+	                this.PartitionKey = value.Value.ToString("yyyy-MM-dd");
+	            }
+	        }
+	        
+	        public long MessageRef 
+	        {
+	            get
+	            {
+	                return _messageRef;
+	            }
+	            set
+	            {
+	                _messageRef = value;
+	                this.RowKey = "message" + value.ToString();
+	            }
+	        }
+	
+	        [Required]
+	        [Display(Name = "List Name")]
+	        public string ListName { get; set; }
+	
+	        [Required]
+	        [Display(Name = "Subject Line")]
+	        public string SubjectLine { get; set; }
+	
+	        // Pending, Queuing, Processing, Complete
+	        public string Status { get; set; }
+	    }
+		
    The `Message` class defines a default constructor that sets the `MessageRef` property to a unique value for the message. Since this value is part of the row key, the setter for the `MessageRef` property automatically sets the `RowKey` property also. The `MessageRef` property setter concatenates the "message" literal and the `MessageRef` value and puts that in the `RowKey` property.
 
    The `MessageRef` value is created by getting the `Ticks` value from `DateTime.Now`. This ensures that by default when displaying messages in the web UI they will be displayed in the order in which they were created for a given scheduled date (`ScheduledDate` is the partition key). You could use a GUID to make message rows unique, but then the default retrieval order would be random.
@@ -1674,7 +1668,7 @@ For links to additional resources for working with Windows Azure Storage tables,
 [nextsteps]: #nextsteps
 
 [tut5]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
-[tut2]: /en-us/develop/net/tutorials/multi-tier-web-site/2-web-role/
+[tut2]: /en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
 [firsttutorial]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
 [nexttutorial]: /en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
 [TableServiceEntity]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storageclient.tableserviceentity.aspx

@@ -712,7 +712,7 @@ The schema of rows in the `messagearchive` table is identical to that of the `me
 Windows Azure queues facilitate communication between tiers of this multi-tier application, and between worker roles in the back-end tier. 
 Queues are used to communicate between worker role A and worker role B in order to make the application scalable. Worker role A could create a row in the Message table for each email, and worker role B could scan the table for rows representing emails that haven’t been sent, but you wouldn’t be able to add additional instances of worker role B in order to divide up the work.  The problem with using table rows to coordinate the work between worker role A and worker role B is that you have no way of ensuring that only one worker role instance will pick up any given table row for processing.  Queues give you that assurance. When a worker role instance pulls a work item off a queue, the queue service makes sure that no other worker role instance can pull the same work item. This exclusive lease feature of Windows Azure queues facilitates sharing a workload among multiple instances of a worker role.
 
-Windows Azure also provides the Service Bus queue service. For more information about Windows Azure Storage queues and Service Bus queues, see the resources that are listed at the end of [the last tutorial in this series](tut5).
+Windows Azure also provides the Service Bus queue service. For more information about Windows Azure Storage queues and Service Bus queues, see the resources that are listed at the end of [the last tutorial in this series][tut5].
 
 The Windows Azure Email Service application uses two queues, named `AzureMailQueue` and `AzureMailSubscribeQueue`.
 
@@ -749,7 +749,7 @@ The following diagram shows the tables and queues and their relationships.
 
 <h2><a name="blobs"></a><span class="short-header">Blobs</span>Windows Azure Blobs</h2>
 
-Blobs are "binary large objects." The Windows Azure Blob service provides a means for uploading and storing files in the cloud. For more information about Windows Azure blobs, see the resources that are listed at the end of [the last tutorial in this series](tut5).
+Blobs are "binary large objects." The Windows Azure Blob service provides a means for uploading and storing files in the cloud. For more information about Windows Azure blobs, see the resources that are listed at the end of [the last tutorial in this series][tut5].
 
 Windows Azure Mail Service administrators put the body of an email in HTML form in an *.htm* file and in plain text in a *.txt* file. When they schedule an email, they upload these files in the **Create Message** web page, and the ASP.NET MVC controller for the page stores the uploaded file in a Windows Azure blob.
 

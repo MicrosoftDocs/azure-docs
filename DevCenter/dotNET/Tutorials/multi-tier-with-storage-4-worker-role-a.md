@@ -626,7 +626,7 @@ For links to additional resources for working with Windows Azure Storage tables,
 
 [firsttutorial]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
 [tut5]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
-[tut2]: /en-us/develop/net/tutorials/multi-tier-web-site/2-web-role/
+[tut2]: /en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
 [WApricingcalculator]: /en-us/pricing/calculator/?scenario=data-management
 
 [mtas-new-worker-role-project]: ../Media/mtas-new-worker-role-project.png
