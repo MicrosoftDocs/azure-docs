@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Create a PHP Website using Windows Azure Storage" metaKeywords="Windows Azure, Windows Azure Websites, PHP, Storage" metaDescription="Learn how to create a PHP website using Windows Azure storage" linkid="dev-php-tutorials-php-site-storage" urlDisplayName="Create a PHP Website using Windows Azure Storage" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-php-website-with-storage" urlDisplayName="Web w/ Storage" pageTitle="PHP web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" metaDescription="This tutorial shows you how to create a PHP website and use the Windows Azure Tables storage service in the back-end." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+<div chunk="../chunks/article-left-menu.md" />
 
 #Create a PHP Website using Windows Azure Storage
 

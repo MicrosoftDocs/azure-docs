@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Install MySQL on a virtual machine running Windows Server 2008 R2 in Windows Azure" metaKeywords="" metaDescription="" linkid="manage-windows-common-tasks-MySQL" urlDisplayName="Install MySQL" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-windows-common-tasks-install-mysql" urlDisplayName="Install MySQL" pageTitle="Create a virtual machine running MySQL in Windows Azure " metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" metaDescription="Create a Windows Azure virtual machine running Windows Server 2008 R2, and then install and configure a MySQL database on the virtual machine." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 #Install MySQL on a virtual machine running Windows Server 2008 R2 in Windows Azure
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />

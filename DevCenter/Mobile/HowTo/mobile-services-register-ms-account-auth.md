@@ -1,4 +1,6 @@
-<properties linkid="register-ms-account-auth" urldisplayname="Mobile Services" headerexpose="" pagetitle="Register your apps for Microsoft Live Connect authentication with Mobile Services" metakeywords="Microsoft Account, mobile devices, Windows Azure, mobile, authentication" footerexpose="" metadescription="Windows Live Connect registration steps for Mobile Services using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-mobile-how-to-guides-register-for-microsoft-authentication" urlDisplayName="Register for Microsoft Authentication" pageTitle="Register for Microsoft authentication - Mobile Services" metaKeywords="Windows Azure registering application, Azure Microsoft authentication, application authenticate, authenticate mobile services" metaDescription="Learn how to register for Microsoft authentication in your Windows Azure Mobile Services application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
+
+
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
@@ -7,7 +9,7 @@
 This topic shows you how to register your apps to be able to use Live Connect as an authentication provider for Windows Azure Mobile Services. 
 
 <div class="dev-callout"><b>Note</b>
-<p>When you intend to also provide single sign-on or push notifications from a Windows Store app, consider also registering your app with the Windows Store. For more information, see <a href="/en-us/develop/mobile/howto/register-for-live-connect-auth">Register your Windows Store apps for Windows Live Connect authentication</a>.</p>
+<p>When you intend to also provide single sign-on or push notifications from a Windows Store app, consider also registering your app with the Windows Store. For more information, see <a href="/en-us/develop/mobile/how-to-guides/register-for-single-sign-on">Register your Windows Store apps for Windows Live Connect authentication</a>.</p>
 </div>
 
 1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">My Applications</a> page in the Live Connect Developer Center, and log on with your Microsoft account, if required. 
@@ -26,7 +28,7 @@ This topic shows you how to register your apps to be able to use Live Connect as
 	<p>The client secret is an important security credential. Do not share the client secret with anyone or distribute it with your app.</p>
     </div>
 
-11. In **Redirect domain**, enter the URL of your mobile service from Step 8, and then click **Save**.
+11. In **Redirect domain**, enter the URL of your mobile service, and then click **Save**.
 
 You are now ready to use a Microsoft Account for authentication in your app by providing the client ID and client secret values to Mobile Services.
 

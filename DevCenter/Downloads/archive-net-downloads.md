@@ -1,7 +1,21 @@
-<h1>Previous Versions: Windows Azure SDK for .NET</h1>
-<p><strong>Note:</strong> Before downloading the SDK files, review the <a href="#install">installation steps</a> to understand the process and dependencies involved in installing the SDK.</p>
+<properties linkid="downloads-.net-archive" urlDisplayName="Windows Azure SDK Previous Releases" pageTitle="Windows Azure SDK for .NET previous release downloads" metaKeywords="download Azure SDK .NET" metaDescription="Download previous versions of Windows Azure SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
+<h1>Previous Versions: Windows Azure SDK for .NET</h1><p><strong>Note:</strong> Before downloading the SDK files, review the <a href="#install">installation steps</a> to understand the process and dependencies involved in installing the SDK.</p>
 <table border="1" cellspacing="0" cellpadding="10" style="border: #000000 0px solid;">
 <tbody>
+
+<tr>
+<td style="width: 200px;">August 2012 (Version 1.7 SP1)</td>
+<td style="width: 400px;">
+<ul>
+<li><a href="https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=vwdorvs11azurepack_1_7_1" target="_blank">WebPI all-in-one feed</a></li>
+<li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=30651" target="_blank">Manual Installers</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj156219.aspx" target="_blank">SDK Release Notes</a></li>
+</ul>
+</td>
+</tr>
+
 <tr>
 <td style="width: 200px;">June 2012 (Version 1.7)</td>
 <td style="width: 400px;">

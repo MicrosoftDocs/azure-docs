@@ -1,4 +1,7 @@
-<properties linkid="dev-nodejs-website-mongodb" urldisplayname="Node.js Website with MongoDB" headerexpose="" pagetitle="Node.js Application using MongoDB - MongoLab" metakeywords="Azure Node.js tutorial MongoDB, Azure Node.js, Azure Node.js tutorial, MongoLab" footerexpose="" metadescription="A tutorial that demonstrates a Node.js application in a Windows Azure Website, that talks to MongoDB using MongoLab" umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="develop-nodejs-tutorials-web-site-with-mongodb-mongolab" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on MongoLab - Windows Azure" metaKeywords="" metaDescription="Learn how to create a Node.js Windows Azure Web Site that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # Node.js Web Application with Storage on MongoDB (MongoLab)
 This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on Windows Azure. [MongoDB] is a popular open source, high performance NoSQL database. This tutorial assumes that you have some prior experience using node, MongoDB, and [Git].
@@ -37,26 +40,29 @@ Before following the instructions in this article, you should ensure that you ha
 
 ##Preparation
 
-In this section you will learn how to create a free MongoDB instance hosted in Windows Azure using MongoLab, set up your development environment, and install the MongoDB C# driver.
+In this section you will learn how to create a free MongoDB instance hosted in Windows Azure using MongoLab, set up your development environment, and install the necessary node packages and set up your node application scaffolding.
 
-###Create a free MongoDB instance using MongoLabs
+
+###Create a free MongoDB instance using MongoLab
 
 Visit [MongoLab] to create a free MongoDB instance hosted on Windows Azure.
 ![mongolab.com page showing creating a MongoDB database][mongolab-create]
 
-After you have created a MongoDB instance in Windows Azure using MongoLab, note the connection information for your database.  You will need this information later in the tutorial.
+Create a database named '_ACCOUNTNAME_tasks'. After you have created a MongoDB instance in Windows Azure using MongoLab, note the connection information for your database.  You will need this information later in the tutorial.
+
 ![mongolab.com page showing connection information for database][mongolab-view]
 
 ##Install modules and generate scaffolding
 
 In this section you will create a new Node application and use npm to add module packages. For the task-list application you will use the [Express] and [Mongoose] modules. The Express module provides a Model View Controller framework for node, while Mongoose is a driver for communicating with MongoDB.
+
 ###Install express and generate scaffolding
 
 1. From the command-line, change directories to the **tasklist** directory. If the **tasklist** directory does not exist, create it.
 
 2. Enter the following command to install express.
 
-	sudo npm install express -g
+	npm install express -g
  
 	<div class="dev-callout">
 	<strong>Note</strong>
@@ -115,10 +121,11 @@ The **package.json** file is one of the files created by the **express** command
 		├── mime@1.2.4
 		├── qs@0.4.2
 		├── mkdirp@0.3.0
-		└── connect@1.8.7
+		├── connect@1.8.7
 		jade@0.26.0 ./node_modules/jade
 		├── commander@0.5.2
 		└── mkdirp@0.3.0
+
 
 	This installs all of the default modules that Express needs.
 
@@ -224,22 +231,51 @@ In this section you will extend the basic application created by the **express**
 
 ### Modify app.js
 
-1. In the **tasklist** directory, open the **app.js** file in a text editor. This file was created earlier by running the **express** command.
+1. In the **tasklist** directory, open the **app.js** file in a text editor. This file was created earlier by running the **express** command. Replace the code in the app.js file with the following code.
 
-2. Replace the content after the `//Routes` comment with the following code. This will initialize **TaskList** with the connection string for the MongoDB server and add the  functions defined in **tasklist.js** as routes:
 
-        var TaskList = require('./routes/tasklist');
-		var taskList = new TaskList('mongodb://mongodbserver/tasks');
 
-    	app.get('/', taskList.showTasks.bind(taskList));
-    	app.post('/addtask', taskList.addTask.bind(taskList));
-    	app.post('/completetask', taskList.completeTask.bind(taskList));
 
+		var express = require('express'),
+		routes = require('./routes'),
+		user = require('./routes/user'),
+		http = require('http'),
+		path = require('path');
+
+
+		var TaskList = require('./routes/tasklist');
+		var taskList = new TaskList('mongodb://mongodbserver/ACCOUNTNAME_tasks');
+		var app = express();
+
+		app.configure(function(){
+		app.set('port', process.env.PORT || 3000);
+		app.set('views', __dirname + '/views');
+		app.set('view engine', 'jade');
+		app.use(express.favicon());  
+		app.use(express.logger('dev'));
+		app.use(express.bodyParser());
+		app.use(express.methodOverride()); 
+		app.use(app.router);
+		app.use(express.static(path.join(__dirname, 'public')));
+		});
+
+
+		app.configure('development', function(){
+		app.use(express.errorHandler());
+		});
+
+
+		app.get('/', taskList.showTasks.bind(taskList));
+		app.post('/addtask', taskList.addTask.bind(taskList));
+		app.post('/completetask', taskList.completeTask.bind(taskList));
 		app.listen(process.env.port || 3000);
 
+
+
+		
 	<div class="dev-callout">
 	<strong>Note</strong>
-	<p>You must replace the connection string above with the connection string for the MongoDB server you created earlier. For example, <strong>mongodb://&lt;user&gt;:&lt;password&gt;@ds037087.mongolab.com:37087/tasks</strong>.</p>
+	<p>You must replace the connection string above with the connection string for the MongoDB server you created earlier. For example, <strong>mongodb://&lt;user&gt;:&lt;password&gt;@ds037087.mongolab.com:37087/ACCOUNTNAME_tasks</strong>.</p>
 	</div>
 
 4. Save the **app.js** file.
@@ -312,11 +348,11 @@ To test the application on your local machine, perform the following steps:
 
 ##Deploy your application to Windows Azure
 
-The steps in this section use the Windows Azure command-line tools to create a new Windows Azure Web Site, and then use Git to deploy your application. To perform these steps you must have a Windows Azure subscription.
+The steps in this section use the Windows Azure command-line tools to create a new Windows Azure Web Site, and then use Git to deploy your application. To perform these steps you must have a Windows Azure subscription and the command-line tools installed.
 
 <div class="dev-callout">
 <strong>Note</strong>
-<p>These steps can also be performed by using the Windows Azure portal. For steps on using the Windows Azure portal to deploy a Node.js application, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to a Windows Azure Web Site</a>.</p>
+<p>If you have already installed the <strong>Windows Azure SDK for Node.js</strong> from the <a href="/en-us/develop/nodejs/">Windows Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure command-line tool for Mac and Linux</a>. While the command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.</p>
 </div>
 
 <div class="dev-callout">
@@ -328,7 +364,7 @@ The steps in this section use the Windows Azure command-line tools to create a n
 
 To install the command-line tools, use the following command:
 	
-	sudo npm install azure -g
+	sudo npm install azure-cli -g
 
 <div class="dev-callout">
 <strong>Note</strong>
@@ -341,6 +377,7 @@ To install the command-line tools, use the following command:
 </div>
 
 ###Import publishing settings
+
 
 Before using the command-line tools with Windows Azure, you must first download a file containing information about your subscription. Perform the following steps to download and import this file.
 
@@ -476,3 +513,4 @@ The steps in this article describe using MongoLab to host a MongoDB instance on 
 [import-publishing-settings]: ../media/azureimport.png
 [mongolab-create]: ../media/mongolab-create.png
 [mongolab-view]: ../media/mongolab-view.png
+

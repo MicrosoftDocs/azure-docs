@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Other resources" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-windows-other-resources" urlDisplayName="Other resources" pageTitle="Other resources for Windows virtual machines - Windows Azure" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Find topics about using Windows Server virtual machines in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+
+
 
 #Other resources for Windows virtual machines
 
@@ -8,11 +10,9 @@
 
 Learn about the differences between deploying Windows Server Active Directory Domain Services (AD DS) and Active Directory Federations Services (AD FS) on-premises versus deploying on Windows Azure Virtual Machines. Understand the decisions that affect design and deployment that you have to make.
 
-###[SharePoint Deployment on Windows Azure Virtual Machines](http://www.microsoft.com/en-us/download/details.aspx?id=34598)
+###[SharePoint Deployment on Windows Azure Virtual Machines](/en-us/manage/windows/other-resources/sharepoint-on-azure/)
 
 The *SharePoint Deployment on Windows Azure Virtual Machines* white paper provides guidance about the benefits of Windows Azure Virtual Machines and explains how to deploy SharePoint Server 2010 on Windows Azure Virtual Machines.
-
-You can [download the whitepaper](http://www.microsoft.com/en-us/download/details.aspx?id=34598) on the Microsoft Download Center.
 
 ###[Windows Azure Training Kit](/en-us/manage/windows/other-resources/training-kit/)
 

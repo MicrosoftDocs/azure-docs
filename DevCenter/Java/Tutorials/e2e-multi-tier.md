@@ -1,4 +1,6 @@
-﻿<properties linkid="dev-net-e2e-multi-tier" urldisplayname="Multi-Tier Application" headerexpose="" pagetitle="Java Multi-Tier Application" metakeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure Java Service Bus queue tutorial, Azure Java queue tutorial, Azure Java worker role tutorial, AzureJava Service Bus queue tutorial, Azure Java queue tutorial, Azure Java worker role tutorial " footerexpose="" metadescription="An end-to-end Java tutorial that helps you develop a multi-tier application in Windows Azure that includes web and worker roles and uses Service Bus queues to communicate between tiers." umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-java-tutorials-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle="Java Multi-Tier application - Windows Azure tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure Service Bus queue tutorial, Azure .NET worker role tutorial, Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial" metaDescription="A tutorial that helps you develop a multi-tier application in Windows Azure that uses Service Bus queues to communicate between tiers." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # Java Multi-Tier Application Using Service Bus Queues
 
@@ -95,7 +97,7 @@ container for addressing Service Bus resources within your application.
 
 To create a service namespace:
 
-1.  Log on to the [Windows Azure Management Portal](http://windows.azure.com) (note this is not the same portal as the Windows Azure Preview Management Portal).
+1.  Log on to the [Windows Azure Management Portal](http://manage.windowsazure.com).
 2.  In the lower left navigation pane of the Management Portal, click
     **Service Bus, Access Control & Caching**.
 3.  In the upper left pane of the Management Portal, click the **Service
@@ -180,11 +182,11 @@ The application will look similar to the following:
 
 - In the **Select JSP Template** dialog, for purposes of this tutorial select **New JSP File (html)** and click **Finish**.
 
-- When the index.jsp file opens in Eclipse, add in text to display Hello World! within the existing <body> element. Your updated <body> content should appear as the following. Save index.jsp.
+- When the index.jsp file opens in Eclipse, add in text to display Hello World! within the existing <body> element. Your updated `<body>` content should appear as the following. Save index.jsp.
 
-			<body>
-			  <b><% out.println("Hello World!"); %></b>
-			</body>
+		<body>
+			<b><% out.println("Hello World!"); %></b>
+		</body>
 
 - In the left-hand pane of the **Properties** dialog, click **Java Build Path**.
 
@@ -345,7 +347,7 @@ provided.
 
 - In the **Publish Azure Project** dialog, click **Publish**. When prompted to perform a full build, click **Yes**. This may take several minutes for the first build.
 
-- A **Windows Azure Activity Log** will display in your Eclipse tabbed views section. You can use that view, as well as the **Console** view, to see the progress of your deployment. An alternative is to log in to the Windows Azure Management Portal, http://windows.azure.com, and use the **Hosted Services** section to monitor the status.
+- A **Windows Azure Activity Log** will display in your Eclipse tabbed views section. You can use that view, as well as the **Console** view, to see the progress of your deployment. An alternative is to log in to the Windows Azure Management Portal, http://manage.windowsazure.com, and use the **Hosted Services** section to monitor the status.
 
 - Because this was a deployment to a staging environment, the DNS will be of the form http://<guid>.cloudapp.net. You can see the DNS name if you click the deployment name in the Windows Azure Platform Management Portal (you may need to expand the Hosted Service node to see the deployment name); the DNS name is in the right hand pane of the portal.
 

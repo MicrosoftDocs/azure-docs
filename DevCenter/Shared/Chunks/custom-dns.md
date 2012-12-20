@@ -14,9 +14,7 @@ This task will show you how to:
 -   [Expose Your Application on a Custom Domain][]
 -   [Expose Your Data on a Custom Domain][]
 
-<a name="access-app"> </a>
-
-<h2>Expose your application on a custom domain</h2>
+<h2><a name="access-app"></a>Expose your application on a custom domain</h2>
 
 There are two ways you can configure the Domain Name Server (DNS) settings on your domain
 registrar to point to your Windows Azure hosted service:
@@ -83,9 +81,7 @@ end user.
 	settings, or create an A record as described earlier.</p>
 </div>
 
-<a name="access-data"> </a>
-
-<h2>Expose your data on a custom domain</h2>
+<h2><a name="access-data"></a>Expose your data on a custom domain</h2>
 
 This section describes how to associate your own custom domain with a
 Windows Azure storage account. When you complete the tasks in this
@@ -167,40 +163,22 @@ Management Portal and others in your domain registrar's portal.
 
 1.  Log on to the [Windows Azure Management Portal][].
 
-2.  In the navigation pane, click **Hosted Services, Storage Accounts &
-    CDN**.
+2.  In the **Web Sites** tab, click the name of your storage account.
 
-3.  At the top of the navigation pane, click **Storage Accounts**.
+3.  Click the **Configure** tab.
 
-4.  In the items list, click the storage account that you want to
-    associate with a custom subdomain.
+4.  At the bottom of the screen click **Manage Domains**.
 
-5.  On the ribbon, in the **Custom Domain** group, click **Add Domain**.
+5.  On the **Manage Custom Domai**n dialog, in the **Domain name** field, enter your domain name.
 
-    The **Add a Custom Domain** dialog box opens.
+6. Click **register**.
 
-6.  In the **Custom domain name** field, enter the subdomain that you
-    will use to reference blob containers for the storage account (for
-    example, data.contoso.com), and then click **OK**.
+    The **CName record** text box populates with the URL you need to use to validate the domain.  
 
-    The **Validate Custom Domain** dialog box (shown below) opens. The
-    dialog box displays the information that you need to create a CNAME
-    record on the domain registrar's website.
+7.  Copy the URL and paste into an email or a text editor for later
+    use.
 
-    ![Validate Custom Domain dialog box][]
-
-7.  Use the **Copy** button at the right end of each field to copy the
-    alias and destination host name that you will use in the CNAME
-    record, and paste these values into email or a text editor for later
-    use. At the confirmation prompt, click **Yes** to allow the values
-    to be copied to the Clipboard. You will paste these values into the
-    website of your domain registrar in the next procedure.
-
-    The items list shows the new custom subdomain under the storage
-    account. The custom domain has **Pending** status until you validate
-    the subdomain in the Management Portal. Your next step is to create
-    a CNAME record that Windows Azure will use to confirm that you
-    control the subdomain.
+    You must now register the CNAME record above with your provider that points URI provided to verify.azure.com. Clicking the validate button before you have configure the CNAME record with your registrar will return the message "There is no DNS record for '&lt;URL>' that points to 'verify.azure.com'. Create a record with your DNS provider and try again. DNS records can take some time to propagate. If you think you have already configured this properly then try again in a few minutes."
 
 <a name="create-cname"> </a>
 
@@ -229,26 +207,19 @@ Management Portal and others in your domain registrar's portal.
 
 <h2>Validate the subdomain in Windows Azure</h2>
 
-1.  In the Windows Azure Management Portal, in the navigation pane,
-    click **Hosted Services, Storage Accounts & CDN**.
+1.  In the **Web Sites** tab, click the name of your storage account.
 
-2.  At the top of the navigation pane, click **Storage Accounts**.
+2.  Click the **Configure** tab.
 
-3.  In the items list, under the storage account, click the custom
-    subdomain that you want to validate.
+3.  At the bottom of the screen click **Manage Domains**.
 
-4.  On the ribbon, in the **Custom Domain** group, click **Validate
-    Domain**.
+4.  On the **Manage Custom Domain** click **validate**.
 
-    If the validation is successful, the status of the custom subdomain
-    changes to **Allowed**.
+    If the validation is successful, you will get the message **Your custom domain is active**.
 
     <div class="dev-callout">
 	<b>Note</b>
-	<p>If the validation is not successful, the <strong>Validate Custom
-    Domain</strong> dialog box displays a validation status of <strong>Validation
-    Failed</strong>, and the items list shows the custom subdomain status as    <strong>Forbidden</strong>. In that case, you might need to wait awhile longer to allow the updated domain record to finish propagating to all name
-    servers on the Internet.</p>
+	<p>If the validation is not successful you will receive the message "There is no DNS record for '&lt;URL>' that points to 'verify.azure.com'. Create a record with your DNS provider and try again. DNS records can take some time to propagate. If you think you have already configured this properly then try again in a few minutes."</p>
 	</div>
 
     <div class="dev-callout">
@@ -298,13 +269,12 @@ data.contoso.com custom subdomain that maps to a blob in your
 ## Additional Resources
 
 -   [How to Map CDN Content to a Custom Domain][]
--   [How to Configure a Custom Domain for a Windows Azure Hosted Service][]
 
   [Expose Your Application on a Custom Domain]: #access-app
   [Expose Your Data on a Custom Domain]: #access-data
   [VIP swaps]: http://msdn.microsoft.com/en-us/library/ee517253.aspx
   [Create a CNAME record that associates the subdomain with the storage account]:
     #create-cname
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [Validate Custom Domain dialog box]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
   [How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx

@@ -1,4 +1,6 @@
-<properties linkid="dev-net-tutorials-hybrid-solution" urldisplayname="Hybrid Application" headerexpose="" pagetitle="Hybrid On-Premise /Cloud Application" metakeywords="Azure Service Bus tutorial, Azure Service Bus relay tutorial, Azure hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial, Azure C# Service Bus tutorial, Azure C# Service Bus relay tutorial, Azure C# hybrid tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop an application that uses the Windows Azure Service Bus relay to connect between two applications." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Windows Azure" metaKeywords="Azure Service Bus tutorial  hybrid .NET" metaDescription="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Windows Azure Service Bus Relay." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -78,17 +80,22 @@ to get the tools and set-up your development environment.
 
     [Get Tools and SDK][]
 
-2.  When prompted to run or save **WindowsAzureSDKForNet.exe**, click
+2. 	Click **install the SDK**.
+
+3. 	Choose the link for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2012:
+
+	![][42]
+
+4.  When prompted to run or save **WindowsAzureSDKForNet.exe**, click
     **Run**:
 
     ![][2]
 
-3.  Click on **Install** in the installer window and proceed with the
-    installation:
+5.  In the Web Platform Installer, click **Install** and proceed with the installation:
 
     ![][3]
 
-4.  Once the installation is complete, you will have everything
+6.  Once the installation is complete, you will have everything
     necessary to start developing. The SDK includes tools that let you
     easily develop Windows Azure applications in Visual Studio. If you
     do not have Visual Studio installed, it also installs the free
@@ -463,11 +470,12 @@ display data retrieved from your product service.
     		</tr>	
 		}
 
-</table>
+		</table>
 
 
 9.  To verify the accuracy of your work so far, you can press **F6** or
     **Ctrl+Shift+B** to build the project.
+
 
 ### RUN YOUR APPLICATION LOCALLY
 
@@ -723,8 +731,8 @@ Run the application to verify that it works.
     The following steps show you how to stop and delete your
     application.
 
-    1.  Login to the Windows Azure Management Portal,
-        http://windows.azure.com, and click on Hosted Sevices, Storage
+    1.  Login to the [Windows Azure Management Portal],
+        and click on Hosted Sevices, Storage
         Accounts & CDN, then Hosted Services:
 
         ![][33]
@@ -738,9 +746,9 @@ Run the application to verify that it works.
 
   [0]: ../../../DevCenter/dotNet/Media/hybrid.png
   [1]: ../../../DevCenter/dotNet/Media/App2.png
-  [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkID=234939&clcid=0x409
+  [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [2]: ../../../DevCenter/dotNet/Media/getting-started-3.png
-  [3]: ../../../DevCenter/dotNet/Media/getting-started-4.png
+  [3]: ../../../DevCenter/dotNet/Media/getting-started-4-WebPI.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [4]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-32.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
@@ -782,3 +790,4 @@ Run the application to verify that it works.
   [39]: ../../../DevCenter/dotNet/Media/sb-queues-09.png
   [40]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [41]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-40.png
+  [42]: ../Media/getting-started-41.png

@@ -9,7 +9,7 @@ This folder contains all the information that an individual needs to start contr
 ### Setting up your Fork of the Repository
 
 1.	The first step to contributing to this project is setting up a GitHub account.  If you have not done so already go to [GitHub Home] [] and do so now.
-2.	Now that you have an account, you also need a copy of Git on your machine.  Follow the instructions in the [Setting up Git Tutorial] [Set Up Git].
+2.	Now that you have an account, you also need a copy of Git on your computer.  Follow the instructions in the [Setting up Git Tutorial] [Set Up Git].
 3.	Now that machine is set up with Git, you need a fork of this repository.  Go to the top of the page and click the **Fork** button.  You now have your own fork of this repository.
 4.	The last step involves copying your fork to your local machine.  To do this go open GitBash.  On the command prompt enter:
 
@@ -41,7 +41,7 @@ Each branch should be limited to a single concept/article both to streamline wor
 #### Create a New Branch
 
 1.	Open GitBash
-2.	Type `git pull upstream master:<new branch name>` in the prompt.  This will create a new branch locally copied from the latest WindowsAzure master branch.
+2.	Type `git pull upstream weekly:<new branch name>` in the prompt.  This will create a new branch locally copied from the latest WindowsAzure master branch.
 3.	Type `git push origin <new branch name>` in the prompt.  This will alert GitHub to the new branch.  You should now be able to see the new branch in your fork of the repository on GitHub.
 4.	Type `git checkout <new branch name>` to switch to your new branch.
 

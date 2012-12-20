@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Use the Queue Service from PHP" metaKeywords="Windows Azure, Queue Service, Queue Storage, PHP" metaDescription="Learn how to use the Windows Azure Queue Service from PHP applications." linkid="dev-php-howto-queue-service" urlDisplayName="How to Use the Queue Service from PHP" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-php-queue-service" urlDisplayName="Queue Service" pageTitle="How to use the queue service (PHP) - Windows Azure feature guide" metaKeywords="Windows Azure Queue Service messaging PHP" metaDescription="Learn how to use the Windows Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to use the Queue service from PHP
 
@@ -386,5 +388,5 @@ Now that you’ve learned the basics of the Windows Azure Queue service, follow 
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
-[Windows Azure Management Portal]: http://windows.azure.com/
+[Windows Azure Management Portal]: http://manage.windowsazure.com/
 [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx

@@ -1,3 +1,5 @@
-<properties umbracoNaviHide="0" pageTitle="Using CDN in Windows Azure" metaKeywords="CDN, Windows Azure, Azure" metaDescription="" linkid="manage-services-other-cdn" urlDisplayName="Using CDN" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-other-cdn" urlDisplayName="CDN" pageTitle="CDN - Windows Azure service management" metaKeywords="Windows Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons" metaDescription="Learn how to use the Windows Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 <div chunk="../../../devcenter/shared/chunks/cdn.md" />

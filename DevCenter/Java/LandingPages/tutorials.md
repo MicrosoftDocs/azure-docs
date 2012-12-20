@@ -1,5 +1,7 @@
-# Java Developer Center - Tutorials
+<properties linkid="devnav-java-tutorials" urlDisplayName="Tutorials" pageTitle="Windows Azure Java tutorials" metaKeywords="Java tutorials Windows Azure, Java tutorials Azure, Azure Java tutorials, Azure Java" metaDescription="Find tutorials about using Java with Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+# Java Developer Center - Tutorials
 ### [How to run a Java application server on a virtual machine][java_application_server]
 
 Create a virtual machine running on Windows Azure and configure it to run Tomcat, a Java application server. You will learn how to use Windows Azure Virtual Machines to host Java applications.

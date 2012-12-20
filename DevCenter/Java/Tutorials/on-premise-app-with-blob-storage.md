@@ -1,4 +1,7 @@
-<properties umbraconavihide="0" pagetitle="On-Premises Application with Blob Storage - How To - Java - Develop" metakeywords="Azure Blob Storage Java" metadescription="The following example shows you how you can use Windows Azure storage to store images in Windows Azure using the Java programming language." linkid="dev-java-how-to-on-premise-application-with-blob-storage" urldisplayname="Application Using Blobs" headerexpose="" footerexpose="" disquscomments="1"></properties>
+﻿<properties linkid="dev-java-how-to-on-premise-application-with-blob-storage" urlDisplayName="Image Gallery w/ Storage" pageTitle="On-premises application with blob storage (Java) - Windows Azure" metaKeywords="Azure blob storage, Azure blob Java, Azure blob example, Azure blob tutorial" metaDescription="Learn how to create a console application that uploads an image to Windows Azure, and then displays the image in your browser. Code samples in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # On-Premises Application with Blob Storage
 

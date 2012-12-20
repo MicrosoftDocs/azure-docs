@@ -1,2 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="How to Create a Custom Virtual Machine" metaKeywords="" metaDescription="" linkid="manage-windows-howto-custom-create-vm" urlDisplayName="Custom create a VM" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-windows-howto-custom-create-vm" urlDisplayName="Custom create a VM" pageTitle="Custom create a virtual machine in Windows Azure" metaKeywords="Azure creating vm" metaDescription="Learn how to create a Windows Azure virtual machine." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 <div chunk="../../Shared/Chunks/howto-custom-create-vm.md" />

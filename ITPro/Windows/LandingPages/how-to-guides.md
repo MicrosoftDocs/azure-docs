@@ -1,5 +1,7 @@
-#How to guides for Windows virtual machines
+<properties linkid="manage-windows-how-to" urlDisplayName="How to guides" pageTitle="Windows Azure Windows virtual machine how-to guides" metaKeywords="Azure VMs, Windows vms, Windows virtual machine, Azure virtual machine" metaDescription="Find topics about Windows virtual machines (VMs) on Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+#How to guides for Windows virtual machines
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
 ###[How to Create a Custom Virtual Machine](/en-us/manage/windows/how-to-guides/custom-create-a-vm/)

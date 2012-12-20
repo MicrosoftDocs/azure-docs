@@ -1,2 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="How to Set Up Endpoints in a Virtual Machine" metaKeywords="" metaDescription="" linkid="manage-linux-howto-setup-endpoints-vm" urlDisplayName="Set up endpoints" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-linux-howto-set-up-endpoints" urlDisplayName="Set up endpoints" pageTitle="Set up endpoints on a virtual machine running Linux" metaKeywords="" metaDescription="Learn how to set up communication between Windows Azure virtual machines." metaCanonical="http://www.windowsazure.com/en-us/manage/windows/how-to-guides/setup-endpoints/" disqusComments="1" umbracoNaviHide="0" />
+
+
 <div chunk="../../Shared/Chunks/howto-setup-endpoints.md" />

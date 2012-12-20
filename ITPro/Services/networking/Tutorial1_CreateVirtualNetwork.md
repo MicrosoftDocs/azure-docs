@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Tutorial 1: Creating a Virtual Network in Windows Azure" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Learn how to configure Windows Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-create-a-virtual-network" urlDisplayName="Create a virtual network" pageTitle="Create a virtual network - Windows Azure service management" metaKeywords="" metaDescription="Learn how to create a Windows Azure Virtual Network." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 
 <h1 id="vnettut1">Create a Virtual Network in Windows Azure</h1>
@@ -36,7 +38,7 @@ In this tutorial you will learn:
 
 	![Image1][]
 
-3.	In the navigation pane, click **Network**, and then click **Custom Create**.
+3.	In the navigation pane, click **Networks**, click **Virtual Network**, and then click **Custom Create**.
 
 	![Image2][]
 
@@ -73,7 +75,7 @@ In this tutorial you will learn:
  
 	![Image5] []
 
-7.	You now have a virtual network in Windows Azure, which you can see on the portal's **Virtual Network** tab.
+7.	You now have a virtual network in Windows Azure, which you can see on the portal's **Virtual Networks** tab.
 
 
 	![Image6] []
@@ -84,7 +86,7 @@ If you'd like, you can continue with the following tutorials:
 
 - [Add a Virtual Machine to a Virtual Network](../add-a-vm-to-a-virtual-network/)
 
-*  [Install a new Active Directory forest in Windows Azure](../active-directory-forest/) - Use this tutorial to install a new Active Directory forest without connectivity to any other network. The tutorial will explain the specific steps required to create virtual machines (VMs) for a new forest installation. If you plan to use this tutorial, do not create any VMs via the Management Portal.  
+*  [Install a new Active Directory forest in Windows Azure](../active-directory-forest/) - Use this tutorial to install a new Active Directory forest without connectivity to any other network. The tutorial will explain the specific steps required to create a virtual machine (VM) for a new forest installation. If you plan to use this tutorial, do not create any VMs via the Management Portal.  
 
 ## See Also
 

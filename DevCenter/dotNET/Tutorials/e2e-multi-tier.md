@@ -1,4 +1,6 @@
-<properties linkid="dev-net-e2e-multi-tier" urldisplayname="Multi-Tier Application" headerexpose="" pagetitle=".NET Multi-Tier Application" metakeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET Service Bus queue tutorial, Azure .NET queue tutorial, Azure .NET worker role tutorial, Azure C# Service Bus queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop a multi-tier application in Windows Azure that includes web and worker roles and uses Service Bus queues to communicate between tiers." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-e2e-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Windows Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" metaDescription="A tutorial that helps you develop a multi-tier app in Windows Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -99,17 +101,22 @@ to get the tools and set-up your development environment.
 
     [Get Tools and SDK][]
 
-    When prompted to run or save the installation file, click
+2. 	Click **install the SDK**.
+
+3. 	Choose the link for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2012:
+
+	![][32]
+
+4. 	When prompted to run or save the installation file, click
     **Run**:
 
     ![][3]
 
-2.  Click **Install** in the installer window and proceed with the
-    installation:
+5.  In the Web Platform Installer, click **Install** and proceed with the installation:
 
     ![][4]
 
-3.  Once the installation is complete, you will have everything
+6.  Once the installation is complete, you will have everything
     necessary to start developing. The SDK includes tools that let you
     easily develop Windows Azure applications in Visual Studio. If you
     do not have Visual Studio installed, it also installs the free
@@ -592,9 +599,9 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
   [0]: ../Media/getting-started-multi-tier-01.png
   [1]: ../Media/getting-started-multi-tier-100.png
   [2]: ../Media/getting-started-multi-tier-101.png
-  [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkID=234939&clcid=0x409
+  [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [3]: ../Media/getting-started-3.png
-  [4]: ../Media/getting-started-4.png
+  [4]: ../Media/getting-started-4-WebPI.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [5]: ../Media/getting-started-12.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
@@ -624,3 +631,4 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
   [28]: ../Media/getting-started-multi-tier-40.png
   [30]: ../Media/sb-queues-09.png
   [31]: ../Media/sb-queues-06.png
+  [32]: ../Media/getting-started-41.png

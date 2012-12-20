@@ -1,2 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="Load Balancing Virtual Machines" metaKeywords="" metaDescription="" linkid="manage-windows-loadbalancing-vms" urlDisplayName="Load Balancing VMs" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-windows-common-tasks-detach-a-disk" urlDisplayName="Load Balance VMs" pageTitle="Load Balance a Virtual Machine (Linux) - Windows Azure" metaKeywords="" metaDescription="Learn how to load balance Windows Azure virtual machines." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 <div chunk="../../Shared/Chunks/load-balancing-vms.md" />

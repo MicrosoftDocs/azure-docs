@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Create a Virtual Machine Running Windows Server 2008 R2" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="dev-net-tutorials-windows-virtual-machine" urlDisplayName="Windows Virtual Machine" pageTitle="Create a virtual machine (.NET) - Windows Azure tutorial" metaKeywords="" metaDescription="Learn how to create a Windows Azure virtual machine with Windows Server 2008 R2." metaCanonical="http://www.windowsazure.com/en-us/manage/windows/tutorials/virtual-machine-from-gallery/" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 

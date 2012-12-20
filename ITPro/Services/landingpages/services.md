@@ -1,5 +1,7 @@
-<div class="dev-articles">
-<h1>Services</h1>
+<properties linkid="develop-net" urlDisplayName="Services" pageTitle="Services in Windows Azure | Manage" metaKeywords="" metaDescription="Find information about Windows Azure services and management." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+
+
+<div class="dev-articles"><h1>Services</h1>
 <div class="article green">
 <h3><a href="./cloud-services">Cloud Services</a></h3>
 <p>Learn how to create, configure, manage, monitor, and scale cloud services in Windows Azure.</p>

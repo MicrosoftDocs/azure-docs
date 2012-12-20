@@ -1,4 +1,6 @@
-<properties linkid="dev-net-commons-tasks-remote-desktop" urldisplayname="Remote Desktop" headerexpose="" pagetitle="Enable Remote Desktop - .NET - Develop" metakeywords="Azure remote access, Azure remote connection, Azure VM access, Azure virtual machine access, Azure .NET remote access, Azure .NET remote connection, Azure .NET VM access, Azure .NET virtual machine access, Azure C# remote access, Azure C# remote connection, Azure C# VM access, Azure C# virtual machine access, Azure Visual Studio remote access, Azure Visual Studio remote connection" footerexpose="" metadescription="Learn how to enable remote-desktop access for the virtual machines hosting your Windows Azure application. " umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-commons-tasks-remote-desktop" urlDisplayName="Remote Desktop" pageTitle="Enable remote desktop for cloud services - Windows Azure" metaKeywords="Azure remote access, Azure remote connection, Azure VM access, Azure virtual machinesAzure .NET remote access,  Azure C# remote access, Azure Visual Studio remote access" metaDescription="Learn how to enable remote-desktop access for the virtual machines hosting your Windows Azure application. " metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # Enabling Remote Desktop in Windows Azure with Visual Studio
 
@@ -81,7 +83,7 @@ application.
            <li>On the <strong>Windows Azure Publish Sign In</strong> page, click the <strong>Sign in to download credentials</strong> link. You will be prompted to sign in to the Windows Azure Management Portal, and then to download a .publishsettings file.</li>
            <li>Save the .publishsettings file locally.</li>
            <li>Click the <strong>Import</strong> button and select the .publishsettings file you just downloaded.</li>
-           <li>Back on the <strong>Windows Azure Publish Sign In</strong> page, the subscription associated with the .publishsettings file you just imported will be selected. Click <strong>Next</strong> to continue.
+           <li>Back on the <strong>Windows Azure Publish Sign In</strong> page, the subscription associated with the .publishsettings file you just imported will be selected. Click <strong>Next</strong> to continue.</li>
            </ol></p>
     </div>
     </div>  
@@ -147,7 +149,7 @@ manage your application on the instance itself.
   [0]: ../../../DevCenter/dotNet/Media/remote-desktop-01.png
   [1]: ../../../DevCenter/dotNet/Media/remote-desktop-02.png
   [Setting Up Named Authentication Credentials]: http://msdn.microsoft.com/en-us/library/windowsazure/ff683676.aspx
-  [Windows Azure Management Portal]: http://windows.azure.com/
+  [Windows Azure Management Portal]: http://manage.windowsazure.com/
   [2]: ../../../DevCenter/dotNet/Media/remote-desktop-03.png
   [3]: ../../../DevCenter/dotNet/Media/remote-desktop-04.png
   [4]: ../../../DevCenter/dotNet/Media/remote-desktop-05.png

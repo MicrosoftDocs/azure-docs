@@ -1,5 +1,8 @@
-<properties linkid="dev-nodejs-enablestaging" urldisplayname="Staging Deployment" headerexpose="" pagetitle="Enable Staging Deployment - Node.js - Develop" metakeywords="Azure Node.js staging, Azure Node.js application staging, Azure Node.js test environment, Azure Node.js staging environment, Azure Node.js Virtual IP swap, Azure Node.js VIP swap" footerexpose="" metadescription="Deploy your Windows Azure Node.js application to a staging environment with an obfuscated URL, then use Virtual IP (VIP) swap to move to production." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-enablestaging" urlDisplayName="Staging Deployment" pageTitle="Stage a cloud service deployment (Node.js) - Windows Azure" metaKeywords="Azure staging, Azure application staging, Azure test environment, Azure staging environment, Azure Virtual IP swap, Azure VIP swap" metaDescription="Learn how to deploy your Windows Azure application to a staging environment, then deploy to a production environment using Virtual IP (VIP) swap." metaCanonical=" " disqusComments="1" umbracoNaviHide="0" />
 
+
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # Staging an Application in Windows Azure
 
@@ -22,7 +25,7 @@ This task includes the following steps:
 -   [Step 1: Stage an Application]
 -   [Step 2: Deploy an Application to Production by Swapping VIPs]
 
-## Step 1: Stage an Application
+<h2><a id="step1"></a>Step 1: Stage an Application</h2>
 
 This task covers how to stage an application by using the **Windows
 Azure PowerShell**.
@@ -51,7 +54,7 @@ version of one that has already been deployed to production, you can
 [upgrade the application in the production environment by swapping the
 VIPs][Step 2: Deploy an Application to Production by Swapping VIPs].
 
-## Step 2: Upgrade an Application in Production by Swapping VIPs
+<h2><a id="step2"></a>Step 2: Upgrade an Application in Production by Swapping VIPs</h2>
 
 After you have verified the upgraded version of an application in the
 staging environment, you can quickly make it available in production by

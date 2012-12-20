@@ -1,4 +1,6 @@
-<properties linkid="register-twitter-auth" urldisplayname="Mobile Services" headerexpose="" pagetitle="Register your apps for Twitter login with Mobile Services" metakeywords="Twitter, mobile devices, Windows Azure, mobile, authentication" footerexpose="" metadescription="Windows Developer Preview registration steps for Mobile Services using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-mobile-how-to-guides-register-for-twitter-authentication" urlDisplayName="Register for Twitter Authentication" pageTitle="Register for Twitter authentication - Mobile Services" metaKeywords="Windows Azure registering application, Azure Twitter authentication, application authenticate, authenticate mobile services, Mobile Services Twitter" metaDescription="Learn how to use Twitter authentication with your Windows Azure Mobile Services application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
+
+
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
@@ -19,14 +21,14 @@ This topic shows you how to register your apps to be able to use Twitter to auth
    ![][2]
 
     <div class="dev-callout"><b>Note</b>
-    <p>The **Website** value is required but is not used.</p>
+    <p>The <strong>Website</strong> value is required but is not used.</p>
     </div> 
 
 3.  At the bottom the page, read and accept the terms, type the correct CAPTCHA words, and then click **Create your Twitter application**. 
 
    ![][3]
 
-   This reigsters the app displays the application details.
+   This registers the app displays the application details.
 
 6. Make a note of the values of **Consumer key** and **Consumer secret**. 
 

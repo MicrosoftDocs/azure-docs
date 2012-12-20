@@ -1,4 +1,6 @@
-<properties linkid="mobile-services-get-started-with-data-ios" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with data in Windows Azure Mobile Services" metakeywords="access and change data, Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, iPhone, iPad, iOS app" footerexpose="" metadescription="More in-depth review of how to access and change in your iOS-based app using Windows Azure Mobile Services." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-mobile-tutorials-get-started-with-data-ios" urlDisplayName="Get Started with Data" pageTitle="Get started with data (iOS) - Windows Azure Mobile Services" metaKeywords="Windows Azure iOS data, Azure mobile services data, " metaDescription="Learn how to store and access data from your Windows Azure Mobile Services iOS app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
@@ -7,8 +9,14 @@
   <a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios/" title="iOS version" class="current">iOS app</a>
 </div>-->
 
-# Get started with data in Mobile Services for iOS
-<h3><a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet">Windows Store C#</a> / <a href="/en-us/develop/mobile/tutorials/get-started-with-data-js">Windows Store JavaScript</a> / <strong>iOS</strong></h3>
+# Get started with data in Mobile Services
+<div class="dev-center-tutorial-selector"> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone 8">Windows Phone 8</a> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS" class="current">iOS</a> 
+</div>	
+
 
 _The iOS client library for Mobile Services is currently under development on [GitHub][GitHub repo]. We welcome feedback on and contributions to this library._
 
@@ -257,7 +265,7 @@ This concludes the **Get started with data** tutorial for iOS.
 
 This tutorial demonstrated the basics of enabling an iOS app to work with data in Mobile Services. 
 
-<!--Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:
+Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:
 
 * [Validate and modify data with scripts]
   <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
@@ -265,9 +273,7 @@ This tutorial demonstrated the basics of enabling an iOS app to work with data i
 * [Refine queries with paging]
   <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
 
-Once you have completed the data series, -->
-
-Next, try the iOS tutorial [Get started with authentication] to learn how to authenticate users of your app.
+Once you have completed the data series, try the iOS tutorial [Get started with authentication] to learn how to authenticate users of your app.
 
 <!--* [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app with Mobile Services.

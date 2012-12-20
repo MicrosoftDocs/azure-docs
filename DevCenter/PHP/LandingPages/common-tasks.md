@@ -1,5 +1,7 @@
-#PHP Developer Center - Common tasks
+<properties linkid="devnav-php-commontasks" urlDisplayName="Common Tasks" pageTitle="Windows Azure PHP Common Tasks" metaKeywords="Azure PHP" metaDescription="Find topics about using PHP in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+#PHP Developer Center - Common tasks
 ### [Downloading the Windows Azure SDK for PHP][]
 The Windows Azure SDK for PHP includes everything you need to build PHP applications for Windows Azure. This task provides details about how to install the components of the Windows Azure SDK for PHP: the **PHP client libraries for Windows Azure**, the **Windows Azure Command-Line Tools for Mac and Linux**, the **Windows Azure PowerShell cmdlets**, and the **Windows Azure Emulators**.
 
@@ -33,7 +35,7 @@ The Windows Azure Content Delivery Network (CDN) offers a global solution for de
 [Configuring PHP in Web Sites]: /en-us/develop/php/common-tasks/configure-php-web-site/
 [Managing Windows Azure SQL Database using SQL Server Management Studio]: /en-us/develop/php/common-tasks/sql-azure-management/
 [Configuring a Custom Domain Name for a Windows Azure Web Site]: /en-us/develop/net/common-tasks/custom-dns-web-site/
-[Configuring a Custom Domain Name for a Windows Azure Cloud Service or Storage Account]: /en-us/develop/net/common-task/enable-custom-dns/
+[Configuring a Custom Domain Name for a Windows Azure Cloud Service or Storage Account]: /en-us/develop/php/common-tasks/custom-dns-web-site/
 [Enabling Remote Desktop in Windows Azure]: /en-us/develop/php/common-tasks/enable-remote-desktop/
 [Configuring SSL for an Application in Windows Azure]: /en-us/develop/php/common-tasks/enable-ssl/
 [Using CDN for Windows Azure]: /en-us/develop/php/common-tasks/cdn/

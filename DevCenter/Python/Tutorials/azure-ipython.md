@@ -1,5 +1,7 @@
-# IPython Notebook on Windows Azure
+<properties linkid="develop-python-ipython-notebook" urlDisplayName="IPython Notebook" pageTitle="IPython Notebook - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that shows how to deploy the IPython Notebook on Windows Azure, using Linux or Windows virtual machines (VMs)." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+
+# IPython Notebook on Windows Azure
 
 For a quick overview of installation and IPython, please watch:
 
@@ -148,7 +150,7 @@ using the Windows PowerShell to run all command line actions.
         easy_install pyzmq
 
 4.  Download and install [NumPy][numpy] and [Matplotlib][matplotlib] using the
-    `.exe` binary installers available on their respective websites.
+    `.exe` binary installers available on their respective web sites.
 
 5.  Download and install OpenSSL. You will need to install both the 
     "Win32 OpenSSL v1.0.1c Light" and "Visual C++ 2008  Redistributable" from
@@ -284,7 +286,7 @@ explanatory videos with computation for educational purposes:
 
 ![Screenshot](../Media/ipy-notebook-006.png)
 
-or embed external websites that remain live and usable, inside of a notebook
+or embed external web sites that remain live and usable, inside of a notebook
 file:
 
 ![Screenshot](../Media/ipy-notebook-007.png)

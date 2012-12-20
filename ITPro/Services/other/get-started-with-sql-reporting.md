@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Getting started with Windows Azure SQL Reporting" metaKeywords="" metaDescription="" linkid="manage-services-other-sql-reporting" urlDisplayName="SQL Reporting" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-sql-reporting" urlDisplayName="SQL Reporting" pageTitle="SQL Reporting - Windows Azure service management" metaKeywords="" metaDescription="A tutorial that teaches you how to use the SQL Reporting Management portal in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 #Getting started with Windows Azure SQL Reporting#
 
 In this tutorial you will learn about how to manage an instance of SQL Reporting report server and other administrative tasks through SQL Reporting Management portal.

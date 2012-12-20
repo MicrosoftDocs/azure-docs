@@ -1,4 +1,6 @@
-<properties linkid="dev-php-how-to-service-bus-queues" urldisplayname="Service Bus Queues" headerexpose="" pagetitle="Service Bus Queues - How To - PHP - Develop" metakeywords="Windows Azure, PHP, Service Bus, Queues, Service Bus Queues" footerexpose="" metadescription="Learn how to use Windows Azure Service Bus Queues from PHP." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-php-how-to-guides-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (PHP) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues PHP" metaDescription="Learn how to use Service Bus queues in Windows Azure. Code samples written in PHP." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to Use Service Bus Queues
 
@@ -246,7 +248,7 @@ topic [Queues, Topics, and Subscriptions][] for more information.
 
 [download-sdk]: http://go.microsoft.com/fwlink/?LinkId=252473
 [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
-[Windows Azure Management Portal]: http://windows.azure.com/
+[Windows Azure Management Portal]: http://manage.windowsazure.com/
 [Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
 [Create a New Namespace screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_03_CreateNewSvcNamespace.jpg
 [Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg

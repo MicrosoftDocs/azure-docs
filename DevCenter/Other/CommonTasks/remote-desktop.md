@@ -1,2 +1,4 @@
-<properties linkid="dev-other-commons-tasks-remote-desktop" urlDisplayName="Remote Desktop" headerExpose="" pageTitle="Enable Remote Desktop - Other - Develop" metaKeywords="" footerExpose="" metaDescription="Learn how to enable remote-desktop access for the virtual machines hosting your Windows Azure application. " umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="dev-node-remotedesktop" urlDisplayName="Enable Remote Desktop" pageTitle="Enable remote desktop for cloud services (Other) - Windows Azure" metaKeywords="Azure C++ remote, Azure C++ virtual machine, Azure Ruby remote, Azure Ruby virtual machine, Azure Python remote, Azure Python virtual machine" metaDescription="Learn how to enable remote-desktop access for the virtual machines hosting your Windows Azure C++, Ruby, or Python application." metaCanonical="http://www.windowsazure.com/en-us/develop/php/common-tasks/enable-remote-desktop/" disqusComments="1" umbracoNaviHide="0" />
+
+
 <div chunk="../../Shared/Chunks/remote-desktop.md" />

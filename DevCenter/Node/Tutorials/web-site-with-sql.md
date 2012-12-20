@@ -1,4 +1,7 @@
-<properties linkid="dev-nodejs-website-sql" urldisplayname="Node.js Website with sql" headerexpose="" pagetitle="Node.js Application using the Windows Azure SQL Database" metakeywords="Azure Node.js tutorial sql, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates deploying a Node.js application using the Windows Azure SQL Database" umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="develop-nodejs-tutorials-web-site-with-sql-database" urlDisplayName="Web site with SQL Database" pageTitle="Node.js web site with SQL Database - Windows Azure tutorial" metaKeywords="" metaDescription="Learn how to create a Node.js website that accesses a SQL Database and is deployed to Windows Azure" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
 # Node.js Web Application using the Windows Azure SQL Database
 
 This tutorial shows you how to use SQL Database provided by Windows Azure Data Management to store and access data from a [node] application hosted on Windows Azure. This tutorial assumes that you have some prior experience using node and [Git].

@@ -1,24 +1,40 @@
 <properties umbracoNaviHide="0" pageTitle="How to Configure PHP in Windows Azure Web Sites" metaKeywords="Windows Azure, Windows Azure Web Sites, configuration, PHP" metaDescription="Learn how to configure the default PHP installation or add a custom PHP installation in Windows Azure Web Sites." linkid="" urlDisplayName="How to Configure PHP in Windows Azure Web Sites" headerExpose="" footerExpose="" disqusComments="1" />
 
+<div chunk="../chunks/article-left-menu.md" />
+
 #How to configure PHP in Windows Azure Web Sites
 
-This guide will show you how to configure the default PHP runtime, provide a custom PHP runtime, and enable extensions in Windows Azure Web Sites. To use Windows Azure Web Sites, sign up for the [free trial]. To get the most from this guide, you should first create a PHP site in Windows Azure Web Sites (see the [PHP Developer Center Tutorials]). For general information on configuring sites in Windows Azure Web Sites, see [How to Configure Websites].
+This guide will show you how to configure the built-in PHP runtime in Windows Azure Web Sites, provide a custom PHP runtime, and enable extensions in Windows Azure Web Sites. To use Windows Azure Web Sites, sign up for the [free trial]. To get the most from this guide, you should first create a PHP site in Windows Azure Web Sites (see the [PHP Developer Center Tutorials]). For general information on configuring sites in Windows Azure Web Sites, see [How to Configure Websites].
 
 ##Table of Contents
 
 * [What is Windows Azure Web Sites?](#WhatIs)
-* [How to: Change the default PHP configuration](#ChangeDefaultPHP)
-* [How to: Enable extensions in the default PHP runtime](#EnableExtDefaultPHP)
+* [How to: Change the default PHP configuration](#ChangeBuiltInPHP)
+* [How to: Enable extensions in the built-in PHP runtime](#EnableExtDefaultPHP)
 * [How to: Use a custom PHP runtime](#UseCustomPHP)
-* [How to: Enable XDebug](#EnableXDebug)
-* [How to: Get error logs](#GetErrorLogs)
 * [Next steps](#NextSteps)
 
 <h2 id="WhatIs">What is Windows Azure Web Sites?</h2>
 Windows Azure Web Sites allows you to build highly scalable websites on Windows Azure. You can quickly and easily deploy sites to a highly scalable cloud environment that allows you to start small and scale as traffic grows. Windows Azure Web Sites uses the languages and open source apps of your choice and supports deployment with Git, FTP, and TFS. You can easily integrate other services like MySQL, SQL Database, Caching, CDN, and Storage.
 
-<h2 id="ChangeDefaultPHP">How to: Change the default PHP configuration</h2>
-By default, a version of PHP is installed and immediately available for use when you create a Windows Azure Web Site. The best way to see the available version, its default configuration, and the enabled extensions is to deploy a script that calls [phpinfo()]. You can change any of the configuration options that are not system-level-only directives by following the steps below. (For information about system-level-only directives, see [List of php.ini directives].)
+<h2 id="ChangeBuiltInPHP">How to: Change the built-in PHP configuration</h2>
+By default, PHP 5.3 is installed and immediately available for use when you create a Windows Azure Web Site. The best way to see the available release revision, its default configuration, and the enabled extensions is to deploy a script that calls [phpinfo()].
+
+PHP 5.4 is also available, but not enabled by default. To enable it, follow these steps:
+
+1. Browse to your website's dashboard in the Windows Azure Portal, click on **CONFIGURE**.
+
+	![Configure tab on Web Sites dashboard][configure]
+
+2. Click PHP 5.4.
+
+	![Select PHP version][select-php-version]
+
+3. Click **SAVE** at the bottom of the page.
+
+	![Save configuration settings][save-button]
+
+For either of the built-in PHP runtimes, you can change any of the configuration options that are not system-level-only directives by following the steps below. (For information about system-level-only directives, see [List of php.ini directives].)
 
 1. Add a [.user.ini] file to your root directory.
 2. Add configuration settings to the `.user.ini` file using the same syntax you would use in a `php.ini` file. For example, if you wanted to turn the `display_errors` setting on and set `upload_max_filesize` setting to 10 MB, your `.user.ini` file would contain this text:
@@ -39,10 +55,15 @@ As noted in the previous section, the best way to see the default PHP version, i
 2. Put `.dll` extension files in the `bin` directory (for example, `php_mongo.dll`). Make sure that the extensions are compatible with default version of PHP (which is, as of this writing, PHP 5.3) and are VC9 and non-thread-safe (nts) compatible.
 3. Deploy your application.
 4. Navigate to your site’s dashboard in the Windows Azure Portal, and click on **CONFIGURE**.
+
 	![Configure tab on Web Sites dashboard][configure]
+
 5. In the **app settings** section, create a key **PHP_EXTENSIONS** and a value **bin\your-ext-file**. To enable multiple extensions, incude a comma-separated list of `.dll` files.
+
 	![Enable extension in app settings][app-settings]
+
 6. Click **SAVE** at the bottom of the page.
+
 	![Save configuration settings][save-button]
 
 <h2 id="UseCustomPHP">How to: Use a custom PHP runtime</h2>
@@ -54,10 +75,15 @@ Instead of the default PHP runtime, Windows Azure Web Sites can use a PHP runtim
 4. Add `bin` directory to your root directory, and put the directory that contains your PHP runtime in it (for example, `bin\php`).
 5. Deploy your application.
 6. Navigate to your site’s dashboard in the Windows Azure Portal, and click on **CONFIGURE**.
+
 	![Configure tab on Web Sites dashboard][configure]
+
 7. In the **handler mappings** section, add `*.php` to EXTENSION and add the path to the `php-cgi.exe` executable. If your put your PHP runtime in the `bin` directory in the root of you application, the path will be `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
+
 	![Specify handler in hander mappings][handler-mappings]
+
 8. Click **SAVE** at the bottom of the page.
+
 	![Save configuration settings][save-button]
 
 <h2 id="NextSteps">Next steps</h2>
@@ -71,6 +97,7 @@ Now that you’ve learned how to configure PHP in Windows Azure Web Sites, follo
 [PHP Developer Center Tutorials]: https://www.windowsazure.com/en-us/develop/php/tutorials/
 [How to Configure Websites]: https://www.windowsazure.com/en-us/manage/services/web-sites/how-to-configure-websites/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
+[select-php-version]: ../Media/select-php-version.png
 [List of php.ini directives]: http://www.php.net/manual/en/ini.list.php
 [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
 [ini_set()]: http://www.php.net/manual/en/function.ini-set.php
