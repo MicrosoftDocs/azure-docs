@@ -1,2 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="Windows Azure Execution Models" metaKeywords="" metaDescription="" linkid="manage-fundamentals-compute" urlDisplayName="Execution Models" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-fundamentals-compute" urlDisplayName="Compute" pageTitle="Windows Azure execution models - Windows Azure fundamentals" metaKeywords="Azure vm, Azure websites, Azure cloud service" metaDescription="An introduction to virtual machines, web sites, and cloud services in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 <div chunk="../../../devcenter/Shared/Chunks/windows-azure-execution-models.md" />

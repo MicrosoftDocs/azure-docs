@@ -1,5 +1,7 @@
-# Node.js Developer Center - How To Guides
+<properties linkid="devnav-node-howto" urlDisplayName="How To Guides" pageTitle="Windows Azure Node.js feature guides" metaKeywords="Azure node, Azure node.js" metaDescription="Find topics about using Windows Azure services and features in Node.js." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+# Node.js Developer Center - How To Guides
 ## Service management ##
 
 ### [PowerShell for Windows Azure]

@@ -1,4 +1,6 @@
-<properties linkid="dev-python-mysql" urlDisplayName="Web App with MySQL" headerExpose="" pageTitle="Django Hello World - MySQL Edition" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+﻿<properties linkid="develop-python-web-app-with-django-and-mysql" urlDisplayName="Web with Django + MySQL" pageTitle="Python web app with Django and MySQL - Windows Azure tutorial" metaKeywords="Azure django web app, Azure Django MySQL, Azure django Python" metaDescription="A tutorial that teaches you how to use MySQL in with Django on a Windows Azure virtual machine. Code samples written in Python." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 # Django Hello World - MySQL Windows Edition #
   
 This tutorial describes how to use MySQL in conjunction with Django on a single Windows Azure virtual machine. This guide assumes that you have some prior experience using Windows Azure and Django. For an introduction to Windows Azure and Django, see [Django Hello World] [djangohelloworld]. The guide also assumes that you have some knowledge of MySQL. For an overview of MySQL, see the [MySQL website][mysqldoc].
@@ -193,20 +195,20 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 		    return HttpResponse("<html><body>Hello <em>" + world + "</em></body></html>")
 
 
-## Deploying and running your Django website
+## Deploying and running your Django web site
 
 Note: The following shows how to run Django in a test environment. To run it in production, follow the "Setting up IIS with FastCGI" section in the "Django Hello World tutorial". Using the Windows Firewall Client to open port 80 to Internet traffic on the Windows Server 2K8 R2 virtual machine is not necessary with FastCGI.
 
 
 
-1.  Switch back to a Windows PowerShell window, and type the following commands to deploy your Django website publically:
+1.  Switch back to a Windows PowerShell window, and type the following commands to deploy your Django web site publically:
 
 		PS C:\django\helloworld> $ipPort = [System.Net.Dns]::GetHostEntry("127.0.0.1")
 		PS C:\django\helloworld> $ipPort = [string]$ipPort.AddressList[1]
 		PS C:\django\helloworld> $ipPort += ":80"
 		PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
 
-    The **runserver** parameter instructs Django to run our *helloworld* website on TCP port *80*. The results of this command should be similar to:
+    The **runserver** parameter instructs Django to run our *helloworld* web site on TCP port *80*. The results of this command should be similar to:
 
 		PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
 		Validating models...
@@ -220,9 +222,8 @@ Note: The following shows how to run Django in a test environment. To run it in 
 
     ![][5]
 
-  Refresh the web browser a few times and you should see the message change from *"Hello **&lt;country abc&gt;**"* to *"Hello **&lt;some other country&gt;**"*.
-
-1.  To stop Django from hosting the website, simply switch to the PowerShell window and press **CTRL-C**.
+  Refresh the web browser a few times and you should see the message change from *"Hello **&lt;country abc&gt;**"* to *"Hello **&lt;some other country&gt;**"*.
+1.  To stop Django from hosting the web site, simply switch to the PowerShell window and press **CTRL-C**.
 
 
 ## Shutting down your Windows Azure virtual machine

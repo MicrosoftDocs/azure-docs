@@ -1,5 +1,7 @@
-# Introduction to Hadoop on Windows Azure
+<properties linkid="develop-dotnet-intro-to-hadoop" urlDisplayName="Intro to Hadoop" pageTitle="Intro to Hadoop (.NET) - Windows Azure tutorials" metaKeywords="Azure Hadoop introduction, Hadoop Azure basics, intro Azure Hadoop" metaDescription="Learn about using Hadoop on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+
+# Introduction to Hadoop on Windows Azure
 **Overview**	
 Apache™ Hadoop™-based Services for Windows Azure is a service that deploys and provisions clusters in the cloud, providing a software framework designed to manage, analyze and report on big data. 
 

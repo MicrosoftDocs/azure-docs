@@ -1,4 +1,6 @@
-<properties linkid="mobile-services-paging-data-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Refine Mobile Services queries with paging" metakeywords="access and change data, Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Validate and modify data sent to the Windows Azure Mobile Services from a Windows app." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-mobile-tutorials-add-paging-to-data-dotnet" urlDisplayName="Add Paging to Your Data" pageTitle="Add paging to your data - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to add paging to your data in Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14809" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
@@ -9,8 +11,14 @@
   <span>Tutorial</span>
 </div>-->
 
-# Refine Mobile Services for Windows Store queries with paging
-<h3><strong>Windows Store C#</strong> / <a href="/en-us/develop/mobile/tutorials/add-paging-to-data-js">Windows Store JavaScript</a></h3>
+# Refine Mobile Services queries with paging
+<div class="dev-center-tutorial-selector"> 
+	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
+	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
+	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-wp8" title="Windows Phone 8">Windows Phone 8</a> 
+    <a href="/en-us/develop/mobile/tutorials/add-paging-to-data-ios" title="iOS">iOS</a> 
+</div>
+
 
 This topic shows you how to use paging to manage the amount of data returned to your Windows Store app from Windows Azure Mobile Services. In this tutorial, you will use the **Take** and **Skip** query methods on the client to request specific "pages" of data.
 
@@ -65,7 +73,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
    This query skips the first three results and returns the next three after that. This is effectively the second "page" of data, where the page size is three items.
 
     <div class="dev-callout"><b>Note</b>
-    <p>This tutorial uses a simplified scenario by passing hard-coded paging values to the <strong>Take</strong> and <strong>Skip</strong> methods. In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages.</p>
+    <p>This tutorial uses a simplified scenario by passing hard-coded paging values to the <strong>Take</strong> and <strong>Skip</strong> methods. In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages. You can also call the  <strong>IncludeTotalCount</strong> method to get the total count of items available on the server, along with the paged data.</p>
     </div>
 
 6. (Optional) Again view the URI of the request sent to the mobile service. 

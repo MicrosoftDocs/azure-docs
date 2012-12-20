@@ -1,4 +1,4 @@
-# How to use Windows Azure PowerShell
+﻿# How to use Windows Azure PowerShell
 
 This guide describes how to use Windows PowerShell cmdlets to create,
 test, deploy, and manage Windows Azure Services. The
@@ -26,11 +26,13 @@ service**, and **stopping, starting, and removing a service**.
  * [How to: Use a storage account with more than one service](#StorageAcctMultipleServices)  
  * [How to: Deploy a cloud service to Windows Azure](#Deploy)   
  * [How to: Update a deployed service](#Update)   
- * [How to: Scale out a service](#Scale)   
+ * [How to: Scale out a service](#Scale)
+ * [How to: Create a dedicated cache](#Cache)   
  * [How to: Stop, start, and remove a service](#StopStartRemove)
+ * [How to: Create and manage a Windows Azure Web Site](#WebSite)
  * [How to: Create, modify, and remove a SQL Database server](#SqlDatabase)
 
-<h2 id="WhatIs">What is Windows Azure PowerShell</h2>
+<h2><a id="WhatIs"></a>What is Windows Azure PowerShell</h2>
 
 Windows Azure PowerShell provides a command-line environment
 for developing and deploying applications for Windows Azure through
@@ -50,7 +52,7 @@ The following tasks are supported:
 -   Enable and disable remote access to service role instances.
 -   Start, stop, and remove services.
 
-<h2 id="GetStarted">Get started using Windows Azure PowerShell</h2>
+<h2> <a id="GetStarted"></a>Get started using Windows Azure PowerShell</h2>
 
 The recommended way to install the Windows Azure PowerShell cmdlets is via the [Microsoft Web Platform Installer][wpi-installer]. After installing and launching the Web Platform Installer, select **Windows Azure PowerShell** and follow the prompts to install the cmdlets. The Web Platform Installer will install all dependencies for the Windows Azure PowerShell cmdlets. Note that you can also select **Windows Azure SDK for Node.js - July 2012** or **Windows Azure SDK for PHP - July 2012** as these SDKs will include the Windows Azure PowerShell cmdlets.
 
@@ -161,7 +163,7 @@ service are entered at the following command prompt:
 
     C:\app\MyService>
 
-<h2 id="ImportPubSettings">How to: Import publishing settings</h2>
+<h2><a id="ImportPubSettings"></a>How to: Import publishing settings</h2>
 
 To deploy your applications in Windows Azure, you must have a
 Windows Azure subscription. If you do not have a Windows Azure
@@ -174,9 +176,9 @@ must download your subscription information (by using
 **Import-AzurePublishSettingsFile**).
 
 The **Get-AzurePublishSettingsFile** cmdlet opens a web page on the
-Customer Portal from which you can
-download the publishing profile. You will need to log on to the Customer
-Portal using the credentials for your Windows Azure account.
+[Windows Azure Management Portal] from which you can
+download the publishing profile. You will need to login to the
+portal using the credentials for your Windows Azure account.
 
 When you download the publishing profile, note the path and the name of
 your settings file. You must provide this information when you use
@@ -210,11 +212,11 @@ Co-Administrators for Your Windows Azure Subscription][add-remove-coadmins].
 downloaded using <b>Get-AzurePublishSettingsFile</b> after you import those
 settings. The downloaded profile contains a management certificate that
 should not be accessed by unauthorized users. If you need information
-about your subscriptions, you can get it from the <a href="http://windows.azure.com/">Windows Azure Management Portal</a> or the <a href="https://mocp.microsoftonline.com/site/default.aspx">Microsoft Online Services Customer Portal</a>.</p> 
+about your subscriptions, you can get it from the <a href="http://manage.windowsazure.com/">Windows Azure Management Portal</a> or the <a href="https://mocp.microsoftonline.com/site/default.aspx">Microsoft Online Services Customer Portal</a>.</p> 
 </div>
 
 
-<h2 id="CreateService">How to: Create a Windows Azure service</h2>
+<h2><a id="CreateService"></a>How to: Create a Windows Azure service</h2>
 
 Use the **New-AzureServiceProject** cmdlet to create the scaffolding for a
 cloud service for your application.
@@ -263,7 +265,7 @@ instances.
 
     PS C:\app\MyService> Add-AzureNodeWebRole MyWebRole -I 2
 
-<h2 id="TestLocally">How to: Test a service locally in the Windows Azure Emulators</h2>
+<h2><a id="TestLocally"></a>How to: Test a service locally in the Windows Azure Emulators</h2>
 
 The [Start-AzureEmulator][] cmdlet starts the service in the Windows
 Azure compute emulator and also starts the Windows Azure storage
@@ -289,7 +291,7 @@ the emulator.
 
     PS C:\app\MyService> Stop-AzureEmulator
 
-<h2 id="DefaultDeploymentOptions">How to: Set default deployment options for a service</h2>
+<h2><a id="DefaultDeploymentOptions"></a>How to: Set default deployment options for a service</h2>
 
 You can use the **Set-AzureServiceProject** cmdlet with the **-Location**, **-Slot**, **-Subscription** and **-Storage** parameters to set the default deployment location, slot (Staging or Production), Windows Azure subscription, and
 storage account to use when you deploy a service. The default options
@@ -357,7 +359,7 @@ default subscription to use for the MyService service.
 
     PS C:\app\MyService> Set-AzureServiceProject -Subscription Contoso_Finance
 
-<h2 id="StorageAcctMultipleServices">How to: Use a storage account with more than one service</h2>
+<h2><a id="StorageAcctMultipleServices"></a>How to: Use a storage account with more than one service</h2>
 
 When you deploy a new service, by default, a new storage account is
 created in the deployment location, and the application package and
@@ -404,7 +406,7 @@ service directory.
 
     PS C:\app\MyService> Set-AzureServiceProject -Storage ContosoUS
 
-<h2 id="Deploy">How to: Deploy a cloud service to Windows Azure</h2>
+<h2><a id="Deploy"></a>How to: Deploy a cloud service to Windows Azure</h2>
 
 When you are ready to deploy your service to Windows Azure, use the
 **Publish-AzureServiceProject** cmdlet. When you deploy a new cloud service,
@@ -557,7 +559,7 @@ the current service deployment.
 
     PS C:\app\MyService> Publish-AzureServiceProject -Subscription ContosoFinance -Sl staging -L "North Central US"
 
-<h2 id="Update">How To: Update a deployed service</h2>
+<h2><a id="Update"></a>How To: Update a deployed service</h2>
 
 When you use **Publish-AzureServiceProject** on a deployed service, the service is either
 updated in place or a new deployment is created. The update method
@@ -605,7 +607,7 @@ location is used.
 
     PS C:\app\MyService> Publish-AzureServiceProject -Location "North Europe" -StorageAccountName NorthEuropeStore
 
-<h2 id="Scale">How to: Scale out a service</h2>
+<h2><a id="Scale"></a>How to: Scale out a service</h2>
 
 You can scale a running service out or in by using the **Set-AzureRole** cmdlet to add or remove instances to
 a web role or a worker role.
@@ -616,7 +618,36 @@ The following example shows how to update the MyService service by changing the 
 
 Note that the **Set-AzureRole** cmdlet does not require you to republish the service since it updates the deployed service configuration file.
 
-<h2 id="StopStartRemove">How to: Stop, start, and remove a service</h2>
+<h2 id="Cache">How to: Create a dedicated cache</h2>
+
+The Windows Azure PowerShell cmdlets allow you set up a worker role as a dedicated cache, and configure web roles to access the cache using the memcache protocol.
+
+To create a dedicated cache in an existing project, use the **Add-AzureCacheWorkerRole** cmdlet. The following example adds a role called `mycacherole`:
+
+	PS C:\app\MyService New-AzureCacheWorkerRole -Name mycacherole
+
+You can then configure a web role to access the dedicated cache using the memcache protocol by using the **Enable-AzureMemcacheRole** cmdlet. The following example configures an existing web role (called `mywebrole`) to access the dedicated cache (`mycacherole`):
+
+	PS C:\app\MyService Enable-AzureMemcacheRole mywebrole mycacherole
+
+Clients that can use the memcache protocol (such as PHP and Node.js) can then connect to the dedicated cache using the host name `localhost_mywebrole` (on port 11211 by default). The following examples show example connection code for PHP and Node.js:
+
+**PHP**
+
+	$memcache = new Memcache;
+	$memcache->connect('localhost_mywebrole', 11211) or die ("Could not connect");
+
+**Node.js**
+
+	var mc = require("mc");
+	var mcclient = new mc.Client('localhost_mywebrole');
+	mcclient.connect(function() {    
+		console.log("Connected to the localhost memcache on port 11211!");
+	});
+
+For information about Caching pricing, see [Pricing Details][pricing-details-caching].
+
+<h2><a id="StopStartRemove"></a>How to: Stop, start, and remove a service</h2>
 
 A deployed application, even if it is not running, continues to accrue
 billable time for your subscription. Therefore, it is important that you
@@ -652,7 +683,68 @@ You can bypass the prompt by using the **-Force** option with the **Remove-Azure
 
     PS C:\app\MyService> Remove-AzureService -ServiceName MyService -Force 
 
-<h2 id="SqlDatabase">How to: Create, modify, and remove a SQL Database server</h2>
+<h2><a id="WebSite"></a>How to: Create and manage a Windows Azure Web Site</h2>
+
+Many of the website creation and management tasks that you can perform in the [Windows Azure Management Portal] can be performed using the Windows Azure Powershell cmdlets. The sections below show you how to perform some basic tasks. For a complete list of website cmdlets, use the `help` command:
+
+	PS C:\MySite> help website
+
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>The examples below assume that the root directory of your local site is <code>MySite</code>.</p> 
+</div>
+
+###Create a website
+
+You can create a website with the **New-AzureWebsite** command. The following command shows how to create a new site called `mysite`. The URL for the site will be `mysite.azurewebsites.net`.
+
+	PS C:\MySite> New-AzureWebsite mysite
+
+####Deploy with Git
+
+To create a website that is Git-enabled, you must have Git installed locally, and the Git executable must be in your Path environment variable. The following example shows you how to create a website (`mysite`) that is Git-enabled:
+
+	PS C:\MySite> New-AzureWebsite mysite -Git
+
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>When you run the command above from a directory that is not a Git repository, you will receive the following message, even though the command was successful: <code>fatal: Not a git repository (or any of the parent directories): .git</code>.</p> 
+</div>
+
+If the local directory is not a Git repository, the command will create one for you. After the repository has been created (or if it was a repository to begin with), the command will also create a remote repository (`azure`) and create a reference to it in your local repository. You can then proceed to add, commit, and push changes to the remote repository:
+
+	git add .
+	git commit -m "your commit comments"
+	git push azure master
+
+####Deploy from GitHub
+
+If you have a local clone of a GitHub repository or if you have a local repository with single remote reference to a GitHub repository, you can use the **-Github** flag when creating a new website to enable publishing from GitHub:
+
+	PS C:\MySite> New-AzureWebsite mysite -Github
+
+This command will immediately publish content in your GitHub repository. From then on, any changes pushed to the repository will automatically be published. 
+
+After you have pushed changes, you can use the **Get-AzureWebsiteDeployment** cmdlet to get deployment information:
+
+	PS C:\MySite> Get-AzureWebsiteDeployment
+
+###Configure app settings
+
+App settings are key-value pairs that are available to your application at runtime. In ASP.NET web applications, app settings are accessible via the [Configuration.AppSettings] property and will override settings with the same key defined in the Web.config file. For Node.js and PHP applications, app settings are available as environment variables. The following example shows you how to set a key-value pair:
+
+	PS C:\MySite> $settings = @{"myKey" = "myValue"}
+	PS C:\MySite> Set-AzureWebsite -AppSettings $settings
+
+###Start, stop, or restart a website
+
+The Windows Azure PowerShell cmdlets allow you to start, stop, or restart a website with the following commands:
+
+	PS C:\MySite> Start-AzureWebsite
+	PS C:\MySite> Stop-AzureWebsite
+	PS C:\MySite> Restart-AzureWebsite
+
+<h2><a id="SqlDatabase"></a>How to: Create, modify, and remove a SQL Database server</h2>
 
 Windows Azure SQL Database is a cloud-based relational database platform built on SQL Server technologies. (For more information, see [Introducing Windows Azure SQL Database][sql-database].) Windows Azure Powershell provides cmdlets that allow you to create, modify, and remove SQL Database servers.
 
@@ -735,7 +827,7 @@ The command above will require confirmation that you want to delete the specifie
   [Import-AzurePublishSettings]: http://msdn.microsoft.com/en-us/library/windowsazure/hh757264(vs.103).aspx
   [Microsoft Online Services Customer Portal]: https://mocp.microsoftonline.com/site/default.aspx
   [add-remove-coadmins]: http://msdn.microsoft.com/en-us/library/windowsazure/gg456328.aspx
-  [Windows Azure Management Portal]: http://windows.azure.com/
+  [Windows Azure Management Portal]: http://manage.windowsazure.com/
   [New-AzureService]: http://msdn.microsoft.com/en-us/library/windowsazure/hh757269(vs.103).aspx
   [Add-AzureNodeWebRole]: http://msdn.microsoft.com/en-us/library/windowsazure/hh757267(vs.103).aspx
   [Add-AzureNodeWorkerRole]: http://msdn.microsoft.com/en-us/library/windowsazure/hh757254(vs.103).aspx
@@ -760,4 +852,5 @@ The command above will require confirmation that you want to delete the specifie
   [Configuring SSL for a Node.js Application in Windows Azure]: http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/enable-ssl/
 [wpi-installer]: http://go.microsoft.com/fwlink/?LinkId=253447
 [sql-database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336230.aspx
-
+[pricing-details-caching]: http://www.windowsazure.com/en-us/pricing/details/#header-8
+[Configuration.AppSettings]: http://msdn.microsoft.com/en-us/library/system.configuration.configurationmanager.appsettings.aspx

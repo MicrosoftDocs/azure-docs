@@ -1,5 +1,7 @@
-# Java Developer Center - How To Guides
+<properties linkid="devnav-java-howto" urlDisplayName="How To Guides" pageTitle="Windows Azure Java feature guides" metaKeywords="Azure Java" metaDescription="Find topics about using Windows Azure services and features in Java." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+# Java Developer Center - How To Guides
 ## Data management and integration
 
 ### [Blob Service][blob_service]
@@ -13,6 +15,11 @@ Service Bus Queues offer simple first in, first out guaranteed message delivery 
 ### [Service Bus Topics][service_bus_topics]
 
 Service Bus Topics provide a publish/subscribe messaging model to support one-to-many communication. You can optionally register filter rules for a topic on a per-subscription basis, which allows you to restrict which messages to a topic are received by which topic subscriptions.
+
+### [Service Bus AMQP][service_bus_amqp]
+
+The Advanced Message Queuing Protocol (AMQP) 1.0 is an efficient, reliable, wire-level messaging protocol that can be used to build robust, cross-platform, messaging applications. This guide explains how to use the Service Bus brokered messaging features (queues and publish/subscribe topics) from Java applications using the popular Java Message Service (JMS) API standard. For a complete overview of AMQP support in Windows Azure, see [AMQP 1.0 support in Windows Azure Service Bus][service_bus_amqp_overview].
+
 
 ### [Queue Service][queue_service]
 
@@ -53,6 +60,8 @@ Windows Azure applications can use Twilio to incorporate phone call and Short Me
 [blob_service]: ../howto/blob-storage.md
 [service_bus_queues]: ../howto/service-bus-queues.md
 [service_bus_topics]: ../howto/service-bus-topics.md
+[service_bus_amqp]: /en-us/develop/java/how-to-guides/service-bus-amqp/
+[service_bus_amqp_overview]: ../howto/service-bus-amqp-overview.md
 [queue_service]: ../howto/queue-storage.md
 [table_service]: ../howto/table-storage.md
 [sql_database]: ../howto/using_sql_azure_in_java.md

@@ -1,4 +1,6 @@
-﻿<properties linkid="dev-net-how-to-autoscaling" urldisplayname="Autoscaling" headerexpose="" pagetitle="Autoscaling - How To - .NET - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-net-how-to-autoscaling" urlDisplayName="Autoscaling" pageTitle="Use the autoscaling application block (.NET) - Windows Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" metaDescription="Learn how to use the Autoscaling Application for Windows Azure. Code samples are written in C# and use the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -541,15 +543,15 @@ autoscaling scenarios:
   [diagram of sample autoscaling]: ../../../DevCenter/dotNET/Media/autoscaling01.png
   [Using Performance Counters in Windows Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
-  [files configured by autoscaling NuGet package]: ../../../DevCenter/dotNET/Media/autoscaling02.png
-  [image]: ../../../DevCenter/dotNET/Media/autoscaling03.png
-  [Set Copy to Output Directory value]: ../../../DevCenter/dotNET/Media/autoscaling04.png
-  [Windows Azure Management Portal]: http://windows.azure.com
-  [1]: ../../../DevCenter/dotNET/Media/autoscaling05.png
-  [2]: ../../../DevCenter/dotNET/Media/autoscaling06.png
-  [3]: ../../../DevCenter/dotNET/Media/autoscaling07.png
-  [4]: ../../../DevCenter/dotNET/Media/autoscaling08.png
-  [5]: ../../../DevCenter/dotNET/Media/autoscaling09.png
+  [files configured by autoscaling NuGet package]: ../../../DevCenter/dotNet/Media/auotscaling02.png
+  [image]: ../../../DevCenter/dotNet/Media/autoscaling03.png
+  [Set Copy to Output Directory value]: ../../../DevCenter/dotNet/Media/autoscaling04.png
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [1]: ../../../DevCenter/dotNet/Media/autoscaling05.png
+  [2]: ../../../DevCenter/dotNet/Media/autoscaling06.png
+  [3]: ../../../DevCenter/dotNet/Media/autoscaling07.png
+  [4]: ../../../DevCenter/dotNet/Media/autoscaling08.png
+  [5]: ../../../DevCenter/dotNet/Media/autoscaling09.png
   [Storing Your Service Information Data]: http://msdn.microsoft.com/en-us/library/hh680878(PandP.50).aspx
   [6]: ../../../DevCenter/dotNET/Media/autoscaling10.png
   [7]: ../../../DevCenter/dotNET/Media/autoscaling11.png

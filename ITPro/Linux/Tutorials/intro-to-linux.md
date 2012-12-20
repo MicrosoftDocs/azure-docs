@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Intro to Linux on Windows Azure" metaKeywords="" metaDescription="" linkid="manage-linux-fundamentals-intro-to-linux" urlDisplayName="Intro to Linux" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-linux-fundamentals-intro-to-linux" urlDisplayName="Intro to Linux" pageTitle="Introduction to Linux in Windows Azure - Windows Azure Tutorial" metaKeywords="Azure Linux vm, Linux vm" metaDescription="Learn about using Linux virtual machines on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 #Introduction to Linux on Windows Azure
 
 <div chunk="../../shared/chunks/disclaimer.md" />

@@ -1,4 +1,4 @@
-# Introducing Windows Azure
+﻿# Introducing Windows Azure
 
 Windows Azure is Microsoft's application platform for the public cloud. You can use this platform in many different ways. For instance, you can use Windows Azure to build a web application that runs and stores its data in Microsoft datacenters. You can use Windows Azure just to store data, with the applications that use this data running on-premises (that is, outside the public cloud). You can use Windows Azure to create virtual machines for development and test or to run SharePoint and other applications. You can use Windows Azure to build massively scalable applications with lots and lots of users. Because the platform offers a wide range of services, all of these things-and more-are possible.
 
@@ -24,7 +24,7 @@ To do any of them, though, you need to understand the basics. Even if you don't 
 
 
 
-<h2 id="components">The Components of Windows Azure</h2>
+<h2><a id="components"></a>The Components of Windows Azure</h2>
 
 To understand what Windows Azure offers, it's useful to group its
 services into distinct categories. Figure 1 shows one way to do this.
@@ -35,7 +35,7 @@ services into distinct categories. Figure 1 shows one way to do this.
 To get started with Windows Azure, you need to know at least the basics about each of its components. The rest of this article walks through the technologies shown in the figure, describing what each one offers and when you might use it.
 
 
-<h2 id="models">Execution Models</h2>
+<h2 id="models"><a id="models"></a>Execution Models</h2>
 
 One of the most basic things a cloud platform does is execute applications. Windows Azure provides three options for doing this, as Figure 2 shows. 
 
@@ -78,7 +78,7 @@ As Figure 2 shows, you have two roles to choose from when you create an instance
 Each of the three Windows Azure execution models has its own role to play. Windows Azure Virtual Machines provides a general-purpose computing environment, Windows Azure Web Sites offers low-cost web hosting, and Windows Azure Cloud Services is the best choice for creating scalable, reliable applications with low administration costs. And as mentioned earlier, you can use these technologies separately or combine them as needed to create the right foundation for your application. The approach you choose depends on what problems you're trying to solve.
 
 
-<h2 id="data">Data Management</h2>
+<h2 id="data"><a  id="data"></a>Data Management</h2>
 
 Applications need data, and different kinds of applications need different kinds of data. Because of this, Windows Azure provides several different ways to store and manage data. 
 
@@ -109,7 +109,7 @@ Don't be confused by the name: this technology doesn't provide relational storag
 The third option for data management, Windows Azure Blobs, is designed to store unstructured binary data. Like Tables, Blobs provides inexpensive storage, and a single blob can be as large as one terabyte. An application that stores video, for example, or backup data or other binary information can use blobs for simple, cheap storage. Windows Azure applications can also use Windows Azure drives, which let blobs provide persistent storage for a Windows file system mounted in a Windows Azure instance. The application sees ordinary Windows files, but the contents are actually stored in a blob.
 
 
-<h2 id="networking">Networking</h2>
+<h2><a id="networking"></a>Networking</h2>
 
 Windows Azure runs today in several datacenters spread across the United States, Europe, and Asia. When you run an application or store data, you can select one or more of these datacenters to use. You can also connect to these datacenters in various ways:
 
@@ -144,7 +144,7 @@ A Windows Azure application with users in just a single part of the world might 
 The owner of an application defines rules that specify how requests from users should be routed to datacenters, then relies on Traffic Manager to carry out these rules. For example, users might normally be routed to the closest Windows Azure datacenter, but get sent to another one when the response time from their default datacenter exceeds a certain threshold. For globally distributed applications with many users, having a built-in service to handle problems like these is useful.
 
 
-<h2 id="analytics">Business Analytics</h2>
+<h2><a id="analytics"></a>Business Analytics</h2>
 
 Analyzing data is a fundamental part of how businesses use information technology. A cloud platform provides a pool of on-demand, pay-per-use resources, which makes it a good foundation for this kind of computing. Accordingly, Windows Azure provides two options for business analytics. Figure 5 illustrates the choices.
 
@@ -170,7 +170,7 @@ As Figure 5 suggests, the Apache Hadoop-based Service for Windows Azure lets HDF
 
 
 
-<h2 id="messaging">Messaging</h2>
+<h2><a id="messaging"></a>Messaging</h2>
 
 No matter what it's doing, code frequently needs to interact with other code.  In some situations, all that's needed is basic queued messaging. In other cases, more complex interactions are required. Windows Azure provides a few different ways to solve these problems. Figure 6 illustrates the choices. 
 
@@ -193,7 +193,7 @@ Applications that communicate through Service Bus might be Windows Azure applica
 
 
 
-<h2 id="caching">Caching</h2>
+<h2><a id="caching"></a>Caching</h2>
 
 Applications tend to access the same data over and over. One way to improve performance is to keep a copy of that data closer to the application, minimizing the time needed to retrieve it. Windows Azure provides two different services for doing this: in-memory caching of data used by Windows Azure applications and a content delivery network (CDN) that caches blob data on disk closer to its users. Figure 7 shows both.
 
@@ -216,7 +216,7 @@ The CDN has dozens of sites around the world, each capable of storing copies of 
 
 
 
-<h2 id="identity">Identity</h2>
+<h2><a id="identity"></a>Identity</h2>
 
 Working with identity is part of most applications. For example, knowing who a user is lets an application decide how it should interact with that user. To help you do this, Microsoft provides Windows Azure Active Directory.
 
@@ -232,14 +232,14 @@ Directory services are a core underpinning of on-premises computing. It shouldn'
 
 
 
-<h2 id="HPC">High-Performance Computing</h2>
+<h2><a id="HPC"></a>High-Performance Computing</h2>
 
 One of the most attractive ways to use a cloud platform is for high-performance computing (HPC), The essence of HPC is executing code on many machines at the same time. On Windows Azure, this means running many virtual machines simultaneously, all working in parallel to solve some problem. Doing this requires some way to schedule applications, i.e., to distribute their work across these instances. To allow this, Windows Azure provides the HPC Scheduler. 
 
 This component can work with HPC applications built to use the industry-standard Message Passing Interface (MPI). Software that does finite element analysis, such as car crash simulations, is one example of this type of application, and there are many others. The HPC Scheduler can also be used with so-called embarrassingly parallel applications, such as Monte Carlo simulations. Whatever problem is addressed, the value it provides is the same: The HPC Scheduler handles the complex problem of scheduling parallel computing work across many Windows Azure virtual machines. The goal is to make it easier to build HPC applications running in the cloud. 
 
 
-<h2 id="media">Media</h2>
+<h2><a id="media"></a>Media</h2>
 
 Video makes up a large part of Internet traffic today, and that percentage will be even larger tomorrow. Yet providing video on the web isn't simple. There are lots of variables, such as the encoding algorithm and the display resolution of the user's screen. Video also tends to have bursts in demand, like a Saturday night spike when lots of people decide they'd like to watch an online movie. 
 
@@ -257,7 +257,7 @@ Applications that use this platform can run on Windows Azure or elsewhere. For e
 
 To distribute what it produces, an application can use the Windows Azure CDN, another CDN, or just send bits directly to users. However it gets there, video created using Media Services can be consumed by various client systems, including Windows, Macintosh, HTML 5, iOS, Android, Windows Phone, Flash, and Silverlight. The goal is to make it easier to create modern media applications. 
 
-<h2 id="commerce">Commerce</h2>
+<h2><a id="commerce"></a>Commerce</h2>
 
 The rise of Software as a Service is transforming how we create applications. It's also transforming how we sell applications. Since a SaaS application lives in the cloud, it makes sense that its potential customers should look for solutions online. And this change applies to data as well as to applications. Why shouldn't people look to the cloud for commercially available datasets? Microsoft addresses both of these concerns with Windows Azure Marketplace, illustrated in Figure 9.
 
@@ -267,7 +267,7 @@ The rise of Software as a Service is transforming how we create applications. It
 Potential customers can search the Marketplace to find Windows Azure applications that meet their needs, then sign up to use them either through the application's creator or directly through the Marketplace. Customers can search the Marketplace for commercial datasets as well, including demographic data, financial data, geographic data, and more. When they find something they like, they can access it either from the vendor or directly through the Marketplace. Applications can also use the Bing Search API through the Marketplace, giving them access to the results of web searches.
 
 
-<h2 id="sdk">SDKs</h2>
+<h2><a id="sdk"></a>SDKs</h2>
 
 Back in 2008, the very first pre-release version of Windows Azure supported only .NET development. Today, however, you can create Windows Azure applications in pretty much any language. Microsoft currently provides language-specific SDKs for .NET, Java, PHP, Node.js, and Python. There's also a general Windows Azure SDK that provides basic support for any language, such as C++. 
 
@@ -276,12 +276,12 @@ These SDKs help you build, deploy, and manage Windows Azure applications. They'r
 Along with helping you build Windows Azure applications, these SDKs also provide client libraries that help you create software running outside the cloud that uses Windows Azure services. For example, you might build an application running at a hoster that relies on Windows Azure blobs, or create a tool that deploys Windows Azure applications through the Windows Azure management interface. 
 
 
-<h2 id="start">Getting Started</h2>
+<h2><a id="start"></a>Getting Started</h2>
 
 Now that you have the big-picture, the next step is to write your first Windows Azure application. Choose your language, [get the appropriate SDK](http://www.windowsazure.com/en-us/develop/overview/), and go for it. Cloud computing is the new default--get started now.
 
 
-<h2 id="author">About the Author</h2>
+<h2><a id="author"></a>About the Author</h2>
 
 David Chappell is Principal of Chappell & Associates (www.davidchappell.com) in San Francisco, California. Through his speaking, writing, and consulting, he helps people around the world understand, use, and make better decisions about new technologies.
 

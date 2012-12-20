@@ -1,8 +1,24 @@
-<properties linkid="dev-net-how-to-blob-storage" urldisplayname="Blob Service" headerexpose="" pagetitle="How to Use the Blob Storage Service from .NET" metakeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob .NET, Azure blob storage .NET, Azure blob C#, Azure blob storage C#" footerexpose="" metadescription="Get started using the Windows Azure blob storage service to upload, download, list, and delete blob content." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (.NET) - Windows Azure feature guide" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob .NET, Azure blob C#, Azure blob C#" metaDescription="Learn how to use the Windows Azure blob service to upload, download, list, and delete blob content. Samples written in C# and use the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
+
+
+
+
+
+
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 
 # How to use the Windows Azure Blob Storage Service in .NET
+
+<div class="dev-center-tutorial-selector">
+<a href="/en-us/develop/net/how-to-guides/blob-storage-v17/" title="version 1.7" class="current">version 1.7</a>
+<a href="/en-us/develop/net/how-to-guides/blob-storage/" title="version 2.0">version 2.0</a> 
+</div>
+
 
 This guide will demonstrate how to perform common scenarios using the
 Windows Azure Blob storage service. The samples are written in C\# and

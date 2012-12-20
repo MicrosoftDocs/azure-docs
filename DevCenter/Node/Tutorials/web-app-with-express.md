@@ -1,6 +1,9 @@
-<properties linkid="dev-nodejs-basic-cloud-service-with-express" urldisplayname="Cloud Service With Express" headerexpose="" pagetitle="Cloud Service With Express" metakeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" footerexpose="" metadescription="An tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module" umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-nodejs-basic-web-app-with-express" urlDisplayName="Web App with Express" pageTitle="Web App with Express (Node.js) - Windows Azure Tutorial" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" metaDescription="An tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-#Build a Node.js web application using Express on a Windows Azure Cloud Service
+
+<div chunk="../chunks/article-left-menu.md" />
+
+# Build a Node.js web application using Express on a Windows Azure Cloud Service
 
 Node.js includes a minimal set of functionality in the core runtime.
 Developers often use 3rd party modules to provide additional

@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Scale a Cloud Service and Linked Resources" metaKeywords="Windows Azure cloud services, cloud service, scale cloud service, scale, scale linked resources" metaDescription="Learn how to scale a cloud service and linked resources." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-how-to-scale-a-cloud-service" urlDisplayName="How to scale" pageTitle="How to scale a cloud service - Windows Azure" metaKeywords="Azure link resource, scaling cloud service" metaDescription="Learn how to scale a cloud service and linked resources in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 #How to Scale a Cloud Service and Linked Resources
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />

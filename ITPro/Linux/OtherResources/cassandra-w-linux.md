@@ -1,5 +1,8 @@
+<properties linkid="services-linux-cassandra-with-linux" urlDisplayName="Cassandra with Linux" pageTitle="Run Cassandra with Linux on Windows Azure" metaKeywords="" metaDescription="Explains how to run a Cassandra cluster on Linux in Windows Azure Virtual Machines." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 <h1 id = "" > Running Cassandra with Linux on Windows Azure and Accessing it from Node.js </h1>
--Hanu Kommalapati
+**Author:** Hanu Kommalapati
 
 ## Table of Contents##
 
@@ -165,7 +168,7 @@ d.	On the “Specify endpoint details”  screen enter the following
 		<td>Unless you changed this in cassandra.yaml</td>
 	</tr>
 </table>
-After the above work, the first VM will display  cassandra endpoint with LOAD BALANCED field as “NO”. Ignore this for the moment as this will change to “YES” once we add this endpoint to the subsequent VMs
+After the above work, the first VM will display cassandra endpoint with LOAD BALANCED field as “NO”. Ignore this for the moment as this will change to “YES” once we add this endpoint to the subsequent VMs
 
 e.	Now select the second VM and add endpoint by repeating the above process with only minor difference that you will select “Load-balance traffic on an existing endpoint” and use “cassandra-960” from the drop down box.  At this stage, the endpoint mapping to both the VMs will change the status from LOAD BALANCED status “NO” to “YES”. 
 
@@ -185,27 +188,25 @@ Cassandra requires Java Virtual Machine and hence install the latest JRE using t
 
 **Step 2: Cassandra Installation**
 
-1.	Login using SSH to the Linux (Ubuntu) VM instance
+1.	Login using SSH to the Linux (Ubuntu) VM instance.
 
-2.	Download Cassandra bits from the mirror suggested here to “~/downloads” directory:  [http://www.apache.org/dyn/closer.cgi?path=/cassandra/1.1.0/apache-cassandra-1.1.0-bin.tar.gz](http://www.apache.org/dyn/closer.cgi?path=/cassandra/1.1.0/apache-cassandra-1.1.0-bin.tar.gz). <br/>
-Execute the following command at the shell prompt(this uses LSU mirror): <br/>
-wget [http://www.eng.lsu.edu/mirrors/apache/cassandra/1.0.10/apache-cassandra-1.0.10-bin.tar.gz](http://www.eng.lsu.edu/mirrors/apache/cassandra/1.0.10/apache-cassandra-1.0.10-bin.tar.gz) 
+2.	Use wget to download Cassandra bits from the mirror suggested at (http://cassandra.apache.org/download/)[http://cassandra.apache.org/download/] to “~/downloads” directory as apache-cassandra-bin.tar.gz. Please note that the version number is not included in the downloaded file to make sure that the publication remains agnostic of the version.
 
 3.	Unzip the tar ball into the default login directory by executing the following command: 
 	
-		tar -zxvf downloads/apache-cassandra-1.0.10-bin.tar.gz
-The above will expand Cassandra into apache-cassandra-1.0.10 directory.   
+		tar -zxvf downloads/apache-cassandra-bin.tar.gz
+The above will expand the archive into apache-cassandra- [version] directory.   
 
 4. Create the following two default directories for holding logs and data:
 
-		$ sudo mkdir /var/lib/cassandra
-		$ sudo mkdir /var/log/cassandra
+		$ sudo chown -R [user]:[group] /var/lib/cassandra
+		$ sudo chown -R [user]:[group] /var/log/cassandra
 5.	Grant write permissions to the user identity under which  Cassandra will run	
 
 		a.	sudo chown -R <user>:<group> /var/lib/cassandra
 		b.	sudo chown -R <user>:<group> /var/log/cassandra
 		To use current user context, replace the <user> and <group> with $USER and $GROUP
-6.	Start Cassandra from the apache-cassandra-1.0.10/bin directory using the following command: 
+6.	Start Cassandra from the apache-cassandra-[version]/bin directory using the following command: 
 
 		$ ./cassandra
 
@@ -217,7 +218,7 @@ The log should may show mx4j error. Cassandra will function fine without mx4j bu
 
 	a)	Download mx4j: wget [http://sourceforge.net/projects/mx4j/files/MX4J%20Binary/3.0.2/mx4j-3.0.2.tar.gz/download](http://sourceforge.net/projects/mx4j/files/MX4J%20Binary/3.0.2/mx4j-3.0.2.tar.gz/download) -O mx4j.tar.gz
 	b)	tar –zxvf mx4j.tar.gz
-	c)	cp mx4j-23.0.2/lib/*.jar ~/apache-cassandra-1.0.10/lib
+	c)	cp mx4j-23.0.2/lib/*.jar ~/apache-cassandra-<version>/lib
 	d)	rm –rf mx4j-23.0.2
 	e)	rm mx4j.tar.gz
 Restart Cassandra process at this stage
@@ -244,7 +245,7 @@ Edit cassandra.yaml to change the following properties in all the VMs:
 
 **a)	cluster_name**
 
-Default cluster name is set to ‘Test Cluster’; change it to something that reflects your application.  Example:  ‘AppStore’ .   if you had already started the cluster with “Test Cluster” for testing during the installation, you will get a cluster name mismatch error.  To fix this error, delete all the files under /var/lib/cassandra/data/system directory.
+Default cluster name is set to ‘Test Cluster’; change it to something that reflects your application.  Example:  ‘AppStore’ . If you had already started the cluster with “Test Cluster” for testing during the installation, you will get a cluster name mismatch error. To fix this error, delete all the files under /var/lib/cassandra/data/system directory.
 
 **b)	seeds**
 
@@ -324,10 +325,10 @@ Create a Linux VM on Windows Azure using the process described in the previous t
 
 **Step 1: Install Node.js and NPM**
 
-a)	install the pre-requisites 
+a)	Install the pre-requisites 
 
 	sudo apt-get install g++ libssl-dev apache2-utils make
-b)	we will use source from GitHub to compile and install; before we can clone the repo, we need to install the git core runtime:
+b)	We will use source from GitHub to compile and install; before we can clone the repo, we need to install the git core runtime:
 
 	sudo apt-get install git-core
 c)	Clone Node repo

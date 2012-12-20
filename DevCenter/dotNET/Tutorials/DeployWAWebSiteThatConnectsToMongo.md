@@ -1,5 +1,7 @@
-<div chunk="../chunks/article-left-menu.md" />
-#Create a Windows Azure web site that connects to MongoDB running on a virtual machine in Windows Azure
+<properties linkid="develop-dotnet-website-with-mongodb-vm" urlDisplayName="Web site with MongoDB VM" pageTitle=".NET web site with MongoDB on a virtual machine - Windows Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" metaDescription="A tutorial that teaches you how to use Git to deploy an ASP.NET app to a Windows Azure web site connected to MongoDB on a virtual machine." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
+<div chunk="../chunks/article-left-menu.md" />#Create a Windows Azure web site that connects to MongoDB running on a virtual machine in Windows Azure
 
 Using Git, you can deploy an ASP.NET application to a Windows Azure web site. In this tutorial, you will build a simple front-end ASP.NET MVC task list application that connects to a MongoDB database running in a virtual machine in Windows Azure.  [MongoDB][MongoDB] is a popular open source, high performance NoSQL database. After running and testing the ASP.NET application on your development computer, you will upload the application to a Windows Azure web site using Git.
 

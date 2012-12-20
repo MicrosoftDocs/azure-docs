@@ -1,3 +1,5 @@
+<div chunk="../chunks/article-left-menu.md" />
+
 # Debugging Windows Azure Web Sites in Node.js
 
 iisnode is a native IIS module that allows hosting of node.js applications in IIS on Windows. When you hosted a Node.js web site on Windows Azure, it's running in issnode. This article describes several useful debugging features provided in iisnode. 

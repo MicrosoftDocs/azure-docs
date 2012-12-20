@@ -1,4 +1,7 @@
-<properties linkid="dev-java-how-to-sql-azure" urldisplayname="SQL Database" headerexpose="" pagetitle="SQL Database - How To - Java - Develop" metakeywords="" footerexpose="" metadescription="The following steps show you how to use SQL Database with Java." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-java-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Azure (Java) - Windows Azure feature guide" metaKeywords="" metaDescription="Learn how to use the Windows Azure SQL Database from Java code. " metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to Use Windows Azure SQL Database in Java
 
@@ -31,12 +34,12 @@ Windows Azure SQL Database provides a relational database management system for 
 -   [Using SQL Database in Java within a Windows Azure Deployment][]
 -   [Next steps][]
 
-<h2 id="concepts">Concepts</h2>
+<h2><a id="concepts"></a>Concepts</h2>
 Because Windows Azure SQL Database is built on SQL Server technologies, accessing SQL Database from Java is very similar to accessing SQL Server from Java. You can develop an application locally (using SQL Server) and then connect to SQL Database by changing only the connection string. You can use a SQL Server JDBC driver for your application. However, there are some differences between SQL Database and SQL Server that could affect your application. For more information, see [Guidelines and Limitations (SQL Database)](http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx).
 
 For additional resources for SQL Database, see the [Next steps][] section.
 
-<h2 id="prerequisites">Prerequisites</h2>
+<h2><a id="prerequisites"></a>Prerequisites</h2>
 
 The following are prerequisites if you intend to use SQL Database with Java.
 
@@ -52,7 +55,7 @@ The following are prerequisites if you intend to use SQL Database with Java.
 
     * Microsoft JDBC Driver 4.0 for SQL Server, which you can download from <http://www.microsoft.com/en-us/download/details.aspx?id=11774>.
 
-<h2 id="create_db">Creating a Windows Azure SQL Database</h2>
+<h2><a id="create_db"></a>Creating a Windows Azure SQL Database</h2>
 
 Before using Windows Azure SQL Database in Java code, you will need to create a Windows Azure SQL Database server.
 
@@ -77,7 +80,7 @@ Before using Windows Azure SQL Database in Java code, you will need to create a 
 
 8. Click the completion button.
 
-<h2 id="determine_connection_string">Determining the SQL Database connection string</h2>
+<h2><a id="determine_connection_string"></a>Determining the SQL Database connection string</h2>
 
 1. Login to the [Windows Azure Preview Management Portal](https://manage.windowsazure.com).
 2. Click **SQL Databases**.
@@ -94,7 +97,7 @@ Before using Windows Azure SQL Database in Java code, you will need to create a 
 
 We'll actually use this string later in this guide, for now you know the steps to determine the connection string. Also, depending on your application needs, you may not need to use the **encrypt** and **hostNameInCertificate** settings, and you may need to modify the **loginTimeout** setting.
 
-<h2 id="specify_allowed_ips">To allow access to a range of IP addresses</h2>
+<h2><a id="specify_allowed_ips"></a>To allow access to a range of IP addresses</h2>
 1. Login to the [Preview Management Portal](https://manage.windowsazure.com).
 2. Click **SQL Databases**.
 3. Click **Servers**.
@@ -107,7 +110,7 @@ We'll actually use this string later in this guide, for now you know the steps t
 
 8. Click the completion button. The IP addresses that you specify will now be allowed access to your database server.
 
-<h2 id="use_sql_azure_in_java">To use Windows Azure SQL Database in Java</h2>
+<h2><a id="use_sql_azure_in_java"></a>To use Windows Azure SQL Database in Java</h2>
 
 1. Create a Java project. For purposes of this tutorial, call it **HelloSQLAzure**.
 2. Add a Java class file named **HelloSQLAzure.java** to the project.
@@ -136,7 +139,7 @@ We'll actually use this string later in this guide, for now you know the steps t
 
 You're now ready to add in code that will communicate with your SQL Database server.
 
-<h2 id="communicate_from_code">Communicating with Windows Azure SQL Database from your code</h2>
+<h2><a id="communicate_from_code"></a>Communicating with Windows Azure SQL Database from your code</h2>
 
 The remainder of this topic shows examples that do the following:
 
@@ -147,7 +150,7 @@ The remainder of this topic shows examples that do the following:
 
 The following sections are intended to be read (sampled) in order. The first snippet is a complete sample; the others would rely on part of the framework in the complete sample, such as the **import** statements, **class** and **main** declarations, error handling and resource closing.
 
-<h2 id="to_create_table">To create a table</h2>
+<h2><a id="to_create_table"></a>To create a table</h2>
 
 The following code shows you how to create a table named **Person**.
 
@@ -232,7 +235,7 @@ The following code shows you how to create a table named **Person**.
 	}
 	
 
-<h2 id="to_create_index">To create an index on a table</h2>
+<h2><a id="to_create_index"></a>To create an index on a table</h2>
 
 The following code shows you how to create an index named **index1** on the **Person** table, using the **PersonID** column.
 
@@ -278,7 +281,7 @@ The following code shows you how to create an index named **index1** on the **Pe
 
 
 
-<h2 id="to_insert_rows">To insert rows</h2>
+<h2><a id="to_insert_rows"></a>To insert rows</h2>
 
 The following code shows you how to add rows to the **Person** table.
 
@@ -330,7 +333,7 @@ The following code shows you how to add rows to the **Person** table.
 	// Exception handling and resource closing not shown...
 
  
-<h2 id="to_retrieve_rows">To retrieve rows</h2>
+<h2><a id="to_retrieve_rows"></a>To retrieve rows</h2>
 
 The following code shows you how to retrieve rows from the **Person** table.
 
@@ -390,7 +393,7 @@ The following code shows you how to retrieve rows from the **Person** table.
 	String sqlString = "SELECT * FROM Person";
 
  
-<h2 id="to_retrieve_rows_using_where">To retrieve rows using a WHERE clause</h2>
+<h2><a id="to_retrieve_rows_using_where"></a>To retrieve rows using a WHERE clause</h2>
 
 To retrieve rows using a clause, use the code as shown above, except change the SQL statement to include a clause. The following SQL statement includes a clause for rows whose **FirstName** value equals **Jim**.
 
@@ -399,7 +402,7 @@ To retrieve rows using a clause, use the code as shown above, except change the 
 	
 WHERE clauses can also be used when retrieving counts, updating rows, or deleting rows.
 
-<h2 id="to_retrieve_row_count">To retrieve a count of rows</h2>
+<h2><a id="to_retrieve_row_count"></a>To retrieve a count of rows</h2>
 
 The following code shows you how to retrieve a count of rows from the **Person** table.
  
@@ -450,7 +453,7 @@ The following code shows you how to retrieve a count of rows from the **Person**
 	}
 	// Exception handling and resource closing not shown...
 
-<h2 id="to_update_rows">To update rows</h2>
+<h2><a id="to_update_rows"></a>To update rows</h2>
 
 The following code shows you how to update rows. In this example, the **LastName** value is changed to **Kim** for any rows where the **FirstName** value is **Jim**.
 
@@ -494,7 +497,8 @@ The following code shows you how to update rows. In this example, the **LastName
 	}// Exception handling and resource closing not shown...
 
  
-<h2 id="to_delete_rows">To delete rows</h2>
+
+<h2><a id="to_delete_rows"></a>To delete rows</h2>
 
 The following code shows you how to delete rows. In this example, any rows where the **FirstName** value is **Jim** are deleted.
 
@@ -540,7 +544,7 @@ The following code shows you how to delete rows. In this example, any rows where
 	// Exception handling and resource closing not shown...
 	
  
-<h2 id="to_check_table_existence">To check whether a table exists</h2>
+<h2><a id="to_check_table_existence"></a>To check whether a table exists</h2>
 
 The following code shows you how to determine whether a table exists.
 
@@ -595,7 +599,7 @@ The following code shows you how to determine whether a table exists.
 	}
 	// Exception handling and resource closing not shown...
 
-<h2 id="to_drop_index">To drop an index</h2>
+<h2><a id="to_drop_index"></a>To drop an index</h2>
 
 The following code shows you how to drop an index named **index1** on the **Person** table.
 
@@ -641,7 +645,7 @@ The following code shows you how to drop an index named **index1** on the **Pers
 	// Exception handling and resource closing not shown...
 
  
-<h2 id="to_drop_table">To drop a table</h2>
+<h2><a id="to_drop_table"></a>To drop a table</h2>
 
 The following code shows you how to drop a table named **Person**.
 
@@ -684,7 +688,7 @@ The following code shows you how to drop a table named **Person**.
 	}
 	// Exception handling and resource closing not shown...
 
-<h2 id="using_in_azure">Using SQL Database in Java within a Windows Azure Deployment</h2>
+<h2><a id="using_in_azure"></a>Using SQL Database in Java within a Windows Azure Deployment</h2>
 
 To use SQL Database in Java within a Windows Azure deployment, in addition to having Microsoft JDBC Driver 4.0 for SQL Server as a library in your class path as shown above, you’ll need to package it with your deployment.
 
@@ -702,7 +706,7 @@ To use SQL Database in Java within a Windows Azure deployment, in addition to ha
 
 * Ensure the Microsoft JDBC Driver 4.0 SQL Server library is included within the same Azure role as your Java application, and added to the class path of your application.
 
-<h2 id="nextsteps">Next steps</h2>
+<h2><a id="nextsteps"></a>Next steps</h2>
 
 To learn more about Microsoft JDBC Driver for SQL Server, see [Overview of the JDBC Driver](http://msdn.microsoft.com/en-us/library/ms378749.aspx). To learn more about SQL Database, see [SQL Database Overview](http://msdn.microsoft.com/en-us/library/windowsazure/ee336241.aspx).
 

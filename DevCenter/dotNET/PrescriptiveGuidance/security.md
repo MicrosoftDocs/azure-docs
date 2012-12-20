@@ -1,4 +1,6 @@
-<properties linkid="dev-net-best-practices-security" urlDisplayName="Security" headerExpose="" pageTitle="Windows Azure .NET Best Practices - Security" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="develop-dotnet-security" urlDisplayName="Security" pageTitle="Security best practices (.NET) - Windows Azure" metaKeywords="Azure security, intro security Azure, overview Azure security, Azure security basics" metaDescription="An introduction to security in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 

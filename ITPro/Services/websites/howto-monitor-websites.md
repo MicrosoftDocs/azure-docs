@@ -1,22 +1,24 @@
-<properties umbracoNaviHide="0" pageTitle="How to Monitor Websites" metaKeywords="Windows Azure Websites, Azure deployment, Azure configuration changes, Azure deployment update, Windows Azure .NET deployment, Azure .NET deployment" metaDescription="Learn how to monitor Websites in Windows Azure." linkid="itpro-windows-howto-configure-websites" urlDisplayName="How to Configure Websites" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor web sites - Windows Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" metaDescription="Learn how to monitor Windows Azure web sites by using the Monitor page in the Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-#<a name="howtomonitor"></a>How to Monitor Websites
+
+
+#<a name="howtomonitor"></a>How to Monitor Web Sites
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-Websites provide monitoring functionality via the Monitor management page. The Monitor management page provides performance statistics for a web site as described below.
+Web sites provide monitoring functionality via the Monitor management page. The Monitor management page provides performance statistics for a web site as described below.
 
 ## Table of Contents ##
-- [How to: Add website metrics](#websitemetrics)
-- [How to: View usage quotas for a website](#howtoviewusage)
+- [How to: Add web site metrics](#websitemetrics)
+- [How to: View usage quotas for a web site](#howtoviewusage)
 - [How to: Reduce resource usage](#resourceusage)
 - [What happens when a resource usage quota is exceeded](#exceeded)
-- [How to: Configure diagnostics and download logs for a website](#howtoconfigdiagnostics)
+- [How to: Configure diagnostics and download logs for a web site](#howtoconfigdiagnostics)
 
 
-##<a name="websitemetrics"></a>How to: Add website metrics
+##<a name="websitemetrics"></a>How to: Add web site metrics
 
-1. In the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com/), from the website's Management pages, click the **Monitor** tab to display the **Monitor** management page. By default the chart on the **Monitor** page displays the same metrics as the chart on the **Dashboard** page. 
+1. In the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com/), from the web site's Management pages, click the **Monitor** tab to display the **Monitor** management page. By default the chart on the **Monitor** page displays the same metrics as the chart on the **Dashboard** page. 
 
 2. To view additional metrics for the web site, click **Add Metrics** at the bottom of the page to display the **Choose Metrics** dialog box. 
 
@@ -32,8 +34,8 @@ The following list describes the metrics that you can view in the chart on the *
 
 - **CPUTime** – A measure of the web site's CPU usage.
 - **Requests** – A count of client requests to the web site.
-- **Data Out** – A measure of data sent by the website to clients.
-- **Data In** – A measure of data received by the website from clients.
+- **Data Out** – A measure of data sent by the web site to clients.
+- **Data In** – A measure of data received by the web site from clients.
 - **Http Client Errors** – Number of Http “4xx Client Error” messages sent.
 - **Http Server Errors** – Number of Http “5xx Server Error” messages sent.
 - **Http Successes** – Number of Http “2xx Success” messages sent.
@@ -46,82 +48,82 @@ The following list describes the metrics that you can view in the chart on the *
 
 
 
-##<a name="howtoviewusage"></a>How to: View usage quotas for a website
+##<a name="howtoviewusage"></a>How to: View usage quotas for a web site
 
-Websites can be configured to run in either **Shared** or **Reserved** website mode from the website's **Scale** management page. Each Azure subscription has access to a pool of resources provided for the purpose of running up to 10 websites in **Shared** website mode. The pool of resources available to each Web Site subscription for this purpose is shared by other websites in the same geo-region that are configured to run in **Shared** website mode. Because these resources are shared for use by other websites, all subscriptions are limited in their use of these resources. Limits applied to a subscription's use of these resources are expressed as usage quotas listed under the usage overview section of each website's **Dashboard** management page.
+Web sites can be configured to run in either **Shared** or **Reserved** web site mode from the web site's **Scale** management page. Each Azure subscription has access to a pool of resources provided for the purpose of running up to 10 web sites in **Shared** web site mode. The pool of resources available to each Web Site subscription for this purpose is shared by other web sites in the same geo-region that are configured to run in **Shared** web site mode. Because these resources are shared for use by other web sites, all subscriptions are limited in their use of these resources. Limits applied to a subscription's use of these resources are expressed as usage quotas listed under the usage overview section of each web site's **Dashboard** management page.
 
 **Note**  
-When a website is configured to run in **Reserved** mode it is allocated dedicated resources equivalent to the **Small** (default), **Medium** or **Large** virtual machine sizes in the table at [How to Configure Virtual Machine Sizes][configvmsizes]. There are no limits to the resources a subscription can use for running websites in **Reserved** mode however the number of **Reserved** mode websites that can be created per subscription is limited to **100**.
+When a web site is configured to run in **Reserved** mode it is allocated dedicated resources equivalent to the **Small** (default), **Medium** or **Large** virtual machine sizes in the table at [How to Configure Virtual Machine Sizes][configvmsizes]. There are no limits to the resources a subscription can use for running web sites in **Reserved** mode however the number of **Reserved** mode web sites that can be created per subscription is limited to **100**.
  
-### Viewing usage quotas for websites configured for Shared website mode ###
-To determine the extent that a website is impacting resource usage quotas, follow these steps:
+### Viewing usage quotas for web sites configured for Shared web site mode ###
+To determine the extent that a web site is impacting resource usage quotas, follow these steps:
 
-1. Open the website's **Dashboard** management page.
-2. Under the **usage overview** section the usage quotas for **Data Out**, **CPU Time** and **File System Storage** are displayed. The green bar displayed for each resource indicates how much of a subscription's resource usage quota is being consumed by the current website and the grey bar displayed for each resource indicates how much of a subscription's resource usage quota is being consumed by all other shared mode websites associated with your Web Site subscription.
+1. Open the web site's **Dashboard** management page.
+2. Under the **usage overview** section the usage quotas for **Data Out**, **CPU Time** and **File System Storage** are displayed. The green bar displayed for each resource indicates how much of a subscription's resource usage quota is being consumed by the current web site and the grey bar displayed for each resource indicates how much of a subscription's resource usage quota is being consumed by all other shared mode web sites associated with your Web Site subscription.
 
 Resource usage quotas help prevent overuse of the following resources:
 
-- **Data Out** – a measure of the amount of data sent from websites running in **Shared** mode to their clients in the current quota interval (24 hours).
-- **CPU Time** – the amount of CPU time used by websites running in **Shared** mode for the current quota interval.
-- **File System Storage** – The amount of file system storage in use by websites running in **Shared** mode.
+- **Data Out** – a measure of the amount of data sent from web sites running in **Shared** mode to their clients in the current quota interval (24 hours).
+- **CPU Time** – the amount of CPU time used by web sites running in **Shared** mode for the current quota interval.
+- **File System Storage** – The amount of file system storage in use by web sites running in **Shared** mode.
 
 When a subscription's usage quotas are exceeded Windows Azure takes action to stop overuse of resources. This is done to prevent any subscriber from exhausting resources to the detriment of other subscribers.
 
 
 ##<a name="resourceusage"></a>How to: Reduce resource usage
 
-Since Windows Azure calculates resource usage quotas by measuring the resources used by a subscription's shared mode websites during a 24 hour quota interval, consider the following:
+Since Windows Azure calculates resource usage quotas by measuring the resources used by a subscription's shared mode web sites during a 24 hour quota interval, consider the following:
 
-- As the number of websites configured to run in Shared mode is increased, so is the likelihood of exceeding shared mode resource usage quotas.
-Consider reducing the number of websites that are configured to run in Shared mode if resource usage quotas are being exceeded.
-- Similarly, as the number of instances of any website running in Shared mode is increased, so is the likelihood of exceeding shared mode resource usage quotas.
-Consider scaling back additional instances of shared mode websites if resource usage quotas are being exceeded.
+- As the number of web sites configured to run in Shared mode is increased, so is the likelihood of exceeding shared mode resource usage quotas.
+Consider reducing the number of web sites that are configured to run in Shared mode if resource usage quotas are being exceeded.
+- Similarly, as the number of instances of any web site running in Shared mode is increased, so is the likelihood of exceeding shared mode resource usage quotas.
+Consider scaling back additional instances of shared mode web sites if resource usage quotas are being exceeded.
 
 
 ##<a name="exceeded"></a>What happens when a resource usage quota is exceeded
 
 Windows Azure takes the following actions if a subscription's resource usage quotas are exceeded in a quota interval (24 hours):
 
- - **Data Out** – when this quota is exceeded Windows Azure stops all websites for a subscription which are configured to run in **Shared** mode for the remainder of the current quota interval. Windows Azure will start the websites at the beginning of the next quota interval.
+ - **Data Out** – when this quota is exceeded Windows Azure stops all web sites for a subscription which are configured to run in **Shared** mode for the remainder of the current quota interval. Windows Azure will start the web sites at the beginning of the next quota interval.
 
- - **CPU Time** – when this quota is exceeded Windows Azure stops all websites for a subscription which are configured to run in **Shared** mode for the remainder of the current quota interval. Windows Azure will start the websites at the beginning of the next quota interval.
+ - **CPU Time** – when this quota is exceeded Windows Azure stops all web sites for a subscription which are configured to run in **Shared** mode for the remainder of the current quota interval. Windows Azure will start the web sites at the beginning of the next quota interval.
 
- - **File System Storage** – Windows Azure prevents deployment of any websites for a subscription which are configured to run in Shared mode if the deployment will cause the File System Storage usage quota to be exceeded. When the File System Storage resource has grown to the maximum size allowed by its quota, file system storage remains accessible for read operations but all write operations, including those required for normal website activity are blocked. When this occurs you could configure one or more websites running in Shared website mode to run in Reserved website mode and reduce usage of file system storage below the File System Storage usage quota.
-
-
+ - **File System Storage** – Windows Azure prevents deployment of any web sites for a subscription which are configured to run in Shared mode if the deployment will cause the File System Storage usage quota to be exceeded. When the File System Storage resource has grown to the maximum size allowed by its quota, file system storage remains accessible for read operations but all write operations, including those required for normal web site activity are blocked. When this occurs you could configure one or more web sites running in Shared web site mode to run in Reserved web site mode and reduce usage of file system storage below the File System Storage usage quota.
 
 
-##<a name="howtoconfigdiagnostics"></a>How to: Configure diagnostics and download logs for a website
 
-Websites can be configured to capture and log diagnostic information from the website's **Configure** management page. This topic describes how to capture diagnostics data to log files, download the log files to a local computer and then read the log files.
 
-###Configuring diagnostics for a website###
+##<a name="howtoconfigdiagnostics"></a>How to: Configure diagnostics and download logs for a web site
 
-Diagnostics for a website is enabled on the **Configure** management page for the website. Under the **Diagnostics** section of **Configure** management page you can enable or disable the following logging or tracing options:
+Web sites can be configured to capture and log diagnostic information from the web site's **Configure** management page. This topic describes how to capture diagnostics data to log files, download the log files to a local computer and then read the log files.
 
-- **Detailed Error Logging** – Turn on detailed error logging to capture all errors generated by your website.
+###Configuring diagnostics for a web site###
+
+Diagnostics for a web site is enabled on the **Configure** management page for the web site. Under the **Diagnostics** section of **Configure** management page you can enable or disable the following logging or tracing options:
+
+- **Detailed Error Logging** – Turn on detailed error logging to capture all errors generated by your web site.
 - **Failed Request Tracing** – Turn on failed request tracing to capture information for failed client requests.
-- **Web Server Logging** – Turn on Web Server logging to save website logs using the W3C extended log file format.
+- **Web Server Logging** – Turn on Web Server logging to save web site logs using the W3C extended log file format.
 
-After enabling diagnostics for a website, click the **Save** icon at the bottom of the **Configure** management page to apply the options that you have set.
+After enabling diagnostics for a web site, click the **Save** icon at the bottom of the **Configure** management page to apply the options that you have set.
 
 <div class="dev-callout"> 
 <b>Important</b> 
-<p>Logging and tracing place significant demands on a website. We recommend turning off logging and tracing once you have reproduced the problem(s) that you are troubleshooting.</p> 
+<p>Logging and tracing place significant demands on a web site. We recommend turning off logging and tracing once you have reproduced the problem(s) that you are troubleshooting.</p> 
 </div>
 
-###Downloading log files for a website###
+###Downloading log files for a web site###
 
-Follow these steps to download log files for a website:
+Follow these steps to download log files for a web site:
 
-1. Open the website's **Dashboard** management page and make note of the FTP site listed under **Diagnostics Logs** and the account listed under **Deployment User**. The FTP site is where the log files are located and the account listed under Deployment User is used to authenticate to the FTP site.
+1. Open the web site's **Dashboard** management page and make note of the FTP site listed under **Diagnostics Logs** and the account listed under **Deployment User**. The FTP site is where the log files are located and the account listed under Deployment User is used to authenticate to the FTP site.
 2. If you have not yet created deployment credentials, the account listed under **Deployment User** is listed as **Not set**. In this case you must create deployment credentials as described in the Reset Deployment Credentials section of Dashboard because these credentials must be used to authenticate to the FTP site where the log files are stored. Windows Azure does not support authenticating to this FTP site using Live ID credentials.
 3. Consider using an FTP client such as [FileZilla][fzilla] to connect to the FTP site. An FTP client provides greater ease of use for specifying credentials and viewing folders on an FTP site than is typically possible with a browser.
 4. Copy the log files from the FTP site to your local computer.
 
-##Reading log files from a website##
+##Reading log files from a web site##
 
-The log files that are generated after you have enabled logging and / or tracing for a website vary depending on the level of logging / tracing that is set on the Configure management page for the website. Following are the location of the log files and how the log files may be analyzed:
+The log files that are generated after you have enabled logging and / or tracing for a web site vary depending on the level of logging / tracing that is set on the Configure management page for the web site. Following are the location of the log files and how the log files may be analyzed:
 
 
 ###Log File Type: Failed Request Tracing

@@ -50,17 +50,17 @@ To create a MySQL database as a linked resource when you create a [Windows Azure
 
 	![Create website with database](../../Shared/Media/create-website-with-database.png)
 
-3. Provide a **URL** for your website, select the **REGION** for your site, and choose **Create a new MySQL database** from the **DATABASE** dropdown. Optionally, you can replace the default name for the connection string. Click the arrow at the bottom of the page.
+3. Provide a **URL** for your web site, select the **REGION** for your site, and choose **Create a new MySQL database** from the **DATABASE** dropdown. Optionally, you can replace the default name for the connection string. Click the arrow at the bottom of the page.
 
 	![Provide website details](../../Shared/Media/provide-website-details.png) 
 
-4. Provide a database **NAME**, select the **REGION** for your database (this should be same as the region for your website), agree to ClearDB's legal terms, and click the checkmark at the bottom of the frame.
+4. Provide a database **NAME**, select the **REGION** for your database (this should be same as the region for your web site), agree to ClearDB's legal terms, and click the checkmark at the bottom of the frame.
 
 	![Provide MySQL details](../../Shared/Media/provide-mysql-details.png)
 
-5. After your website has been created, click on the name of your site to go to your site's dashboard.
+5. After your web site has been created, click on the name of your site to go to your site's dashboard.
 
-	![Go to website dashboard](../../Shared/Media/go-to-website-dashboard.png)
+	![Go to web site dashboard](../../Shared/Media/go-to-website-dashboard.png)
 
 6. Click on **CONFIGURE**.
 
@@ -76,10 +76,10 @@ To create a MySQL database as a linked resource when you create a [Windows Azure
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>Connection strings are accessible to your website application by connection string name. In .NET applications, connection strings are availble in the **connectionStrings** object. In other programming languages, connection strings are accessible as environment variables. For more information, see <a href="/en-us/manage/services/web-sites/how-to-configure-websites/">How to Configure Web Sites</a>.</p> 
+<p>Connection strings are accessible to your web site application by connection string name. In .NET applications, connection strings are availble in the <b>connectionStrings</b> object. In other programming languages, connection strings are accessible as environment variables. For more information, see <a href="/en-us/manage/services/web-sites/how-to-configure-websites/">How to Configure Web Sites</a>.</p> 
 </div>
 
 [ClearDB]: http://www.cleardb.com/
 [waws]: /en-us/manage/services/web-sites/
 [Windows Azure Store]: /en-us/store/overview/
-[portal]: http://windows.azure.com/
+[portal]: http://manage.windowsazure.com

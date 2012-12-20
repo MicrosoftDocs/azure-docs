@@ -1,5 +1,7 @@
-#Node.js Developer Center - Tutorials
+<properties linkid="devnav-nodejs-tutorials" urlDisplayName="Tutorials" pageTitle="Windows Azure Node.js tutorials" metaKeywords="Node.js tutorials Windows Azure, Node.js tutorials Azure, Azure Node.js tutorials, Azure Node.js" metaDescription="Find tutorials about using Node.js with Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+#Node.js Developer Center - Tutorials
 ## Web Sites
 <h3 class="subtext">Perfect for web apps consisting of client side markup and scripting, server side scripting and a database</h3> 
 

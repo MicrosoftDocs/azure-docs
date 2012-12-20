@@ -1,4 +1,7 @@
-<properties linkid="dev-java-how-to-service-bus-topics" urldisplayname="Service Bus Topics" headerexpose="" pagetitle="Service Bus Topics - How To - Java - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-java-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Java) - Windows Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Java" metaDescription="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for Java applications." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to Use Service Bus Topics/Subscriptions
 
@@ -334,7 +337,7 @@ with the topic. Subscriptions can also be deleted independently.
 Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Queues, Topics, and Subscriptions][] for more information.
 
-  [Windows Azure SDK for Java]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=vs.103).aspx
+  [Windows Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
   [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -347,7 +350,7 @@ topic [Queues, Topics, and Subscriptions][] for more information.
   [How to: Delete Topics and Subscriptions]: #bkmk_HowToDeleteTopics
   [Next Steps]: #bkmk_NextSteps
   [Service Bus Topics diagram]: ../../../DevCenter/Java/Media/SvcBusTopics_01_FlowDiagram.jpg
-  [Windows Azure Management Portal]: http://windows.azure.com/
+  [Windows Azure Management Portal]: http://manage.windowsazure.com/
   [Service Bus Node screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
   [Create a New Namespace ]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
   [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png

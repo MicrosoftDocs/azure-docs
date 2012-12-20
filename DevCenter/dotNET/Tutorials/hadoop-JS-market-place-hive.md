@@ -1,5 +1,7 @@
-# Running Hadoop Jobs on Windows Azure, Importing Data from Windows Azure Marketplace, and Analysing the Data with the Excel Hive Add-In 
+<properties linkid="dev-net-tutorials-hadoop-marketplace" urlDisplayName="Hadoop Marketplace" pageTitle="Running Hadoop jobs and analyzing data (.NET) - Windows Azure" metaKeywords="Azure MapReduce, Azure Apache Hadoop, Azure Hive data, Azure Hadoop cluster, Azure Hadoop Excel" metaDescription="A tutorial that teaches you how to run MapReduce programs using Apache Hadoop-based services for Windows Azure. Then query Hive data from Excel." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+
+# Running Hadoop Jobs on Windows Azure, Importing Data from Windows Azure Marketplace, and Analysing the Data with the Excel Hive Add-In 
 This tutorial shows how to run MapReduce programs in a cluster using Apache™ Hadoop™-based Services for Windows Azure in two ways and how to use Excel to analyze data imported into the cluster employing Hive-based connectivity. 
 
 The first way to run a MapReduce program is with a Hadoop jar file by using the **Create Job** UI. The second way is with a query by using the fluent API layered on Pig that is provided by the **Interactive Console**. The first approach uses a MapReduce program written in Java; the second uses a script written in Javascript. The tutorial also shows how to upload files to the HDFS cluster that are needed as input for a MapReduce program and how to read the MapReduce output files from the HDFS cluster to examine the results of an analysis.

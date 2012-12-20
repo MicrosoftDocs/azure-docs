@@ -1,5 +1,7 @@
-#Develop and deploy a web site with Microsoft WebMatrix
+<properties linkid="develop-dotnet-website-with-webmatrix" urlDisplayName="Website with WebMatrix" pageTitle=".NET web site with WebMatrix - Windows Azure tutorials" metaKeywords="WebMatrix Windows Azure, WebMatrix Azure, Azure web site WebMatrix, Azure website WebMatrix, Web Matrix Azure, WebMatrix Azure" metaDescription="Learn how to develop and deploy a Windows Azure web site with WebMatrix." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+
+#Develop and deploy a web site with Microsoft WebMatrix
 This guide describes how to use Microsoft WebMatrix to create and deploy a web site to Windows Azure.  You will use a sample application from a WebMatrix site template.
 
 You will learn:

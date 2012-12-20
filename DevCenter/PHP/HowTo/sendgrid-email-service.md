@@ -1,4 +1,6 @@
-﻿<properties linkid="dev-php-how-to-sendgrid-email-service" urldisplayname="SendGrid Email Service" headerexpose="" pagetitle="SendGrid Email Service - How To - PHP - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-php-how-to-sendgrid-email-service" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (PHP) - Windows Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid PHP, Azure email PHP" metaDescription="Learn how send email with the SendGrid email service on Windows Azure. Code samples written in PHP." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to Use the SendGrid Email Service from PHP
 
@@ -22,32 +24,24 @@ email, see the [Next Steps][] section.
 ## <a name="bkmk_WhatIsSendGrid"> </a>What is the SendGrid Email Service?
 
 SendGrid is a cloud-based email service that provides reliable email
-delivery, scalability, and real-time analytics along with flexible APIs
+delivery, scalability, and real-time analytics, along with flexible APIs
 that make custom integration easy. Common SendGrid usage scenarios
 include:
 
--   Automatically sending receipts to customers.
+-   Automatically sending receipts to customers
 -   Administering distribution lists for sending customers monthly
-    e-fliers and special offers.
+    e-fliers and special offers
 -   Collecting real-time metrics for things like blocked e-mail, and
-    customer responsiveness.
--   Generating reports to help identify trends.
--   Forwarding customer inquiries.
+    customer responsiveness
+-   Generating reports to help identify trends
+-   Forwarding customer inquiries
+- Email notifications from your application
 
 For more information, see [http://sendgrid.com][].
 
 ## <a name="bkmk_CreateSendGrid"> </a>Create a SendGrid Account
 
-To get started with SendGrid, evaluate pricing and sign up at
-[http://sendgrid.com/pricing.html][]. Windows Azure customers receive a
-[special offer][] of 25,000 free emails per month from SendGrid. To
-sign-up for this offer, or get more information, please visit
-[http://www.sendgrid.com/azure.html][special offer].
-
-For more detailed information, see the SendGrid documentation at
-[http://docs.sendgrid.com/documentation/get-started/][]. For information
-about additional services provided by SendGrid, see
-[http://sendgrid.com/features][].
+<div chunk="../../Shared/Chunks/sendgrid-sign-up.md" />
 
 ## <a name="bkmk_UsingSendGridfromPHP"> </a>Using SendGrid from your PHP Application
 
@@ -63,7 +57,7 @@ deploy your application by following the methods outlined here:
 ## <a name="bkmk_HowToSendEmail"> </a>How to: Send an Email
 
 You can send email using either SMTP or the Web API provided by
-SendGrid. For details about the benefits and drawbacks of each API, see
+SendGrid. For details about the benefits and differences of each API, see
 [SMTP vs. Web API][] in the SendGrid documentation.
 
 ### SMTP API
@@ -495,9 +489,7 @@ details, see the [SendGrid API documentation][].
 Now that you’ve learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
--   SendGrid API documentation:
-    [http://docs.sendgrid.com/documentation/api/][SendGrid API
-    documentation]
+-   SendGrid API documentation: <http://docs.sendgrid.com/documentation/api/>
 -   SendGrid special offer for Windows Azure customers:
     [http://sendgrid.com/azure.html][]
 
@@ -509,6 +501,7 @@ these links to learn more.
   [How To: Add an Attachment]: #bkmk_HowToAddAttachment
   [How to: Use Filters to Enable Footers, Tracking, and Analytics]: #bkmk_HowToUseFilters
   [How to: Use Additional SendGrid Services]: #bkmk_HowToUseAdditionalSvcs
+
   [http://sendgrid.com]: http://sendgrid.com
   [http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html
   [special offer]: http://www.sendgrid.com/azure.html

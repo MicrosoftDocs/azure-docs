@@ -1,11 +1,12 @@
-#Windows Azure command-line tool for Mac and Linux
+#Windows Azure command-line tool for Mac and Linux#
+
 This tool provides functionality for creating, deploying, and managing virtual machines and websites from Mac and Linux desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS, and PHP.
 
 To install the tool on a Mac, download and run the [Windows Azure SDK installer](http://go.microsoft.com/fwlink/?LinkId=252249).
 
 To install the tool on Linux, install the latest version of Node.JS and then use NPM to install:
 
-    npm install azure -cli -g
+    npm install azure-cli -g
 
 Optional parameters are shown in square brackets (for example, [parameter]). All other parameters are required.
 
@@ -78,7 +79,7 @@ Affinity groups can be set when a group of virtual machines spans multiple physi
 ##<a id="Commands_to_manage_your_Azure_virtual_machines"></a>Commands to manage your Windows Azure virtual machines
 The following diagram shows how Windows Azure virtual machines are hosted in the production deployment environment of a Windows Azure cloud service.
  
-![Azure Technical Diagram](images/Azure Technical Diagram.jpg?raw=true)
+![Azure Technical Diagram](../media/architecturediagram.jpg)
 
 **create-new** creates the drive in blob storage (that is, e:\ in the diagram); **attach** attaches an already created but unattached disk to a virtual machine.
 
@@ -225,7 +226,7 @@ A virtual machine image cannot be captured while the virtual machine state unles
 ##<a id="Commands_to_manage_your_Azure_virtual_machine_endpoints"></a>Commands to manage your Windows Azure virtual machine endpoints
 The following diagram shows the architecture of a typical deployment of multiple instances of a virtual machine. Note that in this example port 3389 is open on each virtual machine (for RDP access), and there is also an internal IP address (for example, 168.55.11.1) on each virtual machine that is used by the load balancer to route traffic to the virtual machine. This internal IP address can also be used for communication between virtual machines.
 
-![azurenetworkdiagram](images/azurenetworkdiagram.jpg?raw=true)
+![Windows Azure Network Diagram](../media/networkdiagram.jpg)
  
 External requests to virtual machines go through a load balancer. Because of this, requests cannot be specified against a particular virtual machine on deployments with multiple virtual machines. For deployments with multiple virtual machines, port mapping must be configured between the virtual machines (vm-port) and the load balancer (lb-port).
 
@@ -335,7 +336,7 @@ Data disks are .vhd files in blob storage that can be used by a virtual machine.
 
 The commands for attaching data disks (azure vm disk attach and azure vm disk attach-new) assign a Logical Unit Number (LUN) to the attached data disk, as required by the SCSI protocol. The first data disk attached to a virtual machine is assigned LUN 0, the next is assigned LUN 1, and so on.
 
-When you detach a data disk with the azure vm disk detach command, use the <lun> parameter to indicate which disk to detach. Note that you should always detach data disks in reverse order, starting with the highest-numbered LUN that has been assigned. The Linux SCSI layer does not support detaching a lower-numbered LUN while a higher-numbered LUN is still attached. For example, you should not detach LUN 0 if LUN 1 is still attached.
+When you detach a data disk with the azure vm disk detach command, use the &lt;lun&gt; parameter to indicate which disk to detach. Note that you should always detach data disks in reverse order, starting with the highest-numbered LUN that has been assigned. The Linux SCSI layer does not support detaching a lower-numbered LUN while a higher-numbered LUN is still attached. For example, you should not detach LUN 0 if LUN 1 is still attached.
 
 **vm disk show [options] &lt;name>**
 

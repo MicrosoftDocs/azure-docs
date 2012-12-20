@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Download the Windows Azure SDK for PHP" metaKeywords="Windows Azure, Windows Azure SDK for PHP, PHP, Azure PHP" metaDescription="Learn how to download and install the Windows Azure SDK for PHP." linkid="dev-php-download-php-sdk" urlDisplayName="Download the Windows Azure SDK for PHP" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="dev-php-common-tasks-download-php-sdk" urlDisplayName="Download PHP SDK" pageTitle="Download the Windows Azure SDK for PHP" metaKeywords="" metaDescription="Learn how to download and install the Windows Azure SDK for PHP." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+
+<div chunk="../chunks/article-left-menu.md" />
 
 #Download the Windows Azure SDK for PHP
 
@@ -100,13 +102,13 @@ The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line
 
 * **Linux**: Install the latest version of [Node.js][nodejs-org] (see [Install Node.js via Package Manager][install-node-linux]), then run the following command:
 
-		npm install azure -g
+		npm install azure-cli -g
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
 	<p>You may need to run this command with elevated privileges:
 	
-		sudo npm install azure -g
+		sudo npm install azure-cli -g
 	</p> 
 	</div>
 

@@ -1,4 +1,6 @@
-<properties linkid="mobile-services-authorize-users-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Authorize users with Mobile Services" metakeywords="Authorize users with Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app, authorization" footerexpose="" metadescription="Authorize users with Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-mobile-tutorials-authorize-users-in-scripts-ios" urlDisplayName="Authorize Users in Scripts (iOS)" pageTitle="Authorize users in scripts (iOS) - Windows Azure Mobile Services" metaKeywords="Windows Azure authorizing user, iOS scripts authorization, authorize mobile services" metaDescription="Learn how to authorize users with scripts in your Windows Azure Mobile Services app for iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14810" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
@@ -7,8 +9,14 @@
   <a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios/" title="iOS version" class="current">iOS app</a>
 </div>-->
 
-# Use scripts to authorize users in Mobile Services for iOS
-<h3><a href="authorize-users-in-scripts-dotnet">Windows Store</a> / <strong>iOS</strong></h3>
+# Use scripts to authorize users in Mobile Services
+<div class="dev-center-tutorial-selector"> 
+	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
+	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8" title="Windows Phone 8">Windows Phone 8</a> 
+	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios" title="iOS" class="current">iOS</a> 
+</div>	
+
 
 _The iOS client library for Mobile Services is currently under development on [GitHub]. We welcome feedback on and contributions to this library._
 
@@ -79,9 +87,8 @@ This concludes the tutorials that demonstrate the basics of working with authent
 * [Get started with data]
   <br/>Learn more about storing and querying data using Mobile Services.
 
-<!--* [Get started with push notifications] 
+* [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
--->
 
 * [Mobile Services server script reference]
   <br/>Learn more about registering and using server scripts.

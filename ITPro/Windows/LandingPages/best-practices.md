@@ -1,5 +1,7 @@
-# Best practices
+<properties linkid="manage-windows-best-practices" urlDisplayName="Best practices" pageTitle="Windows Azure Windows virtual machine best practices" metaKeywords="Azure best practices" metaDescription="Find topics about best practices in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+# Best practices
 The content in this section will help you manage robust Windows Azure solutions. New content will be added frequently, so please visit this page for new topics. You can also use the Disqus section below to suggest new topics.
 
 ## Key guidance areas

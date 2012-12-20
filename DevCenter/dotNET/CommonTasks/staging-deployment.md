@@ -1,3 +1,5 @@
-<properties linkid="dev-net-commons-tasks-staging-deployment" urlDisplayName="Staging Deployment" headerExpose="" pageTitle="Enable Staging Deployment - .NET - Develop" metaKeywords="Azure staging, Azure application staging, Azure test environment, Azure staging environment, Azure Virtual IP swap, Azure VIP swap, Azure .NET staging, Azure .NET test environment, Azure .NET staging environment, Azure .NET Virtual IP swap, Azure .NET VIP swap, Azure C# staging,  " footerExpose="" metaDescription="Deploy your Windows Azure application to a staging environment with an obfuscated URL, then use Virtual IP (VIP) swap to move to production." umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="dev-net-commons-tasks-staging-deployment" urlDisplayName="Staging Deployment" pageTitle="Stage a cloud service deployment - Windows Azure" metaKeywords="Azure staging, Azure application staging, Azure test environment, Azure staging environment, Azure Virtual IP swap, Azure VIP swap" metaDescription="Learn how to deploy your Windows Azure application to a staging environment, then deploy to a production environment using Virtual IP (VIP) swap." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 <div chunk="../chunks/article-left-menu.md" />
 <div chunk="../../Shared/Chunks/staging-deployment.md" />

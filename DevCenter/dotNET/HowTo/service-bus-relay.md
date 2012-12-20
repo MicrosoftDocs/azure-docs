@@ -1,4 +1,6 @@
-<properties umbraconavihide="0" pagetitle="Service Bus Relay - How To - .NET - Develop" metakeywords="get started azure Service Bus Relay, Azure relay, Azure Service Bus relay, Service Bus relay, Azure relay .NET, Azure Service Bus relay .NET, Service Bus relay .NET, Azure relay C#, Azure Service Bus relay C#, Service Busy relay C#" metadescription="Learn how to use the Windows Azure Service Bus relay service to connect two applications hosted in different locations." linkid="dev-net-how-to-service-bus-relay" urldisplayname="Service Bus Relay" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties linkid="dev-net-how-to-service-bus-relay" urlDisplayName="Service Bus Relay" pageTitle="How to use Service Bus relay (.NET) - Windows Azure" metaKeywords="get started azure Service Bus Relay C# " metaDescription="Learn how to use the Windows Azure Service Bus relay service to connect two applications hosted in different locations." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 

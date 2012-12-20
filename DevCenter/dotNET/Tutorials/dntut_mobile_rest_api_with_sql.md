@@ -1,5 +1,7 @@
-<div chunk="../chunks/article-left-menu.md" />
+<properties linkid="develop-dotnet-rest-service-using-web-api" urlDisplayName="REST service using Web API" pageTitle=".NET REST service using Web API - Windows Azure tutorial" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" metaDescription="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to a Windows Azure web site by using Visual Studio." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+
+<div chunk="../chunks/article-left-menu.md" />
 # Mobile-friendly REST service using ASP.NET Web API and SQL Database 
 
 This tutorial shows how to deploy an ASP.NET web application that uses the ASP.NET Web API to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012. If you prefer, you can follow the tutorial steps by using Visual Web Developer Express 2010, Visual Studio 2010, or Visual Studio 2012 for Web Express.
@@ -93,11 +95,11 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 ![New Project in File menu][newapp001]
 
 3. In the **New Project** dialog box, expand **Visual C#** and select **Web** under **Installed Templates** and then select **ASP.NET MVC 4 Web Application**.
-3. In the **.NET Framework** make sure **.NET Framework 4** is selected.
-4. Name the application **ContactManager** and click **OK**.<br/>
+4. In the **.NET Framework** make sure **.NET Framework 4.5** is selected.
+5. Name the application **ContactManager** and click **OK**.<br/>
 	![New Project dialog box][newapp002]
-5. In the **New ASP.NET MVC 4 Project** dialog box, select the **Internet Application** template.
-6. In the **View Engine** drop-down list make sure that **Razor** is selected, and then click **OK**.<br/>
+6. In the **New ASP.NET MVC 4 Project** dialog box, select the **Internet Application** template.
+7. In the **View Engine** drop-down list make sure that **Razor** is selected, and then click **OK**.<br/>
 	![New ASP.NET MVC 4 Project dialog box][newapp003]
 
 ### Set the page header and footer
@@ -149,6 +151,7 @@ First you will configure the initial layout and view elements for the applicatio
 7. Expand the Views\Home folder and delete the About.cshtml and Contact.cshtml files.
 8. Right-click the Account folder under views and click **Delete**.
 		<!--<br/>![Delete context menu for the accounts folder][newapp004.2]-->
+
 
 ### Run the application locally
 
@@ -207,7 +210,7 @@ You begin by creating a simple data model in code.
 1. In **Solution Explorer**, right-click the Models folder, click **Add**, and then **Class**.<br/>
 ![Add Class in Models folder context menu][adddb001]
 
-3. In the **Add New Item** dialog box, name the new class file Contact.cs, and then click **Add**.<br/>
+2. In the **Add New Item** dialog box, name the new class file Contact.cs, and then click **Add**.<br/>
 ![Add New Item dialog box][adddb002]
 3. Replace the contents of the Contacts.cs file with the following code.
 
@@ -234,6 +237,7 @@ You begin by creating a simple data model in code.
 		}
 The **Contacts** class defines the data that you want to store for each contact, plus a primary key, ContactID, that is needed by the database.
 4. Expand the Models folder and delete the AccountModels.cs file.
+5. Expand the Filters folder and delete the InitializeSimpleMembershipAttribute.cs file.
 
 ### Create web pages that enable app users to work with the contacts
 
@@ -241,7 +245,7 @@ In ASP.NET MVC the scaffolding feature can automatically generate code that perf
 
 <h2><a name="bkmk_addcontroller"></a>Add a Controller and a view for the data</h2>
 
-1. In **Solution Explorer**, right-click Controllers and expand the folder.
+1. In **Solution Explorer**, expand the Controllers folder.
 2. Delete the AccountController.cs file.
 3. Build the project. For example, you can press F6.<br/>
 Visual Studio compiles the data model classes that you created and makes them available for the following steps that enable Code First Migrations and use MVC scaffolding.
@@ -407,7 +411,7 @@ Visual Studio compiles the data model classes that you created and makes them av
 	<!--<br/>![Add style sheet in Content folder context menu][addcode005]-->
 4. In the **Add New Item** dialog box, expand C# and select Web under Installed Templates and then select **Style Sheet**.
 	<!--<br/>![Add New Item dialog box][addcode006]-->
-5. Name the file **Contacts.css** and click **Add**. Replace the contents of the file with the following code.
+5. Name the file Contacts.css and click **Add**. Replace the contents of the file with the following code.
 
 		.column {
 	    	float: left;
@@ -485,51 +489,14 @@ Visual Studio compiles the data model classes that you created and makes them av
                     "~/Content/site.css",
                     "~/Content/contacts.css"));
 
-<h2><a name="bkmk_addwebapi"></a>Add a Web API Restful interface</h2>
+### Add a controller for the Web API Restful interface
 
-1. In **Solution Explorer**, right-click Controllers and click **Add**, and then click **New Folder**.
-	<!--<br/>![Add new folder context menu][addwebapi001]-->
-2. Enter "Apis" and the press the **Enter** key.
-3. Right-click on the Apis folder and click **Add**, and then click **Controller...**.
-	<!--<br/>![Add class in  folder context menu][addwebapi002]-->
-4. In the **Add Controller** dialog box, enter "ContactsController" as your controller name, select the **API controller with empty read/write actions, using Entity Framework** template
-5. In **Model Class** select Contact (ContactManager.Models) and it **Data Context Class** select ContactManagerContext (ContactManager.Models).
-6. Click **Add**.<br/>![Add controller dialog box for web api][addwebapi003]
-7. Right-click the App\_Start folder and click **Add**, and then click **Class**.
-8. In the **Add New Item** dialog type WebApiConfig.cs and then click **Add**.
-9. Replace the code with
-
-		using System;
-		using System.Collections.Generic;
-		using System.Linq;
-		using System.Web;
-		using System.Web.Http;
-		using ContactManager.Models;
-		using System.Net.Http.Formatting;
-		using System.Net.Http;
-
-		namespace ContactManager
-		{
-		    public static class WebApiConfig
-		    {
-		        public static void Configure(HttpConfiguration config)
-		        {
-		            config.Routes.MapHttpRoute(
-		                name: "DefaultApi",
-		                routeTemplate: "api/{controller}/{id}",
-		                defaults: new { id = RouteParameter.Optional }
-		            );
-		        }
-		    }
-		}
-	This defines the HTTP routing for the RESTful API call.
-10. Open the RouteConfig.cs and remove the following code.
-
-        routes.MapHttpRoute(
-            name: "DefaultApi",
-            routeTemplate: "api/{controller}/{id}",
-            defaults: new { id = RouteParameter.Optional }
-        );
+1. In **Solution Explorer**, right-click Controllers and click **Add**, and then click **New Folder**. 
+2. Enter "Apis" and the press the **Enter** key. 
+3. Right-click on the Apis folder and click Add, and then click **Controller....** 
+4. In the **Add Controller** dialog box, enter "ContactsController" as your controller name, select the **API controller with empty read/write actions, using Entity Framework** template. 
+5. In **Model Class** select Contact (ContactManager.Models) and it **Data Context Class** select ContactManagerContext (ContactManager.Models). 
+6. Click **Add**.
 
 ### Run the application locally
 
@@ -558,7 +525,7 @@ To publish the application, you repeat the procedure you followed earlier, addin
 You're importing the .publishsettings file again because it has the SQL Database connection string you need for configuring database publishing.
 5. Click the **Settings** tab.
 6. In the connection string box for the **Contacts** database, select the SQL Database connection string that was provided in the .publishsettings file.<br/>
-7. Select **Apply Code First Migrations (runs on application start)**.<br/>
+7. Select **Execute Code First Migrations (runs on application start)**.<br/>
 ![Settings tab of Publish Web wizard][lastdeploy001]<br/>
 (As was noted earlier, the **DefaultConnection** database is for the ASP.NET membership system. You are not using membership functionality in this tutorial, so you aren't configuring this database for deployment.)
 8. Click **Publish**.<br/>

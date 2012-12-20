@@ -1,4 +1,7 @@
-<properties linkid="dev-nodejs-website-storage" urldisplayname="Node.js Website with Storage" headerexpose="" pagetitle="Node.js Application using the Windows Azure Table Service" metakeywords="Azure Node.js tutorial table, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates deploying a Node.js application using the Windows Azure Table Service" umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" metaDescription="A tutorial that teaches you how to use the Windows Azure Table service to store data from a Node application hosted on a Windows Azure web site." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
 # Node.js Web Application using the Windows Azure Table Service
 
 This tutorial shows you how to use Table service provided by Windows Azure Data Management to store and access data from a [node] application hosted on Windows Azure. This tutorial assumes that you have some prior experience using node and [Git].
@@ -475,7 +478,7 @@ If you do not already have a Windows Azure subscription, you can sign up [for fr
 
 To install the command-line tools, use the following command:
 	
-	npm install azure -g
+	npm install azure-cli -g
 
 <div class="dev-callout">
 <strong>Note</strong>
@@ -635,7 +638,7 @@ While the steps in this article describe using the Table Service to store inform
 [for free]: http://windowsazure.com
 [Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
-[Node.js Web Application with MongoDB]: ./web-site-with-mongodb-Mac
+[Node.js Web Application with MongoDB]: /en-us/develop/nodejs/tutorials/web-site-with-mongodb-(Mac)/
 [Windows Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Create and deploy a Node.js application to a Windows Azure Web Site]: ./web-site-with-mongodb-Mac
 [Publishing to Windows Azure Web Sites with Git]: ../CommonTasks/publishing-with-git

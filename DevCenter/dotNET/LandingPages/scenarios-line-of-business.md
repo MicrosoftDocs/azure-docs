@@ -1,5 +1,7 @@
-<h1>Line of Business Scenarios</h1>
-<p>You can use Windows Azure to build new enterprise-grade applications or to extend existing applications to the cloud. Compute, storage, identity, and integration features let you easily create secure and highly available apps.</p>
+<properties linkid="develop-net" urlDisplayName="Line of Business" pageTitle="Line of Business - Windows Azure .NET Scenarios" metaKeywords="line-of-business Windows Azure, line-of-business Azure, Azure business scenarios" metaDescription="Find topics about multi-tier and hybrid applications in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+
+
+<h1>Line of Business Scenarios</h1><p>You can use Windows Azure to build new enterprise-grade applications or to extend existing applications to the cloud. Compute, storage, identity, and integration features let you easily create secure and highly available apps.</p>
 <span><br /></span>
 
 <div class="dev-articles">

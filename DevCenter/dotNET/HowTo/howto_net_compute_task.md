@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="" metaKeywords="Windows Azure virtual machine, Azure virtual machine, Azure worker load, Azure service bus, Azure compute intensive" metaDescription="With Windows Azure, you can use a virtual machine to handle compute-intensive tasks; for example, a virtual machine could handle tasks and deliver results to client machines or mobile applications." linkid="dev-net-compute-load" urlDisplayName=".NET compute load" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-net-tutorials-compute-intensive-task-on-a-virtual-machine" urlDisplayName="Compute Intensive .NET Task" pageTitle="Compute intensive .NET task on a virtual machine - Windows Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" metaDescription="Learn how to deploy and run a compute-intensive .NET app on a Windows Azure virtual machine and use Service Bus queues to monitor progress remotely." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 <div chunk="../chunks/article-left-menu.md" />
 # How to run a compute-intensive task in .NET on a Windows Azure virtual machine

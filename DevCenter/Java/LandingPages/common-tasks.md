@@ -1,5 +1,7 @@
-# Java Developer Center - Common Tasks
+<properties linkid="devnav-java-commontasks" urlDisplayName="Common Tasks" pageTitle="Windows Azure Java Common Tasks" metaKeywords="Azure Java" metaDescription="Find topics about using Java in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+# Java Developer Center - Common Tasks
 ### [Adding a Certificate to the Java CA Certificates Store][add_ca_cert]
 
 Describes how to add a certificate authority (CA) certificate to the JRE cacerts store.

@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How To Configure Cloud Services" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Learn how to configure Windows Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-how-to-configure-a-cloud-service" urlDisplayName="How to configure" pageTitle="How to configure a cloud service - Windows Azure" metaKeywords="Configuring cloud services" metaDescription="Learn how to configure cloud services in Windows Azure. Learn to update the cloud service configuration and configure remote access to role instances." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 
 

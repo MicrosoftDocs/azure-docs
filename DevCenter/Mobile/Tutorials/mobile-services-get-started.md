@@ -1,4 +1,6 @@
-<properties linkid="mobile-services-get-started" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with Mobile Services in Windows Azure" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-mobile-tutorials-get-started" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Mobile Services" metaKeywords="" metaDescription="Follow this tutorial to get started using Windows Azure Mobile Services for Windows Store development in C#, VB, or JavaScript. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14812" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umbversionid="254ca664-c4f3-4815-8073-c86d43f4aa16" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
 <!--<div class="dev-center-os-selector">
@@ -6,8 +8,13 @@
   <a href="/en-us/develop/mobile/tutorials/get-started-ios/" title="iOS version">iOS</a>
 </div>-->
 
-# <a name="getting-started"> </a>Get started with Mobile Services for Windows Store
-<h3><strong>Windows Store</strong> / <a href="/en-us/develop/mobile/tutorials/get-started-ios">iOS</a></h3>
+# <a name="getting-started"> </a>Get started with Mobile Services
+<div class="dev-center-tutorial-selector"> 
+	<a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store" class="current">Windows Store</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone 8">Windows Phone 8</a> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a> 
+</div>
+
 
 <div class="dev-onpage-video-wrapper"><a style="background-image: url('/media/scott-mobile-video-2012.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=262813&amp;clcid=0x409" target="_blank" class="dev-onpage-video"><span class="icon"><span>Play Video</span></span><span class="time">10:08</span></a></div>   
 
@@ -120,13 +127,13 @@ The final stage of this tutorial is to build and run your new app.
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
-* [Get started with data]
+* **Get started with data** ( [C#][Get started with data] / [JavaScript][Get started with data JS] )
   <br/>Learn more about storing and querying data using Mobile Services.
 
-* [Get started with authentication]
+* **Get started with authentication** ( [C#][Get started with authentication] / [JavaScript][Get started with authentication JS] )
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-* [Get started with push notifications] 
+* **Get started with push notifications** ( [C#][Get started with push notifications] / [JavaScript][Get started with push notifications JS] )
   <br/>Learn how to send a very basic push notification to your app.
 
 <!-- Anchors. -->
@@ -155,6 +162,9 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
 [Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
+[Get started with data JS]: ./mobile-services-get-started-with-data-js.md
+[Get started with authentication JS]: ./mobile-services-get-started-with-users-js.md
+[Get started with push notifications JS]: ./mobile-services-get-started-with-push-js.md
 [Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/

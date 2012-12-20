@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Use SSH with Linux on Windows Azure" metaKeywords="Windows Azure virtual machine, Azure virtual machine, SSH" metaDescription="" linkid="manage-linux-how-to-guide-ssh" urlDisplayName="How To Guides" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="article" urlDisplayName="Use SSH" pageTitle="Use SSH to connect to Linux virtual machines in Windows Azure" metaKeywords="Azure SSH keys Linux, Linux vm SSH" metaDescription="Learn how to generate and use SSH keys with a Linux virtual machine on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 #How to Use SSH with Linux on Windows Azure
 
 <div chunk="../../shared/chunks/disclaimer.md" />
