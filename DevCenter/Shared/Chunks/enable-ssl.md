@@ -156,7 +156,7 @@ connect to it using HTTPS.
   [Step 4: Connect to the Role Instance by Using HTTPS]: #step4
   [How to Create a Certificate for a Role]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432987.aspx
   [How to Associate a Certificate with a Service]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [0]: ../../../DevCenter/Shared/Media/ssl-01.png
   [1]: ../../../DevCenter/Shared/Media/ssl-02.png
   [2]: ../../../DevCenter/Shared/Media/ssl-03.png

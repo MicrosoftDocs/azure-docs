@@ -1,4 +1,4 @@
-﻿# Enabling Remote Desktop in Windows Azure
+# Enabling Remote Desktop in Windows Azure
 
 Remote Desktop enables you to access the desktop of a role instance
 running in Windows Azure. You can use a remote desktop connection to

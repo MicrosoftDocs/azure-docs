@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) - Windows Azure feature guide" metaKeywords="Windows Azure table storage service, Azure table service Node.js, table storage Node.js" metaDescription="Learn how to use the table storage service in Windows Azure. Code samples are written using the Node.js API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) - Windows Azure feature guide" metaKeywords="Windows Azure table storage service, Azure table service Node.js, table storage Node.js" metaDescription="Learn how to use the table storage service in Windows Azure. Code samples are written using the Node.js API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 <div chunk="../chunks/article-left-menu.md" />
@@ -412,7 +412,7 @@ to learn how to do more complex storage tasks.
   [Table1]: ../../dotNet/Media/table1.png
   [OData.org]: http://www.odata.org/
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
 
   [plus-new]: ../../Shared/Media/plus-new.png
   [quick-create-storage]: ../../Shared/Media/quick-storage.png

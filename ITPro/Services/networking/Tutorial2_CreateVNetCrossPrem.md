@@ -234,7 +234,7 @@ In order to extend your on-premises Active Directory to the virtual network you 
 -  [Windows Azure Name Resolution Overview](http://go.microsoft.com/fwlink/?LinkId=248097)
 
 
-[wa_com]: http://windows.azure.com/
+[wa_com]: http://manage.windowsazure.com/
 [Tut2_VN]: ..Tutorial2_CreateVNetCrossPrem 
 [Tut3_VN]: ..Tutorial3_AddVMachineToVNet
 [CreateVN]: #CreateVN

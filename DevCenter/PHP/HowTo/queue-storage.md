@@ -388,5 +388,5 @@ Now that you’ve learned the basics of the Windows Azure Queue service, follow 
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
-[Windows Azure Management Portal]: http://windows.azure.com/
+[Windows Azure Management Portal]: http://manage.windowsazure.com/
 [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx

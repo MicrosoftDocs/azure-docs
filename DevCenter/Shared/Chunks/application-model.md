@@ -589,7 +589,7 @@ article.<a id="Ref" name="Ref"></a>
   [http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
   [http://msdn.microsoft.com/en-us/library/hh560567.aspx]: http://msdn.microsoft.com/en-us/library/hh560567.aspx
   [Managing Upgrades to the Windows Azure Guests OS]: http://msdn.microsoft.com/en-us/library/ee924680.aspx
-  [Windows Azure Management Portal]: http://Windows.Azure.com/
+  [Windows Azure Management Portal]: http://manage.windowsazure.com/
   [5]: ../../../DevCenter/Shared/Media/application-model-8.jpg
   [Deploying and Updating Windows Azure Applications]: http://www.windowsazure.com/en-us/develop/net/fundamentals/deploying-applications/
   [Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/gg432967.aspx
