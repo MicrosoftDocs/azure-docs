@@ -91,7 +91,7 @@ The instructions in this step demonstrate how to create a simple ASP.NET MVC app
 	<img src="../../../DevCenter/dotNet/Media/ssostep1Step2.png" />	
 
 
-3.	Create a controller/view (HomeController/Index) which will be the main page of the sample website.
+3.	Create a controller/view (HomeController/Index) which will be the main page of the sample web site.
 
 	<img src="../../../DevCenter/dotNet/Media/ssostep1Step3.png" />	
 

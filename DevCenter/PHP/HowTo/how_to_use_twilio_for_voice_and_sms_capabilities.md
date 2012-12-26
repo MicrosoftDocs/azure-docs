@@ -136,7 +136,7 @@ The following shows how to make an outgoing call using the **Services_Twilio** c
 		echo 'Error: ' . $e->getMessage();
 	}
 
-As mentioned, this code uses a Twilio-provided site to return the TwiML response. You could instead use your own site to provide the TwiML response; for more information, see [How to Provide TwiML Responses from Your Own Website](#howto_provide_twiml_responses).
+As mentioned, this code uses a Twilio-provided site to return the TwiML response. You could instead use your own site to provide the TwiML response; for more information, see [How to Provide TwiML Responses from Your Own Web Site](#howto_provide_twiml_responses).
 
 
 - **Note**: To troubleshoot SSL certificate validation errors, see [http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 

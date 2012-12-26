@@ -1,4 +1,4 @@
-<properties linkid="develop-dotnet-aspnet-mvc-4-mobile-website" urlDisplayName="ASP.NET MVC 4 mobile website" pageTitle=".NET ASP.NET MVC 4 mobile web site - Windows Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 4,  ASP.NET MVC" metaDescription="A tutorial that teaches you how to deploy a web application to a Windows Azure web site using mobile features in ASP.NET MVC 4 web application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-dotnet-aspnet-mvc-4-mobile-website" urlDisplayName="ASP.NET MVC 4 mobile web site" pageTitle=".NET ASP.NET MVC 4 mobile web site - Windows Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 4,  ASP.NET MVC" metaDescription="A tutorial that teaches you how to deploy a web application to a Windows Azure web site using mobile features in ASP.NET MVC 4 web application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 
 
@@ -523,7 +523,7 @@ Refresh the mobile browser. The following image reflects the code changes that y
 
 	![][DeployApplication10]
 
-You can test your live website using the phone emulator by browsing to the site URL in the mobile browser.
+You can test your live web site using the phone emulator by browsing to the site URL in the mobile browser.
 
 <!-- Internal Links -->
 [Create a Windows Azure web site]: #bkmk_createaccount

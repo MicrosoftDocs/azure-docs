@@ -82,7 +82,7 @@ To connect to the MySQL database that is running in Windows Azure Web Sites, you
 
 ##Build and test your application locally
 
-Now that you have created a Windows Azure Website, you can develop your application locally, then deploy it after testing. 
+Now that you have created a Windows Azure web site, you can develop your application locally, then deploy it after testing. 
 
 The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a MySQL database. The application consists of one file (copy/paste code available below):
 
@@ -246,7 +246,7 @@ To publish changes to application, follow these steps:
 
 4. You can also see the new deployment in the 'Deployments' tab on the management portal:
 
-	![List of website deployments][deployments-list]
+	![List of web site deployments][deployments-list]
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html

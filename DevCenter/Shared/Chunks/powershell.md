@@ -1,4 +1,4 @@
-﻿# How to use Windows Azure PowerShell
+# How to use Windows Azure PowerShell
 
 This guide describes how to use Windows PowerShell cmdlets to create,
 test, deploy, and manage Windows Azure Services. The
@@ -685,7 +685,7 @@ You can bypass the prompt by using the **-Force** option with the **Remove-Azure
 
 <h2><a id="WebSite"></a>How to: Create and manage a Windows Azure Web Site</h2>
 
-Many of the website creation and management tasks that you can perform in the [Windows Azure Management Portal] can be performed using the Windows Azure Powershell cmdlets. The sections below show you how to perform some basic tasks. For a complete list of website cmdlets, use the `help` command:
+Many of the web site creation and management tasks that you can perform in the [Windows Azure Management Portal] can be performed using the Windows Azure Powershell cmdlets. The sections below show you how to perform some basic tasks. For a complete list of web site cmdlets, use the `help` command:
 
 	PS C:\MySite> help website
 
@@ -694,15 +694,15 @@ Many of the website creation and management tasks that you can perform in the [W
 <p>The examples below assume that the root directory of your local site is <code>MySite</code>.</p> 
 </div>
 
-###Create a website
+###Create a web site
 
-You can create a website with the **New-AzureWebsite** command. The following command shows how to create a new site called `mysite`. The URL for the site will be `mysite.azurewebsites.net`.
+You can create a web site with the **New-AzureWebsite** command. The following command shows how to create a new site called `mysite`. The URL for the site will be `mysite.azurewebsites.net`.
 
 	PS C:\MySite> New-AzureWebsite mysite
 
 ####Deploy with Git
 
-To create a website that is Git-enabled, you must have Git installed locally, and the Git executable must be in your Path environment variable. The following example shows you how to create a website (`mysite`) that is Git-enabled:
+To create a web site that is Git-enabled, you must have Git installed locally, and the Git executable must be in your Path environment variable. The following example shows you how to create a web site (`mysite`) that is Git-enabled:
 
 	PS C:\MySite> New-AzureWebsite mysite -Git
 
@@ -719,7 +719,7 @@ If the local directory is not a Git repository, the command will create one for 
 
 ####Deploy from GitHub
 
-If you have a local clone of a GitHub repository or if you have a local repository with single remote reference to a GitHub repository, you can use the **-Github** flag when creating a new website to enable publishing from GitHub:
+If you have a local clone of a GitHub repository or if you have a local repository with single remote reference to a GitHub repository, you can use the **-Github** flag when creating a new web site to enable publishing from GitHub:
 
 	PS C:\MySite> New-AzureWebsite mysite -Github
 
@@ -736,9 +736,9 @@ App settings are key-value pairs that are available to your application at runti
 	PS C:\MySite> $settings = @{"myKey" = "myValue"}
 	PS C:\MySite> Set-AzureWebsite -AppSettings $settings
 
-###Start, stop, or restart a website
+###Start, stop, or restart a web site
 
-The Windows Azure PowerShell cmdlets allow you to start, stop, or restart a website with the following commands:
+The Windows Azure PowerShell cmdlets allow you to start, stop, or restart a web site with the following commands:
 
 	PS C:\MySite> Start-AzureWebsite
 	PS C:\MySite> Stop-AzureWebsite

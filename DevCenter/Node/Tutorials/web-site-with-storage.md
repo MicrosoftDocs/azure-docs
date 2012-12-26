@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" metaDescription="A tutorial that teaches you how to use the Windows Azure Table service to store data from a Node application hosted on a Windows Azure web site." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" metaDescription="A tutorial that teaches you how to use the Windows Azure Table service to store data from a Node application hosted on a Windows Azure web site." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -544,7 +544,7 @@ Before using the command-line tools with Windows Azure, you must first download 
 	<p>If the `--git` parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.</p>
 	</div>
 	
-	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Website created at** contains the URL for the web site.
+	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Web site created at** contains the URL for the web site.
 	
 		info:   Executing command site create
 		help:   Need a site name
@@ -553,7 +553,7 @@ Before using the command-line tools with Windows Azure, you must first download 
 		info:   Executing `git init`
 		info:   Creating default .gitignore file
 		info:   Creating a new web site
-		info:   Created website at  tabletasklist.azurewebsites.net
+		info:   Created web site at  tabletasklist.azurewebsites.net
 		info:   Initializing repository
 		info:   Repository initialized
 		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
@@ -590,7 +590,7 @@ Earlier we implemented code that looks for a **SQL_CONN** environment variable f
 
 1. From the Preview Management Portal, click **Web Sites** and then select your web site.
 
-	![Open website dashboard][go-to-dashboard]
+	![Open web site dashboard][go-to-dashboard]
 
 2. Click **CONFIGURE** and then find the **app settings** section of the page. 
 

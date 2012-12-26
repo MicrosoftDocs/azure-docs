@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-nodejs-tutorials-web-site-with-mongodb-mongolab" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on MongoLab - Windows Azure" metaKeywords="" metaDescription="Learn how to create a Node.js Windows Azure Web Site that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-nodejs-tutorials-web-site-with-mongodb-mongolab" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on MongoLab - Windows Azure" metaKeywords="" metaDescription="Learn how to create a Node.js Windows Azure Web Site that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 <div chunk="../chunks/article-left-menu.md" />
@@ -394,14 +394,14 @@ Before using the command-line tools with Windows Azure, you must first download 
 	<p>If the '--git' parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.</p>
 	</div>
 	
-	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created website at** contains the URL for the web site.
+	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created web site at** contains the URL for the web site.
 
 		info:   Executing command site create
 		info:   Using location southcentraluswebspace
 		info:   Executing `git init`
 		info:   Creating default web.config file
 		info:   Creating a new web site
-		info:   Created website at  mongodbtasklist.azurewebsites.net
+		info:   Created web site at  mongodbtasklist.azurewebsites.net
 		info:   Initializing repository
 		info:   Repository initialized
 		info:   Executing `git remote add azure http://username@mongodbtasklist.azurewebsites.net/mongodbtasklist.git`

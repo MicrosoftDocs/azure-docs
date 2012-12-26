@@ -1,4 +1,4 @@
-# Publishing a website with Git
+# Publishing a web site with Git
 
 Git is a popular, open source, distributed version control system. Windows Azure Web Sites allow you to enable a Git repository for your site, which allows you to quickly and easily push code changes to your site. Windows Azure Web Sites also support continuous deployment from your GitHub, CodePlex, or BitBucket repositories.
 
@@ -77,7 +77,7 @@ Perform the following steps to enable a Git repository for your web site by usin
 
 	![The Setup Git Publishing link][portal-setup-git]
 
-	If this is the first time you have enabled publishing for a Windows Azure Website, you may be prompted for deployment credentials. Enter a username and password, which will be required when publishing to your web sites in the future.
+	If this is the first time you have enabled publishing for a Windows Azure web site, you may be prompted for deployment credentials. Enter a username and password, which will be required when publishing to your web sites in the future.
 
 	![Deployment credentials prompt][portal-deployment-credentials]
 
@@ -100,7 +100,7 @@ Since you have already initialized a local repository and added files to it, ski
 		git remote add azure http://username@needsmoregit.windowsazure.net/NeedsMoreGit.git
 
 
-The **remote** command adds a named reference to a remote repository, in this case it creates a reference named 'azure' for your Windows Azure Website repository.
+The **remote** command adds a named reference to a remote repository, in this case it creates a reference named 'azure' for your Windows Azure web site repository.
 
 <h4>Publish and re-publish the web site</h4>
 
@@ -124,7 +124,7 @@ The **remote** command adds a named reference to a remote repository, in this ca
 
 	<div class="dev-callout">
 	<strong>Note</strong>
-	<p>The repository created for your Windows Azure Website expects push requests to target the <strong>master</strong> branch of its repository, which will then be used as the content of the web site.</p>
+	<p>The repository created for your Windows Azure web site expects push requests to target the <strong>master</strong> branch of its repository, which will then be used as the content of the web site.</p>
 	</div>
 
 2. In the portal, click the **BROWSE** link at the bottom of the portal to verify that the **index.html** has been deployed. A page containing 'Hello Git!' will appear.
@@ -178,7 +178,7 @@ Deploying files from either GitHub, CodePlex, or BitBucket requires that you hav
 
 When you enable continuous deployment, it will default to the **master** branch of the repository. If you wish to use a different branch, perform the following steps:
 
-1. In the portal, select your website and then select **CONFIGURE**.
+1. In the portal, select your web site and then select **CONFIGURE**.
 
 2. In the **git** section of the page, enter the branch you wish to use in the **BRANCH TO DEPLOY** field, and then hit enter. Finally, click **SAVE**.
 
@@ -200,7 +200,7 @@ To discontinue continuous deployment, simply remove the URL from the configurati
 
 <h2><a id="Step8"></a>Troubleshooting</h2>
 
-The following are errors or problems commonly encountered when using Git to publish to a Windows Azure Website:
+The following are errors or problems commonly encountered when using Git to publish to a Windows Azure web site:
 
 ****
 
@@ -232,7 +232,7 @@ The following are errors or problems commonly encountered when using Git to publ
 
 ****
 
-**Symptom**: Error - Changes commited to remote repository but your website not updated.
+**Symptom**: Error - Changes commited to remote repository but your web site not updated.
 
 **Cause**: This error can occur if you are deploying a Node.js application containing a package.json file that specifies additional required modules.
 

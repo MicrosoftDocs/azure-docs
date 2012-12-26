@@ -20,7 +20,7 @@ You'll learn:
 
 You'll build a simple contact list web application that is built on ASP.NET MVC 4 and uses the ADO.NET Entity Framework for database access. The following illustration shows the completed application:
 
-![screenshot of website][intro001]
+![screenshot of web site][intro001]
 
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
@@ -82,7 +82,7 @@ You aren't entering an existing name and password here. You're entering a new na
 11. Click the check mark at the bottom of the box to indicate you're finished.
 ![Database Settings step of New Web Site - Create with Database wizard][setup007]<br/>
 The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon, and the number of databases appears next to the **SQL Databases** icon.<br/>
-<!-- [Web Sites page of Management Portal, website created][setup009] -->
+<!-- [Web Sites page of Management Portal, web site created][setup009] -->
 
 <h2><a name="bkmk_createmvc4app"></a>Create an ASP.NET MVC 4 application</h2>
 

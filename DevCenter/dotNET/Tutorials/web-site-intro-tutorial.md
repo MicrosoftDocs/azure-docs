@@ -54,7 +54,7 @@ This setting specifies which data center your VM will run in.
 9. Click the check mark at the bottom of the box to indicate you're finished.<br/>
 ![Quick Create link in Management Portal][nodb-image01]<br/>
 The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon.<br/>
-![Web Sites page of Management Portal, website created][nodb-image02]<br/>
+![Web Sites page of Management Portal, web site created][nodb-image02]<br/>
 
 <h2><a name="createmvc4app"></a>Create an ASP.NET MVC 4 application</h2>
 

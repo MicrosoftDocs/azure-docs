@@ -7,7 +7,7 @@
 The Windows Azure SDK for PHP includes components that allow you to develop, deploy, and manage PHP applications for Windows Azure. Specifically, the Windows Azure SDK for PHP includes the following:
 
 * **The PHP client libraries for Windows Azure**. These class libraries provide an interface for accessing Windows Azure features, such as data management services and cloud services.  
-* **The Windows Azure Command-Line Tools for Mac and Linux**. This is a set of command-line tools for deploying and managing Windows Azure services, such as Windows Azure Websites and Windows Azure Virtual Machines. These tools work on any platform, including Mac, Linux, and Windows.
+* **The Windows Azure Command-Line Tools for Mac and Linux**. This is a set of command-line tools for deploying and managing Windows Azure services, such as Windows Azure Web sites and Windows Azure Virtual Machines. These tools work on any platform, including Mac, Linux, and Windows.
 * **Windows Azure PowerShell (Windows Only)**. This is a set of PowerShell cmdlets for deploying and managing Windows Azure Services, such as Cloud Services and Virtual Machines.
 * **The Windows Azure Emulators (Windows Only)**. The compute and storage emulators are local emulators of cloud services and data management services that allow you to test an application locally. The Windows Azure Emulators run on Windows only.
 
@@ -96,7 +96,7 @@ For information about how to use Windows Azure PowerShell, see [How to Use Windo
 
 ##Windows Azure Command-Line Tools for Mac and Linux
 
-The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Windows Azure services, such as Windows Azure Websites and Windows Azure Virtual Machines. The following list describes how to install the tools, depending on your operating system:
+The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Windows Azure services, such as Windows Azure Web sites and Windows Azure Virtual Machines. The following list describes how to install the tools, depending on your operating system:
 
 * **Mac**: Download the Windows Azure SDK Installer here: [http://go.microsoft.com/fwlink/?LinkId=252249][mac-installer]. Open the downloaded .pkg file and complete the installation steps as your are prompted.
 

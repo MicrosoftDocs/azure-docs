@@ -163,7 +163,7 @@ Now we'll want to setup Nginx and Unicorn to run as services. Login to the serve
 1.	Setup an endpoint from the Windows Azure Management Portal. Add a point for TCP Port 80 both publicly and locally.
 
 	![add a VM endpoint](../media/ruby-on-rails04.png)
-2.	Remove the default Nginx website with the following command:
+2.	Remove the default Nginx web site with the following command:
 
 		sudo rm /etc/nginx/sites-enabled/default
 3.	Restart the Nginx service:

@@ -34,7 +34,7 @@ Concepts introduced in this article include:
 
 Before discussing how to troubleshoot a web site we must first create a web site. This section walks through using Microsoft WebMatrix to create a simple web site and deploy the web site to Windows Azure.
 ###<a name="installwebmatrix"></a>Install Microsoft WebMatrix
-Visit [http://www.microsoft.com/web/webmatrix][webmatrix] and click the **Free Download** buttpn.  This will run the Web Platform Installer which installs all the dependencies you need to run WebMatrix and then install WebMatrix.
+Visit [http://www.microsoft.com/web/webmatrix][webmatrix] and click the **Free Download** button.  This will run the Web Platform Installer which installs all the dependencies you need to run WebMatrix and then install WebMatrix.
 ###<a name="createlocalsite"></a>Create a Web Site on your local computer with WebMatrix
 To create a web site with WebMatrix follow these steps:
 
@@ -94,7 +94,7 @@ Now that you have created a web site on Windows Azure and generated the necessar
 	![WebMatrix Publish Settings][webmatrixpubsettings]
 
 3. <p id="pubsettings">Enter the following values in the <b>Publish Settings</b> dialog box:</p>
-![WebMatrix Publish Settings2][webmatrixpubsettings2]
+
 -  **Protocol:**  Select **FTP**
 - **Server:**  Specify the URL listed under **FTP Hostname** on the web site's **Dashboard** management page.
 - **Site path:** site/wwwroot
@@ -115,7 +115,7 @@ Now that you have created a web site on Windows Azure and generated the necessar
 	![Web Site Published to Windows Azure][defaultpagenewsite]
 
 
-<h2>Enable diagnostics</span>Enable diagnostics for the web site</h2>
+<h2>Enable diagnostics for the web site</h2>
 
 Enable diagnostics for web sites on the **Configure** management page. Under the **Diagnostics** section of the **Configure** management page you can enable or disable the following logging and tracing options:
 
@@ -129,17 +129,17 @@ Set all logging and tracing options for the web site to **On** and click the **S
 
 Connect to the FTP site where diagnostic data is stored using parameters from the web site's **Dashboard** management page. Open the FTP site listed under **Diagnostics Logs** using the **Deployment User** account credentials [you created earlier](#deploymentuser). Consider using an FTP client such as [FileZilla][filezilla] to download log files. An FTP client typically provides more flexibility than a web browser for connnecting to and downloading files from an FTP site. 
 
-<h2>Register an account on the Website</h2>
+<h2>Register an account on the web site</h2>
 
 Follow these steps to register an account on the web site:
 
 1.  Open the web site from your browser and click **Register** in the top right corner of the default web page. You will be directed to registration page similar to the following:
 
-	![Website registration page][siteregpage]
+	![Web site registration page][siteregpage]
 
 2. Enter an email address and password and click **Register**. After you register you will be redirected to the default web page and you will be logged on with the e-mail account that you specified on the registration page:
 
-	![Logged on to website][loggedontosite]
+	![Logged on to web site][loggedontosite]
 
 <h2>Introduce an error condition on the web site</h2>
 
@@ -245,7 +245,7 @@ When you add the file **environment.aspx** to a .NET web application or the file
 
 <h2>Download diagnostic log files to your local computer</h2>
 
-Now that you have introduced an error condition on the website, you can download the resulting diagnostic log files to your local computer for analysis. To ensure that web site diagnostics creates all of the log files specified under the **Diagnostics** section of the website's **Configure** management page, refresh your browser once or twice to ensure that the error occurs.  Follow these steps to download the diagnostic log files to your local computer:
+Now that you have introduced an error condition on the web site, you can download the resulting diagnostic log files to your local computer for analysis. To ensure that web site diagnostics creates all of the log files specified under the **Diagnostics** section of the web site's **Configure** management page, refresh your browser once or twice to ensure that the error occurs.  Follow these steps to download the diagnostic log files to your local computer:
 
 1.  Open the web site's **Dashboard** management page and make note of the FTP site listed under **Diagnostics Logs** and the account listed under **Deployment User**. The FTP site is where the log files are located and the account listed under Deployment User is used to authenticate to the FTP site.
 2. Consider using an FTP client such as [FileZilla][filezilla] to connect to the FTP site. An FTP client provides greater ease of use for specifying credentials and viewing folders on an FTP site than is typically possible with a browser. The screenshot below was taken from the FileZilla FTP client when connecting to the FTP site where the log files for the AzureWebDiag web site are stored. The FTP host name and deployment user credentials are highlighted in red. To copy the contents of the remote FTP folder on the right to the local folder on the left, click to select the folder on the left then right-click the folder on the right and select **Download** from the shortcut menu that is displayed:
@@ -256,7 +256,7 @@ Now that you have introduced an error condition on the website, you can download
 
 	![View Log Files][viewlogfiles]
 
-<h2>Analyze website log files</h2>
+<h2>Analyze web site log files</h2>
 
 Basic analysis of the different log file types can be performed as follows:
 
@@ -378,7 +378,6 @@ Checking the web site's \root\App\_Data\ directory  we can verify that there is 
 [verifydeployuser]: ..\Media\tshootquickglanceborder.png
 [webunderconstruction]: ..\Media\tshootUnderConstruction.png
 [webmatrixpubsettings]: ..\Media\tshootPublishSettings.png
-[webmatrixpubsettings2]: ..\Media\tshootPublishSettings2.png
 [webmatrixpubpre]: ..\Media\tshootPublishPreview.png
 [webmatrixpubpre2]: ..\Media\tshootPublishPreview2.png
 [sitepublishtoazure]: ..\Media\tshootPublishedSite.png

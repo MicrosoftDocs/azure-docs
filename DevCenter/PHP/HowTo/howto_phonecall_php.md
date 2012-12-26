@@ -87,11 +87,11 @@ In addition to making the call, **makecall.php** displays some call metadata (ex
 ![Windows Azure Call Response Using Twilio and PHP][twilio_php_response]
 
 ## Run the application
-The next step is to deploy your application to Windows Azure Websites. The following articles contain the information for creating a website and deploying your code with Git, FTP, or WebMatrix (though not all information in each article is relevant):
+The next step is to deploy your application to Windows Azure Web Sites. The following articles contain the information for creating a web site and deploying your code with Git, FTP, or WebMatrix (though not all information in each article is relevant):
 
-* [Create a PHP-MySQL Windows Azure web site and deploy using Git][website-git]
-* [Create a PHP-MySQL Windows Azure Website and Deploy Using FTP][website-ftp]
-* [Create and deploy a PHP-MySQL Windows Azure Website using WebMatrix][website-webmatrix]
+* [Create a PHP-MySQL Windows Azure Web Site and deploy using Git][website-git]
+* [Create a PHP-MySQL Windows Azure Web Site and Deploy Using FTP][website-ftp]
+* [Create and deploy a PHP-MySQL Windows Azure Web Site using WebMatrix][website-webmatrix]
 
 ## Next steps
 This code was provided to show you basic functionality using Twilio in PHP on Windows Azure. Before deploying to Windows Azure in production, you may want to add more error handling or other features. For example:

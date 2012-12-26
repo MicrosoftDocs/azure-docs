@@ -57,11 +57,11 @@ Windows Azure VMs can be used in many different ways. You might use them to crea
 
 ###Web Sites###
 
-One of the most common things that people do in the cloud is run websites and web applications. Windows Azure Virtual Machines allows this, but it still leaves you with the responsibility of administering one or more VMs. What if you just want a website where somebody else takes care of the administrative work for you?
+One of the most common things that people do in the cloud is run web sites and web applications. Windows Azure Virtual Machines allows this, but it still leaves you with the responsibility of administering one or more VMs. What if you just want a web site where somebody else takes care of the administrative work for you?
 
-This is exactly what Windows Azure Web Sites provides. This execution model offers a managed web environment using Internet Information Services (IIS). You can move an existing IIS website into Windows Azure Web Sites unchanged, or you can create a new one directly in the cloud. Once a website is running, you can add or remove instances dynamically, relying on Web Sites to load balance requests across them. And as Figure 2 shows, Windows Azure Web Sites offers both a shared option, where your website runs in a virtual machine with other sites, and a way for a site to run in its own VM. 
+This is exactly what Windows Azure Web Sites provides. This execution model offers a managed web environment using Internet Information Services (IIS). You can move an existing IIS web site into Windows Azure Web Sites unchanged, or you can create a new one directly in the cloud. Once a web site is running, you can add or remove instances dynamically, relying on Web Sites to load balance requests across them. And as Figure 2 shows, Windows Azure Web Sites offers both a shared option, where your web site runs in a virtual machine with other sites, and a way for a site to run in its own VM. 
 
-Windows Azure Web Sites is intended to be useful for both developers and web design agencies. For development, it supports .NET, PHP, and Node.js, along with SQL Database and (from ClearDB, a Microsoft partner) MySQL for relational storage. It also provides built-in support for several popular applications, including WordPress, Joomla, and Drupal. The goal is to provide a low-cost, scalable, and broadly useful platform for creating websites and web applications in the public cloud.
+Windows Azure Web Sites is intended to be useful for both developers and web design agencies. For development, it supports .NET, PHP, and Node.js, along with SQL Database and (from ClearDB, a Microsoft partner) MySQL for relational storage. It also provides built-in support for several popular applications, including WordPress, Joomla, and Drupal. The goal is to provide a low-cost, scalable, and broadly useful platform for creating web sites and web applications in the public cloud.
 
 ###Cloud Services###
 

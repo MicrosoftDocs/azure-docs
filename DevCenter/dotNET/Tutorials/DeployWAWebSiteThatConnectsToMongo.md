@@ -24,8 +24,8 @@ In this tutorial you will:
 Knowledge of the following is useful for this tutorial, though not required:
 
 * The C# driver for MongoDB. For more information on developing C# applications against MongoDB, see [CSharp Language Center][MongoC#LangCenter]. 
-* The ASP .NET web application framework. You can learn all about it at the [ASP.net website][ASP.NET].
-* The ASP .NET MVC 3.0 web application framework. You can learn all about it at the [ASP.NET MVC 3 website][MVC3].
+* The ASP .NET web application framework. You can learn all about it at the [ASP.net web site][ASP.NET].
+* The ASP .NET MVC 3.0 web application framework. You can learn all about it at the [ASP.NET MVC 3 web site][MVC3].
 * Windows Azure. You can get started reading at [Windows Azure][WindowsAzure].
 
 <h2><span class="short-header">Preparation</span>Preparation</h2>

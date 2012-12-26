@@ -41,7 +41,7 @@ Follow these steps to create a Windows Azure SQL Database:
 1. Login to the [Preview Management Portal][preview-portal].
 2. Click the **+ NEW** icon on the bottom left of the portal.
 
-	![Create New Windows Azure Website][new-website]
+	![Create New Windows Azure Web Site][new-website]
 
 3. Click **DATA SERVICES**, **SQL DATABASE** then **CUSTOM CREATE**.
 

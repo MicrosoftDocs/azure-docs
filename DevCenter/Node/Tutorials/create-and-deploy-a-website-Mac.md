@@ -1,4 +1,4 @@
-<properties linkid="develop-node-create-a-website-mac" urlDisplayName="Web site" pageTitle="Create a Node.js web site on Mac - Windows Azure tutorials" metaKeywords="Azure create website Node, Azure deploy website Node, website Node.js, Node website" metaDescription="Learn how to build and deploy a Node.js web site in Windows Azure. Sample code is written in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-node-create-a-website-mac" urlDisplayName="Web site" pageTitle="Create a Node.js web site on Mac - Windows Azure tutorials" metaKeywords="Azure create web site Node, Azure deploy web site Node, web site Node.js, Node web site" metaDescription="Learn how to build and deploy a Node.js web site in Windows Azure. Sample code is written in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 <div chunk="../chunks/article-left-menu.md" />
@@ -37,7 +37,7 @@ Follow these steps to create a Windows Azure Web Site, and then enable Git publi
 
 4. Once the web site status changes to **Running**, click on the name of the web site to access the **Dashboard**
 
-	![Open website dashboard][go-to-dashboard]
+	![Open web site dashboard][go-to-dashboard]
 
 6. At the bottom right of the Dashboard, select **Set up Git Publishing**.
 
@@ -49,7 +49,7 @@ Follow these steps to create a Windows Azure Web Site, and then enable Git publi
 
 8. Once the Git repository is ready, you will be presented with instructions on the Git commands to use in order to setup a local repository and then push the files to Windows Azure.
 
-	![Git deployment instructions returned after creating a repository for the website.][git-instructions]
+	![Git deployment instructions returned after creating a repository for the web site.][git-instructions]
 
 ##Build and test your application locally
 
@@ -93,8 +93,8 @@ In this section, you will create a **server.js** file containing the 'hello worl
 
 		git remote add azure [URL for remote repository]
 
-    ![Git deployment instructions returned after creating a repository for the website.][git-instructions]
-
+    ![Git deployment instructions returned after creating a repository for the web site.][git-instructions]
+ 
 4. Push your changes to Windows Azure using the following command:
 
 		git push azure master

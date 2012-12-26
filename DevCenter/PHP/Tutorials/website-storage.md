@@ -1,21 +1,21 @@
-<properties linkid="develop-php-website-with-storage" urlDisplayName="Web w/ Storage" pageTitle="PHP web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" metaDescription="This tutorial shows you how to create a PHP website and use the Windows Azure Tables storage service in the back-end." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-php-website-with-storage" urlDisplayName="Web w/ Storage" pageTitle="PHP web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage PHP, Azure PHP web site, Azure PHP web site, Azure PHP tutorial, Azure PHP example" metaDescription="This tutorial shows you how to create a PHP web site and use the Windows Azure Tables storage service in the back-end." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
-#Create a PHP Website using Windows Azure Storage
+#Create a PHP web site using Windows Azure Storage
 
-This tutorial shows you how to create a PHP website and use the Windows Azure Tables storage service in the back-end. This tutorial assumes you have [PHP][install-php] and a web server installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP website running in Windows Azure and accessing the Table storage service.
+This tutorial shows you how to create a PHP web site and use the Windows Azure Tables storage service in the back-end. This tutorial assumes you have [PHP][install-php] and a web server installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP web site running in Windows Azure and accessing the Table storage service.
  
 You will learn:
 
 * How to install the Windows Azure client libraries and include them into your application.
 * How to use the client libraries for creating tables, and for creating, querying and deleting table entities.
 * How to create a Windows Azure Storage Account and set up your application to use it.
-* How to create a Windows Azure website and deploy to it using Git
+* How to create a Windows Azure web site and deploy to it using Git
  
 You will build a simple Tasklist web application in PHP. A screenshot of the completed application is below:
 
-![Windows Azure PHP Website][ws-storage-app]
+![Windows Azure PHP web site][ws-storage-app]
 
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
@@ -313,15 +313,15 @@ To make your application store data into the cloud you need to first create a st
 
 2. Click the **+ New** icon on the bottom left of the portal.
 
-	![Create New Windows Azure Website][new-website]
+	![Create New Windows Azure web site][new-website]
 
 3. Click **Storage**, then **Quick Create**.
 
-	![Custom Create a new Website][storage-quick-create]
+	![Custom Create a new web site][storage-quick-create]
 	
-	Enter a value for **URL** and select the data center for your website in the **REGION** dropdown. Click the **Create Storage Account** button at the bottom of the dialog.
+	Enter a value for **URL** and select the data center for your web site in the **REGION** dropdown. Click the **Create Storage Account** button at the bottom of the dialog.
 
-	![Fill in Website details][storage-quick-create-details]
+	![Fill in web site details][storage-quick-create-details]
 
 	When the storage account has been created you will see the text **Creation of Storage Account ‘[NAME]’ completed successfully**.
 
@@ -338,28 +338,28 @@ To make your application store data into the cloud you need to first create a st
 7. Open **init.php** and replace `[YOUR_STORAGE_ACCOUNT_NAME]` and `[YOUR_STORAGE_ACCOUNT_KEY]` with the account name and key you took note of in the last step. Save the file.
 
 
-## Create a Windows Azure Website and Set up Git Publishing
+## Create a Windows Azure Web Site and Set up Git Publishing
 
-Follow these steps to create a Windows Azure Website:
+Follow these steps to create a Windows Azure web site:
 
 1. Login to the [Preview Management Portal][preview-portal].
 2. Click the **+ New** icon on the bottom left of the portal.
 
-	![Create New Windows Azure Website][new-website]
+	![Create New Windows Azure Web Site][new-website]
 
 3. Click **Web Site**, then **Quick Create**.
 
-	![Custom Create a new Website][website-quick-create]
+	![Custom Create a new web site][website-quick-create]
 	
-	Enter a value for **URL** and select the data center for your website in the **REGION** dropdown. Click the **Create New Website** button at the bottom of the dialog.
+	Enter a value for **URL** and select the data center for your web site in the **REGION** dropdown. Click the **Create New Web Site** button at the bottom of the dialog.
 
-	![Fill in Website details][website-quick-create-details]
+	![Fill in web site details][website-quick-create-details]
 
-	When the website has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfully**. Now, you can enable Git publishing.
+	When the web site has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfully**. Now, you can enable Git publishing.
 
-5. Click the name of the website displayed in the list of websites to open the website’s **QUICKSTART** dashboard.
+5. Click the name of the web site displayed in the list of web sites to open the web site’s **QUICKSTART** dashboard.
 
-	![Open website dashboard][go-to-dashboard]
+	![Open web site dashboard][go-to-dashboard]
 
 
 6. At the bottom of the **QUICKSTART** page, click **Set up Git publishing**. 
@@ -394,7 +394,7 @@ To publish your application with Git, follow the steps below.
 			
 	When the Composer package manager downloads the Windows Azure client libraries and their dependencies it does so by cloning the GitHub repository that they reside in. In the next step, the application will be deployed via Git by creating a repository out of the root folder of the application. Git will ignore the sub-repository where the client libraries live unless the repository-specific files are removed.
 
-2. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application, and run the following commands (**Note:** these are the same steps noted at the end of the **Create a Windows Azure Website and Set up Git Publishing** section):
+2. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application, and run the following commands (**Note:** these are the same steps noted at the end of the **Create a Windows Azure Web Site and Set up Git Publishing** section):
 
 		git init
 		git add .
@@ -404,8 +404,8 @@ To publish your application with Git, follow the steps below.
 
 	You will be prompted for the password you created earlier.
 
-3. Browse to **http://[your website domain]/createtable.php** to create the table for the application.
-4. Browse to **http://[your website domain]/index.php** to begin using the application.
+3. Browse to **http://[your web site domain]/createtable.php** to create the table for the application.
+4. Browse to **http://[your web site domain]/index.php** to begin using the application.
 
 After you have published your application, you can begin making changes to it and use Git to publish them. 
 
@@ -422,7 +422,7 @@ To publish changes to application, follow these steps:
 
 	You will be prompted for the password you created earlier.
 
-3. Browse to **http://[your website domain]/index.php** to see your changes. 
+3. Browse to **http://[your web site domain]/index.php** to see your changes. 
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-pear]: http://pear.php.net/manual/en/installation.getting.php
