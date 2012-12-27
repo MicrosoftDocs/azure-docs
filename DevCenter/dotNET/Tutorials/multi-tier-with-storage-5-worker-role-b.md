@@ -477,6 +477,8 @@ Next, you create and configure the three new settings that are only used by work
 
    The actual work of sending the email by using SendGrid is done by the `SendEmailToList` method. If you want to use a different service than SendGrid, all you have to do is change the code in this method.
 
+   **Note:** If you have invalid credentials in the project settings, the call to SendGrid will fail but the application will not get any indication of the failure.  If you use SendGrid in a production application, consider setting up separate credentials for the web API in order to avoid causing silent failures when an administrator changes his or her SendGrid user account password. For more information, see [SendGrid MultiAuth - Multiple Account Credentials](http://support.sendgrid.com/entries/21658978-sendgrid-multiauth-multiple-account-credentials). You can set up credentials at [https://sendgrid.com/credentials](). 
+
         private void SendEmailToList(string emailAddress, string fromEmailAddress, string subjectLine,
             string htmlMessageBodyRef, string textMessageBodyRef)
         {
@@ -638,6 +640,20 @@ These tutorials and the sample application were written by [Rick Anderson](http:
 * [Scott Hunter](http://blogs.msdn.com/b/scothu/) (Twitter: [@coolcsh](http://twitter.com/coolcsh))
 * [Brian Swan](http://blogs.msdn.com/b/brian_swan/)
 * [Daniel Wang](http://blogs.msdn.com/b/daniwang/)
+* The members of the Developer Advisory Council who provided feedback:
+   * Damir Arh
+   * Jean-Luc Boucho
+   * Carlos dos Santos
+   * Mike Douglas
+   * Robert Fite
+   * Gianni Rosa Gallina
+   * Fabien Lavocat
+   * Karl Ots
+   * Carlos-Alejandro Perez
+   * Sunao Tomita
+   * Perez Jones Tsisah
+   * Michiel van Otegem
+
  
 [createsolution]: #cloudproject
 [mailinglist]: #mailinglist
