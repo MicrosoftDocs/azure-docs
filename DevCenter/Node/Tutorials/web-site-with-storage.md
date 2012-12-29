@@ -343,7 +343,7 @@ In this section you will extend the basic application created by the **express**
 });
 
 
- Insert the below example code after the code above. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is then password to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
+ Insert the below example code after the code above. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is the password to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
 
         var TaskList = require('./routes/tasklist');
 		var Task = require('./models/task');
