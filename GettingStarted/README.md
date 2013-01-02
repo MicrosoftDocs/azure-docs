@@ -41,7 +41,7 @@ Each branch should be limited to a single concept/article both to streamline wor
 #### Create a New Branch
 
 1.	Open GitBash
-2.	Type `git pull upstream weekly:<new branch name>` in the prompt.  This will create a new branch locally copied from the latest WindowsAzure master branch.
+2.	Type `git pull upstream master:<new branch name>` in the prompt.  This will create a new branch locally copied from the latest WindowsAzure master branch.
 3.	Type `git push origin <new branch name>` in the prompt.  This will alert GitHub to the new branch.  You should now be able to see the new branch in your fork of the repository on GitHub.
 4.	Type `git checkout <new branch name>` to switch to your new branch.
 
@@ -75,7 +75,7 @@ When you are done with your work and are ready to have it merged into the centra
 1.	In GitBash type `git push origin <new branch name>` in the command prompt.  In your local repository, `origin` refers to your GitHub repository that you cloned the local repository from. This command pushes the current state of your new branch, including all commits made in the previous steps, to your GitHub fork.
 2.	On the GitHub site, navigate in your fork to the new branch.
 3.	Click the **Pull Request** button at the top of the page.
-4.	Ensure that the Base branch is `WindowsAzure/azure-content@weekly` and the Head branch is `<your username>/azure-content@<branch name>`
+4.	Ensure that the Base branch is `WindowsAzure/azure-content@master` and the Head branch is `<your username>/azure-content@<branch name>`
 5.	Click the **Update Commit Range** button.
 6.	Give your pull request a Title, and describe all the changes being made.  If your bug fixes a TFS Item or GitHub issue make sure to reference them in the description.
 7.	Submit the Pull Request.
@@ -86,10 +86,10 @@ One of the site administrators will now process your pull request.  Your pull re
 
 After a branch has been successfully merged (i.e. your pull request has been accepted), do not continue working in the local branch that was successfully merged upstream. This can lead to merge conflicts if you submit another pull request. Instead, if you want to do another update, create a new local branch from the successfully merged upstream branch.
 
-For example, suppose your local branch X was successfully merged into the WindowsAzure/Azure-Content weekly branch and you want to make further updates to the content that was merged. Create a new local branch, X2, from the WindowsAzure/Azure-Content weekly branch. To do this, open GitBash and execute the following commands:
+For example, suppose your local branch X was successfully merged into the WindowsAzure/Azure-Content master branch and you want to make further updates to the content that was merged. Create a new local branch, X2, from the WindowsAzure/Azure-Content master branch. To do this, open GitBash and execute the following commands:
 
 	cd azure-content
-	git pull upstream weekly:X2
+	git pull upstream master:X2
 	git push origin X2
 
 You now have local copies (in a new local branch) of the work that you submitted in branch X. The X2 branch also contains all the work other writers have merged, so if your work depends on others' work (e.g. shared images), it will be available in the new branch. You can verify that your previous work (and others' work) is in the branch by checking out the new branch...
