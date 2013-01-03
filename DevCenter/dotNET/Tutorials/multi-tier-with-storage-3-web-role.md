@@ -1600,9 +1600,9 @@ The `UnsubscribeVM` view model is used to pass data between the `Unsubscribe` co
 
     ![Azure Storage Explorer][mtas-ase-edit-entity-unsubscribe]
 
-7. Switch back to your browser window.  In the address bar of the browser, change "Subscriber" in the URL to "unsubscribe?ID=[guidvalue]" where in place of [guidvalue] you paste in the GUID that you copied from Azure Storage Explorer.  For example:
+7. Switch back to your browser window.  In the address bar of the browser, change "Subscriber" in the URL to "unsubscribe?ID=[guidvalue]&listName=[listname]" where [guidvalue] is the GUID that you copied from Azure Storage Explorer, and [listname] is the name of the mailing list.  For example:
 
-        http://127.0.0.1/unsubscribe?ID=b7860242-7c2f-48fb-9d27-d18908ddc9aa
+        http://127.0.0.1/unsubscribe?ID=b7860242-7c2f-48fb-9d27-d18908ddc9aa&listName=contoso1
 
    The version of the **Unsubscribe** page that asks for confirmation is displayed:
 
