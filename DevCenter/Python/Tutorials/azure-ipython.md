@@ -1,5 +1,6 @@
 <properties linkid="develop-python-ipython-notebook" urlDisplayName="IPython Notebook" pageTitle="IPython Notebook - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that shows how to deploy the IPython Notebook on Windows Azure, using Linux or Windows virtual machines (VMs)." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+<div chunk="../chunks/article-left-menu.md" />
 
 # IPython Notebook on Windows Azure
 
