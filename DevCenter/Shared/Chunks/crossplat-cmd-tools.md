@@ -33,16 +33,16 @@ The following list contains information for installing the command-line tools, d
 
 		npm install azure-cli -g
 
-	**Note**: On Linux, you may need to run this command with elevated privileges:
+	**Note**: You may need to run this command with elevated privileges:
 
 		sudo npm install azure-cli -g
 
-	On Windows, you may need to run the command from a prompt with elevated privileges.
+* **Windows**: Run the Winows installer (.msi file), which is available here: [Windows Azure Command Line Tools][windows-installer].
 
 
 To test the installation, type `azure` at the command prompt. If the installation was successful, you will see a list of all the available `azure` commands.
 
-<h2><a id="CreateAccount"><a>How to create a Windows Azure account</h2>
+<h2><a id="CreateAccount"><a>How to create a Windows Azure account</a></h2>
 
 To use the Windows Azure Command-Line Tools for Mac and Linux, you will need a Windows Azure account.
 
@@ -232,6 +232,7 @@ For a complete list of commands for creating and managing virtual machines, use 
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 [download-wpi]: http://www.microsoft.com/web/downloads/platform.aspx
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
+[windows-installer]: http://go.microsoft.com/fwlink/?LinkID=275464&clcid=0x409
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [http://www.windowsazure.com]: http://www.windowsazure.com
 [Windows Azure Website]: ../media/create-account-01-mac.png
