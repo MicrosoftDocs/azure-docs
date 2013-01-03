@@ -284,7 +284,7 @@ In this section you will extend the basic application created by the **express**
 		      if(err) {
 		        throw err;
 		      }
-		      res.redirect('home');
+		      res.redirect('/');
 		    });
 		  },
   
@@ -303,7 +303,7 @@ In this section you will extend the basic application created by the **express**
 		      if(err) {
 		        throw err;
 		      } else {
- 		       res.redirect('home');
+ 		       res.redirect('/');
 		      }
 		    });
 		  }
@@ -317,21 +317,36 @@ In this section you will extend the basic application created by the **express**
 
 2. At the beginning of the file, add the following to load the azure module, set the table name, partitionKey, and set the storage credentials used by this example:
 
-		var azure = require('azure');
-		  , nconf = require('nconf');
+		var azure = require('azure')
+		, nconf = require('nconf');
 		nconf.env()
-	     .file({ file: 'config.json'});
+	    .file({ file: 'config.json'});
 		var tableName = nconf.get("TABLE_NAME")
-		  , partitionKey = nconf.get("PARTITION_KEY")
-		  , accountName = nconf.get("STORAGE_NAME")
-		  , accountKey = nconf.get("STORAGE_KEY");
+		, partitionKey = nconf.get("PARTITION_KEY")
+		, accountName = nconf.get("STORAGE_NAME")
+		, accountKey = nconf.get("STORAGE_KEY");
 
 	<div class="dev-callout">
 	<strong>Note</strong>
 	<p>nconf will load the configuration values from either environment variables or the **config.json** file, which we will create later.</p>
 	</div>
 
-3. Replace the content after the `//Routes` comment with the following code. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is then password to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
+3. In the app.js file, scroll down to where you see below code. 
+
+		app.configure(function(){
+		app.set('port', process.env.PORT || 3000);
+		app.set('views', __dirname + '/views');
+		app.set('view engine', 'jade');
+		app.use(express.favicon());
+		app.use(express.logger('dev'));
+		app.use(express.bodyParser());
+		app.use(express.methodOverride());
+		app.use(app.router);
+		app.use(express.static(path.join(__dirname, 'public')));
+});
+
+
+ Insert the below example code after the code above. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is the password to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
 
         var TaskList = require('./routes/tasklist');
 		var Task = require('./models/task');
@@ -345,8 +360,7 @@ In this section you will extend the basic application created by the **express**
 		    app.post('/addtask', taskList.addTask.bind(taskList));
 		    app.post('/completetask', taskList.completeTask.bind(taskList));
 
-		app.listen(process.env.port || 3000);
-
+		
 4. Save the **app.js** file.
 
 ###Modify the index view
