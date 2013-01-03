@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-app-with-blob-storage" urlDisplayName="Web App with Blob Storage" pageTitle="Python web app with blob storage - Windows Azure tutorial" metaKeywords="Azure storage Python, Azure Python application, Azure Python tutorial, Azure Python example" metaDescription="A tutorial that teaches you how to create a Python web application using the Windows Azure Client Libraries. Django is used as the web framework." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-
+<div chunk="../chunks/article-left-menu.md" />
 
 # Python Web Application using Storage
 
