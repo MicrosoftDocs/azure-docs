@@ -31,7 +31,7 @@ The table also includes a link to the Kernel compatibility patch required by som
 
 Note that the different distributions will be incorporating the agent to their official distribution archives shortly, but for the time being we are releasing all the RPM and Deb packages for the agent plus the drivers for CentOS on the same ISO. 
 
-<table border="1" width="768">
+<table border="1" width="600">
   <tr bgcolor="#E9E7E7">
 		<th>Distribution</th>		
 	    <th>Version</th>
@@ -57,7 +57,7 @@ Note that the different distributions will be incorporating the agent to their o
 		<td>June 7 2012</td>
 	    <td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254263">Latest LIS drivers</a></td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&amp;clcid=0x409">Required for 6.2 and 6.3 only</a></td>
-		<td>RPM:In package repo under walinuxagent<br />
+		<td>RPM:In <a href=http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/>Open Logic package repo </a> under walinuxagent<br />
 			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
  		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254266">Download ISO</a></td>
 	</tr>
