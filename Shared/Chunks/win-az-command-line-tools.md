@@ -1,6 +1,6 @@
 #Windows Azure command-line tool for Mac and Linux#
 
-This tool provides functionality for creating, deploying, and managing virtual machines and websites from Mac and Linux desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS, and PHP.
+This tool provides functionality for creating, deploying, and managing virtual machines, web sites, and Windows Azure Mobile Services from Mac and Linux desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS, and PHP.
 
 To install the tool on a Mac, download and run the [Windows Azure SDK installer](http://go.microsoft.com/fwlink/?LinkId=252249).
 
@@ -22,9 +22,11 @@ In addition to command-specific optional parameters documented here, there are t
 * [Commands to manage your Windows Azure cloud services](#Commands_to_manage_your_Azure_cloud_services)
 * [Commands to manage your Windows Azure certificates](#Commands_to_manage_your_Azure_certificates)
 * [Commands to manage your websites](#Commands_to_manage_your_web_sites)
+* [Commands to manage Windows Azure Mobile Services](#Commands_to_manage_mobile_services)
 * [Manage tool local settings](#Manage_tool_local_settings)
 
 ##<a id="Manage_your_account_information_and_publish_settings"></a>Manage your account information and publish settings
+
 Your Windows Azure subscription information is used by the tool to connect to your account. This information can be obtained from the Windows Azure portal in a publish settings file as described here. The publish settings file can then be imported as a persistent local config setting that the tool will use for subsequent operations. You only need to import your publish settings once.
 
 **account download [options]**
@@ -77,6 +79,7 @@ Affinity groups can be set when a group of virtual machines spans multiple physi
 	info:   account affinity-group list command OK
 
 ##<a id="Commands_to_manage_your_Azure_virtual_machines"></a>Commands to manage your Windows Azure virtual machines
+
 The following diagram shows how Windows Azure virtual machines are hosted in the production deployment environment of a Windows Azure cloud service.
  
 ![Azure Technical Diagram](../media/architecturediagram.jpg)
@@ -224,6 +227,7 @@ A virtual machine image cannot be captured while the virtual machine state unles
 	info:   vm capture command OK
 
 ##<a id="Commands_to_manage_your_Azure_virtual_machine_endpoints"></a>Commands to manage your Windows Azure virtual machine endpoints
+
 The following diagram shows the architecture of a typical deployment of multiple instances of a virtual machine. Note that in this example port 3389 is open on each virtual machine (for RDP access), and there is also an internal IP address (for example, 168.55.11.1) on each virtual machine that is used by the load balancer to route traffic to the virtual machine. This internal IP address can also be used for communication between virtual machines.
 
 ![Windows Azure Network Diagram](../media/networkdiagram.jpg)
@@ -265,6 +269,7 @@ This command lists all virtual machine endpoints. The -json option specifies tha
 
 <span id="Commands_to_manage_your_Azure_virtual_machine_images"></span>
 ##Commands to manage your Windows Azure virtual machine images
+
 Virtual machine images are captures of already configured virtual machines that can be replicated as required.
 
 **vm image list [options]**
@@ -426,6 +431,7 @@ This command detaches a data disk attached to a Windows Azure virtual machine. &
 
 <span id="Commands_to_manage_your_Azure_cloud_services"></span>
 ##Commands to manage your Windows Azure cloud services
+
 Windows Azure cloud services are applications and services hosted on web roles and worker roles. The following commands can be used to manage Windows Azure cloud services.
 
 **service list [options]**
@@ -450,6 +456,7 @@ This command deletes a Windows Azure cloud service.
 
 <span id="Commands_to_manage_your_Azure_certificates"></span>
 ##Commands to manage your Windows Azure certificates
+
 Windows Azure certificates are cerificates (that is, SSL certificates) connected to your Windows Azure account.
 
 **service cert list [options]**
@@ -487,6 +494,7 @@ This command deletes a certificate.
 
 <span id="Commands_to_manage_your_web_sites"></span>
 ##Commands to manage your websites
+
 A Windows Azure website is a web configuration accessible by URI. Websites are hosted in virtual machines, but you do not need to think about the details of creating and deploying the virtual machine yourself. Those details are handled for you by Windows Azure.
 
 **site list [options]**
@@ -593,8 +601,32 @@ This command stops a website.
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
+<span id="Commands_to_manage_mobile_services"></span>
+##Commands to manage Windows Azure Mobile Services
+
+Windows Azure Mobile Services 
+
+###Commands to manage mobile services
+
+###Commands to manage configuration
+
+###Commands to manage logs 
+
+###Commands to manage keys 
+
+###Commands to manage tables
+
+<table border="1" width="100%"><tr><th>Script value</th><th>Management Portal value</th></tr>
+<tr><td><code>public</code></td><td>Everyone</td></tr>
+<tr><td><code>application</code> (default)</td><td>Anybody with the application key</td></tr>
+<tr><td><code>user</code></td><td>Only authenticated users</td></tr>
+<tr><td><code>admin	</code></td><td>Only scripts and admins</td></tr></table>
+
+###Commands to manage table scripts
+
 <span id="Manage_tool_local_settings"></span>
 ##Manage tool local settings
+
 Local settings are your subscription ID and Default Storage Account Name.
 
 **config list [options]**
