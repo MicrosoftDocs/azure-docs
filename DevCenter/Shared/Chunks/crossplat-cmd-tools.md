@@ -23,7 +23,7 @@ The supported tasks include the following:
 
 For a complete list of supported commands, type `azure -help` at the command line after installing the tools, or see the [reference documentation][reference-docs].
 
-<h2><a id="Download"></a>How to install the Windows Azure Command-Line Tools for Mac and Linux</h2>
+<h2><a id="Download">How to install the Windows Azure Command-Line Tools for Mac and Linux</a></h2>
 
 The following list contains information for installing the command-line tools, depending on your operating system:
 
@@ -42,7 +42,7 @@ The following list contains information for installing the command-line tools, d
 
 To test the installation, type `azure` at the command prompt. If the installation was successful, you will see a list of all the available `azure` commands.
 
-<h2><a id="CreateAccount"><a>How to create a Windows Azure account</a></h2>
+<h2><a id="CreateAccount">How to create a Windows Azure account</a></h2>
 
 To use the Windows Azure Command-Line Tools for Mac and Linux, you will need a Windows Azure account.
 
