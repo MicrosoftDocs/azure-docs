@@ -876,6 +876,7 @@ In a production application you would implement an authentication and authorizat
 
 For more information about how to implement authentication and authorization in an ASP.NET MVC web project, see the following resources:
 
+* [Authentication and Authorization in ASP.NET Web API](http://www.asp.net/web-api/overview/security/authentication-and-authorization/authentication-and-authorization-in-aspnet-web-api)
 * [Using Forms Authentication](http://msdn.microsoft.com/en-us/library/ff398049(VS.98).aspx)
 * [Music Store Part 7: Membership and Authorization](http://www.asp.net/mvc/tutorials/mvc-music-store/mvc-music-store-part-7)
 
