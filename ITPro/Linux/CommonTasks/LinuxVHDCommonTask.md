@@ -3,6 +3,7 @@
 
 # Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System 
 
+
 To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
 
 A virtual machine that you create in Windows Azure runs the operating system that you choose from the supported operating system versions. You can customize the operating system settings of the virtual machine to facilitate running your application. The configuration that you set is stored on disk. You create a virtual machine in Windows Azure by using a virtual hard disk (VHD) file. You can choose to create a virtual machine by using a VHD file that is supplied for you in the Image Gallery, or you can choose to create your own image and upload it to Windows Azure in a VHD file.
@@ -15,7 +16,7 @@ The following resources must be available to complete this task:
 	- SLES 11 SP2
 	- CentOS 6.3
 	- Ubuntu 12.04, 12.10
-- **Linux Azure command-line tool.** If you are using a Linux operating system to create your image, you use this tool to upload the VHD file. To download the tool, see [Windows Azure Command-Line Tools for Linux and Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409).
+- **Linux Azure command-line tool.** If you are using a Linux operating system to create your image, use this tool to upload the VHD file. To download the tool, see [Windows Azure Command-Line Tools for Linux and Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409).
 - **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. You must use the tools available in Windows Azure SDK - June 2012 or later to upload VHDs to Windows Azure. To download the SDK and the tools, see [Windows Azure Downloads](/en-us/develop/downloads/).
 
 This task includes the following steps:
@@ -201,7 +202,7 @@ You must complete specific configuration steps in the operating system for the v
 
 8. Install python-pyasn1 by running the following command:
 
-		yum install python-pyasn1
+		sudo yum install python-pyasn1
 
 9. Replace their /etc/yum.repos.d/CentOS-Base.repo file with the following text
 > [openlogic]
@@ -245,36 +246,52 @@ You must complete specific configuration steps in the operating system for the v
 > gpgcheck=1
 > enabled=0
 > gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
- 
-10.	Clear the current Yum metadata
+
+10.	Add the following lines to /etc/yum.conf
+
+-	http_caching=packages
+
+-	exclude=kernel*
+11. Disable the yum module "fastestmirror" by editing the file
+"/etc/yum/pluginconf.d/fastestmirror.conf" and under [main]
+
+-	set enabled=0  
+12.	Clear the current Yum metadata
 You need to clear your current yum metadata:
--	yum clean metadata
-11. Update a Running VM's Kernel by running
+-	yum clean all
 
--	yum install kernel-2.6.32-279.14.1.el6.openlogic.x86_64.rpm
 
-12. Ensure that you have modified the kernel boot line to include lines for 
+13. Update a Running VM's Kernel by running
+
+-	For CentOS 6.2 do:
+		-	sudo yum remove kernel-firmware
+		-	sudo yum --disableexcludes=main install kernel-2.6.32-279.14.1.el6.openlogic.x86_64 kernel-firmware-2.6.32-279.14.1.el6.openlogic.x86_64
+
+-	For CentOS 6.3 do:
+		-		yum install kernel-2.6.32-279.14.1.el6.openlogic.x86_64.rpm
+
+
+14. Ensure that you have modified the kernel boot line to include lines for 
 
 -	console=ttyS0 ( this will enable serial console output)
 
 -	rootdelay=300
-13. It is recommended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
- 
-14. Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
 
-15.	Comment out Defaults targetpw in /etc/sudoers
-16.	SSH Server should be included by default
-17.	No SWAP on Host OS DISK should be created 
+15. Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
+
+16.	Comment out Defaults targetpw in /etc/sudoers
+17.	SSH Server should be included by default
+18.	No SWAP on Host OS DISK should be created 
 	SWAP if needed can be requested for creation on the local resource disk by the Linux Agent. You may modify /etc/waagent.conf appropriately.
-18. Install the Windows Azure Linux Agent by running
--	yum install WALinuxAgent-1.2-1.noarch.rpm
-19.	Run the following commands to deprovision the virtual machine:
+19. Install the Windows Azure Linux Agent by running
+-	yum install WALinuxAgent-1.2-1
+20.	Run the following commands to deprovision the virtual machine:
 
 		waagent –force –deprovision
 		export HISTSIZE=0
 		logout
 
-20. Click **Shutdown** in Hyper-V Manager.
+21. Click **Shutdown** in Hyper-V Manager.
 
 ### Prepare the Ubunutu 12.04 and 12.10 operating system ###
 
@@ -302,11 +319,13 @@ You need to clear your current yum metadata:
 		Ubuntu 12.04 and 12.04.1:
 	-	sudo apt-get update
 	-	sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-precise-virtual
+	-	(recommended) sudo apt-get dist-upgrade
 	-	sudo reboot
 
 	Ubuntu 12.10:
 	-	sudo apt-get update
 	-	sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-quantal-virtual
+	-	(recommended) sudo apt-get dist-upgrade
 	-	sudo reboot
 
 
