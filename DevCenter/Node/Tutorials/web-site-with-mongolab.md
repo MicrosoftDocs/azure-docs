@@ -1,73 +1,69 @@
-﻿<properties linkid="develop-nodejs-tutorials-web-site-with-mongodb-mongolab" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on MongoLab - Windows Azure" metaKeywords="" metaDescription="Learn how to create a Node.js Windows Azure Web Site that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+# Create a Node.JS Application on Windows Azure with MongoDB using the MongoLab Add-On
 
+Greetings, adventurers! Welcome to MongoDB-as-a-Service. In this tutorial you will:
 
-<div chunk="../chunks/article-left-menu.md" />
+1. [Provision the database][provision] - The Windows Azure Store [MongoLab](mongolab.com) add-on will provide you with a MongoDB database hosted in the Windows Azure cloud and managed by MongoLab's cloud database platform.
+1. [Create the app][create] - It'll be a simple Node.JS app for maintaining a list of tasks.
+1. [Deploy the app][deploy] - By tying a few configuration hooks together, we'll make pushing our code a breeze.
+1. [Manage the database][manage] - Finally, we'll show you MongoLab's web-based database management portal where you can search, visualize, and modify data with ease.
 
-# Node.js Web Application with Storage on MongoDB (MongoLab)
-This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on Windows Azure. [MongoDB] is a popular open source, high performance NoSQL database. This tutorial assumes that you have some prior experience using node, MongoDB, and [Git].
+At any time throughout this tutorial, feel free to kick off an email to [support@mongolab.com](mailto:support@mongolab.com) if you have any questions.
 
-You will learn:
-
-* How to set up a free MongoDB instance on Windows Azure using MongoLab
-* How to use npm (node package manager) to install the node modules
-* How to access MongoDB from a node application
-* How to use the Cross-Platform Tools for Windows Azure to create a Windows Azure Web Site
-
-By following this tutorial, you will build a simple web-based task-management application that allows creating, retrieving and completing tasks. The tasks are stored in MongoDB.
- 
-The project files for this tutorial will be stored in a directory named **tasklist** and the completed application will look similar to the following:
-
-![A web page displaying an empty tasklist][node-mongo-finished]
-
-<div class="dev-callout">
-<strong>Note</strong>
-<p>This tutorial makes reference to the <strong>tasklist</strong> folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as <strong>~/node/tasklist</strong> or <strong>c:\node\tasklist</strong></p>
-</div>
-
-<div class="dev-callout">
-<strong>Note</strong>
-<p>Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as <strong>Windows PowerShell</strong> (Windows) or <strong>Bash</strong> (Unix Shell). On OS X systems you can access the command-line through the Terminal application.</p>
-</div>
-
-##Prerequisites
-
-Before following the instructions in this article, you should ensure that you have the following installed:
+Before continuing, ensure that you have the following installed:
 
 * [node] recent version
 * [Git]
 
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
-##Preparation
-
-In this section you will learn how to create a free MongoDB instance hosted in Windows Azure using MongoLab, set up your development environment, and install the necessary node packages and set up your node application scaffolding.
-
-
-###Create a free MongoDB instance using MongoLab
-
-Visit [MongoLab] to create a free MongoDB instance hosted on Windows Azure.
-![mongolab.com page showing creating a MongoDB database][mongolab-create]
-
-Create a database named '_ACCOUNTNAME_tasks'. After you have created a MongoDB instance in Windows Azure using MongoLab, note the connection information for your database.  You will need this information later in the tutorial.
-
-![mongolab.com page showing connection information for database][mongolab-view]
-
-##Install modules and generate scaffolding
-
-In this section you will create a new Node application and use npm to add module packages. For the task-list application you will use the [Express] and [Mongoose] modules. The Express module provides a Model View Controller framework for node, while Mongoose is a driver for communicating with MongoDB.
-
-###Install express and generate scaffolding
-
-1. From the command-line, change directories to the **tasklist** directory. If the **tasklist** directory does not exist, create it.
-
-2. Enter the following command to install express.
-
-	npm install express -g
+## Quick start
+If you've already got a Windows Azure application and web site that you want to work with or you have some familiarity with the Windows Azure Store, use this section to get a quick start. Otherwise, continue to [Provision the Database][provision] the Database below.
  
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>When using the '-g' parameter on some operating systems, you may receive an error of <strong>Error: EPERM, chmod '/usr/local/bin/express'</strong> and a request to try running the account as an administrator. If this occurs, use the <strong>sudo</strong> command to run npm at a higher privilege level.</p>
-	</div>
+1. Open the Windows Azure Store.  
+![Store][button-store]
+1. Purchase the MongoLab Add-On.  
+![MongoLab][entry-mongolab]
+1. Click your MongoLab Add-On in the Add-Ons list, and click **Connection Info**.  
+![ConnectionInfoButton][button-connectioninfo]  
+1. Copy the MONGOLAB_URI to your clipboard.  
+![ConnectionInfoScreen][screen-connectioninfo]  
+**This URI contains your database user name and password.  Treat it as sensitive information and do not share it.**
+1. Add the value to the Connection Strings list in the Configuration menu of your Windows Azure Web application:  
+![WebSiteConnectionStrings][focus-website-connectinfo]
+1. For **Name**, enter MONGOLAB\_URI.
+1. For **Value**, paste the connection string we obtained in the previous section.
+1. Select **Custom** in the Type drop-down (instead of the default **SQLAzure**).
+1. Run `npm install mongoose` to obtain the MongoDB node driver.
+1. Set up a hook in your code to obtain your MongoLab connection URI from an environment variable and connect:
+
+        var mongoose = require('mongoose');  
+ 		...
+ 		var connectionString = process.env.CUSTOMCONNSTR_MONGOLAB_URI
+ 		...
+ 		mongoose.connect(connectionString);
+
+Note: Windows Azure adds the **CUSTOMCONNSTR\_** prefix to the originally-declared connection string, which is why the code references **CUSTOMCONNSTR\_MONGOLAB\_URI.** instead of **MONGOLAB\_URI**.
+
+Now, on to the full tutorial...
+
+<h2><a name="provision"></a>Provision the database</h2>
+
+<div chunk="../../Shared/Chunks/howto-provision-mongolab.md" />
+
+<h2><a name="create"></a>Create the app</h2>
+
+In this section you will set up your development environment and lay the code for a basic task list web application using Node.JS, Express, and MongoDB. [Express] provides a Model View Controller framework for node, while [Mongoose] is a driver for communicating with MongoDB.
+
+### Set up
+
+#### Generate scaffolding and install modules
+
+1. At the command-line, create and navigate to the **tasklist** directory. This will be your project directory.
+1. Enter the following command to install express.
+
+		sudo npm install express -g
+ 
+	`-g` indicates global mode, which we use to make the <strong>express</strong> module available without specifying a directory path. If you receive <strong>Error: EPERM, chmod '/usr/local/bin/express'</strong>, use <strong>sudo</strong> to run npm at a higher privilege level.
 
     The output of this command should appear similar to the following:
 
@@ -77,11 +73,6 @@ In this section you will create a new Node application and use npm to add module
 		├── qs@0.4.2 
 		└── connect@1.8.7 
  
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the <strong>express</strong> command to generate web site scaffolding without having to type in additional path information.</p>
-	</div>
-
 4. To create the scaffolding which will be used for this application, use the **express** command:
 
     express
@@ -106,12 +97,8 @@ In this section you will create a new Node application and use npm to add module
    		$ cd . && npm install
 
 	After this command completes, you should have several new directories and files in the **tasklist** directory.
-
-###Install additional modules
-
-The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to a Windows Azure Web Site, this file will be used to determine which modules need to be installed on Windows Azure to support your application.
 	
-1. From the command-line, change directories to the **tasklist** folder and enter the following to install the modules described in the **package.json** file:
+1. Enter the following to install the modules described in the **package.json** file:
 
         npm install
 
@@ -121,13 +108,12 @@ The **package.json** file is one of the files created by the **express** command
 		├── mime@1.2.4
 		├── qs@0.4.2
 		├── mkdirp@0.3.0
-		├── connect@1.8.7
+		└── connect@1.8.7
 		jade@0.26.0 ./node_modules/jade
 		├── commander@0.5.2
 		└── mkdirp@0.3.0
 
-
-	This installs all of the default modules that Express needs.
+	The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to a Windows Azure Web Site, this file will be used to determine which modules need to be installed on Windows Azure to support your application.
 
 2. Next, enter the following command to install the Mongoose module locally as well as to save an entry for it to the **package.json** file:
 
@@ -139,27 +125,22 @@ The **package.json** file is one of the files created by the **express** command
 		├── hooks@0.2.1
 		└── mongodb@1.0.2
 
-    <div class="dev-callout">
-	<strong>Note</strong>
-	<p>You can safely ignore any message about installing the C++ bson parser.</p>
-	</div>
+    You can safely ignore any message about installing the C++ bson parser.</p>
+	
+### The Code
 
-##Using MongoDB in a node application
+Now that our environment and scaffolding is ready, we'll extend the basic application created by the **express** command by adding a **task.js** file which contains the model for your tasks. You will also modify the existing **app.js** and create a new **tasklist.js** controller file to make use of the model.
 
-In this section you will extend the basic application created by the **express** command by adding a **task.js** file which contains the model for your tasks. You will also modify the existing **app.js** and create a new **tasklist.js** controller file to make use of the model.
-
-### Create the model
+#### Create the model
 
 1. In the **tasklist** directory, create a new directory named **models**.
 
 2. In the **models** directory, create a new file named **task.js**. This file will contain the model for the tasks created by your application.
 
-3. At the beginning of the **task.js** file, add the following code to reference required libraries:
+3. Add the following code to the **task.js** file:
 
         var mongoose = require('mongoose')
 	      , Schema = mongoose.Schema;
-
-4. Next, you will add code to define and export the model. This model will be used to perform interactions with the MongoDB database.
 
         var TaskSchema = new Schema({
 	        itemName      : String
@@ -172,11 +153,11 @@ In this section you will extend the basic application created by the **express**
 
 5. Save and close the **task.js** file.
 
-###Create the controller
+#### Create the controller
 
 1. In the **tasklist/routes** directory, create a new file named **tasklist.js** and open it in a text editor.
 
-2. Add the folowing code to **tasklist.js**. This loads the mongoose module and the task model defined in **task.js**. The TaskList function is used to create the connection to the MongoDB server based on the **connection** value:
+2. Add the folowing code to **tasklist.js**. This loads the mongoose module and the task model defined in **task.js**. The TaskList function is used to create the connection to the MongoDB server based on the **connection** value, and provides the methods **showTasks**, **addTask**, and **completeTasks**:
 
 		var mongoose = require('mongoose')
 	      , task = require('../models/task.js');
@@ -186,8 +167,6 @@ In this section you will extend the basic application created by the **express**
 		function TaskList(connection) {
   		  mongoose.connect(connection);
 		}
-
-2. Continue adding to the **tasklist.js** file by adding the methods used to **showTasks**, **addTask**, and **completeTasks**:
 
 		TaskList.prototype = {
   		  showTasks: function(req, res) {
@@ -229,58 +208,7 @@ In this section you will extend the basic application created by the **express**
 
 3. Save the **tasklist.js** file.
 
-### Modify app.js
-
-1. In the **tasklist** directory, open the **app.js** file in a text editor. This file was created earlier by running the **express** command. Replace the code in the app.js file with the following code.
-
-
-
-
-		var express = require('express'),
-		routes = require('./routes'),
-		user = require('./routes/user'),
-		http = require('http'),
-		path = require('path');
-
-
-		var TaskList = require('./routes/tasklist');
-		var taskList = new TaskList('mongodb://mongodbserver/ACCOUNTNAME_tasks');
-		var app = express();
-
-		app.configure(function(){
-		app.set('port', process.env.PORT || 3000);
-		app.set('views', __dirname + '/views');
-		app.set('view engine', 'jade');
-		app.use(express.favicon());  
-		app.use(express.logger('dev'));
-		app.use(express.bodyParser());
-		app.use(express.methodOverride()); 
-		app.use(app.router);
-		app.use(express.static(path.join(__dirname, 'public')));
-		});
-
-
-		app.configure('development', function(){
-		app.use(express.errorHandler());
-		});
-
-
-		app.get('/', taskList.showTasks.bind(taskList));
-		app.post('/addtask', taskList.addTask.bind(taskList));
-		app.post('/completetask', taskList.completeTask.bind(taskList));
-		app.listen(process.env.port || 3000);
-
-
-
-		
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>You must replace the connection string above with the connection string for the MongoDB server you created earlier. For example, <strong>mongodb://&lt;user&gt;:&lt;password&gt;@ds037087.mongolab.com:37087/ACCOUNTNAME_tasks</strong>.</p>
-	</div>
-
-4. Save the **app.js** file.
-
-###Modify the index view
+#### Modify the index view
 
 1. Change directories to the **views** directory and open the **index.jade** file in a text editor.
 
@@ -320,64 +248,70 @@ In this section you will extend the basic application created by the **express**
 
 3. Save and close **index.jade** file.
 
-##Run your application locally
+#### Replace app.js
 
-To test the application on your local machine, perform the following steps:
+1. In the **tasklist** directory, open the **app.js** file in a text editor. This file was created earlier by running the **express** command.
+1. Replace the contents with the following code. This will initialize **TaskList** with the connection string for the MongoDB server, add the functions defined in **tasklist.js** as routes, and start your app server:
 
-1. From the command-line, change directories to the **tasklist** directory.
+		var express = require('express')
+  			, routes = require('./routes')
+  			, user = require('./routes/user')
+  			, http = require('http')
+  			, path = require('path');
+		var TaskList = require('./routes/tasklist');
+		var taskList = new TaskList(process.env.CUSTOMCONNSTR_MONGOLAB_URI);
 
-2. Use the following command to launch the application locally:
+		var app = express();
 
-        node app.js
+		app.configure(function(){
+		  app.set('port', process.env.PORT || 3000);
+		  app.set('views', __dirname + '/views');
+		  app.set('view engine', 'jade');
+		  app.use(express.favicon());
+		  app.use(express.logger('dev'));
+		  app.use(express.bodyParser());
+		  app.use(express.methodOverride());
+		  app.use(app.router);
+		  app.use(express.static(path.join(__dirname, 'public')));
+    	});
 
-3. Open a web browser and navigate to http://localhost:3000. This should display a web page similar to the following:
+		app.configure('development', function(){
+		  app.use(express.errorHandler());
+    	});
 
-    ![A webpage displaying an empty tasklist][node-mongo-finished]
+		app.get('/', taskList.showTasks.bind(taskList));
+		app.post('/addtask', taskList.addTask.bind(taskList));
+		app.post('/completetask', taskList.completeTask.bind(taskList));
 
-4. Use the provided fields for **Item Name** and **Item Category** to enter information, and then click **Add item**.
+		http.createServer(app).listen(app.get('port'), function(){
+		  console.log("Express server listening on port " + app.get('port'));
+		});
 
-    ![An image of the add item field with populated values.][node-mongo-add-item]
+1. Note the following code above:  
+		
+		var taskList = new TaskList(process.env.CUSTOMCONNSTR_MONGOLAB_URI); 
+		
+	The TaskList constructor takes a MongoDB connection URI. Here, you access an environment variable that you'll configure later. If you have a local mongo instance running for development purposes, you may want to temporarily set this value to "localhost" instead of `process.env.CUSTOMCONNSTR_MONGOLAB_URI`.  
 
-5. The page should update to display the item in the ToDo List table.
+4. Save the **app.js** file.
 
-    ![An image of the new item in the list of tasks][node-mongo-list-items]
+<h2><a name="manage"></a>Deploy the app</h2>
 
-6. To complete a task, simply check the checkbox in the Complete column, and then click **Update tasks**. While there is no visual change after clicking **Update tasks**, the document entry in MongoDB has now been marked as completed.
+Now that the application has been developed, it's time to create a Windows Azure Web Site to host it, configure that web site, and deploy the code. Central to this section is the use of the MongoDB connection string (URI). You're going to configure an environment variable in your web site with this URI to keep the URI separate from your code.  You should treat the URI as sensitive information as it contains credentials to connect to your database.
 
-7. To stop the node process, go to the command-line and press the **CTRL** and **C** keys.
+The steps in this section use the Windows Azure command-line tools to create a new Windows Azure Web Site, and then use Git to deploy your application. To perform these steps you must have a Windows Azure subscription.
 
-##Deploy your application to Windows Azure
-
-The steps in this section use the Windows Azure command-line tools to create a new Windows Azure Web Site, and then use Git to deploy your application. To perform these steps you must have a Windows Azure subscription and the command-line tools installed.
-
-<div class="dev-callout">
-<strong>Note</strong>
-<p>If you have already installed the <strong>Windows Azure SDK for Node.js</strong> from the <a href="/en-us/develop/nodejs/">Windows Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure command-line tool for Mac and Linux</a>. While the command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.</p>
-</div>
-
-<div class="dev-callout">
-<strong>Note</strong>
-<p>If this is the first Windows Azure Web Site you have created, you must use the Windows Azure portal to deploy this application.</p>
-</div>
-
-###Install the Windows Azure command-line tool for Mac and Linux
+### Install the Windows Azure command-line tool for Mac and Linux
 
 To install the command-line tools, use the following command:
 	
 	sudo npm install azure-cli -g
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>If you have already installed the <strong>Windows Azure SDK for Node.js</strong> from the <a href="/en-us/develop/nodejs/">Windows Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure command-line tool for Mac and Linux</a>.</p>
-</div>
+If you have already installed the <strong>Windows Azure SDK for Node.js</strong> from the <a href="/en-us/develop/nodejs/">Windows Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure command-line tool for Mac and Linux</a>.</p>
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>While the command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.</p>
-</div>
+While the Windows Azure command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.
 
-###Import publishing settings
-
+### Import publishing settings
 
 Before using the command-line tools with Windows Azure, you must first download a file containing information about your subscription. Perform the following steps to download and import this file.
 
@@ -406,28 +340,31 @@ Before using the command-line tools with Windows Azure, you must first download 
 
 4. Once the import has completed, you should delete the publish settings file as it is no longer needed and contains sensitive information regarding your Windows Azure subscription.
 
-###Create a Windows Azure Web Site
+### Create a new web site and push your code
 
-1. From the command-line, change directories to the **tasklist** directory.
+Creating a web site in Windows Azure is very easy. If this is your first Windows Azure website, you must use the portal. If you already have at least one, then skip to step 7.
 
-2. Use the following command to create a new Windows Azure Web Site. Replace 'myuniquesitename' with a unique site name for your web site. This value is used as part of the URL for the resulting web site.
+1. In the Windows Azure portal, click **New**.    
+![New][button-new]
+1. Select **Compute > Web Site > Quick Create**. 
+![CreateSite][screen-mongolab-newwebsite]
+1. Enter a URL prefix. Choose a name you prefer, but keep in mind this must be unique ('mymongoapp' will likely not be available).
+1. Click **Create Web Site**.
+1. When the web site creation completes, click the web site name in the web site list. The web site dashboard displays.  
+![WebSiteDashboard][screen-mongolab-websitedashboard]
+1. Click **Set up Git publishing** under **quick glance**, and enter your desired git user name and password. You will use this password when pushing to your website (in step 9).  
+![buttonGitPublishing][button-git-publishing]
+1. If you created your website using the steps above, the following command will complete the process. However, if you already have more than one Windows Azure website, you can skip the above steps and create a new web site using this same command. From your **tasklist** project directory: 
 
-		azure site create myuniquesitename --git
-		
-	You will be prompted for the datacenter that the site will be located in. Select the datacenter geographically close to your location.
+		azure site create myuniquesitename --git  
+	Replace 'myuniquesitename' with the unique site name for your web site. If the web site is created as part of this command, you will be prompted for the datacenter that the site will be located in. Select the datacenter geographically close to your MongoLab database.
 	
-	The `--git` parameter will create a Git repository locally in the **tasklist** folder if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Windows Azure. It will create an [iisnode.yml], which contains settings used by Windows Azure to host node applications. Finally it will also create a .gitignore file to exclude the node-modules folder for being published to .git.
-	
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>If this command is ran from a directory that already contains a Git repository, it will not re-initialize the directory.</p>
-	</div>
-	
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>If the '--git' parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.</p>
-	</div>
-	
+	The `--git` parameter will create:
+	A. a local git repository in the **tasklist** folder, if none exists.
+	A. a [Git remote] named 'azure', which will be used to publish the application to Windows Azure.
+	A. an [iisnode.yml] file, which contains settings used by Windows Azure to host node applications.
+	A. a .gitignore file to prevent the node-modules folder from being published to .git.  
+	  
 	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created website at** contains the URL for the web site.
 
 		info:   Executing command site create
@@ -438,26 +375,18 @@ Before using the command-line tools with Windows Azure, you must first download 
 		info:   Created website at  mongodbtasklist.azurewebsites.net
 		info:   Initializing repository
 		info:   Repository initialized
-		info:   Executing `git remote add azure http://username@mongodbtasklist.azurewebsites.net/mongodbtasklist.git`
+		info:   Executing `git remote add azure http://gitusername@myuniquesitename.azurewebsites.net/mongodbtasklist.git`
 		info:   site create command OK
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>If this is the first Windows Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to Windows Azure Web Sites</a>.</p>
-	</div>
-
-###Publish the application
-
-1. In the Terminal window, change directories to the **tasklist** directory if you are not already there.
-
-2. Use the following commands to add, and then commit files to the local Git repository:
+1. Use the following commands to add, and then commit files to your local Git repository:
 
 		git add .
 		git commit -m "adding files"
 
-3. When pushing the latest Git repository changes to the Windows Azure Web Site, you must specify that the target branch is **master** as this is used for the web site content.
+1. Push your code:
 
-		git push azure master
+		git push azure master  
+	When pushing the latest Git repository changes to the Windows Azure Web Site, you must specify that the target branch is **master** as this is used for the web site content. If prompted for a password, enter the password you created when you set up git publishing for your webs site above.
 	
 	You will see output similar to the following. As the deployment takes place Windows Azure will download all npm modules. 
 
@@ -477,18 +406,46 @@ Before using the command-line tools with Windows Azure, you must first download 
 		To https://username@mongodbtasklist.azurewebsites.net/MongoDBTasklist.git
  		 * [new branch]      master -> master
  
-4. Once the push operation has completed, browse to the web site by using the `azure site browse` command to view your application.
+You're almost done!
 
-##Next steps
+### Configure your environment
+Remember process.env.CUSTOMCONNSTR_MONGOLAB_URI in the code? We want to populate that environment variable with the value provided to Windows Azure during your MongoLab database provisioning.
 
-The steps in this article describe using MongoLab to host a MongoDB instance on Windows Azure to store information, you can also use the Windows Azure Virtual Machines to host a MongoDB instance. See [Node.js Web Application with Storage on MongoDB (Virtual Machine)] for more information.
+#### Get the MongoLab connection string
 
-##Additional resources
+<div chunk="../../Shared/Chunks/howto-get-connectioninfo-mongolab.md" />
 
-[Windows Azure command-line tool for Mac and Linux]    
-[Create and deploy a Node.js application to Windows Azure Web Sites]    
-[Publishing to Windows Azure Web Sites with Git]    
+#### Add the connection string to the web site's environment variables
 
+<div chunk="../../Shared/Chunks/howto-save-connectioninfo-mongolab.md" />
+
+## Success!
+
+Run `azure site browse` from your project directory to automatically open a browser, or open a browser and manually navigate to your website URL (myuniquesite.azurewebsites.net):
+
+![A webpage displaying an empty tasklist][node-mongo-finished]
+
+<h2><a name="manage"></a>Manage the database</h2>
+
+<div chunk="../../Shared/Chunks/howto-access-mongolab-ui.md" />
+
+Congratulations! You've just launched a Node.JS application backed by a MongoLab-hosted MongoDB database! Now that you have a MongoLab database, you can contact [support@mongolab.com](mailto:support@mongolab.com) with any questions or concerns about your database, or for help with MongoDB or the node driver itself. Good luck out there!
+
+[screen-mongolab-sampleapp]: ../Media/screen-mongolab-sampleapp.png
+[button-website-downloadpublishprofile]: ../../Shared/Media/button-website-downloadpublishprofile.png
+[screen-mongolab-websitedashboard]: ../../Shared/Media/screen-mongolab-websitedashboard.png
+[screen-mongolab-newwebsite]: ../../Shared/Media/screen-mongolab-newwebsite.png
+[button-new]: ../../Shared/Media/button-new.png
+[button-store]: ../../Shared/Media/button-store.png
+[entry-mongolab]: ../../Shared/Media/entry-mongolab.png 
+[button-connectioninfo]: ../../Shared/Media/button-connectioninfo.png
+[screen-connectioninfo]: ../../Shared/Media/dialog-mongolab_connectioninfo.png
+[focus-website-connectinfo]: ../../Shared/Media/focus-mongolab-websiteconnectionstring.png
+[provision]: #provision
+[create]: #create
+[deploy]: #deploy
+[manage]: #manage
+[button-git-publishing]: ../../Shared/Media/button-git-publishing.png
 
 [node]: http://nodejs.org
 [MongoDB]: http://www.mongodb.org
@@ -505,10 +462,8 @@ The steps in this article describe using MongoLab to host a MongoDB instance on 
 [Publishing to Windows Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
 [MongoLab]: http://mongolab.com
 [Node.js Web Application with Storage on MongoDB (Virtual Machine)]: /en-us/develop/nodejs/tutorials/website-with-mongodb-(mac)/
-[node-mongo-finished]: ../media/todo_list_empty.png
+[node-mongo-finished]: ../media/todo_list_noframe.png
 [node-mongo-express-results]: ../media/express_output.png
-[node-mongo-add-item]: ../media/todo_add_item.png
-[node-mongo-list-items]: ../media/todo_list_items.png
 [download-publishing-settings]: ../../Shared/Media/azure-account-download-cli.png
 [import-publishing-settings]: ../media/azureimport.png
 [mongolab-create]: ../media/mongolab-create.png
