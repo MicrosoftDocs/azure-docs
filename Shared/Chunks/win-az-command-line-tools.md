@@ -1,5 +1,5 @@
 #Windows Azure command-line tool for Mac and Linux
-This tool provides functionality for creating, deploying, and managing virtual machines and websites from Mac and Linux desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS, and PHP.
+This tool provides functionality for creating, deploying, and managing virtual machines, websites and Windows Azure Mobile Services from Mac and Linux desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS, and PHP.
 
 To install the tool on a Mac, download and run the [Windows Azure SDK installer](http://go.microsoft.com/fwlink/?LinkId=252249).
 
@@ -21,6 +21,7 @@ In addition to command-specific optional parameters documented here, there are t
 * [Commands to manage your Windows Azure cloud services](#Commands_to_manage_your_Azure_cloud_services)
 * [Commands to manage your Windows Azure certificates](#Commands_to_manage_your_Azure_certificates)
 * [Commands to manage your websites](#Commands_to_manage_your_web_sites)
+* [Commands to manage Windows Azure Mobile Services](#Commands_to_manage_mobile_services)
 * [Manage tool local settings](#Manage_tool_local_settings)
 
 ##<a id="Manage_your_account_information_and_publish_settings"></a>Manage your account information and publish settings
@@ -590,6 +591,29 @@ This command stops a website.
 	info:   Stopping site mysite
 	info:   Site mysite has been stopped
 	info:   site stop command OK
+
+<span id="Commands_to_manage_mobile_services"></span>
+##Commands to manage Windows Azure Mobile Services
+
+Windows Azure Mobile Services 
+
+###Commands to manage mobile services
+
+###Commands to manage configuration
+
+###Commands to manage logs 
+
+###Commands to manage keys 
+
+###Commands to manage tables
+
+<table border="1" width="100%"><tr><th>Script value</th><th>Management Portal value</th></tr>
+<tr><td><code>public</code></td><td>Everyone</td></tr>
+<tr><td><code>application</code> (default)</td><td>Anybody with the application key</td></tr>
+<tr><td><code>user</code></td><td>Only authenticated users</td></tr>
+<tr><td><code>admin	</code></td><td>Only scripts and admins</td></tr></table>
+
+###Commands to manage table scripts
 
 <span id="Manage_tool_local_settings"></span>
 ##Manage tool local settings
