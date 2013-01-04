@@ -670,6 +670,7 @@ This section shows options for delivering media assets that you have previously 
 The code example in this section shows how to download media assets from Media Services. You can pass in an existing job reference, and then access its **OutputMediaAssets** collection (which is the set of one or more output media assets that results from running a job). This code example shows how to download output media assets from a job, but you can apply the same approach to download other assets.
 
 <pre><code> 
+// Download an asset that is the output of a job to a local folder.
 static IAsset DownloadAssetToLocal( string jobId, string outputFolder)
 {
     // This method illustrates how to download a single asset. 
@@ -682,10 +683,15 @@ static IAsset DownloadAssetToLocal( string jobId, string outputFolder)
     // output media assets you could iterate and handle each one.
     IAsset outputAsset = job.OutputMediaAssets[0];
 
-    // Download all files in the output asset. 
-    Console.WriteLine("Downloads are in progress, please wait.");
-    Console.WriteLine();
+    IAccessPolicy accessPolicy = _context.AccessPolicies.Create("File Download Policy", TimeSpan.FromDays(30), AccessPermissions.Read);
+    ILocator locator = _context.Locators.CreateSasLocator(outputAsset, accessPolicy);
+    BlobTransferClient blobTransfer = new BlobTransferClient
+    {
+        NumberOfConcurrentTransfers = 20,
+        ParallelTransferThreadCount = 20
+    };
 
+    var downloadTasks = new List<Task>();
     foreach (IAssetFile outputFile in outputAsset.AssetFiles)
     {
         // Use the following event handler to check download progress.
@@ -695,10 +701,12 @@ static IAsset DownloadAssetToLocal( string jobId, string outputFolder)
 
         Console.WriteLine("File download path:  " + localDownloadPath);
 
-        outputFile.DownloadAsync(Path.GetFullPath(localDownloadPath), CancellationToken.None).Wait();
+        downloadTasks.Add(outputFile.DownloadAsync(Path.GetFullPath(localDownloadPath), blobTransfer, locator, CancellationToken.None));
 
         outputFile.DownloadProgressChanged -= DownloadProgress;
     }
+
+    Task.WaitAll(downloadTasks.ToArray());
 
     return outputAsset;
 }
