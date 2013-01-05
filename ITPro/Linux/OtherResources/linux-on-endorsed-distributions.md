@@ -57,7 +57,7 @@ Note that the different distributions will be incorporating the agent to their o
 		<td>June 7 2012</td>
 	    <td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254263">Latest LIS drivers</a></td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&amp;clcid=0x409">Required for 6.2 and 6.3 only</a></td>
-		<td>RPM:In <a href=http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/>Open Logic package repo </a> under walinuxagent<br />
+		<td>RPM:In <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">Open Logic package repo </a> under walinuxagent<br />
 			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
  		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254266">Download ISO</a></td>
 	</tr>
