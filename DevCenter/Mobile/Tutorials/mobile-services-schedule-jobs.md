@@ -106,7 +106,7 @@ Now that you have somewhere to store Twitter data, you can create the scheduled 
 			return !((tweet.text.indexOf('RT')  !== 0) && (tweet.to_user_id === 0));
 		}
 
-   This script calls the Twitter query API to request recent tweets that contain the hashtag #mobileservices. Duplicate tweets and replies are removed from the results before they are stored in the table.
+   This script calls the Twitter query API to request recent tweets that contain the hashtag `#mobileservices`. Duplicate tweets and replies are removed from the results before they are stored in the table.
 
 6. Click **Run Once** to test the script. 
 
@@ -138,9 +138,9 @@ Congratulations, you have successfully created a new scheduled job in your mobil
 
 <!-- Images. -->
 [1]: ../Media/mobile-services-selection.png
-[2]: ../Media/mobile-data-tab-empty.png
+[2]: ../Media/mobile-data-tab-empty-cli.png
 [3]: ../Media/mobile-create-updates-table.png
-[4]: ../Media/mobile-schedule-new-job.png
+[4]: ../Media/mobile-schedule-new-job-cli.png
 [5]: ../Media/mobile-create-job-dialog.png
 [6]: ../Media/mobile-schedule-job-script-new.png
 [7]: ../Media/mobile-schedule-job-script.png
