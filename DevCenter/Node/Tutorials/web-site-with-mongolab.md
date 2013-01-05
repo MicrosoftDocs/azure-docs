@@ -125,7 +125,7 @@ In this section you will set up your development environment and lay the code fo
 		├── hooks@0.2.1
 		└── mongodb@1.0.2
 
-    You can safely ignore any message about installing the C++ bson parser.</p>
+    You can safely ignore any message about installing the C++ bson parser.
 	
 ### The Code
 
@@ -307,7 +307,7 @@ To install the command-line tools, use the following command:
 	
 	sudo npm install azure-cli -g
 
-If you have already installed the <strong>Windows Azure SDK for Node.js</strong> from the <a href="/en-us/develop/nodejs/">Windows Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure command-line tool for Mac and Linux</a>.</p>
+If you have already installed the <strong>Windows Azure SDK for Node.js</strong> from the <a href="/en-us/develop/nodejs/">Windows Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure command-line tool for Mac and Linux</a>.
 
 While the Windows Azure command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.
 
