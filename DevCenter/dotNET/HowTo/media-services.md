@@ -691,7 +691,7 @@ static IAsset DownloadAssetToLocal( string jobId, string outputFolder)
         ParallelTransferThreadCount = 20
     };
 
-    var downloadTasks = new List<Task>();
+    var downloadTasks = new List&lt;Task&gt;();
     foreach (IAssetFile outputFile in outputAsset.AssetFiles)
     {
         // Use the following event handler to check download progress.
