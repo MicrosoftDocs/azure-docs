@@ -603,26 +603,295 @@ This command stops a website.
 
 <span id="Commands_to_manage_mobile_services"></span>
 ##Commands to manage Windows Azure Mobile Services
+Windows Azure Mobile Services brings together a set of Windows Azure services that enable backend capabilities for your apps. Mobile Services commands are divided into the following categories:
 
-Windows Azure Mobile Services 
++ [Commands to manage mobile service instances](#Mobile_Services)
++ [Commands to manage mobile service configuration](#Mobile_Configuration)
++ [Commands to manage mobile service tables](#Mobile_Tables)
 
-###Commands to manage mobile services
+The following options apply to most Mobile Services commands:
 
-###Commands to manage configuration
++ **-h** or **--help**: Display output usage information.
++ **-s `<id>`** or **--subscription `<id>`**: Use a specific subscription, specified as `<id>`.
++ **-v** or **--verbose**: Write verbose output.
++ **--json**: Write JSON output.
 
-###Commands to manage logs 
+<span id="Mobile_Services"></span>
+###Commands to manage mobile service instances
 
-###Commands to manage keys 
+**mobile locations [options]**
 
-###Commands to manage tables
+This command lists Mobile Services geographic locations.
 
-<table border="1" width="100%"><tr><th>Script value</th><th>Management Portal value</th></tr>
-<tr><td><code>public</code></td><td>Everyone</td></tr>
-<tr><td><code>application</code> (default)</td><td>Anybody with the application key</td></tr>
-<tr><td><code>user</code></td><td>Only authenticated users</td></tr>
-<tr><td><code>admin	</code></td><td>Only scripts and admins</td></tr></table>
+	~$ azure mobile locations
+	info:    Executing command mobile locations
+	info:    East US (default)
+	info:    West US		
+	info:    North Europe
 
-###Commands to manage table scripts
+**mobile create [options] [servicename] [sqlAdminUsername] [sqlAdminPassword]**
+
+This command creates a mobile service along with a SQL Database and server.
+
+	~$ azure mobile create todolist your_login_name Secure$Password
+	info:    Executing command mobile create
+	+ Creating mobile service
+	info:    Overall application state: Healthy
+	info:    Mobile service (todolist) state: ProvisionConfigured
+	info:    SQL database (todolist_db) state: Provisioned
+	info:    SQL server (e96ean1c6v) state: ProvisionConfigured
+	info:    mobile create command OK
+
+This command supports the following additional options:
+
++ **-r `<sqlServer>`**  or **--sqlServer `<sqlServer>`**:  Use an existing SQL Database server, specified as `<sqlServer>`.
++ **-d `<sqlDb>`** or **--sqlDb `<sqlDb>`**: Use existing SQL database, specified as `<sqlDb>`.
++ **-l `<location>`** or **--location `<location>`**: Create the service in a specific location, specified as `<location>`. Run azure mobile locations to get available locations.	
++ **--sqlLocation `<location>`**: Create the SQL server in a specific `<location>`; defaults to the location of the mobile service.
+
+**mobile delete [options] [servicename]**
+
+This command deletes a mobile service along with its SQL Database and server.
+
+	~$ azure mobile delete todolist -a -q
+	info:    Executing command mobile delete
+	data:    Mobile service todolist
+	data:    SQL database todolistAwrhcL60azo1C401
+	data:    SQL server fh1kvbc7la
+	+ Deleting mobile service
+	info:    Deleted mobile service
+	+ Deleting SQL server
+	info:    Deleted SQL server
+	+ Deleting mobile application
+	info:    Deleted mobile application
+	info:    mobile delete command OK
+
+This command supports the following additional options:
+
++ **-d** or **--deleteData**: Delete all data from this mobile service from the database.
++ **-a** or **--deleteAll**: Delete the SQL Database and server.
++ **-q or **--quiet**: Do not prompt for confirmation. Use this option in automated scripts.
+
+**mobile list [options]**
+
+This command lists your mobile services.
+
+	~$ azure mobile list
+	info:    Executing command mobile list
+	data:    Name          State  URL
+	data:    ------------  -----  --------------------------------------
+	data:    todolist      Ready  https://todolist.azure-mobile.net/
+	data:    mymobileapp   Ready  https://mymobileapp.azure-mobile.net/
+	info:    mobile list command OK
+
+**mobile show [options] [servicename]**
+
+This command displays details about a mobile service.
+
+	~$ azure mobile show todolist
+	info:    Executing command mobile show
+	+ Getting information
+	info:    Mobile application
+	data:    status Healthy
+	data:    Mobile service name todolist
+	data:    Mobile service status ProvisionConfigured
+	data:    SQL database name todolistAwrhcL60azo1C401
+	data:    SQL database status Linked
+	data:    SQL server name fh1kvbc7la
+	data:    SQL server status Linked
+	info:    Mobile service
+	data:    name todolist
+	data:    state Ready
+	data:    applicationUrl https://todolist.azure-mobile.net/
+	data:    applicationKey XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+	data:    masterKey XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+	data:    webspace WESTUSWEBSPACE
+	data:    region West US
+	data:    tables TodoItem
+	info:    mobile show command OK	
+
+**mobile restart [options] [servicename]**
+
+This command restarts a mobile service instance.
+
+	~$ azure mobile restart todolist
+	info:    Executing command mobile restart
+	+ Restarting mobile service
+	info:    Service was restarted.
+	info:    mobile restart command OK
+
+**mobile log [options] [servicename]**
+
+This command returns mobile service logs, filtering out all log types but `error`.
+
+	~$ azure mobile log todolist -t error
+	info:    Executing command mobile log
+	data:
+	data:    timeCreated 2013-01-07T16:04:43.351Z
+	data:    type error
+	data:    source /scheduler/TestingLogs.js
+	data:    message This is an error.
+	data:
+	info:    mobile log command OK
+
+This command supports the following additional options:
+
++ **-r `<query>`** or **--query `<query>`**: Executes the specified log query.
++ **-t `<type>`** or **--type `<type>`**:  Filter the returned logs by entry `<type>`, whicih can be `information`, `warning`, or `error`.
++ **-k `<skip>`** or **--skip `<skip>`**: Skips the number of rows specified by `<skip>`.
++ **-p `<top>`** or **--top `<top>`**: Returns a specific number of rows, specified by `<top>`.
+
+Note that the **--query** parameter takes precedence over **--type**, **--skip**, and **--top**.
+
+**mobile key regenerate [options] [servicename] [type]**
+
+This command regenerates the mobile service application key.
+
+	~$ azure mobile key regenerate todolist application
+	info:    Executing command mobile key regenerate
+	info:    New application key is SmLorAWVfslMcOKWSsuJvuzdJkfUpt40
+	info:    mobile key regenerate command OK
+
+Key types are `master` and `application`.
+
+<div class="dev-callout"><b>Note</b>
+   <p>When you regenerate keys, clients that use the old key may be unable to access your mobile service. When you regenerate the application key, you should update your app with the new key value. </p>
+</div> 
+
+<span id="Mobile_Configuration"></span>
+###Commands to manage mobile service configuration
+
+**mobile config list [options] [servicename]**
+
+This command lists configuration options for a mobile service.
+
+	~$ azure mobile config list todolist
+	info:    Executing command mobile config list
+	+ Getting mobile service configuration
+	data:    dynamicSchemaEnabled true
+	data:    microsoftAccountClientSecret Not configured
+	data:    microsoftAccountClientId Not configured
+	data:    microsoftAccountPackageSID Not configured
+	data:    facebookClientId Not configured
+	data:    facebookClientSecret Not configured
+	data:    twitterClientId Not configured
+	data:    twitterClientSecret Not configured
+	data:    googleClientId Not configured
+	data:    googleClientSecret Not configured
+	data:    apnsMode none
+	data:    apnsPassword Not configured
+	data:    apnsCertifcate Not configured
+	info:    mobile config list command OK
+
+**mobile config get [options] <servicename> <key>**
+
+This command gets a specific configuration option for a mobile service, in this case dynamic schema.
+
+	~$ azure mobile config get todolist dynamicSchemaEnabled
+	info:    Executing command mobile config get
+	data:    dynamicSchemaEnabled true
+	info:    mobile config get command OK
+
+**mobile config set [options] <servicename> <key> [value]**
+
+This command sets a specific configuration option for a mobile service, in this case dynamic schema.
+
+	~$ azure mobile config set todolist dynamicSchemaEnabled false
+	info:    Executing command mobile config set
+	info:    mobile config set command OK
+
+<span id="Mobile_Tables"></span>
+###Commands to manage mobile service tables
+
+**mobile table list [options] [servicename]**
+
+This command lists all tables in your mobile service.
+
+	~$azure mobile table list todolist
+	info:    Executing command mobile table list
+	data:    Name      Indexes  Rows
+	data:    --------  -------  ----
+	data:    Channel   1        0
+	data:    TodoItem  1        0
+	info:    mobile table list command OK
+
+**mobile table show [options] [servicename] [tablename]**
+
+This command shows returns details about a specific table.
+
+	~$azure mobile table show todolist
+	info:    Executing command mobile table show
+	+ Getting table information
+	info:    Table statistics:
+	data:    Number of records 0
+	info:    Table operations:
+	data:    Operation  Script       Permissions
+	data:    ---------  -----------  -----------
+	data:    insert     1900 bytes   user
+	data:    read       Not defined  user
+	data:    update     Not defined  user
+	data:    delete     Not defined  user
+	info:    Table columns:
+	data:    Name  Type           Indexed
+	data:    ----  -------------  -------
+	data:    id    bigint(MSSQL)  Yes
+	info:    mobile table show command OK
+
+**mobile table create [options] [servicename] [tablename]**
+
+This command creates a table.
+
+	~$azure mobile table create todolist Channels
+	info:    Executing command mobile table create
+	+ Creating table
+	info:    mobile table create command OK
+
+**mobile table update [options] [servicename] [tablename]**
+
+This command changes delete permissions on a table to administrators only.
+
+	~$azure mobile table update todolist Channels -p delete=admin
+	info:    Executing command mobile table update
+	+ Updating permissions
+	info:    Updated permissions
+	info:    mobile table update command OK
+
+This command supports the following additional options:
+
++ **-p `<permissions>`** or **--permissions `<permissions>`**: Comma-delimited list of `<operation>`=`<permission>` pairs
++ **--deleteColumn `<columns>`**: Comma-delimited list of columns to delete, as `<columns>`.
++ **-q** or **--quiet**: Deletes columns without prompting for confirmation.
++ **--addIndex `<columns>`**: Comma-delimited list of columns to include in the index.
++ **--deleteIndex `<columns>`**: Comma-delimited list of columns to exclude from the index.
+
+**mobile table delete [options] [servicename] [tablename]**
+
+This command deletes a table.
+
+	~$azure mobile table delete todolist Channels
+	info:    Executing command mobile table delete
+	Do you really want to delete the table (yes/no): yes
+	+ Deleting table
+	info:    mobile table delete command OK
+
+Specify the -q parameter to delete the table without confirmation. Do this to prevent blocking of automation scripts.
+
+**mobile data read [options] [servicename] [tablename] [query]**
+
+This command reads data from a table.
+
+	~$azure mobile read todolist TodoItem
+
+This command supports the following additional options:
+
++ **-k `<skip>`** or **--skip `<skip>`**: Skips the number of rows specified by `<skip>`.
++ **-t `<top>`** or **--top `<top>`**: Returns a specific number of rows, specified by `<top>`.
++ **-l** or **--list**: Returns data in a list format.
+
+<!--###Commands to manage table scripts
+Ran out of time...
+
+-->
 
 <span id="Manage_tool_local_settings"></span>
 ##Manage tool local settings

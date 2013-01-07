@@ -4,13 +4,15 @@
 
 # Schedule recurring jobs in Mobile Services 
 
+<div class="dev-onpage-video-wrapper"><a style="background-image: url('/media/devcenter/mobile/videos/get-started-with-scheduler-270x180.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-the-Windows-Azure-Mobile-Services-Scheduler" target="_blank" class="dev-onpage-video"><span class="icon"><span>Play Video</span> </span><span class="time">5:22</span> </a></div>
+
 This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define. In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table. Some other periodic tasks that can be scheduled include:
 
 + Archiving old or duplicate data records. 
 + Requesting and storing external data, such as tweets, RSS entries, and location information.
 + Processing or resizing stored images.
 
-This tutorial walks you through the basic steps of how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table. 
+This tutorial walks you through the basic steps of how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table. You can watch a video version of this tutorial by clicking the clip to the right.
 
 <a name="create-table"></a><h2><span class="short-header">Create new table</span>Create the new Updates table</h2>
 
