@@ -1,3 +1,7 @@
+<properties linkid="develop-nodejs-tutorials-web-site-with-mongodb-mongolab" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on MongoLab - Windows Azure" metaKeywords="" metaDescription="Learn how to create a Node.js Windows Azure Web Site that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
 # Create a Node.js Application on Windows Azure with MongoDB using the MongoLab Add-On
 
 Greetings, adventurers! Welcome to MongoDB-as-a-Service. In this tutorial you will:
@@ -295,7 +299,7 @@ Now that our environment and scaffolding is ready, we'll extend the basic applic
 
 4. Save the **app.js** file.
 
-<h2><a name="manage"></a>Deploy the app</h2>
+<h2><a name="deploy"></a>Deploy the app</h2>
 
 Now that the application has been developed, it's time to create a Windows Azure Web Site to host it, configure that web site, and deploy the code. Central to this section is the use of the MongoDB connection string (URI). You're going to configure an environment variable in your web site with this URI to keep the URI separate from your code.  You should treat the URI as sensitive information as it contains credentials to connect to your database.
 
