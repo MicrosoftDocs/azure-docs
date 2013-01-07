@@ -1,9 +1,9 @@
-# Create a Node.JS Application on Windows Azure with MongoDB using the MongoLab Add-On
+# Create a Node.js Application on Windows Azure with MongoDB using the MongoLab Add-On
 
 Greetings, adventurers! Welcome to MongoDB-as-a-Service. In this tutorial you will:
 
 1. [Provision the database][provision] - The Windows Azure Store [MongoLab](mongolab.com) add-on will provide you with a MongoDB database hosted in the Windows Azure cloud and managed by MongoLab's cloud database platform.
-1. [Create the app][create] - It'll be a simple Node.JS app for maintaining a list of tasks.
+1. [Create the app][create] - It'll be a simple Node.js app for maintaining a list of tasks.
 1. [Deploy the app][deploy] - By tying a few configuration hooks together, we'll make pushing our code a breeze.
 1. [Manage the database][manage] - Finally, we'll show you MongoLab's web-based database management portal where you can search, visualize, and modify data with ease.
 
@@ -11,17 +11,17 @@ At any time throughout this tutorial, feel free to kick off an email to [support
 
 Before continuing, ensure that you have the following installed:
 
-* [node] recent version
+* [Node.js] version 0.8.14+
 * [Git]
 
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
 ## Quick start
-If you've already got a Windows Azure application and web site that you want to work with or you have some familiarity with the Windows Azure Store, use this section to get a quick start. Otherwise, continue to [Provision the Database][provision] the Database below.
+If you have some familiarity with the Windows Azure Store, use this section to get a quick start. Otherwise, continue to [Provision the Database][provision] below.
  
 1. Open the Windows Azure Store.  
 ![Store][button-store]
-1. Purchase the MongoLab Add-On.  
+1. Click the MongoLab Add-On.  
 ![MongoLab][entry-mongolab]
 1. Click your MongoLab Add-On in the Add-Ons list, and click **Connection Info**.  
 ![ConnectionInfoButton][button-connectioninfo]  
@@ -33,7 +33,7 @@ If you've already got a Windows Azure application and web site that you want to 
 1. For **Name**, enter MONGOLAB\_URI.
 1. For **Value**, paste the connection string we obtained in the previous section.
 1. Select **Custom** in the Type drop-down (instead of the default **SQLAzure**).
-1. Run `npm install mongoose` to obtain the MongoDB node driver.
+1. Run `npm install mongoose` to obtain M		ongoose, a MongoDB node driver.
 1. Set up a hook in your code to obtain your MongoLab connection URI from an environment variable and connect:
 
         var mongoose = require('mongoose');  
@@ -52,16 +52,16 @@ Now, on to the full tutorial...
 
 <h2><a name="create"></a>Create the app</h2>
 
-In this section you will set up your development environment and lay the code for a basic task list web application using Node.JS, Express, and MongoDB. [Express] provides a Model View Controller framework for node, while [Mongoose] is a driver for communicating with MongoDB.
+In this section you will set up your development environment and lay the code for a basic task list web application using Node.js, Express, and MongoDB. [Express] provides a View Controller framework for node, while [Mongoose] is a driver for communicating with MongoDB in node.
 
-### Set up
+### Setup
 
 #### Generate scaffolding and install modules
 
 1. At the command-line, create and navigate to the **tasklist** directory. This will be your project directory.
 1. Enter the following command to install express.
 
-		sudo npm install express -g
+		npm install express -g
  
 	`-g` indicates global mode, which we use to make the <strong>express</strong> module available without specifying a directory path. If you receive <strong>Error: EPERM, chmod '/usr/local/bin/express'</strong>, use <strong>sudo</strong> to run npm at a higher privilege level.
 
@@ -305,7 +305,7 @@ The steps in this section use the Windows Azure command-line tools to create a n
 
 To install the command-line tools, use the following command:
 	
-	sudo npm install azure-cli -g
+	npm install azure-cli -g
 
 If you have already installed the <strong>Windows Azure SDK for Node.js</strong> from the <a href="/en-us/develop/nodejs/">Windows Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure command-line tool for Mac and Linux</a>.
 
@@ -429,7 +429,7 @@ Run `azure site browse` from your project directory to automatically open a brow
 
 <div chunk="../../Shared/Chunks/howto-access-mongolab-ui.md" />
 
-Congratulations! You've just launched a Node.JS application backed by a MongoLab-hosted MongoDB database! Now that you have a MongoLab database, you can contact [support@mongolab.com](mailto:support@mongolab.com) with any questions or concerns about your database, or for help with MongoDB or the node driver itself. Good luck out there!
+Congratulations! You've just launched a Node.js application backed by a MongoLab-hosted MongoDB database! Now that you have a MongoLab database, you can contact [support@mongolab.com](mailto:support@mongolab.com) with any questions or concerns about your database, or for help with MongoDB or the node driver itself. Good luck out there!
 
 [screen-mongolab-sampleapp]: ../Media/screen-mongolab-sampleapp.png
 [button-website-downloadpublishprofile]: ../../Shared/Media/button-website-downloadpublishprofile.png
@@ -447,7 +447,7 @@ Congratulations! You've just launched a Node.JS application backed by a MongoLab
 [manage]: #manage
 [button-git-publishing]: ../../Shared/Media/button-git-publishing.png
 
-[node]: http://nodejs.org
+[Node.js]: http://nodejs.org
 [MongoDB]: http://www.mongodb.org
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
