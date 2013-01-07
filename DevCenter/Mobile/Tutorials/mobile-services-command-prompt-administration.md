@@ -4,15 +4,17 @@
 
 # Automate mobile services with command-line tools 
 
-This topic shows you how to use use the Windows Azure command-line tools to automate the creation and management of Windows Azure Mobile Services. This topic shows you how to install and get started using the command-line tools and use them to perform the following Mobile Services tasks:
+This topic shows you how to use the Windows Azure command-line tools to automate the creation and management of Windows Azure Mobile Services. This topic shows you how to install and get started using the command-line tools and use them to perform the following Mobile Services tasks:
 
 -	[Create a new mobile service] 
 -	[Create a new table]
 -   [Register a script to a table operation][Register a new table script]
+-   [List tables]
 - 	[Delete an existing table]
+-	[List mobile services]
 -   [Delete an existing mobile service]
  
-When combined into a single script or batch file, these individual commands automate the creation, verfication, and deletion process of a mobile service. 
+When combined into a single script or batch file, these individual commands automate the creation, verification, and deletion process of a mobile service. 
 
 To use the Windows Azure command-line tools to manage Mobile Services, you need a Windows Azure account that has the Windows Azure Mobile Services feature enabled.
 
@@ -38,18 +40,14 @@ The following list contains information for installing the command-line tools, d
 
 		npm install azure-cli -g
 
-	**Note**: You may need to run this command with elevated privileges:
-
-		sudo npm install azure-cli -g
-
 To test the installation, type `azure` at the command prompt. When the installation is successful, you will see a list of all the available `azure` commands.
 <h2><a name="import-account"></a><span class="short-header">Import settings</span>How to download and import publish settings</h2>
 
-To get started, you need to first download and import your publish settings. This will allow you to use the tools to create and manage Azure Services. To download your publish settings, use the `account download` command:
+To get started, you must first download and import your publish settings. Then you can use the tools to create and manage Azure Services. To download your publish settings, use the `account download` command:
 
 	azure account download
 
-This will open your default browser and prompt you to sign in to the Management Portal. After signing in, your `.publishsettings` file will be downloaded. Make note of where this file is saved.
+This opens your default browser and prompts you to sign in to the Management Portal. After signing in, your `.publishsettings` file is downloaded. Note the location of this saved file.
 
 Next, import the `.publishsettings` file by running the following command, replacing `<path-to-settings-file>` with the path to your `.publishsettings` file:
 
@@ -63,33 +61,25 @@ To see a list of options for `account` commands, use the `-help` option:
 
 	azure account -help
 
-After importing your publish settings, you should delete the `.publishsettings` file for security reasons.
+After importing your publish settings, you should delete the `.publishsettings` file for security reasons. For more information, see [How to install the Windows Azure Command-Line Tools for Mac and Linux]. You are now ready to begin creating and managing Windows Azure Mobile Services from the command line or in batch files.  
 
-<div class="dev-callout"><strong>Note</strong> 
-   <p>When you import publish settings, credentials for accessing your Windows Azure subscription are stored inside your <code>user</code> folder. Your <code>user</code> folder is protected by your operating system. However, it is recommended that you take additional steps to encrypt your <code>user</code> folder. You can do so in the following ways:</p>
+<h2><a name="create-service"></a><span class="short-header">Create service</span>How to create a mobile service</h2>
 
-   	<ul>
-		<li>On Windows, modify the folder properties or use BitLocker.</li>
-		<li>On Mac, turn on FileVault for the folder.</li>
-		<li>On Ubuntu, use the Encrypted Home directory feature. Other Linux distributions offer equivalent features.</li>
-	</ul>
-</div>
-
-You are now ready to begin creating and managing Windows Azure Mobile Services from the command line or in batch files.  
-
-<h2><a name="create-service"></a><span class="short-header">Create service</span>How to create a new mobile service</h2>
-
-You can use the command-line tools to create a new mobile service instance. While creating the mobile service, you also create a new database instance in a new SQL Database server. 
+You can use the command-line tools to create a new mobile service instance. While creating the mobile service, you also create a SQL Database instance in a new server. 
 
 The following command creates a new mobile service instance in your subscription, where `<service-name>` is the name of the new mobile service, `<server-admin>` is the login name of the new server, and `<server-password>` is the password for the new login:
 
 		azure mobile create <service-name> <server-admin> <server-password>
 
-<div class="dev-callout"><strong>Security Note</strong> 
-   <p><code>&lt;server-admin&gt;</code> and <code>&lt;server-password&gt;</code> are important security credentials. Because of this, we recommend that you take additional steps to encrypt any file or folder where these credentials are persisted. When you do not supply values for <code>&lt;server-admin&gt;</code> and <code>&lt;server-password&gt;</code> in the <code>mobile create</code> command, you are prompted to supply the values during execution.</p>
-</div>
+The `mobile create` command fails when the specified mobile service exists. In your automation scripts, you should attempt to delete a mobile service before attempting to recreate it.
 
-The `mobile create` command fails when the specified mobile service already exists. In your automation scripts, you may want to attempt to delete a mobile service before attempting to recreate it.
+<h2><a name="list-services"></a><span class="short-header">List services</span>How to list existing mobile services in a subscription</h2>
+
+The following command returns a list of all the mobile services in a Windows Azure subscription:
+
+		azure mobile list
+
+This command also shows the current state and URL of each mobile service.
 
 <h2><a name="delete-service"></a><span class="short-header">Delete service</span>How to delete an existing mobile service</h2>
 
@@ -100,16 +90,18 @@ You can use the command-line tools to delete an existing mobile service, along w
 By including `-a` and `-q` parameters, this command also deletes the SQL Database and server used by the mobile service without displaying a prompt.
 
 <div class="dev-callout"><strong>Note</strong> 
-   <p>If you do not specify the <code>-q</code> parameter along with <code>-a</code> or <code>-d</code>, execution is paused and you are prompted to select delete options for your SQL Database. Only use the <code>-a</code> parameter when no other service using the database or server; otherwise use the <code>-d</code> parameter to only delete data that belongs to the mobile service being deleted.</p>
+   <p>If you do not specify the <code>-q</code> parameter along with <code>-a</code> or <code>-d</code>, execution is paused and you are prompted to select delete options for your SQL Database. Only use the <code>-a</code> parameter when no other service uses the database or server; otherwise use the <code>-d</code> parameter to only delete data that belongs to the mobile service being deleted.</p>
 </div>
 
-<h2><a name="create-table"></a><span class="short-header">Create table</span>How to create a new table in the mobile service</h2>
+<h2><a name="create-table"></a><span class="short-header">Create table</span>How to create a table in the mobile service</h2>
 
-The following command creates a new table in the specified mobile service, where `<service-name>` is the name of the mobile service and `<table-name>` is the name of the table to create:
+The following command creates a table in the specified mobile service, where `<service-name>` is the name of the mobile service and `<table-name>` is the name of the table to create:
 
 		mobile table create <service-name> <table-name>
 
-This creates a new table with the default permissions, `application`, for the table operations: `insert`, `read`, `update`, and `delete`. The following command creates a new table with `read` permission set to public and `delete` permission set to only adminstrators:
+This creates a new table with the default permissions, `application`, for the table operations: `insert`, `read`, `update`, and `delete`. 
+
+The following command creates a new table with public `read` permission but with `delete` permission granted only to administrators:
 
 		mobile table create <service-name> <table-name> -p read=public,delete=admin
 
@@ -121,7 +113,15 @@ The following table shows the script permission value compared to the permission
 <tr><td><code>user</code></td><td>Only authenticated users</td></tr>
 <tr><td><code>admin	</code></td><td>Only scripts and admins</td></tr></table>
 
-The `mobile table create` command fails when the specified table already exists. In your automation scripts, you may want to attempt to delete a table before attempting to recreate it.
+The `mobile table create` command fails when the specified table already exists. In your automation scripts, you should attempt to delete a table before attempting to recreate it.
+
+<h2><a name="list-tables"></a><span class="short-header">List tables</span>How to list existing tables in a mobile service</h2>
+
+The following command returns a list of all of the tables in a mobile service, where `<service-name>` is the name of the mobile service:
+
+		azure mobile table list <service-name>
+
+This command also shows the number of indexes on each table and the number of data rows currently in the table.
 
 <h2><a name="delete-table"></a><span class="short-header">Delete table</span>How to delete an existing table from the mobile service</h2>
 
@@ -133,7 +133,7 @@ In automation scripts, use the `-q` parameter to delete the table without displa
 
 <h2><a name="register-script"></a><span class="short-header">Register a script</span>How to register a script to a table operation</h2>
 
-Mobile Services enables you to register a JavaScript function to a given table operation, where the script is run when the table operation occurs. The following command uploads and registers a function to an operation on a table, where `<service-name>` is the name of the mobile service, `<table-name>` is the name of the table, and `<operation>` is the table operation, which can be `read`, `insert`, `update`, or `delete`:
+The following command uploads and registers a function to an operation on a table, where `<service-name>` is the name of the mobile service, `<table-name>` is the name of the table, and `<operation>` is the table operation, which can be `read`, `insert`, `update`, or `delete`:
 
 		azure mobile script upload <service-name> table/<table-name>.<operation>.js
 
@@ -141,7 +141,7 @@ Note that this operation uploads a JavaScript (.js) file from the local computer
 
 		  azure mobile script upload todolist table/todoitems.insert.js
 
-The function declaration in the script file must also match the registered table operation. This means that from the above example, the uploaded script contains a function with the following signature:
+The function declaration in the script file must also match the registered table operation. This means that for an `insert` script, the uploaded script contains a function with the following signature:
 
 		function insert(item, user, request) {
 		    ...
@@ -166,6 +166,8 @@ Next steps here....
 [Delete an existing table]: #delete-table
 [Delete an existing mobile service]: #delete-service
 [Test the mobile service]: #test-service
+[List mobile services]: #list-services
+[List tables]: #list-tables
 [Next steps]: #next-steps
 
 <!-- Images. -->
@@ -190,4 +192,5 @@ Next steps here....
 [mac-installer]: http://go.microsoft.com/fwlink/p?LinkId=252249
 [windows-installer]: http://go.microsoft.com/fwlink/p?LinkID=275464
 [reference-docs]: http://go.microsoft.com/fwlink/p?LinkId=252246
+[How to install the Windows Azure Command-Line Tools for Mac and Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 [http://www.windowsazure.com]: http://www.windowsazure.com
