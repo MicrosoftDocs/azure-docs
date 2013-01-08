@@ -4,7 +4,7 @@
 
 #How to configure PHP in Windows Azure Web Sites
 
-This guide will show you how to configure the built-in PHP runtime in Windows Azure Web Sites, provide a custom PHP runtime, and enable extensions in Windows Azure Web Sites. To use Windows Azure Web Sites, sign up for the [free trial]. To get the most from this guide, you should first create a PHP site in Windows Azure Web Sites (see the [PHP Developer Center Tutorials]). For general information on configuring sites in Windows Azure Web Sites, see [How to Configure Websites].
+This guide will show you how to configure the built-in PHP runtime in Windows Azure Web Sites, provide a custom PHP runtime, and enable extensions in Windows Azure Web Sites. To use Windows Azure Web Sites, sign up for the [free trial]. To get the most from this guide, you should first create a PHP site in Windows Azure Web Sites (see the [PHP Developer Center Tutorials]). For general information on configuring sites in Windows Azure Web Sites, see [How to Configure Web Sites].
 
 ##Table of Contents
 
@@ -15,14 +15,14 @@ This guide will show you how to configure the built-in PHP runtime in Windows Az
 * [Next steps](#NextSteps)
 
 <h2 id="WhatIs">What is Windows Azure Web Sites?</h2>
-Windows Azure Web Sites allows you to build highly scalable websites on Windows Azure. You can quickly and easily deploy sites to a highly scalable cloud environment that allows you to start small and scale as traffic grows. Windows Azure Web Sites uses the languages and open source apps of your choice and supports deployment with Git, FTP, and TFS. You can easily integrate other services like MySQL, SQL Database, Caching, CDN, and Storage.
+Windows Azure Web Sites allows you to build highly scalable web sites on Windows Azure. You can quickly and easily deploy sites to a highly scalable cloud environment that allows you to start small and scale as traffic grows. Windows Azure Web Sites uses the languages and open source apps of your choice and supports deployment with Git, FTP, and TFS. You can easily integrate other services like MySQL, SQL Database, Caching, CDN, and Storage.
 
 <h2 id="ChangeBuiltInPHP">How to: Change the built-in PHP configuration</h2>
 By default, PHP 5.3 is installed and immediately available for use when you create a Windows Azure Web Site. The best way to see the available release revision, its default configuration, and the enabled extensions is to deploy a script that calls [phpinfo()].
 
 PHP 5.4 is also available, but not enabled by default. To enable it, follow these steps:
 
-1. Browse to your website's dashboard in the Windows Azure Portal, click on **CONFIGURE**.
+1. Browse to your web site's dashboard in the Windows Azure Portal, click on **CONFIGURE**.
 
 	![Configure tab on Web Sites dashboard][configure]
 
@@ -44,7 +44,7 @@ For either of the built-in PHP runtimes, you can change any of the configuration
 		upload_max_filesize=10M
 
 3. Deploy your application.
-4. Restart your website. (Restarting is necessary because the frequency with which PHP reads `.user.ini` files is governed by the `user_ini.cache_ttl` setting, which is a system level setting and is 300 seconds (5 minutes) by default. Restarting the site forces PHP to read the new settings in the `.user.ini` file.)
+4. Restart your web site. (Restarting is necessary because the frequency with which PHP reads `.user.ini` files is governed by the `user_ini.cache_ttl` setting, which is a system level setting and is 300 seconds (5 minutes) by default. Restarting the site forces PHP to read the new settings in the `.user.ini` file.)
 
 As an alternative to using a `.user.ini` file, you can use the [ini_set()] function in scripts to set configuration options that are not system-level directives.
 
@@ -95,7 +95,7 @@ Now that you’ve learned how to configure PHP in Windows Azure Web Sites, follo
 
 [free trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
 [PHP Developer Center Tutorials]: https://www.windowsazure.com/en-us/develop/php/tutorials/
-[How to Configure Websites]: https://www.windowsazure.com/en-us/manage/services/web-sites/how-to-configure-websites/
+[How to Configure Web Sites]: https://www.windowsazure.com/en-us/manage/services/web-sites/how-to-configure-websites/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ../Media/select-php-version.png
 [List of php.ini directives]: http://www.php.net/manual/en/ini.list.php

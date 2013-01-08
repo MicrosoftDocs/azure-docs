@@ -1,6 +1,6 @@
 #How to use the Windows Azure Command-Line Tools for Mac and Linux
 
-This guide describes how to use the Windows Azure Command-Line Tools for Mac and Linux to create and manage services in Windows Azure. The scenarios covered include **installing the tools**, **importing your publishing settings**, **creating and managing Windows Azure Websites**, and **creating and managing Windows Azure Virtual Machines**. For comprehensive reference documentation, see [Windows Azure command-line tool for Mac and Linux Documentation][reference-docs]. 
+This guide describes how to use the Windows Azure Command-Line Tools for Mac and Linux to create and manage services in Windows Azure. The scenarios covered include **installing the tools**, **importing your publishing settings**, **creating and managing Windows Azure Web Sites**, and **creating and managing Windows Azure Virtual Machines**. For comprehensive reference documentation, see [Windows Azure command-line tool for Mac and Linux Documentation][reference-docs]. 
 
 ##Table of contents
 * [What are the Windows Azure Command-Line Tools for Mac and Linux](#Overview)
@@ -18,7 +18,7 @@ The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line
 The supported tasks include the following:
 
 * Import publishing settings.
-* Create and manage Windows Azure Websites.
+* Create and manage Windows Azure Web Sites.
 * Create and manage Windows Azure Virtual Machines.
 
 For a complete list of supported commands, type `azure -help` at the command line after installing the tools, or see the [reference documentation][reference-docs].
@@ -98,26 +98,26 @@ After importing your publish settings, you should delete the `.publishsettings` 
 
 </div>
 
-You are now ready to being creating and managing Windows Azure Websites and Windows Azure Virtual Machines.  
+You are now ready to being creating and managing Windows Azure Web Sites and Windows Azure Virtual Machines.  
 
 <h2><a id="WebSites"></a>How to create and manage a Windows Azure Web Site</h2>
 
 ###Create a Web Site
 
-To create a Windows Azure Website, first create an empty directory called `MySite` and browse into that directory.
+To create a Windows Azure Web Site, first create an empty directory called `MySite` and browse into that directory.
 
 Then, run the following command:
 
 	azure site create MySite --git
 
-The output from this command will contain the default URL for the newly created website. The `--git` option allows you to use git to publish to your website by creating git repositories in both your local application directory and in your website's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your website's data center.
+The output from this command will contain the default URL for the newly created web site. The `--git` option allows you to use git to publish to your web site by creating git repositories in both your local application directory and in your web site's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your web site's data center.
 
 Note that you can execute the `azure site create` command with any of the following options:
 
-* `--location [location name]`. This option allows you to specify the location of the data center in which your website is created (e.g. "West US"). If you omit this option, you will be promted to choose a location.
-* `--hostname [custom host name]`. This option allows you to specify a custom hostname for your website.
+* `--location [location name]`. This option allows you to specify the location of the data center in which your web site is created (e.g. "West US"). If you omit this option, you will be promted to choose a location.
+* `--hostname [custom host name]`. This option allows you to specify a custom hostname for your web site.
 
-You can then add content to your website directory. Use the regular git flow (`git add`, `git commit`) to commit your content. Use the following git command to push your website content to Windows Azure: 
+You can then add content to your web site directory. Use the regular git flow (`git add`, `git commit`) to commit your content. Use the following git command to push your web site content to Windows Azure: 
 
 	git push azure master
 
@@ -153,7 +153,7 @@ If you want to change the value of an existing key you must first clear the exis
 
 ###List and show sites
 
-To list your websites, use the following command:
+To list your web sites, use the following command:
 
 	azure site list
 
