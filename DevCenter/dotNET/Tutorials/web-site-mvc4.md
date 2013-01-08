@@ -60,7 +60,7 @@ This setting specifies which data center your web site will run in.
 5. Click the **Create Web Site** arrow.<br/>
 ![Create a new web site][CreateWebSite]<br/>
 The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon.<br/>
-![Web Sites page of Management Portal, website created][WebSiteStatusRunning]<br/>
+![Web Sites page of Management Portal, web site created][WebSiteStatusRunning]<br/>
 
 <h2><a name="createmvc4app"></a><span class="short-header">Create the app</span>Create an ASP.NET MVC 4 application</h2>
 
