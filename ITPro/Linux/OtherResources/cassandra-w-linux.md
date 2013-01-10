@@ -185,8 +185,8 @@ Now that we have the VMs ready, it is time to set up Cassandra on each of the VM
 Cassandra requires Java Virtual Machine and hence install the latest JRE using the following command for Debian derivatives including Ubuntu:
          
 	sudo add-apt-repository ppa:webupd8team/java
-         sudo apt-get update
-         sudo apt-get install oracle-java7-installer
+    sudo apt-get update
+    sudo apt-get install oracle-java7-installer
 
 **Step 2: Cassandra Installation**
 
