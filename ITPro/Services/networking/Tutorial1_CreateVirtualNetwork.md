@@ -7,7 +7,7 @@
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-This tutorial walks you through the steps to create a [Windows Azure virtual network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx) using the Windows Azure (Preview) Management Portal.
+This tutorial walks you through the steps to create a [Windows Azure virtual network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx) using the Windows Azure Management Portal.
 
 This tutorial assumes you have no prior experience using Windows Azure.
 
@@ -33,7 +33,7 @@ In this tutorial you will learn:
 
 **To create a cloud-only virtual network:**
 
-1.	Log in to the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com/).
+1.	Log in to the [Windows Azure Management Portal](http://manage.windowsazure.com/).
 2.	In the lower left-hand corner of the screen, click **New**. 
 
 	![Image1][]
