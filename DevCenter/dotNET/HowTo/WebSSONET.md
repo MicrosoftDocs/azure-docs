@@ -39,10 +39,10 @@ In the instructions provided in this guide, we will play the roles of both Fabri
 
 - Create a simple ASP.NET MVC application (performed by Fabrikam)
 - Provision an ASP.NET MVC web application in Windows Azure Active Directory (performed by Awesome Computers).
-	<div class="dev-callout-new">
+<div class="dev-callout-new">
     <strong>Note <span>Click to collapse</span></strong>
     <div class="dev-callout-content">
-        <p>As part of this step, Awesome Computers must in turn be provisioned by the Fabrikam as a customer of their ASP.NET application. Basically, Fabrikam needs to know that users from the Office 365 tenant with the domain **awesomecomputers.onmicrosoft.com** should be granted access to their ASP.NET application.</p>
+    	<p>As part of this step, Awesome Computers must in turn be provisioned by the Fabrikam as a customer of their ASP.NET application. Basically, Fabrikam needs to know that users from the Office 365 tenant with the domain **awesomecomputers.onmicrosoft.com** should be granted access to their ASP.NET application.</p>
     </div>
 </div>
 
@@ -133,7 +133,7 @@ To provision the ASP.NET application in Windows Azure Active Directory, Awesome 
 
 **To provision the ASP.NET application in Windows Azure Active Directory**
 
-1.	Download and install a set of [Powershell scripts](https://bposast.vo.msecnd.net/MSOPMW/5164.009/amd64/administrationconfig-en.msi) from the Office 365’s online help page.
+1.	Download and install a set of [Powershell scripts](https://bposast.vo.msecnd.net/MSOPMW/5164.009/amd64/administrationconfig-en.msi) from the Office 365's online help page.
 2.	Locate the CreateServicePrincipal.ps1 script in this code example set under WAAD.WebSSO.ASPNET/Scripts.
 
 3.	Launch the Microsoft Online Services Module for Windows PowerShell console.
@@ -192,7 +192,7 @@ You can use this Audience URI to add the first customer to our solution:
 	<img src="../../../DevCenter/dotNet/Media/ssostep3Step2.5.png" />
 
 3. The next page of the wizard allows you to configure the STS for your web application.  Select **Use an existing STS**, and then enter the location for the WS-Federation metadata document (https://accounts.accesscontrol.windows.net/FederationMetadata/2007-06/FederationMetadata.xml?realm=awesomecomputers.onmicrosoft.com).
-	<div class="dev-callout-new">
+<div class="dev-callout-new">
     <strong>Note <span>Click to collapse</span></strong>
     <div class="dev-callout-content">
         <p>This is the same URL you used in Step 1 to get the correct realm to create the Audience URI.</p>
@@ -230,6 +230,7 @@ You can use this Audience URI to add the first customer to our solution:
 
 			<system.web>
 			  <httpRuntime requestValidationMode="2.0" />
+			</system.web>
 
 10. From now on the site will require authentication, so we will change the Index page to show the authenticated user information (claims). Open the Index view and add the following code snippet at the end of the page:
 
@@ -276,11 +277,11 @@ Let's add another fictitious customer to our scenario, Trey research Inc. Trey R
 	<img src="../../../DevCenter/dotNet/Media/ssostep4Step2.png" />
 
 	<div class="dev-callout-new">
-    <strong>Note <span>Click to collapse</span></strong>
-    <div class="dev-callout-content">
-        <p>Behind the scenes the script retrieves the federation metadata to get the issuer identifier for generating the realm’s SPN value.</p>
-    </div>
-</div> 
+    	<strong>Note <span>Click to collapse</span></strong>
+    	<div class="dev-callout-content">
+        	<p>Behind the scenes the script retrieves the federation metadata to get the issuer identifier for generating the realm’s SPN value.</p>
+    	</div>
+	</div> 
 
 3.	Open the XML file and include the generated node:
 
@@ -307,6 +308,8 @@ Let's add another fictitious customer to our scenario, Trey research Inc. Trey R
 		      <remove type="Microsoft.IdentityModel.Tokens.Saml2.Saml2SecurityTokenHandler, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35"/>
 		      <add type="Microsoft.Samples.Waad.Federation.ConfigurationBasedSaml2SecurityTokenHandler, Microsoft.Samples.Waad.Federation"/>
 		    </securityTokenHandlers>
+		  </service>
+		</microsoft.identityModel>
 
 7.	Since we want to create a custom login page to support both organizations, we can disable the automatic redirection. Locate the **wsFederation** node and set the attribute passiveRedirectEnabled to false.
 
