@@ -91,7 +91,7 @@ endpoints.
 
 Service Bus Relay is useful when you require a low-latency synchronous
 connection or bi-directional message exchange. For example, a
-cloud-based website that needs to pull data from an on-premise CRM
+cloud-based web site that needs to pull data from an on-premise CRM
 system and show it to the user immediately might use the Service Bus
 Relay to accomplish this objective. The Service Bus Relay provides
 direct and low-latency service access.
@@ -338,7 +338,7 @@ digital certificates and biometric devices.
 
 Identities are selected according to your application’s requirements for
 trustworthiness. Self-verified identities have a relatively low level of
-trust, and are generally suitable for social websites, blogs, and many
+trust, and are generally suitable for social web sites, blogs, and many
 publicly accessible commercial applications where a person does not have
 to prove who they are, but can simply make their own unverified
 statements about their identity (called “claims” in security lingo).

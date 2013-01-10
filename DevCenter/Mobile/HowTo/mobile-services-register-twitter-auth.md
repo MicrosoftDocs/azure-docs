@@ -16,12 +16,12 @@ This topic shows you how to register your apps to be able to use Twitter to auth
 
    ![][1]   
 
-2. Type the **Name**, **Description**, and **Website** values for your app, and type the URL of the mobile service in **Callback URL**.
+2. Type the **Name**, **Description**, and **Web Site** values for your app, and type the URL of the mobile service in **Callback URL**.
 
    ![][2]
 
     <div class="dev-callout"><b>Note</b>
-    <p>The <strong>Website</strong> value is required but is not used.</p>
+    <p>The <strong>Web Site</strong> value is required but is not used.</p>
     </div> 
 
 3.  At the bottom the page, read and accept the terms, type the correct CAPTCHA words, and then click **Create your Twitter application**. 

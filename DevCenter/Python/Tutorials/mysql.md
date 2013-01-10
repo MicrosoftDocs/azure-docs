@@ -4,7 +4,7 @@
 
 # Django Hello World - MySQL Windows Edition #
   
-This tutorial describes how to use MySQL in conjunction with Django on a single Windows Azure virtual machine. This guide assumes that you have some prior experience using Windows Azure and Django. For an introduction to Windows Azure and Django, see [Django Hello World] [djangohelloworld]. The guide also assumes that you have some knowledge of MySQL. For an overview of MySQL, see the [MySQL website][mysqldoc].
+This tutorial describes how to use MySQL in conjunction with Django on a single Windows Azure virtual machine. This guide assumes that you have some prior experience using Windows Azure and Django. For an introduction to Windows Azure and Django, see [Django Hello World] [djangohelloworld]. The guide also assumes that you have some knowledge of MySQL. For an overview of MySQL, see the [MySQL web site][mysqldoc].
 
 In this tutorial, you will learn how to:
 
@@ -202,7 +202,11 @@ Note: The following shows how to run Django in a test environment. To run it in 
 
 
 
+<<<<<<< HEAD
 1.  Switch back to a Windows PowerShell window, and type the following commands to deploy your Django web site publically:
+=======
+1.  Switch back to a Windows PowerShell window, and type the following commands to deploy your Django web site publically: 
+>>>>>>> d374192544005295dd9ee6661b1e7cf789afb06b
 
 		PS C:\django\helloworld> $ipPort = [System.Net.Dns]::GetHostEntry("127.0.0.1")
 		PS C:\django\helloworld> $ipPort = [string]$ipPort.AddressList[1]
@@ -223,7 +227,12 @@ Note: The following shows how to run Django in a test environment. To run it in 
 
     ![][5]
 
+<<<<<<< HEAD
   Refresh the web browser a few times and you should see the message change from *"Hello **&lt;country abc&gt;**"* to *"Hello **&lt;some other country&gt;**"*.
+=======
+  Refresh the web browser a few times and you should see the message change from *"Hello **&lt;country abc&gt;**"* to *"Hello **&lt;some other country&gt;**"*.
+
+>>>>>>> d374192544005295dd9ee6661b1e7cf789afb06b
 1.  To stop Django from hosting the web site, simply switch to the PowerShell window and press **CTRL-C**.
 
 

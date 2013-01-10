@@ -1,4 +1,4 @@
-<properties linkid="develop-dotnet-cloud-service-with-sql-database" urlDisplayName="Cloud Service with SQL Database" pageTitle=".NET cloud service with SQL Database - Windows Azure tutorial" metaKeywords="Azure ASP.NET web site, ASP.NET SQL database, SQL database cloud services" metaDescription="Create an ASP.NET website with a SQL database and deploy it to Windows Azure for hosting using Windows Azure Cloud Services. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-dotnet-cloud-service-with-sql-database" urlDisplayName="Cloud Service with SQL Database" pageTitle=".NET cloud service with SQL Database - Windows Azure tutorial" metaKeywords="Azure ASP.NET web site, ASP.NET SQL database, SQL database cloud services" metaDescription="Create an ASP.NET web site with a SQL database and deploy it to Windows Azure for hosting using Windows Azure Cloud Services. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 
 <div chunk="../chunks/article-left-menu.md" />
@@ -201,8 +201,8 @@ machine to publish packages to Windows Azure using Visual Studio.
 
     11. Double-click on any activity log entry (for example, "Deploying ToDoListApp.Azure to ToDoListApp955 - Production" in the screenshot above) to open a more detailed monitoring view that provides information about your deployment. 
 
-    11. When deployment is complete, you can view your new site by
-        clicking the **Website URL** link in the monitoring view:
+    12. When deployment is complete, you can view your new site by
+        clicking the **Web Site URL** link in the monitoring view:
 
         ![Windows Azure Activity Log window][24]
 

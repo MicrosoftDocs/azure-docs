@@ -37,7 +37,7 @@ help developers quickly get started building a casual or social game on
 Windows Azure.
 
 [Windows Azure Accelerator for Web Roles][] <span>: This accelerators is
-designed to make it quick and easy to deploy one or more websites across
+designed to make it quick and easy to deploy one or more web sites across
 multiple Web Role instances using Web Deploy.</span>
 
   [Windows Azure Code Samples]: http://code.msdn.microsoft.com/windowsazure/

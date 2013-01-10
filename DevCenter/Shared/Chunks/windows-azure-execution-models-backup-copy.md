@@ -103,7 +103,7 @@ As these examples show, you can use Windows Azure Virtual Machines to create and
 <a name="WebSites"></a>
 ##Web Sites
 
-People use web technologies in many different ways. A student might create a website for her basketball team using nothing but static HTML files. An IT consultant might use a popular open source application to set up a content management system for a small business. A web design agency might work with a team of developers to build a custom web application capable of handling thousands of users.
+People use web technologies in many different ways. A student might create a web site for her basketball team using nothing but static HTML files. An IT consultant might use a popular open source application to set up a content management system for a small business. A web design agency might work with a team of developers to build a custom web application capable of handling thousands of users.
 
 All of these things could be accomplished using Windows Azure Virtual Machines. But creating and managing raw VMs requires some skill and takes effort. If all you want is a web site or web application, there’s an easier (and probably cheaper) solution: the approach commonly known as web hosting. As [Figure 5](#Fig5) shows, Windows Azure provides this with Web Sites. 
 
@@ -156,7 +156,7 @@ All three Windows Azure execution models let you build scalable, reliable applic
 
 Virtual Machines provides the most general solution. If you want the most control possible, or if you need generic VMs, such as for development and test, this is the best option. Virtual Machines is also the best choice for running off-the-shelf on-premises applications in the cloud, as illustrated by the SharePoint example described earlier. And because the VMs you create with this technology can look just like your on-premises VMs, it’s also likely to be the best choice for disaster recovery. The trade-off, of course, is that with great power comes great responsibility—IaaS requires you to take on some administrative work.  
 
-Web Sites is the right option when you want to create a simple website. This is especially true if your site will be based on an existing application such as Joomla, WordPress, or Drupal. Web Sites is also a good choice for creating a low-administration web application, even one that must be quite scalable, or moving an existing IIS web app to the public cloud. It provides fast deployment as well—a new instance of your application can start running almost immediately, while deploying a new VM with either Virtual Machines or Cloud Services can take several minutes. 
+Web Sites is the right option when you want to create a simple web site. This is especially true if your site will be based on an existing application such as Joomla, WordPress, or Drupal. Web Sites is also a good choice for creating a low-administration web application, even one that must be quite scalable, or moving an existing IIS web app to the public cloud. It provides fast deployment as well—a new instance of your application can start running almost immediately, while deploying a new VM with either Virtual Machines or Cloud Services can take several minutes. 
 
 Cloud Services, which was the initial execution model provided by Windows Azure, is an explicitly PaaS approach. While the line between PaaS and web hosting is blurry, Cloud Services differs in some important ways from Web Sites, including the following:
 
