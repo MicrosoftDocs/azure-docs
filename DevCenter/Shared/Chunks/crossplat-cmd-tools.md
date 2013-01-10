@@ -42,13 +42,13 @@ The following list contains information for installing the command-line tools, d
 
 To test the installation, type `azure` at the command prompt. If the installation was successful, you will see a list of all the available `azure` commands.
 
-<h2><a id="CreateAccount">How to create a Windows Azure account</a></h2>
+<h2><a id="CreateAccount"></a>How to create a Windows Azure account</h2>
 
 To use the Windows Azure Command-Line Tools for Mac and Linux, you will need a Windows Azure account.
 
 1. Open a web browser and browse to [http://www.windowsazure.com][] and click **free trial** in the upper right corner.
 
-	![Windows Azure Website][]
+	![Windows Azure Web Site][]
 
 	Follow the instructions for creating an account.
 
@@ -72,9 +72,9 @@ To get started, you need to first download and import your publish settings. Thi
 
 This will open your default browser and prompt you to sign in to the Management Portal. After signing in, your `.publishsettings` file will be downloaded. Make note of where this file is saved.
 
-Next, import the `.publishsettings` file by running the following command, replacing `<path to .publishsettings file>` with the path to your `.publishsettings` file:
+Next, import the `.publishsettings` file by running the following command, replacing `{path to .publishsettings file}` with the path to your `.publishsettings` file:
 
-	azure account import <path to .publishsettings file>
+	azure account import {path to .publishsettings file}
 
 You can remove all of the information stored by the <code>import</code> command by using the <code>account clear</code> command:
 
@@ -104,7 +104,7 @@ You are now ready to being creating and managing Windows Azure Web Sites and Win
 
 ###Create a Web Site
 
-To create a Windows Azure Web Site, first create an empty directory called `MySite` and browse into that directory.
+To create a Windows Azure web site, first create an empty directory called `MySite` and browse into that directory.
 
 Then, run the following command:
 
@@ -235,7 +235,7 @@ For a complete list of commands for creating and managing virtual machines, use 
 [windows-installer]: http://go.microsoft.com/fwlink/?LinkID=275464&clcid=0x409
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [http://www.windowsazure.com]: http://www.windowsazure.com
-[Windows Azure Website]: ../media/create-account-01-mac.png
+[Windows Azure Web Site]: ../media/create-account-01-mac.png
 [open preview features tab]: ../media/antares-iaas-preview-01.png
 [select a preview feature]: ../media/antares-iaas-preview-02.png
 [select subscription]: ../media/antares-iaas-preview-03.png

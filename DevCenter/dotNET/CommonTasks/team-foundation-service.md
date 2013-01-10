@@ -1,9 +1,9 @@
-﻿<properties linkid="dev-net-common-tasks-publishing-with-tfs" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Team Foundation Service in Windows Azure" metaKeywords="" metaDescription="Learn how to configure your Team Foundation Service team projects to automatically build and deploy to Windows Azure web sites or cloud services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="dev-net-common-tasks-publishing-with-tfs" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Team Foundation Service in Windows Azure" metaKeywords="" metaDescription="Learn how to configure your Team Foundation Service team projects to automatically build and deploy to Windows Azure web sites or cloud services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 <div chunk="../chunks/article-left-menu.md" />
 # Continuous delivery to Windows Azure by using Team Foundation Service
 
-Microsoft Team Foundation Service is a cloud-hosted service version of Microsoft’s popular Team Foundation Server (TFS) software that provides highly customizable source code and build management, agile development and team process workflow, issue and work item tracking, and more.  You can configure your Team Foundation Service team projects to automatically build and deploy to Windows Azure websites or cloud services.  For information on how to set up a continuous build and deploy system using an on-premises Team Foundation Server, see [Continuous Delivery for Cloud Applications in Windows Azure](http://www.windowsazure.com/en-us/develop/net/common-tasks/continuous-delivery/).
+Microsoft Team Foundation Service is a cloud-hosted service version of Microsoft’s popular Team Foundation Server (TFS) software that provides highly customizable source code and build management, agile development and team process workflow, issue and work item tracking, and more.  You can configure your Team Foundation Service team projects to automatically build and deploy to Windows Azure web sites or cloud services.  For information on how to set up a continuous build and deploy system using an on-premises Team Foundation Server, see [Continuous Delivery for Cloud Applications in Windows Azure](http://www.windowsazure.com/en-us/develop/net/common-tasks/continuous-delivery/).
 
 This tutorial assumes you have Visual Studio 2012 and the Windows Azure SDK installed. If you don’t already have Visual Studio 2012, download it [here](http://www.microsoft.com/visualstudio/eng/downloads). You can use Visual Studio 2010, but you must have SP1 installed and you must install the [Compatibility GDR](http://www.microsoft.com/en-us/download/details.aspx?Id=29082).  Install the Windows Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
 
@@ -42,11 +42,11 @@ To set up a cloud service to automatically build and deploy to Windows Azure by 
 ![][4]
 
 2. In Visual Studio, open the solution you want to deploy, or create a new one.
-You can deploy a website or a cloud service (Windows Azure Application) by following the steps in this walkthrough.
+You can deploy a web site or a cloud service (Windows Azure Application) by following the steps in this walkthrough.
 If you want to create a new solution, you can either create a new Windows Azure Cloud Service project,
 or a new ASP.NET MVC4 project. Make sure that the project targets .NET Framework 4,
 and add an ASP.NET MVC 4 web role and a worker role. When prompted, choose **Internet Application**.
-If you want to create a website, choose the ASP.NET MVC4 Application project template.
+If you want to create a web site, choose the ASP.NET MVC4 Application project template.
 
 3. Open the shortcut menu for the solution, and select **Add Solution to Source Control**.<br/>
 ![][5]

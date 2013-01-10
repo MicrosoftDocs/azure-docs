@@ -1,6 +1,131 @@
 <properties linkid="develop-net-how-to-guides-web-sso" urlDisplayName="Web SSO" pageTitle="Web Single Sign-On with .NET and Windows Azure Active Directory" metaKeywords="Azure .NET web app, Azure single sign-on, Azure Active Directory SSO, .NET AAD SSO, ASP.NET SSO Azure" metaDescription="Learn how to create an ASP.NET web application that uses single sign-on with Windows Azure Active Directory." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu.md" />
+<<<<<<< HEAD
+=======
+# How to implement single sign-on with Windows Azure Active Directory - ASP.NET Application#
+
+<h2>Table of Contents</h2>
+<li>
+<a href="#overview">Overview</a>
+</li>
+<li>
+<a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#step1">Step 1 - Create an ASP.NET MVC application</a></li>
+<li><a href="#step2">Step 2 - Provision the ASP.NET MVC application in Windows Azure Active Directory</a></li>
+<li><a href="#step3">Step 3 - Protect the ASP.NET application via WS-Federation and onboard the first customer</a></li>
+<li><a href="#step4">Step 4 - Configure the ASP.NET application for single sign-on with multiple tenants</a></li>	
+
+<a name="overview"></a>
+<h2><span class="short-header">Overview</span>Overview</h2>
+This guide provides instructions for creating an ASP.NET MVC application and configuring it to leverage Windows Azure Active Directory. 
+
+Imagine the following scenario:
+
+- Fabrikam is an independent software vendor with an ASP.NET MVC web application
+
+- Awesome Computers has a subscription to Office 365
+
+- Trey Research Inc. has a subscription to Office 365
+
+
+
+Awesome Computers wants to provide their users (employees) with the access to the Fabrikam's ASP.NET application. After some deliberation, both parties agree to utilize the web single sign-on approach, also called identity federation with the end result being that Awesome Computers' users will be able to access Fabrikam's ASP.NET MVC application in exactly the same way they access Office 365 applications. 
+
+This web single sign-on method is made possible with the help of the Windows Azure Active Directory, which is also used by Office 365. Windows Azure Active Directory provides directory, authentication, and authorization services, including a Security Token Service (STS). 
+
+With the web single sign-on approach, Awesome Computers will provide single sign-on access to their users through a federated mechanism that relies on an STS. Since Awesome Computers does not have its own STS, they will rely on the STS provided by Windows Azure Active Directory that was provisioned for them when they acquired Office 365.
+
+In the instructions provided in this guide, we will play the roles of both Fabrikam and Awesome Computers and recreate this scenario by performing the following tasks: 
+
+- Create a simple ASP.NET MVC application (performed by Fabrikam)
+- Provision an ASP.NET MVC web application in Windows Azure Active Directory (performed by Awesome Computers).
+	<div class="dev-callout-new">
+    <strong>Note <span>Click to collapse</span></strong>
+    <div class="dev-callout-content">
+        <p>As part of this step, Awesome Computers must in turn be provisioned by the Fabrikam as a customer of their ASP.NET application. Basically, Fabrikam needs to know that users from the Office 365 tenant with the domain **awesomecomputers.onmicrosoft.com** should be granted access to their ASP.NET application.</p>
+    </div>
+</div>
+
+- Protect the ASP.NET MVC application with WS-Federation and onboard the first customer (performed by Fabrikam)
+- Modify the ASP.NET MVC application to handle single sign-on with multiple tenants (performed by Fabrikam)
+
+**Assets**
+
+This guide is available together with several code samples and scripts that can help you with some of the most time-consuming tasks. All materials are available at [Azure Active Directory SSO for .Net](https://github.com/WindowsAzure/azure-sdk-for-dotnet-samples) for you to study and modify to fit your environment. 
+
+<a name="prerequisites"></a>
+<h2><span class="short-header">Prerequisites</span>Prerequisites</h2>
+
+To complete the tasks in this guide, you will need the following:
+
+**General environment requirements:**
+
+- Internet Information Services (IIS) 7.5 (with SSL enabled)
+- Windows PowerShell 2.0
+- [Microsoft Online Services Module](http://g.microsoftonline.com/0BX10en/229)
+
+**ASP.NET-specific requirements:**
+
+<ul>
+    <li>Microsoft Visual Studio 2010</li>
+    <li>
+      <a href="http://www.microsoft.com/download/en/details.aspx?id=17331">Windows Identity Foundation</a>
+    </li>
+    <li>
+      <a href="http://www.microsoft.com/download/en/details.aspx?id=4451">Windows Identity Foundation SDK</a>
+    </li>
+<li>.Net Framework 4.0</li>
+<li>ASP.Net MVC 3 (http://www.asp.net/mvc/mvc3)</li>
+</ul>
+
+<a name="step1"></a>
+<h2><span class="short-header">Step 1 - Create an ASP.NET MVC application</span>Step 1 - Create an ASP.NET MVC application</h2>
+
+The instructions in this step demonstrate how to create a simple ASP.NET MVC application. In our scenario, this step is performed by Fabrikam.
+
+**To create an ASP.NET Application:**
+
+1.	Open a new instance of Visual Studio 2010 using  the **Run as administrator…** option. 
+2.	To create a new project, click **File** -> **New Project** -> **Web** -> **ASP.NET MVC 3 Web Application** -> **Empty**.
+
+	<img src="../../../DevCenter/dotNet/Media/ssostep1Step2.png" />	
+
+
+3.	Create a controller/view (HomeController/Index) which will be the main page of the sample web site.
+
+	<img src="../../../DevCenter/dotNet/Media/ssostep1Step3.png" />	
+
+4.	Right-click the **OrgIdFederationSample** project in the Solution Explorer. Select **Properties** -> **Web** and then **Use Local IIS Web server**. Click **Yes** when the dialog box is displayed.
+
+	<img src="../../../DevCenter/dotNet/Media/ssostep1Step4.png" />	
+
+5.	Run the application (F5) to see the Index view.
+
+6.	Open the Windows PowerShell 2.0 console and run the following command to generate a new GUID for this application:
+
+	<img src="../../../DevCenter/dotNet/Media/ssostep1Step6.png" />	
+
+	<div class="dev-callout-new">
+	    <strong>Note <span>Click to collapse</span></strong>
+	    <div class="dev-callout-content">
+	        <p>Make sure to record this value. This identifier will be the AppPrincipalId used in further steps in this guide when provisioning this ASP.NET applicaiton in Office 365.</p>
+	    </div>
+	</div>  
+
+<a name="step2"></a>
+<h2><span class="short-header">Step 2 - Provision the ASP.NET MVC application in Windows Azure Active Directory</span>Step 2 - Provision the ASP.NET MVC application in Windows Azure Active Directory</h2>
+
+
+Instructions in this step demonstrate how you can provision the ASP.NET application in Windows Azure Active Directory. In our scenario, this step is performed by Awesome Computers who then provides the application owner (Fabrikam) with the data Fabrikam needs in order to set up single sign-on access for Awesome Computers's users. 
+
+<div class="dev-callout-new">
+    <strong>Note <span>Click to collapse</span></strong>
+    <div class="dev-callout-content">
+        <p>If you don’t have access to an Office 365, you can obtain one by applying for a FREE TRIAL subscription on the [Office 365’s Sign-up page](http://www.microsoft.com/en-us/office365/online-software.aspx#fbid=8qpYgwknaWN).</p>
+    </div>
+</div>  
+>>>>>>> d374192544005295dd9ee6661b1e7cf789afb06b
 
 # Web Single Sign-On with .NET and Windows Azure Active Directory
 

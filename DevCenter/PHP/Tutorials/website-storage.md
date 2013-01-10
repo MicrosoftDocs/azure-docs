@@ -1,4 +1,4 @@
-<properties linkid="develop-php-website-with-storage" urlDisplayName="Web w/ Storage" pageTitle="PHP web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" metaDescription="This tutorial shows you how to create a PHP website and use the Windows Azure Tables storage service in the back-end." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+﻿<properties linkid="develop-php-website-with-storage" urlDisplayName="Web w/ Storage" pageTitle="PHP web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage PHP, Azure PHP web site, Azure PHP web site, Azure PHP tutorial, Azure PHP example" metaDescription="This tutorial shows you how to create a PHP web site and use the Windows Azure Tables storage service in the back-end." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -15,7 +15,7 @@ You will learn:
  
 You will build a simple Tasklist web application in PHP. A screenshot of the completed application is below:
 
-![Windows Azure PHP Web Site][ws-storage-app]
+![Windows Azure PHP web site][ws-storage-app]
 
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
@@ -313,15 +313,15 @@ To make your application store data into the cloud you need to first create a st
 
 2. Click the **+ New** icon on the bottom left of the portal.
 
-	![Create New Windows Azure Web Site][new-website]
+	![Create New Windows Azure web site][new-website]
 
 3. Click **Storage**, then **Quick Create**.
 
-	![Custom Create a new Web Site][storage-quick-create]
+	![Custom Create a new web site][storage-quick-create]
 	
 	Enter a value for **URL** and select the data center for your web site in the **REGION** dropdown. Click the **Create Storage Account** button at the bottom of the dialog.
 
-	![Fill in Web Site details][storage-quick-create-details]
+	![Fill in web site details][storage-quick-create-details]
 
 	When the storage account has been created you will see the text **Creation of Storage Account ‘[NAME]’ completed successfully**.
 
@@ -349,11 +349,11 @@ Follow these steps to create a Windows Azure Web Site:
 
 3. Click **Web Site**, then **Quick Create**.
 
-	![Custom Create a new Web Site][website-quick-create]
+	![Custom Create a new web site][website-quick-create]
 	
 	Enter a value for **URL** and select the data center for your web site in the **REGION** dropdown. Click the **Create New Web Site** button at the bottom of the dialog.
 
-	![Fill in Web Site details][website-quick-create-details]
+	![Fill in web site details][website-quick-create-details]
 
 	When the web site has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfully**. Now, you can enable Git publishing.
 

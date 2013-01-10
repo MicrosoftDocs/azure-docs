@@ -1,15 +1,15 @@
 <!-- See http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/#create-provider for reference -->
 # How to Use Web Sites #
 
-This guide will show you how to use Web Sites. The scenarios covered in this guide include creating, configuring, managing and monitoring instances of a Web Site host, referred to as a website, on Windows Azure.
+This guide will show you how to use Web Sites. The scenarios covered in this guide include creating, configuring, managing and monitoring instances of a Web Site host, referred to as a web site, on Windows Azure.
 
 ## Table of Contents ##
 - [What is a Web Site?](#whatisaweb_site)
 - [How to: Create, Deploy and Delete a Web Site](#howtocreatedeploydelete)
 - [How to: Change Configuration Options for a Web Site](#howtochangeconfig)
 - [How to: Manage a Web Site](#howtomanage)
-- [How to: Monitor a Website](#howtomonitor)
-- [How to: Configure Diagnostics and Download Logs for a Website](#howtoconfigdiagnostics)
+- [How to: Monitor a Web Site](#howtomonitor)
+- [How to: Configure Diagnostics and Download Logs for a Web Site](#howtoconfigdiagnostics)
 - [How to: Configure a Web Site to Use Other Windows Azure Resources](#howtoconfigother)
 - [How to: Scale a Web Site](#howtoscale)
 - [How to: View Usage Quotas for a Web Site](#howtoviewusage)
@@ -18,7 +18,7 @@ This guide will show you how to use Web Sites. The scenarios covered in this gui
 - [Next Steps](#nextsteps)
 
 ##<a name="whatisaweb_site"></a>What is a Web Site?
-A Web Site is a web application host on Windows Azure that supports popular web application technologies such as .NET, Node.js and PHP without requiring any code changes to existing applications.  All of the common programming models and resources that .NET, Node.js and PHP developers use to access resources such as files and databases will continue to work as expected on instances of a Web Site deployed to Windows Azure.  Web Sites provide access to file and database resources and to  all of the standard configuration files (such as web.config, php.ini and config.js) used by web applications today. A Web Site host instance running in the cloud that you can control and manage is referred to as a website. 
+A Web Site is a web application host on Windows Azure that supports popular web application technologies such as .NET, Node.js and PHP without requiring any code changes to existing applications.  All of the common programming models and resources that .NET, Node.js and PHP developers use to access resources such as files and databases will continue to work as expected on instances of a Web Site deployed to Windows Azure.  Web Sites provide access to file and database resources and to  all of the standard configuration files (such as web.config, php.ini and config.js) used by web applications today. A Web Site host instance running in the cloud that you can control and manage is referred to as a web site. 
 
 --------------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@ A Web Site is a web application host on Windows Azure that supports popular web 
 
 Just as you can quickly create and deploy a web application created from the gallery, you can also deploy a Web Site created on a workstation with traditional developer tools from Microsoft or other companies. This topic describes how to [Create a Web Site in Windows Azure](#createaweb_site), deploy a Web Site as described in [Deploy a Web Site to Windows Azure](#deployaweb_site) and delete a Web Site in [Delete a Web Site in Windows Azure](#deleteaweb_site).
 
-### Development Tools for Creating a Web Application to run in a Website ###
+### Development Tools for Creating a Web Application to run in a Web Site ###
 Some development tools available from Microsoft include [Microsoft Visual Studio 2010][VS2010], [Microsoft Expression Studio 4][msexpressionstudio] and [Microsoft WebMatrix][mswebmatrix], a free web development tool from Microsoft which provides essential functionality for web application development. 
 
 ###<a name="createaweb_site"></a>Create a Web Site in Windows Azure
@@ -103,7 +103,7 @@ The following procedures below will walk you through creating a new repository o
 		git commit -m "some changes"
 		git push
  
-After deployment begins, you can monitor the deployment status on the **Deployments** management page. When the deployment completes, click **Browse** to open the website in a browser.
+After deployment begins, you can monitor the deployment status on the **Deployments** management page. When the deployment completes, click **Browse** to open the web site in a browser.
 
 ###<a name="deleteaweb_site"></a>Delete a Web Site in Windows Azure
 Web Sites are deleted using the **Delete** icon in the Windows Azure Portal. The **Delete** icon is available in the Windows Azure Portal when you click **Web Sites** to list all of your Web Sites and at the bottom of each of the Web Site management pages.
@@ -135,7 +135,7 @@ Follow these steps to change configuration options for a Web Site.
 	If enabled, detailed error messages are saved as .htm files to the FTP site listed under Diagnostic Logs on the **Dashboard** management page. 
 	After connecting to the specified FTP site navigate to /LogFiles/DetailedErrors/ to retrieve the .htm files which contain detailed error messages.</li>
 	<li style="margin-left: 60px"><strong>Failed Request Tracing</strong> – Specify whether to enable failed request tracing. If enabled, failed request tracing output is written to XML files and saved to the FTP site listed under Diagnostic Logs on the **Dashboard** management page. 
-	After connecting to the specified FTP site navigate to /LogFiles/W3SVC######### (where ######### represent a unique identifier for the Web Site) 	to retrieve the XML files that contain failed request tracing output.<br/><b>Important</b><br/>The /LogFiles/W3SVC#########/ folder contains an XSL file and one or more XML files. Ensure that you download the XSL file into the same directory as the XML file(s) because the XSL file provides functionality for formatting and filtering the contents of the XML file(s) when viewed in a browser. For more information about configuring diagnostics for Web Sites see <a href="#howtoconfigdiagnostics">How to: Configure Diagnostics and Download Logs for a Website</a>.</li>
+	After connecting to the specified FTP site navigate to /LogFiles/W3SVC######### (where ######### represent a unique identifier for the Web Site) 	to retrieve the XML files that contain failed request tracing output.<br/><b>Important</b><br/>The /LogFiles/W3SVC#########/ folder contains an XSL file and one or more XML files. Ensure that you download the XSL file into the same directory as the XML file(s) because the XSL file provides functionality for formatting and filtering the contents of the XML file(s) when viewed in a browser. For more information about configuring diagnostics for Web Sites see <a href="#howtoconfigdiagnostics">How to: Configure Diagnostics and Download Logs for a Web Site</a>.</li>
 	</ul>
 	</li>
 	<li><strong>App Settings</strong> – Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be injected into your .NET configuration AppSettings at runtime, overriding existing settings. For PHP and Node sites these settings will be available as environment variables at runtime.</li>
@@ -181,7 +181,7 @@ The **Dashboard** management page includes the following:
 > - **Http Server Errors** – number of Http “5xx Server Error” messages sent by Web Sites.
 
  > <b>Note</b><br/>
-To see a chart with additional performance metrics, configure the chart displayed on the **Monitor** management page as described in [How to: Monitor a Website](#howtomonitor).
+To see a chart with additional performance metrics, configure the chart displayed on the **Monitor** management page as described in [How to: Monitor a Web Site](#howtomonitor).
 
  - A list of all linked resources associated with this Web Site or if no resources are associated, a hyperlink to the **Linked Resources** management page.
  - A **quick glance** section which includes the following summary information and links:
@@ -206,13 +206,13 @@ To see a chart with additional performance metrics, configure the chart displaye
  The **Deployments** management page provides a summary of all deployments made to the Web Site using either GIT or TFS. If no GIT or TFS deployments have been made and GIT publishing has been configured for the Web Site the **Deployments** management page provides information describing how to use GIT to deploy your Web Site to Windows Azure.
 
 ####Monitor####
-The **Monitor** management page includes a chart that displays usage information for instances of the Web Site. By default this chart displays the same metrics as the chart on the **Dashboard** page,  as described in the [Dashboard](#dashboard) section. The chart can also be configured to display other metrics such as Http Successes, Http Redirects, Http 401 errors, Http 403 errors, Http 404 errors and Http 406 errors. For more information about these metrics see [How to: Monitor a Website](#howtomonitor).
+The **Monitor** management page includes a chart that displays usage information for instances of the Web Site. By default this chart displays the same metrics as the chart on the **Dashboard** page,  as described in the [Dashboard](#dashboard) section. The chart can also be configured to display other metrics such as Http Successes, Http Redirects, Http 401 errors, Http 403 errors, Http 404 errors and Http 406 errors. For more information about these metrics see [How to: Monitor a Web Site](#howtomonitor).
 
 ####Configure####
 The **Configure** management page is used to set application specific settings including:
 
 - **Framework** – Set the version of .NET framework or PHP required by your web application.
-- **Diagnostics** – Set logging options for gathering diagnostic information for your Web Site. For more information about configuring diagnostics see [How to: Configure Diagnostics and Download Logs for a Website][howtoconfiganddownloadlogs].
+- **Diagnostics** – Set logging options for gathering diagnostic information for your Web Site. For more information about configuring diagnostics see [How to: Configure Diagnostics and Download Logs for a Web Site][howtoconfiganddownloadlogs].
 - **App Settings** – Specify name/value pairs that will be loaded by a Web Site on start up. For .NET Web Sites, these settings will be injected into the Web Site’s .NET configuration AppSettings at runtime, overriding existing settings. For PHP and Node Web Site, these settings will be available to Web Sites as environment variables at runtime.
 - **Connections Strings** – View connection strings to linked resources. For .NET Web Sites, these connection strings will be injected into the Web Site’s .NET configuration connectionStrings settings at runtime, overriding any existing entries where the key equals the linked database name. For PHP and Node Web Sites, these settings will be available to Web Sites as environment variables at runtime.
 - **Default Documents** – Add your Web Site’s default document(s) to this list if not already listed. Documents in this list are processed in order of their list rank, which can be changed as needed.
@@ -243,7 +243,7 @@ The following icons are not displayed at the bottom of the **Dashboard** managem
 
 --------------------------------------------------------------------------------
 
-##<a name="howtomonitor"></a>How to: Monitor a Website
+##<a name="howtomonitor"></a>How to: Monitor a Web Site
 
 Web Sites provide monitoring functionality via the Monitor management page. The Monitor management page provides performance metrics for a Web Site as described below.
 
@@ -255,8 +255,8 @@ To remove metrics from the **Monitor** page, select the metric that you want to 
 
 The following metrics can be viewed in the chart on the **Monitor** page:
 
-- **CPU Time** – A measure of website’s CPU usage in terms of time. CPU time usage is subject to usage quotas for any Web Sites configured with **Shared** Web Site mode.  
-- **Requests** – A count of client requests to websites.
+- **CPU Time** – A measure of web site’s CPU usage in terms of time. CPU time usage is subject to usage quotas for any Web Sites configured with **Shared** Web Site mode.  
+- **Requests** – A count of client requests to web sites.
 - **Data Out** – A measure of data sent by Web Sites to clients. Data out is also subject to usage quotas for any Web Sites running in Shared Web Site mode.
 - **Data In** – A measure of data received by Web Site's from clients.
 - **Http Client Errors** – Number of Http “4xx Client Error” messages sent.
@@ -270,7 +270,7 @@ The following metrics can be viewed in the chart on the **Monitor** page:
 
 --------------------------------------------------------------------------------
 
-##<a name="howtoconfigdiagnostics"></a>How to: Configure Diagnostics and Download Logs for a Website
+##<a name="howtoconfigdiagnostics"></a>How to: Configure Diagnostics and Download Logs for a Web Site
 
 Web Sites can be configured to capture and log diagnostic information from the Web Site’s **Configure** management page. This topic describes how to capture diagnostics data to log files, download the log files to a computer and read the log files.
 

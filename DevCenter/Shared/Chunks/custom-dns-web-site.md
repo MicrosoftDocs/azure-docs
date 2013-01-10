@@ -70,7 +70,7 @@ To configure a custom domain name, you must create a CNAME record in your custom
 
 1. In your browser, open the [Windows Azure Management Portal][portal].
 2. In the **Web Sites** tab, locate the name of your site. 
-3. Log on to your DNS registrar's website, and go to the page for managing DNS. You might find this in a section, such as Domain Name, DNS, or Name Server Management.
+3. Log on to your DNS registrar's web site, and go to the page for managing DNS. You might find this in a section, such as Domain Name, DNS, or Name Server Management.
 4. Now find the section for managing CNAME's. You may have to go to an advanced settings page and look for the words CNAME, Alias, or Subdomains.
 5. Finally, you must provide a subdomain alias, such as www. Then, you must provide a hostname, which is your application's azurewebsites.net domain which consists of the name you located in step two and the azurewebsites.net domain. 
 For example using the Microsoft sample domain of contoso.com, the following CNAME record example forwards all traffic from *www.contoso.com* to *mysite.azurewebsites.net*, the DNS name of your deployed application:
@@ -136,7 +136,7 @@ To configure an A record you must configure a CNAME record used to verify the do
 	![][setcname2]
 
 5. On the **Manage custom domains** dialog locate **The IP Address to use when configuring A records** and copy the IP address. 
-6. Log on to your DNS registrar's website, and go to the page for managing DNS. You might find this in a section, such as Domain Name, DNS, or Name Server Management.
+6. Log on to your DNS registrar's web site, and go to the page for managing DNS. You might find this in a section, such as Domain Name, DNS, or Name Server Management.
 7. Configure the domain name and the IP address you copied in step 5.
 For example, the following DNS examples forwards all traffic from *contoso.com* to *172.16.48.1*.
 

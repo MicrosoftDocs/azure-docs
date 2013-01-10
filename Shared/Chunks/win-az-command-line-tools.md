@@ -21,7 +21,7 @@ In addition to command-specific optional parameters documented here, there are t
 * [Commands to manage your Windows Azure virtual machine data disks](#Commands_to_manage_your_Azure_virtual_machine_data_disks)
 * [Commands to manage your Windows Azure cloud services](#Commands_to_manage_your_Azure_cloud_services)
 * [Commands to manage your Windows Azure certificates](#Commands_to_manage_your_Azure_certificates)
-* [Commands to manage your websites](#Commands_to_manage_your_web_sites)
+* [Commands to manage your web sites](#Commands_to_manage_your_web_sites)
 * [Commands to manage Windows Azure Mobile Services](#Commands_to_manage_mobile_services)
 * [Manage tool local settings](#Manage_tool_local_settings)
 
@@ -493,13 +493,13 @@ This command deletes a certificate.
 	info:   service cert delete command OK
 
 <span id="Commands_to_manage_your_web_sites"></span>
-##Commands to manage your websites
 
-A Windows Azure website is a web configuration accessible by URI. Websites are hosted in virtual machines, but you do not need to think about the details of creating and deploying the virtual machine yourself. Those details are handled for you by Windows Azure.
+##Commands to manage your web sites
+A Windows Azure web site is a web configuration accessible by URI. Web sites are hosted in virtual machines, but you do not need to think about the details of creating and deploying the virtual machine yourself. Those details are handled for you by Windows Azure.
 
 **site list [options]**
 
-This command lists your websites.
+This command lists your web sites.
 
 	~$ azure site list
 	info:   Executing command site list
@@ -512,20 +512,20 @@ This command lists your websites.
 
 **site create [options] [name]**
 
-This command creates a new website and local directory. Note that the site name must be unique. You cannot create a site with the same DNS name as an existing site.
+This command creates a new web site and local directory. Note that the site name must be unique. You cannot create a site with the same DNS name as an existing site.
 
 	~$ azure site create mysite
 	info:   Executing command site create
 	info:   Using location northeuropewebspace
 	info:   Creating a new web site
-	info:   Created website at  mysite.antdf0.antares.windows.net
+	info:   Created web site at  mysite.antdf0.antares.windows.net
 	info:   Initializing repository
 	info:   Repository initialized
 	info:   site create command OK
 
 **site portal [options] [name]**
 
-This command opens the portal in a browser so you can manage your websites.
+This command opens the portal in a browser so you can manage your web sites.
 
 	~$ azure site portal mysite
 	info:   Executing command site portal
@@ -534,7 +534,7 @@ This command opens the portal in a browser so you can manage your websites.
 
 **site browse [options] [name]**
 
-This command opens your website in a browser.
+This command opens your web site in a browser.
 
 	~$ azure site browse mysite
 	info:   Executing command site browse
@@ -543,7 +543,7 @@ This command opens your website in a browser.
 
 **site show [options] [name]**
 
-This command shows details for a website.
+This command shows details for a web site.
 
 	~$ azure site show mysite
 	info:   Executing command site show
@@ -573,7 +573,7 @@ This command shows details for a website.
 
 **site delete [options] [name]**
 
-This command deletes a website.
+This command deletes a web site.
 
 	~$ azure site delete mysite
 	info:   Executing command site delete
@@ -583,7 +583,7 @@ This command deletes a website.
 
 **site start [options] [name]**
 
-This command starts a website.
+This command starts a web site.
 
 	~$ azure site start mysite
 	info:   Executing command site start
@@ -593,7 +593,7 @@ This command starts a website.
 
 **site stop [options] [name]**
 
-This command stops a website.
+This command stops a web site.
 
 	~$ azure site stop mysite
 	info:   Executing command site stop

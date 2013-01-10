@@ -16,6 +16,7 @@ At any time throughout this tutorial, feel free to kick off an email to [support
 Before continuing, ensure that you have the following installed:
 
 * [Node.js] version 0.8.14+
+
 * [Git]
 
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
@@ -346,7 +347,7 @@ Before using the command-line tools with Windows Azure, you must first download 
 
 ### Create a new web site and push your code
 
-Creating a web site in Windows Azure is very easy. If this is your first Windows Azure website, you must use the portal. If you already have at least one, then skip to step 7.
+Creating a web site in Windows Azure is very easy. If this is your first Windows Azure web site, you must use the portal. If you already have at least one, then skip to step 7.
 
 1. In the Windows Azure portal, click **New**.    
 ![New][button-new]
@@ -356,9 +357,9 @@ Creating a web site in Windows Azure is very easy. If this is your first Windows
 1. Click **Create Web Site**.
 1. When the web site creation completes, click the web site name in the web site list. The web site dashboard displays.  
 ![WebSiteDashboard][screen-mongolab-websitedashboard]
-1. Click **Set up Git publishing** under **quick glance**, and enter your desired git user name and password. You will use this password when pushing to your website (in step 9).  
+1. Click **Set up Git publishing** under **quick glance**, and enter your desired git user name and password. You will use this password when pushing to your web site (in step 9).  
 ![buttonGitPublishing][button-git-publishing]
-1. If you created your website using the steps above, the following command will complete the process. However, if you already have more than one Windows Azure website, you can skip the above steps and create a new web site using this same command. From your **tasklist** project directory: 
+1. If you created your web site using the steps above, the following command will complete the process. However, if you already have more than one Windows Azure web site, you can skip the above steps and create a new web site using this same command. From your **tasklist** project directory: 
 
 		azure site create myuniquesitename --git  
 	Replace 'myuniquesitename' with the unique site name for your web site. If the web site is created as part of this command, you will be prompted for the datacenter that the site will be located in. Select the datacenter geographically close to your MongoLab database.
@@ -369,14 +370,14 @@ Creating a web site in Windows Azure is very easy. If this is your first Windows
 	A. an [iisnode.yml] file, which contains settings used by Windows Azure to host node applications.
 	A. a .gitignore file to prevent the node-modules folder from being published to .git.  
 	  
-	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created website at** contains the URL for the web site.
+	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created web site at** contains the URL for the web site.
 
 		info:   Executing command site create
 		info:   Using location southcentraluswebspace
 		info:   Executing `git init`
 		info:   Creating default web.config file
 		info:   Creating a new web site
-		info:   Created website at  mongodbtasklist.azurewebsites.net
+		info:   Created web site at  mongodbtasklist.azurewebsites.net
 		info:   Initializing repository
 		info:   Repository initialized
 		info:   Executing `git remote add azure http://gitusername@myuniquesitename.azurewebsites.net/mongodbtasklist.git`
@@ -425,7 +426,7 @@ Remember process.env.CUSTOMCONNSTR_MONGOLAB_URI in the code? We want to populate
 
 ## Success!
 
-Run `azure site browse` from your project directory to automatically open a browser, or open a browser and manually navigate to your website URL (myuniquesite.azurewebsites.net):
+Run `azure site browse` from your project directory to automatically open a browser, or open a browser and manually navigate to your web site URL (myuniquesite.azurewebsites.net):
 
 ![A webpage displaying an empty tasklist][node-mongo-finished]
 

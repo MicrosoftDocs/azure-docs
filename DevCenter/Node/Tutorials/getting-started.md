@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-nodejs-getting-started" urlDisplayName="Cloud Service" pageTitle="Node.js Getting Started Guide - Windows Azure Tutorial" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" metaDescription="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="dev-nodejs-getting-started" urlDisplayName="Cloud Service" pageTitle="Node.js Getting Started Guide - Windows Azure Tutorial" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" metaDescription="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 <div chunk="../chunks/article-left-menu.md" />
@@ -12,10 +12,10 @@ management and scale-out of front-end and back-end components of your applicatio
 components are referred to as "web roles" and "worker roles" respectively. Cloud Services 
 provide a robust dedicated virtual machine for hosting each role reliably.
 
-<div class="dev-callout"><strong>Looking to build a simple website?</strong>
-<p>If your scenario involves just a simple website front-end, consider <a href="../create-a-website-(mac)">using a 
+<div class="dev-callout"><strong>Looking to build a simple web site?</strong>
+<p>If your scenario involves just a simple web site front-end, consider <a href="../create-a-website-(mac)">using a 
     lightweight Windows Azure Web Site.</a> You can easily upgrade to a Cloud Service as 
-    your website grows and your requirements change.</p>
+    your web site grows and your requirements change.</p>
 </div>
 <br />
 
@@ -96,7 +96,7 @@ Perform the following tasks to create a new Windows Azure Cloud Service project,
         PS C:\node\helloworld\WebRole1> notepad server.js
 
     The **server.js** file was created by the **Add-AzureNodeWebRole** cmdlet, and contains the following starter code. This code is similar to the “Hello World” sample
-    on the [nodejs.org] website, except:
+    on the [nodejs.org] web site, except:
 
     -   The port has been changed to allow the application to find the 
         correct port assigned to it by the cloud environment.

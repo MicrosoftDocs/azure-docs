@@ -15,7 +15,7 @@ Python is pretty easy to setup on Windows and comes pre-installed on Mac and Lin
 The Windows Azure SDK for Python includes components that allow you to develop, deploy, and mangage Python applications for Windows Azure. Specifically, the Windows Azure SDK for Python includes the following:
 
 * **The Python Client Libraries for Windows Azure**. These class libraries provide an interface for accessing Windows Azure features, such as Cloud Storage and Cloud Services.  
-* **The Windows Azure Command-Line Tools for Mac and Linux**. This is a set of command-line tools for deploying and managing Windows Azure services, such as Windows Azure Websites and Windows Azure Virtual Machines. These tools work on any platform, including Mac, Linux, and Windows.
+* **The Windows Azure Command-Line Tools for Mac and Linux**. This is a set of command-line tools for deploying and managing Windows Azure services, such as Windows Azure Web Sites and Windows Azure Virtual Machines. These tools work on any platform, including Mac, Linux, and Windows.
 * **PowerShell for Windows Azure (Windows Only)**. This is a set of PowerShell cmdlets for deploying and managing Windows Azure Services, such as Cloud Services and Virtual Machines.
 * **The Windows Azure Emulators (Windows Only)**. The compute and storage emulators are local emulators of Cloud Services and Cloud Storage that allow you to test an application locally. The Windows Azure Emulators run on Windows only.
 

@@ -197,7 +197,7 @@ These abstractions are accessible via [HTTP(S) REST APIs][] (overs ports
 programming languages. To simplify making the web requests for software
 developers, you can use several *client libraries* targeting specific
 operating systems and programming languages. Libraries exist for .NET,
-Node.js, Java, and PHP, and are available at the [Windows Azure website][]. The term “client libraries” is used since your application
+Node.js, Java, and PHP, and are available at the [Windows Azure web site][]. The term “client libraries” is used since your application
 is a client to the data storage servers. The figure below shows how your
 application code makes a call into a client library which, in turn,
 makes an HTTP(S) REST request to Blobs or Tables.
@@ -772,7 +772,7 @@ files).<a id="Ref" name="Ref"></a>
   [Windows Azure Pricing]: ../../../../pricing/calculator/
 
   [HTTP(S) REST APIs]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355.aspx
-  [Windows Azure website]: {localLink:1123} "Downloads"
+  [Windows Azure web site]: {localLink:1123} "Downloads"
   [img1]: ../../../DevCenter/Shared/Media/data-storage-offerings-4.jpg
   [2]: {localLink:1145} "SQL Database"
   [Windows Azure Tables]: #_Tables

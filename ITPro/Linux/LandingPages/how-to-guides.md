@@ -43,7 +43,7 @@ Learn how to customize and create images for the different distributions that ou
 
 ###[How to use the Windows Azure Command-Line Tools for Mac and Linux](/en-us/manage/linux/how-to-guides/command-line-tools/)
 
-Learn how to use the Windows Azure Command-Line Tools for Mac and Linux to create and manage services in Windows Azure. The scenarios covered include installing the tools, importing your publishing settings, creating and managing Windows Azure Websites, and creating and managing Windows Azure Virtual Machines. For comprehensive reference documentation, see [Windows Azure command-line tool for Mac and Linux Documentation][reference-docs]. 
+Learn how to use the Windows Azure Command-Line Tools for Mac and Linux to create and manage services in Windows Azure. The scenarios covered include installing the tools, importing your publishing settings, creating and managing Windows Azure Web Sites, and creating and managing Windows Azure Virtual Machines. For comprehensive reference documentation, see [Windows Azure command-line tool for Mac and Linux Documentation][reference-docs]. 
 
 
 ###[How to use Windows Azure PowerShell](/en-us/manage/linux/how-to-guides/powershell-cmdlets/)

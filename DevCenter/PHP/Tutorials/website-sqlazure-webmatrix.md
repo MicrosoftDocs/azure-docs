@@ -1,12 +1,12 @@
-<properties linkid="develop-php-website-with-sql-database-and-webmatrix" urlDisplayName="Web w/ SQL + WebMatrix" pageTitle="PHP web site with SQL Database and WebMatrix - Windows Azure" metaKeywords="" metaDescription="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web site that stores data in SQL Database." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+﻿<properties linkid="develop-php-website-with-sql-database-and-webmatrix" urlDisplayName="Web w/ SQL + WebMatrix" pageTitle="PHP web site with SQL Database and WebMatrix - Windows Azure" metaKeywords="" metaDescription="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web site that stores data in SQL Database." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
 #Create and Deploy a PHP Web Site and SQL Database using WebMatrix
 
-This tutorial shows you how to use WebMatrix to develop and deploy a PHP application that uses a Windows Azure SQL Database to a Windows Azure Web Site. WebMatrix is a free web development tool from Microsoft that includes everything you need for web site development. WebMatrix supports PHP and includes intellisense for PHP development. 
+This tutorial shows you how to use WebMatrix to develop and deploy a PHP application that uses a Windows Azure SQL Database to a Windows Azure web site. WebMatrix is a free web development tool from Microsoft that includes everything you need for web site development. WebMatrix supports PHP and includes intellisense for PHP development. 
 
-This tutorial assumes you have [SQL Server Express][install-SQLExpress] installed on your computer so that you can test an application locally. However, you can complete the tutorial without having SQL Server Express installed. Instead, you can deploy your application directly to Windows Azure Web Sites.
+This tutorial assumes you have [SQL Server Express][install-SQLExpress] installed on your computer so that you can test an application locally. However, you can complete the tutorial without having SQL Server Express installed. Instead, you can deploy your application directly to Windows Azure web sites.
 
 Upon completing this guide, you will have a PHP-SQL Database web site running in Windows Azure.
  
@@ -16,7 +16,7 @@ You will learn:
 * How to develop a PHP application using WebMatrix.
 * How to publish and re-publish your application to Windows Azure using WebMatrix.
  
-By following this tutorial, you will build a simple Tasklist web application in PHP. The application will be hosted in a Windows Azure Web Site. A screenshot of the running application is below:
+By following this tutorial, you will build a simple Tasklist web application in PHP. The application will be hosted in a Windows Azure web site. A screenshot of the running application is below:
 
 ![Windows Azure PHP Web Site][running-app]
 
@@ -55,7 +55,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 	Enter a value for **URL**, select **Create a New SQL Database** from the **DATABASE** dropdown,  and select the data center for your web site in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
 
-	![Fill in Web Site details][website-details-sqlazure]
+	![Fill in web site details][website-details-sqlazure]
 
 4. Enter a value for the **NAME** of your database, select the **EDITION** [(WEB or BUSINESS)][sql-database-editions], select the **MAXIMUM SIZE** for your database, choose the **COLLATION**, and select **NEW SQL Database server**. Click the arrow at the bottom of the dialog.
 
@@ -134,7 +134,7 @@ In the next few steps you will develop the Tasklist application by adding the fi
 
 <h2 id="Publish">Publish your application</h2>
 
-Before publishing your application to Windows Azure Web Sites, the database connection information in `taskmodel.php` needs to be updated with the connection information you obtained earlier (in the [Create a Windows Azure Website and SQL Database](#CreateWebsite) section).
+Before publishing your application to Windows Azure Web Sites, the database connection information in `taskmodel.php` needs to be updated with the connection information you obtained earlier (in the [Create a Windows Azure Web Site and SQL Database](#CreateWebsite) section).
 
 1. Open the `taskmodel.php` file by double clicking it, and update the database connection information in the `connect` function.
 
@@ -174,7 +174,7 @@ You've seen how to create and deploy a web site from WebMatrix to Windows Azure.
 
 * [WebMatrix for Windows Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
 
-* [WebMatrix website](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
+* [WebMatrix web site](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
 
 

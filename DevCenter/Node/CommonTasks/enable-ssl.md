@@ -53,7 +53,7 @@ world' service using the Windows Azure PowerShell using these steps:
 	<p>If you have not previously imported publish settings for your Windows Azure subscription, you will receive an error when trying to publish. For information on downloading and importing the publish settings for your subscription, see <a href="https://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings">How to Use the Windows Azure PowerShell for Node.js</a></p>
 	</div>
 
-The **Created Website URL** value returned by the **Publish-AzureServiceProject** cmdlet contains the fully qualified domain name for your hosted application. You will need to obtain an SSL certificate for this specific fully qualified domain name and deploy it to Windows Azure.
+The **Created Web Site URL** value returned by the **Publish-AzureServiceProject** cmdlet contains the fully qualified domain name for your hosted application. You will need to obtain an SSL certificate for this specific fully qualified domain name and deploy it to Windows Azure.
 
 ## <a name="step2"> </a>Step 2: Get an SSL Certificate
 
@@ -177,7 +177,7 @@ connect to it using HTTPS.
 	<p>If the Site URL displayed in the portal does not specify HTTPS, then you must manually enter the URL in the browser using HTTPS instead of HTTP.</p>
 	</div>
 
-3.  A new browser will open and display your website.
+3.  A new browser will open and display your web site.
 
     Your browser will display a lock icon to indicate that it is
     using an HTTPS connection. This also indicates that your application

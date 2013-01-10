@@ -122,7 +122,7 @@ and tools in Visual Studio and Visual Web Developer. The Autoscaling
 Application Block NuGet package is the easiest way to get the Autscaling
 Application Block APIs. For more information about **NuGet**, and how to
 install and use the **NuGet** Visual Studio extension, see the [NuGet][]
-website.
+web site.
 
 Once you have the NuGet Package Manager installed, to install the Autoscaling NuGet
 package in your application, do the following:
