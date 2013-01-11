@@ -1,13 +1,9 @@
-<properties linkid="dev-net-how-to-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (.NET) - Windows Azure feature guide" metaKeywords="Azure Access Control Service authentication C#" metaDescription="Learn how to use Access Control Service (ACS) in your Windows Azure application to authenticate users when they try to gain access to a web app." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties umbraconavihide="0" pagetitle="Access Control - How To - .NET - Develop" metakeywords="Windows Azure Active Directory Access Control, Access Control Service, Azure ACS, Azure authentication, Azure authentication LiveID, Azure authentication Google, Azure authentication Facebook, Azure authentication .NET, Azure authentication C#" metadescription="Learn how to use Windows Azure Access Control Service (ACS) in your Windows Azure application to authenticate users from identity providers like Windows Live, Google, or Facebook when they try to gain access to a web application." linkid="dev-net-how-to-access-control" urldisplayname="Access Control" headerexpose="" footerexpose="" disquscomments="0"></properties>
 
-
-<properties umbraconavihide="0" pagetitle="Access Control - How To - .NET - Develop" metakeywords="Azure Access Control Service, Azure ACS, Azure authentication, Azure authentication LiveID, Azure authentication Google, Azure authentication Facebook, Azure authentication .NET, Azure authentication C#" metadescription="Learn how to use Windows Azure Access Control Service (ACS) in your Windows Azure application to authenticate users from identity providers like Windows Live, Google, or Facebook when they try to gain access to a web application." linkid="dev-net-how-to-access-control" urldisplayname="Access Control" headerexpose="" footerexpose="" disquscomments="0"></properties>
 <div chunk="../chunks/article-left-menu.md" />
-# How to Authenticate Web Users with Windows Azure Access Control Service
+# How to Authenticate Web Users with Windows Azure Active Directory Access Control
 
-This guide shows you how to use Windows Azure Access Control Service
-(ACS) to authenticate users from identity providers like Windows Live,
-Google, or Facebook when they try to gain access to a web application.
+This guide shows you how to use Windows Azure Active Directory Access Control (also known as Access Control Service or ACS) to authenticate users from identity providers like Windows Live, Google, or Facebook when they try to gain access to a web application.
 
 <h2><span class="short-header">Table of Contents</span>Table of Contents</h2>
 
@@ -15,7 +11,7 @@ Google, or Facebook when they try to gain access to a web application.
 -   [Concepts][]
 -   [Prerequisites][]
 -   [Create an ASP.NET Web Application][]
--   [Create an ACS Namespace][]
+-   [Create an Access Control Namespace][]
 -   [Add Identity Providers][]
 -   [Add a Relying Party Application][]
 -   [Create Rules][]
@@ -102,9 +98,9 @@ of simple claims transformation rules. ACS features a rule engine that
 takes care of applying whatever transformation logic you specified for
 your RP.
 
-**ACS Namespace** - A namespace is a top level partition of ACS that you
-use for organizing your settings. A namespace holds a list of IPs you
-trust, the RP applications you want to serve, the rules that you expect
+**Access Control Namespace** - A namespace is a top level partition of 
+ACS that you use to organize your settings. A namespace holds a list of 
+IPs you trust, the RP applications you want to serve, the rules that you expect
 the rule engine to process incoming tokens with, and so on. A namespace
 exposes various endpoints that will be used by the application and the
 developer to get ACS to perform its function.
@@ -166,121 +162,95 @@ application.
 
 Now you've created an ASP.NET web application that runs locally on port
 7777. Keep Visual Studio open as you complete the rest of the tasks in
-this guide. Next, create the ACS namespace.
+this guide. Next, create an Access Control namespace.
 
-<h2><span class="short-header">Create an ACS Namespace</span>Create an ACS Namespace</h2>
+<h2><span class="short-header">Create an Access Control Namespace</span>Create an Access Control Namespace</h2>
 
 
-To begin using Access Control Service (ACS) in Windows Azure, you must
-create an ACS namespace. The namespace provides a unique scope for
-addressing ACS resources from within your application.
+To use Active Directory Access Control in Windows Azure, create an Access Control namespace. The namespace provides a unique scope for
+addressing ACS resources within your application.
 
-1.  Log into the [Windows Azure Management Portal][].
+1.  Log into the [Windows Azure Management Portal][] (https://manage.WindowsAzure.com).
+    
+2.  Click **Active Directory**.     
 
-    ![][1]
+3.  To create a new Access Control namespace, click **New**, click **App Services**, click **Access Control**, and then click **Quick Create**. 
 
-2.  In the lower left navigation pane of the Management Portal, click
-    **Service Bus, Access Control & Caching**.
+4.  Enter a name for the namespace. Windows Azure verifies that the name is unique.
 
-    ![Management Portal Service Bus, Access Control, and Caching section][]
+5.  Select the region in which the namespace is used. For the best performance, use the region in which you are deploying your application, and then click **Create**.
 
-3.  In the upper left navigation pane of the Management Portal, click
-    **Access Control**, and the click **New**.
-
-    ![][2]
-
-4.  In Create a new Service Namespace, enter a namespace, and then to
-    make sure that it is unique, click **Check Availability**.
-
-    ![][3]
-
-5.  If it is available, select the country or region in which to use ACS
-    (for the best performance, use the same country/region in which you
-    are deploying your application), and then click **Create
-    Namespace**.
-
-The namespace appears in the Management Portal and takes a few minutes
-to activate. Wait until the status is **Active** before moving on to add
-IPs to your namespace.
+Windows Azure creates and activates the namespace. Wait until the status of the new namespace is **Active** before continuing. 
 
 <h2><span class="short-header">Add Identity Providers</span>Add Identity Providers</h2>
 
-In this task, you add IPs to use with your RP application for
-authentication. For demonstration purposes, this task shows how to add
+In this task, you add identity providers (IPs) to authenticate users to your relying party (RP) application. For demonstration purposes, this task shows how to add
 Google as an IP, but you could use any of the IPs listed in the ACS
 Management Portal.
 
-1.  In the upper left navigation pane of Windows Azure Management
-    Portal, click **Access Control**, select the ACS namespace that you
-    want to configure, and then click **Access Control Service**.  
-    The ACS Management Portal appears. ![][4]
-2.  In the left navigation pane of the ACS Management Portal, click
-    **Identity providers**.
-3.  On the Identity Providers page, click **Add**, select **Google**as
-    the IP, and then click **Next**.  
-<div class="dev-callout-new">
+1.  In the Windows Azure Management
+    Portal, click **Active Directory**, select an Access Control namespac, and then click **Manage**. 
+ 
+2.  Click **Identity providers**, click **Add**, select **Google**, and then click **Next**. <div class="dev-callout-new">
     <strong>Note <span>Click to collapse</span></strong>
     <div class="dev-callout-content">
         <p>This task uses Google for demonstration purposes only. You
-    can pick any of the IPs listed.</p>
+    can selected any of the IPs listed on the page.</p>
     </div>
 </div>  
     
-4.  The Add Google Identity Provider page prompts you to enter login
+3.  The Add Google Identity Provider page prompts you to enter login
     link text (the default is Google) and an image URL. You can change
-    this information, but for this exercise, just use the default
+    this information, but for this exercise, use the default
     values, and click **Save**.  
+
     <div class="dev-callout-new">
     <strong>Note <span>Click to collapse</span></strong>
     <div class="dev-callout-content">
-        <p>When a new ACS namespace is created, Windows Live ID is
-    added as a default IP and cannot be deleted.</p>
+        <p> Windows Live ID is
+    added to all Access Control namespaces. It cannot be deleted.</p>
     </div>
 </div> 
 
-Google has now been added as an IP for your ACS namespace. Next, you
-specify the ASP.NET web application that you created earlier as an RP.
+Google has now been added as an IP for your Access Control namespace. Next, you
+specify your ASP.NET web application as an RP.
 
 <h2><span class="short-header">Add a Relying Party Application</span>Add a Relying Party Application</h2>
 
 In this task, you configure ACS to recognize your ASP.NET web
 application as a valid RP application.
 
-1.  On the ACS Management Portal, click **Relying party applications**.
-2.  On the Relying Party Applications page, click **Add**.
-3.  On the Add Relying Party Application page, do the following:
-    1.  In Name, type the name of the RP. For example, type **Azure Web
+1.  In the ACS Management Portal, click **Relying party applications**, and then click **Add**.
+3.  On the Add Relying Party Application page, enter the following information, and then click **Save**.
+
+    *  In Name, type the name of the RP. For example, type **Azure Web
         App**.
-    2.  In Mode, select **Enter settings manually**.
-    3.  In Realm, type the URI to which the security token issued by ACS
+    *  In Mode, select **Enter settings manually**.
+    *  In Realm, type the URI to which the security token issued by ACS
         applies. For this task, type **http://localhost:7777/**
-    4.  In Return URL, type the URL to which ACS returns the security
+    *  In Return URL, type the URL to which ACS returns the security
         token. For this task, type **http://localhost:7777/**
-    5.  Accept the default values in the rest of the fields.
+    *  Accept the default values in the rest of the fields.
 
-4.  Click **Save**.
+You have now configured the ASP.NET web application (at
+http://localhost:7777/) to be an RP in your Access Control namespace. 
 
-You have now successfully configured the ASP.NET web application (at
-http://localhost:7777/) to be an RP in your ACS namespace. Next, create
-the rules that ACS uses to process claims for the RP.
+Next, create the rules that ACS uses to process claims for the RP.
 
 <h2><span class="short-header">Create Rules</span>Create Rules</h2>
 
 In this task, you define the rules that drive how claims are passed from
-IPs to your RP. For the purpose of this guide, we will simply configure
-ACS to copy the input claim types and values directly in the output
-token, without filtering of modifying them.
+IPs to your RP. For the purpose of this guide, we will configure
+ACS to copy the input claim types and values directly to the output
+token, without filtering or changing them.
 
-1.  On the ACS Management Portal main page, click **Rule groups**.
-2.  On the Rule Groups page, click **Default Rule Group for RPName**
+1.  In the ACS Management Portal, click **Rule groups**.
+2.  Click **Default Rule Group for RPName**
     where **RPName** is the name of your RP application.
-3.  On the Edit Rule Group page, click **Generate**.
-4.  On the Generate Rules: Default Rule Group for RPName page, accept
-    the IPs selected by default (in this walkthrough, Google and Windows
-    Live ID), and then click **Generate**.
-5.  On the Edit Rule Group page, click **Save**.
+3.  Click **Generate**.
+4.  Click to select the IPs for which rules will be created. In this walkthrough, select Google and Windows Live ID. Then, click **Generate**.
 
-Next, review the information in the Application Integration page and
+Next, review the information on the Application Integration page and
 copy the URI that you will need to configure your ASP.NET web
 application to use ACS.
 
@@ -289,15 +259,15 @@ application to use ACS.
 You can find all the information and the code necessary to configure
 your ASP.NET web application (the RP application) to work with ACS on
 the Application Integration page of the ACS Management Portal. You will
-need this information when configuring your ASP.NET web application for
+need this information to configure your ASP.NET web application for
 federated authentication.
 
-1.  On the ACS Management Portal, click **Application Integration**.  
+1.  In the ACS Management Portal, click **Application integration**.  
     The ACS URIs that are displayed on the Application Integration page
     are unique to your ACS namespace.
-2.  Copy the URI in the **WS-Federation Metadata**field. You will use it
-    when adding STS (Security Token Service) Reference in the next task.
-    It should look similar to the following:  
+2.  Copy the URI in the **WS-Federation Metadata** field. You will use it
+    when adding a Security Token Service (STS) Reference in the next task.
+    The should look similar to the following:  
     [**https://ACSnamespace.accesscontrol.windows.net/FederationMetadata/2007-06/FederationMetadata.xml**][]
     where **ACSnamespace** is the name of your ACS namespace.
 
@@ -305,8 +275,8 @@ Next, go back to Visual Studio and configure the application to use ACS.
 
 <h2><span class="short-header">Configure Trust between ACS and Your ASP.NET Web Application</span>Configure Trust between ACS and Your ASP.NET Web Application</h2>
 
-This task describes how to integrate ACS with the ASP.NET web
-application using the features of the Windows Identity Foundation SDK.
+This task describes how to use the Windows Identity Foundation SDK to integrate ACS with the ASP.NET web
+application..
 
 1.  In Visual Studio 2010, in Solution Explorer, right-click the
     application name, and then **select Add STS Reference**.
@@ -342,9 +312,9 @@ application using the features of the Windows Identity Foundation SDK.
         click **Next**.
     5.  On the Security token encryption page, click **Next**.
     6.  On the Offered claims page, click **Next**.
-    7.  On the Summary page, click **Finish**.
+    7.  On the Summary page, click **Finish**.<P>
 
-3.  Once you successfully finish running the Federation Utility wizard,
+3.  When you run the Federation Utility wizard,
     it adds a reference to the Microsoft.IdentityModel.dll assembly and
     writes values to your Web.config file that configures the Windows
     Identity Foundation (WIF) in your ASP.NET web application.
@@ -409,7 +379,7 @@ application and ACS.
 
     ![][5]
 
-2.  Click **Google**or **Windows Live ID**.  
+2.  Click **Google** or **Windows Live ID**.  
     The browser then loads the Google or Windows Live sign-in page.
 3.  Enter your Google or Windows Live ID credentials.
 
@@ -422,7 +392,7 @@ application and ACS.
 <div class="dev-callout-new">
     <strong>Note <span>Click to collapse</span></strong>
     <div class="dev-callout-content">
-        <p>If you chose to go with your Windows Live ID credentials, your
+        <p>If you use Windows Live ID credentials, your
 name is not be displayed on the welcome page of your ASP.NET web
 application.</p>
     </div>
@@ -449,7 +419,7 @@ sophisticated scenarios, see [Access Control Service 2.0.][Access Control Servic
   [Concepts]: #concepts
   [Prerequisites]: #pre
   [Create an ASP.NET Web Application]: #create-web-app
-  [Create an ACS Namespace]: #create-namespace
+  [Create an Access Control Namespace]: #create-namespace
   [Add Identity Providers]: #add-IP
   [Add a Relying Party Application]: #add-RP
   [Create Rules]: #create-rules
@@ -462,7 +432,7 @@ sophisticated scenarios, see [Access Control Service 2.0.][Access Control Servic
   [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
   [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
   [Windows Azure account]: {localLink:2187} "Free Trial"
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.WindowsAzure.com
   [1]: ../../../DevCenter/dotNet/Media/acs-02.png
   [Management Portal Service Bus, Access Control, and Caching section]: ../../../DevCenter/dotNet/Media/acs-03.png
   [2]: ../../../DevCenter/dotNet/Media/acs-04.png
