@@ -73,10 +73,10 @@ Media Services support several common media development scenarios as described i
   </tbody>
 </table>
 
-###Media Services Client Development
+<h3><a name="media-client"></a>Media Services Client Development</h3>
 Extend the reach of your Media Services solution by using SDKs and player frameworks to build media client applications. These clients are for developers who want to build Media Services applications that offer compelling user experiences across a range of devices and platforms. Depending on the devices that you want to build client applications for, there are options for SDKs and player frameworks available from Microsoft and other third-party partners.  
 
-The following provides a list of available client SDKs and player frameworks.  For more information on these and other planned SDKs and player frameworks, and the functionality they can support, see [Media Services Client Development][]. 
+The following provides a list of available client SDKs and player frameworks.  For more information on these and other planned SDKs and player frameworks, and the functionality they can support, see [Media Services Client Development][] in the Media Services forums. 
 
 ####Mac and PC client support  
 For PCs and Macs you can target a streaming experience using Microsoft Silverlight or Adobe Open Source Media Framework.
@@ -874,6 +874,7 @@ Now that you have learned how to set up for Media Services development and perfo
 
   <!-- Anchors. -->
   [What Are Media Services?]: #what-are
+  [Media Services Client Development]: #media-client
   [Setting Up a Windows Azure Account for Media Services]: #setup-account
   [Setting up for Media Services Development]: #setup-dev
   [How to: Connect to Media Services Programmatically]: #connect
@@ -914,7 +915,7 @@ Now that you have learned how to set up for Media Services development and perfo
   [MediaServices@Microsoft.com]: mailto:MediaServices@Microsoft.com
 
   <!-- Images. -->
-  [Media Services Architecture]: ../../../DevCenter/dotNet/Media/wams-01.png
-  [Visual Studio Project Setup]: ../../../DevCenter/dotNet/Media/wams-02.png
+  [Media Services Architecture]: ../../../DevCenter/Media-Services/Media/wams-01.png
+  [Visual Studio Project Setup]: ../../../DevCenter/Media-Services/Media/wams-02.png
 
 
