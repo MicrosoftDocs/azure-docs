@@ -11,7 +11,7 @@ On the **Scale** page of the Windows Azure Management Portal, you can specify th
 
 <h2>On-Demand Streaming Reserved Units</h2>
 
-On-Demand Streaming reserved units provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute, egress capacity, etc.) are shared with all other users. To improve an on-demand streaming throughput, it is recommended to purchase On-Demand Streaming reserved units. 
+On-Demand Streaming reserved units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and  additional functionality which currently includes [dynamic packaging capabilities](http://go.microsoft.com/fwlink/?LinkId=276874). By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute, egress capacity, etc.) are shared with all other users. To improve an on-demand streaming throughput, it is recommended to purchase On-Demand Streaming reserved units. 
 
 The allocation of any new units of on-demand streaming takes around 20 minutes to complete. 
 
@@ -34,7 +34,7 @@ The new encoding reserved units are allocated almost immediately.
 
  ![Scale page] (../media/WAMS_Scale.png)
 
-3. To specify the number of reserved units, move the slider on the Scale page. By default, you can specify up to 5 reserved units. If you would like your account to be provisioned with more than 5 reserved units, send email to mediaservices@microsoft.com.
+3. To specify the number of reserved units, move the slider on the Scale page. By default, you can specify up to 5 reserved units. If you would like your account to be provisioned with more than 5 reserved units, contact [Azure support](http://go.microsoft.com/fwlink/?LinkId=276875). 
 
 	**Note:** The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
 
