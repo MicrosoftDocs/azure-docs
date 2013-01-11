@@ -1,6 +1,5 @@
-#Windows Azure command-line tool for Mac and Linux#
-
-This tool provides functionality for creating, deploying, and managing virtual machines, web sites, and Windows Azure Mobile Services from Mac and Linux desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS, and PHP.
+#Windows Azure command-line tool for Mac and Linux
+This tool provides functionality for creating, deploying, and managing virtual machines, websites and Windows Azure Mobile Services from Mac and Linux desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS, and PHP.
 
 To install the tool on a Mac, download and run the [Windows Azure SDK installer](http://go.microsoft.com/fwlink/?LinkId=252249).
 
@@ -26,7 +25,6 @@ In addition to command-specific optional parameters documented here, there are t
 * [Manage tool local settings](#Manage_tool_local_settings)
 
 ##<a id="Manage_your_account_information_and_publish_settings"></a>Manage your account information and publish settings
-
 Your Windows Azure subscription information is used by the tool to connect to your account. This information can be obtained from the Windows Azure portal in a publish settings file as described here. The publish settings file can then be imported as a persistent local config setting that the tool will use for subsequent operations. You only need to import your publish settings once.
 
 **account download [options]**
@@ -79,10 +77,9 @@ Affinity groups can be set when a group of virtual machines spans multiple physi
 	info:   account affinity-group list command OK
 
 ##<a id="Commands_to_manage_your_Azure_virtual_machines"></a>Commands to manage your Windows Azure virtual machines
-
 The following diagram shows how Windows Azure virtual machines are hosted in the production deployment environment of a Windows Azure cloud service.
  
-![Azure Technical Diagram](../media/architecturediagram.jpg)
+![Azure Technical Diagram](images/Azure Technical Diagram.jpg?raw=true)	
 
 **create-new** creates the drive in blob storage (that is, e:\ in the diagram); **attach** attaches an already created but unattached disk to a virtual machine.
 
@@ -102,15 +99,14 @@ Windows virtual machines can enable RDP later by adding port 3389 as an endpoint
 
 The following optional parameters are supported for this command:
 
-**-c, --connect** create the virtual machine inside an already created deployment in a hosting service. If -vmname is not used with this option, the name of the new virtual machine will be generated automatically.<br />
-**-n, --vm-name** Specify the name of the virtual machine. This parameter takes hosting service name by default. If -vmname is not specified, the name for the new virtual machine is generated as &lt;service-name>&lt;id>, where &lt;id> is the number of existing virtual machines in the service plus 1 For example, if you use this command to add a new virtual machine to a hosting service MyService that has one existing virtual machine, the new virtual machine is named MyService2.<br /> 
+**-c** create the virtual machine inside an already created deployment in a hosting service. If -vmname is not used with this option, the name of the new virtual machine will be generated automatically.<br />
+**--vm-name** Specify the name of the virtual machine. This parameter takes hosting service name by default. If -vmname is not specified, the name for the new virtual machine is generated as &lt;service-name>&lt;id>, where &lt;id> is the number of existing virtual machines in the service plus 1 For example, if you use this command to add a new virtual machine to a hosting service MyService that has one existing virtual machine, the new virtual machine is named MyService2.<br /> 
 **-u --blob-url** Specify the blob storage URL from which to create the virtual machine system disk. <br />
-**-z, --vm-size** Specify the size of the virtual machine. Valid values are "extrasmall", "small", "medium", "large", "extralarge". The default value is "small". <br />
-**-r, --rdp [port]** Adds RDP connectivity to a Windows virtual machine. <br />
-**-e, --ssh [port]** Adds SSH connectivity to a Linux virtual machine. This option can be used only when the virtual machine is created. <br />
-**-s, --subscription &lt;id>** specifies the subscription id to be used. <br />
-**-l, --location** specifies the location (for example, "North Central US"). <br />
-**-a, --affinity-group** specifies the affinity group.<br />
+**--vm-size** Specify the size of the virtual machine. Valid values are "extrasmall", "small", "medium", "large", "extralarge". The default value is "small". <br />
+**-r** Adds RDP connectivity to a Windows virtual machine. <br />
+**-s** Adds SSH connectivity to a Linux virtual machine. This option can be used only when the virtual machine is created. <br />
+**--location** specifies the location (for example, "North Central US"). <br />
+**--affinity-group** specifies the affinity group.<br />
 **-w, --virtual-network-name** Specify the virtual network on which to add the new vitual machine. Virtual networks can be set up and managed from the Windows Azure portal.<br />
 **-b, --subnet-names** Specifies the subnet names to assign the virtual machine.
 
@@ -227,10 +223,9 @@ A virtual machine image cannot be captured while the virtual machine state unles
 	info:   vm capture command OK
 
 ##<a id="Commands_to_manage_your_Azure_virtual_machine_endpoints"></a>Commands to manage your Windows Azure virtual machine endpoints
-
 The following diagram shows the architecture of a typical deployment of multiple instances of a virtual machine. Note that in this example port 3389 is open on each virtual machine (for RDP access), and there is also an internal IP address (for example, 168.55.11.1) on each virtual machine that is used by the load balancer to route traffic to the virtual machine. This internal IP address can also be used for communication between virtual machines.
 
-![Windows Azure Network Diagram](../media/networkdiagram.jpg)
+![azurenetworkdiagram](images/azurenetworkdiagram.jpg?raw=true)
  
 External requests to virtual machines go through a load balancer. Because of this, requests cannot be specified against a particular virtual machine on deployments with multiple virtual machines. For deployments with multiple virtual machines, port mapping must be configured between the virtual machines (vm-port) and the load balancer (lb-port).
 
@@ -269,7 +264,6 @@ This command lists all virtual machine endpoints. The -json option specifies tha
 
 <span id="Commands_to_manage_your_Azure_virtual_machine_images"></span>
 ##Commands to manage your Windows Azure virtual machine images
-
 Virtual machine images are captures of already configured virtual machines that can be replicated as required.
 
 **vm image list [options]**
@@ -431,7 +425,6 @@ This command detaches a data disk attached to a Windows Azure virtual machine. &
 
 <span id="Commands_to_manage_your_Azure_cloud_services"></span>
 ##Commands to manage your Windows Azure cloud services
-
 Windows Azure cloud services are applications and services hosted on web roles and worker roles. The following commands can be used to manage Windows Azure cloud services.
 
 **service list [options]**
@@ -456,7 +449,6 @@ This command deletes a Windows Azure cloud service.
 
 <span id="Commands_to_manage_your_Azure_certificates"></span>
 ##Commands to manage your Windows Azure certificates
-
 Windows Azure certificates are cerificates (that is, SSL certificates) connected to your Windows Azure account.
 
 **service cert list [options]**
@@ -608,6 +600,7 @@ Windows Azure Mobile Services brings together a set of Windows Azure services th
 + [Commands to manage mobile service instances](#Mobile_Services)
 + [Commands to manage mobile service configuration](#Mobile_Configuration)
 + [Commands to manage mobile service tables](#Mobile_Tables)
++ [Commands to manage mobile service scripts](#Mobile_Scripts)
 
 The following options apply to most Mobile Services commands:
 
@@ -783,7 +776,7 @@ This command lists configuration options for a mobile service.
 	data:    apnsCertifcate Not configured
 	info:    mobile config list command OK
 
-**mobile config get [options] <servicename> <key>**
+**mobile config get [options] [servicename] [key]**
 
 This command gets a specific configuration option for a mobile service, in this case dynamic schema.
 
@@ -792,7 +785,7 @@ This command gets a specific configuration option for a mobile service, in this 
 	data:    dynamicSchemaEnabled true
 	info:    mobile config get command OK
 
-**mobile config set [options] <servicename> <key> [value]**
+**mobile config set [options] [servicename] [key] [value]**
 
 This command sets a specific configuration option for a mobile service, in this case dynamic schema.
 
@@ -823,7 +816,7 @@ This command shows returns details about a specific table.
 	info:    Executing command mobile table show
 	+ Getting table information
 	info:    Table statistics:
-	data:    Number of records 0
+	data:    Number of records 5
 	info:    Table operations:
 	data:    Operation  Script       Permissions
 	data:    ---------  -----------  -----------
@@ -835,6 +828,8 @@ This command shows returns details about a specific table.
 	data:    Name  Type           Indexed
 	data:    ----  -------------  -------
 	data:    id    bigint(MSSQL)  Yes
+	data:    text      string
+	data:    complete  boolean
 	info:    mobile table show command OK
 
 **mobile table create [options] [servicename] [tablename]**
@@ -845,6 +840,10 @@ This command creates a table.
 	info:    Executing command mobile table create
 	+ Creating table
 	info:    mobile table create command OK
+
+This command supports the following additional option:
+
++ **-p `<permissions>`** or **--permissions `<permissions>`**: Comma-delimited list of `<operation>`=`<permission>` pairs, where `<operation>` is `insert`, `read`, `update`, or `delete` and `<permissions>` is `public`, `application` (default), `user`, or `admin`.
 
 **mobile table update [options] [servicename] [tablename]**
 
@@ -858,7 +857,7 @@ This command changes delete permissions on a table to administrators only.
 
 This command supports the following additional options:
 
-+ **-p `<permissions>`** or **--permissions `<permissions>`**: Comma-delimited list of `<operation>`=`<permission>` pairs
++ **-p `<permissions>`** or **--permissions `<permissions>`**: Comma-delimited list of `<operation>`=`<permission>` pairs, where `<operation>` is `insert`, `read`, `update`, or `delete` and `<permissions>` is `public`, `application` (default), `user`, or `admin`.
 + **--deleteColumn `<columns>`**: Comma-delimited list of columns to delete, as `<columns>`.
 + **-q** or **--quiet**: Deletes columns without prompting for confirmation.
 + **--addIndex `<columns>`**: Comma-delimited list of columns to include in the index.
@@ -880,7 +879,15 @@ Specify the -q parameter to delete the table without confirmation. Do this to pr
 
 This command reads data from a table.
 
-	~$azure mobile read todolist TodoItem
+	~$azure mobile data read todolist TodoItem
+	info:    Executing command mobile data read
+	data:    id  text     complete
+	data:    --  -------  --------
+	data:    1   item #1  false
+	data:    2   item #2  true
+	data:    3   item #3  false
+	data:    4   item #4  true
+	info:    mobile data read command OK
 
 This command supports the following additional options:
 
@@ -888,14 +895,65 @@ This command supports the following additional options:
 + **-t `<top>`** or **--top `<top>`**: Returns a specific number of rows, specified by `<top>`.
 + **-l** or **--list**: Returns data in a list format.
 
-<!--###Commands to manage table scripts
-Ran out of time...
+<span id="Mobile_Scripts"></span>
+###Commands to manage scripts
 
--->
+**mobile script list [options] [servicename]**
+
+This command lists registered scripts, including both table and scheduler scripts.
+
+	~$azure mobile script list todolist
+	info:    Executing command mobile script list
+	+ Getting script information
+	info:    Table scripts
+	data:    Name                   Size
+	data:    ---------------------  ----
+	data:    table/TodoItem.delete  256
+	data:    table/Devices.insert   1660
+	error:   Unable to get shared scripts
+	info:    Scheduler scripts
+	data:    Name                 Status     Interval   Last run   Next run
+	data:    -------------------  ---------  ---------  ---------  ---------
+	data:    scheduler/undefined  undefined  undefined  undefined  undefined
+	data:    scheduler/undefined  undefined  undefined  undefined  undefined
+	info:    mobile script list command OK
+
+**mobile script upload [options] [servicename] [scriptname]**
+
+This command uploads a new script named `todoitem.insert.js` from the `table` subfolder.
+
+	~$azure mobile script upload todolist table/todoitem.insert.js
+	info:    Executing command mobile script upload
+	info:    mobile script upload command OK
+
+The name of the file must be composed from the table and operation names, and it must be located in the table subfolder relative to the location where the command is executed. You can also use the **-f `<file>`** or **--file `<file>`** parameter to specify a differnt filename and path to the file that contains the script to register.
+
+**mobile script download [options] [servicename] [scriptname]**
+
+This command downloads the insert script from the TodoItem table to a file named `todoitem.insert.js` in the `table` subfolder.
+
+	~$azure mobile script download todolist table/todoitem.insert.js
+	info:    Executing command mobile script download
+	info:    Saved script to ./table/todoitem.insert.js
+	info:    mobile script download command OK
+
+This command supports the following additional options:
+
++ **-p `<path>`** or **--path `<path>`**: The location in the file in which to save the script, where the current working directory is the default.
++ **-f `<file>`** or **--file `<file>`**: The name of the file in which to save the script.
++ **-o** or **--override**: Overwrite an existing file.
++ **-c** or **--console**: Write the script to the console instead of to a file.
+
+**mobile script delete [options] [servicename] [scriptname]**
+
+This command removes the existing insert script from the TodoItem table.
+
+	~$azure mobile script delete todolist table/todoitem.insert.js
+	info:    Executing command mobile script delete
+	info:    mobile script delete command OK
 
 <span id="Manage_tool_local_settings"></span>
 ##Manage tool local settings
-
 Local settings are your subscription ID and Default Storage Account Name.
 
 **config list [options]**
