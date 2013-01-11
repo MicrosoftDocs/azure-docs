@@ -223,7 +223,7 @@ Note: The following shows how to run Django in a test environment. To run it in 
 		Development server is running at http://123.34.56.78:80
 		Quit the server with CTRL-BREAK.
  
-1. From your local web browser, open **http://*yourVmName*.cloudapp.net** (where *yourVmName* is whatever name you used in the virtual machine creation step). You should see “Hello ... !” displayed as shown in the screenshot below. This indicates that Django is running in the virtual machine and is working correctly.
+1. From your local web browser, open **http://*yourVmName*.cloudapp.net** (where *yourVmName* is whatever name you used in the virtual machine creation step). You should see "Hello ... !" displayed as shown in the screenshot below. This indicates that Django is running in the virtual machine and is working correctly.
 
     ![][5]
 
