@@ -37,8 +37,7 @@ The [libPusher][] library let’s you access Pusher from iOS.
 	- Click **Finish**
 	
 	![add-files-to-group]
-	
-4. Click on the project
+4. Click on the project root in the project explorer
 5. Click on **Build Phases**
 6. Click **Add Build Phase**, then **Add Copy Files**
 7. Drag the **libPusher-combined.a** file from the project explorer into the new build phase
@@ -52,11 +51,15 @@ The [libPusher][] library let’s you access Pusher from iOS.
 	- Security.framework
 	- SystemConfiguration.framework
 	
+10. Finally within **Build Settings**, locate the "Other Linker Flags" build setting for your target and add the **-all_load** like so:
+
+	![add-linker-flag]
+
 The library is now installed ready for use.
 
 ### Add code to the application
 
-1. In Xcode, open the TodoService.h file and add the following method declarations:
+1. In Xcode, open the **TodoService.h** file and add the following method declarations:
 
         // Allows retrieval of items by id
         - (NSUInteger) getItemIndex:(NSDictionary *)item;
@@ -66,8 +69,13 @@ The library is now installed ready for use.
         
         // To be called when items are completed by other users
         - (NSUInteger) itemCompleted:(NSDictionary *)item;
+        
+2. Next, replace the declarations of **addItem** and **completeItem** to be:
 
-2. In TodoService.m, add the following code to implement the new methods:
+		- (void) addItem:(NSDictionary *) item;
+		- (void) completeItem: (NSDictionary *) item;
+
+3. In **TodoService.m**, add the following code to implement the new methods:
 
         // Allows retrieval of items by id
 		- (NSUInteger) getItemIndex:(NSDictionary *)item
@@ -112,13 +120,57 @@ The library is now installed ready for use.
 		}
 
 	The TodoService now allows you to find items by **id**, and to add and complete items locally without hitting the data table on Windows Azure.
+	
+4. Replace the **addItem** and **completeItem** methods:
 
-3. In TodoListController.h, add the following code to declare a new method:
+		-(void) addItem:(NSDictionary *)item
+		{
+		    // Insert the item into the TodoItem table and add to the items array on completion
+		    [self.table insert:item completion:^(NSDictionary *result, NSError *error) {
+        		[self logErrorIfNotNil:error];
+		    }];
+		}
+
+		-(void) completeItem:(NSDictionary *)item
+		{
+		    // Set the item to be complete (we need a mutable copy)
+		    NSMutableDictionary *mutable = [item mutableCopy];
+		    [mutable setObject:@(YES) forKey:@"complete"];
+    
+		    // Update the item in the TodoItem table and remove from the items array on completion
+		    [self.table update:mutable completion:^(NSDictionary *item, NSError *error) {
+		        [self logErrorIfNotNil:error];
+		    }];
+		}
+
+
+	The items will be added and completed (and updated in the UI) when events are received from Pusher, not when the data table is updated.
+
+5. In **TodoListController.h**, add the following import statements:
+
+		#import "PTPusherDelegate.h"
+		#import "PTPusher.h"
+		#import "PTPusherEvent.h"
+		#import "PTPusherChannel.h"
+		
+6. Also, modify the interface declaration to add 'PTPusherDelegate', so the line now reads:
+
+		@interface TodoListController : UITableViewController<UITextFieldDelegate, PTPusherDelegate>
+		
+7. Add a new property as follows:
+
+		@property (nonatomic, strong) PTPusher *pusher;
+
+8. Add the following code to declare a new method:
 
 		// Sets up the Pusher client
 		- (void) setupPusher;
+		
+9. In **TodoListController.m** add the following line under the other **@synthesise** lines to implement the new property:
 
-4. In TodoListController.m, add the following code to implement the new method:
+		@synthesize pusher = _pusher;
+
+10. Now add the following code to implement the new method:
 
 		// Sets up the Pusher client
 		- (void) setupPusher {
@@ -163,14 +215,33 @@ The library is now installed ready for use.
 		    }];
 		}
 
-5. Replace the **your_app_key** placeholder with the app_key value you copied from the Connection Info dialog earlier.
+11. Replace the **your_app_key** placeholder with the app_key value you copied from the Connection Info dialog earlier.
 
-6. In the TodoListController.m file, in the (void)viewDidLoad method, add a call to the setupPusher method so the first few lines are:
+12. Replace the **onAdd** method with the following code:
+
+		- (IBAction)onAdd:(id)sender
+		{
+		    if (itemText.text.length  == 0) {
+        		return;
+		    }
+    
+		    NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @(NO) };
+		    [self.todoService addItem:item];
+    
+		    itemText.text = @"";
+		}
+
+13. In the **TodoListController.m** file, in the (void)viewDidLoad method, add a call to the setupPusher method so the first few lines are:
 
 		- (void)viewDidLoad
 		{
 		    [super viewDidLoad];
 		    [self setupPusher];
+		    
+14. At the end of the **tableView** method replace the call to **completeItem**:
+
+		// Ask the todoService to set the item's complete value to YES
+	    [self.todoService completeItem:item];
 
 The app is now setup to receive events from Pusher, and to update the local Todo list accordingly.
 
@@ -273,7 +344,7 @@ All that remains is setting up your server scripts. We'll insert a script for wh
 To test the app you'll need to run two instances. You can run one instance on an iOS device and another in the iOS simulator.
 
 1. Connect your iOS device, and Run the app on the device. Stop debugging and you'll now have your app installed on your device.
-2. Run the app on the iOS simulator, and open the app on your iOS device so that you have two instance running.
+2. Run the app on the iOS simulator, and open the app on your iOS device so that you have two instances running.
 3. Add a new Todo item on one of the instances. See it appear on the other instance.
 4. Complete a Todo item on one instance. See it disappear on the other instance. 
 
@@ -296,8 +367,9 @@ Now that you’ve seen how easy it is to use the Pusher service with Mobile Serv
 [1]: ../Media/mobile-portal-data-tables.png
 [2]: ../Media/mobile-insert-script-push2.png
 
-[add-files-to-group]: ../Media/pusher-add-files-to-group.png
+[add-files-to-group]: ../Media/pusher-ios-add-files-to-group.png
 [add-build-phase]: ../Media/pusher-ios-add-build-phase.png
+[add-linker-flag]: ../Media/pusher-ios-add-linker-flag.png
 
 <!-- URLs. -->
 [Push Notifications to Users]: ./mobile-services-push-notifications-to-app-users.md
