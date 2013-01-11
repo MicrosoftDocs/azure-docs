@@ -191,7 +191,9 @@ Management Portal.
 1.  In the Windows Azure Management
     Portal, click **Active Directory**, select an Access Control namespac, and then click **Manage**. 
  
-2.  Click **Identity providers**, click **Add**, select **Google**, and then click **Next**. <div class="dev-callout-new">
+2.  Click **Identity providers**, click **Add**, select **Google**, and then click **Next**. 
+
+<div class="dev-callout-new">
     <strong>Note <span>Click to collapse</span></strong>
     <div class="dev-callout-content">
         <p>This task uses Google for demonstration purposes only. You
@@ -204,7 +206,7 @@ Management Portal.
     this information, but for this exercise, use the default
     values, and click **Save**.  
 
-    <div class="dev-callout-new">
+<div class="dev-callout-new">
     <strong>Note <span>Click to collapse</span></strong>
     <div class="dev-callout-content">
         <p> Windows Live ID is
@@ -312,7 +314,7 @@ application..
         click **Next**.
     5.  On the Security token encryption page, click **Next**.
     6.  On the Offered claims page, click **Next**.
-    7.  On the Summary page, click **Finish**.<P>
+    7.  On the Summary page, click **Finish**.<P></P>
 
 3.  When you run the Federation Utility wizard,
     it adds a reference to the Microsoft.IdentityModel.dll assembly and
