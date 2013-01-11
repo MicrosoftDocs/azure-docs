@@ -967,7 +967,7 @@ This command displays config settings.
 	data:   subscription           32-digit-subscription-key
 	data:   defaultStorageAccount  name
 
-**config set [options] &lt;name>,&lt;value>**
+**config set [options] &lt;name&gt;,&lt;value&gt;**
 
 This command changes a config setting.
 
