@@ -987,5 +987,5 @@ You have completed lesson 4.  In this lesson, you add the functionality to choos
 - [How to build a Smooth Streaming Windows 8 JavaScript application with advanced features](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
 - [Smooth Streaming Technical Overview](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
-[PlayerApplication]: ../../../DevCenter/dotNet/Media/SSClientWin8-1.png
-[CodeViewPic]: ../../../DevCenter/dotNet/Media/SSClientWin8-2.png
+[PlayerApplication]: ../../../DevCenter/Media-Services/Media/SSClientWin8-1.png
+[CodeViewPic]: ../../../DevCenter/Media-Services/Media/SSClientWin8-2.png
