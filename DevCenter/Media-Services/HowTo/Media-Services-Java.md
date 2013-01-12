@@ -1,6 +1,7 @@
 <properties linkid="develop-java-how-to-guides-media-services" urlDisplayName="Media Services" pageTitle="How to use Media Services (Java) - Windows Azure feature guide" metaKeywords="Windows Azure Media Services, Windows Azure media, windows azure streaming, azure media, azure streaming, azure encoding" metaDescription="Describes how to use Windows Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" editor="mollybos" />
 
-<div chunk="../chunks/article-left-menu.md" />
+<div chunk="../chunks/article-left-menu-java.md" />
+
 #How to Use Media Services
 
 This guide shows you how to start programming with Windows Azure Media Services using Java. The guide includes a technical overview of Media Services, steps to configure your Windows Azure account for Media Services, and code that shows how to accomplish typical programming tasks. 
