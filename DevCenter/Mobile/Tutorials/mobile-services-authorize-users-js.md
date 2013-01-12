@@ -1,26 +1,10 @@
 <properties linkid="develop-mobile-tutorials-authorize-users-in-scripts-js" urlDisplayName="Authorize Users in Scripts" pageTitle="Authorize users in scripts (JavaScript) - Mobile Services" metaKeywords="" metaDescription="Learn how to authorize users in scripts in your Windows Store app with Windows Azure Mobile Services." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/" disqusComments="1" umbracoNaviHide="1" />
 
-
-
-<div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14810" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
-
-<!--<div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js/" title="Windows Store version" class="current">Windows Store app</a>
-  <a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios/" title="iOS version">iOS app</a>
-  <span>Tutorial</span>
-</div>
-<div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/" title=".NET client version" class="current">C# and XAML</a>
-  <a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js/" title="JavaScript client version">JavaScript and HTML</a>
-  <span>Tutorial</span>
-</div>-->
+<div chunk="../chunks/article-left-menu-windows-store.md" />
 
 # Use scripts to authorize users in Mobile Services
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
-	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8" title="Windows Phone 8">Windows Phone 8</a> 
-	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios" title="iOS">iOS</a> 
+	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8" title="Windows Phone 8">Windows Phone 8</a> <a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios" title="iOS">iOS</a> 
 </div>	
 
 
