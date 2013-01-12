@@ -104,7 +104,9 @@ Now that you have created a web site on Windows Azure and generated the necessar
 - **Save password:** Check this option to save the deployment user password. 
 - **Validate Connection:** Click this to verify that WebMatrix can connect to the FTP host using the specified parameters.
 4. Click **Save** and a **Publish Compatibility** window is shown. Click **Continue** to perform the compatibility tests.
-![Publish Compatibility Window][publishcompatibility]
+
+	![Publish Compatibility Window][publishcompatibility]
+
 5. Click the **Continue** button again to initiate deployment of the local web site to Windows Azure. WebMatrix will calculate what files have changed since the last time the web site was published (all of them since this is the first time the web site has been published to Windows Azure) and display a **Publish Preview** dialog box:
 
 	![WebMatrix Publish Preview][webmatrixpubpre]
@@ -393,4 +395,4 @@ Checking the web site's \root\App\_Data\ directory  we can verify that there is 
 [viewdetailederr]: ..\Media\tshootdetailederrors.png
 [failedreqtrace]: ..\Media\tshootfailedrequesttracing.png
 [logparsercmdwind]: ..\Media\tshootlogparser.png
-[publishcompatibility]: ..\Media\tshootPublishCompatibility.png                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+[publishcompatibility]: ..\Media\tshootPublishPreview2.png                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
