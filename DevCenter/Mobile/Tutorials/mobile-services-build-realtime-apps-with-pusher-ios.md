@@ -27,33 +27,38 @@ Now that you have your Pusher account set up, the next step is to modify the iOS
 
 The [libPusher][] library let’s you access Pusher from iOS. 
 
-1. Download the libPusher library [here](https://github.com/downloads/lukeredpath/libPusher/libPusher-iOS-v1.4.zip)
-2. Create a group called 'libPusher' in your project
-3. Copy the libPusher files into your project
-    - In Finder, unzip the downloaded zip file
-	- Select the **libPusher-combined.a** and **/headers** folder
-	- Drag these items onto the **libPusher** group in your project 
-	- Make sure you click the ‘Copy items into destination group’s folder’
-	- Click **Finish**
-	
-	![add-files-to-group]
-4. Click on the project root in the project explorer
-5. Click on **Build Phases**
-6. Click **Add Build Phase**, then **Add Copy Files**
-7. Drag the **libPusher-combined.a** file from the project explorer into the new build phase
-8. Change the **Destination** to Frameworks and click ‘Copy only when installing’
+1. Download the libPusher library [here](https://github.com/downloads/lukeredpath/libPusher/libPusher-iOS-v1.4.zip).
 
-	![add-build-phase]
+2. Create a group called 'libPusher' in your project.
+
+3. In Finder, unzip the downloaded zip file, select the **libPusher-combined.a** and **/headers** folder, and drag these items onto the **libPusher** group in your project.
+
+4. Check **Copy items into destination group’s folder**, then click **Finish**
 	
-9. Within the **Link Binary With Libraries** area, add the following libraries:
+	![][add-files-to-group]
+
+   This copies the libPusher files into your project.
+
+5. On the project root in the project explorer, click **Build Phases**, then click **Add Build Phase** and **Add Copy Files**.
+
+6. Drag the **libPusher-combined.a** file from the project explorer into the new build phase.
+
+7. Change the **Destination** to **Frameworks** and click **Copy only when installing**.
+
+	![][add-build-phase]
+	
+8. Within the **Link Binary With Libraries** area, add the following libraries:
+	
 	- libicucore.dylib
 	- CFNetwork.framework
 	- Security.framework
 	- SystemConfiguration.framework
 	
-10. Finally within **Build Settings**, locate the "Other Linker Flags" build setting for your target and add the **-all_load** like so:
+9. Finally within **Build Settings**, locate the target build setting **Other Linker Flags** and add the **-all_load** flag.
 
-	![add-linker-flag]
+	![][add-linker-flag]
+
+  This shows the **-all_load** flag set for the Debug build target.
 
 The library is now installed ready for use.
 
@@ -114,8 +119,7 @@ The library is now installed ready for use.
 		    {
 		        NSMutableArray *mutableItems = (NSMutableArray *) items;
 		        [mutableItems removeObjectAtIndex:index];
-		    }
-    		
+		    }  		
 		    return index;
 		}
 
@@ -210,12 +214,11 @@ The library is now installed ready for use.
 		            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
         		    [self.tableView deleteRowsAtIndexPaths:@[ indexPath ]
                                   withRowAnimation:UITableViewRowAnimationTop];
-		        }
-		        
+		        }		        
 		    }];
 		}
 
-11. Replace the **your_app_key** placeholder with the app_key value you copied from the Connection Info dialog earlier.
+11. Replace the `**your_app_key**` placeholder with the app_key value you copied from the Connection Info dialog earlier.
 
 12. Replace the **onAdd** method with the following code:
 
@@ -287,17 +290,15 @@ All that remains is setting up your server scripts. We'll insert a script for wh
 				});     
 		
 				// Publish event on Pusher channel
-			    pusher.trigger( 'todo-updates', 'todo-added', item );
-		
+			    pusher.trigger( 'todo-updates', 'todo-added', item );	
 			}
-		
 		}
 
 5. Replace the placeholders in the above script with the values you copied from the Connection Info dialog earlier:
 
-	- **your_app_id**: the app_id value
-	- **your_app_key**: the app_key value
-	- **your_app_key_secret**: the app_key_secret
+	- **`**your_app_id**`**: the app&#95;id value
+	- **`**your_app_key**`**: the app&#95;key value
+	- **`**your_app_key_secret**`**: the app&#95;key&#95;secret
 
 6. Click the **Save** button. You have now configured a script to publish an event to Pusher every time a new item is inserted into the **TodoItem** table.
 
@@ -332,7 +333,6 @@ All that remains is setting up your server scripts. We'll insert a script for wh
 			    pusher.trigger( 'todo-updates', 'todo-completed', item );
 		
 			}
-		
 		}
 
 9. Repeat step 5 for this script to replace the placeholders.
@@ -357,6 +357,8 @@ Now that you’ve seen how easy it is to use the Pusher service with Mobile Serv
 -   Pusher API documentation: <http://pusher.com/docs>
 -   Pusher tutorials: <http://pusher.com/tutorials>
 
+To learn more about registering and using server scripts, see [Mobile Services server script reference].
+
 <!-- Anchors. -->
 [Create a Pusher account]: #sign-up
 [Update your app]: #update-app
@@ -379,3 +381,4 @@ Now that you’ve seen how easy it is to use the Pusher service with Mobile Serv
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [http://pusher.com]: http://pusher.com/
+[Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
