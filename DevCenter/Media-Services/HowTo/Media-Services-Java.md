@@ -1,4 +1,4 @@
-<properties linkid="develop-java-how-to-guides-media-services" urlDisplayName="Media Services" pageTitle="How to use Media Services (Java) - Windows Azure feature guide" metaKeywords="Windows Azure Media Services, Windows Azure media, windows azure streaming, azure media, azure streaming, azure encoding" metaDescription="Describes how to use Windows Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-java-how-to-guides-media-services" urlDisplayName="Media Services" pageTitle="How to use Media Services (Java) - Windows Azure feature guide" metaKeywords="Windows Azure Media Services, Windows Azure media, windows azure streaming, azure media, azure streaming, azure encoding" metaDescription="Describes how to use Windows Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" editor="mollybos" />
 
 <div chunk="../chunks/article-left-menu.md" />
 #How to Use Media Services
@@ -9,6 +9,7 @@ This guide shows you how to start programming with Windows Azure Media Services 
 
 -   [What Are Media Services?][]
 -   [Setting Up a Windows Azure Account for Media Services][]
+-   [Setting up for Media Services development][]
 -   [How to: Use Media Services with Java][]
 -   [Additional Resources][]
 
@@ -104,7 +105,8 @@ Several Microsoft partners ship SDKs for the Android platform that add the capab
 
 To set up your Media Services account, use the Windows Azure Management Portal. See the topic [How to Create a Media Services Account][]. After creating your account in the Management Portal, you are ready to set up your computer for Media Services development. 
 
-<h2><a name="setup-dev"> </a><span class="short header">Setting up for Media Services development</span></h2> 
+<h2><a name="setup-dev"> </a><span class="short header">Setting up for Media Services development</span></h2>
+
 This section contains general prerequisites for Media Services development using the Media Services SDK for Java.
 
 ###Prerequisites
@@ -363,7 +365,7 @@ Alternatively, the following code shows how to retrieve the ID of a media proces
 ###Canceling a job
 Should you need to cancel a job that hasn't finished processing, the following code shows how to cancel a job by job ID.
 
-    mediaService.action(Job.cancel("nb:jid:UUID:e62aa3f3-8996-604d-b97d-350cb1956e82"));
+    mediaService.action(Job.cancel(jobId));
 
 <h2><a name="additional-resources"></a><span class="short header">Additional Resources</span>Additional Resources</h2>
 
