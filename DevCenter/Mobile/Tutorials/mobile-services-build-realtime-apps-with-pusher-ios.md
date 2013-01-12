@@ -1,3 +1,5 @@
+﻿<div chunk="../chunks/article-left-menu-ios.md" />
+
 # Build Realtime Apps with Mobile Services and Pusher
 
 This topic shows you how can add realtime functionality to your mobile service application. When complete, mobile services will synchronise your todo list across all running instances of your app in realtime.
