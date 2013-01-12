@@ -1,3 +1,5 @@
+﻿<div chunk="../chunks/article-left-menu.md" />
+
 #Windows Azure Media Services iOS Media Player Framework
 
 The Windows Azure Media Services iOS Media Player Framework library makes it easy for iPod, iPhone, and iPad developers to create rich, dynamic client applications that create and mix video and audio streams together on the fly. For example, applications that display sports content can easily insert advertisements wherever they choose and control how often those advertisements appear even when the main content is rewound. Educational applications can use the same functionality, for example, to create content in which the main lectures have asides, or sidebars, before returning to the main content.
