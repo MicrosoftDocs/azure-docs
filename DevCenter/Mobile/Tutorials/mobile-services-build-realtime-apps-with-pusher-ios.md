@@ -1,4 +1,4 @@
-# Build Realtime Apps with Mobile Services and Pusher
+﻿# Build Realtime Apps with Mobile Services and Pusher
 
 This topic shows you how can add realtime functionality to your mobile service application. When complete, mobile services will synchronise your todo list across all running instances of your app in realtime.
 
@@ -17,7 +17,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 <a name="sign-up"></a><h2>Create a new Pusher account</h2>
 
-<div chunk="../../Shared/Chunks/pusher-sign-up.md"></div>
+<div chunk="../../../Shared/Chunks/pusher-sign-up.md"></div>
 
 <a name="update-app"></a><h2>Update your app</h2>
 
