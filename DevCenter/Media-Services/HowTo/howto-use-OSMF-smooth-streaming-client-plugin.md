@@ -1,9 +1,9 @@
-<div chunk="../chunks/article-left-menu.md" />
+﻿<div chunk="../chunks/article-left-menu.md" />
 
-# How to Use the Microsoft® Smooth Streaming Plugin for the Adobe Open Source Media Framework #
+# How to Use the Microsoft Smooth Streaming Plugin for the Adobe Open Source Media Framework #
 
 ##Overview ##
-The Microsoft® Smooth Streaming plugin for Open Source Media Framework 2.0 (SS for OSMF) extends the default capabilities of OSMF and adds Microsoft® Smooth Streaming content playback to new and existing OSMF players. The plugin also adds Smooth Streaming playback capabilities to Strobe Media Playback (SMP).
+The Microsoft Smooth Streaming plugin for Open Source Media Framework 2.0 (SS for OSMF) extends the default capabilities of OSMF and adds Microsoft Smooth Streaming content playback to new and existing OSMF players. The plugin also adds Smooth Streaming playback capabilities to Strobe Media Playback (SMP).
 
 SS for OSMF includes two versions of plugin:
 
