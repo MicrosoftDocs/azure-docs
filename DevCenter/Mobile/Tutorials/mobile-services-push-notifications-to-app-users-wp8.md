@@ -180,7 +180,7 @@ Next, you will modify the push notifications app to store data in this new table
 
 9. (Optional) Run the app on two devices at the same time, and repeat the previous step. 
 
-    The notification is sent to all running app instances.
+    The notification is sent to all running app instances.  
 
 ## Next steps
 
@@ -216,7 +216,7 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [25]: ../Media/mobile-quickstart-push6-wp8.png
 
 <!-- URLs. -->
-[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started-wp8.md
 [Get started with data]: ../tutorials/mobile-services-get-started-with-data-wp8.md
 [Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-wp8.md

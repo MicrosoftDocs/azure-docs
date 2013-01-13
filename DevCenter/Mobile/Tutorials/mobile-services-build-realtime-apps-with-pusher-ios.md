@@ -1,10 +1,12 @@
-# Build Realtime Apps with Mobile Services and Pusher
+<div chunk="../chunks/article-left-menu-ios.md" />
 
-This topic shows you how can add realtime functionality to your mobile service application. When complete, mobile services will synchronise your todo list across all running instances of your app in realtime.
+# Build Real-time Apps with Mobile Services and Pusher
 
-The [Push Notifications to Users][] tutorial showed you how to use push notifications to inform users of new items in the Todo list. In this tutorial we use Pusher so that the Todo list is kept in sync live with any changes applied immediately in-app. Push notifications are great to show occasional changes, however a service like Pusher is much better suited to deliver frequent and rapid changes.
+This topic shows you how can add real-time functionality to your Windows Azure Mobile Services-based app. When completed, your TodoList data is synchronized, in real-time, across all running instances of your app.
 
-Pusher is a cloud-based service that makes building realtime apps incredibly easy. You can use Pusher to quickly build live polls, chat rooms, multi-player games, collaborative apps, to broadcast live data and content, and that’s just the start! For more information, see [http://pusher.com][].
+The [Push Notifications to Users][] tutorial shows you how to use push notifications to inform users of new items in the Todo list. Push notifications are a great way to show occasional changes. However, a service like Pusher is much better at delivering frequent and rapid changes to users. In this tutorial, we use Pusher with Mobile Services to keep a Todo list in sync when changes are made in any running instance of the app. 
+
+Pusher is a cloud-based service that, like Mobile Services, makes building real-time apps incredibly easy. You can use Pusher to quickly build live polls, chat rooms, multi-player games, collaborative apps, to broadcast live data and content, and that’s just the start! For more information, see [http://pusher.com][].
 
 This tutorial walks you through these basic steps to add realtime collaboration to the Todo list application:
 
@@ -27,11 +29,11 @@ Now that you have your Pusher account set up, the next step is to modify the iOS
 
 The [libPusher][] library let’s you access Pusher from iOS. 
 
-1. Download the libPusher library [here](https://github.com/downloads/lukeredpath/libPusher/libPusher-iOS-v1.4.zip).
+1. Download the libPusher library [from here][libPusherDownload].
 
-2. Create a group called 'libPusher' in your project.
+2. Create a group called _libPusher_ in your project.
 
-3. In Finder, unzip the downloaded zip file, select the **libPusher-combined.a** and **/headers** folder, and drag these items onto the **libPusher** group in your project.
+3. In Finder, unzip the downloaded zip file, select the **libPusher-combined.a** and **/headers** folders, and drag these items into the **libPusher** group in your project.
 
 4. Check **Copy items into destination group’s folder**, then click **Finish**
 	
@@ -343,10 +345,21 @@ All that remains is setting up your server scripts. We'll insert a script for wh
 
 To test the app you'll need to run two instances. You can run one instance on an iOS device and another in the iOS simulator.
 
-1. Connect your iOS device, and Run the app on the device. Stop debugging and you'll now have your app installed on your device.
-2. Run the app on the iOS simulator, and open the app on your iOS device so that you have two instances running.
-3. Add a new Todo item on one of the instances. See it appear on the other instance.
-4. Complete a Todo item on one instance. See it disappear on the other instance. 
+1. Connect your iOS device, press the **Run** button (or the Command+R key) to start the app on the device, then stop debugging. 
+
+	You now have your app installed on your device.
+
+2. Run the app on the iOS simulator, and at the same time start the app on your iOS device.
+
+	Now you have two instances of the app running.
+
+3. Add a new Todo item in one of the app instances. 
+
+	Verify that the added item appears in the other instance.
+
+4. Check a Todo item to mark it complete in one app instance. 
+
+	Verify that the item disappears from the other instance. 
 
 Congratulations, you have successfully configured your mobile service app to synchronise across all clients in realtime.
 
@@ -374,9 +387,10 @@ To learn more about registering and using server scripts, see [Mobile Services s
 [add-linker-flag]: ../Media/pusher-ios-add-linker-flag.png
 
 <!-- URLs. -->
-[Push Notifications to Users]: ./mobile-services-push-notifications-to-app-users.md
-[Get started with Mobile Services]: ./mobile-services-get-started.md
-[libPusher]: https://github.com/lukeredpath/libPusher
+[Push Notifications to Users]: ../tutorials/mobile-services-push-notifications-to-app-users.md
+[Get started with Mobile Services]: ../tutorials/mobile-services-get-started.md
+[libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
+[libPusherDownload]: http://go.microsoft.com/fwlink/p/?LinkId=276998
 
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
