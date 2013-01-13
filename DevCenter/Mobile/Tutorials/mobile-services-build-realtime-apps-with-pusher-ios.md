@@ -1,4 +1,4 @@
-﻿<div chunk="../chunks/article-left-menu-ios.md" />
+<div chunk="../chunks/article-left-menu-ios.md" />
 
 # Build Realtime Apps with Mobile Services and Pusher
 
@@ -19,7 +19,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 <a name="sign-up"></a><h2>Create a new Pusher account</h2>
 
-<div chunk="../../Shared/Chunks/pusher-sign-up.md"></div>
+<div chunk="../../../Shared/Chunks/pusher-sign-up.md"></div>
 
 <a name="update-app"></a><h2>Update your app</h2>
 
