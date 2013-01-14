@@ -1,4 +1,4 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-2-download-and-run" urlDisplayName="Step 2: Download and Run" pageTitle="Multi-tier web site tutorial - Step 2: Download and run" metaKeywords="Windows Azure tutorial, deploying email service app, publishing email service" metaDescription="The second tutorial in a series that teaches how to configure your computer for Windows Azure development and deploy the Email Service app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="riande" editor="mollybos" manager="wpickett" />
+﻿<properties linkid="develop-net-tutorials-multi-tier-web-site-2-download-and-run" urlDisplayName="Step 2: Download and Run" pageTitle="Multi-tier web site tutorial - Step 2: Download and run" metaKeywords="Windows Azure tutorial, deploying email service app, publishing email service" metaDescription="The second tutorial in a series that teaches how to configure your computer for Windows Azure development and deploy the Email Service app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="riande" editor="mollybos" manager="wpickett" />
 
 <div>
 <div class="left-nav">
@@ -50,8 +50,11 @@ In this tutorial you'll learn:
 * How to configure tracing and view trace data.
 * How to scale the application by increasing the number of worker role instances.
 
-<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
- 
+<div class="dev-callout"><strong>Note</strong>
+<p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Web Sites feature enabled. You can create a free trial account and enable preview features in just a couple of minutes. For details, see <a href="/en-us/develop/net/tutorials/create-a-windows-azure-account/" target="_blank">Create a Windows Azure account and enable preview features</a>.</p>
+</div>
+<br />
+
 ### Tutorial segments
 
 - [Set up the development environment][]

@@ -4,9 +4,11 @@
 
 # Create a Node.js Application on Windows Azure with MongoDB using the MongoLab Add-On
 
+<p><em>By Eric Sedor, MongoLab</em></p>
+
 Greetings, adventurers! Welcome to MongoDB-as-a-Service. In this tutorial you will:
 
-1. [Provision the database][provision] - The Windows Azure Store [MongoLab](mongolab.com) add-on will provide you with a MongoDB database hosted in the Windows Azure cloud and managed by MongoLab's cloud database platform.
+1. [Provision the database][provision] - The Windows Azure Store [MongoLab](http://mongolab.com) add-on will provide you with a MongoDB database hosted in the Windows Azure cloud and managed by MongoLab's cloud database platform.
 1. [Create the app][create] - It'll be a simple Node.js app for maintaining a list of tasks.
 1. [Deploy the app][deploy] - By tying a few configuration hooks together, we'll make pushing our code a breeze.
 1. [Manage the database][manage] - Finally, we'll show you MongoLab's web-based database management portal where you can search, visualize, and modify data with ease.
