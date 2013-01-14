@@ -1,4 +1,4 @@
-<div chunk="../chunks/article-left-menu-ios.md" />
+<div chunk="../chunks/article-left-menu-ios.md"></div>
 
 # Build Real-time Apps with Mobile Services and Pusher
 
@@ -19,7 +19,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 <a name="sign-up"></a><h2>Create a new Pusher account</h2>
 
-<div chunk="../../../Shared/Chunks/pusher-sign-up.md"></div>
+<div chunk="../../Shared/Chunks/pusher-sign-up.md"></div>
 
 <a name="update-app"></a><h2>Update your app</h2>
 
@@ -60,7 +60,7 @@ The [libPusher][] library let’s you access Pusher from iOS.
 
 	![][add-linker-flag]
 
-  This shows the **-all_load** flag set for the Debug build target.
+	This shows the **-all_load** flag set for the Debug build target.
 
 The library is now installed ready for use.
 
