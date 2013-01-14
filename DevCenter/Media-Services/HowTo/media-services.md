@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-net-how-to-guides-media-services" urlDisplayName="Media Services" pageTitle="How to use Media Services (.NET) - Windows Azure feature guide" metaKeywords="Windows Azure Media Services, Windows Azure media, windows azure streaming, azure media, azure streaming, azure encoding" metaDescription="Describes how to use Windows Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-net-how-to-guides-media-services" urlDisplayName="Media Services" pageTitle="How to use Media Services (.NET) - Windows Azure feature guide" metaKeywords="Windows Azure Media Services, Windows Azure media, windows azure streaming, azure media, azure streaming, azure encoding" metaDescription="Describes how to use Windows Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -915,7 +915,7 @@ Now that you have learned how to set up for Media Services development and perfo
   [MediaServices@Microsoft.com]: mailto:MediaServices@Microsoft.com
 
   <!-- Images. -->
-  [Media Services Architecture]: ../../../DevCenter/Media-Services/Media/wams-01.png
-  [Visual Studio Project Setup]: ../../../DevCenter/Media-Services/Media/wams-02.png
+  [Media Services Architecture]: ../Media/wams-01.png
+  [Visual Studio Project Setup]: ../Media/wams-02.png
 
 
