@@ -380,5 +380,5 @@ For Media Services Javadoc documentation, see [Windows Azure Libraries for Java 
   [How to Create a Media Services Account]: http://go.microsoft.com/fwlink/?linkid=256662
   [Windows Azure Java Developer Center]: http://www.windowsazure.com/en-us/develop/java/
   [Windows Azure Libraries for Java documentation]: http://dl.windowsazure.com/javadoc/
-  [Media Services Architecture]: ../../../DevCenter/dotNet/Media/wams-01.png
+  [Media Services Architecture]: ../Media/wams-01.png
 

@@ -2,7 +2,7 @@
 
 #How to Build a Smooth Streaming Windows Store Application
 
-The Smooth Streaming Client SDK for Windows 8 enables developers to build Windows Store applications that can play on-demand and live Smooth Streaming content. In addition to the basic playback of Smooth Streaming content, the SDK also provides rich features like Microsoft PlayReady protection, quality level restriction, Live DVR, audio stream switching, listening for status updates (such as quality level changes) and error events, and so on. For more information of the supported features, see the [release notes](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-beta-2-for-windows-store-apps-release-notes).
+The Smooth Streaming Client SDK for Windows 8 enables developers to build Windows Store applications that can play on-demand and live Smooth Streaming content. In addition to the basic playback of Smooth Streaming content, the SDK also provides rich features like Microsoft PlayReady protection, quality level restriction, Live DVR, audio stream switching, listening for status updates (such as quality level changes) and error events, and so on. For more information of the supported features, see the [release notes](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes).
 
 This tutorial covers the APIs. For player development, Microsoft strongly recommends using [Player Framework for Windows 8](http://playerframework.codeplex.com/). Player framework makes it easier to build applications and provides many additional features. 
 
@@ -987,5 +987,5 @@ You have completed lesson 4.  In this lesson, you add the functionality to choos
 - [How to build a Smooth Streaming Windows 8 JavaScript application with advanced features](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
 - [Smooth Streaming Technical Overview](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
-[PlayerApplication]: ../../../DevCenter/Media-Services/Media/SSClientWin8-1.png
-[CodeViewPic]: ../../../DevCenter/Media-Services/Media/SSClientWin8-2.png
+[PlayerApplication]: ../Media/SSClientWin8-1.png
+[CodeViewPic]: ../Media/SSClientWin8-2.png
