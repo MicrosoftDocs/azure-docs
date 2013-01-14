@@ -77,7 +77,7 @@ The library is now installed ready for use.
         // To be called when items are completed by other users
         - (NSUInteger) itemCompleted:(NSDictionary *)item;
         
-2. Next, replace the declarations of **addItem** and **completeItem** to be:
+2. Replace the existing declarations of **addItem** and **completeItem** with the following:
 
 		- (void) addItem:(NSDictionary *) item;
 		- (void) completeItem: (NSDictionary *) item;
@@ -125,9 +125,9 @@ The library is now installed ready for use.
 		    return index;
 		}
 
-	The TodoService now allows you to find items by **id**, and to add and complete items locally without hitting the data table on Windows Azure.
+	The TodoService now allows you to find items by **id** and add and complete items locally without sending explicit requests to the remote service.
 	
-4. Replace the **addItem** and **completeItem** methods:
+4. Replace the existing **addItem** and **completeItem** methods with the following code:
 
 		-(void) addItem:(NSDictionary *)item
 		{
@@ -150,29 +150,29 @@ The library is now installed ready for use.
 		}
 
 
-	The items will be added and completed (and updated in the UI) when events are received from Pusher, not when the data table is updated.
+	Note that items are now added and completed, along with updates to the UI, when events are received from Pusher instead of when the data table is updated.
 
-5. In **TodoListController.h**, add the following import statements:
+5. In the **TodoListController.h** file, add the following import statements:
 
 		#import "PTPusherDelegate.h"
 		#import "PTPusher.h"
 		#import "PTPusherEvent.h"
 		#import "PTPusherChannel.h"
 		
-6. Also, modify the interface declaration to add 'PTPusherDelegate', so the line now reads:
+6. Modify the interface declaration to add **PTPusherDelegate** to look like the following:
 
 		@interface TodoListController : UITableViewController<UITextFieldDelegate, PTPusherDelegate>
 		
-7. Add a new property as follows:
+7. Add the following new property:
 
 		@property (nonatomic, strong) PTPusher *pusher;
 
-8. Add the following code to declare a new method:
+8. Add the following code that declares a new method:
 
 		// Sets up the Pusher client
 		- (void) setupPusher;
 		
-9. In **TodoListController.m** add the following line under the other **@synthesise** lines to implement the new property:
+9. In **TodoListController.m**, add the following line under the other **@synthesise** lines to implement the new property:
 
 		@synthesize pusher = _pusher;
 
@@ -236,19 +236,19 @@ The library is now installed ready for use.
 		    itemText.text = @"";
 		}
 
-13. In the **TodoListController.m** file, in the (void)viewDidLoad method, add a call to the setupPusher method so the first few lines are:
+13. In the **TodoListController.m** file, locate the (void)viewDidLoad method and add a call to the **setupPusher** method so the first few lines are:
 
 		- (void)viewDidLoad
 		{
 		    [super viewDidLoad];
 		    [self setupPusher];
 		    
-14. At the end of the **tableView** method replace the call to **completeItem**:
+14. At the end of the **tableView:commitEditingStyle:forRowAtIndexPath** method, replace the call to **completeItem** with the following code:
 
 		// Ask the todoService to set the item's complete value to YES
 	    [self.todoService completeItem:item];
 
-The app is now setup to receive events from Pusher, and to update the local Todo list accordingly.
+The app is now able to receive events from Pusher, and to update the local Todo list accordingly.
 
 <a name="install-scripts"></a><h2>Install server scripts</h2>
 
