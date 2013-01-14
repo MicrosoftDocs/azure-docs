@@ -1,12 +1,12 @@
 <div chunk="../chunks/article-left-menu-ios.md" />
 
-# Build Realtime Apps with Mobile Services and Pusher
+# Build Real-time Apps with Mobile Services and Pusher
 
-This topic shows you how can add realtime functionality to your mobile service application. When complete, mobile services will synchronise your todo list across all running instances of your app in realtime.
+This topic shows you how can add real-time functionality to your Windows Azure Mobile Services-based app. When completed, your TodoList data is synchronized, in real-time, across all running instances of your app.
 
-The [Push Notifications to Users][] tutorial showed you how to use push notifications to inform users of new items in the Todo list. In this tutorial we use Pusher so that the Todo list is kept in sync live with any changes applied immediately in-app. Push notifications are great to show occasional changes, however a service like Pusher is much better suited to deliver frequent and rapid changes.
+The [Push Notifications to Users][] tutorial shows you how to use push notifications to inform users of new items in the Todo list. Push notifications are a great way to show occasional changes. However, a service like Pusher is much better at delivering frequent and rapid changes to users. In this tutorial, we use Pusher with Mobile Services to keep a Todo list in sync when changes are made in any running instance of the app. 
 
-Pusher is a cloud-based service that makes building realtime apps incredibly easy. You can use Pusher to quickly build live polls, chat rooms, multi-player games, collaborative apps, to broadcast live data and content, and that’s just the start! For more information, see [http://pusher.com][].
+Pusher is a cloud-based service that, like Mobile Services, makes building real-time apps incredibly easy. You can use Pusher to quickly build live polls, chat rooms, multi-player games, collaborative apps, to broadcast live data and content, and that’s just the start! For more information, see [http://pusher.com][].
 
 This tutorial walks you through these basic steps to add realtime collaboration to the Todo list application:
 
@@ -29,11 +29,11 @@ Now that you have your Pusher account set up, the next step is to modify the iOS
 
 The [libPusher][] library let’s you access Pusher from iOS. 
 
-1. Download the libPusher library [here](https://github.com/downloads/lukeredpath/libPusher/libPusher-iOS-v1.4.zip).
+1. Download the libPusher library [from here][libPusherDownload].
 
-2. Create a group called 'libPusher' in your project.
+2. Create a group called _libPusher_ in your project.
 
-3. In Finder, unzip the downloaded zip file, select the **libPusher-combined.a** and **/headers** folder, and drag these items onto the **libPusher** group in your project.
+3. In Finder, unzip the downloaded zip file, select the **libPusher-combined.a** and **/headers** folders, and drag these items into the **libPusher** group in your project.
 
 4. Check **Copy items into destination group’s folder**, then click **Finish**
 	
@@ -77,7 +77,7 @@ The library is now installed ready for use.
         // To be called when items are completed by other users
         - (NSUInteger) itemCompleted:(NSDictionary *)item;
         
-2. Next, replace the declarations of **addItem** and **completeItem** to be:
+2. Replace the existing declarations of **addItem** and **completeItem** with the following:
 
 		- (void) addItem:(NSDictionary *) item;
 		- (void) completeItem: (NSDictionary *) item;
@@ -125,9 +125,9 @@ The library is now installed ready for use.
 		    return index;
 		}
 
-	The TodoService now allows you to find items by **id**, and to add and complete items locally without hitting the data table on Windows Azure.
+	The TodoService now allows you to find items by **id** and add and complete items locally without sending explicit requests to the remote service.
 	
-4. Replace the **addItem** and **completeItem** methods:
+4. Replace the existing **addItem** and **completeItem** methods with the following code:
 
 		-(void) addItem:(NSDictionary *)item
 		{
@@ -150,29 +150,29 @@ The library is now installed ready for use.
 		}
 
 
-	The items will be added and completed (and updated in the UI) when events are received from Pusher, not when the data table is updated.
+	Note that items are now added and completed, along with updates to the UI, when events are received from Pusher instead of when the data table is updated.
 
-5. In **TodoListController.h**, add the following import statements:
+5. In the **TodoListController.h** file, add the following import statements:
 
 		#import "PTPusherDelegate.h"
 		#import "PTPusher.h"
 		#import "PTPusherEvent.h"
 		#import "PTPusherChannel.h"
 		
-6. Also, modify the interface declaration to add 'PTPusherDelegate', so the line now reads:
+6. Modify the interface declaration to add **PTPusherDelegate** to look like the following:
 
 		@interface TodoListController : UITableViewController<UITextFieldDelegate, PTPusherDelegate>
 		
-7. Add a new property as follows:
+7. Add the following new property:
 
 		@property (nonatomic, strong) PTPusher *pusher;
 
-8. Add the following code to declare a new method:
+8. Add the following code that declares a new method:
 
 		// Sets up the Pusher client
 		- (void) setupPusher;
 		
-9. In **TodoListController.m** add the following line under the other **@synthesise** lines to implement the new property:
+9. In **TodoListController.m**, add the following line under the other **@synthesise** lines to implement the new property:
 
 		@synthesize pusher = _pusher;
 
@@ -236,19 +236,19 @@ The library is now installed ready for use.
 		    itemText.text = @"";
 		}
 
-13. In the **TodoListController.m** file, in the (void)viewDidLoad method, add a call to the setupPusher method so the first few lines are:
+13. In the **TodoListController.m** file, locate the (void)viewDidLoad method and add a call to the **setupPusher** method so the first few lines are:
 
 		- (void)viewDidLoad
 		{
 		    [super viewDidLoad];
 		    [self setupPusher];
 		    
-14. At the end of the **tableView** method replace the call to **completeItem**:
+14. At the end of the **tableView:commitEditingStyle:forRowAtIndexPath** method, replace the call to **completeItem** with the following code:
 
 		// Ask the todoService to set the item's complete value to YES
 	    [self.todoService completeItem:item];
 
-The app is now setup to receive events from Pusher, and to update the local Todo list accordingly.
+The app is now able to receive events from Pusher, and to update the local Todo list accordingly.
 
 <a name="install-scripts"></a><h2>Install server scripts</h2>
 
@@ -345,10 +345,21 @@ All that remains is setting up your server scripts. We'll insert a script for wh
 
 To test the app you'll need to run two instances. You can run one instance on an iOS device and another in the iOS simulator.
 
-1. Connect your iOS device, and Run the app on the device. Stop debugging and you'll now have your app installed on your device.
-2. Run the app on the iOS simulator, and open the app on your iOS device so that you have two instances running.
-3. Add a new Todo item on one of the instances. See it appear on the other instance.
-4. Complete a Todo item on one instance. See it disappear on the other instance. 
+1. Connect your iOS device, press the **Run** button (or the Command+R key) to start the app on the device, then stop debugging. 
+
+	You now have your app installed on your device.
+
+2. Run the app on the iOS simulator, and at the same time start the app on your iOS device.
+
+	Now you have two instances of the app running.
+
+3. Add a new Todo item in one of the app instances. 
+
+	Verify that the added item appears in the other instance.
+
+4. Check a Todo item to mark it complete in one app instance. 
+
+	Verify that the item disappears from the other instance. 
 
 Congratulations, you have successfully configured your mobile service app to synchronise across all clients in realtime.
 
@@ -376,9 +387,10 @@ To learn more about registering and using server scripts, see [Mobile Services s
 [add-linker-flag]: ../Media/pusher-ios-add-linker-flag.png
 
 <!-- URLs. -->
-[Push Notifications to Users]: ./mobile-services-push-notifications-to-app-users.md
-[Get started with Mobile Services]: ./mobile-services-get-started.md
-[libPusher]: https://github.com/lukeredpath/libPusher
+[Push Notifications to Users]: ../tutorials/mobile-services-push-notifications-to-app-users.md
+[Get started with Mobile Services]: ../tutorials/mobile-services-get-started.md
+[libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
+[libPusherDownload]: http://go.microsoft.com/fwlink/p/?LinkId=276998
 
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
