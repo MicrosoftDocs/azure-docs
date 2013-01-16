@@ -50,7 +50,10 @@ In this tutorial you'll learn:
 * How to configure tracing and view trace data.
 * How to scale the application by increasing the number of worker role instances.
 
-<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+<div class="dev-callout"><strong>Note</strong>
+<p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Web Sites feature enabled. You can create a free trial account and enable preview features in just a couple of minutes. For details, see <a href="/en-us/develop/net/tutorials/create-a-windows-azure-account/" target="_blank">Create a Windows Azure account and enable preview features</a>.</p>
+</div>
+<br />
  
 ### Tutorial segments
 
