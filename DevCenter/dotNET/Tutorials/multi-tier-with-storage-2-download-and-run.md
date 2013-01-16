@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-net-tutorials-multi-tier-web-site-2-download-and-run" urlDisplayName="Step 2: Download and Run" pageTitle="Multi-tier web site tutorial - Step 2: Download and run" metaKeywords="Windows Azure tutorial, deploying email service app, publishing email service" metaDescription="The second tutorial in a series that teaches how to configure your computer for Windows Azure development and deploy the Email Service app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="riande" editor="mollybos" manager="wpickett" />
+<properties linkid="develop-net-tutorials-multi-tier-web-site-2-download-and-run" urlDisplayName="Step 2: Download and Run" pageTitle="Multi-tier web site tutorial - Step 2: Download and run" metaKeywords="Windows Azure tutorial, deploying email service app, publishing email service" metaDescription="The second tutorial in a series that teaches how to configure your computer for Windows Azure development and deploy the Email Service app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="riande" editor="mollybos" manager="wpickett" />
 
 <div>
 <div class="left-nav">
@@ -50,11 +50,8 @@ In this tutorial you'll learn:
 * How to configure tracing and view trace data.
 * How to scale the application by increasing the number of worker role instances.
 
-<div class="dev-callout"><strong>Note</strong>
-<p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Web Sites feature enabled. You can create a free trial account and enable preview features in just a couple of minutes. For details, see <a href="/en-us/develop/net/tutorials/create-a-windows-azure-account/" target="_blank">Create a Windows Azure account and enable preview features</a>.</p>
-</div>
-<br />
-
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+ 
 ### Tutorial segments
 
 - [Set up the development environment][]
@@ -172,6 +169,11 @@ When you run the sample application in Visual Studio, you can access tables, que
 4. Click **Add Storage Account**.
 
    ![Add ASE Account][mtas-ase-add2]
+
+Other tools are also available that work with Windows Azure Storage, for example:
+
+* [ClumsyLeaf Software TableXplorer](http://clumsyleaf.com/products/tablexplorer)
+* [Cerebrata Cloud Storage Studio](http://www.cerebrata.com/Products/CloudStorageStudio/Details.aspx?t1=0&t2=6)
 
 
 
@@ -526,7 +528,7 @@ You can use the same UI to configure the connection strings (just make sure that
 
 	The deployment can take about 5 minutes or more to complete.
 
-1. When the deployment status is complete, click the **WebSite URL** to launch the application.
+1. When the deployment status is complete, click the **Website URL** to launch the application.
 
    ![Dashboard][mtas-c55]
 
@@ -606,7 +608,7 @@ Tracing is an invaluable tool for debugging a cloud application. In this section
 
 <h2><a name="addRole"></a><span class="short-header">Add a Role Instance</span>Add another worker role instance to handle increased load</h2>
 
-There are two approaches to scaling compute resources in Azure roles, by specifying the [virtual machine size](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "VM sizes") and/or by specifying the instance count of running virtual machines. 
+There are two approaches to scaling compute resources in Windows Azure roles, by specifying the [virtual machine size](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "VM sizes") and/or by specifying the instance count of running virtual machines. 
 
 The virtual machine (VM) size is specified in the `vmsize` attribute of the `WebRole` or `WorkerRole` element in the *ServiceDefinition.csdef* file. The default setting is `Small` which provides you with one core and 1.75 GB of RAM. For applications that are multi-threaded and use lots of memory, disk, and bandwidth, you can increase the VM size for increased performance. For example, an `ExtraLarge` VM has 8 CPU cores and 14 GB of RAM. Increasing memory, cpu cores, disk, and bandwidth on a single machine is known as *scale up*. Good candidates for scale up include ASP.NET web applications that use [asynchronous methods](http://www.asp.net/mvc/tutorials/mvc-4/using-asynchronous-methods-in-aspnet-mvc-4 "Async MVC"). See [Virtual Machine Sizes](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "VM sizes") for a description of the resources provided by each VM size.
 
