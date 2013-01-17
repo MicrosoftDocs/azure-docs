@@ -5,7 +5,7 @@
 <li class="menu-media-services-resources"><a href="/en-us/develop/media-services/resources-java/">Tutorials and Resources</a></li>
 </ul>
 <ul class="links">
-<li class="forum"><a href="/en-us/support/forums/">Forums</a></li>
+<li class="forum"><a href="http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads">Forums</a></li>
 </ul>
 </div>
 <div class="floating-nav jump-to">
