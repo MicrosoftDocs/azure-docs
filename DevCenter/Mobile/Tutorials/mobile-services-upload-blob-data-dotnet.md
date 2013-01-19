@@ -71,38 +71,48 @@ A new insert script is registered that generates an SAS when a new Todo item is 
 			var host = accountName + '.blob.core.windows.net';
 			var canonicalizedResource = '/' + item.containerName + '/' + item.resourceName;
 
-			// Set the BLOB store container name on the item, which must be lowercase.
-			item.containerName = item.containerName.toLowerCase();
+			if (item.containerName !== undefined) {
+				// Set the BLOB store container name on the item, which must be lowercase.
+				item.containerName = item.containerName.toLowerCase();
 
-			// If it does not already exist, create the container 
-			// with public read access for blobs.        
-			var blobService = azure.createBlobService(accountName, accountKey, host);
-			blobService.createContainerIfNotExists(item.containerName, {
-				publicAccessLevel: 'blob'
-			}, function(error) {
-				if (!error) {
-					// Provide write access to the container for the next 5 mins.        
-					var sharedAccessPolicy = {
-						AccessPolicy: {
-							Permissions: azure.Constants.BlobConstants.SharedAccessPermissions.WRITE,
-							Expiry: formatDate(new Date(new Date().getTime() + 5 * 60 * 1000))
-						}
-					};
+				// If it does not already exist, create the container 
+				// with public read access for blobs.        
+				var blobService = azure.createBlobService(accountName, accountKey, host);
+				blobService.createContainerIfNotExists(item.containerName, {
+					publicAccessLevel: 'blob'
+				}, function(error) {
+					if (!error) {
 
-					// Generate an SAS to upload the image.
-					var sasQueryString = qs.encode(new azure.SharedAccessSignature(accountName, 
-						accountKey).generateSignedQueryString(canonicalizedResource, {}, 
-						azure.Constants.BlobConstants.ResourceTypes.BLOB, sharedAccessPolicy));
+						console.log("Container create succeeded.");
+						// Provide write access to the container for the next 5 mins.        
+						var sharedAccessPolicy = {
+							AccessPolicy: {
+								Permissions: azure.Constants.BlobConstants.SharedAccessPermissions.WRITE,
+								Expiry: formatDate(new Date(new Date().getTime() + 5 * 60 * 1000))
+							}
+						};
 
-					// Set the full resource path, including the SAS, on the new item. 
-					item.sharedAccessPath = 'https://' + host + canonicalizedResource + '?' + sasQueryString;
-            		// Set text field to the full resource path so that it will be displayed in the app.
-            		item.text =  'https://' + host + canonicalizedResource;
-				} else {
-					console.error(error);
-				}
+						// Generate an SAS to upload the image.
+						var sasQueryString = 
+							qs.encode(new azure.SharedAccessSignature(accountName, accountKey)
+							.generateSignedQueryString(canonicalizedResource, {}, azure.Constants
+							.BlobConstants.ResourceTypes.BLOB, sharedAccessPolicy));
+
+						console.log(sasQueryString);
+
+						// Set the full resource path, including the SAS, on the new item. 
+						item.sharedAccessPath = 'https://' + host + canonicalizedResource + 
+							'?' + sasQueryString;
+						// Set text field to the full resource path so that it will be displayed in the app.
+						item.text = 'https://' + host + canonicalizedResource;
+					} else {
+						console.error(error);
+					}
+					request.execute();
+				});
+			} else {
 				request.execute();
-			});
+			}
 		}
 
 		function formatDate(date) {
