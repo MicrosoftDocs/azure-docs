@@ -1,14 +1,16 @@
 # Using Windows Azure Storage for SQL Server Backup and Restore
-The ability to write SQL Server backups to the Windows Azure Blob storage service is available in SQL Server 2012 SP1 CU2 or a later version. You can use this functionality to back up to and restore from a Windows Azure Blob service from your on-premise SQL Server database or a SQL Server database in a Windows Azure Virtual Machine. Backup to cloud offers you the benefits of availability, limitless geo-replicated off-site storage, and ease of migration of data to and from the cloud.   In the SQL Server 2012 SP1 CU2 release, you can issue BACKUP or RESTORE statements by using T-SQL or SMO. Back up to or restore from the Windows Azure Blob storage service by using SQL Server Management Studio Backup or Restore Wizard is not available.
+The ability to write SQL Server backups to the Windows Azure Blob storage service is available in SQL Server 2012 SP1 CU2 or a later version. You can use this functionality to back up to and restore from the Windows Azure Blob service from your on-premise SQL Server database or a SQL Server database in a Windows Azure Virtual Machine. Backup to cloud offers you the benefits of availability, limitless geo-replicated off-site storage, and ease of migration of data to and from the cloud.   In the SQL Server 2012 SP1 CU2 release, you can issue BACKUP or RESTORE statements by using T-SQL or SMO. Back up to or restore from the Windows Azure Blob storage service by using SQL Server Management Studio Backup or Restore Wizard is not available.
 
-## Benefits of Using a Windows Azure Blob Service for SQL Server Backups
+## Benefits of Using the Windows Azure Blob Service for SQL Server Backups
 
 Storage management, risk of storage failure, access to off-site storage, and configuring devices are some of the general backup challenges. For SQL Server running in a Windows Azure Virtual Machine, there are additional challenges of configuring and backing up VHD, or configuring attached drives. The following lists some of the key benefits of using the Windows Azure Blob storage service storage  for SQL Server backups:
 
-* Flexible and limitless off-site storage: Backups are available from anywhere and at any time and can easily be accessed for restore. By selecting a different region for the Blob storage than your on-premises, you have an extra layer of protection in the event of a region-wide disaster.
-* Built-in high availability on Windows Azure provides the extra protection and data redundancy for your backups against hardware failures. You can select the geo-replication option when you create the storage account in Windows Azure for cost effective geo replication.
-* Cost Benefits: Pay only for the service that is used.
-* Ease of database migration to and from Windows Azure.
+* Flexible, reliable, and limitless off-site storage: Storing your backups on Windows Azure Blob service can be a convenient, flexible, and easy to access off-site option. Creating off-site storage for your SQL Server backups can be as easy as modifying your existing scripts/jobs. Off-site storage should typically be far enough from the production database location to prevent a single disaster that might impact both the off-site and production database locations. By choosing to geo replicate the Blob storage you have an extra layer of protection in the event of a disaster that could affect the whole region. In addition, backups are available from anywhere and at any time and can easily be accessed for restores.
+* Backup Archive: The Windows Azure Blob Storage service offers a better alternative to the often used tape option to archive backups. Tape storage might require physical transportation to an off-site facility and measures to protect the media. Storing your backups in Windows Azure Blob Storage provides an instant, highly available, and a durable archiving option.
+* No overhead of hardware management: There is no overhead of hardware management with Windows Azure services. Windows Azure services manage the hardware and provide geo-replication for redundancy and protection against hardware failures.
+* Currently for instances of SQL Server running in a Windows Azure Virtual Machine, backing up to Windows Azure Blob storage services can be done by creating attached disks. However, there is a limit to the number of disks you can attach to a Windows Azure Virtual Machine. This limit is 16 disks for an extra large instance and fewer for smaller instances. By enabling a direct backup to Windows Azure Blob Storage, you can bypass the 16 disk limit.
+* In addition, the backup file which now is stored in the Windows Azure Blob storage service is directly available to either an on-premises SQL Server or another SQL Server running in a Windows Azure Virtual Machine, without the need for database attach/detach or downloading and attaching the VHD.
+* Cost Benefits: Pay only for the service that is used. Can be cost-effective as an off-site and backup archive option. See the [Windows Azure pricing calculator](http://go.microsoft.com/fwlink/?LinkId=277060 "Pricing Calculator"), and the [Windows Azure Pricing article](http://go.microsoft.com/fwlink/?LinkId=277059 "Pricing article") for more information.
 
 For more details, see Windows Azure Storage For SQL Server Backup.
 
@@ -39,24 +41,19 @@ For step by step instructions about how to create a SQL Server Credential, see [
 
 ## SQL Server Database Backups and Restore with Windows Azure Blobs- Concepts and Tasks:
 
-<table Border="2">
-	<tr>
-		<th>Task descriptions</th>
-		<th>Link to Topics</th>
-	</tr>
-	<tr>
-		<td>Concepts, considerations, and code samples</td>
-		<td>[SQL Server Backup and Restore with Windows Azure Blob Storage Service](http://go.microsoft.com/fwlink/?LinkId=271617)</td>
-	</tr>
-	<tr>
-		<td>Walkthrough (tutorial): Simple Backup and Restore to Windows Azure Blob service</td>
-		<td>[How to use the Windows Azure Blob Storage Service](http://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/)</td>
-	</tr>
-	<tr>
-		<td>Best Practices, Troubleshooting</td>
-		<td>[Back and Restore Best Practices (Windows Azure Blob Storage Service)](http://go.microsoft.com/fwlink/?LinkId=272394)</td>
-	</tr>
-</table>
+Concepts, considerations, and code samples:
+
+[SQL Server Backup and Restore with Windows Azure Blob Storage Service](http://go.microsoft.com/fwlink/?LinkId=271617)
+
+Getting Started Tutorial:
+
+[Getting Started with SQL Server Backup and Restore to Windows Azure Blob Storage Service](http://go.microsoft.com/fwlink/?LinkID=271615 "Tutorial")
+
+Best Practises, Troubleshooting:
+	
+[Back and Restore Best Practices (Windows Azure Blob Storage Service)](http://go.microsoft.com/fwlink/?LinkId=272394)
+
+
 
 
 	
