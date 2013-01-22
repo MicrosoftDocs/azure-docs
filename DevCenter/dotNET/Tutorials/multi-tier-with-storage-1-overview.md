@@ -609,7 +609,7 @@ The following list shows an example of what data in the table might look like.
 
 <tr>
 <th align="right" bgcolor="lightgray">Row Key</th>
-<td>634852858215726983student1@contoso.edu</td>
+<td>634852858215726983student2@contoso.edu</td>
 </tr>
 
 <tr>
