@@ -23,7 +23,7 @@ This tutorial requires the following:
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services].
 
-<a name="register"></a><h2><span class="short-header">Register your app</span>Register your app for the Windows Store</h2>
+<h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for the Windows Store</h2>
 
 To be able to authenticate users, you must submit your app to the Windows Store. You must then register the client secret to integrate Live Connect with Mobile Services.
 
@@ -77,13 +77,13 @@ To be able to authenticate users, you must submit your app to the Windows Store.
 
 11. In **Redirect domain**, enter the URL of your mobile service from Step 8, and then click **Save**.
 
-16. Back in the Management Portal, click the **Identity** tab, enter the **Client secret** obtained from Windows Store, and click **Save**.
+12. Back in the Management Portal, click the **Identity** tab, enter the **Client secret** obtained from Windows Store, and click **Save**.
 
    ![][13]
 
 Both your mobile service and your app are now configured to work with Live Connect.
 
-<a name="permissions"></a><h2><span class="short-header">Restrict permissions</span>Restrict permissions to authenticated users</h2>
+<h2><a name="permissions"></a><span class="short-header">Restrict permissions</span>Restrict permissions to authenticated users</h2>
 
 1. In the Management Portal, click the **Data** tab, and then click the **TodoItem** table. 
 
@@ -101,7 +101,7 @@ Both your mobile service and your app are now configured to work with Live Conne
 
 Next, you will update the app to authenticate users with Live Connect before requesting resources from the mobile service.
 
-<a name="add-authentication"></a><h2><span class="short-header">Add authentication</span>Add authentication to the app</h2>
+<h2><a name="add-authentication"></a><span class="short-header">Add authentication</span>Add authentication to the app</h2>
 
 1. Download and install the [Live SDK for Windows].
 

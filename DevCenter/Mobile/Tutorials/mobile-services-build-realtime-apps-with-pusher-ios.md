@@ -4,7 +4,7 @@
 
 This topic shows you how can add real-time functionality to your Windows Azure Mobile Services-based app. When completed, your TodoList data is synchronized, in real-time, across all running instances of your app.
 
-The [Push Notifications to Users][] tutorial shows you how to use push notifications to inform users of new items in the Todo list. Push notifications are a great way to show occasional changes. However, a service like Pusher is much better at delivering frequent and rapid changes to users. In this tutorial, we use Pusher with Mobile Services to keep a Todo list in sync when changes are made in any running instance of the app. 
+The [Push Notifications to Users][] tutorial shows you how to use push notifications to inform users of new items in the Todo list. Push notifications are a great way to show occasional changes. However, sometimes an app needs frequent real-time notifications. Real-time notifications can be added to your mobile service using the Pusher API. In this tutorial, we use Pusher with Mobile Services to keep a Todo list synchronized when changes are made in any running instance of the app. 
 
 Pusher is a cloud-based service that, like Mobile Services, makes building real-time apps incredibly easy. You can use Pusher to quickly build live polls, chat rooms, multi-player games, collaborative apps, to broadcast live data and content, and that’s just the start! For more information, see [http://pusher.com][].
 

@@ -1,4 +1,5 @@
 #Windows Azure command-line tool for Mac and Linux
+
 This tool provides functionality for creating, deploying, and managing virtual machines, websites and Windows Azure Mobile Services from Mac and Linux desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS, and PHP.
 
 To install the tool on a Mac, download and run the [Windows Azure SDK installer](http://go.microsoft.com/fwlink/?LinkId=252249).
@@ -262,8 +263,8 @@ This command lists all virtual machine endpoints. The -json option specifies tha
 	data:   ----  -------------  ----------
 	data:   ssh   22             22
 
-<span id="Commands_to_manage_your_Azure_virtual_machine_images"></span>
-##Commands to manage your Windows Azure virtual machine images
+##<a id="Commands_to_manage_your_Azure_virtual_machine_images"></a>Commands to manage your Windows Azure virtual machine images
+
 Virtual machine images are captures of already configured virtual machines that can be replicated as required.
 
 **vm image list [options]**
@@ -329,8 +330,8 @@ Some systems impose per-process file descriptor limits. If this limit is exceede
 	info:   http://myaccount.blob.core.azure.com/vm-images/Sample.vhd is uploaded successfully
 	info:   vm image create command OK
 
-<span id="Commands_to_manage_your_Azure_virtual_machine_data_disks"></span>
-##Commands to manage your Windows Azure virtual machine data disks
+##<a id="Commands_to_manage_your_Azure_virtual_machine_data_disks"></a>Commands to manage your Windows Azure virtual machine data disks
+
 Data disks are .vhd files in blob storage that can be used by a virtual machine. For more information about how data disks are deployed to blob storage, see the Windows Azure technical diagram shown earlier. 
 
 The commands for attaching data disks (azure vm disk attach and azure vm disk attach-new) assign a Logical Unit Number (LUN) to the attached data disk, as required by the SCSI protocol. The first data disk attached to a virtual machine is assigned LUN 0, the next is assigned LUN 1, and so on.
@@ -423,8 +424,8 @@ This command detaches a data disk attached to a Windows Azure virtual machine. &
 	info:   Executing command vm disk detach
 	info:   vm disk detach command OK
 
-<span id="Commands_to_manage_your_Azure_cloud_services"></span>
-##Commands to manage your Windows Azure cloud services
+##<a id="Commands_to_manage_your_Azure_cloud_services"></a>Commands to manage your Windows Azure cloud services
+
 Windows Azure cloud services are applications and services hosted on web roles and worker roles. The following commands can be used to manage Windows Azure cloud services.
 
 **service list [options]**
@@ -447,8 +448,9 @@ This command deletes a Windows Azure cloud service.
 	info:   Executing command cloud-service delete myservice 
 	info:   cloud-service delete command OK
 
-<span id="Commands_to_manage_your_Azure_certificates"></span>
-##Commands to manage your Windows Azure certificates
+
+##<a id="Commands_to_manage_your_Azure_certificates"></a>Commands to manage your Windows Azure certificates
+
 Windows Azure certificates are cerificates (that is, SSL certificates) connected to your Windows Azure account.
 
 **service cert list [options]**
@@ -484,9 +486,9 @@ This command deletes a certificate.
 	info:   nghinazz : cert deleted
 	info:   service cert delete command OK
 
-<span id="Commands_to_manage_your_web_sites"></span>
 
-##Commands to manage your web sites
+##<a id="Commands_to_manage_your_web_sites"></a>Commands to manage your web sites
+
 A Windows Azure web site is a web configuration accessible by URI. Web sites are hosted in virtual machines, but you do not need to think about the details of creating and deploying the virtual machine yourself. Those details are handled for you by Windows Azure.
 
 **site list [options]**
@@ -593,8 +595,9 @@ This command stops a web site.
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-<span id="Commands_to_manage_mobile_services"></span>
-##Commands to manage Windows Azure Mobile Services
+
+##<a id="Commands_to_manage_mobile_services"></a>Commands to manage Windows Azure Mobile Services
+
 Windows Azure Mobile Services brings together a set of Windows Azure services that enable backend capabilities for your apps. Mobile Services commands are divided into the following categories:
 
 + [Commands to manage mobile service instances](#Mobile_Services)
@@ -609,8 +612,7 @@ The following options apply to most Mobile Services commands:
 + **-v** or **--verbose**: Write verbose output.
 + **--json**: Write JSON output.
 
-<span id="Mobile_Services"></span>
-###Commands to manage mobile service instances
+###<a id="Mobile_Services"></a>Commands to manage mobile service instances
 
 **mobile locations [options]**
 
@@ -751,8 +753,8 @@ Key types are `master` and `application`.
    <p>When you regenerate keys, clients that use the old key may be unable to access your mobile service. When you regenerate the application key, you should update your app with the new key value. </p>
 </div> 
 
-<span id="Mobile_Configuration"></span>
-###Commands to manage mobile service configuration
+
+###<a id="Mobile_Configuration"></a>Commands to manage mobile service configuration
 
 **mobile config list [options] [servicename]**
 
@@ -793,8 +795,8 @@ This command sets a specific configuration option for a mobile service, in this 
 	info:    Executing command mobile config set
 	info:    mobile config set command OK
 
-<span id="Mobile_Tables"></span>
-###Commands to manage mobile service tables
+
+###<a id="Mobile_Tables"></a>Commands to manage mobile service tables
 
 **mobile table list [options] [servicename]**
 
@@ -895,8 +897,8 @@ This command supports the following additional options:
 + **-t `<top>`** or **--top `<top>`**: Returns a specific number of rows, specified by `<top>`.
 + **-l** or **--list**: Returns data in a list format.
 
-<span id="Mobile_Scripts"></span>
-###Commands to manage scripts
+
+###<a id="Mobile_Scripts"></a>Commands to manage scripts
 
 **mobile script list [options] [servicename]**
 
@@ -952,8 +954,9 @@ This command removes the existing insert script from the TodoItem table.
 	info:    Executing command mobile script delete
 	info:    mobile script delete command OK
 
-<span id="Manage_tool_local_settings"></span>
-##Manage tool local settings
+
+##<a id="Manage_tool_local_settings"></a>Manage tool local settings
+
 Local settings are your subscription ID and Default Storage Account Name.
 
 **config list [options]**
