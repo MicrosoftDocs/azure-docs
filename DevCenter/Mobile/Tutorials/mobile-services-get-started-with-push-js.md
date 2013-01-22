@@ -60,11 +60,15 @@ To be able to send push notifications to Windows Store apps from Mobile Services
 
    This adds the required Windows Store registration information to the application manifest.    
 
-7. Navigate to the [My Applications] page in the Live Connect Developer Center and click on your app in the **My applications** list.
+7. Back in the Windows Dev Center page for your new app, click **Advanced features**. 
 
    ![][4] 
 
-8. Under **API Settings**, make a note of the values of **Client secret** and **Package security identifier (SID)**. 
+8. In the Advanced Features page, click **Push notifications and Live Connect services info**, then click **Authenticating your service**.
+
+   ![][16]
+
+9. Make a note of the values of **Client secret** and **Package security identifier (SID)**.  
 
    ![][5]
 
@@ -179,8 +183,8 @@ In this simple example a user receives a push notification with the data that wa
 [1]: ../Media/mobile-services-win8-app-name.png
 [2]: ../Media/mobile-services-store-association.png
 [3]: ../Media/mobile-services-select-app-name.png
-[4]: ../Media/mobile-live-connect-apps-list.png
-[5]: ../Media/mobile-live-connect-app-details.png
+[4]: ../Media/mobile-services-win8-edit-app.png
+[5]: ../Media/mobile-services-win8-app-push-auth.png
 [6]: ../Media/mobile-services-win8-app-advanced.png
 [7]: ../Media/mobile-services-win8-app-push-connect.png
 [8]: ../Media/mobile-services-win8-app-push-auth.png
@@ -191,6 +195,7 @@ In this simple example a user receives a push notification with the data that wa
 [13]: ../Media/mobile-quickstart-push1.png
 [14]: ../Media/mobile-quickstart-push2.png
 [15]: ../Media/mobile-app-enable-toast-win8.png
+[16]: ../Media/mobile-services-win8-app-push-connect.png
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
