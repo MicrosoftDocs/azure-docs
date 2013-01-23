@@ -1,790 +1,186 @@
-# Understanding Cloud Storage
-
-This article describes the Windows Azure data storage offerings: Blobs,
-Tables, and SQL Database. These offerings are hosted in Windows Azure data
-centers and are available to your applications whether they are running
-on-premises, hosted within a Windows Azure data center, or hosted within
-a competing cloud service. The data storage offerings offer many
-benefits, including high availability, scalability, fault tolerance,
-geo-replication, easy manageability, limitless storage, and security. In
-addition, the data is accessible via the Internet to any operating
-system (OS) and programming language.
-
-If you are running your application code in a Windows Azure data center,
-then the virtual machine (VM) that is hosting your application exposes
-two additional storage options called local storage and Windows Azure
-drives. These storage options will be discussed at the end of this
-article. <a id="compare" name="compare"></a>
-
-## Table of Contents
-
-- [Storing Data in Windows Azure][]
-- [Windows Azure Blobs and Tables][]
- - [Blobs][]
- - [Tables][]
-- [SQL Database](#sql)
-- [Additional Storage Options for Applications Hosted in Windows Azure][]
- - [Local Storage][]
- - [Windows Azure Drives][]
-- [References][]
-
-<a name="storing"> </a>
-
-## Storing Data in Windows Azure
-
-In this section, we’ll discuss how storing your data centrally, outside
-of machines running your code, lets you produce highly-available and
-scalable applications. We’ll also describe how you can leverage the
-Windows Azure data storage offerings to assist you when creating highly
-available and scalable applications.
-
-Imagine your application is running on a machine in which a hardware
-failure occurs. The hardware failure would make your application not
-accessible to client requests. If your application is hosted in Windows
-Azure, Windows Azure detects the hardware failure and automatically
-moves your application code to a new machine so that your application
-remains available to clients. However, Windows Azure does not move any
-data from one machine to another. In fact, it would be impossible to
-move the data if the hardware failure was due to a hard disk crash.
-Storing your data outside the actual machine allows the new machine to
-access it.
-
-In addition, you may want to increase or decrease the number of machines
-running your application code in order to handle the actual load being
-placed on your application by client requests. If you have multiple
-machines running the code then multiple client requests from a single
-client could be directed to different machines. In order to keep data
-for a single client accessible to multiple machines, your application
-has to keep the client’s data in a central repository accessible to all
-the machines running your application code.
-
-The figure below shows how client requests could be distributed to
-different machines all of which have access the same data storage.
-
-![image][img0]
-
-For example, let’s say that your application allows a client to place
-items into a shopping cart and later, the client purchases the items
-they previously put into their cart. In this example, the client’s
-request to add an item to the shopping cart could occur on one machine
-and the request to checkout could be directed to a different machine.
-The second machine would need to know the items in the client’s cart.
-
-In order to achieve highly available and scalable applications, Windows
-Azure offers multitenant storage machines within the
-various Windows Azure data centers. These machines replicate your data
-ensuring that if one replica fails, others are still viable. These
-storage offerings can be accessed by applications running in a Windows
-Azure data center and can also be accessed directly by applications
-running on-premises or hosted in another cloud service.
-
-The figure above shows Blobs, Tables, and SQL Database as the central data
-repository. To store data in any of these offerings, you must first
-select which of the Windows Azure data centers you want to house your
-data. The table below shows the locations of 6 Windows Azure data
-centers throughout the globe:
-
-<table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
-<tbody>
-<tr>
-<td style="width: 100px;">
-**Country/Region**
-
-</td>
-<td style="width: 200px;">
-**Sub-regions**
-
-</td>
-</tr>
-<tr>
-<td>
-United States
-
-</td>
-<td>
-South Central & North Central
-
-</td>
-</tr>
-<tr>
-<td>
-Europe
-
-</td>
-<td>
-North & West
-
-</td>
-</tr>
-<tr>
-<td>
-Asia
-
-</td>
-<td>
-Southeast & East
-
-</td>
-</tr>
-</tbody>
-</table>
-Normally, you select a sub-region close to the clients that access your
-data in order to reduce latency thereby improving performance. In
-addition, you would select a sub-region that meets any jurisdiction
-issues relevant to your data. The data you store is replicated three
-times within this sub-region in order to you give you a high degree of
-fault tolerance. In addition, since the data is replicated, it can be
-served from multiple machines simultaneously thus increasing the
-performance of accessing your data. In fact, the data storage service
-constantly monitors the load on its machines and automatically load
-balances your data across its servers to maintain a high degree of
-throughput.
-
-Furthermore, Blobs and Tables are, by default, replicated to the other
-sub-region providing you with a high degree of disaster recovery. For
-example, if you select the United States North Central sub-region to
-house your data, then your data will be replicated in this sub-region
-and will also be replicated in the United States South Central
-sub-region as well. Should the North Central data center experience a
-disaster, then your data will automatically start being served from the
-South Central data center. If you choose, you can opt out of
-geo-replication by telephoning Windows Azure support.
-
-When using Blobs, Tables, or SQL Database, the data can be encrypted as it
-goes over the wire. However, the data is stored unencrypted inside the
-Windows Azure data centers. In many cases, you can encrypt the data
-yourself before sending it over the wire; Windows Azure will simply store
-whatever you send it and now the data will be stored encrypted. The
-Windows Azure SDK includes a storage emulator which you can use on your
-local machine to test your code’s use of Blobs and Tables. The emulator
-is free of charge to use and requires the use of SQL Server or SQL
-Express. You can test your code’s use of SQL Database by having it work
-against a locally installed instance of SQL Server or SQL Express.
-
-The pricing for Blobs and Tables is related to the storage you consume,
-the number of bytes you transfer out of the data center (transfer into
-the data center is free) and the number of I/O operations you perform.
-The pricing for SQL Database is based on the size of each database and the
-number of bytes you transfer out of the data center. To understand the
-latest pricing of these various storage mechanisms, please see [Windows
-Azure Pricing].
-
-<a name="blobsandtables"> </a>
-
-## Windows Azure Blobs and Tables
-
-Blobs and Tables reside within a Windows Azure Storage account. A single
-Windows Azure Storage account can hold up to 100 TB of data. If you need
-to store more data, then you can create additional storage accounts.
-Within a storage account, you can store data in Blobs and Tables. A
-storage account can also contain Queues. Here is a brief description for
-Blobs and Tables (they are described in more detail in the following
-sections):
-
--   **Blobs (Binary Large Objects)**. Blobs are for storing individual
-    data items (like files) which can be large in size. A single Blob
-    typically contains a document (xml, docx, pptx, xlxs, pdf, etc.), a
-    picture, a song or a video. Blobs can be publicly exposed for
-    read-only access and retrieved via HTTP(S) URLs.
-
--   **Tables**. Tables contain large collections of property-bag state
-    (called entities) such as customer information, order data, news
-    feed items. Tables sort their entities and can return a filtered
-    subset of the entities.
-
-These abstractions are accessible via [HTTP(S) REST APIs][] (overs ports
-80 and 443) making them available to all operating systems and all
-programming languages. To simplify making the web requests for software
-developers, you can use several *client libraries* targeting specific
-operating systems and programming languages. Libraries exist for .NET,
-Node.js, Java, and PHP, and are available at the [Windows Azure website][]. The term “client libraries” is used since your application
-is a client to the data storage servers. The figure below shows how your
-application code makes a call into a client library which, in turn,
-makes an HTTP(S) REST request to Blobs or Tables.
-
-![image][img1]
-
-When you create a storage account, your account is assigned two 256-bit
-account keys. One of these two keys must be specified in a header that
-is part of the HTTP(S) request. Having two keys allows for key rotation
-in order to maintain good security on your data. Typically, your
-applications would use one of the keys to access your data. Then, after
-a period of time (determined by you), you have your applications switch
-over to using the second key. Once you know your applications are using
-the second key, you retire the first key and then generate a new key.
-Using the two keys this way allows your applications access to the data
-without incurring any downtime.
-
-<a name="blobs"> </a>
-
-## Blobs<a id="Blob" name="Blob"></a>
-
-Blobs provide a way to store large amounts of unstructured, binary data,
-such as documents, pictures, audio, video, etc. In fact, one of the
-features of Blobs is streaming content such as audio or video. A storage
-account has blob containers and a container contains blobs. Containers
-are similar to directories and contain blobs. There are two kinds of
-Blobs:
-
--   **Block Blobs** are ideal for most scenarios and allow you to easily
-    insert, delete, and reorder blocks within a blob. Each block is
-    identified with an ID and contains up to 4MB of data. The maximum
-    size of a Block Blob is 200GB.
-
--   **Page Blobs** are typically used for virtual hard drives (VHDs) and
-    are much less commonly used than Block Blobs. Page Blobs allow you
-    to save money when blobs contain long runs of zeros and have better
-    performance for random write operations. A Page Blob is composed of
-    512-byte pages. Any page that you do not write to logically contains
-    zeros and is not physically backed by storage and therefore you are
-    not charged for these pages. The maximum size of a Page Blob is 1TB.
-
-There are many features available to you when using Blobs. The list
-below enumerates some of them:
-
--   Blobs can be accessed via HTTP(S) REST APIs or via a client library
-
--   Blobs can be exposed for read-only public access which makes them
-    great for storing public pictures, videos, etc.
-
--   You can create a Shared Access Signature (SAS) for a blob allowing
-    others that do not have one of the 256-bit storage access keys to
-    read, write, or delete the blob during a specified window of time.
-
--   You can create snapshots of a blob effectively making read-only
-    versions. This is useful for maintaining different versions of a
-    document, photo, or video.
-
--   An application can acquire a lease on a blob allowing it to make
-    multiple exclusive updates to the blob.
-
--   You can use the Content Delivery Network (CDN) to cache and deliver
-    blobs from data centers that are closer to your customers thereby
-    improving performance. The CDN also offers smooth streaming support
-    for blob videos.
-
-To ease the migration of existing applications that use standard File
-I/O APIs to access files, Windows Azure offers a feature called Windows
-Azure Drives. This feature effectively mounts a VHD stored as a Page
-Blob as a disk drive. This allows your application code to use standard
-FILE I/O APIs against the mounted drive letter and redirect the I/O
-operations to the backing blob. This feature is only available to
-applications running in Windows Azure because the VMs must have a
-special NTFS device driver installed on them. See [Windows Azure Drives][] for more details.<a id="Queue" name="Queue"></a>
-
-<a name="tables"> </a>
-
-## Tables
-
-Tables provide a non-relational key/property bag collection useful for
-storing tabular data such as customer information, orders, news feeds,
-and game scores. Key benefits of tables are that they are
-pay-for-consumption, can handle small and large (100 TB) amounts of data
-efficiently, and are accessible via HTTP(S). For data that requires
-server-side computation such as joins, sorts, views, and stored
-procedures, you should consider using SQL Database as Tables do not support
-these features. See [SQL Database](#sql) for more details.
-
-A table contains entities. Unlike database tables, the entities within a
-single table can have differing sets of properties. For example, you can
-store customer entities and order entities within the same table. Tables
-are similar to rows within a spreadsheet application (such as Excel) in
-that each row can contain a different number of columns and the cells
-can vary their data type.
-
-An entity can be up to 1MB in size and consist of a set of up to 255
-tuples. Each tuple represents a property with its name, data type, and
-value. The set of valid data types are shown below:
-
-<table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
-<tbody>
-<tr align="left" valign="top">
-<td>
-Date Type
-
-</td>
-<td>
-**Description**
-
-</td>
-</tr>
-<tr align="left" valign="top">
-<td>
-String
-
-</td>
-<td valign="middle">
-A UTF-16-encoded string of characters up to 64 KB in size.
-
-</td>
-</tr>
-<tr align="left" valign="top">
-<td>
-Byte array
-
-</td>
-<td valign="middle">
-An array of bytes up to 64 KB in size.
-
-</td>
-</tr>
-<tr align="left" valign="top">
-<td>
-Guid
-
-</td>
-<td valign="middle">
-A 128-bit globally unique identifier (can be null).
-
-</td>
-</tr>
-<tr align="left" valign="top">
-<td>
-DateTime
-
-</td>
-<td valign="middle">
-A 64-bit value expressed as Coordinated Universal Time (UTC) ranging
-from 12:00 midnight, January 1, 1601 A.D. (C.E.) to December 31, 9999
-(can be null).
-
-</td>
-</tr>
-<tr align="left" valign="top">
-<td>
-Int32
-
-</td>
-<td valign="middle">
-A 32-bit signed integer (can be null)
-
-</td>
-</tr>
-<tr align="left" valign="top">
-<td>
-Int64
-
-</td>
-<td valign="middle">
-A 64-bit signed integer (can be null).
-
-</td>
-</tr>
-<tr align="left" valign="top">
-<td>
-Double
-
-</td>
-<td valign="middle">
-A 64-bit floating point value (can be null)
-
-</td>
-</tr>
-<tr align="left" valign="top">
-<td>
-Boolean
-
-</td>
-<td valign="middle">
-A Boolean value (can be null)
-
-</td>
-</tr>
-</tbody>
-</table>
-Here is how to visualize entities within a table:
-
-<table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
-<tbody>
-<tr align="left" valign="top">
-<td>
-**PartitionKey**
-
-</td>
-<td>
-**RowKey**
-
-</td>
-<td>
-**Timestamp**
-
-</td>
-<td>
-**Property Collection  
-Name Type Value**
-
-</td>
-</tr>
-<tr align="left" valign="top">
-<td valign="middle">
-Jeff
-
-</td>
-<td valign="middle">
-C\_Jeff
-
-</td>
-<td valign="middle">
-DateTime
-
-</td>
-<td>
-Kind String “Customer”  
-Name String “Jeffrey”  
-City String “Seattle”
-
-</td>
-</tr>
-<tr align="left" valign="top">
-<td valign="middle">
-Jeff
-
-</td>
-<td valign="middle">
-O\_Cereal
-
-</td>
-<td valign="middle">
-DateTime
-
-</td>
-<td>
-Kind String “Order”  
-Item String “Cereal”  
-Quantity Int32 1
-
-</td>
-</tr>
-<tr align="left" valign="top">
-<td valign="middle">
-Jeff
-
-</td>
-<td valign="middle">
-O\_Milk
-
-</td>
-<td valign="middle">
-DateTime
-
-</td>
-<td>
-Kind String “Order”  
-Item String “Milk”  
-Quantity Int32 2
-
-</td>
-</tr>
-<tr align="left" valign="top">
-<td valign="middle">
-Paul
-
-</td>
-<td valign="middle">
-C\_Paul
-
-</td>
-<td valign="middle">
-DateTime
-
-</td>
-<td>
-Kind String “Customer”  
-Name String “Paul”  
-City String “New York”
-
-</td>
-</tr>
-</tbody>
-</table>
-As you can see, all entities must have the following three tuples (the
-remaining 252 are determined by you):
-
--   Timestamp: a DateTime
-
--   PartitionKey: a 1KB String
-
--   RowKey: a 1KB String
-
-The timestamp value is always assigned by the Windows Azure; you do not
-have control over this value. Whenever an entity is added or updated,
-Windows Azure assigns the current time to the property. This property is
-used for versioning and optimistic concurrency scenarios.
-
-The PartitonKey and RowKey together must uniquely identify a single
-entity within a table. That is, you cannot have two entities with
-identical PartitionKey and RowKey values inside a single table. What you
-choose to use for a PartitionKey is critically important when you’re
-designing a table because the PartitionKey value controls several things
-which are often in conflict with each other. Specifically, the
-PartitionKey controls:
-
--   **Entity Sort Order**. Within a table, entities are sorted in order
-    of their PartitionKey value. Entities that share the same
-    PartitionKey value are sorted by the RowKey value.
-
--   **Entity Partitioning**. The Windows Azure Table Service can serve
-    different partitions from different machines. So, the value you
-    chose for the PartitionKey determines the scalability of accessing
-    entities within your table. If all entities have the same
-    PartitionKey value, then the service cannot serve some entity
-    requests from 1 machine and some entity request from another
-    machine. Queries for entities within a single partition are faster
-    than queries that span partitions.
-
--   **Entity Group Transactions**. Tables allow multiple entities to be
-    updated as a single atomic transaction; this is called an *Entity
-    Group Transaction (EGT)*. However, an EGT is allowed only for
-    entities that share the same PartitionKey value because all these
-    entities are guaranteed to be served from a single machine. EGTs are
-    the main reason to allow entities with different schemas to exist in
-    a single table. For example, using an EGT, you can update a customer
-    and all their orders as a single atomic transaction.
-
-Table storage supports basic create, read (with filtering), update, &
-delete (CRUD) operations and these operations are performed using OData
-over HTTP(S) REST APIs. But, unlike database tables, it does not support
-joins, foreign keys, stored procedures, triggers, or any processing
-(other than filtering) on the storage engine side. Features like these
-are supported by SQL Database, described in the next section. Queries
-returning a large number of results, or queries that take more than 5
-seconds return partial results along with a *continuation token*. You
-can process the results returned and then pass the *continuation token*
-back to the service to get the next set of
-results.<a id="Table" name="Table"></a>
-
-<a name="sql"> </a>
-
-## SQL Database
-
-SQL Database provides a highly-available and scalable relational database
-management system for Windows Azure. Key benefits of SQL Database are SQL
-Server compatibility which allows you to use familiar T-SQL, SQL library
-APIs, tools, etc. For example, ADO.NET and ODBC continue to work with
-SQL Database with minimal code changes. For data that requires server-side
-computation such as joins, sorts, views, and stored procedures, SQL
-Database is an ideal choice. Alternatively, if you do not need these
-features, then [Windows Azure Tables][] may be a better option.
-
-SQL Database is a multitenant service which maintains scalability by
-automatically moving databases from heavily accessed machines to other
-machines. You access the database using the Tabular Data Stream (TDS)
-protocol on port 1433; In addition, access is granted from specific IP
-ranges and a password. Like Blobs & Tables, SQL Database can also be
-accessed via applications running on-premises, inside a Windows Azure
-data center or via some other cloud service.
-
-The figure below shows how your application code makes a call into a SQL
-client library (such as ADO.NET) which, in turn, makes a TDS request
-over TCP to SQL Database.
-
-![image][img3] <a id="SQLAzure" name="SQLAzure"> </a>
-
-Since Windows Azure does not provide direct access to the underlying
-hardware, administration tasks that involve hardware access, such as
-defining where the database file is located, are inaccessible in SQL
-Azure. Physical administration tasks are handled automatically by the
-platform, though you must still perform logical administration tasks
-such as creating logins, users, roles, etc. Because you cannot directly
-access the hardware, there are some differences between SQL Server and
-SQL Database in terms of administration, provisioning, T-SQL support,
-programming model and features.
-
-Unlike the other storage offerings discussed so-far, SQL Database provides
-more than simple data storage; it also provides server side processing,
-which allows you to perform complex processing on stored data without
-having to retrieve and process the entire data set within your
-application. For example, a query to find all salesmen with sales
-greater than $1,000.00 in the past year, within a specific region of the
-country, and provide a sum total of all their sales, can be executed
-completely by SQL Database and the results returned to your application.
-
-A SQL Database instance can be up to 150GB in size and can contain multiple
-tables with complex relationships between data in the tables. Rows can
-be up to 8MB in size, and can contain 1024 columns. A table within SQL
-Azure can have one clustered index on any column, and up to 999
-secondary indexes.
-
-<a name="additional"> </a>
-
-## Additional Storage Options for Applications Hosted in Windows Azure
-
-When your application is running in Windows Azure, the VMs running your
-application code have access to local storage and can also leverage
-Windows Azure Drives. The next two sections explain these storage
-mechanisms.
-
-<a name="local"> </a>
-
-## Local Storage
-
-When you run your application in Windows Azure, it is hosted in VMs.
-Each VM has a virtual hard drive connected to it and you can access
-subdirectories contained on this drive. The subdirectories provide fast,
-temporary storage for your application instance. In your code, you use
-standard file I/O operations (such as .NET’s FileStream class) to store
-any data you choose in these subdirectories.
-
-The subdirectories are only accessible by the code running on the VM and
-can be configured to persist or be erased whenever the VM reboots.
-However, if Windows Azure moves your code to another machine due to
-hardware failure or maintenance, be aware that the data in the
-subdirectories will not be moved with your code; the data will be lost.
-For this reason, local storage is best thought of as a cache allowing
-fast access to frequently-used data. Local storage is also useful for
-building up data (such as logs) that is then frequently transferred to a
-more durable storage mechanism such as Blobs, Tables, or SQL Database.
-<a id="Different" name="Different"></a>Consuming and accessing local
-storage is completely free.
-
-Each local storage subdirectory can hold between 1MB and the maximum
-amount allowed by the VM size that you have configured for your service.
-The table below shows the available VM sizes and the maximum amount of
-disk space available across all the local storage subdirectories on the
-VM:
-
-<table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
-<tbody>
-<tr align="left" valign="top">
-<td>
-VM Size
-
-</td>
-<td>
-**Max disk space for Local Storage subdirectories**
-
-</td>
-</tr>
-<tr align="left" valign="top">
-<td>
-**Extra Small**
-
-</td>
-<td>
-20GB
-
-</td>
-</tr>
-<tr align="left" valign="top">
-<td>
-**Small**
-
-</td>
-<td>
-225GB
-
-</td>
-</tr>
-<tr align="left" valign="top">
-<td>
-**Medium**
-
-</td>
-<td>
-490GB
-
-</td>
-</tr>
-<tr align="left" valign="top">
-<td>
-**Large**
-
-</td>
-<td>
-1TB
-
-</td>
-</tr>
-<tr align="left" valign="top">
-<td>
-**Extra Large**
-
-</td>
-<td>
-2TB
-
-</td>
-</tr>
-</tbody>
-</table>
-<a id="AzureStorage" name="AzureStorage"> </a> <a name="drives"> </a>
-
-## Windows Azure Drives
-
-Windows Azure Drives provides enables existing applications to run in
-Windows Azure with minimal code changes by providing a hard disk that is
-backed by a blob.
-
-A lot of existing applications use normal file system APIs to store data
-on the local hard drive. However, as pointed out at the beginning of
-this article, local storage is not accessible to other machines and
-therefore prohibits the creating of highly-available applications. A
-Windows Azure Drive allows you to create a virtual hard drive (VHD)
-backed by a Page Blob and mount that drive into the VM running your
-application code. You can create a VHD on your computer and then upload
-it to blob storage or you can use the REST API to have Windows Azure
-create the blob.
-
-Once in Blob storage, your application code can mount the VHD into your
-application’s VM. The VM has a special file system device driver on it
-that accepts normal file system I/O requests and translates them into
-operations on the blob-backed VHD. If the machine fails, then another
-machine can run the same code and mount the VHD accessing the data that
-was saved previously. Note that only one machine at a time can mount a
-Windows Azure Drive for writing which is why this feature is not for
-applications that are scaling out with multiple instances. However, it
-is possible to mount a read-only (snapshot) version of the blob into
-multiple VMs simultaneously. This can make Windows Azure Drives useful
-if you have a lot of read-only static content (like static HTML
-files).<a id="Ref" name="Ref"></a>
-
-<a name="references"> </a>
-
-## References
-
--   [Windows Azure Pricing][]
--   [Windows Azure Storage][]
--   [Windows Azure Storage Services REST API Reference][]
--   [Windows Azure Content Delivery Network (CDN)][]
--   [Storing and Accessing Data in Windows Azure][]
--   [Comparing SQL Server with SQL Database][]
--   [SQL Database MSDN library][]
--   [SQL Database Survival Guide][]
--   [Overview of Options for Migrating Data and Schema to SQL Database][]
--   [Handling Transactions in SQL Database][]
--   [Configuring Local Storage Resources][]
-
-<div style="width: 700px; border-top: solid; margin-top: 5px; padding-top: 5px; border-top-width: 1px;">
-*Written by Jeffrey Richter (Wintellect)*
-
-</div>
-
-  [Storing Data in Windows Azure]: #storing
-  [Windows Azure Blobs and Tables]: #blobsandtables
-  [Blobs]: #blobs
-  [Tables]: #tables
-  [SQL Database]: #sql
-  [Additional Storage Options for Applications Hosted in Windows Azure]: #additional
-  [Local Storage]: #local
-  [Windows Azure Drives]: #drives
-  [References]: #references
-  [img0]: ../../../DevCenter/Shared/Media/data-storage-offerings-3.jpg
-  [Windows Azure Pricing]: ../../../../pricing/calculator/
-
-  [HTTP(S) REST APIs]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355.aspx
-  [Windows Azure website]: {localLink:1123} "Downloads"
-  [img1]: ../../../DevCenter/Shared/Media/data-storage-offerings-4.jpg
-  [2]: {localLink:1145} "SQL Database"
-  [Windows Azure Tables]: #_Tables
-  [img3]: ../../../DevCenter/Shared/Media/data-storage-offerings-5.jpg
-  [calculator]: http://www.windowsazure.com/en-us/pricing/calculator/
-  [Windows Azure Storage]: ../../../../home/features/data-management/
-  [Windows Azure Storage Services REST API Reference]: http://msdn.microsoft.com/en-us/library/dd179355.aspx
-  [Windows Azure Content Delivery Network (CDN)]: ../../../../home/features/caching/
-  [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Comparing SQL Server with SQL Database]: http://social.technet.microsoft.com/wiki/contents/articles/compare-sql-server-with-sql-azure.aspx
-  [SQL Database MSDN library]: http://msdn.microsoft.com/en-us/library/windowsazure/gg619386.aspx
-  [SQL Database Survival Guide]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-survival-guide.aspx
-  [Overview of Options for Migrating Data and Schema to SQL Database]: http://social.technet.microsoft.com/wiki/contents/articles/overview-of-options-for-migrating-data-and-schema-to-sql-azure.aspx
-  [Handling Transactions in SQL Database]: http://social.technet.microsoft.com/wiki/contents/articles/handling-transactions-in-sql-azure.aspx
-  [Configuring Local Storage Resources]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758708.aspx
+#Data Management and Business Analytics
+
+Managing and analyzing data in the cloud is just as important as it is anywhere else. To let you do this, Windows Azure provides a range of technologies for working with relational and non-relational data. This article introduces each of the options. 
+
+##Table of Contents      
+
+- [Blob Storage](#blob)
+- [Running a DBMS in a Virtual Machine](#dbinvm)
+- [SQL Database](#sqldb)
+	- [SQL Data Sync](#datasync)
+	- [SQL Data Reporting](#datarpt)
+- [Table Storage](#tblstor)
+- [Hadoop](#hadoop)
+
+## <a name="blob"></a>Blob Storage
+
+The word "blob" is short for "Binary Large OBject", and it describes exactly what a blob is: a collection of binary information. Yet even though they’re simple, blobs are quite useful. [Figure 1](#Fig1) illustrates the basics of Windows Azure Blob Storage.
+
+<a name="Fig1"></a>![Diagram of Blobs][blobs]
+ 
+**Figure 1: Windows Azure Blob Storage stores binary data—blobs—in containers.**
+
+To use blobs, you first create a Windows Azure *storage account*. As part of this, you specify the Windows Azure datacenter that will store the objects you create using this account. Wherever it lives, each blob you create belongs to some container in your storage account. To access a blob, an application provides a URL with the form:
+
+http://&lt;*StorageAccount*&gt;.blob.core.windows.net/&lt;*Container*&gt;/&lt;*BlobName*&gt;
+
+&lt;*StorageAccount*&gt; is a unique identifier assigned when a new storage account is created, while &lt;*Container*&gt; and &lt;*BlobName*&gt; are the names of a specific container and a blob within that container. 
+
+Windows Azure provides two different kinds of blobs. The choices are:
+
+- *Block* blobs, each of which can contain up to 200 gigabytes of data. As its name suggests, a block blob is subdivided into some number of blocks. If a failure occurs while transferring a block blob, retransmission can resume with the most recent block rather than sending the entire blob again. Block blobs are a quite general approach to storage, and they’re the most commonly used blob type today.
+
+- *Page* blobs, which can be as large at one terabyte each. Page blobs are designed for random access, and so each one is divided into some number of pages. An application is free to read and write individual pages at random in the blob. In Windows Azure Virtual Machines, for example, VMs you create use page blobs as persistent storage for both OS disks and data disks.
+
+Whether you choose block blobs or page blobs, applications can access blob data in several different ways. The options include the following:
+
+- Directly through a RESTful (i.e., HTTP-based) access protocol. Both Windows Azure applications and external applications, including apps running on premises, can use this option.
+- Using the Windows Azure Storage Client library, which provides a more developer-friendly interface on top of the raw RESTful blob access protocol. Once again, both Windows Azure applications and external applications can access blobs using this library.
+- Using Windows Azure drives, an option that lets a Windows Azure application treat a page blob as a local drive with an NTFS file system. To the application, the page blob looks like an ordinary Windows file system accessed using standard file I/O. In fact, reads and writes are sent to the underlying page blob that implements the Windows Azure Drive. 
+
+To guard against hardware failures and improve availability, every blob is replicated across three computers in a Windows Azure datacenter. Writing to a blob updates all three copies, so later reads won’t see inconsistent results. You can also specify that a blob’s data should be copied to another Windows Azure datacenter in the same region but at least 500 miles away. This copying, called *geo-replication*, happens within a few minutes of an update to the blob, and it’s useful for disaster recovery.
+
+Data in blobs can also be made available via the Windows Azure *Content Delivery Network (CDN)*. By caching copies of blob data at dozens of servers around the world, the CDN can speed up access to information that’s accessed repeatedly. 
+
+Simple as they are, blobs are the right choice in many situations. Storing and streaming video and audio are obvious examples, as are backups and other kinds of data archiving. Developers can also use blobs to hold any kind of unstructured data they like. Having a straightforward way to store and access binary data can be surprisingly useful.
+
+
+## <a name="dbinvm"></a>Running a DBMS in a Virtual Machine
+
+Many applications today rely on some kind of database management system (DBMS). Relational systems such as SQL Server are the most frequently used choice, but non-relational approaches, commonly known as *NoSQL* technologies, get more popular every day. To let cloud applications use these data management options, Windows Azure Virtual Machines allows you to run a DBMS (relational or NoSQL) in a VM. [Figure 2](#Fig2) shows how this looks with SQL Server.
+
+<a name="Fig2"></a>![Diagram of SQL Server in a Virtual Machine][SQLSvr-vm]
+ 
+**Figure 2: Windows Azure Virtual Machines allows running a DBMS in a VM, with persistence provided by blobs.**
+
+To both developers and database administrators, this scenario looks much like running the same software in their own datacenter. In the example shown here, for instance, nearly all of SQL Server’s capabilities can be used, and you have full administrative access to the system. You also have the responsibility of managing the database server, of course, just as if it were running locally.
+
+As [Figure 2](#Fig2) shows, your databases appear to be stored on the local disk of the VM the server runs in. Under the covers, however, each of those disks is written to a Windows Azure blob. (It’s similar to using a SAN in your own datacenter, with a blob acting much like a LUN.) As with any Windows Azure blob, the data it contains is replicated three times within a datacenter and, if you request it, geo-replicated to another datacenter in the same region. It’s also possible to use options such as SQL Server database mirroring for improved reliability. 
+
+Another way to use SQL Server in a VM is to create a hybrid application, where the data lives on Windows Azure while the application logic runs on-premises. For example, this might make sense when applications running in multiple locations or on various mobile devices must share the same data. To make communication between the cloud database and on-premises logic simpler, an organization can use Windows Azure Virtual Network to create a virtual private network (VPN) connection between a Windows Azure datacenter and its own on-premises datacenter.
+
+
+## <a name="sqldb"></a>SQL Database
+
+For many people, running a DBMS in a VM is the first option that comes to mind for managing structured data in the cloud. It’s not the only choice, though, nor is it always the best choice. In some cases, managing data using a Platform as a Service (PaaS) approach makes more sense. Windows Azure provides a PaaS technology called SQL Database that lets you do this for relational data. [Figure 3](#Fig3) illustrates this option. 
+
+<a name="Fig3"></a>![Diagram of SQL Database][SQL-db]
+ 
+**Figure 3: SQL Database provides a shared PaaS relational storage service.**
+
+SQL Database doesn’t give each customer its own physical instance of SQL Server. Instead, it provides a multi-tenant service, with a logical SQL Database server for each customer. All customers share the compute and storage capacity that the service provides. And as with Blob Storage, all data in SQL Database is stored on three separate computers within a Windows Azure datacenter, giving your databases built-in high availability (HA).
+
+To an application, SQL Database looks much like SQL Server. Applications can issue SQL queries against relational tables, use T-SQL stored procedures, and execute transactions across multiple tables. And because applications access SQL Database using the Tabular Data Stream (TDS) protocol, the same protocol used to access SQL Server, they can work with data using Entity Framework, ADO.NET, JDBC, and other familiar data access interfaces. 
+
+But because SQL Database is a cloud service running in Windows Azure data centers, you don’t need to manage any of the system’s physical aspects, such as disk usage. You also don’t need to worry about updating software or handling other low-level administrative tasks. Each customer organization still controls its own databases, of course, including their schemas and user logins, but many of the mundane administrative tasks are done for you. 
+
+While SQL Database looks much like SQL Server to applications, it doesn’t behave exactly the same as a DBMS running on a physical or virtual machine. Because it runs on shared hardware, its performance will vary with the load placed on that hardware by all of its customers. This means that the performance of, say, a stored procedure in SQL Database might vary from one day to the next. 
+
+Today, SQL Database lets you create a database holding up to 150 gigabytes. If you need to work with larger databases, the service provides an option called *Federation*. To do this, a database administrator creates two or more *federation members*, each of which is a separate database with its own schema. Data is spread across these members, something that’s often referred to as *sharding*, with each member assigned a unique *federation key*. An application issues SQL queries against this data by specifying the federation key that identifies the federation member the query should target. This allows using a traditional relational approach with large amounts of data. As always, there are trade-offs; neither queries nor transactions can span federation members, for instance. But when a relational PaaS service is the best choice and these trade-offs are acceptable, using SQL Federation can be a good solution.
+
+SQL Database can be used by applications running on Windows Azure or elsewhere, such as in your on-premises datacenter. This makes it useful for cloud applications that need relational data, as well as on-premises applications that can benefit from storing data in the cloud. A mobile application might rely on SQL Database to manage shared relational data, for instance, as might an inventory application that runs at multiple dealers around the world.
+
+Thinking about SQL Database raises an obvious (and important) issue: When should you run SQL Server in a VM, and when is SQL Database a better choice? As usual, there are trade-offs, and so which approach is better depends on your requirements. 
+
+One simple way to think about it is to view SQL Database as being for new applications, while SQL Server in a VM is a better choice when you’re moving an existing on-premises application to the cloud. It can also be useful to look at this decision in a more fine-grained way, however. For example, SQL Database is easier to use, since there’s minimal setup and administration. But running SQL Server in a VM can have more predictable performance—it’s not a shared service—and it also supports larger non-federated databases than SQL Database. Still, SQL Database provides built-in replication of both data and processing, effectively giving you a high-availability DBMS with very little work. While SQL Server gives you more control and a somewhat broader set of options, SQL Database is simpler to set up and significantly less work to manage.
+
+Finally, it’s important to point out that SQL Database isn’t the only PaaS data service available on Windows Azure. Microsoft partners provide other options as well. For example, ClearDB offers a MySQL PaaS offering, while Cloudant sells a NoSQL option. PaaS data services are the right solution in many situations, and so this approach to data management is an important part of Windows Azure.
+
+
+### <a name="datasync"></a>SQL Data Sync
+
+While SQL Database does maintain three copies of each database within a single Windows Azure datacenter, it doesn’t automatically replicate data between Windows Azure datacenters. Instead, it provides SQL Data Sync, a service that you can use to do this. [Figure 4](#Fig4) shows how this looks.
+
+<a name="Fig4"></a>![Diagram of SQL data sync][SQL-datasync]
+ 
+**Figure 4: SQL Data Sync synchronizes data in SQL Database with data in other Windows Azure and on-premises datacenters.**
+
+As the diagram shows, SQL Data Sync can synchronize data across different locations. Suppose you’re running an application in multiple Windows Azure datacenters, for instance, with data stored in SQL Database. You can use SQL Data Sync to keep that data synchronized. SQL Data Sync can also synchronize data between a Windows Azure datacenter and an instance of SQL Server running in an on-premises datacenter. This might be useful for maintaining both a local copy of data used by on-premises applications and a cloud copy used by applications running on Windows Azure. And although it’s not shown in the figure, SQL Data Sync can also be used to synchronize data between SQL Database and SQL Server running in a VM on Windows Azure or elsewhere.
+
+Synchronization can be bi-directional, and you determine exactly what data is synchronized and how frequently it’s done. (Synchronization between databases isn’t atomic, however—there’s always at least some delay.) And however it’s used, setting up synchronization with SQL Data Sync is entirely configuration-driven; there’s no code to write.
+
+
+### <a name="datarpt"></a>SQL Data Reporting
+
+Once a database contains data, somebody will probably want to create reports using that data. To let you do this with data stored in SQL Database, Windows Azure provides SQL Reporting. This cloud service provides a subset of the functionality in SQL Server Reporting Services (SSRS), the reporting technology included with SQL Server.
+In its initial incarnation, SQL Reporting is aimed primarily at independent software vendors (ISVs) who need to embed reports in their applications. [Figure 5](#Fig5) shows how the process works.
+
+<a name="Fig5"></a>![Diagram of SQL reporting][SQL-report]
+ 
+**Figure 5: Windows Azure SQL Reporting provides reporting services for data in SQL Database.**
+
+Before a user can see a report, someone defines what that report should look like (step 1). With SQL Reporting, this can be done using either of two tools: SQL Server Data Tools, part of SQL Server 2012, or its predecessor, Business Intelligence (BI) Development Studio. As with SSRS, these report definitions are expressed in the *Report Definition Language (RDL)*. After the RDL files for a report have been created, they are uploaded to SQL Reporting in the cloud (step 2). The report definition is now ready to use.
+
+Next, a user of the application accesses the report (step 3). The application passes this request to SQL Reporting (step 4), which contacts SQL Database to get the data it needs (step 5). SQL Reporting uses this data and the relevant RDL files to render the report (step 6), then returns the report to the application (step 7), which displays it to the user (step 8).
+
+Embedding a report in an application, the scenario shown here, isn’t the only option. It’s also possible to view reports in a SQL Reporting portal or in other ways. Reports can also be combined, with one report containing a link to another.
+
+Like SQL Database, SQL Reporting is a multi-tenant PaaS service. You can use it immediately—there’s nothing to install—and it requires minimal management. Microsoft monitors the service, provides patches, handles scaling, and does the other work needed to keep the service available. While it’s possible to run reports on SQL Database tables using the on-premises version of SSRS, SQL Reporting is typically a better alternative for adding reporting to Windows Azure applications.
+
+
+## <a name="tblstor"></a>Table Storage
+
+Relational data is useful in many situations, but it’s not always the right choice. If your application needs fast, simple access to very large amounts of loosely structured data, for instance, a relational database might not work well. A NoSQL technology is likely to be a better option.
+
+Windows Azure Table Storage is an example of this kind of NoSQL approach. Despite its name, Table Storage doesn’t support standard relational tables. Instead, it provides what’s known as a *key/value store*, associating a set of data with a particular key, then letting an application access that data by providing the key. [Figure 6](#Fig6) illustrates the basics.
+
+<a name="Fig6"></a>![Diagram of table storage][SQL-tblstor]
+ 
+**Figure 6: Windows Azure Table Storage is a key/value store that provides fast, simple access to large amounts of data.**
+
+Like blobs, each table is associated with a Windows Azure storage account. Tables are also named much like blobs, with a URL of the form
+
+http://&lt;*StorageAccount*&gt;.table.core.windows.net/&lt;*TableName*&gt;
+
+As the figure shows, each table is divided into some number of partitions, each of which can be stored on a separate machine. (This is a form of sharding, as with SQL Federation.) Both Windows Azure applications and applications running elsewhere can access a table using either the RESTful OData protocol or the Windows Azure Storage Client library.
+
+Each partition in a table holds some number of *entities*, each containing as many as 255 *properties*. Every property has a name, a type (such as Binary, Bool, DateTime, Int, or String), and a value. Unlike relational storage, these tables have no fixed schema, and so different entities in the same table can contain properties with different types. One entity might have just a String property containing a name, for example, while another entity in the same table has two Int properties containing a customer ID number and a credit rating.
+
+To identify a particular entity within a table, an application provides that entity’s key. The key has two parts: a *partition key* that identifies a specific partition and a *row key* that identifies an entity within that partition. In [Figure 6](#Fig6), for example, the client requests the entity with partition key A and row key 3, and Table Storage returns that entity, including all of the properties it contains.
+
+This structure lets tables be big—a single table can contain up to 100 terabytes of data—and it allows fast access to the data they contain. It also brings limitations, however. For example, there’s no support for transactional updates that span tables or even partitions in a single table. A set of updates to a table can only be grouped into an atomic transaction if all of the entities involved are in the same partition. There’s also no way to query a table based on the value of its properties, nor is there support for joins across multiple tables. And unlike relational databases, tables have no support for stored procedures.
+
+Windows Azure Table Storage is a good choice for applications that need fast, cheap access to large amounts of loosely structured data. For example, an Internet application that stores profile information for lots of users might use tables. Fast access is important in this situation, and the application probably doesn’t need the full power of SQL. Giving up this functionality to gain speed and size can sometimes make sense, and so Table Storage is just the right solution for some problems.
+
+
+## <a name="hadoop"></a>Hadoop
+
+Organizations have been building data warehouses for decades. These collections of information, most often stored in relational tables, let people work with and learn from data in many different ways. With SQL Server, for instance, it’s common to use tools such as SQL Server Analysis Services to do this.
+
+But suppose you want to do analysis on non-relational data. Your data might take many forms: information from sensors or RFID tags, log files in server farms, clickstream data produced by web applications, images from medical diagnostic devices, and more. This data might also be really big, too big to be used effectively with a traditional data warehouse. Big data problems like this, rare just a few years ago, have now become quite common.
+
+To analyze this kind of big data, our industry has largely converged on a single solution: the open-source technology Hadoop. Hadoop runs on a cluster of physical or virtual machines, spreading the data it works on across those machines and processing it in parallel. The more machines Hadoop has to use, the faster it can complete whatever work it’s doing.
+
+This kind of problem is a natural fit for the public cloud. Rather than maintaining an army of on-premises servers that might sit idle much of the time, running Hadoop in the cloud lets you create (and pay for) VMs only when you need them. Even better, more and more of the big data that you want to analyze with Hadoop is created in the cloud, saving you the trouble of moving it around. To help you exploit these synergies, Microsoft provides a Hadoop service on Windows Azure. [Figure 7](#Fig7) shows the most important components of this service.
+
+<a name="Fig7"></a>![Diagram of hadoop][hadoop]
+
+**Figure 7: Hadoop on Windows Azure runs MapReduce jobs that process data in parallel using multiple virtual machines.**
+
+To use Hadoop on Windows Azure, you first ask this cloud platform to create a Hadoop cluster, specifying the number of VMs you need. Setting up a Hadoop cluster yourself is a non-trivial task, and so letting Windows Azure do it for you makes sense. When you’re done using the cluster, you shut it down. There’s no need to pay for compute resources that you aren’t using.
+
+A Hadoop application, commonly called a *job*, uses a programming model known as *MapReduce*. As the figure shows, the logic for a MapReduce job runs simultaneously across many VMs. By processing data in parallel, Hadoop can analyze data much more rapidly than single-machine solutions.
+
+On Windows Azure, the data a MapReduce job works on is typically kept in blob storage. In Hadoop, however, MapReduce jobs expect data to be stored in the *Hadoop Distributed File System (HDFS)*. HDFS is similar to Blob Storage in some ways; it replicates data across multiple physical servers, for example. Rather than duplicate this functionality, Hadoop on Windows Azure instead exposes Blob Storage through the HDFS API, as the figure shows. While the logic in a MapReduce job thinks it’s accessing ordinary HDFS files, the job is in fact working with data streamed to it from blobs. And to support the case where multiple jobs are run over the same data, Hadoop on Windows Azure also allow copying data from blobs into full HDFS running in the VMs. 
+
+MapReduce jobs are commonly written in Java today, an approach that Hadoop on Windows Azure supports. Microsoft has also added support for creating MapReduce jobs in other languages, including C#, F#, and JavaScript. The goal is to make this big data technology more easily accessible to a larger group of developers.
+
+Along with HDFS and MapReduce, Hadoop includes other technologies that let people analyze data without writing a MapReduce job themselves. For example, Pig is a high-level language designed for analyzing big data, while Hive offers a SQL-like language called HiveQL. Both Pig and Hive actually generate MapReduce jobs that process HDFS data, but they hide this complexity from their users. 
+Both are provided with Hadoop on Windows Azure.
+
+Microsoft also provides a HiveQL driver for Excel. Using an Excel add-in, business analysts can create HiveQL queries (and thus MapReduce jobs) directly from Excel, then process and visualize the results using PowerPivot and other Excel tools. Hadoop on Windows Azure includes other technologies as well, such as the machine learning libraries Mahout, the graph mining system Pegasus, and more.
+
+Big data analysis is important, and so Hadoop is also important. By providing Hadoop as a managed service on Windows Azure, along with links to familiar tools such as Excel, Microsoft aims at making this technology accessible to a broader set of users.
+
+More broadly, data of all kinds is important. This is why Windows Azure includes a range of options for data management and business analytics. Whatever application you’re trying to create, it’s likely that you’ll find something in this cloud platform that will work for you.
+
+##About the Author
+David Chappell is Principal of Chappell & Associates ([www.davidchappell.com](http://www.davidchappell.com)) in San Francisco, California. Through his speaking, writing, and consulting, he helps people around the world understand, use, and make better decisions about new technologies.
+
+[blobs]: ../../Shared/Media/Data_01_Blobs.png
+[SQLSvr-vm]: ../../Shared/Media/Data_02_SQLSvrVM.png
+[SQL-db]: ../../Shared/Media/Data_03_SQLdb.png
+[SQL-datasync]: ../../Shared/Media/Data_04_SQLDataSync.png
+[SQL-report]: ../../Shared/Media/Data_05_SQLReporting.png
+[SQL-tblstor]: ../../Shared/Media/Data_06_TblStorage.png
+[hadoop]: ../../Shared/Media/Data_07_Hadoop.png

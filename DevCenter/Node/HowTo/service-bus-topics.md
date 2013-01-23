@@ -1,4 +1,6 @@
-<properties umbraconavihide="0" pagetitle="Service Bus Topics - How To - Node.js - Develop" metakeywords="Service Bus topics Node.js, getting started service bus topics node.js, getting started service bus subscriptions node.j" metadescription="" linkid="dev-nodejs-how-to-service-bus-topics" urldisplayname="Service Bus Topics" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Node.js) - Windows Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Node.js" metaDescription="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for Node.js applications." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # How to Use Service Bus Topics/Subscriptions
 
@@ -11,7 +13,7 @@ and subscriptions, see the [Next Steps][] section.
 
 ## Table of Contents
 
--   [What are Service Bus Topics and Subscriptions][]
+-   [What are Service Bus Topics and Subscriptions?][]
 -   [Create a Service Namespace][]
 -   [Obtain the Default Management Credentials for the Namespace][]
 -   [Create a Node.js Application][]
@@ -24,98 +26,7 @@ and subscriptions, see the [Next Steps][] section.
 -   [How to: Delete Topics and Subscriptions][]
 -   [Next Steps][1]
 
-## What are Service Bus Topics and Subscriptions
-
-Service Bus topics and subscriptions support a **publish/subscribe
-messaging communication** model. When using topics and subscriptions,
-components of a distributed application do not communicate directly with
-each other, they instead exchange messages via a topic, which acts as an
-intermediary.
-
-![Topic Concepts][]
-
-In contrast to Service Bus queues, where each message is processed by a
-single consumer, topics and subscriptions provide a **one-to-many** form
-of communication, using a publish/subscribe pattern. It is possible to
-register multiple subscriptions to a topic. When a message is sent to a
-topic, it is then made available to each subscription to handle/process
-independently.
-
-A topic subscription resembles a virtual queue that receives copies of
-the messages that were sent to the topic. You can optionally register
-filter rules for a topic on a per-subscription basis, which allows you
-to filter/restrict which messages to a topic are received by which topic
-subscriptions.
-
-Service Bus topics and subscriptions enable you to scale to process a
-very large number of messages across a very large number of users and
-applications.
-
-## Create a Service Namespace
-
-To begin using Service Bus topics and subscriptions in Windows Azure,
-you must first create a service namespace. A service namespace provides
-a scoping container for addressing Service Bus resources within your
-application.
-
-To create a service namespace:
-
-1.  Log on to the [Windows Azure Management Portal][]. In order to perform the following steps you must use the Production portal. If you are currently using the Preview portal, you can switch to Production by clicking **Preview** at the top of the page, and then selecting **Take me to the previous portal**. This will load the production management portal.
-
-	![preview portal dialog][Previous Management Portal]
-
-2.  In the lower left navigation pane of the Management Portal, click
-    **Service Bus, Access Control & Caching**.
-
-3.  In the upper left pane of the Management Portal, click the **Service
-    Bus** node, and then click the **New** button.
-
-    ![image][]
-
-4.  In the **Create a new Service Namespace** dialog, enter a
-    **Namespace**, and then to make sure that it is unique, click the
-    **Check Availability** button.
-
-    ![image][2]
-
-5.  After making sure the **Namespace** name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same **Country/Region** in which you are deploying
-    your compute resources), and then click the **Create Namespace**
-    button.
-
-The namespace you created will then appear in the Management Portal and
-takes a moment to activate. Wait until the status is **Active** before
-moving on.
-
-## Obtain the Default Management Credentials for the Namespace
-
-In order to perform management operations, such as creating a topic or
-subscription, on the new namespace, you need to obtain the management
-credentials for the namespace.
-
-1.  In the left navigation pane, click the **Service Bus** node to
-    display the list of available namespaces:
-
-    ![image][]
-
-2.  Select the namespace you just created from the list shown:
-
-    ![image][3]
-
-3.  The right-hand **Properties** pane will list the properties for the
-    new namespace:
-
-    ![image][4]
-
-4.  The **Default Key** is hidden. Click the **View** button to display
-    the security credentials:
-
-    ![image][5]
-
-5.  Make a note of the **Default Issuer** and the **Default Key** as you
-    will use this information below to perform operations with the
-    namespace.
+<div chunk="../../shared/chunks/howto-service-bus-topics.md" />
 
 ## Create a Node.js Application
 
@@ -500,9 +411,9 @@ links to learn more.
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Next Steps]: #nextsteps
-  [What are Service Bus Topics and Subscriptions]: #What_are_Service_Bus_Topics_and_Subscriptions
-  [Create a Service Namespace]: #Create_a_Service_Namespace
-  [Obtain the Default Management Credentials for the Namespace]: #Obtain_the_Default_Management_Credentials_for_the_Namespace
+  [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
+  [Create a Service Namespace]: #create-a-service-namespace
+  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
   [Create a Node.js Application]: #Create_a_Nodejs_Application
   [Configure Your Application to Use Service Bus]: #Configure_Your_Application_to_Use_Service_Bus
   [How to: Create a Topic]: #How_to_Create_a_Topic
@@ -522,9 +433,9 @@ links to learn more.
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
-  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/
+  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
   [Node.js Cloud Service]: {localLink:2221} "Node.js Web Application"
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
   [Create and deploy a Node.js application to a Windows Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
-  [Node.js Web Application with Storage]: en-us/develop/nodejs/tutorials/web-site-with-storage/
+  [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/

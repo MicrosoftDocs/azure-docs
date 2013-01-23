@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Other resources" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="landing-page" urlDisplayName="Other resources" pageTitle="Other resources Linux virtual machine Windows Azure" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Find topics about using Linux virtual machines in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+
+
 
 #Other resources for Linux virtual machines
 
@@ -23,6 +25,10 @@ Learn about this command-line that provides functionality for creating, deployin
 ###[Selecting User Names for Linux on Windows Azure](/en-us/manage/linux/other-resources/user-names-in-linux/)
 
 Learn which user names you can't use on Windows Azure. 
+
+###[Running Cassandra with Linux on Windows Azure and accessing it from Node.js](./how-to-run-cassandra-with-linux/)
+
+Learn how to run a Cassandra cluster in Windows Azure Virtual Machines and how to access it by using Node.js. The topic describes how to do this using the Ubuntu 12.04 version of Linux and Cassandra 1.0.10, but you can adapt the process for any Linux distribution.
 
 ###[Windows Azure Training Kit](/en-us/manage/linux/other-resources/training-kit/)
 

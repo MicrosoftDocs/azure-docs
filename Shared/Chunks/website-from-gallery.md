@@ -11,29 +11,10 @@ You'll build a Word press blog that uses a default template. The following illus
 
 ![Wordpress blog][13]
 
-## Create a Windows Azure account
-
-1. Open a web browser and browse to [http://www.windowsazure.com][].
-
-2. To get started with a free account, click **Free Trial** in the upper-right corner and follow the steps. You'll need a credit card number and a mobile phone number for proof of identity, but you will not be billed.
-
- ![Windows Azure Website][0]
- 
-## Enable Windows Azure Web Sites
-
-1.	Navigate to [https://account.windowsazure.com/](https://account.windowsazure.com/) and sign in with your Windows Azure account.
-
-2.	Click **preview features** to view the available previews.
-	
-	![open preview features tab][14]
-
-2.	Scroll down to **Web Sites** and click **try it now**.
-
-	![select a preview feature][15]
-
-3.	Select your subscription and click the check.
-
-	![select subscription][16]
+<div class="dev-callout"><strong>Note</strong>
+<p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Web Sites feature enabled. You can create a free trial account and enable preview features in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">Create a Windows Azure account and enable preview features</a>.</p>
+</div>
+<br />
 
 ## Create a web site in the portal
 

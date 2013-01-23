@@ -1,5 +1,7 @@
-<div class="dev-center-os-selector"><a href="/en-us/develop/python/tutorials/web-app-with-django/" title="Windows Version" class="windows">Windows</a><a href="/en-us/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac Version" class="mac current">Mac</a><span>Tutorial</span></div>
+<properties linkid="develop-python-web-app-with-django-mac" urlDisplayName="Web with Django" pageTitle="Python web app with Django on Mac - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that shows how to host a Django-based web site on Windows Azure using a Linux virtual machine." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+
+<div class="dev-center-os-selector"><a href="/en-us/develop/python/tutorials/web-app-with-django/" title="Windows Version" class="windows">Windows</a><a href="/en-us/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac Version" class="mac current">Mac</a><span>Tutorial</span></div>
 # Django Hello World Web Application (mac-linux)
 
 This tutorial describes how to host a Django-based website on Windows 
@@ -17,6 +19,7 @@ A screenshot of the completed application is below:
 
 ![A browser window displaying the hello world page on Windows Azure][]
 
+<div chunk="../../Shared/Chunks/create-account-and-vms-note.md" />
 
 ## Creating and configuring a Windows Azure virtual machine to host Django
 

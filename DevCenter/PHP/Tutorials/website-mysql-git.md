@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Create a PHP-MySQL Windows Azure web site and Deploy Using Git" metaKeywords="Windows Azure, Windows Azure Web Sites, PHP, MySQL, Git" metaDescription="Learn how to create a PHP-MySQL web site in Windows Azure, and deploy to it using Git." linkid="dev-php-tutorials-php-mysql-site-git" urlDisplayName="Create a PHP-MySQL Windows Azure web site and deploy using Git" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-php-website-with-mysql-and-git" urlDisplayName="Web w/ MySQL + Git" pageTitle="PHP web site with MySQL and Git - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to create a PHP web site that stores data in MySQL and use Git deployment to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 #Create a PHP-MySQL Windows Azure web site and deploy using Git
 
@@ -13,6 +15,8 @@ By following this tutorial, you will build a simple registration web application
 
 ![Windows Azure PHP web site][running-app]
 
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+
 ##Set up the development environment
 
 This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), a web server, and [Git][install-git] installed on your computer.
@@ -21,14 +25,6 @@ This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (
 <b>Note</b>
 <p>If you are performing this tutorial on Windows, you can set up your machine for PHP and automatically configure IIS (the built-in web server in Windows) by installing the <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">Windows Azure SDK for PHP</a>.</p>
 </div>
-
-### Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
 ##Create a Windows Azure web site and set up Git publishing
 
@@ -221,7 +217,7 @@ After you have tested your application locally, you can publish it to your Windo
 
 	You will be prompted for the password you created earlier.
 
-	![Initial Push to Azure via Git][git-initial-push]
+	![Initial Push to Windows Azure via Git][git-initial-push]
 
 2. Browse to **http://[site name].azurewebsites.net/index.php** to begin using the application (this information will be stored on your account dashboard):
 
@@ -242,7 +238,7 @@ To publish changes to application, follow these steps:
 
 	You will be prompted for the password you created earlier.
 
-	![Pushing site changes to Azure via Git][git-change-push]
+	![Pushing site changes to Windows Azure via Git][git-change-push]
 
 3. Browse to **http://[site name].azurewebsites.net/index.php** to see your application and any changes you may have made:
 
@@ -262,12 +258,12 @@ To publish changes to application, follow these steps:
 [custom-create]: ../../Shared/Media/custom_create.jpg
 [website-details]: ../../Shared/Media/website_details.jpg
 [new-mysql-db]: ../../Shared/Media/new_mysql_db.jpg
-[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.jpg
-[setup-git-publishing]: ../Media/setup_git_publishing.jpg
+[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.png
+[setup-git-publishing]: ../../Shared/Media/setup_git_publishing.png
 [credentials]: ../Media/credentials.jpg
 [creating-repo]: ../Media/creating_repo.jpg
 [push-files]: ../Media/push_files.jpg
-[git-instructions]: ../Media/git_instructions.jpg
+[git-instructions]: ../../Shared/Media/git_instructions.png
 [git-change-push]: ../Media/php-git-change-push.png
 [git-initial-push]: ../Media/php-git-initial-push.png
 [deployments-list]: ../Media/php-deployments-list.png

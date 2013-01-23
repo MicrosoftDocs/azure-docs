@@ -1,24 +1,21 @@
-<properties umbracoNaviHide="0" pageTitle="Tutorial 1: Creating a Virtual Network in Windows Azure" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Learn how to configure Windows Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-create-a-virtual-network" urlDisplayName="Create a virtual network" pageTitle="Create a virtual network - Windows Azure service management" metaKeywords="" metaDescription="Learn how to create a Windows Azure Virtual Network." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 
 <h1 id="vnettut1">Create a Virtual Network in Windows Azure</h1>
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-This tutorial walks you through the steps to create a Windows Azure virtual network using the Windows Azure (Preview) Management Portal.
+This tutorial walks you through the steps to create a [Windows Azure virtual network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx) using the Windows Azure (Preview) Management Portal.
 
 This tutorial assumes you have no prior experience using Windows Azure.
 
 After completing this tutorial, you will have a virtual network to which you can deploy your Windows Azure services.
 
-For information about creating a virtual network with cross-premises connectivity (i.e., connecting to Active Directory or SharePoint located at your company), see the following tutorials:
+For information about creating a virtual network with cross-premises connectivity (i.e., connecting to Active Directory or SharePoint located at your company), see [Create a Virtual Network for Cross-Premises Connectivity](../cross-premises-connectivity/).
 
-
-*  [Create a Virtual Network for Cross-Premises Connectivity](../cross-premises-connectivity/)
-
-*  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](../replica-domain-controller/)
-
-*  [Install a new Active Directory forest in Windows Azure](../active-directory-forest/)
+For guidelines about deploying AD DS on Windows Azure Virtual Machines, see [Guidelines for Deploying Windows Server Active Directory on Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
 
 ##  Objectives
 
@@ -41,7 +38,7 @@ In this tutorial you will learn:
 
 	![Image1][]
 
-3.	In the navigation pane, click **Network**, and then click **Custom Create**.
+3.	In the navigation pane, click **Networks**, click **Virtual Network**, and then click **Custom Create**.
 
 	![Image2][]
 
@@ -78,7 +75,7 @@ In this tutorial you will learn:
  
 	![Image5] []
 
-7.	You now have a virtual network in Windows Azure, which you can see on the portal's **Virtual Network** tab.
+7.	You now have a virtual network in Windows Azure, which you can see on the portal's **Virtual Networks** tab.
 
 
 	![Image6] []
@@ -87,12 +84,17 @@ In this tutorial you will learn:
 ##  Next Steps
 If you'd like, you can continue with the following tutorials:
 
-
 - [Add a Virtual Machine to a Virtual Network](../add-a-vm-to-a-virtual-network/)
 
-*  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](../replica-domain-controller/)
+*  [Install a new Active Directory forest in Windows Azure](../active-directory-forest/) - Use this tutorial to install a new Active Directory forest without connectivity to any other network. The tutorial will explain the specific steps required to create a virtual machine (VM) for a new forest installation. If you plan to use this tutorial, do not create any VMs via the Management Portal.  
 
-*  [Install a new Active Directory forest in Windows Azure](../active-directory-forest/)
+## See Also
+
+-  [Windows Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
+
+-  [Configuring a Virtual Network Using Network Configuration Files](http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx)
+
+-  [Windows Azure Name Resolution Overview](http://go.microsoft.com/fwlink/?LinkId=248097)
 
 
 [Image1]: ../media/VNTut1_00_New.png

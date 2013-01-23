@@ -1,73 +1,50 @@
-<properties umbraconavihide="0" pagetitle="How to Use the Table Storage Service from .NET" metakeywords="Get started Azure table, Azure nosql, Azure large structured data store, Azure table, Azure table storage, Azure table .NET, Azure table storage .NET, Azure table C#, Azure table storage C#" metadescription="Get started with Windows Azure table storage. Learn how to use the Windows Azure table storage service to create and delete tables and insert and query entities in a table." linkid="dev-net-how-to-table-services" urldisplayname="Table Service" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties linkid="dev-net-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (.NET) - Windows Azure feature guide" metaKeywords="Windows Azure table storage service, Azure table service .NET, table storage .NET, table service C#, table storage C#" metaDescription="Learn how to use the table storage service in Windows Azure. Code samples are written in C# code and use the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-# How to Use the Table Storage Service
+
+
+<div chunk="../chunks/article-left-menu.md" />
+
+# How to use the Table Storage Service
+
+<div class="dev-center-tutorial-selector">
+<a href="/en-us/develop/net/how-to-guides/table-services-v17/" title="version 1.7" class="current">version 1.7</a>
+<a href="/en-us/develop/net/how-to-guides/table-services/" title="version 2.0">version 2.0</a> 
+</div>
+
 
 This guide will show you how to perform common scenarios using the
 Windows Azure Table storage service. The samples are written in C\# code
 and use the .NET API. The scenarios covered include **creating and
 deleting a table, inserting and querying entities in a table**. For more
-information on tables, see the [Next Steps][] section.
+information on tables, see the [Next steps][] section.
 
 ## Table of Contents
 
 -   [What is the Table Service][]
 -   [Concepts][]
--   [Create a Windows Azure Storage Account][]
--   [Create a Windows Azure Project in Visual Studio][]
--   [Configure your Application to Access Storage][]
--   [Setup a Windows Azure Storage Connection String][]
--   [How To: Create a Table][]
--   [How To: Add an Entity to a Table][]
--   [How To: Insert a Batch of Entities][]
--   [How To: Retrieve All Entities in a Partition][]
--   [How To: Retrieve a Range of Entities in a Partition][]
--   [How To: Retrieve a Single Entity][]
--   [How To: Update an Entity][]
--   [How To: Query a Subset of Entity Properties][]
--   [How To: Insert-or-Replace an Entity][]
--   [How To: Delete an Entity][]
--   [How To: Delete a Table][]
--   [Next Steps][]
+-   [Create a Windows Azure Storage account][]
+-   [Setup a storage connection string][]
+-   [How to: Programmatically access table storage][]
+-   [How to: Create a table][]
+-   [How to: Add an entity to a table][]
+-   [How to: Insert a batch of entities][]
+-   [How to: Retrieve all entities in a partition][]
+-   [How to: Retrieve a range of entities in a partition][]
+-   [How to: Retrieve a single entity][]
+-   [How to: Update an entity][]
+-   [How to: Query a subset of entity properties][]
+-   [How to: Insert-or-replace an entity][]
+-   [How to: Delete an entity][]
+-   [How to: Delete a table][]
+-   [Next steps][]
 
 <div chunk="../../Shared/Chunks/howto-table-storage.md" />
 
-## <a name="create-account"> </a>Create a Windows Azure Storage Account
+<h2><a name="create-account"></a><span class="short-header">Create an account</span>Create a Windows Azure Storage account</h2>
+
 <div chunk="../../Shared/Chunks/create-storage-account.md" />
 
-## <a name="create-project"> </a>Create a Windows Azure Project in Visual Studio
-
-In this guide, you will use storage features within a Windows Azure
-cloud project in Visual Studio. To learn how to create Windows Azure
-cloud projects:
-
-1.  [Download and install the Windows Azure SDK for .NET][] if you have
-    not already done so.
-
-2.  Read [Creating a Windows Azure Project in Visual Studio][] on MSDN,
-    and follow the steps for creating a Windows Azure project with at
-    least one web or worker role.
-
-## <a name="configure-access"> </a>Configure Your Application to Access Storage
-
-The web and worker roles in your cloud project already contain most of
-the references to use Table Services. However, you need to manually add
-a reference to **System.Data.Services.Client**:
-
-1.  In Solution Explorer, right-click **References**, and then click
-    **Add Reference**.
-
-2.  In the .NET tab, click **System.Data.Services.Client**.
-
-3.  Click **OK**.
-
-Then, add the following to the top of any C\# file where you want to use
-Windows Azure Table Services:
-
-    using Microsoft.WindowsAzure;
-    using Microsoft.WindowsAzure.StorageClient;
-    using System.Data.Services.Client;
-
-## <a name="setup-connection-string"> </a>Setup a Windows Azure Storage Connection String
+<h2><a name="setup-connection-string"></a><span class="short-header">Setup a connection string</span>Setup a storage connection string</h2>
 
 The Windows Azure .NET storage API supports using a storage connection
 string to configure endpoints and credentials for accessing storage
@@ -132,9 +109,27 @@ When using Web Sites or Virtual Machines, it is recommended you use the .NET con
 
 Read [Configuring Connection Strings][] for more information on storage connection strings.
 	
-You are now ready to perform the How To's in this guide.
+You are now ready to perform the how-to tasks in this guide.
 
-## <a name="create-table"> </a>How To: Create a Table
+
+<h2> <a name="configure-access"> </a><span  class="short-header">Access programmatically</span>How to: Programmatically access table storage</h2>
+
+Add the following code namespace declarations to the top of any C\# file
+in which you wish to programmatically access Windows Azure Storage:
+
+    using Microsoft.WindowsAzure;
+    using Microsoft.WindowsAzure.StorageClient;
+
+You can use the **CloudStorageAccount** type and
+**CloudConfigurationManager** type
+to retrieve your storage connection string and storage account
+information from the Windows Azure service configuration:
+
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+
+<h2><a name="create-table"></a><span class="short-header">Create a table</span>How to: Create a table</h2>
 
 A **CloudTableClient** object lets you get reference objects for tables
 and entities. The following code creates a **CloudTableClient** object
@@ -143,7 +138,7 @@ connection string stored in the Windows Azure application's service
 configuration. There are also other ways to create
 **CloudStorageAccount** object.
 
-    // Retrieve storage account from connection-string
+    // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -154,7 +149,7 @@ configuration. There are also other ways to create
     string tableName = "people";
     tableClient.CreateTableIfNotExist(tableName);
 
-## <a name="add-entity"> </a>How To: Add an Entity to a Table
+<h2><a name="add-entity"></a><span class="short-header">Add an entity to a table</span>How to: Add an entity to a table</h2>
 
 Entities map to C\# objects using a custom class derived from
 **TableServiceEntity**. To add an entity to a table, first create a
@@ -194,7 +189,7 @@ entity into the table. This adds the entity object to the
 sends the new entity to the table service when the
 **SaveChangesWithRetries** method is called.
 
-    // Retrieve storage account from connection-string
+    // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -215,7 +210,7 @@ sends the new entity to the table service when the
     // Submit the operation to the table service
     serviceContext.SaveChangesWithRetries();
 
-## <a name="insert-batch"> </a>How To: Insert a Batch of Entities
+<h2><a name="insert-batch"></a><span class="short-header">Insert a batch of entities</span>How to: Insert a batch of entities</h2>
 
 You can insert a batch of entities to the table service in one write
 operation. The following code creates three entity objects and adds each
@@ -232,7 +227,7 @@ operations:
 
 <!-- -->
 
-    // Retrieve storage account from connection-string
+    // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -264,7 +259,7 @@ operations:
     // Submit the operation to the table service
     serviceContext.SaveChangesWithRetries(SaveChangesOptions.Batch);
 
-## <a name="retrieve-all-entities"> </a>How To: Retrieve All Entities in a Partition
+<h2><a name="retrieve-all-entities"></a><span class="short-header">Retrieve all entities</span>How to: Retrieve all entities in a partition</h2>
 
 To query a table for entities in a partition, you can use a LINQ query.
 Call **serviceContext.CreateQuery** to create a query from your data
@@ -275,7 +270,7 @@ object. You can then use the **partitionQuery** object you created in a
 **foreach** loop to consume the results. This code prints the fields of
 each entity in the query results to the console.
 
-    // Retrieve storage account from connection-string
+    // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -298,7 +293,7 @@ each entity in the query results to the console.
             entity.Email, entity.PhoneNumber);
     }
 
-## <a name="retrieve-range-entities"> </a>How To: Retrieve a Range of Entities in a Partition
+<h2><a name="retrieve-range-entities"></a><span class="short-header">Retrieve a range of entities</span>How to: Retrieve a range of entities in a partition</h2>
 
 If you don't want to query all the entities in a partition, you can
 specify a range by using the **CompareTo** method instead of using the
@@ -310,7 +305,7 @@ prints the query results. If you use the entities added to the table in
 the batch insert section of this guide, only two entities are returned
 this time (Ben and Denise Smith); Jeff Smith is not included.
 
-    // Retrieve storage account from connection-string
+    // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -334,7 +329,7 @@ this time (Ben and Denise Smith); Jeff Smith is not included.
             entity.Email, entity.PhoneNumber);
     }
 
-## <a name="retrieve-single-entity"> </a>How To: Retrieve a Single Entity
+<h2><a name="retrieve-single-entity"></a><span class="short-header">Retrieve a single entity</span>How to: Retrieve a single entity</h2>
 
 You can write a query to retrieve a single, specific entity. The
 following code uses two filters to specify the customer 'Jeff Smith'.
@@ -346,7 +341,7 @@ exact partition and row key match. Specifying both partition and row
 keys in a query is the fastest way to retrieve a single entity from the
 Table service.
 
-    // Retrieve storage account from connection-string
+    // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -362,7 +357,7 @@ Table service.
          where e.PartitionKey == "Smith" && e.RowKey == "Jeff"
          select e).FirstOrDefault();
 
-## <a name="update-entity"> </a>How To: Update an Entity
+<h2><a name="update-entity"></a><span class="short-header">Update an entity</span>How to: Update an entity</h2>
 
 To update an entity, retrieve it from the table service, modify the
 entity object, and save the changes back to the table service. The
@@ -375,7 +370,7 @@ an exception is thrown, and the entity must be retrieved, modified, and
 saved again. This retry pattern is common in a distributed storage
 system.
 
-    // Retrieve storage account from connection-string
+    // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -400,7 +395,7 @@ system.
     // Submit the operation to the table service
     serviceContext.SaveChangesWithRetries();
 
-## <a name="query-entity-properties"> </a>How To: Query a Subset of Entity Properties
+<h2><a name="query-entity-properties"></a><span class="short-header">Query a subset of properties</span>How to: Query a subset of entity properties</h2>
 
 A query to a table can retrieve just a few properties from an entity.
 This technique, called projection, reduces bandwidth and can improve
@@ -410,7 +405,7 @@ table. You can learn more about projection in this [blog post][]. Note
 that projection is not supported on the local storage emulator, so this
 code runs only when using an account on the table service.
 
-    // Retrieve storage account from connection-string
+    // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -435,7 +430,7 @@ code runs only when using an account on the table service.
         Console.WriteLine(person.Email);
     }
 
-## <a name="insert-entity"> </a>How To: Insert-or-Replace an Entity
+<h2><a name="insert-entity"></a><span class="short-header">Insert-or-replace an entity</span>How to: Insert-or-replace an entity</h2>
 
 Often you want to add an entity to a table without knowing if it already
 exists in the table. An insert-or-replace operation allows you to make a
@@ -452,7 +447,7 @@ on the local storage emulator, so this code runs only when using an
 account on the table service. You can learn more about insert-or-replace
 and insert-or-merge in this [blog post][].
 
-    // Retrieve storage account from connection-string
+    // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -476,7 +471,7 @@ and insert-or-merge in this [blog post][].
     // Submit the operation the table service, using the ReplaceOnUpdate option
     serviceContext.SaveChangesWithRetries(SaveChangesOptions.ReplaceOnUpdate);
 
-## <a name="delete-entity"> </a>How To: Delete an Entity
+<h2><a name="delete-entity"></a><span class="short-header">Delete an entity</span>How to: Delete an entity</h2>
 
 You can easily delete an entity after you have retrieved it. You can
 also use the **AttachTo** method to begin tracking it without retrieving
@@ -485,7 +480,7 @@ tracked with **serviceContext**, call **DeleteObject** with the entity
 to delete. Then call **SaveChangesWithRetries**. The following code
 retrieves and deletes a customer entity.
 
-    // Retrieve storage account from connection-string
+    // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -506,13 +501,13 @@ retrieves and deletes a customer entity.
     // Submit the operation to the table service
     serviceContext.SaveChangesWithRetries();
 
-## <a name="delete-table"> </a>How To: Delete a Table
+<h2><a name="delete-table"></a><span class="short-header">Delete a table</span>How to: Delete a table</h2>
 
 Finally, the following code deletes a table from a storage account. A
 table which has been deleted will be unavailable to be recreated for a
 period of time following the deletion.
 
-    // Retrieve storage account from connection-string
+    // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -522,13 +517,27 @@ period of time following the deletion.
     // Delete the table it if exists
     tableClient.DeleteTableIfExist("people");
 
-## <a name="next-steps"> </a>Next Steps
+<h2><a name="next-steps"></a><span class="short-header">Next steps</span>Next steps</h2>
 
 Now that you've learned the basics of table storage, follow these links
 to learn how to do more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][]
--   Visit the [Windows Azure Storage Team Blog][]
+<ul>
+<li>View the blob service reference documentation for complete details about available APIs:
+  <ul>
+    <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/wl_svchosting_mref_reference_home">.NET client library reference</a>
+    </li>
+    <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/dd179355">REST API reference</a></li>
+  </ul>
+</li>
+<li>Learn about more advanced tasks you can perform with Windows Azure Storage at <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Windows Azure</a>.</li>
+<li>View more feature guides to learn about additional options for storing data in Windows Azure.
+  <ul>
+    <li>Use <a href="/en-us/develop/net/how-to-guides/blob-storage/">Blob Storage</a> to store unstructured data.</li>
+    <li>Use <a href="/en-us/develop/net/how-to-guides/sql-database/">SQL Database</a> to store relational data.</li>
+  </ul>
+</li>
+</ul>
 
   [Next Steps]: #next-steps
   [What is the Table Service]: #what-is
@@ -536,7 +545,8 @@ to learn how to do more complex storage tasks.
   [Create a Windows Azure Storage Account]: #create-account
   [Create a Windows Azure Project in Visual Studio]: #create-project
   [Configure your Application to Access Storage]: #configure-access
-  [Setup a Windows Azure Storage Connection String]: #setup-connection-string
+  [Setup a storage Connection String]: #setup-connection-string
+  [How to: Programmatically access table storage]: #configure-access
   [How To: Create a Table]: #create-table
   [How To: Add an Entity to a Table]: #add-entity
   [How To: Insert a Batch of Entities]: #insert-batch

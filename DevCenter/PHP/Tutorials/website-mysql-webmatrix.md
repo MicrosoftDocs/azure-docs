@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="PHP-MySQL Windows Azure Website using WebMatrix" metaKeywords="Windows Azure deployment, Azure deployment, Windows Azure Websites, MySQL, PHP, WebMatrix" metaDescription="Learn how to create and deploy a PHP-MySQL website to Windows Azure using WebMatrix." linkid="dev-php-tutorials-mysql-website-webmatrix" urlDisplayName="Create and Deploy a PHP-MySQL Windows Azure Website Using WebMatrix" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-php-website-with-mysql-and-webmatrix" urlDisplayName="Web w/ WebMatrix" pageTitle="PHP web site with MySQL and WebMatrix - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web site that stores data in MySQL." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 #Create and deploy a PHP-MySQL Windows Azure Website using WebMatrix
 
@@ -17,6 +19,8 @@ You will learn:
 By following this tutorial, you will build a simple Tasklist web application in PHP. The application will be hosted in a Windows Azure Website. A screenshot of the running application is below:
 
 ![Windows Azure PHP Website][running-app]
+
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
 ##Prerequisites
 
@@ -37,16 +41,6 @@ By following this tutorial, you will build a simple Tasklist web application in 
 	This step is only necessary if you want to test your application locally.
 
 <h2 id="CreateWebsite">Create a Windows Azure Website and MySQL database</h2>
-
-### Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
-
-### Create a website and MySQL database
 
 1. Login to the [Preview Management Portal][preview-portal].
 2. Click the **+ New** icon on the bottom left of the portal.
@@ -211,7 +205,7 @@ You've seen how to create and deploy a web site from WebMatrix to Windows Azure.
 [custom-create]: ../Media/custom_create.jpg
 [website-details]: ../../Shared/Media/website_details.jpg
 [new-mysql-db]: ../Media/new_mysql_db.jpg
-[go-to-dashboard]: ../Media/go_to_dashboard.jpg
+[go-to-dashboard]: ../Media/go_to_dashboard.png
 [download-publish-profile]: ../Media/download-publish-profile.png
 [download-site]: ../Media/download-site-1.png
 [site-from-template]: ../Media/site-from-template.png

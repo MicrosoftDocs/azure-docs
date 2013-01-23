@@ -1,5 +1,7 @@
-<div class="dev-center-os-selector"><a href="/en-us/develop/python/tutorials/web-app-with-django/" title="Windows Version" class="windows current">Windows</a><a href="/en-us/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac Version" class="mac">Mac</a><span>Tutorial</span></div>
+<properties linkid="develop-python-web-app-with-django" urlDisplayName="Web with Django (Windows)" pageTitle="Python web app with Django - Windows Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" metaDescription="A tutorial that teaches you how to host a Django-based website on Windows Azure using a Windows Server 2008 R2 virtual machine." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+
+<div class="dev-center-os-selector"><a href="/en-us/develop/python/tutorials/web-app-with-django/" title="Windows Version" class="windows current">Windows</a><a href="/en-us/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac Version" class="mac">Mac</a><span>Tutorial</span></div>
 # Django Hello World Web Application
 
 This tutorial describes how to host a Django-based website on Windows 
@@ -15,8 +17,9 @@ application. The application will be hosted in a Windows Azure Preview Portal vi
 
 A screenshot of the completed application is below:
 
-![A browser window displaying the hello world page on Windows Azure][]
+![A browser window displaying the hello world page on Windows Azure][1]
 
+<div chunk="../../Shared/Chunks/create-account-and-vms-note.md" />
 
 ## Creating and configuring a Windows Azure virtual machine to host Django
 
@@ -72,6 +75,9 @@ To set up your Python and Django environments, please see the [Installation Guid
 
 	![IIS config1](../media/django-helloworld-iis1.png) 
 
+1. Tell the FastCGI to WSGI gateway which WSGI handler to use:
+%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python27\python.exe', arguments='C:\inetpub\wwwroot\wfastcgi.py'].environmentVariables.[name='WSGI_HANDLER',value='django.core.handlers.wsgi.WSGIHandler()']" /commit:apphost
+
 
 1. Download wfastcgi.py from [http://pytools.codeplex.com/releases/view/88766](http://pytools.codeplex.com/releases/view/88766) and save it to C:\inetpub\wwwroot.  This is the location the previous commands used for registering the FastCGI handler.
 
@@ -121,7 +127,7 @@ To set up your Python and Django environments, please see the [Installation Guid
 
 When you're done with this tutorial, shutdown and/or remove your newly created Windows Azure virtual machine to free up resources for other tutorials and avoid incurring Windows Azure usage charges.
 
-[A browser window displaying the hello world page on Windows Azure]: ../Media/django-helloworld-browser-azure.png
+[1]: ../Media/django-helloworld-browser-azure.png
 [A command prompt displaying the django directory creation]: ../Media/django-helloworld-ps-create-dir.png
 [The result of the New-AzureService command]: ../Media/django-helloworld-cmd-new-azure-service.png
 [A directory listing of the service folder]: ../Media/django-helloworld-ps-service-dir.png

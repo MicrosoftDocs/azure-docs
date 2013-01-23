@@ -31,11 +31,11 @@ The following list contains information for installing the command-line tools, d
 
 * **Linux** and **Windows**: Install the latest version of [Node.js][nodejs-org] (see [Install Node.js via Package Manager][install-node-linux]), then run the following command:
 
-		npm install azure -g
+		npm install azure-cli -g
 
 	**Note**: On Linux, you may need to run this command with elevated privileges:
 
-		sudo npm install azure -g
+		sudo npm install azure-cli -g
 
 	On Windows, you may need to run the command from a prompt with elevated privileges.
 
@@ -195,7 +195,7 @@ For a complete list of commands for creating and managing virtual machines, use 
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [http://www.windowsazure.com]: http://www.windowsazure.com
-[Windows Azure Website]: ../media/create-account-01.png
+[Windows Azure Website]: ../media/create-account-01-mac.png
 [open preview features tab]: ../media/antares-iaas-preview-01.png
 [select a preview feature]: ../media/antares-iaas-preview-02.png
 [select subscription]: ../media/antares-iaas-preview-03.png

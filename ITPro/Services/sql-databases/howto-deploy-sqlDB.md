@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Deploy a Database to Windows Azure" metaKeywords="Windows Azure SQL database, SQL database, deploy sql database" metaDescription="Learn how to deploy a database to Windows Azure." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-how-to-deploy-a-sqldb" urlDisplayName="How to deploy" pageTitle="How to deploy a SQL Database - Windows Azure" metaKeywords="" metaDescription="Learn how to deploy a SQL Server database to Windows Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 
 <h1 id="howtodeploySQLdb">How to Deploy a Database to Windows Azure</h1>
@@ -523,13 +525,13 @@ Next, copy and execute the Insert Data script.
 
 1. In Management Studio, connect to an on-premises SQL Server instance that has a database you want to migrate.
 
-2. Right-click the school database that you just created, point to **Tasks**, and click **Deploy Database to SQL Database**.
+2. Right-click the school database that you just created, point to **Tasks**, and click **Deploy Database to SQL Azure**.
 
 3. In Deployment Settings, enter a name for the database, such as *school*. 
 
 4. Click **Connect**.
 
-5. In Server name, enter the 10-character server name, followed by .databases.windows.net.
+5. In Server name, enter the 10-character server name, followed by .database.windows.net.
 
 6. In Authentication, choose **SQL Server Authentication**.
 
@@ -547,11 +549,9 @@ Next, copy and execute the Insert Data script.
 
 <h2 id="verify">How to: Verify database deployment</h2>
 
-1. In Management Studio, connect to the logical server. If you already have a connection open, you can close it and open a new one. The existing connection shows only those databases that were running at the time the connection was made.
+1. In Management Studio, in Object Explorer refresh the databases to view the new one you just created.
 
-   For instructions on how to connect to a logical server, see [How to Manage SQL Database](../how-to-manage-a-sqldb/). 
-
-2. Expand the Databases folder. You should see the school database in the list.
+2. Expand the Databases folder. You should see the **school** database in the list.
 
 3. Right-click on the school database and click **New Query**.
 

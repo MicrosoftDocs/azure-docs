@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Manage Websites" metaKeywords="Windows Azure Websites, deployment, configuration changes, deployment update, Windows Azure .NET deployment, .NET deployment" metaDescription="Learn how to configure Websites in Windows Azure to use a SQL or MySQL database, and learn how to configure diagnostics and download logs." linkid="itpro-windows-howto-configure-websites" urlDisplayName="How to Configure Websites" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-scenarios-how-to-manage-websites" urlDisplayName="How to manage" pageTitle="How to manage web sites - Windows Azure service management" metaKeywords="Azure portal website management" metaDescription="A reference for the Portal web site management pages in Windows Azure. Details are provided for each web site management page." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 
 #<a name="howtomanage"></a>How to Manage Websites
@@ -38,8 +40,8 @@ To see a chart with additional performance metrics, configure the chart displaye
 
 > - **Download Publish Profile** – Link to the publish profile, a file which contains credentials and URLs required to publish to the website using any enabled publishing methods.
 > - **Reset Deployment Credentials** – Displays a dialog box where you provide unique credentials for use when publishing with GIT or FTP. If you wish to use GIT or FTP deployment then you must reset deployment credentials because authentication to an FTP host or GIT repository with Live ID credentials is not supported. Once you reset deployment credentials you can use these credentials for GIT or FTP publishing to any website in your subscription.
-> - **Set up TFS publishing** – Displays a dialog box where you can set up publishing from Team Foundation Service.
-> - **Set up Git publishing** – Creates a GIT repository for the website so that you can publish to the website using GIT.
+> - **Set up TFS publishing** – Displays a dialog box where you can set up publishing from Team Foundation Service. Continuous deployment scenarios can be created using this link.
+> - **Set up Git publishing** – Creates a GIT repository for the website so that you can publish to the website using GIT. Continuous deployment scenarios from GitHub or CodePlex can be created using this link.
 > - **Status** – Indicates whether the website is running or not.
 > - **Site Url** – Specifies the publicly accessibly address of the website on the internet.
 > - **Location** – Specifies the physical region of the datacenter that hosts the website.
@@ -71,7 +73,7 @@ For more information about how to configure a Website see [How to Configure Webs
 
 
 ####Scale####
-The **Scale** management page is used to specify the website mode (either **Shared** or **Reserved**), the size of the website if it is configured as **Reserved** (**Small**, **Medium** or **Large**) and the value for **Reserved Instance Count** (from 1 to 3). A website that is configured as **Reserved** will provide more consistent performance than a website that is configured as **Shared**. A website that is configured with a larger **Reserved Instance Size** will perform better under load. Increasing the value for **Reserved Instance Count** will provide fault tolerance and improved performance through scale out. For more information about configuring scale options for a website see [How to Scale a Website](../how-to-scale-websites/).
+The **Scale** management page is used to specify the website mode (either **Free**, **Shared** or **Reserved**), the size of the website if it is configured as **Reserved** (**Small**, **Medium** or **Large**) and the value for **Reserved Instance Count** (from 1 to 3). A website that is configured as **Reserved** will provide more consistent performance than a website that is configured as **Free** or **Shared**. A website that is configured with a larger **Reserved Instance Size** will perform better under load. Increasing the value for **Reserved Instance Count** will provide fault tolerance and improved performance through scale out. For more information about configuring scale options for a website see [How to Scale a Website](../how-to-scale-websites/).
 
 ####Linked Resources####
 The **Linked Resources** management page provides a summary of all Windows Azure resources that your website is using. At the time of this writing, the only type of Windows Azure resource that can be linked to a website is a SQL database. 
@@ -81,7 +83,7 @@ Icons are displayed at the bottom of each of the website's Management pages, sev
 
 - **Browse** - Opens the default page for the website.
 - **Stop** - Stops the website.
-- **Upload** - Allows you to publish a web application to the website using  a web deploy package.
+- **Manage Domains** - Maps a domain to this website. Not available for sites in **Free** scaling mode.
 - **Delete** - Deletes the website.
 - **WebMatrix** - Opens supported websites in WebMatrix, allowing you to make changes to the website and publish those changes back to the website on Windows Azure.
 
