@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-worker-app-with-socketio" urlDisplayName="App Using Socket.IO" pageTitle="Node.js application using Socket.io - Windows Azure tutorial" metaKeywords="Azure Node.js socket.io tutorial, Azure Node.js socket.io, Azure Node.js tutorial" metaDescription="A tutorial that demonstrates using socket.io in a node.js application hosted on Windows Azure" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-
+<div chunk="../chunks/article-left-menu.md" />
 
 # Build a Node.js Chat Application with Socket.IO on a Windows Azure Cloud Service
 

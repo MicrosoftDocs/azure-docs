@@ -1,10 +1,11 @@
-<properties linkid="develop-python-web-app-with-django" urlDisplayName="Web with Django (Windows)" pageTitle="Python web app with Django - Windows Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" metaDescription="A tutorial that teaches you how to host a Django-based website on Windows Azure using a Windows Server 2008 R2 virtual machine." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-python-web-app-with-django" urlDisplayName="Web with Django (Windows)" pageTitle="Python web app with Django - Windows Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" metaDescription="A tutorial that teaches you how to host a Django-based web site on Windows Azure using a Windows Server 2008 R2 virtual machine." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+<div chunk="../chunks/article-left-menu.md" />
 
 <div class="dev-center-os-selector"><a href="/en-us/develop/python/tutorials/web-app-with-django/" title="Windows Version" class="windows current">Windows</a><a href="/en-us/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac Version" class="mac">Mac</a><span>Tutorial</span></div>
 # Django Hello World Web Application
 
-This tutorial describes how to host a Django-based website on Windows 
+This tutorial describes how to host a Django-based web site on Windows 
 Azure using a Windows Server 2008 R2 virtual machine. This tutorial assumes you have no prior experience using Windows Azure. Upon completing this guide, you will have a Django-based application up and running in the cloud.
 
 You will learn how to:
@@ -96,9 +97,9 @@ To set up your Python and Django environments, please see the [Installation Guid
     
 	![The result of the New-AzureService command][]
 
- The **django-admin.py** script generates a basic structure for Django-based websites:
+ The **django-admin.py** script generates a basic structure for Django-based web sites:
     
--   **manage.py** helps you to start hosting and stop hosting your Django-based website
+-   **manage.py** helps you to start hosting and stop hosting your Django-based web site
 -   **DjangoApplication\settings.py** contains Django settings for your application.
 -   **DjangoApplication\urls.py** contains the mapping code between each url and its view.
 
@@ -136,11 +137,11 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [A directory listing of the webrole folder]: ../Media/django-helloworld-ps-webrole-dir.png
 [A directory listing of the django folder]: ../Media/django-helloworld-ps-django-dir.png
 [A web browser displaying the Hello World web page on emulator]: ../Media/django-helloworld-browser-emulator.png
-[The menu displayed when right-clicking the Windows Azure emulator from the task bar]: ../../../DevCenter/Node/Media/getting-started-11.png
+[The menu displayed when right-clicking the Windows Azure emulator from the task bar]: ../../../DevCenter/nodejs/Media/getting-started-11.png
 [http://www.windowsazure.com]: http://www.windowsazure.com
 [A browser window displaying http://www.windowsazure.com/ with the Free Trial link highlighted]: ../../../DevCenter/dotNet/Media/getting-started-12.png
-[A browser window displaying the liveID sign in page]: ../../../DevCenter/Node/Media/getting-started-13.png
-[Internet Explorer displaying the save as dialog for the publishSettings file.]: ../../../DevCenter/Node/Media/getting-started-14.png
+[A browser window displaying the liveID sign in page]: ../../../DevCenter/nodejs/Media/getting-started-13.png
+[Internet Explorer displaying the save as dialog for the publishSettings file.]: ../../../DevCenter/nodejs/Media/getting-started-14.png
 [The output of the Publish-AzureService command]: ../Media/django-helloworld-ps-publish.png
 [The status of the Stop-AzureService command]: ../Media/django-helloworld-ps-stop.png
 [The status of the Remove-AzureService command]: ../Media/django-helloworld-ps-remove.png

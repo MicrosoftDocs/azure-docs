@@ -1,6 +1,6 @@
 <properties linkid="develop-php-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (PHP) - Windows Azure feature guides" metaKeywords="Azure SQL Database PHP, SQL Database PHP" metaDescription="Learn how to create and connect to a Windows Azure SQL Database from PHP." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-
+<div chunk="../chunks/article-left-menu.md" />
 
 #How to Access Windows Azure SQL Database from PHP
 
@@ -41,7 +41,7 @@ Follow these steps to create a Windows Azure SQL Database:
 1. Login to the [Preview Management Portal][preview-portal].
 2. Click the **+ NEW** icon on the bottom left of the portal.
 
-	![Create New Windows Azure Website][new-website]
+	![Create New Windows Azure Web Site][new-website]
 
 3. Click **DATA SERVICES**, **SQL DATABASE** then **CUSTOM CREATE**.
 

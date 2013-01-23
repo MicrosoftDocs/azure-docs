@@ -1,16 +1,17 @@
 <properties linkid="web-site-with-webmatrix" urlDisplayName="Web site with WebMatrix" pageTitle="Node.js web site with WebMatrix - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that teaches you how to WebMatrix to develop and deploy a Node.js application to a Windows Azure web site." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
+<div chunk="../chunks/article-left-menu.md" />
 
-#Build and deploy a Node.js web site to Windows Azure using WebMatrix
+# Build and deploy a Node.js web site to Windows Azure using WebMatrix
 
-This tutorial shows you how to use WebMatrix to develop and deploy a Node.js application to a Windows Azure Website. WebMatrix is a free web development tool from Microsoft that includes everything you need for website development. WebMatrix includes several features that make it easy to use Node.js including code completion, pre-built templates, and editor support for Jade, LESS, and CoffeeScript. Learn more about [WebMatrix for Windows Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409).
+This tutorial shows you how to use WebMatrix to develop and deploy a Node.js application to a Windows Azure Web site. WebMatrix is a free web development tool from Microsoft that includes everything you need for web site development. WebMatrix includes several features that make it easy to use Node.js including code completion, pre-built templates, and editor support for Jade, LESS, and CoffeeScript. Learn more about [WebMatrix for Windows Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409).
 
 Upon completing this guide, you will have a Node.js web site running in Windows Azure.
  
 A screenshot of the completed application is below:
 
-![Windows Azure node Website][webmatrix-node-completed]
+![Windows Azure node Web site][webmatrix-node-completed]
 
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
@@ -69,7 +70,7 @@ Follow these steps to create a Windows Azure Web Site.
 
 3. Click the link to open the web site in your browser.
 
-	![Express website][webmatrix-node-express-site]
+	![Express web site][webmatrix-node-express-site]
 
 ##Modify and republish your application
 
@@ -89,7 +90,7 @@ You can easily modify and republish your application. Here, you will make a simp
 
 4. When publishing has completed, use the link returned when the publish process is complete to see the updated site.
 
-	![Windows Azure node Website][webmatrix-node-completed]
+	![Windows Azure node Web site][webmatrix-node-completed]
 
 
 

@@ -1,20 +1,10 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-ios" urlDisplayName="Get Started with Data" pageTitle="Get started with data (iOS) - Windows Azure Mobile Services" metaKeywords="Windows Azure iOS data, Azure mobile services data, " metaDescription="Learn how to store and access data from your Windows Azure Mobile Services iOS app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-
-
-<div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
-
-<!--<div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/" title="Windows Store version">Windows Store app</a>
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios/" title="iOS version" class="current">iOS app</a>
-</div>-->
+<div chunk="../chunks/article-left-menu-ios.md" />
 
 # Get started with data in Mobile Services
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone 8">Windows Phone 8</a> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS" class="current">iOS</a> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS" class="current">iOS</a> 
 </div>	
 
 

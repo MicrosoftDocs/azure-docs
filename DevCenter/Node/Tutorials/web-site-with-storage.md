@@ -1,5 +1,6 @@
-<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" metaDescription="A tutorial that teaches you how to use the Windows Azure Table service to store data from a Node application hosted on a Windows Azure web site." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+﻿<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" metaDescription="A tutorial that teaches you how to use the Windows Azure Table service to store data from a Node application hosted on a Windows Azure web site." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+<div chunk="../chunks/article-left-menu.md" />
 
 # Node.js Web Application using the Windows Azure Table Service
 
@@ -283,7 +284,7 @@ In this section you will extend the basic application created by the **express**
 		      if(err) {
 		        throw err;
 		      }
-		      res.redirect('home');
+		      res.redirect('/');
 		    });
 		  },
   
@@ -302,7 +303,7 @@ In this section you will extend the basic application created by the **express**
 		      if(err) {
 		        throw err;
 		      } else {
- 		       res.redirect('home');
+ 		       res.redirect('/');
 		      }
 		    });
 		  }
@@ -316,21 +317,36 @@ In this section you will extend the basic application created by the **express**
 
 2. At the beginning of the file, add the following to load the azure module, set the table name, partitionKey, and set the storage credentials used by this example:
 
-		var azure = require('azure');
-		  , nconf = require('nconf');
+		var azure = require('azure')
+		, nconf = require('nconf');
 		nconf.env()
-	     .file({ file: 'config.json'});
+	    .file({ file: 'config.json'});
 		var tableName = nconf.get("TABLE_NAME")
-		  , partitionKey = nconf.get("PARTITION_KEY")
-		  , accountName = nconf.get("STORAGE_NAME")
-		  , accountKey = nconf.get("STORAGE_KEY");
+		, partitionKey = nconf.get("PARTITION_KEY")
+		, accountName = nconf.get("STORAGE_NAME")
+		, accountKey = nconf.get("STORAGE_KEY");
 
 	<div class="dev-callout">
 	<strong>Note</strong>
 	<p>nconf will load the configuration values from either environment variables or the **config.json** file, which we will create later.</p>
 	</div>
 
-3. Replace the content after the `//Routes` comment with the following code. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is then password to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
+3. In the app.js file, scroll down to where you see below code. 
+
+		app.configure(function(){
+		app.set('port', process.env.PORT || 3000);
+		app.set('views', __dirname + '/views');
+		app.set('view engine', 'jade');
+		app.use(express.favicon());
+		app.use(express.logger('dev'));
+		app.use(express.bodyParser());
+		app.use(express.methodOverride());
+		app.use(app.router);
+		app.use(express.static(path.join(__dirname, 'public')));
+});
+
+
+ Insert the below example code after the code above. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is the password to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
 
         var TaskList = require('./routes/tasklist');
 		var Task = require('./models/task');
@@ -344,8 +360,7 @@ In this section you will extend the basic application created by the **express**
 		    app.post('/addtask', taskList.addTask.bind(taskList));
 		    app.post('/completetask', taskList.completeTask.bind(taskList));
 
-		app.listen(process.env.port || 3000);
-
+		
 4. Save the **app.js** file.
 
 ###Modify the index view
@@ -543,7 +558,7 @@ Before using the command-line tools with Windows Azure, you must first download 
 	<p>If the `--git` parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.</p>
 	</div>
 	
-	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Website created at** contains the URL for the web site.
+	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Web site created at** contains the URL for the web site.
 	
 		info:   Executing command site create
 		help:   Need a site name
@@ -552,7 +567,7 @@ Before using the command-line tools with Windows Azure, you must first download 
 		info:   Executing `git init`
 		info:   Creating default .gitignore file
 		info:   Creating a new web site
-		info:   Created website at  tabletasklist.azurewebsites.net
+		info:   Created web site at  tabletasklist.azurewebsites.net
 		info:   Initializing repository
 		info:   Repository initialized
 		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
@@ -589,7 +604,7 @@ Earlier we implemented code that looks for a **SQL_CONN** environment variable f
 
 1. From the Preview Management Portal, click **Web Sites** and then select your web site.
 
-	![Open website dashboard][go-to-dashboard]
+	![Open web site dashboard][go-to-dashboard]
 
 2. Click **CONFIGURE** and then find the **app settings** section of the page. 
 
@@ -637,7 +652,7 @@ While the steps in this article describe using the Table Service to store inform
 [for free]: http://windowsazure.com
 [Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
-[Node.js Web Application with MongoDB]: ./web-site-with-mongodb-Mac
+[Node.js Web Application with MongoDB]: /en-us/develop/nodejs/tutorials/website-with-mongodb-(Mac)/
 [Windows Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Create and deploy a Node.js application to a Windows Azure Web Site]: ./web-site-with-mongodb-Mac
 [Publishing to Windows Azure Web Sites with Git]: ../CommonTasks/publishing-with-git

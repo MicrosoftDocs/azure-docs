@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-net-tutorials-multitenant-apps-for-active-direcotry" urlDisplayName="Multi-Tenant Cloud App Security" pageTitle="Developing multi-tenant apps for Windows Azure Active Directory" metaKeywords="" metaDescription="Learn how to develop multi-tenant cloud applications using Windows Azure Active Directory." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-net-tutorials-multitenant-apps-for-active-direcotry" urlDisplayName="Multi-Tenant Cloud App Security" pageTitle="Developing multi-tenant apps for Windows Azure Active Directory" metaKeywords="" metaDescription="Learn how to develop multi-tenant cloud applications using Windows Azure Active Directory." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -14,7 +14,7 @@ This walkthrough is intended for .NET developers who want to integrate a multi-t
 * Enable single sign-on (SSO) with Windows Azure AD
 * Query a customer's directory data using the Windows Azure AD Graph API
 
-The companion sample application for this walkthrough can be [downloaded here][]. The sample can be run without changes, but you may need to change your [port assignment in Visual Studio][]. All code snippets in the steps below have been taken from the sample.
+The companion sample application for this walkthrough can be [downloaded here][]. The sample can be run without changes, but you may need to change your [port assignment in Visual Studio][] to use https. Follow the instructions in the link, but set the binding protocol to "https" in the bindings section of the ApplicationHost.config file. All code snippets in the steps below have been taken from the sample.
 
 <div class="dev-callout"><strong>Note</strong><p>The multi-tenant directory app sample is provided for illustration purposes only.  This sample (including its helper library classes) should not be used in production.</p></div>
 
@@ -178,10 +178,10 @@ To demonstrate this process, the following steps use the contoso.com domain name
 
 1.	Get the **FederationMetadata.xml** file for the Windows Azure AD tenant. For example:  
 *https://accounts.accesscontrol.windows.net/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml*
-2.	In the **FederationMetadata.xml** file, locate the **Entity Descriptor** entry. The Tenant ID is included as part of the **entityID** property following the @ sign, as shown below:
+2.	In the **FederationMetadata.xml** file, locate the **Entity Descriptor** entry. The Tenant ID is included as part of the **entityID** property following the "https://sts.windows.net", as shown below:
 
-		 <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="spn:00000001-0001-0000-c000-000000000000@a7456b11-6fe2-4e5b-bc83-67508c201e4b" ID="_97a1b555-b6df-4136-b9cd-8d9467e4f276"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#"> 
-In this case, the TenantID's value is **a7456b11-6fe2-4e5b-bc83-67508c201e4b**.
+		 <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sts.windows.net/a7456b11-6fe2-4e5b-bc83-67508c201e4b/" ID="_cba45203-f8f4-4fc3-a3bb-0b136a2bafa5"> 
+In this case, the TenantID value is **a7456b11-6fe2-4e5b-bc83-67508c201e4b**.
 3.	In your application's customer/TenantId "data store," you should store the domain and its associated TenantID.  These two values can be used together for future sign-in requests and eliminate the need to get the **FederationMetadata.xml** each time. The sample application does not feature this optimization.
 
 <h3>Step 2: Generate the Sign-In Request</h3>
@@ -209,7 +209,7 @@ In the sample application, the original code can be found under the *Microsoft.I
         {
             ReadOnlyCollection<System.Security.Claims.ClaimsIdentity> aa = base.ValidateToken(token);
             Saml2SecurityToken ss = token as Saml2SecurityToken;
-            string tenant = ss.Assertion.Issuer.Value.Split('@')[1];
+            string tenant = ss.Assertion.Issuer.Value.Split('/')[3];
             if (!TrustedIssuers.Contains(tenant))
             {
                 throw new SecurityTokenValidationException(string.Format("The tenant {0} is not registered with the application", tenant));
@@ -244,8 +244,8 @@ In the sample application, these calls to the API are handled by the GraphInterf
 	public GraphInterface()
     {
     	// 1a: When the customer was signed in, we get a security token 
-        // that contains a tenant domain name. Extract that here
-        TenantDomainName = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/domain").Value;
+        // that contains a tenant id. Extract that here
+        TenantDomainName = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/ws/2012/10/identity/claims/tenantid").Value;
 
         // 1b: We generate a URL (https://graph.windows.net/<CustomerDomainName>)
         // to access the Azure AD Graph API endpoint for the tenant 

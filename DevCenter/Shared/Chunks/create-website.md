@@ -1,4 +1,4 @@
-Follow these steps to create a Windows Azure Web site and then enable Git publishing for the website. If you do not already have a Windows Azure subscription, you can sign up [for free].
+Follow these steps to create a Windows Azure web site and then enable Git publishing for the web site. If you do not already have a Windows Azure subscription, you can sign up [for free].
 
 1. Login to the [Windows Azure Portal].
 

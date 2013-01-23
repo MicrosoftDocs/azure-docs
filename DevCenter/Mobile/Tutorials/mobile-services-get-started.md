@@ -1,28 +1,17 @@
 <properties linkid="develop-mobile-tutorials-get-started" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Mobile Services" metaKeywords="" metaDescription="Follow this tutorial to get started using Windows Azure Mobile Services for Windows Store development in C#, VB, or JavaScript. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-
-<div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14812" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umbversionid="254ca664-c4f3-4815-8073-c86d43f4aa16" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
-
-<!--<div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/get-started/" title="Windows Store version" class="current">Windows Store</a>
-  <a href="/en-us/develop/mobile/tutorials/get-started-ios/" title="iOS version">iOS</a>
-</div>-->
+<div chunk="../chunks/article-left-menu-windows-store.md" />
 
 # <a name="getting-started"> </a>Get started with Mobile Services
-<div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store" class="current">Windows Store</a>
-	<a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone 8">Windows Phone 8</a> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a> 
+
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store" class="current">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a></div>
+<div class="dev-onpage-video-clear clearfix">
+<div class="dev-onpage-left-content">
+<p>This tutorial shows you how to add a cloud-based backend service to a Windows Store app using Windows Azure Mobile Services.</p>
+<p>If you prefer to watch a video, the clip to the right follows the same steps as this tutorial. In the video, Scott Guthrie provides an introduction to Mobile Services and walks through creating your first mobile service and connecting to it from a Windows Store app.</p>
 </div>
-
-
-<div class="dev-onpage-video-wrapper"><a style="background-image: url('/media/scott-mobile-video-2012.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=262813&amp;clcid=0x409" target="_blank" class="dev-onpage-video"><span class="icon"><span>Play Video</span></span><span class="time">10:08</span></a></div>   
-
-This tutorial shows you how to add a cloud-based backend service to a Windows Store app using Windows Azure Mobile Services. 
-
-If you prefer to watch a video, the clip to the right follows the same steps as this tutorial. In the video, Scott Guthrie provides an introduction to Mobile Services and walks through creating your first mobile service and connecting to it from a Windows Store app.
-
-<p></p>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Introduction-to-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Introduction-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">10:08</span></div>
+</div>
 
 In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. 
 

@@ -195,7 +195,7 @@ manage your application.
   [2]: ../../../DevCenter/Shared/Media/remote-desktop-03.png
   [3]: ../../../DevCenter/Shared/Media/remote-desktop-04.png
   [4]: ../../../DevCenter/Shared/Media/remote-desktop-05.png
-  [Windows Azure Management Portal]: http://windows.azure.com/
+  [Windows Azure Management Portal]: http://manage.windowsazure.com/
   [5]: ../../../DevCenter/Shared/Media/remote-desktop-06.png
   [6]: ../../../DevCenter/Shared/Media/remote-desktop-07.png
   [7]: ../../../DevCenter/Shared/Media/remote-desktop-08.png

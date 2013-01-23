@@ -1,14 +1,9 @@
-<properties linkid="dev-net-commons-tasks-enable-ssl" urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service - Windows Azure" metaKeywords="Azure SSL, Azure HTTPS, Windows Azure SSL, Windows Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" metaDescription="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
-
-
+<properties linkid="dev-net-commons-tasks-enable-ssl" urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service - Windows Azure" metaKeywords="Azure SSL, Azure HTTPS, Windows Azure SSL, Windows Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" metaDescription="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="" editor="mollybos" manager="jeffreyg" />
 
 <div chunk="../chunks/article-left-menu.md" />
 # Configuring SSL for an application in Windows Azure
 
-Secure Socket Layer (SSL) encryption is the most commonly used method of
-securing data sent across the internet. This common task discusses how
-to specify an HTTPS endpoint for a web role and how to upload an SSL
-certificate to secure your application.
+Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
 
 This task includes the following steps:
 
@@ -21,35 +16,22 @@ This task will use a production deployment; information on using a staging deplo
 
 <h2><a name="step1"> </a><span class="short-header">Get an SSL cert</span>Step 1: Get an SSL certificate</h2>
 
-To configure SSL for an application, you first need to get an SSL
-certificate that has been signed by a Certificate Authority (CA), a
-trusted third-party who issues certificates for this purpose. If you do
-not already have one, you will need to obtain one from a company that
-sells SSL certificates.
+To configure SSL for an application, you first need to get an SSL certificate that has been signed by a Certificate Authority (CA), a trusted third-party who issues certificates for this purpose. If you do not already have one, you will need to obtain one from a company that sells SSL certificates.
 
-The certificate must meet the following requirements for SSL
-certificates in Windows Azure:
+The certificate must meet the following requirements for SSL certificates in Windows Azure:
 
 -   The certificate must contain a private key.
 -   The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
--   The certificate's subject name must match the domain used to access
-    the cloud service. You cannot acquire an SSL certificate for the
-    cloudapp.net domain, so the certificate's subject name must match
-    the custom domain name used to access your application. This documentation uses sslexample.cloudapp.net as the web site URL, so the common name (CN) used in the certificate is **sslexample.cloudapp.net**.
+-   The certificate's subject name must match the domain used to access the cloud service. You cannot obtain an SSL certificate from a certificate authority (CA) for the cloudapp.net domain. You must acquire a custom domain name to use when access your service. When you request a certificate from a CA the certificate's subject name must match the custom domain name used to access your application. For example, if your custom domain name is **contoso.com** you would request a certificate from your CA for ***.contoso.com** or **www.contoso.com**.
 -   The certificate must use a minimum of 2048-bit encryption.
 
-For test purposes, you can create and use a self-signed certificate. For
-details about how to create a self-signed certificate using IIS Manager,
-See [How to create a certificate for a role][].
+For test purposes, you can create and use a self-signed certificate. A self-signed certificate is not authenticated through a CA and can use the cloudapp.net domain as the web site URL. For example, the task below uses a self-signed certificate in which  the common name (CN) used in the certificate is **sslexample.cloudapp.net**. For details about how to create a self-signed certificate using IIS Manager, See [How to create a certificate for a role][].
 
-Next, you must include information about the certificate in your service
-definition and service configuration files.
+Next, you must include information about the certificate in your service definition and service configuration files.
 
 <h2><a name="step2"> </a><span class="short-header">Modify svc / config files</span>Step 2: Modify the service definition and configuration files</h2>
 
-Your application must be configured to use the certificate, and an HTTPS
-endpoint must be added. As a result, the service definition and service
-configuration files need to be updated.
+Your application must be configured to use the certificate, and an HTTPS endpoint must be added. As a result, the service definition and service configuration files need to be updated.
 
 1.  In your development environment, open the service definition file
     (CSDEF), add a **Certificates** section within the **WebRole**
@@ -59,17 +41,14 @@ configuration files need to be updated.
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
             <Certificates>
-                <Certificate name="SampleCertificate" storeLocation="LocalMachine" 
-                    storeName="CA" />
+                <Certificate name="SampleCertificate" 
+							 storeLocation="LocalMachine" 
+                    		 storeName="CA" />
             </Certificates>
         ...
         </WebRole>
 
-    The **Certificates** section defines the name of our certificate,
-    its location, and the name of the store where it is located. We have
-    chosen to store the certificate in the CA (Certificate Authority)
-    store, but you can choose other options as well. See [How to
-    associate a certificate with a service][] for more information.
+    The **Certificates** section defines the name of our certificate, its location, and the name of the store where it is located. We have chosen to store the certificate in the CA (Certificate Authority)tore, but you can choose other options as well. See [How to associate a certificate with a service][] for more information.
 
 2.  In your service definition file, add an **InputEndpoint** element
     within the **Endpoints** section to enable HTTPS:

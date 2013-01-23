@@ -26,7 +26,7 @@ This topic shows you how to register your apps to be able to use Facebook to aut
 
 	This registers the app with Facebook 
 
-5.  Under **Select how your app integrates with Facebook**, expand **Website with Facebook Login**, type the URL of your mobile service in **Site URL**, and then click **Save Changes**.
+5.  Under **Select how your app integrates with Facebook**, expand **Web Site with Facebook Login**, type the URL of your mobile service in **Site URL**, and then click **Save Changes**.
 
    ![][3]
 

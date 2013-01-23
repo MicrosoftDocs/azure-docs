@@ -1,14 +1,10 @@
 <properties linkid="develop-mobile-tutorials-single-sign-on-windows-8-dotnet" urlDisplayName="Authenticate with single sign-on" pageTitle="Authenticate your Windows Store app with Live Connect" metaKeywords="Windows Azure Live Connect, Azure SSO, SSO Live Connect, mobile services sso, Windows Store app sso" metaDescription="Learn how to use Live Connect single sign-on in Windows Azure Mobile Services from a Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-
-
-<div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
+<div chunk="../chunks/article-left-menu-windows-store.md" />
 
 # Authenticate your Windows Store app with Live Connect single sign-on
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
-	<a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
-    <!--<a href="/en-us/develop/mobile/tutorials/single-sign-on-wp8" title="Windows Phone" class="current">Windows Phone</a>-->
+	<a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/single-sign-on-wp8" title="Windows Phone">Windows Phone</a>
 </div>	
 
 
@@ -31,7 +27,7 @@ This tutorial requires the following:
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services].
 
-<a name="register"></a><h2><span class="short-header">Register your app</span>Register your app for the Windows Store</h2>
+<h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for the Windows Store</h2>
 
 To be able to authenticate users, you must submit your app to the Windows Store. You must then register the client secret to integrate Live Connect with Mobile Services.
 
@@ -91,7 +87,7 @@ To be able to authenticate users, you must submit your app to the Windows Store.
 
 Both your mobile service and your app are now configured to work with Live Connect.
 
-<a name="permissions"></a><h2><span class="short-header">Restrict permissions</span>Restrict permissions to authenticated users</h2>
+<h2><a name="permissions"></a><span class="short-header">Restrict permissions</span>Restrict permissions to authenticated users</h2>
 
 1. In the Management Portal, click the **Data** tab, and then click the **TodoItem** table. 
 
@@ -109,7 +105,7 @@ Both your mobile service and your app are now configured to work with Live Conne
 
 Next, you will update the app to authenticate users with Live Connect before requesting resources from the mobile service.
 
-<a name="add-authentication"></a><h2><span class="short-header">Add authentication</span>Add authentication to the app</h2>
+<h2><a name="add-authentication"></a><span class="short-header">Add authentication</span>Add authentication to the app</h2>
 
 1. Download and install the [Live SDK for Windows].
 
@@ -170,6 +166,10 @@ Next, you will update the app to authenticate users with Live Connect before req
 
 7. Update string _<< INSERT REDIRECT DOMAIN HERE >>_ from the previous step with the redirect domain that was specified when setting up the app in Live Connect, in the format **https://_service-name_.azure-mobile.net/**.
 
+    <div class="dev-callout"><b>Note</b>
+	<p>In a Windows Store app, an instance of the <strong>LiveAuthClient</strong> class is created by passing the redirect domain URI value to the class constructor. In a <a href="/en-us/develop/mobile/tutorials/single-sign-on-wp8/">Windows Phone 8 app</a>, the same class is instantiated by passing the client ID.</p>
+    </div>
+
 8. Replace the existing **OnNavigatedTo** event handler with the handler that calls the new **Authenticate** method:
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -215,11 +215,11 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: ./mobile-services-get-started.md
-[Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
-[Authorize users with scripts]: ./mobile-services-authorize-users-dotnet.md
-[JavaScript and HTML]: ./mobile-services-get-started-with-users-js.md
+[Get started with Mobile Services]: ../tutorials/mobile-services-get-started.md
+[Get started with data]: ../tutorials/mobile-services-get-started-with-data-dotnet.md
+[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-dotnet.md
+[Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-dotnet.md
+[Authorize users with scripts]: ../tutorials/mobile-services-authorize-users-dotnet.md
+[JavaScript and HTML]: ../tutorials/mobile-services-get-started-with-users-js.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/

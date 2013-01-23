@@ -1,5 +1,6 @@
-<properties linkid="develop-nodejs-tutorials-web-site-with-sql-database" urlDisplayName="Web site with SQL Database" pageTitle="Node.js web site with SQL Database - Windows Azure tutorial" metaKeywords="" metaDescription="Learn how to create a Node.js website that accesses a SQL Database and is deployed to Windows Azure" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+﻿<properties linkid="develop-nodejs-tutorials-web-site-with-sql-database" urlDisplayName="Web site with SQL Database" pageTitle="Node.js web site with SQL Database - Windows Azure tutorial" metaKeywords="" metaDescription="Learn how to create a Node.js website that accesses a SQL Database and is deployed to Windows Azure" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+<div chunk="../chunks/article-left-menu.md" />
 
 # Node.js Web Application using the Windows Azure SQL Database
 
@@ -222,9 +223,9 @@ In this section you will create a new Node application and use npm to add module
 
 3. Extract the archive to the **tasklist\\node\_modules** directory.
 
-4. Run the **node-sqlserver-install.cmd** file in the **tasklist\\node\_modules** directory. This will create a **node-sqlserver** subdirectory under **node\_modules** and move the driver files into this new directory structure.
+4. Run the **msnodesql-install.cmd** file in the **tasklist\\node\_modules** directory. This will create a **msnodesql** subdirectory under **node\_modules** and move the driver files into this new directory structure.
 
-5. Delete the **node-sqlserver-install.cmd** file, as it is no longer needed.
+5. Delete the **msnodesql-install.cmd** file, as it is no longer needed.
 
 ##Use SQL Database in a node application
 
@@ -234,9 +235,9 @@ In this section you will extend the basic application created by the **express**
 
 1. In the **tasklist/routes** directory, open the **index.js** file in a text editor.
 
-2. Replace the existing code in the **index.js** file with the following code. This loads the node-sqlserver, and nconf modules, then uses nconf to load the connection string from either an environment variable named **SQL\_CONN** or an **SQL\_CONN** value in the **config.json** file.
+2. Replace the existing code in the **index.js** file with the following code. This loads the msnodesql, and nconf modules, then uses nconf to load the connection string from either an environment variable named **SQL\_CONN** or an **SQL\_CONN** value in the **config.json** file.
 
-		var sql = require('node-sqlserver')
+		var sql = require('msnodesql')
 		    , nconf = require('nconf');
 
 		nconf.env()
@@ -261,7 +262,7 @@ In this section you will extend the basic application created by the **express**
 		        sql.query(conn, insert, [item.name, item.category], function(err) {
 		            if(err)
 		                throw err;
-		            res.redirect('home');
+		            res.redirect('/');
 		        });
 		    } else {
 		        var completed = req.body.completed;
@@ -271,7 +272,7 @@ In this section you will extend the basic application created by the **express**
 		        sql.query(conn, update, function(err) {
 		            if(err)
 		                throw err;
-		            res.redirect('home');
+		            res.redirect('/');
 		        });
 		    }
 		}
@@ -282,16 +283,23 @@ In this section you will extend the basic application created by the **express**
 
 1. In the **tasklist** directory, open the **app.js** file in a text editor. This file was created earlier by running the **express** command.
 
-3. Replace the content after the `//Routes` comment with the following code. This will add a new route to the **updateItem** method you added previously in the **index.js** file and listen on the port specified in process.env.PORT. The port value will be used once the application is deployed to Windows Azure.
+2. In the app.js file, scroll down to where you see below code.
 
-        // Routes
+		app.configure('development', function(){
+  		app.use(express.errorHandler());
+		});
 
-		app.get('/', routes.index);
+3. Now insert the following code.
+
+
+        app.get('/', routes.index);
 		app.post('/', routes.updateItem);
 
-		app.listen(process.env.PORT || 3000);
 
-4. Save the **app.js** file.
+ This will add a new route to the **updateItem** method you added previously in the **index.js** file. 
+
+       		
+3. Save the **app.js** file.
 
 ###Modify the index view
 

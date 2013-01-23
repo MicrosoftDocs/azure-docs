@@ -1,7 +1,7 @@
 <properties linkid="services-linux-cassandra-with-linux" urlDisplayName="Cassandra with Linux" pageTitle="Run Cassandra with Linux on Windows Azure" metaKeywords="" metaDescription="Explains how to run a Cassandra cluster on Linux in Windows Azure Virtual Machines." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
-<h1 id = "" > Running Cassandra with Linux on Windows Azure and Accessing it from Node.js </h1>
+<h1 id = "" >Running Cassandra with Linux on Windows Azure and Accessing it from Node.js </h1>
 **Author:** Hanu Kommalapati
 
 ## Table of Contents##
@@ -183,8 +183,10 @@ Now that we have the VMs ready, it is time to set up Cassandra on each of the VM
 **Step 1: Install Pre-Requisites**
 
 Cassandra requires Java Virtual Machine and hence install the latest JRE using the following command for Debian derivatives including Ubuntu:
-
-	sudo apt-get install openjdk-6-jre
+         
+	sudo add-apt-repository ppa:webupd8team/java
+    sudo apt-get update
+    sudo apt-get install oracle-java7-installer
 
 **Step 2: Cassandra Installation**
 

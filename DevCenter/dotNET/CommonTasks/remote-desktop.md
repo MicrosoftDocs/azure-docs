@@ -83,7 +83,7 @@ application.
            <li>On the <strong>Windows Azure Publish Sign In</strong> page, click the <strong>Sign in to download credentials</strong> link. You will be prompted to sign in to the Windows Azure Management Portal, and then to download a .publishsettings file.</li>
            <li>Save the .publishsettings file locally.</li>
            <li>Click the <strong>Import</strong> button and select the .publishsettings file you just downloaded.</li>
-           <li>Back on the <strong>Windows Azure Publish Sign In</strong> page, the subscription associated with the .publishsettings file you just imported will be selected. Click <strong>Next</strong> to continue.
+           <li>Back on the <strong>Windows Azure Publish Sign In</strong> page, the subscription associated with the .publishsettings file you just imported will be selected. Click <strong>Next</strong> to continue.</li>
            </ol></p>
     </div>
     </div>  
@@ -149,7 +149,7 @@ manage your application on the instance itself.
   [0]: ../../../DevCenter/dotNet/Media/remote-desktop-01.png
   [1]: ../../../DevCenter/dotNet/Media/remote-desktop-02.png
   [Setting Up Named Authentication Credentials]: http://msdn.microsoft.com/en-us/library/windowsazure/ff683676.aspx
-  [Windows Azure Management Portal]: http://windows.azure.com/
+  [Windows Azure Management Portal]: http://manage.windowsazure.com/
   [2]: ../../../DevCenter/dotNet/Media/remote-desktop-03.png
   [3]: ../../../DevCenter/dotNet/Media/remote-desktop-04.png
   [4]: ../../../DevCenter/dotNet/Media/remote-desktop-05.png

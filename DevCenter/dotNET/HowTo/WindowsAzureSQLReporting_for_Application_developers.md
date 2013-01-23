@@ -77,7 +77,7 @@ To integrate ReportViewer into your Windows Azure application, you need to pay a
 
 For more information, see [How to: Use ReportViewer in a Web Site Hosted in Windows Azure][].
 
-For more information about the use of ReportViewer in a Windows Azure website that uses more than one web role instance, see [Using the ReportViewer ASP.NET Control in Windows Azure][].
+For more information about the use of ReportViewer in a Windows Azure web site that uses more than one web role instance, see [Using the ReportViewer ASP.NET Control in Windows Azure][].
 
 
 <strong>Creating the Windows Azure Project with ReportViewer control</strong>

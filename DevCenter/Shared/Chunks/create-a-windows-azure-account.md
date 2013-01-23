@@ -6,7 +6,7 @@ In order to deploy applications to Windows Azure, you need an account. This arti
 
 1.  Open a web browser and browse to <a href="http://www.windowsazure.com">http://www.windowsazure.com</a>
 2.  To get started with a free account, click <strong>Free trial</strong> in the upper right corner and follow the steps. You'll need a credit card number and a mobile phone number for proof of identity, but you will not be billed.<br />
-    ![Windows Azure Website][0]
+    ![Windows Azure Web Site][0]
 
 <h2><a id="enable"></a>Enable Windows Azure preview features</h2>
 
@@ -20,8 +20,8 @@ In order to deploy applications to Windows Azure, you need an account. This arti
 
 
 [http://www.windowsazure.com]: http://www.windowsazure.com
-[Windows Azure Website]: ../media/freetrialonwindowsazurehomepage.png
-[0]: ../media/freetrialonwindowsazurehomepage.png"
+[Windows Azure Web Site]: ../media/freetrialonwindowsazurehomepage.png
+[0]: ../media/freetrialonwindowsazurehomepage.png
 [1]: ../media/antares-iaas-preview-01.png
 [2]: ../media/antares-iaas-preview-05.png
 [3]: ../media/antares-iaas-preview-06.png

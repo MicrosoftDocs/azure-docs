@@ -1,4 +1,4 @@
-<properties linkid="develop-dotnet-website-with-mongodb-vm" urlDisplayName="Website with MongoDB VM" pageTitle=".NET web site with MongoDB on a virtual machine - Windows Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" metaDescription="A tutorial that teaches you how to use Git to deploy an ASP.NET app to a Windows Azure web site connected to MongoDB on a virtual machine." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-dotnet-website-with-mongodb-vm" urlDisplayName="Web site with MongoDB VM" pageTitle=".NET web site with MongoDB on a virtual machine - Windows Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" metaDescription="A tutorial that teaches you how to use Git to deploy an ASP.NET app to a Windows Azure web site connected to MongoDB on a virtual machine." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 
 <div chunk="../chunks/article-left-menu.md" />#Create a Windows Azure web site that connects to MongoDB running on a virtual machine in Windows Azure
@@ -24,8 +24,8 @@ In this tutorial you will:
 Knowledge of the following is useful for this tutorial, though not required:
 
 * The C# driver for MongoDB. For more information on developing C# applications against MongoDB, see [CSharp Language Center][MongoC#LangCenter]. 
-* The ASP .NET web application framework. You can learn all about it at the [ASP.net website][ASP.NET].
-* The ASP .NET MVC 3.0 web application framework. You can learn all about it at the [ASP.NET MVC 3 website][MVC3].
+* The ASP .NET web application framework. You can learn all about it at the [ASP.net web site][ASP.NET].
+* The ASP .NET MVC 3.0 web application framework. You can learn all about it at the [ASP.NET MVC 3 web site][MVC3].
 * Windows Azure. You can get started reading at [Windows Azure][WindowsAzure].
 
 <h2><span class="short-header">Preparation</span>Preparation</h2>

@@ -11,7 +11,6 @@
 
 Learn which distribution versions, LIS drivers and Agent Versions have been tested to work on Windows Azure.
 
-
 ###[Partner solutions for Linux in Windows Azure](/en-us/manage/linux/other-resources/partner-solutions/)
 
 Review a list of the partners who deliver Linux-based cloud solutions in Windows Azure.

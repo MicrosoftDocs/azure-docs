@@ -10,7 +10,7 @@ Blob storage include:
 -   Storing files for distributed access
 -   Streaming video and audio
 -   Performing secure backup and disaster recovery
--   Storing data for analysis by an on-premise or Windows Azure-hosted
+-   Storing data for analysis by an on-premises or Windows Azure-hosted
     service
 
 You can use Blob storage to expose data publicly to the world or

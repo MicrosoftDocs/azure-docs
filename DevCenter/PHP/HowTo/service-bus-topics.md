@@ -1,6 +1,6 @@
 <properties linkid="develop-php-how-to-guides-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (PHP) - Windows Azure" metaKeywords="" metaDescription="Learn how to use Service Bus topics with PHP in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to Use Service Bus Topics/Subscriptions
 
@@ -341,7 +341,7 @@ topic [Queues, Topics, and Subscriptions][] for more information.
 [How to: Delete Topics and Subscriptions]: #bkmk_HowToDeleteTopics
 [Next Steps]: #bkmk_NextSteps
 [Service Bus Topics diagram]: ../../../DevCenter/Java/Media/SvcBusTopics_01_FlowDiagram.jpg
-[Windows Azure Management Portal]: http://windows.azure.com/
+[Windows Azure Management Portal]: http://manage.windowsazure.com/
 [Service Bus Node screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
 [Create a New Namespace screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
 [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png

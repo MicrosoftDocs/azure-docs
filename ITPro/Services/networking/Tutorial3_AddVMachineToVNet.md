@@ -150,7 +150,7 @@ To install an additional domain controller for your on-premises Active Directory
 
 <!-- LINKS -->
 
-[wa_com]: http://windows.azure.com/
+[wa_com]: http://manage.windowsazure.com/
 [Tut2_VN]: ..Tutorial2_CreateVNetCrossPrem 
 [Tut1_VN]: ..Tutorial1_CreateVirtualNetwork
 
