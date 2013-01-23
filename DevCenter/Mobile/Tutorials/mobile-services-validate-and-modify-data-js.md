@@ -1,21 +1,10 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-js" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate data (JavaScript)" metaKeywords="" metaDescription="Learn how to use server scripts to validate, modify, and augment data with Windows Azure Mobile Services." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/" disqusComments="1" umbracoNaviHide="1" />
 
-
-
-<div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14808" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
-
-<!--<div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/" title=".NET client version">C# and XAML</a>
-  <a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js/" title="JavaScript client version" class="current">JavaScript and HTML</a>
-  <span>Tutorial</span>
-</div>-->
+<div chunk="../chunks/article-left-menu-windows-store.md" />
 
 # Validate and modify data in Mobile Services by using server scripts 
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
-	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone 8">Windows Phone 8</a> 
-	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a>
+	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a>
 </div>
 
 

@@ -1,8 +1,8 @@
 <properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Windows Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous deliver PowerShell" metaDescription="Learn how to set up continuous delivery for Windows Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 
-
 <div chunk="../chunks/article-left-menu.md" />
+
 # Continuous Delivery for Cloud Services in Windows Azure
 
 The process described in this article shows you how to set up continuous
@@ -789,7 +789,7 @@ Write-Output "$(Get-Date –f $timeStampFormat) - Azure Cloud Service deploy scr
   [0]: ../../../DevCenter/dotNet/Media/tfs-01.png
   [2]: ../../../DevCenter/dotNet/Media/tfs-02.png
   [Windows Azure PowerShell Cmdlets]: http://go.microsoft.com/fwlink/?LinkId=256262
-  [the .publishsettings file]: https://windows.azure.com/download/publishprofile.aspx?wa=wsignin1.0
+  [the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
   [end of this article]: #script
   [http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx
   [3]: ../media/common-task-tfs-03.png

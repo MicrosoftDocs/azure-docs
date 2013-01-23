@@ -1,18 +1,10 @@
 <properties linkid="mobile-get-started-with-users-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with authentication in Mobile Services" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Phone apps." umbraconavihide="0" disquscomments="1"></properties>
 
-<div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
-
-<!--<div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/" title="Windows Store version" class="current">Windows Store</a>
-  <a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios/" title="iOS version">iOS</a>
-</div>-->
+<div chunk="../chunks/article-left-menu-wp8.md" />
 
 # Get started with authentication in Mobile Services
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone 8" class="current">Windows Phone 8</a> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone 8" class="current">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a> 
 </div>
 
 

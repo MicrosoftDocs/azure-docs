@@ -1,6 +1,6 @@
 <properties linkid="develop-java-how-to-add-a-certificate" urlDisplayName="Add a Cert to the CA Store" pageTitle="Add a certificate to the Java CA store - Windows Azure" metaKeywords="Azure Twilio Java, Twilio Java Certificate, Azure Service Bus Certificate" metaDescription="Learn how to add a certificate authority (CA) certificate to the Java CA certificate (cacerts) store for Twilio service or Windows Azure Service Bus." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-
+<div chunk="../chunks/article-left-menu.md" />
 
 # Adding a Certificate to the Java CA Certificates Store
 The following steps show you how to add a certificate authority (CA) certificate to the Java CA certificate (cacerts) store. The example used is for the CA certificate required by the Twilio service. Information provided later in the topic describes how to install the CA certificate for the Windows Azure Service Bus. 

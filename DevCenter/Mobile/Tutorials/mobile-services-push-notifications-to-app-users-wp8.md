@@ -1,22 +1,10 @@
 <properties linkid="develop-net-tutorials-push-notifications-to-users-wp8" urlDisplayName="Push Notifications to Users (WP8)" pageTitle="Push notifications to users (Windows Phone) - Mobile Services" metaKeywords="" metaDescription="Learn how to push notifications to your Windows Store app users by using Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-
-
-<div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14827" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
-
-<!--
-<div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet/" title=".NET client version" class="current">C# and XAML</a>
-  <a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-js/" title="JavaScript client version">JavaScript and HTML</a>
-  <span>Tutorial</span>
-</div>
--->
+<div chunk="../chunks/article-left-menu-wp8.md" />
 
 # Push notifications to users by using Mobile Services
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
-	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone 8" class="current">Windows Phone 8</a>
+	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone 8" class="current">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-ios" title="iOS">iOS</a>
 </div>
 
 
@@ -102,7 +90,7 @@ Next, you will modify the push notifications app to store data in this new table
            channelTable.InsertAsync(channel);
         }
 
-     This code inserts the a channel into the Channel table.
+     This code inserts a channel into the Channel table.
 
 ## <a name="update-scripts"></a>Update server scripts
 
@@ -123,7 +111,6 @@ Next, you will modify the push notifications app to store data in this new table
 				channelTable
 					.where({ uri: item.uri })
 					.read({ success: insertChannelIfNotFound });
-	
 		        function insertChannelIfNotFound(existingChannels) {
 	        	    if (existingChannels.length > 0) {
 	            	    request.respond(200, existingChannels[0]);
@@ -191,7 +178,7 @@ Next, you will modify the push notifications app to store data in this new table
 
 9. (Optional) Run the app on two devices at the same time, and repeat the previous step. 
 
-    The notification is sent to all running app instances.
+    The notification is sent to all running app instances.  
 
 ## Next steps
 
@@ -227,10 +214,10 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [25]: ../Media/mobile-quickstart-push6-wp8.png
 
 <!-- URLs. -->
-[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started-wp8.md
 [Get started with data]: ../tutorials/mobile-services-get-started-with-data-wp8.md
 [Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-wp8.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-wp8.md
+[Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-wp8.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/

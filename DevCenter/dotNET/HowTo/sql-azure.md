@@ -15,17 +15,6 @@ ADO.NET, ODBC, and EntityClient Provider.
 
 SQL Database provides a relational database management system for Windows Azure and is based on SQL Server technology. With a SQL Database instance, you can easily provision and deploy relational database solutions to the cloud, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing.
 
-<h2>Table of Contents</h2>
-
-* [Sign in to Windows Azure][] 
-* [Create and Configure SQL Database][]
-* [Connect to SQL Database][]
-* [Connect Using ADO.NET][]
-* [Connect Using ODBC][]
-* [Connect Using EntityClient Provider][]
-* [Next Steps][]
-
-
 <h2 id="PreReq1">Sign in to Windows Azure</h2>
 
 SQL Database provides relational data storage, access, and management services on Windows Azure. To use it, you'll need a Windows Azure subscription.
@@ -37,11 +26,11 @@ SQL Database provides relational data storage, access, and management services o
 
 <h2 id="PreReq2"><span class="short-header">Create and configure SQL Database</span></h2>
 
-Next, you'll create and configure a database and server. In the new Windows Azure (Preview) Management Portal, revised workflows let you create the database first, and follow up with server provisioning. 
+Next, you'll create and configure a database and server. In the Windows Azure Management Portal, revised workflows let you create the database first, and follow up with server provisioning. 
 
 <h3 id="createsrvr">Create a database instance and logical server</h3>
 
-1. Sign in at [http://www.windowsazure.com](http://www.windowsazure.com).
+1. Sign in to the [Windows Azure Management Portal][].
 
 2. Click **+NEW** at the bottom of the page.
 
@@ -250,7 +239,7 @@ following resources to learn more about SQL Database.
   [Connect Using EntityClient Provider]: #using-entity
   [Next Steps]: #next-steps
   [Windows Azure Free Trial]: {localLink:2187} "Free Trial"
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   
   [Image1]: ../media/SQLDbDashboard.png
   [Image2]: ../media/SQLDbFirewall.png

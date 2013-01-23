@@ -731,8 +731,8 @@ Run the application to verify that it works.
     The following steps show you how to stop and delete your
     application.
 
-    1.  Login to the Windows Azure Management Portal,
-        http://windows.azure.com, and click on Hosted Sevices, Storage
+    1.  Login to the [Windows Azure Management Portal],
+        and click on Hosted Sevices, Storage
         Accounts & CDN, then Hosted Services:
 
         ![][33]

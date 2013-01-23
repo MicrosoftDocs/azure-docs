@@ -14,9 +14,7 @@ This task will show you how to:
 -   [Expose Your Application on a Custom Domain][]
 -   [Expose Your Data on a Custom Domain][]
 
-<a name="access-app"> </a>
-
-<h2>Expose your application on a custom domain</h2>
+<h2><a name="access-app"></a>Expose your application on a custom domain</h2>
 
 There are two ways you can configure the Domain Name Server (DNS) settings on your domain
 registrar to point to your Windows Azure hosted service:
@@ -44,7 +42,7 @@ your custom domain name's DNS table. Each registrar has a similar but
 slightly different method of specifying a CNAME record, but the concept
 is the same.
 
-1.  Log on to your DNS registrar's website, and go to the page for
+1.  Log on to your DNS registrar's web site, and go to the page for
     managing DNS. You might find this in a section, such as **Domain
     Name**, **DNS**, or **Name Server Management**.
 
@@ -83,9 +81,7 @@ end user.
 	settings, or create an A record as described earlier.</p>
 </div>
 
-<a name="access-data"> </a>
-
-<h2>Expose your data on a custom domain</h2>
+<h2><a name="access-data"></a>Expose your data on a custom domain</h2>
 
 This section describes how to associate your own custom domain with a
 Windows Azure storage account. When you complete the tasks in this
@@ -188,7 +184,7 @@ Management Portal and others in your domain registrar's portal.
 
 <h2>Create a CNAME record to use for domain validation in Windows Azure</h2>
 
-1.  On your domain registrar's website, add a CNAME record to the
+1.  On your domain registrar's web site, add a CNAME record to the
     domain, using the alias and destination host name that you copied
     from the **Validate Custom Domain** dialog box.
 
@@ -237,7 +233,7 @@ Management Portal and others in your domain registrar's portal.
 
 <h2>Create a CNAME record to associate the subdomain with the storage account</h2>
 
-1.  On the domain registrar's website, add a second CNAME record to the
+1.  On the domain registrar's web site, add a second CNAME record to the
     domain. This CNAME record associates the validated custom subdomain
     name with the Windows Azure storage account.
 
@@ -273,13 +269,12 @@ data.contoso.com custom subdomain that maps to a blob in your
 ## Additional Resources
 
 -   [How to Map CDN Content to a Custom Domain][]
--   [How to Configure a Custom Domain for a Windows Azure Hosted Service][]
 
   [Expose Your Application on a Custom Domain]: #access-app
   [Expose Your Data on a Custom Domain]: #access-data
   [VIP swaps]: http://msdn.microsoft.com/en-us/library/ee517253.aspx
   [Create a CNAME record that associates the subdomain with the storage account]:
     #create-cname
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [Validate Custom Domain dialog box]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
   [How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx

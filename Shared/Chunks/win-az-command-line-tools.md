@@ -1,5 +1,6 @@
 #Windows Azure command-line tool for Mac and Linux
-This tool provides functionality for creating, deploying, and managing virtual machines and websites from Mac and Linux desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS, and PHP.
+
+This tool provides functionality for creating, deploying, and managing virtual machines, websites and Windows Azure Mobile Services from Mac and Linux desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS, and PHP.
 
 To install the tool on a Mac, download and run the [Windows Azure SDK installer](http://go.microsoft.com/fwlink/?LinkId=252249).
 
@@ -20,7 +21,8 @@ In addition to command-specific optional parameters documented here, there are t
 * [Commands to manage your Windows Azure virtual machine data disks](#Commands_to_manage_your_Azure_virtual_machine_data_disks)
 * [Commands to manage your Windows Azure cloud services](#Commands_to_manage_your_Azure_cloud_services)
 * [Commands to manage your Windows Azure certificates](#Commands_to_manage_your_Azure_certificates)
-* [Commands to manage your websites](#Commands_to_manage_your_web_sites)
+* [Commands to manage your web sites](#Commands_to_manage_your_web_sites)
+* [Commands to manage Windows Azure Mobile Services](#Commands_to_manage_mobile_services)
 * [Manage tool local settings](#Manage_tool_local_settings)
 
 ##<a id="Manage_your_account_information_and_publish_settings"></a>Manage your account information and publish settings
@@ -78,7 +80,7 @@ Affinity groups can be set when a group of virtual machines spans multiple physi
 ##<a id="Commands_to_manage_your_Azure_virtual_machines"></a>Commands to manage your Windows Azure virtual machines
 The following diagram shows how Windows Azure virtual machines are hosted in the production deployment environment of a Windows Azure cloud service.
  
-![Azure Technical Diagram](images/Azure Technical Diagram.jpg?raw=true)
+![Azure Technical Diagram](images/Azure Technical Diagram.jpg?raw=true)	
 
 **create-new** creates the drive in blob storage (that is, e:\ in the diagram); **attach** attaches an already created but unattached disk to a virtual machine.
 
@@ -261,8 +263,8 @@ This command lists all virtual machine endpoints. The -json option specifies tha
 	data:   ----  -------------  ----------
 	data:   ssh   22             22
 
-<span id="Commands_to_manage_your_Azure_virtual_machine_images"></span>
-##Commands to manage your Windows Azure virtual machine images
+##<a id="Commands_to_manage_your_Azure_virtual_machine_images"></a>Commands to manage your Windows Azure virtual machine images
+
 Virtual machine images are captures of already configured virtual machines that can be replicated as required.
 
 **vm image list [options]**
@@ -328,13 +330,13 @@ Some systems impose per-process file descriptor limits. If this limit is exceede
 	info:   http://myaccount.blob.core.azure.com/vm-images/Sample.vhd is uploaded successfully
 	info:   vm image create command OK
 
-<span id="Commands_to_manage_your_Azure_virtual_machine_data_disks"></span>
-##Commands to manage your Windows Azure virtual machine data disks
+##<a id="Commands_to_manage_your_Azure_virtual_machine_data_disks"></a>Commands to manage your Windows Azure virtual machine data disks
+
 Data disks are .vhd files in blob storage that can be used by a virtual machine. For more information about how data disks are deployed to blob storage, see the Windows Azure technical diagram shown earlier. 
 
 The commands for attaching data disks (azure vm disk attach and azure vm disk attach-new) assign a Logical Unit Number (LUN) to the attached data disk, as required by the SCSI protocol. The first data disk attached to a virtual machine is assigned LUN 0, the next is assigned LUN 1, and so on.
 
-When you detach a data disk with the azure vm disk detach command, use the <lun> parameter to indicate which disk to detach. Note that you should always detach data disks in reverse order, starting with the highest-numbered LUN that has been assigned. The Linux SCSI layer does not support detaching a lower-numbered LUN while a higher-numbered LUN is still attached. For example, you should not detach LUN 0 if LUN 1 is still attached.
+When you detach a data disk with the azure vm disk detach command, use the &lt;lun&gt; parameter to indicate which disk to detach. Note that you should always detach data disks in reverse order, starting with the highest-numbered LUN that has been assigned. The Linux SCSI layer does not support detaching a lower-numbered LUN while a higher-numbered LUN is still attached. For example, you should not detach LUN 0 if LUN 1 is still attached.
 
 **vm disk show [options] &lt;name>**
 
@@ -422,8 +424,8 @@ This command detaches a data disk attached to a Windows Azure virtual machine. &
 	info:   Executing command vm disk detach
 	info:   vm disk detach command OK
 
-<span id="Commands_to_manage_your_Azure_cloud_services"></span>
-##Commands to manage your Windows Azure cloud services
+##<a id="Commands_to_manage_your_Azure_cloud_services"></a>Commands to manage your Windows Azure cloud services
+
 Windows Azure cloud services are applications and services hosted on web roles and worker roles. The following commands can be used to manage Windows Azure cloud services.
 
 **service list [options]**
@@ -446,8 +448,9 @@ This command deletes a Windows Azure cloud service.
 	info:   Executing command cloud-service delete myservice 
 	info:   cloud-service delete command OK
 
-<span id="Commands_to_manage_your_Azure_certificates"></span>
-##Commands to manage your Windows Azure certificates
+
+##<a id="Commands_to_manage_your_Azure_certificates"></a>Commands to manage your Windows Azure certificates
+
 Windows Azure certificates are cerificates (that is, SSL certificates) connected to your Windows Azure account.
 
 **service cert list [options]**
@@ -483,13 +486,14 @@ This command deletes a certificate.
 	info:   nghinazz : cert deleted
 	info:   service cert delete command OK
 
-<span id="Commands_to_manage_your_web_sites"></span>
-##Commands to manage your websites
-A Windows Azure website is a web configuration accessible by URI. Websites are hosted in virtual machines, but you do not need to think about the details of creating and deploying the virtual machine yourself. Those details are handled for you by Windows Azure.
+
+##<a id="Commands_to_manage_your_web_sites"></a>Commands to manage your web sites
+
+A Windows Azure web site is a web configuration accessible by URI. Web sites are hosted in virtual machines, but you do not need to think about the details of creating and deploying the virtual machine yourself. Those details are handled for you by Windows Azure.
 
 **site list [options]**
 
-This command lists your websites.
+This command lists your web sites.
 
 	~$ azure site list
 	info:   Executing command site list
@@ -502,20 +506,20 @@ This command lists your websites.
 
 **site create [options] [name]**
 
-This command creates a new website and local directory. Note that the site name must be unique. You cannot create a site with the same DNS name as an existing site.
+This command creates a new web site and local directory. Note that the site name must be unique. You cannot create a site with the same DNS name as an existing site.
 
 	~$ azure site create mysite
 	info:   Executing command site create
 	info:   Using location northeuropewebspace
 	info:   Creating a new web site
-	info:   Created website at  mysite.antdf0.antares.windows.net
+	info:   Created web site at  mysite.antdf0.antares.windows.net
 	info:   Initializing repository
 	info:   Repository initialized
 	info:   site create command OK
 
 **site portal [options] [name]**
 
-This command opens the portal in a browser so you can manage your websites.
+This command opens the portal in a browser so you can manage your web sites.
 
 	~$ azure site portal mysite
 	info:   Executing command site portal
@@ -524,7 +528,7 @@ This command opens the portal in a browser so you can manage your websites.
 
 **site browse [options] [name]**
 
-This command opens your website in a browser.
+This command opens your web site in a browser.
 
 	~$ azure site browse mysite
 	info:   Executing command site browse
@@ -533,7 +537,7 @@ This command opens your website in a browser.
 
 **site show [options] [name]**
 
-This command shows details for a website.
+This command shows details for a web site.
 
 	~$ azure site show mysite
 	info:   Executing command site show
@@ -563,7 +567,7 @@ This command shows details for a website.
 
 **site delete [options] [name]**
 
-This command deletes a website.
+This command deletes a web site.
 
 	~$ azure site delete mysite
 	info:   Executing command site delete
@@ -573,7 +577,7 @@ This command deletes a website.
 
 **site start [options] [name]**
 
-This command starts a website.
+This command starts a web site.
 
 	~$ azure site start mysite
 	info:   Executing command site start
@@ -583,7 +587,7 @@ This command starts a website.
 
 **site stop [options] [name]**
 
-This command stops a website.
+This command stops a web site.
 
 	~$ azure site stop mysite
 	info:   Executing command site stop
@@ -591,8 +595,368 @@ This command stops a website.
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-<span id="Manage_tool_local_settings"></span>
-##Manage tool local settings
+
+##<a id="Commands_to_manage_mobile_services"></a>Commands to manage Windows Azure Mobile Services
+
+Windows Azure Mobile Services brings together a set of Windows Azure services that enable backend capabilities for your apps. Mobile Services commands are divided into the following categories:
+
++ [Commands to manage mobile service instances](#Mobile_Services)
++ [Commands to manage mobile service configuration](#Mobile_Configuration)
++ [Commands to manage mobile service tables](#Mobile_Tables)
++ [Commands to manage mobile service scripts](#Mobile_Scripts)
+
+The following options apply to most Mobile Services commands:
+
++ **-h** or **--help**: Display output usage information.
++ **-s `<id>`** or **--subscription `<id>`**: Use a specific subscription, specified as `<id>`.
++ **-v** or **--verbose**: Write verbose output.
++ **--json**: Write JSON output.
+
+###<a id="Mobile_Services"></a>Commands to manage mobile service instances
+
+**mobile locations [options]**
+
+This command lists Mobile Services geographic locations.
+
+	~$ azure mobile locations
+	info:    Executing command mobile locations
+	info:    East US (default)
+	info:    West US		
+	info:    North Europe
+
+**mobile create [options] [servicename] [sqlAdminUsername] [sqlAdminPassword]**
+
+This command creates a mobile service along with a SQL Database and server.
+
+	~$ azure mobile create todolist your_login_name Secure$Password
+	info:    Executing command mobile create
+	+ Creating mobile service
+	info:    Overall application state: Healthy
+	info:    Mobile service (todolist) state: ProvisionConfigured
+	info:    SQL database (todolist_db) state: Provisioned
+	info:    SQL server (e96ean1c6v) state: ProvisionConfigured
+	info:    mobile create command OK
+
+This command supports the following additional options:
+
++ **-r `<sqlServer>`**  or **--sqlServer `<sqlServer>`**:  Use an existing SQL Database server, specified as `<sqlServer>`.
++ **-d `<sqlDb>`** or **--sqlDb `<sqlDb>`**: Use existing SQL database, specified as `<sqlDb>`.
++ **-l `<location>`** or **--location `<location>`**: Create the service in a specific location, specified as `<location>`. Run azure mobile locations to get available locations.	
++ **--sqlLocation `<location>`**: Create the SQL server in a specific `<location>`; defaults to the location of the mobile service.
+
+**mobile delete [options] [servicename]**
+
+This command deletes a mobile service along with its SQL Database and server.
+
+	~$ azure mobile delete todolist -a -q
+	info:    Executing command mobile delete
+	data:    Mobile service todolist
+	data:    SQL database todolistAwrhcL60azo1C401
+	data:    SQL server fh1kvbc7la
+	+ Deleting mobile service
+	info:    Deleted mobile service
+	+ Deleting SQL server
+	info:    Deleted SQL server
+	+ Deleting mobile application
+	info:    Deleted mobile application
+	info:    mobile delete command OK
+
+This command supports the following additional options:
+
++ **-d** or **--deleteData**: Delete all data from this mobile service from the database.
++ **-a** or **--deleteAll**: Delete the SQL Database and server.
++ **-q or **--quiet**: Do not prompt for confirmation. Use this option in automated scripts.
+
+**mobile list [options]**
+
+This command lists your mobile services.
+
+	~$ azure mobile list
+	info:    Executing command mobile list
+	data:    Name          State  URL
+	data:    ------------  -----  --------------------------------------
+	data:    todolist      Ready  https://todolist.azure-mobile.net/
+	data:    mymobileapp   Ready  https://mymobileapp.azure-mobile.net/
+	info:    mobile list command OK
+
+**mobile show [options] [servicename]**
+
+This command displays details about a mobile service.
+
+	~$ azure mobile show todolist
+	info:    Executing command mobile show
+	+ Getting information
+	info:    Mobile application
+	data:    status Healthy
+	data:    Mobile service name todolist
+	data:    Mobile service status ProvisionConfigured
+	data:    SQL database name todolistAwrhcL60azo1C401
+	data:    SQL database status Linked
+	data:    SQL server name fh1kvbc7la
+	data:    SQL server status Linked
+	info:    Mobile service
+	data:    name todolist
+	data:    state Ready
+	data:    applicationUrl https://todolist.azure-mobile.net/
+	data:    applicationKey XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+	data:    masterKey XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+	data:    webspace WESTUSWEBSPACE
+	data:    region West US
+	data:    tables TodoItem
+	info:    mobile show command OK	
+
+**mobile restart [options] [servicename]**
+
+This command restarts a mobile service instance.
+
+	~$ azure mobile restart todolist
+	info:    Executing command mobile restart
+	+ Restarting mobile service
+	info:    Service was restarted.
+	info:    mobile restart command OK
+
+**mobile log [options] [servicename]**
+
+This command returns mobile service logs, filtering out all log types but `error`.
+
+	~$ azure mobile log todolist -t error
+	info:    Executing command mobile log
+	data:
+	data:    timeCreated 2013-01-07T16:04:43.351Z
+	data:    type error
+	data:    source /scheduler/TestingLogs.js
+	data:    message This is an error.
+	data:
+	info:    mobile log command OK
+
+This command supports the following additional options:
+
++ **-r `<query>`** or **--query `<query>`**: Executes the specified log query.
++ **-t `<type>`** or **--type `<type>`**:  Filter the returned logs by entry `<type>`, whicih can be `information`, `warning`, or `error`.
++ **-k `<skip>`** or **--skip `<skip>`**: Skips the number of rows specified by `<skip>`.
++ **-p `<top>`** or **--top `<top>`**: Returns a specific number of rows, specified by `<top>`.
+
+Note that the **--query** parameter takes precedence over **--type**, **--skip**, and **--top**.
+
+**mobile key regenerate [options] [servicename] [type]**
+
+This command regenerates the mobile service application key.
+
+	~$ azure mobile key regenerate todolist application
+	info:    Executing command mobile key regenerate
+	info:    New application key is SmLorAWVfslMcOKWSsuJvuzdJkfUpt40
+	info:    mobile key regenerate command OK
+
+Key types are `master` and `application`.
+
+<div class="dev-callout"><b>Note</b>
+   <p>When you regenerate keys, clients that use the old key may be unable to access your mobile service. When you regenerate the application key, you should update your app with the new key value. </p>
+</div> 
+
+
+###<a id="Mobile_Configuration"></a>Commands to manage mobile service configuration
+
+**mobile config list [options] [servicename]**
+
+This command lists configuration options for a mobile service.
+
+	~$ azure mobile config list todolist
+	info:    Executing command mobile config list
+	+ Getting mobile service configuration
+	data:    dynamicSchemaEnabled true
+	data:    microsoftAccountClientSecret Not configured
+	data:    microsoftAccountClientId Not configured
+	data:    microsoftAccountPackageSID Not configured
+	data:    facebookClientId Not configured
+	data:    facebookClientSecret Not configured
+	data:    twitterClientId Not configured
+	data:    twitterClientSecret Not configured
+	data:    googleClientId Not configured
+	data:    googleClientSecret Not configured
+	data:    apnsMode none
+	data:    apnsPassword Not configured
+	data:    apnsCertifcate Not configured
+	info:    mobile config list command OK
+
+**mobile config get [options] [servicename] [key]**
+
+This command gets a specific configuration option for a mobile service, in this case dynamic schema.
+
+	~$ azure mobile config get todolist dynamicSchemaEnabled
+	info:    Executing command mobile config get
+	data:    dynamicSchemaEnabled true
+	info:    mobile config get command OK
+
+**mobile config set [options] [servicename] [key] [value]**
+
+This command sets a specific configuration option for a mobile service, in this case dynamic schema.
+
+	~$ azure mobile config set todolist dynamicSchemaEnabled false
+	info:    Executing command mobile config set
+	info:    mobile config set command OK
+
+
+###<a id="Mobile_Tables"></a>Commands to manage mobile service tables
+
+**mobile table list [options] [servicename]**
+
+This command lists all tables in your mobile service.
+
+	~$azure mobile table list todolist
+	info:    Executing command mobile table list
+	data:    Name      Indexes  Rows
+	data:    --------  -------  ----
+	data:    Channel   1        0
+	data:    TodoItem  1        0
+	info:    mobile table list command OK
+
+**mobile table show [options] [servicename] [tablename]**
+
+This command shows returns details about a specific table.
+
+	~$azure mobile table show todolist
+	info:    Executing command mobile table show
+	+ Getting table information
+	info:    Table statistics:
+	data:    Number of records 5
+	info:    Table operations:
+	data:    Operation  Script       Permissions
+	data:    ---------  -----------  -----------
+	data:    insert     1900 bytes   user
+	data:    read       Not defined  user
+	data:    update     Not defined  user
+	data:    delete     Not defined  user
+	info:    Table columns:
+	data:    Name  Type           Indexed
+	data:    ----  -------------  -------
+	data:    id    bigint(MSSQL)  Yes
+	data:    text      string
+	data:    complete  boolean
+	info:    mobile table show command OK
+
+**mobile table create [options] [servicename] [tablename]**
+
+This command creates a table.
+
+	~$azure mobile table create todolist Channels
+	info:    Executing command mobile table create
+	+ Creating table
+	info:    mobile table create command OK
+
+This command supports the following additional option:
+
++ **-p `<permissions>`** or **--permissions `<permissions>`**: Comma-delimited list of `<operation>`=`<permission>` pairs, where `<operation>` is `insert`, `read`, `update`, or `delete` and `<permissions>` is `public`, `application` (default), `user`, or `admin`.
+
+**mobile table update [options] [servicename] [tablename]**
+
+This command changes delete permissions on a table to administrators only.
+
+	~$azure mobile table update todolist Channels -p delete=admin
+	info:    Executing command mobile table update
+	+ Updating permissions
+	info:    Updated permissions
+	info:    mobile table update command OK
+
+This command supports the following additional options:
+
++ **-p `<permissions>`** or **--permissions `<permissions>`**: Comma-delimited list of `<operation>`=`<permission>` pairs, where `<operation>` is `insert`, `read`, `update`, or `delete` and `<permissions>` is `public`, `application` (default), `user`, or `admin`.
++ **--deleteColumn `<columns>`**: Comma-delimited list of columns to delete, as `<columns>`.
++ **-q** or **--quiet**: Deletes columns without prompting for confirmation.
++ **--addIndex `<columns>`**: Comma-delimited list of columns to include in the index.
++ **--deleteIndex `<columns>`**: Comma-delimited list of columns to exclude from the index.
+
+**mobile table delete [options] [servicename] [tablename]**
+
+This command deletes a table.
+
+	~$azure mobile table delete todolist Channels
+	info:    Executing command mobile table delete
+	Do you really want to delete the table (yes/no): yes
+	+ Deleting table
+	info:    mobile table delete command OK
+
+Specify the -q parameter to delete the table without confirmation. Do this to prevent blocking of automation scripts.
+
+**mobile data read [options] [servicename] [tablename] [query]**
+
+This command reads data from a table.
+
+	~$azure mobile data read todolist TodoItem
+	info:    Executing command mobile data read
+	data:    id  text     complete
+	data:    --  -------  --------
+	data:    1   item #1  false
+	data:    2   item #2  true
+	data:    3   item #3  false
+	data:    4   item #4  true
+	info:    mobile data read command OK
+
+This command supports the following additional options:
+
++ **-k `<skip>`** or **--skip `<skip>`**: Skips the number of rows specified by `<skip>`.
++ **-t `<top>`** or **--top `<top>`**: Returns a specific number of rows, specified by `<top>`.
++ **-l** or **--list**: Returns data in a list format.
+
+
+###<a id="Mobile_Scripts"></a>Commands to manage scripts
+
+**mobile script list [options] [servicename]**
+
+This command lists registered scripts, including both table and scheduler scripts.
+
+	~$azure mobile script list todolist
+	info:    Executing command mobile script list
+	+ Getting script information
+	info:    Table scripts
+	data:    Name                   Size
+	data:    ---------------------  ----
+	data:    table/TodoItem.delete  256
+	data:    table/Devices.insert   1660
+	error:   Unable to get shared scripts
+	info:    Scheduler scripts
+	data:    Name                 Status     Interval   Last run   Next run
+	data:    -------------------  ---------  ---------  ---------  ---------
+	data:    scheduler/undefined  undefined  undefined  undefined  undefined
+	data:    scheduler/undefined  undefined  undefined  undefined  undefined
+	info:    mobile script list command OK
+
+**mobile script upload [options] [servicename] [scriptname]**
+
+This command uploads a new script named `todoitem.insert.js` from the `table` subfolder.
+
+	~$azure mobile script upload todolist table/todoitem.insert.js
+	info:    Executing command mobile script upload
+	info:    mobile script upload command OK
+
+The name of the file must be composed from the table and operation names, and it must be located in the table subfolder relative to the location where the command is executed. You can also use the **-f `<file>`** or **--file `<file>`** parameter to specify a differnt filename and path to the file that contains the script to register.
+
+**mobile script download [options] [servicename] [scriptname]**
+
+This command downloads the insert script from the TodoItem table to a file named `todoitem.insert.js` in the `table` subfolder.
+
+	~$azure mobile script download todolist table/todoitem.insert.js
+	info:    Executing command mobile script download
+	info:    Saved script to ./table/todoitem.insert.js
+	info:    mobile script download command OK
+
+This command supports the following additional options:
+
++ **-p `<path>`** or **--path `<path>`**: The location in the file in which to save the script, where the current working directory is the default.
++ **-f `<file>`** or **--file `<file>`**: The name of the file in which to save the script.
++ **-o** or **--override**: Overwrite an existing file.
++ **-c** or **--console**: Write the script to the console instead of to a file.
+
+**mobile script delete [options] [servicename] [scriptname]**
+
+This command removes the existing insert script from the TodoItem table.
+
+	~$azure mobile script delete todolist table/todoitem.insert.js
+	info:    Executing command mobile script delete
+	info:    mobile script delete command OK
+
+
+##<a id="Manage_tool_local_settings"></a>Manage tool local settings
+
 Local settings are your subscription ID and Default Storage Account Name.
 
 **config list [options]**
@@ -606,7 +970,7 @@ This command displays config settings.
 	data:   subscription           32-digit-subscription-key
 	data:   defaultStorageAccount  name
 
-**config set [options] &lt;name>,&lt;value>**
+**config set [options] &lt;name&gt;,&lt;value&gt;**
 
 This command changes a config setting.
 

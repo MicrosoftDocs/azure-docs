@@ -1,6 +1,6 @@
 <properties linkid="develop-php-how-to-guides-service-management" urlDisplayName="Service Management" pageTitle="How to use Windows Azure service management APIs (PHP)" metaKeywords="" metaDescription="Learn how to use the Windows Azure PHP Service Management APIs to manage cloud services and other Windows Azure applications." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to use Service Management from PHP
 

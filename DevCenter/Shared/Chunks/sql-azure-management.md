@@ -326,7 +326,7 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
   [SSMS Installer - Select installation type]: /media/installer_installation_type.png
   [SSMS Installer - Select features]: /media/installer_feature_selection.png
   [SSMS Installer - Installation complete]: /media/installer_completed.png
-  [Windows Azure Management Portal]: http://windows.azure.com/
+  [Windows Azure Management Portal]: http://manage.windowsazure.com/
   [Get SQL Database server name from Management Portal]: /media/portal_get_database_name.png
   [Connect to SSMS]: /media/ssms_connect.png
   [Connect to SSMS -- properties]: /media/ssms_connect_properties.png

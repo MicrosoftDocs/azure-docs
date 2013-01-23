@@ -1,18 +1,11 @@
 <properties linkid="mobile-services-get-started" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with Mobile Services in Windows Azure" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows Phone 8, Windows Phone" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Phone 8 apps." umbraconavihide="0" disquscomments="1"></properties>
-<div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14812" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umbversionid="254ca664-c4f3-4815-8073-c86d43f4aa16" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
-<!--<div class="dev-center-os-selector">
-  <a href="/en-us/develop/mobile/tutorials/get-started/" title="Windows Store version">Windows Store app</a>
-  <a href="/en-us/develop/mobile/tutorials/get-started-ios/" title="iOS version" class="current">iOS app</a>
-  <span>Tutorial</span>
-</div>-->
+<div chunk="../chunks/article-left-menu-wp8.md" />
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store">Windows Store</a>
-	<a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone 8" class="current">Windows Phone 8</a> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a> 
+	<a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone 8" class="current">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a> 
 </div>
 
 
@@ -22,7 +15,7 @@ A screenshot from the completed app is below:
 
 ![][0]
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Mobile Services feature enabled.</p> <ul> <li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02" target="_blank">Windows Azure Free Trial</a>.</li> <li>If you have an existing account but need to enable the Windows Azure Mobile Services preview, see <a href="../create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li> </ul> </div>
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Mobile Services feature enabled.</p> <ul> <li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A30A4DDE2" target="_blank">Windows Azure Free Trial</a>.</li> <li>If you have an existing account but need to enable the Windows Azure Mobile Services preview, see <a href="../create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li> </ul> </div>
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 Follow these steps to create a new mobile service.

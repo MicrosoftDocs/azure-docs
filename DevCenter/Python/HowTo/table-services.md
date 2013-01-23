@@ -1,5 +1,6 @@
 <properties linkid="develop-python-table-service" urlDisplayName="Table Service" pageTitle="How to use table storage (Python) - Windows Azure feature guide" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" metaDescription="Learn how to use the Table service from Python to create and delete a table, and insert, delete, and query the table." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to Use the Table Storage Service from Python
 This guide shows you how to perform common scenarios using the Windows

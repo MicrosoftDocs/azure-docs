@@ -1,6 +1,6 @@
 #How to use the Windows Azure Command-Line Tools for Mac and Linux
 
-This guide describes how to use the Windows Azure Command-Line Tools for Mac and Linux to create and manage services in Windows Azure. The scenarios covered include **installing the tools**, **importing your publishing settings**, **creating and managing Windows Azure Websites**, and **creating and managing Windows Azure Virtual Machines**. For comprehensive reference documentation, see [Windows Azure command-line tool for Mac and Linux Documentation][reference-docs]. 
+This guide describes how to use the Windows Azure Command-Line Tools for Mac and Linux to create and manage services in Windows Azure. The scenarios covered include **installing the tools**, **importing your publishing settings**, **creating and managing Windows Azure Web Sites**, and **creating and managing Windows Azure Virtual Machines**. For comprehensive reference documentation, see [Windows Azure command-line tool for Mac and Linux Documentation][reference-docs]. 
 
 ##Table of contents
 * [What are the Windows Azure Command-Line Tools for Mac and Linux](#Overview)
@@ -11,44 +11,44 @@ This guide describes how to use the Windows Azure Command-Line Tools for Mac and
 * [How to create and manage a Windows Azure Virtual Machine](#VMs)
 
 
-<h2 id="Overview">What are the Windows Azure Command-Line Tools for Mac and Linux</h2>
+<h2><a id="Overview"></a>What are the Windows Azure Command-Line Tools for Mac and Linux</h2>
 
 The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Windows Azure services.
  
 The supported tasks include the following:
 
 * Import publishing settings.
-* Create and manage Windows Azure Websites.
+* Create and manage Windows Azure Web Sites.
 * Create and manage Windows Azure Virtual Machines.
 
 For a complete list of supported commands, type `azure -help` at the command line after installing the tools, or see the [reference documentation][reference-docs].
 
-<h2 id="Download">How to install the Windows Azure Command-Line Tools for Mac and Linux</h2>
+<h2><a id="Download">How to install the Windows Azure Command-Line Tools for Mac and Linux</a></h2>
 
 The following list contains information for installing the command-line tools, depending on your operating system:
 
 * **Mac**: Download the [Windows Azure SDK Installer][mac-installer]. Open the downloaded .pkg file and complete the installation steps as you are prompted.
 
-* **Linux** and **Windows**: Install the latest version of [Node.js][nodejs-org] (see [Install Node.js via Package Manager][install-node-linux]), then run the following command:
+* **Linux**: Install the latest version of [Node.js][nodejs-org] (see [Install Node.js via Package Manager][install-node-linux]), then run the following command:
 
 		npm install azure-cli -g
 
-	**Note**: On Linux, you may need to run this command with elevated privileges:
+	**Note**: You may need to run this command with elevated privileges:
 
 		sudo npm install azure-cli -g
 
-	On Windows, you may need to run the command from a prompt with elevated privileges.
+* **Windows**: Run the Winows installer (.msi file), which is available here: [Windows Azure Command Line Tools][windows-installer].
 
 
 To test the installation, type `azure` at the command prompt. If the installation was successful, you will see a list of all the available `azure` commands.
 
-<h2 id="CreateAccount">How to create a Windows Azure account</h2>
+<h2><a id="CreateAccount"></a>How to create a Windows Azure account</h2>
 
 To use the Windows Azure Command-Line Tools for Mac and Linux, you will need a Windows Azure account.
 
 1. Open a web browser and browse to [http://www.windowsazure.com][] and click **free trial** in the upper right corner.
 
-	![Windows Azure Website][]
+	![Windows Azure Web Site][]
 
 	Follow the instructions for creating an account.
 
@@ -64,7 +64,7 @@ To use the Windows Azure Command-Line Tools for Mac and Linux, you will need a W
 
 	![select subscription][]
 
-<h2 id="Account">How to download and import publish settings</h2>
+<h2><a id="Account"></a>How to download and import publish settings</h2>
 
 To get started, you need to first download and import your publish settings. This will allow you to use the tools to create and manage Azure Services. To download your publish settings, use the `account download` command:
 
@@ -72,9 +72,9 @@ To get started, you need to first download and import your publish settings. Thi
 
 This will open your default browser and prompt you to sign in to the Management Portal. After signing in, your `.publishsettings` file will be downloaded. Make note of where this file is saved.
 
-Next, import the `.publishsettings` file by running the following command, replacing `<path to .publishsettings file>` with the path to your `.publishsettings` file:
+Next, import the `.publishsettings` file by running the following command, replacing `{path to .publishsettings file}` with the path to your `.publishsettings` file:
 
-	azure account import <path to .publishsettings file>
+	azure account import {path to .publishsettings file}
 
 You can remove all of the information stored by the <code>import</code> command by using the <code>account clear</code> command:
 
@@ -98,28 +98,62 @@ After importing your publish settings, you should delete the `.publishsettings` 
 
 </div>
 
-You are now ready to being creating and managing Windows Azure Websites and Windows Azure Virtual Machines.  
+You are now ready to being creating and managing Windows Azure Web Sites and Windows Azure Virtual Machines.  
 
-<h2 id="WebSites">How to create and manage a Windows Azure Web Site</h2>
+<h2><a id="WebSites"></a>How to create and manage a Windows Azure Web Site</h2>
 
-To create a Windows Azure Website, first create an empty directory called `MySite` and browse into that directory.
+###Create a Web Site
+
+To create a Windows Azure web site, first create an empty directory called `MySite` and browse into that directory.
 
 Then, run the following command:
 
 	azure site create MySite --git
 
-The output from this command will contain the default URL for the newly created website. The `--git` option allows you to use git to publish to your website by creating git repositories in both your local application directory and in your website's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your website's data center.
+The output from this command will contain the default URL for the newly created web site. The `--git` option allows you to use git to publish to your web site by creating git repositories in both your local application directory and in your web site's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your web site's data center.
 
 Note that you can execute the `azure site create` command with any of the following options:
 
-* `--location [location name]`. This option allows you to specify the location of the data center in which your website is created (e.g. "West US"). If you omit this option, you will be promted to choose a location.
-* `--hostname [custom host name]`. This option allows you to specify a custom hostname for your website.
+* `--location [location name]`. This option allows you to specify the location of the data center in which your web site is created (e.g. "West US"). If you omit this option, you will be promted to choose a location.
+* `--hostname [custom host name]`. This option allows you to specify a custom hostname for your web site.
 
-You can then add content to your website directory. Use the regular git flow (`git add`, `git commit`) to commit your content. Use the following git command to push your website content to Windows Azure: 
+You can then add content to your web site directory. Use the regular git flow (`git add`, `git commit`) to commit your content. Use the following git command to push your web site content to Windows Azure: 
 
 	git push azure master
 
-To list your websites, use the following command:
+###Set up publishing from GitHub
+
+To set up continuous publishing from a GitHub repository, use the `--GitHub` option when creating a site:
+
+	auzre site create MySite --github --githubusername username --githubpassword password --githubrepository githubuser/reponame
+
+If you have a local clone of a GitHub repository or if you have a repository with a single remote reference to a GitHub repository, this command will automatically publish code in the GitHub repository to your site. From then on, any changes pushed to the GitHub repository will automatically be published to your site.
+
+When you set up publishing from GitHub, the default branch used is the master branch. To specify a different branch, execute the following command from your local repository:
+
+	azure site repository <branch name>
+
+###Configure app settings
+
+App settings are key-value pairs that are available to your application at runtime. When set for a Windows Azure Web Site, app setting values will override settings with the same key that are defined in your site's Web.config file. For Node.js and PHP applications, app settings are available as environment variables. The following example shows you how to set a key-value pair:
+
+	azure site config add <key>=<value> 
+
+To see a list of all key/value pairs, use the following:
+
+	azure site config list 
+
+Or if you know the key and want to see the value, you can use:
+
+	azure site config get <key> 
+
+If you want to change the value of an existing key you must first clear the existing key and then re-add it. The clear command is:
+
+	azure site config clear <key> 
+
+###List and show sites
+
+To list your web sites, use the following command:
 
 	azure site list
 
@@ -127,10 +161,15 @@ To get detailed information about a site, use the `site show` command. The follo
 
 	azure site show MySite
 
-You can stop or start a site with the `site stop` and `site start` commands:
+###Stop, start, or restart a site
+
+You can stop, start, or restart a site with the `site stop`, `site start`, or `site restart` commands:
 
 	azure site stop MySite
 	azure site start MySite
+	azure site restart MySite
+
+###Delete a site
 
 Finally, you can delete a site with the `site delete` command:
 
@@ -142,7 +181,7 @@ To see a complete list of `site` commands, use the `-help` option:
 
 	azure site -help 
 
-<h2 id="VMs">How to create and manage a Windows Azure Virtual Machine</h2>
+<h2><a id="VMs"></a>How to create and manage a Windows Azure Virtual Machine</h2>
 
 A Windows Azure Virtual Machine is created from a virtual machine image (a .vhd file) that you provide or that is available in the Image Gallery. To see images that are available, use the `vm image list` command:
 
@@ -193,9 +232,10 @@ For a complete list of commands for creating and managing virtual machines, use 
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 [download-wpi]: http://www.microsoft.com/web/downloads/platform.aspx
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
+[windows-installer]: http://go.microsoft.com/fwlink/?LinkID=275464&clcid=0x409
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [http://www.windowsazure.com]: http://www.windowsazure.com
-[Windows Azure Website]: ../media/create-account-01-mac.png
+[Windows Azure Web Site]: ../media/create-account-01-mac.png
 [open preview features tab]: ../media/antares-iaas-preview-01.png
 [select a preview feature]: ../media/antares-iaas-preview-02.png
 [select subscription]: ../media/antares-iaas-preview-03.png

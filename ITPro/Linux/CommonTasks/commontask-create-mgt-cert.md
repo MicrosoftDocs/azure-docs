@@ -20,11 +20,11 @@ There is already documentation on how to create and manage these certificates at
 
 We have created an easy way for you to create a management certificate for Windows Azure by visiting: [https://windows.azure.com/download/publishprofile.aspx](https://windows.azure.com/download/publishprofile.aspx)
 
-This website will ask you to login using your portal credentials and then generate a management certificate  for you that is packaged along with your subscriptionID  on a publishsettings file that you will be asked to download. 
+This web site will ask you to login using your portal credentials and then generate a management certificate  for you that is packaged along with your subscriptionID  on a publishsettings file that you will be asked to download. 
 
 ![linuxcredentials](../media/linuxcredentials.png)
 
-Make sure you save this file in safe place as you will not be able to recover it and will need to generate a new management cert. (There is a limit for the total number of certs that you can use in the system. See the appropriate section on this website to confirm this.) You can then use this certificate in multiple ways:
+Make sure you save this file in safe place as you will not be able to recover it and will need to generate a new management cert. (There is a limit for the total number of certs that you can use in the system. See the appropriate section on this web site to confirm this.) You can then use this certificate in multiple ways:
 
 ###In Visual Studio###
 
@@ -76,7 +76,7 @@ If you reach the limit of certs in the system you will need to contact support t
 ####If your private key is compromised ####
 
 If your private key is compromised at any point you will need to use a browser that supports Silverlight to access the old portal and delete the corresponding management cert on file or contact support through the forums.  
-Generating a new cert is not enough since all 10 certificates are valid and your old compromised key will still be able to access the website.
+Generating a new cert is not enough since all 10 certificates are valid and your old compromised key will still be able to access the web site.
 
 ###Post Preview timeframe story###
 

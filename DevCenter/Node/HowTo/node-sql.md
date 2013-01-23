@@ -1,6 +1,7 @@
 <properties linkid="develop-node-how-to-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (Node.js) - Windows Azure feature guide" metaKeywords="" metaDescription="Learn how to use Windows Azure SQL Database from Node.js." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
+<div chunk="../chunks/article-left-menu.md" />
 
 #How to Access Windows Azure SQL Database from Node.js
 
@@ -16,7 +17,7 @@ This guide will show you the basics of using the Microsoft Driver for Node.JS fo
 * [Windows Azure deployment considerations](#Deploy)
 * [Next steps](#NextSteps)
 
-<h2 id="Concepts">Concepts</h2>
+<h2><a id="Concepts"></a>Concepts</h2>
 
 ###What is Windows Azure SQL Database
 
@@ -31,7 +32,7 @@ The Microsoft Driver for Node.JS for SQL Server allows developers to access data
 <p>The Microsoft Driver for Node.JS for SQL Server is currently available as a preview release, and relies on run-time components that are only available on the Microsoft Windows and Windows Azure operating systems.</p>
 </div>
 
-<h2 id="Setup">How to: Setup your environment</h2>
+<h2><a id="Setup"></a>How to: Setup your environment</h2>
 
 ###Install the SQL Server Native Client
 
@@ -46,7 +47,7 @@ The Microsoft SQL Server Driver for Node.js relies on the SQL Server Native Clie
 
 Node.js can be installed from [http://nodejs.org/#download](http://nodejs.org/#download). If an installation package is not available for your operating system, you can build Node.js from source.
 
-<h2 id="CreateServer">How to: Create a SQL Database</h2>
+<h2><a id="CreateServer"></a>How to: Create a SQL Database</h2>
 
 Follow these steps to create a Windows Azure SQL Database:
 
@@ -71,7 +72,7 @@ To see server and database information, click **SQL Databases** in the Preview M
 
 ![View server and database information][sql-dbs-servers]
 
-<h2 id="ConnectionInfo">How to: Get SQL Database connection information</h2>
+<h2><a id="ConnectionInfo"></a>How to: Get SQL Database connection information</h2>
 
 To get SQL Database connection information, click on **SQL DATABASES** in the portal, then click on the name of the database.
 
@@ -83,7 +84,7 @@ Then, click on **Show connection strings**.
 
 In the ODBC section of the resulting window, make note of the values for connection string. This is the connection string you will use when connecting to the SQL Database from your node application. Your password will be the password you used when creating the SQL Database.
 
-<h2 id="Connect">How to: Connect to a SQL Database instance</h2>
+<h2><a id="Connect"></a>How to: Connect to a SQL Database instance</h2>
 
 ###Install node-sqlserver
 
@@ -138,7 +139,7 @@ While the above example illustrates how to return all rows at once in the result
 	stmt.on('done', function () { console.log("All done!"); });
 	stmt.on('error', function (err) { console.log("We had an error: " + err); });
 
-<h2 id="Deploy">Windows Azure deployment considerations</h2>
+<h2><a id="Deploy"></a>Windows Azure deployment considerations</h2>
 
 <div class="dev-callout">
 <b>Note</b>
@@ -156,7 +157,7 @@ The **node-sqlserver** directory should contain a **package.json** file. The **l
 
 For more information on deploying a Node.js application to Windows Azure, see [Create and deploy a Node.js application to a Windows Azure Web Site] and [Node.js Cloud Service].
 
-<h2 id="NextSteps">Next steps</h2>
+<h2><a id="NextSteps"></a>Next steps</h2>
 
 * [Introducing the Microsoft Driver for Node.JS for SQL Server]
 * [Microsoft Driver for Node.js for SQL Server on Github.com]

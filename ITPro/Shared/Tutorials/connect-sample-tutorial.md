@@ -325,11 +325,11 @@ displays.
 
 8.  Now, you will change the displayed name of your application. In the
     **Solution Explorer**, double-click the
-    **Views\\Shared\\\_Layout.cshtml**file to open it in the Visual
+    **Views\\Shared\\_Layout.cshtml**file to open it in the Visual
     Studio editor.
 
-9.  Locate **<h1\>My MVC Application</h1\>**, and replace it with
-    **<h1\>LITWARE'S Awesome Products</h1\>**:
+9.  Locate **My MVC Application**, and replace it with
+    **LITWARE'S Awesome Products**:
 
     ![][16]
 
@@ -565,7 +565,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
   [4]: ../Media/getting-started-4.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [5]: ../Media/getting-started-12.png
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [6]: ../Media/sb-queues-03.png
   [7]: ../Media/sb-queues-04.png
   [8]: ../Media/getting-started-multi-tier-09.png

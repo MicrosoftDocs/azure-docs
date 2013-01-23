@@ -1,6 +1,7 @@
 <properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Windows Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" metaDescription="Learn how to create a Windows Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to run a compute-intensive task in Java on a virtual machine
 

@@ -1,4 +1,4 @@
-<properties linkid="develop-dotnet-website-with-webmatrix" urlDisplayName="Website with WebMatrix" pageTitle=".NET web site with WebMatrix - Windows Azure tutorials" metaKeywords="WebMatrix Windows Azure, WebMatrix Azure, Azure web site WebMatrix, Azure website WebMatrix, Web Matrix Azure, WebMatrix Azure" metaDescription="Learn how to develop and deploy a Windows Azure web site with WebMatrix." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-dotnet-website-with-webmatrix" urlDisplayName="Web Site with WebMatrix" pageTitle=".NET web site with WebMatrix - Windows Azure tutorials" metaKeywords="WebMatrix Windows Azure, WebMatrix Azure, Azure web site WebMatrix, Azure web site WebMatrix, Web Matrix Azure, WebMatrix Azure" metaDescription="Learn how to develop and deploy a Windows Azure web site with WebMatrix." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 
 #Develop and deploy a web site with Microsoft WebMatrix
@@ -19,7 +19,7 @@ You will learn:
 2. Click **New** at the bottom left of the Windows Azure portal.
 3. Click  **Web Site**, click **Quick Create**, enter a value for **URL** (e.g. *bakerysample*), select the **Region** that is closest to your intended users (this will ensure best performance) and then click the **Create Web Site** checkmark at the bottom of the page to initiate creation of the web site:
 
-	![Create New website][createnewsite]	
+	![Create New web site][createnewsite]	
 
 4. Once the web site is created, the portal will display all of the web sites associated with your subscription. Verify that the web site you just created has a **Status** of **Running** and then open the web site's management pages by clicking the name of the web site displayed in the **Name** column to open the web site's **Dashboard** management page.
 
@@ -29,11 +29,11 @@ You will learn:
 
 	![Open web site in WebMatrix 2][opensiteinwebmatrix2]
 
-2. If WebMatrix 2 is not installed, the Web Platform Installer 4.0 will install Microsoft WebMatrix 2 and all necessary prerequisite software and display a dialog box indicating **Empty Site Detected**. Click the option to use a built-in website template:
+2. If WebMatrix 2 is not installed, the Web Platform Installer 4.0 will install Microsoft WebMatrix 2 and all necessary prerequisite software and display a dialog box indicating **Empty Site Detected**. Click the option to use a built-in web site template:
 
 	![Empty Site Detected][howtodownloadsite]
 
-3. After you click the option to use a built-in website template, select **Bakery** from the list of templates, enter **bakerysample** for the **Site Name**, and click **Next**.
+3. After you click the option to use a built-in web site template, select **Bakery** from the list of templates, enter **bakerysample** for the **Site Name**, and click **Next**.
 
 	![Create Site from Template][howtositefromtemplate]
 
@@ -142,7 +142,7 @@ You've seen how to create and deploy a web site from WebMatrix to Windows Azure.
 
 * [WebMatrix for Windows Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
 
-* [WebMatrix website](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
+* [WebMatrix web site](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
 [createnewsite]: ../../../Shared/media/howtocreatenewsite.png
 [opensiteinwebmatrix2]: ../../../Shared/media/howtoopensiteinWebMatrix2a.png
