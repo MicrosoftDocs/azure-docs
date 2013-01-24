@@ -11,7 +11,7 @@ If your project is already set up to use Maven for build, add the following depe
 	<dependency>
     	<groupId>com.microsoft.windowsazure</groupId>
     	<artifactId>microsoft-windowsazure-api</artifactId>
-    	<version>0.3.3</version>
+    	<version>0.4.0</version>
 	</dependency>
 
 [license]: http://www.apache.org/licenses/LICENSE-2.0.html
