@@ -1,7 +1,7 @@
 <properties linkid="develop-media-tutorials-get-started" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Media Services" metaKeywords="" metaDescription="Follow this tutorial to get started using Windows Azure Media Services in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 
-# <a name="getting-started"> </a>Getting started with Media Services
+# <a name="getting-started"> </a>Get started with Media Services
 
 
 This tutorial shows you how to start developing with Windows Azure Media Services. It introduces the basic Media Services workflow and the most common programming objects and tasks required for Media Services development. At the completion of the tutorial, you will be able to play back a sample media file that you uploaded, encoded, and downloaded. Or you can browse to the encoded asset and play it back on the server. 
@@ -12,8 +12,8 @@ This tutorial walks you through these basic steps:
 
 * [Setting up your project](#Step1)
 * [Getting the Media Services server context](#Step2)
-* [Creating an asset and uploading files that are associated with the asset into Media Services](#Step3)
-* [Encoding an asset and downloading an output asset](#Step4)
+* [Creating an asset and uploading files that are associated with the asset into Medai Services](Step#3)
+* [Encoding an asset and downloading an output asset](Step#4)
  
 ## Prerequisites
 The following prerequisites are required for the walkthrough and for development based on the Windows Azure Media Services SDK.
@@ -25,7 +25,8 @@ The following prerequisites are required for the walkthrough and for development
 - Install **Windows Azure SDK for .NET.**, **Windows Azure Media Services SDK for .NET**, and **WCF Data Services 5.0 for OData V3 libraries** and add references to your project using the [windowsazure.mediaservices Nuget](http://nuget.org/packages/windowsazure.mediaservices) package. The following section demonstrates how to install and add these references.
 
 
-<h2><a name="Step1"></a>Setting up your project</h2>
+<a id="Step1"> </a>
+<h2>Setting up your project</h2>
 <ol>
 <li>
 Create a new C# Console Application in Visual Studio 2012 or Visual Studio 2010 SP1. Enter the <b>Name</b>, <b>Location</b>, and <b>Solution name</b>, and then click OK. 
@@ -113,8 +114,8 @@ private static CloudMediaContext _context = null;
 </li>
 </ol>
 
-
-<h2><a id="Step2"></a>Getting the Media Services Context</h2>
+<a id="Step2"> </a>
+<h2>Getting the Media Services Context</h2>
 The Media Services context object contains all the fundamental objects and collections to access for Media Services programming. The context includes references to important collections including jobs, assets, files, access policies, locators, and other objects. You must get the server context for most Media Services programming tasks.
 
 In the Program.cs file, add the following code as the first item in your **Main** method. This code uses your Media Services account name and account key values from the app.config file to create an instance of the server context. The instance is assigned to the <b>_context</b> variable you created at the class level.
@@ -124,8 +125,8 @@ In the Program.cs file, add the following code as the first item in your **Main*
 _context = new CloudMediaContext(_accountName, _accountKey);
 </code></pre>
 
-
-<h2><a id="Step3"></a>Creating an Asset and Uploading a File</h2>
+<a id="Step3"> </a>
+<h2>Creating an Asset and Uploading a File</h2>
 The code in this section does the following: 
 <ol>
 <li>
@@ -140,10 +141,9 @@ When you create assets, you can specify three different options for encrypting t
 </li>
 <li>
 <b>AssetCreationOptions.StorageEncrypted</b>: storage encryption. Encrypts a clear input file before it is uploaded to Azure storage.<br/>
-<div class="dev-callout">
-    <br/>
+<div class="dev-callout"> 
 	<b>Note</b> 
-	Media Services provide on-disk storage encryption, not over the wire like Digital Rights Manager (DRM.) 
+	<p>Media Services provide on-disk storage encryption, not over the wire like Digital Rights Manager (DRM.)</p> 
 	</div>
 </li>
 </ul>
@@ -210,8 +210,8 @@ Add a call to the method after the <b>_context = new CloudMediaContext(_accountN
 IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, _singleInputFilePath)
 </code></pre>
 
-
-<h2><a id="Step4"></a>Encoding the Asset on the Server and Downloading an Output Asset</h2>
+<a id="Step4"> </a>
+<h2>Encoding the Asset on the Server and Downloading an Output Asset</h2>
 
 In Media Services, you can create jobs that process media content in several ways: encoding, encrypting, doing format conversions, and so on. A Media Services job always contains one or more tasks that specify the details of the processing work. In this section you create a basic encoding task, and then run a job that performs it using Windows Azure Media Encoder. The task uses a preset string to specify the type of encoding to perform. To see the available preset encoding values, see Task Preset Strings for Windows Azure Media Encoder. Media Services support the same media file input and output formats as Microsoft Expression Encoder. For a list of supported formats, see Supported File Types for Media Services.
 
@@ -712,12 +712,7 @@ The .mp4 media file and the _metadata.xml file are downloaded into the outputFil
 <p>In the Media Services object model, an asset is a Media Services content collection object that represents one to many files. The locator path provides an Azure blob URL which is the base path to this asset in Azure Storage. To access specific files within the asset, add a file name to the base locator path.</p> 
 </div>
 	</p>
-##Next Steps
-This walkthrough has demonstrated a sequence of programming tasks to build a simple Media Services application. You learned the fundamental Media Services programming tasks including getting the server context, creating assets, encoding assets, and downloading or accessing assets on the server. For next steps and more advanced development tasks, see the following:
 
-[How to Use Media Services](http://go.microsoft.com/fwlink/p/?LinkID=276738)
-
-[Building Applications with the Media Services REST API](http://msdn.microsoft.com/en-us/library/windowsazure/hh973618.aspx) 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
 [Create a new mobile service]:#create-new-service
