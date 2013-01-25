@@ -18,149 +18,111 @@ This tutorial walks you through these basic steps:
 ## Prerequisites
 The following prerequisites are required for the walkthrough and for development based on the Windows Azure Media Services SDK.
 
-- A Media Services account in a new or existing Windows Azure subscription. For details, see the topic. For details, see [How to Create a Media Services Account](http://go.microsoft.com/fwlink/?LinkId=256662)
+- A Media Services account in a new or existing Windows Azure subscription. For details, see the topic. For details, see [How to Create a Media Services Account](http://go.microsoft.com/fwlink/?LinkId=256662).
 - Operating Systems: Windows 7, Windows 2008 R2, or Windows 8.
 - .NET Framework 4.5 or .NET Framework 4.
 - Visual Studio 2012 or Visual Studio 2010 SP1 (Professional, Premium, or Ultimate).
 - Install **Windows Azure SDK for .NET.**, **Windows Azure Media Services SDK for .NET**, and **WCF Data Services 5.0 for OData V3 libraries** and add references to your project using the [windowsazure.mediaservices Nuget](http://nuget.org/packages/windowsazure.mediaservices) package. The following section demonstrates how to install and add these references.
 
 
-<a id="Step1"> </a>
-<h2>Setting up your project</h2>
-<ol>
-<li>
-Create a new C# Console Application in Visual Studio 2012 or Visual Studio 2010 SP1. Enter the <b>Name</b>, <b>Location</b>, and <b>Solution name</b>, and then click OK. 
-</li>
-<li>
-Add a reference to System.Configuration assembly.
+<h2><a id="Step1"></a>Setting up your project</h2>
 
-	To add references using the <b>Manage References</b> dialog, do the following. Right-click on the <b>References</b> node in <b>Solution Explorer</b> and select <b>Add Reference…</b>. In the <b>Manage References</b> dialog, select the appropriate assemblies (in this case System.Configuration.)
-</li>
-<li>
-If you have not done so yet, add references to <b>Windows Azure SDK for .NET</b>.(Microsoft.WindowsAzure.StorageClient.dll), <b>Windows Azure Media Services SDK for .NET</b> (Microsoft.WindowsAzure.MediaServices.Client.dll), and <b>WCF Data Services 5.0 for OData V3</b> (Microsoft.Data.OData.dll) libraries using the <a href="http://nuget.org/packages/windowsazure.mediaservices">windowsazure.mediaservices Nuget</a> package. 
+1. Create a new C# Console Application in Visual Studio 2012 or Visual Studio 2010 SP1. Enter the **Name**, **Location**, and **Solution name**, and then click OK. 
+
+2. Add a reference to System.Configuration assembly.
+
+  To add references using the **Manage References** dialog, do the following. Right-click on the **References** node in **Solution Explorer** and select **Add Reference**. In the **Manage References** dialog, select the appropriate assemblies (in this case System.Configuration.)
+
+3. If you have not done so yet, add references to **Windows Azure SDK for .NET**.(Microsoft.WindowsAzure.StorageClient.dll), **Windows Azure Media Services SDK for .NET** (Microsoft.WindowsAzure.MediaServices.Client.dll), and **WCF Data Services 5.0 for OData V3** (Microsoft.Data.OData.dll) libraries using the <a href="http://nuget.org/packages/windowsazure.mediaservices">windowsazure.mediaservices Nuget</a> package. 
 
 	To add references using Nuget, do the following. In Visual Studio Main Menu, select TOOLS -> Library Package Manager -> Package Manager Console. In the console window type <i>Install-Package [package name]</i> and press enter (in this case use the following command: <i>Install-Package windowsazure.mediaservices</i>.)
 
-</li>
-<li>Add an <i>appSettings</i> section to the <b>app.config</b> file, and set the values for your Windows Azure Media Services account name and account key. You obtained the Media Services account name and account key during the account setup process. Add these values to the value attribute for each setting in the app.config file in the Visual Studio project.
+4. Add an *appSettings* section to the **app.config** file, and set the values for your Windows Azure Media Services account name and account key. You obtained the Media Services account name and account key during the account setup process. Add these values to the value attribute for each setting in the app.config file in the Visual Studio project.
 
     <div class="dev-callout"> 
 	<b>Note</b> 
 	<p>In Visual Studio 2012, the App.config file is added by default. In Visual Studio 2010, you have to manually add the Application Configuration file.</p> 
 	</div>
 
-<pre><code>
-&lt;configuration&gt;
-  . . . 
-  &lt;appSettings&gt;
-    &lt;add key="accountName" value="Add-Media-Services-Account-Name" /&gt;
-    &lt;add key="accountKey" value="Add-Media-Services-Account-Key" /&gt;
-  &lt;/appSettings&gt;
-&lt;/configuration&gt;
-</code></pre>
-</li>
+	<pre><code>
+	&lt;configuration&gt;
+  	. . . 
+  	&lt;appSettings&gt;
+    	&lt;add key="accountName" value="Add-Media-Services-Account-Name" /&gt;
+    	&lt;add key="accountKey" value="Add-Media-Services-Account-Key" /&gt;
+  	&lt;/appSettings&gt;
+	&lt;/configuration&gt;
+	</code></pre>
 
-<li>
-Create a new folder on your local machine and name it supportFiles (in this example supportFiles is located under the MediaServicesGettingStarted project directory.) The <a href="http://go.microsoft.com/fwlink/?linkid=253275">Project</a> that accompanies this walkthrough contains the supportFiles directory. You can copy the content of this directory into your supportFiles folder.
-</li>
-<li>
-Overwrite the existing using statements at the beginning of the Program.cs file with the following code.
+5. Create a new folder on your local machine and name it supportFiles (in this example supportFiles is located under the MediaServicesGettingStarted project directory.) The <a href="http://go.microsoft.com/fwlink/?linkid=253275">Project</a> that accompanies this walkthrough contains the supportFiles directory. You can copy the content of this directory into your supportFiles folder.
 
-<pre><code>
-using System;
-using System.Linq;
-using System.Configuration;
-using System.IO;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using Microsoft.WindowsAzure;
-using Microsoft.WindowsAzure.MediaServices.Client;
+6. Overwrite the existing using statements at the beginning of the Program.cs file with the following code.
 
-</code></pre>
-</li>
-<li>
-Add the following class-level path variables. The <b>_supportFiles</b> path should point to the folder you created in a previous step. 
-<pre><code>
-// Base support files path.  Update this field to point to the base path  
-// for the local support files folder that you create. 
-private static readonly string _supportFiles =
-            Path.GetFullPath(@"../..\supportFiles");
+		using System;
+		using System.Linq;
+		using System.Configuration;
+		using System.IO;
+		using System.Text;
+		using System.Threading;
+		using System.Threading.Tasks;
+		using System.Collections.Generic;
+		using Microsoft.WindowsAzure;
+		using Microsoft.WindowsAzure.MediaServices.Client;
 
-// Paths to support files (within the above base path). You can use 
-// the provided sample media files from the "supportFiles" folder, or 
-// provide paths to your own media files below to run these samples.
-private static readonly string _singleInputFilePath =
-    Path.GetFullPath(_supportFiles + @"\multifile\interview2.wmv");
-private static readonly string _outputFilesFolder =
-    Path.GetFullPath(_supportFiles + @"\outputfiles");
 
-</code></pre>
-</li>
-<li>
-Add the following class-level variables to retrieve authentication and connection settings.  These settings are pulled from the App.Config file and are required to connect to Media Services, authenticate, and get a token so that you can access the server context. The code in the project references these variables to create an instance of the server context.
-<pre><code>
-private static readonly string _accountKey = ConfigurationManager.AppSettings["accountKey"];
-private static readonly string _accountName = ConfigurationManager.AppSettings["accountName"];
-</code></pre>
-</li>
-<li>
-Add the following class-level variable that is used as a static reference to the server context.
-<pre><code>
-// Field for service context.
-private static CloudMediaContext _context = null;
-</code></pre>
-</li>
-</ol>
+7. Add the following class-level path variables. The **_supportFiles** path should point to the folder you created in a previous step. 
 
-<a id="Step2"> </a>
-<h2>Getting the Media Services Context</h2>
+		// Base support files path.  Update this field to point to the base path  
+		// for the local support files folder that you create. 
+		private static readonly string _supportFiles =
+		            Path.GetFullPath(@"../..\supportFiles");
+		
+		// Paths to support files (within the above base path). You can use 
+		// the provided sample media files from the "supportFiles" folder, or 
+		// provide paths to your own media files below to run these samples.
+		private static readonly string _singleInputFilePath =
+		    Path.GetFullPath(_supportFiles + @"\multifile\interview2.wmv");
+		private static readonly string _outputFilesFolder =
+		    Path.GetFullPath(_supportFiles + @"\outputfiles");
+		
+8. Add the following class-level variables to retrieve authentication and connection settings.  These settings are pulled from the App.Config file and are required to connect to Media Services, authenticate, and get a token so that you can access the server context. The code in the project references these variables to create an instance of the server context.
+	
+		private static readonly string _accountKey = ConfigurationManager.AppSettings["accountKey"];
+		private static readonly string _accountName = ConfigurationManager.AppSettings["accountName"];
+
+9. Add the following class-level variable that is used as a static reference to the server context.
+
+		// Field for service context.
+		private static CloudMediaContext _context = null;
+		
+<h2><a id="Step2"></a>Getting the Media Services Context</h2>
 The Media Services context object contains all the fundamental objects and collections to access for Media Services programming. The context includes references to important collections including jobs, assets, files, access policies, locators, and other objects. You must get the server context for most Media Services programming tasks.
 
-In the Program.cs file, add the following code as the first item in your **Main** method. This code uses your Media Services account name and account key values from the app.config file to create an instance of the server context. The instance is assigned to the <b>_context</b> variable you created at the class level.
+In the Program.cs file, add the following code as the first item in your **Main** method. This code uses your Media Services account name and account key values from the app.config file to create an instance of the server context. The instance is assigned to the **_context** variable you created at the class level.
 
-<pre><code>
-// Get the service context.
-_context = new CloudMediaContext(_accountName, _accountKey);
-</code></pre>
-
-<a id="Step3"> </a>
-<h2>Creating an Asset and Uploading a File</h2>
+	// Get the service context.
+	_context = new CloudMediaContext(_accountName, _accountKey);
+	
+<a id="Step3"></a>
+<h2><a id="Step3"></a>Creating an Asset and Uploading a File</h2>
 The code in this section does the following: 
-<ol>
-<li>
-Creates an empty Asset<br/>
+
+1. Creates an empty Asset<br/>
 When you create assets, you can specify three different options for encrypting them. 
-<ul>
-<li>
-<b>AssetCreationOptions.None</b>: no encryption. If you want to create an unencrypted asset, you must set this option.
-</li>
-<li>
-<b>AssetCreationOptions.CommonEncryptionProtected</b>: for Common Encryption Protected (CENC) files. An example is a set of files that are already PlayReady encrypted. 
-</li>
-<li>
-<b>AssetCreationOptions.StorageEncrypted</b>: storage encryption. Encrypts a clear input file before it is uploaded to Azure storage.<br/>
-<div class="dev-callout"> 
+
+	- **AssetCreationOptions.None**: no encryption. If you want to create an unencrypted asset, you must set this option.
+	- **AssetCreationOptions.CommonEncryptionProtected**: for Common Encryption Protected (CENC) files. An example is a set of files that are already PlayReady encrypted. 
+	- **AssetCreationOptions.StorageEncrypted**: storage encryption. Encrypts a clear input file before it is uploaded to Azure storage.
+
+		<div class="dev-callout"> 
 	<b>Note</b> 
 	<p>Media Services provide on-disk storage encryption, not over the wire like Digital Rights Manager (DRM.)</p> 
 	</div>
-</li>
-</ul>
-</li>
-<li>
-Creates an AssetFile instance that we want to associate with the asset.
-</li>
-<li>
-Creates an AccessPolicy instance that defines the permissions and duration of access to the asset.
-</li>
-<li>
-Creates a Locator instance that provides access to the asset.
-</li>
-<li>
-Uploads a single media file into Media Services. The process of creating and uploading is also called ingesting assets.
-</li>
-</ol>
+
+2. Creates an AssetFile instance that we want to associate with the asset.
+3. Creates an AccessPolicy instance that defines the permissions and duration of access to the asset.
+4. Creates a Locator instance that provides access to the asset.
+5. Uploads a single media file into Media Services. The process of creating and uploading is also called ingesting assets.
 
 Add the following methods to the class.
 
@@ -204,14 +166,11 @@ static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCr
 
 </code></pre>
 
-Add a call to the method after the <b>_context = new CloudMediaContext(_accountName, _accountKey);</b> line in your Main method. 
+Add a call to the method after the **\_context = new CloudMediaContext(_accountName, _accountKey);** line in your Main method. 
 
-<pre><code>
-IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, _singleInputFilePath)
-</code></pre>
+	IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, _singleInputFilePath)
 
-<a id="Step4"> </a>
-<h2>Encoding the Asset on the Server and Downloading an Output Asset</h2>
+<h2><a id="Step4"></a>Encoding the Asset on the Server and Downloading an Output Asset</h2>
 
 In Media Services, you can create jobs that process media content in several ways: encoding, encrypting, doing format conversions, and so on. A Media Services job always contains one or more tasks that specify the details of the processing work. In this section you create a basic encoding task, and then run a job that performs it using Windows Azure Media Encoder. The task uses a preset string to specify the type of encoding to perform. To see the available preset encoding values, see Task Preset Strings for Windows Azure Media Encoder. Media Services support the same media file input and output formats as Microsoft Expression Encoder. For a list of supported formats, see Supported File Types for Media Services.
 
@@ -621,6 +580,7 @@ static IAsset GetAsset(string assetId)
 </ul>
 </li>
 </ol>
+
 ## Testing the Code
 Run the program (press F5). The console displays output similar to the following:
 
@@ -706,12 +666,17 @@ To play back the media file, copy the URL to the asset from the text file and pa
 The .mp4 media file and the _metadata.xml file are downloaded into the outputFiles folder.
 </li>
 </ol>
-<p>
 <div class="dev-callout"> 
 <b>Note</b> 
 <p>In the Media Services object model, an asset is a Media Services content collection object that represents one to many files. The locator path provides an Azure blob URL which is the base path to this asset in Azure Storage. To access specific files within the asset, add a file name to the base locator path.</p> 
 </div>
-	</p>
+
+<h2Next Steps</h2>
+This walkthrough has demonstrated a sequence of programming tasks to build a simple Media Services application. You learned the fundamental Media Services programming tasks including getting the server context, creating assets, encoding assets, and downloading or accessing assets on the server. For next steps and more advanced development tasks, see the following:
+
+- <a href="http://www.windowsazure.com/en-us/develop/net/how-to-guides/media-services/">How to Use Media Services</a>
+- <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh973618.aspx">Building Applications with the Media Services REST API</a>
+
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
