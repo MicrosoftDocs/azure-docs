@@ -576,7 +576,7 @@ To upload an image contained in a VHD file to Windows Azure, you must:
 
 ### Create and install the management certificate ###
 
-You need a management certificate uploaded to Windows Azure before you can upload a VHD.  For more information about creating certificates, see [Create Management Certificates for Linux](http://go.microsoft.com/fwlink/?LinkID=253693&clcid=0x409).
+You need a management certificate uploaded to Windows Azure before you can upload a VHD.  For more information about creating certificates, see [Create Management Certificates for Linux](http://go.microsoft.com/fwlink/p/?LinkID=279799&clcid=0x409).
 
 ### Obtain the thumbprint of the certificate and the subscription ID ###
 
