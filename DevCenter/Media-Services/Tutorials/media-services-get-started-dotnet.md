@@ -21,7 +21,7 @@ The following prerequisites are required for the walkthrough and for development
 - A Media Services account in a new or existing Windows Azure subscription. For details, see the topic. For details, see [How to Create a Media Services Account](http://go.microsoft.com/fwlink/?LinkId=256662)
 - Operating Systems: Windows 7, Windows 2008 R2, or Windows 8.
 - .NET Framework 4.5 or .NET Framework 4.
-- Visual Studio 2012 or Visual Studio 2010 SP1 (Professional, Premium, or Ultimate).
+- Visual Studio 2012 or Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express).
 - Install **Windows Azure SDK for .NET.**, **Windows Azure Media Services SDK for .NET**, and **WCF Data Services 5.0 for OData V3 libraries** and add references to your project using the [windowsazure.mediaservices Nuget](http://nuget.org/packages/windowsazure.mediaservices) package. The following section demonstrates how to install and add these references.
 
 
@@ -124,8 +124,7 @@ In the Program.cs file, add the following code as the first item in your **Main*
 _context = new CloudMediaContext(_accountName, _accountKey);
 </code></pre>
 
-
-<h2><a id="Step3"></a>Creating an Asset and Uploading a File</h2>
+<h2><a name="Step3"></a>Creating an Asset and Uploading a File</h2>
 The code in this section does the following: 
 <ol>
 <li>
@@ -210,8 +209,7 @@ Add a call to the method after the <b>_context = new CloudMediaContext(_accountN
 IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, _singleInputFilePath)
 </code></pre>
 
-
-<h2><a id="Step4"></a>Encoding the Asset on the Server and Downloading an Output Asset</h2>
+<h2><a name="Step4"></a>Encoding the Asset on the Server and Downloading an Output Asset</h2>
 
 In Media Services, you can create jobs that process media content in several ways: encoding, encrypting, doing format conversions, and so on. A Media Services job always contains one or more tasks that specify the details of the processing work. In this section you create a basic encoding task, and then run a job that performs it using Windows Azure Media Encoder. The task uses a preset string to specify the type of encoding to perform. To see the available preset encoding values, see Task Preset Strings for Windows Azure Media Encoder. Media Services support the same media file input and output formats as Microsoft Expression Encoder. For a list of supported formats, see Supported File Types for Media Services.
 
