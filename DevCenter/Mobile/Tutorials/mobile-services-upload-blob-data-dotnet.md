@@ -25,7 +25,7 @@ In this tutorial you add functionality to the Mobile Services quickstart app to 
 
 This tutorial requires the following:
 
-+ Microsoft Visual Studio 2012 Express for Windows 8 RC, or a later version
++ Microsoft Visual Studio 2012 Express for Windows 8, or a later version
 + [Windows Azure Storage account][How To Create a Storage Account]
 + [Windows Azure Storage Client library for Windows Store apps] (CTP)
 + A camera or other image capture device attached to your computer.
@@ -51,6 +51,8 @@ Next, you will update the quickstart app to capture and upload images.
 <h2><a name="update-scripts"></a><span class="short-header">Update the insert script</span>Update the registered insert script in the Management Portal</h2>
 
 A new insert script is registered that generates an SAS when a new Todo item is inserted.
+
+0. If you haven't yet created your storage account, see [How To Create a Storage Account].
 
 1. In the Management Portal, click **Storage**, click the storage account, then click **Manage Keys**. 
 
