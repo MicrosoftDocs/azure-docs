@@ -7,7 +7,7 @@
 
 Push notification support in Windows Azure Service Bus enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms.
 
-<h2><span class="short-header">What are Push Notifications?</h2>
+<h2><span class="short-header">What are Push Notifications?</span>What are Push Notifications?</h2>
 
 Smartphones and tablets have the ability to "notify" users when an event has occurred. On Windows Store applications, the notification can result in a _toast_: a modeless window appears, with a sound, to signal a new push. On Apple iOS devices, the push similarly interrupts the user with a dialog box to view or close the notification. Clicking **View** opens the application that is receiving the message.
 
@@ -19,7 +19,7 @@ Some specific examples of mobile engagement scenarios are:
 2.  Alerting a user with a toast that some work item has been assigned to that user, in a workflow-based enterprise app.
 3.  Displaying a badge with the number of current sales leads in a CRM app (such as Microsoft Dynamics CRM).
 
-<h2><span class="short-header">How Push Notifications Work</h2>
+<h2><span class="short-header">How Push Notifications Work</span>How Push Notifications Work</h2>
 
 Push notifications are delivered through platform-specific infrastructures called _Platform Notification Systems_ (PNS). A PNS offers barebones functions (that is, no support for broadcast, personalization) and have no common interface. For instance, in order to send a notification to a Windows Store app, a developer must contact the WNS (Windows Notification Service), to send a notification to an iOS device, the same developer has to contact APNS (Apple Push Notification Service), and send the message a second time.
 
@@ -32,7 +32,7 @@ At a high level, though, all platform notification systems follow the same patte
 
 ![][0]
 
-<h2><span class="short-header">The Challenges of Push Notifications</h2>
+<h2><span class="short-header">The Challenges of Push Notifications</span>The Challenges of Push Notifications</h2>
 
 While these systems are very powerful, they still leave much work to the app developer in order to implement even common push notification scenarios, like broadcast or push notification to a user.
 
@@ -45,7 +45,7 @@ Push notifications are one of the most requested features in cloud services for 
 2.  Most PNS’ do not support broadcast to multiple devices. It follows that a broadcast to millions of devices results in millions of calls to the PNS’. Being able to scale these requests is nontrivial as usually app developers want to keep the total latency down (i.e. the last device to receive the message should not receive the notification 30 minutes after the notifications has been sent, as for many cases it would defeat the purpose to have push notifications).
 - **Routing.** PNS’ provide a way to send a message to a device. In most apps though notifications are targeted to users and/or interest groups (i.e. all employees assigned to a certain customer account). It follows that the app back-end has to maintain a registry that associates interest groups with device tokens in order to route the notifications to the correct devices. This overhead adds to the total time to market and maintenance costs of an app.
 
-<h2><span class="short-header">Why Use the Service Bus Push Notification Hub?</h2>
+<h2><span class="short-header">Why Use the Service Bus Push Notification Hub?</span>Why Use the Service Bus Push Notification Hub?</h2>
 
 The Service Bus eliminates one great complexity: you do not have to manage the challenges of push notifications. Instead, use a **Service Bus Notification Hub**. (The feature is only available in the Windows Azure Service Bus as a preview feature in January 2013. It is expected to transition to General Availability (GA) in midyear 2013.) 
 
