@@ -24,6 +24,7 @@ The following prerequisites are required for the walkthrough and for development
 - Visual Studio 2012 or Visual Studio 2010 SP1 (Professional, Premium, or Ultimate).
 - Install **Windows Azure SDK for .NET.**, **Windows Azure Media Services SDK for .NET**, and **WCF Data Services 5.0 for OData V3 libraries** and add references to your project using the [windowsazure.mediaservices Nuget](http://nuget.org/packages/windowsazure.mediaservices) package. The following section demonstrates how to install and add these references.
 
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Windows Azure Free Trial</a>.</p></div>
 
 <h2><a id="Step1"></a>Setting up your project</h2>
 
@@ -103,7 +104,6 @@ In the Program.cs file, add the following code as the first item in your **Main*
 	// Get the service context.
 	_context = new CloudMediaContext(_accountName, _accountKey);
 	
-<a id="Step3"></a>
 <h2><a id="Step3"></a>Creating an Asset and Uploading a File</h2>
 The code in this section does the following: 
 
@@ -648,24 +648,18 @@ File download path:  C:\supportFiles\outputfiles\interview2_metadata.xml
 
 </code></pre>
 
-As a result of running this application the following happens:
+1. As a result of running this application the following happens:
 
-<ol>
-<li>
-An .wmv file is uploaded into Media Services. 
-</li>
-<li>
-The file is then encoded using the <b>H264 Broadband 720p</b> preset of the <b>Windows Azure Media Encoder</b>.
-</li>
-<li>
-The FileSasUrlList.txt file is created in the \supportFiles\outputFiles folder. The file contains the URL to the encoded asset. 
-<br/>
-To play back the media file, copy the URL to the asset from the text file and paste the URL into a browser. 
-</li>
-<li>
-The .mp4 media file and the _metadata.xml file are downloaded into the outputFiles folder.
-</li>
-</ol>
+2. An .wmv file is uploaded into Media Services. 
+
+3. The file is then encoded using the **H264 Broadband 720p** preset of the **Windows Azure Media Encoder**.
+
+4. The FileSasUrlList.txt file is created in the \supportFiles\outputFiles folder. The file contains the URL to the encoded asset. 
+
+	To play back the media file, copy the URL to the asset from the text file and paste the URL into a browser. 
+
+5. The .mp4 media file and the _metadata.xml file are downloaded into the outputFiles folder.
+
 <div class="dev-callout"> 
 <b>Note</b> 
 <p>In the Media Services object model, an asset is a Media Services content collection object that represents one to many files. The locator path provides an Azure blob URL which is the base path to this asset in Azure Storage. To access specific files within the asset, add a file name to the base locator path.</p> 
