@@ -46,11 +46,11 @@ network infrastructure. Such Service Bus relay services are still hosted
 inside their existing environment, but they delegate listening for
 incoming sessions and requests to the cloud-hosted Service Bus. The
 Service Bus also protects those services from unauthorized access by
-using the Windows Azure Access Control Service.
+using Windows Azure Active Directory Access Control.
 
 ### THE SOLUTION SCENARIO
 
-In this tutorial, you will create an ASP.NET MVC 3 website that will
+In this tutorial, you will create an ASP.NET MVC 3 web site that will
 allow you to see a list of products on the product inventory page.
 
 ![][0]
@@ -703,7 +703,7 @@ Run the application to verify that it works.
         ![][35]
 
     12. When deployment is complete, you can view your Web site by
-        clicking the **Website URL**link in the monitoring window.
+        clicking the **Web site URL**link in the monitoring window.
 
         ![][36]
 
