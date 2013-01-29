@@ -22,7 +22,7 @@ The following prerequisites are required for the walkthrough and for development
 - A Media Services account in a new or existing Windows Azure subscription. For details, see the topic. For details, see [How to Create a Media Services Account](http://go.microsoft.com/fwlink/?LinkId=256662).
 - Operating Systems: Windows 7, Windows 2008 R2, or Windows 8.
 - .NET Framework 4.5 or .NET Framework 4.
-- Visual Studio 2012 or Visual Studio 2010 SP1 (Professional, Premium, or Ultimate).
+- Visual Studio 2012 or Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express).
 - Install **Windows Azure SDK for .NET.**, **Windows Azure Media Services SDK for .NET**, and **WCF Data Services 5.0 for OData V3 libraries** and add references to your project using the [windowsazure.mediaservices Nuget](http://nuget.org/packages/windowsazure.mediaservices) package. The following section demonstrates how to install and add these references.
 
 <div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Windows Azure Free Trial</a>.</p></div>
@@ -106,6 +106,7 @@ In the Program.cs file, add the following code as the first item in your **Main*
 	_context = new CloudMediaContext(_accountName, _accountKey);
 	
 <h2><a id="Step3"></a>Creating an Asset and Uploading a File</h2>
+
 The code in this section does the following: 
 
 1. Creates an empty Asset<br/>
