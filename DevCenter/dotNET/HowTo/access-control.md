@@ -1,4 +1,4 @@
-<properties umbraconavihide="0" pagetitle="Access Control - How To - .NET - Develop" metakeywords="Windows Azure Active Directory Access Control, Access Control Service, Azure ACS, Azure authentication, Azure authentication LiveID, Azure authentication Google, Azure authentication Facebook, Azure authentication .NET, Azure authentication C#" metadescription="Learn how to use Windows Azure Access Control Service (ACS) in your Windows Azure application to authenticate users from identity providers like Windows Live, Google, or Facebook when they try to gain access to a web application." linkid="dev-net-how-to-access-control" urldisplayname="Access Control" headerexpose="" footerexpose="" disquscomments="0"></properties>
+<properties umbraconavihide="0" pagetitle="Access Control - How To - .NET - Develop" metakeywords="Windows Azure Active Directory Access Control, Access Control Service, Azure ACS, Azure authentication, Azure authentication LiveID, Azure authentication Google, Azure authentication Facebook, Azure authentication .NET, Azure authentication C#" metadescription="Learn how to use Windows Azure Active Directory Access Control (ACS) in your Windows Azure application to authenticate users from identity providers like Windows Live, Google, or Facebook when they try to gain access to a web application." linkid="dev-net-how-to-access-control" urldisplayname="Access Control" headerexpose="" footerexpose="" disquscomments="0"></properties>
 
 <div chunk="../chunks/article-left-menu.md" />
 # How to Authenticate Web Users with Windows Azure Active Directory Access Control
@@ -189,7 +189,7 @@ Google as an IP, but you could use any of the IPs listed in the ACS
 Management Portal.
 
 1.  In the Windows Azure Management
-    Portal, click **Active Directory**, select an Access Control namespac, and then click **Manage**. 
+    Portal, click **Active Directory**, select an Access Control namespace, and then click **Manage**. 
  
 2.  Click **Identity providers**, click **Add**, select **Google**, and then click **Next**. 
 
