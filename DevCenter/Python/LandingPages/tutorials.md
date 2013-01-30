@@ -17,5 +17,5 @@ The [IPython project](http://ipython.org) provides a collection of tools for
 high-productivity and scientific computing, including an interactive web-based environment called the IPython Notebook. This tutorial shows how to deploy the IPython Notebook on Windows Azure using Linux or Windows virtual machines. 
 
 ###[Python App using storage](/en-us/develop/python/tutorials/web-app-with-blob-storage/)
-Implement a simple web application that allows retrieving and creating items in Windows Azure storage. You will learn the basics of using Windows Azure Storage services through the Windows Azure Client Libraries for Python.
+Implement a simple web application that allows retrieving and creating items in Windows Azure storage. You will learn the basics of using Windows Azure Table Storage service through the Windows Azure Client Libraries for Python.
 
