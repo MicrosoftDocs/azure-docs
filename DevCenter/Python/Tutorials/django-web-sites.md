@@ -20,34 +20,34 @@ You’ll also need to install Git for pushing the site to Windows Azure – we r
 
 The first step in creating your app is to create the web site via the Windows Azure Management Portal.  To do this you’ll need to login to the portal and then select the WEB SITES from the left hand side:
 
-![](../Media/python_website_01_image001.png)
+![](../Media/django-ws-001.png)
 
 Then click on the NEW button in the bottom left corner:
 
-![](../Media/python_website_02_image002.png)
+![](../Media/django-ws-002.png)
 
 And then click Quick Create, enter an URL, and select Create Web Site:
 
-![](../Media/python_website_03_image003.png)
+![](../Media/django-ws-003.png)
 
 The site will be quickly setup:
 
-![](../Media/python_website_04_image004.png)
+![](../Media/django-ws-004.png)
 
 And then you can click on the site name to go to the dashboard.  
 
-![](../Media/python_website_05_image005.png)
+![](../Media/django-ws-005.png)
 
 Next, we want to add support for publishing via Git.  This can be done by clicking on the “Set up Git publishing” button along the right hand side.  After setting up Git publishing you’ll momentarily see a page informing you the repo is being created and then you’ll be taken to the deployments tab after the repo has been created which includes instructions on how to connect.  
 
-![](../Media/python_website_06_image006.png)
+![](../Media/django-ws-006.png)
 
 
 ## Web Site Development
 
 Now that we’ve created our Git repository in Windows Azure we’ll start filling it in with the web site from our local machine.  The first step is to clone the existing empty site using the url provided:
 
-![](../Media/python_website_07_image007.png)
+![](../Media/django-ws-007.png)
 
 From here we’re ready to setup the enlistment with the web site.  We’ll need to do a few things:
 
@@ -62,7 +62,7 @@ First, we’ll include the Django library.  To do this we’ll create a new dire
 
 This copies all the libraries located in site-packages, including Django.  If there are libraries that are not used by your web site, feel free to remove them.
 
-![](../Media/python_website_08_image008.png)
+![](../Media/django-ws-008.png)
  
 Next we’ll create our initial Django application.  You can do this just as you’d create any other Django application from the command line or you can use [Python Tools for Visual Studio](http://pytools.codeplex.com/) to create the project.  We’ll show you both of the options here.
 
@@ -71,12 +71,12 @@ To create the new project from the command line you just need to run this comman
 
 	 C:\Python27\python.exe -m django.bin.django-admin startproject DjangoApplication
 
-![](../Media/python_website_10_image010.png)
+![](../Media/django-ws-010.png)
 
 **Option 2:**  
 You can also create your new site using Python Tools for Visual Studio.  Start Visual Studio with Python Tools for Visual Studio installed and select File->New Project.  Drill into the Python projects under Other Languages and select “Django Application”.  Enter “DjangoApplication” for the name of the project, and make sure that “Create directory for solution” is unchecked to get the exact same directory structure as creating a Django application from the command line.  This option will get you setup with a Visual Studio solution and project file giving you a great local development experience including template debugging and intellisense.
 
-![](../Media/python_website_11_image011.png)
+![](../Media/django-ws-011.png)
 
 Now we just need to add all of the files we’ve just added and push the site to Git.  To do this we need to run a few commands:
 
@@ -87,11 +87,11 @@ Now we just need to add all of the files we’ve just added and push the site to
 
 The first command will add our untracked files to be tracked.  The second command will commit the files we just added into the repository.  The third command adds a remote with the name “azure” for our repository.  And finally we take the changes and push them to the remote repository which will also kick off the deployment.  After doing this we should see a result like:
 
-![](../Media/python_website_13_image013.png)
+![](../Media/django-ws-013.png)
 
 After doing the push you’ll see the Windows Azure portal refresh and display the active deployment:
 
-![](../Media/python_website_14_image014.png)
+![](../Media/django-ws-014.png)
 
 ## Web Site Configuration
 
@@ -105,7 +105,7 @@ For setting up a Django application we need to set three environment variables. 
 	PYTHONPATH                D:\home\site\wwwroot\DjangoApplication;D:\home\site\wwwroot\site-packages
 	WSGI_HANDLER              django.core.handlers.wsgi.WSGIHandler()
 
-![](../Media/python_website_15_image015.png)
+![](../Media/django-ws-015.png)
 
 Then we need to configure our handler mapping.  For this we register the handler for all extensions, using the path to the Python interpreter and the path to the wfastcgi.py script:
 
@@ -113,13 +113,13 @@ Then we need to configure our handler mapping.  For this we register the handler
 	SCRIPT PROCESSOR PATH     D:\python27\python.exe
 	ADDITIONAL ARGUMENTS      D:\python27\scripts\wfastcgi.py
 
-![](../Media/python_website_16_image016.png)
+![](../Media/django-ws-016.png)
 
 At this point we’re ready to click on the Save button at the bottom.
 
 Finally we can go back to the Dashboard, and go down to the SITE URL on the left hand side and click on the link and we’ll open our new Django site:
 
-![](../Media/python_website_17_image017.png)
+![](../Media/django-ws-017.png)
 
 ## Next Steps
 
