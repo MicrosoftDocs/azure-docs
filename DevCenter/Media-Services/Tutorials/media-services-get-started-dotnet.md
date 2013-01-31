@@ -668,7 +668,7 @@ File download path:  C:\supportFiles\outputfiles\interview2_metadata.xml
 <p>In the Media Services object model, an asset is a Media Services content collection object that represents one to many files. The locator path provides an Azure blob URL which is the base path to this asset in Azure Storage. To access specific files within the asset, add a file name to the base locator path.</p> 
 </div>
 
-<h2Next Steps</h2>
+<h2>Next Steps</h2>
 This walkthrough has demonstrated a sequence of programming tasks to build a simple Media Services application. You learned the fundamental Media Services programming tasks including getting the server context, creating assets, encoding assets, and downloading or accessing assets on the server. For next steps and more advanced development tasks, see the following:
 
 - <a href="http://www.windowsazure.com/en-us/develop/net/how-to-guides/media-services/">How to Use Media Services</a>
