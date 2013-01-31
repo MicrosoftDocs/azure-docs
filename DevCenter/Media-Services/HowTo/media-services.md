@@ -128,7 +128,7 @@ This section contains general prerequisites for Media Services development using
 -   A Media Services account in a new or existing Windows Azure subscription. See the topic [How to Create a Media Services Account](http://www.windowsazure.com/en-us/manage/services/media-services/how-to-create-a-media-services-account/).
 -   Operating Systems: Windows 7, Windows 2008 R2, or Windows 8.
 -   .NET Framework 4.5 or .NET Framework 4.
--   Visual Studio 2012 or Visual Studio 2010 SP1 (Professional, Premium, or Ultimate). 
+-   Visual Studio 2012 or Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express). 
 -   Use the [windowsazure.mediaservices Nuget](http://nuget.org/packages/windowsazure.mediaservices) package to install Windows Azure SDK for .NET. The following section shows how to use **Nuget** to install the Windows Azure SDK.   
 
 
