@@ -1,4 +1,4 @@
-<properties linkid="develop-python-install-python" urlDisplayName="Install Python" pageTitle="Install Python and the SDK - Windows Azure" metaKeywords="Azure Python SDK" metaDescription="Learn how to install Python and the SDK to use with Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+﻿<properties linkid="develop-python-install-python" urlDisplayName="Install Python" pageTitle="Install Python and the SDK - Windows Azure" metaKeywords="Azure Python SDK" metaDescription="Learn how to install Python and the SDK to use with Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -162,7 +162,7 @@ For information on how to setup a Linux VM, please see the [Linux Management sec
 [IPython - an advanced REPL/Notebook for Python]: http://ipython.org
 
 
-[IPython on Azure]: ../tutorials/azure-ipython.md
+[IPython on Azure]: /en-us/develop/python/tutorials/ipython-notebook/
 
 
 [Python Tools for Visual Studio on CodePlex]: http://pytools.codeplex.com 
