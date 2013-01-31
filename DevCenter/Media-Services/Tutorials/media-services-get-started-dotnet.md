@@ -98,6 +98,7 @@ The following prerequisites are required for the walkthrough and for development
 		private static CloudMediaContext _context = null;
 		
 <h2><a id="Step2"></a>Getting the Media Services Context</h2>
+
 The Media Services context object contains all the fundamental objects and collections to access for Media Services programming. The context includes references to important collections including jobs, assets, files, access policies, locators, and other objects. You must get the server context for most Media Services programming tasks.
 
 In the Program.cs file, add the following code as the first item in your **Main** method. This code uses your Media Services account name and account key values from the app.config file to create an instance of the server context. The instance is assigned to the **_context** variable you created at the class level.
