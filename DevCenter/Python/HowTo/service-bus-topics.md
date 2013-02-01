@@ -23,12 +23,13 @@ and subscriptions, see the [Next Steps][] section.
 -   [How to: Delete Topics and Subscriptions][]
 -   [Next Steps][1]
 
-<div chunk="../../shared/chunks/howto-service-bus-topics.md" />
+
+</a><div chunk="../../shared/chunks/howto-service-bus-topics.md" />
 
 **Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../commontasks/how-to-install-python.md).
 
 
-## How to Create a Topic
+##<a name="How_to_Create_a_Topic"></a>How to Create a Topic
 
 The **ServiceBusService** object lets you work with topics. Add the following near the top of any Python file in which you wish to programmatically access Windows Azure Service Bus:
 
@@ -51,7 +52,7 @@ setting the maximum topic size to 5GB a time to live of 1 minute:
 
 	bus_service.create_topic('mytopic', topic_options)
 
-## How to Create Subscriptions
+##<a name="How_to_Create_Subscriptions"></a>How to Create Subscriptions
 
 Topic subscriptions are also created with the **ServiceBusService**
 object. Subscriptions are named and can have an optional filter that
@@ -124,7 +125,7 @@ receivers subscribed to the 'AllMessages' topic subscription, and
 selectively delivered to receivers subscribed to the 'HighMessages' and
 'LowMessages' topic subscriptions (depending upon the message content).
 
-## How to Send Messages to a Topic
+##<a name="How_to_Send_Messages_to_a_Topic"></a>How to Send Messages to a Topic
 
 To send a message to a Service Bus topic, your application must use the
 **send\_topic\_message** method of the **ServiceBusService** object.
@@ -145,7 +146,7 @@ held in a topic but there is a cap on the total size of the messages
 held by a topic. This topic size is defined at creation time, with an
 upper limit of 5 GB.
 
-## How to Receive Messages from a Subscription
+##<a name="How_to_Receive_Messages_from_a_Subscription"></a>How to Receive Messages from a Subscription
 
 Messages are received from a subscription using the
 **receive\_subscription\_message** method on the **ServiceBusService**
@@ -185,7 +186,7 @@ mark the message as being consumed and remove it from the subscription.
 	msg.delete()
 	
 
-## How to Handle Application Crashes and Unreadable Messages
+##<a name="How_to_Handle_Application_Crashes_and_Unreadable_Messages"></a>How to Handle Application Crashes and Unreadable Messages
 
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
@@ -213,7 +214,7 @@ to handle duplicate message delivery. This is often achieved using the
 **MessageId** property of the message, which will remain constant across
 delivery attempts.
 
-## How to Delete Topics and Subscriptions
+##<a name="How_to_Delete_Topics_and_Subscriptions"></a>How to Delete Topics and Subscriptions
 
 Topics and subscriptions are persistent, and must be explicitly deleted
 either through the Windows Azure Management portal or programmatically.
@@ -228,7 +229,7 @@ following code demonstrates how to delete a subscription named
 
 	bus_service.delete_subscription('mytopic', 'HighMessages')
 
-## Next Steps
+##<a name="Next_Steps"></a>Next Steps
 
 Now that you've learned the basics of Service Bus topics, follow these
 links to learn more.
