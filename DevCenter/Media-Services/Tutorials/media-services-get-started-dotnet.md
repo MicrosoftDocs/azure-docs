@@ -4,7 +4,6 @@
 
 # <a name="getting-started"></a>Get started with Media Services
 
-
 This tutorial shows you how to start developing with Windows Azure Media Services. It introduces the basic Media Services workflow and the most common programming objects and tasks required for Media Services development. At the completion of the tutorial, you will be able to play back a sample media file that you uploaded, encoded, and downloaded. Or you can browse to the encoded asset and play it back on the server. 
 
 A C# Visual Studio project that contains the code for this tutorial is available here: [Download](http://go.microsoft.com/fwlink/?linkid=253275).
