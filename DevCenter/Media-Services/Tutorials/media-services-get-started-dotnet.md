@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-media-tutorials-get-started" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Media Services" metaKeywords="" metaDescription="Follow this tutorial to get started using Windows Azure Media Services in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-media-tutorials-get-started" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Media Services" metaKeywords="" metaDescription="Follow this tutorial to get started using Windows Azure Media Services in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -674,7 +674,7 @@ This walkthrough has demonstrated a sequence of programming tasks to build a sim
 - <a href="http://www.windowsazure.com/en-us/develop/net/how-to-guides/media-services/">How to Use Media Services</a>
 - <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh973618.aspx">Building Applications with the Media Services REST API</a>
 
-
+<!-- test -->
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
 [Create a new mobile service]:#create-new-service
