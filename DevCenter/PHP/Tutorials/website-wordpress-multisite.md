@@ -6,11 +6,11 @@
 
 <p><em>By [Ben Lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]</em></p>
 
-In this tutorial you will learn how to take an existing WordPress web site created through the Windows Azure Gallery and convert it into a WordPress Multisite install. Additionally you will learn how to assign a custom domain to each of the subsites within your install.It is assumed that you have an existing installation of WordPress. If you do not please follow the guidance provided in [Create a WordPress web site from the gallery in Windows Azure][website-from-gallery]
+In this tutorial you will learn how to take an existing WordPress web site created through the Windows Azure Gallery and convert it into a WordPress Multisite install. Additionally you will learn how to assign a custom domain to each of the subsites within your install.It is assumed that you have an existing installation of WordPress. If you do not please follow the guidance provided in [Create a WordPress web site from the gallery in Windows Azure][website-from-gallery].
 Converting an existing WordPress single site install to Multisite is generally fairly simple, and many of the initial steps here come straight from the [Create A Network][wordpress-codex-create-a-network] page on the [WordPress Codex][http://codex.wordpress.org].
-Lets get started
+Lets get started.
 ## Allow Multisite
-You first need to enable Multisite through the `wp-config.php` file with the **WP_ALLOW_MULTISITE** constant. There are two methods to edit your web site files, the first is through FTP and the second through Git. If you are unfamiliar with how to setup either of these methods please refer to the following tutorials
+You first need to enable Multisite through the `wp-config.php` file with the **WP_ALLOW_MULTISITE** constant. There are two methods to edit your web site files, the first is through FTP and the second through Git. If you are unfamiliar with how to setup either of these methods please refer to the following tutorials:
 * [PHP web site with MySQL and FTP][website-w-mysql-and-ftp-ftp-setup]
 * [PHP web site with MySQL and Git][website-w-mysql-and-git-git-setup]
 Open the `wp-config.php` file with the editor of your choosing and add the following above the `/* That's all, stop editing! Happy blogging. */` line.
@@ -25,7 +25,7 @@ Be sure to save the file and upload it back to the server!## Network Setup
 ## Enable the Network
 The network is now configured in the database, there is one remaining step to enable the network functionality. Finalize the `wp-config.php` settings and ensure `web.config` properly routes each site.
 After clicking the **Install** button on the *Network Setup* page WordPress will attempt to update the `wp-config.php` and `web.config` files, however you should always check the files to ensure the updates were successful. If not this screen will present you with the necessary updates. Edit and save the files.
-IMAGE OF NETWORK SETTINGS
+
 After making these updates you will need to logout and re-login to the wp-admin dashboard.
 There should now be an additional menu on the admin bar labeled **My Sites**. This menu allows you to control your new network through the **Network Admin** dashboard.
 # Adding custom domains
