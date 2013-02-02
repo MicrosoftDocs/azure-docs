@@ -1,9 +1,8 @@
-﻿<properties linkid="develop-media-tutorials-get-started" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Media Services" metaKeywords="" metaDescription="Follow this tutorial to get started using Windows Azure Media Services in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-media-tutorials-get-started" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Media Services" metaKeywords="" metaDescription="Follow this tutorial to get started using Windows Azure Media Services in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
 # <a name="getting-started"></a>Get started with Media Services
-
 
 This tutorial shows you how to start developing with Windows Azure Media Services. It introduces the basic Media Services workflow and the most common programming objects and tasks required for Media Services development. At the completion of the tutorial, you will be able to play back a sample media file that you uploaded, encoded, and downloaded. Or you can browse to the encoded asset and play it back on the server. 
 
@@ -13,8 +12,8 @@ This tutorial walks you through these basic steps:
 
 * [Setting up your project](#Step1)
 * [Getting the Media Services server context](#Step2)
-* [Creating an asset and uploading files that are associated with the asset into Medai Services](Step#3)
-* [Encoding an asset and downloading an output asset](Step#4)
+* [Creating an asset and uploading files that are associated with the asset into Media Services](#Step3)
+* [Encoding an asset and downloading an output asset](#Step4)
  
 ## Prerequisites
 The following prerequisites are required for the walkthrough and for development based on the Windows Azure Media Services SDK.

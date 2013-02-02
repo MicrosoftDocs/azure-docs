@@ -43,8 +43,8 @@ Note that the different distributions will be incorporating the agent to their o
 	</tr>
 	<tr>
 		<th>  Canonical UBUNTU </th>
-		<td> Ubuntu 12.04</td>
-		<td>June 7 2012</td>
+		<td> Ubuntu 12.04.1 and 12.10</td>
+		<td>Dec. 20 2012</td>
         <td>In Kernel</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275152&amp;clcid=0x409">Required for 12.04.x only</a></td>
 		<td>Deb: In package repo under walinuxagent <br />
@@ -53,8 +53,8 @@ Note that the different distributions will be incorporating the agent to their o
 	</tr>
 	<tr>
 		<th> CENTOS by Open Logic </th>
-		<td> CentOS 6.2</td>
-		<td>June 7 2012</td>
+		<td> CentOS 6.3</td>
+		<td>Dec. 20 2012</td>
 	    <td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254263">Latest LIS drivers</a></td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&amp;clcid=0x409">Required for 6.2 and 6.3 only</a></td>
 		<td>RPM:In <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">Open Logic package repo </a> under walinuxagent<br />
@@ -64,7 +64,7 @@ Note that the different distributions will be incorporating the agent to their o
 	<tr>
 		<th> SUSE </th>
 		<td> SLES 11SP2</td>
-		<td>June 7 2012</td>
+		<td>Dec. 20 2012</td>
         <td>In Kernel</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275154&amp;clcid=0x409">Latest Kernel required</a></td>
 		<td>RPM: In package repo under walinuxagent<br />
