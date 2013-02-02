@@ -12,8 +12,8 @@ This tutorial walks you through these basic steps:
 
 * [Setting up your project](#Step1)
 * [Getting the Media Services server context](#Step2)
-* [Creating an asset and uploading files that are associated with the asset into Medai Services](Step#3)
-* [Encoding an asset and downloading an output asset](Step#4)
+* [Creating an asset and uploading files that are associated with the asset into Media Services](#Step3)
+* [Encoding an asset and downloading an output asset](#Step4)
  
 ## Prerequisites
 The following prerequisites are required for the walkthrough and for development based on the Windows Azure Media Services SDK.
