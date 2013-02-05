@@ -24,7 +24,7 @@ and subscriptions, see the [Next Steps][] section.
 -   [Next Steps][1]
 
 
-</a><div chunk="../../shared/chunks/howto-service-bus-topics.md" />
+<div chunk="../../shared/chunks/howto-service-bus-topics.md" />
 
 **Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../commontasks/how-to-install-python.md).
 
