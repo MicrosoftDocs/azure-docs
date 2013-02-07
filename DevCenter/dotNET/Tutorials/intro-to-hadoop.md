@@ -1,5 +1,6 @@
 <properties linkid="develop-dotnet-intro-to-hadoop" urlDisplayName="Intro to Hadoop" pageTitle="Intro to Hadoop (.NET) - Windows Azure tutorials" metaKeywords="Azure Hadoop introduction, Hadoop Azure basics, intro Azure Hadoop" metaDescription="Learn about using Hadoop on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+<div chunk="../chunks/article-left-menu.md" />
 
 # Introduction to Hadoop on Windows Azure
 **Overview**	
