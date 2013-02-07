@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-java-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" pageTitle="How to use AMQP 1.0 with the Java Service Bus API - Windows Azure" metaKeywords="" metaDescription="Learn how to use the Java Message Service (JMS) with Windows Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-java-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" pageTitle="How to use AMQP 1.0 with the Java Service Bus API - Windows Azure" metaKeywords="" metaDescription="Learn how to use the Java Message Service (JMS) with Windows Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -84,15 +84,15 @@ Where [namespace], [username] and [password] have the following meanings:
 <table>
   <tr>
     <td>[namespace]</td>
-    <td>The Service Bus namespace obtained from the Azure Portal.</td>
+    <td>The Service Bus namespace obtained from the Windows Azure Management Portal.</td>
   </tr>
   <tr>
     <td>[username]</td>
-    <td>The Service Bus issuer name obtained from the Azure Portal.</td>
+    <td>The Service Bus issuer name obtained from the Windows Azure Management Portal.</td>
   </tr>
   <tr>
     <td>[password]</td>
-    <td>URL encoded form of the Service Bus issuer key obtained from the Azure Portal.</td>
+    <td>URL encoded form of the Service Bus issuer key obtained from the Windows Azure Management Portal.</td>
   </tr>
 </table>
 
@@ -360,7 +360,7 @@ The Service Bus AMQP 1.0 support can also be used from other languages including
 
 ##Important notice
 
-Support for the AMQP 1.0 protocol in the Windows Azure Service Bus (“AMQP Preview”) is provided as a preview feature, and is governed by the Azure Preview terms of use. Specifically, note that:
+Support for the AMQP 1.0 protocol in the Windows Azure Service Bus (“AMQP Preview”) is provided as a preview feature, and is governed by the Windows Azure Preview terms of use. Specifically, note that:
 
 * The Service Bus SLA does not apply to the AMQP Preview;
 * Any queue or topic that is addressed using the AMQP client libraries (for sending/receiving messages or other data) may not be preserved during the AMQP Preview or at the end of the AMQP Preview;
@@ -368,7 +368,7 @@ Support for the AMQP 1.0 protocol in the Windows Azure Service Bus (“AMQP Prev
 
 ##Further information
 
-* [AMQP 1.0 support in Azure Service Bus](http://aka.ms/pgr3dp)
+* [AMQP 1.0 support in Windows Azure Service Bus](http://aka.ms/pgr3dp)
 * [How to use AMQP 1.0 with the .NET Service Bus .NET API](http://aka.ms/lym3vk)
 * [Service Bus AMQP Preview Developers Guide (included in the ServiceBus.Preview NuGet package)](http://aka.ms/tnwtu4)
 * [How to Use Service Bus Queues](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)

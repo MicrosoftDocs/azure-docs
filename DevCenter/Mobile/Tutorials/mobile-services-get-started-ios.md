@@ -18,9 +18,9 @@ A screenshot from the completed app is below:
 
 Completing this tutorial requires XCode 4.5 and iOS 5.0 or later versions. 
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Mobile Services feature enabled.</p> <ul> <li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Windows Azure Free Trial</a>.</li> <li>If you have an existing account but need to enable the Windows Azure Mobile Services preview, see <a href="../create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li> </ul> </div>
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Mobile Services feature enabled.</p> <ul> <li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F" target="_blank">Windows Azure Free Trial</a>.</li> <li>If you have an existing account but need to enable the Windows Azure Mobile Services preview, see <a href="../create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li> </ul> </div>
 
-## <a name="create-new-service"> </a>Create a new mobile service
+<h2><span class="short-header">Create a mobile service</span>Create the new mobile service</h2>
 Follow these steps to create a new mobile service.
 
 1.	Log into the [Management Portal]. 
@@ -55,7 +55,7 @@ Follow these steps to create a new mobile service.
 
 You have now created a new mobile service that can be used by your mobile apps.
 
-## <h2><span class="short-header">Create a new app</span>Create a new iOS app</h2>
+<h2><span class="short-header">Create a new app</span>Create a new iOS app</h2>
 
 Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
 
@@ -71,15 +71,15 @@ In this section you will create a new iOS app that is connected to your mobile s
 
   ![][7]
 
-3. If you haven't already done so, download and install [Xcode] and the [Mobile Services iOS SDK] on your local computer or virtual machine.
+3. If you haven't already done so, download and install [Xcode] v4.4 or a later version.
 
 4. Click **Create TodoItems table** to create a table to store app data.
 
 5. Under **Download and run app**, click **Download**. 
 
-  This downloads the project for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
+  This downloads the project for the sample _To do list_ application that is connected to your mobile service, along with the Mobile Services iOS SDK. Save the compressed project file to your local computer, and make a note of where you saved it.
 
-## Run your iOS app
+<h2><span class="short-header">Run your app</span>Run your new iOS app</h2>
 
 The final stage of this tutorial is to build and run your new app.
 

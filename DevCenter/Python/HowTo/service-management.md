@@ -4,7 +4,7 @@
 
 # How to use Service Management from Python
 
-This guide will show you how to programmatically perform common service management tasks from Python. The **ServiceManagementService** class in the [Windows Azure SDK for Python][download-SDK-Python] supports programmatic access to much of the service management-related functionality that is available in the [management portal][management-portal] (such as **creating, updating, and deleting cloud services, deployments, storage services, virtual machines and affinity groups**). This functionality can be useful in building applications that need programmatic access to service management. 
+This guide will show you how to programmatically perform common service management tasks from Python. The **ServiceManagementService** class in the [Windows Azure SDK for Python][download-SDK-Python] supports programmatic access to much of the service management-related functionality that is available in the [management portal][management-portal] (such as **creating, updating, and deleting cloud services, deployments, data management services, virtual machines and affinity groups**). This functionality can be useful in building applications that need programmatic access to service management. 
 
 ##Table of Contents
 

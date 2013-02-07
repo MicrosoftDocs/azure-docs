@@ -46,11 +46,11 @@ network infrastructure. Such Service Bus relay services are still hosted
 inside their existing environment, but they delegate listening for
 incoming sessions and requests to the cloud-hosted Service Bus. The
 Service Bus also protects those services from unauthorized access by
-using the Windows Azure Access Control Service.
+using Windows Azure Active Directory Access Control.
 
 ### THE SOLUTION SCENARIO
 
-In this tutorial, you will create an ASP.NET MVC 3 website that will
+In this tutorial, you will create an ASP.NET MVC 3 web site that will
 allow you to see a list of products on the product inventory page.
 
 ![][0]
@@ -703,7 +703,7 @@ Run the application to verify that it works.
         ![][35]
 
     12. When deployment is complete, you can view your Web site by
-        clicking the **Website URL**link in the monitoring window.
+        clicking the **Web site URL**link in the monitoring window.
 
         ![][36]
 
@@ -768,12 +768,12 @@ Run the application to verify that it works.
   [17]: ../../../DevCenter/dotNet/Media/hy-web-7.jpg
   [18]: ../../../DevCenter/dotNet/Media/hy-web-10.jpg
   [19]: ../../../DevCenter/dotNet/Media/getting-started-8.png
-  [20]: ../../../DevCenter/dotNet/Media/hy-web-11.jpg
+  [20]: ../../../DevCenter/dotNet/Media/hy-web-11.png
   [21]: ../../../DevCenter/dotNet/Media/App1.png
   [22]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-21.png
   [23]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-22.png
   [24]: ../../../DevCenter/dotNet/Media/hy-web-12.jpg
-  [25]: ../../../DevCenter/dotNet/Media/hy-web-13.jpg
+  [25]: ../../../DevCenter/dotNet/Media/hy-web-13.png
   [26]: ../../../DevCenter/dotNet/Media/hy-web-14.jpg
   [27]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-33.png
   [28]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-34.png
