@@ -1,4 +1,7 @@
 <properties linkid="dev-python-mysql" urlDisplayName="Web App with MySQL" headerExpose="" pageTitle="Django Hello World - MySQL Edition" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
 # Django Hello World - MySQL Edition #
   
 This tutorial describes how to use MySQL to access data from a Windows Azure Cloud Service application written in the Django Python web framework. This guide assumes that you have some prior experience using Windows Azure and Django. For an introduction to Windows Azure and Django, see [Django Hello World] [djangohelloworld]. The guide also assumes that you have some knowledge of MySQL. For an overview of MySQL, see the [MySQL website][mysqldoc].
@@ -16,6 +19,8 @@ You will expand upon the [Django Hello World] [djangohelloworld] sample by utili
 
 The project files for this tutorial will be stored in **C:\django\helloworld** and the completed application will look similar to:
 ![][0]
+
+<div chunk="../../Shared/Chunks/create-account-and-vms-note.md" />
   
 ## Setting up your development environment ##
 Before you can begin developing your Windows Azure application, you need to get the tools and set up your development environment. For details about getting and installing the Windows Azure SDK for Python, see [Setup the Development Environment] [wapstarted] in the Python "Hello World" Application tutorial.

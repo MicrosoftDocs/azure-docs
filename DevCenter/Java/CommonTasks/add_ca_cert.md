@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Add a Certificate to the CA Store" metaKeywords="Azure Twilio Java, Twilio Java Certificate, Azure Service Bus Certificate" metaDescription="The following steps show you how to add a certificate authority (CA) certificate to the Java CA certificate (cacerts) store." linkid="develop-java-how-to-add-a-certificate" urlDisplayName="Add a Certificate to the CA Store" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-java-how-to-add-a-certificate" urlDisplayName="Add a Cert to the CA Store" pageTitle="Add a certificate to the Java CA store - Windows Azure" metaKeywords="Azure Twilio Java, Twilio Java Certificate, Azure Service Bus Certificate" metaDescription="Learn how to add a certificate authority (CA) certificate to the Java CA certificate (cacerts) store for Twilio service or Windows Azure Service Bus." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # Adding a Certificate to the Java CA Certificates Store
 The following steps show you how to add a certificate authority (CA) certificate to the Java CA certificate (cacerts) store. The example used is for the CA certificate required by the Twilio service. Information provided later in the topic describes how to install the CA certificate for the Windows Azure Service Bus. 
@@ -24,6 +26,6 @@ You can use keytool to add the CA certificate prior to zipping your JDK and addi
 
 5. Zip the JDK and add it to your Windows Azure project's **approot** folder.
 
-If you want to add the CA certificate for Windows Azure Service Bus, it is the GTE CyberTrust Global Root certificate (with serial number 01:a5 and SHA1 fingerprint 97:81:79:50:D8:1C:96:70:CC:34:D8:09:CF:79:44:31:36:7E:F4:74). It can be downloaded from <https://secure.omniroot.com/cacert/ct_root.der>, saved to a local file with extension **.cer**, and then imported using **keytool** as shown above. This certificate might already be installed in your cacerts store, so remember to run the **keytool -list** command first to see if it already exists.
+If you want to add the CA certificate for Windows Azure Service Bus, it is the GTE CyberTrust Global Root certificate (with serial number 01:a5 and SHA1 fingerprint 97:81:79:50:D8:1C:96:70:CC:34:D8:09:CF:79:44:31:36:7E:F4:74). It can be downloaded from <https://www.globaltrustpoint.com/x509/x509trustcenter_list.jsp>, saved to a local file with extension **.cer**, and then imported using **keytool** as shown above. This certificate might already be installed in your cacerts store, so remember to run the **keytool -list** command first to see if it already exists.
 
 For information about keytool, see <http://docs.oracle.com/javase/1.4.2/docs/tooldocs/solaris/keytool.html>.

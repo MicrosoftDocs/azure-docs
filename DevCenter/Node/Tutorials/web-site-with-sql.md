@@ -1,4 +1,7 @@
-<properties linkid="dev-nodejs-website-sql" urldisplayname="Node.js Website with sql" headerexpose="" pagetitle="Node.js Application using the Windows Azure SQL Database" metakeywords="Azure Node.js tutorial sql, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates deploying a Node.js application using the Windows Azure SQL Database" umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="develop-nodejs-tutorials-web-site-with-sql-database" urlDisplayName="Web site with SQL Database" pageTitle="Node.js web site with SQL Database - Windows Azure tutorial" metaKeywords="" metaDescription="Learn how to create a Node.js website that accesses a SQL Database and is deployed to Windows Azure" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
 # Node.js Web Application using the Windows Azure SQL Database
 
 This tutorial shows you how to use SQL Database provided by Windows Azure Data Management to store and access data from a [node] application hosted on Windows Azure. This tutorial assumes that you have some prior experience using node and [Git].
@@ -48,11 +51,7 @@ Before following the instructions in this article, you should ensure that you ha
 
 * A web browser
 
-##Enable the Windows Azure Web Site feature
-
-If you do not already have a Windows Azure subscription, you can sign up [for free]. After signing up, follow these steps to enable the Windows Azure Web Site feature.
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md"></div>
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
 ##Create a web site with database
 
@@ -92,7 +91,7 @@ Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
 8. To enable Git publishing, you must provide a user name and password. Make a note of the user name and password you create. (If you have set up a Git repository before, this step will be skipped.)
 
-	![Create publishing credentials][credentials]
+	![Create publishing credentials][portal-git-username-password]
 
 	It will take a few seconds to set up your repository.
 
@@ -224,9 +223,9 @@ In this section you will create a new Node application and use npm to add module
 
 3. Extract the archive to the **tasklist\\node\_modules** directory.
 
-4. Run the **node-sqlserver-install.cmd** file in the **tasklist\\node\_modules** directory. This will create a **node-sqlserver** subdirectory under **node\_modules** and move the driver files into this new directory structure.
+4. Run the **msnodesql-install.cmd** file in the **tasklist\\node\_modules** directory. This will create a **msnodesql** subdirectory under **node\_modules** and move the driver files into this new directory structure.
 
-5. Delete the **node-sqlserver-install.cmd** file, as it is no longer needed.
+5. Delete the **msnodesql-install.cmd** file, as it is no longer needed.
 
 ##Use SQL Database in a node application
 
@@ -236,9 +235,9 @@ In this section you will extend the basic application created by the **express**
 
 1. In the **tasklist/routes** directory, open the **index.js** file in a text editor.
 
-2. Replace the existing code in the **index.js** file with the following code. This loads the node-sqlserver, and nconf modules, then uses nconf to load the connection string from either an environment variable named **SQL\_CONN** or an **SQL\_CONN** value in the **config.json** file.
+2. Replace the existing code in the **index.js** file with the following code. This loads the msnodesql, and nconf modules, then uses nconf to load the connection string from either an environment variable named **SQL\_CONN** or an **SQL\_CONN** value in the **config.json** file.
 
-		var sql = require('node-sqlserver')
+		var sql = require('msnodesql')
 		    , nconf = require('nconf');
 
 		nconf.env()
@@ -263,7 +262,7 @@ In this section you will extend the basic application created by the **express**
 		        sql.query(conn, insert, [item.name, item.category], function(err) {
 		            if(err)
 		                throw err;
-		            res.redirect('home');
+		            res.redirect('/');
 		        });
 		    } else {
 		        var completed = req.body.completed;
@@ -273,7 +272,7 @@ In this section you will extend the basic application created by the **express**
 		        sql.query(conn, update, function(err) {
 		            if(err)
 		                throw err;
-		            res.redirect('home');
+		            res.redirect('/');
 		        });
 		    }
 		}
@@ -284,16 +283,23 @@ In this section you will extend the basic application created by the **express**
 
 1. In the **tasklist** directory, open the **app.js** file in a text editor. This file was created earlier by running the **express** command.
 
-3. Replace the content after the `//Routes` comment with the following code. This will add a new route to the **updateItem** method you added previously in the **index.js** file and listen on the port specified in process.env.PORT. The port value will be used once the application is deployed to Windows Azure.
+2. In the app.js file, scroll down to where you see below code.
 
-        // Routes
+		app.configure('development', function(){
+  		app.use(express.errorHandler());
+		});
 
-		app.get('/', routes.index);
+3. Now insert the following code.
+
+
+        app.get('/', routes.index);
 		app.post('/', routes.updateItem);
 
-		app.listen(process.env.PORT || 3000);
 
-4. Save the **app.js** file.
+ This will add a new route to the **updateItem** method you added previously in the **index.js** file. 
+
+       		
+3. Save the **app.js** file.
 
 ###Modify the index view
 
@@ -471,7 +477,7 @@ Once the changes have been deployed to Windows Azure, your web application shoul
 [for free]: http://windowsazure.com
 [Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
-[Node.js Web Application with MongoDB]: ./web-site-with-mongodb-Mac
+[Node.js Web Application with MongoDB]: ../website-with-mongodb-(mac)/
 [Windows Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Create and deploy a Node.js application to a Windows Azure Web Site]: ./web-site-with-mongodb-Mac
 [Publishing to Windows Azure Web Sites with Git]: ../CommonTasks/publishing-with-git
@@ -490,12 +496,12 @@ Once the changes have been deployed to Windows Azure, your web application shoul
 [website-details-sqlazure]: ../Media/website_details_sqlazure.jpg
 [database-settings]: ../Media/database_settings.jpg
 [create-server]: ../Media/create_server.jpg
-[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.jpg
-[setup-git-publishing]: ../Media/setup_git_publishing.jpg
-[credentials]: ../Media/credentials.jpg
+[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.png
+[setup-git-publishing]: ../../Shared/Media/setup_git_publishing.png
+[portal-git-username-password]: ../../Shared/Media/git-deployment-credentials.png
 [creating-repo]: ../Media/creating_repo.jpg
 [push-files]: ../Media/push_files.jpg
-[git-instructions]: ../Media/git_instructions.jpg
+[git-instructions]: ../../Shared/Media/git_instructions.png
 [linked-resources]: ../Media/linked_resources.jpg
 [new-website]: ../../Shared/Media/new_website.jpg
 [custom-create]: ../../Shared/Media/custom_create.jpg

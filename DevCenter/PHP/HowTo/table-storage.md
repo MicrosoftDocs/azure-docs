@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Use the Table Service from PHP" metaKeywords="Windows Azure, Table Service, Table Storage, PHP" metaDescription="Learn how to use the Windows Azure Table Service from PHP applications." linkid="dev-php-howto-table-service" urlDisplayName="How to Use the Table Service from PHP" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-php-table-service" urlDisplayName="Table Service" pageTitle="How to use table storage (PHP) - Windows Azure feature guide" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" metaDescription="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to use the Table service from PHP
 
@@ -41,47 +43,64 @@ In this guide, you will use Table service features which can be called from with
 
 <h2 id="ConfigureStorage">Configure your application to access the Table service</h2>
 
-To use the Windows Azure Table service APIs to access Tables, you need to:
+To use the Windows Azure Table service APIs, you need to:
 
-1. Reference the `WindowsAzure.php` autoloader file (from the Windows Azure SDK for PHP) using the [require_once][require_once] statement, and
+1. Reference the autoloader file using the [require_once][require_once] statement, and
 2. Reference any classes you might use.
 
-The following example shows how to include the `WindowsAzure.php` file and reference the **TableService** class:
+The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
 
-	require_once 'WindowsAzure/WindowsAzure.php';
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>This example (and other examples in this article) assume you have installed the PHP Client Libraries for Windows Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the <code>WindowsAzure.php</code> autoloader file.</p> 
+</div>
 
-	use WindowsAzure\Table\TableService;
+	require_once 'vendor\autoload.php';
+	use WindowsAzure\Common\ServicesBuilder;
+
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
 <h2 id="ConnectionString">Setup a Windows Azure storage connection</h2>
 
-A Windows Azure Table service client uses a **Configuration** object for storing connection string information. After creating a new **Configuration** object, you must set properties for the name of your storage account, the access key, and the table URI for the storage account listed in the Management Portal. This example shows how you can create a new configuration object and set these properties:
+To instantiate a Windows Azure Table service client you must first have a valid connection string. The format for the table service connection string is:
 
-	require_once 'WindowsAzure/WindowsAzure.php';
+For accessing a live service:
 
-	use WindowsAzure\Common\Configuration;
-	use WindowsAzure\Table\TableSettings;
-	
-	$config = new Configuration();
-	$config->setProperty(TableSettings::ACCOUNT_NAME, "your_storage_account_name");
-	$config->setProperty(TableSettings::ACCOUNT_KEY, "your_storage_account_key");
-	$config->setProperty(TableSettings::URI, 
-						"http://your_storage_account_name.table.core.windows.net");
+	DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
 
-You will pass this `Configuration` instance (`$config`) to other objects when using the Table API.
+For accessing the emulator storage:
+
+	UseDevelopmentStorage=true
+
+
+To create any Windows Azure service client you need to use the **ServicesBuilder** class. You can:
+
+* pass the connection string directly to it or
+* use the **CloudConfigurationManager (CCM)** to check multiple external sources for the connection string:
+	* by default it comes with support for one external source - environmental variables
+	* you can add new sources by extending the **ConnectionStringSource** class
+
+For the examples outlined here, the connection string will be passed directly.
+
+	require_once 'vendor\autoload.php';
+
+	use WindowsAzure\Common\ServicesBuilder;
+
+	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+
 
 <h2 id="CreateTable">How to: create a table</h2>
 
 A **TableRestProxy** object lets you create a table with the **createTable** method. When creating a table, you can set the Table Service timeout. (For more information about the table service timeout, see [Setting Timeouts for Table Service Operations][table-service-timeouts].)
 
-	require_once 'WindowsAzure/WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
-	$tableRestProxy = TableService::create($config);
+	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 
 	try	{
 		// Create table.
@@ -101,15 +120,15 @@ For information about restrictions on Table names, see [Understanding the Table 
 
 To add an entity to a table, create a new **Entity** object and pass it to **TableRestProxy->insertEntity**. Note that when you create an entity you must specify a `PartitionKey` and `RowKey`. These are the unique identifiers for an entity and are values that can be queried much faster than other entity properties. The system uses `PartitionKey` to automatically distribute the table’s entities over many storage nodes. Entities with the same `PartitionKey` are stored on the same node. (Operations on multiple entities stored on the same node will perform better than on entities stored across different nodes.) The `RowKey` is the unique ID of an entity within a partition.
 
-	require_once 'WindowsAzure/WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Common\ServicesBuilder;
+	use WindowsAzure\Common\ServiceException;
 	use WindowsAzure\Table\Models\Entity;
 	use WindowsAzure\Table\Models\EdmType;
-	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
-	$tableRestProxy = TableService::create($config);
+	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	$entity = new Entity();
 	$entity->setPartitionKey("tasksSeattle");
@@ -135,15 +154,15 @@ For information about Table properties and types, see [Understanding the Table S
 
 The **TableRestProxy** class offers two alternative methods for inserting entities: **insertOrMergeEntity** and **insertOrReplaceEntity**. To use these methods, create a new **Entity** and pass it as a parameter to either method. Each method will insert the entity if it does not exist. If the entity already exists, **insertOrMergeEntity** will update property values if the properties already exist and add new properties if they do not exist, while **insertOrReplaceEntity** completely replaces an existing entity. The following example shows how to use **insertOrMergeEntity**. If the entity with `PartitionKey` "tasksSeattle" and `RowKey` "1" does not already exist, it will be inserted. However, if it has previously been inserted (as shown in the example above), the `DueDate` property will be updated and the `Status` property will be added. The `Description` and `Location` properties are also updated, but with values that effectively leave them unchanged. If these latter two properties were not added as shown in the example, but existed on the target entity, their existing values would remain unchanged.
 
-	require_once 'WindowsAzure/WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Common\ServicesBuilder;
+	use WindowsAzure\Common\ServiceException;
 	use WindowsAzure\Table\Models\Entity;
 	use WindowsAzure\Table\Models\EdmType;
-	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
-	$tableRestProxy = TableService::create($config);
+	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	//Create new entity.
 	$entity = new Entity();
@@ -178,13 +197,13 @@ The **TableRestProxy** class offers two alternative methods for inserting entiti
 
 The **TableRestProxy->getEntity** method allows you to retrieve a single entity by querying for its `PartitionKey` and `RowKey`. In the example below, the partition key `tasksSeattle` and row key `1` are passed to the **getEntity** method.
 
-	require_once 'WindowsAzure/WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
-	$tableRestProxy = TableService::create($config);
+	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	try	{
 		$result = $tableRestProxy->getEntity("mytable", "tasksSeattle", 1);
@@ -206,13 +225,13 @@ The **TableRestProxy->getEntity** method allows you to retrieve a single entity 
 
 Entity queries are constructed using filters (for more information, see [Querying Tables and Entities][filters]). To retrieve all entities in partition, use the filter "PartitionKey eq *partition_name*". The following example shows how to retrieve all entities in the `tasksSeattle` partition by passing a filter to the **queryEntities** method.
 
-	require_once 'WindowsAzure/WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
-	$tableRestProxy = TableService::create($config);
+	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	$filter = "PartitionKey eq 'tasksSeattle'";
 	
@@ -238,13 +257,13 @@ Entity queries are constructed using filters (for more information, see [Queryin
 
 The same pattern used in the previous example can be used to retrieve any subset of entities in a partition. The subset of entities you retrieve will be determined by the filter you use (for more information, see [Querying Tables and Entities][filters]).The following example shows how to use a filter to retrieve all entities with a specific `Location` and a `DueDate` less than a specified date.
 
-	require_once 'WindowsAzure/WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
-	$tableRestProxy = TableService::create($config);
+	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	$filter = "Location eq 'Office' and DueDate lt '2012-11-5'";
 	
@@ -270,14 +289,14 @@ The same pattern used in the previous example can be used to retrieve any subset
 
 A query can retrieve a subset of entity properties. This technique, called *projection*, reduces bandwidth and can improve query performance, especially for large entities. To specify a property to be retrieved, pass the name of the property to the **Query->addSelectField** method. You can call this method multiple times to add more properties. After executing **TableRestProxy->queryEntities**, the returned entities will only have the selected properties. (If you want to return a subset of Table entities, use a filter as shown in the queries above.)
 
-	require_once 'WindowsAzure/WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Table\TableService;
-	use WindowsAzure\Table\Models\QueryEntitiesOptions;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
+	use WindowsAzure\Table\Models\QueryEntitiesOptions;
 
 	// Create table REST proxy.
-	$tableRestProxy = TableService::create($config);
+	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	$options = new QueryEntitiesOptions();
 	$options->addSelectField("Description");
@@ -308,15 +327,15 @@ A query can retrieve a subset of entity properties. This technique, called *proj
 
 An existing entity can be updated by using the **Entity->setProperty** and **Entity->addProperty** methods on the entity, and then calling **TableRestProxy->updateEntity**. The following example retrieves an entity, modifies one property, removes another property, and adds a new property. Note that removing a property is done by setting its value to **null**. 
 
-	require_once 'WindowsAzure/WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 	
-	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Common\ServicesBuilder;
+	use WindowsAzure\Common\ServiceException;
 	use WindowsAzure\Table\Models\Entity;
 	use WindowsAzure\Table\Models\EdmType;
-	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
-	$tableRestProxy = TableService::create($config);
+	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	$result = $tableRestProxy->getEntity("mytable", "tasksSeattle", 1);
 	
@@ -344,13 +363,13 @@ An existing entity can be updated by using the **Entity->setProperty** and **Ent
 
 To delete an entity, pass the table name, and the entity's `PartitionKey` and `RowKey` to the **TableRestProxy->deleteEntity** method.
 
-	require_once 'WindowsAzure/WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
-	$tableRestProxy = TableService::create($config);
+	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	try	{
 		// Delete entity.
@@ -380,16 +399,16 @@ The **TableRestProxy->batch** method allows you to execute multiple operations i
 
 The following example shows how to execute **insertEntity** and **deleteEntity** operations in a single request:
 
-	require_once 'WindowsAzure/WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 	
-	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Common\ServicesBuilder;
+	use WindowsAzure\Common\ServiceException;
 	use WindowsAzure\Table\Models\Entity;
 	use WindowsAzure\Table\Models\EdmType;
 	use WindowsAzure\Table\Models\BatchOperations;
-	use WindowsAzure\Common\ServiceException;
 
  	// Create table REST proxy.
-	$tableRestProxy = TableService::create($config);
+	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	// Create list of batch operation.
 	$operations = new BatchOperations();
@@ -427,13 +446,13 @@ For more information about batching Table operations, see [Performing Entity Gro
 
 Finally, to delete a table, pass the table name to the **TableRestProxy->deleteTable** method.
 
-	require_once 'WindowsAzure/WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Table\TableService;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	// Create table REST proxy.
-	$tableRestProxy = TableService::create($config);
+	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	try	{
 		// Delete table.

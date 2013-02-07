@@ -1,2 +1,5 @@
-<properties linkid="dev-fundamentals-how-to-powershell" urldisplayname="PowerShell Cmdlets" headerexpose="" pagetitle="How to Use Windows Azure PowerShell" metakeywords="Azure PowerShell, Azure PowerShell cmdlet, PHP, Node.js, Python" footerexpose="" metadescription="Learn Windows PowerShell fundamentals and details about how to use the Windows Azure PowerShell cmdlets." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-php-powershell-cmdlets" urlDisplayName="PowerShell Cmdlets" pageTitle="How to use the Windows Azure cmdlets for Windows PowerShell (PHP)" metaKeywords="Azure PowerShell" metaDescription="Learn how to use PowerShell in Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/" disqusComments="1" umbracoNaviHide="0" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
 <div chunk="../../Shared/Chunks/powershell.md" />

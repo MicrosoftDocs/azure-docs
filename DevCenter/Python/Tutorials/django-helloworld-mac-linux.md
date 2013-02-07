@@ -1,8 +1,11 @@
-<div class="dev-center-os-selector"><a href="/en-us/develop/python/tutorials/web-app-with-django/" title="Windows Version" class="windows">Windows</a><a href="/en-us/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac Version" class="mac current">Mac</a><span>Tutorial</span></div>
+<properties linkid="develop-python-web-app-with-django-mac" urlDisplayName="Web with Django" pageTitle="Python web app with Django on Mac - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that shows how to host a Django-based web site on Windows Azure using a Linux virtual machine." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+<div chunk="../chunks/article-left-menu.md" />
+
+<div class="dev-center-os-selector"><a href="/en-us/develop/python/tutorials/web-app-with-django/" title="Windows Version" class="windows">Windows</a><a href="/en-us/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac Version" class="mac current">Mac</a><span>Tutorial</span></div>
 # Django Hello World Web Application (mac-linux)
 
-This tutorial describes how to host a Django-based website on Windows 
+This tutorial describes how to host a Django-based web site on Windows 
 Azure using a Linux virtual machine. This tutorial assumes you have no prior experience using Windows Azure. Upon completing this guide, you will have a Django-based application up and running in the cloud.
 
 You will learn how to:
@@ -17,6 +20,7 @@ A screenshot of the completed application is below:
 
 ![A browser window displaying the hello world page on Windows Azure][]
 
+<div chunk="../../Shared/Chunks/create-account-and-vms-note.md" />
 
 ## Creating and configuring a Windows Azure virtual machine to host Django
 
@@ -61,8 +65,8 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
 
     ![The result of the django-admin command][]
 
-    The **django-admin.py** script generates a basic structure for Django-based websites:
-    -   **manage.py** helps you to start hosting and stop hosting your Django-based website
+    The **django-admin.py** script generates a basic structure for Django-based web sites:
+    -   **manage.py** helps you to start hosting and stop hosting your Django-based web site
     -   **helloworld\settings.py** contains Django settings for your application.
     -   **helloworld\urls.py** contains the mapping code between each url and its view.
 
@@ -82,7 +86,7 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
 		)
 
 
-## Deploying and running your Django website
+## Deploying and running your Django web site
 
 1.  Edit the apache configuration file **/etc/apache2/httpd.conf** and add the following, replacing *username* with the user name that you specified during the creation of the VM:
 
@@ -114,7 +118,7 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [Overview of Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432976.aspx
 [http://www.windowsazure.com]: http://www.windowsazure.com
 [A browser window displaying http://www.windowsazure.com/ with the Free Trial link highlighted]: ../../../DevCenter/dotNet/Media/getting-started-12.png
-[A browser window displaying the liveID sign in page]: ../../../DevCenter/Node/Media/getting-started-13.png
+[A browser window displaying the liveID sign in page]: ../../../DevCenter/nodejs/Media/getting-started-13.png
 [add endpoint]: ../Media/mac-linux-django-helloworld-add-endpoint.png
 [port80]: ../Media/mac-linux-django-helloworld-port80.png
 [preview-portal]: https://manage.windowsazure.com

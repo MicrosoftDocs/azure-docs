@@ -6,6 +6,13 @@ and static content of compute instances at physical nodes in the United
 States, Europe, Asia, Australia and South America. For a current list of
 CDN node locations, see [Windows Azure CDN Node Locations].
 
+This task includes the following steps:
+
+* [Step 1: Create a storage account](#Step1)
+* [Step 2: Enable CDN on your storage account](#Step2)
+* [Step 3: Access your CDN content](#Step3)
+* [Step 4: Delete your CDN content](#Step4)
+
 The benefits of using CDN to cache Windows Azure data include:
 
 -   Better performance and user experience for end users who are far from a content source, and are using applications where many ‘internet trips’ are required to load content
@@ -14,7 +21,8 @@ The benefits of using CDN to cache Windows Azure data include:
 To use the Windows Azure CDN, you must have a Windows Azure subscription
 and enable the feature on the storage account or hosted service in the [Windows Azure Management Portal]. The CDN is an add-on feature to your subscription and has a separate [billing plan].
 
-## Step 1: Create storage account
+<a id="Step1"> </a>
+<h2>Step 1: Create a storage account</h2>
 
 Use the following procedure to create a new storage account for a
 Windows Azure subscription. A storage account gives access to Windows
@@ -36,22 +44,22 @@ Windows Azure Service Management API, see the <a href="http://msdn.microsoft.com
 **To create a storage account for a Windows Azure subscription**
 
 1.  Log into the [Windows Azure Management Portal].
-2.  In the lower left corner, click **+NEW**, and then click **Storage Account**.
+2.  In the lower left corner, click **New**, and then click **Storage**.
 3.  Click **Quick Create**.
 
-    The **Create a New Storage Account** dialog appears.
+    The **Create Storage Account** dialog appears.
 
-    ![Create a new Storage Account][create-new-storage-account]
+    ![Create Storage Account][create-new-storage-account]
 
 4. In the **URL** field, type a subdomain name. This entry can contain from 3-24 lowercase letters and numbers.
 
     This value becomes the host name within the URI that is used to
     address Blob, Queue, or Table resources for the subscription. To
     address a container resource in the Blob service, you would use a
-    URI in the following format, where *&lt;StorageAccountLabel>* refers
+    URI in the following format, where *&lt;StorageAccountLabel&gt;* refers
     to the value you typed in **Enter a URL**:
 
-    http://&lt;StorageAcountLabel>.blob.core.windows.net/&lt;mycontainer>
+    http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
 
     **Important:** The URL label forms the subdomain of the storage
     account URI and must be unique among all hosted services in Windows
@@ -64,12 +72,13 @@ Windows Azure Service Management API, see the <a href="http://msdn.microsoft.com
     the storage account. For more information, see [How to Register a
     Custom Subdomain Name for Accessing Blobs in Windows Azure].
 
-7.  Select a geographic location for the storage account from the **Region/Affinity Group** drop-down list. For instructions on creating an affinity group, see [How to Create an Affinity Group in Windows Azure].
+5.  From the **Region/Affinity Group** drop-down list, select a geographic location for the storage account. Alternatively, use an affinity group. For instructions on creating an affinity group, see [How to Create an Affinity Group in Windows Azure].
+6. From the **Subscription** drop-down list, select the subscription that the storage account will be used with.
+7.  Click **Create Storage Account**. The process of creating the storage account might take several minutes to complete.
+8.  To verify that the storage account was created successfully, verify that the account appears in the items listed for **Storage** with a status of **Online**.
 
-8.  Click **Create Storage Account**. The process of creating the storage account might take several minutes to complete.
-9.  To verify that the storage account was created successfully, verify that the account appears in the items list for **Storage Accounts** with a status of **Online**.
-
-## Step 2: Enable CDN on your storage account
+<a id="Step2"> </a>
+<h2>Step 2: Enable CDN on your storage account</h2>
 
 The CDN caches static content at strategically placed locations around
 the world to provide superior performance and availability. The benefits
@@ -91,16 +100,15 @@ when the cached content time-to-live period expires.
 	![preview portal dialog][Previous Management Portal]
 
 2. In the production management portal, in the navigation pane,
-    click **Hosted Services, Storage Accounts and CDN**.
+    click **Hosted Services, Storage Accounts & CDN**.
 3. In the upper portion of the navigation pane, click **CDN**, and then
     on the ribbon, click **New Endpoint**.
 
-   This will open the **Create a New CDN Endpoint** window.
+   This will open the **Create a New CDN Endpoint** dialog.
 
-    ![new cdn endpoint window][create-new-cdn-endpoint]
+    ![new cdn endpoint dialog][create-new-cdn-endpoint]
 
-4. In the **Create a New CDN Endpoint** window, select a subscription
-    from the **Choose a Subscription** drop-down list, select a
+4. In the **Create a New CDN Endpoint** dialog, using the **Choose a Subscription** drop-down list, select a
     subscription on which to enable CDN.
 5.  Select the source of the CDN content from the **Choose a hosted
     service or storage account** drop-down list. Please note that this
@@ -116,25 +124,30 @@ when the cached content time-to-live period expires.
     Windows Azure CDN].
 7.  If you are caching content from a hosted service and you are using
     query strings to specify the content to be retrieved, check **Query
-    Strings**. For more information about using Query strings to
+    String**. For more information about using Query strings to
     differentiate objects to cache, see [Overview of the Windows Azure
     CDN]. If you are using a blob storage account as origin you should
     not click this option.
-8.  Click **Create**.
+8.  Click **OK**.
 
-    **Warning:** The configuration created for the endpoint will not
+    <div class="dev-callout">
+    <strong>Note</strong>
+    <p>The configuration created for the endpoint will not
     immediately be available; it can take up to 60 minutes for the
     registration to propagate through the CDN network. Users who try to
     use the CDN domain name immediately will receive status code 400
-    (Bad Request) until the content is available via the CDN.
+    (Bad Request) until the content is available via the CDN.</p>
+    </div>
 
-## Step 3: Access your CDN content
+<a id="Step3"> </a>
+<h2>Step 3: Access your CDN content</h2> 
 
 To access the content on the CDN, go to:
 
 http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
 
-## Step 4: Delete your CDN content
+<a id="Step4"> </a>
+<h2>Step 4: Delete your CDN content</h2>
 
 If you no longer wish to cache an object in the Windows Azure Content
 Delivery Network (CDN), you can:

@@ -1,5 +1,7 @@
-#Python Developer Center - Tutorials
+<properties linkid="devnav-python-tutorials" urlDisplayName="Tutorials" pageTitle="Windows Azure Python tutorials" metaKeywords="Python tutorials Windows Azure, Python tutorials Azure, Azure Python tutorials, Azure Python" metaDescription="Find tutorials about using Python with Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+#Python Developer Center - Tutorials
 ###[Python Django hello world application](/en-us/develop/python/tutorials/django-hello-world-(maclinux)/)
 
 Implement a simple Hello World application written in the Django Python web framework and deploy the application to Windows Azure. You will learn the basics of working with the Windows Azure compute emulator and deploying a Python application to Windows Azure.
@@ -15,5 +17,5 @@ The [IPython project](http://ipython.org) provides a collection of tools for
 high-productivity and scientific computing, including an interactive web-based environment called the IPython Notebook. This tutorial shows how to deploy the IPython Notebook on Windows Azure using Linux or Windows virtual machines. 
 
 ###[Python App using storage](/en-us/develop/python/tutorials/web-app-with-blob-storage/)
-Implement a simple web application that allows retrieving and creating items in Windows Azure storage. You will learn the basics of using Windows Azure Storage services through the Windows Azure Client Libraries for Python.
+Implement a simple web application that allows retrieving and creating items in Windows Azure storage. You will learn the basics of using Windows Azure Table Storage service through the Windows Azure Client Libraries for Python.
 

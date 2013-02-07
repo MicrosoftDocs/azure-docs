@@ -1,5 +1,7 @@
-# Python Developer Center - Common tasks
+<properties linkid="devnav-python-commontasks" urlDisplayName="Common Tasks" pageTitle="Windows Azure Python common tasks" metaKeywords="Azure Python" metaDescription="Find topics about common tasks when using Python with Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+# Python Developer Center - Common tasks
 
 ### [Installing Python and the SDK][]
 Python is easy to setup on Windows and comes pre-installed on Mac and Linux.  This guide walks you through installation and getting your machine ready for use with Windows Azure.
@@ -17,7 +19,7 @@ Remote Desktop enables you to access the desktop of a role instance running in W
 Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
 
 ### [Using CDN for Windows Azure][]
-The Windows Azure Content Delivery Network (CDN) offers a global solution for delivering high-bandwidth content by caching blobs and static content at physical nodes around the world. This common task describes how to enable CDN and add, access, and delete content.
+The Content Delivery Network (CDN) offers a global solution for delivering high-bandwidth content by caching blobs and static content at physical nodes around the world. This common task describes how to enable CDN and add, access, and delete content.
 
 [Installing Python and the SDK]: ../commontasks/how-to-install-python.md
 [Managing Windows Azure SQL Database using SQL Server Management Studio]: ../commontasks/sql-azure-management.md

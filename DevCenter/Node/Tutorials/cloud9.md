@@ -1,4 +1,7 @@
-<properties umbraconavihide="0" pagetitle="Node.js Deploying with Cloud9" metakeywords="" metadescription="" linkid="dev-nodejs-cloud9" urldisplayname="Deploying with Cloud9" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-cloud9" urlDisplayName="Deploying with Cloud9" pageTitle="Node.js deploying with Cloud9 - Windows Azure tutorial" metaKeywords="Cloud9 IDE Azure, Azure node.js, Azure node apps" metaDescription="Learn how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # Deploying a Windows Azure App from Cloud9
 
@@ -25,7 +28,7 @@ are demonstrated using Google Chrome on a Mac.
 
 ## Signup
 
-To use Cloud9, you first need to visit their website and [register for a
+To use Cloud9, you first need to visit their web site and [register for a
 subscription][Cloud9 IDE]. You can sign in with either an existing
 GitHub or BitBucket account, or create a Cloud9 account. A free
 subscription offering is available, as well as a paid offering which
@@ -129,8 +132,9 @@ you do not have Node.js 0.6.x selected.</p>
 
 To deploy your application to Windows Azure, you need an account. If you
 do not already have a Windows Azure account, you can sign up for a free
-trial account by visiting [http://www.windowsazure.com][] and then
-selecting **Free Trial** in the upper right corner.
+trial by following these steps:
+
+<div chunk="../../Shared/Chunks/create-azure-account.md" />
 
 ## Create a Deployment
 

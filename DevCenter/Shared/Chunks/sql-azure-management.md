@@ -1,10 +1,17 @@
+<div chunk="../chunks/article-left-menu.md" />
+
 # Managing Windows Azure SQL Database using SQL Server Management Studio 
 
 You can use Windows Azure SQL Database Management Portal or the SQL Server Management Studio (SSMS) client application to administer your SQL Database subscriptions and create and manage associated logical servers and databases. The guidance below describes how to use Management Studio to manage SQL Database logical servers and databases. For information on how to
-use SQL Database connections in application code, see [How to Use SQL Database][].
+use SQL Database connections in application code, see [How to use Windows Azure SQL Database][].
 
-**Note:** You can use either SQL Server
-2012 or the SQL Server 2008 R2 version of Management Studio. Earlier versions are not supported.
+<div class="dev-callout-new-collapsed">
+<strong>Note <span>Click to collapse</span></strong>
+<div class="dev-callout-content">
+<p>You can use either SQL Server
+2012 or the SQL Server 2008 R2 version of Management Studio. Earlier versions are not supported.</p>
+</div>
+</div>
 
 This task includes the following steps:
 
@@ -14,7 +21,7 @@ This task includes the following steps:
 -   [Step 4: Create and manage logins][]
 -   [Step 5: Monitor SQL Database using Dynamic Management Views][]
 
-## <a id="Step1" name="Step1"> </a>Step 1: Get Management Studio
+<h2><a id="Step1" name="Step1"> </a><span class="short-header">Step 1: Get Management Studio</span></h2>
 
 Management Studio is an integrated environment for
 managing SQL databases. When managing 
@@ -24,14 +31,12 @@ how to install SSMSE.
 
 1.  On the [Microsoft SQL Server 2012 Express][] page, select the x86 version of Management Studio if you are running a 32-bit operating system, or x64 if you are running a 64-bit operating system. Click **Download**, and when prompted, run Setup.
 
-2.  Click **New SQL Server stand-alone installation or
-    add features to an existing installation**, and click **Next**.
+2.  Click **New SQL Server stand-alone installation or add features to an
+    existing installation** and click **OK**.
 
+3.  Accept the license terms and click **OK**.
 
-3.  **SQL Server 2012 Setup** shows the Installation Type page if there is no prior installation. If you get this page, click **New installation or add shared features to an
-    existing instance of SQL Server** and click **Next**.
-
-4.  Accept the license terms and click     **Next**.
+4. Click **Install** to install files required by SQL Server Setup.
 
 5.  On the **Feature Selection** screen, **Management Tools -
     Basic** is preselected. This is because you are running the installer for Management Studio. If you are running Setup for all of SQL Server Express, choose the **Management Tools - Basic** option, and click **Next**.
@@ -44,35 +49,32 @@ how to install SSMSE.
     page. Click **Close**. 
 
 
-## <a id="Step2" name="Step2"> </a>Step 2: Connect to SQL Database
+<h2><a id="Step2" name="Step2"> </a><span class="short-header">Step 2: Connect to SQL Database</span></h2>
 
 Connecting to SQL Database requires that you know the server name on Windows Azure. You might need to sign in to the portal to get this information.
 
--   
+1.  Sign in to the [Windows Azure Management Portal][].
 
-    1.  Sign in to the [Windows Azure Management Portal][].
+2.  In the left pane, click on **SQL Databases**.
 
-    2.  In the left pane, click on **SQL Databases**.
+3.  On the SQL Databases home page, click **SERVERS** at the top of the page to list all of the servers associated with your subscription. Find the name of the server to which you want to connect and copy it to the clipboard.
 
-    3.  On the SQL Databases home page, click **SERVERS** at the top of the page to list all of the servers associated with your subscription. Find the name of the server to which you want to connect and copy it to the clipboard.
+Next, configure your SQL Database firewall to
+allow connections from your local machine. You do this by adding your local machines IP address to the firewall exception list.
 
+1.  On SQL Databases home page, click **SERVERS** and then click the server to which you want to connect.
 
--   Next, configure your SQL Database firewall to
-    allow connections from your local machine. You do this by adding your local machines IP address to the firewall exception list.
+2.  Click **Configure** at the top of the page.
 
-    1.  On SQL Databases home page, click **SERVERS** and then click the server to which you want to connect.
+3.  Copy the IP address in CURRENT CLIENT IP ADDRESS.
 
-    2.  Click **Configure** at the top of the page.
+4.  In the Configure page, **Allowed IP Addresses** includes three boxes where you can specify a rule name and a range of IP addresses as starting and ending values. For a rule name, you might enter the name of your computer. For the start and end range, paste in the IP address of your computer into both boxes, and then click the checkbox that appears.
 
-    3.  Copy the IP address in CURRENT CLIENT IP ADDRESS.
-
-    4.  In the Configure page, **Allowed IP Addresses** includes three boxes where you can specify a rule name and a range of IP addresses as starting and ending values. For a rule name, you might enter the name of your computer. For the start and end range, paste in the IP address of your computer into both boxes, and then click the checkbox that appears.
-
-        The rule name must be unique. If this is your development
-        computer, you can enter the IP address in both the IP range
-        start box and the IP range end box. Otherwise, you might need to enter a broader range of IP addresses to accommodate connections from additional computers in your organization.
+ The rule name must be unique. If this is your development
+ computer, you can enter the IP address in both the IP range
+ start box and the IP range end box. Otherwise, you might need to enter a broader range of IP addresses to accommodate connections from additional computers in your organization.
  
-    4. Click **SAVE** at the bottom of the page.
+5. Click **SAVE** at the bottom of the page.
 
     **Note:** There can be up as much as a five-minute delay for changes
     to the firewall settings to take effect.
@@ -95,24 +97,11 @@ You are now ready to connect to SQL Database using Management Studio.
 5.  In the **Password** box, enter the password that you specified in
     the portal when creating your server.
 
-6.  Click the **Options** button to expand the connection options.
-
-7.  When connecting to SQL Database, you must establish a connection
-    directly to a target database. In the **Connect to Database**
-    dropdown, type **master**. When you create a server, the
-    provisioning process also creates a database named **master**. This
-    database is not billable, and it is used only to perform
-    server-level administration for your server and all databases
-    associated with it.
-
 8.  Click **Connect** to establish the connection.
 
 On Windows Azure, each SQL Database logical server is an abstraction that defines a grouping of databases. The physical location of each database might be on any computer in the data center. 
 
-You use the **master**
-database to perform server-level administration tasks that can encompass
-all databases associated with your server. In the following steps, you'll learn how  to perform several common management tasks through the
-**master** database. 
+In previous versions, you had to connect directly to **master** when setting up the connection in Management Studio. This step is no longer necessary. Connections will now succeed based on the server name, authentication type, and administrator credentials.
 
 Many of the SSMS wizards you can use for tasks like
 creating and modifying logins and databases on a SQL Server database are
@@ -122,7 +111,7 @@ provide examples of these statements. For more information about using
 Transact-SQL with SQL Database, including details about which commands are
 supported, see [Transact-SQL Reference (SQL Database)][].
 
-## <a id="Step3" name="Step3"> </a>Step 3: Create and Manage Databases
+<h2><a id="Step3" name="Step3"> </a><span class="short-header">Step 3: Create and Manage Databases</span></h2>
 
 While connected to the **master** database, you can create new
 databases on the server and modify or drop existing databases. The steps
@@ -171,12 +160,17 @@ Click **Execute** to run the query.
     between databases. Instead, you need to establish a connection
     directly to the target database.
 
-**Note:** Many of the Transact-SQL statements that create or modify a
+<div class="dev-callout-new">
+ <strong>Note <span>Click to collapse</span></strong>
+ <div class="dev-callout-content">
+   <p>Many of the Transact-SQL statements that create or modify a
 database must be run within their own batch and cannot be grouped with
 other Transact-SQL statements. For more information, see the statement
-specific information available from the links listed above.
+specific information available from the links listed above.</p>
+</div>
+</div>
 
-## <a id="Step4" name="Step4"> </a>Step 4: Create and Manage Logins
+<h2><a id="Step4" name="Step4"> </a><span class="short-header">Step 4: Create and Manage Logins</span></h2>
 
 The master database keeps track of logins and which logins have
 permission to create databases or other logins. Manage logins by
@@ -206,9 +200,11 @@ across the entire server. For more information, see [Managing Databases and Logi
 
     1.  Refresh Object Explorer to view the **myTestDB** database that you just created. It should appear below the **System Databases** folder that contains **master**.  
 
-     If you closed the connection, you can reconnect by selecting **Connect Object Explorer** on the File menu. Repeat the instructions in [Step 2: Connect to SQL Database][] to connect to the database, replacing **master** with **myTestDB** when you specify the database to which you want to connect.
+     If you closed the connection, you can reconnect by selecting **Connect Object Explorer** on the File menu. Repeat the instructions in [Step 2: Connect to SQL Database][] to connect to the database.
 
-    2.  Execute the following statement against the myTestDB database to
+    2. Right-click **myTestDB** database and select **New Query**.
+
+    3.  Execute the following statement against the myTestDB database to
         create a database user named **login1User** that corresponds to
         the server-level login **login1**.
 
@@ -225,8 +221,9 @@ across the entire server. For more information, see [Managing Databases and Logi
 -   Use the **ALTER LOGIN** statement to modify an existing login, for
     example if you want to change the password for the login. For
     more information, see [ALTER LOGIN (SQL Database)][]. The **ALTER LOGIN** statement should be run against
-    the **master** database. The
-    statement below modifies the **login1** login to reset the password.
+    the **master** database. Switch back to the query window that is connected to that database. 
+
+    The statement below modifies the **login1** login to reset the password.
     Replace **newPassword** with the password of your choice, and
     **oldPassword** with the current password for the login.
 
@@ -249,7 +246,7 @@ across the entire server. For more information, see [Managing Databases and Logi
 
         SELECT * FROM sys.sql_logins;
 
-## <a id="Step5" name="Step5"> </a>Step 5: Monitor SQL Database using Dynamic Management Views
+<h2><a id="Step5" name="Step5"> </a><span class="short-header">Step 5: Monitor SQL Database using Dynamic Management Views</span></h2>
 
 SQL Database supports several dynamic management views that you
 can use to monitor an individual database. Below are a few examples of
@@ -309,7 +306,7 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
         GROUP BY query_stats.query_hash
         ORDER BY 2 DESC;
 
-## Additional Resources
+<h2>Additional Resources</h2>
 
 * [Introducing SQL Database][]   
 * [Managing Databases and Logins in SQL Database][]   
@@ -318,7 +315,7 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
 * [Adding Users to your SQL Database][]   
 * [Transact-SQL Reference (SQL Database)][]
 
-  [How to Use SQL Database]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
+  [How to use Windows Azure SQL Database]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
   [Step 1: Get SQL Server Management Studio]: #Step1
   [Step 2: Connect to SQL Database]: #Step2
   [Step 3: Create and manage databases]: #Step3
@@ -329,7 +326,7 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
   [SSMS Installer - Select installation type]: /media/installer_installation_type.png
   [SSMS Installer - Select features]: /media/installer_feature_selection.png
   [SSMS Installer - Installation complete]: /media/installer_completed.png
-  [Windows Azure Management Portal]: http://windows.azure.com/
+  [Windows Azure Management Portal]: http://manage.windowsazure.com/
   [Get SQL Database server name from Management Portal]: /media/portal_get_database_name.png
   [Connect to SSMS]: /media/ssms_connect.png
   [Connect to SSMS -- properties]: /media/ssms_connect_properties.png

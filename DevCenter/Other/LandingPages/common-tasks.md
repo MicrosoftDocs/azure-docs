@@ -1,5 +1,7 @@
-#Developer Center - Common tasks
+<properties linkid="devnav-other-commontasks" urlDisplayName="Common Tasks" pageTitle="Windows Azure other common tasks" metaKeywords="Azure basic tasks" metaDescription="Find topics about common tasks when using Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+#Developer Center - Common tasks
 ### [Managing Windows Azure SQL Database using SQL Server Management Studio][]
 You can use SQL Server Management Studio to manage SQL Database logical servers and databases. This article includes details about creating and managing databases, creating and managing logins, and monitoring using Dynamic Management Views.
 

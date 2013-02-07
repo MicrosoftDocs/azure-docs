@@ -1,4 +1,6 @@
-<properties linkid="dev-python-django-getting-started" urldisplayname="Python Django Web Application" headerexpose="" pagetitle="Python/Django Getting Started Guide" metakeywords="Azure Python Django getting started, Azure Python Django tutorial, Azure Python Django tutorial" footerexpose="" metadescription="An end-to-end tutorial that helps you develop a simple Python Django web application and deploy it to Windows Azure." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-python-django-with-visual-studio" urlDisplayName="Django with Visual Studio" pageTitle="Django with Visual Studio (Python) - Windows Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" metaDescription="A tutorial that teaches you how to build a Django web application hosted in a Windows Azure virtual machine." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # Python Django Web Application using Visual Studio
 
@@ -25,13 +27,15 @@ A screenshot of the completed application is below:
 
 ![](../Media/ptvs-dj-FirstAppInCloud.png)
 
+<div chunk="../../Shared/Chunks/create-account-note.md" />
 
 ## <a id="setup"> </a>Setting Up the Development Environment
 
 Before you can begin developing your Windows Azure application, you need to get the tools and set up your development environment. For details about getting and installing the Windows Azure SDK for Python, see [How to Install Python][].
 
-NOTE
-This tutorial requires Python 2.7 and Django 1.4. These versions are included in the current Windows Azure SDK for Python.
+**Note:** This tutorial requires Python 2.7 and Django 1.4. These versions are included in the current Windows Azure SDK for Python.
+
+**Note:** Deployment to the compute emulator and/or Windows Azure requires the full version of Visual Studio (the integrated shell isn't supported).
 
 ## Creating a New Django Application
 
@@ -48,7 +52,7 @@ To create a new Django application first launch Visual Studio and then create a 
 
 ![Visual Studio opened to your first Django project](../Media/ptvs-dj-FirstProject.png)
 
-Next you'll want to start developing the first Django app.  You can right click on the project node and select **Add New Django app**... to setup a new app within your project:
+Next you'll want to start developing the first Django app.  You can right click on the module node and select **Add New Django app**... to setup a new app within your project:
 
 ![Add New App menu item](../Media/ptvs-dj-AddNewApp.png)
 
@@ -115,7 +119,11 @@ You can now **click the stop button** and move onto running in the Windows Azure
 
 ## Running Your Application Locally in the Emulator	
 
-To run inside of the compute emulator you simply need to add a Windows Azure deployment project to your solution for the Django project.  This can be done by right clicking on the Django project node in Solution Explorer and selecting **"Add Windows Azure Cloud Service Project"**:
+To run inside of the compute emulator you simply need to add a Windows Azure deployment project to your solution for the Django project.  
+
+**Note:** Deployment to the compute emulator and/or Windows Azure requires the full version of Visual Studio (the integrated shell isn't supported).
+
+This can be done by right clicking on the Django project node in Solution Explorer and selecting **"Add Windows Azure Cloud Service Project"**:
 
 ![Add Deployment Project](../Media/ptvs-dj-AddDeploymentProject.png)
 
@@ -133,20 +141,23 @@ When running in the compute emulator you can rapidly iterate on your application
 
 ## Deploying the Application to Windows Azure
 
-Now you're ready to deploy the project to Windows Azure. To do this all you need to do is right click the Windows Azure deployment project in Solution Explorer and **selecting Publish**:
+Now you're ready to deploy the project to Windows Azure. To do this all you need to do is right click the Windows Azure deployment project in Solution Explorer and **select Publish**:
 
 ![Package App Menu](../Media/ptvs-dj-publish1.png)
 
 After selecting Publish you will be prompted to sign in to Windows Azure.  You can either import your existing credentials here or setup new credentials:
 
-![Package Settings](../Media/ptvs-dj-publish2.png)
+![Package Subscription](../Media/ptvs-dj-publish2.png)
 
 After selecting the credentials you'll see the Windows Azure Publish Settings screen.  You can select the various options on how your deployment will proceed, or you can just **press Publish**:
 
 ![Package Settings](../Media/ptvs-dj-publish3.png)
 
-You'll now need to wait for the application be setup and deployed. Once it's all setup
-you can click on the link below DNS Name to view your web site running in the cloud:
+You'll now need to wait for the application be setup and deployed.
+
+![Package Deployment](../Media/ptvs-dj-publish4.png)
+
+Once it's all setup you can click on the link below DNS Name to view your web site running in the cloud:
 
 
 ![Your Django app in the cloud](../Media/ptvs-dj-FirstAppInCloud.png)

@@ -1,22 +1,24 @@
-<properties umbracoNaviHide="0" pageTitle="Tutorial 2: Creating a Virtual Network for Cross-Premises Connectivity" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Learn how to configure Windows Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-cross-premises-connectivity" urlDisplayName="Cross-premises Connectivity" pageTitle="Create a cross-premises virtual network - Windows Azure" metaKeywords="" metaDescription="Learn how to create a Windows Azure Virtual Network with cross-premises connectivity." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 <h1 id="vnettut1">Create a Virtual Network for Cross-Premises Connectivity</h1>
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-This tutorial walks you through the steps to create a Windows Azure virtual network that connects to your company's network using the Management Portal. After completing this tutorial, you will have a virtual network that communicates with your company's network to which you can deploy your Windows Azure services.
+This tutorial walks you through the steps to create a [Windows Azure virtual network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx) that connects to your company's network using the Management Portal. After completing this tutorial, you will have a virtual network where you can deploy your Windows Azure services and communicate with your company's network.
 
 This tutorial assumes you have no prior experience using Windows Azure.
 
 <!-- ADD INFO ABOUT POSSIBLY NEEDING A NETWORK ENGR TO DO THE VPN CONFIG -->
 
-For information about adding a virtual machine to your tutorial or connecting to Active Directory, see the following:
+For information about adding a virtual machine and extending your on-premises Active Directory to Windows Azure Virtual Network, see the following:
 
 -  [Add a Virtual Machine to a Virtual Network](/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
 -  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](/en-us/manage/services/networking/replica-domain-controller/)
--  [Install a New Active Directory Forest in Windows Azure](/en-us/manage/services/networking/active-directory-forest/)
 
+For guidelines about deploying AD DS on Windows Azure Virtual Machines, see [Guidelines for Deploying Windows Server Active Directory on Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
 
 ##  Objectives
 
@@ -100,7 +102,8 @@ In this tutorial you will learn:
 	**NOTE:** You get the VPN Device IP Address from your network administrator.
 
 -  **NAME:** Type *YourCorpHQ*.
--  **VPN DEVICE IP ADDRESS:** Enter the public IP address of your VPN device. The device should not be behind a NAT.
+-  **VPN DEVICE IP ADDRESS:** Enter the public IP address of your VPN device. The device should not be behind a NAT. For more information about VPN devices, see [About VPN Devices for Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156075.aspx).
+
 -  **ADDRESS SPACE:** Type *10.1.0.0/16*.
 
 	![CreateLocal] []
@@ -214,16 +217,24 @@ This procedure assumes the following:
 
 
 ##  Next Steps
-If you'd like, you can continue with the following tutorials:
+In order to extend your on-premises Active Directory to the virtual network you just created, continue with the following tutorials:
 
 -  [Add a Virtual Machine to a Virtual Network](/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
 -  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](/en-us/manage/services/networking/replica-domain-controller/)
--  [Install a New Active Directory Forest in Windows Azure](/en-us/manage/services/networking/active-directory-forest/)
+
+## See Also
+
+-  [Windows Azure virtual network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
+
+-  [Configuring a Virtual Network Using Network Configuration Files](http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx)
+
+-  [About VPN Devices for Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156075.aspx)
+
+-  [Windows Azure Name Resolution Overview](http://go.microsoft.com/fwlink/?LinkId=248097)
 
 
-
-[wa_com]: http://windows.azure.com/
+[wa_com]: http://manage.windowsazure.com/
 [Tut2_VN]: ..Tutorial2_CreateVNetCrossPrem 
 [Tut3_VN]: ..Tutorial3_AddVMachineToVNet
 [CreateVN]: #CreateVN

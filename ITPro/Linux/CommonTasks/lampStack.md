@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Install the LAMP Stack on Linux virtual machines in Windows Azure" metaKeywords="" metaDescription="" linkid="manage-linux-common-tasks-LAMP-stack" urlDisplayName="LAMP Stack" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-linux-common-tasks-lampstack" urlDisplayName="Install LAMP stack" pageTitle="Install the LAMP stack on a Linux virtual machine" metaKeywords="" metaDescription="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Windows Azure. You can install on Ubuntu or CentOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 #Install the LAMP Stack on a Linux virtual machine in Windows Azure
 

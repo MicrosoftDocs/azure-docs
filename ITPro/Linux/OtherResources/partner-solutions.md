@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Partner solutions for Linux in Windows Azure" metaKeywords="Windows Azure virtual machine, Azure virtual machine, linux, partners" metaDescription="" linkid="manage-linux-other-resources-virtual-machines" urlDisplayName="Partner solutions" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-linux-other-resources-partners" urlDisplayName="Partner solutions" pageTitle="Linux partners for Windows Azure" metaKeywords="" metaDescription="Learn about the endorsed Linux images available for Windows Azure virtual machines, including Ubuntu, OpenLogic, and SUSE." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 #Partner solutions for Linux in Windows Azure
 
@@ -11,7 +13,7 @@ Contact the partners listed on this page for assistance in delivering your Linux
 
 [http://bitnami.org/azure/get-started](http://bitnami.org/azure/get-started)
 
-BitNami provides fully configured images of popular web applications that can be deployed to Windows Azure in one click. The BitNami WebPack and DevPack images for Windows Azure provide fully configured and ready-to-run environments for web and application developers, free of charge. BitNami WebPack bundles Wordpress, Drupal and Joomla! to give developers a choice of the best platforms for developing websites and blogs. BitNami DevPack provides a development environment complete with Ruby on Rails, PHP, Django and Java language runtimes and all of their dependencies, everything developers need to build web applications in the cloud.
+BitNami provides fully configured images of popular web applications that can be deployed to Windows Azure in one click. The BitNami WebPack and DevPack images for Windows Azure provide fully configured and ready-to-run environments for web and application developers, free of charge. BitNami WebPack bundles Wordpress, Drupal and Joomla! to give developers a choice of the best platforms for developing web sites and blogs. BitNami DevPack provides a development environment complete with Ruby on Rails, PHP, Django and Java language runtimes and all of their dependencies, everything developers need to build web applications in the cloud.
 
 
 ##Opscode Chef

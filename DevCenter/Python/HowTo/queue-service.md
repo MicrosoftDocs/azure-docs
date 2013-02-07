@@ -1,5 +1,8 @@
-# How to Use the Queue Storage Service from Python
+<properties linkid="develop-python-queue-service" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Python) - Windows Azure" metaKeywords="Windows Azure Queue Service messaging Python" metaDescription="Learn how to use the Windows Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+<div chunk="../chunks/article-left-menu.md" />
+
+# How to Use the Queue Storage Service from Python
 This guide shows you how to perform common scenarios using the Windows
 Azure Queue storage service. The samples are written using the Python
 API. The scenarios covered include **inserting**, **peeking**,
@@ -31,7 +34,7 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 
 ## <a name="create-queue"> </a>How To: Create a Queue
 
-The **QueueService** object lets you work with queue storage services. The following code creates a **QueueService** object. Add the following near the top of any Python file in which you wish to programmatically access Windows Azure Storage:
+The **QueueService** object lets you work with queues. The following code creates a **QueueService** object. Add the following near the top of any Python file in which you wish to programmatically access Windows Azure Storage:
 
 	from azure.storage import *
 

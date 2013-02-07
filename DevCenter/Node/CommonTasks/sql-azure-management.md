@@ -1,2 +1,5 @@
-<properties linkid="dev-nodejs-common-tasks-sql-azure-management" urlDisplayName="SQL Database Management" headerExpose="" pageTitle="SQL Database Management with SSMS - Node.js - Develop" metaKeywords="" footerExpose="" metaDescription="Learn how to use SQL Server Management Studio to manage SQL Database servers and instances." umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="dev-nodejs-common-tasks-sql-azure-management" urlDisplayName="SQL Azure Management" pageTitle="Manage a SQL Database with SSMS (Node.js) - Windows Azure" metaKeywords="SQL Database management, SQL Azure SQL Server Management Studio, Azure database creation, Azure database Management" metaDescription="Learn how to use SQL Server Management Studio to manage SQL Database servers and databases." metaCanonical="http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/" disqusComments="1" umbracoNaviHide="1" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
 <div chunk="../../Shared/Chunks/sql-azure-management.md" />

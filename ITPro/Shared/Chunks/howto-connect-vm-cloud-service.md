@@ -4,6 +4,8 @@ To use this feature and other new Windows Azure capabilities, sign up for the [f
 
 When you create a virtual machine, a cloud service is automatically created to contain the machine. You can create multiple virtual machines under the same cloud service to enable the machines to communicate with each other, to load-balance between virtual machines, and to maintain high availability of the machines. 
 
+For more information about load-balancing virtual machine, see [Load balancing virtual machines] []. For more information about managing the availability of your application, see [Manage the availability of virtual machines] []. 
+
 You must first create a virtual machine with a new cloud service, and then you can connect additional machines with the first machine under the same cloud service. 
 
 1. Create a virtual machine using the steps in [How to create a custom virtual machine] [].
@@ -56,7 +58,9 @@ You must first create a virtual machine with a new cloud service, and then you c
 
 15. Click the check mark to create the connected virtual machine.
 
-[How to create a custom virtual machine]:../../Linux/HowTo/howto-custom-create-vm.md
+[How to create a custom virtual machine]:../../Windows/HowTo/howto-custom-create-vm.md
+[Load balancing virtual machines]:../../Windows/CommonTasks/LoadBalancingVirtualMachines.md
+[Manage the availability of virtual machines]:../../Windows/CommonTasks/manage-vm-availability.md
 [Create a new virtual machine]:../media/create.png
 [Create a custom virtual machine]:../media/createnew.png
 [Select the image]:../media/imageselectionwindows.png

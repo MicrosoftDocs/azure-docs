@@ -1,2 +1,5 @@
-<properties linkid="dev-python-best-practices-troubleshooting" urlDisplayName="Troubleshooting" headerExpose="" pageTitle="Troubleshooting Best Practices - Python - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="develop-python-troubleshooting" urlDisplayName="Troubleshooting" pageTitle="Troubleshooting best practices (Python) - Windows Azure" metaKeywords="Azure troubleshooting best practices, how to troubleshoot Azure" metaDescription="An introduction to troubleshooting in Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/net/best-practices/troubleshooting/" disqusComments="1" umbracoNaviHide="0" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
 <div chunk="../../../Shared/Chunks/tshootguide.md" />

@@ -1,40 +1,31 @@
-<properties linkid="dev-nodejs-website" urldisplayname="Node.js Website" headerexpose="" pagetitle="Node.js Application using a Windows Azure Website" metakeywords="Azure Node.js tutorial, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates deploying a Node.js application to a Windows Azure Website" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-node-create-a-website-mac" urlDisplayName="Web site" pageTitle="Create a Node.js web site on Mac - Windows Azure tutorials" metaKeywords="Azure create web site Node, Azure deploy web site Node, web site Node.js, Node web site" metaDescription="Learn how to build and deploy a Node.js web site in Windows Azure. Sample code is written in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-#Create and deploy a Node.js application to a Windows Azure Web Site
 
-This tutorial shows you how to create a [node] application and deploy it to a Windows Azure Web Site using [Git]. The instructions in this tutorial can be followed on any operating system that is capable of running node.
+<div chunk="../chunks/article-left-menu.md" />
 
-You will learn:
+# Build and deploy a Node.js web site to Windows Azure
 
-* How to create a Windows Azure Web Site using the Windows Azure Developer Portal
-* How to publish and re-publish your application to Windows Azure using Git
+This tutorial shows you how to create a [Node] application and deploy it to a Windows Azure Web Site using [Git]. The instructions in this tutorial can be followed on any operating system that is capable of running Node.
 
-By following this tutorial, you will build a simple Hello World web application in Node.js. The application will be hosted in a Windows Azure Web Site when deployed.
+If you prefer to watch a video, the clip in the right follows the same steps as this tutorial.
  
 A screenshot of the completed application is below:
 
 ![A browser displaying the 'Hello World' message.][helloworld-completed]
 
-
-##Set up the Windows Azure environment
-
-First, set up the Windows Azure environment. You'll create a Windows Azure account and enable this account to use the Windows Azure Web Sites preview feature.
-
-### Create a Windows Azure account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-###Enable Windows Azure Web Sites
-
-After signing up, follow these steps to enable the Windows Azure Web Site feature.
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md"></div>
-
 ##Create a Windows Azure Web Site and enable Git publishing
 
 Follow these steps to create a Windows Azure Web Site, and then enable Git publishing for the web site.
 
-1. Login to the [Windows Azure Portal].
+<div class="dev-callout"><strong>Note</strong>
+<p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Web Sites feature enabled.</p>
+<ul>
+<li>If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Windows Azure Free Trial</a>.</li>
+<li>If you have an existing account but need to enable the Windows Azure Web Sites preview, see <a href="../create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li>
+</ul>
+</div>
+
+1. Login to the [Windows Azure Management Portal].
 
 2. Click the **+ NEW** icon on the bottom left of the portal
 
@@ -46,7 +37,7 @@ Follow these steps to create a Windows Azure Web Site, and then enable Git publi
 
 4. Once the web site status changes to **Running**, click on the name of the web site to access the **Dashboard**
 
-	![Open website dashboard][go-to-dashboard]
+	![Open web site dashboard][go-to-dashboard]
 
 6. At the bottom right of the Dashboard, select **Set up Git Publishing**.
 
@@ -58,41 +49,17 @@ Follow these steps to create a Windows Azure Web Site, and then enable Git publi
 
 8. Once the Git repository is ready, you will be presented with instructions on the Git commands to use in order to setup a local repository and then push the files to Windows Azure.
 
-	![Git deployment instructions returned after creating a repository for the website.][portal-git-instructions]
-
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>Save the instructions returned by the <strong>Push my local files to Windows Azure</strong> link, as they will be used in the following sections.</p>
-	</div>
-
-##Install developer tools
-
-To successfully complete the steps in this tutorial, you must have a working installation of Node.js and Git. Installation package for Node.js is available from the [nodejs.org download page] while installation package for Git is available from the [git-scm.com download page].
-
-<div class="dev-callout">
-<strong>Note</strong>
-<p>If you are performing this tutorial on Windows, you can set up your machine with <a href="http://go.microsoft.com/fwlink/?LinkId=254279">Windows Azure SDK for Node.js</a> that includes Node.js.</p>
-</div>
+	![Git deployment instructions returned after creating a repository for the web site.][git-instructions]
 
 ##Build and test your application locally
 
-In this section, you will create a **server.js** file containing the 'hello world' example from [nodejs.org]. This example has been modified from the original example by adding process.env.port as the port to listen on when running in a Windows Azure Web Site.
-
-<div class="dev-callout">
-<strong>Note</strong>
-<p>This tutorial makes reference to the <strong>helloworld</strong> folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as <strong>~/node/helloworld</strong> or <strong>c:\node\helloworld</strong></p>
-</div>
-
-<div class="dev-callout">
-<strong>Note</strong>
-<p>Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as <strong>Windows PowerShell</strong>, <strong>cmd.exe</strong>, <strong>GitBash</strong> (Windows,) or <strong>Bash</strong> (Unix Shell). On OS X systems you can access the command-line through the Terminal application.</p>
-</div>
+In this section, you will create a **server.js** file containing the 'hello world' example from [nodejs.org]. This example has been modified from the original example by adding process.env.PORT as the port to listen on when running in a Windows Azure Web Site.
 
 1. Using a text editor, create a new file named **server.js** in the **helloworld** directory. If the **helloworld** directory does not exist, create it.
 2. Add the following as the contents of the **server.js** file, and then save it:
 
         var http = require('http')
-        var port = process.env.port || 1337;
+        var port = process.env.PORT || 1337;
         http.createServer(function(req, res) {
           res.writeHead(200, { 'Content-Type': 'text/plain' });
           res.end('Hello World\n');
@@ -101,19 +68,21 @@ In this section, you will create a **server.js** file containing the 'hello worl
 3. Open the command-line, and use the following command to start the web page locally:
 
         node server.js
+    <div chunk="../Chunks/install-dev-tools.md" />
 
 4. Open your web browser and navigate to http://localhost:1337. A web page displaying "Hello World" will appear as shown in the screenshot below:
 
     ![A browser displaying the 'Hello World' message.][helloworld-localhost]
-
-5. To stop the application, switch to the Terminal window and hold down the **CTRL** and **C** keys on your keyboard.
-
 
 ##Publish your application
 
 1. From the command-line, change directories to the **helloworld** directory and enter the following commands to initialize a local Git repository. 
 
 		git init
+
+	<div class="dev-callout"><strong>Git command unavailable?</strong>
+	<p><a href="http://git-scm.com/" target="_blank">Git</a> is a distributed version control system that you can use to deploy your Windows Azure Web Site. For installation instructions for your platform, see <a href="http://git-scm.com/download" target="_blank">the Git download page</a>.</p>
+	</div>
 
 2. Use the following commands to add files to the repository:
 
@@ -124,13 +93,8 @@ In this section, you will create a **server.js** file containing the 'hello worl
 
 		git remote add azure [URL for remote repository]
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>the URL used should be the one returned at the end of the <strong>Create a Windows Azure Web Site and Set up Git Publishing</strong> section. If you forgot to save the URL earlier you can retrieve it now by clicking the “Deployment” tab of your Windows Azure Web Site within the management portal</p>
-	</div>
-
-    ![Git deployment instructions returned after creating a repository for the website.][portal-git-remote-url]
-
+    ![Git deployment instructions returned after creating a repository for the web site.][git-instructions]
+ 
 4. Push your changes to Windows Azure using the following command:
 
 		git push azure master
@@ -143,7 +107,7 @@ In this section, you will create a **server.js** file containing the 'hello worl
 
 	![Git deployment status on the portal][git-deployments-first] 
 
-5. Browse to **http://[your web site url]/** to begin using the application. You can find your web site url on the "Dashboard" tab of your Windows Azure Web Site within the management portal.
+5. Browse to your site using the **Browse** button on your Windows Azure Web Site page within the management portal.
 
 ##Publish changes to your application
 
@@ -158,21 +122,11 @@ In this section, you will create a **server.js** file containing the 'hello worl
 	
 	![Git deployment status updated on the portal][git-deployments-second]
 
-3. Browse to **http://[your web site url]/** and note that the updates have been applied.
+3. Browse to your site by using the **Browse** button and note that the updates have been applied.
 
 	![A web page displaying 'Hello Azure'][helloworld-completed]
 
-##Revert to a previous deployment
-
-Since Windows Azure maintains a git repository for your web site, you can use the **Deployments** page to revert to a previous deployment.
-
-1. In the [Windows Azure Portal], select your web site and then select **Deployments**.
-
-2. Select a previous deployment, and then click **Redeploy** at the bottom of the page. When prompted, select **Yes**.
-
-	![redeploy button][redeploy-button]
-
-3. Once the deployment status changes to **Active Deployment**, view the web site in your browser and note that it has reverted to the selected deployment.
+4. You can revert to the previous deployment by selecting it in the "Deployments" tab of your Windows Azure Web Site within the management portal and using the **Redeploy** button.
 
 ##Next steps
 
@@ -183,32 +137,23 @@ While the steps in this article use the Windows Azure Portal to create a web sit
 * [Windows Azure PowerShell]
 * [Windows Azure Command-Line Tools for Mac and Linux]
 
-[Windows Azure PowerShell]: http://windowsazure.com
-[node]: http://nodejs.org/
+[Windows Azure PowerShell]: /en-us/develop/nodejs/how-to-guides/powershell-cmdlets/
+[Node]: http://nodejs.org/
 [nodejs.org]: http://nodejs.org/
 [Git]: http://git-scm.com/
-[Windows Azure]: http://windowsazure.com
-[Windows Azure Portal]: http://manage.windowsazure.com
-[for free]: /en-us/pricing/free-trial
-[git-scm.com download page]: http://git-scm.com/download
-[nodejs.org download page]: http://nodejs.org/#download
-[package management system]: http://en.wikipedia.org/wiki/List_of_software_package_management_systems
+[Windows Azure Management Portal]: http://manage.windowsazure.com
 [Windows Azure Command-Line Tools for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
-[Publishing with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
 
 [helloworld-completed]: ../Media/helloazure.png
 [helloworld-localhost]: ../Media/helloworldlocal.png
 [portal-new-website]: ../../Shared/Media/plus-new.png
 [portal-quick-create]: ../../Shared/Media/create-quick-website.png
 [portal-website-list]: ../Media/list-of-websites.png
-[portal-website-dashboard-setup-git]: ../../Shared/Media/setup-git-publishing.png
 [portal-git-username-password]: ../../Shared/Media/git-deployment-credentials.png
-[portal-git-instructions]: ../Media/git_instructions.jpg
-[portal-git-remote-url]: ../Media/git_remote_url.jpg
+[git-instructions]: ../../Shared/Media/git_instructions.png
 [git-push-azure]: ../Media/git_push_azure.png
-[git-deployments-first]: ../Media/git_deployments_first.jpg
-[git-deployments-second]: ../Media/git_deployments_second.jpg
+[git-deployments-first]: ../Media/git_deployments_first.png
+[git-deployments-second]: ../Media/git_deployments_second.png
 [portal-website-stop-delete]: ../../Shared/Media/stop-delete-icons.png
-[setup-git-publishing]: ../Media/setup_git_publishing.jpg
-[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.jpg
-[redeploy-button]: ../media/node-earlier-deployment.png
+[setup-git-publishing]: ../../Shared/Media/setup_git_publishing.png
+[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.png

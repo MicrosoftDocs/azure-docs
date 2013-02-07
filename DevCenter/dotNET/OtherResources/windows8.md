@@ -1,4 +1,6 @@
-<properties umbraconavihide="1" pagetitle="Windows Azure on Windows 8" metakeywords="Installing the Windows Azure SDK on Windows 8" metadescription="Describes how to install the Windows Azure SDK on Windows 8." linkid="dev-net-windows8" urldisplayname="Windows Azure Install Windows 8" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties linkid="dev-net-windows8" urlDisplayName="Windows Azure Install Windows 8" pageTitle="Windows Azure on Windows 8" metaKeywords="Installing the Windows Azure SDK on Windows 8" metaDescription="Describes how to install the Windows Azure SDK on Windows 8." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
 
 # Installing the Windows Azure SDK on Windows 8
 

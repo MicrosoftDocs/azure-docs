@@ -1,4 +1,7 @@
-<properties linkid="dev-nodejs-how-to-service-bus-queues" urldisplayname="Service Bus Queues" headerexpose="" pagetitle="Service Bus Queues - How To - Node.js - Develop" metakeywords="Azure messaging, Azure brokered messaging, Azure messaging queue, Service Bus queue, Azure Service Bus queue, Azure messaging Node.js, Azure messaging queue Node.js, Azure Service Bus queue Node.js, Service Bus queue Node.js" footerexpose="" metadescription="Learn about Windows Azure Service Bus queues, including how to create queues, how to send and receive messages, and how to delete queues." umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Node.js) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Node.js" metaDescription="Learn how to use Service Bus queues in Windows Azure. Code samples written in Node.js." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to Use Service Bus Queues
 
@@ -10,7 +13,7 @@ Steps] section.
 
 ## Table of Contents
 
--   [What are Service Bus Queues][]
+-   [What are Service Bus Queues?][]
 -   [Create a Service Namespace][]
 -   [Obtain the Default Management Credentials for the Namespace][]
 -   [Create a Node.js Application][]
@@ -21,100 +24,7 @@ Steps] section.
 -   [How to: Handle Application Crashes and Unreadable Messages][]
 -   [Next Steps][]
 
-## <a name="what-queues"> </a>What are Service Bus Queues
-
-Service Bus Queues support a **brokered messaging communication** model.
-When using queues, components of a distributed application do not
-communicate directly with each other, they instead exchange messages via
-a queue, which acts as an intermediary. A message producer (sender)
-hands off a message to the queue and then continues its processing.
-Asynchronously, a message consumer (receiver) pulls the message from the
-queue and processes it. The producer does not have to wait for a reply
-from the consumer in order to continue to process and send further
-messages. Queues offer **First In, First Out (FIFO)** message delivery
-to one or more competing consumers. That is, messages are typically
-received and processed by the receivers in the order in which they were
-added to the queue, and each message is received and processed by only
-one message consumer.
-
-![Queue Concepts][]
-
-Service Bus queues are a general-purpose technology that can be used for
-a wide variety of scenarios:
-
--   Communication between web and worker roles in a multi-tier Windows
-    Azure application
--   Communication between on-premises apps and Windows Azure hosted apps
-    in a hybrid solution
--   Communication between components of a distributed application
-    running on-premises in different organizations or departments of an
-    organization
-
-Using queues can enable you to scale out your applications better, and
-enable more resiliency to your architecture.
-
-## <a name="create-namespace"> </a>Create a Service Namespace
-
-To begin using Service Bus queues in Windows Azure, you must first
-create a service namespace. A service namespace provides a scoping
-container for addressing Service Bus resources within your application.
-
-To create a service namespace:
-
-1.  Log on to the [Windows Azure Management Portal][]. In order to perform the following steps you must use the Production portal. If you are currently using the Preview portal, you can switch to Production by clicking **Preview** at the top of the page, and then selecting **Take me to the previous portal**. This will load the production management portal.
-
-	![preview portal dialog][Previous Management Portal]
-
-2.  In the lower left navigation pane of the Management Portal, click
-    **Service Bus, Access Control & Caching**.
-
-3.  In the upper left pane of the Management Portal, click the **Service
-    Bus** node, and then click the **New** button.
-
-    ![image][]
-
-4.  In the **Create a new Service Namespace** dialog, enter a
-    **Namespace**, and then to make sure that it is unique, click the
-    **Check Availability** button.
-
-    ![image][1]
-
-5.  After making sure the namespace name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same country/region in which you are deploying your
-    compute resources), and then click the **Create Namespace** button.
-
-The namespace you created will then appear in the Management Portal and
-takes a moment to activate. Wait until the status is **Active** before
-moving on.
-
-## <a name="obtain-creds"> </a>Obtain the Default Management Credentials for the Namespace
-
-In order to perform management operations, such as creating a queue, on
-the new namespace, you need to obtain the management credentials for the
-namespace.
-
-1.  In the left navigation pane, click the **Service Bus** node, to
-    display the list of available namespaces:
-
-    ![image][]
-
-2.  Select the namespace you just created from the list shown:
-
-    ![image][2]
-
-3.  The right-hand **Properties** pane will list the properties for the
-    new namespace:
-
-    ![image][3]
-
-4.  The **Default Key** is hidden. Click the **View** button to display
-    the security credentials:
-
-    ![image][4]
-
-5.  Make a note of the **Default Key** as you will use this information
-    below to perform operations with the namespace.
+<div chunk="../../shared/chunks/howto-service-bus-queues.md" />
 
 ## <a name="create-app"> </a>Create a Node.js Appication
 
@@ -332,9 +242,9 @@ links to learn more.
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Next Steps]: #next-steps
-  [What are Service Bus Queues]: #what-queues
-  [Create a Service Namespace]: #create-namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain-creds
+  [What are Service Bus Queues?]: #what-are-service-bus-queues
+  [Create a Service Namespace]: #create-a-service-namespace
+  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
   [Create a Node.js Application]: #create-app
   [Configure Your Application to Use Service Bus]: #configure-app
   [How to: Create a Queue]: #create-queue
@@ -342,7 +252,7 @@ links to learn more.
   [How to: Receive Messages from a Queue]: #receive-messages
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
   [Queue Concepts]: ../../dotNet/Media/sb-queues-08.png
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [image]: ../../dotNet/Media/sb-queues-03.png
   [1]: ../../dotNet/Media/sb-queues-04.png
   [2]: ../../dotNet/Media/sb-queues-05.png
@@ -350,8 +260,8 @@ links to learn more.
   [4]: ../../dotNet/Media/sb-queues-07.png
   [Node.js Cloud Service]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
   [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
-  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/
+  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
   [Create and deploy a Node.js application to a Windows Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
-  [Node.js Web Application with Storage]: en-us/develop/nodejs/tutorials/web-site-with-storage/
+  [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/

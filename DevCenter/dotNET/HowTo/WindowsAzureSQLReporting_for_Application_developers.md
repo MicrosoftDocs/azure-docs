@@ -1,32 +1,32 @@
-# How to Integrate Windows Azure SQL Reporting into Applications #
+<div chunk=”../chunks/article-left-menu.md” />
+# Windows Azure SQL Reporting for Application developers #
 
-Windows Azure SQL Reporting offers comprehensive functionality for processing, formatting, and rendering data in a variety of traditional and interactive reporting formats. Applications can take advantage of SQL Reporting functionality in many ways, from accessing an existing report within an application or portal page, to embedding report processing and design capabilities within a stand-alone application.
-
-SQL Reporting is designed to be programmable and extensible. Report definitions use a published, extensible XML-format called Report Definition Language (RDL), and SQL Reporting offers a Simple Object Access Protocol (SOAP) Web service for managing and accessing reports. This topic provides a summary of the many different integration points with Windows Azure SQL Reporting.
-
-
-This topic provides information about deploying a report server project to Windows Azure SQL Reporting report server, and getting started information for application developers who integrate reports hosted by Windows Azure SQL Reporting in their applications, as well as develop management tools against SQL Azure Reporting report servers.
+This topic provides information about deploying a report server project to Windows Azure SQL Reporting report server, and getting started information for application developers who integrate reports hosted by Windows Azure SQL Reporting in their applications, as well as develop management tools against SQL Reporting report servers.
 
 To get started with Windows Azure SQL Reporting, you must have a Windows Azure subscription. You can use an existing subscription, a new subscription, or the free trial subscription. For more information, see  [http://www.windowsazure.com/en-us/](http://www.windowsazure.com/en-us/).
 
+This guide assumes that you have some prior experience developing custom applications using SQL Server Reporting Services. For more information, see [Developer's Guide (Reporting Services)][]. The guide also assumes that you have some knowledge on usage of ReportViewer controls. For an overview of ReportViewer controls, see [ReportViewer Controls (Visual Studio)][].
 
-##Table of Contents##
-1.	[Before you begin][]
-2.	[How To: Deploy a Report Project][]
-3.	[How To: Access SQL Reporting Reports in ReportViewer Controls][]
-4.	[How To: Programmatically access Reports using SOAP Management Endpoint][]
-5.	[Next Steps][]
+## Objectives ##
+In this tutorial you will learn how to:
 
-<h2 id="Before_you_begin">Before you begin</h2>
-This topic assumes that you have some prior experience developing custom applications using SQL Server Reporting Services. For more information, see [Developer's Guide (Reporting Services)][]. The guide also assumes that you have some knowledge on usage of ReportViewer controls. For an overview of ReportViewer controls, see [ReportViewer Controls (Visual Studio)][].
+- Deploy a report server project to a SQL Reporting report server.
+- Render reports in ReportViewer Controls.
+- Programmatically access SQL Reporting using SOAP Management Endpoint
 
 
-<h2 id="Deploy_ReportServer_Project">How To: Deploy a Report Project</h2>
+##Tutorials Segments##
+1.	[Deploy a Report Project][]
+2.	[Access SQL Reporting Reports in ReportViewer Controls][]
+3.	[Programmatically access Reports using SOAP Management Endpoint][]
+4.	[Next Steps][]
+
+<h2 id="Deploy_ReportServer_Project">Deploy a Report Project</h2>
 From Business Intelligence Development Studio(BIDS) of SQL Server, you can deploy all the reports and shared data sources in a Report Server project to a Windows Azure SQL Reporting report server. You can deploy the entire project, or individual reports or data sources. Before you deploy reports or data sources, you need to set the project properties of the Report Server project in Business Intelligence Development Studio.
 
-**To set deployment properties**
+<strong>To set deployment properties</strong>
 
-1.	Open an already existing report server project. In **Solution Explorer**, right-click the report server project and click **Properties**. (_If the Solution Explorer window is not visible, from the View menu, click Solution Explorer._)
+1.	Open an already existing report server project. In <strong>Solution Explorer</strong>, right-click the report server project and click <strong>Properties</strong>. (_If the Solution Explorer window is not visible, from the View menu, click Solution Explorer._)
 
 	_For more information about creating a report server project, see [Creating a Report Server Project][]. For other tutorials, see [Tutorials (SSRS)][]._ 
 
@@ -34,37 +34,37 @@ From Business Intelligence Development Studio(BIDS) of SQL Server, you can deplo
 
 	![ReportServerProperties][]
 
-3.	In **OverwriteDataSources** and **OverwriteDatasets**, select True to overwrite them on the server each time they are deployed or select False to keep the existing versions on the server.
-4.	In the **TargetServerVersion** list, verify that the value is set to SQL Server 2008 R2.
+3.	In <strong>OverwriteDataSources</strong> and <strong>OverwriteDatasets</strong>, select True to overwrite them on the server each time they are deployed or select False to keep the existing versions on the server.
+4.	In the <strong>TargetServerVersion</strong> list, verify that the value is set to SQL Server 2008 R2.
 
-5.	In **TargetDataSourceFolder** and **TargetReportFolder**, type the name of folder on the report server in which to deploy the report item. 
+5.	In <strong>TargetDataSourceFolder</strong> and <strong>TargetReportFolder</strong>, type the name of folder on the report server in which to deploy the report item. 
 
-	If you leave the value of **TargetDataSourceFolder** blank, the data sources will be published to the location specified in **TargetReportFolder**. If **TargetReportFolder** is blank, reports and data sources are deployed to the root folder of the server.
+	If you leave the value of <strong>TargetDataSourceFolder</strong> blank, the data sources will be published to the location specified in <strong>TargetReportFolder</strong>. If <strong>TargetReportFolder</strong> is blank, reports and data sources are deployed to the root folder of the server.
 
-	Datasets and report parts cannot be managed directly on the SQL Reporting report server and you need not provide values for **TargetDatasets** and **TargetReportPartFolder**.
-6.	In the **TargetServerURL** box, type the URL of the target SQL Reporting report server. The syntax of the URL is `https://<ServerName>.reporting.windows.net/ReportServer`.
+	Datasets and report parts cannot be managed directly on the SQL Reporting report server and you need not provide values for <strong>TargetDatasets</strong> and <strong>TargetReportPartFolder</strong>.
+6.	In the <strong>TargetServerURL</strong> box, type the URL of the target SQL Reporting report server. The syntax of the URL is `https://<ServerName>.reporting.windows.net/ReportServer`.
 
 
-**To deploy all reports in a project**
+<strong>To deploy all reports in a project</strong>
 
-In **Solution Explorer**, right-click the report project and click **Deploy**. You will be prompted for credentials for the SQL Reporting login.
+In <strong>Solution Explorer</strong>, right-click the report project and click <strong>Deploy</strong>. You will be prompted for credentials for the SQL Reporting login.
 
 ![LoginDialog][]
 
 _When you deploy a Report Server project, the shared data sources in the report project are also deployed._ 
 
-**To deploy a single report**
+<strong>To deploy a single report</strong>
 
-In **Solution Explorer**, right-click the report and click **Deploy**. You can view the status of the publishing process in the Output window.
+In <strong>Solution Explorer</strong>, right-click the report and click <strong>Deploy</strong>. You can view the status of the publishing process in the Output window.
 
 *When you publish a single report, you must also deploy the shared data sources that the report uses.*
 
-**To deploy a single data source**
+<strong>To deploy a single data source</strong>
 
-In **Solution Explorer**, right-click the data source and click **Deploy**. You can view the status of the publishing process in the Output window.
+In <strong>Solution Explorer</strong>, right-click the data source and click <strong>Deploy</strong>. You can view the status of the publishing process in the Output window.
 
 
-<h2 id="Access_Reports_In_ReportViewer">How To: Access SQL Reporting Reports in ReportViewer Controls</h2>
+<h2 id="Access_Reports_In_ReportViewer">Access SQL Reporting Reports in ReportViewer Controls</h2>
 
 Similar to reports deployed to on-premise SQL Server Reporting Services (SSRS) report servers, reports deployed to Windows Azure SQL Reporting report servers can be displayed in ASP.NET applications using the Visual Studio ReportViewer control. 
 
@@ -77,40 +77,40 @@ To integrate ReportViewer into your Windows Azure application, you need to pay a
 
 For more information, see [How to: Use ReportViewer in a Web Site Hosted in Windows Azure][].
 
-For more information about the use of ReportViewer in a Windows Azure website that uses more than one web role instance, see [Using the ReportViewer ASP.NET Control in Windows Azure][].
+For more information about the use of ReportViewer in a Windows Azure web site that uses more than one web role instance, see [Using the ReportViewer ASP.NET Control in Windows Azure][].
 
 
-**Creating the Windows Azure Project with ReportViewer control**
+<strong>Creating the Windows Azure Project with ReportViewer control</strong>
 
 1.	Use administrator privileges to launch either Microsoft Visual Studio 2010 or Microsoft Visual Web Developer Express 2010. 
 
-	To do this, in **Start** | **All Programs** | **Microsoft Visual Studio 2010**, right-click the **Microsoft Visual Studio 2010** (or Microsoft Visual Web Developer Express 2010) and choose Run as Administrator. If the User Account Control dialog appears, click **Continue**.
+	To do this, in <strong>Start</strong> | <strong>All Programs</strong> | <strong>Microsoft Visual Studio 2010</strong>, right-click the <strong>Microsoft Visual Studio 2010</strong> (or Microsoft Visual Web Developer Express 2010) and choose Run as Administrator. If the User Account Control dialog appears, click <strong>Continue</strong>.
 
 	_The Windows Azure compute emulator requires that Visual Studio be launched with administrator privileges. For more information about Windows Azure Compute Emulator and other SDK tools, see [Overview of the Windows Azure SDK Tools][]._
 
-	In Visual Studio, on the **File** menu, click **New**, and then click **Project**. 
+	In Visual Studio, on the <strong>File</strong> menu, click <strong>New</strong>, and then click <strong>Project</strong>. 
 
 	![VSNewProject][]
 
-2. From Installed Templates, under Visual C#, click **Cloud** and then click **Windows Azure Project**. Name the application and click **OK**.
+2. From Installed Templates, under Visual C#, click <strong>Cloud</strong> and then click <strong>Windows Azure Project</strong>. Name the application and click <strong>OK</strong>.
 
 	![NewProjectDialog][]
 
-3.	In the **New Windows Azure Project** dialog, inside the **.NET Framework 4 roles** panel, expand the tab for the language of your choice (Visual C# or Visual Basic), select ASP.NET Web Role from the list of available roles and click the arrow (>) to add an instance of this role to the solution. Before closing the dialog, select the new role in the right panel, click the pencil icon and rename the role. Click **OK** to create the cloud service solution.
+3.	In the <strong>New Windows Azure Project</strong> dialog, inside the <strong>.NET Framework 4 roles</strong> panel, expand the tab for the language of your choice (Visual C# or Visual Basic), select ASP.NET Web Role from the list of available roles and click the arrow (>) to add an instance of this role to the solution. Before closing the dialog, select the new role in the right panel, click the pencil icon and rename the role. Click <strong>OK</strong> to create the cloud service solution.
 
 	![NewAzureProjectDialog][]
 
-4.	In **Solution Explorer**, review the structure of the created solution. If **Solution Explorer** is not already visible, click **Solution Explorer** on the **View** menu. 
+4.	In <strong>Solution Explorer</strong>, review the structure of the created solution. If <strong>Solution Explorer</strong> is not already visible, click <strong>Solution Explorer</strong> on the <strong>View</strong> menu. 
 
 	![SolutionExplorer][]
 
-5.	On the designer mode of Default.aspx, drag the ReportViewer control from the Reporting group of the **Toolbox** to the Web form. To open the **Toolbox**, click **Toolbox** on the **View** menu. You can dock the **Toolbox**, and you can pin it open or set it to Auto Hide. 
+5.	On the designer mode of Default.aspx, drag the ReportViewer control from the Reporting group of the <strong>Toolbox</strong> to the Web form. To open the <strong>Toolbox</strong>, click <strong>Toolbox</strong> on the <strong>View</strong> menu. You can dock the <strong>Toolbox</strong>, and you can pin it open or set it to Auto Hide. 
 
 	![Toolbox][]
 
-6.	Set the [ProcessingMode][] of the ReportViewer control to **Remote**. ReportViewer configured in **Local** processing mode is not supported in Windows Azure. Set the other properties on the ReportViewer control to determine the visibility and availability of viewing areas. Use the reference documentation to learn about each property. For more information, see [ReportViewer Properties][].
+6.	Set the [ProcessingMode][] of the ReportViewer control to <strong>Remote</strong>. ReportViewer configured in <strong>Local</strong> processing mode is not supported in Windows Azure. Set the other properties on the ReportViewer control to determine the visibility and availability of viewing areas. Use the reference documentation to learn about each property. For more information, see [ReportViewer Properties][].
 
-	_To use the **ReportViewer** control in a Web form, you must also add a [ScriptManager][] control to your page. From the **Toolbox** window, in the **AJAX Extensions** group, drag a **ScriptManager** control to the design surface above the **ReportViewer** control._
+	_To use the <strong>ReportViewer</strong> control in a Web form, you must also add a [ScriptManager][] control to your page. From the <strong>Toolbox</strong> window, in the <strong>AJAX Extensions</strong> group, drag a <strong>ScriptManager</strong> control to the design surface above the <strong>ReportViewer</strong> control._
 
 7.	The ReportViewer control manages the authentication cookie, making your tasks easier. To display reports deployed to a SQL Reporting report server in the ReportViewer control, you supply the report server URL and the report path as you would for any server report. Then implement the IReportServerCredentials interface and use it in ServerReport.ReportServerCredentials. 
 
@@ -155,7 +155,6 @@ For more information about the use of ReportViewer in a Windows Azure website th
 
 	In the Web.config or App.config file, specify the application settings in the `<appSettings>` element under `<configuration>`. The following example shows how the `<appSettings>` element might look like. (Consider specifying the values as per your SQL Reporting report server.)
 	
-		
 		<appSettings>
 		  <add key="SERVER_NAME" value="<INSTANCE_NAME>.report.int.mscds.com" />
 		  <add key="USERNAME" value="<USERNAME>"/>
@@ -166,7 +165,6 @@ For more information about the use of ReportViewer in a Windows Azure website th
 				
 
 8. The following example shows how to use the IReportServerCredentials to access SQL Reporting reports:
-		
 		
 		using System;
 		using System.Configuration;
@@ -181,13 +179,13 @@ For more information about the use of ReportViewer in a Windows Azure website th
 		}
 		
 
-<h2 id="Programmatically_Access">How To: Programmatically access Reports using SOAP Management Endpoint</h2>
+<h2 id="Programmatically_Access">Programmatically access Reports using SOAP Management Endpoint</h2>
 
 The SQL Reporting SOAP API provides several Web service endpoints for developing custom reporting solutions.The management functionality is exposed through the [ReportService2005][] and [ReportService2010][] endpoints. For the list of unsupported SOAP APIs in SQL Reporting, see [Guidelines and Limitations for Windows Azure SQL Reporting][].
 
 When accessing the SOAP management endpoint, you use the endpoint’s LogonUser() method to authenticate with the endpoint. You then need to save the authentication cookie returned by the HTTP response and include it in each subsequent operation request. The easiest way to do this is to create a new instance of CookieContainer and assign that to the CookieContainer property of the proxy class before calling LogonUser().
 
-**To generate the proxy class**
+<strong>To generate the proxy class</strong>
 
 1.	In the browser, go to the path for your endpoint. For example: `https://<INSTANCE_NAME>.report.int.mscds.com/ReportServer/reportservice2010.asmx`
 2.	If prompted for credentials, type your SQL Reporting username and password and click Sign In. A WSDL file will be displayed in the browser.
@@ -197,27 +195,25 @@ When accessing the SOAP management endpoint, you use the endpoint’s LogonUser(
 
 	![CmdPrompt][]
 
-	To open **Visual Studio Command Prompt (2010)** window, Click **Start**, point to **All Programs**, point to **Microsoft Visual Studio 2010**, point to **Visual Studio Tools**, and then right-click **Visual Studio Command Prompt (2010)** and choose Run as Administrator. If the User Account Control dialog appears, click **Continue**.
+	To open <strong>Visual Studio Command Prompt (2010)</strong> window, Click <strong>Start</strong>, point to <strong>All Programs</strong>, point to <strong>Microsoft Visual Studio 2010</strong>, point to <strong>Visual Studio Tools</strong>, and then right-click <strong>Visual Studio Command Prompt (2010)</strong> and choose Run as Administrator. If the User Account Control dialog appears, click <strong>Continue</strong>.
 
 	For more information and syntax for WSDL.exe tool, see [Web Services Description Language Tool (Wsdl.exe)][].
 
 4.	In Visual Studio, add the generated .cs file to your project.
 
 
-**To authenticate and authorize with the management endpoint**
+<strong>To authenticate and authorize with the management endpoint</strong>
 
 The following code shows how to authenticate and authorize with the ReportingServices2010 management endpoint and perform the ReportingService2010.ListChildren() operation. Note that the CookieContainer property is set to a new instance of the CookieContainer class before the LogonUser() method runs. This ensures that the authentication cookie that is returned by the Web response of LogonUser() is saved and used in later Web service calls.
 	 
-		
-		ReportingService2010 rs = new ReportingService2010();
-		rs.Url = String.Format("https://{0}:443/ReportServer/ReportService2010.asmx", ConfigurationManager.AppSettings["SERVER_NAME"]);
-		rs.CookieContainer = new CookieContainer();
-		rs.LogonUser(ConfigurationManager.AppSettings["USERNAME"], ConfigurationManager.AppSettings["PASSWORD"], ConfigurationManager.AppSettings["SERVER_NAME"]);
-		CatalogItem[] items = rs.ListChildren("/", true);
+	ReportingService2010 rs = new ReportingService2010();
+	rs.Url = String.Format("https://{0}:443/ReportServer/	ReportService2010.asmx", ConfigurationManager.AppSettings["SERVER_NAME"]);
+	rs.CookieContainer = new CookieContainer();
+	rs.LogonUser(ConfigurationManager.AppSettings["USERNAME"], ConfigurationManager.AppSettings["PASSWORD"], ConfigurationManager.AppSettings["SERVER_NAME"]);
+	CatalogItem[] items = rs.ListChildren("/", true);
 
 Then, in the Web.config or App.config file, specify the application settings in the `<appSettings>` element. The following example shows how the `<appSettings>` element might look like. (Consider specifying the values as per your SQL Reporting report server.)
 	 
-		
 		<appSettings>
 		  <add key="SERVER_NAME" value="<INSTANCE_NAME>.report.int.mscds.com" />
 		  <add key="USERNAME" value="<USERNAME>"/>
@@ -272,12 +268,11 @@ Now you are familiar with SQL Reporting and how to integrate reports hosted by S
 
 [Tutorials (SSRS)]: http://msdn.microsoft.com/en-us/library/bb522859(v=sql.105)
 
-[Before you begin]: #Before_you_begin
-[How To: Deploy a Report Project]: #Deploy_ReportServer_Project
-[How To: Access SQL Reporting Reports in ReportViewer Controls]: #Access_Reports_In_ReportViewer
-[How To: Programmatically access Reports using SOAP Management Endpoint]: #Programmatically_Access
-[Next Steps]: #NextSteps
 
+[Deploy a Report Project]: #Deploy_ReportServer_Project
+[Access SQL Reporting Reports in ReportViewer Controls]: #Access_Reports_In_ReportViewer
+[Programmatically access Reports using SOAP Management Endpoint]: #Programmatically_Access
+[Next Steps]: #NextSteps
 
 [ReportServerProperties]: ../media/ReportProject_PropertiesDialog.png
 [LoginDialog]: ../media/ReportProject_LoginDialog.png

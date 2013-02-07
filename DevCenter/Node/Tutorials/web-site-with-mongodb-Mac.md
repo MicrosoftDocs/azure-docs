@@ -1,6 +1,9 @@
-<properties linkid="dev-nodejs-website-mongodb" urldisplayname="Node.js Website with MongoDB" headerexpose="" pagetitle="Node.js Application using MongoDB" metakeywords="Azure Node.js tutorial MongoDB, Azure Node.js, Azure Node.js tutorial" footerexpose="" metadescription="A tutorial that demonstrates a Node.js application in a Windows Azure Website, that talks to MongoDB on a Windows Azure virtual machine" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on a VM - Windows Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" metaDescription="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/" disqusComments="1" umbracoNaviHide="1" />
 
-# Node.js Web Application with Storage on MongoDB
+
+<div chunk="../chunks/article-left-menu.md" />
+
+# Node.js Web Application with Storage on MongoDB (Virtual Machine)
 This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on Windows Azure. [MongoDB] is a popular open source, high performance NoSQL database. This tutorial assumes that you have some prior experience using node, MongoDB, and [Git].
 
 You will learn:
@@ -34,6 +37,8 @@ Before following the instructions in this article, you should ensure that you ha
 
 * [Git]
 
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+
 ##Preparation
 
 In this section you will learn how to create a virtual machine in Windows Azure and install MongoDB, set up your development environment, and install the MongoDB C# driver.
@@ -45,16 +50,6 @@ This tutorial assumes you have created a virtual machine in Windows Azure. After
 * To create a Linux virtual machine and install MongoDB, see [Installing MongoDB on a Linux Virtual machine].
 
 After you have created the virtual machine in Windows Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.
-
-### Sign up for the Windows Azure Web Sites preview feature
-
-You will need to sign up for the Windows Azure Web Sites preview feature in order to create a Windows Azure web site. You can also sign up for a free trial account if you do not have a Windows Azure account.
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
-
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
 
 ##Install modules and generate scaffolding
 
@@ -209,7 +204,7 @@ In this section you will extend the basic application created by the **express**
       		    throw err;
       		  }
     	    });
-    	  	res.redirect('home');
+    	  	res.redirect('/');
   		  },
   
 
@@ -226,7 +221,7 @@ In this section you will extend the basic application created by the **express**
         		});
       		  }
     		}
-    		res.redirect('home');
+    		res.redirect('/');
   		  }
 		}
 
@@ -338,7 +333,7 @@ The steps in this section use the Windows Azure command-line tools to create a n
 
 To install the command-line tools, use the following command:
 	
-	sudo npm install azure -g
+	sudo npm install azure-cli -g
 
 <div class="dev-callout">
 <strong>Note</strong>
@@ -401,14 +396,14 @@ Before using the command-line tools with Windows Azure, you must first download 
 	<p>If the '--git' parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.</p>
 	</div>
 	
-	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created website at** contains the URL for the web site.
+	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created web site at** contains the URL for the web site.
 
 		info:   Executing command site create
 		info:   Using location southcentraluswebspace
 		info:   Executing `git init`
 		info:   Creating default web.config file
 		info:   Creating a new web site
-		info:   Created website at  mongodbtasklist.azurewebsites.net
+		info:   Created web site at  mongodbtasklist.azurewebsites.net
 		info:   Initializing repository
 		info:   Repository initialized
 		info:   Executing `git remote add azure http://username@mongodbtasklist.azurewebsites.net/mongodbtasklist.git`

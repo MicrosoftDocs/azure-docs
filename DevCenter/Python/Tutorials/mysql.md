@@ -1,7 +1,10 @@
-<properties linkid="dev-python-mysql" urlDisplayName="Web App with MySQL" headerExpose="" pageTitle="Django Hello World - MySQL Edition" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="develop-python-web-app-with-django-and-mysql" urlDisplayName="Web with Django + MySQL" pageTitle="Python web app with Django and MySQL - Windows Azure tutorial" metaKeywords="Azure django web app, Azure Django MySQL, Azure django Python" metaDescription="A tutorial that teaches you how to use MySQL in with Django on a Windows Azure virtual machine. Code samples written in Python." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
 # Django Hello World - MySQL Windows Edition #
   
-This tutorial describes how to use MySQL in conjunction with Django on a single Windows Azure virtual machine. This guide assumes that you have some prior experience using Windows Azure and Django. For an introduction to Windows Azure and Django, see [Django Hello World] [djangohelloworld]. The guide also assumes that you have some knowledge of MySQL. For an overview of MySQL, see the [MySQL website][mysqldoc].
+This tutorial describes how to use MySQL in conjunction with Django on a single Windows Azure virtual machine. This guide assumes that you have some prior experience using Windows Azure and Django. For an introduction to Windows Azure and Django, see [Django Hello World] [djangohelloworld]. The guide also assumes that you have some knowledge of MySQL. For an overview of MySQL, see the [MySQL web site][mysqldoc].
 
 In this tutorial, you will learn how to:
 
@@ -15,6 +18,8 @@ You will expand upon the [Django Hello World] [djangohelloworld] sample by utili
 
 The project files for this tutorial will be stored in **C:\django\helloworld** and the completed application will look similar to:
 ![][0]
+
+<div chunk="../../Shared/Chunks/create-account-and-vms-note.md" />
 
 ## Setting up a virtual machine to host MySQL and Django
 1. Follow the instructions given [here ][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Windows Server 2008 R2* flavor.
@@ -191,20 +196,24 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 		    return HttpResponse("<html><body>Hello <em>" + world + "</em></body></html>")
 
 
-## Deploying and running your Django website
+## Deploying and running your Django web site
 
 Note: The following shows how to run Django in a test environment. To run it in production, follow the "Setting up IIS with FastCGI" section in the "Django Hello World tutorial". Using the Windows Firewall Client to open port 80 to Internet traffic on the Windows Server 2K8 R2 virtual machine is not necessary with FastCGI.
 
 
 
-1.  Switch back to a Windows PowerShell window, and type the following commands to deploy your Django website publically:
+<<<<<<< HEAD
+1.  Switch back to a Windows PowerShell window, and type the following commands to deploy your Django web site publically:
+=======
+1.  Switch back to a Windows PowerShell window, and type the following commands to deploy your Django web site publically: 
+>>>>>>> d374192544005295dd9ee6661b1e7cf789afb06b
 
 		PS C:\django\helloworld> $ipPort = [System.Net.Dns]::GetHostEntry("127.0.0.1")
 		PS C:\django\helloworld> $ipPort = [string]$ipPort.AddressList[1]
 		PS C:\django\helloworld> $ipPort += ":80"
 		PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
 
-    The **runserver** parameter instructs Django to run our *helloworld* website on TCP port *80*. The results of this command should be similar to:
+    The **runserver** parameter instructs Django to run our *helloworld* web site on TCP port *80*. The results of this command should be similar to:
 
 		PS C:\django\helloworld> C:\Python27\python.exe .\manage.py runserver $ipPort
 		Validating models...
@@ -214,13 +223,17 @@ Note: The following shows how to run Django in a test environment. To run it in 
 		Development server is running at http://123.34.56.78:80
 		Quit the server with CTRL-BREAK.
  
-1. From your local web browser, open **http://*yourVmName*.cloudapp.net** (where *yourVmName* is whatever name you used in the virtual machine creation step). You should see “Hello ... !” displayed as shown in the screenshot below. This indicates that Django is running in the virtual machine and is working correctly.
+1. From your local web browser, open **http://*yourVmName*.cloudapp.net** (where *yourVmName* is whatever name you used in the virtual machine creation step). You should see "Hello ... !" displayed as shown in the screenshot below. This indicates that Django is running in the virtual machine and is working correctly.
 
     ![][5]
 
+<<<<<<< HEAD
+  Refresh the web browser a few times and you should see the message change from *"Hello **&lt;country abc&gt;**"* to *"Hello **&lt;some other country&gt;**"*.
+=======
   Refresh the web browser a few times and you should see the message change from *"Hello **&lt;country abc&gt;**"* to *"Hello **&lt;some other country&gt;**"*.
 
-1.  To stop Django from hosting the website, simply switch to the PowerShell window and press **CTRL-C**.
+>>>>>>> d374192544005295dd9ee6661b1e7cf789afb06b
+1.  To stop Django from hosting the web site, simply switch to the PowerShell window and press **CTRL-C**.
 
 
 ## Shutting down your Windows Azure virtual machine

@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Traffic Manager" metaKeywords="Azure Traffic Manager Hosted Services" metaDescription="This guide demonstrates how to configure Windows Azure Traffic Manager." linkid="manage-how-to-traffic-manager" urlDisplayName="Traffic Manager" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-traffic-manager" urlDisplayName="Traffic Manager" pageTitle="How to configure traffic manager settings - Windows Azure" metaKeywords="" metaDescription="Learn how to configure Windows Azure Traffic Manager settings to control the distribution of user traffic to hosted services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 #How to Configure Traffic Manager Settings#
 Windows Azure Traffic Manager enables you to control the distribution of user traffic to Windows Azure hosted services. 
@@ -145,7 +147,7 @@ If you just need to temporarily turn off a policy or particular hosted services 
 
 To change a policy to a different type, use the following steps:
 
-1. **Log into the Traffic Manager area in the Management Portal** at [http://windows.azure.com](http://windows.azure.com). Click **Virtual Network** in the lower left of the portal pages and then choose **Traffic Manager** from the options in the left pane.
+1. **Log into the Traffic Manager area in the Management Portal** at [http://manage.windowsazure.com](http://manage.windowsazure.com). Click **Virtual Network** in the lower left of the portal pages and then choose **Traffic Manager** from the options in the left pane.
 
 2. **Select the policy** you want to change in the Traffic Manager screen in the Management Portal.
 
@@ -163,7 +165,7 @@ For more information on the different load balancing methods that Traffic Manage
 
 1. **Deploy your hosted services** into your production environment. For information on developing and deploying [Windows Azure hosted services](http://msdn.microsoft.com/library/gg432967.aspx).
 
-2. **Log into the Traffic Manager area in the Management Portal** at [http://windows.azure.com](http://windows.azure.com). Click **Virtual Network** in the lower left of the portal pages and then choose **Traffic Manager** from the options in the left pane.
+2. **Log into the Traffic Manager area in the Management Portal** at [http://manage.windowsazure.com](http://manage.windowsazure.com). Click **Virtual Network** in the lower left of the portal pages and then choose **Traffic Manager** from the options in the left pane.
 
 3. **Choose Policies and click "Create".** Choose the folder **Policies** from the left navigation tree to enable **Create** in the top toolbar. Choose **Create**. The **Create Traffic Manager policy** dialog will appear.
 
@@ -205,7 +207,7 @@ For more information on the different load balancing methods that Traffic Manage
 
 1. **Deploy your hosted services** into your production environment. For information on developing and deploying hosted services, see [Windows Azure hosted services](http://msdn.microsoft.com/library/gg432967.aspx).  
 
-2. **Log into the Traffic Manager area in the Management Portal** at [http://windows.azure.com](http://windows.azure.com). Click **Virtual Network** in the lower left of the portal pages and then choose **Traffic Manager** from the options in the left pane.
+2. **Log into the Traffic Manager area in the Management Portal** at [http://manage.windowsazure.com](http://manage.windowsazure.com). Click **Virtual Network** in the lower left of the portal pages and then choose **Traffic Manager** from the options in the left pane.
 
 3. **Choose Policies and click "Create".** Choose the folder **Policies** from the left navigation tree to enable **Create** in the top toolbar. Choose **Create**. The **Create Traffic Manager policy** dialog will appear.
 
@@ -247,11 +249,13 @@ The following steps will walk you through the process:
 1. **Deploy your hosted services** into your production environment. For more information, see [Creating a Hosted Service for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg432967.aspx). 
 Also refer to "Best practices for hosted services and policies" in the [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring).
 
-2. **Log into the Traffic Manager area in the Management Portal** at [http://windows.azure.com](http://windows.azure.com). Click **Virtual Network** in the lower left of the portal pages and then choose **Traffic Manager** from the options in the left pane.
+2. **Log into the Traffic Manager area in the Management Portal** at [http://manage.windowsazure.com](http://manage.windowsazure.com). Click **Virtual Network** in the lower left of the portal pages and then choose **Traffic Manager** from the options in the left pane.
 
 3. **Choose Policies and click "Create".** Choose the folder **Policies** from the left navigation tree to enable **Create** in the top toolbar. Choose **Create**. The **Create Traffic Manager policy** dialog will appear. 
-![Create button for policies][6]
-**Figure 1** – Create button for policies
+
+	![Create button for policies][6]
+	
+	**Figure 1** – Create button for policies
 
 4. **Choose a subscription.** Policies and domains are associated with single subscription. 
 
@@ -266,7 +270,9 @@ For more information, see [Overview of Windows Azure Traffic Manager](http://msd
 For more information about the effect of this setting, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to "Best practices for hosted services and policies when using Windows Azure Traffic Manager."
  
 The **Create Traffic Manager policy** dialog box should look something like the example below. 
+
 ![Dialog box for Performance load balancing method][7]
+
 **Figure 2** – Dialog box for Performance load balancing method
 
 9. **Test the Traffic Manager domain and policy.** For more information about testing, see [How to: Test a Windows Azure Traffic Manager Policy](#howto_test).

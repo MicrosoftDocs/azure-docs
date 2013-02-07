@@ -1,9 +1,10 @@
-<properties umbraconavihide="0" pagetitle="Web App with Storage" metakeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" metadescription="A tutorial that builds on the Web App with Express tutorial by adding Windows Azure Storage services and the Windows Azure module." linkid="dev-nodejs-basic-web-app-with-storage" urldisplayname="Web App with Storage" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties linkid="develop-python-web-app-with-blob-storage" urlDisplayName="Web App with Blob Storage" pageTitle="Python web app with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Python, Azure Python application, Azure Python tutorial, Azure Python example" metaDescription="A tutorial that teaches you how to create a Python web application using the Windows Azure Client Libraries. Django is used as the web framework." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-# Python Web Application using Storage
+<div chunk="../chunks/article-left-menu.md" />
 
-In this tutorial, you will learn how to create an application using the Windows
-Azure Client Libraries for Python with storage services. If this is your first Python Azure app, you may wish to take a look at [Django Hello World Web Application][] first.
+# Python Web Application using Table Storage
+
+In this tutorial, you will learn how to create an application that uses Table Storage with the Windows Azure Client Libraries for Python. If this is your first Python Azure app, you may wish to take a look at [Django Hello World Web Application][] first.
 
 For this guide, you will create a web-based task-list application
 that you can deploy to Windows Azure. The task list allows a user to
@@ -19,11 +20,13 @@ Windows Azure].
 
 You will learn:
 
--   How to work with Windows Azure Storage services
+-   How to work with Windows Azure Table Storage service
 
 A screenshot of the completed application will be similar as below (the added tasks items will be different):
 
 ![](../media/web-app-with-storage-Finaloutput-mac.png)
+
+<div chunk="../../Shared/Chunks/create-account-note.md" />
 
 ## <a id="setup"> </a>Setting Up the Development Environment
 
@@ -32,10 +35,6 @@ A screenshot of the completed application will be similar as below (the added ta
 
 
 *Note for Windows*: if you used the Windows WebPI installer, you already have Django and the Client Libs installed.
-
-## Setup A Windows Azure Account
-
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
 
 ## Create A Storage Account In Windows Azure
 
@@ -180,7 +179,7 @@ Now that you've successfully run your app on the built-in Django server, you can
 
 <h2 id="NextSteps">Next Steps</h2>
 
-Now that you’ve learned the basics of the Windows Azure Table service, follow these links to learn how to do more complex storage tasks.
+Now that you’ve learned the basics of the Windows Azure Table storage service, follow these links to learn how to do more complex storage tasks.
 
 - See the MSDN Reference: [Storing and Accessing Data in Windows Azure] []
 - Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>

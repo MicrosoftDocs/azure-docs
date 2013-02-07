@@ -1,2 +1,5 @@
-<properties linkid="dev-python-commons-tasks-remote-desktop" urlDisplayName="Remote Desktop" headerExpose="" pageTitle="Enable Remote Desktop - Python - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="develop-python-remote-desktop" urlDisplayName="Enable Remote Desktop" pageTitle="Enable remote desktop for cloud services (Python) - Windows Azure" metaKeywords="Azure C++ remote, Azure C++ virtual machine, Azure Ruby remote, Azure Ruby virtual machine, Azure Python remote, Azure Python virtual machine" metaDescription="Learn how to enable remote-desktop access for the virtual machines hosting your Windows Azure application." metaCanonical="http://www.windowsazure.com/en-us/develop/php/common-tasks/enable-remote-desktop/" disqusComments="1" umbracoNaviHide="0" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
 <div chunk="../../Shared/Chunks/remote-desktop.md" />

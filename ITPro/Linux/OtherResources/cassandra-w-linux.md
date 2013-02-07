@@ -1,5 +1,8 @@
-<h1 id = "" > Running Cassandra with Linux on Windows Azure and Access it from Node.js </h1>
--Hanu Kommalapati
+<properties linkid="services-linux-cassandra-with-linux" urlDisplayName="Cassandra with Linux" pageTitle="Run Cassandra with Linux on Windows Azure" metaKeywords="" metaDescription="Explains how to run a Cassandra cluster on Linux in Windows Azure Virtual Machines." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
+<h1 id = "" >Running Cassandra with Linux on Windows Azure and Accessing it from Node.js </h1>
+**Author:** Hanu Kommalapati
 
 ## Table of Contents##
 
@@ -23,15 +26,15 @@ The Windows Azure Virtual Machines capability enables running of NoSQL databases
 
 There are two deployment models that are feasible for Cassandra application environment: self-contained Virtual Machines deployment and a composite deployment.  In a composite deployment, a Virtual Machines-hosted Cassandra cluster will be consumed from a PaaS hosted Azure web application (or web service) using Thrift interface through the load balancer.  Even though each Cassandra node proxies the request to other peer nodes in the event of a key space fault,  the load balancer helps with the entry level load balancing of the requests.  Also the load balancer creates a firewall protected sandbox for a better control of the data. 
 
-##<a id="composite"> </a>Composite Deployment## 
+## <a id="composite"> </a> Composite Deployment ##
 
 The goal of a composite deployment is to maximize the usage of PaaS while keeping the virtual machine footprint to an absolute minimum in an effort to save on the overhead imposed by the infrastructure management of the virtual machines. Due to the server management overhead, only deploy those components that require stateful behavior that can’t be modified easily due to various reasons including the time-to-market, lack of visibility into source code, and low level access to the OS. 
 
-![Image0001][Image01]
+![Composite deployment diagram](../Media/cassandra-linux1.png)
 
 ##<a id="deployment"> </a>Windows Azure Virtual Machine Deployment##
 
-![Image0002][Image02]
+![Virtual machine deployment](../Media/cassandra-linux2.png)
 
 In the above diagrams a 4-node Cassandra cluster is deployed inside Virtual Machines behind a load balancer that is configured to allow Thrift traffic. Azure hosted PaaS application accesses the cluster using language specific Thrift libraries. There are libraries for languages including Java, C#, Node.js, Python and C++. The self-contained Virtual Machines deployment shown in the second diagram consumes data by applications running inside another cloud service hosted on Virtual Machines. 
 
@@ -39,7 +42,7 @@ In the above diagrams a 4-node Cassandra cluster is deployed inside Virtual Mach
 
 During the Virtual Machines preview release, in order for the Linux VMs to be part of the same virtual network, all the machines need to be deployed to the same cloud service. Typical sequence for creating a cluster is: 
 
-![Task1][Image03]
+![Sequence diagram for creating a cluster](../Media/cassandra-linux4.png)
 
 **Step 1: Generate SSH Key pair**
 
@@ -47,14 +50,12 @@ Windows Azure needs an X509 public key that is either PEM or DER encoded at the 
 
 **Step 2:  Create a Ubuntu VM**
 
-Create the first Ubuntu VM by following the sequence shown below after logging into the Windows Azure preview portal (see [Create a Virtual Machine Running Linux](http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/) for a tutorial on Linux VM creation): 
+To create the first Ubuntu VM, log into the Windows Azure preview portal, click **New**, click **Virtual Machine**, click **From Gallery**, click **Unbuntu Server 12.xx**, and then click the right arrow. For a tutorial that describes how to create a Linux VM, see [Create a Virtual Machine Running Linux](http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/).
 
-New --> Virtual Machine -->From Gallery --> Unbuntu Server 12.xx --> click “right arrow”
+Then, enter the following information on the VM Configuration screen:
 
-Enter the following information on the VM Configuration screen:
-
-<table border>
-	<tr bgcolor = #C0C0C0 >
+<table>
+	<tr>
 		<th>Field Name</th>
 		<th>Field Value</th>
 		<th>Remarks</th>
@@ -99,9 +100,8 @@ Enter the following information on the VM Configuration screen:
 Enter the following information on the VM Mode screen:
 
 
-<table border>
-	<tr bgcolor = #C0C0C0 
->
+<table>
+	<tr>
 		<th>Field Name</th>
 		<th>Field Value</th>
 		<th>Remarks</th>
@@ -141,8 +141,8 @@ b.	On the “Add endpoint to virtual machine” screen, select “Add endpoint�
 c.	Click right arrow 
 
 d.	On the “Specify endpoint details”  screen enter the following
-<table border>
-	<tr bgcolor = #C0C0C0>
+<table>
+	<tr>
 		<th >Field Name</th>
 		<th>Field Value</th>
 		<th>Remarks</th>
@@ -168,7 +168,7 @@ d.	On the “Specify endpoint details”  screen enter the following
 		<td>Unless you changed this in cassandra.yaml</td>
 	</tr>
 </table>
-After the above work, the first VM will display  cassandra endpoint with LOAD BALANCED field as “NO”. Ignore this for the moment as this will change to “YES” once we add this endpoint to the subsequent VMs
+After the above work, the first VM will display cassandra endpoint with LOAD BALANCED field as “NO”. Ignore this for the moment as this will change to “YES” once we add this endpoint to the subsequent VMs
 
 e.	Now select the second VM and add endpoint by repeating the above process with only minor difference that you will select “Load-balance traffic on an existing endpoint” and use “cassandra-960” from the drop down box.  At this stage, the endpoint mapping to both the VMs will change the status from LOAD BALANCED status “NO” to “YES”. 
 
@@ -183,42 +183,44 @@ Now that we have the VMs ready, it is time to set up Cassandra on each of the VM
 **Step 1: Install Pre-Requisites**
 
 Cassandra requires Java Virtual Machine and hence install the latest JRE using the following command for Debian derivatives including Ubuntu:
-
-	sudo apt-get install openjdk-6-jre
+         
+	sudo add-apt-repository ppa:webupd8team/java
+    sudo apt-get update
+    sudo apt-get install oracle-java7-installer
 
 **Step 2: Cassandra Installation**
 
-1.	Login using SSH to the Linux (Ubuntu) VM instance
+1.	Login using SSH to the Linux (Ubuntu) VM instance.
 
-2.	Download Cassandra bits from the mirror suggested here to “~/downloads” directory:  [http://www.apache.org/dyn/closer.cgi?path=/cassandra/1.1.0/apache-cassandra-1.1.0-bin.tar.gz](http://www.apache.org/dyn/closer.cgi?path=/cassandra/1.1.0/apache-cassandra-1.1.0-bin.tar.gz). <br/>
-Execute the following command at the shell prompt(this uses LSU mirror): <br/>
-wget [http://www.eng.lsu.edu/mirrors/apache/cassandra/1.0.10/apache-cassandra-1.0.10-bin.tar.gz](http://www.eng.lsu.edu/mirrors/apache/cassandra/1.0.10/apache-cassandra-1.0.10-bin.tar.gz) 
+2.	Use wget to download Cassandra bits from the mirror suggested at (http://cassandra.apache.org/download/)[http://cassandra.apache.org/download/] to “~/downloads” directory as apache-cassandra-bin.tar.gz. Please note that the version number is not included in the downloaded file to make sure that the publication remains agnostic of the version.
 
 3.	Unzip the tar ball into the default login directory by executing the following command: 
 	
-		tar -zxvf downloads/apache-cassandra-1.0.10-bin.tar.gz
-The above will expand Cassandra into apache-cassandra-1.0.10 directory.   
+		tar -zxvf downloads/apache-cassandra-bin.tar.gz
+The above will expand the archive into apache-cassandra- [version] directory.   
 
 4. Create the following two default directories for holding logs and data:
 
-		$ sudo mkdir /var/lib/cassandra
-		$ sudo mkdir /var/log/cassandra
+		$ sudo chown -R [user]:[group] /var/lib/cassandra
+		$ sudo chown -R [user]:[group] /var/log/cassandra
 5.	Grant write permissions to the user identity under which  Cassandra will run	
 
 		a.	sudo chown -R <user>:<group> /var/lib/cassandra
 		b.	sudo chown -R <user>:<group> /var/log/cassandra
 		To use current user context, replace the <user> and <group> with $USER and $GROUP
-6.	Start Cassandra from the apache-cassandra-1.0.10/bin directory using the following command: 
+6.	Start Cassandra from the apache-cassandra-[version]/bin directory using the following command: 
 
 		$ ./cassandra
-The above will start the Cassandra node as a background process. Use “cassandra –f” to start the process in the foreground mode.<br>
+
+The above will start the Cassandra node as a background process. Use “cassandra –f” to start the process in the foreground mode.
+
 The log should may show mx4j error. Cassandra will function fine without mx4j but it is necessary for managing the Cassandra installation.  Kill Cassandra process before the next step.
 
 **Step 3: Install mx4j**
 
 	a)	Download mx4j: wget [http://sourceforge.net/projects/mx4j/files/MX4J%20Binary/3.0.2/mx4j-3.0.2.tar.gz/download](http://sourceforge.net/projects/mx4j/files/MX4J%20Binary/3.0.2/mx4j-3.0.2.tar.gz/download) -O mx4j.tar.gz
 	b)	tar –zxvf mx4j.tar.gz
-	c)	cp mx4j-23.0.2/lib/*.jar ~/apache-cassandra-1.0.10/lib
+	c)	cp mx4j-23.0.2/lib/*.jar ~/apache-cassandra-<version>/lib
 	d)	rm –rf mx4j-23.0.2
 	e)	rm mx4j.tar.gz
 Restart Cassandra process at this stage
@@ -245,7 +247,7 @@ Edit cassandra.yaml to change the following properties in all the VMs:
 
 **a)	cluster_name**
 
-Default cluster name is set to ‘Test Cluster’; change it to something that reflects your application.  Example:  ‘AppStore’ .   if you had already started the cluster with “Test Cluster” for testing during the installation, you will get a cluster name mismatch error.  To fix this error, delete all the files under /var/lib/cassandra/data/system directory.
+Default cluster name is set to ‘Test Cluster’; change it to something that reflects your application.  Example:  ‘AppStore’ . If you had already started the cluster with “Test Cluster” for testing during the installation, you will get a cluster name mismatch error. To fix this error, delete all the files under /var/lib/cassandra/data/system directory.
 
 **b)	seeds**
 
@@ -264,7 +266,7 @@ Nodetool installed into the Cassandra’s bin directory will help with cluster o
 
 If the configuration is correct, it should display the information as shown below for a 3-node cluster:
 
-<table border>
+<table>
 	<tr>
 		<td>Address</td>
 		<td>DC</td>
@@ -325,10 +327,10 @@ Create a Linux VM on Windows Azure using the process described in the previous t
 
 **Step 1: Install Node.js and NPM**
 
-a)	install the pre-requisites 
+a)	Install the pre-requisites 
 
 	sudo apt-get install g++ libssl-dev apache2-utils make
-b)	we will use source from GitHub to compile and install; before we can clone the repo, we need to install the git core runtime:
+b)	We will use source from GitHub to compile and install; before we can clone the repo, we need to install the git core runtime:
 
 	sudo apt-get install git-core
 c)	Clone Node repo
@@ -353,7 +355,7 @@ e)	Install NPM from stable binaries by executing the following command
 
 Cassandra storage uses the concepts of KEYSPACE and COLUMNFAMILY which can be approximately compared to DATABASE and TABLE structures in the RDBMS parlance. The KEYSAPCE will contain a set of COLUMNFAMILY definitions. Each COLUMNFAMILY will contain a set of rows and in turn each row contains several columns as shown in the composite view below:
 
-![step3][Image04]
+![Rows and columns](../Media/cassandra-linux3.png)
 
 We will use the previously deployed Cassandra cluster to demonstrate node.js access by creating and querying the above data structures.  We will create a simple node.js script that performs the basic preparation of the cluster for storing customer data. The techniques shown in the script can easily be used in a node.js web application or web services. Please keep in mind that the snippets are only meant to show how the stuff works and for real world solutions, the code shown has a lot of room (e.g. security, logging, scalability, etc.) for improvement. 
 
@@ -438,7 +440,7 @@ Parameterized CQL template will be combined with params object to generate valid
 
 populateCustomerData() inserts couple of rows into the COLUMNFAMILY namely customers_cf. In Cassandra Query Language, UPDATE will insert the record if the record is not already present in the process making INSERT CQL statement redundant. 
 
-So far we wired the callback chain: createKeyspace() -> createColumnFamily() -> populateCustomerData(). Now it is time for us to execute the code through the following code snippet:
+So far we wired the callback chain: createKeyspace() to createColumnFamily() to populateCustomerData(). Now it is time for us to execute the code through the following code snippet:
 
 	casdemo.js:
 	var pooledCon = require('cassandra-client').PooledConnection;
@@ -493,12 +495,8 @@ Windows Azure Virtual Machines capability allows the creation of Linux  (images 
 [Composite Deployment]: #composite
 [Windows Azure Virtual Machine Deployment]: #deployment
 [Task 1: Deploy Linux Cluster]: #task1
-[Task 2: Set Up Cassandra on Each VM]: #task2
+[Task 2: Set Up Cassandra on Each Virtual Machine]: #task2
 [Task 3: Access Cassandra Cluster from Node.js]: #task3
 [Conclusion]: #conclusion
 
 
-[Image01]: ../Media/Image0001.png
-[Image02]: ../Media/Image0002.png
-[Image03]: ../Media/task1.png
-[Image04]: ../Media/Step3.png

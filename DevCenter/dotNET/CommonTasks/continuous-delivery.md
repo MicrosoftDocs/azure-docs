@@ -1,6 +1,9 @@
-﻿<properties linkid="dev-net-common-tasks-continuous-delivery" urldisplayname="Continuous Delivery" headerexpose="" pagetitle="Continuous Delivery for Cloud Applications in Windows Azure" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Windows Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous deliver PowerShell" metaDescription="Learn how to set up continuous delivery for Windows Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-# Continuous Delivery for Cloud Applications in Windows Azure
+
+<div chunk="../chunks/article-left-menu.md" />
+
+# Continuous Delivery for Cloud Services in Windows Azure
 
 The process described in this article shows you how to set up continuous
 delivery for Windows Azure cloud apps. This process enables you to
@@ -17,6 +20,10 @@ environment and Windows Azure target environments.
 
 You can also use Team Foundation Service, a version of TFS that is hosted in Windows Azure, to do this more easily. For more information, see [Continuous Delivery to Windows Azure by Using Team Foundation Service][].
 
+Before you start, you should publish your application from Visual Studio.
+This will ensure that all the resources are available and initialized when you 
+attempt to automate the publication process.
+
 This task includes the following steps:
 
 -   [Step 1: Configure the Build Server][]
@@ -25,7 +32,7 @@ This task includes the following steps:
 -   [Step 4: Publish a Package using a PowerShell Script][]
 -   [Step 5: Publish a Package using TFS Team Build (Optional)][]
 
-## <a name="step1"> </a>Step 1: Configure the Build Server
+<h2> <a name="step1"> </a><span class="short-header">Configure the Build Server</span>Step 1: Configure the Build Server</h2>
 
 Before you can create a Windows Azure package by using MSBuild, you must
 install the required software and tools on the build server.
@@ -49,7 +56,7 @@ documentation.
 4.  Install the [Windows Azure Tools for Visual Studio][].
     Look for WindowsAzureTools.VS110.exe.
 
-## <a name="step2"> </a>Step 2: Build a Package using MSBuild Commands
+<h2><a name="step2"> </a><span class="short-header">Build a Package Using MSBuild</span>Step 2: Build a Package using MSBuild Commands</h2>
 
 This section describes how to construct an MSBuild command that builds a
 Windows Azure package. Run this step on the build server to verify that
@@ -116,7 +123,7 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
     TargetProfile property of the MSBuild command, as in the following
     example:
 
-        MSBuild /t:Publish /p:TargetProfile=ServiceConfiguration.Cloud.cscfg
+        MSBuild /t:Publish /p:TargetProfile=Cloud
 
 6.  Specify the location for the output. Set the path by using the
     /p:PublishDir=*&lt;Directory\&gt;*\\ option, including the trailing
@@ -132,7 +139,7 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
     build environment, then you can follow the instructions in the next
     step to add the Windows Azure package build to your build process.
 
-## <a name="step3"> </a>Step 3: Build a Package using TFS Team Build (Optional)
+<h2> <a name="step3"> </a><span class="short-header">Build a Package Using TFS </span>Step 3: Build a Package using TFS Team Build (Optional)</h2>
 
 If you have Team Foundation Server (TFS) set up as a build controller
 and the build server set up as a TFS build machine, then you can set up
@@ -182,7 +189,7 @@ steps:
     Team Explorer, right-click **All Build Definitions,** and then
     choose **Queue New Build**.
 
-## <a name="step4"> </a>Step 4: Publish a Package using a Powershell Script
+<h2> <a name="step4"> </a><span class="short-header">Publish Using Powershell</span>Step 4: Publish a Package using a Powershell Script</h2>
 
 This section describes how to construct a Windows PowerShell script that
 will publish the Cloud app package output to Windows Azure using
@@ -190,7 +197,7 @@ optional parameters. This script can be called after the build step in
 your custom build automation. It can also be called from Process
 Template workflow activities in Visual Studio TFS Team Build.
 
-1.  Install the [Windows Azure PowerShell Cmdlets][] (v0.6.0 or higher).
+1.  Install the [Windows Azure PowerShell Cmdlets][] (v0.6.1 or higher).
     During the cmdlet setup phase choose to install as a snap-in. Note
     that this officially supported version replaces the older version
     offered through CodePlex, although the previous versions were numbered 2.x.x.
@@ -207,7 +214,7 @@ Template workflow activities in Visual Studio TFS Team Build.
 4.  Verify that you can connect to your Windows Azure subscription by
     importing your subscription information from the .publishsettings file.
 
-    Import-AzurePublishSettingsFile -PublishSettingsFile c:\scripts\WindowsAzure\default.publishsettings
+    Import-AzurePublishSettingsFile c:\scripts\WindowsAzure\default.publishsettings
 
     Then give the command
 
@@ -223,26 +230,26 @@ Template workflow activities in Visual Studio TFS Team Build.
     default values. These values can always be overridden by passing in
     explicit parameters.
 
-6.  Ensure there are valid hosted service and storage accounts created
+6.  Ensure there are valid cloud service and storage accounts created
     in your subscription that can be targeted by the publish script. The
     storage account (blob storage) will be used to upload and
     temporarily store the deployment package and config file while the
     deployment is being created.
 
-    -   To create a new hosted service, you can call this script or use
-        the Windows Azure Management Portal. The hosted service name
+    -   To create a new cloud service, you can call this script or use
+        the Windows Azure Management Portal. The cloud service name
         will be used as a prefix in a fully qualified domain name and
         hence it must be unique.
 
-            New-AzureService -ServiceName "mytesthostedservice" -Location "North Central US" -Label "mytesthostedservice"
+            New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
     -   To create a new storage account, you can call this script or use
         the Windows Azure Management Portal. The storage account name
         will be used as a prefix in a fully qualified domain name and
         hence it must be unique. You can try using the same name as the
-        hosted service.
+        cloud service.
 
-            New-AzureStorageAccount -ServiceName "mytesthostedservice" -Location "North Central US" -Label "mytesthostedservice"
+            New-AzureStorageAccount -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
 7.  Call the script directly from Windows Azure PowerShell, or wire up this
     script to your host build automation to occur after the package
@@ -256,7 +263,7 @@ Template workflow activities in Visual Studio TFS Team Build.
     **Example scenario 1:** continuous deployment to the staging
     environment of a service:
 
-        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 –environment Staging -serviceName myhostedservice -storageAccountName myhostedservice -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg
+        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 –environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
     This is typically followed up by test run verification and a VIP
     swap. The VIP swap can be done via the Windows Azure Management
@@ -265,13 +272,13 @@ Template workflow activities in Visual Studio TFS Team Build.
     **Example scenario 2:** continuous deployment to the production
     environment of a dedicated test service
 
-        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 –environment Production –enableDeploymentUpgrade 1 -serviceName myhostedservice -storageAccountName myhostedservice -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg
+        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 –environment Production –enableDeploymentUpgrade 1 -serviceName mycloudservice -storageAccountName mystorageaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
     **Remote Desktop:**
 
     If Remote Desktop is enabled in your Windows Azure project you will
     need to perform additional one-time steps to ensure the correct
-    Hosted Service Certificate is uploaded to all hosted services
+    Cloud Service Certificate is uploaded to all cloud services
     targeted by this script.
 
     Locate the certificate thumbprint values expected by your roles. The
@@ -287,14 +294,14 @@ Template workflow activities in Visual Studio TFS Team Build.
     Upload Remote Desktop certificates as a one-time setup step using
     the following cmdlet script:
 
-        Add-Certificate -serviceName &lt;HOSTEDSERVICENAME&gt; -certificateToDeploy (get-item cert:\CurrentUser\MY\<THUMBPRINT>)
+        Add-AzureCertificate -serviceName <CLOUDSERVICENAME> -certToDeploy (get-item cert:\CurrentUser\MY\<THUMBPRINT>)
 
     For example:
 
-        Add-Certificate -serviceName 'mytesthostedservice' -certificateToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
+        Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
     Alternatively you can export the certificate file PFX with private
-    key and upload certificates to each target Hosted Service using the
+    key and upload certificates to each target cloud service using the
     Windows Azure Management Portal. Read the following article to learn
     more:
     [http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx][].
@@ -320,7 +327,7 @@ Template workflow activities in Visual Studio TFS Team Build.
     enable continuous delivery from automation where no user/operator
     prompting is possible.
 
-## <a name="step5"> </a>Step 5: Publish a Package using TFS Team Build (Optional)
+<h2><a name="step5"> </a><span class="short-header">Publish Using TFS </span>Step 5: Publish a Package using TFS Team Build (Optional)</h2>
 
 This step will wire up TFS Team Build to the script created in step 4,
 which handles publishing of the package build to Windows Azure. This
@@ -541,8 +548,8 @@ piped into the standard build output.
     3.  PublishScriptLocation =
         'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
 
-    4.  ServiceName = 'myhostedservicename'   
-        *Use the appropriate hosted service name here*
+    4.  ServiceName = 'mycloudservicename'   
+        *Use the appropriate cloud service name here*
 
     5.  Environment = 'Staging'
 
@@ -564,17 +571,18 @@ piped into the standard build output.
 
 ### <a name="script"> </a>PublishCloudService.ps1 script template
 
-Param(  $serviceName = "myCloudServiceName",
-        $storageAccountName = "myStorageAccountName",
-        $packageLocation = "c:\drops\myPackageFile.cspkg",
-        $cloudConfigLocation = "c:\drops\ServiceConfiguration.Cloud.cscfg",
+<pre>
+Param(  $serviceName = "",
+        $storageAccountName = "",
+        $packageLocation = "",
+        $cloudConfigLocation = "",
         $environment = "Staging",
         $deploymentLabel = "ContinuousDeploy to $servicename",
         $timeStampFormat = "g",
         $alwaysDeleteExistingDeployments = 1,
         $enableDeploymentUpgrade = 1,
         $selectedsubscription = "default",
-        $subscriptionDataFile = "C:\Scripts\default.publishsettings"
+        $subscriptionDataFile = ""
      )
       
 
@@ -738,11 +746,11 @@ function AllInstancesRunning($roleInstanceList)
 }
 
 #configure powershell with Azure 1.7 modules
-Get-ChildItem 'C:\Program Files (x86)\Microsoft SDKs\Windows Azure\PowerShell\*.psd1' | ForEach-Object {Import-Module $_}
+Import-Module Azure
 
 #configure powershell with publishsettings for your subscription
 $pubsettings = $subscriptionDataFile
-Import-AzurePublishSettingsFile -PublishSettingsFile $pubsettings
+Import-AzurePublishSettingsFile $pubsettings
 Set-AzureSubscription -CurrentStorageAccount $storageAccountName -SubscriptionName $selectedsubscription
 
 #set remaining environment variables for Azure cmdlets
@@ -762,7 +770,7 @@ $deploymentUrl = $deployment.Url
 
 Write-Output "$(Get-Date –f $timeStampFormat) - Created Cloud Service with URL $deploymentUrl."
 Write-Output "$(Get-Date –f $timeStampFormat) - Azure Cloud Service deploy script finished."
-
+</pre>
 
   [Continuous Delivery to Windows Azure by Using Team Foundation Service]: ./team-foundation-service.md
   [Step 1: Configure the Build Server]: #step1
@@ -773,6 +781,7 @@ Write-Output "$(Get-Date –f $timeStampFormat) - Azure Cloud Service deploy scr
   [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [Windows Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
+  [Windows Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
   [MSBuild Command Line Reference]: http://msdn.microsoft.com/en-us/library/ms164311(v=VS.90).aspx
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [Understanding the Team Foundation Build System]: http://go.microsoft.com/fwlink/?LinkId=238798
@@ -780,7 +789,7 @@ Write-Output "$(Get-Date –f $timeStampFormat) - Azure Cloud Service deploy scr
   [0]: ../../../DevCenter/dotNet/Media/tfs-01.png
   [2]: ../../../DevCenter/dotNet/Media/tfs-02.png
   [Windows Azure PowerShell Cmdlets]: http://go.microsoft.com/fwlink/?LinkId=256262
-  [the .publishsettings file]: https://windows.azure.com/download/publishprofile.aspx?wa=wsignin1.0
+  [the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
   [end of this article]: #script
   [http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx
   [3]: ../media/common-task-tfs-03.png

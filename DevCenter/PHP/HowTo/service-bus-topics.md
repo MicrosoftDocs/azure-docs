@@ -1,4 +1,6 @@
-<properties linkid="dev-php-how-to-service-bus-topics" urldisplayname="Service Bus Topics" headerexpose="" pagetitle="Service Bus Topics - How To - PHP - Develop" metakeywords="Windows Azure Service Bus, Service Bus topics, Service Bus subscriptions, PHP" footerexpose="" metadescription="Learn how to use Windows Azure Service Bus topics and subscriptions with PHP." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-php-how-to-guides-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (PHP) - Windows Azure" metaKeywords="" metaDescription="Learn how to use Service Bus topics with PHP in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to Use Service Bus Topics/Subscriptions
 
@@ -7,9 +9,9 @@ subscriptions. The samples are written in PHP and use the [Windows Azure SDK for
 
 ## Table of Contents
 
--   [What are Service Bus Topics and Subscriptions?](#WhatAreTopicsAndSubscriptions)
--   [Create a Service Namespace](#CreateNamespace)
--   [Obtain the Default Management Credentials for the Namespace](#GetDefaultCredentials)
+-   [What are Service Bus Topics and Subscriptions?](#what-are-service-bus-topics)
+-   [Create a Service Namespace](#create-a-service-namespace)
+-   [Obtain the Default Management Credentials for the Namespace](#obtain-default-credentials)
 - 	[Create a PHP application](#CreateApplication)
 -	[Get the Windows Azure Client Libraries](#GetClientLibrary)
 -   [Configure Your Application to Use Service Bus](#ConfigureApp)
@@ -21,64 +23,7 @@ subscriptions. The samples are written in PHP and use the [Windows Azure SDK for
 -   [How to: Delete Topics and Subscriptions](#DeleteTopicsAndSubscriptions)
 -   [Next Steps](#NextSteps)
 
-<h2 id="WhatAreTopicsAndSubscriptions">What are Service Bus topics and subscriptions?</h2>
-
-Service Bus topics and subscriptions support a **publish/subscribe
-messaging communication** model. When using topics and subscriptions,
-components of a distributed application do not communicate directly with
-each other, they instead exchange messages via a topic, which acts as an
-intermediary.
-
-![Service Bus Topics diagram][]
-
-In contrast to Service Bus queues, where each message is processed by a
-single consumer, topics and subscriptions provide a **one-to-many** form
-of communication, using a publish/subscribe pattern. It is possible to
-register multiple subscriptions to a topic. When a message is sent to a
-topic, it is then made available to each subscription to handle/process
-independently.
-
-A topic subscription resembles a virtual queue that receives copies of
-the messages that were sent to the topic. You can optionally register
-filter rules for a topic on a per-subscription basis, which allows you
-to filter/restrict which messages are received by a subscription.
-
-Service Bus topics and subscriptions enable you to scale to process a
-very large number of messages across a very large number of users and
-applications.
-
-<h2 id="CreateNamespace">Create a service namespace</h2>
-
-To begin using Service Bus queues in Windows Azure, you must first
-create a service namespace. A service namespace provides a scoping
-container for addressing Service Bus resources within your application.
-
-To create a service namespace:
-
-1.  Log on to the [Windows Azure Management Portal][].
-2.  In the lower left navigation pane of the Management Portal, click
-    **Service Bus, Access Control & Caching**.
-3.  In the upper left pane of the Management Portal, click the **Service
-    Bus** node, and then click the **New** button. 
- 
-    ![Service Bus Node screenshot][]
-
-4.  In the **Create a new Service Namespace** dialog, enter a
-    **Namespace**, and then to make sure that it is unique, click the
-    **Check Availability** button. 
- 
-    ![Create a New Namespace screenshot][]
-
-5.  After making sure the namespace name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same country/region in which you are deploying your
-    compute resources), and then click the **Create Namespace** button.
-    Having a compute instance is optional, and the service bus can be
-    consumed from any application with internet access.  
-      
-    The namespace you created will then appear in the Management Portal
-    and takes a moment to activate. Wait until the status is **Active**
-    before moving on.
+<div chunk="../../shared/chunks/howto-service-bus-topics.md" />
 
 <h2 id="CreateApplication">Create a PHP application</h2>
 
@@ -95,72 +40,67 @@ In this guide, you will use service features which can be called within a PHP ap
 
 <div chunk="../../Shared/Chunks/get-client-libraries.md" />
 
-<h2 id="GetDefaultCredentials">Obtain the default management credentials for the namespace</h2>
-
-In order to perform management operations on the new namespace (such as creating a topic or subscription), you need to obtain the management credentials for the namespace.
-
-1.  In the left navigation pane, click the **Service Bus** node, to display the list of available namespaces:  
- 
-    ![Available Namespaces screenshot][]
-
-2.  Select the namespace you just created from the list shown:
-   
-    ![Namespace List screenshot][]
-
-3.  The right-hand **Properties** pane will list the properties for the new namespace: 
-  
-    ![Properties Pane screenshot][]
-
-4.  The **Default Key** is hidden. Click the **View** button to display the security credentials: 
-  
-    ![Default Key screenshot][]
-
-5.  Make a note of the **Default Issuer** and the **Default Key** as you will use this information below to perform operations with the namespace.
-
 <h2 id="ConfigureApp">Configure your application to use Service Bus</h2>
 
 To use the Windows Azure Service Bus topic APIs, you need to:
 
-1. Reference the `WindowsAzure.php` file (from the Windows Azure SDK for PHP) using the [require\_once][require-once] statement, and
-
+1. Reference the autoloader file using the [require_once][require-once] statement, and
 2. Reference any classes you might use.
 
-The following example shows how to include the `WindowsAzure.php` file and reference the **ServiceBusService** class:
+The following example shows how to include the autoloader file and reference the **ServiceBusService** class.
 
-	require_once 'WindowsAzure\WindowsAzure.php';
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>This example (and other examples in this article) assume you have installed the PHP Client Libraries for Windows Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the <code>WindowsAzure.php</code> autoloader file.</p> 
+</div>
 
-	use WindowsAzure\ServiceBus\ServiceBusService;
+	require_once 'vendor\autoload.php';
+	use WindowsAzure\Common\ServicesBuilder;
+
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
+
+<h2 id="ConnectionString">Setup a Windows Azure Service Bus connection</h2>
+
+To instantiate a Windows Azure Service Bus client you must first have a valid connection string following this format:
+
+	Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]
+
+Where the Endpoint is typically of the format `https://[yourNamespace].servicebus.windows.net`.
+
+To create any Windows Azure service client you need to use the **ServicesBuilder** class. You can:
+
+* pass the connection string directly to it or
+* use the **CloudConfigurationManager (CCM)** to check multiple external sources for the connection string:
+	* by default it comes with support for one external source - environmental variables
+	* you can add new sources by extending the **ConnectionStringSource** class
+
+For the examples outlined here, the connection string will be passed directly.
+
+	require_once 'vendor\autoload.php';
+
+	use WindowsAzure\Common\ServicesBuilder;
+	
+	$connectionString = "Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]";
+
+	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
 <h2 id="CreateTopic">How to: Create a topic</h2>
 
 Management operations for Service Bus topics can be performed via the
 **ServiceBusRestProxy** class. A **ServiceBusRestProxy** object is
-constructed via the **ServiceBusService::create** factory method with an appropriate configuration that encapsulates the
-token permissions to manage it.
+constructed via the **ServicesBuilder::createServiceBusService** factory method with an appropriate connection string that encapsulates the token permissions to manage it.
 
-The example below shows how create a **Configuration** object, instantiate **ServiceBusRestProxy** via the **ServiceBusService::create** factory method, and call **ServiceBusRestProxy->createTopic** to create a topic named `mytopic` within a `MySBNamespace` service namespace:
+The example below shows how to instantiate a **ServiceBusRestProxy** and call **ServiceBusRestProxy->createTopic** to create a topic named `mytopic` within a `MySBNamespace` service namespace:
 
-	require_once 'WindowsAzure\WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\ServiceBus\ServiceBusService;
-	use WindowsAzure\ServiceBus\ServiceBusSettings;
-	use WindowsAzure\ServiceBus\Models\TopicInfo;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
-
-	$issuer = "<obtained from portal>";
-	$key = "<obtained from portal>";
-
-	// Create configuration object.
-	$config = new Configuration();
-	ServiceBusSettings::configureWithWrapAuthentication( $config,
-														 "MySBNamespace",
-														 $issuer,
-														 $key);
-
+	use WindowsAzure\ServiceBus\Models\TopicInfo;
+	
 	// Create Service Bus REST proxy.
-	$serviceBusRestProxy = ServiceBusService::create($config);
+	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 	
 	try	{		
 		// Create topic.
@@ -189,25 +129,14 @@ Topic subscriptions are also created with the **ServiceBusRestProxy->createSubsc
 
 The **MatchAll** filter is the default filter that is used if no filter is specified when a new subscription is created. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named 'mysubscription' and uses the default **MatchAll** filter.
 
-	require_once 'WindowsAzure\WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\ServiceBus\ServiceBusService;
-	use WindowsAzure\ServiceBus\ServiceBusSettings;
-	use WindowsAzure\ServiceBus\Models\SubscriptionInfo;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
-
-	$issuer = "<obtained from portal>";
-	$key = "<obtained from portal>";
-
-	// Create configuration object.
-	$config = new Configuration();
-	ServiceBusSettings::configureWithWrapAuthentication( $config,
-														 "MySBNamespace",
-														 $issuer,
-														 $key);
+	use WindowsAzure\ServiceBus\Models\SubscriptionInfo;
 
 	// Create Service Bus REST proxy.
-	$serviceBusRestProxy = ServiceBusService::create($config);
+	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 	
 	try	{
 		// Create subscription.
@@ -263,25 +192,14 @@ When a message is now sent to the `mytopic` topic, it will always be delivered t
 To send a message to a Service Bus topic, your application will call the **ServiceBusRestProxy->sendTopicMessage** method. The code below demonstrates how to send a message to the `mytopic` topic we created above within the
 `MySBNamespace` service namespace.
 
-	require_once 'WindowsAzure\WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\ServiceBus\ServiceBusService;
-	use WindowsAzure\ServiceBus\ServiceBusSettings;
-	use WindowsAzure\ServiceBus\Models\BrokeredMessage;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
-
-	$issuer = "<obtained from portal>";
-	$key = "<obtained from portal>";
-
-	// Create configuration object.
-	$config = new Configuration();
-	ServiceBusSettings::configureWithWrapAuthentication( $config,
-														 "MySBNamespace",
-														 $issuer,
-														 $key);	
+	use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 
 	// Create Service Bus REST proxy.
-	$serviceBusRestProxy = ServiceBusService::create($config);
+	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 		
 	try	{
 		// Create message.
@@ -327,30 +245,19 @@ In **PeekLock** mode, receiving a message becomes a two stage operation, which m
 
 The example below demonstrates how a message can be received and processed using **PeekLock** mode (not the default mode). 
 
-	require_once 'WindowsAzure\WindowsAzure.php';
+	require_once 'vendor\autoload.php';
 
-	use WindowsAzure\ServiceBus\ServiceBusService;
-	use WindowsAzure\ServiceBus\ServiceBusSettings;
-	use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
+	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
+	use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 
-	$issuer = "<obtained from portal>";
-	$key = "<obtained from portal>";
-
-	// Create configuration object.
-	$config = new Configuration();
-	ServiceBusSettings::configureWithWrapAuthentication( $config,
-														 "MySBNamespace",
-														 $issuer,
-														 $key);
-	
 	// Create Service Bus REST proxy.
-	$serviceBusRestProxy = ServiceBusService::create($config);
+	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 		
 	try	{
 		// Set receive mode to PeekLock (default is ReceiveAndDelete)
 		$options = new ReceiveMessageOptions();
-		$options->setPeekLock(true);
+		$options->setPeekLock();
 	
 		// Get message.
 		$message = $serviceBusRestProxy->receiveSubscriptionMessage("mytopic", 
@@ -363,7 +270,7 @@ The example below demonstrates how a message can be received and processed using
 			Process message here.
 		----------------------------*/
 		
-		// Delete message.
+		// Delete message. Not necessary if peek lock is not set.
 		echo "Deleting message...<br />";
 		$serviceBusRestProxy->deleteMessage($message);
 	}
@@ -390,23 +297,14 @@ To delete a topic or a subscription, use the **ServiceBusRestProxy->deleteTopic*
 
 The following example shows how to delete a topic (`mytopic`) and its registered subscriptions.
 
-    require_once 'WindowsAzure\WindowsAzure.php';
+    require_once 'vendor\autoload.php';
 
 	use WindowsAzure\ServiceBus\ServiceBusService;
 	use WindowsAzure\ServiceBus\ServiceBusSettings;
 	use WindowsAzure\Common\ServiceException;
 
-	$issuer = "<obtained from portal>";
-	$key = "<obtained from portal>";
-
-	// Create configuration object.
-	$config = new Configuration();
-	ServiceBusSettings::configureWithWrapAuthentication( $config,
-														 "MySBNamespace",
-														 $issuer,
-														 $key);
 	// Create Service Bus REST proxy.
-	$serviceBusRestProxy = ServiceBusService::create($config);
+	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 	
 	try	{		
 		// Delete topic.
@@ -443,7 +341,7 @@ topic [Queues, Topics, and Subscriptions][] for more information.
 [How to: Delete Topics and Subscriptions]: #bkmk_HowToDeleteTopics
 [Next Steps]: #bkmk_NextSteps
 [Service Bus Topics diagram]: ../../../DevCenter/Java/Media/SvcBusTopics_01_FlowDiagram.jpg
-[Windows Azure Management Portal]: http://windows.azure.com/
+[Windows Azure Management Portal]: http://manage.windowsazure.com/
 [Service Bus Node screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
 [Create a New Namespace screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
 [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png

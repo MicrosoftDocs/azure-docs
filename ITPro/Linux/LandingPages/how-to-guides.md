@@ -1,11 +1,13 @@
-<properties umbracoNaviHide="0" pageTitle="How to guides" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-linux-how-to-guides" urlDisplayName="How to guides" pageTitle="Windows Azure Linux virtual machine how-to guides" metaKeywords="Azure Linux vms, Linux vms, Linux virtual machine" metaDescription="Find topics about Linux virtual machines (VMs) on Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+
+
 
 <h1 id="guides">How to guides for Linux virtual machines</h1>
 
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-###[How to Create a Custom Virtual Machine](/en-us/manage/linux/how-to-guides/custom-create-a-vm/)
+###[How to Create a Custom Virtual Machine](/en-us/manage/linux/common-tasks/upload-a-VHD/)
 
 Learn how to create a custom virtual machine by providing advanced options, such as size, connected resources, DNS name, and network connection. You use this option if you want to connect virtual machines or if you want to use a custom image to create the machine.
  
@@ -41,7 +43,7 @@ Learn how to customize and create images for the different distributions that ou
 
 ###[How to use the Windows Azure Command-Line Tools for Mac and Linux](/en-us/manage/linux/how-to-guides/command-line-tools/)
 
-Learn how to use the Windows Azure Command-Line Tools for Mac and Linux to create and manage services in Windows Azure. The scenarios covered include installing the tools, importing your publishing settings, creating and managing Windows Azure Websites, and creating and managing Windows Azure Virtual Machines. For comprehensive reference documentation, see [Windows Azure command-line tool for Mac and Linux Documentation][reference-docs]. 
+Learn how to use the Windows Azure Command-Line Tools for Mac and Linux to create and manage services in Windows Azure. The scenarios covered include installing the tools, importing your publishing settings, creating and managing Windows Azure Web Sites, and creating and managing Windows Azure Virtual Machines. For comprehensive reference documentation, see [Windows Azure command-line tool for Mac and Linux Documentation][reference-docs]. 
 
 
 ###[How to use Windows Azure PowerShell](/en-us/manage/linux/how-to-guides/powershell-cmdlets/)

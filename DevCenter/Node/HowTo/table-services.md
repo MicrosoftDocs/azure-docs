@@ -1,4 +1,7 @@
-<properties umbraconavihide="0" pagetitle="Table Services - How To - Node.js - Develop" metakeywords="Azure nosql Node.js, Azure large structured data store Node.js, Azure table Node.js, Azure table storage Node.js" metadescription="Learn how to use the Windows Azure table storage service to create and delete tables and insert and query entities in a table from your Node.js application." linkid="dev-nodejs-how-to-table-services" urldisplayname="Table Service" headerexpose="" footerexpose="" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) - Windows Azure feature guide" metaKeywords="Windows Azure table storage service, Azure table service Node.js, table storage Node.js" metaDescription="Learn how to use the table storage service in Windows Azure. Code samples are written using the Node.js API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to Use the Table Service from Node.js
 
@@ -409,7 +412,7 @@ to learn how to do more complex storage tasks.
   [Table1]: ../../dotNet/Media/table1.png
   [OData.org]: http://www.odata.org/
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
 
   [plus-new]: ../../Shared/Media/plus-new.png
   [quick-create-storage]: ../../Shared/Media/quick-storage.png
@@ -419,7 +422,7 @@ to learn how to do more complex storage tasks.
   [Node.js Cloud Service]: {localLink:2221} "Web App with Express"
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Visit the Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/website-with-webmatrix/
+  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
 [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
-  [Node.js Web Application with Storage]: en-us/develop/nodejs/tutorials/web-site-with-storage/
+  [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
  [Create and deploy a Node.js application to a Windows Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/

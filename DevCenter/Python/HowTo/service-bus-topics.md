@@ -1,5 +1,8 @@
-# How to Use Service Bus Topics/Subscriptions
+<properties linkid="develop-python-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Python) - Windows Azure" metaKeywords="Get started Azure Service Bus topics publising subscribe messaging Python" metaDescription="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for Python applications." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+<div chunk="../chunks/article-left-menu.md" />
+
+# How to Use Service Bus Topics/Subscriptions
 This guide will show you how to use Service Bus topics and subscriptions
 from Python applications. The scenarios covered include **creating
 topics and subscriptions, creating subscription filters, sending
@@ -9,7 +12,7 @@ and subscriptions, see the [Next Steps][] section.
 
 ## Table of Contents
 
--   [What are Service Bus Topics and Subscriptions][]
+-   [What are Service Bus Topics and Subscriptions?][]
 -   [Create a Service Namespace][]
 -   [Obtain the Default Management Credentials for the Namespace][]
 -   [How to: Create a Topic][]
@@ -20,101 +23,13 @@ and subscriptions, see the [Next Steps][] section.
 -   [How to: Delete Topics and Subscriptions][]
 -   [Next Steps][1]
 
-## What are Service Bus Topics and Subscriptions
 
-Service Bus topics and subscriptions support a **publish/subscribe
-messaging communication** model. When using topics and subscriptions,
-components of a distributed application do not communicate directly with
-each other, they instead exchange messages via a topic, which acts as an
-intermediary.
-
-![Topic Concepts][]
-
-In contrast to Service Bus queues, where each message is processed by a
-single consumer, topics and subscriptions provide a **one-to-many** form
-of communication, using a publish/subscribe pattern. It is possible to
-register multiple subscriptions to a topic. When a message is sent to a
-topic, it is then made available to each subscription to handle/process
-independently.
-
-A topic subscription resembles a virtual queue that receives copies of
-the messages that were sent to the topic. You can optionally register
-filter rules for a topic on a per-subscription basis, which allows you
-to filter/restrict which messages to a topic are received by which topic
-subscriptions.
-
-Service Bus topics and subscriptions enable you to scale to process a
-very large number of messages across a very large number of users and
-applications.
-
-## Create a Service Namespace
-
-To begin using Service Bus topics and subscriptions in Windows Azure,
-you must first create a service namespace. A service namespace provides
-a scoping container for addressing Service Bus resources within your
-application.
-
-To create a service namespace:
-
-1.  Log on to the [Windows Azure Management Portal][].
-
-2.  In the lower left navigation pane of the Management Portal, click
-    **Service Bus, Access Control & Caching**.
-
-3.  In the upper left pane of the Management Portal, click the **Service
-    Bus** node, and then click the **New** button.
-
-    ![image][]
-
-4.  In the **Create a new Service Namespace** dialog, enter a
-    **Namespace**, and then to make sure that it is unique, click the
-    **Check Availability** button.
-
-    ![image][2]
-
-5.  After making sure the **Namespace** name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same **Country/Region** in which you are deploying
-    your compute resources), and then click the **Create Namespace**
-    button.
-
-The namespace you created will then appear in the Management Portal and
-takes a moment to activate. Wait until the status is **Active** before
-moving on.
-
-## Obtain the Default Management Credentials for the Namespace
-
-In order to perform management operations, such as creating a topic or
-subscription, on the new namespace, you need to obtain the management
-credentials for the namespace.
-
-1.  In the left navigation pane, click the **Service Bus** node to
-    display the list of available namespaces:
-
-    ![image][]
-
-2.  Select the namespace you just created from the list shown:
-
-    ![image][3]
-
-3.  The right-hand **Properties** pane will list the properties for the
-    new namespace:
-
-    ![image][4]
-
-4.  The **Default Key** is hidden. Click the **View** button to display
-    the security credentials:
-
-    ![image][5]
-
-5.  Make a note of the **Default Issuer** and the **Default Key** as you
-    will use this information below to perform operations with the
-    namespace.
+<div chunk="../../shared/chunks/howto-service-bus-topics.md" />
 
 **Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../commontasks/how-to-install-python.md).
 
 
-## How to Create a Topic
+##<a name="How_to_Create_a_Topic"></a>How to Create a Topic
 
 The **ServiceBusService** object lets you work with topics. Add the following near the top of any Python file in which you wish to programmatically access Windows Azure Service Bus:
 
@@ -137,7 +52,7 @@ setting the maximum topic size to 5GB a time to live of 1 minute:
 
 	bus_service.create_topic('mytopic', topic_options)
 
-## How to Create Subscriptions
+##<a name="How_to_Create_Subscriptions"></a>How to Create Subscriptions
 
 Topic subscriptions are also created with the **ServiceBusService**
 object. Subscriptions are named and can have an optional filter that
@@ -210,7 +125,7 @@ receivers subscribed to the 'AllMessages' topic subscription, and
 selectively delivered to receivers subscribed to the 'HighMessages' and
 'LowMessages' topic subscriptions (depending upon the message content).
 
-## How to Send Messages to a Topic
+##<a name="How_to_Send_Messages_to_a_Topic"></a>How to Send Messages to a Topic
 
 To send a message to a Service Bus topic, your application must use the
 **send\_topic\_message** method of the **ServiceBusService** object.
@@ -231,7 +146,7 @@ held in a topic but there is a cap on the total size of the messages
 held by a topic. This topic size is defined at creation time, with an
 upper limit of 5 GB.
 
-## How to Receive Messages from a Subscription
+##<a name="How_to_Receive_Messages_from_a_Subscription"></a>How to Receive Messages from a Subscription
 
 Messages are received from a subscription using the
 **receive\_subscription\_message** method on the **ServiceBusService**
@@ -271,7 +186,7 @@ mark the message as being consumed and remove it from the subscription.
 	msg.delete()
 	
 
-## How to Handle Application Crashes and Unreadable Messages
+##<a name="How_to_Handle_Application_Crashes_and_Unreadable_Messages"></a>How to Handle Application Crashes and Unreadable Messages
 
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
@@ -299,7 +214,7 @@ to handle duplicate message delivery. This is often achieved using the
 **MessageId** property of the message, which will remain constant across
 delivery attempts.
 
-## How to Delete Topics and Subscriptions
+##<a name="How_to_Delete_Topics_and_Subscriptions"></a>How to Delete Topics and Subscriptions
 
 Topics and subscriptions are persistent, and must be explicitly deleted
 either through the Windows Azure Management portal or programmatically.
@@ -314,7 +229,7 @@ following code demonstrates how to delete a subscription named
 
 	bus_service.delete_subscription('mytopic', 'HighMessages')
 
-## Next Steps
+##<a name="Next_Steps"></a>Next Steps
 
 Now that you've learned the basics of Service Bus topics, follow these
 links to learn more.
@@ -323,9 +238,9 @@ links to learn more.
 -   API reference for [SqlFilter][].
 
   [Next Steps]: #nextsteps
-  [What are Service Bus Topics and Subscriptions]: #What_are_Service_Bus_Topics_and_Subscriptions
-  [Create a Service Namespace]: #Create_a_Service_Namespace
-  [Obtain the Default Management Credentials for the Namespace]: #Obtain_the_Default_Management_Credentials_for_the_Namespace
+  [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
+  [Create a Service Namespace]: #create-a-service-namespace
+  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
   [How to: Create a Topic]: #How_to_Create_a_Topic
   [How to: Create Subscriptions]: #How_to_Create_Subscriptions
   [How to: Send Messages to a Topic]: #How_to_Send_Messages_to_a_Topic
@@ -334,7 +249,7 @@ links to learn more.
   [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
   [1]: #Next_Steps
   [Topic Concepts]: ../../../DevCenter/dotNet/Media/sb-topics-01.png
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [image]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
   [2]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
   [3]: ../../../DevCenter/dotNet/Media/sb-queues-05.png

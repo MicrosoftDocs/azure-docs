@@ -1,5 +1,7 @@
-# Python Developer Center - How To Guides
+<properties linkid="devnav-python-howto" urlDisplayName="How To Guides" pageTitle="Windows Azure Python feature guides" metaKeywords="Azure Python" metaDescription="Find topics about using Windows Azure service and features in Python." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+# Python Developer Center - How To Guides
 ## Data management and integration
 
 ### [Blob Service]
@@ -24,7 +26,7 @@ Service Bus Topics provide a publish/subscribe messaging model to support one-to
 PowerShell for Windows Azure provides a command-line environment for developing and deploying applications for Windows Azure through a  Windows PowerShell cmdlets. This guide describes how to use Windows PowerShell cmdlets to create, test, deploy, and manage Windows Azure Services. -->
 
 ### [Command-Line Tools for Mac and Linux](/develop/python/how-to-guides/command-line-tools/ "Command-Line Tools for Mac and Linux")
-The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Windows Azure services. Use the command-line tools to create and manage websites and virtual machines in Windows Azure. 
+The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Windows Azure services. Use the command-line tools to create and manage web sites and virtual machines in Windows Azure. 
 
 [PowerShell for Windows Azure]: ../howto/powershell.md
 [Command-Line Tools for Mac and Linux]: ../howto/crossplat-cmd-tools.md

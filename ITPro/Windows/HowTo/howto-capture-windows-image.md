@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Capture an Image of a Virtual Machine Running Windows Server 2008 R2" metaKeywords="Windows Azure virtual machine, Azure virtual machine, Azure image, capture an image, image" metaDescription="Learn how to capture your own images to create customized virtual machines." linkid="manage-windows-how-to-guide-virtual-machines" urlDisplayName="How to: virtual machines" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-windows-howto-capture-an-image" urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Windows Server" metaKeywords="Azure capture image vm, capturing vm" metaDescription="Learn how to capture an image of a Windows Azure virtual machine (VM) running Windows Server 2008 R2. " metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 #How to Capture an Image of a Virtual Machine Running Windows Server 2008 R2 #
 

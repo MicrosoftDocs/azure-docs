@@ -1,9 +1,11 @@
-#WebMatrix 2… Built for Azure
+<properties linkid="dev-download-webmatrix" urlDisplayName="WebMatrix Overview" pageTitle="WebMatrix Overview for Windows Azure" metaKeywords="" metaDescription="Download a free copy of WebMatrix 2 for Windows Azure. WebMatrix is a web development tool for creating, publishing, and maintaining web sites." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+
+#WebMatrix 2… Built for Azure
 ##Open your sites directly from Windows Azure
 
 If you already have a live
-website hosted in Windows Azure that you want to start editing, you can click
+web site hosted in Windows Azure that you want to start editing, you can click
 the WebMatrix button in the Windows Azure portal. With this single click, you
 can install WebMatrix and any prerequisites, and download a copy of the site to
 your computer so that you can edit it locally.
@@ -29,7 +31,7 @@ Read more</a>
 ##Publish seamlessly to Windows Azure
 
 With a single click to import
-a publish settings file from Azure, you can publish any website you’ve built
+a publish settings file from Azure, you can publish any web site you’ve built
 straight to the cloud. No complicated settings or additional work required!
 
 ![picture 6][3]

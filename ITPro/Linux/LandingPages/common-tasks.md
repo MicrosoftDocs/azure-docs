@@ -1,5 +1,7 @@
-#Common tasks for Linux virtual machines
+<properties linkid="manage-linux-common-tasks" urlDisplayName="Common tasks" pageTitle="Windows Azure Linux VM Common Tasks" metaKeywords="Azure Linux vms, Linux vms, Linux virtual machine" metaDescription="Find topics about common tasks when using Linux virtual machines (VM) in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+#Common tasks for Linux virtual machines
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
@@ -33,3 +35,7 @@ Learn how to gain root privileges on your Linux virtual machine by uploading an 
 ###[Install software on your Linux virtual machine in Windows Azure](/en-us/manage/linux/common-tasks/install-software/)
 
 Learn how to install software using the package managers for some of the common Linux distributions. 
+
+###[Load Balancing Virtual Machines](/en-us/manage/linux/common-tasks/how-to-load-balance-virtual-machines/)
+
+Learn how to load balance virtual machines that are running Linux and that are in a cloud service. 

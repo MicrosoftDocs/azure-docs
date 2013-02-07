@@ -1,4 +1,8 @@
-<properties linkid="dev-net-how-to-autoscaling" urldisplayname="Autoscaling" headerexpose="" pagetitle="Autoscaling - How To - .NET - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-net-how-to-autoscaling" urlDisplayName="Autoscaling" pageTitle="Use the autoscaling application block (.NET) - Windows Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" metaDescription="Learn how to use the Autoscaling Application for Windows Azure. Code samples are written in C# and use the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to Use the Autoscaling Application Block
 
@@ -54,7 +58,7 @@ your application:
     instances, for example, let's say that between 8:00 and 10:00 every
     morning you want a minimum of four and a maximum of six instances,
     then you use a **constraint rule**. In the diagram, the red and blue
-    lines represent constraints rules. For example, at point **A** in
+    lines represent constraint rules. For example, at point **A** in
     the diagram, the minimum number of role instances rises from two to
     four, in order to accommodate the anticipated increase in the
     application's workload at this time. At point **B** in the diagram,
@@ -116,11 +120,11 @@ Block binaries and add references to them in your project. The NuGet
 Visual Studio extension makes it easy to install and update libraries
 and tools in Visual Studio and Visual Web Developer. The Autoscaling
 Application Block NuGet package is the easiest way to get the Autscaling
-Application Block APIs For more information about **NuGet**, and how to
+Application Block APIs. For more information about **NuGet**, and how to
 install and use the **NuGet** Visual Studio extension, see the [NuGet][]
-website.
+web site.
 
-Once you have the NuGet Package Manager installed, to install the NuGet
+Once you have the NuGet Package Manager installed, to install the Autoscaling NuGet
 package in your application, do the following:
 
 1.  Open the **NuGet Package Manager Console** window. In the **Tools**
@@ -228,18 +232,22 @@ You must replace the values in square brackets with values specific to
 your environment and target application. To find many of these values,
 you will need to log in to the [Windows Azure Management Portal][].
 
-Within the management portal, click **Hosted Services, Storage Accounts
-& CDN**.
+Sign in to the management portal.
 
--   **[subscriptionname] and [subscriptionid]:** The name and ID of the
+-   **[subscriptionname]:** Choose a friendly name to refer to the
     Windows Azure subscription that contains the application in which
     you want to use auto-scaling.
 
-    1.  In the **Hosted Services, Storage Accounts & CDN** pane, click
-        **Hosted Services**.
+-   **[subscriptionid]:** The unique ID of the
+    Windows Azure subscription that contains the application in which
+    you want to use auto-scaling.
 
-    2.  Click on the subscription in the center results pane. The
-        Properties pane on the right will display the **Name** and
+    1.  In the Windows Azure Management Portal, click
+        **Cloud Services**.
+
+    2.  In the list of Cloud Services, click on the service that hosts the
+        application in which you want to use autoscaling. The
+        Quick Glance pane on the right will display the
         **Subscription ID**.
 
         ![image][1]
@@ -247,22 +255,25 @@ Within the management portal, click **Hosted Services, Storage Accounts
 -   **[hostedservicednsprefix]:** The DNS Prefix of the hosted service
     in which you want to use auto-scaling.
 
-    1.  In the **Hosted Services, Storage Accounts & CDN** pane, click
-        **Hosted Services**.
+    1.  In the Windows Azure Management Portal, click
+        **Cloud Services**.
 
-    2.  Click on the hosted service in the center results pane. The
-        Properties pane on the right will display the **DNS Prefix**.
+    2.  In the list of Cloud Services, locate the service that hosts the
+        application in which you want to use autoscaling. The name of
+        the cloud serviceClick is the **DNS Prefix**.
 
         ![image][2]
 
 -   **[targetrolename]:** The name of the role that is the target of
     your auto-scaling rules.
 
-    1.  In the **Hosted Services, Storage Accounts & CDN** pane, click
-        **Hosted Services**.
+    1.  In the Windows Azure Management Portal, click
+        **Cloud Services**.
 
-    2.  Click on the role in the center results pane. The Properties
-        pane on the right will display the **Name**.
+    2.  In the list of Cloud Services, click on the service that hosts the
+        application in which you want to use autoscaling, then click
+        **Instances**. The **Role* column displays the name of your target
+        role.
 
         ![image][3]
 
@@ -270,14 +281,14 @@ Within the management portal, click **Hosted Services, Storage Accounts
     the Windows Azure storage account that you are using for your target
     Windows Azure application.
 
-    1.  In the **Hosted Services, Storage Accounts & CDN** pane, click
-        **Storage Account**.
+    1.  In the Windows Azure Management Portal, click
+        **Storage**.
 
-    2.  Click on the storage account in the center results pane. The
-        Properties pane on the right will display the **Name**.
+    2.  In the list of Storage Accounts, select  the storage account you are using. The
+        **Name** column will display the **Name**.
 
-    3.  Click the **View** button next to the hidden **Primary access
-        key** to get the primary account key.
+    3.  Click the **Manage Keys** button at the bottom of the screen
+        to get the primary access key.
 
         ![image][4]
 
@@ -285,11 +296,10 @@ Within the management portal, click **Hosted Services, Storage Accounts
     Management Certificate that the block will use to secure scaling
     requests to the target application.
 
-    1.  In the **Hosted Services, Storage Accounts & CDN** pane, click
-        **Management Certificates**.
+    1.  In the Windows Azure Management Portal, click
+        **Settings**.
 
-    2.  Click on the certificate in the center results pane. The
-        Properties pane on the right will display the **Thumbprint**.
+    2.  The **Thumbprint** column will display the **Thumbprint**.
 
         ![image][5]
 
@@ -516,6 +526,8 @@ autoscaling scenarios:
 -   [Defining Scale Groups][]
 -   [Using the WASABiCmdlets for manipulating the block via Windows PowerShell][]
 -   [Developer's Guide to the Enterprise Library 5.0 Integration Pack for Windows Azure][]
+-   [How Sage Reduces Windows Azure Hosting Costs Using Autoscaling][]
+-   [Reducing TechNet and MSDN hosting costs and environmental impact with autoscaling on Windows Azure][]
 
   [Microsoft Enterprise Library 5.0 Integration Pack for Windows Azure]:
     http://go.microsoft.com/fwlink/?LinkID=235134
@@ -528,24 +540,24 @@ autoscaling scenarios:
   [How To: Define your Service Model]: #DefineServiceModel
   [How To: Define your Autoscaling Rules]: #DefineAutoscalingRules
   [How To: Configure the Autoscaling Application Block]: #Configure
-  [diagram of sample autoscaling]: ../../../DevCenter/dotNet/Media/auotscaling01.png
+  [diagram of sample autoscaling]: ../../../DevCenter/dotNET/Media/autoscaling01.png
   [Using Performance Counters in Windows Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
   [files configured by autoscaling NuGet package]: ../../../DevCenter/dotNet/Media/auotscaling02.png
   [image]: ../../../DevCenter/dotNet/Media/autoscaling03.png
   [Set Copy to Output Directory value]: ../../../DevCenter/dotNet/Media/autoscaling04.png
-  [Windows Azure Management Portal]: http://windows.azure.com
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [1]: ../../../DevCenter/dotNet/Media/autoscaling05.png
   [2]: ../../../DevCenter/dotNet/Media/autoscaling06.png
   [3]: ../../../DevCenter/dotNet/Media/autoscaling07.png
   [4]: ../../../DevCenter/dotNet/Media/autoscaling08.png
   [5]: ../../../DevCenter/dotNet/Media/autoscaling09.png
   [Storing Your Service Information Data]: http://msdn.microsoft.com/en-us/library/hh680878(PandP.50).aspx
-  [6]: ../../../DevCenter/dotNet/Media/auotscaling10.png
-  [7]: ../../../DevCenter/dotNet/Media/autoscaling11.png
-  [8]: ../../../DevCenter/dotNet/Media/autoscaling12.png
-  [9]: ../../../DevCenter/dotNet/Media/autoscaling13.png
-  [10]: ../../../DevCenter/dotNet/Media/autoscaling14.png
+  [6]: ../../../DevCenter/dotNET/Media/autoscaling10.png
+  [7]: ../../../DevCenter/dotNET/Media/autoscaling11.png
+  [8]: ../../../DevCenter/dotNET/Media/autoscaling12.png
+  [9]: ../../../DevCenter/dotNET/Media/autoscaling13.png
+  [10]: ../../../DevCenter/dotNET/Media/autoscaling14.png
   [Hosting the Autoscaling Application Block in a Worker Role]: http://msdn.microsoft.com/en-us/library/hh680914(PandP.50).aspx
   [Implementing Throttling Behavior]: http://msdn.microsoft.com/en-us/library/hh680896(PandP.50).aspx
   [Understanding Rule Ranks and Reconciliation]: http://msdn.microsoft.com/en-us/library/hh680923(PandP.50).aspx
@@ -555,3 +567,5 @@ autoscaling scenarios:
   [Defining Scale Groups]: http://msdn.microsoft.com/en-us/library/hh680902(PandP.50).aspx
   [Using the WASABiCmdlets for manipulating the block via Windows PowerShell]: http://msdn.microsoft.com/en-us/library/hh680938(PandP.50).aspx
   [Developer's Guide to the Enterprise Library 5.0 Integration Pack for Windows Azure]: http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx
+  [How Sage Reduces Windows Azure Hosting Costs Using Autoscaling]: http://msdn.microsoft.com/en-us/library/jj838716(PandP.50).aspx
+  [Reducing TechNet and MSDN hosting costs and environmental impact with autoscaling on Windows Azure]: http://msdn.microsoft.com/en-us/library/jj838718(PandP.50).aspx

@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Managing your ACS namespace" metaKeywords="" metaDescription="" linkid="manage-services-other-acs" urlDisplayName="Access Control" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-manage-acs" urlDisplayName="Manage ACS" pageTitle="Access Control Service - Windows Azure service management" metaKeywords="" metaDescription="Learn how to manage your Windows Azure Access Control Service (ACS) using certificates and keys." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 # Managing Your ACS Namespace #
 
 This topic outlines management tasks that it is recommended you perform regularly so that your applications that use the Windows Azure Acccess Control Service (ACS) continue to function properly and without interruptions. These management tasks are as follows:
@@ -72,7 +74,7 @@ You can manage token signing certificates via the Certificates and Key section o
 
 1. Open an Internet browser and visit the Windows Azure Management Portal ([http://go.microsoft.com/fwlink/?LinkID=129428](http://go.microsoft.com/fwlink/?LinkID=129428)).
 
-2. Log on to the website using a Windows Live ID. If you do not have a Windows Live ID, click Sign up to create one for yourself.
+2. Log on to the web site using a Windows Live ID. If you do not have a Windows Live ID, click Sign up to create one for yourself.
 
 3. After you are signed in with your Windows Live ID, you are redirected to the Management Portal page. On the lower-left-hand side of this page, click **Service Bus and Access Control**.
 
@@ -129,7 +131,7 @@ You can manage token signing keys via the Certificates and Key section of the AC
 
 1. Open an Internet browser and visit the Windows Azure Management Portal ([http://go.microsoft.com/fwlink/?LinkID=129428](http://go.microsoft.com/fwlink/?LinkID=129428)).
 
-2. Log on to the website using a Windows Live ID. If you do not have a Windows Live ID, click Sign up to create one for yourself.
+2. Log on to the web site using a Windows Live ID. If you do not have a Windows Live ID, click Sign up to create one for yourself.
 
 3. After you are signed in with your Windows Live ID, you are redirected to the Management Portal page. On the lower-left-hand side of this page, click **Service Bus and Access Control**.
 
@@ -185,7 +187,7 @@ You can manage token encryption certificates via the Certificates and Key sectio
 
 1. Open an Internet browser and visit the Windows Azure Management Portal ([http://go.microsoft.com/fwlink/?LinkID=129428](http://go.microsoft.com/fwlink/?LinkID=129428)).
 
-2. Log on to the website using a Windows Live ID. If you do not have a Windows Live ID, click Sign up to create one for yourself.
+2. Log on to the web site using a Windows Live ID. If you do not have a Windows Live ID, click Sign up to create one for yourself.
 
 3. After you are signed in with your Windows Live ID, you are redirected to the Management Portal page. On the lower-left-hand side of this page, click **Service Bus and Access Control**.
 
@@ -237,7 +239,7 @@ You can manage token decryption certificates via the Certificates and Key sectio
 
 1. Open an Internet browser and visit the Windows Azure Management Portal ([http://go.microsoft.com/fwlink/?LinkID=129428](http://go.microsoft.com/fwlink/?LinkID=129428)).
 
-2. Log on to the website using a Windows Live ID. If you do not have a Windows Live ID, click Sign up to create one for yourself.
+2. Log on to the web site using a Windows Live ID. If you do not have a Windows Live ID, click Sign up to create one for yourself.
 
 3. After you are signed in with your Windows Live ID, you are redirected to the Management Portal page. On the lower-left-hand side of this page, click **Service Bus and Access Control**.
 
@@ -294,7 +296,7 @@ You can manage service identity credentials via the Service identities page of t
 
 1. Open an Internet browser and visit the Windows Azure Management Portal ([http://go.microsoft.com/fwlink/?LinkID=129428](http://go.microsoft.com/fwlink/?LinkID=129428)).
 
-2. Log on to the website using a Windows Live ID. If you do not have a Windows Live ID, click Sign up to create one for yourself.
+2. Log on to the web site using a Windows Live ID. If you do not have a Windows Live ID, click Sign up to create one for yourself.
 
 3. After you are signed in with your Windows Live ID, you are redirected to the Management Portal page. On the lower-left-hand side of this page, click **Service Bus and Access Control**.
 
@@ -355,7 +357,7 @@ You can manage the management service credentials via the Management service pag
 
 1. Open an Internet browser and visit the Windows Azure Management Portal ([http://go.microsoft.com/fwlink/?LinkID=129428](http://go.microsoft.com/fwlink/?LinkID=129428)).
 
-2. Log on to the website using a Windows Live ID. If you do not have a Windows Live ID, click Sign up to create one for yourself.
+2. Log on to the web site using a Windows Live ID. If you do not have a Windows Live ID, click Sign up to create one for yourself.
 
 3. After you are signed in with your Windows Live ID, you are redirected to the Management Portal page. On the lower-left-hand side of this page, click **Service Bus and Access Control**.
 

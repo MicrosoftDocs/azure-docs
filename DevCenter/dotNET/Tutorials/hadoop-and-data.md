@@ -1,5 +1,7 @@
-# Hadoop on Windows Azure - Working With Data
+<properties linkid="develop-dotnet-hadoop-and-data" urlDisplayName="Hadoop and Data" pageTitle="Hadoop and data (.NET) - Windows Azure tutorial" metaKeywords="Azure Hadoop, Azure Apache, store data Hadoop, import data Hadoop, Azure Hadoop jobs" metaDescription="A tutorial that teaches you techniques for storing and importing data for Hadoop jobs run with Apache Hadoop-based Services for Windows Azure. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+
+# Hadoop on Windows Azure - Working With Data
 This tutorial covers several techniques for storing and importing data for use in Hadoop jobs run with Apache™ Hadoop™-based Services for Windows Azure. Apache Hadoop is a software framework that supports data-intensive distributed applications. While Hadoop is designed to store data for such applications with its own distributed file system (HDFS), cloud-based on-demand processing can also use other forms of cloud storage such as Windows Azure storage. Collecting and importing data in such scenarios is the subject of this tutorial. 
 
 You will learn:
@@ -15,15 +17,15 @@ This tutorial is composed of the following segments:
 3. [Importing SQL Server data with Sqoop](#segment3).
 
 <a name="segment1"> </a>
-### Using Windows Azure Storage in MapReduce
+### Using Windows Azure storage in MapReduce
 
-While HDFS is the natural storage solution for Hadoop jobs, data needed can also be located on cloud based, large, and scalable storage systems such as Windows Azure storage. It is reasonable to expect that Hadoop, when running on Windows Azure, be able to read data directly from such cloud storage.
+While HDFS is the natural storage solution for Hadoop jobs, data needed can also be on cloud based, large, and scalable storage systems such as Windows Azure storage. It is reasonable to expect that Hadoop, when running on Windows Azure, be able to read data directly from such cloud storage.
 
-In this tutorial you will analyze IIS logs located in Windows Azure storage using a standard streaming map-reduce Hadoop job. The scenario demonstrates a Windows Azure web role that generates IIS logs using the Windows Azure diagnostic infrastructure. A simple Hadoop job reads the logs directly from storage and finds the 5 most popular URIs (web pages).
+In this tutorial you will analyze IIS logs located in Windows Azure storage by using a standard streaming MapReduce Hadoop job. The scenario demonstrates a Windows Azure web role that generates IIS logs using the Windows Azure diagnostic infrastructure. A simple Hadoop job reads the logs directly from storage and finds the 5 most popular URIs (web pages).
 
-### Generating the IIS Logs 
+### Generating the IIS logs 
 
-To generate IIS logs and place them in storage, we need to create a simple ASP.NET web role, enable Windows Azure Diagnostics, and configure DiagnosticInfrastructureLogs. Run the web role and browse to different pages in the web site. After one minute, an IIS log will be persisted to Windows Azure storage.
+To generate IIS logs and place them in storage, you need to create a simple ASP.NET web role, enable Windows Azure Diagnostics, and configure DiagnosticInfrastructureLogs. Run the web role and browse to different pages in the web site. After 1 minute, an IIS log will be persisted to Windows Azure storage.
 
 > **Note:** More on Windows Azure diagnostics can be found [here](https://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/).
 
@@ -42,7 +44,7 @@ Name your new project **WebRoleWithIISLogs** and click **OK**. Select **ASP.NET 
 
 _Selecting the ASP.NET Web Role template_
 
-Visual Studio will now creat a new solution that contains two project. The first project, named **WebRole1**, is a standard ASP.NET Web Application project with a few additional resources added. The second project is a new Windows Azure Project that references our ASP.NET project. It also contains configuration files that define the model for our Windows Azure solution.
+Visual Studio creates a solution that contains two projects. The first project, named **WebRole1**, is a standard ASP.NET Web Application project with a few more resources added. The second project is a new Windows Azure Project that references your ASP.NET project. It also contains configuration files that define the model for your Windows Azure solution.
 
 In **Solution Explorer**, open the **WebRole.cs** file in the **WebRole1** project.
 
@@ -73,7 +75,7 @@ In the **WebRoleWithIISLogs** project double-click the **WebRole1** node, under 
 
 Press **F5** to run the application. When it is open, use it to browse to different pages in the web site.
 
-#### Writing a Map-Reduce Streaming Job 
+#### Writing a MapReduce streaming job 
 
 Hadoop Streaming is a utility that lets you create and run MapReduce jobs by creating an executable or a script in any language. Both the mapper and reducer read the input from STDIN and write the output to STDOUT. For more information about Hadoop Streaming, see the [Hadoop streaming decomentation](http://hadoop.apache.org/common/docs/current/streaming.html).
 
@@ -165,9 +167,9 @@ To this new project's **main.cs**, add the following code:
 
 Press **F6** to build both projects.
 
-#### Set Up ASV in the Cluster 
+#### Set up ASV in the cluster 
 
-Providing the storage details of the cluster enables direct access from the map-reduce jobs to the storage content.  The prefix **asv://** is used to create a uri to a specific location in Windows Azure storage (such as **asv://container/blobname**).
+Providing the storage details of the cluster enables direct access from the MapReduce jobs to the storage content.  The prefix **asv://** is used to create a URI to a specific location in Windows Azure storage (such as **asv://container/blobname**).
 
 Open the Hadoop cluster portal at <https://www.hadooponazure.com>.
 
@@ -179,9 +181,9 @@ Click on **Set Up ASV**.
 
 Enter the details of your storage account.
 
-To simplify this tutorial, we will create two new containers in your storage account and call them **fivetopuri** and **fivetopuriresults**.
+To simplify this tutorial, create two new containers in your storage account and call them **fivetopuri** and **fivetopuriresults**.
 
-> **Note:** For Uploading, downloading, and browsing files in blobs is an easy task if you install a blob storage browsing application such as Azure Storage Explorer or the CloudBerry Explorer for Azure Blob Storage. The following steps are for the [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) application; you can use the same techniques with CloudBerry Explorer, but the steps may differ.
+> **Note:** Uploading, downloading, and browsing files in blobs is an easy task if you install a blob storage browsing application such as Azure Storage Explorer or the CloudBerry Explorer for Azure Blob Storage. The following steps are for the [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) application; you can use the same techniques with CloudBerry Explorer, but the steps may differ.
 
 Open Azure Storage Explorer from **Start | All Programs | Neudesic | Azure Storage Explorer**. In the storage accounts toolbar, click the **Add Accoun**t button. The **Add Storage Account** dialog will appear.
 
@@ -196,7 +198,7 @@ Create the new blob containers by click the **New** button in the **Container** 
 ![container toolbar](../media/container-toolbar.png)
 _The Container toolbar_
 
-Donload the IIS log you created in the previous task from the container **wad-iis-logfiles**, name the file **iislog.txt**, and upload it to the container **fivetopuri**.
+Download the IIS log you created in the previous task from the container **iis-logfiles**, name the file **iislog.txt**, and upload it to the container **fivetopuri**.
 
 ![download and upload blobs](../media/download-and-upload-blobs.png)
 
@@ -204,7 +206,7 @@ _Downloading and uploading the blobs_
 
 ![Set Up ASV](../media/set-up-asv.png "Set Up ASV")
 
-#### Copy Map-Reduce Executable Files to HDFS 
+#### Copy MapReduce executable files to HDFS 
 
 Open the Hadoop cluster portal at <https://www.hadooponazure.com>.
 
@@ -219,7 +221,7 @@ Upload the file **map.exe** by entering the following command:
 
 Repeat the last step with **reduce.exe**, uploading it to **/example/apps/reduce.exe**.
 
-#### Creating and Executing a New Hadoop Job 
+#### Creating and executing a new Hadoop job 
 
 Open the Hadoop cluster portal at <https://www.hadooponazure.com>.
 
@@ -250,13 +252,13 @@ After the job completes, open the blob **results.txt/part-00000** in the contain
 <a name="segment2"> </a>
 ### Uploading data files to HDFS using FTPS 
 
-Map-Reduce jobs use input data located in HDFS. There are several ways to upload data to the distributed file system, one of which uses the FTPS protocol.
+MapReduce jobs use input data located in HDFS. There are several ways to upload data to the distributed file system, one of which uses the FTPS protocol.
 
 More on FTPS uploading can be found at <http://social.technet.microsoft.com/wiki/contents/articles/6985.how-to-upload-data-and-use-the-wordcount-sample-with-hadoop-services-for-windows-azure-video.aspx>.
 
 To upload data files to HDFS, you need to download an FTPS agent. This tutorial will use curl.exe, which can be found at <http://curl.haxx.se/latest.cgi?curl=win64-ssl-sspi>.
 
-To upload the files, we will write and execute a power-shell script. The script template can be found in each of the samples provided in the cluster portal.
+To upload the files, you write and execute a power-shell script. The script template can be found in each of the samples provided in the cluster portal.
 
 Before running the script, you need to open the FTPS ports. To do so, click on the **Open Ports** icon at <https://www.hadooponazure.com> and toggle the FTPS port to be opened.
 
@@ -275,7 +277,7 @@ Now run the script. Enter the following code in PowerShell:
 	$curlCmd += ":$passwordHash ftps://$serverName" + ":2226$destination" 
 	invoke-expression $curlCmd
 
-> **Note:** Replace the XXSERVERNAMEXX with the cluster name, which can be found on the top of the cluster home page. for the XXUSERNAMEXX and XXPASSWORDXX enter the username and password that were provided when the cluster was created. These should be the same username and password used to activate the remote desktop console of the cluster.
+> **Note:** Replace the XXSERVERNAMEXX with the cluster name, which can be found on the top of the cluster home page. For the XXUSERNAMEXX and XXPASSWORDXX enter the username and password that were provided when the cluster was created. These should be the same username and password used to activate the remote desktop console of the cluster.
 > 
 
 > **Note:** Replace the PATH_TO_CURL, with the path to the curl client, and make sure the $fileToUpload is set with the correct path of the data file to be uploaded.
@@ -295,24 +297,20 @@ To verify that the file was uploaded open the JavaScript interactive console and
 <a name="segment3"> </a>
 ### Importing SQL Server data with Sqoop 
 
-While Hadoop is a natural choice for processing unstructured and semi-structured data like logs and files, there may be a need to process structured data stored in relational databases as well. Sqoop (SQL-to-Hadoop) is a tool the allows you to import structured data to Hadoop and use it in MapReduce and HIVE jobs.
+While Hadoop is a natural choice for processing unstructured and semi-structured data like logs and files, there may be a need to process structured data stored in relational databases as well. Sqoop (SQL-to-Hadoop) is a tool that allows you to import structured data to Hadoop and use it in MapReduce and HIVE jobs.
 
-Download the [Adventure Works for SQL Database](http://msftdbprodsamples.codeplex.com/releases/view/37304) database. Follow the installation instructions in the _"ReadMe.htm"_ file to set up the SQL Database version of the AdventureWorks2012. Open SQL Server Managment Studio and connect to the SQL Database Server. Open the _"AdventureWorks2012"_ database and 
+Download the [Adventure Works for SQL Database](http://msftdbprodsamples.codeplex.com/releases/view/37304) database. Follow the installation instructions in the _"ReadMe.htm"_ file to set up the SQL Database version of the AdventureWorks2012. Open SQL Server Management Studio and connect to the SQL Database Server. Open the _"AdventureWorks2012"_ database and 
 click the **New Query** button.
 
-![Creating a new query in SQL Server Managment Studio](../media/creating-a-new-query-in-sql-server-managment.png)
+![Creating a new query in SQL Server Management Studio](../media/creating-a-new-query-in-sql-server-managment.png)
 
-Since Sqoop currently adds square brackets to the table name, we need to add a synonym to support two-part naming for SQL Server tables. To do so, run the following query:
-
+Since Sqoop currently adds square brackets to the table name, add a synonym to support two-part naming for SQL Server tables and run the following query:
 	
 	CREATE SYNONYM [Sales.SalesOrderDetail] FOR Sales.SalesOrderDetail
 
-
 Run the following query and review its result. 
-
 	
 	select top 200 * from [Sales.SalesOrderDetail]
-
 
 In the Hadoop command prompt change the directory to _"c:\Apps\dist\sqoop\bin"_ and run the following command:
 
@@ -334,4 +332,4 @@ Run the #tail command to view selected results from the **part-m-0000** file.
 
 ## Summary 
 
-In this tutorial we have seen how a variety of the data sources that can be used for MapReduce jobs in Hadoop on Windows Azure. Data for Hadoop jobs can be located on cloud storage or on HDFS. We have also seen how relational data can be imported into HDFS using Sqoop and then be used in Hadoop jobs.
+In this tutorial you have seen how various data sources can be used for MapReduce jobs in Hadoop on Windows Azure. Data for Hadoop jobs can be on cloud storage or on HDFS. You have also seen how relational data can be imported into HDFS using Sqoop and then be used in Hadoop jobs.

@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Create a Virtual Machine Running Windows Server 2008 R2" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-windows-tutorial-virtual-machine-gallery" urlDisplayName="Create a virtual machine" pageTitle="Create a virtual machine running Windows Server in Windows Azure" metaKeywords="Azure capture image vm, capturing vm" metaDescription="Learn how to capture an image of a Windows Azure virtual machine (VM) running Windows Server 2008 R2. " metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 # Create a Virtual Machine Running Windows Server 2008 R2 #
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
@@ -85,7 +87,7 @@ You use the **From Gallery** feature to create a custom virtual machine in the M
 
 You can log on to the virtual machine that you created to manage both its settings and the applications that are running on it.
 
-1. Sign in to the [Windows Azure Management Portal](http://www.windowsazure.com).
+1. Sign in to the Windows Azure Management Portal.
 
 2. Click **Virtual Machines**, and then select the **MyTestVM1** virtual machine.
 

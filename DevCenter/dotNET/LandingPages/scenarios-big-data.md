@@ -1,5 +1,7 @@
-<h1>Big Data Scenarios</h1>
+<properties linkid="develop-net" urlDisplayName="Big Data" pageTitle="Big Data - Windows Azure .NET Scenarios" metaKeywords="Azure ideas for big data, Azure scenario" metaDescription="Find big data scenarios for Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+<h1>Big Data Scenarios</h1>
 <p>Windows Azure supports a variety of structured and unstructured data storage options, along with tools to help you analyze and extract BI from data of any size.</p>
 
 <div class="dev-articles">

@@ -1,3 +1,5 @@
+<properties linkid="manage-services-mediaservices-create-a-media-services-account" urlDisplayName="How to create" pageTitle="Create a Media Services Account - Windows Azure" metaKeywords="" metaDescription="Describes how to create a new Media Services account in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
 
 
 #How to Create a Media Services Account
@@ -29,8 +31,7 @@ Accessing Media Services requires two associated accounts:
 <h2 id="quick">How to: Create a Media Services account using Quick Create</h2>
 
 1. In the [Management Portal][], click **New**, click **Media Service**, and then click **Quick Create**.
-    - **Note**  After you click **New**, you may have to scroll down in the list of new items to display the **Media Service** item.
-
+   
    ![Media Services Quick Create][]
 
 2. In **NAME**, enter the name of the new account. A Media Services account name is all lower-case numbers or letters with no spaces, and is 3 - 24 characters in length. 

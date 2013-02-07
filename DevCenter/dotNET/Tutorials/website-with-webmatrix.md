@@ -1,5 +1,7 @@
-#Develop and deploy a web site with Microsoft WebMatrix
+<properties linkid="develop-dotnet-website-with-webmatrix" urlDisplayName="Web Site with WebMatrix" pageTitle=".NET web site with WebMatrix - Windows Azure tutorials" metaKeywords="WebMatrix Windows Azure, WebMatrix Azure, Azure web site WebMatrix, Azure web site WebMatrix, Web Matrix Azure, WebMatrix Azure" metaDescription="Learn how to develop and deploy a Windows Azure web site with WebMatrix." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+
+#Develop and deploy a web site with Microsoft WebMatrix
 This guide describes how to use Microsoft WebMatrix to create and deploy a web site to Windows Azure.  You will use a sample application from a WebMatrix site template.
 
 You will learn:
@@ -8,21 +10,16 @@ You will learn:
 * How to import the web site into WebMatrix and customize the web site to use one of the WebMatrix templates.
 * How to deploy the customized web site directly from WebMatrix to Windows Azure.
 
-### Create a Windows Azure account
 
-<div chunk="../../Shared/Chunks/create-azure-account.md" />
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
-### Enable Windows Azure Web Sites
-
-<div chunk="../../Shared/Chunks/antares-iaas-signup.md" />
-
-## Create a web site from the Windows Azure portal
+## Create a web site with the Windows Azure portal
 
 1. Login to the [Windows Azure Portal](http://manage.windowsazure.com).
 2. Click **New** at the bottom left of the Windows Azure portal.
 3. Click  **Web Site**, click **Quick Create**, enter a value for **URL** (e.g. *bakerysample*), select the **Region** that is closest to your intended users (this will ensure best performance) and then click the **Create Web Site** checkmark at the bottom of the page to initiate creation of the web site:
 
-	![Create New website][createnewsite]	
+	![Create New web site][createnewsite]	
 
 4. Once the web site is created, the portal will display all of the web sites associated with your subscription. Verify that the web site you just created has a **Status** of **Running** and then open the web site's management pages by clicking the name of the web site displayed in the **Name** column to open the web site's **Dashboard** management page.
 
@@ -32,11 +29,11 @@ You will learn:
 
 	![Open web site in WebMatrix 2][opensiteinwebmatrix2]
 
-2. If WebMatrix 2 is not installed, the Web Platform Installer 4.0 will install Microsoft WebMatrix 2 and all necessary prerequisite software and display a dialog box indicating **Empty Site Detected**. Click the option to use a built-in website template:
+2. If WebMatrix 2 is not installed, the Web Platform Installer 4.0 will install Microsoft WebMatrix 2 and all necessary prerequisite software and display a dialog box indicating **Empty Site Detected**. Click the option to use a built-in web site template:
 
 	![Empty Site Detected][howtodownloadsite]
 
-3. After you click the option to use a built-in website template, select **Bakery** from the list of templates, enter **bakerysample** for the **Site Name**, and click **Next**.
+3. After you click the option to use a built-in web site template, select **Bakery** from the list of templates, enter **bakerysample** for the **Site Name**, and click **Next**.
 
 	![Create Site from Template][howtositefromtemplate]
 
@@ -52,7 +49,7 @@ The bakery sample includes a simulated order form that sends an email message wi
 
 	![][modify1]
 
-2. Open the *Order.cshtml* page.
+2. Open the *Order.cshtml* page by double-clicking the file name.
 
 	![][modify2]
 
@@ -92,7 +89,7 @@ The bakery sample includes a simulated order form that sends an email message wi
 
 	![Publishing Complete][publishcomplete]
 
-4. Click on the link to open the web site in your browser:
+3. Click on the link to open the web site in your browser:
 
 	![Bakery Sample Site][bakerysample]
 
@@ -145,7 +142,7 @@ You've seen how to create and deploy a web site from WebMatrix to Windows Azure.
 
 * [WebMatrix for Windows Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
 
-* [WebMatrix website](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
+* [WebMatrix web site](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
 [createnewsite]: ../../../Shared/media/howtocreatenewsite.png
 [opensiteinwebmatrix2]: ../../../Shared/media/howtoopensiteinWebMatrix2a.png

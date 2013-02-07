@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="How to Use Twilio for Voice and SMS Capabilities in PHP" metaKeywords="Windows Azure, Azure, Twilio, Telephony, PHP" metaDescription="Learn how to use Twilio for voice and SMS messages from PHP in Windows Azure." linkid="dev-php-howto-twilio-voice-and-sms-service" urlDisplayName="Twilio Voice/SMS Service" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-php-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (PHP) - Windows Azure" metaKeywords="Windows Azure PHP Twilio, Windows Azure phone calls, Azure phone calls, Azure twilio, Windows Azure SMS, Azure SMS, Windows Azure voice calls, azure voice calls, Windows Azure text messages, Azure text messages" metaDescription="Learn how to make a phone call and send a SMS message with the Twilio API service on Windows Azure. Code samples written in PHP." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to Use Twilio for Voice and SMS Capabilities in PHP
 This guide demonstrates how to perform common programming tasks with the Twilio API service on Windows Azure. The scenarios covered include making a phone call and sending a Short Message Service (SMS) message. For more information on Twilio and using voice and SMS in your applications, see the [Next Steps](#NextSteps) section.
@@ -134,7 +136,7 @@ The following shows how to make an outgoing call using the **Services_Twilio** c
 		echo 'Error: ' . $e->getMessage();
 	}
 
-As mentioned, this code uses a Twilio-provided site to return the TwiML response. You could instead use your own site to provide the TwiML response; for more information, see [How to Provide TwiML Responses from Your Own Website](#howto_provide_twiml_responses).
+As mentioned, this code uses a Twilio-provided site to return the TwiML response. You could instead use your own site to provide the TwiML response; for more information, see [How to Provide TwiML Responses from Your Own Web Site](#howto_provide_twiml_responses).
 
 
 - **Note**: To troubleshoot SSL certificate validation errors, see [http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 

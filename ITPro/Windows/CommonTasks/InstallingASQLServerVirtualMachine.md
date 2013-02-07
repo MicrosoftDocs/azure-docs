@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Provisioning a SQL Server Virtual Machine on Windows Azure" metaKeywords="Windows Azure , cloud service, configure cloud service" metaDescription="Windows Tutorials." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-windows-commontask-install-sql-server" urlDisplayName="Install SQL Server" pageTitle="Create a virtual machine with SQL Server in Windows Azure " metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" metaDescription="A tutorial that teaches you how to create and configure a SQL Server virtual machine on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 
 # Provisioning a SQL Server Virtual Machine on Windows Azure #
 
@@ -85,7 +87,7 @@ In this tutorial you will:
 
 <h2 id="RemoteDesktop">Open the virtual machine using Remote Desktop and complete setup</h2>
 
-1. When provisionion completes, click on the name of your virtual machine to go to the DASHBOARD page. At the bottom of the page, click **Connect**.
+1. When provisioning completes, click on the name of your virtual machine to go to the DASHBOARD page. At the bottom of the page, click **Connect**.
 
 	![Select Dashboard Page] [Image5b]
 2. Choose to open the rpd file using the Windows Remote Desktop program (`%windir%\system32\mstsc.exe`).
@@ -115,7 +117,7 @@ The connection path is summarized by the following diagram:
 
 <h3 id="Endpoint">Create a TCP endpoint for the virtual machine</h3>
 
-The virtual machine must have an endpoint to listen for incoming TCP communication. This  Windows Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessable to the virtual machine.
+The virtual machine must have an endpoint to listen for incoming TCP communication. This Windows Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.
 
 1. On the Windows Azure Management Portal, click on **VIRTUAL MACHINES**.
 
@@ -137,12 +139,12 @@ The virtual machine must have an endpoint to listen for incoming TCP communicati
 
 - In the **NAME** box, provide a name for the endpoint.
 - In the **PROTOCOL** box, select **TCP**.
-- In the **PUBLIC PORT** box, type **1433** or a number of your choice. This is the TCP port receiveing incoming TCP traffic. SQL Server typically uses TCP port 1433 which is the default port used by Management Studio. Since it is often a target for malicious users, many organizations select a differnt port number.
+- In the **PUBLIC PORT** box, type **1433** or a number of your choice. This is the TCP port receiving incoming TCP traffic. SQL Server typically uses TCP port 1433 which is the default port used by Management Studio. Since it is often a target for malicious users, many organizations select a different port number.
 - In the **PRIVATE PORT** box, type **1433**. You may select another number if you wish. 
 
 	![Endpoint screen] [Image30]
 
-7. Click the check mark to continue. The endpoint is created.
+6. Click the check mark to continue. The endpoint is created.
 
 	![VM with Endpoint] [Image31]
 
@@ -293,7 +295,7 @@ To connect to the SQL Server Database Engine from another computer you must know
  
 1. On a computer connected to the internet, open SQL Server Management Studio.
 
-2. In the **Connect to Server** or **Connect to Database Engine** dialog box, in the **Server name** box, enter the DNS name of the virtual machine (determined in the previous task). The format is probably similar to **TESTVM.windowsazure.net**. (Do not include http://) If you selected a port number other than 1433 as the public port number for the endpoint, include a comman and the endpoint after the DNS name, in the format *DNSName,portnumber* such as **TESTVM.windowsazure.net,55124** )
+2. In the **Connect to Server** or **Connect to Database Engine** dialog box, in the **Server name** box, enter the DNS name of the virtual machine (determined in the previous task). The format is probably similar to **TESTVM.windowsazure.net**. (Do not include http://) If you selected a port number other than 1433 as the public port number for the endpoint, include a comma and the endpoint after the DNS name, in the format *DNSName,portnumber* such as **TESTVM.windowsazure.net,55124** )
 
 3. In the **Authentication** box, select **SQL Server Authentication**.
 
@@ -360,6 +362,7 @@ The SQL Server setup media is saved on the virtual machine in the C:\SqlServer_1
 * [Getting started with SQL Server on a Windows Azure virtual machine](http://go.microsoft.com/fwlink/p/?LinkID=242213) 
 * [Running SQL Server in Windows Azure Virtual Machine - Performance Guidelines for Preview](http://go.microsoft.com/fwlink/?LinkID=254744)
 * [Migrating with Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156159)
+* [Best Practices for Running SQL Server in Windows Azure Virtual Machine](http://social.technet.microsoft.com/wiki/contents/articles/11578.best-practices-for-running-sql-server-in-windows-azure-virtual-machine-en-us.aspx)
 * [How to Attach a Data Disk to a Virtual Machine](http://www.windowsazure.com/en-us/manage/windows/how-to-guides/attach-a-disk/)
 * To change the size of a VM, see [Set-AzureVMSize](http://msdn.microsoft.com/en-us/library/windowsazure/jj152814)
 * [SQL Server in Windows Azure Virtual Machine Early Adoption Cook Book](http://social.technet.microsoft.com/wiki/contents/articles/11554.sql-server-in-windows-azure-virtual-machine-early-adoption-cook-book-en-us.aspx)
@@ -380,7 +383,7 @@ The SQL Server setup media is saved on the virtual machine in the C:\SqlServer_1
 [Image6]: ../media/6VM-Options.png
 [Image7]: ../media/7VM-Provisioning.png
 [Image8]: ../media/8VM-Connect.png
-[Image8b]: ../media/SQLVMConnectionsOnAzure.png
+[Image8b]: ../media/SQLVMConnectionsOnAzure.GIF
 [Image9]: ../media/9Click-SSCM.png
 [Image10]: ../media/10Enable-TCP.png
 [Image11]: ../media/11Restart.png

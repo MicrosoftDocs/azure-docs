@@ -1,8 +1,10 @@
-# How to Import a Publish Profile from Windows Azure
+<properties linkid="" urlDisplayName="" pageTitle="Windows Azure publishing profile overview" metaKeywords="" metaDescription="A tutorial that teaches you how to import a publishing profile from Windows Azure to WebMatrix." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
 
+
+# How to Import a Publish Profile from Windows Azure
 This tutorial walks you through how to import a publish profile in WebMatrix. [Click here](http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/) for importing a publish profile in Visual Web Developer.
 
-1. In the Windows Azure portal, navigate to the dashboard of your website. Under the **quick glance** section click the **Download publish profile** link and save the file.
+1. In the Windows Azure portal, navigate to the dashboard of your web site. Under the **quick glance** section click the **Download publish profile** link and save the file.
 
 	![quick glance][1]
 

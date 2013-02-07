@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="1" pageTitle="How to Make a Phone Call Using Twilio in a PHP Application on Windows Azure" metaKeywords="Windows Azure, Azure, Twilio, Telephony, PHP" metaDescription="Learn how to use Twilio and PHP to make a phone call from Windows Azure." linkid="dev-php-howto-twilio-phone-call" urlDisplayName="Twilio Phone Call" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="develop-php-how-to-twilio-phone-call" urlDisplayName="Twilio Phone Call" pageTitle="How to make a phone call from Twilio (PHP) - Windows Azure" metaKeywords="Windows Azure PHP Twilio, Windows Azure Twilio, Azure phone calls, Azure twilio, Windows Azure SMS, Azure SMS, Windows Azure voice calls, azure voice calls, Windows Azure text messages, Azure text messages, PHP twilio Azure" metaDescription="Learn how to make a phone call and send a SMS message with the Twilio API service on Windows Azure. Samples are for PHP application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to Make a Phone Call Using Twilio in a PHP Application on Windows Azure 
 
@@ -85,11 +87,11 @@ In addition to making the call, **makecall.php** displays some call metadata (ex
 ![Windows Azure Call Response Using Twilio and PHP][twilio_php_response]
 
 ## Run the application
-The next step is to deploy your application to Windows Azure Websites. The following articles contain the information for creating a website and deploying your code with Git, FTP, or WebMatrix (though not all information in each article is relevant):
+The next step is to deploy your application to Windows Azure Web Sites. The following articles contain the information for creating a web site and deploying your code with Git, FTP, or WebMatrix (though not all information in each article is relevant):
 
-* [Create a PHP-MySQL Windows Azure web site and deploy using Git][website-git]
-* [Create a PHP-MySQL Windows Azure Website and Deploy Using FTP][website-ftp]
-* [Create and deploy a PHP-MySQL Windows Azure Website using WebMatrix][website-webmatrix]
+* [Create a PHP-MySQL Windows Azure Web Site and deploy using Git][website-git]
+* [Create a PHP-MySQL Windows Azure Web Site and Deploy Using FTP][website-ftp]
+* [Create and deploy a PHP-MySQL Windows Azure Web Site using WebMatrix][website-webmatrix]
 
 ## Next steps
 This code was provided to show you basic functionality using Twilio in PHP on Windows Azure. Before deploying to Windows Azure in production, you may want to add more error handling or other features. For example:

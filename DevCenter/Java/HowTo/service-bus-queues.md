@@ -1,6 +1,11 @@
-<properties linkid="dev-java-how-to-service-bus-queues" urldisplayname="Service Bus Queues" headerexpose="" pagetitle="Service Bus Queues - How To - Java - Develop" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+﻿<properties linkid="dev-java-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Java) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Java" metaDescription="Learn how to use Service Bus queues in Windows Azure. Code samples written in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-# <span> How to Use Service Bus Queues</span>
+
+
+
+<div chunk="../chunks/article-left-menu.md" />
+
+# How to Use Service Bus Queues
 
 This guide will show you how to use Service Bus queues. The samples are
 written in Java and use the [Windows Azure SDK for Java][]. The
@@ -20,87 +25,7 @@ messages**, and **deleting queues**.
 -   [How to: Handle Application Crashes and Unreadable Messages][]
 -   [Next Steps][]
 
-## <a name="bkmk_WhatAreSvcBusQueues"> </a>What are Service Bus Queues?
-
-Service Bus Queues support a **brokered messaging communication** model.
-When using queues, components of a distributed application do not
-communicate directly with each other, they instead exchange messages via
-a queue, which acts as an intermediary. A message producer (sender)
-hands off a message to the queue and then continues its processing.
-Asynchronously, a message consumer (receiver) pulls the message from the
-queue and processes it. The producer does not have to wait for a reply
-from the consumer in order to continue to process and send further
-messages. Queues offer **First In, First Out (FIFO)** message delivery
-to one or more competing consumers. That is, messages are typically
-received and processed by the receivers in the order in which they were
-added to the queue, and each message is received and processed by only
-one message consumer.
-
-![Service Bus Queue Diagram][]
-
-Service Bus queues are a general-purpose technology that can be used for
-a wide variety of scenarios:
-
--   Communication between web and worker roles in a multi-tier Windows
-    Azure application
--   Communication between on-premises apps and Windows Azure hosted apps
-    in a hybrid solution
--   Communication between components of a distributed application
-    running on-premises in different organizations or departments of an
-    organization
-
-Using queues can enable you to scale out your applications better, and
-enable more resiliency to your architecture.
-
-## <a name="bkmk_CreateSvcNamespace"> </a>Create a Service Namespace
-
-To begin using Service Bus queues in Windows Azure, you must first
-create a service namespace. A service namespace provides a scoping
-container for addressing Service Bus resources within your application.
-
-To create a service namespace:
-
-1.  Log on to the [Windows Azure Management Portal][].
-2.  In the lower left navigation pane of the Management Portal, click
-    **Service Bus, Access Control & Caching**.
-3.  In the upper left pane of the Management Portal, click the **Service
-    Bus** node, and then click the **New** button.  
-    ![Service Bus Node screenshot][]
-4.  In the **Create a new Service Namespace** dialog, enter a
-    **Namespace**, and then to make sure that it is unique, click the
-    **Check Availability** button.  
-    ![Create a New Namespace screenshot][]
-5.  After making sure the namespace name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same country/region in which you are deploying your
-    compute resources), and then click the **Create Namespace** button.
-    Having a compute instance is optional, and the service bus can be
-    consumed from any application with internet access.  
-      
-     The namespace you created will then appear in the Management Portal
-    and takes a moment to activate. Wait until the status is **Active**
-    before moving on.
-
-## <a name="bkmk_ObtainDefaultMngmntCredentials"> </a>Obtain the Default Management Credentials for the Namespace
-
-In order to perform management operations, such as creating a queue, on
-the new namespace, you need to obtain the management credentials for the
-namespace.
-
-1.  In the left navigation pane, click the **Service Bus** node, to
-    display the list of available namespaces:   
-    ![Available Namespaces screenshot][]
-2.  Select the namespace you just created from the list shown:   
-    ![Namespace List screenshot][]
-3.  The right-hand **Properties** pane will list the properties for the
-    new namespace:   
-    ![Properties Pane screenshot][]
-4.  The **Default Key** is hidden. Click the **View** button to display
-    the security credentials:   
-    ![Default Key screenshot][]
-5.  Make a note of the **Default Issuer** and the **Default Key** as you
-    will use this information below to perform operations with the
-    namespace.
+<div chunk="../../shared/chunks/howto-service-bus-queues.md" />
 
 ## <a name="bkmk_ConfigApp"> </a>Configure Your Application to Use Service Bus
 
@@ -320,9 +245,9 @@ Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Queues, Topics, and Subscriptions][] for more information.
 
   [Windows Azure SDK for Java]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=vs.103).aspx
-  [What are Service Bus Queues?]: #bkmk_WhatAreSvcBusQueues
-  [Create a Service Namespace]: #bkmk_CreateSvcNamespace
-  [Obtain the Default Management Credentials for the Namespace]: #bkmk_ObtainDefaultMngmntCredentials
+  [What are Service Bus Queues?]: #what-are-service-bus-queues
+  [Create a Service Namespace]: #create-a-service-namespace
+  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
   [Configure Your Application to Use Service Bus]: #bkmk_ConfigApp
   [How to: Create a Security Token Provider]: #bkmk_HowToCreateQueue
   [How to: Send Messages to a Queue]: #bkmk_HowToSendMsgs
@@ -330,7 +255,7 @@ topic [Queues, Topics, and Subscriptions][] for more information.
   [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrashes
   [Next Steps]: #bkmk_NextSteps
   [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
-  [Windows Azure Management Portal]: http://windows.azure.com/
+  [Windows Azure Management Portal]: http://manage.windowsazure.com/
   [Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
   [Create a New Namespace screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_03_CreateNewSvcNamespace.jpg
   [Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg

@@ -1,5 +1,7 @@
-#Storage management articles
+<properties linkid="develop-net" urlDisplayName="Storage" pageTitle="Storage - Windows Azure service management" metaKeywords="storage Windows Azure, storage Azure, storage accounts Azure, storage accounts Windows Azure" metaDescription="Find topics about using storage accounts in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+
+#Storage management articles
 A storage account gives your applications access to Windows Azure Blob, Table, and Queue services located in a geographic region. You need a storage account to use Windows Azure storage. For more information, see [What is a storage account?](./whatis-a-storage-account/)
 
 ##How to guides

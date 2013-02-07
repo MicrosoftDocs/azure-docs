@@ -1,2 +1,7 @@
-<properties linkid="dev-net-best-practices-troubleshooting" urlDisplayName="Troubleshooting" headerExpose="" pageTitle="Troubleshooting Best Practices - .NET - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="develop-dotnet-troubleshooting" urlDisplayName="Troubleshooting" pageTitle="Troubleshooting best practices - Windows Azure" metaKeywords="Azure troubleshoot, intro troubleshoot Azure" metaDescription="An introduction to troubleshooting in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
+
+<div chunk="../chunks/article-left-menu.md" />
+
 <div chunk="../../../Shared/Chunks/tshootguide.md" />

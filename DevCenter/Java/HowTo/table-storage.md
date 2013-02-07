@@ -1,4 +1,7 @@
-<properties umbraconavihide="0" pagetitle="How to Use the Table Storage Service - How To - Java - Develop" metakeywords="Get started Azure table Java, Azure nosql Java, Azure table storage Java, Azure table Java" metadescription="" linkid="dev-java-how-to-use-table-storage" urldisplayname="Table Service" headerexpose="" footerexpose="" disquscomments="1"></properties>
+﻿<properties linkid="dev-java-how-to-use-table-storage" urlDisplayName="Table Service" pageTitle="How to use table storage (Java) - Windows Azure feature guide" metaKeywords="Windows Azure table storage service, Azure table service Java, table storage Java" metaDescription="Learn how to use the table storage service in Windows Azure. Code samples are written in Java code." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to use the Table storage service from Java
 
@@ -61,7 +64,7 @@ you want to use Windows Azure storage APIs to access tables:
 ## <a name="ConnectionString"> </a>Setup a Windows Azure storage connection string
 
 A Windows Azure storage client uses a storage connection string to store
-endpoints and credentials for accessing storage services. When running
+endpoints and credentials for accessing data management services. When running
 in a client application, you must provide the storage connection string
 in the following format, using the name of your storage account and the
 Primary access key for the storage account listed in the Management

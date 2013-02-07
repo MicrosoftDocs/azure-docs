@@ -1,7 +1,11 @@
-<properties umbracoNaviHide="0" pageTitle="How to Manage Cloud Services" metaKeywords="Windows Azure cloud services, cloud service, manage cloud service, swap cloud service, link cloud service, delete cloud service, update cloud service" metaDescription="Learn how to manage Windows Azure cloud services." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="manage-services-how-to-manage-a-cloud-service" urlDisplayName="How to manage" pageTitle="How to manage a cloud service - Windows Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" metaDescription="Learn how to manage cloud services in the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
 #How to Manage Cloud Services
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
+
+In the **Cloud Services** area of the Windows Azure Preview Management Portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
 
 ##Table of Contents##
 
@@ -13,15 +17,15 @@
 
 <h2 id="updaterole">How to: Update a cloud service role or deployment</h2>
 
-If you need to update your application code, use **Update** on the dashboard, **Cloud Services** page, or **Instances** page. You can update a single role or all roles. You'll need to upload a new service package and service configuration file.
+If you need to update the application code for your cloud service, use **Update** on the dashboard, **Cloud Services** page, or **Instances** page. You can update a single role or all roles. You'll need to upload a new service package and service configuration file.
 
-1. In the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com/), on the dashboard, **Cloud Services** page, or **Instances** page, click **Update**.
+1. In the [Windows Azure Preview Management Portal](https://manage.windowsazure.com/), on the dashboard, **Cloud Services** page, or **Instances** page, click **Update**.
 
  **Update Deployment** opens.
 
  ![UpdateDeployment] (../media/CloudServices_UpdateDeployment.png)
 
-2. In **Deployment label**, enter a subdomain to use in the URL for the cloud service in the production environment.
+2. In **Deployment label**, enter a name to identify the deployment (for example, mycloudservicev2). You'll find the deployment name under **quick start** on the dashboard.
 
 3. In **Package file**, use **Browse** to upload the service package file (.cspkg).
 
@@ -44,7 +48,7 @@ If you need to update your application code, use **Update** on the dashboard, **
 
 <h2 id="swap">How to: Swap deployments to promote a staged deployment to production</h2>
 
-Use **Swap** to promote a staging deployment to production. When you decide to deploy a new release of a cloud service, you can stage and test your new release in your cloud service staging environment while your customers are using the current release in production. When you're ready to promote the new release to production, you can use **Swap** to switch the URLs by which the two deployments are addressed. 
+Use **Swap** to promote a staging deployment of a cloud service to production. When you decide to deploy a new release of a cloud service, you can stage and test your new release in your cloud service staging environment while your customers are using the current release in production. When you're ready to promote the new release to production, you can use **Swap** to switch the URLs by which the two deployments are addressed. 
 
 You can swap deployments from the **Cloud Services** page or the dashboard.
 
@@ -54,29 +58,29 @@ You can swap deployments from the **Cloud Services** page or the dashboard.
 
 3. Click **Swap**.
 
- **VIP swap?** opens.
+ The following confirmation prompt opens.
 
  ![Cloud Services Swap] (../media/CloudServices_Swap.png)
 
 4. After you verify the deployment information, click **Yes** to swap the deployments.
 
-The deployment swap happens quickly because the only thing that changes is the virtual IP addresses (VIPs) for the deployments. For more information, see [Deploying and Updating Windows Azure Cloud Applications](/en-us/develop/dotnet/fundamentals/deploying-applications/).
+The deployment swap happens quickly because the only thing that changes is the virtual IP addresses (VIPs) for the deployments.
 
 To save compute costs, you can delete the deployment in the staging environment when you're sure the new production deployment is performing as expected.
 
 <h2 id="linkresources">How to: Link a resource to a cloud service</h2>
 
-To show your cloud service's dependencies on other resources, such as a Microsoft SQL Database, you can link the resources to the cloud service. You can view all linked resources on **Linked Resources**, and you can monitor their usage on the cloud service dashboard.
+To show your cloud service's dependencies on other resources, you can link a Windows Azure SQL Database instance or a storage account to the cloud service. You an link and unlink resources on the **Linked Resources** page. Then monitor their usage on the cloud service dashboard. If a linked storage account has monitoring turned on, you can monitor Total Requests on the cloud service dashboard.
 
-Use **Link** to link a new or existing Microsoft SQL database to your cloud service. After you link a Microsoft SQL database to your cloud service, you can scale the database along with the cloud service role that is using it on the **Scale** page. You also will be able to monitor, manage, and scale the database in the **Databases** node of the Management Portal. 
+Use **Link** to link a new or existing SQL Database instance or storage account to your cloud service. You can then scale the database along with the cloud service role that is using it on the **Scale** page. (A storage account scales automatically as usage increases.) For more information, see [How to Scale a Cloud Service and Linked Resources](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-scale-a-cloud-service/). 
 
-"Linking" a resource in this sense doesn't connect your app to the database. If you create a new database using **Link**, you'll need to add the connection strings to your application code and then upgrade the cloud service.
+You also can monitor, manage, and scale the database in the **Databases** node of the Management Portal. 
 
-**Note**   Linked storage accounts are not supported in the Customer Technical Preview of the Management Portal. 
+"Linking" a resource in this sense doesn't connect your app to the resource. If you create a new database using **Link**, you'll need to add the connection strings to your application code and then upgrade the cloud service. You'll also need to add connection strings if your app uses resources in a linked storage account.
 
-The following procedure describes how to link a new SQL Database, deployed on a new SQL Database server, to the cloud service.
+The following procedure describes how to link a new SQL Database instance, deployed on a new SQL Database server, to a cloud service.
 
-###To link a SQL Database to a cloud service###
+###To link a SQL Database instance to a cloud service###
 
 1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
 
@@ -96,7 +100,7 @@ The following procedure describes how to link a new SQL Database, deployed on a 
 
 4. Click **Create a new resource** or **Link an existing resource**.
 
-5. Choose the type of resource to link. In the [Management Portal](http://manage.windowsazure.com/), click **SQL Database**. (The Customer Technical Preview of the Management Portal does not support linking a storage account to a cloud service.)
+5. Choose the type of resource to link. In the [Management Portal](http://manage.windowsazure.com/), click **SQL Database**. (The Preview Management Portal does not support linking a storage account to a cloud service.)
 
 6. To complete the database configuration, follow instructions in help for the **SQL Databases** area of the Management Portal.
 
@@ -138,8 +142,13 @@ Use the following procedure to delete a deployment or your cloud service.
 
 3. To delete a deployment, click **Delete production deployment** or **Delete staging deployment**. Then, at the confirmation prompt, click **Yes**. 
 
-4. If you plan to delete the cloud service, repeat step x, if needed, to delete your other deployment.
+4. If you plan to delete the cloud service, repeat step 3, if needed, to delete your other deployment.
 
 5. To delete the cloud service, click **Delete cloud service**. Then, at the confirmation prompt, click **Yes**.
 
-**Note**   If verbose monitoring is configured for your cloud service, Windows Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For more information, see [How to Monitor Cloud Services](../how-to-monitor-a-cloud-service/).
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>If verbose monitoring is configured for your cloud service, Windows Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For information about where to find the metrics tables, see "How to: Access verbose monitoring data outside the Management Portal" in <a href="https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/">How to Monitor Cloud Services</a>.</p> 
+</div>
+
+
