@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-java-tutorials-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle="Java Multi-Tier application - Windows Azure tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure Service Bus queue tutorial, Azure .NET worker role tutorial, Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial" metaDescription="A tutorial that helps you develop a multi-tier application in Windows Azure that uses Service Bus queues to communicate between tiers." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="dev-java-tutorials-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle="Java Multi-Tier application - Windows Azure tutorial" metaKeywords="Windows Azure Service Bus queue tutorial, Windows Azure queue tutorial, Windows Azure worker role tutorial, Windows Azure Service Bus queue tutorial, Windows Azure .NET worker role tutorial, Windows Azure Service Bus queue tutorial, Windows Azure queue tutorial, Windows Azure worker role tutorial" metaDescription="A tutorial that helps you develop a multi-tier application in Windows Azure that uses Service Bus queues to communicate between tiers." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -16,7 +16,7 @@ You will learn:
 -   How to create a multi-tier application in Windows Azure
 -   How to communicate between tiers using Service Bus Queues
 
-You will build a front-end Java Server Pages (JSP) Azure worker role that uses a back-end Java-based Azure virtual machine (VM) role to process long running jobs. You will learn how to create multi-role solutions, as well as how to use Service Bus Queues to enable inter-role communication. 
+You will build a front-end Java Server Pages (JSP) Windows Azure worker role that uses a back-end Java-based Windows Azure virtual machine (VM) role to process long running jobs. You will learn how to create multi-role solutions, as well as how to use Service Bus Queues to enable inter-role communication. 
 
 ## Scenario Overview: Inter-Role Communication
 
@@ -208,7 +208,7 @@ The application will look similar to the following:
 **ServiceBusContract** class. A **ServiceBusContract** object is
 constructed with an appropriate configuration that encapsulates the
 token permissions to manage it, and the **ServiceBusContract** class is
-the sole point of communication with Azure. The **ServiceBusService** class provides methods to create, enumerate,
+the sole point of communication with Windows Azure. The **ServiceBusService** class provides methods to create, enumerate,
 and delete queues. The example below shows how a **ServiceBusService**
 can be used to create a queue named "TestQueue" within a "HowToSample"
 service namespace. To send a message to a Service Bus Queue, your application will obtain a
@@ -345,13 +345,13 @@ provided.
 
 - If you want to disable remote desktop access, uncheck **Enable all roles to accept Remote Desktop connections with these login credentials**.
 
-- In the **Publish Azure Project** dialog, click **Publish**. When prompted to perform a full build, click **Yes**. This may take several minutes for the first build.
+- In the **Publish Windows Azure Project** dialog, click **Publish**. When prompted to perform a full build, click **Yes**. This may take several minutes for the first build.
 
 - A **Windows Azure Activity Log** will display in your Eclipse tabbed views section. You can use that view, as well as the **Console** view, to see the progress of your deployment. An alternative is to log in to the Windows Azure Management Portal, http://manage.windowsazure.com, and use the **Hosted Services** section to monitor the status.
 
-- Because this was a deployment to a staging environment, the DNS will be of the form http://<guid>.cloudapp.net. You can see the DNS name if you click the deployment name in the Windows Azure Platform Management Portal (you may need to expand the Hosted Service node to see the deployment name); the DNS name is in the right hand pane of the portal.
+- Because this was a deployment to a staging environment, the DNS will be of the form http://<guid>.cloudapp.net. You can see the DNS name if you click the deployment name in the Windows Azure Management Portal (you may need to expand the Hosted Service node to see the deployment name); the DNS name is in the right hand pane of the portal.
 
--  Once your deployment has a status of **Ready** (as indicated by the Windows Azure Platform Management Portal), you can enter the URL for your deployed application in your browser to see that your application is deployed to the cloud. The URL for an application deployed to the staging environment will be of the form http://<guid>.cloudapp.net/. For example, http://72d5eb5875234b7ca8c7f74c80a2a1f1.cloudapp.net. Remember to append **MyHelloWorld** (case-sensitive) to the end of the URL, so you’ll be using a URL similar to the following in your browser (use the GUID assigned to your URL instead of the GUID listed here): http://72d5eb5875234b7ca8c7f74c80a2a1f1.cloudapp.net/MyHelloWorld.
+-  Once your deployment has a status of **Ready** (as indicated by the Windows Azure Management Portal), you can enter the URL for your deployed application in your browser to see that your application is deployed to the cloud. The URL for an application deployed to the staging environment will be of the form http://<guid>.cloudapp.net/. For example, http://72d5eb5875234b7ca8c7f74c80a2a1f1.cloudapp.net. Remember to append **MyHelloWorld** (case-sensitive) to the end of the URL, so you’ll be using a URL similar to the following in your browser (use the GUID assigned to your URL instead of the GUID listed here): http://72d5eb5875234b7ca8c7f74c80a2a1f1.cloudapp.net/MyHelloWorld.
 
 
 - Although this walk-through was for a deployment to the staging environment, a deployment to production follows the same steps, except within the **Publish Azure Project** dialog, select **Production** instead of **Staging** for the **Target environment**. A deployment to production results in a URL based on the DNS name of your choice, instead of a GUID as used for staging.

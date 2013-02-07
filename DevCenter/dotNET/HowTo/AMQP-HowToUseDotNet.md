@@ -289,7 +289,7 @@ The Service Bus AMQP 1.0 support can also be used from other languages including
 
 <h2><span class="short-header">Important notice</span>Important notice</h2>
 
-Support for the AMQP 1.0 protocol in the Windows Azure Service Bus (“AMQP Preview”) is provided as a preview feature, and is governed by the Azure Preview terms of use. Specifically, note that:
+Support for the AMQP 1.0 protocol in the Windows Azure Service Bus (“AMQP Preview”) is provided as a preview feature, and is governed by the Windows Azure Preview terms of use. Specifically, note that:
 
 * The Service Bus SLA does not apply to the AMQP Preview;
 * Any queue or topic that is addressed using the AMQP client libraries (for sending/receiving messages or other data) may not be preserved during the AMQP Preview or at the end of the AMQP Preview;
@@ -297,7 +297,7 @@ Support for the AMQP 1.0 protocol in the Windows Azure Service Bus (“AMQP Prev
 
 <h2><span class="short-header">Further information</span>Further information</h2>
 
-* [AMQP 1.0 support in Azure Service Bus](http://aka.ms/pgr3dp)
+* [AMQP 1.0 support in Windows Azure Service Bus](http://aka.ms/pgr3dp)
 * [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](http://aka.ms/ll1fm3)
 * [Service Bus AMQP Preview Developers Guide (included in the ServiceBus.Preview NuGet package)](http://aka.ms/tnwtu4)
 * [How to Use Service Bus Queues](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)
