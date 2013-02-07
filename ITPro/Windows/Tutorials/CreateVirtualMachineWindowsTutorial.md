@@ -87,7 +87,7 @@ You use the **From Gallery** feature to create a custom virtual machine in the M
 
 You can log on to the virtual machine that you created to manage both its settings and the applications that are running on it.
 
-1. Sign in to the [Windows Azure Management Portal](http://www.windowsazure.com).
+1. Sign in to the Windows Azure Management Portal.
 
 2. Click **Virtual Machines**, and then select the **MyTestVM1** virtual machine.
 

@@ -21,7 +21,7 @@ You use the **Quick Create** method to quickly create a virtual machine in the M
 4. Enter the following information for the new virtual machine:
 
 	- **DNS Name** – the name that is used for both the virtual machine that is created and the cloud service that contains the virtual machine.
-	- **Image** – the platform image that is used to create the virtual machine. If you want to create a virtual machine running the Linux operating system, you must use the **From Gallery** method to create the machine.
+	- **Image** – the platform image that is used to create the virtual machine. 
 	- **Account Password** - enter and confirm a password for the Administrator account. You use this account to manage the virtual machine.
 	- **Location** – the region that contains the virtual machine. 
 

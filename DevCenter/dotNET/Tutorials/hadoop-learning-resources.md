@@ -23,7 +23,7 @@
 * [SQL Server 2012 reporting](http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-reporting-services.aspx) - A comprehensive, highly scalable solution that enables real-time decision making across the enterprise. 
 	
 **Apache Hadoop**:			
-* [Apache Hadoop](http://hadoop.apache.org/) - Software library providing a framework that allows for the distributed processing of large data sets across clusters of computers.	
+* [Apache Hadoop](http://wiki.apache.org/hadoop/HDFS) - Software library providing a framework that allows for the distributed processing of large data sets across clusters of computers.	
 * [HDFS](http://hadoop.apache.org/hdfs/) - Hadoop Distributed File System (HDFS) is the primary storage system used by Hadoop applications.		
 * [Map Reduce](http://hadoop.apache.org/mapreduce/) - A programming model and software framework for writing applications that rapidly process vast amounts of data in parallel on large clusters of compute nodes.		
 	
