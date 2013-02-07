@@ -1,4 +1,4 @@
-﻿ <h1>White Papers on Windows Azure</h1>
+ <h1>White Papers on Windows Azure</h1>
   <p>The white papers listed below provide additional views and perspectives on Windows Azure services.</p>
   <p>(in order of popularity)</p>
   <table border="1" cellspacing="0" cellpadding="10" style="border: 0.5px solid #000000;">
@@ -168,11 +168,6 @@
         </td>
         <td style="width: 400px;">This paper provides guidelines on how to deploy an existing on-premise SQL Server database into SQL Azure. It also discusses best practices related to data migration.</td>
       </tr>
-      <tr>
-        <td style="width: 200px;">
-          <a href="http://go.microsoft.com/?linkid=9736947">Scaling out with SQL Azure</a>
-        </td>
-        <td style="width: 400px;">This paper provides an overview on some scale-out strategies, challenges with scaling out on-premise, and the benefits of scaling out with SQL Azure.</td>
-      </tr>
+
     </tbody>
   </table>

@@ -25,7 +25,7 @@ Congratulations you have now set up your repository.  The above steps will not n
 
 ### Contribute/Edit Content
 
-In order for the contribution process to be as seemless as possible, the following procedure has been established.
+In order for the contribution process to be as seamless as possible, the following procedure has been established.
 
 1. Create a New Branch
 2. Add New Content or Edit Existing Content
@@ -54,24 +54,18 @@ If you are editing files, open them in an editor of your choice and start modify
 The files in `C:\Users\<yourusername>\azure-content` are a working copy of the new branch that you created in your local repository. Changing anything in this folder does not affect the local repository until you commit a change. To commit a change to the local repository, type the following commands in GitBash:
 
 	git add .
-	git commit -v -a -m "<Describe the changes made since last commit>"
+	git commit -v -a -m "<Describe the changes made since last commit> submitted for publishing on <date>"
 
-The `add` command adds your changes to a staging area in preparation for committing them to the repository. The period after the `add` command specifies that you want to stage all of the changes you have made. (If you don't want to commit all of the changes, you can add specific files. You can also undo a commit. For help, type `git add -help` or `git status`.)
+The `add` command adds your changes to a staging area in preparation for committing them to the repository. The period after the `add` command specifies that you want to stage all of the files that you have added or modified, checking subfolders recursively. (If you don't want to commit all of the changes, you can add specific files. You can also undo a commit. For help, type `git add -help` or `git status`.)
 
-The `commit` command applies the staged changes to the repository. `-v` means display verbose output from the command, `-a` means commit all of the staged changes, and `-m` means you are providing the commit comment in the command line. (You can omit `-m` and you will be prompted for a commit comment.)
+The `commit` command applies the staged changes to the repository. `-m` means you are providing the commit comment in the command line. If you aren't targeting a specific date for publishing, you can say "for publishing ASAP".  The -v  and -a switches can be omitted. The -v switch is for verbose output from the command, and -a does what you already did with the add command.) 
 
-You can commit multiple times while you are doing your work, or you can wait and commit only once when you're done.  If you only do one, type the `git add .` command followed by the `git commit` command described in the following section, which provides the issue number in the comment.
+You can commit multiple times while you are doing your work, or you can wait and commit only once when you're done.
 
 #### Submit a Pull Request to the Main Repository
 
 When you are done with your work and are ready to have it merged into the central repository follow these steps.
 
-1.  Create a [WindowsAzure/Azure-Content issue].
-2.  In GitBash type the following command to associate the changes with the issue you created:
-
-        git commit -a -v -m “fix #123 -- describe the changes made since last commit”
-
-    In the comment, replace "123" with the number of the issue.
 1.	In GitBash type `git push origin <new branch name>` in the command prompt.  In your local repository, `origin` refers to your GitHub repository that you cloned the local repository from. This command pushes the current state of your new branch, including all commits made in the previous steps, to your GitHub fork.
 2.	On the GitHub site, navigate in your fork to the new branch.
 3.	Click the **Pull Request** button at the top of the page.

@@ -58,7 +58,7 @@ You must first create a virtual machine with a new cloud service, and then you c
 
 15. Click the check mark to create the connected virtual machine.
 
-[How to create a custom virtual machine]:../../Linux/HowTo/howto-custom-create-vm.md
+[How to create a custom virtual machine]:../../Windows/HowTo/howto-custom-create-vm.md
 [Load balancing virtual machines]:../../Windows/CommonTasks/LoadBalancingVirtualMachines.md
 [Manage the availability of virtual machines]:../../Windows/CommonTasks/manage-vm-availability.md
 [Create a new virtual machine]:../media/create.png
