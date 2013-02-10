@@ -19,7 +19,7 @@ In this tutorial you will:
 
 <h2 id="Provision">Connect to the Windows Azure management portal and provision a virtual machine from the gallery</h2>
 
-1. Log in to the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com) using your account. If you do not have a Windows Azure account, visit [Windows Azure 3 Month free trial](http://www.windowsazure.com/en-us/pricing/free-trial/).
+1. Log in to the [Windows Azure Management Portal](http://manage.windowsazure.com) using your account. If you do not have a Windows Azure account, visit [Windows Azure 3 Month free trial](http://www.windowsazure.com/en-us/pricing/free-trial/).
 	![Connect to Portal] [Image1]
 2. On the Windows Azure Management Portal, at the bottom left of the web page, click **+NEW**, click **VIRTUAL MACHINE**, and then click **FROM GALLERY**.
 
@@ -346,7 +346,7 @@ For more information about migrating a database to Windows Azure, see [Guide to 
 
 ### Turn off write caching ###
 
-For best performance, the Database Engine requires write caching to be OFF for both data and operating system disks. OFF is the default setting for data disks, for both read and write operations. However, ON is the default write caching setting for the operating system disk. New users who are evaluating performance on a simple single disk system should configure write caching to be OFF for the operating system disk. Use PowerShell and the **Set-AzureOSDisk** cmdlet. For instructions on configuring write caching, see [How to Use PowerShell for Windows Azure](http://go.microsoft.com/fwlink/?LinkId=254236), and [Set-AzureOSDisk](http://msdnstage/en-us/library/jj152847). For setting the write caching of a data disk, see [Set-AzureDataDisk](http://msdnstage/en-us/library/jj152851).
+For best performance, the Database Engine requires write caching to be OFF for both data and operating system disks. OFF is the default setting for data disks, for both read and write operations. However, ON is the default write caching setting for the operating system disk. New users who are evaluating performance on a simple single disk system should configure write caching to be OFF for the operating system disk. Use PowerShell and the **Set-AzureOSDisk** cmdlet. For instructions on configuring write caching, see [How to Use PowerShell for Windows Azure](http://go.microsoft.com/fwlink/?LinkId=254236), and [Set-AzureOSDisk](http://msdn.microsoft.com/en-us/library/jj152847). For setting the write caching of a data disk, see [Set-AzureDataDisk](http://msdn.microsoft.com/en-us/library/jj152851).
 
 ### Create database users ###
 

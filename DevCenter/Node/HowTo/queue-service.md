@@ -194,7 +194,7 @@ from the queue by calling the **peekMessages** method. By default,
 
 <div class="dev-callout">
 <b>Note</b>
-<p>Using <b>peekMessage</b> when there are no messages in the queue will not return an error, however no messages will be returned.</p>
+<p>Using <strong>peekMessage</strong> when there are no messages in the queue will not return an error, however no messages will be returned.</p>
 </div>
 
 ## <a name="get-message"> </a>How To: Dequeue the Next Message
