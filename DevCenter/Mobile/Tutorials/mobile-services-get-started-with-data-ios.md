@@ -265,11 +265,14 @@ Next, consider completing one of the following tutorials that is based on the Ge
 * [Refine queries with paging]
   <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
 
-Once you have completed the data series, try the iOS tutorial [Get started with authentication] to learn how to authenticate users of your app.
+Once you have completed the data series, try these other iOS tutorials:
 
-<!--* [Get started with push notifications] 
+* [Get started with authentication] 
+	<br/>Learn how to authenticate users of your app.
+
+* [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app with Mobile Services.
--->
+
 <!-- Anchors. -->
 
 [Get the Windows Store app]: #download-app
