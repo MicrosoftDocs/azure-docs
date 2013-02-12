@@ -1,14 +1,11 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-users-ios" urlDisplayName="Get Started with Authentication (iOS)" pageTitle="Get started with authentication (iOS) - Mobile Services" metaKeywords="Windows Azure registering application, Azure authentication, application authenticate, authenticate mobile services, Mobile Services iOS" metaDescription="Learn how to use authentication in your Windows Azure Mobile Services app for iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-get-started-with-users-android" urlDisplayName="Get Started with Authentication (Android)" pageTitle="Get started with authentication (Android) - Mobile Services" metaKeywords="Windows Azure registering application, Azure authentication, application authenticate, authenticate mobile services, Mobile Services Android" metaDescription="Learn how to use authentication in your Windows Azure Mobile Services app for Android." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-ios.md" />
+<div chunk="../chunks/article-left-menu-android.md" />
 
 # Get started with authentication in Mobile Services
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS" class="current">iOS</a> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS" class="current">iOS</a> <a href="/en-us/develop/mobile/tutorials/get-started-with-users-android" title="Android" class="current">Android</a>
 </div>
-
-
-_The iOS client library for Mobile Services is currently under development on [GitHub]. We welcome feedback on and contributions to this library._
 
 This topic shows you how to authenticate users in Windows Azure Mobile Services from your app.  In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.  
 
@@ -20,7 +17,7 @@ This tutorial walks you through these basic steps to enable authentication in yo
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
 
-Completing this tutorial requires XCode 4.5 and iOS 5.0 or later versions. 
+Completing this tutorial requires Eclipse and Android 4.2 or a later version. 
 
 <!--<div class="dev-callout"><b>Note</b>
 	<p>This tutorial demonstrates the basic method provided by Mobile Services to authenticate users by using a variety of identity providers. This method is easy to configure and supports multiple providers. However, this method also requires users to log-in every time your app starts. To instead use Live Connect to provide a single sign-on experience in your Windows Store app, see the topic <a href="/en-us/develop/mobile/tutorials/single-sign-on-win8-dotnet">Single sign-on for Windows Store apps by using Live Connect</a>.</p>
@@ -168,10 +165,10 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Single sign-on for Windows Store apps by using Live Connect]: ./mobile-services-single-sign-on-win8-dotnet.md
-[Get started with Mobile Services]: ./mobile-services-get-started-ios.md
-[Get started with data]: ./mobile-services-get-started-with-data-ios.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-ios.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-ios.md
-[Authorize users with scripts]: ./mobile-services-authorize-users-ios.md
+[Get started with Mobile Services]: ./mobile-services-get-started-android.md
+[Get started with data]: ./mobile-services-get-started-with-data-android.md
+[Get started with authentication]: ./mobile-services-get-started-with-users-android.md
+[Get started with push notifications]: ./mobile-services-get-started-with-push-android.md
+[Authorize users with scripts]: ./mobile-services-authorize-users-android.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
