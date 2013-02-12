@@ -152,7 +152,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
   This enables the app to access Mobile Services in Windows Azure.
 
-5. Open the TodoActivity.java file located in .src.com.example.getstartedwithdata, and add the following import statements: 
+5. From Package Explorer, Open the TodoActivity.java file located in .src.com.example.getstartedwithdata, and add the following import statements: 
 
 		import com.microsoft.windowsazure.mobileservices.*;	
 		import java.net.MalformedURLException; 
@@ -160,7 +160,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 5. Add the following lines of code to the variable declarations of the ToDoActivity class:
 
 		private MobileServiceClient mClient;
-		private MobileServiceTable mToDoTable;
+		private private MobileServiceTable<ToDoItem> mToDoTable;
 
 5. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
 
@@ -194,7 +194,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 6. Uncomment the following line of code:        
 
-		mToDoTable = mClient.getTable("todoitem");
+		mToDoTable = mClient.getTable(ToDoItem.class);
     
   This creates the MobileServiceTable instance that is used to proxy data storage in the mobile service.
 
@@ -228,23 +228,26 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 8. Replace the body of the **refreshItemsFromTable** method with the following code:
 
-        mToDoTable.where().field("complete").eq(val(false))
-				.execute(ToDoItem.class, new TableQueryCallback<ToDoItem>() {
-					
-					public void onCompleted(List<ToDoItem> result, int count,
-							Exception exception, ServiceFilterResponse response) {
+		mToDoTable.where().field("complete").eq(false)
+		.execute(new TableQueryCallback<ToDoItem>() {
+		     public void onCompleted(List<ToDoItem> result, 
+		    		 int count, Exception exception, 
+		    		 ServiceFilterResponse response)
+						
 						if(exception == null){
 							mAdapter.clear();
+	
 							for (ToDoItem item : result) {
 								mAdapter.add(item);
 							}
+	
 							mProgressDialog.dismiss();
 						} else {
 							mProgressDialog.dismiss();
 							createAndShowDialog(exception, "Error");
 						}
 					}
-				});
+				}); 
 
 	This queries the mobile service and returns all items that are not marked as complete. Items are added to the adapter for binding.
 
@@ -353,6 +356,5 @@ Once you have completed the data series, try these other Android tutorials:
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
-[GitHub]:  http://go.microsoft.com/fwlink/p/?LinkId=282122
-[GitHub repo]: http://go.microsoft.com/fwlink/p/?LinkId=268784
+[GitHub]:  http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
