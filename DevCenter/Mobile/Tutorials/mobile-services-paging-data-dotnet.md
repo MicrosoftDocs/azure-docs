@@ -42,7 +42,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
 4. (Optional) View the URI of the request sent to the mobile service by using message inspection software, such as browser developer tools or [Fiddler]. 
 
-   Notice that the **Take(3)** method was translated into the query option **$top=3** in the query URI.
+   Notice that the `Take(3)` method was translated into the query option `$top=3` in the query URI.
 
 5. Update the **RefreshTodoItems** method once more with the following code:
             
@@ -66,7 +66,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
 6. (Optional) Again view the URI of the request sent to the mobile service. 
 
-   Notice that the **Skip(3)** method was translated into the query option **$skip=3** in the query URI.
+   Notice that the `Skip(3)` method was translated into the query option `$skip=3` in the query URI.
 
 ## <a name="next-steps"> </a>Next Steps
 

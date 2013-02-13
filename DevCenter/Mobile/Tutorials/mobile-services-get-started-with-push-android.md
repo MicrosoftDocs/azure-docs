@@ -18,48 +18,19 @@
 
 This tutorial walks you through these basic steps to enable push notifications:
 
-1. [Generate the certificate signing request] 
-2. [Register your app and enable push notifications]
-3. [Create a provisioning profile for the app]
-3. [Configure Mobile Services]
-4. [Add push notifications to the app]
-5. [Update scripts to send push notifications]
-6. [Insert data to receive notifications]
+1. [Register your app for push notifications and configure Mobile Services]
+2. [Add push notifications to the app]
+3. [Update scripts to send push notifications]
+4. [Insert data to receive notifications]
 
 This tutorial requires the following:
 
 + [Mobile Services Android SDK]
-+ 
-
-   <div class="dev-callout"><b>Note</b>
-   <p>Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.</p>
-   </div>
++ a
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 
 The Apple Push Notification Service (APNS) uses certificates to authenticate your mobile service. Follow these instructions to create the necessary certificates and upload it to your Mobile Service. For the official APNS feature documentation, see [Apple Push Notification Service].
-
-<h2><a name="certificates"></a><span class="short-header">Generate CSR file</span>Generate the Certificate Signing Request file</h2>
-
-First you must generate the Certificate Signing Request (CSR) file, which is used by Apple to generate a signed certificate.
-
-1. From the Utilities folder, run the Keychain Access tool.
-
-2. Click **Keychain Access**, expand **Certificate Assistant**, then click **Request a Certificate from a Certificate Authority...**.
-
-  ![][5]
-
-3. Select your **User Email Address**, type **Common Name** and **CA Email Address** values, make sure that **Saved to disk** is selected, and then click **Continue**.
-
-  ![][6]
-
-4. Type a name for the Certificate Signing Request (CSR) file in **Save As**, select the location in **Where**, then click **Save**.
-
-  ![][7]
-  
-  This saves the CSR file in the selected location; the default location is in the Desktop. Remember the location chosen for this file.
-
-Next, you will register your app with Apple, enable push notifications, and upload this exported CSR to create a push certificate.
 
 <h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for push notifications</h2>
 
@@ -118,42 +89,6 @@ To be able to send push notifications to an Android app from mobile services, yo
     </div>
 
 Later, you will use this certificate to generate a .p12 file and upload it to Mobile Services to enable authentication with APNS.
-
-<h2><a name="profile"></a><span class="short-header">Provision the app</span>Create a provisioning profile for the app</h2>
- 
-1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning**, then click **New Profile**.
-
-   ![][12]
-
-2. Enter a **Profile Name**, select the **Certificates** and **Devices** to use for testing, select the **App ID**, then click **Submit**.
-
-   ![][13]
-
-  This creates a new provisioning profile.
-
-3. From the list of provisioning profiles, click the **Download** button for this new profile.
-
-   ![][14]
-
-   This downloads the profile to the local computer.
-
-    <div class="dev-callout"><b>Note</b>
-	<p>You may need to refresh the page to see the new profile.</p>
-    </div>
-
-4. In Xcode, open the Organizer select the Devices view, select **Provisioning Profiles** in the **Library** section in the left pane, and then click the **Import** button at the very bottom of the middle pane. 
-
-   ![][15]
-
-5. Locate the downloaded provisioning profile and click **Open**.
-
-   ![][16] 
-
-6. Under **Targets**, click **Quickstart**, expand **Code Signing Identity**, then under **Debug** select the new profile.
-
-   ![][17]
-
-This ensures that the Xcode project uses the new profile for code signing. Next, you must upload the certificate to Mobile Services.
 
 <a name="configure"></a><h2><span class="short-header">Configure the service</span>Configure Mobile Services to send push requests</h2>
 
@@ -335,9 +270,7 @@ You have successfully completed this tutorial.
 In this simple example a user receives a push notification with the data that was just inserted. The device token used by APNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Devices table in which to store device tokens and send a push notification out to all stored channels when an insert occurs. 
 
 <!-- Anchors. -->
-[Generate the certificate signing request]: #certificates
 [Register your app and enable push notifications]: #register
-[Create a provisioning profile for the app]: #profile
 [Configure Mobile Services]: #configure
 [Update scripts to send push notifications]: #update-scripts
 [Add push notifications to the app]: #add-push

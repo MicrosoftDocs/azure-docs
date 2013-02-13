@@ -52,9 +52,9 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
 ## Test the app
 
-1. In Xcode, open the project that you modified when you completed the tutorial [Get started with authentication].
+1. In Eclipse, open the project that you modified when you completed the tutorial [Get started with authentication].
 
-2. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider. 
+2. From the **Run** menu, then click **Run** to start the app and sign in with your chosen identity provider. 
 
    Notice that this time, although there are items already in the TodoItem table from preview tutorials, no items are returned. This happens because previous items were inserted without the userId column and now have null values.
 
