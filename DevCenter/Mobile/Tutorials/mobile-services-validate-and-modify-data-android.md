@@ -1,21 +1,21 @@
-<properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-ios" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate data (iOS) - Mobile Services" metaKeywords="access and change data, Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" metaDescription="Learn how to validate and modify data sent using server scripts from your iOS app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-android" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate data (Android) - Mobile Services" metaKeywords="access and change data, Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" metaDescription="Learn how to validate and modify data sent using server scripts from your Android app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-ios.md" />
+<div chunk="../chunks/article-left-menu-android.md" />
 
 # Validate and modify data in Mobile Services by using server scripts
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS" class="current">iOS</a> 
+	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a> <a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android" class="current">Android</a>
 </div>
 
 
-This topic shows you how to leverage server scripts in Windows Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update your iOS app to take advantage of these new behaviors.
+This topic shows you how to leverage server scripts in Windows Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update your Android app to take advantage of these new behaviors.
 
 This tutorial walks you through these basic steps:
 
 1. [Add string length validation]
 2. [Update the client to support validation]
-<!--3. [Add a timestamp on insert]
-4. [Update the client to display the timestamp]-->
+3. [Add a timestamp on insert]
+4. [Update the client to display the timestamp]
 
 This tutorial builds on the steps and the sample app from the previous tutorial [Get started with data]. Before you begin this tutorial, you must first complete [Get started with data].  
 
@@ -53,58 +53,15 @@ It is always a good practice to validate the length of data that is submitted by
 
 ## <a name="update-client-validation"></a>Update the client
 
-Now that the mobile service is validating data and sending error responses, you need to update your app to be able to handle error responses from validation.
+Now that the mobile service is validating data and sending error responses, you need to verify that your app is handling error responses from validation.
 
-1. In Xcode, open the project that you modified when you completed the tutorial [Get started with data].
+1. In Eclipse, open the project that you created when you completed the tutorial [Get started with data].
 
-2. Press the **Run** button (Command + R) to build the project and start the app, then type text longer than 10 characters in the textbox and click the  plus (**+**) icon.
-
-   Notice that the app raises an unhandled error as a result of the 400 response (Bad Request) returned by the mobile service.	
-
-3. In the TodoService.m file, locate the following line of code in the **addItem** method:
-    
-        [self logErrorIfNotNil:error]; 
-
-   After this line of code, replace the remainder of the completion block with the following code:
-
-        BOOL goodRequest = !((error) && (error.code == MSErrorMessageErrorCode));
-
-        // detect text validation error from service.
-        if (goodRequest) // The service responded appropriately
-        {
-            NSUInteger index = [items count];
-            [(NSMutableArray *)items insertObject:result atIndex:index];
-        
-            // Let the caller know that we finished
-            completion(index);
-        }
-        else{
-        
-            // if there's an error that came from the service
-            // log it, and popup up the returned string.
-            if (error && error.code == MSErrorMessageErrorCode) {
-                NSLog(@"ERROR %@", error);
-                UIAlertView *av =
-                [[UIAlertView alloc]
-                 initWithTitle:@"Request Failed"
-                 message:error.localizedDescription
-                 delegate:nil
-                 cancelButtonTitle:@"OK"
-                 otherButtonTitles:nil
-                 ];
-                [av show];
-            }
-        }
-
-   This logs the error to the output window and displays it to the user. 
-
-4. Rebuild and start the app. 
-
-   ![][4]
+2. From the **Run** menu, then click **Run** to start the app, then type text longer than 10 characters in the textbox and click the **Add** button.
 
   Notice that error is handled and the error messaged is displayed to the user.
 
-<!--## <a name="add-timestamp"></a>Add a timestamp
+## <a name="add-timestamp"></a>Add a timestamp
 
 The previous tasks validated an insert and either accepted or rejected it. Now, you will update inserted data by using a server script that adds a timestamp property to the object before it gets inserted.
 
@@ -125,7 +82,7 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
 	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>createdAt</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published.</p>
     </div>
 
-2. In Visual Studio, press the **F5** key to run the app, then type text (shorter than 10 characters) in **Insert a TodoItem** and click **Save**.
+2. From the **Run** menu, then click **Run** to start the app, then type text (shorter than 10 characters) in the textbox and click **Add**.
 
    Notice that the new timestamp does not appear in the app UI.
 
@@ -133,65 +90,82 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
    
    Notice that there is now a **createdAt** column, and the new inserted item has a timestamp value.
   
-Next, you need to update the iOS app to display this new column.
+Next, you need to update the Android app to display this new column.
 
 ## <a name="update-client-timestamp"></a>Update the client again
 
 The Mobile Service client will ignore any data in a response that it cannot serialize into properties on the defined type. The final step is to update the client to display this new data.
 
-1. In Visual Studio, open the file MainPage.xaml.cs, then replace the existing **TodoItem** class with the following definition:
+1. In Package Explorer, open the file ToDoItem.java, then add the following code to the private field definitions in the **TodoItem** class:
 
-	    public class TodoItem
-	    {
-	        public int Id { get; set; }
-          
-            [DataMember(Name="text")]
-	        public string Text { get; set; }
-
-            [DataMember(Name="complete")]
-	        public bool Complete { get; set; }
-	        
-            [DataMember(Name="createdAt")]
-	        public DateTime? CreatedAt { get; set; }
-	    }
-	
-    This new class definition includes the new timestamp property, as a nullable DateTime type.
+		/**
+		 * Timestamp of the item inserted by the service.
+		 */
+		@com.google.gson.annotations.SerializedName("createdAt")
+		private Date mCreatedAt;
   
     <div class="dev-callout"><b>Note</b>
-	<p>The <strong>DataMemberAttribute</strong> tells the client to map the new <strong>CreatedAt</strong> property in the app to the <strong>createdAt</strong> column defined in the TodoItem table, which has a different casing. By using this attribute, your app can have property names on objects that differ from column names in the SQL Database. Without this attribute, an error would occur because of the casing differences.</p>
+	<p>The <code>SerializedName</code> annotation tells the client to map the new <code>mCreatedAt</code> property in the app to the <code>createdAt</code> column defined in the TodoItem table, which has a different name. By using this annotation, your app can have property names on objects that differ from column names in the SQL Database. Without this annotation, an error occurs because of the casing differences.</p>
     </div>
 
-5. Add the following XAML element just below the **CheckBoxComplete** element in the MainPage.xaml file:
-	      
-        <TextBlock Name="WhenCreated" Text="{Binding CreatedAt}" VerticalAlignment="Center"/>
+2. Add the following methods to the ToDoItem class to get and set the new mCreatedAt property.
 
-   This displays the new **CreatedAt** property in a text box. 
+		/**
+		 * Sets the timestamp.
+		 * 
+		 * @param date
+		 *            timestamp to set
+		 */
+		public final void setCreatedAt(Date date) {
+			mCreatedAt = date;
+		}
+		
+		/**
+		 * Returns the timestamp.
+		 */
+		public Date getCreatedAt() {
+			return mCreatedAt;
+		}
+
+5. In Package Explorer, open the file ToDoItemAdapter.java, and **&lt;Rick to figure out&gt;**:
+	      
+
+   This displays the new **mCreatedAt** property in the UI. 
 	
-6. Press the **F5** key to run the app. 
+6. From the **Run** menu, then click **Run** to start the app. 
 
    Notice that the timestamp is only displayed for items inserted after you updated the insert script.
 
-7. Replace the existing **RefreshTodoItems** method with the following code:
+7. Replace the existing **RefreshItemsFromTable** method with the following code:
 
-        private void RefreshTodoItems()
-        {
-            // This query filters out completed TodoItems and 
-            // items without a timestamp. 
-            items = todoTable
-               .Where(todoItem => todoItem.Complete == false
-                   && todoItem.CreatedAt != null)
-               .ToCollectionView();
-
-            ListItems.ItemsSource = items;
-        }
+		private void refreshItemsFromTable() {
+			
+			mToDoTable.where().field("complete").eq(val(false)).and().field("createdAt").not(null)
+					.execute(new TableQueryCallback<ToDoItem>() {
+	
+						public void onCompleted(List<ToDoItem> result, int count,
+								Exception exception, ServiceFilterResponse response) {
+							if (exception == null) {
+								mAdapter.clear();
+	
+								for (ToDoItem item : result) {
+									mAdapter.add(item);
+								}
+	
+							} else {
+								createAndShowDialog(exception, "Error");
+							}
+						}
+					});
+		}
 
    This method updates the query to also filter out items that do not have a timestamp value.
 	
-8. Press the **F5** key to run the app.
+8. From the **Run** menu, then click **Run** to start the app.
 
    Notice that all items created without timestamp value disappear from the UI.
 
-You have completed this working with data tutorial.-->
+You have completed this working with data tutorial.
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -220,16 +194,16 @@ Server scripts are also used when authorizing users and for sending push notific
 [1]: ../Media/mobile-portal-data-tables.png
 [2]: ../Media/mobile-insert-script-users.png
 [3]: ../Media/mobile-quickstart-startup.png
-[4]: ../Media/mobile-quickstart-data-error-ios.png
+[4]: ../Media/mobile-quickstart-data-error-android.png
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Get started with Mobile Services]: ../tutorials/mobile-services-get-started-ios.md
-[Authorize users with scripts]: ../tutorials/mobile-services-authorize-users-ios.md
-[Refine queries with paging]: ../tutorials/mobile-services-paging-data-ios.md
-[Get started with data]: ../tutorials/mobile-services-get-started-with-data-ios.md
-[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-ios.md
-[Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-ios.md
+[Get started with Mobile Services]: ../tutorials/mobile-services-get-started-android.md
+[Authorize users with scripts]: ../tutorials/mobile-services-authorize-users-android.md
+[Refine queries with paging]: ../tutorials/mobile-services-paging-data-android.md
+[Get started with data]: ../tutorials/mobile-services-get-started-with-data-android.md
+[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-android.md
+[Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-android.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/

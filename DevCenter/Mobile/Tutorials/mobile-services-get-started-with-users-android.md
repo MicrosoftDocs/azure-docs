@@ -66,67 +66,83 @@ Both your mobile service and your app are now configured to work with your chose
 
    ![][15]
 
-3. In Xcode, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
+3. In Eclipse, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
 
-4. Press the **Run** button to build the project and start the app in the iPhone emulator; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. 
-   
-   This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
+4. From the **Run** menu, then click **Run** to start the app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. 
+
+	 This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
 <h2><a name="add-authentication"></a><span class="short-header">Add authentication</span>Add authentication to the app</h2>
 
-1. Open the project file TodoListController.m and in the **viewDidLoad** method, remove the following code that reloads the data into the table:
+1. In the Package Explorer in Eclipse, open the ToDoActivity.java file and add the following import statements.
 
-        [todoService refreshDataOnSuccess:^{
-            [self.tableView reloadData];
-        }];
+		import com.microsoft.windowsazure.mobileservices.MobileServiceUser;
+		import com.microsoft.windowsazure.mobileservices.MobileServiceAuthenticationProvider;
+		import com.microsoft.windowsazure.mobileservices.UserAuthenticationCallback;
+		import android.content.DialogInterface;
 
-2.	Just after the **viewDidLoad** method, add the following code:
+2. Add the following method to the **ToDoActivity** class: 
+	
+		private void authenticate() {
+			while (currentUser == null) {
+				mClient.login(MobileServiceAuthenticationProvider.Facebook,
+						new UserAuthenticationCallback() {
+	
+							@Override
+							public void onCompleted(MobileServiceUser user,
+									Exception exception,
+									ServiceFilterResponse response) {
+								String message;
+								if (exception == null) {
+									currentUser = user;
+									message = String.format(
+											"You are now logged in - {0}",
+											user.getUserId());
+								} else {
+									message = "You must log in. Login Required";
+								}
+	
+								// prepare the alert box
+								AlertDialog.Builder alertbox = new AlertDialog.Builder(
+										ToDoActivity.this);
+	
+								// set the message to display
+								alertbox.setMessage(message);
+	
+								// add a neutral button to the alert box and assign
+								// a click listener
+								alertbox.setNeutralButton("OK",
+										new DialogInterface.OnClickListener() {
+	
+											@Override
+											public void onClick(
+													DialogInterface dialog,
+													int which) {
+												// Do nothing?
+											}
+										});
+	
+								alertbox.show();
+							}
+						});
+			}
+		}
 
-        - (void)viewDidAppear:(BOOL)animated
-        {
-            // If user is already logged in, no need to ask for auth
-            if (todoService.client.currentUser == nil)
-            {
-                // We want the login view to be presented after the this run loop has completed
-                // Here we use a delay to ensure this.
-                [self performSelector:@selector(login) withObject:self afterDelay:0.1];
-            }
-        }
-
-        - (void) login
-        {
-            UINavigationController *controller =
-    
-            [self.todoService.client
-                loginViewControllerWithProvider:@"facebook"
-                completion:^(MSUser *user, NSError *error) {
-         
-                if (error) {
-                        NSLog(@"Authentication Error: %@", error);
-                        // Note that error.code == -1503 indicates
-                        // that the user cancelled the dialog
-                } else {
-                    // No error, so load the data
-                    [self.todoService refreshDataOnSuccess:^{
-                        [self.tableView reloadData];
-                    }];
-                }
-         
-                [self dismissViewControllerAnimated:YES completion:nil];
-            }];
-    
-            [self presentViewController:controller animated:YES completion:nil];
-        }
-
-    This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login.
+    This creates a new method to handle the authentication process. The user is authenticated by using a Facebook login. A dialog is displayed which displays the ID of the authenticated user. You cannot proceed without a positive authentication.
 
     <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than Facebook, change the value passed to <strong>loginViewControllerWithProvider</strong> above to one of the following: <i>microsoftaccount</i>, <i>facebook</i>, <i>twitter</i>, or <i>google</i>.</p>
+	<p>If you are using an identity provider other than Facebook, change the value passed to the <strong>login</strong> method above to one of the following: <i>microsoftaccount</i>, <i>facebook</i>, <i>twitter</i>, or <i>google</i>.</p>
     </div>
-		
-3. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
+
+3. In the **onCreate** method, add the following line of code after the code that instantiates the `MobileServiceClient` object.
+
+		authenticate();
+
+	This call starts the authentication process.
+
+9. From the **Run** menu, then click **Run** to start the app and sign in with your chosen identity provider. 
 
    When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
