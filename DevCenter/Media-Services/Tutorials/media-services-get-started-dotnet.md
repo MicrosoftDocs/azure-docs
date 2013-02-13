@@ -176,7 +176,7 @@ Add a call to the method after the **\_context = new CloudMediaContext(_accountN
 
 <h2><a id="Step4"></a>Encoding the Asset on the Server and Downloading an Output Asset</h2>
 
-In Media Services, you can create jobs that process media content in several ways: encoding, encrypting, doing format conversions, and so on. A Media Services job always contains one or more tasks that specify the details of the processing work. In this section you create a basic encoding task, and then run a job that performs it using Windows Azure Media Encoder. The task uses a preset string to specify the type of encoding to perform. To see the available preset encoding values, see Task Preset Strings for Windows Azure Media Encoder. Media Services support the same media file input and output formats as Microsoft Expression Encoder. For a list of supported formats, see Supported File Types for Media Services.
+In Media Services, you can create jobs that process media content in several ways: encoding, encrypting, doing format conversions, and so on. A Media Services job always contains one or more tasks that specify the details of the processing work. In this section you create a basic encoding task, and then run a job that performs it using Windows Azure Media Encoder. The task uses a preset string to specify the type of encoding to perform. To see the available preset encoding values, see [Task Preset Strings for Windows Azure Media Encoder](http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx) . Media Services support the same media file input and output formats as Microsoft Expression Encoder. For a list of supported formats, see [Supported File Types for Media Services](http://msdn.microsoft.com/en-us/library/windowsazure/hh973634.aspx).
 
 <ol>
 <li>
