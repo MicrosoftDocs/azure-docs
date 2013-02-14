@@ -4,7 +4,7 @@
 
 # Get started with authentication in Mobile Services
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS" class="current">iOS</a> <a href="/en-us/develop/mobile/tutorials/get-started-with-users-android" title="Android" class="current">Android</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a> <a href="/en-us/develop/mobile/tutorials/get-started-with-users-android" title="Android" class="current">Android</a>
 </div>
 
 This topic shows you how to authenticate users in Windows Azure Mobile Services from your app.  In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.  
@@ -81,59 +81,35 @@ Next, you will update the app to authenticate users before requesting resources 
 		import com.microsoft.windowsazure.mobileservices.MobileServiceUser;
 		import com.microsoft.windowsazure.mobileservices.MobileServiceAuthenticationProvider;
 		import com.microsoft.windowsazure.mobileservices.UserAuthenticationCallback;
-		import android.content.DialogInterface;
 
 2. Add the following method to the **ToDoActivity** class: 
 	
 		private void authenticate() {
-			while (currentUser == null) {
-				mClient.login(MobileServiceAuthenticationProvider.Facebook,
-						new UserAuthenticationCallback() {
+		
+			// Login using the Google provider.
+			mClient.login(MobileServiceAuthenticationProvider.Google,
+					new UserAuthenticationCallback() {
 	
-							@Override
-							public void onCompleted(MobileServiceUser user,
-									Exception exception,
-									ServiceFilterResponse response) {
-								String message;
-								if (exception == null) {
-									currentUser = user;
-									message = String.format(
-											"You are now logged in - {0}",
-											user.getUserId());
-								} else {
-									message = "You must log in. Login Required";
-								}
+						@Override
+						public void onCompleted(MobileServiceUser user,
+								Exception exception, ServiceFilterResponse response) {
 	
-								// prepare the alert box
-								AlertDialog.Builder alertbox = new AlertDialog.Builder(
-										ToDoActivity.this);
-	
-								// set the message to display
-								alertbox.setMessage(message);
-	
-								// add a neutral button to the alert box and assign
-								// a click listener
-								alertbox.setNeutralButton("OK",
-										new DialogInterface.OnClickListener() {
-	
-											@Override
-											public void onClick(
-													DialogInterface dialog,
-													int which) {
-												// Do nothing?
-											}
-										});
-	
-								alertbox.show();
+							if (exception == null) {
+								createAndShowDialog(String.format(
+												"You are now logged in - %1$2s",
+												user.getUserId()), "Success");
+								createTable();
+							} else {
+								createAndShowDialog("You must log in. Login Required", "Error");
 							}
-						});
-			}
+						}
+					});
 		}
 
-    This creates a new method to handle the authentication process. The user is authenticated by using a Facebook login. A dialog is displayed which displays the ID of the authenticated user. You cannot proceed without a positive authentication.
+    This creates a new method to handle the authentication process. The user is authenticated by using a Google login. A dialog is displayed which displays the ID of the authenticated user. You cannot proceed without a positive authentication.
 
     <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than Facebook, change the value passed to the <strong>login</strong> method above to one of the following: <i>microsoftaccount</i>, <i>facebook</i>, <i>twitter</i>, or <i>google</i>.</p>
+	<p>If you are using an identity provider other than Google, change the value passed to the <strong>login</strong> method above to one of the following: <i>MicrosoftAccount</i>, <i>Google</i>, or <i>Twitter</i>.</p>
     </div>
 
 3. In the **onCreate** method, add the following line of code after the code that instantiates the `MobileServiceClient` object.
@@ -141,6 +117,24 @@ Next, you will update the app to authenticate users before requesting resources 
 		authenticate();
 
 	This call starts the authentication process.
+
+4. Move the remaining code after `authenticate();` in the **onCreate** method to a new **createTable** method, which looks like this:
+
+		private void createTable() {
+	
+			// Get the Mobile Service Table instance to use
+			mToDoTable = mClient.getTable(ToDoItem.class);
+	
+			mTextNewToDo = (EditText) findViewById(R.id.textNewToDo);
+	
+			// Create an adapter to bind the items with the view
+			mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
+			ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
+			listViewToDo.setAdapter(mAdapter);
+	
+			// Load the items from the Mobile Service
+			refreshItemsFromTable();
+		}
 
 9. From the **Run** menu, then click **Run** to start the app and sign in with your chosen identity provider. 
 
