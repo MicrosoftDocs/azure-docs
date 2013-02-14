@@ -51,6 +51,9 @@ The **media services** page opens with the new account displayed. When the statu
 >![Media Services Page][]
 
 
+When you double-click on the account name, the Quick Start page is displayed by default. This page enables you to do some management tasks that are also available on other pages of the portal. For example, you can upload a video file from this page, or do it from the CONTENT page.
+
+In addition, you can view code that uses Windows Azure Media Services SDK to accomplish the following tasks: upload, encode, and publish videos. You can click on one of the links under WRITE SOME CODE section, copy the code  and use it in your application. 
 
 
 <!-- Reusable paths. -->
