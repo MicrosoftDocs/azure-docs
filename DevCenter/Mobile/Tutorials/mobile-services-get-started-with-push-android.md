@@ -3,13 +3,13 @@
 <div chunk="../chunks/article-left-menu-android.md" />
 
 # Get started with push notifications in Mobile Services
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/mobile-services-get-started-with-push-android" title="Android" class="current">Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS" class="current">iOS</a></div>
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 <p>This topic shows you how to use Windows Azure Mobile Services to send push notifications to an Android app. In this tutorial you add push notifications using the Apple Push Notification service (APNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.</p>
-<!--<p>You can watch a video version of this tutorial by clicking the clip to the right.</p>
+<!--<p>You can watch a video version of this tutorial by clicking the clip to the right.</p>-->
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/posts/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-with-push-android-180x120.png') !important;" href="http://channel9.msdn.com/posts/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">10:37</span></div>-->
+<!--<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/posts/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-with-push-android-180x120.png') !important;" href="http://channel9.msdn.com/posts/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">10:37</span></div>-->
 </div>
 
    <div class="dev-callout"><b>Note</b>
@@ -34,11 +34,19 @@ The Apple Push Notification Service (APNS) uses certificates to authenticate you
 
 <h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for push notifications</h2>
 
-To be able to send push notifications to an Android app from mobile services, you must register your application with Apple and also register for push notifications.  
+<div class="dev-callout"><b>Note</b>
+<p>To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</p>
+</div> 
 
-1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> at the Apple Developer Center, log on with your Apple ID, click **App IDs**, then click **New App ID**.
+1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> web site, sign-in with your Google account credentials, and then click **Create project...**.
 
-   ![][1]
+   ![][1]   
+
+	<div class="dev-callout"><b>Note</b>
+	<p>When you already have an existing project, the first page you see will be the Dashboard page. From there you can create a new project by opening the project drop-down menu (upper left corner) and choosing Other projects > Create.</p>
+    </div>
+
+2. Click 
 
 3. Type a name for your app in **Description**, enter the value _MobileServices.Quickstart_ in **Bundle Identifier**, then click **Submit**. 
 
@@ -278,23 +286,7 @@ In this simple example a user receives a push notification with the data that wa
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-[1]: ../Media/mobile-services-android-push-step1.png
-[2]: ../Media/mobile-services-android-push-step2.png
-[3]: ../Media/mobile-services-android-push-step3.png
-[4]: ../Media/mobile-services-android-push-step4.png
-[5]: ../Media/mobile-services-android-push-step5.png
-[6]: ../Media/mobile-services-android-push-step6.png
-[7]: ../Media/mobile-services-android-push-step7.png
-[8]: ../Media/mobile-services-android-push-step8.png
-[9]: ../Media/mobile-services-android-push-step9.png
-[10]: ../Media/mobile-services-android-push-step10.png
-[11]: ../Media/mobile-services-android-push-step11.png
-[12]: ../Media/mobile-services-android-push-step12.png
-[13]: ../Media/mobile-services-android-push-step13.png
-[14]: ../Media/mobile-services-android-push-step14.png
-[15]: ../Media/mobile-services-android-push-step15.png
-[16]: ../Media/mobile-services-android-push-step16.png
-[17]: ../Media/mobile-services-android-push-step17.png
+[1]: ../Media/mobile-services-google-developers.png
 [18]: ../Media/mobile-services-selection.png
 [19]: ../Media/mobile-push-tab-android.png
 [20]: ../Media/mobile-push-tab-android-upload.png
@@ -307,10 +299,9 @@ In this simple example a user receives a push notification with the data that wa
 [28]: ../Media/mobile-services-android-push-step18.png
 
 <!-- URLs. -->
-[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 [Android Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started-android.md
 [Get started with data]: ../tutorials/mobile-services-get-started-with-data-android.md
 [Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-android.md
@@ -320,4 +311,3 @@ In this simple example a user receives a push notification with the data that wa
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
-[apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
