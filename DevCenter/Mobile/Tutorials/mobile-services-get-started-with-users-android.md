@@ -109,7 +109,7 @@ Next, you will update the app to authenticate users before requesting resources 
     This creates a new method to handle the authentication process. The user is authenticated by using a Google login. A dialog is displayed which displays the ID of the authenticated user. You cannot proceed without a positive authentication.
 
     <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than Google, change the value passed to the <strong>login</strong> method above to one of the following: <i>MicrosoftAccount</i>, <i>Google</i>, or <i>Twitter</i>.</p>
+	<p>If you are using an identity provider other than Google, change the value passed to the <strong>login</strong> method above to one of the following: <i>MicrosoftAccount</i>, <i>Facebook</i>, or <i>Twitter</i>.</p>
     </div>
 
 3. In the **onCreate** method, add the following line of code after the code that instantiates the `MobileServiceClient` object.
