@@ -7,9 +7,9 @@
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 <p>This tutorial shows you how to add a cloud-based backend service to an Android app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple <em>To do list</em> app that stores app data in the new mobile service.</p>
-<!--<p>If you prefer to watch a video, the clip to the right follows the same steps as this tutorial.</p>
+<!--<p>If you prefer to watch a video, the clip to the right follows the same steps as this tutorial.</p>-->
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Creating-your-first-app-using-the-Windows-Azure-Mobile-Services-Quickstart" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-android-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Creating-your-first-app-using-the-Windows-Azure-Mobile-Services-Quickstart" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">9:38</span></div>-->
+<!--<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Creating-your-first-app-using-the-Windows-Azure-Mobile-Services-Quickstart" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-android-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Creating-your-first-app-using-the-Windows-Azure-Mobile-Services-Quickstart" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">9:38</span></div>-->
 </div>
 
 A screenshot from the completed app is below:
@@ -107,9 +107,8 @@ The final stage of this tutorial is to build and run your new app.
 
    This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-   	<p>You can review the code that accesses your mobile service to query and insert data, which is found in the ToDoActivity.java file.</p> 
+	<div class="dev-callout"><strong>Note</strong> 
+   	<p>You can review the code that accesses your mobile service to query and insert data, which is found in the ToDoActivity.java file.</p>
  	</div>
 
 6. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
@@ -129,10 +128,8 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-<!--
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
--->
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
