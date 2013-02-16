@@ -96,7 +96,11 @@ Next, you need to update the Android app to display this new column.
 
 The Mobile Service client will ignore any data in a response that it cannot serialize into properties on the defined type. The final step is to update the client to display this new data.
 
-1. In Package Explorer, open the file ToDoItem.java, then add the following code to the private field definitions in the **TodoItem** class:
+1. In Package Explorer, open the file ToDoItem.java, then add the following **import** statement:
+
+		import java.util.Date;
+
+2. Add the following code to the private field definitions in the **TodoItem** class:
 
 		/**
 		 * Timestamp of the item inserted by the service.
@@ -108,7 +112,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 	<p>The <code>SerializedName</code> annotation tells the client to map the new <code>mCreatedAt</code> property in the app to the <code>createdAt</code> column defined in the TodoItem table, which has a different name. By using this annotation, your app can have property names on objects that differ from column names in the SQL Database. Without this annotation, an error occurs because of the casing differences.</p>
     </div>
 
-2. Add the following methods to the ToDoItem class to get and set the new mCreatedAt property.
+2. Add the following methods to the ToDoItem class to get and set the new mCreatedAt property:
 
 		/**
 		 * Sets the timestamp.
@@ -127,10 +131,25 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 			return mCreatedAt;
 		}
 
-5. In Package Explorer, open the file ToDoItemAdapter.java, and **&lt;Rick to figure out&gt;**:
-	      
+5. In Package Explorer, open the file ToDoItemAdapter.java, and add the following **import** statement:
 
-   This displays the new **mCreatedAt** property in the UI. 
+		import java.text.DateFormat;
+
+6. In the GetView method, add the following code:
+
+		String createdAtText = "";
+		if (currentItem.getCreatedAt() != null){
+			DateFormat formatter = DateFormat.getDateInstance(DateFormat.SHORT);
+			createdAtText = formatter.format(currentItem.getCreatedAt());
+		}
+
+   This genreates a formatted date string when a timestamp value exists. 
+
+7. Locate the code `checkBox.setText(currentItem.getText());` and replace this line of code with the following:
+
+		checkBox.setText(currentItem.getText() + " " + createdAtText);
+
+	This appends the timestamp date to the item for display.
 	
 6. From the **Run** menu, then click **Run** to start the app. 
 
