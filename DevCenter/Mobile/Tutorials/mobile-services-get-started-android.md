@@ -7,8 +7,10 @@
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 <p>This tutorial shows you how to add a cloud-based backend service to an Android app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple <em>To do list</em> app that stores app data in the new mobile service.</p>
+
 <!--<p>If you prefer to watch a video, the clip to the right follows the same steps as this tutorial.</p>-->
 </div>
+
 <!--<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Creating-your-first-app-using-the-Windows-Azure-Mobile-Services-Quickstart" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-android-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Creating-your-first-app-using-the-Windows-Azure-Mobile-Services-Quickstart" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">9:38</span></div>-->
 </div>
 
