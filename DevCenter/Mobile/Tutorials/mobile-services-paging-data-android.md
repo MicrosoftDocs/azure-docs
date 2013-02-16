@@ -89,15 +89,13 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
 ## <a name="next-steps"> </a>Next Steps
 
-This concludes the set of tutorials that demonstrate the basics of working with data in Mobile Services. Consider finding out more about the following Mobile Services topic:
+This concludes the set of tutorials that demonstrate the basics of working with data in Mobile Services. Consider finding out more about the following Mobile Services topics:
 
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app with Windows Account.
  
-<!--
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
--->
 
 <!-- Anchors. -->
 
