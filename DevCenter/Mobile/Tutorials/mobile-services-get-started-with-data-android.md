@@ -143,7 +143,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 2. Copy the `.jar` files from the SDK into the `libs` folder of the GetStartedWithData project.
 
-3. In Package Explorer in Eclipse, right-click **ToDoActivity**, click **Refresh**, and the copied jar files will appear in the `libs` folder.
+3. In Package Explorer in Eclipse, right-click the `libs` folder, click **Refresh**, and the copied jar files will appear
 
 
   This adds the Mobile Services SDK reference to the workspace.
@@ -168,25 +168,26 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 		import java.net.MalformedURLException;
  
+6. We will remove the in-memory list currently used by the app, so we can replace it with a mobile service. In the `ToDoActivity` class, comment out the following line of code, which defines the existing `toDoItemList` list.
 
-6. Uncomment the following lines of code in the variable declarations of the `ToDoActivity` class:
+		public List<ToDoItem> theList = new ArrayList<ToDoItem>();
+
+7. Once the previous step is done, the project will indicate build errors. Search for the three remaining locations where the `toDoItemList` variable is used and comment out the sections indicated. This fully removes the in-memory list.
+
+8. We now add our mobile service. Uncomment the following lines of code:
 
 		private MobileServiceClient mClient;
 		private private MobileServiceTable<ToDoItem> mToDoTable;
 
-7. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
+9. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
 
-8. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
+10. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
 
    ![][8]
 
   You will need these values when accessing the mobile service from your app code.
 
-9. Back in the activity, note the following line of code, which defines the existing `toDoItemList` list:
-
-		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
-
-10. In the **onCreate** method, uncomment the following lines of code that define the **MobileServiceClient** variable:
+11. In the **onCreate** method, uncomment the following lines of code that define the **MobileServiceClient** variable:
 
 		try {
 		// Create the Mobile Service Client instance, using the provided
@@ -198,28 +199,17 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 			// Get the Mobile Service Table instance to use
 			mToDoTable = mClient.getTable(ToDoItem.class);
+		} catch (MalformedURLException e) {
+			createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
+		}
 
   This creates a new instance of MobileServiceClient that is used to access your mobile service. It also creates the MobileServiceTable instance that is used to proxy data storage in the mobile service.
 
-11. In the code above, replace `MobileServiceUrl` and `AppKey` with the URL and application key from your mobile service, in that order.
+12. In the code above, replace `MobileServiceUrl` and `AppKey` with the URL and application key from your mobile service, in that order.
 
-12. Uncomment the following lines of code, which catches an exception.        
-
-		} catch (MalformedURLException e) {
-			createAndShowDialog(new Exception(
-			"There was an error creating the Mobile Service. Verify the URL"), "Error");
-		}
-		
-
-13. Uncomment these lines of the **checkItem** method:
-
-		if (mClient == null) {
-			return;
-		}
+13. Find the ProgressFilter class at the bottom of the file and uncomment it. This class displays a 'loading' indicator while MobileServiceClient is running network operations.
 
 14. Uncommment these lines of the **checkItem** method:
-
-
 
 		mToDoTable.update(item, new TableOperationCallback<ToDoItem>() {	
 			public void onCompleted(ToDoItem entity, Exception exception,
@@ -235,22 +225,8 @@ Now that your mobile service is ready, you can update the app to store items in 
 		});
 
    This sends an item update to the mobile service and removes checked items from the adapter.
-
-15. Finally, commment out these lines of the **checkItem** method which are used for the in-memory list:
-
-		theList.add(item.getId(), item);
-		if (item.isComplete()) {
-			mAdapter.remove(item);
-		}
-
-
-16. Uncommment these lines of the **addItem** method:
-
-		if (mClient == null) {
-			return;
-		}
     
-17. Uncommment these lines of the **addItem** method:
+15. Uncommment these lines of the **addItem** method:
 	
 		mToDoTable.insert(item, new TableOperationCallback<ToDoItem>() {
 			
@@ -269,13 +245,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
   This code creates a new item and inserts it into the table in the remote mobile service.
 
-18. Finally, commment out these lines of the **addItem** method which are used for the in-memory list:
-
-		item.setId(id++);
-		theList.add(item);
-		mAdapter.add(item);
-
-19. Uncommment these lines of the **refreshItemsFromTable** method:
+16. Uncommment these lines of the **refreshItemsFromTable** method:
 
 		mToDoTable.where().field("complete").eq(false)
 		.execute(new TableQueryCallback<ToDoItem>() {
@@ -296,17 +266,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 				}); 
 
 	This queries the mobile service and returns all items that are not marked as complete. Items are added to the adapter for binding.
-
-20. Finally, commment out these lines of the **refreshItemsFromTable** method which are used for the in-memory list:
-
-		mAdapter.clear();
-		for (ToDoItem item : theList) 
-		{
-			if (item.isComplete() == false)
-				mAdapter.add(item);
-		}		
-
-21. Finally uncomment out all the code at the end of the program starting with the createAndShowDialog method, which are used for exception handling that is not needed in the original in-memory scenario.
+		
 
 Now that the app has been updated to use Mobile Services for backend storage, it's time to test the app against Mobile Services.
 
