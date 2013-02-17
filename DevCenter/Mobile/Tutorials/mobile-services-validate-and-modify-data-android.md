@@ -53,11 +53,17 @@ It is always a good practice to validate the length of data that is submitted by
 
 ## <a name="update-client-validation"></a>Update the client
 
-Now that the mobile service is validating data and sending error responses, you need to verify that your app is handling error responses from validation.
+Now that the mobile service is validating data and sending error responses, you need to verify that your app is correctly handling error responses from validation.
 
 1. In Eclipse, open the project that you created when you completed the tutorial [Get started with data].
 
-2. From the **Run** menu, then click **Run** to start the app, then type text longer than 10 characters in the textbox and click the **Add** button.
+2. In the ToDoActivity.java file, locate the **addItem** method and replace the call to the createAndShowDialog method with the following code:
+
+		createAndShowDialog(exception.getCause().getMessage(), "Error");
+
+	This displays the error message returned by the mobile service. 
+
+3. From the **Run** menu, then click **Run** to start the app, then type text longer than 10 characters in the textbox and click the **Add** button.
 
   Notice that error is handled and the error messaged is displayed to the user.
 
@@ -159,7 +165,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
 		private void refreshItemsFromTable() {
 			
-			mToDoTable.where().field("complete").eq(val(false)).and().field("createdAt").not(null)
+			mToDoTable.where().field("complete").eq(false).and().field("createdAt").ne((String)null)
 					.execute(new TableQueryCallback<ToDoItem>() {
 	
 						public void onCompleted(List<ToDoItem> result, int count,

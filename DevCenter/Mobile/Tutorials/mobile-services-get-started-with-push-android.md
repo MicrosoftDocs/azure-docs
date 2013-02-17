@@ -3,14 +3,9 @@
 <div chunk="../chunks/article-left-menu-android.md" />
 
 # Get started with push notifications in Mobile Services
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS" class="current">iOS</a></div>
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android" class="current">Android</a></div>
+
 <p>This topic shows you how to use Windows Azure Mobile Services to send push notifications to an Android app. In this tutorial you add push notifications using the Apple Push Notification service (APNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.</p>
-<!--<p>You can watch a video version of this tutorial by clicking the clip to the right.</p>-->
-</div>
-<!--<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/posts/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-with-push-android-180x120.png') !important;" href="http://channel9.msdn.com/posts/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">10:37</span></div>-->
-</div>
 
    <div class="dev-callout"><b>Note</b>
    <p>This tutorial demonstrates a simplified way of sending push notifications by attaching a push notification device token to the inserted record. Be sure to follow along with the next tutorial to get a better idea of how to incorporate push notifications into your real-world apps.</p>
@@ -18,7 +13,8 @@
 
 This tutorial walks you through these basic steps to enable push notifications:
 
-1. [Register your app for push notifications and configure Mobile Services]
+1. [Register your app for push notifications]
+2. [Configure Mobile Services]
 2. [Add push notifications to the app]
 3. [Update scripts to send push notifications]
 4. [Insert data to receive notifications]
@@ -43,10 +39,12 @@ The Apple Push Notification Service (APNS) uses certificates to authenticate you
    ![][1]   
 
 	<div class="dev-callout"><b>Note</b>
-	<p>When you already have an existing project, the first page you see will be the Dashboard page. From there you can create a new project by opening the project drop-down menu (upper left corner) and choosing Other projects > Create.</p>
+	<p>When you already have an existing project, you are directed to the <strong>Dashboard</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.</p>
     </div>
 
-2. Click 
+2. In the URL of the page, make a note of the integer value after `#project:`. 
+
+	This is your project number, which is used as the sender ID.
 
 3. Type a name for your app in **Description**, enter the value _MobileServices.Quickstart_ in **Bundle Identifier**, then click **Submit**. 
 
@@ -278,7 +276,7 @@ You have successfully completed this tutorial.
 In this simple example a user receives a push notification with the data that was just inserted. The device token used by APNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Devices table in which to store device tokens and send a push notification out to all stored channels when an insert occurs. 
 
 <!-- Anchors. -->
-[Register your app and enable push notifications]: #register
+[Register your app for push notifications]: #register
 [Configure Mobile Services]: #configure
 [Update scripts to send push notifications]: #update-scripts
 [Add push notifications to the app]: #add-push

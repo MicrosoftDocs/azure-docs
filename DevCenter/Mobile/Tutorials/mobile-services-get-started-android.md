@@ -141,7 +141,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [5]: ../Media/mobile-services-selection.png
 [6]: ../Media/mobile-portal-quickstart-android.png
 [7]: ../Media/mobile-quickstart-steps-android.png
-[8]: ../Media/mobile-eclipse-project.png
+[8]: ../Media/mobile-eclipse-quickstart.png
 [9]: ../Media/mobile-quickstart-download-app.png
 [10]: ../Media/mobile-quickstart-startup-android.png
 [11]: ../Media/mobile-data-tab.png
