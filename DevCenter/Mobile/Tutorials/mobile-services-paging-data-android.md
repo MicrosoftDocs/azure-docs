@@ -25,7 +25,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
 		private void refreshItemsFromTable() {
 			// Define a filtered query that returns the top 3 items.
-			mToDoTable.where().field("complete").eq(val(false)).top(3)
+			mToDoTable.where().field("complete").eq(false).top(3)
 					.execute(new TableQueryCallback<ToDoItem>() {
 	
 						public void onCompleted(List<ToDoItem> result, int count,
@@ -58,7 +58,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
             
 		private void refreshItemsFromTable() {
 			// Define a filtered query that returns the top 3 items.
-			mToDoTable.where().field("complete").eq(val(false)).skip(3).top(3)
+			mToDoTable.where().field("complete").eq(false).skip(3).top(3)
 					.execute(new TableQueryCallback<ToDoItem>() {
 	
 						public void onCompleted(List<ToDoItem> result, int count,
@@ -80,7 +80,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
    This query skips the first three results and returns the next three after that. This is effectively the second "page" of data, where the page size is three items.
 
     <div class="dev-callout"><b>Note</b>
-    <p>This tutorial uses a simplified scenario by passing hard-coded paging values to the <strong>top</strong> and <strong>skip</strong> methods. In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages. You can also call the  <strong>IncludeTotalCount</strong> method to get the total count of items available on the server, along with the paged data.</p>
+    <p>This tutorial uses a simplified scenario by passing hard-coded paging values to the <strong>top</strong> and <strong>skip</strong> methods. In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages. You can also call the  <strong>includeInlineCount</strong> method to get the total count of items available on the server, along with the paged data.</p>
     </div>
 
 8. (Optional) Again view the URI of the request sent to the mobile service. 
