@@ -3,14 +3,11 @@
 <div chunk="../chunks/article-left-menu-android.md" />
 
 # Get started with push notifications in Mobile Services
+
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android" class="current">Android</a></div>
 
 <p>This topic shows you how to use Windows Azure Mobile Services to send push notifications to an Android app. In this tutorial you add push notifications using the Google Cloud Messaging (GCM) service to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.</p>
 
-   <!--<div class="dev-callout"><b>Note</b>
-   <p>This tutorial demonstrates a simplified way of sending push notifications by attaching a push notification device token to the inserted record. Be sure to follow along with the next tutorial to get a better idea of how to incorporate push notifications into your real-world apps.</p>
-   </div>
--->
 This tutorial walks you through these basic steps to enable push notifications:
 
 1. [Register your app for push notifications]
@@ -88,7 +85,7 @@ You mobile service is now configured to work with GCM to send push notifications
 
 4. Open the project file AndroidManifest.xml and add the following new permissions after the existing `uses-permission` element:
 
-	    <permission android:name="**my_app_package**.permission.C2D_MESSAGE" 
+		<permission android:name="**my_app_package**.permission.C2D_MESSAGE" 
 		 	android:protectionLevel="signature" />
 		<uses-permission android:name="**my_app_package**.permission.C2D_MESSAGE" /> 
 		<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
@@ -236,31 +233,21 @@ Your app is now updated to support push notifications.
 	<p>When you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.</p>
 </div>
 
-1. Restart Eclipse, then in Package Explorer, right-click the project, click **Properties**, click **Android**, check **Google APIs**, then click **OK**.
+1. In Package Explorer, right-click the project, click **Properties**, click **Android**, check **Google APIs**, then click **OK**.
 
 	![][23]
 
   This targets the project for the Google APIs.
 
-2. From **Window**, select **Android Virtual Device Manager**, select your device, click **Edit**.
+2. From the **Run** menu, then click **Run** to start the app.
 
-	![][24]
+3. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the **Add** button.
 
-3. Select **Google APIs** in **Target**, then click OK.
+  ![][24]
 
-   ![][25]
+4. Verify that a notification is received.
 
-	This targets the AVD to use Google APIs.
-
-4. From the **Run** menu, then click **Run** to start the app.
-
-5. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the **Add** button.
-
-  ![][26]
-
-6. Verify that a notification is received.
-
-  ![][27]
+  ![][25]
 
 You have successfully completed this tutorial.
 
@@ -299,10 +286,8 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [21]: ../Media/mobile-portal-data-tables.png
 [22]: ../Media/mobile-insert-script-push2.png
 [23]: ../Media/mobile-services-import-android-properties.png
-[24]: ../Media/mobile-services-android-virtual-device-manager.png
-[25]: ../Media/mobile-services-android-virtual-device-manager-edit.png
-[26]: ../Media/mobile-quickstart-push1-android.png
-[27]: ../Media/mobile-quickstart-push2-android.png
+[24]: ../Media/mobile-quickstart-push1-android.png
+[25]: ../Media/mobile-quickstart-push2-android.png
 
 
 <!-- URLs. -->
