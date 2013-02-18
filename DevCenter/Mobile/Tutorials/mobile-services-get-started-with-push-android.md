@@ -5,12 +5,12 @@
 # Get started with push notifications in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android" class="current">Android</a></div>
 
-<p>This topic shows you how to use Windows Azure Mobile Services to send push notifications to an Android app. In this tutorial you add push notifications using the Apple Push Notification service (APNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.</p>
+<p>This topic shows you how to use Windows Azure Mobile Services to send push notifications to an Android app. In this tutorial you add push notifications using the Google Cloud Messaging (GCM) service to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.</p>
 
-   <div class="dev-callout"><b>Note</b>
+   <!--<div class="dev-callout"><b>Note</b>
    <p>This tutorial demonstrates a simplified way of sending push notifications by attaching a push notification device token to the inserted record. Be sure to follow along with the next tutorial to get a better idea of how to incorporate push notifications into your real-world apps.</p>
    </div>
-
+-->
 This tutorial walks you through these basic steps to enable push notifications:
 
 1. [Register your app for push notifications]
@@ -22,11 +22,9 @@ This tutorial walks you through these basic steps to enable push notifications:
 This tutorial requires the following:
 
 + [Mobile Services Android SDK]
-+ a
++ An active Google account
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
-
-The Apple Push Notification Service (APNS) uses certificates to authenticate your mobile service. Follow these instructions to create the necessary certificates and upload it to your Mobile Service. For the official APNS feature documentation, see [Apple Push Notification Service].
 
 <h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for push notifications</h2>
 
@@ -44,171 +42,159 @@ The Apple Push Notification Service (APNS) uses certificates to authenticate you
 
 2. In the URL of the page, make a note of the integer value after `#project:`. 
 
-	This is your project number, which is used as the sender ID.
+	This is your project number. Later in the tutorial you set this value as the SENDER_ID variable in the client.
 
-3. Type a name for your app in **Description**, enter the value _MobileServices.Quickstart_ in **Bundle Identifier**, then click **Submit**. 
+3. On the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> page, click **Services**, then click the toogle to turn on **Google Cloud Messaging for Android** and accept the terms of service. 
+
+3. Click **API Access**, and then click **Create new Server key...** 
 
    ![][2]
 
-   This generates your app ID.
+4. In **Configure Server Key for API Project**, click **Create**.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>If you choose to supply a <strong>Bundle Identifier</strong> value other than <i>MobileServices.Quickstart</i>, you must also update the bundle identifier value in your Xcode project.</p>
-    </div>
+	![][3]
 
-4. Locate the app ID that you just created, then click **Configure**. 
+5. Make a note of the **API key** value.
 
-   ![][3]
+	![][4] 
 
-5. Check the **Enable for Apple Push Notification service** check box, then click the **Continue** button for the **Development Push SSL Certificate**.
-
-   ![][4]
-
-   This displays the Apple Push Notification service SSL Certificate Assistant. 
-
-    <div class="dev-callout"><b>Note</b>
-	<p>This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.</p>
-    </div>
-
-6. Click **Browse**, browse to the location where you saved the CSR file that you created in the first task, then click **Generate**. 
-
-  ![][8]
-
-7. After the certificate is created by the portal, click **Continue** and on the next screen click **Download**. 
- 
-   This downloads the signing certificate and saves it to your computer in your Downloads folder. 
-
-  ![][9]
-
-    <div class="dev-callout"><b>Note</b>
-	<p>By default, the downloaded file a development certificate is named <strong>aps_development.cer</strong>.</p>
-    </div>
-
-8. Double-click the downloaded push certificate **aps_development.cer**.
-
-   This installs the new certificate in the Keychain, as shown below:
-
-   ![][10]
-
-    <div class="dev-callout"><b>Note</b>
-	<p>The name in your certificate might be different, but it will be prefixed with <strong>Apple Development iOS Push Notification Services:</strong>.</p>
-    </div>
-
-Later, you will use this certificate to generate a .p12 file and upload it to Mobile Services to enable authentication with APNS.
+Next, you will use this API key value to enable Mobile Services to authenticate with GCM and send push notifications on behalf of you app.
 
 <a name="configure"></a><h2><span class="short-header">Configure the service</span>Configure Mobile Services to send push requests</h2>
-
-After you have registered your app with APNS and configured your project, you must next configure your mobile service to integrate with APNS.
-
-1. In Keychain Access, right-click the new certificate, click **Export**, name your file QuickstartPusher, select the **.p12** format, then click **Save**.
-
-   ![][28]
-
-  Make a note of the file name and location of the exported certificate.
-
-    <div class="dev-callout"><b>Note</b>
-	<p>This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.</p>
-    </div>
 
 2. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
 
    ![][18]
 
-3. Click the **Push** tab and click **Upload**.
+11. Click the **Push** tab, enter the **API Key** value obtained from GCM in the previous procedure, and then click **Save**.
 
    ![][19]
 
-   This displays the Upload Certificate dialog.
-
-4. Click **File**, select the exported certificate QuickstartPusher.p12 file, enter the **Password**, make sure that the correct **Mode** is selected, click the check icon, then click **Save**.
-
-   ![][20] 
-
-    <div class="dev-callout"><b>Note</b>
-	<p>This tutorial uses developement certificates.</p>
-    </div>
-
-Both your mobile service is now configured to work with APNS.
+You mobile service is now configured to work with GCM to send push notifications.
 
 <a name="add-push"></a><h2><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
 
-1. In Xcode, open the AppDelegate.h file and add the following property below the ***window** property:
+1. In Eclipse, click **Window**, then click **Android SDK Manager**. 
 
-        @property (strong, nonatomic) NSString *deviceToken;
+2. In the Android SDK Manager, expand **Extras**, check **Google Cloud Messaging for Android Library**, make a note of the **SDK Path**, click **Install Package**, select **Accept** to accept the license, then click **Install**.
+
+	![][5]
+
+3. Repeat the previous step to install the **Google APIs** for the current version of Android.
+
+3. Browse to the SDK path, and copy the `gcm.jar` file from the `\extras\google\gcm\gcm-client\dist` subfolder into the `\libs` project subfolder, then in Package Explorer, right-click the **libs** folder and click **Refresh**.  
+
+	The `gcm.jar` library file is now shown in your project.
+
+4. Open the project file AndroidManifest.xml and add the following new permissions after the existing `uses-permission` element:
+
+	    <permission android:name="**my_app_package**.permission.C2D_MESSAGE" 
+		 	android:protectionLevel="signature" />
+		<uses-permission android:name="**my_app_package**.permission.C2D_MESSAGE" /> 
+		<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+		<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+		<uses-permission android:name="android.permission.WAKE_LOCK" />
+
+5. Add the following code into the `application` element: 
+
+		<receiver android:name="com.google.android.gcm.GCMBroadcastReceiver"
+			android:permission="com.google.android.c2dm.permission.SEND">
+			 <intent-filter>
+				 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+				 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+				 <category android:name="**my_app_package**" />
+			 </intent-filter>
+		 </receiver>
+		 <service android:name=".GCMIntentService" />
+
+5. In the code inserted in the previous two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `manifest.package` attribute. 
+
+6. Open the file ToDoItem.java, add the following code to the **TodoItem** class:
+
+		@com.google.gson.annotations.SerializedName("channel")
+		private String mRegistrationId;
+
+		public String getRegistrationId() {
+			return mRegistrationId;
+		}
+
+		public final void getRegistrationId(String registrationId) {
+			mRegistrationId = registrationId;
+		}
+
+	This code creates a new property that holds the registration ID.
 
     <div class="dev-callout"><b>Note</b>
-	<p>When dynamic schema is enabled on your mobile service, a new 'deviceToken' column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>
+	<p>When dynamic schema is enabled on your mobile service, a new 'channel' column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>
     </div>
 
-2. In AppDelegate.m, replace the following handler method inside the implementation: 
+7.  Open the file ToDoItemActivity.java, and add the following import statement:
 
-        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
-        (NSDictionary *)launchOptions
-        {
-            // Register for remote notifications
-            [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-            UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-            return YES;
-        }
+		import com.google.android.gcm.GCMRegistrar;
 
-3. In AppDelegate.m, add the following handler method inside the implementation: 
+8. Add the following private variables to the class, where _`<SENDER_ID>`_ is the project ID assigned by Google to your app in the first procedure:
 
-        // We are registered, so now store the device token (as a string) on the AppDelegate instance
-        // taking care to remove the angle brackets first.
-        - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
-        (NSData *)deviceToken {
-            NSCharacterSet *angleBrackets = [NSCharacterSet characterSetWithCharactersInString:@"<>"];
-            self.deviceToken = [[deviceToken description] stringByTrimmingCharactersInSet:angleBrackets];
-        }
+		private String mRegistationId;
+		public static final String SENDER_ID = "<SENDER_ID>";
 
-4. In AppDelegate.m, add the following handler method inside the implementation: 
+9. In the **onCreate** method, add this code before the MobileServiceClient is instantiated:
 
-        // Handle any failure to register. In this case we set the deviceToken to an empty
-        // string to prevent the insert from failing.
-        - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:
-        (NSError *)error {
-            NSLog(@"Failed to register for remote notifications: %@", error);
-            self.deviceToken = @"";
-        }
+		GCMRegistrar.checkDevice(this);
+		GCMRegistrar.checkManifest(this);
+		mRegistationId = GCMRegistrar.getRegistrationId(this);
+		if (mRegistationId.equals("")) {
+			GCMRegistrar.register(this, SENDER_ID);
+		}
 
-5. In AppDelegate.m, add the following handler method inside the implementation:  
+	This code get the registration ID for the device.
 
-        // Because toast alerts don't work when the app is running, the app handles them.
-        // This uses the userInfo in the payload to display a UIAlertView.
-        - (void)application:(UIApplication *)application didReceiveRemoteNotification:
-        (NSDictionary *)userInfo {
-            NSLog(@"%@", userInfo);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-            [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
-            @"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
+10. Add the following line of code to the **addItem** method:
 
-5. In TodoListController.m, import the AppDelegate.h file so that you can use the delegate to obtain the device token: 
+		item.setRegistrationId(mRegistationId);
 
-        #import "AppDelegate.h"
+	This code sets the registrationId property of the item to the registration ID of the device.
 
-6. In TodoListController.m, modify the **(IBAction)onAdd** action by locating the following line: 
+11. In the Package Explorer, right-click the package, click **New**, click **Class**.
 
-        NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @(NO) }; 
- 
-   Replace this with the following code:
+12. In **Name** type `GCMIntentService`, in **Superclass** type `com.google.android.gcm.GCMBaseIntentService`, then click **Finish**
 
-        // Get a reference to the AppDelegate to easily retrieve the deviceToken
-        AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    
-        NSDictionary *item = @{
-            @"text" : itemText.text,
-            @"complete" : @(NO),
-            // add the device token property to our todo item payload
-            @"deviceToken" : delegate.deviceToken
-        };
+	![][6]
 
-   This adds a reference to the **AppDelegate** to obtain the device token and then modifies the request payload to include that device token.
+	This creates the new GCMIntentService class.
 
-   <div class="dev-callout"><b>Note</b>
-   <p>You must add this code before to the call to the <strong>addItem</strong> method.</p>
-   </div>
+13. Add the following import statements:
+
+		import android.app.NotificationManager;
+		import android.support.v4.app.NotificationCompat;
+
+14. In the new class, add the following constructor:
+
+		public GCMIntentService(){
+		super(ToDoActivity.SENDER_ID);
+		}
+
+	This code invokes the Superclass constructor with the app `SENDER_ID` value of the app.
+
+15. Replace the existing onMessage method override with the following code:
+
+		@Override
+		protected void onMessage(Context context, Intent intent) {
+			
+			NotificationCompat.Builder mBuilder =
+					new NotificationCompat.Builder(this)
+						.setSmallIcon(R.drawable.ic_launcher)
+						.setContentTitle("New todo item!")
+						.setPriority(Notification.PRIORITY_HIGH)
+						.setContentText(intent.getStringExtra("message"));
+			NotificationManager mNotificationManager =
+				(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+			mNotificationManager.notify(0, mBuilder.build());
+			
+		}
+
+    <div class="dev-callout"><b>Note</b>
+	<p>In this tutorial, only the <strong>onMessage</strong> override is implemented. In a real-world app you should consider implementing all four method overrides.</p>
+    </div>
 
 Your app is now updated to support push notifications.
 
@@ -226,54 +212,70 @@ Your app is now updated to support push notifications.
 
 3. Replace the insert function with the following code, and then click **Save**:
 
-        function insert(item, user, request) {
-            request.execute();
-            // Set timeout to delay the notification, to provide time for the 
-            // app to be closed on the device to demonstrate toast notifications
-            setTimeout(function() {
-                push.apns.send(item.deviceToken, {
-                    alert: "Toast: " + item.text,
-                    payload: {
-                        inAppMessage: "Hey, a new item arrived: '" + item.text + "'"
-                    }
-                });
-            }, 2500);
-        }
+		function insert(item, user, request) {
+			request.execute({
+				success: function() {
+					// Write to the response and then send the notification in the background
+					request.respond();
+					push.gcm.send(item.channel, item.text, function(error, response){
+						if(!error){
+							console.log("Sent push:", response);
+						}
+					});
+				}
+			});
+		}
 
-   This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request. 
-
-
-   <div class="dev-callout"><b>Note</b>
-   <p>This script delays sending the notification to give you time to close the app to receive a toast notification.</p>
-   </div> 
+   This registers a new insert script, which uses the [gcm object] to send a push notification (the inserted text) to the device provided in the insert request. 
 
 <h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
 
-1. Press the **Run** button to build the project and start the app in an Android capable device, then click **OK** to accept push notifications
+<div class="dev-callout"><b>Note</b>
+	<p>When you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.</p>
+</div>
 
-  ![][23]
+1. Restart Eclipse, then in Package Explorer, right-click the project, click **Properties**, click **Android**, check **Google APIs**, then click **OK**.
 
-    <div class="dev-callout"><b>Note</b>
-    <p>You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.</p>
-    </div>
+	![][23]
 
-2. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the plus (**+**) icon.
+  This targets the project for the Google APIs.
 
-  ![][24]
+2. From **Window**, select **Android Virtual Device Manager**, select your device, click **Edit**.
 
-3. Verify that a notification is received, then click **OK** to dismiss the notification.
+	![][24]
 
-  ![][25]
+3. Select **Google APIs** in **Target**, then click OK.
 
-4. Repeat step 2 and immediately close the app, then verify that the following toast is shown.
+   ![][25]
+
+	This targets the AVD to use Google APIs.
+
+4. From the **Run** menu, then click **Run** to start the app.
+
+5. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the **Add** button.
 
   ![][26]
+
+6. Verify that a notification is received.
+
+  ![][27]
 
 You have successfully completed this tutorial.
 
 ## <a name="next-steps"> </a>Next steps
 
-In this simple example a user receives a push notification with the data that was just inserted. The device token used by APNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Devices table in which to store device tokens and send a push notification out to all stored channels when an insert occurs. 
+<!--In this simple example a user receives a push notification with the data that was just inserted. The device token used by APNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Devices table in which to store device tokens and send a push notification out to all stored channels when an insert occurs. -->
+
+This concludes the tutorials that demonstrate the basics of working with push notifications. Consider finding out more about the following Mobile Services topics:
+
+* [Get started with data]
+  <br/>Learn more about storing and querying data using Mobile Services.
+
+* [Get started with authentication]
+  <br/>Learn how to authenticate users of your app with Windows Account.
+
+* [Mobile Services server script reference]
+  <br/>Learn more about registering and using server scripts.
 
 <!-- Anchors. -->
 [Register your app for push notifications]: #register
@@ -285,16 +287,21 @@ In this simple example a user receives a push notification with the data that wa
 
 <!-- Images. -->
 [1]: ../Media/mobile-services-google-developers.png
+[2]: ../Media/mobile-services-google-create-server.png
+[3]: ../Media/mobile-services-google-create-server2.png
+[4]: ../Media/mobile-services-google-create-server3.png
+[5]: ../Media/mobile-services-android-sdk-manager.png
+[6]: ../Media/mobile-services-android-create-class.png
 [18]: ../Media/mobile-services-selection.png
 [19]: ../Media/mobile-push-tab-android.png
-[20]: ../Media/mobile-push-tab-android-upload.png
 [21]: ../Media/mobile-portal-data-tables.png
 [22]: ../Media/mobile-insert-script-push2.png
-[23]: ../Media/mobile-quickstart-push1-android.png
-[24]: ../Media/mobile-quickstart-push2-android.png
-[25]: ../Media/mobile-quickstart-push3-android.png
-[26]: ../Media/mobile-quickstart-push4-android.png
-[28]: ../Media/mobile-services-android-push-step18.png
+[23]: ../Media/mobile-services-import-android-properties.png
+[24]: ../Media/mobile-services-android-virtual-device-manager.png
+[25]: ../Media/mobile-services-android-virtual-device-manager-edit.png
+[26]: ../Media/mobile-quickstart-push1-android.png
+[27]: ../Media/mobile-quickstart-push2-android.png
+
 
 <!-- URLs. -->
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
@@ -309,3 +316,5 @@ In this simple example a user receives a push notification with the data that wa
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
+[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
+[gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645
