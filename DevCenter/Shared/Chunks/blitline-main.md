@@ -97,7 +97,7 @@ The Application ID is something you can find in your **CONNECTION INFO** or **MA
 
 The "save" parameter identifies information about where you want to put the image once we have processed it. In this trivial case, we haven't defined one. If no location is defined Blitline will store it locally (and temporarily) at a unique cloud location. You will be able to get that location from the JSON returned by Blitline when you make the Blitline. The "image" identifier is required and is returned to you when to identify this particular saved image.
 
-You can find more information about the *functions* we support here: <http://http://www.blitline.com/docs/functions>
+You can find more information about the *functions* we support here: <http://www.blitline.com/docs/functions>
 
 You can also find documentation about the job options here: <http://www.blitline.com/docs/api>
 
