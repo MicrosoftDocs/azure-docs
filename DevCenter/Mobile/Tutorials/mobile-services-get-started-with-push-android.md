@@ -217,9 +217,11 @@ Your app is now updated to support push notifications.
 				success: function() {
 					// Write to the response and then send the notification in the background
 					request.respond();
-					push.gcm.send(item.channel, item.text, function(error, response){
-						if(!error){
-							console.log("Sent push:", response);
+					push.gcm.send(item.channel, item.text, {
+						success: function(response) {
+							console.log(‘Push notification sent: ’, response);
+						}, error: function(error) {
+							console.log(‘Error sending push notification: ’, error);
 						}
 					});
 				}
