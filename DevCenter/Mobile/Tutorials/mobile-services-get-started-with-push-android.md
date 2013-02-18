@@ -3,14 +3,11 @@
 <div chunk="../chunks/article-left-menu-android.md" />
 
 # Get started with push notifications in Mobile Services
+
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android" class="current">Android</a></div>
 
 <p>This topic shows you how to use Windows Azure Mobile Services to send push notifications to an Android app. In this tutorial you add push notifications using the Google Cloud Messaging (GCM) service to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.</p>
 
-   <!--<div class="dev-callout"><b>Note</b>
-   <p>This tutorial demonstrates a simplified way of sending push notifications by attaching a push notification device token to the inserted record. Be sure to follow along with the next tutorial to get a better idea of how to incorporate push notifications into your real-world apps.</p>
-   </div>
--->
 This tutorial walks you through these basic steps to enable push notifications:
 
 1. [Register your app for push notifications]
@@ -88,24 +85,24 @@ You mobile service is now configured to work with GCM to send push notifications
 
 4. Open the project file AndroidManifest.xml and add the following new permissions after the existing `uses-permission` element:
 
-	    <permission android:name="**my_app_package**.permission.C2D_MESSAGE" 
-		 	android:protectionLevel="signature" />
-		<uses-permission android:name="**my_app_package**.permission.C2D_MESSAGE" /> 
-		<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-		<uses-permission android:name="android.permission.GET_ACCOUNTS" />
-		<uses-permission android:name="android.permission.WAKE_LOCK" />
+        <permission android:name="**my_app_package**.permission.C2D_MESSAGE" 
+            android:protectionLevel="signature" />
+        <uses-permission android:name="**my_app_package**.permission.C2D_MESSAGE" /> 
+        <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+        <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+        <uses-permission android:name="android.permission.WAKE_LOCK" />
 
 5. Add the following code into the `application` element: 
 
-		<receiver android:name="com.google.android.gcm.GCMBroadcastReceiver"
-			android:permission="com.google.android.c2dm.permission.SEND">
-			 <intent-filter>
-				 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-				 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-				 <category android:name="**my_app_package**" />
-			 </intent-filter>
-		 </receiver>
-		 <service android:name=".GCMIntentService" />
+        <receiver android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                    <category android:name="**my_app_package**" />
+            </intent-filter>
+        </receiver>
+        <service android:name=".GCMIntentService" />
 
 5. In the code inserted in the previous two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `manifest.package` attribute. 
 
@@ -217,9 +214,11 @@ Your app is now updated to support push notifications.
 				success: function() {
 					// Write to the response and then send the notification in the background
 					request.respond();
-					push.gcm.send(item.channel, item.text, function(error, response){
-						if(!error){
-							console.log("Sent push:", response);
+					push.gcm.send(item.channel, item.text, {
+						success: function(response) {
+							console.log(‘Push notification sent: ’, response);
+						}, error: function(error) {
+							console.log(‘Error sending push notification: ’, error);
 						}
 					});
 				}
@@ -318,3 +317,4 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645
+
