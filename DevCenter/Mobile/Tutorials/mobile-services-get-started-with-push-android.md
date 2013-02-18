@@ -85,24 +85,24 @@ You mobile service is now configured to work with GCM to send push notifications
 
 4. Open the project file AndroidManifest.xml and add the following new permissions after the existing `uses-permission` element:
 
-		<permission android:name="**my_app_package**.permission.C2D_MESSAGE" 
-		 	android:protectionLevel="signature" />
-		<uses-permission android:name="**my_app_package**.permission.C2D_MESSAGE" /> 
-		<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-		<uses-permission android:name="android.permission.GET_ACCOUNTS" />
-		<uses-permission android:name="android.permission.WAKE_LOCK" />
+        <permission android:name="**my_app_package**.permission.C2D_MESSAGE" 
+            android:protectionLevel="signature" />
+        <uses-permission android:name="**my_app_package**.permission.C2D_MESSAGE" /> 
+        <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+        <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+        <uses-permission android:name="android.permission.WAKE_LOCK" />
 
 5. Add the following code into the `application` element: 
 
-		<receiver android:name="com.google.android.gcm.GCMBroadcastReceiver"
-			android:permission="com.google.android.c2dm.permission.SEND">
-			 <intent-filter>
-				 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-				 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-				 <category android:name="**my_app_package**" />
-			 </intent-filter>
-		 </receiver>
-		 <service android:name=".GCMIntentService" />
+        <receiver android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                    <category android:name="**my_app_package**" />
+            </intent-filter>
+        </receiver>
+        <service android:name=".GCMIntentService" />
 
 5. In the code inserted in the previous two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `manifest.package` attribute. 
 
@@ -233,21 +233,31 @@ Your app is now updated to support push notifications.
 	<p>When you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.</p>
 </div>
 
-1. In Package Explorer, right-click the project, click **Properties**, click **Android**, check **Google APIs**, then click **OK**.
+1. Restart Eclipse, then in Package Explorer, right-click the project, click **Properties**, click **Android**, check **Google APIs**, then click **OK**.
 
 	![][23]
 
   This targets the project for the Google APIs.
 
-2. From the **Run** menu, then click **Run** to start the app.
+2. From **Window**, select **Android Virtual Device Manager**, select your device, click **Edit**.
 
-3. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the **Add** button.
+	![][24]
 
-  ![][24]
+3. Select **Google APIs** in **Target**, then click OK.
 
-4. Verify that a notification is received.
+   ![][25]
 
-  ![][25]
+	This targets the AVD to use Google APIs.
+
+4. From the **Run** menu, then click **Run** to start the app.
+
+5. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the **Add** button.
+
+  ![][26]
+
+6. Verify that a notification is received.
+
+  ![][27]
 
 You have successfully completed this tutorial.
 
@@ -286,8 +296,10 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [21]: ../Media/mobile-portal-data-tables.png
 [22]: ../Media/mobile-insert-script-push2.png
 [23]: ../Media/mobile-services-import-android-properties.png
-[24]: ../Media/mobile-quickstart-push1-android.png
-[25]: ../Media/mobile-quickstart-push2-android.png
+[24]: ../Media/mobile-services-android-virtual-device-manager.png
+[25]: ../Media/mobile-services-android-virtual-device-manager-edit.png
+[26]: ../Media/mobile-quickstart-push1-android.png
+[27]: ../Media/mobile-quickstart-push2-android.png
 
 
 <!-- URLs. -->
@@ -305,3 +317,4 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645
+
