@@ -216,9 +216,9 @@ Your app is now updated to support push notifications.
 					request.respond();
 					push.gcm.send(item.channel, item.text, {
 						success: function(response) {
-							console.log(‘Push notification sent: ’, response);
+							console.log('Push notification sent: ', response);
 						}, error: function(error) {
-							console.log(‘Error sending push notification: ’, error);
+							console.log('Error sending push notification: ', error);
 						}
 					});
 				}
@@ -304,7 +304,6 @@ This concludes the tutorials that demonstrate the basics of working with push no
 
 <!-- URLs. -->
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
-[Android Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started-android.md
 [Get started with data]: ../tutorials/mobile-services-get-started-with-data-android.md
