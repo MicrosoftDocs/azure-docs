@@ -5,7 +5,7 @@
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-In the **Cloud Services** area of the Windows Azure Preview Management Portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
+In the **Cloud Services** area of the Windows Azure Management Portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
 
 ##Table of Contents##
 
@@ -15,11 +15,11 @@ In the **Cloud Services** area of the Windows Azure Preview Management Portal, y
 * [How to: Delete deployments and a cloud service](#deletecloudservice)
 
 
-<h2 id="updaterole">How to: Update a cloud service role or deployment</h2>
+<h2><a id="updaterole"></a>How to: Update a cloud service role or deployment</h2>
 
 If you need to update the application code for your cloud service, use **Update** on the dashboard, **Cloud Services** page, or **Instances** page. You can update a single role or all roles. You'll need to upload a new service package and service configuration file.
 
-1. In the [Windows Azure Preview Management Portal](https://manage.windowsazure.com/), on the dashboard, **Cloud Services** page, or **Instances** page, click **Update**.
+1. In the [Windows Azure Management Portal](https://manage.windowsazure.com/), on the dashboard, **Cloud Services** page, or **Instances** page, click **Update**.
 
  **Update Deployment** opens.
 
@@ -46,7 +46,7 @@ If you need to update the application code for your cloud service, use **Update*
 
 
 
-<h2 id="swap">How to: Swap deployments to promote a staged deployment to production</h2>
+<h2><a id="swap"></a>How to: Swap deployments to promote a staged deployment to production</h2>
 
 Use **Swap** to promote a staging deployment of a cloud service to production. When you decide to deploy a new release of a cloud service, you can stage and test your new release in your cloud service staging environment while your customers are using the current release in production. When you're ready to promote the new release to production, you can use **Swap** to switch the URLs by which the two deployments are addressed. 
 
@@ -68,7 +68,7 @@ The deployment swap happens quickly because the only thing that changes is the v
 
 To save compute costs, you can delete the deployment in the staging environment when you're sure the new production deployment is performing as expected.
 
-<h2 id="linkresources">How to: Link a resource to a cloud service</h2>
+<h2><a id="linkresources"></a>How to: Link a resource to a cloud service</h2>
 
 To show your cloud service's dependencies on other resources, you can link a Windows Azure SQL Database instance or a storage account to the cloud service. You an link and unlink resources on the **Linked Resources** page. Then monitor their usage on the cloud service dashboard. If a linked storage account has monitoring turned on, you can monitor Total Requests on the cloud service dashboard.
 
@@ -123,7 +123,7 @@ Unlinking a SQL Database has no effect on the database or the application's conn
 
 
 
-<h2 id="deletecloudservice">How to: Delete deployments and a cloud service</h2>
+<h2><a id="deletecloudservice"></a>How to: Delete deployments and a cloud service</h2>
 
 Before you can delete a cloud service, you must delete each existing deployment.
 
