@@ -4,7 +4,7 @@
 
 # Convert a WordPress Site to a Multisite
 
-<p><em>By [Ben Lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]</em></p>
+By [Ben Lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]
 
 In this tutorial you will learn how to take an existing WordPress web site created through the Windows Azure Gallery and convert it into a WordPress Multisite install. Additionally you will learn how to assign a custom domain to each of the subsites within your install.It is assumed that you have an existing installation of WordPress. If you do not please follow the guidance provided in [Create a WordPress web site from the gallery in Windows Azure][website-from-gallery].
 Converting an existing WordPress single site install to Multisite is generally fairly simple, and many of the initial steps here come straight from the [Create A Network][wordpress-codex-create-a-network] page on the [WordPress Codex][wordpress-codex].
