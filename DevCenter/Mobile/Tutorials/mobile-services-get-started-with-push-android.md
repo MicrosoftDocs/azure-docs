@@ -115,7 +115,7 @@ You mobile service is now configured to work with GCM to send push notifications
 			return mRegistrationId;
 		}
 
-		public final void getRegistrationId(String registrationId) {
+		public final void setRegistrationId(String registrationId) {
 			mRegistrationId = registrationId;
 		}
 
@@ -147,7 +147,8 @@ You mobile service is now configured to work with GCM to send push notifications
 
 10. Add the following line of code to the **addItem** method:
 
-		item.setRegistrationId(mRegistationId);
+		item.setRegistrationId(mRegistationId.equals("") ?
+			GCMIntentService.getRegistrationId() : mRegistationId);
 
 	This code sets the registrationId property of the item to the registration ID of the device.
 
@@ -164,15 +165,21 @@ You mobile service is now configured to work with GCM to send push notifications
 		import android.app.NotificationManager;
 		import android.support.v4.app.NotificationCompat;
 
-14. In the new class, add the following constructor:
+14. In the new class, add the following static variable and constructor:
+
+		private static String sRegistrationId;
+
+		public static String getRegistrationId() {
+			return sRegistrationId;
+		}
 
 		public GCMIntentService(){
-		super(ToDoActivity.SENDER_ID);
+			super(ToDoActivity.SENDER_ID);
 		}
 
 	This code invokes the Superclass constructor with the app `SENDER_ID` value of the app.
 
-15. Replace the existing onMessage method override with the following code:
+15. Replace the existing onMessage and onRegistered method overrides with the following code:
 
 		@Override
 		protected void onMessage(Context context, Intent intent) {
@@ -189,8 +196,13 @@ You mobile service is now configured to work with GCM to send push notifications
 			
 		}
 
+		@Override
+		protected void onRegistered(Context context, String registrationId) {
+			sRegistrationId = registrationId;
+		}
+
     <div class="dev-callout"><b>Note</b>
-	<p>In this tutorial, only the <strong>onMessage</strong> override is implemented. In a real-world app you should consider implementing all four method overrides.</p>
+	<p>In this tutorial, only the <strong>onMessage</strong> and <strong>onRegistered</strong> overrides are implemented. In a real-world app you should consider implementing all four method overrides.</p>
     </div>
 
 Your app is now updated to support push notifications.
