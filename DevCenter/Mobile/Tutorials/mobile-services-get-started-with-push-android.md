@@ -143,7 +143,7 @@ You mobile service is now configured to work with GCM to send push notifications
 			GCMRegistrar.register(this, SENDER_ID);
 		}
 
-	This code get the registration ID for the device.
+	This code gets the registration ID for the device.
 
 10. Add the following line of code to the **addItem** method:
 

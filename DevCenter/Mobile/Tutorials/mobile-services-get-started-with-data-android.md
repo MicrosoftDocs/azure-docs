@@ -22,7 +22,11 @@ This tutorial walks you through these basic steps:
 4. [Update the app to use Mobile Services]
 5. [Test the app against Mobile Services]
 
-This tutorial requires the [Mobile Services Android SDK]; the [Android SDK], which includes the Eclipse integrated development environment (IDE) and Android Developer Tools (ADT) plugin; and Android 4.2 or a later version. 
+This tutorial requires the [Mobile Services Android SDK]; the <a href="https://go.microsoft.com/fwLink/p/?LinkID=280125" target="_blank">Android SDK</a>, which includes the Eclipse integrated development environment (IDE) and Android Developer Tools (ADT) plugin; and Android 4.2 or a later version. 
+
+<div class="dev-callout"><b>Note</b>
+<p>This tutorial provides instructions for installing both the Android SDK and the Mobile Services Android SDK.</p>
+</div>
 
 <h2><a name="download-app"></a><span class="short-header">Download the project</span>Download the GetStartedWithData project</h2>
 
@@ -154,7 +158,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
   This enables the app to access Mobile Services in Windows Azure.
 
-5. From Package Explorer, Open the TodoActivity.java file located in .src.com.example.getstartedwithdata, and uncomment the following lines of code: 
+5. From Package Explorer, Open the TodoActivity.java file located in the com.example.getstartedwithdata package, and uncomment the following lines of code: 
 
 		import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 		import com.microsoft.windowsazure.mobileservices.MobileServiceTable;
@@ -172,7 +176,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
 
-7. Once the previous step is done, the project will indicate build errors. Search for the three remaining locations where the `toDoItemList` variable is used and comment out the sections indicated. This fully removes the in-memory list.
+7. Once the previous step is done, the project will indicate build errors. Search for the three remaining locations where the `toDoItemList` variable is used and comment out the sections indicated. Also remove `import java.util.ArrayList`. This fully removes the in-memory list. 
 
 8. We now add our mobile service. Uncomment the following lines of code:
 
