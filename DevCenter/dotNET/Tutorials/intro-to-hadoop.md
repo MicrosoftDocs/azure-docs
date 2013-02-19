@@ -31,7 +31,7 @@ This topic describes the Hadoop ecosystem on Windows Azure, the main scenarios f
  * <a href="#Resources">Resources for Hadoop on Windows Azure</a> - Where to find resources with additional information.
 
 
-<h2 id="bigdata"> <a name="BigData">Big data: volume, velocity, variety, and variability</a></h2>
+<h2><a name="BigData"></a>Big data: volume, velocity, variety, and variability</h2>
 You cannot manage or process big data by conventional RDBMS because big data volumes are too large, or because the data arrives at too high a velocity, or because the data structures variety and semantic variability do not fit relational database architectures. 
 
 **Volume**	
@@ -49,7 +49,7 @@ Most generated data is messy. Diverse data sources do not provide a static struc
 Larger issues in the interpretation of big data can also arise. The term variability when applied to big data tends to refer specifically to the wide possible variance in meaning that can be encountered. Finding the most appropriate semantic context within which to interpret unstructured data can introduce significant complexities into the analysis. 
 
 
-<h2 id="ecosystem"> <a name="Ecosystem">The Hadoop ecosystem on Windows Azure </a></h2>
+<h2><a name="Ecosystem"></a>The Hadoop ecosystem on Windows Azure</h2>
 
 ![TheHadoopEcosystem](../media/TheHadoopEcosystem.png "The Hadoop Ecosystem")
 
@@ -81,14 +81,14 @@ Familiar Business Intelligence (BI) tools such as Excel, PowerPivot, SQL Server 
 
 
 
-<h2 id="senarios"> <a name="Scenarios">Big data scenarios for Hadoop on Windows Azure</a></h2>
+<h2><a name="Scenarios"></a>Big data scenarios for Hadoop on Windows Azure</h2>
 An exemplary scenario that provides a case for an Hadoop on Windows Azure application is an ad hoc analysis, in batch fashion, on an entire unstructured dataset stored on Windows Azure nodes, which do not require frequent updates.
 
 These conditions apply to a wide variety of activities in business, science, and governance. These conditions include, for example, monitoring supply chains in retail, suspicious trading patterns in finance, demand patterns for public utilities and services, air and water quality from arrays of environmental sensors, or crime patterns in metropolitan areas.
 
 Hadoop is most suitable for handling a large amount of logged or archived data that does not require frequent updating once it is written, and that is read often, typically to do a full analysis. This scenario is complementary to data more suitably handled by a RDBMS that require lesser amounts of data (Gigabytes instead of Petabytes), and that must be continually updated or queried for specific data points within the full dataset. RDBMS work best with structured data organized and stored according to a fixed schema. MapReduce works well with unstructured data with no predefined schema because it interprets data when being processed.
 
-<h2 id="hadoopOnAzure"> <a name="HadoopOnAzure"> Getting started with Microsoft Hadoop on Windows Azure </a></h2>
+<h2><a name="HadoopOnAzure"></a>Getting started with Microsoft Hadoop on Windows Azure</h2>
 **The Hadoop on Windows Azure CTP**		
 The Hadoop on Windows Azure service is available by invitation only during this Community Technical Preview (CTP). The CTP purpose is for you to test Hadoop-based service on Windows Azure, become more familiar with it, and provide feedback. The process for gaining access is outlined below.
 
@@ -115,7 +115,7 @@ Your options are:
  7. At this point, the Hadoop on Windows Azure service begins creating the new cluster, which takes up to tens of minutes, depending on the number of nodes and the number of clusters. 		
 
 
-<h2 id="tour"> <a name="Tour">Tour of the portal</a></h2>
+<h2><a name="Tour"></a>Tour of the portal</h2>
  
 Once logged in with a deployed cluster, your account page opens.
 
@@ -131,7 +131,7 @@ There are three sections on the portal grouping the icons linked to Hadoop on Wi
 
 To explore Portal functionality, click any icon. For use of the **New Jobs** and **Interactive Console** functionality, see the _Running Jobs with Hadoop on Windows Azure_ topic. For walkthroughs on running the **Samples**, see the _Samples_ topics. You can use the Hadoop file system commands from the command window on the head node, which is available in the **Remote Desktop**.
 
-<h2 id="Resources"> <a name="Resources">Resources  for Hadoop on Windows Azure</a> </h2>
+<h2><a name="Resources"></a>Resources  for Hadoop on Windows Azure</h2>
 **Microsoft: Hadoop on Windows Azure**	
 
 * [Welcome to Hadoop on Windows Azure](https://www.hadooponazure.com/) - the welcome page for the Developer Preview for the Apache Hadoop-based Services for Windows Azure.	
