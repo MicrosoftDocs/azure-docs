@@ -168,9 +168,9 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 		import java.net.MalformedURLException;
  
-6. We will remove the in-memory list currently used by the app, so we can replace it with a mobile service. In the `ToDoActivity` class, comment out the following line of code, which defines the existing `toDoItemList` list.
+6. We will remove the in-memory list currently used by the app, so we can replace it with a mobile service. In the **ToDoActivity** class, comment out the following line of code, which defines the existing **toDoItemList** list.
 
-		public List<ToDoItem> theList = new ArrayList<ToDoItem>();
+		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
 
 7. Once the previous step is done, the project will indicate build errors. Search for the three remaining locations where the `toDoItemList` variable is used and comment out the sections indicated. This fully removes the in-memory list.
 
