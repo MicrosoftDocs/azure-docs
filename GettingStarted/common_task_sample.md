@@ -9,7 +9,7 @@ This task includes the following steps:
 * [Step 3: Upload the Deployment Package and Certificate] (#Step3)
 * [Step 4: Connect to the Role Instance by Using HTTPS] (#Step4)
 
-<h2 id="Step1">Step 1: Get an SSL Certificate</h2>
+<h2><a id="Step1"></a>Step 1: Get an SSL Certificate</h2>
 
 To configure SSL for an application, you first need to get an SSL certificate that has been signed by a Certificate Authority (CA), a trusted third-party who issues certificates for this purpose. If you do not already have one, you will need to obtain one from a company that sells SSL certificates.
 
@@ -24,7 +24,7 @@ For test purposes, you can create and use a self-signed certificate. For details
 
 Next, you must include information about the certificate in your service definition and service configuration files.
 
-<h2 id="Step2">Step 2: Modify the Service Definition and Configuration Files</h2>
+<h2><a id="Step2"></a>Step 2: Modify the Service Definition and Configuration Files</h2>
 
 Your application must be configured to use the certificate, and an HTTPS endpoint must be added. As a result, the service definition and service configuration files need to be updated.
 
@@ -82,7 +82,7 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
 
 Now that the service definition and service configuration files have been updated, package your deployment for uploading to Windows Azure. If you are using **cspack**, ensure that you don't use the **/generateConfigurationFile** flag, as that will overwrite the certificate information you just inserted.
 
-<h2 id="Step3">Step 3: Upload the Deployment Package and Certificate</h2>
+<h2><a id="Step3"></a>Step 3: Upload the Deployment Package and Certificate</h2>
 
 Your deployment package has been updated to use the certificate, and an HTTPS endpoint has been added. Now you can upload the package and certificate to Windows Azure with the Management Portal.
 
@@ -96,7 +96,7 @@ Your deployment package has been updated to use the certificate, and an HTTPS en
 
 3.	Click **OK** to create your hosted service. When the deployment has reached the **Ready** status, you can proceed to the next steps.
 
-<h2 id="Step4">Step 4: Connect to the Role Instance by Using HTTPS</h2>
+<h2><a id="Step4"></a>Step 4: Connect to the Role Instance by Using HTTPS</h2>
 
 Now that your deployment is up and running in Windows Azure, you can connect to it using HTTPS.
 
