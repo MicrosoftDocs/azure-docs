@@ -103,41 +103,6 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 1. In **Solution Explorer**, expand the Views\Shared folder and open the \_Layout.cshtml file.<br/>
 	![_Layout.cshtml in Solution Explorer][newapp004]
 
-2. In the **&lt;title&gt;** element, change "My ASP.NET MVC Application" to "Contact Manager".
-
-	    <head>
-	        <meta charset="utf-8" />
-	        <title>@ViewBag.Title - Contact Manager</title>
-	        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-3. In the **&lt;header&gt;** element, change "your logo here." to "Contact Manager".
-
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("Contact Manager", "Index", "Home")</p>
-                </div>
-
-4. In the **&lt;header&gt;** element, remove following code.
-
-        <div class="float-right">
-            <section id="login">
-                @Html.Partial("_LoginPartial")
-            </section>
-            <nav>
-                <ul id="menu">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </nav>
-        </div>
-5. In the **&lt;footer&gt;** element, change "My ASP.NET MVC Application" to "Contact Manager".
-
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - Contact Manager</p>
-                </div>
 
 6. Right-click the *_LoginPartial.cshtml* file and click **Delete**.
 
