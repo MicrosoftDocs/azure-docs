@@ -15,8 +15,6 @@ This tutorial walks you through these basic steps:
 * [Creating an asset and uploading files that are associated with the asset into Media Services](#Step3)
 * [Encoding an asset and downloading an output asset](#Step4)
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Windows Azure Free Trial</a>.</p></div>
-
 ## Prerequisites
 The following prerequisites are required for the walkthrough and for development based on the Windows Azure Media Services SDK.
 
