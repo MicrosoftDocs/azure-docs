@@ -100,8 +100,46 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 ### Set the page header and footer
 
 
-1. In **Solution Explorer**, expand the Views\Shared folder and open the \_Layout.cshtml file.<br/>
+1. In **Solution Explorer**, expand the Views\Shared folder and open the *_Layout.cshtml* file.<br/>
 	![_Layout.cshtml in Solution Explorer][newapp004]
+1. Replace the contents of the *_Layout.cshtml* file with the following code:
+<br/>
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot; /&gt;
+        &lt;title&gt;@ViewBag.Title - Contact Manager&lt;/title&gt;
+        &lt;link href=&quot;~/favicon.ico&quot; rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; /&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;
+        @Styles.Render(&quot;~/Content/css&quot;)
+        @Scripts.Render(&quot;~/bundles/modernizr&quot;)
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;header&gt;
+            &lt;div class=&quot;content-wrapper&quot;&gt;
+                &lt;div class=&quot;float-left&quot;&gt;
+                    &lt;p class=&quot;site-title&quot;&gt;@Html.ActionLink(&quot;Contact Manager&quot;, &quot;Index&quot;, &quot;Home&quot;)&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/header&gt;
+        &lt;div id=&quot;body&quot;&gt;
+            @RenderSection(&quot;featured&quot;, required: false)
+            &lt;section class=&quot;content-wrapper main-content clear-fix&quot;&gt;
+                @RenderBody()
+            &lt;/section&gt;
+        &lt;/div&gt;
+        &lt;footer&gt;
+            &lt;div class=&quot;content-wrapper&quot;&gt;
+                &lt;div class=&quot;float-left&quot;&gt;
+                    &lt;p&gt;&amp;copy; @DateTime.Now.Year - Contact Manager&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/footer&gt;
+
+        @Scripts.Render(&quot;~/bundles/jquery&quot;)
+        @RenderSection(&quot;scripts&quot;, required: false)
+    &lt;/body&gt;
+    &lt;/html&gt;
 
 
 6. Right-click the *_LoginPartial.cshtml* file and click **Delete**.
