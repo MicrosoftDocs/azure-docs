@@ -261,7 +261,7 @@ The next task is to enable the [Code First Migrations](http://atlas.asp.net/mvc/
 		add-migration Initial
 
 	The **enable-migrations** command creates a *Migrations* folder and it puts in that folder a *Configuration.cs* file that you can edit to configure Migrations.<br/>
-	The **add-migration Initial** command generates a class named **date_stampInitial** that creates the database. You can see the new class files in **Solution Explorer**.<br/>
+	The **add-migration Initial** command generates a class named **&lt;date_stamp&gt;Initial** that creates the database. You can see the new class files in **Solution Explorer**.<br/>
 	In the **Initial** class, the **Up** method creates the Contacts table, and the **Down** method (used when you want to return to the previous state) drops it.<br/>
 3. Right-click the Migrations folder and open the **Configuration.cs** file. 
 4. Add the following to list of namespaces. 
