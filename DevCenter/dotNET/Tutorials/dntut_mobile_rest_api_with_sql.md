@@ -104,48 +104,43 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 	![_Layout.cshtml in Solution Explorer][newapp004]
 1. Replace the contents of the *_Layout.cshtml* file with the following code:
 <br/>
-    &lt;!DOCTYPE html&gt;
-    &lt;html lang=&quot;en&quot;&gt;
-    &lt;head&gt;
-        &lt;meta charset=&quot;utf-8&quot; /&gt;
-        &lt;title&gt;@ViewBag.Title - Contact Manager&lt;/title&gt;
-        &lt;link href=&quot;~/favicon.ico&quot; rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; /&gt;
-        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;
-        @Styles.Render(&quot;~/Content/css&quot;)
-        @Scripts.Render(&quot;~/bundles/modernizr&quot;)
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;header&gt;
-            &lt;div class=&quot;content-wrapper&quot;&gt;
-                &lt;div class=&quot;float-left&quot;&gt;
-                    &lt;p class=&quot;site-title&quot;&gt;@Html.ActionLink(&quot;Contact Manager&quot;, &quot;Index&quot;, &quot;Home&quot;)&lt;/p&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/header&gt;
-        &lt;div id=&quot;body&quot;&gt;
-            @RenderSection(&quot;featured&quot;, required: false)
-            &lt;section class=&quot;content-wrapper main-content clear-fix&quot;&gt;
-                @RenderBody()
-            &lt;/section&gt;
-        &lt;/div&gt;
-        &lt;footer&gt;
-            &lt;div class=&quot;content-wrapper&quot;&gt;
-                &lt;div class=&quot;float-left&quot;&gt;
-                    &lt;p&gt;&amp;copy; @DateTime.Now.Year - Contact Manager&lt;/p&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/footer&gt;
 
-        @Scripts.Render(&quot;~/bundles/jquery&quot;)
-        @RenderSection(&quot;scripts&quot;, required: false)
-    &lt;/body&gt;
+    &lt;!DOCTYPE html&gt;<br/>
+    &lt;html lang=&quot;en&quot;&gt;<br/>
+    &lt;head&gt;<br/>
+        &lt;meta charset=&quot;utf-8&quot; /&gt;<br/>
+        &lt;title&gt;@ViewBag.Title - Contact Manager&lt;/title&gt;<br/>
+        &lt;link href=&quot;~/favicon.ico&quot; rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; /&gt;<br/>
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;<br/>
+        @Styles.Render(&quot;~/Content/css&quot;)<br/>
+        @Scripts.Render(&quot;~/bundles/modernizr&quot;)<br/>
+    &lt;/head&gt;<br/>
+    &lt;body&gt;<br/>
+        &lt;header&gt;<br/>
+            &lt;div class=&quot;content-wrapper&quot;&gt;<br/>
+                &lt;div class=&quot;float-left&quot;&gt;<br/>
+                    &lt;p class=&quot;site-title&quot;&gt;@Html.ActionLink(&quot;Contact Manager&quot;, &quot;Index&quot;, &quot;Home&quot;)&lt;/p&gt;<br/>
+                &lt;/div&gt;<br/>
+            &lt;/div&gt;<br/>
+        &lt;/header&gt;<br/>
+        &lt;div id=&quot;body&quot;&gt;<br/>
+            @RenderSection(&quot;featured&quot;, required: false)<br/>
+            &lt;section class=&quot;content-wrapper main-content clear-fix&quot;&gt;<br/>
+                @RenderBody()<br/>
+            &lt;/section&gt;<br/>
+        &lt;/div&gt;<br/>
+        &lt;footer&gt;<br/>
+            &lt;div class=&quot;content-wrapper&quot;&gt;<br/>
+                &lt;div class=&quot;float-left&quot;&gt;<br/>
+                    &lt;p&gt;&amp;copy; @DateTime.Now.Year - Contact Manager&lt;/p&gt;<br/>
+                &lt;/div&gt;<br/>
+            &lt;/div&gt;<br/>
+        &lt;/footer&gt;<br/>
+    	@Scripts.Render("~/bundles/jquery")
+    	@RenderSection("scripts", required: false)
+    &lt;/body&gt;<br/>
     &lt;/html&gt;
 
-
-6. Right-click the *_LoginPartial.cshtml* file and click **Delete**.
-
-7. Expand the *Views\Home* folder and delete the *About.cshtml* and *Contact.cshtml* files.
-8. Right-click the Account folder under views and click **Delete**.
 1. Edit the application root *Web.config* file and delete or comment out the **DefaultConnection** in the **connectionStrings** element.
 
 ![comment out default con str][rxWebConfig]
@@ -227,8 +222,6 @@ You begin by creating a simple data model in code.
     		}
 		}
 The **Contacts** class defines the data that you will store for each contact, plus a primary key, ContactID, that is needed by the database.
-4. Expand the Models folder and delete the *AccountModels.cs* file. The *AccountModels.cs* file is used for membership and we won't be using it in this tutorial.
-5. Expand the Filters folder and delete the InitializeSimpleMembershipAttribute.cs file.
 
 ### Create web pages that enable app users to work with the contacts
 
@@ -237,17 +230,15 @@ The ASP.NET MVC the scaffolding feature can automatically generate code that per
 <h2><a name="bkmk_addcontroller"></a>Add a Controller and a view for the data</h2>
 
 1. In **Solution Explorer**, expand the Controllers folder.
-2. Delete the AccountController.cs file.
 3. Build the project **(Ctrl+Shift+B)**. (You must build the project before using scaffolding mechanism.) <br/>
 4. Right-click the Controllers folder and click **Add**, and then click **Controller...**.<br/>
 ![Add Controller in Controllers folder context menu][addcode001]<br/>
-5. In the **Add Controller** dialog box, enter "HomeController" as your controller name. Keep the default **MVC Controller with read/write actions and views, using Entity Framework** template.
+5. In the **Add Controller** dialog box, enter "HomeController" as your controller name. Set the ** Scaffolding options Template** to  **MVC Controller with read/write actions and views, using Entity Framework**.
 6. Select **Contact** as your model class and **&lt;New data context...>** as your data context class.<br/>
 ![Add Controller dialog box][addcode002]<br/>
-7. On the **New Data Context** dialog box, accept the default value *ContactManager.Models.ContactManagerContext* and click OK.
-	<!--<br/>![Add Controller dialog box][addcode002.1]<br/>-->
-8. Click **Add**.<br/>
-The MVC template created a default home page for your application, and you are replacing the default functionality with the contact list read and update functionality.<br/>
+7. On the **New Data Context** dialog box, accept the default value *ContactManager.Models.ContactManagerContext*.
+	<br/>![Add Controller dialog box][rxNewCtx]<br/>
+8. Click **OK**, then click **Add** in the **Add Controller** dialog box.<br/>
 9. On the **Add Controller** overwrite dialog, make sure all options are checked and click **OK**.
 	<br/>![Add Controller message box][rxOverwrite] <br/>
 Visual Studio creates a controller methods and views for CRUD database operations for **Contact** objects.
@@ -258,16 +249,21 @@ The next task is to enable the [Code First Migrations](http://atlas.asp.net/mvc/
 
 1. In the **Tools** menu, select **Library Package Manager** and then **Package Manager Console**.
 	<br/>![Package Manager Console in Tools menu][addcode008]
-2. In the **Package Manager Console** window, enter the following commands:<br/>
+2. In the **Package Manager Console** window, enter the following command:<br/>
 
-		enable-migrations
+		enable-migrations -ContextTypeName ContactManagerContext
+<br/>![enable-migrations][rxE] <br/>
+	The **enable-migrations** command creates a *Migrations* folder and it puts in that folder a *Configuration.cs* file that you can edit to configure Migrations.<br/>
+
+2. In the **Package Manager Console** window, enter the following command:<br/>
+
 		add-migration Initial
 
-	The **enable-migrations** command creates a *Migrations* folder and it puts in that folder a *Configuration.cs* file that you can edit to configure Migrations.<br/>
-	The **add-migration Initial** command generates a class named **&lt;date_stamp&gt;Initial** that creates the database. You can see the new class files in **Solution Explorer**.<br/>
+
+	The **add-migration Initial** command generates a class named **&lt;date_stamp&gt;Initial** that creates the database. The first parameter ( *Initial* ) is arbitrary and used to create the name of the file. You can see the new class files in **Solution Explorer**.<br/>
 	In the **Initial** class, the **Up** method creates the Contacts table, and the **Down** method (used when you want to return to the previous state) drops it.<br/>
 3. Right-click the Migrations folder and open the **Configuration.cs** file. 
-4. Add the following to list of namespaces. 
+4. Add the following namespaces. 
 
     	 using ContactManager.Models;
 
@@ -333,9 +329,9 @@ The next task is to enable the [Code First Migrations](http://atlas.asp.net/mvc/
 	This code above will initialize the database with the contact information. For more information on seeding the database, see [Debugging Entity Framework (EF) DBs](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
 
 
-6. In the **Package Manager Console** enter the command:<br/>
+6. In the **Package Manager Console** enter the command:
 
-	update-database
+		update-database
 
 	![Package Manager Console commands][addcode009]
 
@@ -345,6 +341,7 @@ The next task is to enable the [Code First Migrations](http://atlas.asp.net/mvc/
 
 The application shows the seed data and provides edit, details and delete links.
 
+<br/>![MVC view of data][rx2]
 
 <h2><a name="bkmk_addview"></a>Edit the View</h2>
 
@@ -353,11 +350,9 @@ The application shows the seed data and provides edit, details and delete links.
 2. Replace the contents of the file with the following code.
 
 		@model IEnumerable<ContactManager.Models.Contact>
-
 		@{
 		    ViewBag.Title = "Home";
 		}
-
 		@section Scripts {
 		    @Scripts.Render("~/bundles/knockout")
 		    <script type="text/javascript">
@@ -386,11 +381,9 @@ The application shows the seed data and provides edit, details and delete links.
 		                self.contacts(data);
 		            });
 		        }
-
-		        ko.applyBindings(new ContactsViewModel());
+		        ko.applyBindings(new ContactsViewModel());	
 		</script>
 		}
-
 		<ul id="contacts" data-bind="foreach: contacts">
 		    <li class="ui-widget-content ui-corner-all">
 		        <h1 data-bind="text: Name" class="ui-widget-header"></h1>
@@ -407,7 +400,6 @@ The application shows the seed data and provides edit, details and delete links.
 		        <p><a data-bind="attr: { href: Self }, click: $root.removeContact" class="removeContact ui-state-default ui-corner-all">Remove</a></p>
 		    </li>
 		</ul>
-
 		<form id="addContact" data-bind="submit: addContact">
 		    <fieldset>
 		        <legend>Add New Contact</legend>
@@ -450,68 +442,60 @@ The application shows the seed data and provides edit, details and delete links.
 4. In the **Add New Item** dialog box, expand C# and select Web under Installed Templates and then select **Style Sheet**.
 	<!--<br/>![Add New Item dialog box][addcode006]-->
 5. Name the file Contacts.css and click **Add**. Replace the contents of the file with the following code.
-
-		.column {
-	    	float: left;
-	    	width: 50%;
-	    	padding: 0;
-	    	margin: 5px 0;
-		}
-
-		form ol {
-	    	list-style-type: none;
-	    	padding: 0;
-	    	margin: 0;
-		}
-
-		form li {
-	    	padding: 1px;
-	    	margin: 3px;
-		}
-
-		form input[type="text"] {
-	    	width: 100%;
-		}
-
-		#addContact {
-	    	width: 300px;
-	    	float: left;
-	    	width:30%;
-		}
-
-		#contacts {
-	    	list-style-type: none;
-	    	margin: 0;
-	    	padding: 0;
-	    	float:left;
-	    	width: 70%;
-		}
-
-		#contacts li {
-	    	margin: 3px 3px 3px 0;
-	    	padding: 1px;
-	    	float: left;
-	    	width: 300px;
-	    	text-align: center;
-	    	background-image: none;
-	    	background-color: #F5F5F5;
-		}
-
-		#contacts li h1
-		{
-	    	padding: 0;
-	    	margin: 0;
-	    	background-image: none;
-	    	background-color: Orange;
-	    	color: White;
-	    	font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
-		}
-
-		.removeContact, .viewImage
-		{
-	   	 	padding: 3px;
-	    	text-decoration: none;
-		}
+    
+        .column {
+            float: left;
+            width: 50%;
+            padding: 0;
+            margin: 5px 0;
+        }
+        form ol {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        form li {
+            padding: 1px;
+            margin: 3px;
+        }
+        form input[type="text"] {
+            width: 100%;
+        }
+        #addContact {
+            width: 300px;
+            float: left;
+            width:30%;
+        }
+        #contacts {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            float:left;
+            width: 70%;
+        }
+        #contacts li {
+            margin: 3px 3px 3px 0;
+            padding: 1px;
+            float: left;
+            width: 300px;
+            text-align: center;
+            background-image: none;
+            background-color: #F5F5F5;
+        }
+        #contacts li h1
+        {
+            padding: 0;
+            margin: 0;
+            background-image: none;
+            background-color: Orange;
+            color: White;
+            font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+        }
+        .removeContact, .viewImage
+        {
+            padding: 3px;
+            text-decoration: none;
+        }
 
 6. Expand the App\_Start folder and open the BundleConfig.cs file.
 	<!--<br/>![Modify BundleConfig.cs in App_Start folder context menu][addcode007]-->
@@ -619,12 +603,19 @@ Another way to store data in a Windows Azure application is to use Windows Azure
 [EFCFMigrations]: http://msdn.microsoft.com/en-us/library/hh770484
 
 <!-- images-->
+[rxE]: ../Media/rxE.png
+[rx2]: ../Media/rx2.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[rxNewCtx]: ../Media/rxNewCtx.png
 [rxCreateWSwithDB_2]: ../Media/rxCreateWSwithDB_2.png 
 [rxPrevDB]: ../Media/rxPrevDB.png
 [rxOverwrite]: ../Media/rxOverwrite.png
 [rxWebConfig]: ../Media/rxWebConfig.png
 [rxPWS]: ../Media/rxPWS.png
-[]: ../Media/.png
+[rxNewCtx]: ../Media/rxNewCtx.png
 [rxAddApiController]: ../Media/rxAddApiController.png
 [rxFFchrome]: ../Media/rxFFchrome.png
 [rxSettings]: ../Media/rxSettings.png
