@@ -499,13 +499,16 @@ The application shows the seed data and provides edit, details and delete links.
 
 6. Expand the App\_Start folder and open the BundleConfig.cs file.
 	<!--<br/>![Modify BundleConfig.cs in App_Start folder context menu][addcode007]-->
-7. Add the following statement to register the knockout plugin.
+7. Add the following statement to register the [Knockout](http://knockoutjs.com/index.html "KO") plugin.
 
 		bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
 		            "~/Scripts/knockout-{version}.js"));
 	This sample using knockout to simplify dynamic JavaScript code that handles the screen templates.
 
-8. Modify the contents/css entry to register the contacts.css style sheet.
+8. Modify the contents/css entry to register the contacts.css style sheet. Change the following line:
+
+        bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+To:
 
         bundles.Add(new StyleBundle("~/Content/css").Include(
                     "~/Content/site.css",
@@ -513,11 +516,9 @@ The application shows the seed data and provides edit, details and delete links.
 
 <h2><a name="bkmk_addwebapi"></a>Add a controller for the Web API Restful interface</h2>
 
-1. In **Solution Explorer**, right-click Controllers and click **Add**, and then click **New Folder**. 
-2. Enter "Apis" and the press the **Enter** key. 
-3. Right-click on the Apis folder and click Add, and then click **Controller....** 
+1. In **Solution Explorer**, right-click Controllers and click **Controller....** 
 4. In the **Add Controller** dialog box, enter "ContactsController" as your controller name, select the **API controller with read/write actions, using Entity Framework** template. 
-5. In **Model Class** select Contact (ContactManager.Models) and in **Data Context Class** select ContactManagerContext (ContactManager.Models).
+5. In **Model Class** select *Contact (ContactManager.Models)* and in **Data Context Class** select *ContactManagerContext (ContactManager.Models)*.
  <br/>![Add API controller][rxAddApiController]<br/>
 6. Click **Add**.
 
@@ -542,10 +543,14 @@ IE will prompt you to open or save the contacts.
 To publish the application, you repeat the procedure you followed earlier, adding a step to configure database deployment.
 
 1. In **Solution Explorer**, right click the project and select **Publish**.
+ <br/>![Publish][rxP]<br/><br/>
 5. Click the **Settings** tab.
-6. In the connection string box for the **Contacts** database, select the SQL Database connection string that was provided in the .publishsettings file.<br/>
-7. Select **Execute Code First Migrations (runs on application start)**.<br/>
 ![Settings tab of Publish Web wizard][rxSettings]<br/>
+1. You can click the **^** icon next to the **UsersContext(DefaultConnection) database, that is the membership database and we're not using it in this tutorial. A real application would require authentication and authorization, and you would use the membership database for that purpose.
+6. The connection string box for the **ContactsManagerContext(ContactsManagerContext)** database contains the SQL Database connection string that was provided in the .publishsettings file. Click on the elipsis (...) to see the *ContactDB* settings.<br/>
+ <br/>![DB settings][rx22]<br/><br/>
+7. Select **Execute Code First Migrations (runs on application start)**.<br/>
+
 (As was noted earlier, the **DefaultConnection** database is for the ASP.NET membership system. You are not using membership functionality in this tutorial, so you aren't configuring this database for deployment.)
 8. Click **Publish**.<br/>
 After the deployment completes, the browser opens to the home page of the application.<br/>
@@ -605,8 +610,8 @@ Another way to store data in a Windows Azure application is to use Windows Azure
 <!-- images-->
 [rxE]: ../Media/rxE.png
 [rx2]: ../Media/rx2.png
-[]: ../Media/.png
-[]: ../Media/.png
+[rxP]: ../Media/rxP.png
+[rx22]: ../Media/rx22.png
 []: ../Media/.png
 []: ../Media/.png
 [rxNewCtx]: ../Media/rxNewCtx.png
