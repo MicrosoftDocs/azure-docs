@@ -540,28 +540,28 @@ IE will prompt you to open or save the contacts.
 
 <h2><a name="bkmk_deploydatabaseupdate"></a>Publish the application update to Windows Azure and SQL Database</h2>
 
-To publish the application, you repeat the procedure you followed earlier, adding a step to configure database deployment.
+To publish the application, you repeat the procedure you followed earlier.
 
 1. In **Solution Explorer**, right click the project and select **Publish**.
  <br/>![Publish][rxP]<br/><br/>
 5. Click the **Settings** tab.
 ![Settings tab of Publish Web wizard][rxSettings]<br/>
-1. You can click the **^** icon next to the **UsersContext(DefaultConnection) database, that is the membership database and we're not using it in this tutorial. A real application would require authentication and authorization, and you would use the membership database for that purpose.
-6. The connection string box for the **ContactsManagerContext(ContactsManagerContext)** database contains the SQL Database connection string that was provided in the .publishsettings file. Click on the elipsis (...) to see the *ContactDB* settings.<br/>
+1. You can click the **^** icon next to the **UsersContext(DefaultConnection)** database, that is the membership database and we're not using it in this tutorial. A real application would require authentication and authorization, and you would use the membership database for that purpose.
+6. The connection string box for the **ContactsManagerContext(ContactsManagerContext)** database contains the SQL Database connection string that was provided in the .publishsettings file. Click on the elipsis (**...**) to see the *ContactDB* settings.<br/>
  <br/>![DB settings][rx22]<br/><br/>
-7. Select **Execute Code First Migrations (runs on application start)**.<br/>
-
-(As was noted earlier, the **DefaultConnection** database is for the ASP.NET membership system. You are not using membership functionality in this tutorial, so you aren't configuring this database for deployment.)
+7. Close the **Destination Connections String Dialog** and in the **Publish Web** dialog select **Execute Code First Migrations (runs on application start)** for the **UsersContext(DefaultConnection)** database.<br/>
+![Settings tab of Publish Web wizard][rxSettings]<br/>
+(As was noted earlier, the **UsersContext(DefaultConnection)** database is for the ASP.NET membership system. You are not using membership functionality in this tutorial, so you aren't configuring that database for deployment.)
 8. Click **Publish**.<br/>
 After the deployment completes, the browser opens to the home page of the application.<br/>
 ![Index page with no contacts][intro001]<br/>
-The Visual Studio publish process automatically configured the connection string in the deployed Web.config file to point to the SQL database. It also configured Code First Migrations to automatically upgrade the database to the latest version the first time the application accesses the database after deployment.
+The Visual Studio publish process automatically configured the connection string in the deployed *Web.config* file to point to the SQL database. It also configured Code First Migrations to automatically upgrade the database to the latest version the first time the application accesses the database after deployment.
 As a result of this configuration, Code First created the database by running the code in the **Initial** class that you created earlier. It did this the first time the application tried to access the database after deployment.
 9. Enter a contact as you did when you ran the app locally, to verify that database deployment succeeded.
 When you see that the item you enter is saved and appears on the contact manager page, you know that it has been stored in the database.<br/>
 ![Index page with contacts][addwebapi004]
 
-The application is now running in the cloud, using SQL Database to store its data.
+The application is now running in the cloud, using SQL Database to store its data. After you finish testing the application in Windows Azure, delete it. The application is public and doesn't have a mechanism to limit access.
 
 <h2><a name="nextsteps"></a>Next Steps</h2>
 
