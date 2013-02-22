@@ -149,7 +149,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 			createdAtText = formatter.format(currentItem.getCreatedAt());
 		}
 
-   This genreates a formatted date string when a timestamp value exists. 
+   This generates a formatted date string when a timestamp value exists. 
 
 7. Locate the code `checkBox.setText(currentItem.getText());` and replace this line of code with the following:
 

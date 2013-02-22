@@ -199,7 +199,7 @@ In this simple example a user receives a push notification with the data that wa
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/
 [Get started with data]: ./mobile-services-get-started-with-data-js.md
 [Get started with authentication]: ./mobile-services-get-started-with-users-js.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-js.md
