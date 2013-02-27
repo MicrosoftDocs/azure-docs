@@ -30,8 +30,6 @@ This guide shows you how to perform common scenarios using the XXXXX client for 
 - [How to: Modify data in a mobile service]
 - [How to: Bind data to the user interface]
 - [How to: Authenticate users]
-	- [Work with identity providers]
-	- [Leverage single sign-on]
 	- [Cache authentication tokens]
 - [How to: Handle errors]
 - [How to: Design unit tests]
@@ -82,17 +80,16 @@ _This section shows how to bind returned data objects to UI elements._
 
 <h2><a name="authentication"></a><span class="short-header">Authentication</span>How to: Authenticate users</h2>
 
-_Topics in this section show how to authenticate users._
+Mobile Services supports the following existing identity providers that you can use to authenticate users:
 
-For more information, see [Get started with authentication].
+- Facebook
+- Google 
+- Microsoft Account
+- Twitter
 
-###<a name="identity-providers"></a>How to: Work with identity providers
+You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the ID of an authenticated user to modify requests. For more information, see [Get started with authentication].
 
-_This section shows how to use identity providers to authenticate users._
-
-###<a name="single-sign-on"></a>How to: Leverage single sign-on
-
-_(Optional) This section shows how to use SSO (e.g. Live Connect) to provide a single sign-on experience._
+Topics in this section describe authentication behaviors that are not covered in the tutorials.
 
 ###<a name="caching-tokens"></a>How to: Cache authentication tokens
 
@@ -138,8 +135,6 @@ For more information see, New topic about processing headers in the server-side.
 [How to: Insert data into a mobile service]: #inserting
 [How to: Modify data in a mobile service]: #modifying
 [How to: Authenticate users]: #authentication
-[Work with identity providers]: #identity-providers
-[Leverage single sign-on]: #single-sign-on
 [Cache authentication tokens]: #caching-tokens
 [How to: Upload images and large files]: #blobs
 [How to: Handle errors]: #errors
