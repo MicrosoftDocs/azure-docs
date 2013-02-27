@@ -30,9 +30,14 @@ This guide shows you how to perform common scenarios using the XXXXX client for 
 - [How to: Modify data in a mobile service]
 - [How to: Bind data to the user interface]
 - [How to: Authenticate users]
-- [How to: Upload images and large files]
+	- [Work with identity providers]
+	- [Leverage single sign-on]
+	- [Cache authentication tokens]
 - [How to: Handle errors]
-- [How to: Include custom request headers]
+- [How to: Design unit tests]
+- [How to: Customize the client]
+	- [Customize request headers]
+	- [Customize data type serialization]
 - [Next steps][]
 
 <div chunk="../mobile-services-concepts.md" />
@@ -77,21 +82,43 @@ _This section shows how to bind returned data objects to UI elements._
 
 <h2><a name="authentication"></a><span class="short-header">Authentication</span>How to: Authenticate users</h2>
 
-_This section shows how to authenticate users._
-
-<h2><a name="blobs"></a><span class="short-header">Upload blobs</span>How to: Upload images and large files</h2>
-
-_(Optional) This section shows how to upload images and other kinds of BLOB data to Blob storage._
+_Topics in this section show how to authenticate users._
 
 For more information, see [Get started with authentication].
+
+###<a name="identity-providers"></a>How to: Work with identity providers
+
+_This section shows how to use identity providers to authenticate users._
+
+###<a name="single-sign-on"></a>How to: Leverage single sign-on
+
+_(Optional) This section shows how to use SSO (e.g. Live Connect) to provide a single sign-on experience._
+
+###<a name="caching-tokens"></a>How to: Cache authentication tokens
+
+_This section shows how to cache an authentication token. Do this to prevent users from having to authenticate again (if app is "hibernated") while the token is still vaid. This will include info on expiring tokens, check with existing unified content._
 
 <h2><a name="errors"></a><span class="short-header">Error handling</span>How to: Handle errors</h2>
 
 _This section shows how to perform property error handling._
 
-<h2><a name="custom-headers"></a><span class="short-header">Custom headers</span>How to: Customize request headers</h2>
+<h2><a name="#unit-testing"></a><span class="short-header">Designing tests</span>How to: Design unit tests</h2>
+
+_(Optional) This section shows how to write unit test when using the client library (info from Yavor)._
+
+<h2><a name="#customizing"></a><span class="short-header">Customizing the client</span>How to: Customize the client</h2>
+
+_(Optional) This section shows how to send customize client behaviors._
+
+###<a name="custom-headers"></a>How to: Customize request headers
 
 _(Optional) This section shows how to send custom request headers._
+
+For more information see, New topic about processing headers in the server-side.
+
+###<a name="custom-serialization"></a>How to: Customize serialization
+
+_(Optional) This section shows how to use attributes to customize how data types are serialized._
 
 For more information see, New topic about processing headers in the server-side.
 
@@ -111,9 +138,15 @@ For more information see, New topic about processing headers in the server-side.
 [How to: Insert data into a mobile service]: #inserting
 [How to: Modify data in a mobile service]: #modifying
 [How to: Authenticate users]: #authentication
+[Work with identity providers]: #identity-providers
+[Leverage single sign-on]: #single-sign-on
+[Cache authentication tokens]: #caching-tokens
 [How to: Upload images and large files]: #blobs
 [How to: Handle errors]: #errors
-[How to: Include custom request headers]: #custom-headers
+[How to: Design unit tests]: #unit-testing 
+[How to: Customize the client]: #customizing
+[Customize request headers]: #custom-headers
+[Customize data type serialization]: #custom-serialization
 [Next Steps]: #next-steps
 
 <!-- Images. -->
