@@ -20,7 +20,7 @@ In this topic contains:
 - [Next steps](#Next)
 - [Links to additional information](#Links)
 
-<h2 id="About">About this virtual machine image</h2>
+<h2><a id="About"></a>About this virtual machine image</h2>
 
 ###Windows Server 2008 R2
 
@@ -64,7 +64,7 @@ This SQL Server installation contains the following components.
 - The Database Engine memory is set to dynamic memory configuration. Contained database authentication is off. The default language is English. Cross-database ownership chaining is off. For more settings, examine the instance of SQL Server.
 - Additional installations of SQL Server can be installed on the virtual machine, but they might require a PID (Product ID code).
 
-<h2 id="Connect">How to Connect To this Instance of SQL Server</h2>
+<h2><a id="Connect"></a>How to Connect To this Instance of SQL Server</h2>
 
 ### Connect from Management Studio running on this VM
 
@@ -109,7 +109,7 @@ where VM_Name is the name you provided for this virtual machine during setup.
 
 AlwaysOn availability groups are currently supported in Windows Azure Virtual Machine Preview Release without Listeners. An availability group that has one or more replicas in Windows Azure Virtual Machines cannot have a listener. Before adding a replica on a Windows Azure Virtual Machine to an on-premises availability group, drop the availability group listener. If the availability group has a listener, a failover to the replica on the Windows Azure Virtual Machine will fail. For more information about configuring AlwaysOn availability groups, see SQL Server Books Online.
 
-<h2 id="Next">Next steps</h2>
+<h2><a id="Next"></a>Next steps</h2>
 
 ### Migrating an existing database
 Your existing database can be moved to this new instance of the Database Engine by using any of the following methods.
@@ -133,7 +133,7 @@ Create new Windows users, SQL Server Windows Authentication logins, and database
 
 The SQL Server setup media is saved on the virtual machine in the **C:\SQLServer\_&lt;version&gt;\_Full** directory. Run setup from this directory to perform any setup actions including add or remove features, add a new instance, repair the instance, etc.
 
-<h2 id="Links">Links to additional information</h2>
+<h2><a id="Links"></a>Links to additional information</h2>
 
 * [Provision a SQL Server virtual machine on Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=248281)
 * [Running SQL Server in Windows Azure Virtual Machine - Performance Guidelines for Preview](http://go.microsoft.com/fwlink/?LinkID=254744)

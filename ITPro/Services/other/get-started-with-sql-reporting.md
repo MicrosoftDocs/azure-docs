@@ -26,7 +26,7 @@ To get started with SQL Reporting, you must have a Windows Azure subscription. Y
 * [Next Steps][]
 
 
-<h2 id="CreateRSS">Create a report server</h2>
+<h2><a id="CreateRSS"></a>Create a report server</h2>
 Use the **Create Server** wizard to quickly and easily create a new report server in SQL Reporting. The wizard guides you though the steps to choose a subscription and region and provide the user name and password of the server administrator.
 
 1. On the taskbar, click **Create** in the **Server** category. The **Create Server** wizard opens. 
@@ -50,7 +50,7 @@ The report server is created using the specified subscription.
 The report server name is a 10 character GUID. If you do not see the server, expand the subscription in which you created it.
 
 
-<h2 id="CreateUser">Create a user and assign roles</h2>
+<h2><a id="CreateUser"></a>Create a user and assign roles</h2>
 1.	Click **Manage** in the **User** category of the taskbar. The **Manage Users** dialog box opens. 
 
 	![ManageUserOption][]
@@ -71,7 +71,7 @@ The report server name is a 10 character GUID. If you do not see the server, exp
 6.	Click **Close** to end the operation, and return to SQL Reporting portal.
 
 
-<h2 id="Upload">Upload a report</h2>
+<h2><a id="Upload"></a>Upload a report</h2>
 1.	Open the SQL Reporting report server to which you want to upload a report. 
 
 	![UploadReportOption][]
@@ -99,7 +99,7 @@ The report server name is a 10 character GUID. If you do not see the server, exp
 10.	Click **Upload**.
 
 
-<h2 id="DownloadReport">Download a report</h2>
+<h2><a id="DownloadReport"></a>Download a report</h2>
 1.	Open the SQL Reporting report server from which you want to download a report.
 
 2.	If the report is not in the root SQL Reporting server folder, navigate to the folder that contains the report.
@@ -117,7 +117,7 @@ The report server name is a 10 character GUID. If you do not see the server, exp
 10.	Click **OK**.
 
 
-<h2 id="RunReportRS">Run a report : from report server</h2>
+<h2><a id="RunReportRS"></a>Run a report : from report server</h2>
 1.	In the SQL Reporting portal, expand the subscriptions and click the report server to which you uploaded or deployed the report that you want to run. 
 
 2.	Click the link [Link] next to the Web service URL. 
@@ -145,7 +145,7 @@ The report server name is a 10 character GUID. If you do not see the server, exp
 
 
 
-<h2 id="RunReportRMP">Run a report : from SQL Reporting Management Portal</h2>
+<h2><a id="RunReportRMP"></a>Run a report : from SQL Reporting Management Portal</h2>
 1.	In the SQL Reporting portal, expand the subscriptions and click the report server to which you uploaded or deployed the report that you want to run.
 
 2.	If the report is not in the root folder of the report server, click through the folder hierarchy to the folder that contains the report. 
@@ -161,7 +161,7 @@ The report server name is a 10 character GUID. If you do not see the server, exp
 
 
 
-<h2 id="CreateDS">Create a data source</h2>
+<h2><a id="CreateDS"></a>Create a data source</h2>
 1.	Open the SQL Reporting server on which you want to create a new shared data source. 
 
 2.	If you do not want the new data source in the root folder of the report server, navigate to the folder in which you want to create the data source. 
@@ -186,7 +186,7 @@ The report server name is a 10 character GUID. If you do not see the server, exp
 
 
 
-<h2 id="EditDS">Edit a shared data source</h2>
+<h2><a id="EditDS"></a>Edit a shared data source</h2>
 1.	Open the SQL Reporting server on which you want to edit a shared data source.
  
 2.	Navigate to the folder that contains the data source. 
@@ -201,7 +201,7 @@ The report server name is a 10 character GUID. If you do not see the server, exp
 7.	Click **OK**.
 
 
-<h2 id="CreateFolder">Create a folder</h2>
+<h2><a id="CreateFolder"></a>Create a folder</h2>
 1.	Navigate to the folder in which you want to create a new folder.
 2.	Breadcrumbs provide a visual presentation of the path from the root folder to the current folder. 
 
@@ -221,7 +221,7 @@ The report server name is a 10 character GUID. If you do not see the server, exp
 
 
 
-<h2 id="EditPropFolder">Edit properties of a folder</h2>
+<h2><a id="EditPropFolder"></a>Edit properties of a folder</h2>
 1.	Open the SQL Reporting server on which you want to update folder properties. 
 
 2.	If the folder is not in the root of the report server, navigate to the folder that contains the folder that you want. 
@@ -238,7 +238,7 @@ The report server name is a 10 character GUID. If you do not see the server, exp
 5.	Update the name and description and click OK. 
 
 
-<h2 id="UpdatePerm">Update permissions on a Report item</h2>
+<h2><a id="UpdatePerm"></a>Update permissions on a Report item</h2>
 1.	To update permissions on a report item, Click the row that contains the report items, click the down arrow to the right of the folder, and then click Permissions. The Manage Permissions dialog box opens.
 
 	![FolderProperties][]
@@ -261,7 +261,7 @@ The report server name is a 10 character GUID. If you do not see the server, exp
 
 5.	Click **OK**.
 
-<h2 id="NextSteps">Next Steps</h2>
+<h2><a id="NextSteps"></a>Next Steps</h2>
 
 Now that you've learned the basics of SQL Reporting administration, to learn more about SQL Reporting and usage, see [Windows Azure SQL Reporting][] on MSDN.
 

@@ -3,7 +3,7 @@
 
 
 
-<h1 id="createstorageaccount">How To Monitor a Storage Account</h1>
+<h1><a id="createstorageaccount"></a>How To Monitor a Storage Account</h1>
 
 You can monitor your storage accounts in the Windows Azure Preview Management Portal. For each storage service associated with the storage account (Blob, Queue, and Table), you can choose the level of monitoring - minimal or verbose - and specify the appropriate data retention policy. 
 
@@ -24,7 +24,7 @@ Until you configure monitoring for a storage account, no monitoring data is coll
 * [How to: Configure logging](#configurelogging)
 
 
-<h2 id="configurestoragemonitoring">How to: Configure monitoring for a storage account</h2>
+<h2><a id="configurestoragemonitoring"></a>How to: Configure monitoring for a storage account</h2>
 
 1. In the [Management Portal](https://manage.windowsazure.com/), click **Storage**, and then click the storage account name to open the dashboard.
 
@@ -53,7 +53,7 @@ Metrics are stored in the storage account in four tables named $MetricsTransacti
 After you set the monitoring levels and retention policies, you can choose which of the available metrics to monitor in the Management Portal, and which metrics to plot on metrics charts. A default set of metrics are displayed at each monitoring level. You can use **Add Metrics** to add or remove metrics from the metrics list.
 
 
-<h2 id="customizestoragemonitoring">How to: Customize the dashboard for monitoring</h2>
+<h2><a id="customizestoragemonitoring"></a>How to: Customize the dashboard for monitoring</h2>
 
 On the dashboard, you can choose up to six metrics to plot on the metrics chart from nine available metrics. For each service (Blob, Table, and Queue), the Availability, Success Percentage, and Total Requests metrics are available. The metrics available on the dashboard are the same for minimal or verbose monitoring.
 
@@ -72,7 +72,7 @@ On the dashboard, you can choose up to six metrics to plot on the metrics chart 
 4. To change the time range the metrics chart displays, select 6 hours, 24 hours, or 7 days at the top of the chart.
      
 
-<h2 id="customizemonitorpage">How to: Customize the Monitor page</h2>
+<h2><a id="customizemonitorpage"></a>How to: Customize the Monitor page</h2>
 
 On the **Monitor** page, you can view the full set of metrics for your storage account. 
 
@@ -82,7 +82,7 @@ On the **Monitor** page, you can view the full set of metrics for your storage a
 
 Use the following procedures to choose which storage metrics to view in the metrics charts and table that are displayed on the **Monitor** page. These settings do not affect the collection, aggregation, and storage of monitoring data in the storage account.
 
-<h2 id="addmonitoringmetrics">How to: Add metrics to the metrics table</h2>
+<h2><a id="addmonitoringmetrics"></a>How to: Add metrics to the metrics table</h2>
 
 
 1. In the [Management Portal](https://manage.windowsazure.com/), click **Storage**, and then click the name of the storage account to open the dashboard.
@@ -123,7 +123,7 @@ Use the following procedures to choose which storage metrics to view in the metr
 
 	![DeleteMetric] (../media/Storage_DeleteMetric.png)
 
-<h2 id="customizemetricschart">How to: Customize the metrics chart on the Monitor page</h2>
+<h2><a id="customizemetricschart"></a>How to: Customize the metrics chart on the Monitor page</h2>
 
 1. On the **Monitor** page for the storage account, in the metrics table, select up to 6 metrics to plot on the metrics chart. To select a metric, click the check box on its left side. To remove a metric from the chart, clear the check box.
 
@@ -133,7 +133,7 @@ Use the following procedures to choose which storage metrics to view in the metr
 
 
 
-<h2 id="configurelogging">How to: Configure logging</h2>
+<h2><a id="configurelogging"></a>How to: Configure logging</h2>
 
 For each of the storage services available with your storage account (Blob, Table, and Queue), you can save diagnostics logs for Read Requests, Write Requests, and/or Delete Requests, and can set the data retention policy for each of the services.
 
