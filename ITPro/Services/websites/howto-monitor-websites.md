@@ -14,7 +14,7 @@ Web sites provide monitoring functionality via the Monitor management page. The 
 - [How to: Reduce resource usage](#resourceusage)
 - [What happens when a resource usage quota is exceeded](#exceeded)
 - [How to: Configure diagnostics and download logs for a web site](#howtoconfigdiagnostics)
-
+- [How to: Monitor web endpoint status](#webendpointstatus)
 
 ##<a name="websitemetrics"></a>How to: Add web site metrics
 
@@ -155,6 +155,32 @@ The .htm files include the following sections:
 
 - Read Files with: Log Parser. Used to parse and query IIS log files. Log Parser 2.2 is available on the Microsoft Download Center at <a href="http://go.microsoft.com/fwlink/?LinkId=246619">http://go.microsoft.com/fwlink/?LinkId=246619</a>.
 
+
+##<a name="webendpointstatus"></a>How to: Monitor web endpoint status
+Use the following procedure to configure web endpoint monitoring for your web site.
+
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>This feature is only available in <b>Reserved</b> mode. You can monitor up to 2 endpoints from up to 3 geographic locations.</p> 
+</div>
+ 
+Endpoint monitoring configures web tests from geo-distributed locations that test response time and uptime of web URLs. The test performs an HTTP get operation on the web URL to determine the response time and uptime from each location. Each configured location runs a test every five minutes.
+
+Uptime is monitored using HTTP response codes, and response time is measured in milliseconds. Uptime is considered 100% when the response time is less than 30 seconds and the HTTP status code is lower than 400. Uptime is 0% when the response time is greater than 30 seconds or the HTTP status code is greater than 400.
+
+After you configure endpoint monitoring, you can drill down into the individual endpoints to view details response time and uptime status over the monitoring interval from each of the test locations.
+
+**To configure endpoint monitoring:**
+
+1.	Open **Web Sites**. Then, to open the dashboard, click the name of the web site you want to configure.
+2.	Click **Configure**.
+
+	You will edit the **Endpoints** settings in the **monitoring** section.
+3.	Enter the name of the endpoint.
+4.	Enter the URL for the service that you want to monitor. For example, [http://contoso.cloudapp.net](http://contoso.cloudapp.net). 
+5.	Select one or more geographic locations from the list.
+6.	Optionally, repeat the previous 3 steps for a second endpoint.
+7.	Click **Save**. It may take some time for the web endpoint monitoring data to be available on the dashboard and **monitor** tab.
 
 
 [vs2010]:http://go.microsoft.com/fwlink/?LinkId=225683

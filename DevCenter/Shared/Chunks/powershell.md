@@ -618,7 +618,7 @@ The following example shows how to update the MyService service by changing the 
 
 Note that the **Set-AzureRole** cmdlet does not require you to republish the service since it updates the deployed service configuration file.
 
-<h2 id="Cache">How to: Create a dedicated cache</h2>
+<h2><a id="Cache"></a>How to: Create a dedicated cache</h2>
 
 The Windows Azure PowerShell cmdlets allow you set up a worker role as a dedicated cache, and configure web roles to access the cache using the memcache protocol.
 

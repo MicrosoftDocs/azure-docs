@@ -11,7 +11,7 @@ This guide will show you how to use [ClearDB] to create a MySQL database from th
 <p>When you create a MySQL database as part of the Web Site creation process, you can only create a free database. Creating a MySQL database from the Windows Azure Store allows you to create a free database or choose from paid options.</p> 
 </div>
 
-<h2 id="CreateFromStore">How to: Create a MySQL database from the Windows Azure Store</h2>
+<h2><a id="CreateFromStore"></a>How to: Create a MySQL database from the Windows Azure Store</h2>
 
 To create a MySQL database from the [Windows Azure Store], do the following:
 
@@ -41,7 +41,7 @@ To create a MySQL database from the [Windows Azure Store], do the following:
 	![MySql connection information](../../Shared/Media/mysql-conn-info.png) 
 
 
-<h2 id="CreateForWebSite">How to: Create a MySQL database as a linked resource for Windows Azure Web Site</h2>
+<h2><a id="CreateForWebSite"></a>How to: Create a MySQL database as a linked resource for Windows Azure Web Site</h2>
 
 To create a MySQL database as a linked resource when you create a [Windows Azure Web Site][waws], do the following:
 

@@ -77,7 +77,7 @@ SQL Database (formerly known as SQL Azure) is a cloud-based relational database 
 
 4. In the **Create Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application.
 
-   The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "todolistapp", but if someone has already taken that URL you have to choose a different one.
+   The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows "todolistapp", but if someone has already taken that URL you have to choose a different one.
 
 6. In the **Region** drop-down list, choose the region that is closest to you.
 
@@ -181,7 +181,7 @@ This is all you need to do for now to create the application that you'll deploy 
 
    ![todolistapp in Management Portal Web Sites tab][Image030]
 
-1. Under **Quick glance** in the **Dashboard** tab, click **Download publishing profile**.
+1. Under **Quick glance** in the **Dashboard** tab, click **Download publish profile**.
 
    ![Download Publishing Profile link][Image031]<br/>
 
@@ -323,7 +323,7 @@ The next task is to enable the Code First Migrations feature in order to create 
 
    ![Initial Migration class][Image051b]<br/>
 
-   Finally, **update-database** runs this first migration which creates the database. By default, the database is created as a SQL Server Express LocalDB database. (Unless you have SQL Server Express installed, in which case the database is created using the SQL Server Express instance.)
+   Finally, **update-database** runs this first migration which creates the database. By default, the database is created as a SQL Server Express LocalDB database. (Unless you have SQL Server Express installed, in which case the database is created using the SQL Server Express instance.) For information about where the database is created and how it is named, see [Code First to a New Database](http://msdn.microsoft.com/en-us/data/jj193542).
 
 ### Create web pages that enable app users to work with to-do list items
 
@@ -356,6 +356,8 @@ In ASP.NET MVC the scaffolding feature can automatically generate code that perf
 1. Press CTRL+F5 to run the application.
 
    ![Index page][Image057] 
+
+   Note that because you replaced the Home controller code, the About and Contact links are no longer functional.
 
 2. Click **Create New** and enter a to-do list item.
 
@@ -424,18 +426,17 @@ Here are some things to be aware of when you plan and develop an ASP.NET applica
 
 <h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>
 
-You've seen how to deploy a web application to a Windows Azure Web Site. To learn more about how to configure, manage, and scale Windows Azure Web Sites, see the how-to topics on the [Common Tasks][CommonTasks] page.
+You've seen how to deploy a web application to a Windows Azure Web Site. When you are finished with your deployed web site, you can delete it in the Windows Azure management portal. In the **Web Sites** tab, click the name of the site you want to delete and click **Delete**.
 
-To learn how to deploy an application to a Windows Azure Cloud Service, see [The Cloud Service version of this tutorial][NetAppWithSqlAzure] and [Developing Web Applications with Windows Azure][DevelopingWebAppsWithWindowsAzure]. Some reasons for choosing to run an ASP.NET web application in a Windows Azure Cloud Service rather than a Windows Azure Web Site include the following:
+To learn more about how to configure, manage, and scale Windows Azure Web Sites, see the how-to topics on the [Common Tasks][CommonTasks] page.
 
-* You want administrator permissions on the web server that the application runs on.
-* You want to use Remote Desktop Connection to access the web server that the application runs on. 
-* Your application is multi-tier and you want to distribute work across multiple virtual servers (web and workers).
+You can deploy a web application to a Windows Azure Cloud Service instead of a Windows Azure Web Site. For more information, see [Windows Azure Execution Models](http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/). For a tutorial that shows how to create a multi-tier ASP.NET web application and deploy it to a Cloud Service, see [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs - 1 of 5](http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
 
 Another way to store data in a Windows Azure application is to use Windows Azure Blob, Queue, and Table services, which provide non-relational data storage in the form of blobs and tables. The to-do list application could have been designed to use Windows Azure Storage instead of SQL Database. For more information about both SQL Database and Windows Azure Storage, see [Data Storage Offerings on Windows Azure][WindowsAzureDataStorageOfferings].
 
 To learn more about how to use SQL Database, see the following resources:
 
+* [SQL Databases](http://www.windowsazure.com/en-us/manage/services/sql-databases/)
 * [Data Migration to SQL Database: Tools and Techniques][SQLAzureDataMigration]
 * [Migrating a Database to SQL Database using SSDT][SQLAzureDataMigrationBlog]
 * [Migrating Data-Centric Applications to Windows Azure][MigratingDataCentricApps]

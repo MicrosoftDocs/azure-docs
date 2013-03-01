@@ -6,7 +6,7 @@
 
 This guide will show you how to create PHP web or worker roles in a Windows development environment, choose a specific version of PHP from the "built-in" versions available, change the PHP configuration, enable extensions, and finally, how to deploy to Windows Azure. It also describes how to configure a web or worker role to use a PHP runtime (with custom configuration and extensions) that you provide.
 
-<h2 id="TableOfContents">Table of Contents</h2>
+<h2><a id="TableOfContents"></a>Table of Contents</h2>
 * [What are PHP web and worker roles?](#WhatIs)
 * [Download the Windows Azure SDK for PHP](#DownloadSdk)
 * [How to: Create a Cloud Services project](#CreateProject)
@@ -17,16 +17,16 @@ This guide will show you how to create PHP web or worker roles in a Windows deve
 * [How to: Run your application in the Compute and Storage Emulators](#Emulators)
 * [How to: Publish your application](#Publish) 
 
-<h2 id="WhatIs">What are PHP web and worker roles?</h2>
+<h2><a id="WhatIs"></a>What are PHP web and worker roles?</h2>
 Windows Azure provides three compute models for running applications: [Windows Azure Web Sites][execution model-web sites], [Windows Azure Virtual Machines][execution model-vms], and [Windows Azure Cloud Services][execution model-cloud services]. All three models support PHP. Cloud Services, which include web and worker roles, provide *Platform as a Service (PaaS)*. Within a cloud service, a web role provides a dedicated Internet Information Services (IIS) web server to host front-end web applications, while a worker role can run asynchronous, long-running or perpetual tasks independent of user interaction or input.
 
 For more information, see [What is a Cloud Service?].
 
-<h2 id="DownloadSdk">Download the Windows Azure SDK for PHP</h2>
+<h2><a id="DownloadSdk"></a>Download the Windows Azure SDK for PHP</h2>
 
 The [Windows Azure SDK for PHP] consists of several components. This article will use to of them: Windows Azure PowerShell and the Windows Azure Emulators. These two components can be installed via the Microsoft Web Platform Installer here: [Install Windows Azure PowerShell and the Windows Azure Emulators][install ps and emulators].
 
-<h2 id="CreateProject">How to: Create a Cloud Services project</h2>
+<h2><a id="CreateProject"></a>How to: Create a Cloud Services project</h2>
 
 The first step in creating a PHP web or worker role is to create a Windows Azure Service project. A Windows Azure Service project serves as a logical container for web and worker roles, and contains the project's [service definition (.csdef)] and [service configuration (.cscfg)] files. 
 
@@ -36,7 +36,7 @@ To create a new Windows Azure Servcie project, execute the following command:
 
 This command will create a new directory (`myProject`) to which you can add web and worker roles.
 
-<h2 id="AddRole">How to: Add PHP web or worker roles</h2>
+<h2><a id="AddRole"></a>How to: Add PHP web or worker roles</h2>
 
 To add a PHP web role to a project, run the following command from within the project's root directory:
 
@@ -51,7 +51,7 @@ For a worker role, use this command:
 <p>The <code>roleName</code> parameter is optional. If it is omitted, the role name will be automatically generated. The first web role created will be <code>WebRole1</code>, the second <code>WebRole2</code>, and so on. The first worker role created will be <code>WorkerRole1</code>, the second <code>WorkerRole2</code>, and so on.</p> 
 </div>
 
-<h2 id="SpecifyPHPVerison">How to: Specify the built-in PHP Version</h2>
+<h2><a id="SpecifyPHPVersion"></a>How to: Specify the built-in PHP Version</h2>
 
 When you add a PHP web or worker role to a project, the project's configuration files are modified so that PHP will be installed on each web or worker instance of your application when it is deployed. To see the version of PHP that will be installed by default, run the following command:
 
@@ -78,7 +78,7 @@ You can set the PHP runtime version to any of the PHP versions that are listed. 
 <p>More PHP versions may be available in the future, and the available versions may change.</p> 
 </div>
 
-<h2 id="CustomizePHP">How to: Customize the built-in PHP runtime</h2>
+<h2><a id="CustomizePHP"></a>How to: Customize the built-in PHP runtime</h2>
 
 You have complete control over the configuration of the PHP runtime that is installed when you follow the steps above, including modification of `php.ini` settings and enabling of extensions.
 
@@ -96,10 +96,10 @@ To customize the built-in PHP runtime, follow these steps:
 <p>Any settings that you don't explicity set in the <code>php.ini</code> file that you provide will automatically be set to their default values. However, keep in mind that you can add a complete <code>php.ini</code> file. </p> 
 </div>
 
-<h2 id="OwnPHP">How to: Use your own PHP runtime</h2>
+<h2><a id="OwnPHP"></a>How to: Use your own PHP runtime</h2>
 In some cases, instead of selecting a built-in PHP runtime and configuring it as described above, you may want to provide your own PHP runtime. For example, you can use the same PHP runtime in a web or worker role that you use in your development environment, making it easier to ensure that application will not change behavior in your production environment.
 
-<h3 id="OwnPHPWebRole">Configuring a web role to use your own PHP runtime</h3>
+<h3><a id="OwnPHPWebRole"></a>Configuring a web role to use your own PHP runtime</h3>
 
 To configure a web role to use a PHP runtime that you provide, follow the steps below.
 
@@ -136,7 +136,7 @@ To configure a web role to use a PHP runtime that you provide, follow the steps 
 <p>The <code>download.ps1</code> script (in the <code>bin</code> folder of the web role's root directory) can be deleted after following the steps described above for using your own PHP runtime.</p> 
 </div>
 
-<h3 id="OwnPHPWorkerRole">Configuring a worker role to use your own PHP runtime</h3>
+<h3><a id="OwnPHPWorkerRole"></a>Configuring a worker role to use your own PHP runtime</h3>
 
 To configure a worker role to use a PHP runtime that you provide, follow the steps below.
 
@@ -177,7 +177,7 @@ To configure a worker role to use a PHP runtime that you provide, follow the ste
 
 6. Publish your application as described in the [How to: Publish your applicaiton](#Publish) section below.
 
-<h2 id="Emulator">How to: Run your application in the Compute and Storage Emulators</h2>
+<h2><a id="Emulators"></a>How to: Run your application in the Compute and Storage Emulators</h2>
 
 The Windows Azure Compute and Storage Emulators provide a local environment in which you can test your Windows Azure applicaiton before deploying it to the cloud. There are some differences between the emulators and the Windows Azure environment. To understand this better, see [Differences Between the Compute Emulator and Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg432960.aspx) and [Differences Between the Storage Emulator and Windows Azure Storage Services](http://msdn.microsoft.com/en-us/library/windowsazure/gg433135.aspx).
 
@@ -200,7 +200,7 @@ To stop the emulators, execute this command:
 
 	PS C:\MyProject> Stop-AzureEmulator
 
-<h2 id="Publish">How to: Publish your application</h2>
+<h2><a id="Publish"></a>How to: Publish your application</h2>
 
 To publish your application, you need to first import your publish settings  with the **Import-PublishSettingsFile** cmdlet, then you can publish your application with the **Publish-AzureServiceProject** cmdlet. Details on using each of these cmdlets can be found in [How to: Import publish settings] and [How to: Deploy a cloud service to Windows Azure] respectively.
 
