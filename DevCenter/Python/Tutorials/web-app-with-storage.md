@@ -177,7 +177,7 @@ You can now click "Add Task" to create one and then click the "Complete" button 
 Now that you've successfully run your app on the built-in Django server, you can test it out further by deploying it to the Windows Azure emulator (Windows only) and then publishing to Windows Azure.  For general instructions on how to do this, please refer to the article **"Django Hello World Web Application"** which discusses these steps in detail.
 
 
-<h2 id="NextSteps">Next Steps</h2>
+<h2><a id="NextSteps"></a>Next Steps</h2>
 
 Now that you’ve learned the basics of the Windows Azure Table storage service, follow these links to learn how to do more complex storage tasks.
 

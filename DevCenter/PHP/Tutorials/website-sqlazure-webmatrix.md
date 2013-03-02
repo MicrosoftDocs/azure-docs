@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-php-website-with-sql-database-and-webmatrix" urlDisplayName="Web w/ SQL + WebMatrix" pageTitle="PHP web site with SQL Database and WebMatrix - Windows Azure" metaKeywords="" metaDescription="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web site that stores data in SQL Database." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-php-website-with-sql-database-and-webmatrix" urlDisplayName="Web w/ SQL + WebMatrix" pageTitle="PHP web site with SQL Database and WebMatrix - Windows Azure" metaKeywords="" metaDescription="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web site that stores data in SQL Database." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -12,7 +12,7 @@ Upon completing this guide, you will have a PHP-SQL Database web site running in
  
 You will learn:
 
-* How to create a Windows Azure Web Site and a SQL Database using the Preview Management Portal. Because PHP is enabled in Windows Azure Web Sites by default, nothing special is required to run your PHP code.
+* How to create a Windows Azure Web Site and a SQL Database using the Management Portal. Because PHP is enabled in Windows Azure Web Sites by default, nothing special is required to run your PHP code.
 * How to develop a PHP application using WebMatrix.
 * How to publish and re-publish your application to Windows Azure using WebMatrix.
  
@@ -44,7 +44,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 ## Create a web site and SQL Database
 
-1. Login to the [Preview Management Portal][preview-portal].
+1. Login to the [Management Portal][preview-portal].
 2. Click the **+ New** icon on the bottom left of the portal.
 
 	![Create New Windows Azure Web Site][new-website]
@@ -79,7 +79,7 @@ From the **PHP** section of the resulting dialog, make note of the values for `U
 
 ##Install WebMatrix
 
-You can install WebMatrix from the [Preview Management Portal][preview-portal]. 
+You can install WebMatrix from the [Management Portal][preview-portal]. 
 
 1. After logging in, navigate to your web site's Quick Start page, and click the WebMatrix icon at the bottom of the page:
 
@@ -132,7 +132,7 @@ In the next few steps you will develop the Tasklist application by adding the fi
 5. Now you can test the application locally. Right click the `index.php` file and select **Launch in browser**. Test the application by adding items, marking them complete, and deleting them.   
 
 
-<h2 id="Publish">Publish your application</h2>
+<h2><a id="Publish"></a>Publish your application</h2>
 
 Before publishing your application to Windows Azure Web Sites, the database connection information in `taskmodel.php` needs to be updated with the connection information you obtained earlier (in the [Create a Windows Azure Web Site and SQL Database](#CreateWebsite) section).
 

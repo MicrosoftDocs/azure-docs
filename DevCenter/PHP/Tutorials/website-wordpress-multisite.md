@@ -4,10 +4,10 @@
 
 # Convert a WordPress Site to a Multisite
 
-<p><em>By [Ben Lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]</em></p>
+*By [Ben Lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]*
 
 In this tutorial you will learn how to take an existing WordPress web site created through the Windows Azure Gallery and convert it into a WordPress Multisite install. Additionally you will learn how to assign a custom domain to each of the subsites within your install.It is assumed that you have an existing installation of WordPress. If you do not please follow the guidance provided in [Create a WordPress web site from the gallery in Windows Azure][website-from-gallery].
-Converting an existing WordPress single site install to Multisite is generally fairly simple, and many of the initial steps here come straight from the [Create A Network][wordpress-codex-create-a-network] page on the [WordPress Codex][http://codex.wordpress.org].
+Converting an existing WordPress single site install to Multisite is generally fairly simple, and many of the initial steps here come straight from the [Create A Network][wordpress-codex-create-a-network] page on the [WordPress Codex](http://codex.wordpress.org).
 Lets get started.
 ## Allow Multisite
 You first need to enable Multisite through the `wp-config.php` file with the **WP_ALLOW_MULTISITE** constant. There are two methods to edit your web site files, the first is through FTP and the second through Git. If you are unfamiliar with how to setup either of these methods please refer to the following tutorials:
@@ -93,8 +93,9 @@ Windows Azure Web Sites allows you to add an unlimited number of domains to a we
 [wordpress-codex-create-a-network]: http://codex.wordpress.org/Create_A_Network
 [website-w-mysql-and-ftp-ftp-setup]: https://www.windowsazure.com/en-us/develop/php/tutorials/website-w-mysql-and-ftp/#header-0
 [website-w-mysql-and-git-git-setup]: https://www.windowsazure.com/en-us/develop/php/tutorials/website-w-mysql-and-git/#header-1
-[wordpress-network-setup]: ../../Shared/Media/wordpress-network-setup.png
+[wordpress-network-setup]: ../Media/wordpress-network-setup.png
 [wordpress-codex-types-of-networks]: http://codex.wordpress.org/Before_You_Create_A_Network#Types_of_multisite_network
 [wordpress-plugin-wordpress-mu-domain-mapping]: http://wordpress.org/extend/plugins/wordpress-mu-domain-mapping/
-[wordpress-portal-shared]: ../../Shared/Media/wordpress-portal-shared.png
-[wordpress-manage-domains]: ../../Shared/Media/wordpress-manage-domains.png
+[wordpress-portal-shared]: ../Media/wordpress-portal-shared.png
+[wordpress-manage-domains]: ../Media/wordpress-manage-domains.png
+[wordpress-codex]: http://codex.wordpress.org

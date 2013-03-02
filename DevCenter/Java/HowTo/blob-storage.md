@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-net-how-to-use-blog-storage-service-java" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Java) - Windows Azure feature guide" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" metaDescription="Learn how to use the Windows Azure blob service to upload, download, list, and delete blob content. Samples written in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="dev-net-how-to-use-blog-storage-service-java" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Java) - Windows Azure feature guide" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" metaDescription="Learn how to use the Windows Azure blob service to upload, download, list, and delete blob content. Samples written in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -28,7 +28,7 @@ more information on blobs, see the [Next Steps](#NextSteps) section.
 
 <div chunk="../../Shared/Chunks/howto-blob-storage.md" />
 
-<h2 id="CreateAccount">Create a Windows Azure storage account</h2>
+<h2><a id="CreateAccount"></a>Create a Windows Azure storage account</h2>
 
 <div chunk="../../Shared/Chunks/create-storage-account.md" />
 

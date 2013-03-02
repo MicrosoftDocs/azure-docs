@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-java-how-to-use-table-storage" urlDisplayName="Table Service" pageTitle="How to use table storage (Java) - Windows Azure feature guide" metaKeywords="Windows Azure table storage service, Azure table service Java, table storage Java" metaDescription="Learn how to use the table storage service in Windows Azure. Code samples are written in Java code." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="dev-java-how-to-use-table-storage" urlDisplayName="Table Service" pageTitle="How to use table storage (Java) - Windows Azure feature guide" metaKeywords="Windows Azure table storage service, Azure table service Java, table storage Java" metaDescription="Learn how to use the table storage service in Windows Azure. Code samples are written in Java code." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 <div chunk="../chunks/article-left-menu.md" />
@@ -34,7 +34,7 @@ tables, see the [Next steps](#NextSteps) section.
 
 <div chunk="../../Shared/Chunks/howto-table-storage.md" />
 
-<h2 id="CreateAccount">Create a Windows Azure storage account</h2>
+<h2><a id="CreateAccount"></a>Create a Windows Azure storage account</h2>
 
 <div chunk="../../Shared/Chunks/create-storage-account.md" />
 

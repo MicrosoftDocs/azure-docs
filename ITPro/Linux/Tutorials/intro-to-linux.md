@@ -17,11 +17,11 @@ This topic provides an overview of some aspects of using Linux virtual machines 
 * [Virtual machine image capture](#virtualmachine)
 * [Attaching Disks](#attachingdisks)
 
-<h2 id="authentication"> Authentication: Usernames, Passwords and SSH Keys </h2>
+<h2><a id="authentication"></a>Authentication: Usernames, Passwords and SSH Keys </h2>
 
-When creating a Linux virtual machine using the Windows Azure (Preview) Management Portal, you are asked to provide a username, password and (optionally) an SSH public key. The choice of a username for deploying a Linux virtual machine on Windows Azure is subject to the following constraint: names of system accounts already present in the virtual machine are not allowed - root for example.  If you don’t provide the SSH public key, you will be able to log in to the virtual machine using the specified username and password. If you elect to upload an SSH public key in the Management Portal, password-based authentication will be disabled and you will be required to use the corresponding SSH private key to authenticate with the virtual machine and log in.
+When creating a Linux virtual machine using the Windows Azure Management Portal, you are asked to provide a username, password and (optionally) an SSH public key. The choice of a username for deploying a Linux virtual machine on Windows Azure is subject to the following constraint: names of system accounts already present in the virtual machine are not allowed - root for example.  If you don’t provide the SSH public key, you will be able to log in to the virtual machine using the specified username and password. If you elect to upload an SSH public key in the Management Portal, password-based authentication will be disabled and you will be required to use the corresponding SSH private key to authenticate with the virtual machine and log in.
 
-<h2 id="keygeneration">SSH Key Generation </h2>
+<h2><a id="keygeneration"></a>SSH Key Generation </h2>
 
 The current version of the Management Portal only accepts SSH public keys that are encapsulated in an X509 certificate. Please follow the steps below to generate and use SSH keys with Windows Azure.
 
@@ -49,21 +49,21 @@ The current version of the Management Portal only accepts SSH public keys that a
 
 6. You may optionally copy myPrivateKey.key to ~/.ssh/id_rsa so that your openssh client can automatically pick this up without the use of the -i option.
 
-<h2 id="superuserprivileges">Obtaining Superuser Privileges Using Sudo</h2> 
+<h2><a id="superuserprivileges"></a>Obtaining Superuser Privileges Using Sudo</h2> 
 
 The user account that is specified during virtual machine instance deployment on Windows Azure is a privileged account. This account is configured by the Windows Azure Linux Agent to be able to elevate privileges to root (superuser account) using the sudo tool. Once you’re logged in using this user account, you will be able to run commands as root using “sudo command”. You can optionally obtain a root shell using **sudo -s**.
 
-<h2 id="firewallconfiguration"> Firewall Configuration </h2>
+<h2><a id="firewallconfiguration"></a>Firewall Configuration </h2>
 
 Windows Azure provides an inbound packet filter that restricts connectivity to ports specified in the Management Portal. By default, the only allowed port is SSH. You may open up access to additional ports on your Linux virtual machine by adding rules in the Management Portal.
 
 The Linux images in the gallery do not enable the iptables firewall inside the Linux virtual machines. If desired, the IPtables firewall may be configured to provide additional capabilities.
 
-<h2 id="hostnamechanges"> Hostname Changes </h2>
+<h2><a id="hostnamechanges"></a>Hostname Changes </h2>
 
 When you initially deploy an instance of a Linux image, you are required to provide a host name for the virtual machine. Once the virtual machine is running, this hostname is published to the platform DNS servers so that multiple virtual machines connected to each other can perform IP address lookups using hostnames. If hostname changes are desired after a virtual machine has been deployed, please use the **hostname newname** command. The Windows Azure Linux Agent includes functionality to automatically detect this name change and appropriately configure the virtual machine to persist this change and additionally, publish this change to the platform DNS servers. Please refer to the README file for the Windows Azure Linux Agent for additional details and configuration options related to this functionality.
 
-<h2 id="virtualmachine"> Virtual Machine Image Capture </h2>
+<h2><a id="virtualmachine"></a>Virtual Machine Image Capture </h2>
 
 Windows Azure provides the ability to capture the state of an existing virtual machine into an image that can be subsequently be used to deploy additional virtual machine instances. The Windows Azure Linux Agent may be used to rollback some of the customization that was performed during the provisioning process. You may follow the steps below to capture a virtual machine as an image:
 
@@ -73,7 +73,7 @@ Windows Azure provides the ability to capture the state of an existing virtual m
 
 3. Click capture in the Management Portal or use the tools to capture the virtual machine as an image.
 
-<h2 id="attachingdisks">Attaching Disks </h2>
+<h2><a id="attachingdisks"></a>Attaching Disks </h2>
 
 This is covered step-by-step in the tutorial on how to [create a Linux virtual machine](../virtual-machine-from-gallery/).
 

@@ -5,7 +5,7 @@
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-You can monitor key performance metrics for your cloud services in the Windows Azure Preview Management Portal. You can set the level of monitoring to minimal and verbose for each service role, and can customize the monitoring displays. Verbose monitoring data is stored in a storage account, which you can access outside the portal. 
+You can monitor key performance metrics for your cloud services in the Windows Azure Management Portal. You can set the level of monitoring to minimal and verbose for each service role, and can customize the monitoring displays. Verbose monitoring data is stored in a storage account, which you can access outside the portal. 
 
 Monitoring displays in the Management Portal are highly configurable. You can choose the metrics you want to monitor in the metrics list on the **Monitor** page, and you can choose which metrics to plot in metrics charts on the **Monitor** page and the dashboard. 
 
@@ -16,7 +16,7 @@ Monitoring displays in the Management Portal are highly configurable. You can ch
 * [How to: Customize the metrics chart](#customizechart)
 * [How to: Access verbose monitoring data outside the Management Portal](#accessverbose)
 
-<h2 id="concepts">Concepts</h2>
+<h2><a id="concepts"></a>Concepts</h2>
 
 By default, minimal monitoring is provided for a new cloud service using performance counters gathered from the host operating system for the roles instances (virtual machines). The minimal metrics are limited to CPU Percentage, Data In, Data Out, Disk Read Throughput, and Disk Write Throughput. By configuring verbose monitoring, you can receive additional metrics based on performance data within the virtual machines (role instances). The verbose metrics enable closer analysis of issues that occur during application operations.
 
@@ -32,7 +32,7 @@ After you enable verbose monitoring, the aggregated monitoring data is stored in
 Note that enabling verbose monitoring will increase your storage costs related to data storage, data transfer, and storage transactions. Minimal monitoring does not require a storage account. The data for the metrics that are exposed at the minimal monitoring level are not stored in your storage account, even if you set the monitoring level to verbose.
 
 
-<h2 id="verbose">How to: Configure monitoring for cloud services</h2>
+<h2><a id="verbose"></a>How to: Configure monitoring for cloud services</h2>
 
 Use the following procedures to configure verbose or minimal monitoring in the Management Portal. You cannot turn on verbose monitoring until you enable Windows Azure Diagnostics and configure diagnostics connection strings to enable Windows Azure Diagnostics to access storage accounts to store the verbose monitoring data.
 
@@ -47,7 +47,7 @@ In the Management Portal, you can add or modify the diagnostics connection strin
 
 ###To configure diagnostics connections strings for verbose monitoring###
 
-1. Copy a storage access key for the storage accont that that you'll use to storage the verbose monitoring data. In the [Windows Azure Preview Management Portal](https://manage.windowsazure.com/), you can use **Manage Keys** on the **Storage Accounts** page. For more information, see [How to Manage Cloud Services](http://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-manage-a-cloud-service/), or see help for the **Storage Accounts** page. 
+1. Copy a storage access key for the storage accont that that you'll use to storage the verbose monitoring data. In the [Windows Azure Management Portal](https://manage.windowsazure.com/), you can use **Manage Keys** on the **Storage Accounts** page. For more information, see [How to Manage Cloud Services](http://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-manage-a-cloud-service/), or see help for the **Storage Accounts** page. 
 
 2. Open **Cloud Services**. Then, to open the dashboard, click the name of the cloud service you want to configure.
 
@@ -83,7 +83,7 @@ After you turn on verbose monitoring, you should start seeing the monitoring dat
 
 The raw performance counter data and aggregated monitoring data are stored in the storage account in tables qualified by the deployment ID for the roles. 
 
-<h2 id="addmetrics">How to: Add metrics to the metrics table</h2>
+<h2><a id="addmetrics"></a>How to: Add metrics to the metrics table</h2>
 
 1. In the [Management Portal](http://manage.windowsazure.com/), open the **Monitor** page for the cloud service.
 
@@ -121,7 +121,7 @@ The raw performance counter data and aggregated monitoring data are stored in th
 4. To delete a metric from the metrics table, click the metric to select it, and then click **Delete Metric**. (You only see **Delete Metric** when you have a metric selected.)
 
 
-<h2 id="customizechart">How to: Customize the metrics chart</h2>
+<h2><a id="customizechart"></a>How to: Customize the metrics chart</h2>
 
 1. In the metrics table, select up to 6 metrics to plot on the metrics chart. To select a metric, click the check box on its left side. To remove a metric from the metrics chart, clear its check box in the metrics table.
 
@@ -153,7 +153,7 @@ On the dashboard metrics chart, the method for plotting metrics is different. A 
 
 4. Choose 1 hour, 24 hours, or 7 days of data to display.
 
-<h2 id="accessverbose">How to: Access verbose monitoring data outside the Management Portal</h2>
+<h2><a id="accessverbose"></a>How to: Access verbose monitoring data outside the Management Portal</h2>
 
 Verbose monitoring data is stored in tables in the storage accounts that you specify for each role. For each cloud service deployment, six tables are created for the role. Two tables are created for each (5 minutes, 1 hour, and 12 hours). One of these tables stores role-level aggregations; the other table stores aggregations for role instances. 
 
