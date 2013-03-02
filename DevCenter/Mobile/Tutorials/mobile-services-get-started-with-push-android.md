@@ -316,7 +316,7 @@ This concludes the tutorials that demonstrate the basics of working with push no
 
 <!-- URLs. -->
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
-[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280126
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started-android.md
 [Get started with data]: ../tutorials/mobile-services-get-started-with-data-android.md
 [Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-android.md
