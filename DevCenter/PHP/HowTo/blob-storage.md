@@ -24,21 +24,21 @@ This guide will show you how to perform common scenarios using the Windows Azure
 
 <div chunk="../../Shared/Chunks/howto-blob-storage.md" />
 
-<h2 id="CreateAccount">Create a Windows Azure storage account</h2>
+<h2><a id="CreateAccount"></a>Create a Windows Azure storage account</h2>
 
 <div chunk="../../Shared/Chunks/create-storage-account.md" />
 
-<h2 id="CreateApplication">Create a PHP application</h2>
+<h2><a id="CreateApplication"></a>Create a PHP application</h2>
 
 The only requirement for creating a PHP application that accesses the Windows Azure Blob service is the referencing of classes in the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
 In this guide, you will use service features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site.
 
-<h2 id="GetClientLibrary">Get the Windows Azure Client Libraries</h2>
+<h2><a id="GetClientLibrary"></a>Get the Windows Azure Client Libraries</h2>
 
 <div chunk="../../Shared/Chunks/get-client-libraries.md" />
 
-<h2 id="ConfigureStorage">Configure your application to access the Blob service</h2>
+<h2><a id="ConfigureStorage"></a>Configure your application to access the Blob service</h2>
 
 To use the Windows Azure Blob service APIs, you need to:
 
@@ -58,7 +58,7 @@ The following example shows how to include the autoloader file and reference the
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
-<h2 id="ConnectionString">Setup a Windows Azure storage connection</h2>
+<h2><a id="ConnectionString"></a>Setup a Windows Azure storage connection</h2>
 
 To instantiate a Windows Azure Blob service client you must first have a valid connection string. The format for the blob service connection string is:
 
@@ -86,7 +86,7 @@ For the examples outlined here, the connection string will be passed directly.
 
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
-<h2 id="CreateContainer">How to: Create a container</h2>
+<h2><a id="CreateContainer"></a>How to: Create a container</h2>
 
 A **BlobRestProxy** object lets you create a blob container with the **createContainer** method. When creating a container, you can set options on the container, but doing so is not required. (The example below shows how to set the container ACL and container metadata.)
 
@@ -142,7 +142,7 @@ Calling **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)** makes the c
 
 For more information about Blob service error codes, see [Blob Service Error Codes][error-codes].
 
-<h2 id="UploadBlob">How to: Upload a Blob into a container</h2>
+<h2><a id="UploadBlob"></a>How to: Upload a Blob into a container</h2>
 
 To upload a file as a blob, use the **BlobRestProxy->createBlockBlob** method. This operation will create the blob if it doesn’t exist, or overwrite it if it does. The code example below assumes that the container has already been created and uses [fopen][fopen] to open the file as a stream.
 
@@ -173,7 +173,7 @@ To upload a file as a blob, use the **BlobRestProxy->createBlockBlob** method. T
 
 Note that the example above uploads a blob as a stream. However, a blob can also be uploaded as a string using, for example, the [file\_get\_contents][file_get_contents] function. To do this, change `$content = fopen("c:\myfile.txt", "r");` in the example above to `$content = file_get_contents("c:\myfile.txt");`.
 
-<h2 id="ListBlobs">How to: List the Blobs in a container</h2>
+<h2><a id="ListBlobs"></a>How to: List the Blobs in a container</h2>
 
 To list the blobs in a container, use the **BlobRestProxy->listBlobs** method with a **foreach** loop to loop through the result. The following code outputs the name of each blob in a container and its URI to the browser.
 
@@ -206,7 +206,7 @@ To list the blobs in a container, use the **BlobRestProxy->listBlobs** method wi
 	}
 
 
-<h2 id="DownloadBlob">How to: download a Blob</h2>
+<h2><a id="DownloadBlob"></a>How to: download a Blob</h2>
 
 To download a blob, call the **BlobRestProxy->getBlob** method, then call the **getContentStream** method on the resulting **GetBlobResult** object.
 
@@ -235,7 +235,7 @@ To download a blob, call the **BlobRestProxy->getBlob** method, then call the **
 
 Note that the example above gets a blob as a stream resource (the default behavior). However, you can use the [stream\_get\_contents][stream-get-contents] function to convert the returned stream to a string.
 
-<h2 id="DeleteBlob">How to: Delete a Blob</h2>
+<h2><a id="DeleteBlob"></a>How to: Delete a Blob</h2>
 
 To delete a blob, pass the container name and blob name to **BlobRestProxy->deleteBlob**. 
 
@@ -261,7 +261,7 @@ To delete a blob, pass the container name and blob name to **BlobRestProxy->dele
 		echo $code.": ".$error_message."<br />";
 	}
 
-<h2 id="DeleteContainer">How to: Delete a Blob container</h2>
+<h2><a id="DeleteContainer"></a>How to: Delete a Blob container</h2>
 
 Finally, to delete a blob container, pass the container name to **BlobRestProxy->deleteContainer**.
 
@@ -287,7 +287,7 @@ Finally, to delete a blob container, pass the container name to **BlobRestProxy-
 		echo $code.": ".$error_message."<br />";
 	}
 
-<h2 id="NextSteps">Next steps</h2>
+<h2><a id="NextSteps"></a>Next steps</h2>
 
 Now that you’ve learned the basics of the Windows Azure Blob service, follow these links to learn how to do more complex storage tasks.
 

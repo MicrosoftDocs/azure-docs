@@ -1,4 +1,4 @@
-﻿# Introducing Windows Azure
+# Introducing Windows Azure
 
 Windows Azure is Microsoft's application platform for the public cloud. You can use this platform in many different ways. For instance, you can use Windows Azure to build a web application that runs and stores its data in Microsoft datacenters. You can use Windows Azure just to store data, with the applications that use this data running on-premises (that is, outside the public cloud). You can use Windows Azure to create virtual machines for development and test or to run SharePoint and other applications. You can use Windows Azure to build massively scalable applications with lots and lots of users. Because the platform offers a wide range of services, all of these things-and more-are possible.
 
@@ -35,7 +35,7 @@ services into distinct categories. Figure 1 shows one way to do this.
 To get started with Windows Azure, you need to know at least the basics about each of its components. The rest of this article walks through the technologies shown in the figure, describing what each one offers and when you might use it.
 
 
-<h2 id="models"><a id="models"></a>Execution Models</h2>
+<h2><a id="models"></a>Execution Models</h2>
 
 One of the most basic things a cloud platform does is execute applications. Windows Azure provides three options for doing this, as Figure 2 shows. 
 
@@ -78,7 +78,7 @@ As Figure 2 shows, you have two roles to choose from when you create an instance
 Each of the three Windows Azure execution models has its own role to play. Windows Azure Virtual Machines provides a general-purpose computing environment, Windows Azure Web Sites offers low-cost web hosting, and Windows Azure Cloud Services is the best choice for creating scalable, reliable applications with low administration costs. And as mentioned earlier, you can use these technologies separately or combine them as needed to create the right foundation for your application. The approach you choose depends on what problems you're trying to solve.
 
 
-<h2 id="data"><a  id="data"></a>Data Management</h2>
+<h2><a id="data"></a>Data Management</h2>
 
 Applications need data, and different kinds of applications need different kinds of data. Because of this, Windows Azure provides several different ways to store and manage data. 
 

@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-java-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (Java) - Windows Azure" metaKeywords="Twilio, Twilio API, phone calls, SMS message, TwiML responses, Azure Twilio Java" metaDescription="Learn how to make a phone call and send a SMS message with the Twilio API service on Windows Azure. Code samples written in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-java-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (Java) - Windows Azure" metaKeywords="Twilio, Twilio API, phone calls, SMS message, TwiML responses, Azure Twilio Java" metaDescription="Learn how to make a phone call and send a SMS message with the Twilio API service on Windows Azure. Code samples written in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 <div chunk="../chunks/article-left-menu.md" />
@@ -34,7 +34,7 @@ The Twilio API is a RESTful API that provides voice and SMS functionality for ap
 
 Key aspects of the Twilio API are Twilio verbs and Twilio Markup Language (TwiML).
 
-<h3 id="Verbs">Twilio Verbs</h3>
+<h3><a id="Verbs"></a>Twilio Verbs</h3>
 The API makes use of Twilio verbs; for example, the **&lt;Say&gt;** verb instructs Twilio to audibly deliver a message on a call. 
 
 The following is a list of Twilio verbs.
@@ -74,7 +74,7 @@ Various phone numbers need to be verified with Twilio for your account. For exam
 
 As an alternative to using an existing number for your applications, you can purchase a Twilio phone number. For information about purchasing a Twilio phone number, see [Twilio Phone Numbers Help](https://www.twilio.com/help/faq/phone-numbers).
 
-<h2 id="create_app">Create a Java Application</h2>
+<h2><a id="create_app"></a>Create a Java Application</h2>
 1. Obtain the Twilio JAR and add it to your Java build path and your WAR deployment assembly. At [https://github.com/twilio/twilio-java][twilio_java], you can download the GitHub sources and create your own JAR, or download a pre-built JAR (with or without dependencies).
 2. Ensure your JDK’s **cacerts** keystore contains the Equifax Secure Certificate Authority certificate with MD5 fingerprint 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (the serial number is 35:DE:F4:CF and the SHA1 fingerprint is D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). This is the certificate authority (CA) certificate for the [https://api.twilio.com][twilio_api_service] service, which is called when you use Twilio APIs. For information about ensuring your JDK’s **cacerts** keystore contains the correct CA certificate, see [Adding a Certificate to the Java CA Certificate Store][add_ca_cert].
 

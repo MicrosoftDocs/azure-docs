@@ -25,7 +25,7 @@ messages**, and **deleting queues**.
 
 <div chunk="../../Shared/Chunks/howto-service-bus-queues.md" />
 
-<h2 id="CreateApplication">Create a PHP application</h2>
+<h2><a id="CreateApplication"></a>Create a PHP application</h2>
 
 The only requirement for creating a PHP application that accesses the Windows Azure Blob service is the referencing of classes in the [Windows Azure SDK for PHP][download-sdk] from within your code. You can use any development tools to create your application, including Notepad.
 
@@ -36,11 +36,11 @@ The only requirement for creating a PHP application that accesses the Windows Az
 
 In this guide, you will use service features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site.
 
-<h2 id="GetClientLibrary">Get the Windows Azure Client Libraries</h2>
+<h2><a id="GetClientLibrary"></a>Get the Windows Azure Client Libraries</h2>
 
 <div chunk="../../Shared/Chunks/get-client-libraries.md" />
 
-<h2 id="ConfigureApp">Configure your application to use Service Bus</h2>
+<h2><a id="ConfigureApp"></a>Configure your application to use Service Bus</h2>
 
 To use the Windows Azure Servise Bus queue APIs, you need to:
 
@@ -60,7 +60,7 @@ The following example shows how to include the autoloader file and reference the
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
-<h2 id="ConnectionString">Setup a Windows Azure Service Bus connection</h2>
+<h2><a id="ConnectionString"></a>Setup a Windows Azure Service Bus connection</h2>
 
 To instantiate a Windows Azure Service Bus client you must first have a valid connection string following this format:
 
@@ -86,7 +86,7 @@ For the examples outlined here, the connection string will be passed directly.
 	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
 
-<h2 id="CreateQueue">How to: Create a queue</h2>
+<h2><a id="CreateQueue"></a>How to: Create a queue</h2>
 
 Management operations for Service Bus queues can be performed via the
 **ServiceBusRestProxy** class. A **ServiceBusRestProxy** object is
@@ -123,7 +123,7 @@ The example below shows how to instantiate a **ServiceBusRestProxy** and call **
 <p>You can use the <b>listQueues</b> method on <b>ServiceBusRestProxy</b> objects to check if a queue with a specified name already exists within a service namespace.</p> 
 </div>
 
-<h2 id="SendMessages">How to: Send messages to a queue</h2>
+<h2><a id="SendMessages"></a>How to: Send messages to a queue</h2>
 
 To send a message to a Service Bus queue, your application will call the **ServiceBusRestProxy->sendQueueMessage** method. The code below demonstrates how to send a message to the `myqueue` queue we created above within the
 `MySBNamespace` service namespace.
@@ -167,7 +167,7 @@ a maximum size of 64 KB). There is no limit on the number of messages
 held in a queue but there is a cap on the total size of the messages
 held by a queue. This upper limit on queue size is 5 GB.
 
-<h2 id="ReceiveMessages">How to: Receive messages from a queue</h2>
+<h2><a id="ReceiveMessages"></a>How to: Receive messages from a queue</h2>
 
 The primary way to receive messages from a queue is to use a **ServiceBusRestProxy->receiveQueueMessage** method. Messages can be received in two different modes: **ReceiveAndDelete** (the default) and **PeekLock**.
 
@@ -214,7 +214,7 @@ The example below demonstrates how a message can be received and processed using
 		echo $code.": ".$error_message."<br />";
 	}
 
-<h2 id="HandleCrashes">How to: Handle application crashes and unreadable messages</h2>
+<h2><a id="HandleCrashes"></a>How to: Handle application crashes and unreadable messages</h2>
 
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
@@ -241,7 +241,7 @@ then adding additional logic to your application to handle duplicate message del
 using the **getMessageId** method of the message, which will remain
 constant across delivery attempts.
 
-<h2 id="NextSteps">Next steps</h2>
+<h2><a id="NextSteps"></a>Next steps</h2>
 
 Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Queues, Topics, and Subscriptions][] for more information.

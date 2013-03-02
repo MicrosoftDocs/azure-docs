@@ -15,7 +15,7 @@ Each option described below shows you how to create a web site in a shared hosti
 * [Create a web site using the Windows Azure Command Line Tools for Mac and Linux](#XplatTools)
 * [Create a web site using the Windows Azure PowerShell cmdlets](#PowerShell)
 
-<h2 id="portal">Create a PHP web site using the Windows Azure Portal</h2>
+<h2><a id="portal"></a>Create a PHP web site using the Windows Azure Portal</h2>
 
 When you create a web site in the Windows Azure Portal, you have three options: **QUICK CREATE**, **CREATE WITH DATABASE**, and **FROM GALLERY**. The instructions below will cover the **QUICK CREATE** option. For information about the other two options, see [Create a PHP-MySQL Windows Azure web site and deploy using Git][website-mysql-git] and [Create a WordPress web site from the gallery in Windows Azure][wordpress-gallery].
 
@@ -26,7 +26,7 @@ To create a PHP web site using the Windows Azure Portal, do the following:
 
 	![Select Quick Create web site](../Media/select-quickcreate-website.png)
 
-<h2 id="XplatTools">Create a PHP web site using the Windows Azure Command Line Tools for Mac and Linux</h2>
+<h2><a id="XplatTools"></a>Create a PHP web site using the Windows Azure Command Line Tools for Mac and Linux</h2>
 
 To create a PHP web site using the Windows Azure Command Line Tools for Mac and Linux do the following:
 
@@ -48,7 +48,7 @@ Note that you can execute the `azure site create` command with any of the follow
 
 For information about additional options, see [How to create and manage a Windows Azure Web Site](/en-us/develop/php/how-to-guides/command-line-tools/#WebSites).
 
-<h2 id="PowerShell">Create a PHP web site using the Windows Azure PowerShell cmdlets</h2>
+<h2><a id="PowerShell"></a>Create a PHP web site using the Windows Azure PowerShell cmdlets</h2>
 
 To create a PHP web site using the Windows Azure PowerShell cmdlets, do the following:
 
@@ -70,7 +70,7 @@ Note that you can execute the `New-AzureWebSite` command with any of the followi
 
 For information about additional options, see [How to: Create and manage a Windows Azure Web Site](/en-us/develop/php/how-to-guides/powershell-cmdlets/#WebSite).
 
-<h2 id="NextSteps">Next steps</h2>
+<h2><a id="NextSteps"></a>Next steps</h2>
 
 Now that you have created a PHP web site in Windows Azure Web Sites, you can manage, configure, monitor, deploy to, and scale your site. For more information, see the following links:
 

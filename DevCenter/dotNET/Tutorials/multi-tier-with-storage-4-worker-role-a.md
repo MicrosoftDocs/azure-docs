@@ -168,17 +168,18 @@ For reading and writing the `SendEmail` rows, a model class is required.  Since 
             Trace.TraceInformation("Initializing storage account in WorkerA");
             var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
 
-            CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-            this.sendEmailQueue = queueClient.GetQueueReference("azuremailqueue");
-            var tableClient = storageAccount.CreateCloudTableClient();
-            tableServiceContext = tableClient.GetDataServiceContext();
+            CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient(); 
+            sendEmailQueue = queueClient.GetQueueReference("azuremailqueue"); 
+            var tableClient = storageAccount.CreateCloudTableClient(); 
+            mailingListTable = tableClient.GetTableReference("mailinglist"); 
+            messageTable = tableClient.GetTableReference("message"); 
+            messagearchiveTable = tableClient.GetTableReference("messagearchive"); 
 
             // Create if not exists for queue, blob container, SentEmail table. 
-            sendEmailQueue.CreateIfNotExists();
-            var messageTable = tableClient.GetTableReference("Message");
-            messageTable.CreateIfNotExists();
-            var mailingListTable = tableClient.GetTableReference("MailingList");
-            mailingListTable.CreateIfNotExists();
+            sendEmailQueue.CreateIfNotExists(); 
+            messageTable.CreateIfNotExists(); 
+            mailingListTable.CreateIfNotExists(); 
+            messagearchiveTable.CreateIfNotExists(); 
 
             return base.OnStart();
         }

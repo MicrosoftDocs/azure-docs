@@ -54,7 +54,7 @@ The next step is to create the Windows Azure web site.
 ![New web site][WebSiteNew]
 2. Click **Quick Create**.<br/>
 ![Quick create][ClickQuickCreate]<br/>
-3. In the **Create Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application.<br/>The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows **example1**, but if someone has already taken that string for a URL, you need to enter a different value.
+3. In the **Create Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application.<br/>The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows **example1**, but if someone has already taken that string for a URL, you need to enter a different value.
 4. In the **Region** drop-down list, choose the region that is closest to you.<br/>
 This setting specifies which data center your web site will run in. 
 5. Click the **Create Web Site** arrow.<br/>
@@ -123,12 +123,13 @@ The application you created is now running in the cloud.<br/>
 
 <h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>
 
-You've seen how to deploy a web application to a Windows Azure Web Site.
+You've seen how to deploy a web application to a Windows Azure Web Site. When you are finished with your deployed web site, you can delete it in the Windows Azure management portal. In the **Web Sites** tab, click the name of the site you want to delete and click **Delete**.
 
-* To learn more about how to configure, manage, and scale Windows Azure Web Sites, see the how-to topics on the [Web Sites management][WebSitesManagement] page.
-* Or, to learn how create a Web Site with a SQL Database, see the [Deploying an ASP.NET Web Application to a Windows Azure Web Site and SQL Database][WebWithSQL] tutorial.
+For information about how to deploy a web application that includes a SQL Server database, see [Deploying an ASP.NET Web Application to a Windows Azure Web Site and SQL Database][WebWithSQL].
 
-When you are finished with your deployed web site, you can delete it in the Windows Azure management portal. In the **Web Sites** tab, click the name of the site you want to delete and click **Delete**.
+To learn more about how to configure, manage, and scale Windows Azure Web Sites, see the how-to topics on the [Web Sites management][WebSitesManagement] page.
+
+You can deploy a web application to a Windows Azure Cloud Service instead of a Windows Azure Web Site. For more information, see [Windows Azure Execution Models](http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/). For a tutorial that shows how to create a multi-tier ASP.NET web application and deploy it to a Cloud Service, see [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs - 1 of 5](http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
 
 [Set Up the development environment]: #setupdevenv
 [Create a web site in Windows Azure]: #setupwindowsazure
