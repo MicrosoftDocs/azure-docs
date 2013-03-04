@@ -1,5 +1,4 @@
-﻿<properties linkid="dev-java-how-to-on-premise-application-with-blob-storage" urlDisplayName="Image Gallery w/ Storage" pageTitle="On-premises application with blob storage (Java) - Windows Azure" metaKeywords="Azure blob storage, Azure blob Java, Azure blob example, Azure blob tutorial" metaDescription="Learn how to create a console application that uploads an image to Windows Azure, and then displays the image in your browser. Code samples in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
-
+<properties linkid="dev-java-how-to-on-premise-application-with-blob-storage" urlDisplayName="Image Gallery w/ Storage" pageTitle="On-premises application with blob storage (Java) - Windows Azure" metaKeywords="Azure blob storage, Azure blob Java, Azure blob example, Azure blob tutorial" metaDescription="Learn how to create a console application that uploads an image to Windows Azure, and then displays the image in your browser. Code samples in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo"/>
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -26,10 +25,8 @@ HTML file that displays the image in your browser.
     Windows Azure SDK for Java].
 4.  A Windows Azure storage account has been set up. The account name
     and account key for the storage account will be used by the code
-    below. See [How to Create a Storage Account for a Windows Azure
-    Subscription] for information about creating a storage account,
-    and [How to View, Copy, and Regenerate Access Keys for a Windows
-    Azure Storage Account] for information about retrieving the
+    below. See [How to Create a Storage Account] for information about creating a storage account,
+    and [How to Manage Storage Accounts] for information about retrieving the
     account key.
 5.  You have created a local image file named stored at the path
     c:\\myimages\\image1.jpg. Alternatively, modify the
@@ -427,6 +424,6 @@ Use the Blob Storage Service from Java].
   [To use Windows Azure blob storage to upload a file]: #bkmk_uploadfile
   [To delete a container]: #bkmk_deletecontainer
   [Download the Windows Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
-  [How to Create a Storage Account for a Windows Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433066.aspx
-  [How to View, Copy, and Regenerate Access Keys for a Windows Azure Storage Account]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531566.aspx
+  [How to Create a Storage Account]: http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/
+  [How to Manage Storage Accounts]: https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/
   [How to Use the Blob Storage Service from Java]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/
