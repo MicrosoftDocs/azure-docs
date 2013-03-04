@@ -1,4 +1,4 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" urlDisplayName="Step 1: Overview" pageTitle="Multi-tier ASP.NET MVC 4 Web Site Tutorial - Step 1: Overview" metaKeywords="Windows Azure tutorial, email list service app, email service architecture, Azure tutorial overview" metaDescription="Learn about the five part multi-tier web site tutorial." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra" editor="mollybos" manager="wpickett" /> 
+﻿<properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" urlDisplayName="Step 1: Overview" pageTitle="Multi-tier ASP.NET MVC 4 Web Site Tutorial - Step 1: Overview" metaKeywords="Windows Azure tutorial, email list service app, email service architecture, Azure tutorial overview" metaDescription="Learn about the five part multi-tier web site tutorial." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra" editor="mollybos" manager="wpickett" /> 
 
 <div>
 <div class="left-nav">
@@ -778,7 +778,7 @@ Keeping all components in a cloud service simplifies configuration and deploymen
 ](http://msdn.microsoft.com/en-us/library/windowsazure/jj154098.aspx).
 - Support for automatically scaling your web application by using the [Autoscaling Application Block][autoscalingappblock].
 - The ability to run elevated startup scripts to install applications, modify registry settings, install performance counters, etc.
-- Network isolation for use with [Windows Azure Connect](http://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-manage-a-cloud-service/#swap) and [Windows Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
+- Network isolation for use with [Windows Azure Connect](http://msdn.microsoft.com/en-us/library/windowsazure/gg433122.aspx) and [Windows Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
 - Remote desktop access for debugging and advanced diagnostics.
 - Rolling upgrades with [Virtual IP Swap](http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx "VIP swap"). This feature swaps the content of your staging and production deployments. 
 
