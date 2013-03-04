@@ -1,4 +1,4 @@
-<properties linkid="dev-java-how-to-on-premise-application-with-blob-storage" urlDisplayName="Image Gallery w/ Storage" pageTitle="On-premises application with blob storage (Java) - Windows Azure" metaKeywords="Azure blob storage, Azure blob Java, Azure blob example, Azure blob tutorial" metaDescription="Learn how to create a console application that uploads an image to Windows Azure, and then displays the image in your browser. Code samples in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo"/>
+<properties linkid="dev-java-how-to-on-premise-application-with-blob-storage" urlDisplayName="Image Gallery w/ Storage" pageTitle="On-premises application with blob storage (Java) - Windows Azure" metaKeywords="Azure blob storage, Azure blob Java, Azure blob example, Azure blob tutorial" metaDescription="Learn how to create a console application that uploads an image to Windows Azure, and then displays the image in your browser. Code samples in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
