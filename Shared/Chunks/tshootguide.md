@@ -1,4 +1,4 @@
-﻿#Troubleshooting in Windows Azure
+#Troubleshooting in Windows Azure
 
 *Troubleshooting* refers to the general task of locating and
 understanding unexpected application behavior and correcting it. When developing applications, developers test, run, and debug
@@ -29,7 +29,7 @@ more intensive information on the practices described.
 or have successfully deployed your Windows Azure application and that
 something unexpected is now occurring. It does not discuss how to deploy
 an application on Windows Azure. For more information about developing
-and deploying your Windows Azure application, see [https://www.windowsazure.com/en-us/develop/overview/].
+and deploying your Windows Azure application, see <a href="https://www.windowsazure.com/en-us/develop/overview/">https://www.windowsazure.com/en-us/develop/overview/</a>.
 
 This topic first describes some best practices that will help you design
 your application so that you can troubleshoot effectively when problems
@@ -347,7 +347,7 @@ string to:
 
 ##Troubleshooting and the Windows Azure Hosting Models##
 This section discusses best practices for debugging applications using the different Windows Azure hosting models.
-<h2 id="Websites">Windows Azure Web Sites</h2>
+<h2><a id="Websites"></a>Windows Azure Web Sites</h2>
 
 When designing a supportable Windows Azure web site, follow the
 recommendations made earlier in this document when possible. This

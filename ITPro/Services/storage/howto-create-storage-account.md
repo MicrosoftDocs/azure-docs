@@ -3,7 +3,7 @@
 
 
 
-<h1 id="createstorageaccount">How To Create a Storage Account</h1>
+<h1><a id="createstorageaccount"></a>How To Create a Storage Account</h1>
 
 To store files and data in the Blob, Table, and Queue services in Windows Azure, you must create a storage account in the geographic region where you want to store the data. A storage account can contain up to 100 TB of blob, table, and queue data. You can create up to five storage accounts for each Windows Azure subscription. This topic describes how to create a storage account in the Windows Azure Preview Management Portal.
 
@@ -17,7 +17,7 @@ To store files and data in the Blob, Table, and Queue services in Windows Azure,
 * [How to: Create a storage account](#create)
 * [Next steps](#next)
 
-<h2 id="create">How to: Create a storage account</h2>
+<h2><a id="create"></a>How to: Create a storage account</h2>
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
@@ -48,7 +48,7 @@ To store files and data in the Blob, Table, and Queue services in Windows Azure,
 
 	![StoragePage] (../media/Storage_StoragePage.png)
 
-<h2 id="next">Next steps</h2>
+<h2><a id="next"></a>Next steps</h2>
 
 - To learn more about Windows Azure storage services, see [Understanding Cloud Storage](http://www.windowsazure.com/en-us/develop/net/fundamentals/cloud-storage/) and [Blobs, Queues, and Tables](http://msdn.microsoft.com/en-us/library/gg433040.aspx). 
 
