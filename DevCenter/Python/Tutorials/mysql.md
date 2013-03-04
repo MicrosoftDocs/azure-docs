@@ -267,7 +267,6 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 
 [The status of the Stop-AzureService command]: ../Media/django-helloworld-ps-stop.png
 [The status of the Remove-AzureService command]: ../Media/django-helloworld-ps-remove.png
-[How to Delete a Storage Account from a Windows Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx
 
 [Installation Guide]: ../commontasks/how-to-install-python.md
  
