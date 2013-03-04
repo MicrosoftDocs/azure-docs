@@ -425,5 +425,5 @@ Use the Blob Storage Service from Java].
   [To delete a container]: #bkmk_deletecontainer
   [Download the Windows Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
   [How to Create a Storage Account]: http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/
-  [How to Manage Storage Accounts]: https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/
+  [How to Manage Storage Accounts]: http://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/
   [How to Use the Blob Storage Service from Java]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/
