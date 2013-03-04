@@ -132,7 +132,6 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [A command prompt displaying the django directory creation]: ../Media/django-helloworld-ps-create-dir.png
 [The result of the New-AzureService command]: ../Media/django-helloworld-cmd-new-azure-service.png
 [A directory listing of the service folder]: ../Media/django-helloworld-ps-service-dir.png
-[Overview of Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432976.aspx
 [The output of the Add-AzureDjangoWebRole command]: ../Media/django-helloworld-ps-add-webrole.png
 [A directory listing of the webrole folder]: ../Media/django-helloworld-ps-webrole-dir.png
 [A directory listing of the django folder]: ../Media/django-helloworld-ps-django-dir.png
@@ -145,8 +144,6 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [The output of the Publish-AzureService command]: ../Media/django-helloworld-ps-publish.png
 [The status of the Stop-AzureService command]: ../Media/django-helloworld-ps-stop.png
 [The status of the Remove-AzureService command]: ../Media/django-helloworld-ps-remove.png
-[How to Delete a Storage Account from a Windows Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx
-[windows task scheduler]:http://msdn.microsoft.com/en-us/library/windows/desktop/aa383614(v=vs.85).aspx
 [add endpoint]: ../Media/django-helloworld-addendpoint.png
 [port80]: ../Media/django-helloworld-port80.png
 [preview-portal]: https://manage.windowsazure.com
