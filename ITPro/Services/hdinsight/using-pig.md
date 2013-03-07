@@ -352,7 +352,7 @@ This step will take a few minutes.
 
 Step 13: Analyze the output. Scroll down to the Job Stats near the bottom of the output underneath the word “Success!”. Notice that Pig executed three MapReduce jobs with just a few lines of Pig Latin and no Java. 
 
-![Analyze Output](../media/HDI.AnalyzeOutput.png)
+![Analyze Output](../media/AnalyzeOutput.png)
 
 At the very bottom of the output, notice the job results: 
 
@@ -425,7 +425,7 @@ Step 6: Analyze the output. View the file by using the following command:
 
 > hadoop fs -cat sampleout/part-r-00000
 
-![Analyze Output](../media/HDI.AnalyzeOutput2.png)
+![Analyze Output](../media/AnalyzeOutput2.png)
  
 The results are the same as interactive mode. 
  
@@ -445,6 +445,8 @@ Congratulations! You have successfully completed this tutorial.
 
 * [Using MapReduce with HDInsight][hdinsight-mapreduce]
 
+* [Using the Interactive JavaScript and Hive consoles][interactive-console]
 
 [hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce/
 [hdinsight-hive]: /en-us/manage/services/hdinsight/using-hive/
+[interactive-console]: /en-us/manage/services/hdinsight/interactiveconsole/

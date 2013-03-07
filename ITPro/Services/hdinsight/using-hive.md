@@ -172,7 +172,7 @@ Note: The command is terminated by two single quotes with a space in between.
 Step 3: Load the sample.log data into the logs table you just created: 
 
 > LOAD DATA LOCAL INPATH 'C:\tutorial\sample.log' OVERWRITE INTO TABLE logs;
-
+ 
 ## Task 4: Run Hive Queries ##
 In this task, you will run a simple Hive query on the data.
  
@@ -184,8 +184,6 @@ Step 2: Run the following query to return the count of errors from the structure
 
 > SELECT t4 AS sev, COUNT(*) AS cnt FROM logs WHERE t4 = '[ERROR]' GROUP BY t4
  
-Notice that the queries operate over both structured and unstructured data included in the log file.
-
 ## Task 5: Tutorial Clean Up ##
 
 The clean up task applies to this tutorial only; it is not necessarily performed in an actual deployment. In this task, you will delete the table and the data so that if you like, you can run the tutorial again.  
@@ -203,5 +201,8 @@ Congratulations! You have successfully completed this tutorial.
 
 * [Using MapReduce with HDInsight][hdinsight-mapreduce]
 
+* [Using the Interactive JavaScript and Hive Consoles][interactive-console]
+
 [hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig/
 [hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce/
+[interactive-console]: /en-us/manage/services/hdinsight/interactiveconsole/

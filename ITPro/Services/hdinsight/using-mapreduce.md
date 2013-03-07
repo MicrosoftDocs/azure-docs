@@ -1,6 +1,6 @@
 <properties linkid="manage-hdinsight-using-mapreduce" urlDisplayName="Using MapReduce" pageTitle="Using MapReduce with HDInsight - Windows Azure tutorial" metaKeywords="using mapreduce, mapreduce hdinsight, mapreduce azure" metaDescription="Learn how to use MapReduce with HDInsight" metaCanonical="http://www.windowsazure.com/en-us/manage/hdinsight/using-mapreduce" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
 
-#Using MapReduce with HDInsight#
+# Using MapReduce with HDInsight#
 
 ## Introduction ##
 
@@ -117,7 +117,6 @@ Step 4: Load the Tutorial1.java class file into the C:\Tutorial directory. Creat
 > notepad Tutorial1.java
  
 This program (shown below) defines a Mapper and a Reducer that will be called.
-
 
 
 	import java.io.IOException;
@@ -318,12 +317,15 @@ Step 2: Delete the output directory and recursively delete files within the dire
  
 Congratulations! You have successfully completed this tutorial.
 
+
 ##Next Steps
 
 * [Using Pig with HDInsight][hdinsight-pig] 
 
 * [Using Hive with HDInsight][hdinsight-hive]
 
+* [Using the Interactive JavaScript and Hive Consoles][interactive-console]
 
 [hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig/
 [hdinsight-hive]: /en-us/manage/services/hdinsight/using-hive/
+[interactive-console]: /en-us/manage/services/hdinsight/interactiveconsole/
