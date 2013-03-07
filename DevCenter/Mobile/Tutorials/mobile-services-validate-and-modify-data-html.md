@@ -60,7 +60,7 @@ Now that the mobile service is validating data and sending error responses, you 
 
 2. 	Open the file app.js, then replace the existing **InsertTodoItem** method with the following:
    
-  _XXXXX Krishnan we need to update this.XXXX_
+  TODOKR Krishnan we need to update this.
 
         var insertTodoItem = function (todoItem) {
             // Inserts a new row into the database. When the operation completes
@@ -115,7 +115,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
 1. In your web editor, open the file index.html, then add the following HTML element in the TemplateItem grid:
 
-     _XXXX Krishnan we need to make this correct XXXX_
+     TODOKR Krishnan we need to make this correct
 	      
         <div style="-ms-grid-column: 4; -ms-grid-row-align: center; margin-left: 5px" 
             data-win-bind="innerText: createdAt"></div>  
@@ -128,7 +128,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
 7. In the app.js file, replace the existing **RefreshTodoItems** method with the following code:
 
-     _XXXX Krishnan we need to make this correct XXXX_
+     TODOKR  we need to make this correct 
 
         var refreshTodoItems = function () {
             // More advanced query that filters out completed items. 
