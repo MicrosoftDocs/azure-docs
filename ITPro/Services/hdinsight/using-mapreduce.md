@@ -1,6 +1,6 @@
 <properties linkid="manage-hdinsight-using-mapreduce" urlDisplayName="Using MapReduce" pageTitle="Using MapReduce with HDInsight - Windows Azure tutorial" metaKeywords="using mapreduce, mapreduce hdinsight, mapreduce azure" metaDescription="Learn how to use MapReduce with HDInsight" metaCanonical="http://www.windowsazure.com/en-us/manage/hdinsight/using-mapreduce" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
 
-#Using MapReduce with HDInsight#
+# Using MapReduce with HDInsight#
 
 ## Introduction ##
 
@@ -118,7 +118,7 @@ Step 4: Load the Tutorial1.java class file into the C:\Tutorial directory. Creat
  
 This program (shown below) defines a Mapper and a Reducer that will be called.
 
-
+<code>
 
 	import java.io.IOException;
 	import java.util.Iterator;
@@ -225,7 +225,7 @@ This program (shown below) defines a Mapper and a Reducer that will be called.
 	}
     }
 
-
+</code>
 
 Step 3: Compile the java file.
 
@@ -317,6 +317,7 @@ Step 2: Delete the output directory and recursively delete files within the dire
 > hadoop fs –rmr tutorial1/output/
  
 Congratulations! You have successfully completed this tutorial.
+
 
 ##Next Steps
 

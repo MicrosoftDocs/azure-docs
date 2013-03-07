@@ -141,6 +141,8 @@ In order to delete a cluster, issue a DELETE against the following URI:
 
     https://management.core.windows.net/<subscriptionId>/cloudservices/azurehdinsight/resources/azurehdinsight/containers/<containerName>
 
+
+
 ##Next Steps
 
 * [Using Pig with HDInsight][hdinsight-pig] 
