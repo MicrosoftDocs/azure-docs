@@ -27,7 +27,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
   This query, when executed, returns the top three items that are not marked as completed.
 
-3. Press the **F5** key to re-run the app.
+3. Press the **F5** key to re-load the app.
 
   Notice that only the first three results from the TodoItem table are displayed. 
 

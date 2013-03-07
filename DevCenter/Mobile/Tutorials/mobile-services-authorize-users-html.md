@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-authorize-users-in-scripts-html" urlDisplayName="Authorize Users in Scripts" pageTitle="Authorize users in scripts (JavaScript) - Mobile Services" metaKeywords="" metaDescription="Learn how to authorize users in scripts in your Windows Store app with Windows Azure Mobile Services." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-authorize-users-in-scripts-html" writer="glenga" urlDisplayName="Authorize Users in Scripts" pageTitle="Authorize users in scripts (HTML) - Mobile Services" metaKeywords="" metaDescription="Learn how to authorize users in scripts in your HTML app with Windows Azure Mobile Services." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu-html.md" />
 
@@ -37,7 +37,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
     This script adds a userId value to the item, which is the user ID of the authenticated user, before it is inserted into the TodoItem table. 
 
     <div class="dev-callout"><b>Note</b>
-	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>userId</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published to the Windows Store.</p>
+	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>userId</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published.</p>
     </div>
 
 5. Repeat steps 3 and 4 to replace the existing **Read** operation with the following function:
