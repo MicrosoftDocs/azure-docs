@@ -66,7 +66,7 @@ SQL Database is a cloud-based relational database service that is built on SQL S
 2. Click **CUSTOM CREATE**.<br/>
 ![Create with Database link in Management Portal][rxCreateWSwithDB]<br/>
 The **New Web Site - Custom Create** wizard opens. 
-3. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "contactmgr2", but that URL is probably taken so you’ll have to choose a different one.
+3. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "contactmgr2", but that URL is probably taken so you will have to choose a different one.
 4. In the **Database** drop-down list, choose **Create a new SQL database**.
 5. In the **Region** drop-down list, choose the region that is closest to you.<br/>
 This setting specifies which data center your VM will run in. In the **DB CONNECTION STRING NAME**, enter *connectionString1*.
@@ -102,7 +102,7 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 1. In **Solution Explorer**, expand the Views\Shared folder and open the *_Layout.cshtml* file.<br/>
 	![_Layout.cshtml in Solution Explorer][newapp004]
-1. Replace each occurance of "My ASP.NET MVC Application" with "Contact Manager".
+1. Replace each occurrence of "My ASP.NET MVC Application" with "Contact Manager".
 1. Replace "your logo here" with "CM Demo".
 <br/>
 
@@ -216,7 +216,7 @@ The next task is to enable the [Code First Migrations](http://atlas.asp.net/mvc/
 
 		enable-migrations -ContextTypeName ContactManagerContext
 <br/>![enable-migrations][rxE] <br/>
-	You must specify the context type name (**ContactManagerContext**) because the project contains two [DbContext](http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx) derrived classes, the **ContactManagerContext** we just added and the **UsersContext**, which is used for the membership database. The **ContactManagerContext** class was added by the Visual Studio scaffolding wizzard.<br/>
+	You must specify the context type name (**ContactManagerContext**) because the project contains two [DbContext](http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx) derived classes, the **ContactManagerContext** we just added and the **UsersContext**, which is used for the membership database. The **ContactManagerContext** class was added by the Visual Studio scaffolding wizard.<br/>
   The **enable-migrations** command creates a *Migrations* folder and it puts in that folder a *Configuration.cs* file that you can edit to configure Migrations. <br/>
 
 2. In the **Package Manager Console** window, enter the following command:<br/>
@@ -311,7 +311,7 @@ The application shows the seed data and provides edit, details and delete links.
 
 [OAuth](http://oauth.net/ "http://oauth.net/") is an open protocol that allows secure authorization in a simple and standard method from web, mobile and desktop applications. The ASP.NET MVC internet template uses OAuth to expose Facebook, Twitter, Google and Microsoft as authentication providers. Although the examples in this tutorial focus on using Facebook as the authentication provider, you can modify the code to use any of the providers. The steps to implement any provider are very similar to the steps you will see in this tutorial. 
 
-In addtion to authentication, the tutorial will also use roles to implement authorization. Only those users you add to the managers role will be able to create, edit or delete contacts.
+In addition to authentication, the tutorial will also use roles to implement authorization. Only those users you add to the managers role will be able to create, edit or delete contacts.
 
 ## Registering with an external provider ##
 
@@ -369,10 +369,10 @@ Open the *App_Start\AuthConfig.cs* file. Remove the comment characters from the 
 
 1. Run the application and click  the **Log In** link. 
 1. Click the **Facebook** button. 
-1. Enter your facebook credentials or one of the test users credentials.
-1. Click **Okay** to allow the application to access your facebook resources.
+1. Enter your Facebook credentials or one of the test users credentials.
+1. Click **Okay** to allow the application to access your Facebook resources.
 1. You are redirected to the Register page. If you logged in using a test account, you can change the **user name** to something shorter, for example "Bill FB test". Click the **Register** button which will save the user name and email alias to the membership database. 
-1. Register another user. Currently a bug in the log in system prevents you from logging off and singing in as another user. To work around this, navigate to the site using another browser and register another user. One user will be added to the manager role and have edit access to application, the other user will only have access to non edit methods on the site. Anonymous users will only have access to the home page.
+1. Register another user. Currently a bug in the log in system prevents you from logging off and singing in as another user. To work around this, navigate to the site using another browser and register another user. One user will be added to the manager role and have edit access to application, the other user will only have access to non-edit methods on the site. Anonymous users will only have access to the home page.
 
 <h2><a name="mbrDB"></a><span class="short-header">Membership DB</span>Add Roles to the Membership Database</h2>
 
@@ -392,11 +392,11 @@ Open the *App_Start\AuthConfig.cs* file. Remove the comment characters from the 
 <br/> <br/>![roleID][rxRoleID]<br/> <br/>
 1. Right click **webpages UsersInRoles** and click **Show Table Data**. Enter the **UserId** for the user you want to grant manager access and the **RoleId**.
 <br/> <br/>![usr role ID tbl][rxUR]<br/> <br/>
-The  **webpages_OAuthMembership** table contains the OAuth provider, the provider UserID and the UserID for each registered OAuth user. <!-- Don't replace "-" with "_" or it won't validate -->The **webpages-Membership** table contains the ASP.NET membership table. You can add users to this table using the register link. You might want to add a user with the managers role that is not associated with facebook. We will disable ASP.NET membership registration.
+The  **webpages_OAuthMembership** table contains the OAuth provider, the provider UserID and the UserID for each registered OAuth user. <!-- Don't replace "-" with "_" or it won't validate -->The **webpages-Membership** table contains the ASP.NET membership table. You can add users to this table using the register link. You might want to add a user with the managers role that is not associated with Facebook. We will disable ASP.NET membership registration.
 
 ## Protect the Application with the Authorize Attribute ##
 
-In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) attribute to restrict access to the action methods. Anonymous user will be able to view the home page only. Users who have registered through facebook will be able to see contact details, the about and the contacts pages. Only users in the manager role will be able to access action methods that change data.
+In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) attribute to restrict access to the action methods. Anonymous user will be able to view the home page only. Users who have registered through Facebook will be able to see contact details, the about and the contacts pages. Only users in the manager role will be able to access action methods that change data.
 
 1. Add the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) attribute to the Home controller. This will require users to be authenticated in each of the methods of the controller. 
 1. Add the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to the **Index** method. The [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute allows you to whitelist the methods you want to opt out of authorization.
@@ -430,8 +430,6 @@ In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/li
         // Methods moved and omitted for clarity.
     }
 
-
-A better approach that decorating each edit method with [Authorize(Roles = "Manager")] would be to apply [Authorize(Roles = "Manager")]  to the controller, then create an attribute to white list those methods that only require authorization. See [this blog post for instructions on creating an opt out attribute. Applying the scricted security on the controller and then opting out on methods is considered more secure because as you add new methods to the controller, they are automatically protected. You can also apply   
 
 1. Press CTRL+F5 to run the application. Verify only the user in the Manger role can change data. Verify anonymous users can only view the home page.
 
@@ -495,11 +493,11 @@ The **Publish Web** wizard opens.
 <br/><br/>![add sql][rxAddSQL2]<br/> 
 1. Click **Publish**.
 1. Navigate to the Navigate to  [https://developers.facebook.com/apps](https://developers.facebook.com/apps/)  page and change the **App Domains** and **Site URL** settings to the Windows Azure URL.
-1. Test the application. Verify only the user in the manager role can change data. Verify anonomous users can only view the home page. Verify authenticated users can navigate to all links that don't change data.
+1. Test the application. Verify only the user in the manager role can change data. Verify anonymous users can only view the home page. Verify authenticated users can navigate to all links that don't change data.
 
 <h2><a name="ppd2"></a><span class="short-header">Update DB</span>Update the Membership Database</h2>
 
-Once the site is deployed to Windows Azure and you have more registered users you might want to make some of them members of the mangager role. In this section we will use Visual Studio to connecto the the SQL Azure database and add users to the managers role.
+Once the site is deployed to Windows Azure and you have more registered users you might want to make some of them members of the manager role. In this section we will use Visual Studio to connect the SQL Azure database and add users to the managers role.
 
 1. In **Solution Explorer**, right click the project and select **Publish**.
  <br/>![Publish][rxP]<br/><br/>
@@ -515,21 +513,21 @@ Once the site is deployed to Windows Azure and you have more registered users yo
  <br/>![Publish][rx3]<br/><br/>
 1. Copy and paste the **Server Name**, which starts with *tcp*.
 1. Click **Use SQL Server Authentication**
-1. Enter your **User name** and **Password**, which are in the connection string you coppied.
-1. Enter the datbase name (The string after "Initial Catalog=" in the database.) If you get a error dialog, see the next section. 
-1. Click **Test Connection**. If you get a error dialog, see the next section. 
+1. Enter your **User name** and **Password**, which are in the connection string you copied.
+1. Enter the database name (The string after "Initial Catalog=" in the database.) If you get an error dialog, see the next section. 
+1. Click **Test Connection**. If you get an error dialog, see the next section. 
  <br/>![add con dlg][rx4]<br/><br/>
 
 ## Cannot open server login error ##
 If you get an error dialog stating "Cannot open server" you will need to add your IP address to the allowed IPs.
  <br/>![firewall error][rx5]<br/><br/>
 
-1. In the Windows Azure Portal, Slect **SQL Databases** in the left tab.
+1. In the Windows Azure Portal, Select **SQL Databases** in the left tab.
  <br/><br/>![Select SQL][rx6]<br/><br/>
 1. Select the database you wish to open.
-1. Click the **Set up Windows Azure firewall rules fo this IP address** link.
+1. Click the **Set up Windows Azure firewall rules for this IP address** link.
  <br/><br/>![firewall rules][rx7]<br/><br/>
-1. When you are prompted with "The current IP adress xxx.xxx.xxx.xxx is not included in existing firewall rules. Do you want to update the firewall rules?", click **Yes**.
+1. When you are prompted with "The current IP address xxx.xxx.xxx.xxx is not included in existing firewall rules. Do you want to update the firewall rules?", click **Yes**.
 
 ## Adding a Range of Allowed IP Addresses ##
 If your IP address frequently changes, you can add a range of allowed IP addresses.
@@ -544,7 +542,7 @@ If your IP address frequently changes, you can add a range of allowed IP address
 
 <h2><a name="nextsteps"></a>Next Steps</h2>
 
-To get the colorful Facebook, Google and Yahoo loging buttons, see the blog post [Customizing External Login Buttons in ASP.NET MVC 4](http://www.beabigrockstar.com/customizing-external-login-buttons-in-asp-net-mvc-4/).
+To get the colorful Facebook, Google and Yahoo log on buttons, see the blog post [Customizing External Login Buttons in ASP.NET MVC 4](http://www.beabigrockstar.com/customizing-external-login-buttons-in-asp-net-mvc-4/).
 Another way to store data in a Windows Azure application is to use Windows Azure storage, which provide non-relational data storage in the form of blobs and tables. The following links provide more information on Web API, ASP.NET MVC and Window Azure. 
 
 - [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs](http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
