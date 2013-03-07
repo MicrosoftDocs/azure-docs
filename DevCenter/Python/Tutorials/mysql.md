@@ -17,6 +17,7 @@ In this tutorial, you will learn how to:
 You will expand upon the [Django Hello World] [djangohelloworld] sample by utilizing a MySQL database, hosted in a Windows Azure VM, to find an interesting replacement for *World*. The replacement will in turn be determined via a MySQL-backed Django *counter* app. As was the case for the Hello World sample, this Django application will again be hosted in a Windows Azure Preview Portal virtual machine.
 
 The project files for this tutorial will be stored in **C:\django\helloworld** and the completed application will look similar to:
+
 ![][0]
 
 <div chunk="../../Shared/Chunks/create-account-and-vms-note.md" />
@@ -27,9 +28,12 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 1. Open up a TCP port for MySQL transactions on the virtual machine:
  * Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
  * Click *ADD ENDPOINT* button at the bottom of the screen.
-  ![][6]
+
+  		![][6]
+
  * Open up the *TCP* protocol's *PUBLIC PORT* **3306** as *PRIVATE PORT* **3306**.
-  ![][8]
+
+  		![][8]
 
 1. Duplicate the previous *ENDPOINT* addition, this time opening up *TCP*'s *PUBLIC PORT 80* as *PRIVATE PORT 80*.  This redirects external Internet requests to the port Django runs on, namely *80*.
 
@@ -202,11 +206,7 @@ Note: The following shows how to run Django in a test environment. To run it in 
 
 
 
-<<<<<<< HEAD
 1.  Switch back to a Windows PowerShell window, and type the following commands to deploy your Django web site publically:
-=======
-1.  Switch back to a Windows PowerShell window, and type the following commands to deploy your Django web site publically: 
->>>>>>> d374192544005295dd9ee6661b1e7cf789afb06b
 
 		PS C:\django\helloworld> $ipPort = [System.Net.Dns]::GetHostEntry("127.0.0.1")
 		PS C:\django\helloworld> $ipPort = [string]$ipPort.AddressList[1]
@@ -227,12 +227,8 @@ Note: The following shows how to run Django in a test environment. To run it in 
 
     ![][5]
 
-<<<<<<< HEAD
   Refresh the web browser a few times and you should see the message change from *"Hello **&lt;country abc&gt;**"* to *"Hello **&lt;some other country&gt;**"*.
-=======
-  Refresh the web browser a few times and you should see the message change from *"Hello **&lt;country abc&gt;**"* to *"Hello **&lt;some other country&gt;**"*.
 
->>>>>>> d374192544005295dd9ee6661b1e7cf789afb06b
 1.  To stop Django from hosting the web site, simply switch to the PowerShell window and press **CTRL-C**.
 
 
