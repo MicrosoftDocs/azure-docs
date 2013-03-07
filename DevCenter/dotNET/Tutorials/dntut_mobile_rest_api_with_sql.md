@@ -392,7 +392,7 @@ Open the *App_Start\AuthConfig.cs* file. Remove the comment characters from the 
 <br/> <br/>![roleID][rxRoleID]<br/> <br/>
 1. Right click **webpages UsersInRoles** and click **Show Table Data**. Enter the **UserId** for the user you want to grant manager access and the **RoleId**.
 <br/> <br/>![usr role ID tbl][rxUR]<br/> <br/>
-The z **webpages OAuthMembership** table contains the OAuth provider, the provider UserID and the UserID for each registered OAuth user. The **webpages Membership** table contains the ASP.NET membership table. You can add users to this table using the register link. You might want to add a user with the managers role that is not associated with facebook. We will disable ASP.NET membership registration.
+The  **webpages_OAuthMembership** table contains the OAuth provider, the provider UserID and the UserID for each registered OAuth user. The **webpages Membership** table contains the ASP.NET membership table. You can add users to this table using the register link. You might want to add a user with the managers role that is not associated with facebook. We will disable ASP.NET membership registration.
 
 ## Protect the Application with the Authorize Attribute ##
 
