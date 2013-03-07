@@ -201,5 +201,8 @@ Congratulations! You have successfully completed this tutorial.
 
 * [Using MapReduce with HDInsight][hdinsight-mapreduce]
 
+* [Using the Interactive JavaScript and Hive Consoles][interactive-console]
+
 [hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig/
 [hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce/
+[interactive-console]: /en-us/manage/services/hdinsight/interactiveconsole/
