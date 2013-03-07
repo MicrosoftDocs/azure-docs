@@ -118,7 +118,6 @@ Step 4: Load the Tutorial1.java class file into the C:\Tutorial directory. Creat
  
 This program (shown below) defines a Mapper and a Reducer that will be called.
 
-<code>
 
 	import java.io.IOException;
 	import java.util.Iterator;
@@ -225,7 +224,7 @@ This program (shown below) defines a Mapper and a Reducer that will be called.
 	}
     }
 
-</code>
+
 
 Step 3: Compile the java file.
 

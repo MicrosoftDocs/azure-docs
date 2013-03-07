@@ -20,7 +20,7 @@ Azure Vault Storage (ASV) provides a full featured HDFS file system over Windows
 
 	When choosing **CUSTOM CREATE**, you need to specify the following properties:
 
-	<table border=1>
+	<table border='1'>
 		<tr><th>Page</th><th>Fields</th></tr>
 		<tr><td>Cluster Details</td>
 			<td>Cluster Name
