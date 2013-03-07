@@ -1,26 +1,24 @@
-<properties linkid="develop-dotnet-rest-service-using-web-api" urlDisplayName="REST service using Web API" pageTitle=".NET REST service using Web API - Windows Azure tutorial" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" metaDescription="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to a Windows Azure web site by using Visual Studio." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
-
-
 <div chunk="../chunks/article-left-menu.md" />
-# Mobile-friendly REST service using ASP.NET Web API and SQL Database 
+# Deploy an ASP.NET MVC application with OAuth, Membership and SQL Database 
 
-This tutorial shows how to deploy an ASP.NET web application that uses the ASP.NET Web API to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012 or Visual Studio 2012 for Web Express.
+This tutorial shows you how to build a secure ASP.NET MVC 4 web application that enables users to log in with credentials from Facebook, Yahoo and Google. You will also deploy the application to Windows Azure.
 
-You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. So you can start developing for Windows Azure entirely for free.
+You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. You can start developing for Windows Azure for free.
 
-This tutorial assumes that you have no prior experience using Windows Azure. On completing this tutorial, you'll have a data-driven web application up and running in the cloud and using a cloud database.
+This tutorial assumes that you have no prior experience using Windows Azure. On completing this tutorial, you'll have a secure data-driven web application up and running in the cloud and using a cloud database.
 
 You'll learn:
 
 * How to enable your machine for Windows Azure development by installing the Windows Azure SDK.
-* How to create a Visual Studio ASP.NET MVC 4 project and publish it to a Windows Azure Web Site.
-* How to use the ASP.NET Web API to enable Restful API calls.
+* How to create a secure ASP.NET MVC 4 project and publish it to a Windows Azure Web Site.
+* How to use OAuth and the ASP.NET membership database to secure your application.
+* How to deploy a membership database to Windows Azure.
 * How to use a SQL database to store data in Windows Azure.
-* How to publish application updates to Windows Azur![](http://)e.
+* How to use Visual Studio to update and manage the membership database on SQL Azure.
 
-You'll build a simple contact list web application that is built on ASP.NET MVC 4 and uses the ADO.NET Entity Framework for database access. The following illustration shows the completed application:
-
-![screenshot of web site][intro001]
+You'll build a simple contact list web application that is built on ASP.NET MVC 4 and uses the ADO.NET Entity Framework for database access. The following illustration shows the login page for the completed application:
+<br/><br/>
+![login page][rxb]<br/>
 
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
@@ -31,9 +29,11 @@ In this tutorial:
 - [Create an ASP.NET MVC 4 application][createapplication]
 - [Deploy the application to Windows Azure][deployapp1]
 - [Add a database to the application][adddb]
-- [Add a Controller and a view for the data][addcontroller]
-- [Add a Web API Restful interface][addwebapi]
-- [Publish the application update to Windows Azure and SQL Database][deploy2]
+- [Add an OAuth Provider][]
+- [Add Roles to the Membership Database][]
+- [Create a Data Deployment Script][]
+- [Deploy the app to Windows Azure][deployapp11]
+- [Update the Membership Database][]
 
 <h2><a name="bkmk_setupdevenv"></a>Set up the development environment</h2>
 
@@ -102,54 +102,16 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 1. In **Solution Explorer**, expand the Views\Shared folder and open the *_Layout.cshtml* file.<br/>
 	![_Layout.cshtml in Solution Explorer][newapp004]
-1. Replace the contents of the *_Layout.cshtml* file with the following code:
+1. Replace each occurance of "My ASP.NET MVC Application" with "Contact Manager".
+1. Replace "your logo here" with "CM Demo".
 <br/>
 
-    &lt;!DOCTYPE html&gt;<br/>
-    &lt;html lang=&quot;en&quot;&gt;<br/>
-    &lt;head&gt;<br/>
-        &lt;meta charset=&quot;utf-8&quot; /&gt;<br/>
-        &lt;title&gt;@ViewBag.Title - Contact Manager&lt;/title&gt;<br/>
-        &lt;link href=&quot;~/favicon.ico&quot; rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; /&gt;<br/>
-        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;<br/>
-        @Styles.Render(&quot;~/Content/css&quot;)<br/>
-        @Scripts.Render(&quot;~/bundles/modernizr&quot;)<br/>
-    &lt;/head&gt;<br/>
-    &lt;body&gt;<br/>
-        &lt;header&gt;<br/>
-            &lt;div class=&quot;content-wrapper&quot;&gt;<br/>
-                &lt;div class=&quot;float-left&quot;&gt;<br/>
-                    &lt;p class=&quot;site-title&quot;&gt;@Html.ActionLink(&quot;Contact Manager&quot;, &quot;Index&quot;, &quot;Home&quot;)&lt;/p&gt;<br/>
-                &lt;/div&gt;<br/>
-            &lt;/div&gt;<br/>
-        &lt;/header&gt;<br/>
-        &lt;div id=&quot;body&quot;&gt;<br/>
-            @RenderSection(&quot;featured&quot;, required: false)<br/>
-            &lt;section class=&quot;content-wrapper main-content clear-fix&quot;&gt;<br/>
-                @RenderBody()<br/>
-            &lt;/section&gt;<br/>
-        &lt;/div&gt;<br/>
-        &lt;footer&gt;<br/>
-            &lt;div class=&quot;content-wrapper&quot;&gt;<br/>
-                &lt;div class=&quot;float-left&quot;&gt;<br/>
-                    &lt;p&gt;&amp;copy; @DateTime.Now.Year - Contact Manager&lt;/p&gt;<br/>
-                &lt;/div&gt;<br/>
-            &lt;/div&gt;<br/>
-        &lt;/footer&gt;<br/>
-    	@Scripts.Render("~/bundles/jquery")
-    	@RenderSection("scripts", required: false)
-    &lt;/body&gt;<br/>
-    &lt;/html&gt;
-
-1. Edit the application root *Web.config* file and delete or comment out the **DefaultConnection** in the **connectionStrings** element.
-
-![comment out default con str][rxWebConfig]
 
 ### Run the application locally
 
 1. Press CTRL+F5 to run the application.
 The application home page appears in the default browser.<br/>
-![To Do List home page][newapp005]
+![To Do List home page][rxA]
 
 This is all you need to do for now to create the application that you'll deploy to Windows Azure. Later you'll add database functionality.
 
@@ -168,7 +130,7 @@ This step downloads a file that contains all of the settings that you need in or
 The **Publish Web** wizard opens.
 6. In the **Profile** tab of the **Publish Web** wizard, click **Import**.<br/>
 ![Import button in Publish Web wizard][firsdeploy004]
-7. Select the *.publishsettings* file you downloaded earlier, and then click **Open**.
+7. Select the *publishsettings* file you downloaded earlier, and then click **Open**.
 8. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.
 When the connection has been validated, a green check mark is shown next to the **Validate Connection** button.
 9. Click **Next**.
@@ -184,6 +146,7 @@ Visual Studio begins the process of copying the files to the Windows Azure serve
 14. The default browser automatically opens to the URL of the deployed site.<br/>
 The application you created is now running in the cloud.
 	<br/>![To Do List home page running in Windows Azure][newapp005]
+
 
 <h2><a name="bkmk_addadatabase"></a>Add a database to the application</h2>
 
@@ -233,8 +196,8 @@ The ASP.NET MVC the scaffolding feature can automatically generate code that per
 3. Build the project **(Ctrl+Shift+B)**. (You must build the project before using scaffolding mechanism.) <br/>
 4. Right-click the Controllers folder and click **Add**, and then click **Controller...**.<br/>
 ![Add Controller in Controllers folder context menu][addcode001]<br/>
-5. In the **Add Controller** dialog box, enter "HomeController" as your controller name. Set the ** Scaffolding options Template** to  **MVC Controller with read/write actions and views, using Entity Framework**.
-6. Select **Contact** as your model class and **&lt;New data context...>** as your data context class.<br/>
+5. In the **Add Controller** dialog box, enter "HomeController" as your controller name. Set the **Scaffolding options Template** to  **MVC Controller with read/write actions and views, using Entity Framework**.
+6. Select **Contact** as your model class and **&lt;New data context...&gt;** as your data context class.<br/>
 ![Add Controller dialog box][addcode002]<br/>
 7. On the **New Data Context** dialog box, accept the default value *ContactManager.Models.ContactManagerContext*.
 	<br/>![Add Controller dialog box][rxNewCtx]<br/>
@@ -253,14 +216,15 @@ The next task is to enable the [Code First Migrations](http://atlas.asp.net/mvc/
 
 		enable-migrations -ContextTypeName ContactManagerContext
 <br/>![enable-migrations][rxE] <br/>
-	The **enable-migrations** command creates a *Migrations* folder and it puts in that folder a *Configuration.cs* file that you can edit to configure Migrations.<br/>
+	You must specify the context type name (**ContactManagerContext**) because the project contains two [DbContext](http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx) derrived classes, the **ContactManagerContext** we just added and the **UsersContext**, which is used for the membership database. The **ContactManagerContext** class was added by the Visual Studio scaffolding wizzard.<br/>
+  The **enable-migrations** command creates a *Migrations* folder and it puts in that folder a *Configuration.cs* file that you can edit to configure Migrations. <br/>
 
 2. In the **Package Manager Console** window, enter the following command:<br/>
 
 		add-migration Initial
 
 
-	The **add-migration Initial** command generates a class named **&lt;date_stamp&gt;Initial** that creates the database. The first parameter ( *Initial* ) is arbitrary and used to create the name of the file. You can see the new class files in **Solution Explorer**.<br/>
+	The **add-migration Initial** command generates a file named **&lt;date_stamp&gt;Initial** in the *Migrations* folder that creates the database. The first parameter ( **Initial** ) is arbitrary and used to create the name of the file. You can see the new class files in **Solution Explorer**.<br/>
 	In the **Initial** class, the **Up** method creates the Contacts table, and the **Down** method (used when you want to return to the previous state) drops it.<br/>
 3. Right-click the Migrations folder and open the **Configuration.cs** file. 
 4. Add the following namespaces. 
@@ -343,243 +307,261 @@ The application shows the seed data and provides edit, details and delete links.
 
 <br/>![MVC view of data][rx2]
 
-<h2><a name="bkmk_addview"></a>Edit the View</h2>
+<h2><a name="addOauth"></a><span class="short-header">OAuth</span>Add an OAuth Provider</h2>
 
-1. Expand the Views\Home folder and open the Index.cshtml file.
-	<!--<br/>![Modify index.cshtml in views\home folder context menu][addcode004]-->
-2. Replace the contents of the file with the following code.
+[OAuth](http://oauth.net/ "http://oauth.net/") is an open protocol that allows secure authorization in a simple and standard method from web, mobile and desktop applications. The ASP.NET MVC internet template uses OAuth to expose Facebook, Twitter, Google and Microsoft as authentication providers. Although the examples in this tutorial focus on using Facebook as the authentication provider, you can modify the code to use any of the providers. The steps to implement any provider are very similar to the steps you will see in this tutorial. 
 
-		@model IEnumerable<ContactManager.Models.Contact>
-		@{
-		    ViewBag.Title = "Home";
-		}
-		@section Scripts {
-		    @Scripts.Render("~/bundles/knockout")
-		    <script type="text/javascript">
-		        function ContactsViewModel() {
-		            var self = this;
-		            self.contacts = ko.observableArray([]);
-		            self.addContact = function () {
-		                $.post("api/contacts",
-		                    $("#addContact").serialize(),
-		                    function (value) {
-		                        self.contacts.push(value);
-		                    },
-		                    "json");
-		            }
-		            self.removeContact = function (contact) {
-		                $.ajax({
-		                    type: "DELETE",
-		                    url: contact.Self,
-		                    success: function () {
-		                        self.contacts.remove(contact);
-		                    }
-		                });
-		            }
+In addtion to authentication, the tutorial will also use roles to implement authorization. Only those users you add to the managers role will be able to create, edit or delete contacts.
 
-		            $.getJSON("api/contacts", function (data) {
-		                self.contacts(data);
-		            });
-		        }
-		        ko.applyBindings(new ContactsViewModel());	
-		</script>
-		}
-		<ul id="contacts" data-bind="foreach: contacts">
-		    <li class="ui-widget-content ui-corner-all">
-		        <h1 data-bind="text: Name" class="ui-widget-header"></h1>
-		        <div><span data-bind="text: $data.Address || 'Address?'"></span></div>
-		        <div>
-		            <span data-bind="text: $data.City || 'City?'"></span>,
-		            <span data-bind="text: $data.State || 'State?'"></span>
-		            <span data-bind="text: $data.Zip || 'Zip?'"></span>
-		        </div>
-		        <div data-bind="if: $data.Email"><a data-bind="attr: { href: 'mailto:' + Email }, text: Email"></a></div>
-		        <div data-bind="ifnot: $data.Email"><span>Email?</span></div>
-		        <div data-bind="if: $data.Twitter"><a data-bind="attr: { href: 'http://twitter.com/' + Twitter }, text: '@@' + Twitter"></a></div>
-		        <div data-bind="ifnot: $data.Twitter"><span>Twitter?</span></div>
-		        <p><a data-bind="attr: { href: Self }, click: $root.removeContact" class="removeContact ui-state-default ui-corner-all">Remove</a></p>
-		    </li>
-		</ul>
-		<form id="addContact" data-bind="submit: addContact">
-		    <fieldset>
-		        <legend>Add New Contact</legend>
-		        <ol>
-		            <li>
-		                <label for="Name">Name</label>
-		                <input type="text" name="Name" />
-		            </li>
-		            <li>
-		                <label for="Address">Address</label>
-		                <input type="text" name="Address" >
-		            </li>
-		            <li>
-		                <label for="City">City</label>
-		                <input type="text" name="City" />
-		            </li>
-		            <li>
-		                <label for="State">State</label>
-		                <input type="text" name="State" />
-		            </li>
-		            <li>
-		                <label for="Zip">Zip</label>
-		                <input type="text" name="Zip" />
-		            </li>
-		            <li>
-		                <label for="Email">E-mail</label>
-		                <input type="text" name="Email" />
-		            </li>
-		            <li>
-		                <label for="Twitter">Twitter</label>
-		                <input type="text" name="Twitter" />
-		            </li>
-		        </ol>
-		        <input type="submit" value="Add" />
-		    </fieldset>
-		</form>
+## Registering with an external provider ##
 
-3. Right-click the Content folder and click **Add**, and then click **New Item...**.
-	<!--<br/>![Add style sheet in Content folder context menu][addcode005]-->
-4. In the **Add New Item** dialog box, expand C# and select Web under Installed Templates and then select **Style Sheet**.
-	<!--<br/>![Add New Item dialog box][addcode006]-->
-5. Name the file Contacts.css and click **Add**. Replace the contents of the file with the following code.
-    
-        .column {
-            float: left;
-            width: 50%;
-            padding: 0;
-            margin: 5px 0;
-        }
-        form ol {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        form li {
-            padding: 1px;
-            margin: 3px;
-        }
-        form input[type="text"] {
-            width: 100%;
-        }
-        #addContact {
-            width: 300px;
-            float: left;
-            width:30%;
-        }
-        #contacts {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            float:left;
-            width: 70%;
-        }
-        #contacts li {
-            margin: 3px 3px 3px 0;
-            padding: 1px;
-            float: left;
-            width: 300px;
-            text-align: center;
-            background-image: none;
-            background-color: #F5F5F5;
-        }
-        #contacts li h1
+To authenticate users with credentials from an external provider, you must register your web site with the provider. When you register your site, you will receive the parameters (such as key or id, and secret) to include when registering the client. You must have an account with the providers you wish to use.
+
+This tutorial does not show all of the steps you must perform to register with these providers. The steps are typically not difficult. To successfully register your site, follow the instructions provided on those sites. To get started with registering your site, see the developer site for:
+
+- [Facebook](http://developers.facebook.com/)
+- [Google](http://developers.google.com/)
+- [Microsoft](http://manage.dev.live.com/)
+- [Twitter](http://dev.twitter.com/)
+
+Navigate to  [https://developers.facebook.com/apps](https://developers.facebook.com/apps/)  page and log in if necessary. Click the **Register as a Developer** button and complete the registration process. Once you complete registration, click **Create New App**. Enter a name for the app. You don't need to enter an app namespace.
+<br/>![Create New FB app][rxFBapp]
+<br/><br/>
+
+Enter localhost for the **App Domain** and http://localhost/ for the **Site URL**. Click **Enabled** for **Sandbox Mode**, then click **Save Changes**.
+<br/><br/>
+
+You will need the **App ID** and the **App Secret** to implement OAuth in this application.
+<br/>![New FB app][rxFB]
+<br/>
+## Creating test users ##
+In the left pane under **Settings** click **Developer Roles**. Click the **Create** link on the **Test Users** row (not the **Testers** row).
+<br/>![FB testers][rxFBt]
+<br/><br/>
+Click on the **Modify** link to get the test users email (which you will use to log into the application). Click the **See More** link, then click **Edit** to set the test users password.
+
+## Adding application id and secret from the provider ##
+
+Open the *App_Start\AuthConfig.cs* file. Remove the comment characters from the *RegisterFacebookClient* method and add the app id and app secret. Use the values you obtained, the values shown below will not work.
+
+
+    public static class AuthConfig
+    {
+        public static void RegisterAuth()
         {
-            padding: 0;
-            margin: 0;
-            background-image: none;
-            background-color: Orange;
-            color: White;
-            font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+ 
+            //OAuthWebSecurity.RegisterMicrosoftClient(
+            //    clientId: "",
+            //    clientSecret: "");
+
+            //OAuthWebSecurity.RegisterTwitterClient(
+            //    consumerKey: "",
+            //    consumerSecret: "");
+
+            OAuthWebSecurity.RegisterFacebookClient(
+                appId: "387804053624929",
+                appSecret: "242d880946797e722ce66d8a057d344f");
+
+            //OAuthWebSecurity.RegisterGoogleClient();
         }
-        .removeContact, .viewImage
+    }
+
+
+1. Run the application and click  the **Log In** link. 
+1. Click the **Facebook** button. 
+1. Enter your facebook credentials or one of the test users credentials.
+1. Click **Okay** to allow the application to access your facebook resources.
+1. You are redirected to the Register page. If you logged in using a test account, you can change the **user name** to something shorter, for example "Bill FB test". Click the **Register** button which will save the user name and email alias to the membership database. 
+1. Register another user. Currently a bug in the log in system prevents you from logging off and singing in as another user. To work around this, navigate to the site using another browser and register another user. One user will be added to the manager role and have edit access to application, the other user will only have access to non edit methods on the site. Anonymous users will only have access to the home page.
+
+<h2><a name="mbrDB"></a><span class="short-header">Membership DB</span>Add Roles to the Membership Database</h2>
+
+
+1. From the **View** menu, click **Server Explorer**.
+1. In **Server Explorer**, click **DefaultConnection**. 
+1. Click **Tables**.
+1. Right click **UserProfile** and click **Show Table Data**.
+<br/> 
+<br/>![Show table data][rxSTD]
+<br/> <br/>
+1. Record the **UserId** for the user that will have the managers role. In the image below, the user *ricka* with **UserId** 2 will be the manager for the site.
+<br/> <br/>![user IDs][rxUid]
+<br/> <br/>
+1. Right click **webpages_Roles** and click **Show Table Data**.
+1. Enter **manager** in the **RoleName** cell. The **RoleId** will be 1 if this is the first time you've added a role. Record the ID.
+<br/> <br/>![roleID][rxRoleID]<br/> <br/>
+1. Right click **webpages UsersInRoles** and click **Show Table Data**. Enter the **UserId** for the user you want to grant manager access and the **RoleId**.
+<br/> <br/>![usr role ID tbl][rxUR]<br/> <br/>
+The z **webpages OAuthMembership** table contains the OAuth provider, the provider UserID and the UserID for each registered OAuth user. The **webpages Membership** table contains the ASP.NET membership table. You can add users to this table using the register link. You might want to add a user with the managers role that is not associated with facebook. We will disable ASP.NET membership registration.
+
+## Protect the Application with the Authorize Attribute ##
+
+In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) attribute to restrict access to the action methods. Anonymous user will be able to view the home page only. Users who have registered through facebook will be able to see contact details, the about and the contacts pages. Only users in the manager role will be able to access action methods that change data.
+
+1. Add the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) attribute to the Home controller. This will require users to be authenticated in each of the methods of the controller. 
+1. Add the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to the **Index** method. The [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute allows you to whitelist the methods you want to opt out of authorization.
+1. Add   [Authorize(Roles = "Manager")] to the Get and Post methods that change data (Create, Edit, Delete). 
+
+
+<br/>
+
+    [Authorize]
+    public class HomeController : Controller
+    {
+        private ContactManagerContext db = new ContactManagerContext();
+
+        [AllowAnonymous]
+        public ActionResult Index()
         {
-            padding: 3px;
-            text-decoration: none;
+            return View(db.Contacts.ToList());
         }
 
-6. Expand the App\_Start folder and open the BundleConfig.cs file.
-	<!--<br/>![Modify BundleConfig.cs in App_Start folder context menu][addcode007]-->
-7. Add the following statement to register the [Knockout](http://knockoutjs.com/index.html "KO") plugin.
+        public ActionResult About()
+        {
+            return View();
+        }
 
-		bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
-		            "~/Scripts/knockout-{version}.js"));
-	This sample using knockout to simplify dynamic JavaScript code that handles the screen templates.
+        [Authorize(Roles = "Manager")]
+        public ActionResult Create()
+        {
+            return View();
+        }
 
-8. Modify the contents/css entry to register the contacts.css style sheet. Change the following line:
+        // Methods moved and omitted for clarity.
+    }
 
-        bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
-To:
 
-        bundles.Add(new StyleBundle("~/Content/css").Include(
-                    "~/Content/site.css",
-                    "~/Content/contacts.css"));
+A better approach that decorating each edit method with [Authorize(Roles = "Manager")] would be to apply [Authorize(Roles = "Manager")]  to the controller, then create an attribute to white list those methods that only require authorization. See [this blog post for instructions on creating an opt out attribute. Applying the scricted security on the controller and then opting out on methods is considered more secure because as you add new methods to the controller, they are automatically protected. You can also apply   
 
-<h2><a name="bkmk_addwebapi"></a>Add a controller for the Web API Restful interface</h2>
+1. Press CTRL+F5 to run the application. Verify only the user in the Manger role can change data. Verify anonymous users can only view the home page.
 
-1. In **Solution Explorer**, right-click Controllers and click **Controller....** 
-4. In the **Add Controller** dialog box, enter "ContactsController" as your controller name, select the **API controller with read/write actions, using Entity Framework** template. 
-5. In **Model Class** select *Contact (ContactManager.Models)* and in **Data Context Class** select *ContactManagerContext (ContactManager.Models)*.
- <br/>![Add API controller][rxAddApiController]<br/>
-6. Click **Add**.
 
-### Run the application locally
+## Disable Registration for non-authenticated users  ##
+In this section we will require that new users can only be registered after they have been authenticated from another log in service (for this sample, Facebook).
+ Open the *Controllers\AccountController.cs* file and remove the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute from the Get and Post *Register* method.
 
-1. Press CTRL+F5 to run the application.<br/>
-![Index page][intro001]
-2. Enter a contact and click **Add**. The app returns to the home page and displays the contact you entered.<br/>
-![Index page with to-do list items][addwebapi004]
-3. In the browser, append /api/contacts to the URL.
-The resulting URL will resemble http://localhost:1234/api/contacts. The RESTful web API you added returns the stored contacts.<br/> FireFox and Chrome will display the data in XML format.
 
-<br/>![Index page with to-do list items][rxFFchrome]<br/>
-IE will prompt you to open or save the contacts.
-![Web API save dialog][addwebapi006]<br/>
-	You can open the returned contacts in notepad or a browser.
-	This output can be consumed by another application such as mobile web page or application.<br/>
-![Web API save dialog][addwebapi007]
+<h2><a name="ppd"></a><span class="short-header">Prepare DB</span>Create a Data Deployment Script</h2>
 
-<h2><a name="bkmk_deploydatabaseupdate"></a>Publish the application update to Windows Azure and SQL Database</h2>
 
-To publish the application, you repeat the procedure you followed earlier.
+The membership database isn't managed by Entity Framework Code First so you can't use Migrations to deploy it.  We'll use the dbDacFx provider to deploy the database schema, and we'll configure the publish profile to run a script that will insert initial membership data into membership tables.
+
+This tutorial will use  SQL Server Management Studio (SSMS) to create data deployment scripts. 
+
+Install SSMS  from [Microsoft SQL Server 2012 Express Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=29062):
+
+- [ENU\x64\SQLManagementStudio_x64_ENU.exe](http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe) for 64 bit systems.
+- [ENU\x86\SQLManagementStudio_x86_ENU.exe](http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe) for 32 bit systems.
+
+ If you choose the wrong one for your system it will fail to install and you can try the other one.
+
+(Note that this is a 600 megabyte download. It may take a long time to install and will require a reboot of your computer.)
+
+On the first page of the SQL Server Installation Center, click **New SQL Server stand-alone installation or add features to an existing installation**, and follow the instructions, accepting the default choices.
+
+Create the development database script
+
+1. Run SSMS.
+1. In the **Connect to Server** dialog box, enter *(localdb)\v11.0* as the Server name, leave **Authentication** set to **Windows Authentication**, and then click **Connect**.
+<br/><br/>![con to srvr dlg][rxC2S]<br/> 
+1. In the **Object Explorer** window, expand **Databases**, right-click **aspnet-ContactManager**, click **Tasks**, and then click **Generate Scripts**.
+<br/><br/>![Gen Scripts][rxGenScripts]<br/><br/> 
+1. In the **Generate and Publish Scripts** dialog box, click **Set Scripting Options**.
+You can skip the **Choose Objects** step because the default is Script entire database and all database objects and that is what you want.
+1. Click **Advanced**.
+<br/> <br/>![Set scripting options][rx11]<br/> <br/>
+1. In the **Advanced Scripting Options** dialog box, scroll down to **Types of data to script**, and click the **Data only** option in the drop-down list.
+<br/> <br/>![Set scripting options][rxAdv]<br/> <br/>
+1. Change **Script USE DATABASE** to **False**.  USE statements aren't valid for Windows Azure SQL Database and aren't needed for deployment to SQL Server Express in the test environment.
+1. Click **OK**.
+1. In the **Generate and Publish Scripts** dialog box, the **File name** box specifies where the script will be created. Change the path to your solution folder (the folder that has your *Contacts.sln* file) and change the file name to *aspnet-data-membership.sql*.
+1. Click **Next** to go to the **Summary** tab, and then click **Next** again to create the script.
+<br/> <br/>![Save or pub][rx1]<br/> <br/>
+1. Click **Finish**.
+
+<h2><a name="bkmk_deploytowindowsazure11"></a>Deploy the app to Windows Azure</h2>
+
+1. Open the *Web.config* file. Copy and paste the *DefaultConnection* XML. Rename the copied element *DefaultConnectionDeploy*.
+<br/><br/>![3 cons str][rxD]<br/> 
+1.In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
+![Publish in project context menu][firsdeploy003]<br/>
+The **Publish Web** wizard opens.
+1. Click the **Settings** tab. Click the **v** icon to select the **Remote connection string** for the **ContactManagerContext** and  **DefaultConnectionDeploy**. The three Databases listed will all use the same connection string.
+<br/><br/>![settings][rxD2]<br/> 
+1. Under **ContactManagerContext**, check **Execute Code First Migrations**.
+<br/><br/>![settings][rxSettings]<br/> 
+1. Under **DefaultConnectionDeploy** check **Update database** then click the **Configure database updates** link.
+1. Click the **Add SQL Script** link and navigate to the  *aspnet-data-membership.sql* file. You only need to do this once. The next deployment you uncheck **Update database** because you won't need to add the user data to the membership tables.
+<br/><br/>![add sql][rxAddSQL2]<br/> 
+1. Click **Publish**.
+1. Navigate to the Navigate to  [https://developers.facebook.com/apps](https://developers.facebook.com/apps/)  page and change the **App Domains** and **Site URL** settings to the Windows Azure URL.
+1. Test the application. Verify only the user in the manager role can change data. Verify anonomous users can only view the home page. Verify authenticated users can navigate to all links that don't change data.
+
+<h2><a name="ppd2"></a><span class="short-header">Update DB</span>Update the Membership Database</h2>
+
+Once the site is deployed to Windows Azure and you have more registered users you might want to make some of them members of the mangager role. In this section we will use Visual Studio to connecto the the SQL Azure database and add users to the managers role.
 
 1. In **Solution Explorer**, right click the project and select **Publish**.
  <br/>![Publish][rxP]<br/><br/>
-5. Click the **Settings** tab.
-![Settings tab of Publish Web wizard][rxSettings]<br/>
-1. You can click the **^** icon next to the **UsersContext(DefaultConnection)** database, that is the membership database and we're not using it in this tutorial. A real application would require authentication and authorization, and you would use the membership database for that purpose.
-6. The connection string box for the **ContactsManagerContext(ContactsManagerContext)** database contains the SQL Database connection string that was provided in the .publishsettings file. Click on the elipsis (**...**) to see the *ContactDB* settings.<br/>
- <br/>![DB settings][rx22]<br/><br/>
-7. Close the **Destination Connections String Dialog** and in the **Publish Web** dialog select **Execute Code First Migrations (runs on application start)** for the **UsersContext(DefaultConnection)** database.<br/>
-![Settings tab of Publish Web wizard][rxSettings]<br/>
-(As was noted earlier, the **UsersContext(DefaultConnection)** database is for the ASP.NET membership system. You are not using membership functionality in this tutorial, so you aren't configuring that database for deployment.)
-8. Click **Publish**.<br/>
-After the deployment completes, the browser opens to the home page of the application.<br/>
-![Index page with no contacts][intro001]<br/>
-The Visual Studio publish process automatically configured the connection string in the deployed *Web.config* file to point to the SQL database. It also configured Code First Migrations to automatically upgrade the database to the latest version the first time the application accesses the database after deployment.
-As a result of this configuration, Code First created the database by running the code in the **Initial** class that you created earlier. It did this the first time the application tried to access the database after deployment.
-9. Enter a contact as you did when you ran the app locally, to verify that database deployment succeeded.
-When you see that the item you enter is saved and appears on the contact manager page, you know that it has been stored in the database.<br/>
-![Index page with contacts][addwebapi004]
+1. Click the **Settings** tab.
+2. Copy the connection string. For example, the connection string used in this sample is:
+	Data Source=tcp:d015leqjqx.database.windows.net,1433;
+	Initial Catalog=ContactDB2;User Id=ricka0@d015lxyze;Password=*****
+1. Close the publishing dialog.
+1. From the **View** menu, click **Server Explorer**.
+1. Click on the **Connect to Database** icon.
+ <br/>![Publish][rxc]<br/><br/>
+1. If you are prompted for the Data Source, click **Microsoft SQL Server**.
+ <br/>![Publish][rx3]<br/><br/>
+1. Copy and paste the **Server Name**, which starts with *tcp*.
+1. Click **Use SQL Server Authentication**
+1. Enter your **User name** and **Password**, which are in the connection string you coppied.
+1. Enter the datbase name (The string after "Initial Catalog=" in the database.) If you get a error dialog, see the next section. 
+1. Click **Test Connection**. If you get a error dialog, see the next section. 
+ <br/>![add con dlg][rx4]<br/><br/>
 
-The application is now running in the cloud, using SQL Database to store its data. After you finish testing the application in Windows Azure, delete it. The application is public and doesn't have a mechanism to limit access.
+## Cannot open server login error ##
+If you get an error dialog stating "Cannot open server" you will need to add your IP address to the allowed IPs.
+ <br/>![firewall error][rx5]<br/><br/>
+
+1. In the Windows Azure Portal, Slect **SQL Databases** in the left tab.
+ <br/><br/>![Select SQL][rx6]<br/><br/>
+1. Select the database you wish to open.
+1. Click the **Set up Windows Azure firewall rules fo this IP address** link.
+ <br/><br/>![firewall rules][rx7]<br/><br/>
+1. When you are prompted with "The current IP adress xxx.xxx.xxx.xxx is not included in existing firewall rules. Do you want to update the firewall rules?", click **Yes**.
+
+## Adding a Range of Allowed IP Addresses ##
+If your IP address frequently changes, you can add a range of allowed IP addresses.
+
+1. In the Windows Azure Portal, Click **SQL Databases**.
+1. Click the **Server** hosting your Database.
+ <br/>![db server][rx8]<br/><br/>
+1. Click **Configure** on the top of the page.
+1. Add a rule name, starting and ending IP addresses.
+<br/>![ip range][rx9]<br/><br/>
+1. At the bottom of the page, click **Save**.
 
 <h2><a name="nextsteps"></a>Next Steps</h2>
 
-Another way to store data in a Windows Azure application is to use Windows Azure storage, which provide non-relational data storage in the form of blobs and tables. The following links provide more information on Web API, ASP.NET MVC and Window Azure.
- 
+To get the colorful Facebook, Google and Yahoo loging buttons, see the blog post [Customizing External Login Buttons in ASP.NET MVC 4](http://www.beabigrockstar.com/customizing-external-login-buttons-in-asp-net-mvc-4/).
+Another way to store data in a Windows Azure application is to use Windows Azure storage, which provide non-relational data storage in the form of blobs and tables. The following links provide more information on Web API, ASP.NET MVC and Window Azure. 
 
 - [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs](http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
 - [Getting Started with Entity Framework using MVC][EFCodeFirstMVCTutorial]
 - [Intro to ASP.NET MVC 4](http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4)
-- [Your First ASP.NET Web API](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
-
-
+- [OAuth 2.0 and Sign-In](http://blogs.msdn.com/b/vbertocci/archive/2013/01/02/oauth-2-0-and-sign-in.aspx)
 
 <!-- bookmarks -->
+[Add an OAuth Provider]: #addOauth
+[Add Roles to the Membership Database]:#mbrDB
+[Create a Data Deployment Script]:#ppd
+[Update the Membership Database]:#ppd2
 [setupdbenv]: #bkmk_setupdevenv
 [setupwindowsazureenv]: #bkmk_setupwindowsazure
 [createapplication]: #bkmk_createmvc4app
 [deployapp1]: #bkmk_deploytowindowsazure1
+[deployapp11]: #bkmk_deploytowindowsazure11
 [adddb]: #bkmk_addadatabase
 [addcontroller]: #bkmk_addcontroller
 [addwebapi]: #bkmk_addwebapi
@@ -612,6 +594,51 @@ Another way to store data in a Windows Azure application is to use Windows Azure
 [rx2]: ../Media/rx2.png
 [rxP]: ../Media/rxP.png
 [rx22]: ../Media/rx22.png
+[rxFBapp]: ../Media/rxFBapp.png
+[rxFB]: ../Media/rxFB.png
+[rxFBt]: ../Media/rxFBt.png
+[rxSTD]: ../Media/rxSTD.png
+[rxUid]: ../Media/rxUid.png
+[rxRoleID]: ../Media/rxRoleID.png
+[rxUR]: ../Media/rxUR.png
+[rxC2S]: ../Media/rxC2S.png
+[rxGenScripts]: ../Media/rxGenScripts.png
+[rx11]: ../Media/rx11.png
+[rxAdv]: ../Media/rxAdv.png
+[rx1]: ../Media/rx1.png
+[rxd]: ../Media/rxd.png
+[rxSettings]: ../Media/rxSettings.png
+[rxD2]: ../Media/rxD2.png
+[rxAddSQL2]: ../Media/rxAddSQL2.png
+[rxc]: ../Media/rxc.png
+[rx3]: ../Media/rx3.png
+[rx4]: ../Media/rx4.png
+[rx5]: ../Media/rx5.png
+[rx6]: ../Media/rx6.png
+[rx7]: ../Media/rx7.png
+[rx8]: ../Media/rx8.png
+[rx9]: ../Media/rx9.png
+[rxa]: ../Media/rxa.png
+[rxb]: ../Media/rxb.png
+[rx]: ../Media/rx.png
+[rx]: ../Media/rx.png
+
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
+[]: ../Media/.png
 []: ../Media/.png
 []: ../Media/.png
 [rxNewCtx]: ../Media/rxNewCtx.png
