@@ -1,4 +1,4 @@
-<div>
+
 <div class="left-nav">
 <div class="static-nav">
 <ul>
