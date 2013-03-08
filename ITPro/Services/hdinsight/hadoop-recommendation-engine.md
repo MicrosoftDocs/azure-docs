@@ -1,10 +1,9 @@
-<properties linkid="manage-services-hdinsight-howto-hadoop-engine" urlDisplayName="Hadoop Recommendation Engine" pageTitle="Hadoop recommendation engine (.NET) - Windows Azure tutorials" metaKeywords="Azure Apache Mahout, Azure recommendation example, Azure recommendation tutorial, Azure recommendation engine" metaDescription="A tutorial that teaches how to use the Apache Mahout recommendation engine with Windows Azure to create song suggestions based on listening habits." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="wenming" />
+<properties linkid="develop-dotnet-hadoop-recommendation-engine" urlDisplayName="Hadoop Recommendation Engine" pageTitle="Hadoop recommendation engine (.NET) - Windows Azure tutorials" metaKeywords="Azure Apache Mahout, Azure recommendation example, Azure recommendation tutorial, Azure recommendation engine" metaDescription="A tutorial that teaches how to use the Apache Mahout recommendation engine with Windows Azure to create song suggestions based on listening habits." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="wenming"/>
 
-<div chunk="../chunks/hdinsight-left-nav.md" />
 
 # Simple recommendation engine using Apache Mahout 
 
-Apache Mahout™ is a machine learning library built for use in scalable machine learning applications. Recommender engines are some of the most immediately recognizable machine learning applications in use today. In this tutorial you use the  [Million Song Dataset](http://labrosa.ee.columbia.edu/millionsong/tasteprofile) to create song recommendations for users based on their past listening habits.
+Apache Mahout™ is a machine learning library built for use in scalable machine learning applications. Recommender engines are some of the most immediately recognizable machine learning applications in use today. In this tutorial you use the  [Million Song Dataset](http://labrosa.ee.columbia.edu/millionsong/tasteprofile) site and download the [dataset](http://labrosa.ee.columbia.edu/millionsong/sites/default/files/challenge/train_triplets.txt.zip) to create song recommendations for users based on their past listening habits.  This tutorial assumes that you already have an HDInsight Cluster running.
 
 You learn:
 
@@ -13,7 +12,8 @@ You learn:
 This tutorial is composed of the following segments:
 
 1. [Examining and formatting the data](#segment1).
-1. [Running the Mahout job](#segment2).
+3. [Installing Mahout](#Segment2).
+3. [Running the Mahout job](#segment2).
 
 <a name="setup"></a>
 ### Setup and configuration 
@@ -87,8 +87,8 @@ Next, fill the **Main** method with the following code:
 	reader.Close();
 	writer.Close();
 
-	SaveMapping(usersMapping, "usersMap.csv");
-	SaveMapping(songMapping, "songMapping.csv");
+	SaveMapping(usersMapping, "users.csv");
+	SaveMapping(songMapping, "mInput.csv");
 
 	Console.WriteLine("Mapping saved");
 	Console.ReadKey();
@@ -139,36 +139,70 @@ When running the utility, include a command line argument with the location of *
 
 _Setting the Command line argument_
 
-Press **F5** to run the program. Once complete, open the **bin\Debug** folder from the location to which the project was saved, and view the utility's output.
+Press **F5** to run the program. Once complete, open the **bin\Debug** folder from the location to which the project was saved, and view the utility's output.  You should find users.txt and mInput.txt
 
-![program output](../media/program-output.png)
-
-_The output of the ConvertToMahoutInput utility_
 
 <a name="segment2"></a>
-### Running the Mahout job 
+### Installing Mahout 
 
-Open the Hadoop cluster portal at <https://www.hadooponazure.com>, and click the **Remote Desktop** icon.
+Open the HDInsight cluster portal, and click the **Remote Desktop** icon.
 
 ![The Manage Cluster Icon](../media/the-manage-cluster-icon.png "The Manage Cluster Icon")
 
 _The Remote Desktop icon_
 
-Zip and copy the **mInput.txt** file from the **bin\Debug** folder to **c:\\** on the remote cluster. Once the file is copied, extract it.
+HDInsight by default does not include Mahout.  Since it is part of the Hadoop eco-system, it requires a simple download from the Mahout [website](http://mahout.apache.org/).  The most recent version is at 0.7, but this instruction works for both version 0.5 and 0.7.
+
+First, download [Mahout version 0.7](http://www.poolsaboveground.com/apache/mahout/0.7/mahout-distribution-0.7.zip) onto your local machine.
+
+Then Copy it onto the cluster by selecting the local zip file and press control-v to copy, then paste it on the head node of your Hadoop Cluster.
+
+![The Manage Cluster Icon](../media/uploading-mahout.PNG "The Manage Cluster Icon")
+_Copying Mahout to the Headnode_
+
+Finally right click on the zip file after the copying process is done, extract the Mahout distribution into C:\apps\dist.  You now have mahout installed in C:\apps\dist\mahout-distriution-0.7.  
+
+Rename the folder to c:\apps\dist\mahout-0.7 for simplicity.  
+
+
+
+<a name="segment3"></a>
+### Running the Mahout job 
+
+Copy the **mInput.txt** file from the **bin\Debug** folder to **c:\\** on the remote cluster. Once the file is copied, extract it. As mentioned in the previous section, copying a file onto a remote RDP session is by pressing control-C on your local machine after selecting the files, then control-v onto the RDP session Window. 
 
 Create a file that contains the ID of the user for whom you will be generating recommendations. To do so, simply create a text file called **users.txt** in **c:\\**, containing the id of a single user.
 
-> **Note:** You can generate recommendations for more users by putting their IDs on separate lines. If you have issues generating mInput.txt and users.txt you may download an pre-generated version at:  <https://github.com/wenming/BigDataSamples/tree/master/mahout>
+> **Note:** You can generate recommendations for more users by putting their IDs on separate lines. If you have issues generating mInput.txt and users.txt you may download an pre-generated version at this github [repository](https://github.com/wenming/BigDataSamples/tree/master/mahout). It is the most convenient to download everything as one [zip file](https://github.com/wenming/BigDataSamples/archive/master.zip). Find users.txt and mInput.txt and Copy them to the remote cluster in folder c:\
 
-Next, upload both **mInput.txt** and **users.txt** to HDFS. To do so, open the **Hadoop Command Shell** and run the following commands:
+At this point you should open a Hadoop terminal window and navitate to the folder that contains users.txt and mInput.txt.  
 
-	hadoop fs -copyFromLocal c:\mInput.txt input\mInput.txt
+![The Manage Cluster Icon](../media/mahout-commandwindow.PNG "Mahout command window Icon")
 
-	hadoop fs -copyFromLocal c:\users.txt input\users.txt
+_Hadoop Command Window_
+
+
+Next, copy both **mInput.txt** and **users.txt** to HDFS. To do so, open the **Hadoop Command Shell** and run the following commands:
+
+	hadoop dfs -copyFromLocal c:\mInput.txt input\mInput.txt
+	hadoop dfs -copyFromLocal c:\users.txt input\users.txt
+
+Verify the files have been copied to HDFS:
+
+	hadoop fs -ls input/
+
+This should show:  
+
+	Found 2 items
+	-rwxrwxrwx   1 writer supergroup      53322 2013-03-08 20:32 /user/writer/input/mInput.txt
+	-rwxrwxrwx   1 writer supergroup        353 2013-03-08 20:33 /user/writer/input/users.txt
+
 
 Now we can run the Mahout job using the following command:
 
-	hadoop jar c:\Apps\dist\mahout\mahout-core-0.5-job.jar org.apache.mahout.cf.taste.hadoop.item.RecommenderJob --input=input/mInput.txt --output=output --usersFile=input/users.txt
+	c:\apps\dist\mahout-0.7\bin>hadoop jar c:\Apps\dist\mahout-0.7\mahout-core-0.7-job.jar org.apache.mahout.cf.taste.hadoop.item.RecommenderJob -s SIMILARITY_COOCCURRENCE --input=input/mInput.txt --output=output --usersFile=input/users.txt
+
+There are many other "distance" functions that the recommendation engine could use to compare the feature fector for different users, you may experiment and change the Similarity class to SIMILARITY_COOCCURRENCE, SIMILARITY_LOGLIKELIHOOD, SIMILARITY_TANIMOTO_COEFFICIENT, SIMILARITY_CITY_BLOCK, SIMILARITY_COSINE, SIMILARITY_PEARSON_CORRELATION, SIMILARITY_EUCLIDEAN_DISTANCE.  For the purpose of this tutorial we will not go into the detailed data science aspect of Mahout. 
 
 The Mahout job should run for several minutes, after which an output file will be created. Run the following command to create a local copy of the output file:
 
@@ -177,6 +211,8 @@ The Mahout job should run for several minutes, after which an output file will b
 Open the **output.txt** file from the **c:\\** root folder and inspect its contents. The structure of the file is as follows:
 
 	user	[song:rating,song:rating, ...]
+
+If you would like to use other parts of Mahout on your cluster, you should save a copy of Mahout.cmd in the Mahout distribution's bin directory.  
 
 <a name="summary"></a>
 ## Summary 

@@ -4,8 +4,6 @@
 
 This tutorial will show you how to use the HDInsight service to process data stored in Windows Azure Blob Storage and move the results to a Windows Azure SQL Database. At a high level, these are the steps:
 
-##In this document
-
 * [Upload data to Windows Azure Blob Storage](#Upload)
 * [Create a HDInsight cluster](#CreateCluster)
 * [Create a Hive table from the data in ASV](#CreateHiveTable)
