@@ -1,27 +1,26 @@
-<properties linkid="develop-dotnet-hadoop-recommendation-engine" urlDisplayName="Hadoop Recommendation Engine" pageTitle="Hadoop recommendation engine (.NET) - Windows Azure tutorials" metaKeywords="Azure Apache Mahout, Azure recommendation example, Azure recommendation tutorial, Azure recommendation engine" metaDescription="A tutorial that teaches how to use the Apache Mahout recommendation engine with Windows Azure to create song suggestions based on listening habits." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="wenming"/>
+﻿<properties linkid="manage-services-hdinsight-recommendation-engine-using-mahout" urlDisplayName="Hadoop Recommendation Engine" pageTitle="Hadoop recommendation engine (.NET) - Windows Azure tutorials" metaKeywords="Azure Apache Mahout, Azure recommendation example, Azure recommendation tutorial, Azure recommendation engine" metaDescription="A tutorial that teaches how to use the Apache Mahout recommendation engine with Windows Azure to create song suggestions based on listening habits." disqusComments="1" umbracoNaviHide="1" writer="wenming"/>
 
+<div chunk="../chunks/hdinsight-left-nav.md" />
 
 # Simple recommendation engine using Apache Mahout 
 
 Apache Mahout™ is a machine learning library built for use in scalable machine learning applications. Recommender engines are some of the most immediately recognizable machine learning applications in use today. In this tutorial you use the  [Million Song Dataset](http://labrosa.ee.columbia.edu/millionsong/tasteprofile) site and download the [dataset](http://labrosa.ee.columbia.edu/millionsong/sites/default/files/challenge/train_triplets.txt.zip) to create song recommendations for users based on their past listening habits.  This tutorial assumes that you already have an HDInsight Cluster running.
 
-You learn:
+You will learn:
 
 * How to use Recommender Engines
 
 This tutorial is composed of the following segments:
 
-1. [Examining and formatting the data](#segment1).
-3. [Installing Mahout](#Segment2).
-3. [Running the Mahout job](#segment2).
+1. [Examining and formatting the data](#segment1)
+3. [Installing Mahout](#Segment2)
+3. [Running the Mahout job](#segment2)
 
-<a name="setup"></a>
-### Setup and configuration 
+## <a name="setup"></a>Setup and configuration 
 
 You must have an account to access Apache™ Hadoop™-based Services for Windows Azure and have created a cluster to work through this tutorial. To obtain an account and create a Hadoop cluster, follow the instructions outlined in the _Getting started with Microsoft Hadoop on Windows Azure_ section of the _Introduction to Hadoop on Windows Azure_ topic.
 
-<a name="segment1"></a>
-### Examining and formatting the data 
+## <a name="segment1"></a>Examining and formatting the data 
 
 Apache Mahout provides a built-in implementation for Item-based Collaborative Filtering. Item-based Collaborative Filtering is a popular way to conduct recommendation data mining. 
 
@@ -141,9 +140,7 @@ _Setting the Command line argument_
 
 Press **F5** to run the program. Once complete, open the **bin\Debug** folder from the location to which the project was saved, and view the utility's output.  You should find users.txt and mInput.txt
 
-
-<a name="segment2"></a>
-### Installing Mahout 
+## <a name="segment2"></a>Installing Mahout 
 
 Open the HDInsight cluster portal, and click the **Remote Desktop** icon.
 
@@ -164,10 +161,7 @@ Finally right click on the zip file after the copying process is done, extract t
 
 Rename the folder to c:\apps\dist\mahout-0.7 for simplicity.  
 
-
-
-<a name="segment3"></a>
-### Running the Mahout job 
+### <a name="segment3"></a>Running the Mahout job 
 
 Copy the **mInput.txt** file from the **bin\Debug** folder to **c:\\** on the remote cluster. Once the file is copied, extract it. As mentioned in the previous section, copying a file onto a remote RDP session is by pressing control-C on your local machine after selecting the files, then control-v onto the RDP session Window. 
 
@@ -214,7 +208,7 @@ Open the **output.txt** file from the **c:\\** root folder and inspect its conte
 
 If you would like to use other parts of Mahout on your cluster, you should save a copy of Mahout.cmd in the Mahout distribution's bin directory.  
 
-<a name="summary"></a>
-## Summary 
+
+## <a name="summary"></a>Summary 
 
 Recommender engines provide important functionality for many modern social networking sites, online shopping, streaming media, and other internet sites. Mahout provides an out-of-the-box recommendation engine that is easy to use, contains many useful features, and is scalable on Hadoop.
