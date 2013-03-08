@@ -301,18 +301,17 @@ The application shows the seed data and provides edit, details and delete links.
 
 <h2><a name="addOauth"></a><span class="short-header">OAuth</span>Add an OAuth Provider</h2>
 
-[OAuth](http://oauth.net/ "http://oauth.net/") is an open protocol that allows secure authorization in a simple and standard method from web, mobile and desktop applications. The ASP.NET MVC internet template uses OAuth to expose Facebook, Twitter, Google and Microsoft as authentication providers. Although the examples in this tutorial focus on using Facebook as the authentication provider, you can modify the code to use any of the providers. The steps to implement any provider are very similar to the steps you will see in this tutorial. 
+[OAuth](http://oauth.net/ "http://oauth.net/") is an open protocol that allows secure authorization in a simple and standard method from web, mobile and desktop applications. The ASP.NET MVC internet template uses OAuth to expose Facebook, Twitter, Google, Yahoo and Microsoft as authentication providers. Although this tutorial uses only Facebook, Google and Yahoo as the authentication providers, you can easily modify the code to use any of the providers. The steps to implement other providers are very similar to the steps you will see in this tutorial. 
 
 In addition to authentication, the tutorial will also use roles to implement authorization. Only those users you add to the managers role will be able to create, edit or delete contacts.
 
 ## Registering with an external provider ##
 
-To authenticate users with credentials from an external provider, you must register your web site with the provider. When you register your site, you will receive the parameters (such as key or id, and secret) to include when registering the client. You must have an account with the providers you wish to use.
+To authenticate users with credentials from some external providers, you must register your web site with the provider and obtain a key and connection secret. Google and Yahoo don't require to register and obtain keys. You must have an account with the providers you wish to use.
 
 This tutorial does not show all of the steps you must perform to register with these providers. The steps are typically not difficult. To successfully register your site, follow the instructions provided on those sites. To get started with registering your site, see the developer site for:
 
 - [Facebook](http://developers.facebook.com/)
-- [Google](http://developers.google.com/)
 - [Microsoft](http://manage.dev.live.com/)
 - [Twitter](http://dev.twitter.com/)
 
@@ -324,7 +323,7 @@ Enter localhost for the **App Domain** and http://localhost/ for the **Site URL*
 <br/><br/>
 
 You will need the **App ID** and the **App Secret** to implement OAuth in this application.
-<br/>![New FB app][rxFB]
+<br/><br/>![New FB app][rxFB]
 <br/>
 ## Creating test users ##
 In the left pane under **Settings** click **Developer Roles**. Click the **Create** link on the **Test Users** row (not the **Testers** row).
@@ -334,29 +333,17 @@ Click on the **Modify** link to get the test users email (which you will use to 
 
 ## Adding application id and secret from the provider ##
 
-Open the *App_Start\AuthConfig.cs* file. Remove the comment characters from the *RegisterFacebookClient* method and add the app id and app secret. Use the values you obtained, the values shown below will not work.
+Open the *App_Start\AuthConfig.cs* file. Remove the comment characters from the *RegisterFacebookClient* method and add the app id and app secret. Use the values you obtained, the values shown below will not work. Remove the comment characters from the *OAuthWebSecurity.RegisterGoogleClient* call and add the *OAuthWebSecurity.RegisterYahooClient* as shown below. The Google and Yahoo providers don't require you to register and obtain keys.
 
-
-    public static class AuthConfig
-    {
-        public static void RegisterAuth()
+     public static void RegisterAuth()
         {
- 
-            //OAuthWebSecurity.RegisterMicrosoftClient(
-            //    clientId: "",
-            //    clientSecret: "");
-
-            //OAuthWebSecurity.RegisterTwitterClient(
-            //    consumerKey: "",
-            //    consumerSecret: "");
-
             OAuthWebSecurity.RegisterFacebookClient(
                 appId: "387804053624929",
                 appSecret: "242d880946797e722ce66d8a057d344f");
 
-            //OAuthWebSecurity.RegisterGoogleClient();
+            OAuthWebSecurity.RegisterGoogleClient();
+            OAuthWebSecurity.RegisterYahooClient();
         }
-    }
 
 
 1. Run the application and click  the **Log In** link. 
@@ -364,7 +351,9 @@ Open the *App_Start\AuthConfig.cs* file. Remove the comment characters from the 
 1. Enter your Facebook credentials or one of the test users credentials.
 1. Click **Okay** to allow the application to access your Facebook resources.
 1. You are redirected to the Register page. If you logged in using a test account, you can change the **user name** to something shorter, for example "Bill FB test". Click the **Register** button which will save the user name and email alias to the membership database. 
-1. Register another user. Currently a bug in the log in system prevents you from logging off and singing in as another user. To work around this, navigate to the site using another browser and register another user. One user will be added to the manager role and have edit access to application, the other user will only have access to non-edit methods on the site. Anonymous users will only have access to the home page.
+1. Register another user. Currently a bug in the log in system prevents you from logging off and loging in as another user using the same provider (that is, you can't log off your Facebook account and log back in with a different Facebook account). To work around this, navigate to the site using another browser and register another user. One user will be added to the manager role and have edit access to application, the other user will only have access to non-edit methods on the site. Anonymous users will only have access to the home page.
+1. Register another user using a different provider.
+1. **Optional**: You can also create a local account not associated with one of the providers. Later on in the tutorial we will remove creating local accounts. To create a local account, click the **Log out** link (if you are logged in), then click the **Register link**. You might want to create a local account for administration purposes that is not associated with any external authenticaion provider.
 
 <h2><a name="mbrDB"></a><span class="short-header">Membership DB</span>Add Roles to the Membership Database</h2>
 
