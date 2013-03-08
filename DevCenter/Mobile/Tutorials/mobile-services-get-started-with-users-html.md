@@ -61,51 +61,76 @@ Both your mobile service and your app are now configured to work with your chose
 
    ![][15]
 
-3. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
+3. In the app directory, launch one of the following command files from the **server** subfolder.
 
-4. Press the F5 key to run this quickstart-based app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. 
-   
-   This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
+	+ **launch-windows** (Windows computers) 
+	+ **launch-mac.command** (Mac OS X computers)
+	+ **launch-linux.sh** (Linux computers)
 
-Next, you will update the app to authenticate users before requesting resources from the mobile service.
+	<div class="dev-callout"><b>Note</b>
+		<p>On a Windows computer, type `R` when PowerShell asks you to confirm that you want to run the script. Your web browser might warn you to not run the script because it was downloaded from the internet. When this happens, you must request that the browser proceed to load the script.</p>
+	</div>
+
+	This starts a web server on your local computer to host the new app.
+
+2. Open the URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> in a web browser to start the app. 
+
+	The data fails load. This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
+
+3. (Optional) Open the script debugger for your web browser and reload the page. Verify that an access denied error occurs. 
+
+Next, you will update the app to allow authentication before requesting resources from the mobile service.
 
 <h2><a name="add-authentication"></a><span class="short-header">Add authentication</span>Add authentication to the app</h2>
 
-1. Open the project file app.js and _XXXX Krishnan we need to figure out how to use this code XXXX_ with the following code: 
+	<div class="dev-callout"><b>Note</b>
+		<p>Because login is performed in a popup, you should invoke the <strong>login</strong> method from a button's click event.</p>
+	</div>
+
+1. Open the project file index.html, locate the H1 element and under it add the following code snippet:
+
+	    <div id="logged-in">
+            You are logged in as <span id="login-name"></span>.
+            <button id="log-out">Log out</button>
+        </div>
+        <div id="logged-out">
+            You are not logged in.
+            <button>Log in</button>
+        </div>
+
+	This enables you to login to Mobile Services from the page.
+
+2. In the app.js file, locate the line of code that calls to the refreshTodoItems function, and replace it with the following code: 
 	
-        var userId = null;
+		function refreshAuthDisplay() {
+			var isLoggedIn = client.currentUser !== null;
+			$("#logged-in").toggle(isLoggedIn);
+			$("#logged-out").toggle(!isLoggedIn);
 
-        // Request authentication from Mobile Services using a Facebook login.
-        var login = function () {
-            return new WinJS.Promise(function (complete) {
-                mobileService.login("facebook").done(function (results) {;
-                    userId = results.userId;
-                    refreshTodoItems();
-                    var message = "You are now logged in as: " + userId;
-                    var dialog = new Windows.UI.Popups.MessageDialog(message);
-                    dialog.showAsync().done(complete);
-                }, function (error) {
-                    userId = null;
-                    var dialog = new Windows.UI.Popups
-                        .MessageDialog("An error occurred during login", "Login Required");
-                    dialog.showAsync().done(complete);
-                });
-            });
-        }            
+			if (isLoggedIn) {
+				$("#login-name").text(client.currentUser.userId);
+			}
+		}
 
-        var authenticate = function () {
-            login().then(function () {
-                if (userId === null) {
+		function logIn() {
+			client.login("twitter").then(refreshAuthDisplay, handleError);
+		}
 
-                    // Authentication failed, try again.
-                    authenticate();
-                }
-            });
-        }
+		function logOut() {
+			client.logout();
+			refreshAuthDisplay();
+		}
 
-        authenticate();
+		// On page init, fetch the data and set up event handlers
+		$(function () {
+			refreshTodoItems();
+			refreshAuthDisplay();
+			$("#add-item").submit(addTodoItem);
+			$("#logged-out button").click(logIn);
+			$("#logged-in button").click(logOut);
+		});
 
-    This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login.
+    This creates a variable to track if a user is logged in storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login.
 
     <div class="dev-callout"><b>Note</b>
 	<p>If you are using an identity provider other than Facebook, change the value passed to the <strong>login</strong> method above to one of the following: <i>microsoftaccount</i>, <i>facebook</i>, <i>twitter</i>, or <i>google</i>.</p>
@@ -114,6 +139,10 @@ Next, you will update the app to authenticate users before requesting resources 
 9. Navigate to the index.html page to run the app and sign into the app with your chosen identity provider. 
 
    When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+
+	<div class="dev-callout"><b>Note</b>
+		<p>When you use Internet Explorer, you may receive the error after login: <code>Cannot reach window opener. It may be on a different Internet Explorer zone</code>. This occurs because the pop-up runs in a different security zone (internet) from localhost (intranet). This only affects apps during development using localhost. As a workaround, open the <strong>Security</strong> tab of <strong>Internet Options</strong>, click <strong>Local Intranet</strong>, click <strong>Sites</strong>, and disable <strong>Automatically detect intranet network</strong>. Remember to change this setting back when you are done testing.</p>
+	</div>
 
 ## <a name="next-steps"> </a>Next steps
 

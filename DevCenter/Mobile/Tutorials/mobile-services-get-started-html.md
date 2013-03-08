@@ -16,7 +16,17 @@ Completing this tutorial is a prerequisite for all other Mobile Services tutoria
 
 <div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Mobile Services feature enabled.</p> <ul> <li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F" target="_blank">Windows Azure Free Trial</a>.</li> <li>If you have an existing account but need to enable the Windows Azure Mobile Services preview, see <a href="../create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li> </ul> </div>
 
-You must also have a web server running on your local computer. The web server and browser must support HTML5.
+###Additional requirements
+
++ This tutorial requires that you have one of the following web servers running on your local computer:
+
+	+  **On Windows**: IIS Express. IIS Express is installed by the [Microsoft Web Platform Installer].   
+	+  **On MacOS X**: Python, which should already be installed.
+	+  **On Linux**: Python. You must install the [latest version of Python]. 
+	
+	You can use any web server to host the app, but these are the web servers that are supported by the downloaded scripts.  
+
++ A web browser that supports HTML5.
 
 
 ## <a name="create-new-service"> </a>Create a new mobile service
@@ -83,15 +93,19 @@ The final stage of this tutorial is to host and run your new app on your local c
 
 1. Browse to the location where you saved the compressed project files, expand the files on your computer, and launch one of the following command files from the **server** subfolder.
 
-	+ **launch-windows.com** (Windows computers) 
+	+ **launch-windows** (Windows computers) 
 	+ **launch-mac.command** (Mac OS X computers)
 	+ **launch-linux.sh** (Linux computers)
 
+	<div class="dev-callout"><b>Note</b>
+		<p>On a Windows computer, type `R` when PowerShell asks you to confirm that you want to run the script. Your web browser might warn you to not run the script because it was downloaded from the internet. When this happens, you must request that the browser proceed to load the script.</p>
+	</div>
+
 	This starts a web server on your local computer to host the new app.
 
-2. Open the URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> in a web browser start the app.
+2. Open the URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> in a web browser to start the app.
 
-3. In the app, type meaningful text, such as _Complete the tutorial_, in **Enter a new task**, and then click **Add**.
+3. In the app, type meaningful text, such as _Complete the tutorial_, in **Enter new task**, and then click **Add**.
 
    ![][10]
 
@@ -145,3 +159,5 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Get started with authentication]: ./mobile-services-get-started-with-users-html.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
+[Microsoft Web Platform Installer]:  http://go.microsoft.com/fwlink/p/?LinkId=286333
+[latest version of Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342

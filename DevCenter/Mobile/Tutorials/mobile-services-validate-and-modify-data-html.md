@@ -44,7 +44,7 @@ It is always a good practice to validate the length of data that is submitted by
             }
         }
 
-    This script checks the length of the **TodoItem.text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** method is called to complete the insert.
+    This script checks the length of the **TodoItem.text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** function is called to complete the insert.
 
     <div class="dev-callout"> 
 	<b>Note</b> 
@@ -54,29 +54,38 @@ It is always a good practice to validate the length of data that is submitted by
 
 Now that the mobile service is validating data and sending error responses, you need to update your app to be able to handle error responses from validation.
 
-1. In a web browser, navigate to the index.html page for the project that you modified when you completed the tutorial [Get started with data], then type text in **Add new task** and click **Add**.
+1. Run one of the following command files from the **server** subfolder of the project that you modified when you completed the tutorial [Get started with data].
 
-   Notice that the app raises an unhandled error as a result of the 400 response (Bad Request) returned by the mobile service.
+	+ **launch-windows** (Windows computers) 
+	+ **launch-mac.command** (Mac OS X computers)
+	+ **launch-linux.sh** (Linux computers)
 
-2. 	Open the file app.js, then replace the existing **InsertTodoItem** method with the following:
-   
-  TODOKR Krishnan we need to update this.
+	<div class="dev-callout"><b>Note</b>
+		<p>On a Windows computer, type `R` when PowerShell asks you to confirm that you want to run the script. Your web browser might warn you to not run the script because it was downloaded from the internet. When this happens, you must request that the browser proceed to load the script.</p>
+	</div>
 
-        var insertTodoItem = function (todoItem) {
-            // Inserts a new row into the database. When the operation completes
-            // and Mobile Services has assigned an id, the item is added to the binding list.
-            todoTable.insert(todoItem).done(function (item) {
-                todoItems.push(item);
-            }, function (error) {
-                // Create the error message dialog and set its content to the error
-                // message contained in the response.
-                var msg = new Windows.UI.Popups.MessageDialog(
-                    error.request.responseText);
-                msg.showAsync();
-            });
-        };
+	This starts a web server on your local computer to host the app.
 
-   This version of the method includes error handling that displays the error response in a dialog.
+1. In a web browser, navigate to <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>, then type text in **Add new task** and click **Add**.
+
+   Notice that the operation fails, which is a result of the 400 response (Bad Request) returned by the mobile service.
+
+2. 	Open the file app.js, then replace the **$('#add-item').submit()** event handler with the following code:
+
+		$('#add-item').submit(function(evt) {
+			var textbox = $('#new-item-text'),
+				itemText = textbox.val();
+			if (itemText !== '') {
+				todoItemTable.insert({ text: itemText, complete: false })
+					.then(refreshTodoItems, function(error){
+					alert(error.request.responseText);
+				});
+			}
+			textbox.val('').focus();
+			evt.preventDefault();
+		});
+
+   This version of the event handler includes error handling that displays the error response in a dialog.
 
 ## <a name="add-timestamp"></a>Add a timestamp
 
@@ -99,7 +108,7 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
 	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>createdAt</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published.</p>
     </div>
 
-2. In the web browser, press **F5** to re-run the app, then type text (shorter than 10 characters) in **Add new task** and click **Add**.
+2. In the web browser, reload the page, then type text (shorter than 10 characters) in **Add new task** and click **Add**.
 
    Notice that the new timestamp does not appear in the app UI.
 
@@ -113,38 +122,41 @@ Next, you need to update the app to display this new column.
 
 The Mobile Service client will ignore any data in a response that it cannot serialize into properties on the defined type. The final step is to update the client to display this new data.
 
-1. In your web editor, open the file index.html, then add the following HTML element in the TemplateItem grid:
+1. In your editor, open the file app.js, then replace the **refreshTodoItems** function with the following code:
 
-     TODOKR Krishnan we need to make this correct
-	      
-        <div style="-ms-grid-column: 4; -ms-grid-row-align: center; margin-left: 5px" 
-            data-win-bind="innerText: createdAt"></div>  
+     	function refreshTodoItems() {
+			var query = todoItemTable.where({ complete: false });
+
+			query.read().then(function(todoItems) {
+				var listItems = $.map(todoItems, function(item) {
+					return $('<li>')
+						.attr('data-todoitem-id', item.id)
+						.append($('<button class="item-delete">Delete</button>'))
+						.append($('<input type="checkbox" class="item-complete">').prop('checked', item.complete))
+						.append($('<div>').append($('<input class="item-text">').val(item.text)));
+						.append($('<div>').append($('<input class="timestamp">').val(item.createdAt)));
+				});
+
+				$('#todo-items').empty().append(listItems).toggle(listItems.length > 0);
+				$('#summary').html('<strong>' + todoItems.length + '</strong> item(s)');
+			});
+		}
 
    This displays the new **createdAt** property. 
 	
-6. Press the **F5** key to re-run the app. 
+6. Reload the page. 	
 
    Notice that the timestamp is only displayed for items inserted after you updated the insert script.
 
-7. In the app.js file, replace the existing **RefreshTodoItems** method with the following code:
+7. Again in the **refreshTodoItems** function, replace the line of code that defines the query with the following:
 
-     TODOKR  we need to make this correct 
-
-        var refreshTodoItems = function () {
-            // More advanced query that filters out completed items. 
-            todoTable.where(function () {
+         var query = todoItemTable.where(function () {
                 return (this.complete === false && this.createdAt !== null);
             })
-            .read()
-            .done(function (results) {
-                todoItems = new WinJS.Binding.List(results);
-                listItems.winControl.itemDataSource = todoItems.dataSource;
-            });
-        };
 
-   This method updates the query to also filter out items that do not have a timestamp value.
+   This function updates the query to also filter out items that do not have a timestamp value.
 	
-8. Press the **F5** key to re-run the app.
+8. Reload the page.
 
    Notice that all items created without timestamp value disappear from the UI.
 

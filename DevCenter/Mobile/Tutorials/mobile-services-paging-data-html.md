@@ -16,18 +16,30 @@ This topic shows you how to use paging to manage the amount of data returned to 
 
 This tutorial builds on the steps and the sample app from the previous tutorial [Get started with data]. Before you begin this tutorial, you must complete at least the first tutorial in the working with data series, [Get started with data]. 
 
-1. In a web browser, navigate to the index.html page for the project that you modified when you completed the tutorial [Get started with data], then type text in **Add new task** and click **Add**.
+1. Run one of the following command files from the **server** subfolder of the project that you modified when you completed the tutorial [Get started with data].
+
+	+ **launch-windows** (Windows computers) 
+	+ **launch-mac.command** (Mac OS X computers)
+	+ **launch-linux.sh** (Linux computers)
+
+	<div class="dev-callout"><b>Note</b>
+		<p>On a Windows computer, type `R` when PowerShell asks you to confirm that you want to run the script. Your web browser might warn you to not run the script because it was downloaded from the internet. When this happens, you must request that the browser proceed to load the script.</p>
+	</div>
+
+	This starts a web server on your local computer to host the app.
+
+1. In a web browser, navigate to <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>, then type text in **Add new task** and click **Add**.
 
 3. Repeat the previous step at least three times, so that you have more than three items stored in the TodoItem table. 
 
-2. In the default.js file, replace the definitoin of the `query` variable in the **RefreshTodoItems** method with the following line code:
+2. In the app.js file, replace the definitoin of the `query` variable in the **refreshTodoItems** method with the following line code:
 
        
         var query = todoItemTable.where({ complete: false }).take(3);
 
   This query, when executed, returns the top three items that are not marked as completed.
 
-3. Press the **F5** key to re-load the app.
+3. Go back to the web browser and reload the page.
 
   Notice that only the first three results from the TodoItem table are displayed. 
 
@@ -38,6 +50,8 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 5. Update the query once more with the following code:
             
         var query = todoItemTable.where({ complete: false }).skip(3).take(3);
+
+3. Go back to the web browser and reload the page.
 
    This query skips the first three results and returns the next three after that. This is effectively the second "page" of data, where the page size is three items.
 
