@@ -22,8 +22,7 @@ To get started with SQL Reporting, you must have a Windows Azure subscription. Y
 * [Update permissions on a Report item][]
 * [Next Steps][]
 
-
-<h2 id="CreateRSS">Create a reporting service</h2>
+<h2><a id="CreateRSS"></a>Create a reporting service</h2>
 Use Quick Create to easily create a new reporting service in SQL Reporting. You'll choose a region and provide the user name and password of the server administrator.
 
 1. On the navigation pane, click **SQL Reporting**. 
@@ -45,8 +44,7 @@ Use Quick Create to easily create a new reporting service in SQL Reporting. You'
 The reporting service is created using the current subscription.
 The reporting service name is a 10 character GUID composed of letters and numbers.
 
-
-<h2 id="CreateUser">Create a user and assign roles</h2>
+<h2><a id="CreateUser"></a>Create a user and assign roles</h2>
 1.	Click the name of service you just created. 
 
 	![SQLReportListView][]
@@ -60,7 +58,7 @@ The reporting service name is a 10 character GUID composed of letters and number
 	User names must be unique. If you provide a duplicate name, an error message displays and you cannot continue until you change the user name to one that is unique.
 
 
-<h2 id="Upload">Upload a report</h2>
+<h2><a id="Upload"></a>Upload a report</h2>
 1.	Click **Items** at the top of the page to manage items. 
 
 2. Click **Add** , and then click **Upload Report**.
@@ -83,8 +81,7 @@ The reporting service name is a 10 character GUID composed of letters and number
  
 10.	Click the check mark to upload the file.
 
-
-<h2 id="DownloadReport">Download a report</h2>
+<h2><a id="DownloadReport"></a>Download a report</h2>
 1.	On the Items page, you can select an existing report and download it.
 
 2.	Click the report in the Report list, click the down arrow to the right of the report name, and then click **download**.
@@ -97,10 +94,10 @@ The reporting service name is a 10 character GUID composed of letters and number
 8.	You return to **Download Report** and the name of the report appears in Report.
 
 9.	You cannot change the report name. If you want change the name, update the properties on the report. For more information, see [How to: Update Permissions on Report Server Item (Windows Azure SQL Reporting)][]. 
+
 10.	Close the dialog box.
 
-
-<h2 id="RunReportRS">Run a report : from the portal</h2>
+<h2><a id="RunReportRS"></a>Run a report : from the portal</h2>
 1.	In the management portal, click the reporting service to which you uploaded or deployed the report that you want to run. 
 
 2.	On the Dashboard, click the link [Link] next to the Web service URL. 
@@ -113,8 +110,7 @@ The reporting service name is a 10 character GUID composed of letters and number
 
 6.	Optionally, explore the report by displaying different report pages, searching for values in the report, and exporting the report to a different format.
 
-
-<h2 id="CreateDS">Create a data source</h2>
+<h2><a id="CreateDS"></a>Create a data source</h2>
 1.	Use the **Items** page to create a shared data source. 
 
 2.	If you do not want the new data source in the root folder of the report server, navigate to the folder in which you want to create the data source. 
@@ -133,10 +129,10 @@ The reporting service name is a 10 character GUID composed of letters and number
 
 	* **Prompt for credentials** to prompt users to provide a user name and password when they run the report. Optionally, update the default prompt text: **Type the user name and password to use in order to access the data source:**. 
 	* **Credentials stored securely in the report server** to provide a user name and a password that is stored on the report server, separately from the report.
+
 9.	Close the dialog box.
 
-
-<h2 id="CreateFolder">Create a folder</h2>
+<h2><a id="CreateFolder"></a>Create a folder</h2>
 1.	Navigate to the folder in which you want to create a new folder.
 
 2.	Breadcrumbs provide a visual presentation of the path from the root folder to the current folder. 
@@ -151,8 +147,8 @@ The reporting service name is a 10 character GUID composed of letters and number
 
 8.	By default, a folder inherits the role assignments of its parent folder. After you create the folder, you can update its role assignments. For more information, see [How to: Update Permissions on Report Server Item (Windows Azure SQL Reporting)][].
 
+<h2><a id="UpdatePerm"></a>Update permissions on a Report item</h2>
 
-<h2 id="UpdatePerm">Update permissions on a Report item</h2>
 1.	To update permissions on a report item, Click the row that contains the report items, click the down arrow to the right of the folder, and then click Permissions. The Manage Permissions dialog box opens.
  
 	To update permissions of a Folder, you can optionally click Permissions in the Folder category of the portal ribbon.
@@ -173,7 +169,7 @@ The reporting service name is a 10 character GUID composed of letters and number
 
 5.	Close the dialog box.
 
-<h2 id="NextSteps">Next Steps</h2>
+<h2><a id="NextSteps"></a>Next Steps</h2>
 
 Now that you've learned the basics of SQL Reporting administration, see [Windows Azure SQL Reporting][] on MSDN.
 

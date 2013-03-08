@@ -13,7 +13,7 @@ You will create and provision a sample database on Windows Azure and query syste
 ##Table of Contents##
 
 * [Step 1: Create a Windows Azure account](#Subscribe)
-* [Step 2: Connect to Windows Azure and create a database](#Subscribe)
+* [Step 2: Connect to Windows Azure and create a database](#Connect)
 * [Step 3: Configure the firewall](#ConfigFirewall)
 * [Step 4: Add data and a schema using Transact-SQL script](#AddData)
 * [Step 5: Create the schema](#createschema)
@@ -24,7 +24,7 @@ You will create and provision a sample database on Windows Azure and query syste
 * [Step 10: Configure SQL Data Sync](#ConfigureDataSync)
 
 
-<h2 id="Subscribe">Step 1: Create a Windows Azure account</h2>
+<h2><a id="Subscribe"></a>Step 1: Create a Windows Azure account</h2>
 
 1. Open a web browser, and browse to [http://www.windowsazure.com](http://www.windowsazure.com).
 To get started with a free account, click free trial in the upper right corner and follow the steps.
@@ -32,7 +32,7 @@ To get started with a free account, click free trial in the upper right corner a
 2. Your account is now created. You are ready to get started.
 
 
-<h2 id="Connect">Step 2: Connect to Windows Azure and create a database</h2>
+<h2><a id="Connect"></a>Step 2: Connect to Windows Azure and create a database</h2>
 
 
 1. Sign in to the [Management Portal](http://manage.windowsazure.com). You should see a navigation pane that looks like this. 
@@ -82,7 +82,7 @@ In the next step, you will configure the firewall so that connections from appli
 
 
 
-<h2 id="ConfigFirewall">Step 3: Configure the firewall</h2>
+<h2><a id="ConfigFirewall"></a>Step 3: Configure the firewall</h2>
 
 To configure the firewall so that connections are allowed through, you'll enter information on the server page.
 
@@ -119,7 +119,7 @@ As your skills increase, you will want to explore additional ways of creating a 
 
 
 
-<h2 id="AddData">Step 4: Add data and a schema using Transact-SQL script</h2>
+<h2><a id="AddData"></a>Step 4: Add data and a schema using Transact-SQL script</h2>
 
 In this step, you run two scripts. The first one creates a schema that defines tables, columns, and relationships. The second script adds the data. Each step is performed independently on a separate connection. If you've built databases in SQL Server before, one of the differences you'll notice in SQL Database is that CREATE and INSERT commands must run in separate batches. SQL Database imposes this requirement to minimize attacks against the data while it is in transit. 
 
@@ -147,7 +147,7 @@ In this step, you run two scripts. The first one creates a schema that defines t
 	![Image12] []
 	
 
-<h2 id="createschema">Step 5: Create the schema</h2>
+<h2><a id="createschema"></a>Step 5: Create the schema</h2>
 
 In this step, you will create the schema using the following script. The script first checks for an existing table of the same name to ensure there won't be a name collision, and creates the table using the [CREATE TABLE](http://msdn.microsoft.com/en-us/library/windowsazure/ee336258.aspx) statement. Further on, this script uses the [ALTER TABLE](http://msdn.microsoft.com/en-us/library/windowsazure/ee336286.aspx) statement to specify the primary key and table relationships.
 
@@ -393,7 +393,7 @@ Copy the script and paste it into the query window. Click **Run** at the top of 
 
 
 
-<h2 id="insertData">Step 6: Insert data</h2>
+<h2><a id="insertData"></a>Step 6: Insert data</h2>
 
 Open a new query window and then paste in the following script. Run the script to insert data. This script uses the [INSERT](http://msdn.microsoft.com/en-us/library/windowsazure/ee336284.aspx) statement to add values to each column.
 
@@ -650,11 +650,11 @@ Open a new query window and then paste in the following script. Run the script t
 </pre></div>
 
 
-<h2 id="QueryDBSysData">Step 7: Query sample and system data in the Management Portal for SQL Database</h2>
+<h2><a id="QueryDBSysData"></a>Step 7: Query sample and system data in the Management Portal for SQL Database</h2>
 
 To check your work, run a query that returns the data you just entered. You can also run built-in stored procedures and data management views that provide information about the databases running on your SQL Database server.
 
-<h4 id="QueryDB">Query sample data</h4>
+<h4><a id="QueryDB"></a>Query sample data</h4>
 
 In a new query window, copy and run the following Transact-SQL script to retrieve some of the data you just added.
 
@@ -684,7 +684,7 @@ You should see a result set that looks like the following illustration.
 ![Image13] []
 
 
-<h4 id="QuerySys">Query system data</h4>
+<h4><a id="QuerySys"></a>Query system data</h4>
 
 You can also use system views and built-in stored procedures to get information from the server. For the purposes of this tutorial, you will try out just a few commands.
 
@@ -704,7 +704,7 @@ Do not close the portal connection to the **School** database. You will need it 
 
 
 
-<h2 id="DBLogin">Step 8: Create a database login and assign permissions</h2>
+<h2><a id="DBLogin"></a>Step 8: Create a database login and assign permissions</h2>
 
 In SQL Database, you can create logins and grant permissions using Transact-SQL. In this lesson, using Transact-SQL, you will do three things: create a SQL Server authentication login, create  a database user, and grant permissions via role membership.
 
@@ -712,7 +712,7 @@ A SQL Server authentication login is used for server connections. All users who 
 
 To create a login, you must first connect to the **master** database.
 
-<h4 id="CreateLogin">Create a SQL Server authentication login</h4>
+<h4><a id="CreateLogin"></a>Create a SQL Server authentication login</h4>
 
 1. In the [Management Portal](http://manage.windowsazure.com), select **SQL Databases**, click **Servers**, choose the server and then click the white arrow to open the
 server page. 
@@ -740,7 +740,7 @@ server page.
 7. Run the command to create a new SQL Server login named 'SQLDBLogin'.
 
 
-<h4 id="CreateDBuser">Create a database user and assign permissions</h4>
+<h4><a id="CreateDBuser"></a>Create a database user and assign permissions</h4>
 
 After you create a SQL Server authentication login, the next step is to assign the database and permission levels associated with the login. You do this by creating a **database user** on each database.
 
@@ -767,7 +767,7 @@ You now have a new SQL Server authentication login that has read-only permission
 
 
 
-<h2 id="ClientConnection">Step 9: Connect from other applications</h2>
+<h2><a id="ClientConnection"></a>Step 9: Connect from other applications</h2>
 
 Now that you have an operational database, you can connect to it from an Excel workbook.
 
@@ -803,7 +803,7 @@ If Excel 2010 is installed on your computer, you can use the following steps to 
 
 Using just Excel, you can import only one table at a time. A better approach is to use the PowerPivot for Excel add-in, which lets you import and work with multiple tables as a single data set. Working with PowerPivot is beyond the scope of this tutorial, but you can get more information on this [Microsoft web site](http://www.microsoft.com/en-us/bi/powerpivot.aspx).
 
-<h2 id="ConfigureDataSync">Step 9: Configure SQL Data Sync</h2>
+<h2><a id="ConfigureDataSync"></a>Step 9: Configure SQL Data Sync</h2>
 
 <h4>SQL Data Sync</h4>
 
@@ -813,7 +813,7 @@ SQL Data Sync is a feature of SQL Database that enables you to synchronize selec
 
 For more information about SQL Data Sync, see [Getting Started with SQL Data Sync](http://go.microsoft.com/fwlink/?LinkId=274959).
 
-<h2 id="NextSteps">Next steps</h2>
+<h2><a id="NextSteps"></a>Next steps</h2>
 
 Now that you are familiar with SQL Database and the management portals, you can try out other tools and techniques used by SQL Server database administrators.
 

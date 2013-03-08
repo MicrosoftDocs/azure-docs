@@ -17,7 +17,7 @@ In this tutorial you will:
 - [Complete configuration steps to connect to the virtual machine using SQL Server Management Studio on another computer](#SSMS)
 - [Optional next steps](#Optional)
 
-<h2 id="Provision">Connect to the Windows Azure management portal and provision a virtual machine from the gallery</h2>
+<h2><a id="Provision"></a>Connect to the Windows Azure management portal and provision a virtual machine from the gallery</h2>
 
 1. Log in to the [Windows Azure Management Portal](http://manage.windowsazure.com) using your account. If you do not have a Windows Azure account, visit [Windows Azure 3 Month free trial](http://www.windowsazure.com/en-us/pricing/free-trial/).
 	![Connect to Portal] [Image1]
@@ -85,7 +85,7 @@ In this tutorial you will:
 
 	![VM Options] [Image7]
 
-<h2 id="RemoteDesktop">Open the virtual machine using Remote Desktop and complete setup</h2>
+<h2><a id="RemoteDesktop"></a>Open the virtual machine using Remote Desktop and complete setup</h2>
 
 1. When provisioning completes, click on the name of your virtual machine to go to the DASHBOARD page. At the bottom of the page, click **Connect**.
 
@@ -99,7 +99,7 @@ In this tutorial you will:
 
 Once you are connected to the virtual machine with Windows Remote Desktop, the virtual machine works much like any other computer. Connect to the default instance of SQL Server with SQL Server Management Studio (running on the virtual machine) in the normal way. 
 
-<h2 id="SSMS">Complete Configuration steps to connect to the virtual machine Using SQL Server Management Studio on another computer</h2>
+<h2><a id="SSMS"></a>Complete Configuration steps to connect to the virtual machine Using SQL Server Management Studio on another computer</h2>
 
 Before you can connect to the instance of SQL Server from the internet, you must complete the following tasks as described in the sections that follow:
 
@@ -115,7 +115,7 @@ The connection path is summarized by the following diagram:
 
 ![Connecting to a SQL Server virtual machine][Image8b]
 
-<h3 id="Endpoint">Create a TCP endpoint for the virtual machine</h3>
+<h3><a id="Endpoint"></a>Create a TCP endpoint for the virtual machine</h3>
 
 The virtual machine must have an endpoint to listen for incoming TCP communication. This Windows Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.
 
@@ -148,7 +148,7 @@ The virtual machine must have an endpoint to listen for incoming TCP communicati
 
 	![VM with Endpoint] [Image31]
 
-<h3 id="FW">Open TCP ports in the Windows firewall for the default instance of the Database Engine</h3>
+<h3><a id="FW"></a>Open TCP ports in the Windows firewall for the default instance of the Database Engine</h3>
 
 1. On the Start menu, click **Run**, type **WF.msc**, and then click **OK**.
 
@@ -185,7 +185,7 @@ The virtual machine must have an endpoint to listen for incoming TCP communicati
 Open additional ports for other components as needed. For more information, see [Configuring the Windows Firewall to Allow SQL Server Access](http://msdn.microsoft.com/en-us/library/cc646023.aspx).
 
 
-<h3 id="TCP">Configure SQL Server to listen on the TCP protocol</h3>
+<h3><a id="TCP"></a>Configure SQL Server to listen on the TCP protocol</h3>
 
 This step might already be complete.
 
@@ -211,7 +211,7 @@ This step might already be complete.
 
 For more information about enabling protocols for the SQL Server Database Engine, see [Enable or Disable a Server Network Protocol](http://msdn.microsoft.com/en-us/library/ms191294.aspx).
 
-<h3 id="Mixed">Configure SQL Server for mixed mode authentication</h3>
+<h3><a id="Mixed"></a>Configure SQL Server for mixed mode authentication</h3>
 
 The SQL Server Database Engine cannot use Windows Authentication without domain environment. To connect to the Database Engine from another computer, configure SQL Server for mixed mode authentication. Mixed mode authentication allows both SQL Server Authentication and Windows Authentication. (Configuring mixed mode authentication might not be necessary if you have configured a Windows Azure Virtual Network. For more information about Windows Azure Virtual Network, see [Overview of Windows Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=251117).)
 
@@ -241,7 +241,7 @@ The first time you open Management Studio it must create the users Management St
 
 7. In the SQL Server Management Studio dialog box, click **Yes** to agree that you want to restart SQL Server.
 
-<h3 id="Logins">Create SQL Server authentication logins</h3>
+<h3><a id="Logins"></a>Create SQL Server authentication logins</h3>
 
 To connect to the Database Engine from another computer you must create at least one SQL Server authentication login.
 
@@ -281,7 +281,7 @@ For more information about SQL Server logins, see [Create a Login](http://msdn.m
 
 
 
-<h3 id="DNS">Determine the DNS name of the virtual machine</h3>
+<h3><a id="DNS"></a>Determine the DNS name of the virtual machine</h3>
 
 To connect to the SQL Server Database Engine from another computer you must know the Domain Name System (DNS) name of the virtual machine. (This is the name the internet uses to identify the virtual machine. You can use the IP address, but the ip address might change when Windows Azure moves resources for redundancy or maintenance. The DNS name will be stable because it can be redirected to a new IP address.)  
 
@@ -318,7 +318,7 @@ If you can connect to an instance of SQL Server running on a Windows Azure virtu
 
 - [How to Troubleshoot Connecting to the SQL Server Database Engine](http://social.technet.microsoft.com/wiki/contents/articles/how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx)
 
-<h2 id="Optional">Optional Next Steps</h2>
+<h2><a id="Optional"></a>Optional Next Steps</h2>
 
 ### Migrate an existing database ###
 

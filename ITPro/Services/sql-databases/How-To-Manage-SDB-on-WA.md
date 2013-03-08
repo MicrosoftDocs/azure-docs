@@ -18,7 +18,7 @@ SQL Database provides relational database management services on Windows Azure, 
 * [Next Steps][]
 
 
-<h2 id="PreReq1">Sign in to Windows Azure</h2>
+<h2><a id="PreReq1"></a>Sign in to Windows Azure</h2>
 
 SQL Database provides relational data storage, access, and management services on Windows Azure. To use it, you'll need a Windows Azure subscription.
 
@@ -27,13 +27,13 @@ SQL Database provides relational data storage, access, and management services o
 2. Your account is now created. You are ready to get started.
 
 
-<h2 id="PreReq2">Create and configure SQL Database</h2>
+<h2><a id="PreReq2"></a>Create and configure SQL Database</h2>
 
 Next, you'll step through logical server creation and configuration. In the new Windows Azure (Preview) Management Portal, revised workflows let you create a database first, and then create a server. 
 
 In this guide, you'll create the server first. You might prefer this approach if you have existing SQL Server databases that you want to upload.
 
-<h3 id="createsrvr">Create a logical server</h3>
+<h3><a id="createsrvr"></a>Create a logical server</h3>
 
 1. Sign in at [http://www.windowsazure.com](http://www.windowsazure.com),
 
@@ -59,7 +59,7 @@ Notice that you did not specify a server name. SQL Database auto-generates the s
 
 In the next step, you will configure the firewall so that connections from applications running on your network are allowed access.
 
-<h3 id="configFWLogical">Configure the firewall for the logical server</h3>
+<h3><a id="configFWLogical"></a>Configure the firewall for the logical server</h3>
 
 1. Click **SQL Databases**, click **Servers**, and then click on the server you just created.
 
@@ -83,7 +83,7 @@ You now have a logical server, a firewall rule that allows inbound connections f
 
 
 
-<h2 id="PreReq3">Connect using Management Studio</h2>
+<h2><a id="PreReq3"></a>Connect using Management Studio</h2>
 
 Management Studio is an administrative tool that lets you manage multiple SQL Server instances and servers in a single workspace. If you already have an on-premises SQL Server instance, you can open a connection to both the on-premises instance and a logical server on Windows Azure to perform tasks side by side.
 
@@ -93,7 +93,7 @@ In the following step, you'll use Management Studio to connect to a logical serv
 
 Before you can connect, it is sometimes necessary to create a firewall exception that allows outbound requests on port 1433 on your local system. Computers that are secure by default typically do not have port 1433 open. 
 
-<h3 id="configFWOnPremise">Configure the firewall for an on-premises server</h3>
+<h3><a id="configFWOnPremise"></a>Configure the firewall for an on-premises server</h3>
 
 1. In Windows Firewall with Advanced Security, create a new outbound rule.
 
@@ -102,7 +102,7 @@ Before you can connect, it is sometimes necessary to create a firewall exception
 3. Provide a meaningful name, such as *WindowsAzureSQLDatabase (tcp-out) port 1433*. 
 
 
-<h3 id="logical">Connect to a logical server</h3>
+<h3><a id="logical"></a>Connect to a logical server</h3>
 
 1. In Management Studio, in Connect to Server, make sure that Database Engine is selected, then enter the logical server name in this format: *servername*.database.widnows.net
 
@@ -115,14 +115,14 @@ Before you can connect, it is sometimes necessary to create a firewall exception
 4. In Connect to database, specify **master**.
 
 
-<h3 id="premise">Connect to an on-premises server</h3>
+<h3><a id="premise"></a>Connect to an on-premises server</h3>
 
 1. In Management Studio, in Connect to Server, make sure that Database Engine is selected, then enter the name of a local instance in this format: *servername*\\*instancename*. If the server is local and a default instance, enter *localhost*.
 
 2. In Authentication, choose **Windows Authentication** and then enter a Windows account that is a member of the sysadmin role.
 
 
-<h2 id="HowTo1">Deploy a database to Windows Azure</h2>
+<h2><a id="HowTo1"></a>Deploy a database to Windows Azure</h2>
 
 There are numerous approaches for moving an on-premises SQL Server database to Windows Azure. In this task, you'll use the Deploy Database to SQL Database wizard to upload a sample database.
 
@@ -130,7 +130,7 @@ The School sample database is conveniently simple; all of its objects are compat
 
 **Note:** Review the SQL Database Migration Guide for detailed instructions on how to prepare an on-premises database for migration to Windows Azure. Also, consider downloading the Windows Azure Training Kit. It includes a lab that shows an alternative approach to migrating an on-premises database.
 
-<h3 id="CreateDB">Create the school database on an on-premises server</h3>
+<h3><a id="CreateDB"></a>Create the school database on an on-premises server</h3>
 
 Scripts for creating this database can be found in the [Getting Started with SQL Database Administration][]. In this guide, you'll run these scripts in Management Studio to create an on-premises version of the school database.
 
@@ -635,7 +635,7 @@ Next, copy and execute the Insert Data script.
    You now have an on-premises database that you can export to Windows Azure. Next, you'll run a wizard that creates a .bacpac file, loads it onto Windows Azure, and imports it into SQL Database.
 
 
-<h3 id="DeployDB">Deploy to SQL Database</h3>
+<h3><a id="DeployDB"></a>Deploy to SQL Database</h3>
 
 1. In Management Studio, connect to an on-premises SQL Server instance that has a database you want to migrate.
 
@@ -660,7 +660,7 @@ Next, copy and execute the Insert Data script.
 
 11. Click **Next** and click **Finish** to run the wizard.
 
-<h3 id="VerifyDBMigration">Verify database deployment</h3>
+<h3><a id="VerifyDBMigration"></a>Verify database deployment</h3>
 
 1. In Management Studio, connect to the logical server. If you already have a connection open, you can close it and open a new one. The existing connection shows only those databases that were running at the time the connection was made.
 
@@ -693,7 +693,7 @@ Next, copy and execute the Insert Data script.
 </pre></div>
 
 
-<h2 id="HowTo2">Add logins and users</h2>
+<h2><a id="HowTo2"></a>Add logins and users</h2>
 
 After you deploy a database, you need to configure logins and assign permissions. In the next step, you’ll run two scripts.
 
@@ -703,7 +703,7 @@ The logins you create must be SQL Server authentication logins. If you already h
 
 The second script assigns database user permissions. For this script, you will connect to a database already loaded on Windows Azure.
 
-<h3 id="CreateLogins">Create logins</h3>
+<h3><a id="CreateLogins"></a>Create logins</h3>
 
 1. In Management Studio, connect to a logical server on Windows Azure, expand the Databases folder, right-click **master**, and select **New Query**.
 
@@ -723,7 +723,7 @@ The second script assigns database user permissions. For this script, you will c
 </pre></div>
 
 
-<h3 id="CreateDBUsers">Create database users</h3>
+<h3><a id="CreateDBUsers"></a>Create database users</h3>
 
 1. Expand the Databases folder, right-click **school**, and select **New Query**.
 
@@ -745,7 +745,7 @@ The second script assigns database user permissions. For this script, you will c
     GRANT VIEW DATABASE STATE to 'sqlops';
 </pre></div>
 
-<h3 id="ViewLogins">View and test logins</h3>
+<h3><a id="ViewLogins"></a>View and test logins</h3>
 
 1. In a new query window, connect to **master** and execute the following statement: 
 
@@ -767,14 +767,14 @@ The second script assigns database user permissions. For this script, you will c
 You have now created and tested several logins. For more information, see [Managing Databases and Logins in SQL Database][] and [Monitoring SQL Database Using Dynamic Management Views][].
 
 
-<h2 id="HowTo3">Monitor logical servers and database instances</h2>
+<h2><a id="HowTo3"></a>Monitor logical servers and database instances</h2>
 
 Monitoring tools and techniques that you might be accustomed to using on an on-premises server, such as auditing logins, running traces, and using performance counters, are not available for SQL Database. On Windows Azure, you use Data Management Views (DMVs) to monitor data capacity, query problems, and current connections. 
 
 For more information, see [Monitoring SQL Database Using Dynamic Management Views][].
 
 
-<h2 id="HowTo4">Scale a SQL Database solution</h2>
+<h2><a id="HowTo4"></a>Scale a SQL Database solution</h2>
 
 On Windows Azure, database scalability is synonymous with scale out, where a workload is redistributed across multiple commodity servers in a data center. Scale out is a strategy for addressing problems with data capacity or performance. A very large database that is on a high-growth trajectory will eventually require a scale out strategy, whether it is accessed by a few users or many users.
 
@@ -802,7 +802,7 @@ Federations are supported in the Business edition. For more information, see [Fe
 
 Remember that Windows Azure supports multiple forms of data storage, including table storage and blob storage. If you do not require relational features, table or blob storage can be more economical. 
 
-<h2 id="NextSteps">Next Steps</h2>
+<h2><a id="NextSteps"></a>Next Steps</h2>
 
 Now that you've learned the basics of SQL Database administration, follow these links to learn how to do more complex administative tasks.
 
