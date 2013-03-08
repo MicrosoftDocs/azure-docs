@@ -3,19 +3,14 @@
 
 
 
-<h1"><a id="monitormediaservicesaccount></a>How to Monitor a Media Services Account</h1>
+<h1><a id="monitormediaservicesaccount"></a>How to Monitor a Media Services Account</h1>
 The Windows Azure Media Services dashboard presents usage metrics and account information that you can use to manage your Media Services account.
 
-You can monitor the usage of your blob storage associated with your Media Services account. You can also monitor the number of queued encoding jobs as well as failed, queued, and active tasks for encoding jobs.  
-You can choose to monitor your data for the last 6 hours, 24 hours or 7 days.
-
-
-**Note** To start monitoring data you must first configure storage monitoring for your Media Services account.  Similarly to general storage monitoring, you can choose the level of blob storage monitoring - minimal or verbose - and specify the appropriate data retention policy for the service.
+You can monitor the number of queued encoding jobs, failed encoding tasks, active encoding jobs represented by the input and output data from the encoder as well as the usage of the blob storage account associated with your Media Services account. In addition, if you are streaming content to customers, you can retrieve various streaming metrics as well. You can choose to monitor your data for the last 6 hours, 24 hours or 7 days.
  
+**Note**   Additional costs are associated with monitoring storage data in the Windows Azure Management Portal. For more information, see [Storage Analytics and Billing](http://go.microsoft.com/fwlink/?LinkId=256667).
 
-**Note**   Additional costs are associated with examining storage monitoring data in the Windows Azure (Preview) Management Portal. For more information, see [Storage Analytics and Billing](http://go.microsoft.com/fwlink/?LinkId=256667).
-
-<h2><a id="configuremonitoring"></a>How to: Configure monitoring for a Media Services account</h2>
+<h2><a id="configuremonitoring"></a>How to: Monitoring a Media Services account</h2>
 
 1. In the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=256666), click **Media Services**, and then click the Media Services account name to open the dashboard. 
 
