@@ -1,6 +1,5 @@
 <properties linkid="develop-dotnet-hadoop-recommendation-engine" urlDisplayName="Hadoop Recommendation Engine" pageTitle="Hadoop recommendation engine (.NET) - Windows Azure tutorials" metaKeywords="Azure Apache Mahout, Azure recommendation example, Azure recommendation tutorial, Azure recommendation engine" metaDescription="A tutorial that teaches how to use the Apache Mahout recommendation engine with Windows Azure to create song suggestions based on listening habits." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="wenming" />
 
-
 # Simple recommendation engine using Apache Mahout 
 
 Apache Mahout™ is a machine learning library built for use in scalable machine learning applications. Recommender engines are some of the most immediately recognizable machine learning applications in use today. In this tutorial you use the  [Million Song Dataset](http://labrosa.ee.columbia.edu/millionsong/tasteprofile) to create song recommendations for users based on their past listening habits.

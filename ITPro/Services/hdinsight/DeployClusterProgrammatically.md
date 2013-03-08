@@ -141,8 +141,6 @@ In order to delete a cluster, issue a DELETE against the following URI:
 
     https://management.core.windows.net/<subscriptionId>/cloudservices/azurehdinsight/resources/azurehdinsight/containers/<containerName>
 
-
-
 ##Next Steps
 
 * [Using Pig with HDInsight][hdinsight-pig] 
@@ -151,6 +149,6 @@ In order to delete a cluster, issue a DELETE against the following URI:
 
 * [Using MapReduce with HDInsight][hdinsight-mapreduce]
 
-[hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig/
-[hdinsight-hive]: /en-us/manage/services/hdinsight/using-hive/
-[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce/
+[hdinsight-pig]: /en-us/manage/services/hdinsight/howto-pig/
+[hdinsight-hive]: /en-us/manage/services/hdinsight/howto-hive/
+[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/howto-mapreduce/

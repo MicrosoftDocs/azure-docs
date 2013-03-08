@@ -1,6 +1,5 @@
 <properties linkid="develop-dotnet-hadoop-social-web-data" urlDisplayName="Hadoop Social Web Data" pageTitle="Hadoop social web data (.NET) - Windows Azure tutorial" metaKeywords="Azure Twitter Hadoop, Azure Hive query, Azure data Excel, Azure data analysis" metaDescription="A tutorial that teaches you to query and analyze data from Twitter using Apache Hadoop-based Services for Windows Azure and a Hive query in Excel." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="wenming"/>
 
-
 # Analyzing Twitter Movie Data with Hive 
 In this tutorial you will query, explore, and analyze data from twitter using Apache™ Hadoop™-based Services for Windows Azure and a Hive query in Excel. Social web sites are one of the major driving forces for Big Data adoption. Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends.  
 
