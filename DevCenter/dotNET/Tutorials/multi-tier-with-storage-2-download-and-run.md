@@ -199,7 +199,7 @@ Other tools are also available that work with Windows Azure Storage, for example
 
    You should create the cloud service in the same region that you created the storage account. When the cloud service and storage account are in different datacenters (different regions), latency will increase and you will be charged for bandwidth outside the data center. Bandwidth within a data center is free.
 
-	Azure affinity groups provide a mechanism to minimize the distance between resources in a data center, which can reduce latency. This tutorial does not use affinity groups. For more information, see [How to Create an Affinity Group in Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh531560.aspx).
+	Azure affinity groups provide a mechanism to minimize the distance between resources in a data center, which can reduce latency. This tutorial does not use affinity groups. For more information, see [How to Create an Affinity Group in Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj156209.aspx).
 
 6. Click **Create Cloud Service**. 
 

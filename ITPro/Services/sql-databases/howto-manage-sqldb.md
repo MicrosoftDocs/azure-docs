@@ -1,17 +1,17 @@
 <properties umbracoNaviHide="0" pageTitle="How to Manage SQL Database" metaKeywords="Windows Azure SQL database, SQL database, manage sql database, add logins, connect to sql database" metaDescription="Learn how to manage Windows Azure SQL database." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" />
 
 
-<h1 id="swap">How to Manage SQL Database</h1>
+<h1><a id="swap"></a>How to Manage SQL Database</h1>
 
 This topic shows you how to perform simple management tasks on Windows Azure SQL Database. 
 
 ##Table of Contents##
 
 * [How to: Connect to SQL Database in Windows Azure using Management Studio](#connect)
-* [How to: How to: Add logins and users to SQL Database in Windows Azure](#addlogins)
+* [How to: Add logins and users to SQL Database in Windows Azure](#addlogins)
 
 
-<h2 id="connect">How to: Connect to SQL Database in Windows Azure using Management Studio</h2>
+<h2><a id="connect"></a>How to: Connect to SQL Database in Windows Azure using Management Studio</h2>
 
 Management Studio is an administrative tool that lets you manage multiple SQL Server instances and servers in a single workspace. If you already have an on-premises SQL Server instance, you can open a connection to both the on-premises instance and a logical server on Windows Azure to perform tasks side by side.
 
@@ -50,7 +50,7 @@ Before you can connect, it is sometimes necessary to create a firewall exception
 2. In Authentication, choose **Windows Authentication** and then enter a Windows account that is a member of the sysadmin role.
 
 
-<h2 id="addlogins">How to: Add logins and users to SQL Database in Windows Azure</h2>
+<h2><a id="addlogins"></a>How to: Add logins and users to SQL Database in Windows Azure</h2>
 
 After you deploy a database, you need to configure logins and assign permissions. In the next step, you’ll run two scripts.
 
