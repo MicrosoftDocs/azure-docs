@@ -22,11 +22,11 @@ WebHCat surfaces the following capabilities:
 In order to consume this, you have a few options:
 
 * Construct REST calls directly using Curl, Fiddler or other HTTP tools
-* Leverage the .NET client that we have published to [CodePlex](http://hdx.codeplex.com)
+* Leverage the .NET client that published on CodePlex: [CodePlex](http://hdx.codeplex.com)
 
-##Constructing REST Calls Directly
+##Constructing REST Calls Directly##
 
-By following the documentation [here](http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-Win-1.1/ds_Templeton/index.html), you can pretty easily construct a request to submit a job.  If you are writing a Pig or Hive job that dumps output to the console, you will need to specify a status directory parameter, this will be the path to write the output to a file named stderr.  For instance, to run a basic Hive query
+By following the documentation [here](http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-Win-1.1/ds_Templeton/index.html), you can construct a request to submit a job.  If you are writing a Pig or Hive job that dumps output to the console you will need to specify a status directory parameter this will be the path to write the output to a file named stderr.  For instance, to run a basic Hive query
    
     curl -s -d user.name=admin 
          -d execute="select * from hivesampletable;" 
@@ -34,7 +34,7 @@ By following the documentation [here](http://docs.hortonworks.com/HDPDocuments/H
          -u admin
           'https://yourhadoopcluster.azurehdinsight.net:563/templeton/v1/hive'
 
-You can also use the programming language of your choice to submit jobs.  Authentication is basic authentication using the username and password when the cluster was initially created
+You can also use the programming language of your choice to submit jobs.  Authentication is basic authentication using the username and password that was specified when the cluster was initially created.
 
 ##Leverage the .NET client
 
