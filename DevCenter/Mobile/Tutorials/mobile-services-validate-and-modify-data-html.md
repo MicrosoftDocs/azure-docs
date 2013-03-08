@@ -143,6 +143,14 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 		}
 
    This displays the new **createdAt** property. 
+
+2. In your editor, open the style.css file, and replace the styles on the `item-text` class with the following:
+
+		.item-text { width: 70%; height: 26px; line-height: 24px; 
+			border: 1px solid transparent; background-color: transparent; }
+		.timestamp { width: 30%; height: 40px; font-size: .75em; }
+
+	This resizes the textbox and styles the new timestamp text.
 	
 6. Reload the page. 	
 
