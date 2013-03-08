@@ -2,9 +2,7 @@
 
 #Deploying an HDInsight Cluster Programmatically
 
-*At this time, the API used here should be considered experimental.  The API and document format is subject to change, and this is included in our content to unblock customers who must have this capability today*
-
-HDInsight clusters can be created programmatically by issuing an authenticated call to the [Service Management API](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx) (aka RDFE).  As the HDInsight service moves through preview, we will add full support and documentation on this capability prior to general availability.  
+HDInsight clusters can be created programmatically by issuing an authenticated call to the [Service Management API](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx).  As the HDInsight service moves through preview, we will add full support and documentation on this capability prior to general availability.  
 
 Authentication needs to occur via the management certificate as outlined in [this documentation](http://msdn.microsoft.com/en-us/library/windowsazure/ee460782.aspx).
 

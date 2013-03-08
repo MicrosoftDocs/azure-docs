@@ -4,11 +4,11 @@
 
 The HDInsight SDK provides set of .NET client libraries that makes it easier to work with Hadoop in .NET. The SDK includes following components:
 
-	•	A Map/Reduce library - this library simplifies writing map/reduce jobs in .NET languages using the Hadoop streaming interface
-	•	LINQ to Hive client library – this library translates C# or F# LINQ queries into Hive queries and executes them on the Hadoop cluster. This library can execute arbitrary Hive HQL queries from a .NET program as well.
-	•	WebClient library – contains client libraries for WebHDFS and WebHCat
-		o	WebHDFS client library – works with files in HDFS and Blog Storage
-		o	WebHCat client library – manages scheduling and execution of jobs in Hadoop cluster
+- 	A Map/Reduce library - this library simplifies writing map/reduce jobs in .NET languages using the Hadoop streaming interface
+- 	LINQ to Hive client library – this library translates C# or F# LINQ queries into Hive queries and executes them on the Hadoop cluster. This library can execute arbitrary Hive HQL queries from a .NET program as well.
+- 	WebClient library – contains client libraries for WebHDFS and WebHCat
+	- 	WebHDFS client library – works with files in HDFS and Blog Storage
+	- WebHCat client library – manages scheduling and execution of jobs in Hadoop cluster
 
 In this tutorial you will learn how to get the SDK and use it to build simple .NET based Hadoop program.
 
@@ -30,7 +30,7 @@ These commands add .NET libraries and references to them to your current Visual 
 Once the Hadoop SDK packages are installed you can start building your Hadoop program. In this chapter you’ll learn how to upload files to Hadoop cluster programmatically and how to execute Hive jobs using LINQ to Hive.
 
 1. Create a new empty Console Application Project in Visual Studio 2012.
-2. Install the NuGet packages for Hive and WebClient as described in the “Download and Install the SDK” section.
+2. Install the NuGet packages for Hive (Microsoft.Hadoop.Hive) and WebClient (Microsoft.Hadoop.WebClient) as described in the “Download and Install the SDK” section. 
 3. Download the sample file actors.txt using this [download](http://go.microsoft.com/fwlink/?LinkID=286223) link and store it locally on your hard drive.
 4. In the Main method of the console application add the code below. This code uploads the actors.txt file to the Hadoop cluster using WebHDFS client.
 

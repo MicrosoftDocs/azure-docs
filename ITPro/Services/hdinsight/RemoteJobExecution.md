@@ -2,7 +2,7 @@
 
 #Executing Remote Jobs on Your HDInsight Cluster Programmatically
 
-A fairly common requests from customers is the ability to initiate job execution on your HDInsight cluster programmatically.  Some of these scenarios include:
+HDInsight includes the abililty to initiate job execution on your HDInsight cluster programmatically. Some of the scenarios where this can be benficial are:
 
 * Scheduled execution of a job (every night at midnight, update the recommendation database)
 * Incorporating job execution into a larger application (allow a client to configure and kick off web log processing)
@@ -63,7 +63,7 @@ The following sample code shows how you can do this (in C#)
 
 ##Summary
 
-There are multiple methods available to you for creating and monitoring jobs submitted to the cluster.  You can build your own tooling on top of the REST API that is surfaced, or use the .NET client.  Moving forward, we will also be creating a Node.js client, as well as wrapping up these capabilities inside the PowerShell and cross platform command line interfaces for Windows Azure. 
+There are multiple methods available to you for creating and monitoring jobs submitted to the cluster.  You can build your own tooling on top of the REST API that is surfaced, or use the .NET client. 
 
 ##Next Steps
 
