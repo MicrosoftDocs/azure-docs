@@ -4,9 +4,9 @@
 
 # Getting Started with Windows Azure HDInsight Service
 
-This tutorial gets you started using Windows Azure HDInsight Services. HDInsight Services makes Apache Hadoop avaliable as a service in the cloud. It makes the HDFS/MapReduce software framework available in a simpler, more scalable, and cost efficient environment. 
+This tutorial gets you started using Windows Azure HDInsight Services. HDInsight Services makes Apache Hadoop available as a service in the cloud. It makes the HDFS/MapReduce software framework available in a simpler, more scalable, and cost efficient environment. 
 
-In particular, it simplify the configuring, running, and post-processing of Hadoop jobs by providing JavaScript and Hive interactive consoles. The JavaScript console is unique to HDInsight and handles Pig Latin as well as JavaScript and Hadoop file system commands. It also provides a cost efficient approach to the managing and storing of data. HDInsight uses Azure Storage by default from which data can be easily accessed for compute and where it can be stored at relatively low cost using Azure Blob Storage. 
+In particular, it simplifies the configuring, running, and post-processing of Hadoop jobs by providing JavaScript and Hive interactive consoles. The JavaScript console is unique to HDInsight and handles Pig Latin as well as JavaScript and Hadoop file system commands. It also provides a cost efficient approach to the managing and storing of data. HDInsight uses Azure Storage by default from which data can be easily accessed for compute and where it can be stored at relatively low cost using Azure Blob Storage. 
 
 
 In this tutorial you will learn how to:
@@ -23,7 +23,7 @@ In this tutorial you will learn how to:
 
 To complete this tutorial, you need a Microsoft email account and a Windows Azure account that has the Windows Azure Web Sites Feature enabled.
 
-- A microsoft account can be a live ID or hotmail account or an organizational account for Office 360 subscibers. 
+- A Microsoft account can be a live ID or Hotmail account or an organizational account for Office 360 subscribers. 
 - For instructions to obtain a Microsoft account and to open an Azure account, see the [Windows Azure sign in](https://login.live.com/login.srf?cbcxt=azu&vv=1100&lc=1033&wa=wsignin1.0&wtrealm=urn:federation:MicrosoftOnline&wctx=wa%3Dwsignin1.0%26rpsnv%3D2%26ct%3D1362688668%26rver%3D6.1.6206.0%26wp%3DSAPI%26wreply%3Dhttps:%252F%252Faccount.windowsazure.com%252Fsubscriptions%252F%26lc%3D1033%26id%3D500867%26WHR%3Dlive.com%26cbcxt%3Dazu) page. 
 - For instructions on enabling the preview features, see [Create a Windows Azure Account and Enable Preview Features](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/ "Create an Azure Account").
 
@@ -89,7 +89,7 @@ This section explains how to get to the HDInsight dashboard and sample gallery.
 
 This section briefly describes what the Workcount MapReduce programs do and shows how to run the Wordcount sample using the **Create Job** UI provided by HDInsight Services. 
 
-The sample contains MapReduce programs written in Java that together count word occurences in a text. The input text file analyzed is the Project Gutenberg eBook edition of _The Notebooks of Leonardo Da Vinci_. The output is a set of key-value pairs. The key is a string that specifies a word and the value is an integer that specifies the total number of occurences of that word in the text. This is done in two stages. The mapper (the cat.exe in this sample) takes each line from the input text as an input and breaks it into words. It emits a key/value pair each time a work occurs of the word followed by a 1. The reducer (the wc.exe in this sample) then sums these individual counts for each word and emits a single key/value pair containing the word followed by the sum of its occurences. These programs can be downloaded and their code inspected from the deployment page as explained below.
+The sample contains MapReduce programs written in Java that together count word occurrences in a text. The input text file analyzed is the Project Gutenberg eBook edition of _The Notebooks of Leonardo Da Vinci_. The output is a set of key-value pairs. The key is a string that specifies a word and the value is an integer that specifies the total number of occurrences of that word in the text. This is done in two stages. The mapper (the cat.exe in this sample) takes each line from the input text as an input and breaks it into words. It emits a key/value pair each time a work occurs of the word followed by a 1. The reducer (the wc.exe in this sample) then sums these individual counts for each word and emits a single key/value pair containing the word followed by the sum of its occurrences. These programs can be downloaded and their code inspected from the deployment page as explained below.
 
 **Run the Wordcount sample** 
 
@@ -103,17 +103,17 @@ The sample contains MapReduce programs written in Java that together count word 
 
 ![HDI.CreateWordCountJob](../media/HDI.CreateWordCountJob.PNG?raw=true "Create WordCount Job")
 
-- The job name and parameters have been assigned default values that will run the WordCount job.The **Job Name** is "WordCount". **Parameter0** is just the name of the program, "wordcount". **Parameter1** specifies, respectively, the path/name of the input file (asv:///example/data/gutenberg/davinci.txt) and the output directory where the results will be saved (asv:///DaVinciAllTopWords). Note that the output directory assumes a default path relative to the asv:///user/&lt;username&gt; folder. (**ToDo**: confirm this last statement.) Note the use of the asv:// prefix in the paths of these files. This is needed to indicate the Azure Storage Vault is being used for input and output files.
+- The job name and parameters have been assigned default values that will run the WordCount job.The **Job Name** is "WordCount". **Parameter0** is just the name of the program, "wordcount". **Parameter1** specifies, respectively, the path/name of the input file (asv:///example/data/gutenberg/davinci.txt) and the output directory where the results will be saved (asv:///DaVinciAllTopWords). Note that the output directory assumes a default path relative to the asv:///user/&lt;username&gt; folder. Note the use of the asv:// prefix in the paths of these files. This is needed to indicate Azure Blob Storage is being used for input and output files. Note that for the purpose of this introduction, the default prefix is being retained. But it is a best practice to use the secure version, asvs://, for transferring your data when you are in production.
 
 - The **Final Command** contains the Hadoop jar command that executes the MapReduce program with the parameter values provided above. See the documentation on [jar syntax ](http://hadoop.apache.org/common/docs/current/commands_manual.html#jar) for details. 
 
 - To run the program with these default values on your Hadoop cluster, simply click on the blue **Execute job** button on the lower right side.
 
-- The status of the deployment is provided on the **Job Info** page and it will indicate when the program has completed, as shown here. (**ToDo**: ask why I am having to hit F5 to see the completed status - a bug?)
+- The status of the deployment is provided on the **Job Info** page and it will indicate when the program has completed, as shown here. 
 
 ![HDI.WordCountSampleCompleted](../media/HDI.WordCountSampleCompleted.PNG?raw=true "WordCount Sample Completed")
 
-##Examinging Output in the Interactive Console
+##Examining Output in the Interactive Console
 
 We can use the JavaScript Interactive Console to view the output from the WordCount job. 
 
@@ -126,16 +126,16 @@ We can use the JavaScript Interactive Console to view the output from the WordCo
 
 - To view the word counts, enter the command `file = fs.read("asv:///DaVinciAllTopWords")` in the console prompt. It is a large file. Scroll back up to see the long list of words and their summmary counts.
 
-![HDI.Hero.ReadWordCount](../media/HDI.Hero.ReadWordCount.PNG?raw=true "Read Wordcounts")
+![HDI.Hero.ReadWordCount](../media/HDI.Hero.ReadWordCounts.PNG?raw=true "Read Wordcounts")
  
 ## Summary
 
-You have gotten set up with a Windows Azure and Azure Storage accounts that are needed to access HDInsight Sevices. You have learnt how to provision an HDInsight cluster, run a MapReduce job on it, and use the Interactive Console to view the output from the job.
+You have gotten set up with a Windows Azure and Azure Storage accounts that are needed to access HDInsight Services. You have learnt how to provision an HDInsight cluster, run a MapReduce job on it, and use the Interactive Console to view the output from the job.
 
 ## Next steps
 
-- For information of running more samples, see [How to Run Samples](/en-us/manage/services/hdinsight/howto-runsamples) Todo: correct this URL
-- For other uses of HDInsight interactive JavaScript and Hive consoles, see the [The Windows Azure HDInsight Interactive JavaScript and Hive Consoles](/en-us/manage/services/hdinsight/InteractiveConsole) Todo: correct this URL
+- For information of running more samples, see [How to Run Samples](/en-us/manage/services/hdinsight/howto-run-samples/)
+- For other uses of HDInsight interactive JavaScript and Hive consoles, see the [The Windows Azure HDInsight Interactive JavaScript and Hive Consoles](/en-us/manage/services/hdinsight/howto-work-with-the-interactive-console/) 
 - For more information of Pig, see [Using Pig](/en-us/manage/services/hdinsight/howto-pig/)
 - For more information of Hive, see [Using Hive](/en-us/manage/services/hdinsight/howto-hive/)
 - For more information of MapReduce, see [Using MapReduce](/en-us/manage/services/hdinsight/howto-mapreduce/)
