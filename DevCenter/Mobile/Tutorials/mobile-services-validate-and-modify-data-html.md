@@ -66,11 +66,7 @@ Now that the mobile service is validating data and sending error responses, you 
 
 	This starts a web server on your local computer to host the app.
 
-1. In a web browser, navigate to <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>, then type text in **Add new task** and click **Add**.
-
-   Notice that the operation fails, which is a result of the 400 response (Bad Request) returned by the mobile service.
-
-2. 	Open the file app.js, then replace the **$('#add-item').submit()** event handler with the following code:
+1. 	Open the file app.js, then replace the **$('#add-item').submit()** event handler with the following code:
 
 		$('#add-item').submit(function(evt) {
 			var textbox = $('#new-item-text'),
@@ -85,7 +81,9 @@ Now that the mobile service is validating data and sending error responses, you 
 			evt.preventDefault();
 		});
 
-   This version of the event handler includes error handling that displays the error response in a dialog.
+2. In a web browser, navigate to <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>, then type text in **Add new task** and click **Add**.
+
+   Notice that the operation fails and error handling displays the error response in a dialog.
 
 ## <a name="add-timestamp"></a>Add a timestamp
 
@@ -124,7 +122,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
 1. In your editor, open the file app.js, then replace the **refreshTodoItems** function with the following code:
 
-     	function refreshTodoItems() {
+		function refreshTodoItems() {
 			var query = todoItemTable.where({ complete: false });
 
 			query.read().then(function(todoItems) {
@@ -133,8 +131,9 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 						.attr('data-todoitem-id', item.id)
 						.append($('<button class="item-delete">Delete</button>'))
 						.append($('<input type="checkbox" class="item-complete">').prop('checked', item.complete))
-						.append($('<div>').append($('<input class="item-text">').val(item.text)));
-						.append($('<div>').append($('<input class="timestamp">').val(item.createdAt)));
+						.append($('<div>').append($('<input class="item-text">').val(item.text))
+						.append($('<span class="timestamp">' + item.createdAt + '</span>')));
+
 				});
 
 				$('#todo-items').empty().append(listItems).toggle(listItems.length > 0);
@@ -160,7 +159,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
          var query = todoItemTable.where(function () {
                 return (this.complete === false && this.createdAt !== null);
-            })
+            });
 
    This function updates the query to also filter out items that do not have a timestamp value.
 	
