@@ -161,7 +161,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 5. In the editor, open the file app.js, uncomment the following code that defines the **MobileServiceClient** variable, and supply the URL and application key from the mobile service in the **MobileServiceClient** constructor, in that order:
 
 	    var MobileServiceClient = WindowsAzure.MobileServiceClient,
-			MobileServiceClient = new MobileServiceClient('AppUrl', 'AppKey'),   		    
+			client = new MobileServiceClient('AppUrl', 'AppKey'),   		    
 
   This creates a new instance of MobileServiceClient that is used to access your mobile service.
 
