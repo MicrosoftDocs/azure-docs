@@ -436,8 +436,9 @@ Install SSMS  from [Microsoft SQL Server 2012 Express Download Center](http://ww
 
 (Note that this is a 600 megabyte download. It may take a long time to install and will require a reboot of your computer.)
 
-On the first page of the SQL Server Installation Center, click **New SQL Server stand-alone installation or add features to an existing installation**, and follow the instructions, accepting the default choices.
+On the first page of the SQL Server Installation Center, click **New SQL Server stand-alone installation or add features to an existing installation**, and follow the instructions, accepting the default choices. The following image shows the step that install SSMS.
 
+<br/><br/>![SQL Install][rxSS]<br/> 
 Create the development database script
 
 1. Run SSMS.
@@ -608,9 +609,12 @@ This tutorial and the sample application was written by [Rick Anderson](http://b
 [rx9]: ../Media/rx9.png
 [rxa]: ../Media/rxa.png
 [rxb]: ../Media/rxb.png
+[rxSS]: ../Media/rxSS.png
 [rx]: ../Media/rx.png
 [rx]: ../Media/rx.png
-
+[rx]: ../Media/rx.png
+[rx]: ../Media/rx.png
+[rx]: ../Media/rx.png
 [rxCreateWSwithDB_2]: ../Media/rxCreateWSwithDB_2.png
 
 [rxNewCtx]: ../Media/rxNewCtx.png
