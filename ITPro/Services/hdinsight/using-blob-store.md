@@ -1,8 +1,7 @@
 <properties linkid="using-blob-store-hdinsight" urlDisplayName="Using Windows Azure Blob Store with HDInsight" pageTitle="Using Blob Store with HDInsight - Windows Azure tutorial" metaKeywords="hdinsight blob, asv, hdinsight asv, hdinsight azure" metaDescription="How to use Windows Azure Blob Store with HDInsight" metaCanonical="http://www.windowsazure.com/en-us/manage/hdinsight/using-blob-store" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
 
-##Using Windows Azure Blob Store with HDInsight  ##
+##Using Azure Blob Store with HDInsight  ##
 
-*Michael Rys, mrys@microsoft.com*
 
 ### Getting started ###
 
@@ -169,6 +168,6 @@ In this article you learned not only how to use Azure Blob Storage with HDInsigh
 
 * [Using MapReduce with HDInsight][hdinsight-mapreduce]
 
-[hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig/
-[hdinsight-hive]: /en-us/manage/services/hdinsight/using-hive/
-[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce/
+[hdinsight-pig]: /en-us/manage/services/hdinsight/howto-pig/
+[hdinsight-hive]: /en-us/manage/services/hdinsight/howto-hive/
+[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/howto-mapreduce/

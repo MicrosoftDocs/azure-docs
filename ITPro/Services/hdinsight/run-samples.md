@@ -44,6 +44,3 @@ HDInsight ships with five samples, which, with one exception (the Sqoop sample) 
 - **The Hadoop on Azure C# Streaming Sample**:This tutorial shows how to use C# programs with the Hadoop streaming interface. 
 
 - **The Hadoop on Azure Sqoop Import/Export Sample**: This tutorial shows how to use Sqoop to import and export data from a SQL database on Windows Azure to an Hadoop on Windows Azure HDFS cluster.
-
-
-

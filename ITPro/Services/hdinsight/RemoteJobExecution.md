@@ -1,6 +1,6 @@
 <properties linkid="develope-hdinsight-remote-jobs" urlDisplayName="Remote Jobs with HDInsight" pageTitle="Programmatically execute remote jobs on HDInsight - Windows Azure developer guidance" metaKeywords="remote job, remote job hdinsight, hdinsight azure" metaDescription="How to programmatically execute remote jobs on your HDInsight cluster" metaCanonical="http://www.windowsazure.com/en-us/manage/hdinsight/remotejobexecution" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
 
-#Programattically Execute Remote Jobs on Your HDInsight Cluster
+#Executing Remote Jobs on Your HDInsight Cluster Programmatically
 
 A fairly common requests from customers is the ability to initiate job execution on your HDInsight cluster programmatically.  Some of these scenarios include:
 
@@ -65,7 +65,6 @@ The following sample code shows how you can do this (in C#)
 
 There are multiple methods available to you for creating and monitoring jobs submitted to the cluster.  You can build your own tooling on top of the REST API that is surfaced, or use the .NET client.  Moving forward, we will also be creating a Node.js client, as well as wrapping up these capabilities inside the PowerShell and cross platform command line interfaces for Windows Azure. 
 
-
 ##Next Steps
 
 * [Using Pig with HDInsight][hdinsight-pig] 
@@ -74,6 +73,6 @@ There are multiple methods available to you for creating and monitoring jobs sub
 
 * [Using MapReduce with HDInsight][hdinsight-mapreduce]
 
-[hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig/
-[hdinsight-hive]: /en-us/manage/services/hdinsight/using-hive/
-[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce/
+[hdinsight-pig]: /en-us/manage/services/hdinsight/howto-pig/
+[hdinsight-hive]: /en-us/manage/services/hdinsight/howto-hive/
+[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/howto-mapreduce/
