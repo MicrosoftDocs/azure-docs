@@ -1,5 +1,5 @@
 <div chunk="../chunks/article-left-menu.md" />
-# Deploy an ASP.NET MVC application with OAuth, Membership and SQL Database 
+# Deploy a Secure ASP.NET MVC application with OAuth, Membership and SQL Database 
 
 This tutorial shows you how to build a secure ASP.NET MVC 4 web application that enables users to log in with credentials from Facebook, Yahoo and Google. You will also deploy the application to Windows Azure.
 
@@ -37,17 +37,16 @@ In this tutorial:
 
 <h2><a name="bkmk_setupdevenv"></a>Set up the development environment</h2>
 
-To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. (If you already have Visual Studio or Visual Web Developer, the SDK isn't required for this tutorial. It will be required later if you follow the suggestions for further learning at the end of the tutorial.)
+To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. 
 
-1. To install the Windows Azure SDK for .NET, click the link below. If you don't have Visual Studio installed yet, use the Visual Studio 2012 button.<br/>
+1. To install the Windows Azure SDK for .NET, click the link below. If you don't have Visual Studio installed yet, it will be installed by the link.<br/>
 <a href="http://go.microsoft.com/fwlink/?LinkId=254364&clcid=0x409" class="site-arrowboxcta download-cta">Get Tools and SDK for Visual Studio 2012</a><br/>
-2. When you are prompted to run or save vwdorvs11azurepack.exe, click **Run**.
-	<!--<br/>![run the WindowsAzureSDKForNet.exe file][setup001]-->
-3. In the Web Platform Installer window, click **Install** and proceed with the installation.
-	<!--[Web Platform Installer - Windows Azure SDK for .NET][setup002]<br/>-->
-4. Install  [ASP.NET and Web Tools 2012.2][MVC4Install_20012].
+2. When you are prompted to run or save *vwdorvs11azurepack.exe*, click **Run**.
+
+![Web Platform Installer - Windows Azure SDK for .NET][rxF]<br/>
 
 When the installation is complete, you have everything necessary to start developing.
+
 
 <h2><a name="bkmk_setupwindowsazure"></a>Set up the Windows Azure environment</h2>
 
@@ -59,14 +58,15 @@ The next step is to create the Windows Azure web site and the SQL database that 
 
 Your Windows Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Windows Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to a Windows Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs.
 
-SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
+Windows Azure SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
 
-1. In the Windows Azure Management Portal, click **Web Sites** in the left tab, and then click  **New**.<br/>
+1. In the [Windows Azure Management Portal](https://manage.windowsazure.com), click **Web Sites** in the left tab, and then click  **New**.<br/>
 ![New button in Management Portal][rxWSnew]
 2. Click **CUSTOM CREATE**.<br/>
 ![Create with Database link in Management Portal][rxCreateWSwithDB]<br/>
 The **New Web Site - Custom Create** wizard opens. 
-3. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "contactmgr2", but that URL is probably taken so you will have to choose a different one.
+3. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "contactmgr2", but that URL is probably taken so you will have to choose a different one.<br/>
+![Create with Database link in Management Portal][rxCreateWSwithDB_2]<br/>
 4. In the **Database** drop-down list, choose **Create a new SQL database**.
 5. In the **Region** drop-down list, choose the region that is closest to you.<br/>
 This setting specifies which data center your VM will run in. In the **DB CONNECTION STRING NAME**, enter *connectionString1*.
@@ -90,7 +90,7 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 ### Create the project
 
-1. Start Visual Studio 2012 as an administrator.
+1. Start Visual Studio 2012 or *VS Express for Web* as an administrator.
 1. From the **File** menu click **New Project**.
 3. In the **New Project** dialog box, expand **Visual C#** and select **Web** under **Installed Templates** and then select **ASP.NET MVC 4 Web Application**. Keep the default **.NET Framework 4.5**. Name the application **ContactManager** and click **OK**.<br/>
 	![New Project dialog box][newapp002]
@@ -136,7 +136,7 @@ When the connection has been validated, a green check mark is shown next to the 
 9. Click **Next**.
 	<br/>![connection successful icon and Next button in Connection tab][firsdeploy007]
 10. In the **Settings** tab, click **Next**.<br/>
-You can accept all of the default settings on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server. The **UsersContext (DefaultConnection)** entry under **Databases** is for the *ContactDB* you just created.
+You can accept all of the default settings on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server. The **UsersContext (DefaultConnection)** entry under **Databases** is created because of the asp.net membership connection string in the *web.config* file.
 	<br/>![connection successful icon and Next button in Connection tab][rxPWS]
 12. In the **Preview** tab, click **Start Preview**.<br/>
 The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed.<br/>
@@ -144,7 +144,7 @@ The tab displays a list of the files that will be copied to the server. Displayi
 12. Click **Publish**.<br/>
 Visual Studio begins the process of copying the files to the Windows Azure server. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
 14. The default browser automatically opens to the URL of the deployed site.<br/>
-The application you created is now running in the cloud.
+The application you created is now running in the cloud. The next time you deploy the application, only the changed (or new) files will be deployed.
 	<br/>![To Do List home page running in Windows Azure][newapp005]
 
 
@@ -163,40 +163,36 @@ You begin by creating a simple data model in code.
 ![Add New Item dialog box][adddb002]
 3. Replace the contents of the Contacts.cs file with the following code.
 
-		using System.Globalization;
-		namespace ContactManager.Models
-		{
-    		public class Contact
-   			{
-        		public int ContactId { get; set; }
-				public string Name { get; set; }
-				public string Address { get; set; }
-	        	public string City { get; set; }
-				public string State { get; set; }
-				public string Zip { get; set; }
-				public string Email { get; set; }
-				public string Twitter { get; set; }
-				public string Self
-        		{
-            		get { return string.Format(CultureInfo.CurrentCulture,
-				         "api/contacts/{0}", this.ContactId); }
-            		set { }
-        		}
-    		}
-		}
-The **Contacts** class defines the data that you will store for each contact, plus a primary key, ContactID, that is needed by the database.
+        using System.ComponentModel.DataAnnotations;
+        using System.Globalization;
+        namespace ContactManager.Models
+        {
+            public class Contact
+            {
+                public int ContactId { get; set; }
+                public string Name { get; set; }
+                public string Address { get; set; }
+                public string City { get; set; }
+                public string State { get; set; }
+                public string Zip { get; set; }
+                [DataType(DataType.EmailAddress)]
+                public string Email { get; set; }
+            }
+        }
+The **Contacts** class defines the data that you will store for each contact, plus a primary key, *ContactID*, that is needed by the database.
 
 ### Create web pages that enable app users to work with the contacts
 
-The ASP.NET MVC the scaffolding feature can automatically generate code that performs create, read, update, and delete (CRUD) actions.
+The ASP.NET MVC scaffolding feature can automatically generate code that performs create, read, update, and delete (CRUD) actions.
 
 <h2><a name="bkmk_addcontroller"></a>Add a Controller and a view for the data</h2>
 
+1. Build the project **(Ctrl+Shift+B)**. (You must build the project before using scaffolding mechanism.) <br/>
 1. In **Solution Explorer**, expand the Controllers folder.
-3. Build the project **(Ctrl+Shift+B)**. (You must build the project before using scaffolding mechanism.) <br/>
 4. Right-click the Controllers folder and click **Add**, and then click **Controller...**.<br/>
 ![Add Controller in Controllers folder context menu][addcode001]<br/>
-5. In the **Add Controller** dialog box, enter "HomeController" as your controller name. Set the **Scaffolding options Template** to  **MVC Controller with read/write actions and views, using Entity Framework**.
+5. In the **Add Controller** dialog box, enter "HomeController" as your controller name. 
+1. Set the **Scaffolding options** Template to  **MVC Controller with read/write actions and views, using Entity Framework**.
 6. Select **Contact** as your model class and **&lt;New data context...&gt;** as your data context class.<br/>
 ![Add Controller dialog box][addcode002]<br/>
 7. On the **New Data Context** dialog box, accept the default value *ContactManager.Models.ContactManagerContext*.
@@ -226,13 +222,14 @@ The next task is to enable the [Code First Migrations](http://atlas.asp.net/mvc/
 
 	The **add-migration Initial** command generates a file named **&lt;date_stamp&gt;Initial** in the *Migrations* folder that creates the database. The first parameter ( **Initial** ) is arbitrary and used to create the name of the file. You can see the new class files in **Solution Explorer**.<br/>
 	In the **Initial** class, the **Up** method creates the Contacts table, and the **Down** method (used when you want to return to the previous state) drops it.<br/>
-3. Right-click the Migrations folder and open the **Configuration.cs** file. 
+3. Open the *Migrations\Configuration.cs* file. 
 4. Add the following namespaces. 
 
     	 using ContactManager.Models;
 
+
+
 5. Replace the *Seed* method with the following code:
-		
 
         protected override void Seed(ContactManager.Models.ContactManagerContext context)
         {
@@ -245,7 +242,6 @@ The next task is to enable the [Code First Migrations](http://atlas.asp.net/mvc/
                    State = "WA",
                    Zip = "10999",
                    Email = "debra@example.com",
-                   Twitter = "debra_example"
                },
                 new Contact
                 {
@@ -255,7 +251,6 @@ The next task is to enable the [Code First Migrations](http://atlas.asp.net/mvc/
                     State = "WA",
                     Zip = "10999",
                     Email = "thorsten@example.com",
-                    Twitter = "thorsten_example"
                 },
                 new Contact
                 {
@@ -265,7 +260,6 @@ The next task is to enable the [Code First Migrations](http://atlas.asp.net/mvc/
                     State = "WA",
                     Zip = "10999",
                     Email = "yuhong@example.com",
-                    Twitter = "yuhong_example"
                 },
                 new Contact
                 {
@@ -275,7 +269,6 @@ The next task is to enable the [Code First Migrations](http://atlas.asp.net/mvc/
                     State = "WA",
                     Zip = "10999",
                     Email = "jon@example.com",
-                    Twitter = "jon_example"
                 },
                 new Contact
                 {
@@ -285,12 +278,11 @@ The next task is to enable the [Code First Migrations](http://atlas.asp.net/mvc/
                     State = "WA",
                     Zip = "10999",
                     Email = "diliana@example.com",
-                    Twitter = "diliana_example"
                 }
                 );
         }
 
-	This code above will initialize the database with the contact information. For more information on seeding the database, see [Debugging Entity Framework (EF) DBs](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
+	This code above will initialize the database with the contact information. For more information on seeding the database, see [Seeding and Debugging Entity Framework (EF) DBs](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
 
 
 6. In the **Package Manager Console** enter the command:
@@ -550,6 +542,15 @@ Another way to store data in a Windows Azure application is to use Windows Azure
 - [Intro to ASP.NET MVC 4](http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4)
 - [OAuth 2.0 and Sign-In](http://blogs.msdn.com/b/vbertocci/archive/2013/01/02/oauth-2-0-and-sign-in.aspx)
 
+This tutorial and the sample application was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/), Tom Dykstra, and Tom . We would like to thank the following people for their assistance:
+
+* Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)) 
+* [Cory Fowler](http://blog.syntaxc4.net/) (Twitter [@SyntaxC4](https://twitter.com/SyntaxC4) ) 
+* [Joe Giardino](http://blogs.msdn.com/b/windowsazurestorage/)
+* Don Glover 
+* Jai Haridas
+* [Scott Hunter](http://blogs.msdn.com/b/scothu/) (Twitter: [@coolcsh](http://twitter.com/coolcsh))
+
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
 [Add Roles to the Membership Database]:#mbrDB
@@ -621,24 +622,8 @@ Another way to store data in a Windows Azure application is to use Windows Azure
 [rx]: ../Media/rx.png
 [rx]: ../Media/rx.png
 
-[]: ../Media/.png
-[]: ../Media/.png
-[]: ../Media/.png
-[]: ../Media/.png
-[]: ../Media/.png
-[]: ../Media/.png
-[]: ../Media/.png
-[]: ../Media/.png
-[]: ../Media/.png
-[]: ../Media/.png
-[]: ../Media/.png
-[]: ../Media/.png
-[]: ../Media/.png
-[]: ../Media/.png
-[]: ../Media/.png
-[]: ../Media/.png
-[]: ../Media/.png
-[]: ../Media/.png
+[rxCreateWSwithDB_2]: ../Media/rxCreateWSwithDB_2.png
+
 [rxNewCtx]: ../Media/rxNewCtx.png
 [rxCreateWSwithDB_2]: ../Media/rxCreateWSwithDB_2.png 
 [rxPrevDB]: ../Media/rxPrevDB.png
@@ -696,7 +681,7 @@ Another way to store data in a Windows Azure application is to use Windows Azure
 [addwebapi006]: ../Media/dntutmobile-webapi-save-returned-contacts.png
 [addwebapi007]: ../Media/dntutmobile-webapi-contacts-in-notepad.png
 [lastdeploy001]: ../Media/dntutmobile-web-publish-settings.png
-
+[rxf]: ../Media/rxf.png
 
 
 
