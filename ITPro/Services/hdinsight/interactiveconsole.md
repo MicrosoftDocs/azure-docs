@@ -133,6 +133,12 @@ You have seen how to run an Hadoop job from the Interactive JavaScript console a
 
 ## Next steps
 
-* For additional infomation on using Pig, see [Using Pig](/en-us/manage/services/hdinsight/using-pig/)
-* For additional infomation on using Hive, see [Using Hive](/en-us/manage/services/hdinsight/using-hive/)
-* For additional infomation on using MapReduce, see [Using MapReduce](/en-us/manage/services/hdinsight/using-mapreduce/)
+* [Using Pig with HDInsight][hdinsight-pig] 
+
+* [Using Hive with HDInsight][hdinsight-hive]
+
+* [Using MapReduce with HDInsight][hdinsight-mapreduce]
+
+[hdinsight-pig]: /en-us/manage/services/hdinsight/howto-pig/
+[hdinsight-hive]: /en-us/manage/services/hdinsight/howto-hive/
+[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/howto-mapreduce/

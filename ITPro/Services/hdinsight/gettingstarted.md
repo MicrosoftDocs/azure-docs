@@ -4,140 +4,104 @@
 
 # Getting Started with Windows Azure HDInsight Service
 
-This tutorial gets you started using Windows Azure HDInsight Services. You get set up with Windows Azure and Azure Storage Vault accounts, learn how to provision an HDInsight cluster, and how to run a MapReduce job on it. Then you use the Interactive JavaScript Console to view the output from the job.
+This tutorial gets you started using Windows Azure HDInsight Services. HDInsight Services makes Apache Hadoop avaliable as a service in the cloud. It makes the HDFS/MapReduce software framework available in a simpler, more scalable, and cost efficient environment. 
 
-To itemize, you learn:
-
-* To obtain a Windows Azure account and enable the HDInsight features
-* To create and configure an Azure Vault Storage (ASV) account
-* To provision an HDInsight cluster from the Windows Azure portal
-* To navigate to and around the HDInsight Services dashboard  
-* To run a sample MapReduce program
-* To using the Interative Console to examine the output from a MapReduce program 
+In particular, it simplify the configuring, running, and post-processing of Hadoop jobs by providing JavaScript and Hive interactive consoles. The JavaScript console is unique to HDInsight and handles Pig Latin as well as JavaScript and Hadoop file system commands. It also provides a cost efficient approach to the managing and storing of data. HDInsight uses Azure Storage by default from which data can be easily accessed for compute and where it can be stored at relatively low cost using Azure Blob Storage. 
 
 
-##Obtain a Windows Azure Account and Enable HDInsight
+In this tutorial you will learn how to:
 
-To complete this tutorial, you need a Windows Azure account that has the Windows Azure Web Sites Feature enabled. You can create a free trial account and enable the preview features in a couple of minutes. For details, see [Create a Windows Azure Account and Enable Preview Features](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/ "Create an Azure Account").
+* subscribe to Windows Azure and enable the HDInsight feature
+* create and configure a Windows Azure Storage account, which will be used by HDInsight
+* provision an HDInsight cluster from the Windows Azure portal
+* use the HDInsight Services dashboard  
+* run a sample MapReduce program
+* use the Interactive Console to examine the output from a MapReduce program 
 
-**ToDo**: Add specifics about enabling HDI Preview Feature when available.(Shayne's Wed 2/27/2013 7:45 AM email)
 
-##Create a Windows Azure Storage Vault Account
-To complete this tutorial, you need an Azure Storage Vault (ASV) account. For instructions on how to create one, see
-[How to Create an Azure Storage Vault Account](http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/ "CreateAnAsvAccount").
+##Subscribe to a Windows Azure Account and Enable HDInsight
 
-(**ToDo**: Confirm that WordCount sample can run without manually uploading the DaVinci text to the the ASV account. Have not tested with a new ASV as unable to use the HDI portal to create a storage account that is not "disabled". But status is "Online".)
+To complete this tutorial, you need a Microsoft email account and a Windows Azure account that has the Windows Azure Web Sites Feature enabled.
 
-##Provision an Hadoop Cluster with HDInsight
+- A microsoft account can be a live ID or hotmail account or an organizational account for Office 360 subscibers. 
+- For instructions to obtain a Microsoft account and to open an Azure account, see the [Windows Azure sign in](https://login.live.com/login.srf?cbcxt=azu&vv=1100&lc=1033&wa=wsignin1.0&wtrealm=urn:federation:MicrosoftOnline&wctx=wa%3Dwsignin1.0%26rpsnv%3D2%26ct%3D1362688668%26rver%3D6.1.6206.0%26wp%3DSAPI%26wreply%3Dhttps:%252F%252Faccount.windowsazure.com%252Fsubscriptions%252F%26lc%3D1033%26id%3D500867%26WHR%3Dlive.com%26cbcxt%3Dazu) page. 
+- For instructions on enabling the preview features, see [Create a Windows Azure Account and Enable Preview Features](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/ "Create an Azure Account").
+
+Note that the free trial for Windows Azure will probably not provide you with resources that are adequate to get you up to speed with HDInsight Services, so you should get a regular Windows Azure account if you do not already have one and you are interested in learning about this technology.
+
+##Create a Windows Azure Storage account
+To complete this tutorial, you need an Azure Storage account. For instructions on how to create one, see
+[How to Create a Storage Account](http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/ "CreateAnAsvAccount"). Note that your storage account should be created in the US East data center as storage accounts must be collocated with the HDInsight compute resources which are in US East.
+
+
+##Provision an HDInsight Cluster
 This section walks you through the steps to create and configure a new Hadoop Cluster. 
 
 - Log into your Windows Azure account and go to the Windows Azure portal. 
 
 - Click on the **HDInsight** icon on the left side scroll bar of the portal (highlighted in yellow below) to list the status of the clusters in your account. (The list will be empty if this is the first time you have used HDInsight Services.)
 
-![HDI.ClusterStatus](..media/HDI.ClusterStatus.PNG?raw=true "HDInsight Cluster Management")
+![HDI.ClusterStatus](../media/HDI.ClusterStatus.PNG?raw=true "HDInsight Cluster Management")
 
 - To add a new cluster, click on the **+NEW** icon on the lower left side (circled in red above). This launches the **NEW HDINSIGHT CLUSTER** wizard. Click on the **Quick Create** option on the right side.
 
-![HDI.QuickCreateCluster](..media/HDI.QuickCreateCluster.PNG?raw=true "Quick Create Cluster")
+![HDI.QuickCreateCluster](../media/HDI.QuickCreateCluster.PNG?raw=true "Quick Create Cluster")
 
-- Enter a name for the cluster ("_Sample-Cluster_" in the example below) and the number of data nodes you want to deploy. The default value is 4. But 8, 16 and 32 data node clusters are also avaliable on the dropdown menu. Any number of data nodes may be specified when using the **Custom Create** option. Pricing details on the billing rates for various cluster sizes are available. Click the **?** symbol just above the dropdown box and follow the link on the pop up.  
+- Enter a name for the cluster ("_Sample-Cluster_" in the example below) and the number of data nodes you want to deploy. The default value is 4. But 8, 16 and 32 data node clusters are also available on the dropdown menu. Any number of data nodes may be specified when using the **Custom Create** option. Pricing details on the billing rates for various cluster sizes are available. Click the **?** symbol just above the dropdown box and follow the link on the pop up.  
 
 -  Note that the cluster user name is specified to be _admin_ by default when using the Quick Create option. This can only be changed by using the **Custom Create** wizard.
 
 - Enter a password for the cluster user. The password field must be at least 10 characters and must contain an uppercase letter, a lowercase letter, a number, and a special character.
 
-- Select a key from the ASV storage acount that you want to associate with this cluster from the dropdown box. Note that once this choice is made, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
+- Select a key from the Azure storage account that you want to associate with this cluster from the dropdown box. Note that once this choice is made, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
 
 - Click the **CREATE HDINSIGHT CLUSTER** check mark icon on the lower left. The cluster is now provisioned and when it will be available when its status is listed as **Running** in the Azure portal.
 
-![HDI.NewClusterStatusRunning](..media/HDI.NewClusterStatusRunning.PNG?raw=true "New Cluster Status Running")
+![HDI.NewClusterStatusRunning](../media/HDI.NewClusterStatusRunning.PNG?raw=true "New Cluster Status Running")
 
-##The HDInsight dashboard
+##The HDInsight dashboard and sample gallery
+This section explains how to get to the HDInsight dashboard and sample gallery.
 
-This section explains how to get to the HDInsight and 
+- To get to the dashboard, click on the name of the HDInsight cluster in the first column of the table on the Windows Azure portal. 
 
-- To get to the (**ToDo**: name - not the cluster?) dashboard, click on the name of the HDInsight cluster in the first column of the table on the Windows Azure portal. 
-- The dashboard provides quick glance of the metadata for the cluster. Note that it provides the URL for the cluster at the top and the cluster user name (_admin_) at the bottom. 
+- The dashboard provides quick glance of the metadata for the cluster. Note that it provides a live URL for the cluster at the top and the cluster user name (_admin_ here, which you will need to log on) at the bottom. 
 
 - To go to the cluster, either click its URL or the **START DASHBOARD** icon on the lower right.
 
-![HDI.Dashboard](..media/HDI.Dashboard.PNG?raw=true "Dashboard")
+![HDI.Dashboard](../media/HDI.Dashboard.PNG?raw=true "Dashboard")
 
-- When prompted for credentials on the **Log On** page, the **User name** needed is the cluster user name for the (not the cluster name), which was provided on the bottom of the previous dashboard: _admin_. 
+- When prompted for credentials on the **Log On** page, the **User name** needed is the cluster user name, which was provided (if you have forgot what it is) on the bottom of the previous dashboard, which is _admin_ by default when using the **Quick Create** process.
 
-- The **Password** it expects is the one you created for this the cluster (not the Windows Azure password).
+- The **Password** it expects is the one that you created for this the cluster (not the Windows Azure password).
 
-![HDI.LogOn](..media/HDI.LogOn.PNG?raw=true "Log On Page")
+![HDI.LogOn](../media/HDI.LogOn.PNG?raw=true "Log On Page")
 
-- Click the Log On button to get to the Windows Azure HDInsight page (ToDo: OR dashboard?  
+- Click the **Log On** button to get to the **Windows Azure HDInsight** page.  
 
-![HDI.WinAzureHDI](..media/HDI.WinAzureHDI.PNG?raw=true "Windows Azure HDInsight")
+![HDI.WinAzureHDI](../media/HDI.WinAzureHDI.PNG?raw=true "Windows Azure HDInsight")
 
-There are seven green tiles in the section for **Your Cluster**:
+- Click on the **Samples** tile to go to the **Hadoop Sample Gallery** that has tiles for each of the samples that ship with HDInsight.
 
-- **Interactive Console**: The interactive console provided by Microsoft to simplify configuring and running Hadoop jobs and interacting with the deployed clusters. This simplified approach using JavaScript and Hive consoles enables IT professionals and a wider group of developers to deal with big data management and analysis by providing an accessible path into the Hadoop framework.
+![HDI.SampleGallery](../media/HDI.SampleGallery.PNG?raw=true "Sample Gallery")
 
-- **Remote Cluster**: Enables remoting into the Hadoop cluster.
 
-- **Monitor Cluster**: Provides monitoring .
+##Run a MapReduce Job in HDInsight: WordCount
 
-- **Job History**: Records the jobs that have been run on your cluster.
+This section briefly describes what the Workcount MapReduce programs do and shows how to run the Wordcount sample using the **Create Job** UI provided by HDInsight Services. 
 
-- **Samples**: Provides links to the samples that ship with HDInsight and can be run directly from the HDInsight interface.
-
-- **Downloads**: Downloads for Hive ODBC driver and Hive Add-in for Excel that enable Hadoop integration with Microsoft BI Solutions. Connect Excel to the Hive data warehouse framework in the Hadoop cluster via the Hive ODBC driver to access and view data in the cluster.
-
-- **Documentation**: Provides links to HDInsight documentation.
-
-The Your Tasks section initially has one purple tile.
-
-- **Create Job**: Create Job UI for running MapReduce programs using Hadoop jar files.
-
-But new tiles are added to indicate which jobs have been completed.
-
-Click on the **Samples** tile to go to the **Hadoop Sample Gallery**.
-
-![HDI.SampleGallery](..media/HDI.SampleGallery.PNG?raw=true "Sample Gallery")
-
-HDInsight ships with five samples, which, with one exception (the Sqoop sample) can be run directly from the dashboard.
-
-- **The Hadoop on Azure 10-GB Graysort Sample**: This tutorial shows how to run a general purpose GraySort on a 10 GB file using Hadoop on Windows Azure. 
-
-- **The Hadoop on Azure Pi Estimator Sample**: 
-This tutorial shows how to deploy a MapReduce program with Hadoop on Windows Azure that uses a statistical (quasi-Monte Carlo) method to estimate the value of Pi.
-
-- **The Hadoop on Azure Wordcount Sample**: This tutorial shows two ways to use Hadoop on Windows Azure to run a MapReduce program that counts word occurences in a text.
-
-- **The Hadoop on Azure C# Streaming Sample**:This tutorial shows how to use C# programs with the Hadoop streaming interface. 
-
-- **The Hadoop on Azure Sqoop Import/Export Sample**: This tutorial shows how to use Sqoop to import and export data from a SQL database on Windows Azure to an Hadoop on Windows Azure HDFS cluster.
-
-##Run a MapReduce Job in HDInsight
-
-There are two ways to run Hadoop MapReduce programs jobs on HDInsight. 
-
-- First, with a Hadoop jar file using the **Create Job** UI. 
-
-- Second, with a query using the fluent API layered on Pig that is provided by the **Interactive Console**. 
-
-This section illustrates the first approach using the WordCount sample that ships with HDInsight. The sample contains MapReduce programs written in Java that count word occurences in a text. The text file analyzed is the Project Gutenberg eBook edition of The Notebooks of Leonardo Da Vinci. The  program outputs the the total number of occurences of each word in a text file. 
-
-**The WordCount MapReduce Programs**  
-
-The Hadoop MapReduce programs use by the WordCount sample read the document in the text file and count how often each word occurs. The input is just the text file. The output is a new text file consisting of lines, each of which contains a word and the count (a key/value tab-separated pair) of how often that word occurred in the document. This is done in two stages. The mapper (the cat.exe in this sample) takes each line from the input text as an input and breaks it into words. It emits a key/value pair each time a work occurs of the word followed by a 1. The reducer (the wc.exe in this sample) then sums these individual counts for each word and emits a single key/value pair containing the word followed by the sum of its occurences.
+The sample contains MapReduce programs written in Java that together count word occurences in a text. The input text file analyzed is the Project Gutenberg eBook edition of _The Notebooks of Leonardo Da Vinci_. The output is a set of key-value pairs. The key is a string that specifies a word and the value is an integer that specifies the total number of occurences of that word in the text. This is done in two stages. The mapper (the cat.exe in this sample) takes each line from the input text as an input and breaks it into words. It emits a key/value pair each time a work occurs of the word followed by a 1. The reducer (the wc.exe in this sample) then sums these individual counts for each word and emits a single key/value pair containing the word followed by the sum of its occurences. These programs can be downloaded and their code inspected from the deployment page as explained below.
 
 **Run the Wordcount sample** 
 
  - Click on the **WordCount** sample icon in the Hadoop Sample Gallery to bring up the deployment page for the sample.
 
-![HDI.WordCountSampleDeployment](..media/HDI.WordCountSampleDeployment.PNG?raw=true "WordCount Sample Deployment")
+![HDI.WordCountSampleDeployment](../media/HDI.WordCountSampleDeployment.PNG?raw=true "WordCount Sample Deployment")
 
 - On the Wordcount deployment page, information is provided about the application and downloads are available for Java MapReduce programs, the input text, and the jar files that contains the files needed by Hadoop on Azure to deploy the application. The java code can be inspected on this page by scrolling down into the **Details** section. Click on the **Deploy to your cluster** button on the right-hand side of the page to begin the deployment.
 
 - This brings up the **Create Job** page for the Wordcount sample. 
 
-![HDI.CreateWordCountJob](..media/HDI.CreateWordCountJob.PNG?raw=true "Create WordCount Job")
+![HDI.CreateWordCountJob](../media/HDI.CreateWordCountJob.PNG?raw=true "Create WordCount Job")
 
 - The job name and parameters have been assigned default values that will run the WordCount job.The **Job Name** is "WordCount". **Parameter0** is just the name of the program, "wordcount". **Parameter1** specifies, respectively, the path/name of the input file (asv:///example/data/gutenberg/davinci.txt) and the output directory where the results will be saved (asv:///DaVinciAllTopWords). Note that the output directory assumes a default path relative to the asv:///user/&lt;username&gt; folder. (**ToDo**: confirm this last statement.) Note the use of the asv:// prefix in the paths of these files. This is needed to indicate the Azure Storage Vault is being used for input and output files.
 
@@ -147,7 +111,7 @@ The Hadoop MapReduce programs use by the WordCount sample read the document in t
 
 - The status of the deployment is provided on the **Job Info** page and it will indicate when the program has completed, as shown here. (**ToDo**: ask why I am having to hit F5 to see the completed status - a bug?)
 
-![HDI.WordCountSampleCompleted](..media/HDI.WordCountSampleCompleted.PNG?raw=true "WordCount Sample Completed")
+![HDI.WordCountSampleCompleted](../media/HDI.WordCountSampleCompleted.PNG?raw=true "WordCount Sample Completed")
 
 ##Examinging Output in the Interactive Console
 
@@ -158,14 +122,25 @@ We can use the JavaScript Interactive Console to view the output from the WordCo
 
 - To confirm that you have the part-r-00000 output file in the DavinciAllTopWords folder that contains the results, enter the command `file = fs.read("asv:///DaVinciAllTopWords")` in the console check that this file is there.
 
-![HDI.JSConsole1](..media/HDI.JSConsole1.PNG?raw=true "JavaScript Console Output")
+![HDI.JSConsole1](../media/HDI.JSConsole1.PNG?raw=true "JavaScript Console Output")
 
-- To view the word counts, enter the command `file = fs.read("asv:///DaVinciAllTopWords")` in the console prompt. It is a large file. Scroll up to see the long list of words and their summmary counts.
+- To view the word counts, enter the command `file = fs.read("asv:///DaVinciAllTopWords")` in the console prompt. It is a large file. Scroll back up to see the long list of words and their summmary counts.
+
+![HDI.Hero.ReadWordCount](../media/HDI.Hero.ReadWordCount.PNG?raw=true "Read Wordcounts")
  
 ## Summary
 
-You have gotten set up with a Windows Azure and Azure Storage Vault accounts needed to access HDInsight Sevices. You have learnt how to provision an HDInsight cluster, ran a MapReduce job on it, and used the Interactive Console to view the output from the job.
+You have gotten set up with a Windows Azure and Azure Storage accounts that are needed to access HDInsight Sevices. You have learnt how to provision an HDInsight cluster, run a MapReduce job on it, and use the Interactive Console to view the output from the job.
 
 ## Next steps
 
-- For other uses of HDInsight interactive JavaScript and Hive consoles, see the [The Windows Azure HDInsight Interactive JavaScript and Hive Consoles](ToDo: URL "InteractiveConsole")
+- For information of running more samples, see [How to Run Samples](/en-us/manage/services/hdinsight/howto-runsamples) Todo: correct this URL
+- For other uses of HDInsight interactive JavaScript and Hive consoles, see the [The Windows Azure HDInsight Interactive JavaScript and Hive Consoles](/en-us/manage/services/hdinsight/InteractiveConsole) Todo: correct this URL
+- For more information of Pig, see [Using Pig](/en-us/manage/services/hdinsight/howto-pig/)
+- For more information of Hive, see [Using Hive](/en-us/manage/services/hdinsight/howto-hive/)
+- For more information of MapReduce, see [Using MapReduce](/en-us/manage/services/hdinsight/howto-mapreduce/)
+
+
+
+
+

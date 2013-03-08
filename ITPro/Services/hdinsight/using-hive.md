@@ -203,6 +203,6 @@ Congratulations! You have successfully completed this tutorial.
 
 * [Using the Interactive JavaScript and Hive Consoles][interactive-console]
 
-[hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig/
-[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce/
+[hdinsight-pig]: /en-us/manage/services/hdinsight/howto-pig/
+[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/howto-mapreduce/
 [interactive-console]: /en-us/manage/services/hdinsight/interactiveconsole/

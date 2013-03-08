@@ -326,6 +326,6 @@ Congratulations! You have successfully completed this tutorial.
 
 * [Using the Interactive JavaScript and Hive Consoles][interactive-console]
 
-[hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig/
-[hdinsight-hive]: /en-us/manage/services/hdinsight/using-hive/
+[hdinsight-pig]: /en-us/manage/services/hdinsight/howto-pig/
+[hdinsight-hive]: /en-us/manage/services/hdinsight/howto-hive/
 [interactive-console]: /en-us/manage/services/hdinsight/interactiveconsole/
