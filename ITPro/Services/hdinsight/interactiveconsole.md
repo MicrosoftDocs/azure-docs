@@ -1,4 +1,6 @@
-<properties linkid="manage-hdinsight-interactive-console" urlDisplayName="HDInsight interactive console" pageTitle="Using the HDInsight Interactive Console - Windows Azure tutorial" metaKeywords="hdinsight, hdinsight console, hdinsight javascript" metaDescription="Learn how to use the interactive JavaScript and Hive console with HDInsight" metaCanonical="http://www.windowsazure.com/en-us/manage/hdinsight/interactiveconsole" umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-interactive-console" urlDisplayName="HDInsight interactive console" pageTitle="Using the HDInsight Interactive Console - Windows Azure tutorial" metaKeywords="hdinsight, hdinsight console, hdinsight javascript" metaDescription="Learn how to use the interactive JavaScript and Hive console with HDInsight" umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="mollybos" manager="paulettm" />
+
+<div chunk="../chunks/hdinsight-left-nav.md" />
 
 # HDInsight Interactive JavaScript and Hive Consoles
 

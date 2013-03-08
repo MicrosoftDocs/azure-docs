@@ -1,4 +1,6 @@
-<properties linkid="manage-hdinsight-version" urlDisplayName="HDInsight Hadoop Version" pageTitle="What version of Hadoop is in Windows Azure HDInsight" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" metaDescription="A list of the Apache Hadoop component versions included in theWindows Azure HDInsight Service" metaCanonical="http://www.windowsazure.com/en-us/manage/hdinsight/hdinsight-version" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-version" urlDisplayName="HDInsight Hadoop Version" pageTitle="What version of Hadoop is in Windows Azure HDInsight" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" metaDescription="A list of the Apache Hadoop component versions included in theWindows Azure HDInsight Service" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+
+<div chunk="../chunks/hdinsight-left-nav.md" />
 
 #What version of Hadoop is in Windows Azure HDInsight?
 

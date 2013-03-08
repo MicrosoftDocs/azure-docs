@@ -134,7 +134,7 @@ You have gotten set up with a Windows Azure and Azure Storage accounts that are 
 
 ## Next steps
 
-- For information of running more samples, see [How to Run Samples](/en-us/manage/services/hdinsight/howto-run-samples/)
+- For information about running more samples, see [How to Run Samples](/en-us/manage/services/hdinsight/howto-run-samples/)
 - For other uses of HDInsight interactive JavaScript and Hive consoles, see the [The Windows Azure HDInsight Interactive JavaScript and Hive Consoles](/en-us/manage/services/hdinsight/howto-work-with-the-interactive-console/) 
 - For more information of Pig, see [Using Pig](/en-us/manage/services/hdinsight/howto-pig/)
 - For more information of Hive, see [Using Hive](/en-us/manage/services/hdinsight/howto-hive/)

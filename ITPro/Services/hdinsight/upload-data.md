@@ -1,4 +1,6 @@
-<properties linkid="manage-hdinsight-upload-data" urlDisplayName="Upload data to HDInsight" pageTitle="How to upload data to HDInsight - Windows Azure guidance" metaKeywords="hdinsight, hdinsight upload, hdinsight upload data, upload data azure" metaDescription="Learn how to upload data to the the HDInsight service." metaCanonical="http://www.windowsazure.com/en-us/manage/hdinsight/upload-data" umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-upload-data" urlDisplayName="Upload data to HDInsight" pageTitle="How to upload data to HDInsight - Windows Azure Services" metaKeywords="hdinsight, hdinsight upload, hdinsight upload data, upload data azure" metaDescription="Learn how to upload data to the the HDInsight service." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="mollybos" manager="paulettm" />
+
+<div chunk="../chunks/hdinsight-left-nav.md" />
 
 #How to Upload Data to HDInsight
 

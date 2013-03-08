@@ -1,4 +1,6 @@
-<properties linkid="manage-hdinsight-programmatic-deploy" urlDisplayName="Deploying HDInsight Programmatically" pageTitle="Deploying an HDInsight Cluster Programmatically - Windows Azure tutorial" metaKeywords="hdinsight deploy, hdinsight deployment, programmatic deployment, hdinsight azure" metaDescription="Deploying an HDInsight Cluster Programmatically" metaCanonical="http://www.windowsazure.com/en-us/manage/hdinsight/deployclusterprogrammatically" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-programmatic-deploy" urlDisplayName="Deploying HDInsight Programmatically" pageTitle="Deploying an HDInsight Cluster Programmatically - Windows Azure Services" metaKeywords="hdinsight deploy, hdinsight deployment, programmatic deployment, hdinsight azure" metaDescription="Deploying an HDInsight Cluster Programmatically" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+
+<div chunk="../chunks/hdinsight-left-nav.md" />
 
 #Deploying an HDInsight Cluster Programmatically
 
@@ -8,7 +10,7 @@ Authentication needs to occur via the management certificate as outlined in [thi
 
 The following URI path forms the base for operations on Azure HDInsight
 
-> https://management.core.windows.net/subscription-id/cloudservices/azurehdinsight
+	https://management.core.windows.net/subscription-id/cloudservices/azurehdinsight
 
 It is important to note that at this time, one must create a cluster via the Windows Azure management portal at least once prior to using the programmatic endpoints.
 

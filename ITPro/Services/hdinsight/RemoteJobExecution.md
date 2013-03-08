@@ -1,4 +1,4 @@
-<properties linkid="develope-hdinsight-remote-jobs" urlDisplayName="Remote Jobs with HDInsight" pageTitle="Programmatically execute remote jobs on HDInsight - Windows Azure developer guidance" metaKeywords="remote job, remote job hdinsight, hdinsight azure" metaDescription="How to programmatically execute remote jobs on your HDInsight cluster" metaCanonical="http://www.windowsazure.com/en-us/manage/hdinsight/remotejobexecution" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-remote-jobs" urlDisplayName="Remote Jobs with HDInsight" pageTitle="Programmatically execute remote jobs on HDInsight - Windows Azure Services" metaKeywords="remote job, remote job hdinsight, hdinsight azure" metaDescription="How to programmatically execute remote jobs on your HDInsight cluster" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
 
 #Executing Remote Jobs on Your HDInsight Cluster Programmatically
 
@@ -8,7 +8,7 @@ HDInsight includes the abililty to initiate job execution on your HDInsight clus
 * Incorporating job execution into a larger application (allow a client to configure and kick off web log processing)
 * Building end user query tools 
 
-In order to enable these scenarios, an HDInsight cluster exposes a WebHCat endpoint.  WebHCat is a REST API to provide metadata management and remote job submission to the Hadoop cluster.  You can find updated documentation [here](http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-Win-1.1/ds_Templeton/index.html) (Note, WebHCat has also been referred to as "Templeton" so expect to see some references to that.
+In order to enable these scenarios, an HDInsight cluster exposes a WebHCat endpoint.  WebHCat is a REST API to provide metadata management and remote job submission to the Hadoop cluster.  You can find updated documentation [here](http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-Win-1.1/ds_Templeton/index.html). (Note, WebHCat has also been referred to as "Templeton" so expect to see some references to that.)
 
 WebHCat surfaces the following capabilities:
 

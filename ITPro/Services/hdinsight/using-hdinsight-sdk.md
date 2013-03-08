@@ -1,4 +1,6 @@
-<properties linkid="manage-hdinsight-using-sdk" urlDisplayName="Using the HDInsight SDK" pageTitle="How to use the HDInsight SDK - Windows Azure guidance" metaKeywords="hdinsight sdk, hdinsight .net, hdinsight .net azure" metaDescription="Learn how to use the .Net client SDK for HDInsight." metaCanonical="http://www.windowsazure.com/en-us/manage/hdinsight/using-hdinsight-sdk" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-using-sdk" urlDisplayName="Using the HDInsight SDK" pageTitle="How to use the HDInsight SDK - Windows Azure guidance" metaKeywords="hdinsight sdk, hdinsight .net, hdinsight .net azure" metaDescription="Learn how to use the .Net client SDK for HDInsight." umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+
+<div chunk="../chunks/hdinsight-left-nav.md" />
 
 #Using the HDInsight SDK#
 
