@@ -61,6 +61,7 @@ The input file consists of a semi-structured log4j file in the following format:
 	2012-02-03 21:05:21 SampleClass6 [FATAL] system problem at id 1620503499
 
 
+
 The output data will be put into a file showing the various log4j log levels along with its frequency occurrence in the input file. A sample of these metrics is displayed below:
 
 **OUTPUT:**
@@ -352,7 +353,7 @@ This step will take a few minutes.
 
 Step 13: Analyze the output. Scroll down to the Job Stats near the bottom of the output underneath the word “Success!”. Notice that Pig executed three MapReduce jobs with just a few lines of Pig Latin and no Java. 
 
-![Analyze Output](../media/AnalyzeOutput.png)
+![Analyze Output](../media/HDI.AnalyzeOutput.png)
 
 At the very bottom of the output, notice the job results: 
 
@@ -425,7 +426,7 @@ Step 6: Analyze the output. View the file by using the following command:
 
 > hadoop fs -cat sampleout/part-r-00000
 
-![Analyze Output](../media/AnalyzeOutput2.png)
+![Analyze Output](../media/HDI.AnalyzeOutput2.png)
  
 The results are the same as interactive mode. 
  

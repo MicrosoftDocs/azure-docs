@@ -1,21 +1,21 @@
-<properties linkid="manage-services-hdinsight-howto-deploy-cluster" urlDisplayName="Deploying HDInsight Programmatically" pageTitle="Deploying an HDInsight Cluster Programmatically - Windows Azure Services" metaKeywords="hdinsight deploy, hdinsight deployment, programmatic deployment, hdinsight azure" metaDescription="Learn how to deploy an HDInsight cluster programmatically." metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
-
-<div chunk="../chunks/hdinsight-left-nav.md" />
+<properties linkid="manage-hdinsight-programmatic-deploy" urlDisplayName="Deploying HDInsight Programmatically" pageTitle="Deploying an HDInsight Cluster Programmatically - Windows Azure tutorial" metaKeywords="hdinsight deploy, hdinsight deployment, programmatic deployment, hdinsight azure" metaDescription="Deploying an HDInsight Cluster Programmatically" metaCanonical="http://www.windowsazure.com/en-us/manage/hdinsight/deployclusterprogrammatically" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
 
 #Deploying an HDInsight Cluster Programmatically
 
-*At this time, the API used here should be considered experimental.  The API and document format is subject to change, and this is included in our content to unblock customers who must have this capability today*
-
-HDInsight clusters can be created programmatically by issueing an authenticated call to the [Service Management API](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx) (aka RDFE).  As the HDInsight service moves through preview, we will add full support and documentation on this capability prior to general availability.  
+HDInsight clusters can be created programmatically by issuing an authenticated call to the [Service Management API](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx).  As the HDInsight service moves through preview, we will add full support and documentation on this capability prior to general availability.  
 
 Authentication needs to occur via the management certificate as outlined in [this documentation](http://msdn.microsoft.com/en-us/library/windowsazure/ee460782.aspx).
 
 The following URI path forms the base for operations on Azure HDInsight
 
-    https://management.core.windows.net/<subscription-id>/cloudservices/azurehdinsight
+> https://management.core.windows.net/subscription-id/cloudservices/azurehdinsight
 
-###Operations on HDInsight Clusters
-####List Clusters
+It is important to note that at this time, one must create a cluster via the Windows Azure management portal at least once prior to using the programmatic endpoints.
+
+##Operations on HDInsight Clusters##
+
+**List Clusters**
+
 By issuing a GET against the base URI above, you will receive a body that enumerates the set of clusters that are currently running.  The response body contains:
 
     <CloudService xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -28,10 +28,6 @@ By issuing a GET against the base URI above, you will receive a body that enumer
           <ResourceProviderNamespace>azurehdinsight</ResourceProviderNamespace>
           <Type>containers</Type>
           <Name>resource_name</Name>
-          <Plan>plan_id</Plan>
-          <ETag>etag_id</ETag>
-          <State>Started</State>
-          <SubState>Running</SubState>
           <OutputItems>
             <OutputItem>
               <Key>ConnectionURL</Key>
@@ -64,8 +60,9 @@ By issuing a GET against the base URI above, you will receive a body that enumer
 
 
 
-####Create Clusters
-In order to create a cluster, issue a PUT agains the following URI: 
+**Create Clusters**
+
+In order to create a cluster, issue a PUT against the following URI: 
 
      https://management.core.windows.net/<subscriptionId>/cloudservices/azurehdinsight/resources/azurehdinsight/containers/<containerName>
 
@@ -73,8 +70,6 @@ The body of your request must contain the following payload.  **NOTE: The format
 
     <?xml version="1.0" encoding="utf-8"?>
     <Resource xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
-      <Plan>f13dd630-41b2-410d-8c8b-098608e913ff</Plan>
-      <PromotionCode>894c9ade-108f-4668-9aea-4326938dd8d5</PromotionCode>
       <IntrinsicSettings>
         <ClusterContainer xmlns="http://schemas.datacontract.org/2004/07/Microsoft.ClusterServices.DataAccess.Context"
                           xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -113,11 +108,11 @@ The body of your request must contain the following payload.  **NOTE: The format
 There are a few parameters which are important to explain here:
 
 * **`ASVAccounts`**: Details on the storage account(s) to connect to the cluster.  You can provide multiple storage accounts here, if you do this, you will need to fully qualify references to the other storage accounts in order to reference them from jobs on the cluster
-* **`ClusterUsername`**: This will form the logon information for the cluster for RDP, as well as the basic authentication against the gateway and cluster dashboard
+* **`ClusterUsername`**: This will form the logon information for the cluster for RDP, as well as the basic authentication against the gateway and cluster dashboard.  The cluster password must be 8 characters long, and contain at least one numeric, special character and capital letter.
 * **`NodeSizes`**: Note, node size is currently *not* configurable.  In a future update, we will enable the ability to specify the node sizes fully.  Currently, the only settable parameter which will be honored here is the `clustersize`
 * **`DNSName`**: This needs to match the name of the cluster
 
-Optionally, following node size, you can specify an Azure SQL Database to be the persistent metadata store for Hive and Oozie.  Please co-locate this database with the Azure HDInsight Cluster.
+Optionally, following node size, you can specify an Azure SQL Database to be the persistent metadata store for Hive and Oozie.  Please co-locate this database with the Azure HDInsight Cluster.  **It is important to note that both of these must be provided (an error will result if only one value is provided).**
 
       <SqlMetaStores xmlns:da="http://schemas.datacontract.org/2004/07/Microsoft.ClusterServices.DataAccess">
         <da:SqlAzureMetaStore>
@@ -136,9 +131,10 @@ Optionally, following node size, you can specify an Azure SQL Database to be the
         </da:SqlAzureMetaStore>
       </SqlMetaStores>
 
-**Note: the elements *must* be placed in alphabetical order**
+Note: the elements *must* be placed in alphabetical order
 
-####Delete Clusters
+**Delete Clusters**
+
 In order to delete a cluster, issue a DELETE against the following URI:
 
     https://management.core.windows.net/<subscriptionId>/cloudservices/azurehdinsight/resources/azurehdinsight/containers/<containerName>
