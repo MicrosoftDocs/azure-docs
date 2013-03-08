@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-python-install-python" urlDisplayName="Install Python" pageTitle="Install Python and the SDK - Windows Azure" metaKeywords="Azure Python SDK" metaDescription="Learn how to install Python and the SDK to use with Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-python-install-python" urlDisplayName="Install Python" pageTitle="Install Python and the SDK - Windows Azure" metaKeywords="Azure Python SDK" metaDescription="Learn how to install Python and the SDK to use with Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -47,7 +47,7 @@ Unless you have a specific need, we recommend the first two options, as describe
 
 ## Installation on Windows
 
-For Windows you can use the provided WebPI installer from the main Python Developer Center to streamline the installation (it will grab CPython from www.python.org).
+For Windows you can use the provided [WebPI installer] from the main Python Developer Center to streamline the installation (it will grab CPython from www.python.org).
 
 **Note:** On Windows Server, in order to download the WebPI installer you may have to configure IE ESC settings (Start/Adminstrative Tools/Server Manager, then click **Configure IE ESC**, set to Off)
 
@@ -171,7 +171,7 @@ For information on how to setup a Linux VM, please see the [Linux Management sec
 
 [Virtualenv]: http://pypi.python.org/pypi/virtualenv 
 
-
+[WebPI installer]: http://go.microsoft.com/fwlink/?LinkId=254281&clcid=0x409
 
 [Setting up a Linux VM via the Windows Azure portal]: ../../../shared/chunks/create-and-configure-opensuse-vm-in-portal
 
