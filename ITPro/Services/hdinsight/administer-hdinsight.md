@@ -1,4 +1,6 @@
-<properties linkid="manage-hdinsight-administration" urlDisplayName="HDInsight Administration" pageTitle="How to administer HDInsight - Windows Azure guidance" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to perform administrative tasks for the HDInsight service." metaCanonical="http://www.windowsazure.com/en-us/manage/hdinsight/administer-hdinsight" umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-howto-administer-hdinsight" urlDisplayName="HDInsight Administration" pageTitle="How to administer HDInsight - Windows Azure Services" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to perform administrative tasks for the HDInsight service." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="mollybos" manager="paulettm" />
+
+<div chunk="../chunks/hdinsight-left-nav.md" />
 
 # How to Administer HDInsight
 
