@@ -6,16 +6,21 @@
 
 In this topic, you will learn how to create an HDInsight cluster, and how to open the administrative tools.
 
-Table of Contents
+##Table of Contents
 
-* How to: Create a HDInsight cluster
-* How to: Open the interactive JavaScript console
-* How to: open the Hadoop command console
+* [How to: Create a HDInsight cluster](#create)
+* [How to: Open the interactive JavaScript console](#jsconsole)
+* [How to: open the Hadoop command console](#hadoopcmd)
 
-## How to: Create a HDInsight cluster
-Azure Vault Storage (ASV) provides a full featured HDFS file system over Windows Azure Blob storage. ASV is the default file system for HDInsight. A Windows Azure storage account is required before you can create a HDInsight cluster. For information on creating a Windows Azure storage account, see [How to Create a Storage Account](http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/).
+##<a id="create"></a> How to: Create a HDInsight cluster
 
-	Important: Currently HDInsight is only available in the US East data center, so you must specify the US East location when creating your storage account.
+A Windows Azure storage account is required before you can create a HDInsight cluster. HDInsight uses Windows Azure Blob Storage to store data. For information on creating a Windows Azure storage account, see [How to Create a Storage Account](http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/).
+
+<div class="dev-callout">
+<b>Note</b>
+<p>Currently HDInsight is only available in the US East data center, so you must specify the US East location when creating your storage account.</p>
+</div>
+
 
 1. Sign in to the [Management Portal](http://manage.windowsazure.com).
 2. Click **+ NEW** on the bottom of the page, click **DATA SERVICES**, click **HDINSIGHT**, and then click **QUICK CREATE**.
@@ -30,7 +35,7 @@ Azure Vault Storage (ASV) provides a full featured HDFS file system over Windows
 				<li>DNS name must start and end with alpha numeric, may contain dashes.</li>
 				<li>The field must be a string between 3 to 63 characters.</li>
 				</ul>
-				Task Nodes: specify the number of task notes in the cluster
+				<p>Data Nodes: specify the number of notes in the cluster</p>
 				<ul>
 				</ul>
 			</td>
@@ -64,11 +69,11 @@ Azure Vault Storage (ASV) provides a full featured HDFS file system over Windows
 	![HDI.Dashboard](../media/HDI.Dashboard1.PNG "HDInsight Cluster DashBoard")
 
 
-## How to: Open the interactive JavaScript console
+##<a id="jsconsole"></a> How to: Open the interactive JavaScript console
 Windows Azure HDInsight Service comes with a web based interactive JavaScript console that can be used as an administration/deployment tool. The console evaluates simple JavaScript expressions. It also lets you run HDFS commands.
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
-2. Click **HDINSIGHT**. You shall see a list of deployed Hadoop clusters.
+2. Click **HDINSIGHT**. You will see a list of deployed Hadoop clusters.
 3. Click the Hadoop cluster where you want to upload data to.
 4. From HDInsight Dashboard, click the cluster URL.
 5. Enter **User name** and **Password** for the cluster, and then click **Log On**.
@@ -76,7 +81,7 @@ Windows Azure HDInsight Service comes with a web based interactive JavaScript co
 
 	![HDI.TileInteractiveConsole](../media/HDI.TileInteractiveConsole.PNG "Interactive Console")
 
-7. From the Interactive JavaScript console, type the following command to get a list of supported command:
+7. From the Interactive JavaScript console, type the following command to get a list of supported commands:
 	
 		help()
 
@@ -86,18 +91,18 @@ Windows Azure HDInsight Service comes with a web based interactive JavaScript co
 
 		#lsr /
 
-## How to: Open the Hadoop command line
+##<a id="hadoopcmd"></a> How to: Open the Hadoop command line
 
 To use Hadoop command line, you must first connect to the cluster using remote desktop. 
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
-2. Click **HDINSIGHT**. You shall see a list of deployed Hadoop clusters.
+2. Click **HDINSIGHT**. You will see a list of deployed Hadoop clusters.
 3. Click the Hadoop cluster where you want to upload data to.
 4. Click **Connect** on the bottom of the page.
 5. Click **Open**.
 6. Enter your credentials, and then click **OK**.  Use the username and password you configured when you created the cluster.
 7. Click **Yes**.
-8. From Desktop, double-click **Hadoop Command Line**.
+8. From the desktop, double-click **Hadoop Command Line**.
 		
 	![HDI.HadoopCommandLine](../media/HDI.HadoopCommandLine.PNG "Hadoop command line")
 
@@ -106,6 +111,6 @@ To use Hadoop command line, you must first connect to the cluster using remote d
 
 
 ## See Also
-* [How to: Monitor HDInsight](/en-us/manage/services/hdinsight/monitor-hdinsight/)
+* [How to: Monitor HDInsight](/en-us/manage/services/hdinsight/howto-hdinsight/)
 	
 * [How to: Upload data to HDInsight](/en-us/manage/services/hdinsight/using-mapreduce/upload-data)

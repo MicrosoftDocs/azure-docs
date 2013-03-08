@@ -4,12 +4,12 @@
 
 In this topic, you will learn how to monitor an HDInsight cluster.
 
-Table of Contents
+##Table of Contents
 
-* How to: Monitor a HDInsight cluster
-* How to: View Hadoop job history
+* [How to: Monitor a HDInsight cluster](#monitorcluster)
+* [How to: View Hadoop job history](#jobhistory)
 
-## How to: Monitor an HDInsight cluster
+##<a id="monitorcluster"></a> How to: Monitor an HDInsight cluster
 
 To monitor the health of an HDInsight cluster and the Hadoop jobs running on the cluster, you can connect to the HDInsight Dashboard, and click the Monitor Cluster tile.
 
@@ -24,7 +24,7 @@ On the right, it shows both Namenode and job tracker are up running, and the 4 d
 
 On the left, it shows the map reduce metrics for the past 30 minutes. You can change the monitor windows to 30 minutes, 1 hour, 3 hours, 12 hours, 1 day, 2 days, 1 week and 2 weeks.
 
-## How to: View Hadoop job history
+##<a id="jobhistory"></a> How to: View Hadoop job history
 To view Hadoop job history, connect to HDInsight Dashboard, and then click the Job History tile. 
 
 ![HDI.TileJobHistory](../media/HDI.TileJobHistory.PNG "Job History")
