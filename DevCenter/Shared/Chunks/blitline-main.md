@@ -150,11 +150,10 @@ By filling in the CAPITALIZED values with your own, you can submit this JSON to 
 
 Visit blitline.com to read about all our other features:
 
-* Blitline API Endpoint Docs <http://www.blitline.com/docs/api>
-* Blitline API Functions <http://www.blitline.com/docs/functions>
-* Blitline API Examples <http://www.blitline.com/docs/examples>
-
-* Third Part Nuget Library <http://nuget.org/packages/Blitline.Net>
+* [Blitline API Endpoint Docs](http://www.blitline.com/docs/api)
+* [Blitline API Functions](http://www.blitline.com/docs/functions)
+* [Blitline API Examples](http://www.blitline.com/docs/examples)
+* [NuGet Library](http://nuget.org/packages/Blitline.Net)
 
 
   [Next steps]: #nextsteps

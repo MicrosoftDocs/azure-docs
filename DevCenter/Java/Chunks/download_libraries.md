@@ -11,8 +11,10 @@ If your project is already set up to use Maven for build, add the following depe
 	<dependency>
     	<groupId>com.microsoft.windowsazure</groupId>
     	<artifactId>microsoft-windowsazure-api</artifactId>
-    	<version>0.4.0</version>
+    	<version>n.n.n</version>
 	</dependency>
+
+Within the `<version>` element, replace *n.n.n* with a valid version number, which can be obtained from the [Windows Azure Libraries Repository on Maven](http://go.microsoft.com/fwlink/?LinkID=286274).
 
 [license]: http://www.apache.org/licenses/LICENSE-2.0.html
 [zip-download]:  http://go.microsoft.com/fwlink/?LinkId=253887

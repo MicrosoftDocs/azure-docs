@@ -18,7 +18,7 @@ Traffic Manager works by applying an intelligent policy engine to the DNS querie
 * [How to: Direct Incoming Traffic to Hosted Services Based on Network Performance](#howto_direct)
 
 
-<h2 id="howto_point_company">How to: Point a Company Internet Domain to a Traffic Manager Domain</h2>
+<h2><a id="howto_point_company"></a>How to: Point a Company Internet Domain to a Traffic Manager Domain</h2>
 
 To point your company domain name to a Traffic Manager domain, edit the DNS resource record on your DNS server using a CNAME. 
 
@@ -27,7 +27,7 @@ For example, to point the main company domain **www.contoso.com** to a Traffic M
 
 All traffic going to *www.contoso.com* will now redirect to *contoso.trafficmanager.net*. Be sure that you are using a domain where you want all traffic redirected to Traffic Manager. 
 
-<h2 id="howto_test">How to: Test a Policy</h2>
+<h2><a id="howto_test"></a>How to: Test a Policy</h2>
 
 The best way to test your policy is to set up a number of clients and then bring the services in your policy down one at a time. The following tips will help you test your Traffic Manager policy:
 
@@ -104,7 +104,7 @@ There are free web based nslookup and dig services available. Some of these give
 5. Repeat the process letting the DNS TTL expire so that you will receive a new IP address. You should see IP addresses returned for each of your hosted services. Then the process will repeat.
 
 
-<h2 id="howto_temp_disable">How to: Temporarily Disable Policies and Hosted Services</h2>
+<h2><a id="howto_temp_disable"></a>How to: Temporarily Disable Policies and Hosted Services</h2>
 
 You can disable previously created Traffic Manager policies so they will not route traffic. When you disable a Traffic Manager policy, the information of the policy will remain intact and editable in the Traffic Manager interface. You can easily enable the policy again and routing will resume. 
 
@@ -141,7 +141,7 @@ Disabling a hosted service has nothing to do with its deployment state in Window
 
 3. Traffic will start flowing to the hosted service again as dictated by the policy.  
 
-<h2 id="howto_edit_policy">How to: Edit a Policy</h2>
+<h2><a id="howto_edit_policy"></a>How to: Edit a Policy</h2>
 
 If you just need to temporarily turn off a policy or particular hosted services in the policy, you can temporarily disable them without changing the policy.  
 
@@ -157,7 +157,7 @@ To change a policy to a different type, use the following steps:
 
 5. Click **Save**.
 
-<h2 id="howto_load_balance">How to: Load Balance Traffic Equally Across a Set of Hosted Services</h2>
+<h2><a id="howto_load_balance"></a>How to: Load Balance Traffic Equally Across a Set of Hosted Services</h2>
 
 A common load balancing pattern is to provide a set of identical hosted services and send traffic to each in a round-robin fashion. This article outlines the steps to set up a Traffic Manager domain and policy to perform this type of load balancing.
 
@@ -199,7 +199,7 @@ For example, the following command routes all traffic going to **www.contoso.com
 `` www.contoso.com IN CNAME contoso.trafficmanager.net``
 For more information, see [How to: Point to a Company Internet Domain to a Windows Azure Traffic Manager domain](#howto_point_company).
 
-<h2 id="howto_create_failover">How to: Create a Failover Policy</h2>
+<h2><a id="howto_create_failover"></a>How to: Create a Failover Policy</h2>
 
 Often an organization wants to provide reliability for its services. It does this by providing backup services in case their primary service goes down. A common pattern for service failover is to provide a set of identical hosted services and send traffic to a primary service, with a list of 1 or more backups. This article outlines the steps to set up a Traffic Manager policy to perform this type of failover backup.
 
@@ -240,7 +240,7 @@ For more information, see [How to Point a Company Internet Domain to a Traffic M
 For example, the following command routes all traffic going to **www.contoso.com** to the Traffic Manager domain **contoso.trafficmanager.net**
 ``www.contoso.com IN CNAME contoso.trafficmanager.net``
 
-<h2 id="howto_direct">How to: Direct Incoming Traffic to Hosted Services Based on Network Performance</h2>
+<h2><a id="howto_direct"></a>How to: Direct Incoming Traffic to Hosted Services Based on Network Performance</h2>
 
 In order to load balance hosted service that are located in different datacenters across the globe, you can direct incoming traffic to the closest hosted service. Although “closest” may directly correspond to geographic distance, it can also correspond to the location with the lowest latency to service the request. The Performance load balancing method will allow you to distribute based on location and latency, but cannot take into account real-time changes in network configuration or load. For more information on the different load balancing methods that Traffic Manager provides, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx) and scroll to the section "Load balancing methods in Windows Azure Traffic Manager."
 

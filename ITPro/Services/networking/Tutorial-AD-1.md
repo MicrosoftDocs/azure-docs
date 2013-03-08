@@ -20,7 +20,7 @@ This tutorial walks you through the steps to install an additional domain contro
 * [Step 8: Test authentication and authorization](#test)
 
 
-<h2 id="Prerequisites">Prerequisites</h2>
+<h2><a id="Prerequisites"></a>Prerequisites</h2>
 
 -	[Create a Virtual Network for Cross-Premises Connectivity](http://www.windowsazure.com/en-us/manage/services/networking/cross-premises-connectivity/) configured between Windows Azure Virtual network and Corp network.
 -	Create a cloud service in the virtual network.
@@ -44,7 +44,7 @@ This tutorial walks you through the steps to install an additional domain contro
 </div>
 
 
-<h2 id="verifystaticip">Step 1: Verify static IP address for YourPrimaryDC</h2>
+<h2><a id="verifystaticip"></a>Step 1: Verify static IP address for YourPrimaryDC</h2>
 
 1.	Log on to YourPrimaryDC on the Corp network.
 
@@ -59,7 +59,7 @@ This tutorial walks you through the steps to install an additional domain contro
 	![VerifystaticIPaddressyourPrimaryDC1] (../media/VerifystaticIP.png)
 
 
-<h2 id="installforest">Step 2: Install Corp forest</h2>
+<h2><a id="installforest"></a>Step 2: Install Corp forest</h2>
 
 1.	In the RDP session for the VM, click **Start**, type **dcpromo**, and press ENTER.
 
@@ -119,7 +119,7 @@ This tutorial walks you through the steps to install an additional domain contro
 
 
 
-<h2 id="subnets">Step 3: Create subnets and sites</h2>
+<h2><a id="subnets"></a>Step 3: Create subnets and sites</h2>
 
 1.	On YourPrimaryDC, click Start, click Administrative Tools and then click Active Directory Sites and Services.
 2.	Click **Sites**, right-click **Subnets**, and then click **New Subnet**.
@@ -154,7 +154,7 @@ This tutorial walks you through the steps to install an additional domain contro
 	![CreateSubnetsandSites7](../media/CreateSubnetsandSites7.png)
 
 
-<h2 id="cloudsite">Step 4: Install an additional domain controller in the CloudSite</h2>
+<h2><a id="cloudsite"></a>Step 4: Install an additional domain controller in the CloudSite</h2>
 
 1.	Log on to YourVMachine, click **Start**, type **dcpromo**, and press ENTER.
 
@@ -223,7 +223,7 @@ This tutorial walks you through the steps to install an additional domain contro
 	![AddDC14](../media/AddDC14.png)
 
 
-<h2 id="validate">Step 5: Validate the installation</h2>
+<h2><a id="validate"></a>Step 5: Validate the installation</h2>
 
 1.	Reconnect to the VM.
 
@@ -238,7 +238,7 @@ After the DC is configured, run the following Windows PowerShell cmdlet to provi
 For more information about using Windows PowerShell, see [Getting Started with Windows Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx) and [Windows Azure Management Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841).
 
 
-<h2 id="provisionvm">Step 6: Provisioning a Virtual Machine that is Domain Joined on Boot</h2>
+<h2><a id="provisionvm"></a>Step 6: Provisioning a Virtual Machine that is Domain Joined on Boot</h2>
 
 1.	To create an additional virtual machine that is domain-joined when it first boots, open Windows Azure PowerShell ISE, paste the following script, replace the placeholders with your own values and run it. 
 
@@ -270,7 +270,7 @@ For more information about using Windows PowerShell, see [Getting Started with W
 		New-AzureVM -ServiceName $service -AffinityGroup $AG -VMs $MyVM1 -DnsSettings $myDNS -VNetName $vnet
 		
 
-<h2 id="backup">Step 7: Backup the domain controller</h2>
+<h2><a id="backup"></a>Step 7: Backup the domain controller</h2>
 
 
 1.	Connect to YourVMachine.
@@ -292,7 +292,7 @@ For more information about using Windows PowerShell, see [Getting Started with W
 
 8.	Confirm the backup settings you selected and then click **Backup**.
 
-<h2 id="test">Step 8: Test authentication and authorization</h2>
+<h2><a id="test"></a>Step 8: Test authentication and authorization</h2>
 
 1.	In order to test authentication and authorization, create a domain user account in Active Directory. 
 Log on to the client VM in each site and create a shared folder on the VM

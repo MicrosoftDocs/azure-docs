@@ -8,7 +8,7 @@ To use this feature and other new Windows Azure capabilities, sign up for the [f
 * [How to: Initialize a new data disk in Windows Server 2008 R2](#initializeinWS)
 * [How to: Initialize a new data disk in Linux](#initializeinlinux)
 
-<h2 id="concepts">Concepts</h2>
+<h2><a id="concepts"></a>Concepts</h2>
 
 You can attach a data disk to a virtual machine to store application data. A data disk is a Virtual Hard Disk (VHD) that you can create either locally with your own computer or in the cloud with Windows Azure. You manage data disks in the virtual machine the same way you do on a server in your office.
 
@@ -45,7 +45,7 @@ You can upload and attach a data disk that already contains data to the virtual 
 
 For more information about using data disks, see [Manage disks and images] [].
 
-<h2 id="attachexisting">How to: Attach an existing disk</h2>
+<h2><a id="attachexisting"></a>How to: Attach an existing disk</h2>
 
 
 1. If you have not already done so, sign in to the [Windows Azure Management Portal](http://manage.windowsazure.com).
@@ -69,7 +69,7 @@ For more information about using data disks, see [Manage disks and images] [].
 	![Data disk successfully attached][Data disk successfully attached]
 
 
-<h2 id="attachempty">How to: Attach an empty disk</h2>
+<h2><a id="attachempty"></a>How to: Attach an empty disk</h2>
 
 When you create a new data disk, you decide the size of the disk. After you attach an empty disk to a virtual machine, the disk will be offline. You must connect to the virtual machine, and then use Server Manager to initialize the disk before you can use it.
 
@@ -97,7 +97,7 @@ When you create a new data disk, you decide the size of the disk. After you atta
 
 	![Empty data disk successfully attached][Empty data disk successfully attached]
 
-<h2 id="initializeinWS">How to: Initialize a new data disk in Windows Server 2008 R2</h2>
+<h2><a id="initializeinWS"></a>How to: Initialize a new data disk in Windows Server 2008 R2</h2>
 
 The data disk that you just attached to the virtual machine is offline and not initialized after you add it. You must access the machine and initialize the disk to use it for storing data. 
 
@@ -122,7 +122,7 @@ The data disk that you just attached to the virtual machine is offline and not i
 	![Volume successfully initialized][Volume successfully initialized]
 
 
-<h2 id="initializeinlinux">How to: Initialize a new data disk in Linux </h2>
+<h2><a id="initializeinlinux"></a>How to: Initialize a new data disk in Linux </h2>
 
 1. Connect to the virtual machine by using the steps listed in [How to log on to a virtual machine running Linux][logonlinux].
 
