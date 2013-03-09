@@ -16,14 +16,14 @@ This tutorial assumes you have a [Windows Azure subscription][free-trial], that 
 
 Before preceding, note that the data used in this tutorial comes from RITA, the [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website]. From the [RITA website][rita-website], you can download information about on-time performance of airline flights across the United States. To get the data used for this tutorial, download files for each month of 2012 with the following field names selected: Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. Each file is a CSV file and is approximately 60 GB in size.
 
-<h2 id="Upload">Upload data to Windows Azure Blob Storage</h2> 
+<h2><a id="Upload"></a>Upload data to Windows Azure Blob Storage</h2> 
 There are a number of ways to upload data to Windows Azure Blob Storage. Here, we will use the Windows Azure Storage Explorer, which can be downloaded for free from Codeplex: [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/). Documentation for using the tool can be downloaded from here: [http://azurestorageexplorer.codeplex.com/documentation](http://azurestorageexplorer.codeplex.com/documentation).
 
-First, create a container called **flightinfo** and upload the data files to this container. Next, rename each file by prefixing the existing name with `delays/`. (You can rename a file by selecting it and using the **Rename** option in Azure Storage Explorer.) This is necessary because, in order to create Hive tables from data in blob storage (which we will do later), files that will be loaded into a table must all have the same prefix in this form: `prefix/filename.csv`. When you are finished, you should have file names that look like this:
+First, create a container called **flightinfo** and upload the data files to this container. Next, rename each file by prefixing the existing name with "delays/". (You can rename a file by selecting it and using the **Rename** option in Azure Storage Explorer.) This is necessary because, in order to create Hive tables from data in blob storage (which we will do later), files that will be loaded into a table must all have the same prefix in this form: "prefix/filename.csv". When you are finished, you should have file names that look like this:
 
 ![ASV files][asv-files]
 
-<h2 id="CreateCluster">Create a Hadoop cluster</h2>
+<h2><a id="CreateCluster"></a>Create a Hadoop cluster</h2>
 
 To create a HDInsight cluster, login to the [Windows Azure Management Portal](https://windows.azure.com/), select **HDInsight** in the left column, then click **CREATE A HDINSIGHT CLUSTER**.
 
@@ -40,7 +40,7 @@ Provide the cluster name, select the number of data nodes, provide a password fo
 
 Cluster creation will take several minutes.
 
-<h2 id="CreateHiveTable">Create a Hive table</h2>
+<h2><a id="CreateHiveTable"></a>Create a Hive table</h2>
 The next step is to create a Hive table from the data in Azure Storage Vault (ASV). 
 
 <div class="dev-callout"> 
@@ -60,9 +60,9 @@ In the cluster dashboard, click on **Remote Desktop**, open the RDP file, and lo
 
 ![Remote desktop][remote-desktop]
 
-After you have logged in, open a command-line shell and change directories to the `hive-0.9.0\bin` directory (typically here: `C:\apps\dist\hive-0.9.0\bin`). Type `hive` and press enter to begin a Hive session, then copy and paste the query below (replacing `storageaccountname` with the name of your storage account) which will create a Hive table from the files in ASV. Note that this query specifies that fields are delimited by commas and that lines are terminated by `\n`. This poses a problem when field values *contain* commas because Hive cannot differentiate between a comma that is a field delimiter and a one that is part of a field value (which is the case in field values for ORIGIN\_CITY\_NAME and DEST\_CITY\_NAME). To address this, the query below creates TEMP columns to hold data that is incorrectly split into columns. 
+After you have logged in, open a command-line shell and change directories to the `hive-0.9.0\bin` directory (typically here: "C:\apps\dist\hive-0.9.0\bin"). Type "hive" and press enter to begin a Hive session, then copy and paste the query below (replacing "storageaccountname" with the name of your storage account) which will create a Hive table from the files in ASV. Note that this query specifies that fields are delimited by commas and that lines are terminated by "\n". This poses a problem when field values *contain* commas because Hive cannot differentiate between a comma that is a field delimiter and a one that is part of a field value (which is the case in field values for ORIGIN\_CITY\_NAME and DEST\_CITY\_NAME). To address this, the query below creates TEMP columns to hold data that is incorrectly split into columns. 
 
-The ASV location is specified in the last line (the table will be created from all files with the `/delays` prefix). 
+The ASV location is specified in the last line (the table will be created from all files with the "/delays" prefix). 
 
 	create external table delays_raw (
 		YEAR string, 
@@ -99,7 +99,7 @@ After executing the query above, you should see output similar to this:
 	OK
 	Time taken: 5.339 seconds 
 
-Before executing queries on the raw data imported from ASV, it will be helpful to clean up some of the data. This can be done by executing the query below, which creates a new table, `delays`, from the `delays_raw` table. Note that the TEMP columns (as mentioned above) are not copied, and that the `substring` function is used to remove quotation marks from the data:
+Before executing queries on the raw data imported from ASV, it will be helpful to clean up some of the data. This can be done by executing the query below, which creates a new table, "delays", from the "delays_raw" table. Note that the TEMP columns (as mentioned above) are not copied, and that the "substring" function is used to remove quotation marks from the data:
 
 	create table delays as 
 		select 
@@ -159,11 +159,11 @@ After executing the query above, you should see output similar to this:
 	OK
 	Time taken: 184.254 seconds
 
-After the `delays` table has been created, you are now ready to run queries over it.
+After the "delays" table has been created, you are now ready to run queries over it.
 
-<h2 id="ExecuteHiveQuery">Execute a HiveQL query</h2>
+<h2><a id="ExecuteHiveQuery"></a>Execute a HiveQL query</h2>
 
-In the query below, change `username` to the name of the logged in user, then copy/paste the query below into your Hive command-line session. This query will compute the average weather delay and group the results by city name. It will also output the results to HDFS. Note that the query is removing apostrophes from the data and is excluding rows where the value for `weather_dealy` is `null` (which is necessary because Sqoop, used in the next step, doesn't handle those values gracefully by default):
+In the query below, change "username" to the name of the logged in user, then copy/paste the query below into your Hive command-line session. This query will compute the average weather delay and group the results by city name. It will also output the results to HDFS. Note that the query is removing apostrophes from the data and is excluding rows where the value for "weather_dealy" is "null" (which is necessary because Sqoop, used in the next step, doesn't handle those values gracefully by default):
 
 	INSERT OVERWRITE DIRECTORY '/user/username/queryoutput' select regexp_replace(origin_city_name, "'", ""), avg(weather_delay) from delays where weather_delay is not null group by origin_city_name;
 
@@ -224,12 +224,12 @@ Output from the query above should look similar to this:
 
 After your Hive query results have been written to HDFS, you can import them to a Windows Azure SQL Database using Sqoop.
 
-<h2 id="HDFStoSQL">Copy Data from HDFS to a SQL Database</h2>
+<h2><a id="HDFStoSQL"></a>Copy Data from HDFS to a SQL Database</h2>
 Before copying data from HDFS to a Windows Azure SQL Database, the SQL Database must exist. To create a database, follow the instructions here: [Getting started with Windows Azure SQL Database](http://www.windowsazure.com/en-us/manage/services/sql-databases/getting-started-w-sql-databases/). Note that your table schema must match that of the data in HDFS and it must have a clustered index. To use the command below, create a database called **MyDatabase** and a table called **AvgDelays** with the following schema:
 
 ![Table schema][table-schema]
 
-Next, you will use the Sqoop command line tool to copy HDFS data to your SQL Database. To do this, return to your remote desktop session, quit your Hive session by entering `quit;` and change directories to the sqoop directory (typically `C:\apps\dist\sqoop-1.4.2\bin`). Execute the following command (replacing `SERVER`, `USER`, `PASSWORD`, `DATABASE`, and `username` with the appropriate values):
+Next, you will use the Sqoop command line tool to copy HDFS data to your SQL Database. To do this, return to your remote desktop session, quit your Hive session by entering "quit;" and change directories to the sqoop directory (typically "C:\apps\dist\sqoop-1.4.2\bin"). Execute the following command (replacing "SERVER", "USER", "PASSWORD", "DATABASE", and "username" with the appropriate values):
 
 	sqoop-export.cmd --connect "jdbc:sqlserver://SERVER.database.windows.net;username=USER@SERVER;password=PASSWORD;database=DATABASE" --table AvgDelays --export-dir /user/username/queryoutput --fields-terminated-by \001 --lines-terminated-by '\r\n'
 
@@ -281,7 +281,7 @@ The output of the query above should look similar to this:
 	13/03/03 22:30:45 INFO mapreduce.ExportJobBase: Transferred 8.2617 KB in 30.8208 seconds (274.4897 bytes/sec)
 	13/03/03 22:30:45 INFO mapreduce.ExportJobBase: Exported 296 records.
 	
-You should now be able to connect to your SQL Database and see average weather delays by city in the `AvgDelays` table:
+You should now be able to connect to your SQL Database and see average weather delays by city in the "AvgDelays" table:
 
 ![SQL results][sql-results]
 
