@@ -362,12 +362,12 @@ Open the *App_Start\AuthConfig.cs* file. Remove the comment characters from the 
 1. Enter your Facebook credentials or one of the test users credentials.
 1. Click **Okay** to allow the application to access your Facebook resources.
 1. You are redirected to the Register page. If you logged in using a test account, you can change the **user name** to something shorter, for example "Bill FB test". Click the **Register** button which will save the user name and email alias to the membership database. 
-1. Register another user. Currently a bug in the log in system prevents you from logging off and loging in as another user using the same provider (that is, you can't log off your Facebook account and log back in with a different Facebook account). To work around this, navigate to the site using another browser and register another user. One user will be added to the manager role and have edit access to application, the other user will only have access to non-edit methods on the site. Anonymous users will only have access to the home page.
+1. Register another user. Currently a bug in the log in system prevents you from logging off and logging in as another user using the same provider (that is, you can't log off your Facebook account and log back in with a different Facebook account). To work around this, navigate to the site using another browser and register another user. One user will be added to the manager role and have edit access to application, the other user will only have access to non-edit methods on the site. Anonymous users will only have access to the home page.
 1. Register another user using a different provider.
-1. **Optional**: You can also create a local account not associated with one of the providers. Later on in the tutorial we will remove creating local accounts. To create a local account, click the **Log out** link (if you are logged in), then click the **Register link**. You might want to create a local account for administration purposes that is not associated with any external authenticaion provider.
+1. **Optional**: You can also create a local account not associated with one of the providers. Later on in the tutorial we will remove creating local accounts. To create a local account, click the **Log out** link (if you are logged in), then click the **Register link**. You might want to create a local account for administration purposes that is not associated with any external authentication provider.
 
 <h2><a name="mbrDB"></a><span class="short-header">Membership DB</span>Add Roles to the Membership Database</h2>
-In this section you will add the *canEdit* role to the membership database. Only those users in the canEdit role will be able to edit data. A best practice is to name roles by the actions they can preform, so canEdit is preferred over an role called *admin*. When your application evolves you can add new roles such as *canDeleteMembers* rather than *superAdmin*.
+In this section you will add the *canEdit* role to the membership database. Only those users in the canEdit role will be able to edit data. A best practice is to name roles by the actions they can perform, so *canEdit* is preferred over an role called *admin*. When your application evolves you can add new roles such as *canDeleteMembers* rather than *superAdmin*.
 
 1. In the **View** menu click **Database Explorer** if you are using *Visual Studio Express for Web* or **Server Explorer** if you are using full Visual Studio. <br/>
  <br/>![Publish][rxP3] <br/>
@@ -385,7 +385,7 @@ In this section you will add the *canEdit* role to the membership database. Only
 <br/> <br/>![roleID][rxRoleID]<br/> <br/>
 1. Right click **webpages UsersInRoles** and click **Show Table Data**. Enter the **UserId** for the user you want to grant *canEdit* access and the **RoleId**.
 <br/> <br/>![usr role ID tbl][rxUR]<br/> <br/>
-The  **webpages_OAuthMembership** table contains the OAuth provider, the provider UserID and the UserID for each registered OAuth user. <!-- Don't replace "-" with "_" or it won't validate -->The **webpages-Membership** table contains the ASP.NET membership table. You can add users to this table using the register link. It's a good idea to add a user with the *canEdit* role that is not associated with Facebook or another third party authorization provider so that can always have *canEdit* access even when the third party authorization provider is not avaliable. Later on in the tutorial we will disable ASP.NET membership registration.
+The  **webpages_OAuthMembership** table contains the OAuth provider, the provider UserID and the UserID for each registered OAuth user. <!-- Don't replace "-" with "_" or it won't validate -->The **webpages-Membership** table contains the ASP.NET membership table. You can add users to this table using the register link. It's a good idea to add a user with the *canEdit* role that is not associated with Facebook or another third party authorization provider so that can always have *canEdit* access even when the third party authorization provider is not available. Later on in the tutorial we will disable ASP.NET membership registration.
 
 ## Protect the Application with the Authorize Attribute ##
 
@@ -432,9 +432,9 @@ In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/li
         // Methods moved and omitted for clarity.
     }
 
-1. Remove ASP.NET membership registration. The current  ASP.NET membership registration in the project does not provide support for password resets and it does not verify that a human is registering (for example with a [CAPTCHA](http://www.asp.net/web-pages/tutorials/security/16-adding-security-and-membership)). Once a user is authenticated using one of the third party providers, they can register. In the AccountController, remove the *[AllowAnonymous]* from the GET and POST *Register* methods. This will prevent bots and anonomyous users from registering.
+1. Remove ASP.NET membership registration. The current  ASP.NET membership registration in the project does not provide support for password resets and it does not verify that a human is registering (for example with a [CAPTCHA](http://www.asp.net/web-pages/tutorials/security/16-adding-security-and-membership)). Once a user is authenticated using one of the third party providers, they can register. In the AccountController, remove the *[AllowAnonymous]* from the GET and POST *Register* methods. This will prevent bots and anonymous users from registering.
 1. In the *Views\Shared\_LoginPartial.cshtml*, remove the Register action link.
-1. Enable SSL. In solution explorer, click the **Contactmager** project, then click F4 to bring up the properties dialog. Change **SSL Enabled** to true.
+1. Enable SSL. In solution explorer, click the **ContactManager** project, then click F4 to bring up the properties dialog. Change **SSL Enabled** to true.
 <br/> <br/>![enable SSL][rxSSL]
 <br/> <br/>
 1. In Solution Explorer, right click the **Contact Manager** project and click **Properties**.
@@ -565,11 +565,11 @@ To get the colorful Facebook, Google and Yahoo log on buttons, see the blog post
 Another way to store data in a Windows Azure application is to use Windows Azure storage, which provide non-relational data storage in the form of blobs and tables. The following links provide more information on ASP.NET MVC and Window Azure. 
 
 - [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs](http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
-- [Getting Started with Entity Framework using MVC][EFCodeFirstMVCTutorial]
 - [Intro to ASP.NET MVC 4](http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4)
+- [Getting Started with Entity Framework using MVC][EFCodeFirstMVCTutorial]
 - [OAuth 2.0 and Sign-In](http://blogs.msdn.com/b/vbertocci/archive/2013/01/02/oauth-2-0-and-sign-in.aspx)
 
-This tutorial and the sample application was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/) with assistance from Tom Dykstra, Tom FitzMacken and Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
+This tutorial and the sample application was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) with assistance from Tom Dykstra, Tom FitzMacken and Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
