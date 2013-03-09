@@ -111,6 +111,6 @@ To use Hadoop command line, you must first connect to the cluster using remote d
 
 
 ## See Also
-* [How to: Monitor HDInsight](/en-us/manage/services/hdinsight/howto-hdinsight/)
+* [How to: Monitor HDInsight](/en-us/manage/services/hdinsight/howto-monitor-hdinsight/)
 	
-* [How to: Upload data to HDInsight](/en-us/manage/services/hdinsight/using-mapreduce/upload-data)
+* [How to: Upload data to HDInsight](/en-us/manage/services/hdinsight/howto-mapreduce/)

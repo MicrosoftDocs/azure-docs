@@ -8,15 +8,19 @@ HDInsight clusters can be created programmatically by issuing an authenticated c
 
 Authentication needs to occur via the management certificate as outlined in [this documentation](http://msdn.microsoft.com/en-us/library/windowsazure/ee460782.aspx).
 
-The following URI path forms the base for operations on Azure HDInsight
+The following URI path forms the base for operations on Azure HDInsight:
 
 	https://management.core.windows.net/subscription-id/cloudservices/azurehdinsight
 
 It is important to note that at this time, one must create a cluster via the Windows Azure management portal at least once prior to using the programmatic endpoints.
 
-##Operations on HDInsight Clusters##
+##Operations on HDInsight Clusters
 
-**List Clusters**
+- [List Clusters](#list)
+- [Create Clusters](#create)
+- [Delete Clusters](#delete)
+
+###<a name="list"></a>List Clusters
 
 By issuing a GET against the base URI above, you will receive a body that enumerates the set of clusters that are currently running.  The response body contains:
 
@@ -62,13 +66,18 @@ By issuing a GET against the base URI above, you will receive a body that enumer
 
 
 
-**Create Clusters**
+###<a name="create"></a>Create Clusters
 
 In order to create a cluster, issue a PUT against the following URI: 
 
      https://management.core.windows.net/<subscriptionId>/cloudservices/azurehdinsight/resources/azurehdinsight/containers/<containerName>
 
-The body of your request must contain the following payload.  **NOTE: The format for this will evolve.**
+The body of your request must contain the following payload. 
+
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>The format for this will evolve.</p> 
+</div>
 
     <?xml version="1.0" encoding="utf-8"?>
     <Resource xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -109,12 +118,12 @@ The body of your request must contain the following payload.  **NOTE: The format
 
 There are a few parameters which are important to explain here:
 
-* **`ASVAccounts`**: Details on the storage account(s) to connect to the cluster.  You can provide multiple storage accounts here, if you do this, you will need to fully qualify references to the other storage accounts in order to reference them from jobs on the cluster
-* **`ClusterUsername`**: This will form the logon information for the cluster for RDP, as well as the basic authentication against the gateway and cluster dashboard.  The cluster password must be 8 characters long, and contain at least one numeric, special character and capital letter.
-* **`NodeSizes`**: Note, node size is currently *not* configurable.  In a future update, we will enable the ability to specify the node sizes fully.  Currently, the only settable parameter which will be honored here is the `clustersize`
-* **`DNSName`**: This needs to match the name of the cluster
+* **ASVAccounts**: Details on the storage account(s) to connect to the cluster.  You can provide multiple storage accounts here, if you do this, you will need to fully qualify references to the other storage accounts in order to reference them from jobs on the cluster.
+* **ClusterUsername**: This will form the logon information for the cluster for RDP, as well as the basic authentication against the gateway and cluster dashboard.  The cluster password must be 8 characters long, and contain at least one numeric, special character and capital letter.
+* **NodeSizes**: Note, node size is currently *not* configurable.  In a future update, we will enable the ability to specify the node sizes fully.  Currently, the only settable parameter which will be honored here is the **clustersize**.
+* **DNSName**: This needs to match the name of the cluster
 
-Optionally, following node size, you can specify an Azure SQL Database to be the persistent metadata store for Hive and Oozie.  Please co-locate this database with the Azure HDInsight Cluster.  **It is important to note that both of these must be provided (an error will result if only one value is provided).**
+Optionally, following node size, you can specify a SQL Database to be the persistent metadata store for Hive and Oozie.  Please co-locate this database with the Azure HDInsight Cluster.  **It is important to note that both of these must be provided (an error will result if only one value is provided).**
 
       <SqlMetaStores xmlns:da="http://schemas.datacontract.org/2004/07/Microsoft.ClusterServices.DataAccess">
         <da:SqlAzureMetaStore>
@@ -133,9 +142,12 @@ Optionally, following node size, you can specify an Azure SQL Database to be the
         </da:SqlAzureMetaStore>
       </SqlMetaStores>
 
-Note: the elements *must* be placed in alphabetical order
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>The elements *must* be placed in alphabetical order.</p> 
+</div>
 
-**Delete Clusters**
+###<a name="delete"></a>Delete Clusters
 
 In order to delete a cluster, issue a DELETE against the following URI:
 

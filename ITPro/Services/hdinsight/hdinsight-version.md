@@ -18,4 +18,4 @@
 <tr><td>SQL Server JDBC Driver</td><td>3.0</td></tr>
 </table>
 
-The Hadoop distribution in Windows Azure HDInsight is based on the [Hortonworks Data Platform 1.1.0](http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-Win-1.1/bk_releasenotes_HDP-Win/content/ch_relnotes-hdp-win-1.1.0_1.html). Note that this may change in future updates to the HDInsight service. One way to determine the available components and their versions is to login to a cluster and examine the contents of the `C:\apps\dist\` directory.
+The Hadoop distribution in Windows Azure HDInsight is based on the [Hortonworks Data Platform 1.1.0](http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-Win-1.1/bk_releasenotes_HDP-Win/content/ch_relnotes-hdp-win-1.1.0_1.html). Note that this may change in future updates to the HDInsight service. One way to determine the available components and their versions is to login to a cluster and examine the contents of the "C:\apps\dist\" directory.
