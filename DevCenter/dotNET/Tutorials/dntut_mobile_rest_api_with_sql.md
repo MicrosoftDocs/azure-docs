@@ -1,6 +1,17 @@
 <div chunk="../chunks/article-left-menu.md" />
 # Deploy a Secure ASP.NET MVC application with OAuth, Membership and SQL Database 
 
+- [Set up the development environment][setupdbenv]
+- [Set up the Windows Azure environment][setupwindowsazureenv]
+- [Create an ASP.NET MVC 4 application][createapplication]
+- [Deploy the application to Windows Azure][deployapp1]
+- [Add a database to the application][adddb]
+- [Add an OAuth Provider][]
+- [Add Roles to the Membership Database][]
+- [Create a Data Deployment Script][]
+- [Deploy the app to Windows Azure][deployapp11]
+- [Update the Membership Database][]
+
 This tutorial shows you how to build a secure ASP.NET MVC 4 web application that enables users to log in with credentials from Facebook, Yahoo and Google. You will also deploy the application to Windows Azure.
 
 You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. You can start developing for Windows Azure for free.
@@ -356,41 +367,51 @@ Open the *App_Start\AuthConfig.cs* file. Remove the comment characters from the 
 1. **Optional**: You can also create a local account not associated with one of the providers. Later on in the tutorial we will remove creating local accounts. To create a local account, click the **Log out** link (if you are logged in), then click the **Register link**. You might want to create a local account for administration purposes that is not associated with any external authenticaion provider.
 
 <h2><a name="mbrDB"></a><span class="short-header">Membership DB</span>Add Roles to the Membership Database</h2>
+In this section you will add the *canEdit* role to the membership database. Only those users in the canEdit role will be able to edit data. A best practice is to name roles by the actions they can preform, so canEdit is preferred over an role called *admin*. When your application evolves you can add new roles such as *canDeleteMembers* rather than *superAdmin*.
 
-
-1. From the **View** menu, click **Server Explorer**.
-1. In **Server Explorer**, click **DefaultConnection**. 
-1. Click **Tables**.
+1. In **Solution Explorer**, right click the project and click **Database Explorer** if you are using Express for Web or **Publish** if you are using full Visual Studio. <br/>
+ <br/>![Publish][rxP3] <br/>
+ <br/>![Publish][rxP2]<br/>
+1. In **Server Explorer**, click **DefaultConnection** then click **Tables**.
 1. Right click **UserProfile** and click **Show Table Data**.
 <br/> 
 <br/>![Show table data][rxSTD]
 <br/> <br/>
-1. Record the **UserId** for the user that will have the managers role. In the image below, the user *ricka* with **UserId** 2 will be the manager for the site.
+1. Record the **UserId** for the user that will have the canEdit role. In the image below, the user *ricka* with **UserId** 2 will have the canEdit role for the site.
 <br/> <br/>![user IDs][rxUid]
 <br/> <br/>
 1. Right click **webpages_Roles** and click **Show Table Data**.
-1. Enter **manager** in the **RoleName** cell. The **RoleId** will be 1 if this is the first time you've added a role. Record the ID.
+1. Enter **canEdit** in the **RoleName** cell. The **RoleId** will be 1 if this is the first time you've added a role. Record the RoleID. Be sure there is not a trailing space character, "canEdit " will in the role table will not match "canEdit" in the controller code.
 <br/> <br/>![roleID][rxRoleID]<br/> <br/>
-1. Right click **webpages UsersInRoles** and click **Show Table Data**. Enter the **UserId** for the user you want to grant manager access and the **RoleId**.
+1. Right click **webpages UsersInRoles** and click **Show Table Data**. Enter the **UserId** for the user you want to grant *canEdit* access and the **RoleId**.
 <br/> <br/>![usr role ID tbl][rxUR]<br/> <br/>
-The  **webpages_OAuthMembership** table contains the OAuth provider, the provider UserID and the UserID for each registered OAuth user. <!-- Don't replace "-" with "_" or it won't validate -->The **webpages-Membership** table contains the ASP.NET membership table. You can add users to this table using the register link. You might want to add a user with the managers role that is not associated with Facebook. We will disable ASP.NET membership registration.
+The  **webpages_OAuthMembership** table contains the OAuth provider, the provider UserID and the UserID for each registered OAuth user. <!-- Don't replace "-" with "_" or it won't validate -->The **webpages-Membership** table contains the ASP.NET membership table. You can add users to this table using the register link. It's a good idea to add a user with the *canEdit* role that is not associated with Facebook or another third party authorization provider so that can always have *canEdit* access even when the third party authorization provider is not avaliable. Later on in the tutorial we will disable ASP.NET membership registration.
 
 ## Protect the Application with the Authorize Attribute ##
 
-In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) attribute to restrict access to the action methods. Anonymous user will be able to view the home page only. Users who have registered through Facebook will be able to see contact details, the about and the contacts pages. Only users in the manager role will be able to access action methods that change data.
+In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) attribute to restrict access to the action methods. Anonymous user will be able to view the home page only. Registered users will be able to see contact details, the about and the contacts pages. Only users in the *canEdit* role will be able to access action methods that change data.
 
-1. Add the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) attribute to the Home controller. This will require users to be authenticated in each of the methods of the controller. 
+1. Add the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) filter and the [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) filter to the application. An alternative approach is to add the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) attribute and the [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) attribute to each controller, but it's considered a security best practice to apply them to the entire application. By adding them globally, every new controller and action method you add will automatically be protected, you won't need to remember to apply them. For more information see [Securing your ASP.NET MVC 4 App and the new AllowAnonymous Attribute](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx). Open the *App_Start\FilterConfig.cs* file and replace the *RegisterGlobalFilters* method with the following.
+
+
+        public static void
+        RegisterGlobalFilters(GlobalFilterCollection filters)
+        {
+            filters.Add(new HandleErrorAttribute());
+            filters.Add(new System.Web.Mvc.AuthorizeAttribute());
+            filters.Add(new RequireHttpsAttribute());
+        }
+
 1. Add the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to the **Index** method. The [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute allows you to whitelist the methods you want to opt out of authorization.
-1. Add   [Authorize(Roles = "Manager")] to the Get and Post methods that change data (Create, Edit, Delete). 
+1. Add   [Authorize(Roles = "canEdit")] to the Get and Post methods that change data (Create, Edit, Delete). 
+1. Add the *About* and *Contact* methods. A portion of the completed code is shown below.
 
 
 <br/>
 
-    [Authorize]
     public class HomeController : Controller
     {
         private ContactManagerContext db = new ContactManagerContext();
-
         [AllowAnonymous]
         public ActionResult Index()
         {
@@ -402,18 +423,33 @@ In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/li
             return View();
         }
 
-        [Authorize(Roles = "Manager")]
-        public ActionResult Create()
+        public ActionResult Contact()
         {
             return View();
         }
 
+        [Authorize(Roles = "canEdit")]
+        public ActionResult Create()
+        {
+            return View();
+        }
         // Methods moved and omitted for clarity.
     }
 
-
-1. Press CTRL+F5 to run the application. Verify only the user in the Manger role can change data. Verify anonymous users can only view the home page.
-
+1. Enable SSL. In solution explorer, click the Contactmager project, the click F4 to bring up the properties dialog. Change **SSL Enabled** to true.
+<br/> <br/>![enable SSL][rxSSL]
+<br/> <br/>
+1. In Solution Explorer, right click the **Contact Manager** project and click **Properties**.
+1. In the left tab, click **Web**.
+1. Change the **Project Url** to use HTTPS and a port in the range of 44300-44399.
+1. Click **Create Virtual Directory**.
+<br/> <br/>![enable SSL][rxS2]
+<br/> <br/>
+1. Press CTRL+F5 to run the application. The browser will display a certificate warning. For our application you can safely click on the link **Continue to this website**. Verify only the users in the *canEdit* role can change data. Verify anonymous users can only view the home page.
+<br/> <br/>![cert Warn][rxNOT]
+<br/> <br/>
+<br/> <br/>![cert Warn][rxNOT2]
+<br/> <br/>
 
 ## Disable Registration for non-authenticated users  ##
 In this section we will require that new users can only be registered after they have been authenticated from another log in service (for this sample, Facebook).
@@ -475,13 +511,15 @@ The **Publish Web** wizard opens.
 <br/><br/>![add sql][rxAddSQL2]<br/> 
 1. Click **Publish**.
 1. Navigate to the Navigate to  [https://developers.facebook.com/apps](https://developers.facebook.com/apps/)  page and change the **App Domains** and **Site URL** settings to the Windows Azure URL.
-1. Test the application. Verify only the user in the manager role can change data. Verify anonymous users can only view the home page. Verify authenticated users can navigate to all links that don't change data.
+1. Test the application. Verify only the user in the *canEdit* role can change data. Verify anonymous users can only view the home page. Verify authenticated users can navigate to all links that don't change data.
 
 <h2><a name="ppd2"></a><span class="short-header">Update DB</span>Update the Membership Database</h2>
 
-Once the site is deployed to Windows Azure and you have more registered users you might want to make some of them members of the manager role. In this section we will use Visual Studio to connect the SQL Azure database and add users to the managers role.
+Once the site is deployed to Windows Azure and you have more registered users you might want to make some of them members of the *canEdit* role. In this section we will use Visual Studio to connect the SQL Azure database and add users to the canEdit role.
 
-1. In **Solution Explorer**, right click the project and select **Publish**.
+1. In **Solution Explorer**, right click the project and click **Database Explorer** if you are using Express for Web or **Publish** if you are using full Visual Studio.
+ <br/>![Publish][rxP2]<br/><br/>
+ <br/>![Publish][rxP3]<br/><br/>
  <br/>![Publish][rxP]<br/><br/>
 1. Click the **Settings** tab.
 2. Copy the connection string. For example, the connection string used in this sample is:
@@ -610,11 +648,16 @@ This tutorial and the sample application was written by [Rick Anderson](http://b
 [rxa]: ../Media/rxa.png
 [rxb]: ../Media/rxb.png
 [rxSS]: ../Media/rxSS.png
-[rx]: ../Media/rx.png
-[rx]: ../Media/rx.png
-[rx]: ../Media/rx.png
-[rx]: ../Media/rx.png
-[rx]: ../Media/rx.png
+[rxp2]: ../Media/rxp2.png
+[rxp3]: ../Media/rxp3.png
+[rxSSL]: ../Media/rxSSL.png
+[rxS2]: ../Media/rxS2.png
+[rxNOT]: ../Media/rxNOT.png
+[rxNOT2]: ../Media/rxNOT2.png
+[rxNOT]: ../Media/rxNOT.png
+[rxNOT]: ../Media/rxNOT.png
+[rxNOT]: ../Media/rxNOT.png
+[rxNOT]: ../Media/rxNOT.png
 [rxCreateWSwithDB_2]: ../Media/rxCreateWSwithDB_2.png
 
 [rxNewCtx]: ../Media/rxNewCtx.png
