@@ -369,7 +369,7 @@ Open the *App_Start\AuthConfig.cs* file. Remove the comment characters from the 
 <h2><a name="mbrDB"></a><span class="short-header">Membership DB</span>Add Roles to the Membership Database</h2>
 In this section you will add the *canEdit* role to the membership database. Only those users in the canEdit role will be able to edit data. A best practice is to name roles by the actions they can preform, so canEdit is preferred over an role called *admin*. When your application evolves you can add new roles such as *canDeleteMembers* rather than *superAdmin*.
 
-1. In **Solution Explorer**, right click the project and click **Database Explorer** if you are using Express for Web or **Publish** if you are using full Visual Studio. <br/>
+1. In the **View** menu click **Database Explorer** if you are using *Visual Studio Express for Web* or **Server Explorer** if you are using full Visual Studio. <br/>
  <br/>![Publish][rxP3] <br/>
  <br/>![Publish][rxP2]<br/>
 1. In **Server Explorer**, click **DefaultConnection** then click **Tables**.
@@ -393,7 +393,6 @@ In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/li
 
 1. Add the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) filter and the [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) filter to the application. An alternative approach is to add the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) attribute and the [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) attribute to each controller, but it's considered a security best practice to apply them to the entire application. By adding them globally, every new controller and action method you add will automatically be protected, you won't need to remember to apply them. For more information see [Securing your ASP.NET MVC 4 App and the new AllowAnonymous Attribute](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx). Open the *App_Start\FilterConfig.cs* file and replace the *RegisterGlobalFilters* method with the following.
 
-
         public static void
         RegisterGlobalFilters(GlobalFilterCollection filters)
         {
@@ -405,9 +404,6 @@ In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/li
 1. Add the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to the **Index** method. The [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute allows you to whitelist the methods you want to opt out of authorization.
 1. Add   [Authorize(Roles = "canEdit")] to the Get and Post methods that change data (Create, Edit, Delete). 
 1. Add the *About* and *Contact* methods. A portion of the completed code is shown below.
-
-
-<br/>
 
     public class HomeController : Controller
     {
@@ -436,7 +432,9 @@ In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/li
         // Methods moved and omitted for clarity.
     }
 
-1. Enable SSL. In solution explorer, click the Contactmager project, the click F4 to bring up the properties dialog. Change **SSL Enabled** to true.
+1. Remove ASP.NET membership registration. The current  ASP.NET membership registration in the project does not provide support for password resets and it does not verify that a human is registering (for example with a [CAPTCHA](http://www.asp.net/web-pages/tutorials/security/16-adding-security-and-membership)). Once a user is authenticated using one of the third party providers, they can register. In the AccountController, remove the *[AllowAnonymous]* from the GET and POST *Register* methods. This will prevent bots and anonomyous users from registering.
+1. In the *Views\Shared\_LoginPartial.cshtml*, remove the Register action link.
+1. Enable SSL. In solution explorer, click the **Contactmager** project, then click F4 to bring up the properties dialog. Change **SSL Enabled** to true.
 <br/> <br/>![enable SSL][rxSSL]
 <br/> <br/>
 1. In Solution Explorer, right click the **Contact Manager** project and click **Properties**.
@@ -459,7 +457,7 @@ In this section we will require that new users can only be registered after they
 <h2><a name="ppd"></a><span class="short-header">Prepare DB</span>Create a Data Deployment Script</h2>
 
 
-The membership database isn't managed by Entity Framework Code First so you can't use Migrations to deploy it.  We'll use the dbDacFx provider to deploy the database schema, and we'll configure the publish profile to run a script that will insert initial membership data into membership tables.
+The membership database isn't managed by Entity Framework Code First so you can't use Migrations to deploy it.  We'll use the [dbDacFx](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction) provider to deploy the database schema, and we'll configure the publish profile to run a script that will insert initial membership data into membership tables.
 
 This tutorial will use  SQL Server Management Studio (SSMS) to create data deployment scripts. 
 
@@ -470,12 +468,12 @@ Install SSMS  from [Microsoft SQL Server 2012 Express Download Center](http://ww
 
  If you choose the wrong one for your system it will fail to install and you can try the other one.
 
-(Note that this is a 600 megabyte download. It may take a long time to install and will require a reboot of your computer.)
+(Note that this is a 600 megabyte download. It may take a long time to install and may require a reboot of your computer.)
 
 On the first page of the SQL Server Installation Center, click **New SQL Server stand-alone installation or add features to an existing installation**, and follow the instructions, accepting the default choices. The following image shows the step that install SSMS.
 
 <br/><br/>![SQL Install][rxSS]<br/> 
-Create the development database script
+### Create the development database script ###
 
 1. Run SSMS.
 1. In the **Connect to Server** dialog box, enter *(localdb)\v11.0* as the Server name, leave **Authentication** set to **Windows Authentication**, and then click **Connect**.
@@ -497,9 +495,9 @@ You can skip the **Choose Objects** step because the default is Script entire da
 
 <h2><a name="bkmk_deploytowindowsazure11"></a>Deploy the app to Windows Azure</h2>
 
-1. Open the *Web.config* file. Copy and paste the *DefaultConnection* XML. Rename the copied element *DefaultConnectionDeploy*.
+1. Open the *Web.config* file. Copy and paste the *DefaultConnection* markup. Rename the copied element *DefaultConnectionDeploy*.
 <br/><br/>![3 cons str][rxD]<br/> 
-1.In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
+1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
 ![Publish in project context menu][firsdeploy003]<br/>
 The **Publish Web** wizard opens.
 1. Click the **Settings** tab. Click the **v** icon to select the **Remote connection string** for the **ContactManagerContext** and  **DefaultConnectionDeploy**. The three Databases listed will all use the same connection string.
@@ -515,26 +513,26 @@ The **Publish Web** wizard opens.
 
 <h2><a name="ppd2"></a><span class="short-header">Update DB</span>Update the Membership Database</h2>
 
-Once the site is deployed to Windows Azure and you have more registered users you might want to make some of them members of the *canEdit* role. In this section we will use Visual Studio to connect the SQL Azure database and add users to the canEdit role.
+Once the site is deployed to Windows Azure and you have more registered users you might want to make some of them members of the *canEdit* role. In this section we will use Visual Studio to connect the SQL Azure database and add users to the *canEdit* role.
 
-1. In **Solution Explorer**, right click the project and click **Database Explorer** if you are using Express for Web or **Publish** if you are using full Visual Studio.
- <br/>![Publish][rxP2]<br/><br/>
- <br/>![Publish][rxP3]<br/><br/>
+1. In **Solution Explorer**, right click the project and click **Publish**.
  <br/>![Publish][rxP]<br/><br/>
 1. Click the **Settings** tab.
 2. Copy the connection string. For example, the connection string used in this sample is:
 	Data Source=tcp:d015leqjqx.database.windows.net,1433;
-	Initial Catalog=ContactDB2;User Id=ricka0@d015lxyze;Password=*****
+	Initial Catalog=ContactDB2;User Id=ricka0@d015lxyze;Password=xyzxyz
 1. Close the publishing dialog.
-1. From the **View** menu, click **Server Explorer**.
+1. In the **View** menu click **Database Explorer** if you are using *Visual Studio Express for Web* or **Server Explorer** if you are using full Visual Studio. <br/>
+ <br/>![Publish][rxP3] <br/>
+ <br/>![Publish][rxP2]<br/>
 1. Click on the **Connect to Database** icon.
  <br/>![Publish][rxc]<br/><br/>
 1. If you are prompted for the Data Source, click **Microsoft SQL Server**.
  <br/>![Publish][rx3]<br/><br/>
-1. Copy and paste the **Server Name**, which starts with *tcp*.
+1. Copy and paste the **Server Name**, which starts with *tcp* (see the image below).
 1. Click **Use SQL Server Authentication**
 1. Enter your **User name** and **Password**, which are in the connection string you copied.
-1. Enter the database name (The string after "Initial Catalog=" in the database.) If you get an error dialog, see the next section. 
+1. Use the dropdown list to select the ContactDB database name (The string after "Initial Catalog=" in the database.) If you get an error dialog, see the next section. 
 1. Click **Test Connection**. If you get an error dialog, see the next section. 
  <br/>![add con dlg][rx4]<br/><br/>
 
@@ -559,25 +557,19 @@ If your IP address frequently changes, you can add a range of allowed IP address
 1. Add a rule name, starting and ending IP addresses.
 <br/>![ip range][rx9]<br/><br/>
 1. At the bottom of the page, click **Save**.
+1. You can now edit the membership database.
 
 <h2><a name="nextsteps"></a>Next Steps</h2>
 
 To get the colorful Facebook, Google and Yahoo log on buttons, see the blog post [Customizing External Login Buttons in ASP.NET MVC 4](http://www.beabigrockstar.com/customizing-external-login-buttons-in-asp-net-mvc-4/).
-Another way to store data in a Windows Azure application is to use Windows Azure storage, which provide non-relational data storage in the form of blobs and tables. The following links provide more information on Web API, ASP.NET MVC and Window Azure. 
+Another way to store data in a Windows Azure application is to use Windows Azure storage, which provide non-relational data storage in the form of blobs and tables. The following links provide more information on ASP.NET MVC and Window Azure. 
 
 - [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs](http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
 - [Getting Started with Entity Framework using MVC][EFCodeFirstMVCTutorial]
 - [Intro to ASP.NET MVC 4](http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4)
 - [OAuth 2.0 and Sign-In](http://blogs.msdn.com/b/vbertocci/archive/2013/01/02/oauth-2-0-and-sign-in.aspx)
 
-This tutorial and the sample application was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/), Tom Dykstra, and Tom . We would like to thank the following people for their assistance:
-
-* Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)) 
-* [Cory Fowler](http://blog.syntaxc4.net/) (Twitter [@SyntaxC4](https://twitter.com/SyntaxC4) ) 
-* [Joe Giardino](http://blogs.msdn.com/b/windowsazurestorage/)
-* Don Glover 
-* Jai Haridas
-* [Scott Hunter](http://blogs.msdn.com/b/scothu/) (Twitter: [@coolcsh](http://twitter.com/coolcsh))
+This tutorial and the sample application was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/) with assistance from Tom Dykstra, Tom FitzMacken and Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
