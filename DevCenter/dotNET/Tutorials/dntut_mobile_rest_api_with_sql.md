@@ -510,10 +510,12 @@ The **Publish Web** wizard opens.
 1. Click **Publish**.
 1. Navigate to the Navigate to  [https://developers.facebook.com/apps](https://developers.facebook.com/apps/)  page and change the **App Domains** and **Site URL** settings to the Windows Azure URL.
 1. Test the application. Verify only the user in the *canEdit* role can change data. Verify anonymous users can only view the home page. Verify authenticated users can navigate to all links that don't change data.
-
+1. The next time you publish the application be sure to uncheck **Update database** under **DefaultConnectionDeploy**.
+<br/><br/>![settings][rxSettings]<br/> 
 <h2><a name="ppd2"></a><span class="short-header">Update DB</span>Update the Membership Database</h2>
 
 Once the site is deployed to Windows Azure and you have more registered users you might want to make some of them members of the *canEdit* role. In this section we will use Visual Studio to connect the SQL Azure database and add users to the *canEdit* role.
+<br/><br/>![settings][rxSettings]<br/> 
 
 1. In **Solution Explorer**, right click the project and click **Publish**.
  <br/>![Publish][rxP]<br/><br/>
