@@ -132,7 +132,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 						.append($('<button class="item-delete">Delete</button>'))
 						.append($('<input type="checkbox" class="item-complete">').prop('checked', item.complete))
 						.append($('<div>').append($('<input class="item-text">').val(item.text))
-						.append($('<span class="timestamp">' + item.createdAt + '</span>')));
+						.append($('<span class="timestamp">' + getDatePart(item.createdAt) + '</span>')));
 
 				});
 
@@ -141,7 +141,19 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 			});
 		}
 
-   This displays the new **createdAt** property. 
+		// Return the date portion of the timestamp.
+		function getDatePart(date)
+		{
+			if (date === null)
+			{
+				return "";
+			}
+			else {				
+				return new Date(date).toDateString();
+			}
+		}
+
+   This displays the date part of the new **createdAt** property. 
 
 2. In your editor, open the style.css file, and replace the styles on the `item-text` class with the following:
 

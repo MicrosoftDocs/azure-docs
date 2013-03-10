@@ -75,7 +75,7 @@ Both your mobile service and your app are now configured to work with your chose
 
 2. Open the URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> in a web browser to start the app. 
 
-	The data fails load. This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
+	The data fails to load. This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
 3. (Optional) Open the script debugger for your web browser and reload the page. Verify that an access denied error occurs. 
 
@@ -83,9 +83,9 @@ Next, you will update the app to allow authentication before requesting resource
 
 <h2><a name="add-authentication"></a><span class="short-header">Add authentication</span>Add authentication to the app</h2>
 
-	<div class="dev-callout"><b>Note</b>
-		<p>Because login is performed in a popup, you should invoke the <strong>login</strong> method from a button's click event.</p>
-	</div>
+<div class="dev-callout"><b>Note</b>
+		<p>Because the login is performed in a popup, you should invoke the <strong>login</strong> method from a button's click event. Otherwise, many browsers will suppress the login window.</p>
+</div>
 
 1. Open the project file index.html, locate the H1 element and under it add the following code snippet:
 
@@ -100,7 +100,7 @@ Next, you will update the app to allow authentication before requesting resource
 
 	This enables you to login to Mobile Services from the page.
 
-2. In the app.js file, locate the line of code that calls to the refreshTodoItems function, and replace it with the following code: 
+2. In the app.js file, locate the line of code at the very bottom of the file that calls to the refreshTodoItems function, and replace it with the following code: 
 	
 		function refreshAuthDisplay() {
 			var isLoggedIn = client.currentUser !== null;
@@ -109,34 +109,37 @@ Next, you will update the app to allow authentication before requesting resource
 
 			if (isLoggedIn) {
 				$("#login-name").text(client.currentUser.userId);
+				refreshTodoItems();
 			}
 		}
 
 		function logIn() {
-			client.login("twitter").then(refreshAuthDisplay, handleError);
+			client.login("facebook").then(refreshAuthDisplay, function(error){
+				alert(error);
+			});
 		}
 
 		function logOut() {
 			client.logout();
 			refreshAuthDisplay();
+			$('#summary').html('<strong>You must login to access data.</strong>');
 		}
 
 		// On page init, fetch the data and set up event handlers
 		$(function () {
-			refreshTodoItems();
 			refreshAuthDisplay();
-			$("#add-item").submit(addTodoItem);
+			$('#summary').html('<strong>You must login to access data.</strong>');		    
 			$("#logged-out button").click(logIn);
 			$("#logged-in button").click(logOut);
 		});
 
-    This creates a variable to track if a user is logged in storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login.
+    This creates a set of functions to handle the authentication process. The user is authenticated by using a Facebook login.
 
     <div class="dev-callout"><b>Note</b>
 	<p>If you are using an identity provider other than Facebook, change the value passed to the <strong>login</strong> method above to one of the following: <i>microsoftaccount</i>, <i>facebook</i>, <i>twitter</i>, or <i>google</i>.</p>
     </div>
 
-9. Navigate to the index.html page to run the app and sign into the app with your chosen identity provider. 
+9. Go back to the browser where your app is running, and refresh the page. 
 
    When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
