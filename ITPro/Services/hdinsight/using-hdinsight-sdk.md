@@ -86,7 +86,3 @@ Once the Hadoop SDK packages are installed you can start building your Hadoop pr
             result.Wait();
             Console.WriteLine(result.Result.ReadToEnd());
 
-## See Also
-* [How to: Use Blob Storage](/en-us/manage/services/hdinsight/howto-blob-store/)
-	
-* [How to: Execute Remote Jobs](/en-us/manage/services/hdinsight/howto-execute-remote-job/)
