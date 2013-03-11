@@ -123,34 +123,27 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 1. In your editor, open the file app.js, then replace the **refreshTodoItems** function with the following code:
 
 		function refreshTodoItems() {
-			var query = todoItemTable.where({ complete: false });
+			var query = todoItemTable.where(function () {
+                return (this.complete === false && this.createdAt !== null);
+            });
 
 			query.read().then(function(todoItems) {
 				var listItems = $.map(todoItems, function(item) {
 					return $('<li>')
 						.attr('data-todoitem-id', item.id)
 						.append($('<button class="item-delete">Delete</button>'))
-						.append($('<input type="checkbox" class="item-complete">').prop('checked', item.complete))
+						.append($('<input type="checkbox" class="item-complete">')
+							.prop('checked', item.complete))
 						.append($('<div>').append($('<input class="item-text">').val(item.text))
-						.append($('<span class="timestamp">' + getDatePart(item.createdAt) + '</span>')));
+						.append($('<span class="timestamp">' 
+							+ (item.createdAt && item.createdAt.toDateString() || '') 
+							+ '</span>')));
 
 				});
 
 				$('#todo-items').empty().append(listItems).toggle(listItems.length > 0);
 				$('#summary').html('<strong>' + todoItems.length + '</strong> item(s)');
 			});
-		}
-
-		// Return the date portion of the timestamp.
-		function getDatePart(date)
-		{
-			if (date === null)
-			{
-				return "";
-			}
-			else {				
-				return new Date(date).toDateString();
-			}
 		}
 
    This displays the date part of the new **createdAt** property. 
