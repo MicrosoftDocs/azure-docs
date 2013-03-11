@@ -94,7 +94,7 @@ In this section, you run the WordCount sample that ships with the HDInsight Serv
 This section introduces you to the Hive interactive console. It shows how to create a Hive table from the output of a MapReduce job. The next section shows how to query the data in this table. The data used here is the output from the WordCount sample run with the default settings that ships with the HDInsight Service. The MapReduce programs count the occurrences of words in the Project Gutenberg eBook edition of The Notebooks of Leonardo Da Vinci. 
 
 **Preliminaries**	
-This section  assumes that you have run the WordCount Java-based sample using the default setting. In brief, you go to the **Sample Gallery** and click on the **WordCount** sample icon. This brings up the **Deployment** page, where you click the **Deploy to your cluster** button. This brings up the **Create Job** page, where you click on the **Execute job** button.  [Getting Started with HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/) topic walks you through this procedure in detail and you should consult that topic if you need additional help to run this program.
+This section  assumes that you have run the WordCount Java-based sample using the default setting. In brief, you go to the **Sample Gallery** and click on the **WordCount** sample icon. This brings up the **Deployment** page, where you click the **Deploy to your cluster** button. This brings up the **Create Job** page, where you click on the **Execute job** button.  [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/) topic walks you through this procedure in detail and you should consult that topic if you need additional help to run this program.
 
 **Create the Hive table**
 	
@@ -155,4 +155,4 @@ You have seen how to run an Hadoop job from the Interactive JavaScript console a
 
 [hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
 [hdinsight-hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
-[hdinsight-mapreduce]: /en-us/manage/services/using-mapreduce-with-hdinsight/
+[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
