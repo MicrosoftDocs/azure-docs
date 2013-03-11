@@ -2,25 +2,25 @@
 
 <div chunk="../chunks/hdinsight-left-nav.md" />
 
-#Deploying an HDInsight Cluster Programmatically
+#Deploying an HDInsight Service Cluster Programmatically
 
-HDInsight clusters can be created programmatically by issuing an authenticated call to the [Service Management API](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx).  As the HDInsight service moves through preview, we will add full support and documentation on this capability prior to general availability.  
+HDInsight Service clusters can be created programmatically by issuing an authenticated call to the [Service Management API](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx).  As the HDInsight Service moves through preview, we will add full support and documentation on this capability prior to general availability.  
 
 Authentication needs to occur via the management certificate as outlined in [this documentation](http://msdn.microsoft.com/en-us/library/windowsazure/ee460782.aspx).
 
-The following URI path forms the base for operations on Azure HDInsight:
+The following URI path forms the base for operations on the Windows Azure HDInsight Service:
 
 	https://management.core.windows.net/subscription-id/cloudservices/azurehdinsight
 
 It is important to note that at this time, one must create a cluster via the Windows Azure management portal at least once prior to using the programmatic endpoints.
 
-##Operations on HDInsight Clusters
+##Operations on HDInsight Service Clusters
 
 - [List Clusters](#list)
 - [Create Clusters](#create)
 - [Delete Clusters](#delete)
 
-###<a name="list"></a>List Clusters
+##<a name="list"></a>List Clusters
 
 By issuing a GET against the base URI above, you will receive a body that enumerates the set of clusters that are currently running.  The response body contains:
 
@@ -66,7 +66,7 @@ By issuing a GET against the base URI above, you will receive a body that enumer
 
 
 
-###<a name="create"></a>Create Clusters
+##<a name="create"></a>Create Clusters
 
 In order to create a cluster, issue a PUT against the following URI: 
 
@@ -123,7 +123,7 @@ There are a few parameters which are important to explain here:
 * **NodeSizes**: Note, node size is currently *not* configurable.  In a future update, we will enable the ability to specify the node sizes fully.  Currently, the only settable parameter which will be honored here is the **clustersize**.
 * **DNSName**: This needs to match the name of the cluster
 
-Optionally, following node size, you can specify a SQL Database to be the persistent metadata store for Hive and Oozie.  Please co-locate this database with the Azure HDInsight Cluster.  **It is important to note that both of these must be provided (an error will result if only one value is provided).**
+Optionally, following node size, you can specify a SQL Database to be the persistent metadata store for Hive and Oozie.  Please co-locate this database with the Windows Azure HDInsight Service Cluster.  **It is important to note that both of these must be provided (an error will result if only one value is provided).**
 
       <SqlMetaStores xmlns:da="http://schemas.datacontract.org/2004/07/Microsoft.ClusterServices.DataAccess">
         <da:SqlAzureMetaStore>
@@ -147,20 +147,18 @@ Optionally, following node size, you can specify a SQL Database to be the persis
 <p>The elements *must* be placed in alphabetical order.</p> 
 </div>
 
-###<a name="delete"></a>Delete Clusters
+##<a name="delete"></a>Delete Clusters
 
 In order to delete a cluster, issue a DELETE against the following URI:
 
     https://management.core.windows.net/<subscriptionId>/cloudservices/azurehdinsight/resources/azurehdinsight/containers/<containerName>
 
+##Summary
+
+As demonstrated in this article, you can perform basic management tasks for the Windows Azure HDInsight Service by using the REST API.
+
 ##Next Steps
 
-* [Using Pig with HDInsight][hdinsight-pig] 
+In this article you learned how to programmatically list, create, and delete an HDInsight Service cluster. For steps on using the Windows Azure Management Portal to perform these actions, see [How To: Administer HDInsight][hdinsight-admin].
 
-* [Using Hive with HDInsight][hdinsight-hive]
-
-* [Using MapReduce with HDInsight][hdinsight-mapreduce]
-
-[hdinsight-pig]: /en-us/manage/services/hdinsight/howto-pig/
-[hdinsight-hive]: /en-us/manage/services/hdinsight/howto-hive/
-[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/howto-mapreduce/
+[hdinsight-admin]: /en-us/manage/services/hdinsight/howto-administer-hdinsight/

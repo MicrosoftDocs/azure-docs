@@ -215,3 +215,9 @@ At this point you should open a Hadoop terminal window and navitate to the folde
 ## <a name="summary"></a>Summary 
 
 Recommender engines provide important functionality for many modern social networking sites, online shopping, streaming media, and other internet sites. Mahout provides an out-of-the-box recommendation engine that is easy to use, contains many useful features, and is scalable on Hadoop.
+
+##Next Steps
+
+While this article demonstrates using the Hadoop command line, you can also perform tasks using the HDInsight Service Interactive Console. For more information, see [Guidance: HDInsight Interactive JavaScript and Hive Consoles][interactive-console].
+
+[interactive-console]: /en-us/manage/services/hdinsight/interactive-javascript-and-hive-consoles/

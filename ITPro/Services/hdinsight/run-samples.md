@@ -35,6 +35,7 @@ The dashboard running on your HDInsight cluster contains a *Samples* tile which 
 
 To run a sample, click on one of the tiles and select **Deploy To Your Cluster**.
 
+## Summary
 HDInsight ships with five samples, which, with one exception (the Sqoop sample) can be run directly from the dashboard.
 
 - **The Hadoop on Azure 10-GB Graysort Sample**: This tutorial shows how to run a general purpose GraySort on a 10 GB file using Hadoop on Windows Azure. 
@@ -46,3 +47,23 @@ HDInsight ships with five samples, which, with one exception (the Sqoop sample) 
 - **The Hadoop on Azure C# Streaming Sample**:This tutorial shows how to use C# programs with the Hadoop streaming interface. 
 
 - **The Hadoop on Azure Sqoop Import/Export Sample**: This tutorial shows how to use Sqoop to import and export data from a SQL database on Windows Azure to an Hadoop on Windows Azure HDFS cluster.
+
+##Next Steps
+
+In this article, you learned how to run the samples included with the HDInsight Service. For additional tutorials on using MapReduce, Hive, and Pig, or for examples of using the HDInsight Service for sentiment analysis or as a recommendation engine, see the following topics:
+
+* [Tutorial: Using MapReduce][mapreduce]
+
+* [Tutorial: Using Hive][hive]
+
+* [Tutorial: Using Pig][pig]
+
+* [Tutorial: Analyzing Twitter Data with Hive][twitter-hdi]
+
+* [Tutorial: Simple recommendation engine using Apache Mahout][mahout-hdi]
+
+[mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
+[hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
+[pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
+[mahout-hdi]: /en-us/manage/services/hdinsight/recommendation-engine-using-mahout/
+[twitter-hdi]: /en-us/manage/services/hdinsight/analyzing-twitter-data-with-hive/
