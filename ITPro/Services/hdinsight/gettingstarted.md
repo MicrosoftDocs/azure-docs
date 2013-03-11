@@ -14,14 +14,18 @@ In this tutorial you will learn how to:
 * [Subscribe to Windows Azure and enable the HDInsight Service](#subscribe)
 * [Create and configure a Windows Azure Storage account, which will be used by the HDInsight Service](#create)
 * [Provision an HDInsight Service cluster from the Windows Azure portal](#provision)
-* [Use the HDInsight Service dashboard](#dashboard)
+* [Use the HDInsight Service dashboard and sample gallery](#dashboard)
 * [Run a sample MapReduce program](#sample)
 * [Use the Interactive Console to examine the output from a MapReduce program](#console)
 
 
 ##<a name="subscribe"></a>Subscribe to a Windows Azure Account and Enable HDInsight Service
 
-To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Windows Azure Free Trial](/en-us/pricing/free-trial/ "Windows Azure Free Trial"). When setting up a new account, be sure enable the Preview Features as explained on the [Create a Windows Azure account and enable preview features](/en-us/develop/php/tutorials/create-a-windows-azure-account/) page.
+To complete this tutorial, you need a Windows Azure account that has the Windows Azure HDInsight feature enabled. 
+
+- If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Windows Azure Free Trial](/en-us/pricing/free-trial/ "Windows Azure Free Trial"). 
+
+- If you have an existing account but need to enable the Windows Azure HDInsight preview, see <a href="../en-us/develop/net/tutorials/create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>
 
 While the HDInsight Service is available as part of a Windows Azure Trial subscription, a trial subscription places limits on the amount of compute and storage resources available to you. For more information, see the [Windows Azure Free Trial](/en-us/pricing/free-trial/ "Windows Azure Free Trial") page.
 
@@ -85,6 +89,7 @@ This section explains how to get to the HDInsight Service dashboard and sample g
 
 This section briefly describes what the Workcount MapReduce programs do and shows how to run the Wordcount sample using the **Create Job** UI provided by the HDInsight Service. 
 
+###The Wordcount MapReduce programs	
 The sample contains MapReduce programs written in Java that together count word occurrences in a text: 
 
 - The input text file analyzed is the Project Gutenberg eBook edition of "The Notebooks of Leonardo Da Vinci". 
