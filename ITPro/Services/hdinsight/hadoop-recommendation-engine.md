@@ -220,4 +220,4 @@ Recommender engines provide important functionality for many modern social netwo
 
 While this article demonstrates using the Hadoop command line, you can also perform tasks using the HDInsight Service Interactive Console. For more information, see [Guidance: HDInsight Interactive JavaScript and Hive Consoles][interactive-console].
 
-[interactive-console]: http://sandbox-ppe.windowsazure.com/en-us/manage/services/hdinsight/interactive-javascript-and-hive-consoles/
+[interactive-console]: /en-us/manage/services/hdinsight/interactive-javascript-and-hive-consoles/

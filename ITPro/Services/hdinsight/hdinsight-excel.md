@@ -110,14 +110,13 @@ The steps below describe the way to import data from a hive table into excel wor
 
 	![excelhive](../media/excelhive.png "Excel Hive")  
 
+##Summary
+
+By using components such as the HiveODBC adapter, it is easy to use Business Intelligence tools such as Excel to work with data from your HDInsight Service cluster.
+
 ## Next steps
 
-* [Using Pig with HDInsight][hdinsight-pig] 
+In this article you learned how to use the HiveODBC adapter to retrieve data from the HDInsight Service. For information on using Sqoop to copy data from HDInsight Service to SQL Azure, see [Using HDInsight to process Blob Storage data and write the results to a SQL Database][blob-hdi-sql]. Or read [How to Upload Data to the HDInsight Service][upload-data] for information on using Sqoop or Windows Azure Blob Storage to load data into the HDInsight Service.
 
-* [Using Hive with HDInsight][hdinsight-hive]
-
-* [Using MapReduce with HDInsight][hdinsight-mapreduce]
-
-[hdinsight-pig]: /en-us/manage/services/hdinsight/howto-pig/
-[hdinsight-hive]: /en-us/manage/services/hdinsight/howto-hive/
-[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/howto-mapreduce/
+[blob-hdi-sql]: /en-us/manage/services/hdinsight/process-blob-data-and-write-to-sql/
+[upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
