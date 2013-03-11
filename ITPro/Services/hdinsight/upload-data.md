@@ -4,31 +4,31 @@
 
 #How to Upload Data to HDInsight
 
-Windows Azure HDInsight Service provides two options in how it manages its data, Windows Azure Blob Storage and Hadoop Distributed File System (HDFS). HDFS is designed to store data used by Hadoop applications. Data stored in Windows Azure Blob Storage can be accessed by Hadoop applications using Windows Azure Storage Vault (ASV,) which provides a full featured HDFS file system over Windows Azure Blob storage. It has been designed as an HDFS extension to provide a seamless experience to customers by enabling the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Both options are distinct file systems that are optimized for storage of data and computations on that data.  
+Windows Azure HDInsight Service provides two options in how it manages its data, Windows Azure Blob Storage and Hadoop Distributed File System (HDFS). HDFS is designed to store data used by Hadoop applications. Data stored in Windows Azure Blob Storage can be accessed by Hadoop applications using Windows Azure Storage Vault (ASV), which provides a full featured HDFS file system over Windows Azure Blob storage. It has been designed as an HDFS extension to provide a seamless experience to customers by enabling the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Both options are distinct file systems that are optimized for storage of data and computations on that data.  
 
 Windows Azure HDInsight clusters are typically deployed to execute MapReduce jobs and are dropped once these jobs have been completed. Keeping the data in the HDFS clusters after computations have been completed would be an expensive way to store this data. Windows Azure Blob storage is a highly available, highly scalable, high capacity, low cost, and shareable storage option for data that is to be processed using HDInsight. Storing data in a Blob enables the HDInsight clusters used for computation to be safely released without losing data. 
 
 Windows Azure Blob storage can either be accessed through the [API](http://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/) programmatically or through explorer tools. Here are some of the tools available:
 
-	* [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/)
-	* [cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/)
-	* [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)
-	* [Windows Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx)
-	* [Windows Azure Explorer PRO](http://www.cloudberrylab.com/microsoft-azure-explorer-pro.aspx)
+* [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/)
+* [cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/)
+* [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)
+* [Windows Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx)
+* [Windows Azure Explorer PRO](http://www.cloudberrylab.com/microsoft-azure-explorer-pro.aspx)
 
 ##Table of Contents
 
-	* [How to: Upload data to Windows Azure Storage using Azure Storage Explorer](#storageexplorer)
-	* [How to: Access data in Windows Azure Storage](#blob)
-	* [How to: Upload data to HDFS using Interactive JavaScript Console](#console)
-	* [How to: Upload data to HDFS using Hadoop command line](#commandline)
-	* [How to: Import data from Windows Azure SQL Database to HDFS using Sqoop](#sqoop)
+* [How to: Upload data to Windows Azure Storage using Azure Storage Explorer](#storageexplorer)
+* [How to: Access data in Windows Azure Storage](#blob)
+* [How to: Upload data to HDFS using Interactive JavaScript Console](#console)
+* [How to: Upload data to HDFS using Hadoop command line](#commandline)
+* [How to: Import data from Windows Azure SQL Database to HDFS using Sqoop](#sqoop)
 
 ##<a id="storageexplorer"></a>How to: Upload data to Windows Azure Storage using Azure Storage Explorer
 
 *Azure Storage Explorer* is a useful tool for inspecting and altering the data in your Windows Azure Storage. It is a free tool that can be downloaded from [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
-Before using the tool, you must know your Windows Azure storage account name and account key. For the instructions for get the information, see the *How to: View, copy and regenerate storage access keys* section of [How To Manage Storage Accounts](http://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/)
+Before using the tool, you must know your Windows Azure storage account name and account key. For the instructions for get the information, see the *How to: View, copy and regenerate storage access keys* section of [How To Manage Storage Accounts](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
 
 1. Run Azure Storage Explorer.
 

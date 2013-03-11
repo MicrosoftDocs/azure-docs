@@ -14,11 +14,9 @@ Using Pig reduces the time needed to write mapper and reducer programs. This mea
 
 Pig Latin statements follow this general flow:   
 
-- LOAD—Read data to be manipulated from the file system
-
-- TRANSFORM—Manipulate the data 
-
-- DUMP or STORE—Output data to the screen or store for processing
+- LOAD -- Read data to be manipulated from the file system
+- TRANSFORM -- Manipulate the data 
+- DUMP or STORE -- Output data to the screen or store for processing
 
 In this tutorial, you will write Pig Latin statements to analyze an application log file, and run various queries on the data to generate output. First, you will use Pig Latin in interactive mode (Grunt shell) to analyze a single log file, and then you will use Pig in batch mode (script) to perform the same task. 
 
@@ -84,27 +82,21 @@ The output data will be put into a file showing the various log4j log levels alo
 
 This tutorial takes about 30 minutes to complete and is divided into the following tasks:
 
-- Task 1: Connecting to your HDInsight Cluster
-
-- Task 2: Use Pig in Interactive Mode
-
-- Task 3: Use Pig in Batch Mode
-
-- Task 4: Tutorial Clean Up
-
+- Connect to your HDInsight Cluster
+- Use Pig in Interactive Mode
+- Use Pig in Batch Mode
+- Tutorial Clean Up
  
 The visual representation of what you will accomplish in this tutorial is shown in the following two figures. These figures show a representative sample of the dataset to illustrate the flow and transformation of the data as you run through the lines of Pig code in the script. (The entire dataset is over 1000 lines.) The first figure shows a sample of the entire file, and the changes to the file a
-
  
 
-Figure 1: Whole File Sample
+Figure 1: Whole File Sample:
 
 ![Whole File Sample](../media/HDI.wholesamplefile.png)
 
-Figure 2: Data Transformation
+Figure 2: Data Transformation:
 
 ![Data Transformation](../media/HDI.DataTransformation.png)
-
 
 
 ## The Use Case ##
@@ -124,7 +116,7 @@ Log files are a good example of big data. Working with big data is difficult usi
 
 In this tutorial, we will use a semi-structured, application log4j log file as input, and report some basic statistics as output using a Pig job. This tutorial demonstrates the advantages of Pig, and how it can be used to simplify MapReduce jobs.
 
-## Task 1: Connecting to your HDInsight Cluster ##
+## Connect to your HDInsight Cluster ##
 
   
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
@@ -136,309 +128,302 @@ In this tutorial, we will use a semi-structured, application log4j log file as i
 10. Click **Yes**.
 11. From Desktop, double-click **Hadoop Command Line**.
 	
-## Task 2: Use Pig in Interactive Mode   ##
+## Use Pig in Interactive Mode   ##
 
-Step 1: Create the tutorial directory. 
+1. Create the tutorial directory. 
 
-> mkdir c:/tutorial 
+		mkdir c:/tutorial 
  
-Step 2: Download the [sample.log](http://go.microsoft.com/fwlink/?LinkID=286223 "Sample.log") file and put it into the C:\tutorial directory.
+2. Download the [sample.log](http://go.microsoft.com/fwlink/?LinkID=286223 "Sample.log") file and put it into the C:\tutorial directory.
  
-Step 3: Review the data in sample.log file:
+3. Review the data in sample.log file:
 
-> notepad c:/tutorial/sample.log
+		notepad c:/tutorial/sample.log
 
-Step 4: Copy sample.log into HDFS:
+4. Copy sample.log into HDFS:
 
-> hadoop fs -copyFromLocal c:/tutorial/sample.log sample.log
+		hadoop fs -copyFromLocal c:/tutorial/sample.log sample.log
 
-Step 5: Enter Pig interactive command mode:
+5. Enter Pig interactive command mode:
 
-> c:\apps\dist\pig-0.9.3-SNAPSHOT\bin\pig
+		c:\apps\dist\pig-0.9.3-SNAPSHOT\bin\pig
  
-Notice that when Pig starts it creates a file in C:\tutorial\ for logging error messages, and connects to HDFS and the map-reduce job tracker. 
+	Notice that when Pig starts it creates a file in C:\tutorial\ for logging error messages, and connects to HDFS and the map-reduce job tracker. 
 
+6. Load the sample.log file that you want to manipulate and give it the alias “LOGS” with the following command:
+
+		grunt> LOGS = LOAD 'sample.log';
  
+	After each command, you can display the resulting output to the screen to view changes in the data, as shown here. We only show part of the results here due to its large size of the dataset (over 50,000 records)
 
-Step 6: Load the sample.log file that you want to manipulate and give it the alias “LOGS” with the following command:
-
-> grunt> LOGS = LOAD 'sample.log';
+		grunt> dump LOGS;
  
-After each command, you can display the resulting output to the screen to view changes in the data, as shown here. We only show part of the results here due to its large size of the dataset (over 50,000 records)
+	**OUTPUT:**
+	
+		(2012-02-05 19:23:50 SampleClass5 [TRACE] verbose detail for id 313393809)
+	
+		(2012-02-05 19:23:50 SampleClass6 [DEBUG] detail for id 536603383)
+	
+		(2012-02-05 19:23:50 SampleClass9 [TRACE] verbose detail for id 564842645)
+	
+		(2012-02-05 19:23:50 SampleClass8 [TRACE] verbose detail for id 1929822199)
+	
+		(2012-02-05 19:23:50 SampleClass5 [DEBUG] detail for id 1599724386)
+	
+		(2012-02-05 19:23:50 SampleClass0 [INFO] everything normal for id 2047808796)
+	
+		(2012-02-05 19:23:50 SampleClass2 [TRACE] verbose detail for id 1774407365)
+	
+		(2012-02-05 19:23:50 SampleClass2 [TRACE] verbose detail for id 2099982986)
+	
+		(2012-02-05 19:23:50 SampleClass4 [DEBUG] detail for id 180683124)
+	
+		(2012-02-05 19:23:50 SampleClass2 [TRACE] verbose detail for id 1072988373)
+	
+		(2012-02-05 19:23:50 SampleClass9 [TRACE] verbose detail)
 
+7. Go through each line and find a match on the 6 log levels) and give this :
 
-> grunt> dump LOGS;
+		grunt> LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
  
+	You will receive two warnings for each of the next several steps, as show in the following screenshot. This is normal. 
 
-**OUTPUT:**
+	![Pig Warnings](../media/HDI.PigWarnings.png)
 
-	(2012-02-05 19:23:50 SampleClass5 [TRACE] verbose detail for id 313393809)
+8. Dump LEVELS, which is an alias and holds only words from each record “TRACE”, “DEBUG”, “INFO”, “WARN”, “ERROR” and “FATAL”.
 
-	(2012-02-05 19:23:50 SampleClass6 [DEBUG] detail for id 536603383)
-
-	(2012-02-05 19:23:50 SampleClass9 [TRACE] verbose detail for id 564842645)
-
-	(2012-02-05 19:23:50 SampleClass8 [TRACE] verbose detail for id 1929822199)
-
-	(2012-02-05 19:23:50 SampleClass5 [DEBUG] detail for id 1599724386)
-
-	(2012-02-05 19:23:50 SampleClass0 [INFO] everything normal for id 2047808796)
-
-	(2012-02-05 19:23:50 SampleClass2 [TRACE] verbose detail for id 1774407365)
-
-	(2012-02-05 19:23:50 SampleClass2 [TRACE] verbose detail for id 2099982986)
-
-	(2012-02-05 19:23:50 SampleClass4 [DEBUG] detail for id 180683124)
-
-	(2012-02-05 19:23:50 SampleClass2 [TRACE] verbose detail for id 1072988373)
-
-	(2012-02-05 19:23:50 SampleClass9 [TRACE] verbose detail)
-
-
-
-Step 7: Go through each line and find a match on the 6 log levels) and give this :
-
-
-> grunt> LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+		grunt> dump LEVELS;
  
-You will receive two warnings for each of the next several steps, as show in the following screenshot. This is normal. 
+	**OUTPUT:**
+	
+		(DEBUG)
+	
+		(TRACE)
+	
+		(TRACE)
+	
+		(DEBUG)
+	
+		(TRACE)
+	
+		(TRACE)
+	
+		(DEBUG)
+	
+		(TRACE)
+	
+		(TRACE)
+	
+		(DEBUG)
+	
+		(TRACE)
+	
+		(TRACE)
+	
+		(DEBUG)
+	
+		(INFO)
+	
+		(TRACE)
+	
+		(TRACE)
+	
+		(DEBUG)
+	
+		(TRACE)
+	
+		(TRACE)
 
- ![Pig Warnings](../media/HDI.PigWarnings.png)
 
-Step 8: Dump LEVELS, which is an alias and holds only words from each record “TRACE”, “DEBUG”, “INFO”, “WARN”, “ERROR” and “FATAL”.
+9. Filter out rows that do not have a match (for example, empty rows):
 
-> grunt> dump LEVELS;
+		grunt> FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+
+	Now dump the FILTEREDLEVELS, which is an alias, that holds these words from each record – “TRACE”, “DEBUG”, “INFO”, “WARN”, “ERROR” & “FATAL” and removes any NULL or EMPTY words.
+
+		grunt> dump FILTEREDLEVELS;
+
+	**OUTPUT:**
+
+		(DEBUG)
+	
+		(TRACE)
+	
+		(TRACE)
+	
+		(DEBUG)
+	
+		(TRACE)
+	
+		(TRACE)
+	
+		(DEBUG)
+	
+		(TRACE)
+	
+		(TRACE)
+	
+		(DEBUG)
+	
+		(TRACE)
+	
+		(TRACE)
+	
+		(DEBUG)
+	
+		(INFO)
+	
+		(TRACE)
+	
+		(TRACE)
+	
+		(DEBUG)
+	
+		(TRACE)
+	
+		(TRACE)
+
+
+10. Group all of the log levels into their own row, (counting is not done yet; it occurs in next step):
+
+		grunt> GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
  
-**OUTPUT:**
+	Now if you dump LOGLEVELS alias, all of the Log levels are grouped together.
 
-	(DEBUG)
+		grunt> dump GROUPEDLEVELS;
 
-	(TRACE)
+	**OUTPUT:**
 
-	(TRACE)
-
-	(DEBUG)
-
-	(TRACE)
-
-	(TRACE)
-
-	(DEBUG)
-
-	(TRACE)
-
-	(TRACE)
-
-	(DEBUG)
-
-	(TRACE)
-
-	(TRACE)
-
-	(DEBUG)
-
-	(INFO)
-
-	(TRACE)
-
-	(TRACE)
-
-	(DEBUG)
-
-	(TRACE)
-
-	(TRACE)
+		(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
+		(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
+		(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
+		(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
+		(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
+		(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
+		(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
+		(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
+		(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
+		(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
+		(TRACE)})
 
 
-Step 9: Filter out rows that do not have a match (for example, empty rows):
+11. For each group, count the occurrences of log levels (these will be the frequencies of each log level):
 
-> grunt> FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-
-Now dump the FILTEREDLEVELS, which is an alias, that holds these words from each record – “TRACE”, “DEBUG”, “INFO”, “WARN”, “ERROR” & “FATAL” and removes any NULL or EMPTY words.
-
-> grunt> dump FILTEREDLEVELS;
-
-**OUTPUT:**
-
-	(DEBUG)
-
-	(TRACE)
-
-	(TRACE)
-
-	(DEBUG)
-
-	(TRACE)
-
-	(TRACE)
-
-	(DEBUG)
-
-	(TRACE)
-
-	(TRACE)
-
-	(DEBUG)
-
-	(TRACE)
-
-	(TRACE)
-
-	(DEBUG)
-
-	(INFO)
-
-	(TRACE)
-
-	(TRACE)
-
-	(DEBUG)
-
-	(TRACE)
-
-	(TRACE)
-
-
-Step 10: Group all of the log levels into their own row, (counting is not done yet; it occurs in next step):
-
-> grunt> GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+		grunt> FREQUENCIES = foreach GROUPED_LEVELS generate group as LOGLEVEL, COUNT(FILTERED_LEVELS.LOGLEVEL) as COUNT;
  
-Now if you dump LOGLEVELS alias, all of the Log levels are grouped together.
-
-> grunt> dump GROUPEDLEVELS;
-
-**OUTPUT:**
-
-	(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
-	(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
-	(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
-	(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
-	(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
-	(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
-	(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
-	(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
-	(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
-	(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
-	(TRACE)})
-
-
-Step 11: For each group, count the occurrences of log levels (these will be the frequencies of each log level):
-
-> grunt> FREQUENCIES = foreach GROUPED_LEVELS generate group as LOGLEVEL, COUNT(FILTERED_LEVELS.LOGLEVEL) as COUNT;
+	Dump FREQUENCIES alias to see the count of the occurrences of each word in a group. 
  
-Dump FREQUENCIES alias to see the count of the occurrences of each word in a group. 
- 
-> grunt> dump FREQUENCIES;
+		grunt> dump FREQUENCIES;
  
 
-**OUTPUT:**
+	**OUTPUT:**
 
-	(INFO,3355)
+		(INFO,3355)
+	
+		(WARN,361)
+	
+		(DEBUG,15608)
+	
+		(ERROR,181)
+	
+		(FATAL,37)
+	
+		(TRACE,29950)
 
-	(WARN,361)
+12. Sort the frequencies in descending order:
 
-	(DEBUG,15608)
+		grunt> RESULT = order FREQUENCIES by COUNT desc;
 
-	(ERROR,181)
+		grunt> dump RESULT;   
 
-	(FATAL,37)
+	This step will take a few minutes.  
 
-	(TRACE,29950)
+13. Analyze the output. Scroll down to the Job Stats near the bottom of the output underneath the word “Success!”. Notice that Pig executed three MapReduce jobs with just a few lines of Pig Latin and no Java. 
 
-Step 12: Sort the frequencies in descending order:
+	![Analyze Output](../media/HDI.AnalyzeOutput.png)
 
-> grunt> RESULT = order FREQUENCIES by COUNT desc;
+	At the very bottom of the output, notice the job results: 
 
-> grunt> dump RESULT;   
+	**OUTPUT:**
 
-This step will take a few minutes.  
-
-Step 13: Analyze the output. Scroll down to the Job Stats near the bottom of the output underneath the word “Success!”. Notice that Pig executed three MapReduce jobs with just a few lines of Pig Latin and no Java. 
-
-![Analyze Output](../media/HDI.AnalyzeOutput.png)
-
-At the very bottom of the output, notice the job results: 
-
-**OUTPUT:**
-
-	(TRACE,29950)
-
-	(DEBUG,15608)
-
-	(INFO,3355)
-
-	(WARN,361)
-
- 	(ERROR,181)
-
-	(FATAL,37)
+		(TRACE,29950)
+	
+		(DEBUG,15608)
+	
+		(INFO,3355)
+	
+		(WARN,361)
+	
+	 	(ERROR,181)
+	
+		(FATAL,37)
 
 
-## Task 3: Use Pig in Batch Mode   ##
+## Use Pig in Batch Mode   ##
 
 Next, you will use Pig in batch mode by creating a Pig script made up of the same Pig commands you used in the last task. 
 
-Step 1: Exit Pig interactive mode.
+1. Exit Pig interactive mode.
 
-> grunt> quit
+		grunt> quit
  
-Step 2: Verify that you are still in the tutorial directory that contains the sample.log input file exists:
+2. Verify that you are still in the tutorial directory that contains the sample.log input file exists:
 
-> cd C:\tutorial\
+		cd C:\tutorial\
 
-Step 3: Create the Pig script by creating a file named ‘pigscript.pig’
+3. Create the Pig script by creating a file named ‘pigscript.pig’
 
-> notepad pigscript.pig
+		notepad pigscript.pig
  
-Step 4: Copy and paste the following Pig commands in the pigscript.pig file, and save:
+4. Copy and paste the following Pig commands in the pigscript.pig file, and save:
 
-- load the log file 
+	- load the log file 
 
-> LOGS = LOAD 'sample.log';
+			LOGS = LOAD 'sample.log';
 
--  iterate through each line and match on the 6 log levels
+	-  iterate through each line and match on the 6 log levels
 
-> LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+			LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 
-- filter out non-match rows, i.e. empty rows
+	- filter out non-match rows, i.e. empty rows
 
-> FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+			FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
 
-- now group/consolidate all of the log levels into their own row, counting is not done yet
+	- now group/consolidate all of the log levels into their own row, counting is not done yet
 
-> GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+			GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
 
-- for each group, now count the occurrences of log levels which will be the frequencies of each log level
+	- for each group, now count the occurrences of log levels which will be the frequencies of each log level
 
-> FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-
+			FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+	
 - sort the frequencies in descending order
 
-> RESULT = order FREQUENCIES by COUNT desc;
+			RESULT = order FREQUENCIES by COUNT desc;
 
-- write the result to a file
+	- write the result to a file
 
-> store RESULT into 'sampleout';
+			store RESULT into 'sampleout';
  
-Step 5: Run the newly-created Pig script:
+5. Run the newly-created Pig script:
 
-> c:\apps\dist\pig-0.9.3-SNAPSHOT\bin\pig pigscript.pig
+		c:\apps\dist\pig-0.9.3-SNAPSHOT\bin\pig pigscript.pig
  
-Step 6: Analyze the output. View the file by using the following command:
+6. Analyze the output. View the file by using the following command:
 
-> hadoop fs -cat sampleout/part-r-00000
+		hadoop fs -cat sampleout/part-r-00000
 
-![Analyze Output](../media/HDI.AnalyzeOutput2.png)
+	![Analyze Output](../media/HDI.AnalyzeOutput2.png)
  
-The results are the same as interactive mode. 
+	The results are the same as interactive mode. 
  
-## Task 4: Tutorial Clean Up ##
+## Tutorial Clean Up ##
 
 The clean up task applies to this tutorial only; it is not performed in the actual deployment. In this task, you will delete input and output directories so that if you like, you can run the tutorial again. A way to gracefully shut down processes when exiting the VM is also shown below.
 
-Step 1: Delete the Pig job directory and recursively delete files within the directory:
+1. Delete the Pig job directory and recursively delete files within the directory:
 
-> hadoop fs –rmr sampleout
+		hadoop fs –rmr sampleout
  
 Congratulations! You have successfully completed this tutorial.
 

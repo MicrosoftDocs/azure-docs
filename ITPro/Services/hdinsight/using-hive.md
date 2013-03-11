@@ -31,17 +31,11 @@ In this tutorial, you will use a log file as input, and use HiveQL to query the 
 
 This tutorial takes about 30 minutes to complete and is divided into the following tasks:
 
-- Task 1: Connect to Your Cluster
-
-- Task 2: Prep for Hive Processing
-
-- Task 3: Create Hive Table and Load Data
-
-- Task 4: Run Hive Queries
-
-- Task 5: Tutorial Clean Up
-
-  
+- Connect to Your Cluster
+- Prep for Hive Processing
+- Create Hive Table and Load Data
+- Run Hive Queries
+- Tutorial Clean Up
 
 The visual representation of what you will accomplish in this tutorial is shown in the figure.
 
@@ -51,16 +45,10 @@ The visual representation of what you will accomplish in this tutorial is shown 
 
 Databases are great for small sets of data and low latency queries. However, when it comes to Big Data and large data sets in terabytes, traditional SQL databases are not the ideal solution. Traditionally, database administrators have relied on scaling up by buying bigger hardware as database load increases and performance degrades. 
 
- 
-
 Hive solves these problems by allowing users to scale out when querying Big Data. Hive queries data in parallel across multiple nodes using MapReduce, distributing the database across multiple hosts as load increases.
 
- 
-
 Hive can also be used as an alternative to writing java MapReduce jobs, because it provides an SQL-like interface to run complex queries against Big Data. By providing a simple, SQL like wrapper, complex MapReduce code can be avoided with a few lines of SQL-like entries.
-
  
-
 Hive also allows programmers who are familiar with the MapReduce framework to be able to plug in their custom mappers and reducers to perform more sophisticated analysis that may not be supported by the built-in capabilities of the language.  
 
  
@@ -77,7 +65,7 @@ Log files are therefore a good example of big data. Working with big data is dif
 
  
 
-## Task 1: Connect To Your Cluster ##
+##Connect To Your Cluster ##
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 2. Click **HDINSIGHT**. You shall see a list of deployed Hadoop clusters.
@@ -88,19 +76,19 @@ Log files are therefore a good example of big data. Working with big data is dif
 10. Click **Yes**.
 11. From Desktop, double-click **Hadoop Command Line**.
  
-## Task 2: Prep for Hive Processing ##
+## Prep for Hive Processing ##
 
 In the rest of the tutorial, you will create a table, load (sample.log) data into the table, and run various Hive queries on the data. 
 
-Step 1: Create the tutorial directory:
+1. Create the tutorial directory:
 
-> mkdir c:\tutorial 
+		mkdir c:\tutorial 
  
-Step 2:  Download the [sample.log](http://go.microsoft.com/fwlink/?LinkID=286223 "Sample.log") file and put it into the C:\tutorial directory.
+2. Download the [sample.log](http://go.microsoft.com/fwlink/?LinkID=286223 "Sample.log") file and put it into the C:\tutorial directory.
 
-Step 3: Review the data in sample.log file:
+3. Review the data in sample.log file:
 
-> notepad c:\tutorial\sample.log
+		notepad c:\tutorial\sample.log
  
 Notice that the screen output below shows a snippet of sample.log where the data follows a particular structure (except for the row that starts with “java.lang.Exception…”). 
 
@@ -148,51 +136,51 @@ Unstructured
 </table>
  
 
-## Task 3: Create Hive Table and Load Data ##
+## Create Hive Table and Load Data ##
 
 In this task, you will start hive, create an external table, and load sample.log data into the table.  
 
-Step 1: Start The Hive Console:
+1. Start The Hive Console:
 
-1. Sign in to the [Management Portal](https://manage.windowsazure.com).
-2. Click **HDINSIGHT**. You shall see a list of deployed Hadoop clusters.
-3. Click the name of the HDInsight cluster where you want to upload data to.
-4. Under **Go To Cluster** click the Url of the cluster.
-5. Enter your credential, and then click **OK**.
-6. Click **Yes**.
-7. Click **Interactive Console**
+	1. Sign in to the [Management Portal](https://manage.windowsazure.com).
+	2. Click **HDINSIGHT**. You shall see a list of deployed Hadoop clusters.
+	3. Click the name of the HDInsight cluster where you want to upload data to.
+	4. Under **Go To Cluster** click the Url of the cluster.
+	5. Enter your credential, and then click **OK**.
+	6. Click **Yes**.
+	7. Click **Interactive Console**
+ 	![HDI.TileInteractiveConsole](../media/HDI.TileInteractiveConsole.png?raw=true "Interactive Console")
 
- ![HDI.TileInteractiveConsole](../media/HDI.TileInteractiveConsole.png?raw=true "Interactive Console")
-8. Click the **Hive** button
+	8. Click the **Hive** button
  
-Step 2: Create a table called “logs” in Hive to store sample data. Enter the following Hive query and click **Evaluate.**  
+2. Create a table called “logs” in Hive to store sample data. Enter the following Hive query and click **Evaluate.**  
 
-> CREATE TABLE logs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ';
+		CREATE TABLE logs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ';
  
-Note: The command is terminated by two single quotes with a space in between.
+	**Note:** The command is terminated by two single quotes with a space in between.
 
-Step 3: Load the sample.log data into the logs table you just created: 
+3. Load the sample.log data into the logs table you just created: 
 
-> LOAD DATA LOCAL INPATH 'C:\tutorial\sample.log' OVERWRITE INTO TABLE logs;
+		LOAD DATA LOCAL INPATH 'C:\tutorial\sample.log' OVERWRITE INTO TABLE logs;
  
-## Task 4: Run Hive Queries ##
+## Run Hive Queries ##
 In this task, you will run a simple Hive query on the data.
  
-Step 1: Run the following query to return the count of lines in the data:
+1. Run the following query to return the count of lines in the data:
 
-> SELECT COUNT(*) FROM logs
+		SELECT COUNT(*) FROM logs
 
-Step 2: Run the following query to return the count of errors from the structured data:   
+2. Run the following query to return the count of errors from the structured data:   
 
-> SELECT t4 AS sev, COUNT(*) AS cnt FROM logs WHERE t4 = '[ERROR]' GROUP BY t4
+		SELECT t4 AS sev, COUNT(*) AS cnt FROM logs WHERE t4 = '[ERROR]' GROUP BY t4
  
-## Task 5: Tutorial Clean Up ##
+## Tutorial Clean Up ##
 
 The clean up task applies to this tutorial only; it is not necessarily performed in an actual deployment. In this task, you will delete the table and the data so that if you like, you can run the tutorial again.  
 
-Step 1: Delete the table logs:
+1. Delete the table logs:
 
-> drop table logs;
+		drop table logs;
 
 
 Congratulations! You have successfully completed this tutorial. 

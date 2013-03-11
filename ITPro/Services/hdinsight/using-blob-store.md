@@ -2,13 +2,13 @@
 
 <div chunk="../chunks/hdinsight-left-nav.md" />
 
-#Using Azure Blob Store with HDInsight  #
+#Using Windows Azure Blob Storage with HDInsight  #
 
 ## Getting started ##
 
-When you provision an HDInsight cluster, you will need to provide a Windows Azure Storage Account. HDInsight will create the default HDFS file system in a Blob Store container that has the same name as your HDInsight cluster. If such a container already exists, it will use it with all the data preloaded. If it does not exist yet, it will be created.
+When you provision an HDInsight cluster, you will need to provide a Windows Azure Storage Account. HDInsight will create the default HDFS file system in a Blob Storage container that has the same name as your HDInsight cluster. If such a container already exists, it will use it with all the data preloaded. If it does not exist yet, it will be created.
 
-While you are using HDInsight and interacting with the storage through HDFS, the file system will look like any other HDFS file system, with the difference though that the file system is not located inside the compute cluster, but in the highly scalable Azure Blob Store container. We refer to an HDFS file system over the Blob Storage as an *Azure Storage Vault* or ASV for short.
+While you are using HDInsight and interacting with the storage through HDFS, the file system will look like any other HDFS file system, with the difference though that the file system is not located inside the compute cluster, but in the highly scalable Windows Azure Blob Storage container. We refer to an HDFS file system over the Blob Storage as an *Azure Storage Vault* or ASV for short.
 
 Most HDFS commands such as `ls`, `copyFromLocal`, `mkdir ` etc. will still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS) such as `fschk` and `dfsadmin` will show different behavior.
 
@@ -16,14 +16,14 @@ In the following tutorial we will:
 
 - give an overview of the architecture
 - show how you can use a Blob Storage Account in HDInsight
-- show how to address Windows Azure Blob Store containers through a new URI scheme
-- show how to use multiple Windows Azure Blob Store containers
+- show how to address Windows Azure Blob Storage containers through a new URI scheme
+- show how to use multiple Windows Azure Blob Storage containers
 
 ## The HDInsight Service Storage Architecture ##
 
 The following diagram provides you with an abstract view of the HDInsight Service's storage architecture:
 
-![](..\Media\HDI.ASVArch.png)
+![](../Media/HDI.ASVArch.png)
 
 You will notice that the HDInsight Service still provides access to the distributed file system that is locally attached to the compute nodes. This file system can still be accessed, but now has to be referred to via the fully qualified URI `hdfs://<namenodehost>/<path>`. 
 
@@ -115,7 +115,7 @@ translates to the Blob Storage URI
 
 where account and container are the values used for specifying the default file system.
 
-For examples,
+For example,
 
 	`asvs://dailylogs@myaccount/input/log1.txt`
 
