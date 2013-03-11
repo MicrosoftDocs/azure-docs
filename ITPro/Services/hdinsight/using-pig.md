@@ -429,12 +429,12 @@ Congratulations! You have successfully completed this tutorial.
 
 ##Next Steps
 
+While Pig allows you to perform data analysis, other languages included with the HDInsight Service may be of interest to you also. Hive provides a SQL-like query language that allows you to easily query against data stored in HDInsight, while MapReduce jobs written in Java allow you to perform complex data analysis. For more information, see the following:
+
 * [Using Hive with HDInsight][hdinsight-hive] 
 
 * [Using MapReduce with HDInsight][hdinsight-mapreduce]
 
-* [Using the Interactive JavaScript and Hive consoles][interactive-console]
 
-[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/howto-mapreduce/
-[hdinsight-hive]: /en-us/manage/services/hdinsight/howto-hive/
-[interactive-console]: /en-us/manage/services/hdinsight/interactiveconsole/
+[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
+[hdinsight-hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/

@@ -187,12 +187,13 @@ Congratulations! You have successfully completed this tutorial.
 
 ##Next Steps
 
+While Hive makes it easy to query data using a SQL-like query language, other languages available with the HDInsight Service provide complementary functionality such as data movement and transformation. To learn more, see the following articles:
+
 * [Using Pig with HDInsight][hdinsight-pig] 
 
 * [Using MapReduce with HDInsight][hdinsight-mapreduce]
 
-* [Using the Interactive JavaScript and Hive Consoles][interactive-console]
 
-[hdinsight-pig]: /en-us/manage/services/hdinsight/howto-pig/
-[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/howto-mapreduce/
-[interactive-console]: /en-us/manage/services/hdinsight/interactiveconsole/
+
+[hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
+[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/

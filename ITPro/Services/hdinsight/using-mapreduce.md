@@ -312,12 +312,11 @@ Congratulations! You have successfully completed this tutorial.
 
 ##Next Steps
 
+While MapReduce provides powerful diagnostic abilities, it can be a bit challenging to master. Other languages such as Pig and Hive provide an easier way to work with data stored in your HDInsight Service. To learn more, see the following articles:
+
 * [Using Pig with HDInsight][hdinsight-pig] 
 
 * [Using Hive with HDInsight][hdinsight-hive]
 
-* [Using the Interactive JavaScript and Hive Consoles][interactive-console]
-
-[hdinsight-pig]: /en-us/manage/services/hdinsight/howto-pig/
-[hdinsight-hive]: /en-us/manage/services/hdinsight/howto-hive/
-[interactive-console]: /en-us/manage/services/hdinsight/interactiveconsole/
+[hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
+[hdinsight-hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
