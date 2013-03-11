@@ -1,18 +1,7 @@
 <div chunk="../chunks/article-left-menu.md" />
 # Deploy a Secure ASP.NET MVC application with OAuth, Membership and SQL Database 
 
-- [Set up the development environment][setupdbenv]
-- [Set up the Windows Azure environment][setupwindowsazureenv]
-- [Create an ASP.NET MVC 4 application][createapplication]
-- [Deploy the application to Windows Azure][deployapp1]
-- [Add a database to the application][adddb]
-- [Add an OAuth Provider][]
-- [Add Roles to the Membership Database][]
-- [Create a Data Deployment Script][]
-- [Deploy the app to Windows Azure][deployapp11]
-- [Update the Membership Database][]
-
-This tutorial shows you how to build a secure ASP.NET MVC 4 web application that enables users to log in with credentials from Facebook, Yahoo and Google. You will also deploy the application to Windows Azure.
+This tutorial shows you how to build a secure ASP.NET MVC 4 web application that enables users to log in with credentials from Facebook, Yahoo, and Google. You will also deploy the application to Windows Azure.
 
 You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. You can start developing for Windows Azure for free.
 
@@ -50,7 +39,7 @@ In this tutorial:
 
 To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. 
 
-1. To install the Windows Azure SDK for .NET, click the link below. If you don't have Visual Studio installed yet, it will be installed by the link.<br/>
+1. To install the Windows Azure SDK for .NET, click the link below. If you don't have Visual Studio 2012 installed yet, it will be installed by the link. This tutorial requires Visual Studio 2012. <br/>
 <a href="http://go.microsoft.com/fwlink/?LinkId=254364&clcid=0x409" class="site-arrowboxcta download-cta">Get Tools and SDK for Visual Studio 2012</a><br/>
 2. When you are prompted to run or save *vwdorvs11azurepack.exe*, click **Run**.
 
@@ -65,30 +54,27 @@ Next, set up the Windows Azure environment by creating a Windows Azure Web Site 
 
 ### Create a web site and a SQL database in Windows Azure
 
-The next step is to create the Windows Azure web site and the SQL database that your application will use.
-
 Your Windows Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Windows Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to a Windows Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs.
 
 Windows Azure SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
 
 1. In the [Windows Azure Management Portal](https://manage.windowsazure.com), click **Web Sites** in the left tab, and then click  **New**.<br/>
 ![New button in Management Portal][rxWSnew]
-2. Click **CUSTOM CREATE**.<br/>
+1. Click **CUSTOM CREATE**.<br/>
 ![Create with Database link in Management Portal][rxCreateWSwithDB]<br/>
 The **New Web Site - Custom Create** wizard opens. 
-3. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "contactmgr2", but that URL is probably taken so you will have to choose a different one.<br/>
+1. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows "contactmgr2", but that URL is probably taken so you will have to choose a different one.<br/>
 ![Create with Database link in Management Portal][rxCreateWSwithDB_2]<br/>
-4. In the **Database** drop-down list, choose **Create a new SQL database**.
-5. In the **Region** drop-down list, choose the region that is closest to you.<br/>
+1. In the **Database** drop-down list, choose **Create a new SQL database**.
+1. In the **Region** drop-down list, choose the same region you selected for the Web site.<br/>
 This setting specifies which data center your VM will run in. In the **DB CONNECTION STRING NAME**, enter *connectionString1*.
 ![Create a New Web Site step of New Web Site - Create with Database wizard][rxCreateWSwithDB_2]<br/>
-6. Click the arrow that points to the right at the bottom of the box.
+1. Click the arrow that points to the right at the bottom of the box.
 The wizard advances to the **Database Settings** step.
-7. In the **Name** box, enter *ContactDB*.
-8. In the **Server** box, select **New SQL Database server**. Alternatively, if you previously created a SQL Server database, you can select that SQL Server from the dropdown control.
-9. Click the arrow that points to the right at the bottom of the box.<br/>
-10. Enter an administrator **LOGIN NAME** and **PASSWORD**. If you selected **New SQL Database server** you aren't entering an existing name and password here, you're entering a new name and password that you're defining now to use later when you access the database. If you selected a SQL Server you’ve created previously, you’ll be prompted for the password to the previous SQL Server account name you created. For this tutorial, we won't check the **Advanced ** box. The **Advanced ** box allows you to set the DB size (the default is 1 GB but you can increase this to 150 GB) and the collation.
-11. Click the check mark at the bottom of the box to indicate you're finished.
+1. In the **Name** box, enter *ContactDB*.
+1. In the **Server** box, select **New SQL Database server**. Alternatively, if you previously created a SQL Server database, you can select that SQL Server from the dropdown control.
+1. Enter an administrator **LOGIN NAME** and **PASSWORD**. If you selected **New SQL Database server** you aren't entering an existing name and password here, you're entering a new name and password that you're defining now to use later when you access the database. If you selected a SQL Server you’ve created previously, you’ll be prompted for the password to the previous SQL Server account name you created. For this tutorial, we won't check the **Advanced ** box. The **Advanced ** box allows you to set the DB size (the default is 1 GB but you can increase this to 150 GB) and the collation.
+1. Click the check mark at the bottom of the box to indicate you're finished.
 ![Database Settings step of New Web Site - Create with Database wizard][setup007]<br/>
 <br/> The following image shows using an existing SQL Server and Login.
 ![Database Settings step of New Web Site - Create with Database wizard][rxPrevDB]<br/>
@@ -101,12 +87,12 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 ### Create the project
 
-1. Start Visual Studio 2012 or *VS Express for Web* as an administrator.
+1. Start Visual Studio 2012.
 1. From the **File** menu click **New Project**.
 3. In the **New Project** dialog box, expand **Visual C#** and select **Web** under **Installed Templates** and then select **ASP.NET MVC 4 Web Application**. Keep the default **.NET Framework 4.5**. Name the application **ContactManager** and click **OK**.<br/>
 	![New Project dialog box][newapp002]
 6. In the **New ASP.NET MVC 4 Project** dialog box, select the **Internet Application** template. Keep the default Razor **View Engine** and then click **OK**.<br/>
-	![New ASP.NET MVC 4 Project dialog box][newapp003]
+	![New ASP.NET MVC 4 Project dialog box][rxb2]
 
 ### Set the page header and footer
 
@@ -147,7 +133,7 @@ When the connection has been validated, a green check mark is shown next to the 
 9. Click **Next**.
 	<br/>![connection successful icon and Next button in Connection tab][firsdeploy007]
 10. In the **Settings** tab, click **Next**.<br/>
-You can accept all of the default settings on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server. The **UsersContext (DefaultConnection)** entry under **Databases** is created because of the asp.net membership connection string in the *web.config* file.
+You can accept all of the default settings on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server. The **UsersContext (DefaultConnection)** entry under **Databases** is created because of the **UsersContext : DbContext** class which uses the DefaultConnection string
 	<br/>![connection successful icon and Next button in Connection tab][rxPWS]
 12. In the **Preview** tab, click **Start Preview**.<br/>
 The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed.<br/>
@@ -156,7 +142,7 @@ The tab displays a list of the files that will be copied to the server. Displayi
 Visual Studio begins the process of copying the files to the Windows Azure server. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
 14. The default browser automatically opens to the URL of the deployed site.<br/>
 The application you created is now running in the cloud. The next time you deploy the application, only the changed (or new) files will be deployed.
-	<br/>![To Do List home page running in Windows Azure][newapp005]
+	<br/><br/>![To Do List home page running in Windows Azure][newapp005]
 
 
 <h2><a name="bkmk_addadatabase"></a>Add a database to the application</h2>
@@ -199,8 +185,7 @@ The ASP.NET MVC scaffolding feature can automatically generate code that perform
 <h2><a name="bkmk_addcontroller"></a>Add a Controller and a view for the data</h2>
 
 1. Build the project **(Ctrl+Shift+B)**. (You must build the project before using scaffolding mechanism.) <br/>
-1. In **Solution Explorer**, expand the Controllers folder.
-4. Right-click the Controllers folder and click **Add**, and then click **Controller...**.<br/>
+1. In **Solution Explorer**, right-click the Controllers folder and click **Add**, and then click **Controller...**.<br/>
 ![Add Controller in Controllers folder context menu][addcode001]<br/>
 5. In the **Add Controller** dialog box, enter "HomeController" as your controller name. 
 1. Set the **Scaffolding options** Template to  **MVC Controller with read/write actions and views, using Entity Framework**.
@@ -215,7 +200,7 @@ Visual Studio creates a controller methods and views for CRUD database operation
 
 ## Enable Migrations, create the database, add sample data and a data initializer ##
 
-The next task is to enable the [Code First Migrations](http://atlas.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application "code first MVC") feature in order to create the database based on the data model you created.
+The next task is to enable the [Code First Migrations](http://msdn.microsoft.com/library/hh770484.aspx) feature in order to create the database based on the data model you created.
 
 1. In the **Tools** menu, select **Library Package Manager** and then **Package Manager Console**.
 	<br/>![Package Manager Console in Tools menu][addcode008]
@@ -231,7 +216,7 @@ The next task is to enable the [Code First Migrations](http://atlas.asp.net/mvc/
 		add-migration Initial
 
 
-	The **add-migration Initial** command generates a file named **&lt;date_stamp&gt;Initial** in the *Migrations* folder that creates the database. The first parameter ( **Initial** ) is arbitrary and used to create the name of the file. You can see the new class files in **Solution Explorer**.<br/>
+	The **add-migration Initial** command generates a file named **&lt;date_stamp&gt;Initial** in the *Migrations* folder that creates the database. The first parameter ( **Initial** ) is arbitrary and is used to create the name of the file. You can see the new class files in **Solution Explorer**.<br/>
 	In the **Initial** class, the **Up** method creates the Contacts table, and the **Down** method (used when you want to return to the previous state) drops it.<br/>
 3. Open the *Migrations\Configuration.cs* file. 
 4. Add the following namespaces. 
@@ -312,13 +297,13 @@ The application shows the seed data and provides edit, details and delete links.
 
 <h2><a name="addOauth"></a><span class="short-header">OAuth</span>Add an OAuth Provider</h2>
 
-[OAuth](http://oauth.net/ "http://oauth.net/") is an open protocol that allows secure authorization in a simple and standard method from web, mobile and desktop applications. The ASP.NET MVC internet template uses OAuth to expose Facebook, Twitter, Google, Yahoo and Microsoft as authentication providers. Although this tutorial uses only Facebook, Google and Yahoo as the authentication providers, you can easily modify the code to use any of the providers. The steps to implement other providers are very similar to the steps you will see in this tutorial. 
+[OAuth](http://oauth.net/ "http://oauth.net/") is an open protocol that allows secure authorization in a simple and standard method from web, mobile, and desktop applications. The ASP.NET MVC internet template uses OAuth to expose Facebook, Twitter, Google, Yahoo, and Microsoft as authentication providers. Although this tutorial uses only Facebook, Google, and Yahoo as the authentication providers, you can easily modify the code to use any of the providers. The steps to implement other providers are very similar to the steps you will see in this tutorial. 
 
-In addition to authentication, the tutorial will also use roles to implement authorization. Only those users you add to the managers role will be able to create, edit or delete contacts.
+In addition to authentication, the tutorial will also use roles to implement authorization. Only those users you add to the canEdit role will be able to create, edit, or delete contacts.
 
 ## Registering with an external provider ##
 
-To authenticate users with credentials from some external providers, you must register your web site with the provider and obtain a key and connection secret. Google and Yahoo don't require to register and obtain keys. You must have an account with the providers you wish to use.
+To authenticate users with credentials from some external providers, you must register your web site with the provider and obtain a key and connection secret. Google and Yahoo don't require you to register and obtain keys.
 
 This tutorial does not show all of the steps you must perform to register with these providers. The steps are typically not difficult. To successfully register your site, follow the instructions provided on those sites. To get started with registering your site, see the developer site for:
 
@@ -344,13 +329,14 @@ Click on the **Modify** link to get the test users email (which you will use to 
 
 ## Adding application id and secret from the provider ##
 
-Open the *App_Start\AuthConfig.cs* file. Remove the comment characters from the *RegisterFacebookClient* method and add the app id and app secret. Use the values you obtained, the values shown below will not work. Remove the comment characters from the *OAuthWebSecurity.RegisterGoogleClient* call and add the *OAuthWebSecurity.RegisterYahooClient* as shown below. The Google and Yahoo providers don't require you to register and obtain keys.
+Open the *App_Start\AuthConfig.cs* file. Remove the comment characters from the *RegisterFacebookClient* method and add the app id and app secret. Use the values you obtained, the values shown below will not work. Remove the comment characters from the *OAuthWebSecurity.RegisterGoogleClient* call and add the *OAuthWebSecurity.RegisterYahooClient* as shown below. The Google and Yahoo providers don't require you to register and obtain keys. <br/>
+Warning: Keep your app ID and secret secure. A malacious user who has your app ID and secret can pretend to be your application.
 
      public static void RegisterAuth()
         {
             OAuthWebSecurity.RegisterFacebookClient(
-                appId: "387804053624929",
-                appSecret: "242d880946797e722ce66d8a057d344f");
+                appId: "enter numeric key here",
+                appSecret: "enter numeric secret here");
 
             OAuthWebSecurity.RegisterGoogleClient();
             OAuthWebSecurity.RegisterYahooClient();
@@ -362,17 +348,17 @@ Open the *App_Start\AuthConfig.cs* file. Remove the comment characters from the 
 1. Enter your Facebook credentials or one of the test users credentials.
 1. Click **Okay** to allow the application to access your Facebook resources.
 1. You are redirected to the Register page. If you logged in using a test account, you can change the **user name** to something shorter, for example "Bill FB test". Click the **Register** button which will save the user name and email alias to the membership database. 
-1. Register another user. Currently a bug in the log in system prevents you from logging off and logging in as another user using the same provider (that is, you can't log off your Facebook account and log back in with a different Facebook account). To work around this, navigate to the site using another browser and register another user. One user will be added to the manager role and have edit access to application, the other user will only have access to non-edit methods on the site. Anonymous users will only have access to the home page.
+1. Register another user. Currently a bug in the log in system prevents you from logging off and logging in as another user using the same provider (that is, you can't log off your Facebook account and log back in with a different Facebook account). To work around this, navigate to the site using a different browser and register another user. One user will be added to the manager role and have edit access to application, the other user will only have access to non-edit methods on the site. Anonymous users will only have access to the home page.
 1. Register another user using a different provider.
-1. **Optional**: You can also create a local account not associated with one of the providers. Later on in the tutorial we will remove creating local accounts. To create a local account, click the **Log out** link (if you are logged in), then click the **Register link**. You might want to create a local account for administration purposes that is not associated with any external authentication provider.
+1. **Optional**: You can also create a local account not associated with one of the providers. Later on in the tutorial we will remove the ablility to create local accounts. To create a local account, click the **Log out** link (if you are logged in), then click the **Register link**. You might want to create a local account for administration purposes that is not associated with any external authentication provider.
 
 <h2><a name="mbrDB"></a><span class="short-header">Membership DB</span>Add Roles to the Membership Database</h2>
-In this section you will add the *canEdit* role to the membership database. Only those users in the canEdit role will be able to edit data. A best practice is to name roles by the actions they can perform, so *canEdit* is preferred over an role called *admin*. When your application evolves you can add new roles such as *canDeleteMembers* rather than *superAdmin*.
+In this section you will add the *canEdit* role to the membership database. Only those users in the canEdit role will be able to edit data. A best practice is to name roles by the actions they can perform, so *canEdit* is preferred over a role called *admin*. When your application evolves you can add new roles such as *canDeleteMembers* rather than *superAdmin*.
 
 1. In the **View** menu click **Database Explorer** if you are using *Visual Studio Express for Web* or **Server Explorer** if you are using full Visual Studio. <br/>
  <br/>![Publish][rxP3] <br/>
  <br/>![Publish][rxP2]<br/>
-1. In **Server Explorer**, click **DefaultConnection** then click **Tables**.
+1. In **Server Explorer**, expand **DefaultConnection** then expand **Tables**.
 1. Right click **UserProfile** and click **Show Table Data**.
 <br/> 
 <br/>![Show table data][rxSTD]
@@ -381,7 +367,7 @@ In this section you will add the *canEdit* role to the membership database. Only
 <br/> <br/>![user IDs][rxUid]
 <br/> <br/>
 1. Right click **webpages_Roles** and click **Show Table Data**.
-1. Enter **canEdit** in the **RoleName** cell. The **RoleId** will be 1 if this is the first time you've added a role. Record the RoleID. Be sure there is not a trailing space character, "canEdit " will in the role table will not match "canEdit" in the controller code.
+1. Enter **canEdit** in the **RoleName** cell. The **RoleId** will be 1 if this is the first time you've added a role. Record the RoleID. Be sure there is not a trailing space character, "canEdit " in the role table will not match "canEdit" in the controller code.
 <br/> <br/>![roleID][rxRoleID]<br/> <br/>
 1. Right click **webpages UsersInRoles** and click **Show Table Data**. Enter the **UserId** for the user you want to grant *canEdit* access and the **RoleId**.
 <br/> <br/>![usr role ID tbl][rxUR]<br/> <br/>
@@ -648,12 +634,11 @@ This tutorial and the sample application was written by [Rick Anderson](http://b
 [rxS2]: ../Media/rxS2.png
 [rxNOT]: ../Media/rxNOT.png
 [rxNOT2]: ../Media/rxNOT2.png
-[rxNOT]: ../Media/rxNOT.png
+[rxb2]: ../Media/rxb2.png
 [rxNOT]: ../Media/rxNOT.png
 [rxNOT]: ../Media/rxNOT.png
 [rxNOT]: ../Media/rxNOT.png
 [rxCreateWSwithDB_2]: ../Media/rxCreateWSwithDB_2.png
-
 [rxNewCtx]: ../Media/rxNewCtx.png
 [rxCreateWSwithDB_2]: ../Media/rxCreateWSwithDB_2.png 
 [rxPrevDB]: ../Media/rxPrevDB.png
@@ -680,7 +665,7 @@ This tutorial and the sample application was written by [Rick Anderson](http://b
 [newapp004]: ../Media/dntutmobile-createapp-004.png
 [newapp004.1]: ../Media/dntutmobile-createapp-004.1.png
 [newapp004.2]: ../Media/dntutmobile-createapp-004.2.png
-[newapp005]: ../Media/dntutmobile-createapp-005.png
+[newapp005]: ../Media/newapp005.png
 [firsdeploy001]: ../Media/dntutmobile-deploy1-download-profile.png
 [firsdeploy002]: ../Media/dntutmobile-deploy1-save-profile.png
 [firsdeploy003]: ../Media/dntutmobile-deploy1-publish-001.png
