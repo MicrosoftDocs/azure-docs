@@ -22,7 +22,7 @@ A Windows Azure storage account is required before you can create a HDInsight cl
 </div>
 
 
-1. Sign in to the [Management Portal](http://manage.windowsazure.com).
+1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 2. Click **+ NEW** on the bottom of the page, click **DATA SERVICES**, click **HDINSIGHT**, and then click **QUICK CREATE**.
 
 	When choosing **CUSTOM CREATE**, you need to specify the following properties:
@@ -112,5 +112,6 @@ To use Hadoop command line, you must first connect to the cluster using remote d
 
 ## See Also
 * [How to: Monitor HDInsight](/en-us/manage/services/hdinsight/howto-monitor-hdinsight/)
-	
-* [How to: Upload data to HDInsight](/en-us/manage/services/hdinsight/howto-mapreduce/)
+* [How to: Deploy an HDInsight Cluster Programmatically](/en-us/manage/services/hdinsight/howto-deploy-cluster/)
+* [How to: Execute Remote Jobs on Your HDInsight Cluster Programmatically](/en-us/manage/services/hdinsight/howto-execute-jobs-programmatically/)
+* [Tutorial: Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
