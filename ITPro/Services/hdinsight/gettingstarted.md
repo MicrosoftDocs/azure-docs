@@ -4,42 +4,38 @@
 
 # Getting Started with Windows Azure HDInsight Service
 
-This tutorial gets you started using Windows Azure HDInsight Services. HDInsight Services makes Apache Hadoop available as a service in the cloud. It makes the HDFS/MapReduce software framework available in a simpler, more scalable, and cost efficient environment. 
+This tutorial gets you started using Windows Azure HDInsight Service. HDInsight Service makes Apache Hadoop available as a service in the cloud. It makes the HDFS/MapReduce software framework available in a simpler, more scalable, and cost efficient environment. 
 
-In particular, it simplifies the configuring, running, and post-processing of Hadoop jobs by providing JavaScript and Hive interactive consoles. The JavaScript console is unique to HDInsight and handles Pig Latin as well as JavaScript and Hadoop file system commands. It also provides a cost efficient approach to the managing and storing of data. HDInsight uses Azure Storage by default from which data can be easily accessed for compute and where it can be stored at relatively low cost using Azure Blob Storage. 
+In particular, it simplifies the configuring, running, and post-processing of Hadoop jobs by providing JavaScript and Hive interactive consoles. The JavaScript console is unique to HDInsight and handles Pig Latin as well as JavaScript and Hadoop file system commands. It also provides a cost efficient approach to the managing and storing of data. HDInsight Service uses Azure Storage by default from which data can be easily accessed for compute and where it can be stored at relatively low cost using Azure Blob Storage. 
 
 
 In this tutorial you will learn how to:
 
-* [Subscribe to Windows Azure and enable the HDInsight feature](#subscribe)
-* [Create and configure a Windows Azure Storage account, which will be used by HDInsight](#create)
-* [Provision an HDInsight cluster from the Windows Azure portal](#provision)
-* [Use the HDInsight Services dashboard](#dashboard)
+* [Subscribe to Windows Azure and enable the HDInsight Service](#subscribe)
+* [Create and configure a Windows Azure Storage account, which will be used by the HDInsight Service](#create)
+* [Provision an HDInsight Service cluster from the Windows Azure portal](#provision)
+* [Use the HDInsight Service dashboard](#dashboard)
 * [Run a sample MapReduce program](#sample)
 * [Use the Interactive Console to examine the output from a MapReduce program](#console)
 
 
-##<a name="subscribe"></a>Subscribe to a Windows Azure Account and Enable HDInsight
+##<a name="subscribe"></a>Subscribe to a Windows Azure Account and Enable HDInsight Service
 
-To complete this tutorial, you need a Microsoft email account and a Windows Azure account that has the Windows Azure Web Sites Feature enabled.
+To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Windows Azure Free Trial](/en-us/pricing/free-trial/ "Windows Azure Free Trial"). When setting up a new account, be sure enable the Preview Features as explained on the [Create a Windows Azure account and enable preview features](/en-us/develop/php/tutorials/create-a-windows-azure-account/) page.
 
-- A Microsoft account can be a live ID or Hotmail account or an organizational account for Office 360 subscribers. 
-- For instructions to obtain a Microsoft account and to open a Windows Azure account, see the [Windows Azure sign in](/en-us/develop/net/tutorials/create-a-windows-azure-account/ target="_blank">) page. 
-- For instructions on enabling the preview features, see [Create a Windows Azure Account and Enable Preview Features](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/ "Create an Azure Account").
-
-Note that the free trial for Windows Azure will probably not provide you with resources that are adequate to get you up to speed with HDInsight Services, so you should get a regular Windows Azure account if you do not already have one and you are interested in learning about this technology.
+While the HDInsight Service is available as part of a Windows Azure Trial subscription, a trial subscription places limits on the amount of compute and storage resources available to you. For more information, see the [Windows Azure Free Trial](/en-us/pricing/free-trial/ "Windows Azure Free Trial") page.
 
 ##<a name="create"></a>Create a Windows Azure Storage account
 To complete this tutorial, you need an Azure Storage account. For instructions on how to create one, see
-[How to Create a Storage Account](http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/ "CreateAnAsvAccount"). Note that your storage account should be created in the US East data center as storage accounts must be collocated with the HDInsight compute resources which are in US East.
+[How to Create a Storage Account](http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/ "CreateAnAsvAccount"). Note that your storage account should be created in the US East data center as storage accounts must be collocated with the HDInsight Service compute resources which are in US East.
 
 
-##<a name="provision"></a>Provision an HDInsight Cluster
+##<a name="provision"></a>Provision an HDInsight Service Cluster
 This section walks you through the steps to create and configure a new Hadoop Cluster. 
 
 1. Log into your Windows Azure account and go to the Windows Azure portal. 
 
-2. Click the **HDInsight** icon on the left side scroll bar of the portal (highlighted in yellow below) to list the status of the clusters in your account. (The list will be empty if this is the first time you have used HDInsight Services.)
+2. Click the **HDInsight** icon on the left side scroll bar of the portal (highlighted in yellow below) to list the status of the clusters in your account. (The list will be empty if this is the first time you have used the HDInsight Service.)
 
 	![HDI.ClusterStatus](../media/HDI.ClusterStatus.PNG "HDInsight Cluster Management")
 
@@ -59,10 +55,10 @@ This section walks you through the steps to create and configure a new Hadoop Cl
 
 	![HDI.NewClusterStatusRunning](../media/HDI.NewClusterStatusRunning.PNG "New Cluster Status Running")
 
-##<a name="dashboard"></a>The HDInsight dashboard and sample gallery
-This section explains how to get to the HDInsight dashboard and sample gallery.
+##<a name="dashboard"></a>The HDInsight Service dashboard and sample gallery
+This section explains how to get to the HDInsight Service dashboard and sample gallery.
 
-1. To get to the dashboard, click the name of the HDInsight cluster in the first column of the table on the Windows Azure portal. 
+1. To get to the dashboard, click the name of the HDInsight Service cluster in the first column of the table on the Windows Azure portal. 
 
 2. The dashboard provides quick glance of the metadata for the cluster. Note that it provides a live URL for the cluster at the top and the cluster user name ("admin" here, which you will need to log on) at the bottom. 
 
@@ -80,14 +76,14 @@ This section explains how to get to the HDInsight dashboard and sample gallery.
 
 	![HDI.WinAzureHDI](../media/HDI.WinAzureHDI.PNG "Windows Azure HDInsight")
 
-7. Click the **Samples** tile to go to the **Hadoop Sample Gallery** that has tiles for each of the samples that ship with HDInsight.
+7. Click the **Samples** tile to go to the **Hadoop Sample Gallery** that has tiles for each of the samples that ship with the HDInsight Service.
 
 	![HDI.SampleGallery](../media/HDI.SampleGallery.PNG "Sample Gallery")
 
 
-##<a name="sample"></a>Run a MapReduce Job in HDInsight: WordCount
+##<a name="sample"></a>Run a MapReduce Job with the HDInsight Service: WordCount
 
-This section briefly describes what the Workcount MapReduce programs do and shows how to run the Wordcount sample using the **Create Job** UI provided by HDInsight Services. 
+This section briefly describes what the Workcount MapReduce programs do and shows how to run the Wordcount sample using the **Create Job** UI provided by the HDInsight Service. 
 
 The sample contains MapReduce programs written in Java that together count word occurrences in a text: 
 
@@ -136,13 +132,13 @@ We can use the JavaScript Interactive Console to view the output from the WordCo
  
 ## Summary
 
-You have gotten set up with a Windows Azure and Azure Storage accounts that are needed to access HDInsight Services. You have learned how to provision an HDInsight cluster, run a MapReduce job on it, and use the Interactive Console to view the output from the job.
+You have gotten set up with a Windows Azure and Azure Storage accounts that are needed to access the HDInsight Service. You have learned how to provision a cluster with the HDInsight Service, run a MapReduce job on it, and use the Interactive Console to view the output from the job.
 
 ## Next steps
 
 - For information about running more samples, see [How to Run Samples](/en-us/manage/services/hdinsight/howto-run-samples/).
-- For other uses of HDInsight interactive JavaScript and Hive consoles, see the [The Windows Azure HDInsight Interactive JavaScript and Hive Consoles](/en-us/manage/services/hdinsight/howto-work-with-the-interactive-console/).
-- For more information of Pig, see [Using Pig](/en-us/manage/services/hdinsight/howto-pig/).
-- For more information of Hive, see [Using Hive](/en-us/manage/services/hdinsight/howto-hive/).
-- For more information of MapReduce, see [Using MapReduce](/en-us/manage/services/hdinsight/howto-mapreduce/).
+- For other uses of HDInsight Service interactive JavaScript and Hive consoles, see the [HDInsight Interactive JavaScript and Hive Consoles](/en-us/manage/services/hdinsight/interactive-javascript-and-hive-consoles/).
+- For more information of Pig, see [Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/).
+- For more information of Hive, see [Using Hive with HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/).
+- For more information of MapReduce, see [Using MapReduce with HDInsight](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/).
 
