@@ -136,7 +136,7 @@ We can use the JavaScript Interactive Console to view the output from the WordCo
  
 ## Summary
 
-You have gotten set up with a Windows Azure and Azure Storage accounts that are needed to access HDInsight Services. You have learnt how to provision an HDInsight cluster, run a MapReduce job on it, and use the Interactive Console to view the output from the job.
+You have gotten set up with a Windows Azure and Azure Storage accounts that are needed to access HDInsight Services. You have learned how to provision an HDInsight cluster, run a MapReduce job on it, and use the Interactive Console to view the output from the job.
 
 ## Next steps
 
