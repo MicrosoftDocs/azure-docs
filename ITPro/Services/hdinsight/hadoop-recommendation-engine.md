@@ -8,7 +8,7 @@ Apache Mahout™ is a machine learning library built for use in scalable machine
 
 You will learn:
 
-* How to use Recommender Engines
+* How to use recommendation engines
 
 This tutorial is composed of the following segments:
 
@@ -199,7 +199,7 @@ At this point you should open a Hadoop terminal window and navitate to the folde
 
 		c:\apps\dist\mahout-0.7\bin>hadoop jar c:\Apps\dist\mahout-0.7\mahout-core-0.7-job.jar org.apache.mahout.cf.taste.hadoop.item.RecommenderJob -s SIMILARITY_COOCCURRENCE --input=input/mInput.txt --output=output --usersFile=input/users.txt
 
-	There are many other "distance" functions that the recommendation engine could use to compare the feature fector for different users, you may experiment and change the Similarity class to SIMILARITY_COOCCURRENCE, SIMILARITY_LOGLIKELIHOOD, SIMILARITY_TANIMOTO_COEFFICIENT, SIMILARITY_CITY_BLOCK, SIMILARITY_COSINE, SIMILARITY_PEARSON_CORRELATION, SIMILARITY_EUCLIDEAN_DISTANCE.  For the purpose of this tutorial we will not go into the detailed data science aspect of Mahout. 
+	There are many other "distance" functions that the recommendation engine could use to compare the feature fector for different users, you may experiment and change the Similarity class to SIMILARITY\_COOCCURRENCE, SIMILARITY\_LOGLIKELIHOOD, SIMILARITY\_TANIMOTO\_COEFFICIENT, SIMILARITY\_CITY\_BLOCK, SIMILARITY\_COSINE, SIMILARITY\_PEARSON\_CORRELATION, SIMILARITY\_EUCLIDEAN\_DISTANCE.  For the purpose of this tutorial we will not go into the detailed data science aspect of Mahout. 
 
 4. The Mahout job should run for several minutes, after which an output file will be created. Run the following command to create a local copy of the output file:
 
