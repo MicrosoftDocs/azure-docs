@@ -114,3 +114,4 @@ To use Hadoop command line, you must first connect to the cluster using remote d
 * [How to: Monitor HDInsight](/en-us/manage/services/hdinsight/howto-monitor-hdinsight/)
 * [How to: Deploy an HDInsight Cluster Programmatically](/en-us/manage/services/hdinsight/howto-deploy-cluster/)
 * [How to: Execute Remote Jobs on Your HDInsight Cluster Programmatically](/en-us/manage/services/hdinsight/howto-execute-jobs-programmatically/)
+* [Tutorial: Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
