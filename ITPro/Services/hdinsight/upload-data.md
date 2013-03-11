@@ -32,18 +32,18 @@ Before using the tool, you must know your Windows Azure storage account name and
 
 1. Run Azure Storage Explorer.
 
-	![HDI.AzureStorageExplorer](../media/HDI.AzureStorageExplorer.png?raw=true "Azure Storage Explorer")
+	![HDI.AzureStorageExplorer](../media/HDI.AzureStorageExplorer.png "Azure Storage Explorer")
 
 2. Click **Add Account**. After an account is added to Azure Storage Explorer, you don't need to go through this step again. 
 
-	![HDI.ASEAddAccount](../media/HDI.ASEAddAccount.png?raw=true "Add Account")
+	![HDI.ASEAddAccount](../media/HDI.ASEAddAccount.png "Add Account")
 
 3. Enter **Storage account name** and **Storage account key**, and then click **Add Storage Account**. You can add multiple storage accounts, each account will be displayed on a tab. 
 4. From **Storage Type**, click **Blobs** to display the Windows Azure Blob storage of the account.
 
-	![HDI.ASEBlob](../media/HDI.ASEBlob.png?raw=true "Azure Storage Explorer")
+	![HDI.ASEBlob](../media/HDI.ASEBlob.png "Azure Storage Explorer")
 
-5. From **Container**, click the container that is associated to your HDInsight Cluster. When you create an HDInsight cluster, you must specify a container.  Otherwise, the cluster creation process creates one for you.
+5. From **Container**, click the container that is associated to your HDInsight cluster. When you create an HDInsight cluster, you must specify a container.  Otherwise, the cluster creation process creates one for you.
 6. From **Blob**, click **Upload**.
 7. Specify a file to upload, and then click **Open**.
 
@@ -56,7 +56,7 @@ Data stored in Windows Azure Blob Storage can be accessed directly from the Inte
 
 The following is an example of viewing data stored in Windows Azure Blob Storage using the Interactive Javascript Console:
 
-![HDI.ASVSample](../media/HDI.ASVSample.png?raw=true "ASV sample")
+![HDI.ASVSample](../media/HDI.ASVSample.png "ASV sample")
 
 The following will run a Hadoop streaming job that uses Windows Azure Blob Storage for both input and output:
 
@@ -78,7 +78,7 @@ Windows Azure HDInsight Service comes with a web based interactive JavaScript co
 5. Enter **User name** and **Password** for the cluster, and then click **Log On**.
 6. Click **Interactive Console**.
 
-	![HDI.TileInteractiveConsole](../media/HDI.TileInteractiveConsole.png?raw=true "Interactive Console")
+	![HDI.TileInteractiveConsole](../media/HDI.TileInteractiveConsole.png "Interactive Console")
 
 7. From the Interactive JavaScript console, type the following command:
 	
@@ -86,7 +86,7 @@ Windows Azure HDInsight Service comes with a web based interactive JavaScript co
 
 8. Press **ENTER**.
 
-	![HDI.fs.put](../media/HDI.fsput.png?raw=true "fs.put()")
+	![HDI.fs.put](../media/HDI.fsput.png "fs.put()")
 
 9. Enter **Source** and **Destination**, and then click **Upload**.	
 10. Use the following command to list the uploaded files.
@@ -104,7 +104,7 @@ To use Hadoop command line, you must first connect to the cluster using remote d
 5. Enter **User name** and **Password** for the cluster, and then click **Log On**.
 6. Click **Remote Desktop**.
 	
-	![HDI.TileRemoteDesktop](../media/HDI.TileRemoteDesktop.png?raw=true "Remote Desktop")
+	![HDI.TileRemoteDesktop](../media/HDI.TileRemoteDesktop.png "Remote Desktop")
 
 7. Click **Open**.
 9. Enter your credentials, and then click **OK**.
@@ -123,7 +123,7 @@ To use Hadoop command line, you must first connect to the cluster using remote d
 
 Sqoop is a tool designed to transfer data between Hadoop and relational databases. You can use it to import data from a relational database management system (RDBMS) such as SQL or MySQL or Oracle into the Hadoop Distributed File System (HDFS), transform the data in Hadoop with MapReduce or Hive, and then export the data back into a RDBMS. For more information, see [Sqoop User Guide](http://sqoop.apache.org/docs/1.4.2/SqoopUserGuide.html).
 
-Before importing data, you must know the Windows Azure SQL Database server name, database account name, account password and database name. You must also configure a firewall rule for the database server to allow connections from your HDInsight cluster head node. For instruction on creating SQL database and configuring firewall rules, see [How to use Windows Azure SQL Database in .NET applications](http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-database/). To obtain the outward facing IP Address for your HDInsight cluster head node, you can use Remote Desktop to connect to the head node, and then browse to [www.whatismyip.com](www.whatismyip.com).
+Before importing data, you must know the Windows Azure SQL Database server name, database account name, account password and database name. You must also configure a firewall rule for the database server to allow connections from your HDInsight cluster head node. For instruction on creating SQL database and configuring firewall rules, see [How to use Windows Azure SQL Database in .NET applications](http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-database/). To obtain the outward facing IP Address for your HDInsight cluster head node, you can use Remote Desktop to connect to the head node, and then browse to [www.whatismyip.com](http://www.whatismyip.com).
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 2. Click **HDINSIGHT**. You will see a list of deployed Hadoop clusters.
