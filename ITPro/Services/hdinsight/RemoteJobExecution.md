@@ -69,12 +69,16 @@ There are multiple methods available to you for creating and monitoring jobs sub
 
 ##Next Steps
 
-* [Using Pig with HDInsight][hdinsight-pig] 
+In this topic you discovered how to programmatically run jobs remotely on the HDInsight Service. Next, learn how to use the browser-based interactive console to run jobs by reading the [Guidance: HDInsight Interactive JavaScript and Hive Consoles][interactive-console] topic.
+If you are interested in learning more about creating jobs using MapReduce, Hive or Pig, see the following tutorials:
 
-* [Using Hive with HDInsight][hdinsight-hive]
+* [Tutorial: Using MapReduce][mapreduce]
 
-* [Using MapReduce with HDInsight][hdinsight-mapreduce]
+* [Tutorial: Using Hive][hive]
 
-[hdinsight-pig]: /en-us/manage/services/hdinsight/howto-pig/
-[hdinsight-hive]: /en-us/manage/services/hdinsight/howto-hive/
-[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/howto-mapreduce/
+* [Tutorial: Using Pig][pig]
+
+[interactive-console]: /en-us/manage/services/hdinsight/interactive-javascript-and-hive-consoles/
+[mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
+[hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
+[pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
