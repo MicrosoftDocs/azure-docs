@@ -159,3 +159,9 @@ Note: When specifying an escape character as delimiter with the arguments *--inp
 			--input-lines-terminated-by \n
 		
 
+## Next Steps
+Now you understand how to get data into HDInsight Service, use the following tutorials to learn how to perform analyis:
+
+* [Tutorial: Using MapReduce with HDInsight](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
+* [Tutorial: Using Hive with HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
+* [Tutorial: Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
