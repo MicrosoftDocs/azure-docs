@@ -234,3 +234,9 @@ This tutorial is composed of the following segments:
 ## Summary 
 
 In this tutorial we have seen how to transform unstructured Json dataset into structured Hive table to query, explore, and analyze data from Twitter using HDInsight on Windows Azure. For updates and support files, you may find them in the GitHub repository [here](https://github.com/wenming/BigDataSamples/tree/master/twittersample). 
+
+##Next Steps
+
+While this article demonstrates using the Hadoop command line, you can also perform tasks using the HDInsight Service Interactive Console. For more information, see [Guidance: HDInsight Interactive JavaScript and Hive Consoles][interactive-console].
+
+[interactive-console]: http://sandbox-ppe.windowsazure.com/en-us/manage/services/hdinsight/interactive-javascript-and-hive-consoles/
