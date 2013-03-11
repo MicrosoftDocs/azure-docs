@@ -1,10 +1,10 @@
-<properties linkid="manage-services-hdinsight-using-sdk" urlDisplayName="Using the HDInsight SDK" pageTitle="How to use the HDInsight SDK - Windows Azure guidance" metaKeywords="hdinsight sdk, hdinsight .net, hdinsight .net azure" metaDescription="Learn how to use the .Net client SDK for HDInsight." umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-using-client-library" urlDisplayName="Using the HDInsight Service Client Library" pageTitle="How to use the HDInsight Client Library - Windows Azure guidance" metaKeywords="hdinsight library, hdinsight .net, hdinsight .net azure" metaDescription="Learn how to use the .Net client Libraries for HDInsight." umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
 
 <div chunk="../chunks/hdinsight-left-nav.md" />
 
-#Using the HDInsight SDK#
+#Using the HDInsight Service Client Library#
 
-The HDInsight SDK provides set of .NET client libraries that makes it easier to work with Hadoop in .NET. The SDK includes following components:
+The HDInsight Service library provides set of .NET client libraries that makes it easier to work with Hadoop in .NET. The library includes following components:
 
 - 	A Map/Reduce library - this library simplifies writing map/reduce jobs in .NET languages using the Hadoop streaming interface
 - 	LINQ to Hive client library – this library translates C# or F# LINQ queries into Hive queries and executes them on the Hadoop cluster. This library can execute arbitrary Hive HQL queries from a .NET program as well.
@@ -12,11 +12,11 @@ The HDInsight SDK provides set of .NET client libraries that makes it easier to 
 	- 	WebHDFS client library – works with files in HDFS and Blog Storage
 	- WebHCat client library – manages scheduling and execution of jobs in Hadoop cluster
 
-In this tutorial you will learn how to get the SDK and use it to build simple .NET based Hadoop program.
+In this tutorial you will learn how to get the client library and use it to build simple .NET based Hadoop program.
 
-##Downloading and Installing the SDK##
+##Downloading and Installing the Library##
 
-You can install latest published build of the SDK from NuGet. Use the NuGet package manager to install components of the SDK that you need:
+You can install latest published build of the library from NuGet. Use the NuGet package manager to install components that you need:
 
 1. In Visual Studio 2012, click Tools > Library Package Manager > Package Manager Console.
 2. Install the NuGet packages using the following commands in the console:
@@ -29,10 +29,10 @@ These commands add .NET libraries and references to them to your current Visual 
 
 ##Executing Hive jobs on HDInsight cluster from .Net program##
 
-Once the Hadoop SDK packages are installed you can start building your Hadoop program. In this chapter you’ll learn how to upload files to Hadoop cluster programmatically and how to execute Hive jobs using LINQ to Hive.
+Once the Hadoop client library packages are installed you can start building your Hadoop program. In this chapter you’ll learn how to upload files to Hadoop cluster programmatically and how to execute Hive jobs using LINQ to Hive.
 
 1. Create a new empty Console Application Project in Visual Studio 2012.
-2. Install the NuGet packages for Hive (Microsoft.Hadoop.Hive) and WebClient (Microsoft.Hadoop.WebClient) as described in the “Download and Install the SDK” section. 
+2. Install the NuGet packages for Hive (Microsoft.Hadoop.Hive) and WebClient (Microsoft.Hadoop.WebClient) as described in the “Download and Install the Library” section. 
 3. Download the sample file actors.txt using this [download](http://go.microsoft.com/fwlink/?LinkID=286223) link and store it locally on your hard drive.
 4. In the Main method of the console application add the code below. This code uploads the actors.txt file to the Hadoop cluster using WebHDFS client.
 
