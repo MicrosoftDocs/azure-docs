@@ -425,16 +425,16 @@ In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/li
 <br/> <br/>
 1. In Solution Explorer, right click the **Contact Manager** project and click **Properties**.
 1. In the left tab, click **Web**.
-1. Change the **Project Url** to use HTTPS and a port in the range of 44300-44399.
+1. Change the **Project Url** to use HTTPS and set the port to 44300.
 1. Click **Create Virtual Directory**.
 <br/> <br/>![enable SSL][rxS2]
 <br/> <br/>
 1. Press CTRL+F5 to run the application. The browser will display a certificate warning. For our application you can safely click on the link **Continue to this website**. Verify only the users in the *canEdit* role can change data. Verify anonymous users can only view the home page.
 <br/> <br/>![cert Warn][rxNOT]
-<br/> <br/>
+<br/>
 <br/> <br/>![cert Warn][rxNOT2]
 <br/> <br/>
-
+Windows Azure Web sites include a valid security certificate, so you won't see this warning when you deploy to Azure.
 <h2><a name="ppd"></a><span class="short-header">Prepare DB</span>Create a Data Deployment Script</h2>
 
 
