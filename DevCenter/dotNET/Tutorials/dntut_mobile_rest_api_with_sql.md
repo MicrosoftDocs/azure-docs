@@ -122,6 +122,7 @@ This is all you need to do for now to create the application that you'll deploy 
 This step downloads a file that contains all of the settings that you need in order to deploy an application to your Web Site. You'll import this file into Visual Studio so you don't have to enter this information manually.
 4. Save the .*publishsettings* file in a folder that you can access from Visual Studio.<br/>
 ![saving the .publishsettings file][firsdeploy002]
+Security Note: The .publishsettings file contains your  credentials (unencoded) that are used to administer your Windows Azure subscriptions and services. The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then  delete it once the import has completed. A malicious user gaining access to the publishsettings file can edit, create, and delete your Windows Azure services.
 5. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
 ![Publish in project context menu][firsdeploy003]<br/>
 The **Publish Web** wizard opens.
