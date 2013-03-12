@@ -371,7 +371,7 @@ In this section you will add the *canEdit* role to the membership database. Only
 <br/> <br/>![roleID][rxRoleID]<br/> <br/>
 1. Right click **webpages UsersInRoles** and click **Show Table Data**. Enter the **UserId** for the user you want to grant *canEdit* access and the **RoleId**.
 <br/> <br/>![usr role ID tbl][rxUR]<br/> <br/>
-The  **webpages_OAuthMembership** table contains the OAuth provider, the provider UserID and the UserID for each registered OAuth user. <!-- Don't replace "-" with "_" or it won't validate -->The **webpages-Membership** table contains the ASP.NET membership table. You can add users to this table using the register link. It's a good idea to add a user with the *canEdit* role that is not associated with Facebook or another third party authorization provider so that can always have *canEdit* access even when the third party authorization provider is not available. Later on in the tutorial we will disable ASP.NET membership registration.
+The  **webpages_OAuthMembership** table contains the OAuth provider, the provider UserID and the UserID for each registered OAuth user. <!-- Don't replace "-" with "_" or it won't validate -->The **webpages-Membership** table contains the ASP.NET membership table. You can add users to this table using the register link. It's a good idea to add a user with the *canEdit* role that is not associated with Facebook or another third party authorization provider so that you can always have *canEdit* access even when the third party authorization provider is not available. Later on in the tutorial we will disable ASP.NET membership registration.
 
 ## Protect the Application with the Authorize Attribute ##
 
@@ -387,7 +387,7 @@ In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/li
             filters.Add(new RequireHttpsAttribute());
         }
 
-1. Add the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to the **Index** method. The [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute allows you to whitelist the methods you want to opt out of authorization.
+1. Add the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to the **Index** method. The [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute enables you to whitelist the methods you want to opt out of authorization.
 1. Add   [Authorize(Roles = "canEdit")] to the Get and Post methods that change data (Create, Edit, Delete). 
 1. Add the *About* and *Contact* methods. A portion of the completed code is shown below.
 
@@ -420,7 +420,7 @@ In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/li
 
 1. Remove ASP.NET membership registration. The current  ASP.NET membership registration in the project does not provide support for password resets and it does not verify that a human is registering (for example with a [CAPTCHA](http://www.asp.net/web-pages/tutorials/security/16-adding-security-and-membership)). Once a user is authenticated using one of the third party providers, they can register. In the AccountController, remove the *[AllowAnonymous]* from the GET and POST *Register* methods. This will prevent bots and anonymous users from registering.
 1. In the *Views\Shared\_LoginPartial.cshtml*, remove the Register action link.
-1. Enable SSL. In solution explorer, click the **ContactManager** project, then click F4 to bring up the properties dialog. Change **SSL Enabled** to true.
+1. Enable SSL. In Solution Explorer, click the **ContactManager** project, then click F4 to bring up the properties dialog. Change **SSL Enabled** to true.
 <br/> <br/>![enable SSL][rxSSL]
 <br/> <br/>
 1. In Solution Explorer, right click the **Contact Manager** project and click **Properties**.
@@ -435,15 +435,10 @@ In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/li
 <br/> <br/>![cert Warn][rxNOT2]
 <br/> <br/>
 
-## Disable Registration for non-authenticated users  ##
-In this section we will require that new users can only be registered after they have been authenticated from another log in service (for this sample, Facebook).
- Open the *Controllers\AccountController.cs* file and remove the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute from the Get and Post *Register* method.
-
-
 <h2><a name="ppd"></a><span class="short-header">Prepare DB</span>Create a Data Deployment Script</h2>
 
 
-The membership database isn't managed by Entity Framework Code First so you can't use Migrations to deploy it.  We'll use the [dbDacFx](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction) provider to deploy the database schema, and we'll configure the publish profile to run a script that will insert initial membership data into membership tables.
+The membership database isn't managed by Entity Framework Code First so you can't use Migrations to deploy it.  We'll use the [dbDacFx](http://msdn.microsoft.com/en-us/library/dd394698.aspx) provider to deploy the database schema, and we'll configure the publish profile to run a script that will insert initial membership data into membership tables.
 
 This tutorial will use  SQL Server Management Studio (SSMS) to create data deployment scripts. 
 
@@ -462,7 +457,7 @@ On the first page of the SQL Server Installation Center, click **New SQL Server 
 ### Create the development database script ###
 
 1. Run SSMS.
-1. In the **Connect to Server** dialog box, enter *(localdb)\v11.0* as the Server name, leave **Authentication** set to **Windows Authentication**, and then click **Connect**.
+1. In the **Connect to Server** dialog box, enter *(localdb)\v11.0* as the Server name, leave **Authentication** set to **Windows Authentication**, and then click **Connect**. If you have installed SQL Express, enter **computer name\SQLEXPRESS**.
 <br/><br/>![con to srvr dlg][rxC2S]<br/> 
 1. In the **Object Explorer** window, expand **Databases**, right-click **aspnet-ContactManager**, click **Tasks**, and then click **Generate Scripts**.
 <br/><br/>![Gen Scripts][rxGenScripts]<br/><br/> 
