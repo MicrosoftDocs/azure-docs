@@ -421,12 +421,12 @@ In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/li
 
 1. Remove ASP.NET membership registration. The current  ASP.NET membership registration in the project does not provide support for password resets and it does not verify that a human is registering (for example with a [CAPTCHA](http://www.asp.net/web-pages/tutorials/security/16-adding-security-and-membership)). Once a user is authenticated using one of the third party providers, they can register. In the AccountController, remove the *[AllowAnonymous]* from the GET and POST *Register* methods. This will prevent bots and anonymous users from registering.
 1. In the *Views\Shared\_LoginPartial.cshtml*, remove the Register action link.
-1. Enable SSL. In Solution Explorer, click the **ContactManager** project, then click F4 to bring up the properties dialog. Change **SSL Enabled** to true.
+1. Enable SSL. In Solution Explorer, click the **ContactManager** project, then click F4 to bring up the properties dialog. Change **SSL Enabled** to true. Copy the **SSL URL**.
 <br/> <br/>![enable SSL][rxSSL]
 <br/> <br/>
 1. In Solution Explorer, right click the **Contact Manager** project and click **Properties**.
 1. In the left tab, click **Web**.
-1. Change the **Project Url** to use HTTPS and set the port to 44300.
+1. Change the **Project Url** to use the **SSL URL**.
 1. Click **Create Virtual Directory**.
 <br/> <br/>![enable SSL][rxS2]
 <br/> <br/>
