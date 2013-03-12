@@ -330,7 +330,7 @@ Click on the **Modify** link to get the test users email (which you will use to 
 ## Adding application id and secret from the provider ##
 
 Open the *App_Start\AuthConfig.cs* file. Remove the comment characters from the *RegisterFacebookClient* method and add the app id and app secret. Use the values you obtained, the values shown below will not work. Remove the comment characters from the *OAuthWebSecurity.RegisterGoogleClient* call and add the *OAuthWebSecurity.RegisterYahooClient* as shown below. The Google and Yahoo providers don't require you to register and obtain keys. <br/>
-Warning: Keep your app ID and secret secure. A malacious user who has your app ID and secret can pretend to be your application.
+Warning: Keep your app ID and secret secure. A malicious user who has your app ID and secret can pretend to be your application.
 
      public static void RegisterAuth()
         {
@@ -350,7 +350,7 @@ Warning: Keep your app ID and secret secure. A malacious user who has your app I
 1. You are redirected to the Register page. If you logged in using a test account, you can change the **user name** to something shorter, for example "Bill FB test". Click the **Register** button which will save the user name and email alias to the membership database. 
 1. Register another user. Currently a bug in the log in system prevents you from logging off and logging in as another user using the same provider (that is, you can't log off your Facebook account and log back in with a different Facebook account). To work around this, navigate to the site using a different browser and register another user. One user will be added to the manager role and have edit access to application, the other user will only have access to non-edit methods on the site. Anonymous users will only have access to the home page.
 1. Register another user using a different provider.
-1. **Optional**: You can also create a local account not associated with one of the providers. Later on in the tutorial we will remove the ablility to create local accounts. To create a local account, click the **Log out** link (if you are logged in), then click the **Register link**. You might want to create a local account for administration purposes that is not associated with any external authentication provider.
+1. **Optional**: You can also create a local account not associated with one of the providers. Later on in the tutorial we will remove the ability to create local accounts. To create a local account, click the **Log out** link (if you are logged in), then click the **Register link**. You might want to create a local account for administration purposes that is not associated with any external authentication provider.
 
 <h2><a name="mbrDB"></a><span class="short-header">Membership DB</span>Add Roles to the Membership Database</h2>
 In this section you will add the *canEdit* role to the membership database. Only those users in the canEdit role will be able to edit data. A best practice is to name roles by the actions they can perform, so *canEdit* is preferred over a role called *admin*. When your application evolves you can add new roles such as *canDeleteMembers* rather than *superAdmin*.
@@ -456,8 +456,9 @@ On the first page of the SQL Server Installation Center, click **New SQL Server 
 <br/><br/>![SQL Install][rxSS]<br/> 
 ### Create the development database script ###
 
+
 1. Run SSMS.
-1. In the **Connect to Server** dialog box, enter *(localdb)\v11.0* as the Server name, leave **Authentication** set to **Windows Authentication**, and then click **Connect**. If you have installed SQL Express, enter **computer name\SQLEXPRESS**.
+1. In the **Connect to Server** dialog box, enter *(localdb)\v11.0* as the Server name, leave **Authentication** set to **Windows Authentication**, and then click **Connect**. If you have installed SQL Express, enter **.\SQLEXPRESS**.
 <br/><br/>![con to srvr dlg][rxC2S]<br/> 
 1. In the **Object Explorer** window, expand **Databases**, right-click **aspnet-ContactManager**, click **Tasks**, and then click **Generate Scripts**.
 <br/><br/>![Gen Scripts][rxGenScripts]<br/><br/> 
@@ -465,9 +466,9 @@ On the first page of the SQL Server Installation Center, click **New SQL Server 
 You can skip the **Choose Objects** step because the default is Script entire database and all database objects and that is what you want.
 1. Click **Advanced**.
 <br/> <br/>![Set scripting options][rx11]<br/> <br/>
-1. In the **Advanced Scripting Options** dialog box, scroll down to **Types of data to script**, and click the **Data only** option in the drop-down list.
+1. In the **Advanced Scripting Options** dialog box, scroll down to **Types of data to script**, and click the **Data only** option in the drop-down list. (See the image below the next step.)
+1. Change **Script USE DATABASE** to **False**.  USE statements aren't valid for Windows Azure SQL Database and aren't needed for deployment to SQL Server Express in the test environment. 
 <br/> <br/>![Set scripting options][rxAdv]<br/> <br/>
-1. Change **Script USE DATABASE** to **False**.  USE statements aren't valid for Windows Azure SQL Database and aren't needed for deployment to SQL Server Express in the test environment.
 1. Click **OK**.
 1. In the **Generate and Publish Scripts** dialog box, the **File name** box specifies where the script will be created. Change the path to your solution folder (the folder that has your *Contacts.sln* file) and change the file name to *aspnet-data-membership.sql*.
 1. Click **Next** to go to the **Summary** tab, and then click **Next** again to create the script.
@@ -476,12 +477,13 @@ You can skip the **Choose Objects** step because the default is Script entire da
 
 <h2><a name="bkmk_deploytowindowsazure11"></a>Deploy the app to Windows Azure</h2>
 
-1. Open the *Web.config* file. Copy and paste the *DefaultConnection* markup. Rename the copied element *DefaultConnectionDeploy*.
+1. Open the application root *Web.config* file. Find the *DefaultConnection* markup, and then copy and paste it under the *DefaultConnection* markup line. Rename the copied element *DefaultConnectionDeploy*. You will need this connection string to deploy the user data in the membership database.
 <br/><br/>![3 cons str][rxD]<br/> 
+1. Build the application.
 1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
 ![Publish in project context menu][firsdeploy003]<br/>
 The **Publish Web** wizard opens.
-1. Click the **Settings** tab. Click the **v** icon to select the **Remote connection string** for the **ContactManagerContext** and  **DefaultConnectionDeploy**. The three Databases listed will all use the same connection string.
+1. Click the **Settings** tab. Click the **v** icon to select the **Remote connection string** for the **ContactManagerContext** and  **DefaultConnectionDeploy**. The three Databases listed will all use the same connection string. The **ContactManagerContext** database stores the contacts, the **DefaultConnectionDeploy** is used only to deploy the user account data to the membership database and the **UsersContext** database is the membership database.
 <br/><br/>![settings][rxD2]<br/> 
 1. Under **ContactManagerContext**, check **Execute Code First Migrations**.
 <br/><br/>![settings][rxSettings]<br/> 
@@ -489,13 +491,13 @@ The **Publish Web** wizard opens.
 1. Click the **Add SQL Script** link and navigate to the  *aspnet-data-membership.sql* file. You only need to do this once. The next deployment you uncheck **Update database** because you won't need to add the user data to the membership tables.
 <br/><br/>![add sql][rxAddSQL2]<br/> 
 1. Click **Publish**.
-1. Navigate to the Navigate to  [https://developers.facebook.com/apps](https://developers.facebook.com/apps/)  page and change the **App Domains** and **Site URL** settings to the Windows Azure URL.
-1. Test the application. Verify only the user in the *canEdit* role can change data. Verify anonymous users can only view the home page. Verify authenticated users can navigate to all links that don't change data.
+1. Navigate to the [https://developers.facebook.com/apps](https://developers.facebook.com/apps/)  page and change the **App Domains** and **Site URL** settings to the Windows Azure URL.
+1. Test the application. Verify only the users in the *canEdit* role can change data. Verify anonymous users can only view the home page. Verify authenticated users can navigate to all links that don't change data.
 1. The next time you publish the application be sure to uncheck **Update database** under **DefaultConnectionDeploy**.
 <br/><br/>![settings][rxSettings]<br/> 
 <h2><a name="ppd2"></a><span class="short-header">Update DB</span>Update the Membership Database</h2>
 
-Once the site is deployed to Windows Azure and you have more registered users you might want to make some of them members of the *canEdit* role. In this section we will use Visual Studio to connect the SQL Azure database and add users to the *canEdit* role.
+Once the site is deployed to Windows Azure and you have more registered users you might want to make some of them members of the *canEdit* role. In this section we will use Visual Studio to connect to the SQL Azure database and add users to the *canEdit* role.
 <br/><br/>![settings][rxSettings]<br/> 
 
 1. In **Solution Explorer**, right click the project and click **Publish**.
@@ -504,7 +506,7 @@ Once the site is deployed to Windows Azure and you have more registered users yo
 2. Copy the connection string. For example, the connection string used in this sample is:
 	Data Source=tcp:d015leqjqx.database.windows.net,1433;
 	Initial Catalog=ContactDB2;User Id=ricka0@d015lxyze;Password=xyzxyz
-1. Close the publishing dialog.
+1. Close the publish dialog.
 1. In the **View** menu click **Database Explorer** if you are using *Visual Studio Express for Web* or **Server Explorer** if you are using full Visual Studio. <br/>
  <br/>![Publish][rxP3] <br/>
  <br/>![Publish][rxP2]<br/>
@@ -515,7 +517,7 @@ Once the site is deployed to Windows Azure and you have more registered users yo
 1. Copy and paste the **Server Name**, which starts with *tcp* (see the image below).
 1. Click **Use SQL Server Authentication**
 1. Enter your **User name** and **Password**, which are in the connection string you copied.
-1. Use the dropdown list to select the ContactDB database name (The string after "Initial Catalog=" in the database.) If you get an error dialog, see the next section. 
+1. Enter the database name (ContactDB, or the  string after "Initial Catalog=" in the database if you didn't name it ContactDB.) If you get an error dialog, see the next section. 
 1. Click **Test Connection**. If you get an error dialog, see the next section. 
  <br/>![add con dlg][rx4]<br/><br/>
 
@@ -528,10 +530,9 @@ If you get an error dialog stating "Cannot open server" you will need to add you
 1. Select the database you wish to open.
 1. Click the **Set up Windows Azure firewall rules for this IP address** link.
  <br/><br/>![firewall rules][rx7]<br/><br/>
-1. When you are prompted with "The current IP address xxx.xxx.xxx.xxx is not included in existing firewall rules. Do you want to update the firewall rules?", click **Yes**.
+1. When you are prompted with "The current IP address xxx.xxx.xxx.xxx is not included in existing firewall rules. Do you want to update the firewall rules?", click **Yes**. Adding this address is often not enough, you will need to add a range of IP addresses.
 
 ## Adding a Range of Allowed IP Addresses ##
-If your IP address frequently changes, you can add a range of allowed IP addresses.
 
 1. In the Windows Azure Portal, Click **SQL Databases**.
 1. Click the **Server** hosting your Database.
@@ -540,7 +541,7 @@ If your IP address frequently changes, you can add a range of allowed IP address
 1. Add a rule name, starting and ending IP addresses.
 <br/>![ip range][rx9]<br/><br/>
 1. At the bottom of the page, click **Save**.
-1. You can now edit the membership database.
+1. You can now edit the membership database using the steps previously shown.
 
 <h2><a name="nextsteps"></a>Next Steps</h2>
 
