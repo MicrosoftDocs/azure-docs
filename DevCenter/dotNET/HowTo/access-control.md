@@ -196,7 +196,9 @@ Management Portal.
     values, and click **Save**.  
 
 
-Google has now been added as an IP for your Access Control namespace. Next, specify your ASP.NET web application as an RP.
+Google has now been added as an IP for your Access Control namespace. ACS also adds Windows Live ID (Microsoft account), which is the default IP and cannot be removed. 
+
+Next, specify your ASP.NET web application as an RP.
 
 <h2><span class="short-header">Add a Relying Party Application</span>Add a Relying Party Application</h2>
 
