@@ -6,7 +6,7 @@
 <h1><a id="monitormediaservicesaccount"></a>How to Monitor a Media Services Account</h1>
 The Windows Azure Media Services dashboard presents usage metrics and account information that you can use to manage your Media Services account.
 
-You can monitor the number of queued encoding jobs, failed encoding tasks, active encoding jobs represented by the input and output data from the encoder as well as the usage of the blob storage account associated with your Media Services account. In addition, if you are streaming content to customers, you can retrieve various streaming metrics as well. You can choose to monitor your data for the last 6 hours, 24 hours or 7 days.
+You can monitor the number of queued encoding jobs, failed encoding tasks, active encoding jobs represented by the input and output data from the encoder, as well as the blob storage usage associated with your Media Services account. In addition, if you are streaming content to customers, you can retrieve various streaming metrics as well. You can choose to monitor your data for the last 6 hours, 24 hours or 7 days.
  
 **Note**   Additional costs are associated with monitoring storage data in the Windows Azure Management Portal. For more information, see [Storage Analytics and Billing](http://go.microsoft.com/fwlink/?LinkId=256667).
 
@@ -16,8 +16,11 @@ You can monitor the number of queued encoding jobs, failed encoding tasks, activ
 
 	![MediaServices_Dashboard][dashboard]
 
-2. Click the **STORAGE ACCOUNT** name under the **quick glance** section.
-3. On the storage account page, click the **configure page** link, and scroll down to the **monitoring** settings for the Blob, Table, and Queue services, shown below.
+2. To monitor your encoding jobs or data, simply begin submitting encoding jobs to Media Services, or start streaming content to customers through the use of Windows Azure Media On-Demand Streaming. You should start seeing monitoring data on the dashboard after about an hour.
+
+<h2><a id="configuringstorage"></a>How to: Monitoring your blob storage usage (Optional)</h2>
+1. Click the **STORAGE ACCOUNT** name under the **quick glance** section.
+2. On the storage account page, click the **configure page** link, and scroll down to the **monitoring** settings for the Blob, Table, and Queue services, shown below.
 
 	**Note** Blobs are the only supported storage type in Media Services.
 
@@ -36,10 +39,7 @@ You can monitor the number of queued encoding jobs, failed encoding tasks, activ
 - To set the data retention policy, in **Retention (in days)**, type the number of days of data to retain from 1 to 365 days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data. We recommend setting a retention policy based on how long you want to retain storage analytics data for your account so that old and unused analytics data can be deleted by the system at no cost.
 
 4. When you finish the monitoring configuration, click **Save**.
-You should start seeing monitoring data on the dashboard after about an hour.
-  
-	![MediaServices_Monitoring][monitoring]
-
+Similar to Media Services metrics, you should start seeing monitoring data on the dashboard after about an hour.
 Metrics are stored in the storage account in four tables named $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue, and $MetricsCapacityBlob. For more information, see [Storage Analytics Metrics](http://go.microsoft.com/fwlink/?LinkId=256668).
 
 
