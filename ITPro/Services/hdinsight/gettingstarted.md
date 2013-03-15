@@ -25,7 +25,7 @@ To complete this tutorial, you need a Windows Azure account that has the Windows
 
 - If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Windows Azure Free Trial](/en-us/pricing/free-trial/ "Windows Azure Free Trial"). 
 
-- If you have an existing account but need to enable the Windows Azure HDInsight preview, see <a href="../en-us/develop/net/tutorials/create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>
+- If you have an existing account but need to enable the Windows Azure HDInsight preview, see <a href="/en-us/develop/net/tutorials/create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>
 
 While the HDInsight Service is available as part of a Windows Azure Trial subscription, a trial subscription places limits on the amount of compute and storage resources available to you. For more information, see the [Windows Azure Free Trial](/en-us/pricing/free-trial/ "Windows Azure Free Trial") page.
 
