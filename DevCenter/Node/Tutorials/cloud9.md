@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-cloud9" urlDisplayName="Deploying with Cloud9" pageTitle="Node.js deploying with Cloud9 - Windows Azure tutorial" metaKeywords="Cloud9 IDE Azure, Azure node.js, Azure node apps" metaDescription="Learn how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="dev-nodejs-cloud9" urlDisplayName="Deploying with Cloud9" pageTitle="Node.js deploying with Cloud9 - Windows Azure tutorial" metaKeywords="Cloud9 IDE Azure, Azure node.js, Azure node apps" metaDescription="Learn how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="larryfr" />
 
 
 <div chunk="../chunks/article-left-menu.md" />
@@ -398,7 +398,7 @@ Azure, perform the following steps:
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [create a new deployment]: ../Media/cloud9_createdeployment.png
   [download publish settings]: ../Media/cloud9_choosetypeandcert.png
-  [Overview of Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432976.aspx
+  [Overview of Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
   [1]: ../Media/cloud9_add_a_deploy_target.png
   [create a new hosted service]: ../Media/cloud9_new_hosted_service_settings.png
   [select a deployment]: ../Media/cloud9_select_deployment.png
@@ -408,7 +408,7 @@ Azure, perform the following steps:
   [deployment status]: ../Media/cloud9_deployment_status.png
   [Windows Azure production URL link]: ../Media/cloud9_production_url.png
   [console output showing staging URL]: ../Media/cloud9_staging_console_output.png
-  [Overview of Managing Deployments in Windows Azure.]: http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx
+  [Overview of Managing Deployments in Windows Azure.]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx
   [Link from deploy dialog to Windows Azure Management Portal]: ../Media/cloud9_portal_link.png
   [Windows Azure Management Portal]: ../Media/cloud9_hosted_service_and_ribbon.png
   [VIP SWAP]: ../Media/cloud9_portal_vipswap.png
