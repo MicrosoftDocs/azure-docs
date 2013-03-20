@@ -101,13 +101,6 @@ You have now created a new mobile service that can be used by your mobile apps. 
 
 To be able to store app data in the new mobile service, you must first create a new table.  
 
-
-
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>This table is a Windows Azure Storage Table, and not a table in the  SQL Database associated with the Mobile Service. We created the SQL Database because it is a required part of a Windows Azure Mobile Service, and would likely be used for storage in a production service. But for simplicity we are using a Storage Table in this sample.</p> 
-</div>
-
 1. In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
 
 2. Click the **Data** tab, then click **+Create**.
