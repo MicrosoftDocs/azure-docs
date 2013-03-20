@@ -251,7 +251,7 @@ was created when the service was initially published, and you will
 continue to be billed for storage used. Since storage accounts can be
 used by multiple deployments, be sure that no other deployed service is
 using the storage account before you delete it. For more information on
-deleting a storage account, see [How to Delete a Storage Account from a Windows Azure Subscription][].
+deleting a storage account, see [How to Manage Storage Accounts][].
 
 [0]: ../Media/mysql_tutorial01.png
 [1]: ../Media/mysql_tutorial01-1.png
@@ -277,7 +277,7 @@ deleting a storage account, see [How to Delete a Storage Account from a Windows 
 
 [The status of the Stop-AzureService command]: ../Media/django-helloworld-ps-stop.png
 [The status of the Remove-AzureService command]: ../Media/django-helloworld-ps-remove.png
-[How to Delete a Storage Account from a Windows Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx
+[How to Manage Storage Accounts]: https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/
 
 [Installation Guide]: /develop/python/commontasks/how-to-install-python
  

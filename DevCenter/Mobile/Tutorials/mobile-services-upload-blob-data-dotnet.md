@@ -82,53 +82,48 @@ A new insert script is registered that generates an SAS when a new Todo item is 
 			var host = accountName + '.blob.core.windows.net';
 			var canonicalizedResource = '/' + item.containerName + '/' + item.resourceName;
 
-		if ((typeof item.containerName !== "undefined") && (
-			item.containerName !== null)) {
-				// Set the BLOB store container name on the item, which must be lowercase.
-				item.containerName = item.containerName.toLowerCase();
-
-				// If it does not already exist, create the container 
-				// with public read access for blobs.        
-				var blobService = azure.createBlobService(accountName, accountKey, host);
-				blobService.createContainerIfNotExists(item.containerName, {
-					publicAccessLevel: 'blob'
-				}, function(error) {
-					if (!error) {
-
-						console.log("Container create succeeded.");
-						// Provide write access to the container for the next 5 mins.        
-						var sharedAccessPolicy = {
-							AccessPolicy: {
-								Permissions: azure.Constants.BlobConstants.SharedAccessPermissions.WRITE,
-								Expiry: formatDate(new Date(new Date().getTime() + 5 * 60 * 1000))
-							}
-						};
-
-						// Generate an SAS to upload the image.
-						var sasQueryString = qs.encode(
-							new azure.SharedAccessSignature(accountName, accountKey)
-							.generateSignedQueryString(canonicalizedResource, {}, 
-							azure.Constants.BlobConstants.ResourceTypes.BLOB, 
-							sharedAccessPolicy));
-
-						// Set the full resource path and SAS values on the new item. 
-						item.sasQueryString = sasQueryString;
-						item.imageUri = 'https://' + host + canonicalizedResource;
-					} else {
-						console.error(error);
-					}
-					request.execute();
-				});
-			} else {
-				request.execute();
-			}
-		}
-
-		function formatDate(date) {
-			var raw = date.toJSON();
-			// Remove milliseconds from  the end of the time value to prevent errors.
-			return raw.substr(0, raw.lastIndexOf('.')) + 'Z';
-		}
+	    if ((typeof item.containerName !== "undefined") && (
+	    item.containerName !== null)) {
+	        // Set the BLOB store container name on the item, which must be lowercase.
+	        item.containerName = item.containerName.toLowerCase();
+	
+	        // If it does not already exist, create the container 
+	        // with public read access for blobs.        
+	        var blobService = azure.createBlobService(accountName, accountKey, host);
+	        blobService.createContainerIfNotExists(item.containerName, {
+	            publicAccessLevel: 'blob'
+	        }, function(error) {
+	            if (!error) {
+	
+	                // Provide write access to the container for the next 5 mins.        
+	                var sharedAccessPolicy = {
+	                    AccessPolicy: {
+	                        Permissions: azure.Constants.BlobConstants.SharedAccessPermissions.WRITE,
+	                        Expiry: new Date(new Date().getTime() + 5 * 60 * 1000)
+	                    }
+	                };
+	
+	                // Generate the upload URL with SAS for the new image.
+	                var sasQueryUrl = 
+	                    blobService.generateSharedAccessSignature(item.containerName, 
+	                    item.resourceName, sharedAccessPolicy);
+	                             
+	               // Set the query string.
+	               item.sasQueryString = qs.stringify(sasQueryUrl.queryString);
+	               
+	                // Set the full path on the new new item, 
+	                // which is used for data binding on the client. 
+	                item.imageUri = sasQueryUrl.baseUrl + sasQueryUrl.path;
+	
+	            } else {
+	                console.error(error);
+	            }
+	            request.execute();
+	        });
+	    } else {
+	        request.execute();
+	    }
+	}
 
    This script generates a new SAS for the insert, which is valid for 5 minutes, and assigns the value of the generated SAS to the `sasQueryString` property of the returned item. The `imageUri` property is also set to the resource path of the new BLOB to enable image display during binding in the client UI.
 
@@ -231,7 +226,7 @@ Next, you will update the quickstart app to add image upload functionality by us
             {
                 // Get the new image as a stream.
                 using (var fileStream = await media.OpenStreamForReadAsync())
-                {
+                {                   
                     // Get the URI generated that contains the SAS 
                     // and extract the storage credentials.
                     StorageCredentials cred = new StorageCredentials(todoItem.SasQueryString);

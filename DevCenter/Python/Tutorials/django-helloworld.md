@@ -2,8 +2,9 @@
 
 <div chunk="../chunks/article-left-menu.md" />
 
-<div class="dev-center-os-selector"><a href="/en-us/develop/python/tutorials/web-app-with-django/" title="Windows Version" class="windows current">Windows</a><a href="/en-us/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac Version" class="mac">Mac</a><span>Tutorial</span></div>
 # Django Hello World Web Application
+
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/en-us/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
 
 This tutorial describes how to host a Django-based web site on Windows 
 Azure using a Windows Server 2008 R2 virtual machine. This tutorial assumes you have no prior experience using Windows Azure. Upon completing this guide, you will have a Django-based application up and running in the cloud.
@@ -132,7 +133,6 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [A command prompt displaying the django directory creation]: ../Media/django-helloworld-ps-create-dir.png
 [The result of the New-AzureService command]: ../Media/django-helloworld-cmd-new-azure-service.png
 [A directory listing of the service folder]: ../Media/django-helloworld-ps-service-dir.png
-[Overview of Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432976.aspx
 [The output of the Add-AzureDjangoWebRole command]: ../Media/django-helloworld-ps-add-webrole.png
 [A directory listing of the webrole folder]: ../Media/django-helloworld-ps-webrole-dir.png
 [A directory listing of the django folder]: ../Media/django-helloworld-ps-django-dir.png
@@ -145,8 +145,6 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [The output of the Publish-AzureService command]: ../Media/django-helloworld-ps-publish.png
 [The status of the Stop-AzureService command]: ../Media/django-helloworld-ps-stop.png
 [The status of the Remove-AzureService command]: ../Media/django-helloworld-ps-remove.png
-[How to Delete a Storage Account from a Windows Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx
-[windows task scheduler]:http://msdn.microsoft.com/en-us/library/windows/desktop/aa383614(v=vs.85).aspx
 [add endpoint]: ../Media/django-helloworld-addendpoint.png
 [port80]: ../Media/django-helloworld-port80.png
 [preview-portal]: https://manage.windowsazure.com

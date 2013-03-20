@@ -27,21 +27,21 @@ This guide will show you how to perform common scenarios using the Windows Azure
 
 <div chunk="../../Shared/Chunks/howto-table-storage.md" />
 
-<h2 id="CreateAccount">Create a Windows Azure storage account</h2>
+<h2><a id="CreateAccount"></a>Create a Windows Azure storage account</h2>
 
 <div chunk="../../Shared/Chunks/create-storage-account.md" />
 
-<h2 id="CreateApplication">Create a PHP application</h2>
+<h2><a id="CreateApplication"></a>Create a PHP application</h2>
 
 The only requirement for creating a PHP application that accesses the Windows Azure Table service is the referencing of classes in the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
 In this guide, you will use Table service features which can be called from within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site.
 
-<h2 id="GetClientLibrary">Get the Windows Azure Client Libraries</h2>
+<h2><a id="GetClientLibrary"></a>Get the Windows Azure Client Libraries</h2>
 
 <div chunk="../../Shared/Chunks/get-client-libraries.md" />
 
-<h2 id="ConfigureStorage">Configure your application to access the Table service</h2>
+<h2><a id="ConfigureStorage"></a>Configure your application to access the Table service</h2>
 
 To use the Windows Azure Table service APIs, you need to:
 
@@ -61,7 +61,7 @@ The following example shows how to include the autoloader file and reference the
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
-<h2 id="ConnectionString">Setup a Windows Azure storage connection</h2>
+<h2><a id="ConnectionString"></a>Setup a Windows Azure storage connection</h2>
 
 To instantiate a Windows Azure Table service client you must first have a valid connection string. The format for the table service connection string is:
 
@@ -90,7 +90,7 @@ For the examples outlined here, the connection string will be passed directly.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 
 
-<h2 id="CreateTable">How to: create a table</h2>
+<h2><a id="CreateTable"></a>How to: create a table</h2>
 
 A **TableRestProxy** object lets you create a table with the **createTable** method. When creating a table, you can set the Table Service timeout. (For more information about the table service timeout, see [Setting Timeouts for Table Service Operations][table-service-timeouts].)
 
@@ -116,7 +116,7 @@ A **TableRestProxy** object lets you create a table with the **createTable** met
 
 For information about restrictions on Table names, see [Understanding the Table Service Data Model][table-data-model].
 
-<h2 id="AddEntity">How to: Add an entity to a table</h2>
+<h2><a id="AddEntity"></a>How to: Add an entity to a table</h2>
 
 To add an entity to a table, create a new **Entity** object and pass it to **TableRestProxy->insertEntity**. Note that when you create an entity you must specify a `PartitionKey` and `RowKey`. These are the unique identifiers for an entity and are values that can be queried much faster than other entity properties. The system uses `PartitionKey` to automatically distribute the table’s entities over many storage nodes. Entities with the same `PartitionKey` are stored on the same node. (Operations on multiple entities stored on the same node will perform better than on entities stored across different nodes.) The `RowKey` is the unique ID of an entity within a partition.
 
@@ -193,7 +193,7 @@ The **TableRestProxy** class offers two alternative methods for inserting entiti
 	}
 	   
 
-<h2 id="RetrieveEntity">How to: Retrieve a single entity</h2>
+<h2><a id="RetrieveEntity"></a>How to: Retrieve a single entity</h2>
 
 The **TableRestProxy->getEntity** method allows you to retrieve a single entity by querying for its `PartitionKey` and `RowKey`. In the example below, the partition key `tasksSeattle` and row key `1` are passed to the **getEntity** method.
 
@@ -221,7 +221,7 @@ The **TableRestProxy->getEntity** method allows you to retrieve a single entity 
 
 	echo $entity->getPartitionKey().":".$entity->getRowKey();
 
-<h2 id="RetEntitiesInPartition">How to: Retrieve all entities in a partition</h2>
+<h2><a id="RetEntitiesInPartition"></a>How to: Retrieve all entities in a partition</h2>
 
 Entity queries are constructed using filters (for more information, see [Querying Tables and Entities][filters]). To retrieve all entities in partition, use the filter "PartitionKey eq *partition_name*". The following example shows how to retrieve all entities in the `tasksSeattle` partition by passing a filter to the **queryEntities** method.
 
@@ -253,7 +253,7 @@ Entity queries are constructed using filters (for more information, see [Queryin
 		echo $entity->getPartitionKey().":".$entity->getRowKey()."<br />";
 	}
 
-<h2 id="RetrieveSubset">How to: Retrieve a subset of entities in a partition</h2>
+<h2><a id="RetrieveSubset"></a>How to: Retrieve a subset of entities in a partition</h2>
 
 The same pattern used in the previous example can be used to retrieve any subset of entities in a partition. The subset of entities you retrieve will be determined by the filter you use (for more information, see [Querying Tables and Entities][filters]).The following example shows how to use a filter to retrieve all entities with a specific `Location` and a `DueDate` less than a specified date.
 
@@ -285,7 +285,7 @@ The same pattern used in the previous example can be used to retrieve any subset
 		echo $entity->getPartitionKey().":".$entity->getRowKey()."<br />";
 	}
 
-<h2 id="RetPropertiesSubset">How to: Retrieve a subset of entity properties</h2>
+<h2><a id="RetPropertiesSubset"></a>How to: Retrieve a subset of entity properties</h2>
 
 A query can retrieve a subset of entity properties. This technique, called *projection*, reduces bandwidth and can improve query performance, especially for large entities. To specify a property to be retrieved, pass the name of the property to the **Query->addSelectField** method. You can call this method multiple times to add more properties. After executing **TableRestProxy->queryEntities**, the returned entities will only have the selected properties. (If you want to return a subset of Table entities, use a filter as shown in the queries above.)
 
@@ -323,7 +323,7 @@ A query can retrieve a subset of entity properties. This technique, called *proj
 		echo $description."<br />";
 	}
 
-<h2 id="UpdateEntity">How to: Update an entity</h2>
+<h2><a id="UpdateEntity"></a>How to: Update an entity</h2>
 
 An existing entity can be updated by using the **Entity->setProperty** and **Entity->addProperty** methods on the entity, and then calling **TableRestProxy->updateEntity**. The following example retrieves an entity, modifies one property, removes another property, and adds a new property. Note that removing a property is done by setting its value to **null**. 
 
@@ -359,7 +359,7 @@ An existing entity can be updated by using the **Entity->setProperty** and **Ent
 		echo $code.": ".$error_message."<br />";
 	}
 
-<h2 id="DeleteEntity">How to: Delete an entity</h2>
+<h2><a id="DeleteEntity"></a>How to: Delete an entity</h2>
 
 To delete an entity, pass the table name, and the entity's `PartitionKey` and `RowKey` to the **TableRestProxy->deleteEntity** method.
 
@@ -386,7 +386,7 @@ To delete an entity, pass the table name, and the entity's `PartitionKey` and `R
 
 Note that for concurrency checks, you can set the Etag for an entity to be deleted by using the **DeleteEntityOptions->setEtag** method and passing the **DeleteEntityOptions** object to **deleteEntity** as a fourth parameter.
 
-<h2 id="BatchOperations">How to: Batch table operations</h2>
+<h2><a id="BatchOperations"></a>How to: Batch table operations</h2>
 
 The **TableRestProxy->batch** method allows you to execute multiple operations in a single request. The pattern here involves adding operations to **BatchRequest** object and then passing the **BatchRequest** object to the **TableRestProxy->batch** method. To add an operation to a **BatchRequest** object, you can call any of the following methods multiple times:
 
@@ -442,7 +442,7 @@ The following example shows how to execute **insertEntity** and **deleteEntity**
 
 For more information about batching Table operations, see [Performing Entity Group Transactions][entity-group-transactions].
 
-<h2 id="DeleteTable">How to: Delete a table</h2>
+<h2><a id="DeleteTable"></a>How to: Delete a table</h2>
 
 Finally, to delete a table, pass the table name to the **TableRestProxy->deleteTable** method.
 
@@ -467,7 +467,7 @@ Finally, to delete a table, pass the table name to the **TableRestProxy->deleteT
 		echo $code.": ".$error_message."<br />";
 	}
 
-<h2 id="NextSteps">Next steps</h2>
+<h2><a id="NextSteps"></a>Next steps</h2>
 
 Now that you’ve learned the basics of the Windows Azure Table Service, follow these links to learn how to do more complex storage tasks.
 

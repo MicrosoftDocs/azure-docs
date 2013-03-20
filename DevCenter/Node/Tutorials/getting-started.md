@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-getting-started" urlDisplayName="Cloud Service" pageTitle="Node.js Getting Started Guide - Windows Azure Tutorial" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" metaDescription="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="dev-nodejs-getting-started" urlDisplayName="Cloud Service" pageTitle="Node.js Getting Started Guide - Windows Azure Tutorial" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" metaDescription="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="larryfr"/>
 
 
 <div chunk="../chunks/article-left-menu.md" />
@@ -246,7 +246,7 @@ deleting a storage account, see <a href="http://msdn.microsoft.com/en-us/library
   [nodejs.org]: http://nodejs.org/
   [The result of the New-AzureService helloworld command]: ../Media/node9.png
   [A directory listing of the helloworld folder.]: ../Media/getting-started-7.png
-  [Overview of Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432976.aspx
+  [Overview of Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
   [The output of the Add-AzureNodeWebRole command.]: ../Media/node11.png
   [A directory listing of the WebRole1 folder]: ../Media/getting-started-8.png
   [Notepad displaying the contents of server.js]: ../Media/node13.png
@@ -260,5 +260,5 @@ deleting a storage account, see <a href="http://msdn.microsoft.com/en-us/library
   [The full status output of the Publish-AzureService command]: ../Media/node20.png
   [The status of the Stop-AzureService command]: ../Media/node48.png
   [The status of the Remove-AzureService command]: ../Media/node49.png
-  [How to Delete a Storage Account from a Windows Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx
+  [How to Delete a Storage Account from a Windows Azure Subscription]: https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/
   [powershell-menu]: ../../Shared/Media/azure-powershell-start.png

@@ -17,7 +17,7 @@ This topic describes how to get started with AppDynamics for Windows Azure.
 * [Monitor Your Application](#monitor)
 
 
-<h2 id="what">What is AppDynamics?</h2>
+<h2><a id="what"></a>What is AppDynamics?</h2>
 
 AppDynamics is an application performance monitoring solution that helps you:
 
@@ -34,14 +34,14 @@ There are two components in AppDynamics:
 	![AppDynamics Diagram](../media/addiagram.png)
 
 
-<h2 id="prereq">Prerequisites</h2>
+<h2><a id="prereq"></a>Prerequisites</h2>
 
 - Visual Studio 2010 or later
 - A Visual Studio solution to be monitored
 - Windows Azure SDK
 - Windows Azure account
 
-<h2 id="register">Register for an AppDynamics Account</h2>
+<h2><a id="register"></a>Register for an AppDynamics Account</h2>
 
 To register for an AppDynamics for Windows Azure account:
 
@@ -79,7 +79,7 @@ To register for an AppDynamics for Windows Azure account:
 
 	You can access your AppDynamics account home page at any time by entering its URL in a web browser and signing in with your AppDynamics credentials.
 
-<h2 id="download">Download the .NET Agent from AppDynamics</h2>
+<h2><a id="download"></a>Download the .NET Agent from AppDynamics</h2>
 
 1. Navigate to the AppDynamics download site. The URL is in your welcome email and on your AppDynamics account home page.
 
@@ -88,7 +88,7 @@ To register for an AppDynamics for Windows Azure account:
 3. Download the file named AppDynamicsdotNetAgentSetup64.msi. Do not run the file.
 
 
-<h2 id="addagent">Add the .NET Agent to Windows Azure Roles and Modify Startup</h2>
+<h2><a id="addagent"></a>Add the .NET Agent to Windows Azure Roles and Modify Startup</h2>
 
 This step instruments the roles in your Visual Studio solution for monitoring by AppDynamics. There is no traditional Windows wizard-style installation procedure required to use AppDynamics for Windows Azure.
 

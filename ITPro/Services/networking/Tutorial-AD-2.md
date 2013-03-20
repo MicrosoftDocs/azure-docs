@@ -17,7 +17,7 @@ This tutorial walks you through the steps to create a new Active Directory fores
 * [Step 5: Provisioning a Virtual Machine that is Domain Joined on Boot](#Step5)
 
 
-<h2 id="Prerequisites">Prerequisites</h2>
+<h2><a id="Prerequisites"></a>Prerequisites</h2>
 
 Before you install Active Directory Domain Services (AD DS) on a Windows Azure virtual machine, you need to create a virtual network using one of the following options:
 
@@ -30,7 +30,7 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 2.	Next, [Add a Virtual Machine to a Virtual Network](../add-a-vm-to-a-virtual-network/). 
 3.	Finally, install AD DS by following the steps in [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Networks](../replica-domain-controller/).
 
-<h2 id="Step1">Step 1: Create the first Virtual Machine (VM)</h2>
+<h2><a id="Step1"></a>Step 1: Create the first Virtual Machine (VM)</h2>
 
 1.	Create a storage account that is in the same region as the affinity group. To check the region of the affinity group, click **Networks**, and click **Affinity Groups**. To create a storage account: 
 
@@ -140,7 +140,7 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 
 
 
-<h2 id="Step2">Step 2: Install Active Directory Domain Services</h2>
+<h2><a id="Step2"></a>Step 2: Install Active Directory Domain Services</h2>
 
 1.	In the RDP session, Click **Start**, right-click **Computer** and click **Manage**. 
 
@@ -221,7 +221,7 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 	![InstallDC14] (../media/InstallDC14.png)
 
 
-<h2 id="Step3">Step 3: Validate the installation</h2>
+<h2><a id="Step3"></a>Step 3: Validate the installation</h2>
 
 1.	 Reconnect to the VM.
 
@@ -234,7 +234,7 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 4.	Verify that the tests ran successfully. Some tests related to validating IP addresses may not pass. To prevent validation errors related to Time server, [configure the Windows Time Service](http://technet.microsoft.com/en-us/library/cc731191(WS.10).aspx) on the new DC.
 
 
-<h2 id="Step4">Step 4: Backup the domain controller</h2>
+<h2><a id="Step4"></a>Step 4: Backup the domain controller</h2>
 
 1.	Connect to the VM.
 
@@ -254,7 +254,7 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 8.	Confirm the settings you selected and then click **Backup**. 
 
 
-<h2 id="Step5">Step 5: Provisioning a Virtual Machine that is Domain Joined on Boot</h2>
+<h2><a id="Step5"></a>Step 5: Provisioning a Virtual Machine that is Domain Joined on Boot</h2>
 After the DC is configured, run the following Windows PowerShell script to provision additional virtual machines and have them automatically join the domain when they are provisioned. The DNS client resolver settings for the VMs must be configured when the VMs are provisioned.  
 
 For more information about using Windows PowerShell, see [Getting Started with Windows Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx) and [Windows Azure Management Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841).
