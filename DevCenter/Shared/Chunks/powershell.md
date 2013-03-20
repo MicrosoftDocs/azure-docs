@@ -384,7 +384,7 @@ name and access keys for each storage account.
 <div class="dev-callout"> 
 <b>Note</b> 
 <p>For information about creating, managing, and deleting storage
-accounts, <a href=" http://msdn.microsoft.com/en-us/library/windowsazure/hh531567.aspx">How to: Manage Storage Accounts for a Windows Azure Subscription</a>.</p> 
+accounts, <a href=" http://msdn.microsoft.com/en-us/library/windowsazure/hh531793.aspx">How to: Manage Storage Accounts for a Windows Azure Subscription</a>.</p> 
 </div>
 
 
@@ -519,7 +519,7 @@ Windows Azure staging environment.
 <div class="dev-callout"> 
 <b>Note</b> 
 <p>For more information about managing staging and production
-deployments, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx">Overview of Managing Deployments in Windows Azure</a>.</p> 
+deployments, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx">Overview of Managing Deployments in Windows Azure</a>.</p> 
 </div>
 
 ### Opening the web role in a browser
@@ -819,8 +819,8 @@ The command above will require confirmation that you want to delete the specifie
   [How to: Stop, Start, and Remove a Service]: #_How_to:_Stop,
   [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=253185
   [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/
-  [Using Windows PowerShell]: http://msdn.microsoft.com/en-us/library/ms714409.aspx
-  [Windows PowerShell Getting Started Guide]: http://msdn.microsoft.com/en-us/library/aa973757.aspx
+  [Using Windows PowerShell]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx
+  [Windows PowerShell Getting Started Guide]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx
   [get-help]: http://msdn.microsoft.com/en-us/library/bb648604.aspx
   [purchase options]: http://www.windowsazure.com/en-us/pricing/purchase-options/
   [Get-AzurePublishSettings]: http://msdn.microsoft.com/en-us/library/windowsazure/hh757270(vs.103).aspx
