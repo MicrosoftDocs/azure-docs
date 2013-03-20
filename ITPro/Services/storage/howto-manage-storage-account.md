@@ -3,7 +3,7 @@
 
 
 
-<h1 id="managestorageaccounts">How To Manage Storage Accounts</h1>
+<h1><a id="managestorageaccounts"></a>How To Manage Storage Accounts</h1>
 
 ##Table of Contents##
 
@@ -11,7 +11,7 @@
 * [How to: View, copy, and regenerate storage access keys](#regeneratestoragekeys)
 * [How to: Delete a storage account](#deletestorageaccount)
 
-<h2 id="georeplication">How to: Turn geo-replication off or on</h2>
+<h2><a id="georeplication"></a>How to: Turn geo-replication off or on</h2>
 
 When geo-replication is turned on for a storage account, the stored content is replicated to a secondary location to enable failover to that location in case of a major disaster in the primary location. The secondary location is in the same region, but is hundreds of miles from the primary location. This is the highest level of storage durability, known as *geo redundant storage* (GRS). Geo-replication is turned on by default. 
 
@@ -30,7 +30,7 @@ For more information about geo-replication, see [Introducing Geo-Replication for
 4. Click **Save**.
 
 
-<h2 id="regeneratestoragekeys">How to: View, copy, and regenerate storage access keys</h2>
+<h2><a id="regeneratestoragekeys"></a>How to: View, copy, and regenerate storage access keys</h2>
 When you create a storage account, Windows Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. By providing two storage access keys, Windows Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
 
 In the [Management Portal](http://manage.windowsazure.com), use **Manage Keys** on the dashboard or the **Storage** page to view, copy, and regenerate the storage access keys that are used to access the Blob, Table, and Queue services. 
@@ -74,7 +74,7 @@ You should change the access keys to your storage account periodically to help k
 4. Regenerate the secondary access key.
 
 
-<h2 id="deletestorageaccount">How to: Delete a storage account</h2>
+<h2><a id="deletestorageaccount"></a>How to: Delete a storage account</h2>
 
 To remove a storage account that you are no longer using, use **Delete** on the dashboard or the **Configure** page. **Delete** deletes the entire storage account, including all of the blobs, tables, and queues in the account. 
 

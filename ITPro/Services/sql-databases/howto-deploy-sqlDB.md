@@ -3,7 +3,7 @@
 
 
 
-<h1 id="howtodeploySQLdb">How to Deploy a Database to Windows Azure</h1>
+<h1><a id="howtodeploySQLdb"></a>How to Deploy a Database to Windows Azure</h1>
 
 There are several different ways you can move an on-premises SQL Server database to Windows Azure. In this task, you'll use the Deploy Database to SQL Database wizard to upload a sample database.
 
@@ -16,7 +16,7 @@ The School sample database is conveniently simple; all of its objects are compat
 * [How to: Deploy to SQL Database](#deploydb)
 * [How to: Verify database deployment](#verify)
 
-<h2 id="schooldb">How to: Create the school database on an on-premises server</h2>
+<h2><a id="schooldb"></a>How to: Create the school database on an on-premises server</h2>
 
 Scripts for creating this database can be found in the [Getting Started with SQL Database Administration][]. In this guide, you'll run these scripts in Management Studio to create an on-premises version of the school database.
 
@@ -521,7 +521,7 @@ Next, copy and execute the Insert Data script.
    You now have an on-premises database that you can export to Windows Azure. Next, you'll run a wizard that creates a .bacpac file, loads it onto Windows Azure, and imports it into SQL Database.
 
 
-<h2 id="deploydb">How to: Deploy to SQL Database</h2>
+<h2><a id="deploydb"></a>How to: Deploy to SQL Database</h2>
 
 1. In Management Studio, connect to an on-premises SQL Server instance that has a database you want to migrate.
 
@@ -547,7 +547,7 @@ Next, copy and execute the Insert Data script.
 11. Click **Next** and click **Finish** to run the wizard.
 
 
-<h2 id="verify">How to: Verify database deployment</h2>
+<h2><a id="verify"></a>How to: Verify database deployment</h2>
 
 1. In Management Studio, in Object Explorer refresh the databases to view the new one you just created.
 

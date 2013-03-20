@@ -4,7 +4,7 @@
 
 # Get started with data in Mobile Services
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android" class="current">Android</a> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a> 
 </div>	
 
 
@@ -25,7 +25,7 @@ This tutorial walks you through these basic steps:
 This tutorial requires the [Mobile Services Android SDK]; the <a href="https://go.microsoft.com/fwLink/p/?LinkID=280125" target="_blank">Android SDK</a>, which includes the Eclipse integrated development environment (IDE) and Android Developer Tools (ADT) plugin; and Android 4.2 or a later version. 
 
 <div class="dev-callout"><b>Note</b>
-<p>This tutorial provides instructions for installing both the Android SDK and the Mobile Services Android SDK.</p>
+<p>This tutorial provides instructions for installing both the Android SDK and the Mobile Services Android SDK. The downloaded GetStartedWithData project requires Android 4.2 or a later version. However, the Mobile Services SDK requires only Android 2.2 or a later version.</p>
 </div>
 
 <h2><a name="download-app"></a><span class="short-header">Download the project</span>Download the GetStartedWithData project</h2>
@@ -100,13 +100,6 @@ You have now created a new mobile service that can be used by your mobile apps. 
 <h2><a name="add-table"></a><span class="short-header">Add a new table</span>Add a new table to the mobile service</h2>
 
 To be able to store app data in the new mobile service, you must first create a new table.  
-
-
-
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>This table is a Windows Azure Storage Table, and not a table in the  SQL Database associated with the Mobile Service. We created the SQL Database because it is a required part of a Windows Azure Mobile Service, and would likely be used for storage in a production service. But for simplicity we are using a Storage Table in this sample.</p> 
-</div>
 
 1. In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
 

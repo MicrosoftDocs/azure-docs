@@ -2,8 +2,9 @@
 
 <div chunk="../chunks/article-left-menu.md" />
 
-<div class="dev-center-os-selector"><a href="/en-us/develop/python/tutorials/web-app-with-django/" title="Windows Version" class="windows">Windows</a><a href="/en-us/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac Version" class="mac current">Mac</a><span>Tutorial</span></div>
 # Django Hello World Web Application (mac-linux)
+
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/python/tutorials/web-app-with-django/" title="Windows">Windows</a><a href="/en-us/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac/Linux" class="current">Mac/Linux</a></div>
 
 This tutorial describes how to host a Django-based web site on Windows 
 Azure using a Linux virtual machine. This tutorial assumes you have no prior experience using Windows Azure. Upon completing this guide, you will have a Django-based application up and running in the cloud.
@@ -115,7 +116,6 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 
 [A browser window displaying the hello world page on Windows Azure]: ../Media/mac-linux-django-helloworld-browser.png
 [The result of the django-admin command]: ../Media/mac-linux-django-helloworld-dir.png
-[Overview of Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432976.aspx
 [http://www.windowsazure.com]: http://www.windowsazure.com
 [A browser window displaying http://www.windowsazure.com/ with the Free Trial link highlighted]: ../../../DevCenter/dotNet/Media/getting-started-12.png
 [A browser window displaying the liveID sign in page]: ../../../DevCenter/nodejs/Media/getting-started-13.png

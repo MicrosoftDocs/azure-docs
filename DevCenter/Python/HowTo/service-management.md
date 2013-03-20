@@ -48,7 +48,7 @@ To create the `.cer` certificate, execute this:
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-For more information about Windows Azure certificates, see [Overview of Certificates in Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg981935.aspx). For a complete description of OpenSSL parameters, see the documentation at [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+For more information about Windows Azure certificates, see [Managing Certificates in Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx). For a complete description of OpenSSL parameters, see the documentation at [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
 After you have created these files, you will need to upload the `.cer` file to Windows Azure via the [management portal][management-portal], and you will need to make note of where you saved the `.pem` file.
 
@@ -220,7 +220,7 @@ The **update\_deployment\_status** method allows you to set a deployment status 
 
 ## <a name="MoveDeployments"> </a>How to: Move deployments between staging and production
 
-Windows Azure provides two deployment environments: staging and production. Typically a service is deployed to the staging environment to test it before deploying the service to the production environment. When it is time to promote the service in staging to the production environment, you can do so without redeploying the service. This can be done by swapping the deployments. (For more information on swapping deployments, see [Overview of Managing Deployments in Windows Azure].)
+Windows Azure provides two deployment environments: staging and production. Typically a service is deployed to the staging environment to test it before deploying the service to the production environment. When it is time to promote the service in staging to the production environment, you can do so without redeploying the service. This can be done by swapping the deployments. (For more information on swapping deployments, see [Deploying a Windows Azure Service].)
 
 The following example shows how to use the **swap\_deployment** method to swap two deployments (with deployment names `v1` and `v2`). In the example, prior to calling **swap\_deployment**, deployment `v1` is in the production slot and deployment `v2` is in the staging slot. After calling **swap\_deployment**, `v2` is in production and `v1` is in staging.  
 
@@ -493,10 +493,10 @@ Now that you've learned the basics of service management, follow these links to 
 [storage-account]: https://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/
 [download-SDK-Python]: https://www.windowsazure.com/en-us/develop/python/common-tasks/install-python/
 [cloud service]: http://www.windowsazure.com/en-us/manage/services/cloud-services/what-is-a-cloud-service/
-[service package]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433093
+[service package]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
 [Windows Azure PowerShell cmdlets]: https://www.windowsazure.com/en-us/develop/php/how-to-guides/powershell-cmdlets/
 [cspack commandline tool]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432988.aspx
-[Overview of Managing Deployments in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx
+[Deploying a Windows Azure Service]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx
 [storage service]: https://www.windowsazure.com/en-us/manage/services/storage/what-is-a-storage-account/
 [azure-blobs]: https://www.windowsazure.com/en-us/develop/python/how-to-guides/blob-service/
 [azure-tables]: https://www.windowsazure.com/en-us/develop/python/how-to-guides/table-service/

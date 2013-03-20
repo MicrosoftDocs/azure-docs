@@ -11,7 +11,7 @@ To use this feature and other new Windows Azure capabilities, sign up for the [f
 * [How To: Disable or Enable a Service Bus Entity](#disableenable)
 * [Additional Resources](#seealso)
 
-<h2 id="create">How To: Create a Service Bus Entity</h2>
+<h2><a id="create"></a>How To: Create a Service Bus Entity</h2>
 
 The Windows Azure Management Portal supports two ways to create a Service Bus entity: *Quick Create* or *Custom Create*.
 
@@ -63,7 +63,7 @@ Click the **Service Bus** icon on the left navigation bar to get a list of names
 
 Click the **Service Bus** icon on the left navigation bar to get the list of service namespaces. You will find the new namespace you just created. Click the namespace in the list. You will see the entity you just created under that namespace.
 
-<h2 id="delete">How To: Delete a Service Bus Entity</h2>
+<h2><a id="delete"></a>How To: Delete a Service Bus Entity</h2>
 
 Using the portal, you can delete a Service Bus messaging entity. This is applicable to queues, topics, and topic subscriptions. To delete a queue or topic, do the following:
 
@@ -81,7 +81,7 @@ To delete a topic subscription, do the following:
 3.	Click the **Subscriptions** tab and select the subscription you want to delete.
 4.	Click **Delete** icon at the bottom of the page and confirm the delete operation.
 
-<h2 id="disableenable">How To: Disable or Enable a Service Bus Entity</h2>
+<h2><a id="disableenable"></a>How To: Disable or Enable a Service Bus Entity</h2>
 
 You can use the portal to change the status of a Service Bus entity. This is applicable to queues and topics. To disable or enable a queue or topic, do the following:
 
@@ -90,7 +90,7 @@ You can use the portal to change the status of a Service Bus entity. This is app
 
 	![][5]	
 
-<h2 id="seealso">Additional Resources</h2>
+<h2><a id="seealso"></a>Additional Resources</h2>
 
 
 [Windows Azure Service Bus][]
