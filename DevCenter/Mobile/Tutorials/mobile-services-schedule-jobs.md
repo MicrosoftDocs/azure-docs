@@ -99,7 +99,7 @@ Now that you have somewhere to store Twitter data, you can create the scheduled 
 			.orderByDescending('twitterId')
 			.read({success: function readUpdates(updates){
 				if(updates.length){
-					callback(url + '&since_id=' + updates[0].twitterId + 1);
+					callback(url + '&since_id=' + (updates[0].twitterId + 1));
 				} else {
 					callback(url);
 				}
@@ -108,7 +108,7 @@ Now that you have somewhere to store Twitter data, you can create the scheduled 
  
 		function filterOutTweet(tweet){
 			// Remove retweets and replies
-			return !((tweet.text.indexOf('RT')  !== 0) && (tweet.to_user_id === 0));
+			return (tweet.text.indexOf('RT') === 0 || tweet.to_user_id);
 		}
 
    This script calls the Twitter query API to request recent tweets that contain the hashtag `#mobileservices`. Duplicate tweets and replies are removed from the results before they are stored in the table.

@@ -20,9 +20,9 @@ recording:
 
 ![Screenshot](../Media/ipy-notebook-spectral.png)
 
-This document will show you how to deploy the IPython Notebook on Microsoft
+This document will show you how to deploy the IPython Notebook on Windows
 Azure, using Linux or Windows virtual machines (VMs).  By using the IPython
-Notebook on Azure, you can easily provide a web-accessible interface to
+Notebook on Windows Azure, you can easily provide a web-accessible interface to
 scalable computational resources with all the power of Python and its many
 libraries.  Since all installation is done in the cloud, users can access these
 resources without the need for any local configuration beyond a modern web
@@ -30,9 +30,9 @@ browser.
 
 <div chunk="../../Shared/Chunks/create-account-and-vms-note.md" />
 
-## Create and Configure a VM on Azure
+## Create and Configure a VM on Windows Azure
 
-The first step is to create a Virtual Machine (VM) instance running on Azure.
+The first step is to create a Virtual Machine (VM)  running on Windows Azure.
 This VM is a complete operating system in the cloud and will be used to
 run the IPython Notebook. Windows Azure is capable of running both Linux and Windows
 virtual machines, and we will cover the setup of IPython on both types of virtual machines.
@@ -40,7 +40,7 @@ virtual machines, and we will cover the setup of IPython on both types of virtua
 ### Linux VM
 
 To create a Linux VM, click on the "New" icon at the bottom left of the 
-Azure Management Portal and then select "Virtual Machine" from the list
+Windows Azure Management Portal and then select "Virtual Machine" from the list
 of options. For our Linux VM we are going to use OpenSUSE, the selection
 of which can be seen in the following screenshot of the "VM OS Selection"
 dialog.
@@ -78,7 +78,7 @@ After that, follow the same steps described above for Linux.
 
 The only other difference is in how you will connect to the VM. Instead of 
 using SSH, you will use Microsoft's Remote Desktop application. Thankfully, the 
-Azure Management Portal provides an `.rpd` file that contains the connection 
+Windows Azure Management Portal provides an `.rpd` file that contains the connection 
 information to connect to the VM. To download this file, click on the "Connect" 
 link at the bottom of the VM Dashboard. Once you have downloaded the `.rdp` 
 file simply open it in Remote Desktop to connect to the VM.
@@ -315,9 +315,9 @@ can be used:
 If you go to the IPython source code repository, you will find an entire
 directory with [notebook
 examples](https://github.com/ipython/ipython/tree/master/docs/examples/notebooks)
-which you can download and then experiment with on your own Azure IPython VM.
+which you can download and then experiment with on your own Windows Azure IPython VM.
 Simply download the `.ipynb` files from the site and upload them onto the
-dashboard of your notebook Azure VM (or download them directly into the VM).
+dashboard of your notebook Windows Azure VM (or download them directly into the VM).
 
 ## Conclusion
 
@@ -327,7 +327,7 @@ usage cases including simple exploration and learning Python, data analysis and
 visualization, simulation and parallel computing. The resulting Notebook
 documents contain a complete record of the computations that are performed and
 can be shared with other IPython users.  The IPython Notebook can be used as a
-local application, but it is ideally suited for cloud deployments on Azure
+local application, but it is ideally suited for cloud deployments on Windows Azure
 
 The core features of IPython are also available inside Visual Studio via the 
 [Python Tools for Visual Studio](http://pytools.codeplex.com) (PTVS). PTVS is a free and open-source plug-in 
