@@ -16,7 +16,7 @@ You'll learn:
 * How to create a Visual Studio ASP.NET MVC 4 project and publish it to a Windows Azure Web Site.
 * How to use the ASP.NET Web API to enable Restful API calls.
 * How to use a SQL database to store data in Windows Azure.
-* How to publish application updates to Windows Azur![](http://)e.
+* How to publish application updates to Windows Azure.
 
 You'll build a simple contact list web application that is built on ASP.NET MVC 4 and uses the ADO.NET Entity Framework for database access. The following illustration shows the completed application:
 
@@ -37,15 +37,13 @@ In this tutorial:
 
 <h2><a name="bkmk_setupdevenv"></a>Set up the development environment</h2>
 
-To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. (If you already have Visual Studio or Visual Web Developer, the SDK isn't required for this tutorial. It will be required later if you follow the suggestions for further learning at the end of the tutorial.)
+To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. 
 
-1. To install the Windows Azure SDK for .NET, click the link below. If you don't have Visual Studio installed yet, use the Visual Studio 2012 button.<br/>
+1. To install the Windows Azure SDK for .NET, click the link below. If you don't have Visual Studio 2012 installed yet, it will be installed by the link. This tutorial requires Visual Studio 2012. <br/>
 <a href="http://go.microsoft.com/fwlink/?LinkId=254364&clcid=0x409" class="site-arrowboxcta download-cta">Get Tools and SDK for Visual Studio 2012</a><br/>
-2. When you are prompted to run or save vwdorvs11azurepack.exe, click **Run**.
-	<!--<br/>![run the WindowsAzureSDKForNet.exe file][setup001]-->
-3. In the Web Platform Installer window, click **Install** and proceed with the installation.
-	<!--[Web Platform Installer - Windows Azure SDK for .NET][setup002]<br/>-->
-4. Install  [ASP.NET and Web Tools 2012.2][MVC4Install_20012].
+2. When you are prompted to run or save *vwdorvs11azurepack.exe*, click **Run**.
+
+![Web Platform Installer - Windows Azure SDK for .NET][rxF]<br/>
 
 When the installation is complete, you have everything necessary to start developing.
 
@@ -61,16 +59,15 @@ Your Windows Azure Web Site will run in a shared hosting environment, which mean
 
 SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
 
-1. In the Windows Azure Management Portal, click **Web Sites** in the left tab, and then click  **New**.<br/>
-![New button in Management Portal][rxWSnew]
+1. In the [Windows Azure Management Portal](https://manage.windowsazure.com), click **Web Sites** in the left tab, and then click  **New**.<br/>
 2. Click **CUSTOM CREATE**.<br/>
 ![Create with Database link in Management Portal][rxCreateWSwithDB]<br/>
 The **New Web Site - Custom Create** wizard opens. 
-3. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "contactmgr2", but that URL is probably taken so you’ll have to choose a different one.
+3. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "contactmgr22", but that URL is probably taken so you’ll have to choose a different one.
 4. In the **Database** drop-down list, choose **Create a new SQL database**.
 5. In the **Region** drop-down list, choose the region that is closest to you.<br/>
-This setting specifies which data center your VM will run in. In the **DB CONNECTION STRING NAME**, enter *connectionString1*.
-![Create a New Web Site step of New Web Site - Create with Database wizard][rxCreateWSwithDB_2]<br/>
+Accept the default connection string.
+![Create a New Web Site step of New Web Site - Create with Database wizard][rxz]<br/>
 6. Click the arrow that points to the right at the bottom of the box.
 The wizard advances to the **Database Settings** step.
 7. In the **Name** box, enter *ContactDB*.
@@ -657,9 +654,11 @@ Please leave feedback on what you liked or what you would like to see improved, 
 [rxNOT]: ../Media/rxNOT.png
 [rxNOT2]: ../Media/rxNOT2.png
 [rxb2]: ../Media/rxb2.png
-[rxNOT]: ../Media/rxNOT.png
-[rxNOT]: ../Media/rxNOT.png
-[rxNOT]: ../Media/rxNOT.png
+[rxz]: ../Media/rxz.png
+[rx]: ../Media/rx.png
+[rx]: ../Media/rx.png
+[rx]: ../Media/rx.png
+
 [rxCreateWSwithDB_2]: ../Media/rxCreateWSwithDB_2.png
 [rxNewCtx]: ../Media/rxNewCtx.png
 [rxCreateWSwithDB_2]: ../Media/rxCreateWSwithDB_2.png 
