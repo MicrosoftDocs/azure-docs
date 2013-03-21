@@ -55,7 +55,7 @@ This section walks you through the steps to create and configure a new Hadoop Cl
 
 	- Select a key from the Azure storage account that you want to associate with this cluster from the dropdown box. Note that once this choice is made, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
 
-	- Click the **CREATE HDINSIGHT CLUSTER** check mark on the lower left. The cluster is now provisioned and when it will be available when its status is listed as **Running** in the Windows Azure portal.
+	- Click the **CREATE HDINSIGHT CLUSTER** check mark on the lower left. The cluster is now provisioned and when it will be available when its status is listed as **Running** in the Windows Azure portal. Note that your cluster is automatically located in the East US data center, which is why we co-located your Azure storage account there when creating it.
 
 	![HDI.NewClusterStatusRunning](../media/HDI.NewClusterStatusRunning.PNG "New Cluster Status Running")
 
@@ -66,7 +66,7 @@ This section explains how to get to the HDInsight Service dashboard and sample g
 
 2. The dashboard provides quick glance of the metadata for the cluster. Note that it provides a live URL for the cluster at the top and the cluster user name ("admin" here, which you will need to log on) at the bottom. 
 
-3. To go to the cluster, either click its URL or the **START DASHBOARD** icon on the lower right.
+3. To go to the cluster, either click its URL at the top of the page or the **Manage** icon on the lower right.
 
 	![HDI.Dashboard](../media/HDI.Dashboard.PNG "Dashboard")
 
@@ -80,7 +80,7 @@ This section explains how to get to the HDInsight Service dashboard and sample g
 
 	![HDI.WinAzureHDI](../media/HDI.WinAzureHDI.PNG "Windows Azure HDInsight")
 
-7. Click the **Samples** tile to go to the **Hadoop Sample Gallery** that has tiles for each of the samples that ship with the HDInsight Service.
+7. Click the **Samples** tile to go to the **Hadoop Sample Gallery**. this page has a tile for each of the samples that ship with the HDInsight Service. Click on a tile to go the the sample. (See the next section for an example.) This page also has links to HDInsight documentation and, from the **Help** text on the lower right, to to the HDInsight forum. 
 
 	![HDI.SampleGallery](../media/HDI.SampleGallery.PNG "Sample Gallery")
 
@@ -108,9 +108,9 @@ The sample contains MapReduce programs written in Java that together count word 
 
 	![HDI.CreateWordCountJob](../media/HDI.CreateWordCountJob.PNG "Create WordCount Job")
 
-4. The job name and parameters have been assigned default values that will run the WordCount job.The **Job Name** is "WordCount". **Parameter0** is just the name of the program, "wordcount". **Parameter1** specifies, respectively, the path/name of the input file (asv:///example/data/gutenberg/davinci.txt) and the output directory where the results will be saved (asv:///DaVinciAllTopWords). Note that the output directory assumes a default path relative to the asv:///user/&lt;username&gt; folder. 
+4. The job name and parameters have been assigned default values that will run the WordCount job.The **Job Name** is "WordCount". **Parameter 0** is just the name of the program, "wordcount". **Parameter 1** specifies, respectively, the path/name of the input file (asv:///example/data/gutenberg/davinci.txt) and the output directory where the results will be saved (asv:///DaVinciAllTopWords). Note that the output directory assumes a default path relative to the asv:///user/&lt;username&gt; folder. 
 
-	Note the use of the asv:// prefix in the paths of these files. This is needed to indicate Azure Blob Storage is being used for input and output files. Note that for the purpose of this introduction, the default prefix is being retained. But it is a best practice to use the secure version, asvs://, for transferring your data when you are in production.
+	Note the use of the asv:// prefix in the paths of these files. This is needed to indicate Azure Blob Storage is being used for input and output files.
 
 5. The **Final Command** contains the Hadoop jar command that executes the MapReduce program with the parameter values provided above. See the documentation on [jar syntax ](http://hadoop.apache.org/common/docs/current/commands_manual.html#jar) for details. 
 
