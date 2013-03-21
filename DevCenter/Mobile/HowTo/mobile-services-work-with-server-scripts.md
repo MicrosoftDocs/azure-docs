@@ -26,7 +26,7 @@ For a detailed description of individual objects and functions, see the [Mobile 
 
 <h2><a name="table-scripts"></a><span class="short-header">Table scripts</span>Table operation scripts</h2>
 
-Table operation scripts are server scripts that are registered to a give operation on a table (insert, read, update, or delete). The name of the script must match the type of operation against which it is registered. There can only be one server script registerd for a given table operation. The script is executed every time that the given operation occurs. For example, an insert script for a given table is executed each time an item is inserted into that table. The following script rejects insert operations where the string length of the `text` field is greater than ten characters: 
+Table operation scripts are server scripts that are registered to a give operation on a table (insert, read, update, or delete). The name of the script must match the type of operation against which it is registered. There can only be one server script registered for a given table operation. The script is executed every time that the given operation is invoked by a REST request. For example, an insert script for a given table is executed each time POST request is received to insert an item into that table. The following script rejects insert operations where the string length of the `text` field is greater than ten characters: 
 
 	function insert(item, user, request) {
 	    if (item.text.length > 10) {
@@ -36,7 +36,7 @@ Table operation scripts are server scripts that are registered to a give operati
 	    }
 	}
 
-A table script function always takes three arguments. The second argument is always a [user object][User object] that represents the user that submitted the request. The third argument is always a [request object][Request object], which is tells the Mobile Services runtime what to do after the script executes. 
+A table script function always takes three arguments. The second argument is always a [user object][User object] that represents the user that submitted the request. The third argument is always a [request object][Request object], which lets you control execution of the requested operation and the response sent to the client.
 
 Canonical script function signatures are as follows: 
 
@@ -66,11 +66,11 @@ There are two ways to register server scripts against table operations.
 		info:    Executing command mobile script upload
 		info:    mobile script upload command OK
 
-	When uploading scripts, the name of the file must be composed from the table and operation names, and it must be located in the table subfolder relative to the location where the command is executed. For more information, see [Commands to manage Windows Azure Mobile Services]. 
+	For more information, see [Commands to manage Windows Azure Mobile Services]. 
 
 ###<a name="execute-operation"></a>How to: Define table scripts
 
-A table operation script must implement at least one of the following functions of the [request object] to make sure that the client receives a response. 
+A table operation script must call at least one of the following functions of the [request object] to make sure that the client receives a response. 
  
 + **execute function**: The operation is completed as requested and the standard response is returned.
  
@@ -108,7 +108,7 @@ When the **execute** function is called, the `item`, [query][query object] or `i
 	}
  
 <div class="dev-callout"><strong>Note</strong>
-<p>In a delete script, changing the value of the supplied userId variable does not affect which record gets deleted. This means that, in effect, a delete operation cannot be modified.</p>
+<p>In a delete script, changing the value of the supplied userId variable does not affect which record gets deleted.</p>
 
 For more examples, see the topics [Read and write data], [Modify the request] and [Validate data].
 
@@ -184,7 +184,7 @@ When you provide an error handler, Mobile Services returns an error result to th
 
 ###<a name="access-headers"></a>How to: Access custom parameters
 
-When you send a request to your mobile service, you can include one or more custom parameters in the URI of the request. These parameters might instruct your table operation scripts how to process a given request. For example, the following URI for a POST request tells the service to not permit the insertion of an new TodoItem with the same text value:
+When you send a request to your mobile service, you can include one or more custom parameters in the URI of the request. These parameters might instruct your table operation scripts how to process a given request. For example, the following URI for a POST request tells the service to not permit the insertion of a new TodoItem with the same text value:
 
 		https://todolist.azure-mobile.net/tables/TodoItem?duplicateText=false
 
@@ -290,33 +290,37 @@ The following example writes auditing information to an **audit** table:
 
 <h2><a name="helper-functions"></a><span class="short-header">Modules and helpers</span>How to: leverage modules and helper functions</h2>
 
-Mobile Services exposes a set of modules that scripts can require. For example, a script can require **request** to make HTTP requests: 
+Mobile Services exposes a set of modules that scripts can load by using the global **require** function. For example, a script can require **request** to make HTTP requests: 
 
 	function update(item, user, request) { 
 	    var request = require('request'); 
 	    request('http://www.google.com', function(err, response, body) { 
-	    ... 
+	    	... 
 	    }); 
 	} 
 
-Some of these modules are part of Node.js while others (such as request) are additional modules that are included for your convenience. The following useful modules can be accessed from your scripts by using the **require** function:
+Some of these modules are provided by Mobile Services, while others are built-in Node.js modules. The following are examples of some useful modules that are available to your scripts when loaded using the global **require** function:
 
-+ **apns**: Exposes functionality of the Apple Push Notification Service (APNS) to send push notifications to iOS apps. This functionalty is also available in the [apns object], which is accessed from the **apns** property of the [push object]. For more information, see [Get Started with Push Notifications][iOS Push].
- 
 + **azure**: Exposes the functionality of the Windows Azure SDK for Node.js. For more information, see the [Windows Azure SDK for Node.js]. 
- 
-+ **dpush**: Exposes functionality of the Google Cloud Messaging (GCM) service to send push notifications to Android apps. This functionalty is also available in the [gcm object], which is accessed from the **gcm** property of the [push object]. For more information, see [Get Started with Push Notifications][Android Push].
- 
-+ **mpns**: Sends push notifications to Windows Phone apps by using the Microsoft Push Notification Service (MPNS). This functionalty is also available in the [mpns object], which is accessed from the **mpns** property of the [push object]. For more information, see [Get Started with Push Notifications][Windows Phone Push].
+
++ **crypto**: Provides crypto functionality of OpenSSL. For more information, see the [Node.js documentation][crypto API].
+
++ **path**: Contains utilities for working with file paths. For more information, see the [Node.js documentation][path API].
+
++ **querystring**: Contains utilities for working with query strings. For more information, see the [Node.js documentation][querystring API].
  
 + **request**: Sends HTTP requests to external REST services, such as Twitter and Facebook. For more information, see [Send HTTP request].
  
-+ **sendgrid**: Used to send email by using the Sendgrid email service. For more infoirmation, see [Send email from Mobile Services with SendGrid].
++ **sendgrid**: Used to send email by using the Sendgrid email service in Windows Azure. For more information, see [Send email from Mobile Services with SendGrid].
  
-+ **wns**: Sends push notifications to Windows Store apps by using the Windows Notification Service (WNS). This functionalty is also available in the [wns object], which is accessed from the **wns** property of the [push object]. For more information, see [Get Started with Push Notifications][Windows Store Push].
- 
++ **url**: Contains utilities used to parse and resolve URLs. For more information, see the [Node.js documentation][url API].
+
++ **util**: Contains various utilities, including string formatting and object type checking. For more information, see the [Node.js documentation][util API]. 
+
++ **zlib**: Exposes compression functionality, including gzip and deflate. For more information, see the [Node.js documentation][zlib API]. 
+
 <div class="dev-callout"><strong>Note</strong>
-<p>Some Node.js modules might be disallowed. Attempting to require a disallowed module results in a runtime error.</div>
+<p>Some Node.js modules might be disallowed. When you try to require a disallowed module, a runtime error occurs.</div>
 
 In addition to requiring modules, server scripts can also optionally include helper functions. In the following example is a table script registered to the insert operation, which includes the helper function **handleUnapprovedItem**:
 
@@ -340,10 +344,10 @@ In a script, table functions must be declared after the main function.
 
 <h2><a name="handle-errors"></a><span class="short-header">Writing to logs</span>How to: write output to the mobile service logs</h2>
 
-By default, Mobile Services writes errors that occur during service script execution to the service logs. You scripts can also write to the logs. Writing to logs is great way to debug your scripts and validate that they are behaving as desired. You use the global [console object] to write to the logs. Use the **log** or **info** functions to log information-level warnings. **warning** and **error** functions logs their respective levels, which are called out in the logs. 
+By default, Mobile Services writes errors that occur during service script execution to the service logs. You scripts can also write to the logs. Writing to logs is great way to debug your scripts and validate that they are behaving as desired. You use the global [console object] to write to the logs. Use the **log** or **info** functions to log information-level warnings. The **warning** and **error** functions logs their respective levels, which are called-out in the logs. 
 
 <div class="dev-callout"><strong>Note</strong>
-<p>To view the logs for your mobile service, login to the <a href="https://manage.windowsazure.com/">Management Portal</a>, select your mobile service, and then click the **Logs** tab.</p></div>
+<p>To view the logs for your mobile service, login to the <a href="https://manage.windowsazure.com/">Management Portal</a>, select your mobile service, and then click the <strong>Logs</strong> tab.</p></div>
 
 The logging functions of the [console object] also enable you to format your messages using parameters. The following example supplies a JSON object as a parameter to the message string:
 
@@ -352,7 +356,7 @@ The logging functions of the [console object] also enable you to format your mes
 	    request.execute();
 	}
 
-Note that the string `%j` is used as the placeholder for a JSON object and that parameters are supplied in sequential order.
+Note that the string `%j` is used as the placeholder for a JSON object and that parameters are supplied in sequential order. 
 
 <!-- Anchors. -->
 [Table operation scripts]: #table-scripts
@@ -406,3 +410,9 @@ Note that the string `%j` is used as the placeholder for a JSON object and that 
 [Send HTTP request]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631641.aspx
 [Send email from Mobile Services with SendGrid]: /en-us/develop/mobile/tutorials/send-email-with-sendgrid/
 [Get started with authentication]: http://go.microsoft.com/fwlink/p/?LinkId=287177
+[crypto API]: http://go.microsoft.com/fwlink/p/?LinkId=288802
+[path API]: http://go.microsoft.com/fwlink/p/?LinkId=288803
+[querystring API]: http://go.microsoft.com/fwlink/p/?LinkId=288804
+[url API]: http://go.microsoft.com/fwlink/p/?LinkId=288805
+[util API]: http://go.microsoft.com/fwlink/p/?LinkId=288806
+[zlib API]: http://go.microsoft.com/fwlink/p/?LinkId=288807
