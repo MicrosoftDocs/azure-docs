@@ -64,8 +64,8 @@ SQL Database is a cloud-based relational database service that is built on SQL S
 ![Create with Database link in Management Portal][rxCreateWSwithDB]<br/>
 The **New Web Site - Custom Create** wizard opens. 
 3. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "contactmgr22", but that URL is probably taken so you’ll have to choose a different one.
-4. In the **Database** drop-down list, choose **Create a new SQL database**.
-5. In the **Region** drop-down list, choose the region that is closest to you.<br/>
+1. In the **Region** drop-down list, choose the region that is closest to you.<br/>
+1. In the **Database** drop-down list, choose **Create a new SQL database**.
 Accept the default connection string.
 ![Create a New Web Site step of New Web Site - Create with Database wizard][rxz]<br/>
 6. Click the arrow that points to the right at the bottom of the box.
@@ -87,7 +87,7 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 ### Create the project
 
-1. Start Visual Studio 2012 as an administrator.
+1. Start Visual Studio 2012.
 1. From the **File** menu click **New Project**.
 3. In the **New Project** dialog box, expand **Visual C#** and select **Web** under **Installed Templates** and then select **ASP.NET MVC 4 Web Application**. Keep the default **.NET Framework 4.5**. Name the application **ContactManager** and click **OK**.<br/>
 	![New Project dialog box][newapp002]
@@ -97,12 +97,12 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 ### Set the page header and footer
 
 
-1. In **Solution Explorer**, expand the Views\Shared folder and open the *_Layout.cshtml* file.<br/>
+1. In **Solution Explorer**, expand the *Views\Shared* folder and open the *_Layout.cshtml* file.<br/>
 	![_Layout.cshtml in Solution Explorer][newapp004]
 1. Replace the contents of the *_Layout.cshtml* file with the following code:
 <br/>
 
-
+  
     &lt;!DOCTYPE html&gt;<br/>
     &lt;html lang=&quot;en&quot;&gt;<br/>
     &lt;head&gt;<br/>
@@ -117,9 +117,7 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
         &lt;header&gt;<br/>
             &lt;div class=&quot;content-wrapper&quot;&gt;<br/>
                 &lt;div class=&quot;float-left&quot;&gt;<br/>
-                    &lt;p class=&quot;site-title&quot;&gt;@Html.ActionLink(&quot;Contact Manager&quot;, &quot;Index&quot;, &quot;Home&quot;)&lt;/p&gt;<br/>
-               &lt;li&gt;@Html.ActionLink(&quot;About&quot;, &quot;About&quot;, &quot;Home&quot;)&lt;/li&gt;
-                &lt;li&gt;@Html.ActionLink(&quot;Contact&quot;, &quot;Contact&quot;, &quot;Home&quot;)&lt;/li&gt;
+                    &lt;p class=&quot;site-title&quot;&gt;@Html.ActionLink(&quot;Contact Manager&quot;, &quot;Index&quot;, &quot;Home&quot;)&lt;/p&gt;<br/>              
                 &lt;/div&gt;<br/>
             &lt;/div&gt;<br/>
         &lt;/header&gt;<br/>
@@ -135,8 +133,8 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
                     &lt;p&gt;&amp;copy; @DateTime.Now.Year - Contact Manager&lt;/p&gt;<br/>
                 &lt;/div&gt;<br/>
             &lt;/div&gt;<br/>
-        &lt;/footer&gt;<br/>
-    	@Scripts.Render("~/bundles/jquery")
+        &lt;/footer&gt;<br/><br/>
+    	@Scripts.Render("~/bundles/jquery")<br/>
     	@RenderSection("scripts", required: false)
     &lt;/body&gt;<br/>
     &lt;/html&gt;
@@ -146,7 +144,7 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 1. Press CTRL+F5 to run the application.
 The application home page appears in the default browser.<br/>
-![To Do List home page][newapp005]
+![To Do List home page][rxzz]
 
 This is all you need to do for now to create the application that you'll deploy to Windows Azure. Later you'll add database functionality.
 
@@ -655,7 +653,7 @@ Please leave feedback on what you liked or what you would like to see improved, 
 [rxNOT2]: ../Media/rxNOT2.png
 [rxb2]: ../Media/rxb2.png
 [rxz]: ../Media/rxz.png
-[rx]: ../Media/rx.png
+[rxzz]: ../Media/rxzz.png
 [rx]: ../Media/rx.png
 [rx]: ../Media/rx.png
 
