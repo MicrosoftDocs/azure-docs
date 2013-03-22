@@ -183,7 +183,7 @@ In this section you will extend the basic application created by the **express**
 
 4. Next, you will add code to define and export the Task object. This object is responsible for connecting to the table.
 
-        module.exports = Task;
+  	module.exports = Task;
 
 		function Task(storageClient, tableName, partitionKey) {
   		  this.storageClient = storageClient;
@@ -318,47 +318,37 @@ In this section you will extend the basic application created by the **express**
 2. At the beginning of the file, add the following to load the azure module, set the table name, partitionKey, and set the storage credentials used by this example:
 
 		var azure = require('azure')
-		, nconf = require('nconf');
+		  , nconf = require('nconf');
 		nconf.env()
-	    .file({ file: 'config.json'});
+		     .file({ file: 'config.json'});
 		var tableName = nconf.get("TABLE_NAME")
-		, partitionKey = nconf.get("PARTITION_KEY")
-		, accountName = nconf.get("STORAGE_NAME")
-		, accountKey = nconf.get("STORAGE_KEY");
+		  , partitionKey = nconf.get("PARTITION_KEY")
+		  , accountName = nconf.get("STORAGE_NAME")
+		  , accountKey = nconf.get("STORAGE_KEY");
 
 	<div class="dev-callout">
 	<strong>Note</strong>
 	<p>nconf will load the configuration values from either environment variables or the **config.json** file, which we will create later.</p>
 	</div>
 
-3. In the app.js file, scroll down to where you see below code. 
+3. In the app.js file, scroll down to where you see the following line:
 
-		app.configure(function(){
-		app.set('port', process.env.PORT || 3000);
-		app.set('views', __dirname + '/views');
-		app.set('view engine', 'jade');
-		app.use(express.favicon());
-		app.use(express.logger('dev'));
-		app.use(express.bodyParser());
-		app.use(express.methodOverride());
-		app.use(app.router);
-		app.use(express.static(path.join(__dirname, 'public')));
-});
+		app.get('/', routes.index);
 
 
- Insert the below example code after the code above. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is the password to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
+Replace the above line with the code shown below. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is the password to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
 
-        var TaskList = require('./routes/tasklist');
+		var TaskList = require('./routes/tasklist');
 		var Task = require('./models/task');
 		var task = new Task(
-		    azure.createTableService(accountName, accountKey)
-		    , tableName
-		    , partitionKey);
+				azure.createTableService(accountName, accountKey)
+			, tableName
+			, partitionKey);
 		var taskList = new TaskList(task);
 
 		app.get('/', taskList.showTasks.bind(taskList));
-		    app.post('/addtask', taskList.addTask.bind(taskList));
-		    app.post('/completetask', taskList.completeTask.bind(taskList));
+		app.post('/addtask', taskList.addTask.bind(taskList));
+		app.post('/completetask', taskList.completeTask.bind(taskList));
 
 		
 4. Save the **app.js** file.
@@ -369,35 +359,38 @@ In this section you will extend the basic application created by the **express**
 
 2. Replace the contents of the **index.jade** file with the code below. This defines the view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.
 
-		h1= title
-		br
+		extends layout
 
-		form(action="/completetask", method="post")
-		  table(class="table table-striped table-bordered")
-		    tr
-		      td Name
-		      td Category
-		      td Date
-		      td Complete
-		    each task in tasks
-		      tr
-		        td #{task.name}
-		        td #{task.category}
-		        - var day   = task.Timestamp.getDate();
-		        - var month = task.Timestamp.getMonth() + 1;
-		        - var year  = task.Timestamp.getFullYear();
-		        td #{month + "/" + day + "/" + year}
-		        td
-		          input(type="checkbox", name="#{task.RowKey}", value="#{!task.itemCompleted}", checked=task.itemCompleted)
-		  button(type="submit", class="btn") Update tasks
-		hr
-		form(action="/addtask", method="post", class="well")
-		  label Item Name: 
-		  input(name="item[name]", type="textbox")
-		  label Item Category: 
-		  input(name="item[category]", type="textbox")
+		block content
+		  h1= title
 		  br
-		  button(type="submit", class="btn") Add item
+
+		  form(action="/completetask", method="post")
+		    table(class="table table-striped table-bordered")
+		      tr
+		        td Name
+		        td Category
+		        td Date
+		        td Complete
+		      each task in tasks
+		        tr
+		          td #{task.name}
+		          td #{task.category}
+		          - var day   = task.Timestamp.getDate();
+		          - var month = task.Timestamp.getMonth() + 1;
+		          - var year  = task.Timestamp.getFullYear();
+		          td #{month + "/" + day + "/" + year}
+		          td
+		            input(type="checkbox", name="#{task.RowKey}", value="#{!task.itemCompleted}", checked=task.itemCompleted)
+		    button(type="submit", class="btn") Update tasks
+		  hr
+		  form(action="/addtask", method="post", class="well")
+		    label Item Name: 
+		    input(name="item[name]", type="textbox")
+		    label Item Category: 
+		    input(name="item[category]", type="textbox")
+		    br
+		    button(type="submit", class="btn") Add item
 
 3. Save and close **index.jade** file.
 
@@ -409,19 +402,18 @@ The **layout.jade** file in the **views** directory is used as a global template
 
 2. From the **views** folder, open the **layout.jade** in your text editor and replace the contents with the following:
 
-		!!!html
+		doctype 5
 		html
 		  head
 		    title= title
-		    meta(http-equiv='X-UA-Compatible', content='IE=10')
-		    link(rel='stylesheet', href='/stylesheets/style.css')
 		    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+		    link(rel='stylesheet', href='/stylesheets/style.css')
 		  body(class='app')
 		    div(class='navbar navbar-fixed-top')
 		      .navbar-inner
 		        .container
 		          a(class='brand', href='/') My Tasks
-		    .container!= body
+		    block content
 
 3. Save the **layout.jade** file.
 
@@ -602,7 +594,7 @@ Before using the command-line tools with Windows Azure, you must first download 
 
 Earlier we implemented code that looks for a **SQL_CONN** environment variable for the connection string or loads the value from the **config.json** file. In the following steps you will create a key/value pair in your web site configuration that the application real access through an environment variable.
 
-1. From the Preview Management Portal, click **Web Sites** and then select your web site.
+1. From the Management Portal, click **Web Sites** and then select your web site.
 
 	![Open web site dashboard][go-to-dashboard]
 
