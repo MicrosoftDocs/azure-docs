@@ -8,7 +8,8 @@
 </div>	
 
 
-This topic shows you how to use Windows Azure Mobile Services to leverage data in an HTML app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Windows Azure Management Portal to view changes to data made when running the app.
+<p>This topic shows you how to use Windows Azure Mobile Services to leverage data in an HTML app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Windows Azure Management Portal to view changes to data made when running the app.</p>
+
 
 <div class="dev-callout"><b>Note</b>
 <p>This tutorial is intended to help you better understand how Mobile Services enables you to use Windows Azure to store and retrieve data from an HTML app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-html">Get started with Mobile Services</a>.</p>
