@@ -109,6 +109,7 @@ When the **execute** function is called, the `item`, [query][query object] or `i
  
 <div class="dev-callout"><strong>Note</strong>
 <p>In a delete script, changing the value of the supplied userId variable does not affect which record gets deleted.</p>
+</div>
 
 For more examples, see the topics [Read and write data], [Modify the request] and [Validate data].
 
