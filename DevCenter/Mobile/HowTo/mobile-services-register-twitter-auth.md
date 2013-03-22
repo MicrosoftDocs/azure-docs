@@ -38,6 +38,10 @@ This topic shows you how to register your apps to be able to use Twitter to auth
 	<p>The consumer secret is an important security credential. Do not share this secret with anyone or distribute it with your app.</p>
     </div>
 
+7. Click the **Settings** tab, scroll down and check **Allow this application to be used to sign in with Twitter**, then click **Update this Twitter application's settings**.
+
+	![][5]
+
 You are now ready to use a Twitter login for authentication in your app by providing the consumer key and consumer secret values to Mobile Services.
 
 <!-- Anchors. -->
@@ -47,6 +51,7 @@ You are now ready to use a Twitter login for authentication in your app by provi
 [2]: ../Media/mobile-services-twitter-register-app1.png
 [3]: ../Media/mobile-services-twitter-register-app2.png
 [4]: ../Media/mobile-services-twitter-app-details.png
+[5]: ../Media/mobile-services-twitter-register-settings.png
 
 <!-- URLs. -->
 [twitter.com]: http://go.microsoft.com/fwlink/p/?LinkId=268287
