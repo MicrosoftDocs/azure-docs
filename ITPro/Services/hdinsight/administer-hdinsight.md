@@ -40,9 +40,9 @@ A Windows Azure storage account is required before you can create a HDInsight cl
 				</ul>
 			</td>
 		</tr>
-		<tr><td>Configure Admin</td>
-			<td>Admin Account Name<br />
-				Admin Password</td>
+		<tr><td>Configure Cluster User</td>
+			<td>User Name<br />
+				Password</td>
 		</tr>
 		<tr><td>Storage Account</td>
 			<td>Storage Account<br />
@@ -64,7 +64,8 @@ A Windows Azure storage account is required before you can create a HDInsight cl
 
 	![HDI.ClusterSummary](../media/HDI.ClusterSummary.PNG "Cluster summary page")
 
-5. Click either the Go to cluster link, or Start Dashboard on the bottom of the page to open HDInsight Dashboard.
+5. Click the **Go to Cluster** link to open HDInsight Dashboard.
+6. Provide the cluster **user name** and **password**, and then click **Log On**.  The default administer username is *admin*.
 
 	![HDI.Dashboard](../media/HDI.Dashboard1.PNG "HDInsight Cluster DashBoard")
 
