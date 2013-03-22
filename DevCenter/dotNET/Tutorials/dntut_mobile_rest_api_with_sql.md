@@ -546,11 +546,12 @@ To publish the application, you repeat the procedure you followed earlier.
 5. Click the **Settings** tab.
 ![Settings tab of Publish Web wizard][rxz4]<br/>
 1. Under **ContactsManagerContext(ContactsManagerContext)**, click the **v** icon to change *Remote connection string* to the connection string for the contact database.
-6. The connection string box for the **ContactsManagerContext(ContactsManagerContext)** database contains the SQL Database connection string that was provided in the *publishsettings* file. Click on the elipsis (**...**) to see the *ContactDB* settings.<br/>
+6. The remote connection string box for the **ContactsManagerContext(ContactsManagerContext)** database now contains the SQL Database connection string that was provided in the *publishsettings* file. Click on the ellipsis (**...**) to see the *ContactDB* settings.<br/>
  <br/>![DB settings][rx22]<br/><br/>
 7. Close the **Destination Connections String Dialog** and in the **Publish Web** dialog check the box for **Execute Code First Migrations (runs on application start)** for the **UsersContext(DefaultConnection)** database.<br/>
 ![Settings tab of Publish Web wizard][rxz44]<br/>
 1. You can click the **^** icon next to the **UsersContext(DefaultConnection)** database, that is the connection information for the membership database and we're not using it in this tutorial. A real application would require authentication and authorization, and you would use the membership database for that purpose. See [Deploy a Secure ASP.NET MVC application with OAuth, Membership and SQL Database](http://blogs.msdn.com/b/webdev/archive/2013/03/12/deploy-a-secure-asp-net-mvc-application-with-oauth-membership-and-sql-database.aspx) which is based on this tutorial and shows how to deploy a web application with the membership database.
+1. Click **Next** and then click **Preview**. Visual Studio displays a list of the files that will be added or updated.
 8. Click **Publish**.<br/>
 After the deployment completes, the browser opens to the home page of the application.<br/>
 ![Index page with no contacts][intro001]<br/>
@@ -564,6 +565,8 @@ The application is now running in the cloud, using SQL Database to store its dat
 
 <h2><a name="nextsteps"></a>Next Steps</h2>
 
+A real application would require authentication and authorization, and you would use the membership database for that purpose. The tutorial [Deploy a Secure ASP.NET MVC application with OAuth, Membership and SQL Database](http://blogs.msdn.com/b/webdev/archive/2013/03/12/deploy-a-secure-asp-net-mvc-application-with-oauth-membership-and-sql-database.aspx) is based on this tutorial and shows how to deploy a web application with the membership database.
+<br/>
 Another way to store data in a Windows Azure application is to use Windows Azure storage, which provide non-relational data storage in the form of blobs and tables. The following links provide more information on Web API, ASP.NET MVC and Window Azure.
  
 
