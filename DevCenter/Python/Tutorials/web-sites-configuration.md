@@ -4,34 +4,34 @@
 
 # Configuring Python with Windows Azure Web Sites #
 
-This tutorial describes options for authoring and configuring a basic Web Server Gateway Interface (WSGI) compliant Python application on Windows Azure Websites. Getting started with Windows Azure Websites is easy, and your Python application will have room to scale and extend to other Windows Azure services. The Windows Azure Websites platform includes Python 2.7 and the generic wfastcgi.py FastCGI handler for Python. All you have to do is configure your web site to use the Python handler.  
+This tutorial describes options for authoring and configuring a basic Web Server Gateway Interface (WSGI) compliant Python application on Windows Azure Web Sites. Getting started with Windows Azure Web Sites is easy, and your Python application will have room to scale and extend to other Windows Azure services. The Windows Azure Web Sites platform includes Python 2.7 and the generic wfastcgi.py FastCGI handler for Python. All you have to do is configure your web site to use the Python handler.  
 
-For a more complex example configuring the Django framework on Windows Azure Websites, please see the following tutorial: 
+For a more complex example configuring the Django framework on Windows Azure Web Sites, please see the following tutorial: 
 [http://www.windowsazure.com/en-us/develop/python/tutorials/web-sites-with-django](http://www.windowsazure.com/en-us/develop/python/tutorials/web-sites-with-django).  
 
 ## WSGI Support
 
-WSGI is a Python standard described by [PEP 3333](http://www.python.org/dev/peps/pep-3333/) defining an interface between the web server and Python. It provides a standardized interface for writing various web applications and frameworks using Python.  Popular Python web frameworks today use WSGI.  Windows Azure Websites gives you support for any such frameworks; in addition, advanced users can even author their own as long as the custom handler follows the WSGI specification guidelines.
+WSGI is a Python standard described by [PEP 3333](http://www.python.org/dev/peps/pep-3333/) defining an interface between the web server and Python. It provides a standardized interface for writing various web applications and frameworks using Python.  Popular Python web frameworks today use WSGI.  Windows Azure Web Sites gives you support for any such frameworks; in addition, advanced users can even author their own as long as the custom handler follows the WSGI specification guidelines.
 
 ## Web Site Creation
 
 This tutorial assumes an existing Windows Azure subscription and access to the Windows Azure Management Portal. Detailed guidance on creating a web site is available at [http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites).
  
-In short, if you do not have an existing website you can create one from the Windows Azure Management Portal. Select the WEB SITES feature and use the QUICK CREATE option, specifying a URL for your web site.
+In short, if you do not have an existing web site you can create one from the Windows Azure Management Portal. Select the WEB SITES feature and use the QUICK CREATE option, specifying a URL for your web site.
 
 ![](../Media/configure-python-create-website.png)
 
 ## Git Publishing
 
-Use the QUICK START or DASHBOARD tabs for your newly created web site to configure Git publishing.  This tutorial uses Git to create, manage, and publish our Python web site to Windows Azure Websites. 
+Use the QUICK START or DASHBOARD tabs for your newly created web site to configure Git publishing.  This tutorial uses Git to create, manage, and publish our Python web site to Windows Azure Web Sites. 
 
 ![](../Media/configure-python-git.png)
 
-Once Git publishing is set up, a Git repository will be created and associated with your web site.  The repository’s URL will be displayed and can henceforth be used to push data from the local development environment to the cloud. To publish applications via Git, make sure a Git client is also installed and use the instructions provided to push your web site content to Windows Azure Websites.
+Once Git publishing is set up, a Git repository will be created and associated with your web site.  The repository’s URL will be displayed and can henceforth be used to push data from the local development environment to the cloud. To publish applications via Git, make sure a Git client is also installed and use the instructions provided to push your web site content to Windows Azure Web Sites.
 
 ## Web Site Content
 
-As an example we use a basic Python application with a basic WSGI handler that illustrates the minimal amount of work needed to take advantage of Windows Azure Websites’ Python support.  This skeleton Python application can then be used to start authoring a variety of solutions, with complexity ranging from the example below all the way to a full-fledged web framework.  
+As an example we use a basic Python application with a basic WSGI handler that illustrates the minimal amount of work needed to take advantage of the Python support in Windows Azure Web Sites.  This skeleton Python application can then be used to start authoring a variety of solutions, with complexity ranging from the example below all the way to a full-fledged web framework.  
 
 Below is the code for the basic WSGI handler. It is similar to that suggested by the [PEP 3333](http://www.python.org/dev/peps/pep-3333/) specification as a starting point for a WSGI compliant application. We saved this content in a file named ConfigurePython.py created in a ConfigurePython folder under the web site root:
 
@@ -50,12 +50,12 @@ This handler will return the plain text “Hello from Windows Azure Websites” 
 
 ## Configuration Options
 
-There are 2 different options for configuring your Python application with Windows Azure Websites.
+There are 2 different options for configuring your Python application with Windows Azure Web Sites.
 
 **Option 1: Portal** 
 
 1.1. Register the FastCGI handler via CONFIGURE tab in the Portal.
-For this example we use the FastCGI handler for Python included with Windows Azure Websites. To do the same use the following paths for your script processor and FastCGI handler argument:
+For this example we use the FastCGI handler for Python included with Windows Azure Web Sites. To do the same use the following paths for your script processor and FastCGI handler argument:
 
 * Python script processor path: D:\python27\python.exe
 * Python FastCGI handler path: D:\python27\scripts\wfastcgi.py
@@ -65,8 +65,8 @@ For this example we use the FastCGI handler for Python included with Windows Azu
 1.2. Configure app settings via the same CONFIGURE tab in the Portal.
 The app settings are converted to environment variables. This is a mechanism you can use for configuration values required by your Python application. For this basic example application we configured the following:
 
-* PYTHONPATH informs Python about the directory to search for modules. Windows Azure Websites provides D:\home\site\wwwroot as syntactic sugar pointing to the root of your web site. 
-* WSGI_HANDLER records a module or package name and the attribute to be used.
+* PYTHONPATH informs Python about the directory to search for modules. Windows Azure Web Sites provides D:\home\site\wwwroot as syntactic sugar pointing to the root of your web site. 
+* WSGI\_HANDLER records a module or package name and the attribute to be used.
 
 ![](../Media/configure-python-app-settings.png)
 
@@ -76,11 +76,11 @@ The configuration alternative is to use a web.config file under the web site roo
 2.1. Specify the PYTHONPATH variable. 
 > This will inform Python where to look for the application code. D:\home\site\wwwroot is also used here as the absolute path to the web site.
 
-2.2. Set the WSGI_HANDLER variable.
-> Windows Azure Websites uses this value to direct Python to call our WSGI handler.  The value of this variable is a Python expression which should, when executed, return a callable which represents a WSGI handler. 
+2.2. Set the WSGI\_HANDLER variable.
+> Windows Azure Web Sites uses this value to direct Python to call our WSGI handler.  The value of this variable is a Python expression which should, when executed, return a callable which represents a WSGI handler. 
 
 2.3. Add a handler for Python.
-> This will inform Windows Azure Websites that Python should handle requests made to the path handler.fcgi. It is important for the handler syntax to look exactly like what we have inside the <handlers> tag in the example below unless you bring your own FastCGI handler or Python development stack.
+> This will inform Windows Azure Web Sites that Python should handle requests made to the path handler.fcgi. It is important for the handler syntax to look exactly like what we have inside the &lt;handlers&gt; tag in the example below unless you bring your own FastCGI handler or Python development stack.
 
 2.4. Rewrite URLs to handler.fcgi.
 > Requesting handler.fcgi all the time may not be the best idea. To select the path of files to be handled by the Python handler we used URL Rewriting so all the URLs get handled by our Python handler.
