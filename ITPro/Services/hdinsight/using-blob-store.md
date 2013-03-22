@@ -27,7 +27,7 @@ The following diagram provides an abstract view of the HDInsight Service's stora
 
 ![HDI.ASVArch](../Media/HDI.ASVArch.gif "HDInsight Storage Architecture")
   
-The HDInsight Service provides access to the distributed file system that is locally attached to the compute nodes. This file system can be accessed using the fully qualified URI. For example: hdfs://<namenodehost>/<path>. 
+The HDInsight Service provides access to the distributed file system that is locally attached to the compute nodes. This file system can be accessed using the fully qualified URI. For example: hdfs://&lt;namenodehost&gt;/&lt;path&gt;. 
 
 In addition, HDInsight Service provides the ability to access data stored in Blob Storage containers, one of which is designated as the default file system during the provision process.
 
@@ -95,28 +95,29 @@ The URI scheme ([] indicates that the part is optional, <> enclose concepts) for
 
 	asv[s]://[[<container>@]<domain>]/<path>
 
-	The URI scheme provides both unencrypted access with the ASV: prefix, and SSL encrypted access with ASVS:. We recommend using ASVS: wherever possible, even when accessing data that lives inside the same Windows Azure data center.
+The URI scheme provides both unencrypted access with the ASV: prefix, and SSL encrypted access with ASVS:. We recommend using ASVS: wherever possible, even when accessing data that lives inside the same Windows Azure data center.
 	
-	The <container> identifies the name of the Blob Storage container. If no container name is specified but the domain is, then it refers to the [root container](http://msdn.microsoft.com/en-us/library/windowsazure/ee395424.aspx) of the domain's storage account. Note that root containers are read-only.
+The &lt;container&gt; identifies the name of the Blob Storage container. If no container name is specified but the domain is, then it refers to the [root container](http://msdn.microsoft.com/en-us/library/windowsazure/ee395424.aspx) of the domain's storage account. Note that root containers are read-only.
 	
-	The <domain> identifies the storage account domain. If it does not contain a dot (.), it will be interpreted as <domain>.blob.core.windows.net.
+The &lt;domain&gt; identifies the storage account domain. If it does not contain a dot (.), it will be interpreted as &lt;domain&gt;.blob.core.windows.net.
 	
-	If neither the container nor the domain has been specified, then the default file system is used.
+If neither the container nor the domain has been specified, then the default file system is used.
 	
-	The <path> is the file or directory HDFS path name. Since Blob Storage containers are just a key-value store, there is no true hierarchical file system. A / inside an Azure Blob's key is interpreted as a directory separator. Thus, if a blob's key is input/log1.txt, then it is the file log1.txt inside the directory input.
+The &lt;path&gt; is the file or directory HDFS path name. Since Blob Storage containers are just a key-value store, there is no true hierarchical file system. A / inside an Azure Blob's key is interpreted as a directory separator. Thus, if a blob's key is input/log1.txt, then it is the file log1.txt inside the directory input.
 
 For example:
 
 	asvs://dailylogs@myaccount/input/log1.txt
 	
-	refers to the file log1.txt in the directory input on the Blob Storage container dailylogs at the location myaccount.blob.core.windows.net using SSL.
+refers to the file log1.txt in the directory input on the Blob Storage container dailylogs at the location myaccount.blob.core.windows.net using SSL.
 	
 	asvs://myaccount/result.txt
 	
-	refers to the file result.txt on the read-only ASV file system in the root container at the location myaccount.blob.core.windows.net that gets accessed through SSL. Note that asv://myaccount/output/result.txt will result in an exception, because Blob Storage does not allow / inside path names in the root container to avoid ambiguities between paths and folder names. 
+refers to the file result.txt on the read-only ASV file system in the root container at the location myaccount.blob.core.windows.net that gets accessed through SSL. Note that asv://myaccount/output/result.txt will result in an exception, because Blob Storage does not allow / inside path names in the root container to avoid ambiguities between paths and folder names. 
 	
 	asv:///output/result.txt 
-	refers to the file result.txt in the output directory on the default file system.
+	
+refers to the file result.txt in the output directory on the default file system.
 
 Because HDInsight uses a Blob Storage container as the default file system, you can refer to files and directories inside the default file system using relative or absolute paths. For example, the following statement will list all top-level directories and files of the default file system:
 
@@ -130,9 +131,9 @@ To access an file (or folder) at
 
 <table>
 <tr><th>AVS URI</th><th>Blob Storage URI</th></tr>
-<tr><td>asv[s]://<account>/<path-name></td><td>http[s]://<account>/<path-name></td></tr>
-<tr><td>asv[s]://<container>@<account>/<path-name></td><td>http[s]://<account>/<container>/<path-name></td></tr>
-<tr><td>asv[s]:///<path-name></td><td>http[s]://<account>/<container>/<path-name><br/>
+<tr><td>asv[s]://&lt;account&gt;/&lt;path-name&gt;</td><td>http[s]://&lt;account&gt;/&lt;path-name&gt;</td></tr>
+<tr><td>asv[s]://&lt;container&gt;@&lt;account&gt;/&lt;path-name&gt;</td><td>http[s]://&lt;account&gt;/&lt;container&gt;/&lt;path-name&gt;</td></tr>
+<tr><td>asv[s]:///&lt;path-name&gt;</td><td>http[s]://&lt;account&gt;/&lt;container&gt;/&lt;path-name&gt;<br/>
 
 where account and container are the values used for specifying the default file system.</td></tr>
 
