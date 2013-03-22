@@ -170,7 +170,8 @@ When the connection has been validated, a green check mark is shown next to the 
 9. Click **Next**.
 	<br/>![connection successful icon and Next button in Connection tab][firsdeploy007]
 10. In the **Settings** tab, click **Next**.<br/>
-You can accept all of the default settings on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server. The **UsersContext (DefaultConnection)** entry under **Databases** is for the *ContactDB* you just created.
+You can accept all of the default settings on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server. The **UsersContext (DefaultConnection)** entry under **Databases** comes from the *UsersContext:DbContext* class which uses the DefaultConnection string.
+
 	<br/>![connection successful icon and Next button in Connection tab][rxPWS]
 12. In the **Preview** tab, click **Start Preview**.<br/>
 The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed.<br/>
@@ -179,7 +180,7 @@ The tab displays a list of the files that will be copied to the server. Displayi
 Visual Studio begins the process of copying the files to the Windows Azure server. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
 14. The default browser automatically opens to the URL of the deployed site.<br/>
 The application you created is now running in the cloud.
-	<br/>![To Do List home page running in Windows Azure][newapp005]
+	<br/>![To Do List home page running in Windows Azure][rxz2]
 
 
 <h2><a name="bkmk_addadatabase"></a>Add a database to the application</h2>
@@ -230,7 +231,7 @@ The ASP.NET MVC the scaffolding feature can automatically generate code that per
 3. Build the project **(Ctrl+Shift+B)**. (You must build the project before using scaffolding mechanism.) <br/>
 4. Right-click the Controllers folder and click **Add**, and then click **Controller...**.<br/>
 ![Add Controller in Controllers folder context menu][addcode001]<br/>
-5. In the **Add Controller** dialog box, enter "HomeController" as your controller name. Set the ** Scaffolding options Template** to  **MVC Controller with read/write actions and views, using Entity Framework**.
+5. In the **Add Controller** dialog box, enter "HomeController" as your controller name. Set the **Scaffolding options Template** to  **MVC Controller with read/write actions and views, using Entity Framework**.
 6. Select **Contact** as your model class and **&lt;New data context...>** as your data context class.<br/>
 ![Add Controller dialog box][addcode002]<br/>
 7. On the **New Data Context** dialog box, accept the default value *ContactManager.Models.ContactManagerContext*.
@@ -339,7 +340,7 @@ The next task is to enable the [Code First Migrations](http://atlas.asp.net/mvc/
 
 The application shows the seed data and provides edit, details and delete links.
 
-<br/>![MVC view of data][rx2]
+<br/>![MVC view of data][rxz3]
 
 <h2><a name="bkmk_addview"></a>Edit the View</h2>
 
@@ -436,9 +437,9 @@ The application shows the seed data and provides edit, details and delete links.
 		</form>
 
 3. Right-click the Content folder and click **Add**, and then click **New Item...**.
-	<!--<br/>![Add style sheet in Content folder context menu][addcode005]-->
-4. In the **Add New Item** dialog box, expand C# and select Web under Installed Templates and then select **Style Sheet**.
-	<!--<br/>![Add New Item dialog box][addcode006]-->
+	<br/><br/>![Add style sheet in Content folder context menu][addcode005]
+4. In the **Add New Item** dialog box, enter **Style** in the upper right search box and then select **Style Sheet**.
+	<br/>![Add New Item dialog box][rxStyle]
 5. Name the file Contacts.css and click **Add**. Replace the contents of the file with the following code.
     
         .column {
@@ -514,7 +515,7 @@ To:
 
 <h2><a name="bkmk_addwebapi"></a>Add a controller for the Web API Restful interface</h2>
 
-1. In **Solution Explorer**, right-click Controllers and click **Controller....** 
+1. In **Solution Explorer**, right-click Controllers and click **Add** and then **Controller....** 
 4. In the **Add Controller** dialog box, enter "ContactsController" as your controller name, select the **API controller with read/write actions, using Entity Framework** template. 
 5. In **Model Class** select *Contact (ContactManager.Models)* and in **Data Context Class** select *ContactManagerContext (ContactManager.Models)*.
  <br/>![Add API controller][rxAddApiController]<br/>
@@ -543,13 +544,13 @@ To publish the application, you repeat the procedure you followed earlier.
 1. In **Solution Explorer**, right click the project and select **Publish**.
  <br/>![Publish][rxP]<br/><br/>
 5. Click the **Settings** tab.
-![Settings tab of Publish Web wizard][rxSettings]<br/>
-1. You can click the **^** icon next to the **UsersContext(DefaultConnection)** database, that is the membership database and we're not using it in this tutorial. A real application would require authentication and authorization, and you would use the membership database for that purpose.
-6. The connection string box for the **ContactsManagerContext(ContactsManagerContext)** database contains the SQL Database connection string that was provided in the .publishsettings file. Click on the elipsis (**...**) to see the *ContactDB* settings.<br/>
+![Settings tab of Publish Web wizard][rxz4]<br/>
+1. Under **ContactsManagerContext(ContactsManagerContext)**, click the **v** icon to change *Remote connection string* to the connection string for the contact database.
+6. The connection string box for the **ContactsManagerContext(ContactsManagerContext)** database contains the SQL Database connection string that was provided in the *publishsettings* file. Click on the elipsis (**...**) to see the *ContactDB* settings.<br/>
  <br/>![DB settings][rx22]<br/><br/>
-7. Close the **Destination Connections String Dialog** and in the **Publish Web** dialog select **Execute Code First Migrations (runs on application start)** for the **UsersContext(DefaultConnection)** database.<br/>
-![Settings tab of Publish Web wizard][rxSettings]<br/>
-(As was noted earlier, the **UsersContext(DefaultConnection)** database is for the ASP.NET membership system. You are not using membership functionality in this tutorial, so you aren't configuring that database for deployment.)
+7. Close the **Destination Connections String Dialog** and in the **Publish Web** dialog check the box for **Execute Code First Migrations (runs on application start)** for the **UsersContext(DefaultConnection)** database.<br/>
+![Settings tab of Publish Web wizard][rxz44]<br/>
+1. You can click the **^** icon next to the **UsersContext(DefaultConnection)** database, that is the connection information for the membership database and we're not using it in this tutorial. A real application would require authentication and authorization, and you would use the membership database for that purpose. See [Deploy a Secure ASP.NET MVC application with OAuth, Membership and SQL Database](http://blogs.msdn.com/b/webdev/archive/2013/03/12/deploy-a-secure-asp-net-mvc-application-with-oauth-membership-and-sql-database.aspx) which is based on this tutorial and shows how to deploy a web application with the membership database.
 8. Click **Publish**.<br/>
 After the deployment completes, the browser opens to the home page of the application.<br/>
 ![Index page with no contacts][intro001]<br/>
@@ -654,6 +655,11 @@ Please leave feedback on what you liked or what you would like to see improved, 
 [rxb2]: ../Media/rxb2.png
 [rxz]: ../Media/rxz.png
 [rxzz]: ../Media/rxzz.png
+[rxz2]: ../Media/rxz2.png
+[rxz3]: ../Media/rxz3.png
+[rxStyle]: ../Media/rxStyle.png
+[rxz4]: ../Media/rxz4.png
+[rxz44]: ../Media/rxz44.png
 [rx]: ../Media/rx.png
 [rx]: ../Media/rx.png
 
