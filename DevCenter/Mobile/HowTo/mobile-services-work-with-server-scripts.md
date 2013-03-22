@@ -77,7 +77,7 @@ A table operation script must call at least one of the following functions of th
 + **respond function**: A custom response is returned.
 
 <div class="dev-callout"><strong>Important</strong>
-<p>These scripts must call execute or respond to make sure that a response is returned to the client. When a script has a code path in which neither of these functions is invoked, the operation may become unresponsive.</p>
+<p>These scripts must call execute or respond to make sure that a response is returned to the client. When a script has a code path in which neither of these functions is invoked, the operation may become unresponsive.</p></div>
 
 The following script calls the **execute** function to complete the data operation requested by the client: 
 
@@ -165,7 +165,7 @@ By default in a table operation, the **execute** function writes responses autom
 When you provide a success handler to the **execute** function, you are responsible for letting the runtime know that you script has completed and that a response can be written. You do this by calling the **respond** function. When you call **respond** without passing any arguments, Mobile Services generates the default response. 
 
 <div class="dev-callout"><strong>Note</strong>
-<p>You can only call the <strong>respond</strong> function without arguments to invoke the default response after first calling the <strong>execute</strong> function.</p>
+<p>You can only call the <strong>respond</strong> function without arguments to invoke the default response after first calling the <strong>execute</strong> function.</p></div>
  
 The **execute** function can fail for a variety of reasons, including loss of connectivity to the database, an invalid object, or an incorrect query. Server scripts have a default behavior for errors, which is to log the error and write an error result to the response. Because Mobile Services provides default error handling for scripts, you do not need to handle such errors that may occur in the service. 
 
@@ -321,7 +321,7 @@ Some of these modules are provided by Mobile Services, while others are built-in
 + **zlib**: Exposes compression functionality, including gzip and deflate. For more information, see the [Node.js documentation][zlib API]. 
 
 <div class="dev-callout"><strong>Note</strong>
-<p>Some Node.js modules might be disallowed. When you try to require a disallowed module, a runtime error occurs.</div>
+<p>Some Node.js modules might be disallowed. When you try to require a disallowed module, a runtime error occurs.</p></div>
 
 In addition to requiring modules, server scripts can also optionally include helper functions. In the following example is a table script registered to the insert operation, which includes the helper function **handleUnapprovedItem**:
 
