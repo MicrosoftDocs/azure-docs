@@ -142,7 +142,7 @@ where account and container are the values used for specifying the default file 
 
 ##Mapping Files and Directories into Blob Storage Containers
 
-Blob Storage containers are a key-value store. There is no true hierarchical file system. A / inside an Azure Blob's key is interpreted as a directory separator. Each segment in the blob's key separated by a directory separator implies a directory, or, in the case of the last segment, the file name. For example a blob's key input/log1.txt is the file log1.txt inside the directory input. 
+Blob Storage containers are a key-value store. There is no true hierarchical file system. A / inside an Azure Blob's key is interpreted as a directory separator. Each segment in the blob's key separated by a directory separator implies a directory, or, in the case of the last segment, the file name. For example a blob's key input/log1.txt is the file log1.txt inside the directory input.
 
 This is also how to map the HDFS file and directory structure back into the Blob Storage container. A file f.txt inside the directories a/b/c will be stored as blob called a/b/c/f.txt inside the Blob Storage container.
 
