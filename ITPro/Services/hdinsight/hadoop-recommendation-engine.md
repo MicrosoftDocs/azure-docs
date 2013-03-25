@@ -42,7 +42,7 @@ To use this dataset with Mahout you need to do two things:
 
 If you do not have Visual Studio 2010 installed, please skip this step and go to Running Mahout Job Section to get a pre-generated version.
 
-Start by launching Visual Studio 2010. In Visual Studio, select **File -> New Project**. In the **Installed Templates** pane, inside the **Visual C#** node, select the **Window** category, and then select **Console Application** from the list. Name the project "ConvertToMahoutInput".
+Start by launching Visual Studio 2010. In Visual Studio, select **File -> New -> Project**. In the **Installed Templates** pane, inside the **Visual C#** node, select the **Window** category, and then select **Console Application** from the list. Name the project "ConvertToMahoutInput" and click the **OK** button.
 
 ![creating a console application](../media/creating-a-console-application.png)
 
@@ -50,14 +50,13 @@ Start by launching Visual Studio 2010. In Visual Studio, select **File -> New Pr
 
 1. Once the application is created, open the **Program.cs** file and add the following static members to the **Program** class:
 
-		const char tab = '\u0009';
-	
-		static Dictionary<string, int> usersMapping = new Dictionary<string, int>();
 
+		const char tab = '\u0009';
+		static Dictionary<string, int> usersMapping = new Dictionary<string, int>();
 		static Dictionary<string, int> songMapping = new Dictionary<string, int>();	
 
 
-2. Next, fill the **Main** method with the following code:
+2. Next, add the `using System.IO;` statment and fill the **Main** method with the following code:
 
 		var inputStream = File.Open(args[0], FileMode.Open);
 		var reader = new StreamReader(inputStream);
@@ -87,7 +86,7 @@ Start by launching Visual Studio 2010. In Visual Studio, select **File -> New Pr
     		line = reader.ReadLine();
 		}
 
-		Console.WriteLine("saved {0} lines to {1}", i, args[1]);
+		Console.WriteLine("saved {0} lines to {1}", i, args[0]);
 	
 		reader.Close();
 		writer.Close();
@@ -136,7 +135,7 @@ Start by launching Visual Studio 2010. In Visual Studio, select **File -> New Pr
 
 5. Download the sample data from [this link](http://labrosa.ee.columbia.edu/millionsong/sites/default/files/challenge/train_triplets.txt.zip). Once downloaded, open **train\_triplets.txt.zip** and extract **train\_triplets.txt**.
 
-	When running the utility, include a command line argument with the location of **train\_triplets.txt**. To do so, right-click the **ConvertToMahoutInput** project node in **Solution Explorer** and select **Properties**. On the project properties page, add the path of **train\_triplets.txt** to the **Command line arguments** text box:
+	When running the utility, include a command line argument with the location of **train\_triplets.txt**. To do so, right-click the **ConvertToMahoutInput** project node in **Solution Explorer** and select **Properties**. On the project properties page, select the **Debug** tab on the left side, and add the path of &lt;localpath&gt;train\_triplets.txt to the **Command line arguments** text box:
 
 	![setting command line arguments](../media/setting-command-line-arguments.png)
 
