@@ -2,6 +2,7 @@
 <div class="left-nav">
 <div class="static-nav">
 <ul>
+<li><a href="/en-us/develop/media-services/">Home</a></li>
 <li class="menu-media-services-resources"><a href="/en-us/develop/media-services/resources/">Tutorials and Resources</a></li>
 </ul>
 <ul class="links">

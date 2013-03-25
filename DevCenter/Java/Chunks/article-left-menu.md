@@ -2,6 +2,7 @@
 <div class="left-nav">
 <div class="static-nav">
 <ul>
+<li><a href="/en-us/develop/java/">Java Home</a></li>
 <li class="menu-java-compute"><a href="/en-us/develop/java/compute/">Compute</a></li>
 <li class="menu-java-data"><a href="/en-us/develop/java/data/">Data Services</a></li>
 <li class="menu-java-appservices"><a href="/en-us/develop/java/app-services/">App Services</a></li>
