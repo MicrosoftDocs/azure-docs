@@ -390,7 +390,7 @@ To learn more about registering and using server scripts, see [Mobile Services s
 [add-linker-flag]: ../Media/pusher-ios-add-linker-flag.png
 
 <!-- URLs. -->
-[Push Notifications to Users]: ../tutorials/mobile-services-push-notifications-to-app-users.md
+[Push Notifications to Users]: /en-us/develop/mobile/tutorials/build-realtime-apps-with-pusher-ios/
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started.md
 [libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
 [libPusherDownload]: http://go.microsoft.com/fwlink/p/?LinkId=276998
