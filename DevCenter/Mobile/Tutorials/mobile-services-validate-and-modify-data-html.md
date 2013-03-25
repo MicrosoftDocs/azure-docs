@@ -183,13 +183,7 @@ You have completed this working with data tutorial.
 
 Now that you have completed this tutorial, consider continuing on with the final tutorial in the data series: [Refine queries with paging].
 
-Server scripts are also used when authorizing users and for sending push notifications. For more information see the following topics:
-
-* [Authorize users with scripts]
-  <br/>Learn how to filter data based on the ID of an authenticated user.
-
-* [Mobile Services server script reference]
-  <br/>Learn more about registering and using server scripts.
+For more information, see [Work with server scripts].
 
 <!-- Anchors. -->
 [Add string length validation]: #string-length-validation
@@ -205,7 +199,7 @@ Server scripts are also used when authorizing users and for sending push notific
 [3]: ../Media/mobile-quickstart-startup-html.png
 
 <!-- URLs. -->
-[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Work with server scripts]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts
 [Get started with Mobile Services]: ./mobile-services-get-started-html.md
 [Authorize users with scripts]: ./mobile-services-authorize-users-html.md
 [Refine queries with paging]: ./mobile-services-paging-data-html.md
