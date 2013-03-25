@@ -38,7 +38,9 @@ It is always a good practice to validate the length of data that is submitted by
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
-                request.respond(statusCodes.BAD_REQUEST, 'Text length must be under 10');
+                request.respond(statusCodes.BAD_REQUEST, {
+                    error: "Text cannot exceed 10 characters"
+                });
             } else {
                 request.execute();
             }
@@ -74,7 +76,7 @@ Now that the mobile service is validating data and sending error responses, you 
 			if (itemText !== '') {
 				todoItemTable.insert({ text: itemText, complete: false })
 					.then(refreshTodoItems, function(error){
-					alert(error.request.responseText);
+					alert(JSON.parse(error.request.responseText).error);
 				});
 			}
 			textbox.val('').focus();
@@ -93,7 +95,9 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
-                request.respond(statusCodes.BAD_REQUEST, 'Text length must be under 10');
+                request.respond(statusCodes.BAD_REQUEST, {
+                    error: 'Text length must be under 10'
+                });
             } else {
                 item.createdAt = new Date();
                 request.execute();
@@ -136,7 +140,8 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 							.prop('checked', item.complete))
 						.append($('<div>').append($('<input class="item-text">').val(item.text))
 						.append($('<span class="timestamp">' 
-							+ (item.createdAt && item.createdAt.toDateString() || '') 
+							+ (item.createdAt && item.createdAt.toDateString() + ' '
+							+ item.createdAt.toLocaleTimeString() || '') 
 							+ '</span>')));
 
 				});
