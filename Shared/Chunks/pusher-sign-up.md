@@ -54,15 +54,15 @@ For more information on getting started with Pusher, see [Understanding Pusher][
 
 <!--images-->
 
-[command-bar-new]: ../media/pusher_bar_new.PNG
-[pusher-store]: ../media/pusher_offerings_store.png
-[store-screen-1]: ../media/pusher_store_scrn1.png
-[store-screen-2]: ../media/pusher_store_scrn2.png
-[store-screen-3]: ../media/pusher_store_scrn3.png
-[pusher-add-on-dashboard]: ../media/pusher_add-on_dashboard.png
-[pusher-connection-info]: ../media/pusher_connection_info.png
-[pusher-connection-info-button]: ../media/pusher_connection_info_button.png
-[sendgrid-control-panel]: ../media/sendgrid_control_panel.png
+[command-bar-new]: ../../DevCenter/Shared/Media/pusher_bar_new.PNG
+[pusher-store]: ../../DevCenter/Shared/media/pusher_offerings_store.png
+[store-screen-1]: ../../DevCenter/Shared/media/pusher_store_scrn1.png
+[store-screen-2]: ../../DevCenter/Shared/media/pusher_store_scrn2.png
+[store-screen-3]: ../../DevCenter/Shared/media/pusher_store_scrn3.png
+[pusher-add-on-dashboard]: ../../DevCenter/Shared/media/pusher_add-on_dashboard.png
+[pusher-connection-info]: ../../DevCenter/Shared/media/pusher_connection_info.png
+[pusher-connection-info-button]: ../../DevCenter/Shared/media/pusher_connection_info_button.png
+[sendgrid-control-panel]: ../../DevCenter/Shared/media/sendgrid_control_panel.png
 
 <!--Links-->
 

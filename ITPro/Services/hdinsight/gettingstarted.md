@@ -127,7 +127,7 @@ We can use the JavaScript Interactive Console to view the output from the WordCo
 
 1. To get to the Interactive JavaScript console, return to your tiled Windows Azure HDInsight page. In the **Your Cluster** section and click the **Interactive Console** tile to bring up the Interactive JavaScript console.
 
-2. To confirm that you have the part-r-00000 output file in the DavinciAllTopWords folder that contains the results, enter the command `file = fs.read("asv:///DaVinciAllTopWords")` in the console check that this file is there.
+2. To confirm that you have the part-r-00000 output file in the DavinciAllTopWords folder that contains the results, enter the command `#ls asv:///DaVinciAllTopWords` in the console check that this file is there.
 
 	![HDI.JSConsole1](../media/HDI.JSConsole1.PNG "JavaScript Console Output")
 

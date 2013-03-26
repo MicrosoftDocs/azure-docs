@@ -4,117 +4,138 @@
 
 # Using MapReduce with HDInsight#
 
-## Introduction ##
+In this tutorial, you will execute a Hadoop MapReduce job to process a semi-structured Apache *log4j* log file on a Windows Azure HDInsight cluster. [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) is a Java-based logging utility. Each log inside a file contains a log level field to show the log level type and the severity. This MapReduce job takes a log4j log file as input, and generates an output file that contains the log level along with its frequency count. 
 
-In this tutorial, you will execute a simple Hadoop MapReduce job. This MapReduce job takes a semi-structured log file as input, and generates an output file that contains the log level along with its frequency count. 
+**Estimated time to complete:** 30 minutes
 
-Our input data consists of a semi-structured log4j file in the following format:
+## In this Article
+* Big Data and Hadoop MapReduce
+* Procedures
+* Next Steps
 
-**Data:**
+## Big Data and Hadoop MapReduce
+Generally, all applications save errors, exceptions and other coded issues in a log file. These log files can get quite large in size, containing a wealth of data that must be processed and mined. Log files are a good example of big data. Working with big data is difficult using relational databases with statistics and visualization packages. Due to the large amounts of data and the computation of this data, parallel software running on tens, hundreds, or even thousands of servers is often required to compute this data in a reasonable time. Hadoop provides a MapReduce framework for writing applications that process large amounts of structured and semi-structured data in parallel across large clusters of machines in a very reliable and fault-tolerant manner.
+
+The following figure is the visual representation of what you will accomplish in this tutorial:
+
+![HDI.VisualObjective](../media/HDI.VisualObject.gif "Visual Objective")
+
+
+The input data consists of a semi-structured log4j file:
+
 
 	2012-02-03 20:26:41 SampleClass3 [TRACE] verbose detail for id 1527353937
-
 	java.lang.Exception: 2012-02-03 20:26:41 SampleClass9 [ERROR] incorrect format for id 324411615
             at com.osa.mocklogger.MockLogger#2.run(MockLogger.java:83)
-
 	2012-02-03 20:26:41 SampleClass2 [TRACE] verbose detail for id 191364434
-
 	2012-02-03 20:26:41 SampleClass1 [DEBUG] detail for id 903114158
-
 	2012-02-03 20:26:41 SampleClass8 [TRACE] verbose detail for id 1331132178
-
 	2012-02-03 20:26:41 SampleClass8 [INFO] everything normal for id 1490351510
-
 	2012-02-03 20:32:47 SampleClass8 [TRACE] verbose detail for id 1700820764
-
 	2012-02-03 20:32:47 SampleClass2 [DEBUG] detail for id 364472047
-
 	2012-02-03 20:32:47 SampleClass7 [TRACE] verbose detail for id 1006511432
-
 	2012-02-03 20:32:47 SampleClass4 [TRACE] verbose detail for id 1252673849
-
 	2012-02-03 20:32:47 SampleClass0 [DEBUG] detail for id 881008264
-
 	2012-02-03 20:32:47 SampleClass0 [TRACE] verbose detail for id 1104034268
-
 	2012-02-03 20:32:47 SampleClass6 [TRACE] verbose detail for id 1527612691
-
 	java.lang.Exception: 2012-02-03 20:32:47 SampleClass7 [WARN] problem finding id 484546105
             at com.osa.mocklogger.MockLogger#2.run(MockLogger.java:83)
-
 	2012-02-03 20:32:47 SampleClass0 [DEBUG] detail for id 2521054
-
 	2012-02-03 21:05:21 SampleClass6 [FATAL] system problem at id 1620503499
 
-
+In the square brackets are the log levels. For example *[DEBUG]*, *[FATAL]*. 
  
-The output data will be put into a file showing the various log4j log levels along with its frequency occurrence in our input file. A sample of these metrics is displayed below:
+The output data will be put into a file showing the various log4j log levels along with its frequency occurrence:
 
-**OUTPUT:**
- 
 	[TRACE] 8
 	[DEBUG] 4
 	[INFO]  1
 	[WARN]  1
 	[ERROR] 1
 	[FATAL] 1
+
+## Procedures 
+You will complete the following tasks in this tutorial:
+
+1. Connect to an HDInsight Cluster
+2. Import data into HDFS
+3. Create a MapReduce job
+4. Run the MapReduce job
+5. Tutorial Clean Up
  
-This tutorial takes about 30 minutes to complete and is divided into the following five tasks:
 
-
-- Task 1: Connect to your HDInsight Cluster
-- Task 2: Create The MapReduce job
-- Task 3: Import data into HDFS and Run MapReduce
-- Task 4: Examine the MapReduce job’s output on HDFS
-- Task 5: Tutorial Clean Up
- 
-The visual representation of what you will accomplish in this tutorial is shown in the figure.
-
-![](../media/HDI.VisualObject.png)
-
-## The Use Case ##
- 
-Generally, all applications save errors, exceptions and other coded issues in a log file so administrators can review the problems, or generate certain metrics from the log file data. These log files usually get quite large in size, containing a wealth of data that must be processed and mined. 
-
-Log files are a good example of big data. Working with big data is difficult using relational databases with statistics and visualization packages. Due to the large amounts of data and the computation of this data, parallel software running on tens, hundreds, or even thousands of servers is often required to compute this data in a reasonable time. Hadoop provides a MapReduce framework for writing applications that process large amounts of structured and semi-structured data in parallel across large clusters of machines in a very reliable and fault-tolerant manner.
-
-In this tutorial, you will use an semi-structured, application log4j log file as input, and generate a Hadoop MapReduce job that will report some basic statistics as output.
-
-## Connect to your HDInsight Cluster
+### Connect to an HDInsight Cluster
+You must have an HDInsight cluster previsioned before you can work on this tutorial. For information on prevision an HDInsight cluster see [How to Administer HDInsight Service](/en-us/manage/services/hdinsight/howto-administer-hdinsight/) or [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/).
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
-2. Click **HDINSIGHT**. You shall see a list of deployed Hadoop clusters.
-3. Click the Hadoop cluster where you want to upload data to.
-4. Click the cluster URL, or **Start Dashboard** on the bottom of the page
-5. Enter **User name** and **Password** for the cluster, and then click **Log On**.
-6. Click **Remote Desktop**.
-	
-	![HDI.TileRemoteDesktop](../media/HDI.TileRemoteDesktop.png?raw=true "Remote Desktop")
+2. Click **HDINSIGHT** on the left. You shall see a list of deployed Hadoop clusters.
+3. Click the Hadoop cluster where you want to upload data to and run the MapReduce job.
+4. Click **Connect** on the bottom to connect to the remote desktop.
+5. Click **Open**.
+6. Click **Connect**.
+7. Click **Yes**.
+8. Enter your credentials, and then press **ENTER**.
+9. From Desktop, click **Hadoop Command Line**. You will use Hadoop command prompt to execute all of the commands in this tutorial. Most of the commands can be run from the [Interactive JavaScript Console](/en-us/manage/services/hdinsight/interactive-javascript-and-hive-consoles/).
 
-7. Click **Open**.
-9. Enter your credential, and then click **OK**.
-10. Click **Yes**.
-11. From Desktop, click **Hadoop Command Line**.
+### Import data into HDFS
 
-## Create the MapReduce job ##
+MapReduce job can read data from either *Hadoop Distributed File system (HDFS)* or *Windows Azure Blob Storage*. For more information, see [How to: Upload data to HDInsight](/en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/). In this task, you will place the log file data into HDFS where MapReduce will read it and run the job. 
 
-1. Create the tutorial directory:
+1. From Hadoop command prompt, run the following commands to create a directory on the C drive:
 
-		mkdir c:\tutorial 
+		c:	
+		cd \ 
+		mkdir Tutorials
+
+2. Run the following commands to create log file in the C:\Tutorials folder:
+
+		cd \Tutorials
+		notepad sample.log
  
-2. Download the [sample.log](http://go.microsoft.com/fwlink/?LinkID=286223 "Sample.log") file and put it into the C:\tutorial directory.
+	You can also download the [sample.log](http://go.microsoft.com/fwlink/?LinkID=286223 "Sample.log") file and put it into the C:\Tutorials folder.
 
-3. Review the data in sample.log file:
+3. Click **Yes** to create a new file.
+4. Copy and Paste the input data shown earlier in the article into Notepad.
+5. Press **CTRL+S** to save the file, and then close Notepad.
 
-		notepad c:\tutorial\sample.log
+5. From Hadoop command prompt, create an input directory in HDFS:
 
-4. Load the Tutorial1.java class file into the C:\Tutorial directory. Create the MapReduce job java class file, Tutorial1.java, in notepad. Click ‘Yes’ on any warnings that pop up. Then copy the code shown below into the Tutorial1.java file.
-
-		notepad Tutorial1.java
+		hadoop fs -mkdir Tutorials/input/
  
-	This program (shown below) defines a Mapper and a Reducer that will be called.
-	
-	
+6. Verify that the input directory has been created in the Hadoop file system:
+
+		hadoop fs -ls Tutorials/
+
+	![](../media/HDI-MR3.png)
+ 
+3. Load the sample.log input file into HDFS, and create the input directory:
+
+		hadoop fs -put sample.log Tutorials/input/
+
+4. Verify that the sample.log has been loaded into HDFS:
+
+		hadoop fs -ls Tutorials/input/
+
+	![](../media/HDI-MR4.png)
+
+### Create the MapReduce job ##
+The Java programming language is used in this sample. Hadoop Streaming allows developers to use virtually any programming language to create MapReduces jobs.  For a Hadoop Streaming sample using C#, see [Hadoop on Windows Azure - Working With Data](/en-us/develop/net/tutorials/hadoop-and-data/).
+
+1. From Hadoop command prompt, run the following commands to change directory to the C:\Tutorials folder:
+
+	c: [ENTER]
+	cd \Tutorials [ENTER]
+
+2. run the following command to create a java file in the C:\Tutorials folder:
+
+	notepad log4jMapReduce.java [ENTER]
+
+	Note: the class name is hard-coded in the program. If you want to change the file name,  you must update the java program accordingly.
+
+4. Click **Yes** to create a new file.
+
+5. Copy and paste the following java program into the Notepad window.
+
 		import java.io.IOException;
 		import java.util.Iterator;
 		import java.util.regex.Matcher;
@@ -136,177 +157,150 @@ In this tutorial, you will use an semi-structured, application log4j log file as
 		import org.apache.hadoop.mapred.TextInputFormat;
 		import org.apache.hadoop.mapred.TextOutputFormat;
 	
-		public class Tutorial1
-	
+		public class log4jMapReduce
 		{
 	
-	      //The Mapper
-	      public static class Map extends MapReduceBase implements Mapper<LongWritable, Text, Text, IntWritable>
-	      {     
-	        private static final Pattern pattern = Pattern.compile("(TRACE)|(DEBUG)|(INFO)|(WARN)|(ERROR)|(FATAL)"); 
-	        private static final IntWritable accumulator = new IntWritable(1); 
-	        private Text logLevel = new Text();
+			//The Mapper
+	      	public static class Map extends MapReduceBase implements Mapper<LongWritable, Text, Text, IntWritable>
+	      	{     
+		        private static final Pattern pattern = Pattern.compile("(TRACE)|(DEBUG)|(INFO)|(WARN)|(ERROR)|(FATAL)"); 
+	        	private static final IntWritable accumulator = new IntWritable(1); 
+	        	private Text logLevel = new Text();
 	
-	        public void map(LongWritable key, Text value, OutputCollector<Text, IntWritable> collector, Reporter reporter) throws IOException 
+	        	public void map(LongWritable key, Text value, OutputCollector<Text, IntWritable> collector, Reporter reporter) throws IOException 
+				{
+		     		// split on space, '[', and ']'
+		        	final String[] tokens = value.toString().split("[ \\[\\]]"); 
+		
+		        	if(tokens != null)
+		        	{
+			            //now find the log level token
+		            	for(final String token : tokens) 
+		            	{
+			                final Matcher matcher = pattern.matcher(token);
+		                	//log level found
+		                	if(matcher.matches()) 
+		                	{
+			                    logLevel.set(token);
+								//Create the key value pairs
+								collector.collect(logLevel, accumulator);
+		                	}                                                           
+		            	}
+		        	}                       
+	        	}
+	      	}
+	 
+	  		//The Reducer
+	    	public static class Reduce extends MapReduceBase implements Reducer<Text, IntWritable, Text, IntWritable>
+	    	{
+			    public void reduce(Text key, Iterator<IntWritable> values, OutputCollector<Text, IntWritable> collector,Reporter reporter) throws IOException
+		    	{
+			        int count = 0;
+					//code to aggregate the occurrence
+		        	while(values.hasNext())
+		        	{
+		                    	count += values.next().get();
+		        	}
+			
+		        	System.out.println(key +  "\t" + count);
+		        	collector.collect(key, new IntWritable(count));
+		    	}
+	   		}
+	
+			//The java main method to execute the MapReduce job
+			public static void main(String[] args) throws Exception
 			{
-		     	// split on space, '[', and ']'
-		        final String[] tokens = value.toString().split("[ \\[\\]]"); 
+				//Code to create a new Job specifying the MapReduce class
+		    	final JobConf conf = new JobConf(log4JMapReduce.class);
+		    	conf.setOutputKeyClass(Text.class);
+		    	conf.setOutputValueClass(IntWritable.class);
+		    	conf.setMapperClass(Map.class);
 		
-		        if(tokens != null)
-		        {
-		            //now find the log level token
-		            for(final String token : tokens) 
-		            {
-		                final Matcher matcher = pattern.matcher(token);
-		                //log level found
-		                if(matcher.matches()) 
-		                {
-		                    logLevel.set(token);
-							//Create the key value pairs
-							collector.collect(logLevel, accumulator);
-		                }                                                           
-		            }
-		        }                       
-	        }
-	      }
-	
-	 
-	
-	  	//The Reducer
-	    public static class Reduce extends MapReduceBase implements Reducer<Text, IntWritable, Text, IntWritable>
-	    {
-		    public void reduce(Text key, Iterator<IntWritable> values, OutputCollector<Text, IntWritable> collector,Reporter reporter) throws IOException
-		    {
-		        int count = 0;
-				//code to aggregate the occurrence
-		        while(values.hasNext())
-		        {
-		                    count += values.next().get();
-		        }
+				// Combiner is commented out – to be used in bonus activity
 		
-		        System.out.println(key +  "\t" + count);
-		        collector.collect(key, new IntWritable(count));
-		    }
-	   	}
-	
-	 
-	
-	      //The java main method to execute the MapReduce job
-	
-		public static void main(String[] args) throws Exception
-		{
+			    //conf.setCombinerClass(Reduce.class);
+		    	conf.setReducerClass(Reduce.class);
+		    	conf.setInputFormat(TextInputFormat.class);
+		    	conf.setOutputFormat(TextOutputFormat.class);
 		
-			//Code to create a new Job specifying the MapReduce class
-		    final JobConf conf = new JobConf(Tutorial1.class);
-		    conf.setOutputKeyClass(Text.class);
-		    conf.setOutputValueClass(IntWritable.class);
-		    conf.setMapperClass(Map.class);
+				//File Input argument passed as a command line argument
+		    	FileInputFormat.setInputPaths(conf, new Path(args[0]));
 		
-			// Combiner is commented out – to be used in bonus activity
+				//File Output argument passed as a command line argument
+			    FileOutputFormat.setOutputPath(conf, new Path(args[1]));
 		
-		    //conf.setCombinerClass(Reduce.class);
-		    conf.setReducerClass(Reduce.class);
-		    conf.setInputFormat(TextInputFormat.class);
-		    conf.setOutputFormat(TextOutputFormat.class);
-		
-			//File Input argument passed as a command line argument
-		    FileInputFormat.setInputPaths(conf, new Path(args[0]));
-		
-			//File Output argument passed as a command line argument
-		    FileOutputFormat.setOutputPath(conf, new Path(args[1]));
-		
-			//statement to execute the job 
-		    JobClient.runJob(conf);
+				//statement to execute the job 
+			    JobClient.runJob(conf);
+			}
 		}
-	    }
 
+6. Press **CTRL+S** to save the file.
 
+7. Compile the java file using the following command:
 
-5. Compile the java file.
-
-		C:\apps\dist\java\bin\javac -classpath C:\apps\dist\hadoop-1.1.0-SNAPSHOT\hadoop-core-*.jar Tutorial1.java
+		C:\apps\dist\java\bin\javac -classpath C:\apps\dist\hadoop-1.1.0-SNAPSHOT\hadoop-core-*.jar log4jMapReduce.java
  
+	Make sure there is no compilation errors.
 
-6. Create a tutorial1.jar file containing the Hadoop class files:
+6. Create a log4jMapReduce.jar file containing the Hadoop class files:
 
-		C:\apps\dist\java\bin\jar -cvf tutorial1.jar *.class
+		C:\apps\dist\java\bin\jar -cvf log4jMapReduce.jar *.class
  
 Notice the results before and after executing the jar command, including verifying the existence of the sample.log file in the non-HDFS directory structure (used later).
 
 ![](../media/HDI-MR1.png)
 
 ![](../media/HDI-MR2.png)
- 
-## Import data into HDFS and Run MapReduce ##
 
-The MapReduce job reads data from HDFS. In this task, we will place the sample.log file data into HDFS where MapReduce will read it and run the job. 
 
-1. Create an input directory in HDFS:
 
-		hadoop fs -mkdir tutorial1/input/
- 
-2. Step 2: Verify that the input directory has been created in the Hadoop file system:
 
-		hadoop fs -ls tutorial1/
+### Run the MapReduce job
+Until now, you have uploaded a log4j log files to HDFS, and compiled the MapReduce job.  The next step is to run the job.
 
-	![](../media/HDI-MR3.png)
- 
-3. Load the sample.log input file into HDFS, and create the input directory:
+1. From Hadoop command prompt, execute the following command to run the Hadoop MapReduce job:
 
-		hadoop fs -put sample.log tutorial1/input/
+		hadoop jar log4jMapReduce.jar log4jMapReduce Tutorials/input/sample.log Tutorials/output
 
-4. Verify that the sample.log has been loaded into HDFS:
-
-		hadoop fs -ls tutorial1/input/
-
-	![](../media/HDI-MR4.png)
- 
-5. Run the Hadoop MapReduce job
-
-	In this step, we are doing a number of things, as follows: 
+	This command does a number of things: 
 	
 	- Calling the Hadoop program
-	- Specifying the jar file (tutorial1.jar)
-	- Indicating the class file (Tutorial1)
-	- Specifying the input file (tutorial1/input/sample.log), and output directory (tutorial1/output) 
+	- Specifying the jar file (log4jMapReduce.jar)
+	- Indicating the class file (log4jMapReduce)
+	- Specifying the input file (Tutorials/input/sample.log), and output directory (Tutorials/output) 
 	- Running the MapReduce job 
-
-
-			hadoop jar tutorial1.jar Tutorial1 tutorial1/input/sample.log tutorial1/output
  
-The Reduce programs begin to process the data when the Map programs are 100% complete. Prior to that, the Reducer(s) queries the Mappers for intermediate data and gathers the data, but waits to process. This is shown in the following screenshot. 
+	The Reduce programs begin to process the data when the Map programs are 100% complete. Prior to that, the Reducer(s) queries the Mappers for intermediate data and gathers the data, but waits to process. This is shown in the following screenshot. 
+	
+	![](../media/HDI-MR5.png)
+	
+	The next screen output shows Reduce input records (that correspond to the six log levels) and Map output records (that contain key value pairs). As you can see, the Reduce program condensed the set of intermediate values that share the same key (DEBUG, ERROR, FATAL, and so on) to a smaller set of values.    
+	
+	![](../media/HDI-MR6.png)
 
-![](../media/HDI-MR5.png)
+2. View the output of the MapReduce job in HDFS:
 
-The next screen output shows Reduce input records (that correspond to the six log levels) and Map output records (that contain key value pairs). As you can see, the Reduce program condensed the set of intermediate values that share the same key (DEBUG, ERROR, FATAL, and so on) to a smaller set of values.    
-
-![](../media/HDI-MR6.png)
-
-## Examine the MapReduce job’s output on HDFS ##
-
-1. View the output of the MapReduce job in HDFS:
-
-		hadoop fs -cat tutorial1/output/part-00000
+		hadoop fs -cat Tutorials/output/part-00000
  
-	**Note: **By default, Hadoop creates files begin with the following naming convention: “part-00000”. Additional files created by the same job will have the number increased.
+	**Note:** By default, Hadoop creates files begin with the following naming convention: “part-00000”. Additional files created by the same job will have the number increased.
 
-After executing the command, you should see the following output:
+	After executing the command, you should see the following output:
+	
+	![](../media/HDI-MR7.png)
+	
+	Notice that after running MapReduce that the data types are now totaled and in a structured format.  
 
-![](../media/HDI-MR7.png)
-
-Notice that after running MapReduce that the data types are now totaled and in a structured format.  
-
-## Tutorial Clean Up ##
+### Tutorial Clean Up ##
 
 The clean up task applies to this tutorial only; it is not performed in the actual deployment. In this task, you will delete input and output directories so that if you like, you can run the tutorial again.  
 
 1. Delete the input directory and recursively delete files within the directory:
 
-		hadoop fs -rmr tutorial1/input/
+		hadoop fs -rmr Tutorials/input/
  
 2. Delete the output directory and recursively delete files within the directory:
 
-		hadoop fs –rmr tutorial1/output/
+		hadoop fs –rmr Tutorials/output/
  
 Congratulations! You have successfully completed this tutorial.
 
