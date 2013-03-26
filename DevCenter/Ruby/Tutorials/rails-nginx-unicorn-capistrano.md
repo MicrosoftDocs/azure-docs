@@ -120,6 +120,33 @@ Perform the following steps to start the Rails server in your development enviro
 
 	To stop the server process, enter CTRL+C in the command-line
 
+##<a id="repository"></a>Create a source repository
+
+For this tutorial, we will use [Git](http://git-scm.com/) and [GitHub](https://github.com/) for version control and as a central location for our code.
+
+1.	Create a new repository on [GitHub](https://github.com/). If you do not currently have a GitHub account, you can sign up for a free account.
+
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>The scripts created in later sections of this document will contain the address of your virtual machine and the user name used to deploy the application over SSH. For this reason, we recommend that you use a private GitHub repository if possible.</p>
+	</div>
+
+1. Authorize your development environment to authenticate to your GitHub account using a certificate by performing the steps described on the [Generating SSH Keys](https://help.github.com/articles/generating-ssh-keys#platform-all) page.
+
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>While GitHub supports accessing your repository using a username and password over HTTPS, this tutorial relies on SSH agent forwarding. This allows enables the remote virtual machine to use the certificate stored on your development environment to access GitHub when you invoke the deployment script. For more information, see <a href="https://help.github.com/articles/using-ssh-agent-forwarding">Using SSH Agent Forwarding</a>.</p>
+	</div>
+
+2.	Run the following commands from within the on your local computer to upload the initial version of the application:
+
+		git init
+		git add .
+		git commit -m "initial commit on azure"
+		git remote add origin git@github.com:YOUR_GITHUB_ACCOUNT/blog-azure.git
+		git push -u origin master
+
+
 ##<a id="createvm"></a>Create a Windows Azure Virtual Machine
 
 Follow the instructions given [here][vm-instructions] to create a Windows Azure virtual machine that hosts Linux.
@@ -198,25 +225,6 @@ Nginx provides a default web site that we can use to make sure our virtual machi
 		sudo rm /etc/nginx/sites-enabled/default
 
 	Subsequent steps in this tutorial will create a link from /etc/nginx/sites-enabled to your blog website.
-
-##<a id="repository"></a>Create a source repository
-
-For this tutorial, we will use [Git](http://git-scm.com/) and [GitHub](https://github.com/) for version control and as a central location for our code.
-
-1.	Create a new repository within your account on [GitHub](https://github.com/).
-
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>The scripts created in the next section will contain the address of your server and the user name used to deploy the application over SSH. For this reason, we recommend that you use a private GitHub repository if possible.</p>
-	</div>
-
-2.	Run the following commands from within the on your local computer to upload the initial version of the application:
-
-		git init
-		git add .
-		git commit -m "initial commit on azure"
-		git remote add origin https://github.com/YOUR_GITHUB_ACCOUNT/blog-azure.git
-		git push -u origin master
 
 ##<a id="capify"></a>Prepare for deployment
 
@@ -322,8 +330,6 @@ In this section, you will modify the application to use the [Unicorn](http://uni
 		git push
 
 ##<a id="deploy"></a>Deploy
-
-1. Authorize your development environment to authenticate to your GitHub account using a certificate by performing the steps described on the [Generating SSH Keys](https://help.github.com/articles/generating-ssh-keys#platform-all) page.
 
 2.	From your local development machine, use the following command to setup the remote Windows Azure VM for deployment.
 
