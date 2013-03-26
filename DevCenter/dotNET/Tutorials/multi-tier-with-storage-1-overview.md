@@ -794,7 +794,7 @@ For more information about how to choose between Windows Azure Web Sites and Win
 This section provides a brief overview of costs for running the sample application in Windows Azure, given rates in effect when the tutorial was published in December of 2012. Before making any business decisions based on costs, be sure to check current rates on the following web pages:
 
 * [Windows Azure Pricing Calculator](http://www.windowsazure.com/en-us/pricing/calculator/)
-* [SendGrid Windows Azure](http://sendgrid.com/azure.html/)
+* [SendGrid Windows Azure](http://www.windowsazure.com/en-us/store/service/?id=f131eadb-7aa3-401a-a2fb-1c7e71f45c3c)
 
 Costs are affected by the number of web and worker role instances you decide to maintain. In order to qualify for the [Azure Cloud Service 99.95% Service Level Agreement (SLA)](https://www.windowsazure.com/en-us/support/legal/sla/ "SLA"), you must deploy two or more instances of each role. One of the reasons you must run at least two role instances is because the virtual machines that run your application are restarted approximately twice per month for operating system upgrades. (For more information on OS Updates, see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).) 
 

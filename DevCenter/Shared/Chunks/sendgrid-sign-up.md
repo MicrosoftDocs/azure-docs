@@ -1,4 +1,4 @@
-Windows Azure customers can unlock two months of SendGrid's Bronze Plan for free by entering the promo code **freesendgridbronze**. This will give you 40,000 free emails per month and all the bronze features free of charge for the first two months. For information about additional services provided by SendGrid, see the [SendGrid Features][] page.
+Windows Azure customers can unlock 25,000 free emails each month. These 25,000 free monthly emails will give you access to advanced reporting and analytics and all APIs (Web, SMTP, Event, Parse, Sub-User). For information about additional services provided by SendGrid, see the [SendGrid Features][] page.
 
 ### To sign up for a SendGrid account
 
