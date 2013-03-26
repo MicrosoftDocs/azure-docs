@@ -132,7 +132,7 @@ application:
 
 To complete the tasks in this guide, you will need the following:
 
--   Microsoft Visual Studio 2012
+-   Microsoft Visual Studio 2010
 -   [Windows Identity Foundation][]
 -   [Windows Identity Foundation SDK][]
 -   An active [Windows Azure account][]
@@ -143,7 +143,7 @@ To demonstrate how ACS does authentication, create a simple ASP.NET web
 application, which you will later set up as a Relying Party (RP)
 application.
 
-1.  Start Visual Studio 2012.
+1.  Start Visual Studio 2010.
 2.  In Visual Studio, click **File**, and then click **New Project**.
 3.  In New Project window, select**Visual C\#/Web** template, and then
     select **ASP.NET Empty Web Application**.

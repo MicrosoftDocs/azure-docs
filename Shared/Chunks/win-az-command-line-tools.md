@@ -25,7 +25,7 @@ In addition to command-specific optional parameters documented here, there are t
 * [Commands to manage Windows Azure Mobile Services](#Commands_to_manage_mobile_services)
 * [Manage tool local settings](#Manage_tool_local_settings)
 
-##<a id="Manage_your_account_information_and_publish_settings"></a>Manage your account information and publish settings
+##<a name="Manage_your_account_information_and_publish_settings"></a>Manage your account information and publish settings
 Your Windows Azure subscription information is used by the tool to connect to your account. This information can be obtained from the Windows Azure portal in a publish settings file as described here. The publish settings file can then be imported as a persistent local config setting that the tool will use for subsequent operations. You only need to import your publish settings once.
 
 **account download [options]**
@@ -77,10 +77,10 @@ Affinity groups can be set when a group of virtual machines spans multiple physi
 	data:   535EBAED-BF8B-4B18-A2E9-8755FB9D733F  opentec  West US
 	info:   account affinity-group list command OK
 
-##<a id="Commands_to_manage_your_Azure_virtual_machines"></a>Commands to manage your Windows Azure virtual machines
+##<a name="Commands_to_manage_your_Azure_virtual_machines"></a>Commands to manage your Windows Azure virtual machines
 The following diagram shows how Windows Azure virtual machines are hosted in the production deployment environment of a Windows Azure cloud service.
  
-![Azure Technical Diagram](images/Azure Technical Diagram.jpg?raw=true)	
+![Azure Technical Diagram](../../Shared/Media/networkdiagram.jpg)	
 
 **create-new** creates the drive in blob storage (that is, e:\ in the diagram); **attach** attaches an already created but unattached disk to a virtual machine.
 
@@ -223,10 +223,10 @@ A virtual machine image cannot be captured while the virtual machine state unles
 	+ Capturing VM
 	info:   vm capture command OK
 
-##<a id="Commands_to_manage_your_Azure_virtual_machine_endpoints"></a>Commands to manage your Windows Azure virtual machine endpoints
+##<a name="Commands_to_manage_your_Azure_virtual_machine_endpoints"></a>Commands to manage your Windows Azure virtual machine endpoints
 The following diagram shows the architecture of a typical deployment of multiple instances of a virtual machine. Note that in this example port 3389 is open on each virtual machine (for RDP access), and there is also an internal IP address (for example, 168.55.11.1) on each virtual machine that is used by the load balancer to route traffic to the virtual machine. This internal IP address can also be used for communication between virtual machines.
 
-![azurenetworkdiagram](images/azurenetworkdiagram.jpg?raw=true)
+![azurenetworkdiagram](../../Shared/Media/networkdiagram.jpg)
  
 External requests to virtual machines go through a load balancer. Because of this, requests cannot be specified against a particular virtual machine on deployments with multiple virtual machines. For deployments with multiple virtual machines, port mapping must be configured between the virtual machines (vm-port) and the load balancer (lb-port).
 
@@ -263,7 +263,7 @@ This command lists all virtual machine endpoints. The -json option specifies tha
 	data:   ----  -------------  ----------
 	data:   ssh   22             22
 
-##<a id="Commands_to_manage_your_Azure_virtual_machine_images"></a>Commands to manage your Windows Azure virtual machine images
+##<a name="Commands_to_manage_your_Azure_virtual_machine_images"></a>Commands to manage your Windows Azure virtual machine images
 
 Virtual machine images are captures of already configured virtual machines that can be replicated as required.
 
@@ -330,7 +330,7 @@ Some systems impose per-process file descriptor limits. If this limit is exceede
 	info:   http://myaccount.blob.core.azure.com/vm-images/Sample.vhd is uploaded successfully
 	info:   vm image create command OK
 
-##<a id="Commands_to_manage_your_Azure_virtual_machine_data_disks"></a>Commands to manage your Windows Azure virtual machine data disks
+##<a name="Commands_to_manage_your_Azure_virtual_machine_data_disks"></a>Commands to manage your Windows Azure virtual machine data disks
 
 Data disks are .vhd files in blob storage that can be used by a virtual machine. For more information about how data disks are deployed to blob storage, see the Windows Azure technical diagram shown earlier. 
 
@@ -424,7 +424,7 @@ This command detaches a data disk attached to a Windows Azure virtual machine. &
 	info:   Executing command vm disk detach
 	info:   vm disk detach command OK
 
-##<a id="Commands_to_manage_your_Azure_cloud_services"></a>Commands to manage your Windows Azure cloud services
+##<a name="Commands_to_manage_your_Azure_cloud_services"></a>Commands to manage your Windows Azure cloud services
 
 Windows Azure cloud services are applications and services hosted on web roles and worker roles. The following commands can be used to manage Windows Azure cloud services.
 
@@ -449,7 +449,7 @@ This command deletes a Windows Azure cloud service.
 	info:   cloud-service delete command OK
 
 
-##<a id="Commands_to_manage_your_Azure_certificates"></a>Commands to manage your Windows Azure certificates
+##<a name="Commands_to_manage_your_Azure_certificates"></a>Commands to manage your Windows Azure certificates
 
 Windows Azure certificates are cerificates (that is, SSL certificates) connected to your Windows Azure account.
 
@@ -487,7 +487,7 @@ This command deletes a certificate.
 	info:   service cert delete command OK
 
 
-##<a id="Commands_to_manage_your_web_sites"></a>Commands to manage your web sites
+##<a name="Commands_to_manage_your_web_sites"></a>Commands to manage your web sites
 
 A Windows Azure web site is a web configuration accessible by URI. Web sites are hosted in virtual machines, but you do not need to think about the details of creating and deploying the virtual machine yourself. Those details are handled for you by Windows Azure.
 
@@ -596,7 +596,7 @@ This command stops a web site.
 	info:   site stop command OK
 
 
-##<a id="Commands_to_manage_mobile_services"></a>Commands to manage Windows Azure Mobile Services
+##<a name="Commands_to_manage_mobile_services"></a>Commands to manage Windows Azure Mobile Services
 
 Windows Azure Mobile Services brings together a set of Windows Azure services that enable backend capabilities for your apps. Mobile Services commands are divided into the following categories:
 
@@ -612,7 +612,7 @@ The following options apply to most Mobile Services commands:
 + **-v** or **--verbose**: Write verbose output.
 + **--json**: Write JSON output.
 
-###<a id="Mobile_Services"></a>Commands to manage mobile service instances
+###<a name="Mobile_Services"></a>Commands to manage mobile service instances
 
 **mobile locations [options]**
 
@@ -754,7 +754,7 @@ Key types are `master` and `application`.
 </div> 
 
 
-###<a id="Mobile_Configuration"></a>Commands to manage mobile service configuration
+###<a name="Mobile_Configuration"></a>Commands to manage mobile service configuration
 
 **mobile config list [options] [servicename]**
 
@@ -796,7 +796,7 @@ This command sets a specific configuration option for a mobile service, in this 
 	info:    mobile config set command OK
 
 
-###<a id="Mobile_Tables"></a>Commands to manage mobile service tables
+###<a name="Mobile_Tables"></a>Commands to manage mobile service tables
 
 **mobile table list [options] [servicename]**
 
@@ -898,7 +898,7 @@ This command supports the following additional options:
 + **-l** or **--list**: Returns data in a list format.
 
 
-###<a id="Mobile_Scripts"></a>Commands to manage scripts
+###<a name="Mobile_Scripts"></a>Commands to manage scripts
 
 **mobile script list [options] [servicename]**
 
@@ -955,7 +955,7 @@ This command removes the existing insert script from the TodoItem table.
 	info:    mobile script delete command OK
 
 
-##<a id="Manage_tool_local_settings"></a>Manage tool local settings
+##<a name="Manage_tool_local_settings"></a>Manage tool local settings
 
 Local settings are your subscription ID and Default Storage Account Name.
 
