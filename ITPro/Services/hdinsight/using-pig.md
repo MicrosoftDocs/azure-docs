@@ -4,93 +4,39 @@
 
 # Using Pig with HDInsight #
 
-## Introduction##
 
-Pig provides a scripting language to execute MapReduce jobs as an alternative to writing Java code. Pig’s scripting language is called Pig Latin. 
+[*Pig*](http://pig.apache.org/) provides a scripting language to execute *MapReduce* jobs as an alternative to writing Java code. Pig’s scripting language is called *Pig Latin*. Pig Latin statements follow this general flow:   
 
-Using Pig reduces the time needed to write mapper and reducer programs. This means that no Java is required, and there is no need for boilerplate code. You also have the flexibility to combine java code with Pig. Many complex algorithms can be written in less than five lines of human readable Pig code, as demonstrated in this tutorial.
+- **Load**: Read data to be manipulated from the file system
+- **Transform**: Manipulate the data 
+- **Dump or store**: Output data to the screen or store for processing
 
- 
+In this tutorial, you will write Pig Latin statements to analyze an [Apache log4j](http://en.wikipedia.org/wiki/Log4j) log file, and run various queries on the data to generate output. This tutorial demonstrates the advantages of Pig, and how it can be used to simplify MapReduce jobs. 
 
-Pig Latin statements follow this general flow:   
+**Estimated time to complete:** 30 minutes
 
-- LOAD -- Read data to be manipulated from the file system
-- TRANSFORM -- Manipulate the data 
-- DUMP or STORE -- Output data to the screen or store for processing
+#In this Article
 
-In this tutorial, you will write Pig Latin statements to analyze an application log file, and run various queries on the data to generate output. First, you will use Pig Latin in interactive mode (Grunt shell) to analyze a single log file, and then you will use Pig in batch mode (script) to perform the same task. 
-
-The input file consists of a semi-structured log4j file in the following format:
-
-**DATA:**
-
-	2012-02-03 20:26:41 SampleClass3 [TRACE] verbose detail for id 1527353937
-
-	java.lang.Exception: 2012-02-03 20:26:41 SampleClass9 [ERROR] incorrect format for id 324411615
-
-            at com.osa.mocklogger.MockLogger$2.run(MockLogger.java:83)
-
-	2012-02-03 20:26:41 SampleClass2 [TRACE] verbose detail for id 191364434
-
-	2012-02-03 20:26:41 SampleClass1 [DEBUG] detail for id 903114158
-
-	2012-02-03 20:26:41 SampleClass8 [TRACE] verbose detail for id 1331132178
-
-	2012-02-03 20:26:41 SampleClass8 [INFO] everything normal for id 1490351510
-
-	2012-02-03 20:32:47 SampleClass8 [TRACE] verbose detail for id 1700820764
-
-	2012-02-03 20:32:47 SampleClass2 [DEBUG] detail for id 364472047
-
-	2012-02-03 20:32:47 SampleClass7 [TRACE] verbose detail for id 1006511432
-
-	2012-02-03 20:32:47 SampleClass4 [TRACE] verbose detail for id 1252673849
-
-	2012-02-03 20:32:47 SampleClass0 [DEBUG] detail for id 881008264
-
-	2012-02-03 20:32:47 SampleClass0 [TRACE] verbose detail for id 1104034268
-
-	2012-02-03 20:32:47 SampleClass6 [TRACE] verbose detail for id 1527612691
-
-	java.lang.Exception: 2012-02-03 20:32:47 SampleClass7 [WARN] problem finding id 484546105
-
-            at com.osa.mocklogger.MockLogger$2.run(MockLogger.java:83)
-
-	2012-02-03 20:32:47 SampleClass0 [DEBUG] detail for id 2521054
-
-	2012-02-03 21:05:21 SampleClass6 [FATAL] system problem at id 1620503499
-
-
-
-The output data will be put into a file showing the various log4j log levels along with its frequency occurrence in the input file. A sample of these metrics is displayed below:
-
-**OUTPUT:**
-
-	[TRACE] 8
-
-	[DEBUG] 4
-
-	[INFO]  1
-
-	[WARN]  1
-
-	[ERROR] 1
-
-	[FATAL] 1
+- The Pig usage case
+- Procedures
+- Next Steps
  
 
 
-This tutorial takes about 30 minutes to complete and is divided into the following tasks:
 
-- Connect to your HDInsight Cluster
-- Use Pig in Interactive Mode
-- Use Pig in Batch Mode
-- Tutorial Clean Up
- 
-The visual representation of what you will accomplish in this tutorial is shown in the following two figures. These figures show a representative sample of the dataset to illustrate the flow and transformation of the data as you run through the lines of Pig code in the script. (The entire dataset is over 1000 lines.) The first figure shows a sample of the entire file, and the changes to the file a
+## The Pig Usage Case
+Databases are great for small sets of data and low latency queries. However, when it comes to Big Data and large data sets in terabytes, traditional SQL databases are not the ideal solution. As database load increases and performance degrades, historically, database administrators have had to buy bigger hardware. 
+
+Generally, all applications save errors, exceptions and other coded issues in a log file, so administrators can review the problems, or generate certain metrics from the log file data. These log files usually get quite large in size, containing a wealth of data that must be processed and mined. 
+
+Log files are a good example of big data. Working with big data is difficult using relational databases and statistics/visualization packages. Due to the large amounts of data and the computation of this data, parallel software running on tens, hundreds, or even thousands of servers is often required to compute this data in a reasonable time. Hadoop provides a MapReduce framework for writing applications that processes large amounts of structured and unstructured data in parallel across large clusters of machines in a very reliable and fault-tolerant manner.
+
+Using Pig reduces the time needed to write mapper and reducer programs. This means that no Java is required, and there is no need for boilerplate code. You also have the flexibility to combine java code with Pig. Many complex algorithms can be written in less than five lines of human readable Pig code.
+
+The visual representation of what you will accomplish in this tutorial is shown in the following two figures. These figures show a representative sample of the dataset to illustrate the flow and transformation of the data as you run through the lines of Pig code in the script. The first figure shows a sample of the log4j file, and the changes to the file.
  
 
-Figure 1: Whole File Sample:
+Figure 1: File Sample:
 
 ![Whole File Sample](../media/HDI.wholesamplefile.png)
 
@@ -99,90 +45,87 @@ Figure 2: Data Transformation:
 ![Data Transformation](../media/HDI.DataTransformation.png)
 
 
-## The Use Case ##
+## Procedure
+You will perform the following tasks:
 
+* Upload a sample log4j file to Windows Azure Blob Storage
+* Connect to your HDInsight cluster
+* Use Pig in the interactive mode
+* Use Pig in the batch mode
+* Tutorial clean up
 
-Databases are great for small sets of data and low latency queries. However, when it comes to Big Data and large data sets in terabytes, traditional SQL databases are not the ideal solution. As database load increases and performance degrades, historically, database administrators have had to buy bigger hardware. 
+###Upload a Sample Log4j File to Windows Azure Blob Storage
+*Azure Storage Explorer* is a useful tool for inspecting and altering the data in your Windows Azure Storage. It is a free tool that can be downloaded from [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
- 
+Before using the tool, you must know your Windows Azure storage account name and account key. For the instructions for get the information, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
 
-Generally, all applications save errors, exceptions and other coded issues in a log file, so administrators can review the problems, or generate certain metrics from the log file data. These log files usually get quite large in size, containing a wealth of data that must be processed and mined. 
+1. Download [sample.log](http://go.microsoft.com/fwlink/?LinkID=37003 "Sample.log") to your local computer.
 
- 
+2. Run **Azure Storage Explorer**.
 
-Log files are a good example of big data. Working with big data is difficult using relational databases and statistics/visualization packages. Due to the large amounts of data and the computation of this data, parallel software running on tens, hundreds, or even thousands of servers is often required to compute this data in a reasonable time. Hadoop provides a MapReduce framework for writing applications that processes large amounts of structured and unstructured data in parallel across large clusters of machines in a very reliable and fault-tolerant manner.
+	![HDI.AzureStorageExplorer](../media/HDI.AzureStorageExplorer.png "Azure Storage Explorer")
 
- 
+3. Click **Add Account** if the Windows Azure storage account has not been added to the tool. 
 
-In this tutorial, we will use a semi-structured, application log4j log file as input, and report some basic statistics as output using a Pig job. This tutorial demonstrates the advantages of Pig, and how it can be used to simplify MapReduce jobs.
+	![HDI.ASEAddAccount](../media/HDI.ASEAddAccount.png "Add Account")
 
-## Connect to your HDInsight Cluster ##
+4. Enter **Storage account name** and **Storage account key**, and then click **Add Storage Account**. 
+5. From **Storage Type**, click **Blobs** to display the Windows Azure Blob storage of the account.
+
+	![HDI.ASEBlob](../media/HDI.ASEUploadFile.png "Azure Storage Explorer")
+
+6. From **Container**, click the container that is designated as the default file system.  The default name is the HDInsight cluster name. You shall see the folder structure of the container.
+7. From **Blob**, click **Upload**.
+8. Browse to the sample.log file you just downloaded, and the click **Open**. You shall see the sample.log file listed there.
+9. Double-click the sample.log file to open it.
+11. Click **Text** to switch to the tab, so you can view the content of the file. It is similar to the Figure 1 shown earlier in the article.
+12. Click **Close**. 
+13. From the **File** menu, click **Exit** to close Azure Storage Explorer.
+
+### Connect to your HDInsight Cluster ##
 
   
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 2. Click **HDINSIGHT**. You shall see a list of deployed Hadoop clusters.
 3. Click the name of the HDInsight cluster where you want to upload data to.
-4. Click **Connect RDP** on the bottom of the screen
+4. Click **Connect** on the bottom of the screen
 7. Click **Open**.
 9. Enter your credential, and then click **OK**.
 10. Click **Yes**.
 11. From Desktop, double-click **Hadoop Command Line**.
 	
-## Use Pig in Interactive Mode   ##
+### Use Pig in the Interactive Mode   ##
 
-1. Create the tutorial directory. 
+First, you will use Pig Latin in interactive mode (Grunt shell) to analyze a single log file, and then you will use Pig in batch mode (script) to perform the same task. 
 
-		mkdir c:/tutorial 
+1. From Hadoop command line, run the following commands to enter the pig interactive mode:
+
+		cd ..\pig-0.9.3-SNAPSHOT\bin\
+		pig
  
-2. Download the [sample.log](http://go.microsoft.com/fwlink/?LinkID=286223 "Sample.log") file and put it into the C:\tutorial directory.
- 
-3. Review the data in sample.log file:
+2. Load the sample.log file, and give it the alias *LOGS*:
 
-		notepad c:/tutorial/sample.log
+		grunt> LOGS = LOAD 'asv:///sample.log';
 
-4. Copy sample.log into HDFS:
-
-		hadoop fs -copyFromLocal c:/tutorial/sample.log sample.log
-
-5. Enter Pig interactive command mode:
-
-		c:\apps\dist\pig-0.9.3-SNAPSHOT\bin\pig
- 
-	Notice that when Pig starts it creates a file in C:\tutorial\ for logging error messages, and connects to HDFS and the map-reduce job tracker. 
-
-6. Load the sample.log file that you want to manipulate and give it the alias “LOGS” with the following command:
-
-		grunt> LOGS = LOAD 'sample.log';
- 
-	After each command, you can display the resulting output to the screen to view changes in the data, as shown here. We only show part of the results here due to its large size of the dataset (over 50,000 records)
+3. Show the content:
 
 		grunt> dump LOGS;
  
-	**OUTPUT:**
+	The output is similar to the following:
 	
 		(2012-02-05 19:23:50 SampleClass5 [TRACE] verbose detail for id 313393809)
-	
 		(2012-02-05 19:23:50 SampleClass6 [DEBUG] detail for id 536603383)
-	
 		(2012-02-05 19:23:50 SampleClass9 [TRACE] verbose detail for id 564842645)
-	
 		(2012-02-05 19:23:50 SampleClass8 [TRACE] verbose detail for id 1929822199)
-	
 		(2012-02-05 19:23:50 SampleClass5 [DEBUG] detail for id 1599724386)
-	
 		(2012-02-05 19:23:50 SampleClass0 [INFO] everything normal for id 2047808796)
-	
 		(2012-02-05 19:23:50 SampleClass2 [TRACE] verbose detail for id 1774407365)
-	
 		(2012-02-05 19:23:50 SampleClass2 [TRACE] verbose detail for id 2099982986)
-	
 		(2012-02-05 19:23:50 SampleClass4 [DEBUG] detail for id 180683124)
-	
 		(2012-02-05 19:23:50 SampleClass2 [TRACE] verbose detail for id 1072988373)
-	
 		(2012-02-05 19:23:50 SampleClass9 [TRACE] verbose detail)
 
-7. Go through each line and find a match on the 6 log levels) and give this :
+7. Go through each line and find a match on the 6 log levels:
 
 		grunt> LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
  
@@ -190,109 +133,49 @@ In this tutorial, we will use a semi-structured, application log4j log file as i
 
 	![Pig Warnings](../media/HDI.PigWarnings.png)
 
-8. Dump LEVELS, which is an alias and holds only words from each record “TRACE”, “DEBUG”, “INFO”, “WARN”, “ERROR” and “FATAL”.
+8. Dump LEVELS, which is an alias and holds only words from each record *TRACE*, *DEBUG*, *INFO*, *WARN*, *ERROR* and *FATAL*.
 
 		grunt> dump LEVELS;
- 
-	**OUTPUT:**
-	
-		(DEBUG)
-	
-		(TRACE)
-	
-		(TRACE)
-	
-		(DEBUG)
-	
-		(TRACE)
-	
-		(TRACE)
-	
-		(DEBUG)
-	
-		(TRACE)
-	
-		(TRACE)
-	
-		(DEBUG)
-	
-		(TRACE)
-	
-		(TRACE)
-	
-		(DEBUG)
-	
-		(INFO)
-	
-		(TRACE)
-	
-		(TRACE)
-	
-		(DEBUG)
-	
-		(TRACE)
-	
-		(TRACE)
 
-
-9. Filter out rows that do not have a match (for example, empty rows):
+9. Filter out the rows that do not have a match (for example, the empty rows):
 
 		grunt> FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
 
-	Now dump the FILTEREDLEVELS, which is an alias, that holds these words from each record – “TRACE”, “DEBUG”, “INFO”, “WARN”, “ERROR” & “FATAL” and removes any NULL or EMPTY words.
+10. Dump FILTEREDLEVELS, which is an alias, that holds these words from each record – *TRACE*, *DEBUG*, *INFO*, *WARN*, *ERROR* & *FATAL* and removes any NULL or EMPTY words.
 
 		grunt> dump FILTEREDLEVELS;
 
-	**OUTPUT:**
+	The output is similiar to the following:
 
 		(DEBUG)
-	
 		(TRACE)
-	
 		(TRACE)
-	
 		(DEBUG)
-	
 		(TRACE)
-	
 		(TRACE)
-	
 		(DEBUG)
-	
 		(TRACE)
-	
 		(TRACE)
-	
 		(DEBUG)
-	
 		(TRACE)
-	
 		(TRACE)
-	
 		(DEBUG)
-	
 		(INFO)
-	
 		(TRACE)
-	
 		(TRACE)
-	
 		(DEBUG)
-	
 		(TRACE)
-	
 		(TRACE)
 
-
-10. Group all of the log levels into their own row, (counting is not done yet; it occurs in next step):
+10. Group all of the log levels into their own row (counting is not done yet; it occurs in next step):
 
 		grunt> GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
  
-	Now if you dump LOGLEVELS alias, all of the Log levels are grouped together.
+11. Dump the LOGLEVELS alias, all of the Log levels are grouped together.
 
 		grunt> dump GROUPEDLEVELS;
 
-	**OUTPUT:**
+	The output is similiar to the following:
 
 		(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
 		(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
@@ -307,103 +190,75 @@ In this tutorial, we will use a semi-structured, application log4j log file as i
 		(TRACE)})
 
 
-11. For each group, count the occurrences of log levels (these will be the frequencies of each log level):
+11. For each group, count the occurrences of log levels. These is the frequencies of each log level:
 
-		grunt> FREQUENCIES = foreach GROUPED_LEVELS generate group as LOGLEVEL, COUNT(FILTERED_LEVELS.LOGLEVEL) as COUNT;
- 
-	Dump FREQUENCIES alias to see the count of the occurrences of each word in a group. 
+		grunt> FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+
+12. Dump the FREQUENCIES alias to see the count of the occurrences of each word in a group. 
  
 		grunt> dump FREQUENCIES;
  
-
-	**OUTPUT:**
+	The output is similiar to the following:
 
 		(INFO,3355)
-	
 		(WARN,361)
-	
 		(DEBUG,15608)
-	
 		(ERROR,181)
-	
 		(FATAL,37)
-	
 		(TRACE,29950)
 
 12. Sort the frequencies in descending order:
 
 		grunt> RESULT = order FREQUENCIES by COUNT desc;
 
+13. Dump RESULT:
 		grunt> dump RESULT;   
 
-	This step will take a few minutes.  
+	This step can take a few minutes.  
 
-13. Analyze the output. Scroll down to the Job Stats near the bottom of the output underneath the word “Success!”. Notice that Pig executed three MapReduce jobs with just a few lines of Pig Latin and no Java. 
+	Analyze the output. Scroll down to the Job Stats near the bottom of the output underneath the word “Success!”. Notice that Pig executed three MapReduce jobs with just a few lines of Pig Latin and no Java. 
 
 	![Analyze Output](../media/HDI.AnalyzeOutput.png)
 
-	At the very bottom of the output, notice the job results: 
-
-	**OUTPUT:**
+	At the very bottom of the output, it shows the job results: 
 
 		(TRACE,29950)
-	
 		(DEBUG,15608)
-	
 		(INFO,3355)
-	
 		(WARN,361)
-	
 	 	(ERROR,181)
-	
 		(FATAL,37)
 
+14. Quit the Pig interactive mode
 
-## Use Pig in Batch Mode   ##
+		grunt> quit;
+
+### Use Pig in the Batch Mode   ##
 
 Next, you will use Pig in batch mode by creating a Pig script made up of the same Pig commands you used in the last task. 
-
-1. Exit Pig interactive mode.
-
-		grunt> quit
  
-2. Verify that you are still in the tutorial directory that contains the sample.log input file exists:
-
-		cd C:\tutorial\
-
-3. Create the Pig script by creating a file named ‘pigscript.pig’
+1. Create the Pig script by creating a file named ‘pigscript.pig’
 
 		notepad pigscript.pig
- 
-4. Copy and paste the following Pig commands in the pigscript.pig file, and save:
+
+2. Copy and paste the following Pig commands to the pigscript.pig file, and save:
 
 	- load the log file 
-
-			LOGS = LOAD 'sample.log';
-
+			LOGS = LOAD 'asv:///sample.log';
 	-  iterate through each line and match on the 6 log levels
-
 			LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-
 	- filter out non-match rows, i.e. empty rows
-
 			FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-
 	- now group/consolidate all of the log levels into their own row, counting is not done yet
-
 			GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-
 	- for each group, now count the occurrences of log levels which will be the frequencies of each log level
-
 			FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-	
-- sort the frequencies in descending order
-
+	- sort the frequencies in descending order
 			RESULT = order FREQUENCIES by COUNT desc;
-
 	- write the result to a file
-
 			store RESULT into 'sampleout';
+
+3. Save the file and close Notepad. 
  
 5. Run the newly-created Pig script:
 
@@ -415,11 +270,11 @@ Next, you will use Pig in batch mode by creating a Pig script made up of the sam
 
 	![Analyze Output](../media/HDI.AnalyzeOutput2.png)
  
-	The results are the same as interactive mode. 
+	The results are the same as what you got in the interactive mode. 
  
-## Tutorial Clean Up ##
+### Tutorial Clean Up ##
 
-The clean up task applies to this tutorial only; it is not performed in the actual deployment. In this task, you will delete input and output directories so that if you like, you can run the tutorial again. A way to gracefully shut down processes when exiting the VM is also shown below.
+In this task, you will delete input and output directories so that if you like, you can run the tutorial again. 
 
 1. Delete the Pig job directory and recursively delete files within the directory:
 
@@ -432,9 +287,17 @@ Congratulations! You have successfully completed this tutorial.
 While Pig allows you to perform data analysis, other languages included with the HDInsight Service may be of interest to you also. Hive provides a SQL-like query language that allows you to easily query against data stored in HDInsight, while MapReduce jobs written in Java allow you to perform complex data analysis. For more information, see the following:
 
 * [Using Hive with HDInsight][hdinsight-hive] 
-
 * [Using MapReduce with HDInsight][hdinsight-mapreduce]
 
 
 [hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
 [hdinsight-hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
+
+
+
+
+
+
+
+
+ 

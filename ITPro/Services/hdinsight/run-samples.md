@@ -6,7 +6,7 @@
 
 ## Introduction ##
 
-Installed with each cluster are a set of sample jobs that you can run to quickly and easily get started with HDInsight.
+A set of sample jobs is installed with each cluster that you can run quickly and easily to get started with HDInsight. This topic provides a brief overview on what these samples do and instructions on how to run them.
 
 **What These Samples Are**
 
@@ -18,7 +18,9 @@ These samples are not an exhaustive study of each of the disciplines implemented
 
 ## Using the Samples Gallery ##
 
-The dashboard running on your HDInsight cluster contains a *Samples* tile which contains a list of samples that can be run directly on your cluster.
+The dashboard running on your HDInsight cluster contains a **Hadoop Sample Gallery** page that contains a tile for each of samples that can be run directly on your cluster.
+
+Note the procedure in this section assumes that you have gotten setup with Windows Azure and the HDinsight preview and that you have created an HDInsight cluster on which you can run samples. If you have not done this already, consult the [Getting Started with the Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/) tutorial for instructions on how to satisfy these prerequisites
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 2. Click **HDINSIGHT**. You shall see a list of deployed Hadoop clusters.
@@ -33,7 +35,7 @@ The dashboard running on your HDInsight cluster contains a *Samples* tile which 
 
 	![HDI.SampleGallery](../media/HDI.SampleGallery.PNG "Samples")
 
-To run a sample, click on one of the tiles and select **Deploy To Your Cluster**.
+To run a sample, simply click on one of the tiles and select **Deploy to your cluster**.
 
 ## Summary
 HDInsight ships with five samples, which, with one exception (the Sqoop sample) can be run directly from the dashboard.
@@ -50,13 +52,13 @@ HDInsight ships with five samples, which, with one exception (the Sqoop sample) 
 
 ##Next Steps
 
-In this article, you learned how to run the samples included with the HDInsight Service. For additional tutorials on using MapReduce, Hive, and Pig, or for examples of using the HDInsight Service for sentiment analysis or as a recommendation engine, see the following topics:
+In this article, you learned how to run the samples included with the HDInsight Service. For additional tutorials on using Pig, Hive, and MapReduce, or for examples of using the HDInsight Service for sentiment analysis or as a recommendation engine, see the following topics:
 
-* [Tutorial: Using MapReduce][mapreduce]
+* [Tutorial: Using Pig][pig]
 
 * [Tutorial: Using Hive][hive]
 
-* [Tutorial: Using Pig][pig]
+* [Tutorial: Using MapReduce][mapreduce]
 
 * [Tutorial: Analyzing Twitter Data with Hive][twitter-hdi]
 

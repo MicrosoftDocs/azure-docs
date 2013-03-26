@@ -4,7 +4,7 @@
 
 #How to Connect Excel to Windows Azure HDInsight via HiveODBC
 
-One key feature of Microsoft’s Big Data Solution is solid integration of Apache Hadoop with Microsoft Business Intelligence (BI) components. A good example of this is the ability for Excel to connect to the Hive data warehouse framework in the Hadoop cluster. This topic walks you through using Excel via the Hive ODBC driver. At a high level, the steps are as follows:
+One key feature of Microsoft’s Big Data Solution is the integration of  Microsoft Business Intelligence (BI) components with Apache Hadoop. A primary example of this integration is the ability to connect to the Hive data warehouse framework in an Hadoop cluster from Excel via the Hive ODBC driver. This topic walks you through how to set up and use Hive from Excel to query data in an Hadoop cluster. There are three parts to this procedure:
 
 1. [Install the Hive ODBC Driver](#InstallHiveODBCDriver)
 2. [Create a Hive ODBC Data Source](#CreateHiveODBCDataSource)
@@ -17,8 +17,11 @@ Follow the steps below to install the Hive ODBC Driver.
 
 **Prerequisites**:
 
-* Ensure that Excel 2010 or Excel 2013 64-bit is already installed before installing the HiveODBC Driver. 
-* Download the 64-bit Hive ODBC driver MSI file from the Portal by clicking the **Download** tile from the cluster dashboard.
+* Ensure that Excel 2010 or Excel 2013 is already installed before installing the relevant (32-bit or 64-bit) HiveODBC Driver. 
+* Download the  Hive ODBC driver MSI file from the Portal by clicking the **Download** tile from the cluster dashboard.
+
+	![Hive ODBC Drivers](../media/HDI.HiveOdbcForExcel.Drivers.png)
+
 * Note that currently this driver is only supported on Windows and is only supported against HDInsight Hive installations.
 
 <div class="dev-callout">
@@ -116,7 +119,10 @@ By using components such as the HiveODBC adapter, it is easy to use Business Int
 
 ## Next steps
 
-In this article you learned how to use the HiveODBC adapter to retrieve data from the HDInsight Service. For information on using Sqoop to copy data from HDInsight Service to SQL Azure, see [Using HDInsight to process Blob Storage data and write the results to a SQL Database][blob-hdi-sql]. Or read [How to Upload Data to the HDInsight Service][upload-data] for information on using Sqoop or Windows Azure Blob Storage to load data into the HDInsight Service.
+In this article you learned how to use the HiveODBC adapter to retrieve data from the HDInsight Service. 
+
+* For information on using Sqoop to copy data from an HDInsight Service to SQL Azure, see [Using HDInsight to process Blob Storage data and write the results to a SQL Database][blob-hdi-sql]. 
+* For information on using Sqoop or Windows Azure Blob Storage to load data into an HDInsight Service, see [How to Upload Data to the HDInsight Service][upload-data] e.
 
 [blob-hdi-sql]: /en-us/manage/services/hdinsight/process-blob-data-and-write-to-sql/
 [upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/

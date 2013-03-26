@@ -19,6 +19,7 @@ see the [Next Steps][] section.
  [How To: List the Blobs in a Container][]   
  [How To: Download Blobs][]   
  [How To: Delete a Blob][]   
+ [How To: Upload and Download Large Blobs][]   
  [Next Steps][]
 
 <div chunk="../../Shared/Chunks/howto-blob-storage.md" />
@@ -94,6 +95,56 @@ Finally, to delete a blob, call **delete_blob**.
 
 	blob_service.delete_blob('mycontainer', 'myblob') 
 
+## <a name="large-blobs"> </a>How to: Upload and Download Large Blobs
+
+The maximum size for a block blob is 200 GB.  For blobs smaller than 64 MB, the blob can be uploaded or downloaded using a single call to **put\_blob** or **get\_blob**, as shown previously.  For blobs larger than 64 MB, the blob needs to be uploaded or downloaded in blocks of 4 MB or smaller.
+
+The following code shows examples of functions to upload or download block blobs of any size.
+
+    import base64
+
+    chunk_size = 4 * 1024 * 1024
+
+    def upload(blob_service, container_name, blob_name, file_path):
+        blob_service.create_container(container_name, None, None, False)
+        blob_service.put_blob(container_name, blob_name, '', 'BlockBlob')
+
+        block_ids = []
+        index = 0
+        with open(file_path, 'rb') as f:
+            while True:
+                data = f.read(chunk_size)
+                if data:
+                    length = len(data)
+                    block_id = base64.b64encode(str(index))
+                    blob_service.put_block(container_name, blob_name, data, block_id)
+                    block_ids.append(block_id)
+                    index += 1
+                else:
+                    break
+
+        blob_service.put_block_list(container_name, blob_name, block_ids)
+
+    def download(blob_service, container_name, blob_name, file_path):
+        props = blob_service.get_blob_properties(container_name, blob_name)
+        blob_size = int(props['content-length'])
+
+        index = 0
+        with open(file_path, 'wb') as f:
+            while index < blob_size:
+                chunk_range = 'bytes={}-{}'.format(index, index + chunk_size - 1)
+                data = blob_service.get_blob(container_name, blob_name, x_ms_range=chunk_range)
+                length = len(data)
+                index += length
+                if length > 0:
+                    f.write(data)
+                    if length < chunk_size:
+                        break
+                else:
+                    break
+
+If you need blobs larger than 200 GB, you can use a page blob instead of a block blob.  The maximum size of a page blob is 1 TB, with pages that align to 512-byte page boundaries.  Use **put\_blob** to create a page blob, **put\_page** to write to it, and **get\_blob** to read from it.
+
 ## <a name="next-steps"> </a>Next Steps
 
 Now that you’ve learned the basics of blob storage, follow these links
@@ -111,5 +162,6 @@ to learn how to do more complex storage tasks.
   [How To: List the Blobs in a Container]: #list-blob
   [How To: Download Blobs]: #download-blobs
   [How To: Delete a Blob]: #delete-blobs
+  [How To: Upload and Download Large Blobs]: #large-blobs
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
