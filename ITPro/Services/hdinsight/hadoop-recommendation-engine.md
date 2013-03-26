@@ -4,7 +4,13 @@
 
 # Simple recommendation engine using Apache Mahout 
 
-Apache Mahout™ is a machine learning library built for use in scalable machine learning applications. Recommender engines are some of the most immediately recognizable machine learning applications in use today. In this tutorial you use the  [Million Song Dataset](http://labrosa.ee.columbia.edu/millionsong/tasteprofile) site and download the [dataset](http://labrosa.ee.columbia.edu/millionsong/sites/default/files/challenge/train_triplets.txt.zip) to create song recommendations for users based on their past listening habits.  This tutorial assumes that you already have an HDInsight Cluster running.
+Apache Mahout™ is a machine learning library built for use in scalable machine learning applications. Recommender engines are one of the most popular types of machine learning applications in use today and have many obvious marketing applications.
+
+Apache Mahout provides a built-in implementation for Item-based Collaborative Filtering. This approach is widely used to conduct recommendation data mining. Item-based collaborative filtering was developed by Amazon.com. The idea here is that data on user preferences that exhibit correlations between item preferences can be use to infer the tastes of future users from a similar group.
+
+In this tutorial you use the  [Million Song Dataset](http://labrosa.ee.columbia.edu/millionsong/tasteprofile) site and download the [dataset](http://labrosa.ee.columbia.edu/millionsong/sites/default/files/challenge/train_triplets.txt.zip) to create song recommendations for users based on their past listening habits.  
+
+
 
 You will learn:
 
@@ -12,19 +18,18 @@ You will learn:
 
 This tutorial is composed of the following segments:
 
-1. [Examining and formatting the data](#segment1)
+1. [Setup and configuration](#setup)
+2. [Examining and formatting the data](#segment1)
 3. [Installing Mahout](#Segment2)
-3. [Running the Mahout job](#segment2)
+4. [Running the Mahout job](#segment2)
 
 ## <a name="setup"></a>Setup and configuration 
 
-You must have an account to access Apache™ Hadoop™-based Services for Windows Azure and have created a cluster to work through this tutorial. To obtain an account and create a Hadoop cluster, follow the instructions outlined in the [Getting started with Microsoft Hadoop on Windows Azure](/en-us/develop/net/tutorials/intro-to-hadoop/#header-3) section of the "Introduction to Hadoop on Windows Azure" topic.
+This tutorial assumes that you have gotten setup with Windows Azure and the HDinsight preview and that you have created an HDInsight cluster on which you can run a sample. If you have not done this already, consult the [Getting Started with the Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/) tutorial for instructions on how to satisfy these prerequisites.
 
 ## <a name="segment1"></a>Examining and formatting the data 
 
-Apache Mahout provides a built-in implementation for Item-based Collaborative Filtering. Item-based Collaborative Filtering is a popular way to conduct recommendation data mining. 
-
-This example deals with users that interact with items (songs). These users indicate preferences towards the items, expressed in the number of times they have listened to a song. You can view a sample of this dataset on the [Echo Nest Taste Profile Subset](http://labrosa.ee.columbia.edu/millionsong/tasteprofile) web page:
+This example deals with the way in which users express a preference for certain songs. The assumption is that the number of times a user listens to a song provides a measure of that user's preference for that song. Patterns detected in the preference data can be used to predict future user preferences based on some of their expressed musical preferences. You can view a sample of this dataset in the **Description** section of the [Echo Nest Taste Profile Subset](http://labrosa.ee.columbia.edu/millionsong/tasteprofile) web page:
 
 ![The Echo Nest Taste Profile Subset](../media/the-echo-nest-taste-profile-subset.png) 
 
@@ -147,11 +152,11 @@ Start by launching Visual Studio 2010. In Visual Studio, select **File -> New Pr
 
 ###The Remote Desktop icon
 
-HDInsight by default does not include Mahout.  Since it is part of the Hadoop eco-system, it requires a simple download from the Mahout [website](http://mahout.apache.org/).  The most recent version is at 0.7, but this instruction works for both version 0.5 and 0.7.
+HDInsight does not include Mahout by default. But since it is part of the Hadoop eco-system, it can be download from the  [Mahout](http://mahout.apache.org/) website. The most recent version is at 0.7, but this set of instruction is compatible for either version 0.5 or 0.7.
 
-1. First, download [Mahout version 0.7](http://www.poolsaboveground.com/apache/mahout/0.7/mahout-distribution-0.7.zip) onto your local machine.
+1. First, download [Mahout version 0.7](http://www.apache.org/dyn/closer.cgi/mahout/) onto your local machine.
 
-2. Then Copy it onto the cluster by selecting the local zip file and press control-v to copy, then paste it on the head node of your Hadoop Cluster.
+2. Then Copy it onto the cluster by selecting the local zip file and press control-v to copy, then paste it in to your Hadoop Cluster.
 
 	![The Manage Cluster Icon](../media/uploading-mahout.PNG "The Manage Cluster Icon")
 

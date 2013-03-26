@@ -4,15 +4,15 @@
 
 #Deploying an HDInsight Service Cluster Programmatically
 
-HDInsight Service clusters can be created programmatically by issuing an authenticated call to the [Service Management API](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx).  As the HDInsight Service moves through preview, we will add full support and documentation on this capability prior to general availability.  
+HDInsight Service clusters can be created programmatically by issuing an authenticated call to the [Service Management REST API](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx).  As the HDInsight Service moves through preview toward general availability, better support and documentation will be provided as this feature matures.  
 
-Authentication needs to occur via the management certificate as outlined in [this documentation](http://msdn.microsoft.com/en-us/library/windowsazure/ee460782.aspx).
+The Windows Azure Service Management API uses mutual authentication of management certificates over SSL to ensure that a request made to the service is secure. No anonymous requests are allowed. For details and guidance, see [Authenticating Service Management Requests](http://msdn.microsoft.com/en-us/library/windowsazure/ee460782.aspx).
 
 The following URI path forms the base for operations on the Windows Azure HDInsight Service:
 
 	https://management.core.windows.net/subscription-id/cloudservices/azurehdinsight
 
-It is important to note that at this time, one must create a cluster via the Windows Azure management portal at least once prior to using the programmatic endpoints.
+It is important to note that at this time, one must create a cluster via the Windows Azure management portal at least once prior to using the programmatic endpoints. For links to information on using the portal, see the [Next Steps](#next) below.
 
 ##Operations on HDInsight Service Clusters
 
@@ -76,7 +76,7 @@ The body of your request must contain the following payload.
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>The format for this will evolve.</p> 
+<p>The format for this request body is still evolving.</p> 
 </div>
 
     <?xml version="1.0" encoding="utf-8"?>
@@ -155,10 +155,10 @@ In order to delete a cluster, issue a DELETE against the following URI:
 
 ##Summary
 
-As demonstrated in this article, you can perform basic management tasks for the Windows Azure HDInsight Service by using the REST API.
+This topic shows how to perform basic management tasks for the Windows Azure HDInsight Service by using operations in the REST API. You have learned how to programmatically list, create, and delete an HDInsight Service cluster.
 
-##Next Steps
+##<a name="next"></a>Next Steps
 
-In this article you learned how to programmatically list, create, and delete an HDInsight Service cluster. For steps on using the Windows Azure Management Portal to perform these actions, see [How To: Administer HDInsight][hdinsight-admin].
+ For information on how to use the Windows Azure Management Portal to perform these actions, instead of doing them programatically as shown here, see [How To: Administer HDInsight][hdinsight-admin].
 
 [hdinsight-admin]: /en-us/manage/services/hdinsight/howto-administer-hdinsight/

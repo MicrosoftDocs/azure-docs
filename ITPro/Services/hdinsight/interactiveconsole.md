@@ -45,8 +45,11 @@ In this tutorial you will learn how to:
 
 In this section, you run the WordCount sample that ships with the HDInsight Service from the JavaScript console. The JavaScript query run here uses the fluent API layered on Pig that is provided by the Interactive Console.  The text file analyzed here is the Project Gutenberg eBook edition of *The Notebooks of Leonardo Da Vinci*. A filter is specified so that the results of the MapReduce job contains only the ten most frequently occurring words. 
 
+Note the procedure in this section assumes that you have gotten setup with Windows Azure and the HDinsight preview and that you have created an HDInsight cluster on which you can run a sample. If you have not done this already, consult the [Getting Started with the Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/) tutorial for instructions on how to satisfy these prerequisites.
 
-1. From the **Hadoop Sample Gallery** page of HDInsight, click on the **WordCount** sample tile. From the **Downloads** section on the upper right, download the WordCount.js file to your local ../downloads directory.
+1. From the **Hadoop Sample Gallery** page of HDInsight, click on the **WordCount** sample tile. From the **Downloads** section on the upper right, download the (highlighted) WordCount.js file to your local ../downloads directory.
+
+	![HDI.JsConsole.WordCountDownloads](../media/HDI.JsConsole.WordCountDownloads.PNG "Wordcount Downloads")
 
 2. From the **Your Cluster** page, click on the **Interactive Cluster** tile to bring up the JavaScript console. Enter the upload command `fs.put()` at the js> console and then enter the following parameters into the **Upload a file** window that pop up:  
 	- **Source:** _..\downloads\Wordcount.js_	 
