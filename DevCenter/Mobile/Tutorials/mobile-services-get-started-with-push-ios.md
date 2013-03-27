@@ -193,7 +193,7 @@ Both your mobile service is now configured to work with APNS.
 
 <a name="add-push"></a><h2><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
 
-1. In Xcode, open the AppDelegate.h file and add the following property below the ***window** property:
+1. In Xcode, open the QSAppDelegate.h file and add the following property below the ***window** property:
 
         @property (strong, nonatomic) NSString *deviceToken;
 
@@ -201,7 +201,7 @@ Both your mobile service is now configured to work with APNS.
 	<p>When dynamic schema is enabled on your mobile service, a new 'deviceToken' column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>
     </div>
 
-2. In AppDelegate.m, replace the following handler method inside the implementation: 
+2. In QSAppDelegate.m, replace the following handler method inside the implementation: 
 
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
         (NSDictionary *)launchOptions
@@ -212,7 +212,7 @@ Both your mobile service is now configured to work with APNS.
             return YES;
         }
 
-3. In AppDelegate.m, add the following handler method inside the implementation: 
+3. In QSAppDelegate.m, add the following handler method inside the implementation: 
 
         // We are registered, so now store the device token (as a string) on the AppDelegate instance
         // taking care to remove the angle brackets first.
@@ -222,7 +222,7 @@ Both your mobile service is now configured to work with APNS.
             self.deviceToken = [[deviceToken description] stringByTrimmingCharactersInSet:angleBrackets];
         }
 
-4. In AppDelegate.m, add the following handler method inside the implementation: 
+4. In QSAppDelegate.m, add the following handler method inside the implementation: 
 
         // Handle any failure to register. In this case we set the deviceToken to an empty
         // string to prevent the insert from failing.
@@ -232,7 +232,7 @@ Both your mobile service is now configured to work with APNS.
             self.deviceToken = @"";
         }
 
-5. In AppDelegate.m, add the following handler method inside the implementation:  
+5. In QSAppDelegate.m, add the following handler method inside the implementation:  
 
         // Because toast alerts don't work when the app is running, the app handles them.
         // This uses the userInfo in the payload to display a UIAlertView.
@@ -245,18 +245,18 @@ Both your mobile service is now configured to work with APNS.
             [alert show];
         }
 
-5. In TodoListController.m, import the AppDelegate.h file so that you can use the delegate to obtain the device token: 
+5. In QSTodoListViewController.m, import the QSAppDelegate.h file so that you can use the delegate to obtain the device token: 
 
-        #import "AppDelegate.h"
+        #import "QSAppDelegate.h"
 
-6. In TodoListController.m, modify the **(IBAction)onAdd** action by locating the following line: 
+6. In QSTodoListViewController.m, modify the **(IBAction)onAdd** action by locating the following line: 
 
         NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @(NO) }; 
  
    Replace this with the following code:
 
         // Get a reference to the AppDelegate to easily retrieve the deviceToken
-        AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+        QSAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     
         NSDictionary *item = @{
             @"text" : itemText.text,
@@ -265,7 +265,7 @@ Both your mobile service is now configured to work with APNS.
             @"deviceToken" : delegate.deviceToken
         };
 
-   This adds a reference to the **AppDelegate** to obtain the device token and then modifies the request payload to include that device token.
+   This adds a reference to the **QSAppDelegate** to obtain the device token and then modifies the request payload to include that device token.
 
    <div class="dev-callout"><b>Note</b>
    <p>You must add this code before to the call to the <strong>addItem</strong> method.</p>

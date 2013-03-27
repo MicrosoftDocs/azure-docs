@@ -7,9 +7,6 @@
 	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-html" title="HTML">HTML</a> 
 </div>
 
-
-_The iOS client library for Mobile Services is currently under development on [GitHub]. We welcome feedback on and contributions to this library._
-
 This topic shows you how to authenticate users in Windows Azure Mobile Services from your app.  In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.  
 
 This tutorial walks you through these basic steps to enable authentication in your app:
@@ -79,54 +76,27 @@ Next, you will update the app to authenticate users before requesting resources 
 
 <h2><a name="add-authentication"></a><span class="short-header">Add authentication</span>Add authentication to the app</h2>
 
-1. Open the project file TodoListController.m and in the **viewDidLoad** method, remove the following code that reloads the data into the table:
+1. Open the project file QSTodoListViewController.m and in the **viewDidLoad** method, remove the following code that reloads the data into the table:
 
-        [todoService refreshDataOnSuccess:^{
-            [self.tableView reloadData];
-        }];
+        [self refresh];
 
 2.	Just after the **viewDidLoad** method, add the following code:
 
         - (void)viewDidAppear:(BOOL)animated
         {
-            // If user is already logged in, no need to ask for auth
-            if (todoService.client.currentUser == nil)
-            {
-                // We want the login view to be presented after the this run loop has completed
-                // Here we use a delay to ensure this.
-                [self performSelector:@selector(login) withObject:self afterDelay:0.1];
+            MSClient *client = self.todoService.client;
+            
+            if (client.currentUser != nil) {
+                return;
             }
-        }
-
-        - (void) login
-        {
-            UINavigationController *controller =
-    
-            [self.todoService.client
-                loginViewControllerWithProvider:@"facebook"
-                completion:^(MSUser *user, NSError *error) {
-         
-                if (error) {
-                        NSLog(@"Authentication Error: %@", error);
-                        // Note that error.code == -1503 indicates
-                        // that the user cancelled the dialog
-                } else {
-                    // No error, so load the data
-                    [self.todoService refreshDataOnSuccess:^{
-                        [self.tableView reloadData];
-                    }];
-                }
-         
-                [self dismissViewControllerAnimated:YES completion:nil];
+            
+            [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
+                [self refresh];
             }];
-    
-            [self presentViewController:controller animated:YES completion:nil];
         }
-
-    This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login.
 
     <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than Facebook, change the value passed to <strong>loginViewControllerWithProvider</strong> above to one of the following: <i>microsoftaccount</i>, <i>facebook</i>, <i>twitter</i>, or <i>google</i>.</p>
+	<p>If you are using an identity provider other than Facebook, change the value passed to <strong>loginWithProvider</strong> above to one of the following: <i>microsoftaccount</i>, <i>facebook</i>, <i>twitter</i>, or <i>google</i>.</p>
     </div>
 		
 3. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
@@ -163,7 +133,6 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [16]: ../Media/mobile-add-reference-live-dotnet.png
 
 <!-- URLs. -->
-[GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=268784
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
