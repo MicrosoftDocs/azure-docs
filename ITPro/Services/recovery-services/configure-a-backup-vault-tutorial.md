@@ -13,7 +13,7 @@ an X.509 v3 certificate to register your servers with Recovery Services vaults. 
 <ul>
 <li>Your own self-signed certificate created using makecert tool, OR</li> 
 
-<li>Any valid SSL certificate issued by a Certificate Authority (CA) that is trusted by Microsoft and whose root certificates are distributed via the Microsoft Root Certificate Program. For ,ore information about this program see <a><href>http://support.microsoft.com/kb/931125</href></a>.</li>
+<li>Any valid SSL certificate issued by a Certificate Authority (CA) that is trusted by Microsoft and whose root certificates are distributed via the Microsoft Root Certificate Program. For more information about this program see <a><href>http://support.microsoft.com/kb/931125</href></a>.</li>
 </ul> 
 
 <p>Some other attributes which you need to ensure on the certificates are:</p> 
