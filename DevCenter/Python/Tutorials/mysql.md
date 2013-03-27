@@ -252,7 +252,7 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [mysqldoc]: http://dev.mysql.com/doc/
 [mysqlpy]: http://pypi.python.org/pypi/MySQL-python/1.2.3
 [wapstarted]: ../commontasks/how-to-install-python.md
-[mysqlpydl]: http://www.codegood.com/download/10/
+[mysqlpydl]: http://code.google.com/p/soemin/downloads/detail?name=MySQL-python-1.2.3.win32-py2.7.exe&can=2&q=
 [mysqlcommunity]:http://dev.mysql.com/downloads/mysql/
 [dotnetfour]:http://go.microsoft.com/fwlink/?LinkId=181012
 [mysqlworld]:http://dev.mysql.com/doc/index-other.html
