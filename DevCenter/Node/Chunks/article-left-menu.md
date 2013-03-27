@@ -1,6 +1,7 @@
 <div class="left-nav">
 <div class="static-nav">
 <ul>
+<li><a href="/en-us/develop/nodejs/">Node.js Home</a></li>
 <li class="menu-nodejs-compute"><a href="/en-us/develop/nodejs/Compute/">Compute</a></li>
 <li class="menu-nodejs-data"><a href="/en-us/develop/nodejs/data/">Data Services</a></li>
 <li class="menu-nodejs-appservices"><a href="/en-us/develop/nodejs/app-services/">App Services</a></li>
