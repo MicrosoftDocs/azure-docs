@@ -30,7 +30,7 @@ shown below:
 
 ![][0]
 
-**Note** Windows Azure also provides storage queue functionality. For more information about Windows Azure Storage queues and Service Bus queues, see [Windows Azure Queues and Windows Azure Service Bus Queues - Compared and Contrasted][sbqueuecomparison].  
+**Note** Windows Azure also provides storage queue functionality. For more information about Windows Azure storage queues and Service Bus queues, see [Windows Azure Queues and Windows Azure Service Bus Queues - Compared and Contrasted][sbqueuecomparison].  
 
 <div chunk="../../Shared/Chunks/create-account-note.md" />
 
