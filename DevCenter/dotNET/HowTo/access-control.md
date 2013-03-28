@@ -1,4 +1,4 @@
-<properties umbraconavihide="0" pagetitle="Access Control - How To - .NET - Develop" metakeywords="Windows Azure Active Directory Access Control, Access Control Service, Azure ACS, Azure authentication, Azure authentication LiveID, Azure authentication Google, Azure authentication Facebook, Azure authentication .NET, Azure authentication C#" metadescription="Learn how to use Windows Azure Active Directory Access Control (ACS) in your Windows Azure application to authenticate users from identity providers like Windows Live, Google, or Facebook when they try to gain access to a web application." linkid="dev-net-how-to-access-control" urldisplayname="Access Control" headerexpose="" footerexpose="" disquscomments="0"></properties>
+<properties umbraconavihide="0" pagetitle="Access Control - How To - .NET - Develop" metakeywords="Windows Azure Active Directory Access Control, Access Control Service, Azure ACS, Azure authentication, Azure authentication LiveID, Azure authentication Google, Azure authentication Facebook, Azure authentication .NET, Azure authentication C#" metadescription="Learn how to use Windows Azure Active Directory Access Control (ACS) in your Windows Azure application to authenticate users from identity providers like Windows Live, Google, or Facebook when they try to gain access to a web application." linkid="dev-net-how-to-access-control" urldisplayname="Access Control" headerexpose="" footerexpose="" disquscomments="1" writer="juneb"></properties>
 
 <div chunk="../chunks/article-left-menu.md" />
 # How to Authenticate Web Users with Windows Azure Active Directory Access Control
@@ -46,10 +46,7 @@ For more information about ACS, see [Access Control Service 2.0][].
 <h2><span class="short-header">Concepts</span>Concepts</h2>
 
 
-Windows Azure ACS is built on the principals of claims-based identity -
-a consistent approach to creating authentication mechanisms for
-applications running on-premises or in the cloud. Claims-based identity
-provides a common way for applications and services to acquire the
+Windows Azure Active Directory Access Control (ACS) is built on the principals of claims-based identity -- a consistent approach to creating authentication mechanisms forapplications running on-premises or in the cloud. Claims-based identity provides a common way for applications and services to acquire the
 identity information they need about users inside their organization, in
 other organizations, and on the Internet.
 
@@ -135,7 +132,7 @@ application:
 
 To complete the tasks in this guide, you will need the following:
 
--   Microsoft Visual Studio 2012
+-   Microsoft Visual Studio 2010
 -   [Windows Identity Foundation][]
 -   [Windows Identity Foundation SDK][]
 -   An active [Windows Azure account][]
@@ -146,7 +143,7 @@ To demonstrate how ACS does authentication, create a simple ASP.NET web
 application, which you will later set up as a Relying Party (RP)
 application.
 
-1.  Start Visual Studio 2012.
+1.  Start Visual Studio 2010.
 2.  In Visual Studio, click **File**, and then click **New Project**.
 3.  In New Project window, select**Visual C\#/Web** template, and then
     select **ASP.NET Empty Web Application**.
@@ -189,33 +186,19 @@ Google as an IP, but you could use any of the IPs listed in the ACS
 Management Portal.
 
 1.  In the Windows Azure Management
-    Portal, click **Active Directory**, select an Access Control namespace, and then click **Manage**. 
+    Portal, click **Active Directory**, select an Access Control namespace, and then click **Manage**. (Or, click **Active Directory**, click **Access Control Namespaces**, select an Access Control namespace, and then click **Manage**.)
  
 2.  Click **Identity providers**, click **Add**, select **Google**, and then click **Next**. 
-
-<div class="dev-callout-new">
-    <strong>Note <span>Click to collapse</span></strong>
-    <div class="dev-callout-content">
-        <p>This task uses Google for demonstration purposes only. You
-    can selected any of the IPs listed on the page.</p>
-    </div>
-</div>  
     
 3.  The Add Google Identity Provider page prompts you to enter login
     link text (the default is Google) and an image URL. You can change
     this information, but for this exercise, use the default
     values, and click **Save**.  
 
-<div class="dev-callout-new">
-    <strong>Note <span>Click to collapse</span></strong>
-    <div class="dev-callout-content">
-        <p> Windows Live ID is
-    added to all Access Control namespaces. It cannot be deleted.</p>
-    </div>
-</div> 
 
-Google has now been added as an IP for your Access Control namespace. Next, you
-specify your ASP.NET web application as an RP.
+Google has now been added as an IP for your Access Control namespace. ACS also adds Windows Live ID (Microsoft account), which is the default IP and cannot be removed. 
+
+Next, specify your ASP.NET web application as an RP.
 
 <h2><span class="short-header">Add a Relying Party Application</span>Add a Relying Party Application</h2>
 
