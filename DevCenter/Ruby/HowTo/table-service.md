@@ -67,18 +67,9 @@ for information required to connect to your Windows Azure storage account. If th
 To obtain these values:
 
 1. Log into the [Windows Azure Management Portal](https://manage.windowsazure.com/).
-
-2. On the left side of the navigation pan, click **STORAGE**.
-
-   ![Storage](images/storage.png)
-
-3. On the right side, choose the storage account you want to use in the table and click **MANAGE KEYS** at the bottom of the navigation pane.
-
-   ![Manage keys](images/manage-keys.png)
-
+2. Navigate to the storage account you want to use
+3. Click **MANAGE KEYS** at the bottom of the navigation pane.
 4. In the pop up dialog, you will see the storage account name, primary access key and secondary access key. For access key, you can either the primary one or the secondary one.
-
-   ![Manage keys dialog](images/manage-keys-dialog.png)
 
 ## <a id="how-to-create-a-table"></a>How to Create a Table
 

@@ -21,7 +21,7 @@ Steps](#next-steps) section.
 * [Setup a Windows Azure Storage Connection](#setup-a-windows-azure-storage-connection)
 * [How To: Create a Queue](#how-to-create-a-queue)
 * [How To: Insert a Message into a Queue](#how-to-insert-a-message-into-a-queue)
-* [How To: Peek at the Next Message](#how-to-peek-at-the-next message)
+* [How To: Peek at the Next Message](#how-to-peek-at-the-next-message)
 * [How To: Dequeue the Next Message](#how-to-dequeue-the-next-message)
 * [How To: Change the Contents of a Queued Message](#how-to-change-the-contents-of-a-queued-message)
 * [How To: Additional Options for Dequeuing Messages](#how-to-additional-options-for-dequeuing-messages)
@@ -68,15 +68,8 @@ you must specify the account information before using **Azure::QueueService** wi
 To obtain these values:
 
 1. Log into the [Windows Azure Management Portal](https://manage.windowsazure.com/).
-
-2. On the left side of the navigation pan, click **STORAGE**.
-
-   ![Storage](images/storage.png)
-
-3. On the right side, choose the storage account you want to use in the table and click **MANAGE KEYS** at the bottom of the navigation pane.
-
-   ![Manage keys](images/manage-keys.png)
-
+2. Navigate to the storage account you want to use
+3. Click **MANAGE KEYS** at the bottom of the navigation pane.
 4. In the pop up dialog, you will see the storage account name, primary access key and secondary access key. For access key, you can either the primary one or the secondary one.
 
    ![Manage keys dialog](images/manage-keys-dialog.png)
