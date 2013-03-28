@@ -202,7 +202,7 @@ Given a Blob Storage URI, you may need to be able to create the ASV URI. The map
 
 To access an file (or folder) at 
 
-<table border=1>
+<table border="1">
 <tr><th>AVS URI</th><th>Blob Storage URI</th></tr>
 
 <tr><td>http[s]://&lt;account&gt;/&lt;path-name&gt;</td><td>asv[s]://&lt;account&gt;.blob.core.windows.net/&lt;path-name&gt;</td></tr>

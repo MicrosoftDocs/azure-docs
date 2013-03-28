@@ -123,6 +123,8 @@ Before using the tool, you must know your Windows Azure storage account name and
 12. Click **Close**. 
 13. From the **File** menu, click **Exit** to close Azure Storage Explorer.
 
+For accessing ASV, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/using-blob-store/)
+
 ##<a id="connect"></a> Connect to the Interactive Console
 
 You must have an HDInsight cluster previsioned before you can work on this tutorial. To enable the Windows Azure HDInsight Service preview, click [here](https://account.windowsazure.com/PreviewFeatures). For information on prevision an HDInsight cluster see [How to Administer HDInsight Service](/en-us/manage/services/hdinsight/howto-administer-hdinsight/) or [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/).
@@ -154,7 +156,7 @@ You must have an HDInsight cluster previsioned before you can work on this tutor
 
 	replace *container* with the container name, and *storagename* with the Storage account name. 
 
-	<p>Because the file is located on the default file system, the same result can also be retrieved by using the following command:
+	Because the file is located on the default file system, the same result can also be retrieved by using the following command:
 
 		#ls /sample.log
 

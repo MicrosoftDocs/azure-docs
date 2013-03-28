@@ -47,7 +47,7 @@ Figure 1: File Sample:
 
 Figure 2: Data Transformation:
 
-![Data Transformation](../media/HDI.DataTransformation.png)
+![Data Transformation](../media/HDI.DataTransformation.gif)
 
 You will complete the following tasks in this tutorial:
 
@@ -88,6 +88,8 @@ Before using the tool, you must know your Windows Azure storage account name and
 12. Click **Close**. 
 13. From the **File** menu, click **Exit** to close Azure Storage Explorer.
 
+For information on access ASV, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/using-blob-store/).
+
 ##<a id="connect"></a>Connect to your HDInsight Cluster ##
 
 You must have an HDInsight cluster previsioned before you can work on this tutorial. To enable the Windows Azure HDInsight Service preview, click [here](https://account.windowsazure.com/PreviewFeatures). For information on prevision an HDInsight cluster see [How to Administer HDInsight Service](/en-us/manage/services/hdinsight/howto-administer-hdinsight/) or [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/).
@@ -117,7 +119,7 @@ First, you will use Pig Latin in interactive mode (Grunt shell) to analyze a sin
 	<div class="dev-callout"> 
 	<b>Note</b> 
 	<p>To use asvs, you must provide the FQDN. For example: <br/>
-LOG = LOAD 'asvs://container@storagename.blob.core.microsoft.net/sample.log'</p> 
+LOG = LOAD 'asvs://container@storagename.blob.core.microsoft.net/sample.log'. For more informaiton, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/using-blob-store/).</p> 
 	</div>
 
 
