@@ -1,11 +1,12 @@
-<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-hyper-v-recovery-vault" pageTitle="Configure Windows Azure Recovery Services to provide a Hyper-V recovery environment" metaKeywords="hyper-v recovery, disaster recovery" metaDescription="Windows Azure Hyper-V Recovery Manager can help you protect important services by coordinating the replication and recovery of System Center 2012 private clouds at a secondary location." metaCanonical="http://www.windowsazure.com/" umbracoNaviHide="0" disqusComments="1" writer="starra" editor="tysonn" manager="cynthn" /> 
+<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-hyper-v-recovery-vault" pageTitle="Configure Windows Azure Recovery Services to provide a Hyper-V recovery environment" metaKeywords="hyper-v recovery, disaster recovery" metaDescription="Windows Azure Hyper-V Recovery Manager can help you protect important services by coordinating the replication and recovery of System Center 2012 private clouds at a secondary location." metaCanonical="http://www.windowsazure.com/" umbracoNaviHide="0" disqusComments="1" writer="starra" editor="tysonn" manager="cynthn" />
+<div chunk="../chunks/article-left-menu.md"/> 
 
 <h1><a id="configure-hyper-v-recovery-vault-tutorial"></a>Configure Windows Azure Recovery Services to provide a Hyper-V recovery environment</h1>
 
 A Hyper-V Recovery Manager vault defines a collection of Hyper-V virtual machines located in clouds on System Center 2012 Virtual Machine Manager (VMM) servers that are enabled for failover and protection using Windows Azure Recovery Services. This tutorial will walk you through the creation of the vault, the uploading of a certificate to the vault, the download and installation of the agent, and configuration tasks performed through the management portal.
 
 <div class="dev-callout"> 
-<b>Note</b> 
+<strong>Before you begin</strong> 
 <p>To successfully complete this tutorial you must have 
 an X.509 v3 certificate to register your servers with Recovery Services vaults.  The certificate must have a key length of at least 2048 bits and should reside in the Personal certificate store of your Local Computer. When the certificate is installed on your server, it should contain the private key of the certificate. To upload to the certificate to the Windows Azure Management Portal, you must export the public key as a .cer format file.</p> 
 
@@ -40,21 +41,21 @@ If you will be registering a different server than the one you used to make the 
 
 ##Table of Contents##
 
-* [How to: Create a vault](#create)
-* [How to: Upload a certificate](#upload)
-* [How to: Download and install the agent](#agent)
-* [How to: Configure clouds](#clouds)
-* [How to: Configure networks and servers](#networks)
-* [How to: Protect virtual machines](#protect)
+* [Create a vault](#create)
+* [Upload a certificate](#upload)
+* [Download and install the agent](#agent)
+* [Configure clouds](#clouds)
+* [Configure networks and servers](#networks)
+* [Protect virtual machines](#protect)
 * [Next steps](#next)
 
-<h2><a id="create"></a>How to: Create a vault</h2>
+<h2><a id="create"></a>Create a vault</h2>
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
 2. Click **Recovery Services**, then click **Create New**,  point to **Hyper-V Recovery Manager Vault**, and then click **Quick Create**.
 
-	![New vault](../ITPro/Shared/media/RS_hvvault.png)
+	![New vault](../media/RS_hvvault.png)
 
 3. In **Name**, enter a friendly name to identify the backup vault.
 
@@ -64,25 +65,25 @@ If you will be registering a different server than the one you used to make the 
 
 	It can take a while for the vault to be created. To check the status, you can monitor the notifications at the bottom of the portal. After the vault has been created, a message will tell you that the vault has been successfully created and it will be listed in the resources for Recovery Services as **Online**. 
 
-<h2><a id="upload"></a>How to: Upload a certificate</h2>
+<h2><a id="upload"></a>Upload a certificate</h2>
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
 2. Click **Recovery Services**, then click the name of vault that will be identified by the certificate and then click **Manage certificate**.
 	
-	![Manage certificate](../ITPro/Shared/media/RS_howtoupload1.png)
+	![Manage certificate](../media/RS_howtoupload1.png)
 3. In the **Manage Certificate** dialog click Browse Your Computer to locate the .cer file to use with this backup vault.
-<h2><a id="download"></a>How to: Download and install the agent</h2>
+<h2><a id="download"></a>Download and install the agent</h2>
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
 2. Click **Recovery Services**, then click the name of vault to view the vault dashboard.
 
 3. Click **Download Agent**. The agent will be automatically download and the installation wizard will start.
 	
-	![Download Agent](../ITPro/Shared/media/RS_installwiz.png)
+	![Download Agent](../media/RS_installwiz.png)
 4. Complete the wizard to register the VMM server, identify the private key certificate on the VMM server that matches the public key certificate you uploaded to the vault, and then associate this VMM server with a specific vault. 
   
 
-<h2><a id="manage"></a>How to: Configure clouds for protection</h2>
+<h2><a id="manage"></a>Configure clouds for protection</h2>
 After VMM servers are registered, all clouds configured on the servers are displayed in the vault.  When you select a cloud to protect, you specify the following configuration details in the management portal: 
 
 * The target location that will be used for failover of virtual machines in the source cloud.
@@ -95,7 +96,7 @@ After you select a cloud, all clusters and host servers that are configured in t
 * Certificates required for replication are installed.
 * Hyper-V Replica settings are configured.
 
-<h2><a id="networks"></a>How to: Configure Networks and Servers (Optional)</h2>
+<h2><a id="networks"></a>Configure Networks and Servers (Optional)</h2>
 
 You can optionally map logical networks in source clouds to logical networks in target clouds, to ensure that failed over virtual machines are connected to appropriate networks after the failover.
  
@@ -109,12 +110,12 @@ You can optionally map logical networks in source clouds to logical networks in 
 
 5. Select an item from **Network on source** and then click **Map**. The network settings from the source network are applied to the target location automatically.
 
-	![Manage certificate](../ITPro/Shared/media/RS_networks.png)
+	![Manage certificate](../media/RS_networks.png)
 
 <h2><a id="protect"></a>How to: Protect virtual machines</h2>
 After servers, clouds, and networks are configured correctly, you can enable virtual machines in the cloud for recovery and failover. Protection is enabled in the VMM console, by selecting the **Enable Replication** checkbox for each virtual machine you want to protect. Once the virtual machines are replicated to the vault you will be able to view them in the virtual machines list of your cloud.
  
-![Manage certificate](../ITPro/Shared/media/RS_clouds.png)
+![Manage certificate](../media/RS_clouds.png)
 
 <h2><a id="next"></a>Next steps</h2>
 
