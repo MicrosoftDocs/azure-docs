@@ -15,7 +15,7 @@ You will learn how to:
 * Create a new Django application from Windows.
 
 By following this tutorial, you will build a simple Hello World web
-application. The application will be hosted in a Windows Azure Preview Portal virtual machine.
+application. The application will be hosted in a Windows Azure virtual machine.
 
 A screenshot of the completed application is below:
 
@@ -25,10 +25,10 @@ A screenshot of the completed application is below:
 
 ## Creating and configuring a Windows Azure virtual machine to host Django
 
-1. Follow the instructions given [here][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Windows Server 2008 R2* flavor.
+1. Follow the instructions given [here][portal-vm] to create a Windows Azure virtual machine of the *Windows Server 2008 R2* distribution.
 
 1. Instruct Windows Azure to direct port **80** traffic from the web to port **80** on the virtual machine:
- - Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
+ - Navigate to your newly created virtual machine in the Windows Azure Portal and click the *ENDPOINTS* tab.
  - Click *ADD ENDPOINT* button at the bottom of the screen.
 ![][add endpoint]
 
@@ -147,8 +147,7 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [The status of the Remove-AzureService command]: ../Media/django-helloworld-ps-remove.png
 [add endpoint]: ../Media/django-helloworld-addendpoint.png
 [port80]: ../Media/django-helloworld-port80.png
-[preview-portal]: https://manage.windowsazure.com
-[preview-portal-vm]: /en-us/manage/windows/tutorials/virtual-machine-from-gallery/
+[portal-vm]: /en-us/manage/windows/tutorials/virtual-machine-from-gallery/
 
 
 [Installation Guide]: ../commontasks/how-to-install-python.md
