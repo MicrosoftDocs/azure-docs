@@ -291,7 +291,8 @@ displays.
                 // Controler method for handling submissions from the submission
                 // form 
                 [HttpPost]
-				// Attribute to help prevent cross-site scripting attacks and cross-site request forgery  
+				// Attribute to help prevent cross-site scripting attacks and 
+				// cross-site request forgery  
     			[ValidateAntiForgeryToken] 
                 public ActionResult Submit(OnlineOrder order)
                 {
