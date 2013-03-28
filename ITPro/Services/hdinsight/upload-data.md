@@ -52,7 +52,7 @@ Before using the tool, you must know your Windows Azure storage account name and
 
 Data stored in Windows Azure Blob Storage can be accessed directly from the Interactive JavaScript Console by prefixing the protocol scheme of the URI for the assets you are accessing with asv://. To secure the connection, use asvs://. The scheme for accessing data in Windows Azure Blob Storage is:
 
-	asvs://container/path.
+	asvs://[<container>@]<accountname>.blob.core.microsoft.com/<path>
 
 The following is an example of viewing data stored in Windows Azure Blob Storage using the Interactive Javascript Console:
 
