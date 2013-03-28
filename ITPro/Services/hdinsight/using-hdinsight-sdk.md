@@ -4,45 +4,47 @@
 
 #Using the HDInsight Service Client Library#
 
-The HDInsight Service library provides set of .NET client libraries that makes it easier to work with Hadoop in .NET. In this tutorial you will learn how to get the client library and use it to build simple .NET based Hadoop program. To enable the HDInsight preview, click [here](https://account.windowsazure.com/PreviewFeatures).
+The HDInsight Service library provides set of .NET client libraries that makes it easier to work with HDInsight in .NET. In this tutorial you will learn how to get the client library and use it to build simple .NET based Hadoop program to run Hive queries. 
+
+To enable the HDInsight preview, click [here](https://account.windowsazure.com/PreviewFeatures).
 
 ## In this Article
 
-* Downloading an installing the library
-* Preparing for the tutorial
-* Executing hive jobs on HDInsight custer from a .NET program
-* Next Steps
+* [Downloading an installing the library](#install)
+* [Preparing for the tutorial](#prepare)
+* [Creating and Runing a .NET program](#create)
+* [Next Steps](#nextsteps)
 
-## Downloading and Installing the Library##
+##<a id="install"></a> Downloading and Installing the Library##
 
-You can install latest published build of the library from NuGet. The library includes following components:
+You can install latest published build of the library from [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started). The library includes the following components:
 
-* A Map/Reduce library - this library simplifies writing map/reduce jobs in .NET languages using the Hadoop streaming interface
-* LINQ to Hive client library – this library translates C# or F# LINQ queries into Hive queries and executes them on the Hadoop cluster. This library can execute arbitrary Hive HQL queries from a .NET program as well.
-* WebClient library – contains client libraries for WebHDFS and WebHCat
+* **MapReduce library:** This library simplifies writing MapReduce jobs in .NET languages using the Hadoop streaming interface.
+* **LINQ to Hive client library:** This library translates C# or F# LINQ queries into HiveQL queries and executes them on the Hadoop cluster. This library can execute arbitrary HiveQL queries from a .NET program as well.
+* **WebClient library:** This libarary contains client libraries for *WebHDFS* and *WebHCat*.
 
-	* WebHDFS client library – works with files in HDFS and Blog Storage
-	* WebHCat client library – manages scheduling and execution of jobs in Hadoop cluster
+	* **WebHDFS client library:** It works with files in HDFS and Windows Azure Blog Storage
+	* **WebHCat client library:** It manages scheduling and execution of jobs in HDInsight cluster
+	
+The NuGet syntax to install the librarys:
 
-1. Open Visual Studio 2012.
-2. Create a new .NET project or open an existing .NET project.
-3. From the Tools menu, click **Library Package Manager**, click **Package Manager Console**.
-4. Run the following commands in the console to install the packages.
+		install-package Microsoft.Hadoop.MapReduce
+		install-package Microsoft.Hadoop.Hive 
+		install-package Microsoft.Hadoop.WebClient 
+			
+These commands add .NET libraries and references to them to the current Visual Studio project.
 
-		install-package Microsoft.Hadoop.MapReduce –pre
-		install-package Microsoft.Hadoop.Hive -pre 
-		install-package Microsoft.Hadoop.WebClient -pre 
+##<a id="prepare"></a> Preparing for the Tutorial
 
-	These commands add .NET libraries and references to them to the current Visual Studio project.
+You must have a [Windows Azure subscription][free-trial], and a [Windows Azure Storage Account][create-storage-account] before you can proceed. You must also know your Windows Azure storage account name and account key. For the instructions on how to  get this information, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
 
-## Preparing for the Tutorial
 
-You must have a [Windows Azure subscription][free-trial], and a [Windows Azure Storage Account][create-storage-account] before you can proceed. You must also know your Windows Azure storage account name and account key. For the instructions for get the information, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+You must also download the Actors.txt file used in this tutorial. Perform the following steps to download this file to your development environment:
 
 1. Create a C:\Tutorials folder on your local computer.
 2. Download [Actors.txt](http://www.microsoft.com/en-us/download/details.aspx?id=37003), and save the file to the C:\Tutorials folder.
 
-##Executing Hive Jobs on HDInsight Cluster from .NET Program
+##<a id="create"></a>Creating and Executing a .NET Program
 
 In this section you will learn how to upload files to Hadoop cluster programmatically and how to execute Hive jobs using LINQ to Hive.
 
@@ -58,7 +60,18 @@ In this section you will learn how to upload files to Hadoop cluster programmati
 	</table>
 
 4. Click **OK** to create the project.
-5. Install the NuGet packages for Hive (Microsoft.Hadoop.Hive) and WebClient (Microsoft.Hadoop.WebClient) as described in the “Download and Install the Library” section. 
+
+
+3. From the **Tools** menu, click **Library Package Manager**, click **Package Manager Console**.
+4. Run the following commands in the console to install the packages.
+
+		install-package Microsoft.Hadoop.Hive -pre 
+		install-package Microsoft.Hadoop.WebClient -pre 
+
+	These commands add .NET libraries and references to them to the current Visual Studio project.
+
+
+
 6. From Solution Explorer, double-click **Program.cs** to open it.
 7. Add the following using statements to the top of the file:
 
@@ -119,12 +132,13 @@ In this section you will learn how to upload files to Hadoop cluster programmati
 
 9. Press **F5** to run the program.
 
-#Next Steps
+##<a id="nextsteps"></a>Next Steps
 Now you understand how to create a .NET application using HDInsight client SDK. To learn more, see the following articles:
 
+* [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 * [Using Pig with HDInsight][hdinsight-pig] 
 * [Using MapReduce with HDInsight][hdinsight-mapreduce]
-* [Using Hive](/en-us/manage/services/hdinsight/using-hive/)
+* [Using Hive with HDInsight](/en-us/manage/services/hdinsight/using-hive/)
 
 [hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
 [hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
