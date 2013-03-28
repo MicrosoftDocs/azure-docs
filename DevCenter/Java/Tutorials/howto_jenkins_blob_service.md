@@ -2,7 +2,7 @@
 
 <div chunk="../chunks/article-left-menu.md" />
 
-#Using Windows Azure storage with a Jenkins Continuous Integration solution
+#Using Windows Azure Storage with a Jenkins Continuous Integration solution
 
 The following information shows how to use the Windows Azure Blob service as a repository of build artifacts created by a Jenkins Continuous Integration (CI) solution. One of the scenarios where you would find this useful is when you’re coding in an agile development environment (using Java or other languages), builds are running based on continuous integration, and you need a repository for your build artifacts, so that you could, for example, share them with other organization members, your customers, or maintain an archive. 
 
