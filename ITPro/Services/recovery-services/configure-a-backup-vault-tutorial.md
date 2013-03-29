@@ -38,14 +38,6 @@ If you will be registering a different server than the one you used to make the 
 </p> 
 </div>
 
-##Table of Contents##
-
-* [Create a backup vault](#create)
-* [Upload a certificate](#upload)
-* [Download and install a backup agent](#agent)
-* [Manage backup vaults](#manage)
-* [Next steps](#next)
-
 <h2><a id="create"></a>Create a backup vault</h2>
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
