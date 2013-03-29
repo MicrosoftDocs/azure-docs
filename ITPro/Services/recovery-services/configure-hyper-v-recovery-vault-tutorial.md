@@ -1,5 +1,5 @@
 <properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-hyper-v-recovery-vault" pageTitle="Configure Windows Azure Recovery Services to provide a Hyper-V recovery environment" metaKeywords="hyper-v recovery, disaster recovery" metaDescription="Windows Azure Hyper-V Recovery Manager can help you protect important services by coordinating the replication and recovery of System Center 2012 private clouds at a secondary location." metaCanonical="http://www.windowsazure.com/" umbracoNaviHide="0" disqusComments="1" writer="starra" editor="tysonn" manager="cynthn" />
-<div chunk="../chunks/article-left-menu.md"/> 
+<div chunk="../chunks/recoveryservices-left-nav.md"/> 
 
 <h1><a id="configure-hyper-v-recovery-vault-tutorial"></a>Configure Windows Azure Recovery Services to provide a Hyper-V recovery environment</h1>
 
@@ -27,7 +27,7 @@ an X.509 v3 certificate to register your servers with Recovery Services vaults. 
 
 <p>To use your own self-signed certificate, follow these steps: </p>
 <ol>
-<li>Download Certificate Creation Tool (makecert.exe) from <a><href>http://gallery.technet.microsoft.com/Certificate-Creation-tool-5b7c054d</href></a></li>  
+<li>Download the Certificate Creation Tool (makecert.exe) from <a><href>http://gallery.technet.microsoft.com/Certificate-Creation-tool-5b7c054d</href></a></li>  
 
 
 <li>Open Command Prompt (cmd.exe) with Administrator privileges and run the following command, replacing <i>CertificateName</i> with the name of your certificate : 
@@ -42,6 +42,8 @@ If you will be registering a different server than the one you used to make the 
 <h2><a id="create"></a>Create a vault</h2>
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
+
+<div chunk="../ITPro/shared/chunks/disclaimer.md"/>
 
 2. Click **Recovery Services**, then click **Create New**,  point to **Hyper-V Recovery Manager Vault**, and then click **Quick Create**.
 

@@ -1,11 +1,11 @@
 <properties linkid="manage-dataservices-recoveryservices-backup" urlDisplayName="Windows Azure Backup" pageTitle="Configure Windows Azure Recovery Services to quickly and easily back-up Windows Server" metaKeywords="Windows Azure Backup, Online Backup, back-up service" metaDescription="Use Windows Azure Backup to help you protect important server data offsite with automated backups to Windows Azure, where they are available for easy data restoration." metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="starra" editor="tysonn" manager="cynthn" /> 
-<div chunk="../chunks/article-left-menu.md"/>
+<div chunk="../chunks/recoveryservices-left-nav.md"/>
 <h1><a id="configure-a-backup-vault-tutorial"></a>Configure Windows Azure Recovery Services to quickly and easily back-up Windows Server</h1>
 
 To backup files and data from your Windows Server in Windows Azure, you must create a backup vault in the geographic region where you want to store the data. This tutorial will walk you through the creation of the vault you will use to store backups, the uploading of a certificate to the vault, the installation of a backup agent, and an overview of the backup management tasks available through the management portal.
 
 <div class="dev-callout"> 
-<strong>Before you begin</strong> 
+<h2>Before you begin</h2> 
 <p>To successfully complete this tutorial you must have 
 an X.509 v3 certificate to register your servers with Recovery Services vaults.  The certificate must have a key length of at least 2048 bits and should reside in the Personal certificate store of your Local Computer. When the certificate is installed on your server, it should contain the private key of the certificate. To upload to the certificate to the Windows Azure Management Portal, you must export the public key as a .cer format file.</p> 
 
@@ -41,6 +41,8 @@ If you will be registering a different server than the one you used to make the 
 <h2><a id="create"></a>Create a backup vault</h2>
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
+
+<div chunk="../ITPro/shared/chunks/disclaimer.md"/>
 
 2. Click **Recovery Services**, then click **Create New**,  point to **Backup Vault**, and then click **Quick Create**.
 
