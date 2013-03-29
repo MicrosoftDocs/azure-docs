@@ -39,16 +39,6 @@ If you will be registering a different server than the one you used to make the 
 </p> 
 </div>
 
-##Table of Contents##
-
-* [Create a vault](#create)
-* [Upload a certificate](#upload)
-* [Download and install the agent](#agent)
-* [Configure clouds](#clouds)
-* [Configure networks and servers](#networks)
-* [Protect virtual machines](#protect)
-* [Next steps](#next)
-
 <h2><a id="create"></a>Create a vault</h2>
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
