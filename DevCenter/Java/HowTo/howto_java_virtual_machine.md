@@ -1,4 +1,4 @@
-<properties linkid="dev-java-vm-application-server" urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat on a virtual machine - Windows Azure tutorial" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" metaDescription="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="dev-java-vm-application-server" urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat on a virtual machine - Windows Azure tutorial" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" metaDescription="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" />
 
 
 <div chunk="../chunks/article-left-menu.md" />
@@ -24,14 +24,15 @@ For purposes of this tutorial, an Apache Tomcat application server will be insta
 
 ## To create a virtual machine
 
-1. Log in to the [Windows Azure Preview Management Portal](https://manage.windowsazure.com).
+1. Log in to the [Windows Azure Management Portal](https://manage.windowsazure.com).
 2. Click **New**.
 3. Click **Virtual machine**.
 4. Click **Quick create**.
 5. In the **Create virtual machine** screen, enter a value for **DNS name**.
 6. From the **Image** dropdown list, select an image, such as **Windows Server 2008 R2 SP1**.
-7. Enter a password in the **New password** field, and re-enter it in the **Confirm** field. This is the Administrator account password. Remember this password, you will use it when you remotely log in to the virtual machine.
-8. From the **Location** drop down list, select the data center location for your virtual machine; for example, **West US**. Your screen will look similar to the following.
+7. Enter a name for the administrator in the **User Name** field. Remember this name and the password you will enter next, you will use them when you remotely log in to the virtual machine.
+8. Enter a password in the **New password** field, and re-enter it in the **Confirm** field. This is the Administrator account password.
+9. From the **Location** drop down list, select the data center location for your virtual machine. Your screen will look similar to the following.
 
     ![Create a virtual machine][create_vm]
 
@@ -39,7 +40,7 @@ For purposes of this tutorial, an Apache Tomcat application server will be insta
 
 ## To remotely log in to your virtual machine
 
-1. Log in to the [Preview Management Portal](https://manage.windowsazure.com).
+1. Log in to the [Management Portal](https://manage.windowsazure.com).
 2. Click **Virtual Machines**, and then select the **MyTestVM1** virtual machine that you previously created.
 3. On the command bar, click **Connect**.
 
@@ -53,7 +54,7 @@ For purposes of this tutorial, an Apache Tomcat application server will be insta
 
     ![Accept unknown publisher][ConnectVMPublisher]
 
-6. Type the password that you specified as the password of the Administrator account when you created the virtual machine, and then click **OK**.
+6. Type the administrator name password that you specified when you created the virtual machine, and then click **OK**.
 
     ![Enter credentials][ConnectVMCreds]
 
@@ -125,7 +126,7 @@ You should now see Tomcat running if you run the virtual machine's browser and o
 To see Tomcat running from external machines, you'll need to create an endpoint and open a port.
 
 ## To create an endpoint for your virtual machine
-1. Log in to the [Preview Management Portal](https://manage.windowsazure.com).
+1. Log in to the [Management Portal](https://manage.windowsazure.com).
 2. Click **Virtual machines**.
 3. Click the name of the virtual machine that is running your Java application server.
 4. Click **Endpoints**.
