@@ -5,7 +5,7 @@
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-In much the same way that Active Directory is a service made available to customers through the Windows Server operating system to manage their on-premises directory, Windows Azure Active Directory (Windows Azure AD) is a service that is made available through Windows Azure so that you can manage your organization’s cloud directory. [Learn more](http://technet.microsoft.com/library/hh967611.aspx)
+Windows Azure Active Directory is a service that provides identity and access management capabilities in the cloud. In much the same way that Active Directory is a service made available to customers through the Windows Server operating system for on-premises identity management, Windows Azure Active Directory (Windows Azure AD) is a service that is made available through Windows Azure for cloud-based identity management.  [Learn more](http://technet.microsoft.com/library/hh967611.aspx)
 
 Because it is your organization’s cloud directory, you decide who your users are, what information to keep in the cloud, who can use the information or manage it, and what applications or services are allowed to access that information. 
 
@@ -13,15 +13,16 @@ When you use Windows Azure AD, it is Microsoft’s responsibility to keep Active
 
 <h3>Integration with your on-premises Active Directory</h3>
 
-If your organization already uses Active Directory on-premises, you can use Windows Azure AD’s directory integration capabilities, such as directory sync and single sign-on, to further extend the reach of your existing on-premises identities into the cloud for an improved admin and end user experience. [Learn more](http://technet.microsoft.com/library/jj573653)
+Windows Azure AD can be used as a standalone cloud directory for your organization, but you can also integrate existing on-premise Active Directory with Windows Azure AD. Some of the features of integration include directory sync and single sign-on, which further extend the reach of your existing on-premises identities into the cloud for an improved admin and end user experience. 
+ [Learn more](http://technet.microsoft.com/library/jj573653)
 
 <h3>Integration with your applications</h3>
 
-You can develop Windows Azure AD integrated applications for your organization or for other organizations. Integrating an application with Windows Azure AD allows your users or customers to sign in to your application using an identity management system that they already maintain, which reduces or eliminates the need to do separate identity management tasks with your application. [Learn more](http://go.microsoft.com/fwlink/?LinkId=286344)
+Application developers can integrate their applications with Windows Azure AD to provide single sign-on functionality for their users. This enables enterprise applications to be hosted in the cloud and to easily authenticate users with corporate credentials. It also enables software as a service (SaaS) providers to make authentication easier for users in Windows Azure AD organizations when authenticating to their services. Developers can also use the Graph API to query directory data for managing entities such as users or groups. [Learn more](http://go.microsoft.com/fwlink/?LinkID=290817&clcid=0x409)
 
 **Additional Resources**
 
 * [Sign up for Windows Azure as an organization](./sign-up-for-windows-azure-as-an-organization.md)
 * [Windows Azure Identity](http://www.windowsazure.com/en-us/manage/windows/fundamentals/identity/)
 * [Windows Azure AD Library on TechNet](http://technet.microsoft.com/en-us/library/hh967619.aspx)
-* [Windows Azure AD Library on MSDN](http://msdn.microsoft.com/library/windowsazure/jj673460.aspx)
+* [Windows Azure AD Library on MSDN](http://go.microsoft.com/fwlink/?LinkId=293425)
