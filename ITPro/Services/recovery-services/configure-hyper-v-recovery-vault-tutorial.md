@@ -43,7 +43,7 @@ If you will be registering a different server than the one you used to make the 
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
-<div chunk="../ITPro/shared/chunks/disclaimer.md"/>
+<div chunk="/ITPro/shared/chunks/disclaimer.md"/>
 
 2. Click **Recovery Services**, then click **Create New**,  point to **Hyper-V Recovery Manager Vault**, and then click **Quick Create**.
 
