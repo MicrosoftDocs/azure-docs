@@ -35,7 +35,7 @@ The HDInsight Service provides access to the distributed file system that is loc
 
 In addition, HDInsight Service provides the ability to access data stored in Blob Storage containers. The syntax to access ASV is:
 
-	asv[s]://[<container>@]<accountname>.blob.core.microsoft.net/<path>
+	asv[s]://[<container>@]<accountname>.blob.core.windows.net/<path>
 
 
 Hadoop supports a notion of default file system. The default file system implies a default scheme and authority; it can also be used to resolve relative paths. During the HDInsight provision process, user must specify a Blob Storage and a container used as the default file system. 

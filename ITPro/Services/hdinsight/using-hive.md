@@ -16,7 +16,7 @@ Hive provides a means of running MapReduce job through an SQL-like scripting lan
 
 ##In this Article
 
-* [The Hive Usage case](#usage)
+* [The Hive usage case](#usage)
 * [Upload a sample log4j file to Windows Azure Blob Storage](#uploaddata)
 * [Connect to the interactive console](#connect)
 * [Create a Hive table and upload data to the table](#createhivetable)
@@ -51,7 +51,7 @@ In this tutorial, you will complete the following tasks:
 
 ##<a id="uploaddata"></a>Upload a Sample Log4j File to Windows Azure Blob Storage
 
-HDInsight provides two options for storing data, Windows Azure Blob Storage and Hadoop Distributed File system (HDFS). For more information on choosing file storage, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/using-blob-store). When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file.
+HDInsight provides two options for storing data, Windows Azure Blob Storage and Hadoop Distributed File system (HDFS). For more information on choosing file storage, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store). When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file.
 
 *Azure Storage Explorer* is a useful tool for inspecting and altering the data in your Windows Azure Storage. It is a free tool that can be downloaded from [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
@@ -123,7 +123,7 @@ Before using the tool, you must know your Windows Azure storage account name and
 12. Click **Close**. 
 13. From the **File** menu, click **Exit** to close Azure Storage Explorer.
 
-For accessing ASV, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/using-blob-store/)
+For accessing ASV, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/)
 
 ##<a id="connect"></a> Connect to the Interactive Console
 
@@ -162,7 +162,7 @@ You must have an HDInsight cluster previsioned before you can work on this tutor
 
 	To use asvs, you must provide the FQDN. For example to access sample.log on the default file system: 
 
-		#ls asvs://container@storagename.blob.core.microsoft.net/sample.log 
+		#ls asvs://container@storagename.blob.core.windows.net/sample.log 
 
 
 ##<a id="createhivetable"></a> Create a Hive Table and Upload Data to the Table

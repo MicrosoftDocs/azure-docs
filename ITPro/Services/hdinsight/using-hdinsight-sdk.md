@@ -21,12 +21,12 @@ You can install latest published build of the library from [NuGet](http://nuget.
 
 * **MapReduce library:** This library simplifies writing MapReduce jobs in .NET languages using the Hadoop streaming interface.
 * **LINQ to Hive client library:** This library translates C# or F# LINQ queries into HiveQL queries and executes them on the Hadoop cluster. This library can execute arbitrary HiveQL queries from a .NET program as well.
-* **WebClient library:** This libarary contains client libraries for *WebHDFS* and *WebHCat*.
+* **WebClient library:** This library contains client libraries for *WebHDFS* and *WebHCat*.
 
 	* **WebHDFS client library:** It works with files in HDFS and Windows Azure Blog Storage
 	* **WebHCat client library:** It manages scheduling and execution of jobs in HDInsight cluster
 	
-The NuGet syntax to install the librarys:
+The NuGet syntax to install the libraries:
 
 		install-package Microsoft.Hadoop.MapReduce
 		install-package Microsoft.Hadoop.Hive 
@@ -54,7 +54,7 @@ In this section you will learn how to upload files to Hadoop cluster programmati
 
 	<table>
 	<tr><th>Property</th><th>Value</th></tr>
-	<tr><td>Catagory</td><td>Templates/Visual C#/Windows</td></tr>
+	<tr><td>Category</td><td>Templates/Visual C#/Windows</td></tr>
 	<tr><td>Template</td><td>Console Application</td></tr>
 	<tr><td>Name</td><td>SimpleHiveJob</td></tr>
 	</table>

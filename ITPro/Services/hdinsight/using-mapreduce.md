@@ -4,7 +4,7 @@
 
 # Using MapReduce with HDInsight#
 
-Hadoop MapReduce is a software framework for writing applications which process vast amounts of data. In this tutorial, you will create a Haddop MapReduce job in Java, and execute the job on a Windows Azure HDInsight cluster to process a semi-structured Apache *log4j* log file stored in Azure Storage Vault (Azure Storage Vault or ASV provides a full featured HDFS file system over Windows Azure Blob storage).  
+Hadoop MapReduce is a software framework for writing applications which process vast amounts of data. In this tutorial, you will create a Hadoop MapReduce job in Java, and execute the job on a Windows Azure HDInsight cluster to process a semi-structured Apache *log4j* log file stored in Azure Storage Vault (Azure Storage Vault or ASV provides a full featured HDFS file system over Windows Azure Blob storage).  
 
 [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) is a logging utility. Each log inside a file contains a *log level* field to show the type and the severity. For example:
 
@@ -27,8 +27,8 @@ This MapReduce job takes a log4j log file as input, and generates an output file
 * [Connect to an HDInsight Cluster](#connect)
 * [Create a MapReduce job](#createjob)
 * [Run the MapReduce job](#runjob)
-* [Tutorial Clean Up](#cleanup)
-* [Next Steps](#nextsteps)
+* [Tutorial clean up](#cleanup)
+* [Next steps](#nextsteps)
 
 ##<a id="mapreduce"></a>  Big Data and Hadoop MapReduce
 Generally, all applications save errors, exceptions and other coded issues in a log file. These log files can get quite large in size, containing a wealth of data that must be processed and mined. Log files are a good example of big data. Working with big data is difficult using relational databases with statistics and visualization packages. Due to the large amounts of data and the computation of this data, parallel software running on tens, hundreds, or even thousands of servers is often required to compute this data in a reasonable time. Hadoop provides a MapReduce framework for writing applications that process large amounts of structured and semi-structured data in parallel across large clusters of machines in a very reliable and fault-tolerant manner.
@@ -47,7 +47,7 @@ You will complete the following tasks in this tutorial:
  
 ###<a id="uploaddata"></a>Upload a Sample Log4j File to the Blob Storage
 
-HDInsight provides two options for storing data, Windows Azure Blob Storage and Hadoop Distributed File system (HDFS). For more information on choosing file storage, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/using-blob-store). When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file.
+HDInsight provides two options for storing data, Windows Azure Blob Storage and Hadoop Distributed File system (HDFS). For more information on choosing file storage, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store). When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file.
 
 *Azure Storage Explorer* is a useful tool for inspecting and altering the data in your Windows Azure Storage. It is a free tool that can be downloaded from [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
@@ -72,7 +72,7 @@ Before using the tool, you must know your Windows Azure storage account name and
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
-	<p>To simplify the tutorial, you will use the default file system. You can also use other containers on the same storage account or other storage accouns.  For more information, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/using-blob-store/).</p> 
+	<p>To simplify the tutorial, you will use the default file system. You can also use other containers on the same storage account or other storage accounts.  For more information, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).</p> 
 	</div>
 
 7. From **Blob**, click **Upload**.
@@ -125,7 +125,7 @@ Before using the tool, you must know your Windows Azure storage account name and
 12. Click **Close**. 
 13. From the **File** menu, click **Exit** to close Azure Storage Explorer.
 
-For accessing ASV, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/using-blob-store/).
+For accessing ASV, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).
 
 ##<a id="connect"></a>Connect to an HDInsight Cluster
 You must have an HDInsight cluster previsioned before you can work on this tutorial. To enable the Windows Azure HDInsight Service preview, click [here](https://account.windowsazure.com/PreviewFeatures). For information on prevision an HDInsight cluster see [How to Administer HDInsight Service](/en-us/manage/services/hdinsight/howto-administer-hdinsight/) or [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/).
@@ -151,7 +151,7 @@ You must have an HDInsight cluster previsioned before you can work on this tutor
 
 		hadoop fs -ls asv://container@storagename.blob.core.windows.net/sample.log
 
-	replace *container* with the container name, and *storagename* with the Blob Storage account name. 
+	Replace *container* with the container name, and *storagename* with the Blob Storage account name. 
 
 	Because the file is located on the default file system, the same result can also be retrieved by using the following command:
 
@@ -159,11 +159,11 @@ You must have an HDInsight cluster previsioned before you can work on this tutor
 	 
 	To use asvs, you must provide the FQDN. For example to access sample.log on the default file system: 
 
-		#ls asvs://container@storagename.blob.core.microsoft.net/sample.log
+		#ls asvs://container@storagename.blob.core.windows.net/sample.log
 
 	
 
-##<a id="createjob"></a> Create the MapReduce job ##
+##<a id="createjob"></a> Create the MapReduce Job ##
 The Java programming language is used in this sample. Hadoop Streaming allows developers to use virtually any programming language to create MapReduces jobs.
 
 1. From Hadoop command prompt, run the following commands to make a directory and change directory to the folder:
@@ -171,7 +171,7 @@ The Java programming language is used in this sample. Hadoop Streaming allows de
 		mkdir c:\Tutorials
 		cd \Tutorials
 
-2. run the following command to create a java file in the C:\Tutorials folder:
+2. Run the following command to create a java file in the C:\Tutorials folder:
 
 		notepad log4jMapReduce.java
 
@@ -303,7 +303,7 @@ The Java programming language is used in this sample. Hadoop Streaming allows de
 		log4jMapReduce.jar
 		log4jMapReduce.java
 
-##<a id="runjob"></a> Run the MapReduce job
+##<a id="runjob"></a> Run the MapReduce Job
 Until now, you have uploaded a log4j log files to the Blob storage, and compiled the MapReduce job.  The next step is to run the job.
 
 1. From Hadoop command prompt, execute the following command to run the Hadoop MapReduce job:
