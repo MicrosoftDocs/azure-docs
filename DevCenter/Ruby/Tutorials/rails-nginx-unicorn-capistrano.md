@@ -1,10 +1,10 @@
-<properties linkid="dev-ruby-web-app-with-linux-vm" urlDisplayName="Ruby on Rails Windows Azure VM" pageTitle="Ruby on Rails Web application in a Windows Azure Virtual Machine - tutorial" metaKeywords="ruby on rails, ruby on rails azure, rails azure, rails vm" metaDescription="Learn how to create a Ruby on Rails application that is hosted in a Windows Azure Virtual Machine." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="larryfr" />
+<properties linkid="dev-ruby-web-app-with-linux-vm-capistrano" urlDisplayName="Ruby on Rails Windows Azure VM Capistrano" pageTitle="Deploying a Ruby on Rails Web application to a Windows Azure Virtual Machine using Capistrano - tutorial" metaKeywords="ruby on rails, ruby on rails azure, rails azure, rails vm, capistrano azure vm, capistrano azure rails, unicorn azure vm, unicorn azure rails, unicorn nginx capistrano, unicorn nginx capistrano azure, nginx azure" metaDescription="Learn how to deploy a Ruby on Rails application to a Windows Azure Virtual Machine using Capistrano, Unicorn and Nginx." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="larryfr" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
-#Ruby on Rails Web application on a Windows Azure VM
+#Deploy a Ruby on Rails Web application to a Windows Azure VM using Capistrano
 
-This tutorial describes how to use Nginx and Unicorn to host a Ruby on Rails-based web site on Windows Azure using a Linux virtual machine. This tutorial also describes how to use Capistrano to deploy the application to the Windows Azure virtual machine.
+This tutorial describes how to deploy a Ruby on Rails-based web site to a Windows Azure Virtual Machine using [Capistrano](https://github.com/capistrano/capistrano/). This tutorial also describes how to [Nginx](http://nginx.org/) and [Unicorn](http://unicorn.bogomips.org/) to host the application on the virtual machine.
 
 This tutorial assumes you have no prior experience using Windows Azure. Upon completing this tutorial, you will have a Ruby on Rails-based application up and running in the cloud.
 
@@ -12,19 +12,24 @@ You will learn how to:
 
 * Setup your development environment
 
-* Setup a Windows Azure virtual machine
-
 * Install Ruby and Ruby on Rails
 
 * Install and configure Nginx and Unicorn
 
 * Create a new Rails application
 
-* Deploy a Rails application using Capistrano
+* Deploy a Rails application to a Windows Azure Virtual machine using Capistrano
 
 The following is a screenshot of the completed application:
 
 ![a browser displaying Listing Posts][blog-rails-cloud]
+
+<div class="dev-callout">
+<strong>Note</strong>
+<p>The application used for this tutorial includes native binary components. For this reason, you may encounter problems if your development environment is not Linux-based as the Gemfile.lock produced on the development machine may not include entries for the Linux compatible version of required gems.</p>
+<p>Specific steps are called out for using a Windows development environment, as this represents the most significant delta from the target deployment environment. However, if you encounter errors during or after deployment that are not covered by the steps in this article, you may wish to retry the steps in this article from a Linux-based development environment.</p>
+
+</div>
 
 ##In this article
 
@@ -34,11 +39,15 @@ The following is a screenshot of the completed application:
 
 * [Test the application](#test)
 
+* [Create a source repository](#repository)
+
 * [Create a Windows Azure Virtual Machine](#createvm)
 
-* [Copy the application to the VM](#copy)
+* [Test Nginx](#nginx)
 
-* [Install gems and start the application](#start)
+* [Prepare for deployment](#capify)
+
+* [Deploy](#deploy)
 
 * [Next steps](#next)
 
@@ -124,18 +133,11 @@ Perform the following steps to start the Rails server in your development enviro
 
 For this tutorial, we will use [Git](http://git-scm.com/) and [GitHub](https://github.com/) for version control and as a central location for our code.
 
-1.	Create a new repository on [GitHub](https://github.com/). If you do not currently have a GitHub account, you can sign up for a free account.
+1.	Create a new repository on [GitHub](https://github.com/). If you do not currently have a GitHub account, you can sign up for a free account. The steps in this tutorial assume that the repository name is **blog_app**.
 
 	<div class="dev-callout">
 	<strong>Note</strong>
 	<p>The scripts created in later sections of this document will contain the address of your virtual machine and the user name used to deploy the application over SSH. For this reason, we recommend that you use a private GitHub repository if possible.</p>
-	</div>
-
-1. Authorize your development environment to authenticate to your GitHub account using a certificate by performing the steps described on the [Generating SSH Keys](https://help.github.com/articles/generating-ssh-keys#platform-all) page.
-
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>While GitHub supports accessing your repository using a username and password over HTTPS, this tutorial relies on SSH agent forwarding. This allows enables the remote virtual machine to use the certificate stored on your development environment to access GitHub when you invoke the deployment script. For more information, see <a href="https://help.github.com/articles/using-ssh-agent-forwarding">Using SSH Agent Forwarding</a>.</p>
 	</div>
 
 2.	Run the following commands from within the on your local computer to upload the initial version of the application:
@@ -224,19 +226,27 @@ Nginx provides a default web site that we can use to make sure our virtual machi
 		sudo service nginx stop
 		sudo rm /etc/nginx/sites-enabled/default
 
-	Subsequent steps in this tutorial will create a link from /etc/nginx/sites-enabled to your blog website.
+	The deployment scripts ran later in this tutorial will make the blog_app the default website served by Nginx.
 
 ##<a id="capify"></a>Prepare for deployment
 
-In this section, you will modify the application to use the [Unicorn](http://unicorn.bogomips.org/) web server, enable [Capistrano](https://github.com/capistrano/capistrano/) for deployment, and create the scripts used to deploy and start the application.
+In this section, you will modify the application to use the Unicorn web server, enable Capistrano for deployment, enable GitHub access from the virtual machine, and create the scripts used to deploy and start the application.
+
+1. Authorize your virtual machine to authenticate to your GitHub account using a certificate by performing the steps described on the [Generating SSH Keys](https://help.github.com/articles/generating-ssh-keys#platform-all) page. This will be used to access your GitHub repository from the deployment scripts.
+
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>While the SSH key must be generated on the virtual machine, you can add the key to your GitHub account using the browser in the development environment.</p>
+	<p>To view the contents of the SSH certificate so that you can copy and paste to GitHub, use the following command:</p>
+	<pre>cat ~/.ssh/id_rsa.pub</pre>
+	</div>
+
 
 1. On your development machine, modify the **Gemfile** and uncomment the lines for **Capistrano** and **Unicorn** by removing the '#' character from the beginning of following lines:
 
 		# gem 'unicorn'
 
 		# gem 'capistrano'
-
-	![modify the gemfile and uncomment lines for capistrano and unicorn](../media/ruby-on-rails03.png)
 
 	<div class="dev-callout">
 	<strong>Note</strong>
@@ -265,28 +275,21 @@ In this section, you will modify the application to use the [Unicorn](http://uni
 		set :user, "blogger"
 
 		set :scm, :git
-		set :repository, "https://github.com/YourGitHubAccount/blog_app.git"
+		set :repository, "git@github.com:YourGitHubAccount/blog_app.git"
 		set :branch, "master"
 		set :use_sudo, true
-		set :bundle_flags, "--no-deployment --quiet"
 
-		server "VM-DNS-Name", :web, :app, :db, primary: true
+		server "VMDNSName", :web, :app, :db, primary: true
 
 		set :deploy_to, "/home/#{user}/apps/#{application}"
 		default_run_options[:pty] = true
 		ssh_options[:forward_agent] = true
+		ssh_options[:port] = SSHPort
 
 		namespace :deploy do
-		  desc "Remove mingw32 extensions from Gemfile.lock to re-bundle under LINUX"
-		  task :rm_mingw32, :except => { :no_release => true }, :role => :app do
-		    puts " modifying Gemfile.lock ... removing mingw32 platform ext. before re-bundling on LINUX"
-		    run "sed 's/-x86-mingw32//' #{release_path}/Gemfile.lock > #{release_path}/Gemfile.tmp && mv #{release_path}/Gemfile.tmp #{release_path}/Gemfile.lock"
-		    run "sed -n '/PLATFORMS/ a\ ruby' #{release_path}/Gemfile.lock"
-		  end
-
-		  desc "Fix permission"
+		  desc "Fix permissions"
 		  task :fix_permissions, :roles => [ :app, :db, :web ] do
-		    run "chmod +x #{release_path}/config/unicorn_init.sh"
+		  	run "chmod +x #{release_path}/config/unicorn_init.sh"
 		  end
 
 		  %w[start stop restart].each do |command|
@@ -306,17 +309,22 @@ In this section, you will modify the application to use the [Unicorn](http://uni
 		  task :symlink_config, roles: :app do
 		    # Add database config here
 		  end
-
-		  before "bundle:install", "deploy:rm_mingw32"
 		  after "deploy:finalize_update", "deploy:fix_permissions"
 		  after "deploy:finalize_update", "deploy:symlink_config"
 		end
 
-	In the above text, replace **YourGitHubAccount** with your GitHub account name, and **VM-DNS-Name** with the DNS of your Windows Azure VM.
+	In the above text, replace the following:
+
+	* **YourGitHubAccount** with your GitHub account name
+	* **VMDNSName** with the DNS of your Windows Azure virtual machine
+	* **blogger** with the username used to login to your virtual machine
+	* **SSHPort** with the external SSH port for your virtual machine
 
 	<div class="dev-callout">
 	<strong>Note</strong>
-	<p>The settings used by this deployment file should not be considered best practices, and are instead crafted to work with the widest array of development environments possible.</p>
+	<p>If your development environment is a Windows system, you must add the following line to the <b>deploy.rb</b> file. This should be placed along with the other <b>set</b> statements at the beginning of the file:</p>
+	<pre>set :bundle_flags, "--no-deployment --quiet"</pre>
+	<p>This is not best practice, as it causes gems to be loaded from the Gemfile during deployment instead of the Gemfile.lock, but is required since the target system (Linux) is different than the development system (Windows).</p>
 	</div>
 
 7.	Uncomment the assets line in the **Capfile** located in the **blog_app** directory.
@@ -354,13 +362,17 @@ In this section, you will modify the application to use the [Unicorn](http://uni
 
 		sudo service nginx start
 
-At this point, you should be able to enter the DNS address of your virtual machine in a browser and the Rails
+At this point, your Ruby on Rails application should be running on your Windows Azure virtual machine. To verify this, enter the DNS name of your virtual machine in your web browser. For example, http://railsvm.cloudapp.net. The 'Welcome aboard' screen should appear:
+
+![welcome aboard page][default-rails-cloud]
+
+If you append '/posts' to the URL, the posts index should appear and you should be able to create, edit and delete posts.
 
 ##<a id="next"></a>Next steps
 
-In this article you have learned how to create and publish a basic forms-based Rails application to a Windows Azure Virtual Machine. Most of the actions we performed were manual, and in a production environment it would be desirable to automate. Also, most production environments host the Rails application in conjunction with another server process such as Apache or Nginx, which handles request routing to multiple instances of the Rails application and serving static resources.
+In this article you have learned how to create and publish a basic forms-based Rails application to a Windows Azure Virtual Machine using Capistrano. The virtual machine used Unicorn and Nginx to handle web requests to the application.
 
-For information on automating deployment of your Rails application, as well as using the Unicorn web server and Nginx, see [Unicorn+NginX+Capistrano with a Windows Azure Virtual Machine][unicorn-nginx-capistratno].
+While Capistrano is a popular deployment method for Ruby on Rails applications, it is not the only one. To see another method of deploying an application to a virtual machine, see [Deploying Ruby on Rails to a Windows Azure VM using Chef].
 
 This article also used the SQLite database to store data. Learn how to use Rails with SQL Database in the [Using SQL Database with Rails][sql-rails] article.
 
@@ -371,15 +383,15 @@ If you would like to learn more about Ruby on Rails, visit the [Ruby on Rails Gu
 [sql-rails]: /en-us/develop/ruby/howto/sql-rails/
 [rails-guides]: http://guides.rubyonrails.org/
 
-[ruby-vm-endpoint]: 
-[ruby-http-endpoint-details]: 
+ 
 [blog-rails]: ../media/blograilslocal.png
 [blog-rails-cloud]: ../media/blograilscloud.png 
 [default-rails]: ../media/basicrailslocal.png
 [default-rails-cloud]: ../media/basicrailscloud.png
 [vmlist]: ../media/vmlist.png
 [endpoints]: ../media/endpoints.png
-[new-endpoint]: ../media/newendpoint.png
+[new-endpoint]: ../media/newendpoint80.png
+[nginx-welcome]: ../media/welcomenginx.png
 
 [management-portal]: https://manage.windowsazure.com/
 [sqlite3]: http://www.sqlite.org/
