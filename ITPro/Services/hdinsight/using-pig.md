@@ -27,7 +27,7 @@ In this tutorial, you will write Pig Latin statements to analyze an Apache log4j
 * [Use Pig in the interactive mode](#interactivemode)
 * [Use Pig in the batch mode](#batchmode)
 * [Tutorial clean up](#cleanup)
-* [Next Steps](#nextsteps)
+* [Next steps](#nextsteps)
  
 ##<a id="usage"></a>The Pig Usage Case
 Databases are great for small sets of data and low latency queries. However, when it comes to Big Data and large data sets in terabytes, traditional SQL databases are not the ideal solution. As database load increases and performance degrades, historically, database administrators have had to buy bigger hardware. 
@@ -59,7 +59,7 @@ You will complete the following tasks in this tutorial:
 
 ##<a id="uploaddata"></a>Upload a Sample Log4j File to Windows Azure Blob Storage
 
-HDInsight provides two options for storing data, Windows Azure Blob Storage and Hadoop Distributed File system (HDFS). For more information on choosing file storage, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/using-blob-store). When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file.
+HDInsight provides two options for storing data, Windows Azure Blob Storage and Hadoop Distributed File system (HDFS). For more information on choosing file storage, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store). When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file.
 
 *Azure Storage Explorer* is a useful tool for inspecting and altering the data in your Windows Azure Storage. It is a free tool that can be downloaded from [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
@@ -88,9 +88,9 @@ Before using the tool, you must know your Windows Azure storage account name and
 12. Click **Close**. 
 13. From the **File** menu, click **Exit** to close Azure Storage Explorer.
 
-For information on access ASV, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/using-blob-store/).
+For information on access ASV, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).
 
-##<a id="connect"></a>Connect to your HDInsight Cluster ##
+##<a id="connect"></a>Connect to Your HDInsight Cluster ##
 
 You must have an HDInsight cluster previsioned before you can work on this tutorial. To enable the Windows Azure HDInsight Service preview, click [here](https://account.windowsazure.com/PreviewFeatures). For information on prevision an HDInsight cluster see [How to Administer HDInsight Service](/en-us/manage/services/hdinsight/howto-administer-hdinsight/) or [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/).
   
@@ -119,7 +119,7 @@ First, you will use Pig Latin in interactive mode (Grunt shell) to analyze a sin
 	<div class="dev-callout"> 
 	<b>Note</b> 
 	<p>To use asvs, you must provide the FQDN. For example: <br/>
-LOG = LOAD 'asvs://container@storagename.blob.core.microsoft.net/sample.log'. For more informaiton, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/using-blob-store/).</p> 
+LOG = LOAD 'asvs://container@storagename.blob.core.windows.net/sample.log'. For more information, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).</p> 
 	</div>
 
 
@@ -162,7 +162,7 @@ LOG = LOAD 'asvs://container@storagename.blob.core.microsoft.net/sample.log'. Fo
 
 		grunt> dump FILTEREDLEVELS;
 
-	The output is similiar to the following:
+	The output is similar to the following:
 
 		(DEBUG)
 		(TRACE)
@@ -192,7 +192,7 @@ LOG = LOAD 'asvs://container@storagename.blob.core.microsoft.net/sample.log'. Fo
 
 		grunt> dump GROUPEDLEVELS;
 
-	The output is similiar to the following:
+	The output is similar to the following:
 
 		(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
 		(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
@@ -215,7 +215,7 @@ LOG = LOAD 'asvs://container@storagename.blob.core.microsoft.net/sample.log'. Fo
  
 		grunt> dump FREQUENCIES;
  
-	The output is similiar to the following:
+	The output is similar to the following:
 
 		(INFO,3355)
 		(WARN,361)

@@ -83,7 +83,7 @@ In this tutorial, you will use the Hive console to run the Hive queries.  The ot
 
 		#ls asv://flightinfo@StorageAccountName.blob.core.windows.net/delays
 
-	You will get the list of files you uploaded using Azure STorage Explorer.
+	You will get the list of files you uploaded using Azure Storage Explorer.
 
 ##<a id="createtable"></a>Create a Hive Table and Populate Data
 The next step is to create a Hive table from the data in Azure Storage Vault (ASV)/Blog storage. 
@@ -197,13 +197,13 @@ The next step is to create a Hive table from the data in Azure Storage Vault (AS
 ##<a id="executequery"></a>Execute a HiveQL Query
 After the *delays* table has been created, you are now ready to run queries against it.
 
-1. Replace **username** in the following query with the username you used to log into the cluster, and then copy and paste the followingquery into the query pane
+1. Replace **username** in the following query with the username you used to log into the cluster, and then copy and paste the following query into the query pane
 
 		INSERT OVERWRITE DIRECTORY '/user/username/queryoutput' select regexp_replace(origin_city_name, '''', ''), avg(weather_delay) from delays where weather_delay is not null group by origin_city_name;
 
 	This query computes the average weather delay and groups the results by city name. It will also output the results to HDFS. Note that the query will remove apostrophes from the data and will exclude rows where the value for *weather_deal*y is *null*, which is necessary because Sqoop, used in the next step, doesn't handle those values gracefully by default.
 
-2. Click **Evaluate**.Output from the query above should look similar to the following:
+2. Click **Evaluate**. The output from the query above should look similar to the following:
 
 		Hive history file=c:\apps\dist\hive-0.9.0\logs/hive_job_log_RD00155D47138A$_201303220108_1260638792.txt
 		Logging initialized using configuration in file:/C:/apps/dist/hive-0.9.0/conf/hive-log4j.properties
