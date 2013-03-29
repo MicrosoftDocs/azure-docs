@@ -40,29 +40,11 @@ For purposes of this tutorial, an Apache Tomcat application server will be insta
 
 ## To remotely log in to your virtual machine
 
-1. Log in to the [Management Portal](https://manage.windowsazure.com).
-2. Click **Virtual Machines**, and then select the **MyTestVM1** virtual machine that you previously created.
-3. On the command bar, click **Connect**.
-
-    ![Connect to virtual machine][ConnectVMWindows]
-
-4. Click **Open** to use the remote desktop protocol file that was automatically created for the virtual machine
-
-    ![Open RDP file][ConnectVMRDP]
-
-5. Click **Connect** to proceed with the connection process.
-
-    ![Accept unknown publisher][ConnectVMPublisher]
-
-6. Type the administrator name password that you specified when you created the virtual machine, and then click **OK**.
-
-    ![Enter credentials][ConnectVMCreds]
-
-
-7. Click **Yes** to verify the identity of the virtual machine.
-
-    ![Verify identity of the virtual machine][ConnectVMVerify]
-
+1. Log on to the [Management Portal](https://manage.windowsazure.com).
+2. Click **Virtual machines**.
+3. Click the name of the virtual machine that you want to log in to.
+4. Click **Connect**.
+5. Respond to the prompts as needed to connect to the virtual machine. When prompted for the administrator name and password, use the values that you provided when you created the virtual machine.
 
 ## To install a JDK on your virtual machine
 
