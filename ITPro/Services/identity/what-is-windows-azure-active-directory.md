@@ -3,8 +3,6 @@
 
 <h1 id="whatisaad">What is Windows Azure Active Directory?</h1>
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
-
 Windows Azure Active Directory is a service that provides identity and access management capabilities in the cloud. In much the same way that Active Directory is a service made available to customers through the Windows Server operating system for on-premises identity management, Windows Azure Active Directory (Windows Azure AD) is a service that is made available through Windows Azure for cloud-based identity management.  [Learn more](http://technet.microsoft.com/library/hh967611.aspx)
 
 Because it is your organization’s cloud directory, you decide who your users are, what information to keep in the cloud, who can use the information or manage it, and what applications or services are allowed to access that information. 
