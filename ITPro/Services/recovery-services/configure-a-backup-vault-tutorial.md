@@ -5,7 +5,7 @@
 To backup files and data from your Windows Server in Windows Azure, you must create a backup vault in the geographic region where you want to store the data. This tutorial will walk you through the creation of the vault you will use to store backups, the uploading of a certificate to the vault, the installation of a backup agent, and an overview of the backup management tasks available through the management portal.
 
 <div class="dev-callout"> 
-<h2>Before you begin</h2> 
+<strong>Before you begin</strong> 
 <p>To successfully complete this tutorial you must have 
 an X.509 v3 certificate to register your servers with Recovery Services vaults.  The certificate must have a key length of at least 2048 bits and should reside in the Personal certificate store of your Local Computer. When the certificate is installed on your server, it should contain the private key of the certificate. To upload to the certificate to the Windows Azure Management Portal, you must export the public key as a .cer format file.</p> 
 
@@ -42,7 +42,7 @@ If you will be registering a different server than the one you used to make the 
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
-<div chunk="/ITPro/Shared/Chunks/disclaimer.md"/>
+<div chunk="../../Shared/Chunks/disclaimer.md"/>
 
 2. Click **Recovery Services**, then click **Create New**,  point to **Backup Vault**, and then click **Quick Create**.
 
