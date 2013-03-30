@@ -21,7 +21,7 @@ You can develop Windows Azure AD integrated applications for your organization o
 
 **Additional Resources**
 
-* [Sign up for Windows Azure as an organization](./sign-up-for-windows-azure-as-an-organization.md)
-* [Windows Azure Identity](http://www.windowsazure.com/en-us/manage/windows/fundamentals/identity/)
+* [Sign up for Windows Azure as an organization](/en-us/manage/services/identity/organizational-account/)
+* [Windows Azure Identity](/en-us/manage/windows/fundamentals/identity/)
 * [Windows Azure AD Library on TechNet](http://technet.microsoft.com/en-us/library/hh967619.aspx)
 * [Windows Azure AD Library on MSDN](http://msdn.microsoft.com/library/windowsazure/jj673460.aspx)
