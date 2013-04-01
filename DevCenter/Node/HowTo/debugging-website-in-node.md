@@ -27,13 +27,20 @@ Once this option is enabled, IISNode will return the last 64K of information sen
 <p>While devErrorsEnabled is useful when diagnosing problems during development, enabling it in a production environment may result in development errors being sent to end users.</p>
 </div>
 
+If the **IISNode.yml** file did not already exist within your application, you must restart your web site after publishing the updated application. If you are simply changing settings in an existing **IISNode.yml** file that has previously been published, no restart is required.
+
 <div class="dev-callout">
 <strong>Note</strong>
-<p>When you first add the <strong>IISNode.yml</strong> file and enabled logging or developer errors, you must redeploy your application and then restart your web site. You can restart the web site by selecting your web site from the <a href="https://manage.windowsazure.com/">Windows Azure Management Portal</a>, and then selecting the <strong>RESTART</strong> button:
-
-![restart buttoin][restart-button]</p>
+<p>If your web site was created using the Windows Azure Command-Line Tools or Windows Azure PowerShell Cmdlets, a default <strong>IISNode.yml</strong> file is automatically created.</p>
 </div>
 
+You can restart the web site by selecting the site from the [Windows Azure Management Portal], and then selecting the **RESTART** button:
+
+![restart button][restart-button]
+
+If the Windows Azure Command-Line Tools are installed in your development environment, you can use the following command to restart the web site:
+
+	azure site restart [sitename]
 
 <div class="dev-callout">
 <strong>Note</strong>
