@@ -563,7 +563,6 @@ For more information, see the [Open Web Application Security Project](https://ww
                 public override void OnAuthorization(HttpActionContext actionContext)
                 {
                     HttpRequestMessage request = actionContext.ControllerContext.Request;
-
                     try
                     {
                         if (IsAjaxRequest(request))
@@ -580,7 +579,6 @@ For more information, see the [Open Web Application Security Project](https://ww
                         actionContext.Response = request.CreateErrorResponse(HttpStatusCode.Forbidden, e);
                     }
                 }
-
                 private bool IsAjaxRequest(HttpRequestMessage request)
                 {
                     IEnumerable<string> xRequestedWithHeaders;
@@ -600,8 +598,7 @@ For more information, see the [Open Web Application Security Project](https://ww
                 {
                     string cookieToken = String.Empty;
                     string formToken = String.Empty;
-
-                    IEnumerable<string> tokenHeaders;
+					IEnumerable<string> tokenHeaders;
                     if (request.Headers.TryGetValues("RequestVerificationToken", out tokenHeaders))
                     {
                         string tokenValue = tokenHeaders.FirstOrDefault();
