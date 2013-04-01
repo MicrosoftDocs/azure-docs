@@ -66,7 +66,8 @@ If you will be registering a different server than the one you used to make the 
 
 2. Click **Recovery Services**, then click the name of backup vault that will be identified by the certificate and then click **Manage certificate**.
 	
-	![Manage certificate](../media/RS_howtoupload.png)
+	![Manage certificate](../media/RS_howtoupload1.png)
+
 3. In the **Manage Certificate** dialog click Browse Your Computer to locate the .cer file to use with this backup vault.
 <h2><a id="download"></a>Download and install a backup agent</h2>
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
