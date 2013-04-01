@@ -5,26 +5,15 @@
 
 # How to Use Service Bus Notification Hubs
 
-This guide will show you how to use Service Bus topics and subscriptions
-from Node.js applications. The scenarios covered include **creating
-topics and subscriptions, creating subscription filters, sending
-messages** to a topic, **receiving messages from a subscription**, and
-**deleting topics and subscriptions**. For more information on topics
-and subscriptions, see the [Next Steps][] section.
+This guide will show you how to use Service Bus Notification Hubs
+from Node.js applications. The scenarios covered include **sending notifications to iOS and Windows Store applications**. For more information on notification hubs, see the [Next Steps][] section.
 
 ## Table of Contents
 
--   [What are Service Bus Topics and Subscriptions?][]
--   [Create a Service Namespace][]
--   [Obtain the Default Management Credentials for the Namespace][]
--   [Create a Node.js Application][]
--   [Configure Your Application to Use Service Bus][]
--   [How to: Create a Topic][]
--   [How to: Create Subscriptions][]
--   [How to: Send Messages to a Topic][]
--   [How to: Receive Messages from a Subscription][]
--   [How to: Handle Application Crashes and Unreadable Messages][]
--   [How to: Delete Topics and Subscriptions][]
+
+-   [How to: Send notifications][]
+-   [How to: Send iOS application notifications][]
+-   [How to: Send Windows Store application notifications][]
 -   [Next Steps][1]
 
 <div chunk="../../shared/chunks/howto-service-bus-topics.md" />
@@ -87,29 +76,73 @@ module:
 
     var notificationHubService = azure.createNotificationHubService('hubname');
 
-The **NotificationHubService** object exposes an instance of the **ApnsService** (notificationHubService.apns) and **WnsService** (notificationHubService.wns) objects. The **ApnsService** object is used to send notification to iOS applications. The **WnsService** object is used to send notifications to Windows Store applications. Both objects expose methods for sending notifications.
+The **NotificationHubService** object exposes an instance of the **ApnsService** (notificationHubService.apns) and **WnsService** (notificationHubService.wns) objects. The **ApnsService** object is used to send notification to iOS applications. The **WnsService** object is used to send notifications to Windows Store applications.
 
 ### How to send iOS application notifications
 
-The **ApnsService** object provides a **send** method that can be used to send notifications to applications running on iOS devices. The **send** method accepts the following parameters:
+The **ApnsService** object provides a **send** method that can be used to send notifications to iOS applications. The **send** method accepts the following parameters:
 
-* Tags - a comma-seperated list or array of tag identifiers
+* Tags - a comma-separated list or array of tag identifiers
 * Payload - the message's JSON or string payload
 * Callback - the callback function
 
+For more information the payload format, see The Notification Payload section of the [Local and Push Notification Programming Guide](http://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html).
 
+The following code uses the **ApnsService** instance exposed by the **NotificationHubService** to send an alert message:
+
+	var payload='{ 
+	    alert: 'Hello!'
+	  }';
+	notificationHubService.apns.send(null, payload, 
+	  function(error){
+	    if(!error){
+ 	      // notification sent
+	    }
+	  });
 
 ### How to send Windows Store application notifications
 
-The **WnsService** object provides 
+The **WnsService** object provides a **send** method that can be used to send notifications to Windows Store applications.  The **send** method accepts the following parameters:
+
+* Tags - a comma-separated list or array of tag identifiers
+* Payload - the XML message payload
+* Type - the notification type; 
+* Options - optional request headers
+* Callback - the callback function
+
+For a list of valid Types and request headers, see [Push notification service request and response headers](http://msdn.microsoft.com/en-us/library/windows/apps/hh465435.aspx).
+
+The following code uses the **WnsService** instance exposed by the **NotificationHubService** to send a toast alert:
+
+	var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
+	notificationHubService.wns.send(null, payload , 'wns/toast', 
+	  function(error){
+	    if(!error){
+ 	      // notification sent
+	    }
+	  });
+
+The **WnsService** object also exposes additional send methods that support the sending of specific notification types. For example, the **sendBadge** method allows you to send badge notifications by specifying a number or name of a status glyph. For more information on the status glyph values, see [http://msdn.microsoft.com/en-us/library/windows/apps/br212849.aspx](http://msdn.microsoft.com/en-us/library/windows/apps/br212849.aspx).
+
+The following is an example of using the **sendBadge** method:
+
+	notificationHubService.wns.sendBadge(null, 'alert',
+      function (error) {
+        if(!error){
+	      // notification sent
+	    }
+	  });
+
+The **WnsService** object exposes a send and create method for every toast and tile template available for Windows Store applications. These methods follow the naming convention of **[create|send]*TemplateName***. For example, **createToastText01** and **sendToastText01** support the creating and sending of notifications that use the ToastText01 template.
+
+For a full list of toast templates, see [the toast template catalog](http://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx). For a full list of tile templates, see [the tile template catalog](http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx).
 
 ## Next Steps
 
 Now that you've learned the basics of Service Bus topics, follow these
 links to learn more.
 
--   See the MSDN Reference: [Queues, Topics, and Subscriptions][].
--   API reference for [SqlFilter][].
+-   See the MSDN Reference: [Windows Azure Service Bus Notification Hubs][].
 -   Visit the [Azure SDK for Node] repository on GitHub.
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
@@ -134,7 +167,7 @@ links to learn more.
   [4]: ../../dotNet/Media/sb-queues-06.png
   [5]: ../../dotNet/Media/sb-queues-07.png
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/hh367516.aspx
+  [Windows Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx
   [SqlFilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
   [Node.js Cloud Service]: {localLink:2221} "Node.js Web Application"
