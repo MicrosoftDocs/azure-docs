@@ -2,13 +2,13 @@
 
 <div chunk="../chunks/article-left-menu.md" />
 
-# How to debug a Node.js application in Windows Azure Web Sites
+#How to debug a Node.js application in Windows Azure Web Sites
 
 Windows Azure provide built-in diagnostics to assist with debugging Node.js applications hosted in Windows Azure Web Sites. In this article, you will learn how to enable logging of stdout and stderr, display error information in the browser, and how to download and view log files.
 
 Diagnostics for Node.js applications hosted on Windows Azure is provided by [IISNode]. While this article discusses the most common settings for gathering diagnostics information, it does not provide a complete reference for working with IISNode. For more information on working with IISNode, see the [IISNode Readme] on GitHub.
 
-##Enabling diagnostic logging
+##<a id="enablelogging"></a>Enable logging
 
 By default, Windows Azure Web Sites only capture diagnostic information about deployments, such as when you deploy a web site using Git. This information is useful if you are having problems during deployment, such as a failure when installing a module referenced in **package.json**, or if you are using a custom deployment script.
 
@@ -49,7 +49,7 @@ If the Windows Azure Command-Line Tools are installed in your development enviro
 <p>While loggingEnabled and devErrorsEnabled are the most commonly used IISNode.yml configuration options for capturing diagnostic information, IISNode.yml can be used to configure a variety of options for your hosting environment. For a full list of the configuration options, see the <a href="https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml">iisnode_schema.xml</a> file.</p>
 </div>
 
-##Accessing diagnostic logs
+##<a id="viewlogs"></a>Accessing logs
 
 Diagnostic logs can be accessed in three ways; Using the File Transfer Protocol (FTP), downloading a Zip archive, or as a live updated stream of the log (also known as a tail). Downloading the Zip archive of the log files or viewing the live stream require the Windows Azure Command-Line Tools. These can be installed by using the following command:
 
@@ -96,7 +96,7 @@ To view a live stream of diagnostic log information, use the following command f
 
 This will return a stream of log events that are updated as they occur on the server. This stream will return deployment information as well as stdout and stderr information (when loggingEnabled is true.)
 
-##Next Steps
+##<a id="nextsteps"></a>Next Steps
 
 In this article you learned how to enable and access diagnostics information for Windows Azure. While this information is useful in understanding problems that occur with your application, it may point to a problem with a module you are using or that the version of Node.js used by Windows Azure Web Sites is different than the one used in your deployment environment.
 
