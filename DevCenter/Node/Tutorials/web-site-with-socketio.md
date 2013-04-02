@@ -135,12 +135,12 @@ messages between different clients using Socket.IO.
 
 ##Next steps
 
-In this tutorial you learned how to create a chat application hosted in a Windows Azure Web Site. You can also host this application as a Windows Azure Cloud Service. For steps on how to accomplish this, see [Build a Node.js Chat Application with Socket.IO on a Windows Azure Cloud Service].
+In this tutorial you learned how to create a chat application hosted in a Windows Azure Web Site. You can also host this application as a Windows Azure Cloud Service. For steps on how to accomplish this, see [Build a Node.js Chat Application with Socket.IO on a Windows Azure Cloud Service][cloudservice].
 
 [socketio]: http://socket.io/
 [completed-app]: ../media/websitesocketcomplete.png
 [Socket.IO GitHub repository]: https://github.com/LearnBoost/socket.io
-[Build a Node.js Chat Application with Socket.IO on a Windows Azure Cloud Service]: /en-us/develop/nodejs/tutorials/app-using-socketio/
+[cloudservice]: /en-us/develop/nodejs/tutorials/app-using-socketio/
 
 [chat-example-view]: ../Media/socketio-2.PNG
 [The output of the npm install command]: ../media/socketio-7.png

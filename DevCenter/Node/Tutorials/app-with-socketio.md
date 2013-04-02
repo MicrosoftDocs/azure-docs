@@ -146,6 +146,12 @@ messages between different clients using Socket.IO.
 <p>For simplicity, this sample is limited to chatting between users connected to the same instance. This means that if the cloud service creates two worker role instances, users will only be able to chat with others connected to the same worker role instance. To scale the application to work with multiple role instances, you could use a technology like Service Bus to share the Socket.IO store state across instances. For examples, see the Service Bus Queues and Topics usage samples in the <a href="https://github.com/WindowsAzure/azure-sdk-for-node">Windows Azure SDK for Node.js GitHub repository</a>.</p>
 </div>
 
+##Next steps
+
+In this tutorial you learned how to create a basic chat application hosted in a Windows Azure Cloud Service. To learn how to host this application in a Windows Azure Web Site, see [Build a Node.js Chat Application with Socket.IO on a Windows Azure Web Site][chatwebsite].
+
+  [chatwebsite]: /en-us/DevCenter/nodejs/tutorials/web-site-with-socketio/
+
   [http://socket.io/]: http://socket.io/
   [Windows Azure SLA]: http://www.windowsazure.com/en-us/support/sla/
   [Windows Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
