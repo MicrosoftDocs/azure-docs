@@ -48,6 +48,7 @@ which includes a set of convenience libraries that communicate with the storage 
 ### Use RubyGems to obtain the package
 
 1. Use a command-line interface such as **PowerShell** (Windows), **Terminal** (Mac), or **Bash** (Unix).
+
 2. Type **gem install azure** in the command window to install the gem and dependencies.
 
 ### Import the package
@@ -67,8 +68,11 @@ for information required to connect to your Windows Azure storage account. If th
 To obtain these values:
 
 1. Log into the [Windows Azure Management Portal](https://manage.windowsazure.com/).
-2. Navigate to the storage account you want to use
+
+2. Navigate to the storage account you want to use.
+
 3. Click **MANAGE KEYS** at the bottom of the navigation pane.
+
 4. In the pop up dialog, you will see the storage account name, primary access key and secondary access key. For access key, you can either the primary one or the secondary one.
 
 ## <a id="how-to-create-a-table"></a>How to Create a Table
@@ -84,11 +88,10 @@ The **Azure::TableService** object lets you work with tabls and entities. To cre
 
 ## <a id="how-to-add-an-entity-to-a-table"></a>How to Add an Entity to a Table
 
-To add an entity, first create a hash object that defines your entity properties. Note that for every entity you mustspecify a **PartitionKey** and **RowKey**. These are the unique identifiers of your entities, and are values that can be queried much faster than your other properties. Windows Azure Storage Service uses **PartitionKey** to
-automatically distribute the table’s entities over many storage nodes. Entities with the same **PartitionKey** are stored on the same node. The **RowKey** is the unique ID of the entity within the partition it belongs to. 
+To add an entity, first create a hash object that defines your entity properties. Note that for every entity you mustspecify a **PartitionKey** and **RowKey**. These are the unique identifiers of your entities, and are values that can be queried much faster than your other properties. Windows Azure Storage Service uses **PartitionKey** to automatically distribute the table’s entities over many storage nodes. Entities with the same **PartitionKey** are stored on the same node. The **RowKey** is the unique ID of the entity within the partition it belongs to. 
 
-	entity = { "content" => "test entity", :PartitionKey => "test-partition-key", :RowKey => "1" }
-	azure_table_service.insert_entity("testtable", entity)
+    entity = { "content" => "test entity", :PartitionKey => "test-partition-key", :RowKey => "1" }
+    azure_table_service.insert_entity("testtable", entity)
 
 ## <a id="how-to-update-an-entity"></a>How To: Update an Entity
 
