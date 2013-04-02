@@ -2,7 +2,7 @@
 
 #Build a Node.js Chat Application with Socket.IO on a Windows Azure Web Site
 
-Socket.IO provides real-time communication between your node.js server and clients. This tutorial will walk you through hosting a Socket.IO based chat application as a Windows Azure Web Site. For more information on Socket.IO, see [http://socket.io/].
+Socket.IO provides real-time communication between your node.js server and clients. This tutorial will walk you through hosting a Socket.IO based chat application as a Windows Azure Web Site. For more information on Socket.IO, see [http://socket.io/][socketio].
 
 <div class="dev-callout"> 
 <b>Note</b> 
@@ -125,8 +125,15 @@ Follow these steps to create a Windows Azure Web Site, and then enable Git publi
 
 		azure site browse
 
+Your application is now running on Windows Azure, and can relay chat
+messages between different clients using Socket.IO.
 
-[http://socket.io/]: http://socket.io/
+<div class="dev-callout">
+<strong>Note</strong>
+<p>For simplicity, this sample is limited to chatting between users connected to the same instance. This means that if the cloud service creates two worker role instances, users will only be able to chat with others connected to the same worker role instance. To scale the application to work with multiple role instances, you could use a technology like Service Bus to share the Socket.IO store state across instances. For examples, see the Service Bus Queues and Topics usage samples in the <a href="https://github.com/WindowsAzure/azure-sdk-for-node">Windows Azure SDK for Node.js GitHub repository</a>.</p>
+</div>
+
+[socketio]: http://socket.io/
 [completed-app]: ../media/websitesocketcomplete.png
 [Socket.IO GitHub repository]: https://github.com/LearnBoost/socket.io
 [chat-example-view]: ../Media/socketio-2.PNG
