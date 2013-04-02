@@ -44,8 +44,8 @@
 <p>Implement a virtual machine running Windows Server 2008 and hosted in Windows Azure. You can use Windows Azure Virtual Machines to run any application. Use standalone virtual machines to host Node.js applications, or integrate a virtual machine as part of a cloud service.</p>
 
 <h2>Node Modules</h2>
-<h3><a href="/en-us/DevCenter/nodejs/tutorials/app-using-socketio/">Build a chat app with Socket.IO</a></h3>
-<p>Socket.io provides real-time communication between your Node.js application and client browsers. In this tutorial you will learn how to create a Cloud Service based on the 'chat' example provided with Socket.io.</p>
+<h3><a href="/en-us/DevCenter/nodejs/tutorials/web-site-with-socketio/">Build a chat app with Socket.IO</a></h3>
+<p>Socket.io provides real-time communication between your Node.js application and client browsers. In this tutorial you will learn how to create a Web Site based on the 'chat' example provided with Socket.io. A Cloud Service version of this article is also available if you want to <a href="/en-us/develop/nodejs/tutorials/app-using-socketio/">build a Node.js chat application with Socket.IO on a Windows Azure Cloud Service</a>.</p>
 
 <h3><a href="/en-us/DevCenter/nodejs/tutorials/web-app-with-express/">Create a cloud service that uses Express</a></h3>
 <p>In this tutorial, use npm to install the popular Express module, and use it to create an MVC based application. Then use the Windows Azure PowerShell cmdlets to test and deploy the application as a Windows Azure Cloud Service.</p>
