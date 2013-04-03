@@ -32,15 +32,15 @@ In order to perform management operations, such as creating a queue, on the new 
 
 1.  In the left navigation pane, click the **Service Bus** node, to display the list of available namespaces:
 
-    ![image](images/sb-queues-03.png)
+    ![image](../../dotnet/media/sb-queues-13.png)
 
 2.  Select the namespace you just created from the list shown:
 
-    ![image](images/sb-queues-05.png)
+    ![image](../../dotnet/media/sb-queues-05.png)
 
 3.  Click **Access Key**.
 
-    ![image](images/sb-queues-06.png)
+    ![image](../../dotnet/media/sb-queues-06.png)
 
 4.  In the **Connect to your namespace** dialog, find the **Default Issuer** and **Default Key** entries. Make a note of these values, as you will use this information below to perform operations with the namespace.
 
