@@ -15,6 +15,9 @@
 <h3><a href="/en-us/DevCenter/dotNet/PrescriptiveGuidance/troubleshooting-web-sites/">Troubleshoot Windows Azure Web Sites</a></h3>
 <p>This tutorial walks you through the process of creating and deploying a simple web site to Windows Azure, causing an error condition on the web site and then applying configuration and logging options to generate troubleshooting data that can be analyzed to identify and resolve the error.</p>
 
+<h3><a href="/en-us/DevCenter/nodejs/common-tasks/debugging-node/">Debugging Node.js applications in Windows Azure Web Sites</a></h3>
+<p>Learn how to enable diagnostic logging information for Node.js applications hosted in Windows Azure Web sites, and then retrieve logs through FTP or using the Windows Azure Command-Line Tools.</p>
+
 <h2>Cloud Services</h2>
 <h3>Ideal for applications that separate logic into multiple tiers using both Web and Worker Roles</h3>
 
