@@ -1,7 +1,7 @@
 <properties linkid="manage-services-add-a-vm-to-a-virtual-network" urlDisplayName="Add a VM to virtual network" pageTitle="Add a virtual machine to a virtual network - Windows Azure" metaKeywords="" metaDescription="A tutorial that teaches you how to create a storage account and virtual machine (VM) that you add to a Windows Azure virtual network." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
-
+<div chunk="../chunks/networking-left-nav.md" />
 
 <h1 id="vnet3">Add a Virtual Machine to a Virtual Network</h1>
 
