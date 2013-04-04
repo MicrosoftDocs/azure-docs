@@ -1,5 +1,6 @@
 <properties linkid="manage-linux-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Linux VHD in Windows Azure" metaKeywords="Azure VHD, uploading Linux VHD" metaDescription="Learn to create and upload a Windows Azure virtual hard disk (VHD) that has the Linux operating system." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+<div chunk="../chunks/linux-left-nav.md" />
 
 # Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System 
 

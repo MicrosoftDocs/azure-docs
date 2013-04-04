@@ -1,7 +1,7 @@
 <properties linkid="services-linux-user-names" urlDisplayName="User Names in Linux" pageTitle="Selecting User Names for Linux on Windows Azure" metaKeywords="" metaDescription="Learn how to select user names for a Linux virtual machine in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
-
+<div chunk="../chunks/linux-left-nav.md" />
 
 #Selecting User Names for Linux on Windows Azure#
 
