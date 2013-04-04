@@ -39,49 +39,11 @@ virtual machines, and we will cover the setup of IPython on both types of virtua
 
 ### Linux VM
 
-To create a Linux VM, click on the "New" icon at the bottom left of the 
-Windows Azure Management Portal and then select "Virtual Machine" from the list
-of options. For our Linux VM we are going to use OpenSUSE, the selection
-of which can be seen in the following screenshot of the "VM OS Selection"
-dialog.
-
-![Screenshot](../Media/ipy-azure-linux-001.png)
-
-On the next configuration screen we name our VM (`ipython-demo`), pick an
-administrator username (`ipadmin`) and password. With this user, we'll later be
-able to SSH into the VM to install IPython. This is shown in the "VM
-Configuration" dialog:
-
-![Screenshot](../Media/ipy-azure-linux-002.png)
-
-Next, on the "VM Mode" dialog use the default options, but give the VM a
-public DNS name, which we've chosen to be `ipython-demo`:
-
-![Screenshot](../Media/ipy-azure-linux-003.png)
-
-With this choice, the instance will be available online as
-`ipython-demo.cloudapp.net`. Once the VM has started the dashboard will appear
-as follows:
-
-![Screenshot](../Media/ipy-azure-linux-004.png)
+Follow the instructions given [here][portal-vm-linux] to create a virtual machine of the *OpenSUSE* distribution.
 
 ### Windows VM
 
-The creation of the Windows VM is nearly identical to the creation of the Linux 
-VM described above. The first main difference is in the "VM OS Selection" 
-dialog, where we select "Windows Server 2008 R2 SP1, March 2012" as shown in 
-the following screenshot:
-
-![Screenshot](../Media/ipy-azure-win-001.jpg)
-
-After that, follow the same steps described above for Linux.
-
-The only other difference is in how you will connect to the VM. Instead of 
-using SSH, you will use Microsoft's Remote Desktop application. Thankfully, the 
-Windows Azure Management Portal provides an `.rpd` file that contains the connection 
-information to connect to the VM. To download this file, click on the "Connect" 
-link at the bottom of the VM Dashboard. Once you have downloaded the `.rdp` 
-file simply open it in Remote Desktop to connect to the VM.
+Follow the instructions given [here][portal-vm-windows] to create a virtual machine of the *Windows Server 2008 R2* distribution.
 
 ## Create an Endpoint for the IPython Notebook
 
@@ -124,8 +86,7 @@ the following steps.
 
 ### Windows
 
-To install IPython and its dependencies on the Windows VM, use the `.rdp` file 
-and Remote Desktop to connect to the VM. Then carry out the following steps, 
+To install IPython and its dependencies on the Windows VM, Remote Desktop to connect to the VM. Then carry out the following steps, 
 using the Windows PowerShell to run all command line actions.
 
 1.  Install Python 2.7.2 (32 bit) from http://python.org. You will also need to
@@ -341,3 +302,6 @@ profiling and parallel computing integration.
 [PyZMQ]:        https://github.com/zeromq/pyzmq     "PyZMQ"
 [NumPy]:        http://www.numpy.org/             "NumPy"
 [Matplotlib]:   http://matplotlib.sourceforge.net/  "Matplotlib"
+
+[portal-vm-windows]: /en-us/manage/windows/tutorials/virtual-machine-from-gallery/
+[portal-vm-linux]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/
