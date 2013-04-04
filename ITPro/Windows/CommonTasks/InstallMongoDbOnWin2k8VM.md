@@ -1,5 +1,6 @@
 <properties linkid="manage-windows-common-task-mongodb-vm" urlDisplayName="Install MongoDB" pageTitle="Install MongoDB on a Windows Server virtual machine" metaKeywords="Azure vm, Azure MongoDB, Azure remote desktop" metaDescription="Learn how to create a Windows Azure virtual machine with Windows Server 2008 R2, and then use Remote Desktop to install MongoDB." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+<div chunk="../chunks/windows-left-nav.md" />
 
 #Install MongoDB on a virtual machine running Windows Server 2008 R2 in Windows Azure
 <div chunk="../../Shared/Chunks/disclaimer.md" />

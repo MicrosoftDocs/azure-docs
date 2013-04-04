@@ -1,5 +1,6 @@
 <properties linkid="manage-windows-howto-logon" urlDisplayName="Log on to a VM" pageTitle="Log on to a virtual machine running Windows Server" metaKeywords="Azure logging on vm, vm portal" metaDescription="Learn how to log on to a virtual machine running Windows Server 2008 R2 by using the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+<div chunk="../chunks/windows-left-nav.md" />
 
 #How to Log on to a Virtual Machine Running Windows Server 2008 R2 #
 
