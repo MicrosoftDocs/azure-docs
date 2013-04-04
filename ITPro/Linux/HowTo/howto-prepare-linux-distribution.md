@@ -1,3 +1,7 @@
+<properties linkid="manage-linux-howto-linux-agent" urlDisplayName="Prepare a distribution" pageTitle="Prepare a distribution of Linux in Windows Azure" metaKeywords="Azure Git CodePlex, Azure website CodePlex, Azure website Git" metaDescription="Learn how to use Git to publish to a Windows Azure web site, as well as enable continuous deployment from GitHub and CodePlex." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+<div chunk="../chunks/linux-left-nav.md" />
+
 # Prepare a Linux VM for Azure 
 
 To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).

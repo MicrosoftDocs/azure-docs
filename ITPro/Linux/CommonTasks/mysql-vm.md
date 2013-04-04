@@ -1,5 +1,6 @@
 <properties linkid="manage-linux-common-task-mysql-virtual-machine" urlDisplayName="Install MySQL" pageTitle="Install MySQL on a Linux virtual machine in Windows Azure" metaKeywords="Azure vm OpenSUSE, Linux vm" metaDescription="Learn how to create a Windows Azure virtual machine with OpenSUSE Linux, and then use SSH or PuTTY to install MySQL." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+<div chunk="../chunks/linux-left-nav.md" />
 
 #Install MySQL on a virtual machine running OpenSUSE Linux in Windows Azure
 

@@ -1,5 +1,6 @@
 <properties linkid="manage-linux-fundamentals-intro-to-linux" urlDisplayName="Intro to Linux" pageTitle="Introduction to Linux in Windows Azure - Windows Azure Tutorial" metaKeywords="Azure Linux vm, Linux vm" metaDescription="Learn about using Linux virtual machines on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+<div chunk="../chunks/linux-left-nav.md" />
 
 #Introduction to Linux on Windows Azure
 
