@@ -1,5 +1,6 @@
 <properties linkid="manage-windows-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Windows Server VHD to Windows Azure" metaKeywords="Azure VHD, uploading VHD" metaDescription="Learn how to create and upload a virtual hard disk (VHD) in Windows Azure that has the Windows Server operating system." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+<div chunk="../chunks/windows-left-nav.md" />
 
 #Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System #
 To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
