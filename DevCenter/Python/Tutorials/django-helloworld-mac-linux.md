@@ -116,10 +116,6 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 
 [A browser window displaying the hello world page on Windows Azure]: ../Media/mac-linux-django-helloworld-browser.png
 [The result of the django-admin command]: ../Media/mac-linux-django-helloworld-dir.png
-[http://www.windowsazure.com]: http://www.windowsazure.com
-[A browser window displaying http://www.windowsazure.com/ with the Free Trial link highlighted]: ../../../DevCenter/dotNet/Media/getting-started-12.png
-[A browser window displaying the liveID sign in page]: ../../../DevCenter/nodejs/Media/getting-started-13.png
 [add endpoint]: ../Media/mac-linux-django-helloworld-add-endpoint.png
 [port80]: ../Media/mac-linux-django-helloworld-port80.png
 [portal-vm]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/
-[The result of the ifconfig command]: ../Media/mac-linux-django-helloworld-ifconfig.png
