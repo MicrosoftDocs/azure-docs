@@ -1,11 +1,9 @@
-<properties linkid="manage-linux-howto-capture-an-image" urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Linux" metaKeywords="Azure Linux vm, Linux vm" metaDescription="Learn how to capture an image of a Windows Azure virtual machine (VM) running Linux. " metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-linux-howto-capture-an-image" urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Linux" metaKeywords="Azure Linux vm, Linux vm" metaDescription="Learn how to capture an image of a Windows Azure virtual machine (VM) running Linux. " metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="kathydav" editor="tysonn" manager="jeffreyg" />
 
 
 # How to Capture an Image of a Virtual Machine Running Linux ##
 
-<div chunk="../../shared/chunks/disclaimer.md" />
-
-You can use images from the Image Gallery to easily create virtual machines, or you can capture and use your own images to create customized virtual machines. An image is a virtual hard disk (VHD) file that is used as a template for creating a virtual machine. An image is a template because it doesn’t have specific settings like a configured virtual machine, such as the computer name and user account settings. If you want to create multiple virtual machines that are set up the same way, you can capture an image of a configured virtual machine and use that image as a template.
+You can use images from the Image Gallery to easily create virtual machines, or you can capture and use your own images to create customized virtual machines. An image is a virtual hard disk (.vhd) file that is used as a template for creating a virtual machine. An image is a template because it doesn’t have specific settings like a configured virtual machine, such as the computer name and user account settings. If you want to create multiple virtual machines that are set up the same way, you can capture an image of a configured virtual machine and use that image as a template.
 
 1. Connect to the virtual machine by using the steps listed in [How to Log on to a Virtual Machine Running Linux][].
 
@@ -45,16 +43,8 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 
 	![Image capture successful][Image capture successful]
 
-	When you create a virtual machine by using the **From Gallery** method, you can use the image that you captured by clicking **My Images** on the **VM OS Selection** page.
-
-	![Use the captured image][Use the captured image]
-
-## <a id="nextsteps"> </a>Next Steps ##
-
-Now that you have learned the basics of creating a virtual machine, follow these links to learn how to do more complex tasks.
-
-- Deploy a Virtual Machine to a Virtual Network or Subnets
-- Add a Virtual Machine to the Local Domain by Using on Premises DNS/AD
+	When you create a virtual machine by using the **From Gallery** method, you can use the image that you captured by clicking **My Images** on the **Select the virtual machine operating system** page.
+	
 [How to Log on to a Virtual Machine Running Linux]: ./howto-logon-linux-vm.md
 [Deprovision the virtual machine]: ../media/linuxdeprovision.png
 [Deprovision of virtual machine successful]:../media/linuxdeprovision2.png

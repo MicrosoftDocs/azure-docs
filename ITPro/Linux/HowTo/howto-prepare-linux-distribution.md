@@ -1,17 +1,14 @@
-# Prepare a Linux VM for Azure 
+<properties writer="kathydav" editor="tysonn" manager="jeffreyg" /> 
 
-To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
+# Prepare a Linux VM for Azure 
 
 A virtual machine that you create in Windows Azure runs the operating system that you choose from the supported operating system versions. You can customize the operating system settings of the virtual machine to facilitate running your application. The configuration that you set is stored on disk. You create a virtual machine in Windows Azure by using a virtual hard disk (VHD) file. You can choose to create a virtual machine by using a VHD file that is supplied for you in the Image Gallery, or you can choose to create your own image and upload it to Windows Azure in a VHD file.
 
 The following resources must be available to complete this task:
 
 - **Server running the Windows Server operating system.** This task depends on using the Hyper-V Manager that is a part of the Hyper-V role in the Windows Server operating system.
-- **Linux operating system media.** Before you start this task, you must make sure that you have access to media that contains the Linux operating system. The following are supported Linux distributions:
-	- Open SUSE 12.1
-	- SLES 11 SP2
-	- CentOS 6.3
-	- Ubuntu 12.04, 12.10
+- **Linux operating system media.** Before you start this task, you must make sure that you have access to media that contains the Linux operating system. For a list of endorsed distributions, see [Linux on Windows Azure-Endorsed Distributions](../other-resources/endorsed-distributions/linux-on-endorsed-distributions.md).
+
 - **Linux Azure command-line tool.** If you are using a Linux operating system to create your image, you use this tool to upload the VHD file. To download the tool, see [Windows Azure Command-Line Tools for Linux and Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409).
 - **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. You must use the tools available in Windows Azure SDK - June 2012 or later to upload VHDs to Windows Azure. To download the SDK and the tools, see [Windows Azure Downloads](/en-us/develop/downloads/).
 
@@ -37,7 +34,7 @@ All of your VHDs for the OS must have sizes that are multiples of 1 MB.
 
 ## <a id="hyperv"> </a>Step 1: Install the Hyper-V role on your server ##
 
-Multiple tools exist to create VHD files. In this task, you use Hyper-V Manager to create the VHD file that is uploaded to Windows Azure. For more information, see [Hyper-V](http://technet.microsoft.com/en-us/library/cc753637(WS.10).aspx).
+Multiple tools exist to create .vhd files. In this task, you use Hyper-V Manager to create the .vhd file that is uploaded to Windows Azure. For more information, see [Hyper-V](http://technet.microsoft.com/en-us/library/cc753637(WS.10).aspx).
 
 1. On your server that is running Windows Server 2008, click **Start**, point to **Administrative Tools**, and then click **Server Manager**.
 
@@ -61,7 +58,7 @@ Multiple tools exist to create VHD files. In this task, you use Hyper-V Manager 
 
 ## <a id="createimage"> </a>Step 2: Create the image ##
 
-An image is a virtual hard disk (VHD) file that you can use as a template to create a new virtual machine. An image is a template because it doesn’t have specific settings like a configured virtual machine, such as the computer name and user account settings. The VHD contains the operating system, any operating system customizations, and your applications. You can create the VHD by completing the following steps in Hyper-V.
+An image is a virtual hard disk (.vhd) file that you can use as a template to create a new virtual machine. An image is a template because it doesn’t have specific settings like a configured virtual machine, such as the computer name and user account settings. The .vhd file contains the operating system, any operating system customizations, and your applications. You can create the .vhd file by completing the following steps in Hyper-V.
 
 1. On your server, click **Start**, click **All Programs**, click **Administrative Tools**, and then click **Hyper-V Manager**.
 
@@ -78,7 +75,7 @@ An image is a virtual hard disk (VHD) file that you can use as a template to cre
 4. On the Connect **Virtual Hard Disk** page, select **Create a virtual hard disk**. Provide the following information, and then click **Next**:
 
 	- **Name** - the name of the .vhd file. This is the file that you upload to Windows Azure.
-	- **Location** - the folder where the .vhd file is located. You should store the VHD file in a secure location.
+	- **Location** - the folder where the .vhd file is located. You should store the .vhd file in a secure location.
 	- **Size** - the size of the virtual hard disk.  The maximum size for a virtual machine in Windows Azure is 127 GB.
 5. On the **Installation Options** page, select **Install an operating system from a boot CD/DVD –ROM media**, and then choose the method that is appropriate for your installation media.
 
@@ -98,13 +95,13 @@ After the virtual machine is created it is not started by default. You must star
 
 	![Connect to the virtual machine] (../media/connect.png)
 
-4. Finish the installation of the operating system. For more information about installing the operating system, see the documentation provided by the Linux distributor. You must also prepare the image by completing specific steps for the distribution that you are using. You do this in [Step 4: Prepare the image to be uploaded] []. 
+4. Finish the installation of the operating system. For more information, see the documentation provided by the Linux distributor. You must also prepare the image by completing specific steps for the distribution that you are using. You do this in [Step 4: Prepare the image to be uploaded] []. 
 
 	**Note:** It is recommended that you do not create a SWAP partition at installation time. You may configure SWAP space by using the Windows Azure Linux Agent. It is also not recommended to use the mainstream Linux kernel with a Windows Azure virtual machine without the patch available at the [Microsoft web site](http://go.microsoft.com/fwlink/?LinkID=253692&clcid=0x409).
 
 ## <a id="createstorage"> </a>Step 3: Create a storage account in Windows Azure ##
 
-A storage account represents the highest level of the namespace for accessing the storage services and is associated with your Windows Azure subscription. You need a storage account in Windows Azure to upload a VHD file to Windows Azure that can be used for creating a virtual machine. You can create a storage account by using the Windows Azure Management Portal.
+A storage account represents the highest level of the namespace for accessing the storage services and is associated with your Windows Azure subscription. You need a storage account in Windows Azure to upload a .vhd file to Windows Azure that can be used for creating a virtual machine. You can create a storage account by using the Windows Azure Management Portal.
 
 1. Sign in to the Windows Azure Management Portal.
 
@@ -618,17 +615,17 @@ After the connection string is set, you use the CSUpload command-line tool to up
 ## <a id="nonendorsed"> </a>Information for Non Endorsed Distributions ##
 In essence all distributions running on Windows Azure will need to meet the following prerequisites to have a chance to properly run in the platform. 
 
-This list is by no means comprehensive as every distribution is different; and it is quite possible that even if you meet all the criteria below you will still need to significantly tweak your image to ensure that it properly runs on top of the platform .
+This list is by no means comprehensive as every distribution is different; and it is quite possible that even if you meet all the criteria below you will still need to significantly modify your image to ensure that it runs properly in Windows Azure.
 
  It is for this reason that we recommend that you start with one of our [partners endorsed images](https://www.windowsazure.com/en-us/manage/linux/other-resources/endorsed-distributions/).
 
 The list below replaces step 2 of the process to create your own VHD:
 
-1.	You will need to ensure that you are running a kernel that either incorporates the latest LIS drivers for Hyper V or that you have successfully compiled them ( They have been Open Sourced). The Drivers can be found [at this location](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)
+1.	You will need to ensure that you are running a kernel that either incorporates the latest LIS drivers for Hyper-V or that you have successfully compiled them ( They have been open sourced). The drivers can be found [at this location](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409).
 
-2.	Your kernel should also include the latest version of the ATA PiiX driver that is used to to provision the iamges and has the fixes committed to the kernel with commit cd006086fa5d91414d8ff9ff2b78fbb593878e3c Date:   Fri May 4 22:15:11 2012 +0100   ata_piix: defer disks to the Hyper-V drivers by default
+2.	Your kernel should also include the latest version of the ATA PiiX driver that is used to to provision the iamges and has the fixes committed to the kernel with commit cd006086fa5d91414d8ff9ff2b78fbb593878e3c Date:   Fri May 4 22:15:11 2012 +0100   ata_piix: defer disks to the Hyper-V drivers by default.
 
-3.	Your compressed intird should be less than 40 MB (* we are continuously workign to increase this number so it might be outdated by now)
+3.	Your compressed intird should be less than 40 MB (* we are continuously working to increase this number so it might be outdated by now)
 
 4.	You should add the following lines to your Kernel Boot
 
@@ -636,7 +633,7 @@ The list below replaces step 2 of the process to create your own VHD:
 
 5.	It is recommended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
 
-6.	You should Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
+6.	You should ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
 
 7.	You will need to install the Agent following the steps in the [Agent Guide](https://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/). The Agent has been released under the Apache 2 license and you can get the latest bits at the [Agent GitHub Location](http://go.microsoft.com/fwlink/p/?LinkID=250998&clcid=0x409)
 8.	Comment out Defaults targetpw in /etc/sudoers
@@ -646,13 +643,13 @@ The list below replaces step 2 of the process to create your own VHD:
 10.	No SWAP on Host OS DISK should be created 
 	SWAP if needed can be requested for creation on the local resource disk by the Linux Agent. You may modify /etc/waagent.conf appropriately.
 
-11.	You will need to Run the following commands to deprovision the virtual machine:
+11.	Run the following commands to deprovision the virtual machine:
 
         waagent –force –deprovision
         export HISTSIZE=0
         logout
 
-12.	You will then need to Shutdown the VM and proceed with the Upload
+12.	You will then need to shut down the virtual machine and proceed with the upload.
 
 
 [Step 1: Install the Hyper-V role on your server]: #hyperv
