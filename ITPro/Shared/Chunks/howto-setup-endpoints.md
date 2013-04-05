@@ -1,10 +1,12 @@
+<properties writer="kathydav" editor="tysonn" manager="jeffreyg" />
+
 #How to Set Up Communication with a Virtual Machine
 
-To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures). 
+All virtual machines that you create in Windows Azure can automatically communicate using a private network channel with other virtual machines in the same cloud service or virtual network, if they have been configured to do so. However, you need to add an endpoint to a virtual machine for other resources on the Internet or other virtual networks to communicate with it. You can associate specific ports and a protocol to endpoints. Resources can connect to an endpoint by using a protocol of TCP or UDP. The TCP protocol includes HTTP and HTTPS communication. 
 
-All virtual machines that you create in Windows Azure can automatically communicate using a private network channel with other virtual machines in the same cloud service or virtual network. However, you need to add an endpoint to a machine for other resources on the Internet or other virtual networks to communicate with it. You can associate specific ports and a protocol to endpoints. Resources can connect to an endpoint by using a protocol of TCP or UDP. The TCP protocol includes HTTP and HTTPS communication. 
+**Note**: If you want to connect to your virtual machines directly by hostname or set up cross-premises connections, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
-Each endpoint defined for a virtual machine is assigned a public and private port for communication. The private port is defined for setting up communication rules on the virtual machine and the public port is used by the Windows Azure load balancer to communicate with the virtual machine from external resources.
+Each endpoint defined for a virtual machine is assigned a public and private port for communication. The private port is used to set up communication rules on the virtual machine, and the public port is used by the Windows Azure load balancer to communicate with the virtual machine from external resources.
 
 1. If you have not already done so, sign in to the [Windows Azure Management Portal](http://manage.windowsazure.com).
 
