@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-website-debugging" urlDisplayName="Debugging Node.s Web Sites" pageTitle="How to debug a Node.js Web Site - Windows Azure guidance" metaKeywords=Azure Node.js debug, Azure Node.js diagnostic" metaDescription="How to debug Node.js applications in Windows Azure Web Sites by enabling diagnostic logging with IISNode." metaCanonical="http://www.windowsazure.com/en-us/develop/node/common-tasks/debuggingnode" umbracoNaviHide="0" disqusComments="1" writer="larryfr" editor="mollybos" manager="paulettm" /> 
+<properties linkid="dev-nodejs-website-debugging" urlDisplayName="Debugging Node.s Web Sites" pageTitle="How to debug a Node.js Web Site - Windows Azure guidance" metaKeywords="Azure Node.js debug, Azure Node.js diagnostic" metaDescription="How to debug Node.js applications in Windows Azure Web Sites by enabling diagnostic logging with IISNode." metaCanonical="http://www.windowsazure.com/en-us/develop/node/common-tasks/debuggingnode" umbracoNaviHide="0" disqusComments="1" writer="larryfr" editor="mollybos" manager="paulettm" /> 
 
 <div chunk="../chunks/article-left-menu.md" />
 
