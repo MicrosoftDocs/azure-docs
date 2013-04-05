@@ -1,12 +1,10 @@
-<properties linkid="manage-windows-howto-capture-an-image" urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Windows Server" metaKeywords="Azure capture image vm, capturing vm" metaDescription="Learn how to capture an image of a Windows Azure virtual machine (VM) running Windows Server 2008 R2. " metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-windows-howto-capture-an-image" urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Windows Server" metaKeywords="Azure capture image vm, capturing vm" metaDescription="Learn how to capture an image of a Windows Azure virtual machine (VM) running Windows Server 2008 R2. " metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="kathydav" editor="tysonn" manager="jeffreyg" />
 
 
 
-#How to Capture an Image of a Virtual Machine Running Windows Server 2008 R2 #
+#How to Capture an Image of a Virtual Machine Running Windows Server#
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
-
-You can use images from the Image Gallery to easily create virtual machines, or you can capture and use your own images to create customized virtual machines. An image is a virtual hard disk (VHD) file that is used as a template for creating a virtual machine. An image is a template because it doesn’t have specific settings like a configured virtual machine, such as the computer name and user account settings. If you want to create multiple virtual machines that are set up the same way, you can capture an image of a configured virtual machine and use that image as a template.
+You can use images from the Image Gallery to easily create virtual machines, or you can capture and use your own images to create customized virtual machines. An image is a virtual hard disk (.vhd) file that is used as a template for creating a virtual machine. An image is a template because it doesn’t have the specific settings that a configured virtual machine has, such as the computer name and user account settings. If you want to create multiple virtual machines that are set up the same way, you can capture an image of a configured virtual machine and use that image as a template.
 
 
 1. Connect to the virtual machine by using the steps listed in [How to Log on to a Virtual Machine Running Windows Server 2008 R2] [].
@@ -27,7 +25,7 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 
 6.	Click **OK**.
 
-7.	The sysprep command shuts down the virtual machine, which changes the status of the machine in the [Management Portal](http://manage.windowsazure.com) to **Stopped**.
+7.	Sysprep shuts down the virtual machine, which changes the status of the machine in the [Management Portal](http://manage.windowsazure.com) to **Stopped**.
 
 	![The virtual machine is stopped][The virtual machine is stopped]
 
@@ -39,22 +37,17 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 
 	The **Capture Virtual Machine** dialog box appears.
 
-	![Enter the image name][Enter the image name]
-
 10.	In **Image Name**, enter the name for the new image.
 
-11.	All Windows Server images must be generalized by running the sysprep command. Click **I have sysprepped the Virtual Machine** to indicate that the operating system is prepared to be an image.
+11.	All Windows Server images must be generalized by running the Sysprep tool. Click **I have run Sysprep on the virtual machine** to indicate that the operating system is prepared to be an image.
 
 12.	Click the check mark to capture the image. When you capture an image of a virtual machine, the machine is deleted.
 
-	The new image is now available under **Images**. The virtual machine is deleted after the image is captured.
+	The new image is now available under **Images**.
 
-	![Image capture successful][Image capture successful]
+	When you create a virtual machine by using the **From Gallery** method, you can use the image that you captured by clicking **My Images** on the **Select the virtual machine operating system** page.
 
-	When you create a virtual machine by using the From Gallery method, you can use the image that you captured by clicking **My Images** on the **VM OS Selection** page.
-
-	![Use the captured image][Use the captured image]
-
+	
 
 [How to Log on to a Virtual Machine Running Windows Server 2008 R2]:../log-on-a-windows-VM/
 [How to Use Sysprep: An Introduction]:http://technet.microsoft.com/en-us/library/bb457073.aspx

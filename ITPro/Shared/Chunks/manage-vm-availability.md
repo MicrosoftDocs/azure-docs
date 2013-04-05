@@ -1,6 +1,6 @@
-#Manage the Availability of Virtual Machines#
+<properties writer="kathydav" editor="tysonn" manager="jeffreyg" /> 
 
-To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures). 
+#Manage the Availability of Virtual Machines#
 
 You can ensure the availability of your application by using multiple Windows Azure Virtual Machines. By using multiple virtual machines in your application, you can make sure that your application is available during local network failures, local disk hardware failures, and any planned downtime that the platform may require.
 
@@ -10,7 +10,7 @@ You manage the availability of your application that uses multiple virtual machi
 
 Windows Azure periodically updates the operating system that hosts the instances of an application. A virtual machine is shut down when an update is applied. An update domain is used to ensure that not all of the virtual machine instances are updated at the same time. When you assign multiple virtual machines to an availability set, Windows Azure ensures that the machines are assigned to different update domains. The previous diagram shows two virtual machines running Internet Information Services (IIS) in separate update domains and two virtual machines running SQL Server also in separate update domains.
 
-You should use a combination of availability sets and load-balancing endpoints to make sure that your application is always available and running efficiently. For more information about using load-balanced endpoints, see [Load Balancing Virtual Machines] [].
+You should use a combination of availability sets and load-balancing endpoints to help ensure that your application is always available and running efficiently. For more information about using load-balanced endpoints, see [Load Balancing Virtual Machines] [].
 
 This task includes the following steps:
 
@@ -33,49 +33,42 @@ To create an availability set that contains virtual machines, you can create the
 
 3. Click **Virtual Machine**, and then click **From Gallery**.
 
-	![Create from gallery][Create from gallery]
 
-	The **VM OS Selection** dialog box appears. You can now select an image from the Image Gallery. This step shows the selection of a Windows Server 2012 image, but these instructions are also applicable to Linux images.
+	The **Select the virtual machine operating system** dialog box appears. This article shows the selection of a Windows Server 2012 image, but these instructions also apply to Linux images.
+	
+4. From **Platform Images**, select an image and then click the arrow to continue.
 
-	![Select platform image][Select platform image]
-
-4. Click **Platform Images**, select the platform image that you want to use, and then click the arrow to continue.
-
-	The **VM Configuration** dialog box appears.
-
-	![Define the virtual machine][Define the virtual machine]
+	The **Virtual machine configuration** dialog box appears.
 
 5. In **Virtual Machine Name**, type the name that you want to use for the virtual machine.
 
-6. In **New Password**, type the password that is used for the Administrator account on the virtual machine. In **Confirm Password**, retype the password that you previously entered.
+6. In **New User Name**, type a name for the administrative account that you want to use to manage the server. 
 
-7. In **Size**, select the size that you want to use for the virtual machine. The size that you select depends on the number of cores that are needed for your application.
+7. In **New Password**, type a strong password for the administrative account. In **Confirm Password**, retype the password that you previously entered.
 
-8. Click the arrow to continue.
+8. In **Size**, select the size that you want to use for the virtual machine. The size that you select depends on the number of cores that are needed for your application.
 
-	The **VM Mode** dialog box appears.
+9. Click the arrow to continue.
 
-	![Select standalone][Select standalone]
+	The **Virtual machine mode** dialog box appears.
+	
+10. Choose **Stand-alone virtual machine**.
 
-9. Choose **Stand-alone Virtual Machine**.
+11.	In **DNS Name**, type a name for the cloud service that is created for the machine. The name can contain from 3 through 24 lowercase letters and numbers.
 
-10.	In **DNS Name**, type a name for the cloud service that is created for the machine. The entry can contain from 3-24 lowercase letters and numbers.
+12.	In **Storage Account**, select a storage account where the .vhd file is stored, or you can select to have a storage account automatically created. Only one storage account per region is automatically created. All other virtual machines that you create with this setting are located in this storage account. You are limited to 20 storage accounts.
 
-11.	In **Storage Account**, select a storage account where the VHD file is stored, or you can select to have a storage account automatically created. Only one storage account per region is automatically created. All other virtual machines that you create with this setting are located in this storage account. You are limited to 20 storage accounts.
+13.	In **Region/Affinity Group/Virtual Network**, select region, affinity group, or virtual network that you want to contain the virtual machine. For more information about affinity groups, see [About Affinity Groups for Virtual Network] [].
 
-12.	In **Region/Affinity Group/Virtual Network**, select region, affinity group, or virtual network that you want to contain the virtual machine. For more information about affinity groups, see [About Affinity Groups for Virtual Network] [].
+14. Click the arrow to continue.
 
-13. Click the arrow to continue.
+	The **Virtual machine options** dialog box appears.
 
-	The **VM Options** dialog box appears.
-
-	![Set virtual machine options][Set virtual machine options]
-
-14. In **Availability Set**, select **Create availability set**.
+15. In **Availability Set**, select **Create availability set**.
  
-15. In **Availability Set Name**, enter the name for the availability set.
+16. In **Availability Set Name**, enter the name for the availability set.
 
-16.	Click the arrow to create the virtual machine and the availability set.
+17.	Click the arrow to create the virtual machine and the availability set.
 
 	From the dashboard of the new virtual machine, you can click **Configure** and see that the virtual machine is a member of the new availability set.
 
@@ -83,7 +76,7 @@ To create an availability set that contains virtual machines, you can create the
 
 ## <a id="addmachine"> </a>Step 2: Add a virtual machine to the cloud service and assign it to the availability set during the creation process ##
 
-The previous step showed the creation of a virtual machine and availability set at the same time. You can now create a new virtual machine, connect it to the cloud service of the first virtual machine, and then add it to the availability set that you previously created.
+The previous step showed you how to create a virtual machine and availability set at the same time. You can now create a new virtual machine, connect it to the cloud service of the first virtual machine, and then add it to the availability set that you previously created.
 
 **To connect a new virtual machine and add it to the availability set**
 
