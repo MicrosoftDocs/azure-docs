@@ -1,15 +1,16 @@
-<properties linkid="manage-windows-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Windows Server VHD to Windows Azure" metaKeywords="Azure VHD, uploading VHD" metaDescription="Learn how to create and upload a virtual hard disk (VHD) in Windows Azure that has the Windows Server operating system." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-windows-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Windows Server VHD to Windows Azure" metaKeywords="Azure VHD, uploading VHD" metaDescription="Learn how to create and upload a virtual hard disk (VHD) in Windows Azure that has the Windows Server operating system." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="kathydav" editor="tysonn" manager="jeffreyg" />
 
 
 #Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System #
-To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
 
-A virtual machine that you create in Windows Azure runs the operating system that you choose from the supported operating system versions. You can customize the operating system settings of the virtual machine to facilitate running your application. The configuration that you set is stored on disk. You create a virtual machine in Windows Azure by using a virtual hard disk (VHD) file. You can choose to create a virtual machine by using a VHD file that is supplied for you in the Image Gallery, or you can choose to create your own image and upload it to Windows Azure in a VHD file.
+A virtual machine in Windows Azure runs the operating system that you choose when you create the virtual machine. The operating systems are stored in virtual hard disk (.vhd) files. When you create a virtual machine, you can choose a .vhd file that is supplied for you in the Image Gallery, or you can use one that you have uploaded to Windows Azure. This article shows you how to create and upload a .vhd file. For more information about disks and images in Windows Azure, see [Manage Disks and Images](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
+
+**Note**: When you create the virtual machine, you can customize the operating system settings to facilitate running your application. The configuration that you set is stored on disk for that virtual machine. For instructions, see [How to Create a Custom Virtual Machine](..how-to-guides/custom-create-a-vm/howto-custom-create-vm.md).
 
 The following resources must be available to complete this task:
 
-- **Server running the Windows Server operating system.** This task depends on using the Hyper-V Manager that is a part of the Hyper-V role in the Windows Server operating system.
-- **Window Server operating system media.** Before you start this task, you must make sure that you have access to an .ISO file that contains the Windows Server operating system. The following are supported Windows Server distributions:
+- **Server running Hyper-V, with Hyper-V Manager installed.** This task depends on using the Hyper-V Manager that is a part of the Hyper-V role in the Windows Server. Multiple tools exist to create .vhd files. This article uses Hyper-V Manager to create the .vhd file that is uploaded to Windows Azure. For more information, see [Hyper-V](http://technet.microsoft.com/en-us/library/cc753637(WS.10).aspx).
+- **Window Server operating system media.** This task requires an .iso file that contains the Windows Server operating system. The following are supported Windows Server distributions:
 <P>
   <TABLE BORDER="1" WIDTH="600">
   <TR BGCOLOR="#E9E7E7">
@@ -32,7 +33,7 @@ The following resources must be available to complete this task:
   </TR>
   </TABLE>
 </P>
-- **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. You must use the tools available in Windows Azure SDK - June 2012 or later to upload VHDs to Windows Azure. To download the SDK and the tools, see [Windows Azure Downloads](/en-us/develop/downloads/).
+- **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the .vhd file. You must use the tools available in Windows Azure SDK - June 2012 or later to upload .vhds to Windows Azure. To download the SDK and the tools, see [Windows Azure Downloads](/en-us/develop/downloads/).
 
 This task includes the following steps:
 
@@ -43,8 +44,6 @@ This task includes the following steps:
 - [Step 5: Upload the image to Windows Azure] []
 
 ## <a id="hyperv"> </a>Step 1: Install the Hyper-V role on your server ##
-
-Multiple tools exist to create VHD files. In this task, you use Hyper-V Manager to create the VHD file that is uploaded to Windows Azure. For more information, see [Hyper-V](http://technet.microsoft.com/en-us/library/cc753637(WS.10).aspx).
 
 1. On your server that is running Windows Server 2008, click **Start**, point to **Administrative Tools**, and then click **Server Manager**.
 
@@ -68,7 +67,7 @@ Multiple tools exist to create VHD files. In this task, you use Hyper-V Manager 
 
 ## <a id="createimage"> </a>Step 2: Create the image ##
 
-An image is a virtual hard disk (VHD) file that you can use as a template to create a new virtual machine. An image is a template because it doesn’t have specific settings like a configured virtual machine, such as the computer name and user account settings. The VHD contains the operating system, any operating system customizations, and your applications. You can create the VHD by completing the following steps in Hyper-V.
+An image is a virtual hard disk (.vhd) file that you can use as a template to create a new virtual machine. An image is a template because it doesn’t have specific settings like a configured virtual machine, such as the computer name and user account settings. The .vhd contains the operating system, any operating system customizations, and your applications. You can create the .vhd by completing the following steps in Hyper-V.
 
 1. On your server, click **Start**, click **All Programs**, click **Administrative Tools**, and then click **Hyper-V Manager**.
 
@@ -85,7 +84,7 @@ An image is a virtual hard disk (VHD) file that you can use as a template to cre
 4. On the **Connect Virtual Hard Disk** page, select **Create a virtual hard disk**. Provide the following information, and then click **Next**:
 
 	- **Name** - the name of the .vhd file. This is the file that you upload to Windows Azure.
-	- **Location** - the folder where the .vhd file is located. You should store the VHD file in a secure location.
+	- **Location** - the folder where the .vhd file is located. You should store the .vhd file in a secure location.
 	- **Size** - the size of the virtual hard disk. The maximum size for a virtual hard disk that is intended for an operating system disk in Windows Azure is 127 GB.
   
 5. On the **Installation Options** page, select **Install an operating system from a boot CD/DVD –ROM media**, and then choose the method that is appropriate for your installation media.
@@ -110,7 +109,7 @@ After the virtual machine is created it is not started by default. You must star
 
 ## <a id="createstorage"> </a>Step 3: Create a storage account in Windows Azure ##
 
-A storage account represents the highest level of the namespace for accessing the storage services and is associated with your Windows Azure subscription. You need a storage account in Windows Azure to upload a VHD file to Windows Azure that can be used for creating a virtual machine. You can create a storage account by using the Windows Azure Management Portal.
+A storage account represents the highest level of the namespace for accessing the storage services and is associated with your Windows Azure subscription. You need a storage account in Windows Azure to upload a .vhd file to Windows Azure that can be used for creating a virtual machine. You can create a storage account by using the Windows Azure Management Portal.
 
 1. Sign in to the Windows Azure Management Portal.
 
@@ -162,46 +161,38 @@ In the virtual machine that you just created, complete the following procedure:
 
 ## <a id="upload"> </a>Step 5: Upload the image to Windows Azure ##
 
-To upload an image contained in a VHD file to Windows Azure, you must:
+To upload an image contained in a .vhd file to Windows Azure, perform the following steps:
 
-1.	Create and install a management certificate
-2.	Obtain the thumbprint of the certificate and the subscription ID
-3.	Set the connection
-4.	Upload the VHD file
+1.	Create and install a management certificate.
+2.	Obtain the thumbprint of the certificate and the subscription ID.
+3.	Set the connection.
+4.	Upload the .vhd file.
 
 ### Create and install the management certificate ###
 
-You can create a management certificate in a variety of ways.  For more information about creating certificates, see [How to Create a Certificate for a Role](http://msdn.microsoft.com/en-us/library/gg432987.aspx).  After you create the certificate, you must add it to your subscription in Windows Azure. 
+You can create a management certificate in a variety of ways.  For more information about creating certificates, see [Create a Management Certificate for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).  After you create the certificate, add it to your subscription in Windows Azure. 
 
 1. Sign in to the Windows Azure Management Portal.
 
-2. In the upper-left corner of the Management Portal, click **Preview**, and then click **Previous Management Portal**.
+2. In the navigation pane, click **Settings**.
 
-	![Open Previous Management Portal] (../media/preview.png)
+3. Under **Management Certificates**, click **Upload a management certificate**.
 
-3. In the navigation pane, click **Hosted Services, Storage Accounts & CDN**.
-
-4. At the top of the navigation pane, click **Management Certificates**.
-
-5. On the ribbon, in the **Certificates** group, click **Add Certificate**.
-
-6. In **Choose a subscription**, select the Windows Azure subscription to which you want to add the management certificate.
-
-7. In **Certificate file**, browse to the certificate file, and then click **OK**.
+4. In **Upload a management certificate**, browse to the certificate file, and then click **OK**.
 
 ### Obtain the thumbprint of the certificate and the subscription ID ###
 
-You need the thumbprint of the management certificate that you added and you need the subscription ID to be able to upload the VHD file to Windows Azure.
+You need the thumbprint of the management certificate that you added and you need the subscription ID to be able to upload the .vhd file to Windows Azure.
 
-1. While still in the Previous Management Portal, click **Hosted Services, Storage Accounts & CDN**, and then click **Management Certificates**.
+1. From the Management Portal, click **Settings**.
 
-2. In the center pane, click your certificate, and then record the thumbprint from the **Properties** pane by copying and pasting it to a location where you can retrieve it later.
+2. Under **Management Certificates**, click your certificate, and then record the thumbprint from the **Properties** pane by copying and pasting it to a location where you can retrieve it later.
 
-You also need the ID of your subscription to upload the VHD file.
+You also need the ID of your subscription to upload the .vhd file.
 
-1. In the Previous Management Portal, click **Hosted Services, Storage Accounts & CDN**, and then click **Hosted Services**.
+1. From the Management Portal, click **All Items**.
 
-2. In the center pane, select your subscription, and then record the subscription ID from the **Properties** pane by copying and pasting it to a location where you can retrieve it later.
+2. In the center pane, under **Subscription**, copy the subscription and paste it to a location where you can retrieve it later.
 
 ### Set the connection ###
 
@@ -215,17 +206,17 @@ You must set the connection string that is used to access the subscription. The 
 	CertificateThumbprint=<Thumbprint>;
 	ServiceManagementEndpoint=https:/management.core.windows.net"`
 
-### Upload the VHD file ###
+### Upload the .vhd file ###
 
-For this task, you upload the VHD file to be used as an image for creating virtual machines. You use the CSUpload command-line tool be used to upload a VHD file to the Image Gallery in Windows Azure.
+For this task, you upload the .vhd file to be used as an image for creating virtual machines. You use the CSUpload command-line tool be used to upload a .vhd file to the Image Gallery in Windows Azure.
 
 1. Use the same Command Prompt window that you opened to set the connection string.
 
-2. Upload the VHD file by using the following command and replacing **Subscriptionid** and **CertThumbprint** with the values that you obtained earlier:
+2. Upload the .vhd file by using the following command and replacing **Subscriptionid** and **CertThumbprint** with the values that you obtained earlier and where **BlobStorageURL** is the URL for the storage account that you created earlier:
 
 	`csupload Add-PersistentVMImage -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>" -Label <VHDName> -LiteralPath <PathToVHDFile> -OS Windows`
 
-Where **BlobStorageURL** is the URL for the storage account that you created earlier. You can place the VHD file anywhere within your Blog storage. **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the VHD. **PathToVHDFile** is the full path and name of the VHD file.
+You can place the .vhd file anywhere within your Blog storage. **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the virtual hard disk. **PathToVHDFile** is the full path and name of the .vhd file.
 
 [Step 1: Install the Hyper-V role on your server]: #hyperv
 [Step 2: Create the image]: #createimage
