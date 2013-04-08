@@ -1,6 +1,8 @@
+
 Follow these steps to create a new mobile service.
 
 1.	Log into the [Management Portal]. 
+
 2.	At the bottom of the navigation pane, click **+NEW**.
 
 	![][1]
