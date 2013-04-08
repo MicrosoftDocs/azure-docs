@@ -4,8 +4,6 @@
 
 #Install the LAMP Stack on a Linux virtual machine in Windows Azure
 
-<div chunk="../../shared/chunks/disclaimer.md" />
-
 A LAMP stack consists of the following different elements:
 
 - **L**inux - Operating System

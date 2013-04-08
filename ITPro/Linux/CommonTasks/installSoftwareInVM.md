@@ -4,8 +4,6 @@
 
 #Install software on your Linux virtual machine in Windows Azure
 
-<div chunk="../../shared/chunks/disclaimer.md" />
-
 Linux distributions tend to use software "packages" to install software. These packages are usually managed using a set of commands, such as `apt` or `yum`. You can also install programs without a package, such as with a _tarball_ of the source code.
 
 We will be covering how to use the package managers for some of the common Linux distributions. The stepos will differ based on which Linux distribution you are using.

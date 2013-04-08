@@ -5,8 +5,6 @@
 
 #Selecting User Names for Linux on Windows Azure#
 
-<div chunk="../../shared/chunks/disclaimer.md" />
-
 When you create a virtual machine instance for Linux images on Windows Azure you have the ability to select the user name to provision.
 
 Linux defines a set of user names that you can't use. It is very important that you **avoid using these names**. If you do use one of these user names, you won't be able to provision the image.

@@ -4,8 +4,6 @@
 
 #Using root privileges on Linux virtual machines in Windows Azure
 
-<div chunk="../../shared/chunks/disclaimer.md" />
-
 You can gain root priviliges on your Linux virtual machine using one of the following methods, depending on how you provisioned your virtual machine.
 
 1. **Uploaded an SSH Key** - when provisioning the virtual machine, you uploaded a certificate (`.CER` file) as well as a user name and password.
