@@ -1,3 +1,5 @@
+
+
 Next, you will create a new mobile service to replace the in-memory list for data storage. Follow these steps to create a new mobile service.
 
 1.	Log into the [Windows Azure Management Portal]. 
