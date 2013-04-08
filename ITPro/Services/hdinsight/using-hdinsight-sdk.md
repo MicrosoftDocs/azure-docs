@@ -1,30 +1,34 @@
-<properties linkid="manage-services-hdinsight-using-client-library" urlDisplayName="Using the HDInsight Service Client Library" pageTitle="How to use the HDInsight Client Library - Windows Azure guidance" metaKeywords="hdinsight library, hdinsight .net, hdinsight .net azure" metaDescription="Learn how to use the .Net client Libraries for HDInsight." umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-using-client-library" urlDisplayName="Using the Hadoop .NET SDK" pageTitle="How to use the Hadoop .NET SDK with HDInsight - Windows Azure guidance" metaKeywords="hdinsight hadoop .net sdk, hadoop .net sdk, hadoop .net sdk azure" metaDescription="Learn how to use the Hadoop .NET SDK with the HDInsight Service." umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
 
 <div chunk="../chunks/hdinsight-left-nav.md" />
 
-#Using the HDInsight Service Client Library#
+#Using the Hadoop .NET SDK with the HDInsight Service#
 
-The HDInsight Service library provides set of .NET client libraries that makes it easier to work with HDInsight in .NET. In this tutorial you will learn how to get the client library and use it to build simple .NET based Hadoop program to run Hive queries. 
+The Hadoop .NET SDK provides .NET client libraries that makes it easier to work with Hadoop from .NET. In this tutorial you will learn how to get the Hadoop .NET SDK and use it to build a simple .NET based application that runs Hive queries using the Windows Azure HDInsight Service. 
 
-To enable the HDInsight preview, click [here](https://account.windowsazure.com/PreviewFeatures).
+To enable the HDInsight Service preview, click [here](https://account.windowsazure.com/PreviewFeatures).
 
 ## In this Article
 
-* [Downloading an installing the library](#install)
+* [Downloading an installing the Hadoop .NET SDK](#install)
 * [Preparing for the tutorial](#prepare)
-* [Creating and Runing a .NET program](#create)
+* [Create the application](#create)
+* [Run the application](#run)
 * [Next Steps](#nextsteps)
 
-##<a id="install"></a> Downloading and Installing the Library##
+##<a id="install"></a> Downloading and Installing the Hadoop .NET SDK##
 
-You can install latest published build of the library from [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started). The library includes the following components:
+You can install latest published build of the SDK from [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started). The SDK includes the following components:
 
-* **MapReduce library:** This library simplifies writing MapReduce jobs in .NET languages using the Hadoop streaming interface.
-* **LINQ to Hive client library:** This library translates C# or F# LINQ queries into HiveQL queries and executes them on the Hadoop cluster. This library can execute arbitrary HiveQL queries from a .NET program as well.
-* **WebClient library:** This library contains client libraries for *WebHDFS* and *WebHCat*.
+* **MapReduce library** - simplifies writing MapReduce jobs in .NET languages using the Hadoop streaming interface.
 
-	* **WebHDFS client library:** It works with files in HDFS and Windows Azure Blog Storage
-	* **WebHCat client library:** It manages scheduling and execution of jobs in HDInsight cluster
+* **LINQ to Hive client library** - translates C# or F# LINQ queries into HiveQL queries and executes them on the Hadoop cluster. This library can also execute arbitrary HiveQL queries from a .NET application.
+
+* **WebClient library** - contains client libraries for *WebHDFS* and *WebHCat*.
+
+	* **WebHDFS client library** - works with files in HDFS and Windows Azure Blog Storage.
+
+	* **WebHCat client library** - manages the scheduling and execution of jobs in HDInsight cluster.
 	
 The NuGet syntax to install the libraries:
 
@@ -32,7 +36,7 @@ The NuGet syntax to install the libraries:
 		install-package Microsoft.Hadoop.Hive 
 		install-package Microsoft.Hadoop.WebClient 
 			
-These commands add .NET libraries and references to them to the current Visual Studio project.
+These commands add the libraries and references to the current Visual Studio project.
 
 ##<a id="prepare"></a> Preparing for the Tutorial
 
@@ -42,37 +46,48 @@ You must have a [Windows Azure subscription][free-trial], and a [Windows Azure S
 You must also download the Actors.txt file used in this tutorial. Perform the following steps to download this file to your development environment:
 
 1. Create a C:\Tutorials folder on your local computer.
+
 2. Download [Actors.txt](http://www.microsoft.com/en-us/download/details.aspx?id=37003), and save the file to the C:\Tutorials folder.
 
-##<a id="create"></a>Creating and Executing a .NET Program
+##<a id="create"></a>Create the application
 
 In this section you will learn how to upload files to Hadoop cluster programmatically and how to execute Hive jobs using LINQ to Hive.
 
 1. Open Visual Studio 2012.
+
 2. From the File menu, click **New**, and then click **Project**.
+
 3. From New Project, type or select the following values:
 
-	<table>
-	<tr><th>Property</th><th>Value</th></tr>
-	<tr><td>Category</td><td>Templates/Visual C#/Windows</td></tr>
-	<tr><td>Template</td><td>Console Application</td></tr>
-	<tr><td>Name</td><td>SimpleHiveJob</td></tr>
+	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
+	<tr>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Property</th>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Value</th></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Category</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Template</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Console Application</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">SimpleHiveJob</td></tr>
 	</table>
 
 4. Click **OK** to create the project.
 
 
 3. From the **Tools** menu, click **Library Package Manager**, click **Package Manager Console**.
+
 4. Run the following commands in the console to install the packages.
 
-		install-package Microsoft.Hadoop.Hive -pre 
-		install-package Microsoft.Hadoop.WebClient -pre 
+		install-package Microsoft.Hadoop.Hive 
+		install-package Microsoft.Hadoop.WebClient 
 
 	These commands add .NET libraries and references to them to the current Visual Studio project.
 
-
-
 6. From Solution Explorer, double-click **Program.cs** to open it.
+
 7. Add the following using statements to the top of the file:
 
 		using Microsoft.Hadoop.WebHDFS.Adapters;
@@ -86,17 +101,18 @@ In this section you will learn how to upload files to Hadoop cluster programmati
 		var asvKey = [Storage account key];
 		var asvContainer = [Container name];
 		var localFile = "C:/Tutorials/Actors.txt"
-		var hadoopUser = [Hadoop user name];
-		var hadoopUserPassword = [Hadoop user password];
-		var clusterURI = [HDInsight cluster URL]; //"http://HDInsightCluster Name.azurehdinsight.net";
+		var hadoopUser = [Hadoop user name]; // The HDInsight cluster user
+		var hadoopUserPassword = [Hadoop user password]; // The HDInsight cluster user password
+		var clusterURI = [HDInsight cluster URL]; //"https://HDInsightCluster Name.azurehdinsight.net";
 		
 		var storageAdapter = new BlobStorageAdapter(asvAccount, asvKey, asvContainer, true);
 		var HDFSClient = new WebHDFSClient(hadoopUser, storageAdapter);
 		
+		Console.WriteLine("Creating MovieData directory and uploading actors.txt...");
 		HDFSClient.CreateDirectory("/user/hadoop/MovieData").Wait();
 		HDFSClient.CreateFile(localFile, "/user/hadoop/MovieData/Actors.txt").Wait();
 		
-		// Create Hive table from actors.txt
+		// Create Hive connection
 		var hiveConnection = new HiveConnection(
 		  new System.Uri(clusterURI),
 		  hadoopUser, 
@@ -105,7 +121,11 @@ In this section you will learn how to upload files to Hadoop cluster programmati
 		  asvKey);
 		
 		// Drop any existing tables called Actors
+		// Only needed if you wish to rerun this application
+		// and drop a previous Actors table.
 		//hiveConnection.GetTable<HiveRow>("Actors").Drop();
+
+		Console.WriteLine("Creating a Hive table named 'Actors'...");
 		string command =
 		  @"CREATE TABLE Actors(
 		            MovieId string, 
@@ -116,21 +136,37 @@ In this section you will learn how to upload files to Hadoop cluster programmati
 		        terminated by ',';";
 		hiveConnection.ExecuteHiveQuery(command).Wait();
 		
+		Console.WriteLine("Load data from Actors.txt into the 'Actors' table in Hive...");
 		command =
 		  @"LOAD DATA INPATH 
 		        '/user/hadoop/MovieData/Actors.txt'
 		    OVERWRITE INTO TABLE Actors;";
 		hiveConnection.ExecuteHiveQuery(command).Wait();
 		
-		// Execute Hive query
+		Console.WriteLine("Performing Hive query...");
 		var result = hiveConnection.ExecuteQuery(@"select name, awardscount
 		          from actors sort by awardscount desc
 		          limit 1");
 		result.Wait();
-		Console.WriteLine(result.Result.ReadToEnd());
-		Console.ReadLine();
 
-9. Press **F5** to run the program.
+		Console.WriteLine("The results are: {0}", result.Result.ReadToEnd());
+        Console.WriteLine("\nPress any key to continue.");
+        Console.ReadKey();
+
+##<a id="run"></a>Run the application
+
+While the application is open in Visual Studio, press **F5** to run the application. A console window should open and display the steps executed by the application as data is uploaded, stored into a Hive table, and finally queried. Once the application is complete and the query results have been returned, press any key to terminate the application.
+
+<div class="dev-callout">
+<strong>Note</strong>
+<p>Each step performed by the application may take seconds or even minutes to complete. The time to upload the Actors.txt file will vary based on your Internet connection to the Windows Azure data center (East US for the HDinsight Service preview), while the other steps are dependent on cluster size.</p>
+</div>
+
+<div class="dev-callout">
+<strong>Note</strong>
+<p>The LOAD DATA INPATH operation is a move operation that moves the Actors.txt data into the Hive-controlled file system namespace. This effectively removes the Actors.txt file from the upload location. Because of this, the Actors.txt file must be uploaded each time you run this application.</p>
+<p>For more information on loading data into Hive, see <a href="https://cwiki.apache.org/confluence/display/Hive/GettingStarted#GettingStarted-DMLOperations">Hive GettingStarted</a>.</p>
+</div>
 
 ##<a id="nextsteps"></a>Next Steps
 Now you understand how to create a .NET application using HDInsight client SDK. To learn more, see the following articles:
