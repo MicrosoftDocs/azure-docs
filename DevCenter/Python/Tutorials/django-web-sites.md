@@ -34,11 +34,13 @@ The site will be quickly setup:
 
 ![](../Media/django-ws-004.png)
 
-And then you can click on the site name to go to the dashboard.  
+Next, we want to add support for publishing via Git.  This can be done by clicking on the “Set up deployment from source control” link.
 
 ![](../Media/django-ws-005.png)
 
-Next, we want to add support for publishing via Git.  This can be done by clicking on the “Set up Git publishing” button along the right hand side.  After setting up Git publishing you’ll momentarily see a page informing you the repo is being created and then you’ll be taken to the deployments tab after the repo has been created which includes instructions on how to connect.  
+From the "Set up deployment" dialog, scroll down and select "Local Git" option then click the right arrow to continue.
+
+After setting up Git publishing you’ll momentarily see a page informing you the repo is being created and then you’ll be taken to the deployments tab after the repo has been created which includes instructions on how to connect.  
 
 ![](../Media/django-ws-006.png)
 
