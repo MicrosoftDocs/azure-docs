@@ -80,7 +80,7 @@ Affinity groups can be set when a group of virtual machines spans multiple physi
 ##<a name="Commands_to_manage_your_Azure_virtual_machines"></a>Commands to manage your Windows Azure virtual machines
 The following diagram shows how Windows Azure virtual machines are hosted in the production deployment environment of a Windows Azure cloud service.
  
-![Azure Technical Diagram](../../Shared/Media/networkdiagram.jpg)	
+![Azure Technical Diagram](../../Shared/Media/architecturediagram.jpg)	
 
 **create-new** creates the drive in blob storage (that is, e:\ in the diagram); **attach** attaches an already created but unattached disk to a virtual machine.
 

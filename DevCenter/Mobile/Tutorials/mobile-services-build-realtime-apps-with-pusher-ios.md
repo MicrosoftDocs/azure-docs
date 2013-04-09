@@ -69,7 +69,7 @@ The library is now installed ready for use.
 
 ### Add code to the application
 
-1. In Xcode, open the **TodoService.h** file and add the following method declarations:
+1. In Xcode, open the **QSTodoService.h** file and add the following method declarations:
 
         // Allows retrieval of items by id
         - (NSUInteger) getItemIndex:(NSDictionary *)item;
@@ -85,7 +85,7 @@ The library is now installed ready for use.
 		- (void) addItem:(NSDictionary *) item;
 		- (void) completeItem: (NSDictionary *) item;
 
-3. In **TodoService.m**, add the following code to implement the new methods:
+3. In **QSTodoService.m**, add the following code to implement the new methods:
 
         // Allows retrieval of items by id
 		- (NSUInteger) getItemIndex:(NSDictionary *)item
@@ -128,7 +128,7 @@ The library is now installed ready for use.
 		    return index;
 		}
 
-	The TodoService now allows you to find items by **id** and add and complete items locally without sending explicit requests to the remote service.
+	The QSTodoService now allows you to find items by **id** and add and complete items locally without sending explicit requests to the remote service.
 	
 4. Replace the existing **addItem** and **completeItem** methods with the following code:
 
@@ -155,7 +155,7 @@ The library is now installed ready for use.
 
 	Note that items are now added and completed, along with updates to the UI, when events are received from Pusher instead of when the data table is updated.
 
-5. In the **TodoListController.h** file, add the following import statements:
+5. In the **QSTodoListViewController.h** file, add the following import statements:
 
 		#import "PTPusherDelegate.h"
 		#import "PTPusher.h"
@@ -164,7 +164,7 @@ The library is now installed ready for use.
 		
 6. Modify the interface declaration to add **PTPusherDelegate** to look like the following:
 
-		@interface TodoListController : UITableViewController<UITextFieldDelegate, PTPusherDelegate>
+		@interface QSTodoListViewController : UITableViewController<UITextFieldDelegate, PTPusherDelegate>
 		
 7. Add the following new property:
 
@@ -175,7 +175,7 @@ The library is now installed ready for use.
 		// Sets up the Pusher client
 		- (void) setupPusher;
 		
-9. In **TodoListController.m**, add the following line under the other **@synthesise** lines to implement the new property:
+9. In **QSTodoListViewController.m**, add the following line under the other **@synthesise** lines to implement the new property:
 
 		@synthesize pusher = _pusher;
 
@@ -239,7 +239,7 @@ The library is now installed ready for use.
 		    itemText.text = @"";
 		}
 
-13. In the **TodoListController.m** file, locate the (void)viewDidLoad method and add a call to the **setupPusher** method so the first few lines are:
+13. In the **QSTodoListViewController.m** file, locate the (void)viewDidLoad method and add a call to the **setupPusher** method so the first few lines are:
 
 		- (void)viewDidLoad
 		{

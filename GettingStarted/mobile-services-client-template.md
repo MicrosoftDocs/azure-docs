@@ -1,4 +1,4 @@
-<properties linkid="mobile-services-how-to-XXXXX-client" urlDisplayName="XXXXX Client Library" pageTitle="How to use the XXXXX client library - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Mobile Service XXXXX client library, XXXXX client library" metaDescription="Learn how to use the XXXXX client library for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="mobile-services-how-to-XXXXX-client" urlDisplayName="XXXXX Client Library" pageTitle="How to use the XXXXX client library - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Mobile Service XXXXX client library, XXXXX client library" writer="glenga" metaDescription="Learn how to use the XXXXX client library for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 
@@ -38,9 +38,7 @@ This guide shows you how to perform common scenarios using the XXXXX client for 
 	- [Customize data type serialization]
 - [Next steps][]
 
-<div chunk="../mobile-services-concepts.md" />
-
-<div chunk="../../Shared/Chunks/create-storage-account.md" />
+<div chunk="../chunks/mobile-services-concepts.md" />
 
 <h2><a name="create-client"></a><span class="short-header">Creating the client</span>How to: Create the Mobile Services client</h2>
 

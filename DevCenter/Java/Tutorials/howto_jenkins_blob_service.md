@@ -2,7 +2,7 @@
 
 <div chunk="../chunks/article-left-menu.md" />
 
-#Using Windows Azure storage with a Jenkins Continuous Integration solution
+#Using Windows Azure Storage with a Jenkins Continuous Integration solution
 
 The following information shows how to use the Windows Azure Blob service as a repository of build artifacts created by a Jenkins Continuous Integration (CI) solution. One of the scenarios where you would find this useful is when you’re coding in an agile development environment (using Java or other languages), builds are running based on continuous integration, and you need a repository for your build artifacts, so that you could, for example, share them with other organization members, your customers, or maintain an archive. 
 
@@ -103,12 +103,12 @@ For instruction purposes, first we’ll need to create a job that will create se
 10. For **Common virtual path for uploaded artifacts**, enter **${BUILD\_ID}/${BUILD\_NUMBER}**.
 11. Click **Save** to save your settings.
 12. In the Jenkins dashboard, click **Build Now** to run **MyJob**. Examine the console output for status. Status messages for Windows Azure storage will be included in the console output when the post-build action starts to upload build artifacts.
-    1. Upon successful completion of the job, you can examine the build artifacts by opening the public blob.
-    2. Login to the Windows Azure management portal, <https://manage.windowsazure.com>.
-    3. Click **Storage**.
-    4. Click the storage account name that you used for Jenkins.
-    5. Click **Containers**.
-    6. Click the container named **myjob**, which is the lowercase version of the job name that you assigned when you created the Jenkins job. Container names and blob names are lowercase (and case-sensitive) in Windows Azure storage. Within the list of blobs for the container named **myjob** you should see **hello.txt** and **date.txt**. Copy the URL for either of these items and open it in your browser. You will see the text file that was uploaded as a build artifact.
+13. Upon successful completion of the job, you can examine the build artifacts by opening the public blob.
+    1. Login to the Windows Azure management portal, <https://manage.windowsazure.com>.
+    2. Click **Storage**.
+    3. Click the storage account name that you used for Jenkins.
+    4. Click **Containers**.
+    5. Click the container named **myjob**, which is the lowercase version of the job name that you assigned when you created the Jenkins job. Container names and blob names are lowercase (and case-sensitive) in Windows Azure storage. Within the list of blobs for the container named **myjob** you should see **hello.txt** and **date.txt**. Copy the URL for either of these items and open it in your browser. You will see the text file that was uploaded as a build artifact.
 
 <h2><a name=""></a><span class="short header">Blob service components</span>Components used by the Blob service</h2>
 
