@@ -1,7 +1,34 @@
 <properties linkid="dev-download-webmatrix" urlDisplayName="WebMatrix Overview" pageTitle="WebMatrix Overview for Windows Azure" metaKeywords="" metaDescription="Download a free copy of WebMatrix 2 for Windows Azure. WebMatrix is a web development tool for creating, publishing, and maintaining web sites." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 
-#WebMatrix 2… Built for Azure
+#WebMatrix… Built for Azure
+
+Download it <a
+href="http://go.microsoft.com/?linkid=9809702">
+FREE!</a>
+
+##How to get started
+
+It's easy to get started! <a
+href="http://go.microsoft.com/?linkid=9809702">
+Download WebMatrix for free</a>, then if you don't have Windows Azure, you can <a href="http://go.microsoft.com/fwlink/?LinkID=271784">sign up for a Windows Azure subscription here</a>
+
+You can also sign into WebMatrix with your Microsoft account or organizational identity, and enable Windows Azure during sign in.
+
+![image6][6]
+
+To learn more about Windows Azure Web Sites, <a href="http://go.microsoft.com/fwlink/?LinkId=290814"> click here</a>.
+
+##Benefits of sign In
+
+Once signed in, your name and picture will appear in the right-hand corner of WebMatrix. When you create a local site, you'll get an option to provision a remote companion site automatically. If you don't want to provision a remote site, it's easy to skip (and you can easily provision it later using the **Publish** button).
+
+![image7][7]
+
+All of your sites on Windows Azure will be listed in My Sites, even if you’ve never previously opened them.
+
+![image8][8]
+
 ##Open your sites directly from Windows Azure
 
 If you already have a live
@@ -10,10 +37,10 @@ the WebMatrix button in the Windows Azure portal. With this single click, you
 can install WebMatrix and any prerequisites, and download a copy of the site to
 your computer so that you can edit it locally.
 
-![Picture 7][1]
+![image1][1]
 
 <a
-href="http://go.microsoft.com/?linkid=9809714">
+href="http://go.microsoft.com/fwlink/?LinkId=286156">
 Read more</a>
 
 ##Edit your sites remotely
@@ -24,8 +51,7 @@ edit remotely? Open your site directly inside WebMatrix and edit any files.
 
 ![image2][2]
 
-<a
-href="http://go.microsoft.com/?linkid=9809761">
+<a href="http://go.microsoft.com/fwlink/?LinkId=286156">
 Read more</a>
 
 ##Publish seamlessly to Windows Azure
@@ -37,7 +63,7 @@ straight to the cloud. No complicated settings or additional work required!
 ![picture 6][3]
 
 <a
-href="http://go.microsoft.com/?linkid=9809710">
+href="http://go.microsoft.com/?linkid=9829252">
 Read more</a>
 
 
@@ -81,5 +107,8 @@ Learn more about WebMatrix</a>
 [2]: ./media/image002.png
 [3]: ./media/image003.jpg
 [4]: ./media/image004.jpg
-[5]: ./media/image005.jpg
+[5]: ./media/image005.png
+[6]: ./media/image006.png
+[7]: ./media/image007.png
+[8]: ./media/image008.png
 
