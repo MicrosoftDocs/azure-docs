@@ -61,20 +61,28 @@ the **server.js** file of the application:
 
 ### Setup a Windows Azure Service Bus connection
 
-The azure module will read the environment variables AZURE\_SERVICEBUS\_NAMESPACE and AZURE\_SERVICEBUS\_ACCESS\_KEY for information required to connect to your Windows Azure Service Bus. If these environment variables are not set, you must specify the account information when calling **createServiceBusService**.
-
-For an example of setting the environment variables in a configuration file for a Windows Azure Cloud Service, see [Node.js Cloud Service with Storage].
-
-For an example of setting the environment variables in the management portal for a Windows Azure Web Site, see [Node.js Web Application with Storage]
-
-## How to send notifications
-
 The **NotificationHubService** object lets you work with notification hubs. The
 following code creates a **NotificationHubService** object for the nofication hub named **hubname**. Add it near the
 top of the **server.js** file, after the statement to import the azure
 module:
 
-    var notificationHubService = azure.createNotificationHubService('hubname');
+    var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
+
+The connection **connectionstring** value can be obtained from the Windows Azure Management portal by performing the following steps:
+
+1. From the Windows Azure Management portal, select **Service Bus**, and then select the namespace that contains the notification hub.
+
+2. Select **NOTIFICATION HUBS**, and then select the hub you wish to use.
+
+3. Select **View Connection String** from the **quick glance** section, and copy the connection string value.
+
+<div class="dev-callout">
+<strong>Note</strong>
+<p>You can also retrieve the connection string using the <b>Get-AzureSbNamespace</b> cmdlet provided by Windows Azure PowerShell or the <b>azure sb namespace show</b> command with the Windows Azure Command-Line Tools.</p>
+
+</div>
+
+## How to send notifications
 
 The **NotificationHubService** object exposes an instance of the **ApnsService** (notificationHubService.apns) and **WnsService** (notificationHubService.wns) objects. The **ApnsService** object is used to send notification to iOS applications. The **WnsService** object is used to send notifications to Windows Store applications.
 
@@ -82,13 +90,13 @@ The **NotificationHubService** object exposes an instance of the **ApnsService**
 
 The **ApnsService** object provides a **send** method that can be used to send notifications to iOS applications. The **send** method accepts the following parameters:
 
-* Tags - a comma-separated list or array of tag identifiers
+* Tags - the tag identifier. If no tag is provided, the notification will be sent to all clients.
 * Payload - the message's JSON or string payload
 * Callback - the callback function
 
 For more information the payload format, see The Notification Payload section of the [Local and Push Notification Programming Guide](http://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html).
 
-The following code uses the **ApnsService** instance exposed by the **NotificationHubService** to send an alert message:
+The following code uses the **ApnsService** instance exposed by the **NotificationHubService** to send an alert message to all clients:
 
 	var payload='{ 
 	    alert: 'Hello!'
@@ -104,7 +112,7 @@ The following code uses the **ApnsService** instance exposed by the **Notificati
 
 The **WnsService** object provides a **send** method that can be used to send notifications to Windows Store applications.  The **send** method accepts the following parameters:
 
-* Tags - a comma-separated list or array of tag identifiers
+* Tags - the tag identifier. If no tag is provided, the notification will be sent to all clients.
 * Payload - the XML message payload
 * Type - the notification type; 
 * Options - optional request headers
