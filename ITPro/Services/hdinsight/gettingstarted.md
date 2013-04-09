@@ -110,7 +110,7 @@ The sample contains MapReduce programs written in Java that together count word 
 
 4. The job name and parameters have been assigned default values that will run the WordCount job.The **Job Name** is "WordCount". **Parameter 0** is just the name of the program, "wordcount". **Parameter 1** specifies, respectively, the path/name of the input file (asv:///example/data/gutenberg/davinci.txt) and the output directory where the results will be saved (asv:///DaVinciAllTopWords). Note that the output directory assumes a default path relative to the asv:///user/&lt;username&gt; folder. 
 
-	Note the use of the asv:// prefix in the paths of these files. This is needed to indicate Azure Blob Storage is being used for input and output files.
+	Note the use of the asv:// prefix in the paths of these files. This is needed to indicate Azure Blob Storage is being used for input and output files. For the purpose of this introduction, the default prefix is being retained. But it is a best practice to use the secure SSL version, asvs://, for transferring your data when you are in production. For information on how to use the secure transport, see [Using HDInsight to process Blob Storage data](/en-us/manage/services/hdinsight/process-blob-data-and-write-to-sql/).
 
 5. The **Final Command** contains the Hadoop jar command that executes the MapReduce program with the parameter values provided above. See the documentation on [jar syntax ](http://hadoop.apache.org/common/docs/current/commands_manual.html#jar) for details. 
 

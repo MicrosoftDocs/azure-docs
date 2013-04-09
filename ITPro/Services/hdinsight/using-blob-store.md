@@ -2,36 +2,79 @@
 
 <div chunk="../chunks/hdinsight-left-nav.md" />
 
-#Using Windows Azure Blob Storage with HDInsight  #
+#Using Windows Azure Blob Storage with HDInsight
 
 
 
 
-Windows Azure HDInsight Service supports both Hadoop Distributed Files System (HDFS) and Windows Azure Blob Storage for storing data. Blob Storage is a robust, general purpose Windows Azure storage solution. An HDFS file system over Blob Storage is referred as Azure Storage Vault or ASV for short. ASV provides a full featured HDFS file system interface for Blob Storage that provides a seamless experience to customers by enabling the full set of components in the Hadoop ecosystem to operate (by default) directly on the data managed by Blog Storage. Blob Storage is not just a low cost solution. Storing data in Blob Storage enables the HDInsight clusters used for computation to be safely deleted without losing user data. 
+Windows Azure HDInsight Service supports both Hadoop Distributed Files System (HDFS) and Azure Storage Vault (ASV) for storing data. Windows Azure Blob Storage is a robust, general purpose Windows Azure storage solution. ASV provides a full featured HDFS file system interface for Blob Storage that provides a seamless experience to customers by enabling the full set of components in the Hadoop ecosystem to operate (by default) directly on the data managed by Blog Storage. Blob Storage is not just a low cost solution. Storing data in Blob Storage enables the HDInsight clusters used for computation to be safely deleted without losing user data. 
 
-**Note:** Most HDFS commands such as ls, copyFromLocal, mkdir etc. will still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS) such as fschk and dfsadmin will show different behavior.
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>Most HDFS commands such as ls, copyFromLocal, mkdir etc. will still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS) such as fschk and dfsadmin will show different behavior on ASV.</p> 
+</div>
 
-In this Article
+To enable the Windows Azure HDInsight Service preview, click [here](https://account.windowsazure.com/PreviewFeatures).
 
-	• The HDInsight service storage architecture
-	• Provision the default file system
-	• Accessing files in other blob storage
-	• Addressing files in blob storage
-	• Mapping an ASU URI to a Blob Storage URI
-	• Mapping Files and Directories into Blob Storage Containers
-	• Conclusion
-	• Next Steps
+##In this Article
 
-##The HDInsight Service Storage Architecture
+* [The HDInsight service storage architecture](#architecture)
+* [Benefits of ASV](#benefits)
+* [Preparing Blob Storage Container for ASV](#preparingblobstorage)
+* [Addressing files in blob storage](#addressing)
+* [Next Steps](#nextsteps)
+
+##<a id="architecture"></a>The HDInsight Service Storage Architecture
 The following diagram provides an abstract view of the HDInsight Service's storage architecture:
 
 ![HDI.ASVArch](../Media/HDI.ASVArch.gif "HDInsight Storage Architecture")
   
-The HDInsight Service provides access to the distributed file system that is locally attached to the compute nodes. This file system can be accessed using the fully qualified URI. For example: hdfs://&lt;namenodehost&gt;/&lt;path&gt;. 
+The HDInsight Service provides access to the distributed file system that is locally attached to the compute nodes. This file system can be accessed using the fully qualified URI. For example: 
 
-In addition, HDInsight Service provides the ability to access data stored in Blob Storage containers, one of which is designated as the default file system during the provision process.
+	hdfs://<namenodehost>/<path>
 
-##Benefits of ASV
+In addition, HDInsight Service provides the ability to access data stored in Blob Storage containers. The syntax to access ASV is:
+
+	asv[s]://[<container>@]<accountname>.blob.core.windows.net/<path>
+
+
+Hadoop supports a notion of default file system. The default file system implies a default scheme and authority; it can also be used to resolve relative paths. During the HDInsight provision process, user must specify a Blob Storage and a container used as the default file system. 
+
+
+Other than the Blob Storage container designated as the default file system, you can also access containers that reside in the same Windows Azure storage account or different Windows Azure storage accounts:
+
+* **Container in the same storage account:** Because the account name and key are stored in the core-site.xml, you have full access to the files in the container.
+* **Container in a different storage account with the *public container* or the *public blob* access level:** you have read only permission to the files in the container.
+
+	<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>Public Container allows you to get a list of all blobs available in that container and get container metadata. Public Blob allows  you to access the blobs only if you know the exact url. For more information, see [Restrict Access to Containers and Blobs](http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx).</p> 
+	</div>
+
+* **Container in a different storage account with the *private* access levels:** you must add a new entry for each storage account to the C:\apps\dist\hadoop-1.1.0-SNAPSHOT\conf\core-site.xml files to be able to access the files in the container from HDInsight:
+
+		<property>
+		    <name>fs.azure.account.key.<accountname>.blob.core.microsoft.com</name>
+		    <value><enterthekeyvaluehere></value>
+		</property>
+
+	Note there is already an entry in the configuration file for the Blob Storage container used as the default file system.
+
+Be aware that accessing such a container may go outside of your subscription's data center, this may incur additional charges for data flowing across the data center boundaries. It should also always be encrypted using the ASVS URI scheme.
+
+
+Blob storage containers store data as key/value pairs, and there is no directory hierarchy. However the ‘/’ character can be used within the key name to make it appear as if a file is stored within a directory structure. For example, a blob’s key may be ‘input/log1.txt’. No actual ‘input’ directory exists, but due to the presence of the ‘/’ character in the key name, it has the appearance of a file path.
+
+
+
+
+
+
+
+
+
+
+##<a id="benefits"></a>Benefits of ASV
 The implied performance cost of not having compute and storage co-located is mitigated by the way the compute clusters are provisioned close to the storage account resources inside the Windows Azure data center, where the high speed network makes it very efficient for the compute nodes to access the data inside Blob Storage. Depending on general load, compute and access patterns, only slight performance degradation has been observed and often even faster access.
 
 There are several benefits associated with storing the data in Blob Storage instead of HDFS:
@@ -44,10 +87,18 @@ There are several benefits associated with storing the data in Blob Storage inst
 
 Certain Map-Reduce jobs and packages may create intermediate results that you don't really want to store in the Blob Storage container. In that case, you can still elect to store the data in the local HDFS file system. In fact, HDInsight uses DFS for several of these intermediate results in Hive jobs and other processes. 
 
-##Provision the Default File System
-Hadoop supports a notion of default file system. A user can set the default file system for his HDInsight cluster during the provision process. The default file system implies a default scheme and authority; it can also be used to resolve relative paths.
 
-When provisioning an HDInsight cluster from Windows Azure Management Portal, there are two options: quick create and custom create. Using either of the options, a Windows Azure Storage account must be created beforehand.  For instructions, see How to [Create a Storage Account]( /en-us/manage/services/storage/how-to-create-a-storage-account/). 
+
+
+
+##<a id="preparingblobstorage"></a>Preparing Blob Storage Container for ASV
+To use blobs, you first create a [Windows Azure storage account](/en-us/manage/services/storage/how-to-create-a-storage-account/). As part of this, you specify the Windows Azure datacenter that will store the objects you create using this account. Choosing the same datacenter as your HDInsight cluster can improve performance. Wherever it lives, each blob you create belongs to some container in your storage account. This container may be an artitary Blob Storage container created outside of HDInsight, or it may be a container that is created as an ASV file system from HDInsight. 
+
+
+
+**Provision the Container Used as the Default File System**
+
+When provisioning an HDInsight cluster from Windows Azure Management Portal, there are two options: *quick create* and *custom create*. Using either of the options, a Windows Azure Storage account must be created beforehand.  For instructions, see [How to Create a Storage Account]( /en-us/manage/services/storage/how-to-create-a-storage-account/). 
 
 Using the quick create option, you can choose an existing storage account. The provision process will create a new container with the same name as the HDInsight cluster name. This container will be used as the default file system.
 
@@ -57,107 +108,122 @@ Using the custom create, you can either choose an existing Blob Storage containe
 
 ![HDI.CustomCreateStorageAccount](../Media/HDI.CustomCreateStorageAccount.png "Custom Create Storage Account")
 
-The provision process adds an entry to the C:\apps\dist\hadoop-1.1.0-SNAPSHOT\conf\core-site.xml file:
 
-	<property>
-	    <name>fs.azure.account.key.<accountname></name>
-	    <value><enterthekeyvaluehere></value>
-	</property>
-	
-Once a Blob Storage container has designated as the default file system for the HDInsight Service, it cannot be changed to a different container. 
 
-##Accessing Files in other Blob Storage
 
-Other than the Blob Storage container designated as the default file system, you can also access containers that reside in the same Windows Azure storage account or different Windows Azure storage accounts:
 
-* Container in the same storage account: Because the account name and key are stored in the core-site.xml, you have full access to the files in the container.
-* Container in a different storage account with the public container access level: you have read only permission to the files in the container.
-* Container in a different storage account with the private or public blob access levels: you must add a new entry to the core-site.xml files to be able to access the files in the container:
 
-		<property>
-		    <name>fs.azure.account.key.<accountname></name>
-		    <value><enterthekeyvaluehere></value>
-		</property>
-	
-Be aware that accessing such a container may go outside of your subscription's data center, this may incur additional charges for data flowing across the data center boundaries. It should also always be encrypted using the ASVS URI scheme.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**Using APIs to Create Containers**
 
 Creating an ASV File System can be done by creating a new Blob Storage container through the commonly-used APIs in a storage account for which core-site.xml contains the storage key. In addition, you can also create a new container by referring to it in an HDFS file system command. For example:
 
-	hadoop fs -mkdir asvs://newcontainer@myaccount/newdirectory
+	hadoop fs -mkdir asvs://<newcontainer>@<accountname>.blob.core.windows.net/<newdirectory>
 
-The example command will not only create the new directory newdirectory but, if it doesn't exist, will also create a new container called newcontainer.
+The example command will not only create the new directory *newdirectory* but, if it doesn't exist, will also create a new container called *newcontainer*.
 
-This container may be a container that has been created as an ASV file system, or it may be just an arbitrary Blob Storage container created outside of HDInsight. In either case you can "mount" it and use it as the default file system. Note that the data will stay in that container and will not be copied to a different location.
 
-##Addressing Files in Blob Storage
 
-The URI scheme ([] indicates that the part is optional, <> enclose concepts) for accessing files in Blob Storage is: 
 
-	asv[s]://[[<container>@]<domain>]/<path>
 
-The URI scheme provides both unencrypted access with the ASV: prefix, and SSL encrypted access with ASVS:. We recommend using ASVS: wherever possible, even when accessing data that lives inside the same Windows Azure data center.
+
+
+
+
+
+##<a id="addressing"></a>Addressing Files in Blob Storage
+
+The URI scheme for accessing files in Blob Storage is: 
+
+	asv[s]://[<container>@]<accountname>.blob.core.windows.net/<path>
+
+The URI scheme provides both unencrypted access with the ASV: prefix, and SSL encrypted access with ASVS. We recommend using ASVS wherever possible, even when accessing data that lives inside the same Windows Azure data center.
 	
 The &lt;container&gt; identifies the name of the Blob Storage container. If no container name is specified but the domain is, then it refers to the [root container](http://msdn.microsoft.com/en-us/library/windowsazure/ee395424.aspx) of the domain's storage account. Note that root containers are read-only.
 	
-The &lt;domain&gt; identifies the storage account domain. If it does not contain a dot (.), it will be interpreted as &lt;domain&gt;.blob.core.windows.net.
+The &lt;accountname&gt; identifies the storage account name. Fully Qualified Domain Name (FQDN) is required.
 	
-If neither the container nor the domain has been specified, then the default file system is used.
+If neither the container nor the accountname has been specified, then the default file system is used.
 	
 The &lt;path&gt; is the file or directory HDFS path name. Since Blob Storage containers are just a key-value store, there is no true hierarchical file system. A / inside an Azure Blob's key is interpreted as a directory separator. Thus, if a blob's key is input/log1.txt, then it is the file log1.txt inside the directory input.
 
 For example:
 
-	asvs://dailylogs@myaccount/input/log1.txt
+	asvs://dailylogs@myaccount.blob.core.windows.net/input/log1.txt
 	
 refers to the file log1.txt in the directory input on the Blob Storage container dailylogs at the location myaccount.blob.core.windows.net using SSL.
 	
-	asvs://myaccount/result.txt
+	asvs://myaccount.blob.core.windows.net/result.txt
 	
-refers to the file result.txt on the read-only ASV file system in the root container at the location myaccount.blob.core.windows.net that gets accessed through SSL. Note that asv://myaccount/output/result.txt will result in an exception, because Blob Storage does not allow / inside path names in the root container to avoid ambiguities between paths and folder names. 
+refers to the file result.txt on the read-only ASV file system in the root container at the location myaccount.blob.core.windows.net that gets accessed through SSL. Note that asv://myaccount.blob.core.windows.net/output/result.txt will result in an exception, because Blob Storage does not allow / inside path names in the root container to avoid ambiguities between paths and folder names. 
 	
 	asv:///output/result.txt 
 	
 refers to the file result.txt in the output directory on the default file system.
 
+You must specify the FQDN when using SSL. The following command will return an error:
+
+	asvs:///output/result.txt 
+
+Instead, you must use the following command:
+
+	asvs://dailylogs@myaccount.blob.core.windows.net/output/result.txt 
+
 Because HDInsight uses a Blob Storage container as the default file system, you can refer to files and directories inside the default file system using relative or absolute paths. For example, the following statement will list all top-level directories and files of the default file system:
 
-	hadoop fs -ls /
+	hadoop fs -ls /output/result.txt
 
-##Mapping an ASV URI to a Blob Storage URI
+**Mapping a Blob Storage URI to an ASV URI**
 
-Given an ASV URI, you may need to be able to create the Blob Storage URI which can be used to access the blob directly in Blob Storage. The mapping is straight forward. 
+Given a Blob Storage URI, you may need to be able to create the ASV URI. The mapping is straight forward. 
+
 
 To access an file (or folder) at 
 
-<table>
+<table border="1">
 <tr><th>AVS URI</th><th>Blob Storage URI</th></tr>
-<tr><td>asv[s]://&lt;account&gt;/&lt;path-name&gt;</td><td>http[s]://&lt;account&gt;/&lt;path-name&gt;</td></tr>
-<tr><td>asv[s]://&lt;container&gt;@&lt;account&gt;/&lt;path-name&gt;</td><td>http[s]://&lt;account&gt;/&lt;container&gt;/&lt;path-name&gt;</td></tr>
-<tr><td>asv[s]:///&lt;path-name&gt;</td><td>http[s]://&lt;account&gt;/&lt;container&gt;/&lt;path-name&gt;<br/>
 
-where account and container are the values used for specifying the default file system.</td></tr>
+<tr><td>http[s]://&lt;account&gt;/&lt;path-name&gt;</td><td>asv[s]://&lt;account&gt;.blob.core.windows.net/&lt;path-name&gt;</td></tr>
 
-<tr><td>asvs://dailylogs@myaccount/input/log1.txt</td><td>https://myaccount.blob.core.windows.net/dailylogs/input/log1.txt</td></tr>
+<tr><td>http[s]://&lt;account&gt;/&lt;container&gt;/&lt;path-name&gt;</td><td>asv[s]://&lt;container&gt;@&lt;account&gt;.blob.core.windows.net/&lt;path-name&gt;</td></tr>
+
+<tr><td>http[s]://&lt;account&gt;/&lt;container&gt;/&lt;path-name&gt;<br/>
+
+where account and container are the values used for specifying the default file system.</td><td>asv:///&lt;path-name&gt;<br/> asvs://&lt;container&gt;@&lt;account&gt;.blob.core.windows.net/&lt;path-name&gt;</td></tr>
+
+<tr><td>https://&lt;account&gt;.blob.core.windows.net/dailylogs/input/log1.txt</td><td>asvs://&lt;container&gt;@&lt;account&gt;.blob.core.windows.net/input/log1.txt</td></tr>
+
 </table>
 
-##Mapping Files and Directories into Blob Storage Containers
-
-Blob Storage containers are a key-value store. There is no true hierarchical file system. A / inside an Azure Blob's key is interpreted as a directory separator. Each segment in the blob's key separated by a directory separator implies a directory, or, in the case of the last segment, the file name. For example a blob's key input/log1.txt is the file log1.txt inside the directory input.
-
-This is also how to map the HDFS file and directory structure back into the Blob Storage container. A file f.txt inside the directories a/b/c will be stored as blob called a/b/c/f.txt inside the Blob Storage container.
-
-In order to preserve the POSIX-based semantics of HDFS, you need to add some more information to preserve the presence of folders that were created either explicitly through mkdir or implicitly by creating files inside them. This is achieved by creating a place holder blob for the directory, which is empty, and has two metadata properties that indicate that the blob is an ASV directory (asv_isfolder) and what its permissions are (asv_permissions).
-
-Such folder blobs may also be created in a normal Blob Storage container, if you perform a writing/updating HDFS file command on it such as deleting a file inside a folder, since is it necessary to preserve the semantics that deleting a file will not delete the containing folder.
-
-##Conclusion
+##<a id="nextsteps"></a>Next Steps
 
 In this article, you learned how to use Blob Storage with HDInsight and that Blob Storage is a fundamental component of the HDInsight Service. This will allow you to build scalable, long-term archiving data acquisition solutions with Windows Azure Blob Storage and use HDInsight to unlock the information inside the stored data.
 
-##Next Steps
-
 Now you understand how to use Windows Azure Blob Storage. To learn more, see the following articles:
 
+* [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 * [How to: Upload data][upload-data]
 * [Using Pig with HDInsight][pig]
 * [Using Hive with HDInsight][hive]

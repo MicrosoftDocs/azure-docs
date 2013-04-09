@@ -1,11 +1,11 @@
 <properties linkid="manage-dataservices-recoveryservices-backup" urlDisplayName="Windows Azure Backup" pageTitle="Configure Windows Azure Recovery Services to quickly and easily back-up Windows Server" metaKeywords="Windows Azure Backup, Online Backup, back-up service" metaDescription="Use Windows Azure Backup to help you protect important server data offsite with automated backups to Windows Azure, where they are available for easy data restoration." metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="starra" editor="tysonn" manager="cynthn" /> 
-
+<div chunk="../chunks/recoveryservices-left-nav.md"/>
 <h1><a id="configure-a-backup-vault-tutorial"></a>Configure Windows Azure Recovery Services to quickly and easily back-up Windows Server</h1>
 
 To backup files and data from your Windows Server in Windows Azure, you must create a backup vault in the geographic region where you want to store the data. This tutorial will walk you through the creation of the vault you will use to store backups, the uploading of a certificate to the vault, the installation of a backup agent, and an overview of the backup management tasks available through the management portal.
 
 <div class="dev-callout"> 
-<b>Note</b> 
+<strong>Before you begin</strong> 
 <p>To successfully complete this tutorial you must have 
 an X.509 v3 certificate to register your servers with Recovery Services vaults.  The certificate must have a key length of at least 2048 bits and should reside in the Personal certificate store of your Local Computer. When the certificate is installed on your server, it should contain the private key of the certificate. To upload to the certificate to the Windows Azure Management Portal, you must export the public key as a .cer format file.</p> 
 
@@ -13,7 +13,7 @@ an X.509 v3 certificate to register your servers with Recovery Services vaults. 
 <ul>
 <li>Your own self-signed certificate created using makecert tool, OR</li> 
 
-<li>Any valid SSL certificate issued by a Certificate Authority (CA) that is trusted by Microsoft and whose root certificates are distributed via the Microsoft Root Certificate Program. For ,ore information about this program see <a><href>http://support.microsoft.com/kb/931125</href></a>.</li>
+<li>Any valid SSL certificate issued by a Certificate Authority (CA) that is trusted by Microsoft and whose root certificates are distributed via the Microsoft Root Certificate Program. For more information about this program see <a><href>http://support.microsoft.com/kb/931125</href></a>.</li>
 </ul> 
 
 <p>Some other attributes which you need to ensure on the certificates are:</p> 
@@ -38,21 +38,15 @@ If you will be registering a different server than the one you used to make the 
 </p> 
 </div>
 
-##Table of Contents##
-
-* [How to: Create a backup vault](#create)
-* [How to: Upload a certificate](#upload)
-* [How to: Download and install a backup agent](#agent)
-* [How to: Manage backup vaults](#manage)
-* [Next steps](#next)
-
-<h2><a id="create"></a>How to: Create a backup vault</h2>
+<h2><a id="create"></a>Create a backup vault</h2>
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
+	<div chunk="../../Shared/Chunks/disclaimer.md"/>
+
 2. Click **Recovery Services**, then click **Create New**,  point to **Backup Vault**, and then click **Quick Create**.
 
-	![New backup vault](../ITPro/Shared/media/RS_howtobackup1.png)
+	![New backup vault](../media/RS_howtobackup1.png)
 
 3. In **Name**, enter a friendly name to identify the backup vault.
 
@@ -65,23 +59,24 @@ If you will be registering a different server than the one you used to make the 
 
 	It can take a while for the backup vault to be created. To check the status, you can monitor the notifications at the bottom of the portal. After the backup vault has been created, a message will tell you that the vault has been successfully created and it will be listed in the resources for Recovery Services as **Online**. 
 
-	![Backup vault creation](../ITPro/Shared/media/RS_howtobackup2.png)
+	![Backup vault creation](../media/RS_howtobackup2.png)
 
-<h2><a id="upload"></a>How to: Upload a certificate</h2>
+<h2><a id="upload"></a>Upload a certificate</h2>
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
 2. Click **Recovery Services**, then click the name of backup vault that will be identified by the certificate and then click **Manage certificate**.
 	
-	![Manage certificate](../ITPro/Shared/media/RS_howtoupload1.png)
+	![Manage certificate](../media/RS_howtoupload1.png)
+
 3. In the **Manage Certificate** dialog click Browse Your Computer to locate the .cer file to use with this backup vault.
-<h2><a id="download"></a>How to:Download and install a backup agent</h2>
+<h2><a id="download"></a>Download and install a backup agent</h2>
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
 2. Click **Recovery Services**, then click the name of backup vault to view the vault dashboard.
 
 3. Click **Install Agent** 
 	
-	![Install Agent](../ITPro/Shared/media/RS_howtodownload1.png)
+	![Install Agent](../media/RS_howtodownload1.png)
 4. You will be presented with a dialog where you can choose which agent to download:
 	* Agent for Windows Server 2012 and System Center 2012 SP1 - Data Protection Manager
 	* Agent for Windows Server 2012 Essentials
@@ -92,7 +87,7 @@ If you will be registering a different server than the one you used to make the 
 
 Once the agent is installed you can use the appropriate local management interface (such as the Microsoft Management Console snap-in, System Center Data Protection Manager Console, or Windows Server Essentials Dashboard) to configure the backup policy for the server.  
 
-<h2><a id="manage"></a>How to: Manage backup vaults and servers</h2>
+<h2><a id="manage"></a>Manage backup vaults and servers</h2>
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
 2. Click **Recovery Services**, then click the name of backup vault to view the vault dashboard. From here you can perform the following tasks:
@@ -100,16 +95,16 @@ Once the agent is installed you can use the appropriate local management interfa
 	* **Delete**. Deletes the current backup vault. If a backup vault is no longer being used, you can delete it to free up storage space. **Delete** is only enabled after all registered servers have been deleted from the vault. 
 
 3. Click **Protected Items** to view the items that have been backed up from the servers. This list is for information purposes only.  
-![Protected Items](../ITPro/Shared/media/RS_protecteditems.png)
+![Protected Items](../media/RS_protecteditems.png)
 
 4. Click **Servers** to view the names of the servers that are register to this vault. From here you can perform the following tasks:
 	* **Allow Re-register**. When this option is selected for a server you can use the Registration Wizard in the agent to register the server with the backup vault a second time. You might need to re-register due to an error in the certificate or if a server had to be rebuilt. Re-registration is allowed only once per server name.
 	* **Delete**. Deletes a server from the backup vault. All of the stored data associated with the server is deleted immediately.
 
-		![Deleted Server](../ITPro/Shared/media/RS_deletedserver.png)
+		![Deleted Server](../media/RS_deletedserver.png)
 <h2><a id="next"></a>Next steps</h2>
 
-- To learn more about Windows Azure Recovery Services, see [Introducing Windows Azure Recovery Services](http://www.windowsazure.com/). 
+- To learn more about Windows Azure Recovery Services, see [Recovery Services Overview](http://go.microsoft.com/fwlink/p/?LinkId=290950). 
 
-- Visit the [Windows Azure Backup Forum](http://social.technet.microsoft.com/Forums/en-US/windowsazureonlinebackup/threads).
+- Visit the [Recovery Services Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 

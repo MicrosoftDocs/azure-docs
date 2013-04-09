@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-php-website-with-storage" urlDisplayName="Web w/ Storage" pageTitle="PHP web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage PHP, Azure PHP web site, Azure PHP web site, Azure PHP tutorial, Azure PHP example" metaDescription="This tutorial shows you how to create a PHP web site and use the Windows Azure Tables storage service in the back-end." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-php-website-with-storage" urlDisplayName="Web w/ Storage" pageTitle="PHP web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage PHP, Azure PHP web site, Azure PHP web site, Azure PHP tutorial, Azure PHP example" metaDescription="This tutorial shows you how to create a PHP web site and use the Windows Azure Tables storage service in the back-end." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -448,7 +448,7 @@ To publish changes to application, follow these steps:
 [website-details]: ../../Shared/Media/website_details.jpg
 [go-to-dashboard]: ../../Shared/Media/go_to_dashboard.png
 [setup-git-publishing]: ../../Shared/Media/setup_git_publishing.png
-[credentials]: ../Media/credentials.jpg
+[credentials]: ../../Shared/Media/git-deployment-credentials.png
 [creating-repo]: ../Media/creating_repo.jpg
 [push-files]: ../Media/push_files.jpg
-[git-instructions]: ../../Shared/Media/git_instructions.png
+[git-instructions]: ../../Shared/Media/git-instructions.png

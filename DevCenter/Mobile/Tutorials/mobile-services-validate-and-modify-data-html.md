@@ -38,7 +38,9 @@ It is always a good practice to validate the length of data that is submitted by
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
-                request.respond(statusCodes.BAD_REQUEST, 'Text length must be under 10');
+                request.respond(statusCodes.BAD_REQUEST, {
+                    error: "Text cannot exceed 10 characters"
+                });
             } else {
                 request.execute();
             }
@@ -74,7 +76,7 @@ Now that the mobile service is validating data and sending error responses, you 
 			if (itemText !== '') {
 				todoItemTable.insert({ text: itemText, complete: false })
 					.then(refreshTodoItems, function(error){
-					alert(error.request.responseText);
+					alert(JSON.parse(error.request.responseText).error);
 				});
 			}
 			textbox.val('').focus();
@@ -93,7 +95,9 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
-                request.respond(statusCodes.BAD_REQUEST, 'Text length must be under 10');
+                request.respond(statusCodes.BAD_REQUEST, {
+                    error: 'Text length must be under 10'
+                });
             } else {
                 item.createdAt = new Date();
                 request.execute();
@@ -136,7 +140,8 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 							.prop('checked', item.complete))
 						.append($('<div>').append($('<input class="item-text">').val(item.text))
 						.append($('<span class="timestamp">' 
-							+ (item.createdAt && item.createdAt.toDateString() || '') 
+							+ (item.createdAt && item.createdAt.toDateString() + ' '
+							+ item.createdAt.toLocaleTimeString() || '') 
 							+ '</span>')));
 
 				});
@@ -178,13 +183,7 @@ You have completed this working with data tutorial.
 
 Now that you have completed this tutorial, consider continuing on with the final tutorial in the data series: [Refine queries with paging].
 
-Server scripts are also used when authorizing users and for sending push notifications. For more information see the following topics:
-
-* [Authorize users with scripts]
-  <br/>Learn how to filter data based on the ID of an authenticated user.
-
-* [Mobile Services server script reference]
-  <br/>Learn more about registering and using server scripts.
+For more information, see [Work with server scripts].
 
 <!-- Anchors. -->
 [Add string length validation]: #string-length-validation
@@ -200,7 +199,7 @@ Server scripts are also used when authorizing users and for sending push notific
 [3]: ../Media/mobile-quickstart-startup-html.png
 
 <!-- URLs. -->
-[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Work with server scripts]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts
 [Get started with Mobile Services]: ./mobile-services-get-started-html.md
 [Authorize users with scripts]: ./mobile-services-authorize-users-html.md
 [Refine queries with paging]: ./mobile-services-paging-data-html.md

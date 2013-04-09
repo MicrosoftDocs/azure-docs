@@ -2,7 +2,7 @@
 
 
 <div chunk="../chunks/article-left-menu.md" />
-# Mobile-friendly REST service using ASP.NET Web API and SQL Database 
+# REST service using ASP.NET Web API and SQL Database 
 
 This tutorial shows how to deploy an ASP.NET web application that uses the ASP.NET Web API to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012 or Visual Studio 2012 for Web Express.
 
@@ -33,6 +33,7 @@ In this tutorial:
 - [Add a database to the application][adddb]
 - [Add a Controller and a view for the data][addcontroller]
 - [Add a Web API Restful interface][addwebapi]
+- [Add XSRF Protection][]
 - [Publish the application update to Windows Azure and SQL Database][deploy2]
 
 <h2><a name="bkmk_setupdevenv"></a>Set up the development environment</h2>
@@ -537,6 +538,104 @@ IE will prompt you to open or save the contacts.
 	This output can be consumed by another application such as mobile web page or application.<br/>
 ![Web API save dialog][addwebapi007]
 
+<h2><a name="xsrf"></a><span class="short-header">XSRF</span>Add XSRF Protection</h2>
+Cross-site request forgery (also known as XSRF or CSRF) is an attack against web-hosted applications whereby a malicious web site can influence the interaction between a client browser and a web site trusted by that browser. These attacks are made possible because web browsers will send authentication tokens automatically with every request to a web site. The canonical example is an authentication cookie, such as ASP.NET’s Forms Authentication ticket. However, web sites which use any persistent authentication mechanism (such as Windows Authentication, Basic, and so forth) can be targeted by these attacks.
+An XSRF attack is distinct from a phishing attack. Phishing attacks require interaction from the victim. In a phishing attack, a malicious web site will mimic the target web site, and the victim is fooled into providing sensitive information to the attacker. In an XSRF attack, there is often no interaction necessary from the victim. Rather, the attacker is relying on the browser automatically sending all relevant cookies to the destination web site.
+For more information, see the [Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
+
+1. In **Solution Explorer**, right click **Filters** and click **Add** and then click **Class**.
+2. Name the file *ValidateHttpAntiForgeryTokenAttribute.cs* and add the following code:
+
+        using System;
+        using System.Collections.Generic;
+        using System.Linq;
+        using System.Net;
+        using System.Net.Http;
+        using System.Web.Helpers;
+        using System.Web.Http.Controllers;
+        using System.Web.Http.Filters;
+        using System.Web.Mvc;
+
+        namespace ContactManager.Filters
+        {
+            public class ValidateHttpAntiForgeryTokenAttribute : AuthorizationFilterAttribute
+            {
+                public override void OnAuthorization(HttpActionContext actionContext)
+                {
+                    HttpRequestMessage request = actionContext.ControllerContext.Request;
+                    try
+                    {
+                        if (IsAjaxRequest(request))
+                        {
+                            ValidateRequestHeader(request);
+                        }
+                        else
+                        {
+                            AntiForgery.Validate();
+                        }
+                    }
+                    catch (HttpAntiForgeryException e)
+                    {
+                        actionContext.Response = request.CreateErrorResponse(HttpStatusCode.Forbidden, e);
+                    }
+                }
+                private bool IsAjaxRequest(HttpRequestMessage request)
+                {
+                    IEnumerable<string> xRequestedWithHeaders;
+                    if (request.Headers.TryGetValues("X-Requested-With", out xRequestedWithHeaders))
+                    {
+                        string headerValue = xRequestedWithHeaders.FirstOrDefault();
+                        if (!String.IsNullOrEmpty(headerValue))
+                        {
+                            return String.Equals(headerValue, "XMLHttpRequest", StringComparison.OrdinalIgnoreCase);
+                        }
+                    }
+
+                    return false;
+                }
+
+                private void ValidateRequestHeader(HttpRequestMessage request)
+                {
+                    string cookieToken = String.Empty;
+                    string formToken = String.Empty;
+					IEnumerable<string> tokenHeaders;
+                    if (request.Headers.TryGetValues("RequestVerificationToken", out tokenHeaders))
+                    {
+                        string tokenValue = tokenHeaders.FirstOrDefault();
+                        if (!String.IsNullOrEmpty(tokenValue))
+                        {
+                            string[] tokens = tokenValue.Split(':');
+                            if (tokens.Length == 2)
+                            {
+                                cookieToken = tokens[0].Trim();
+                                formToken = tokens[1].Trim();
+                            }
+                        }
+                    }
+
+                    AntiForgery.Validate(cookieToken, formToken);
+                }
+            }
+        }
+
+1. You can add the **[ValidateHttpAntiForgeryToken]** attribute to the **ContactsController** to protect it from XSRF threats. A better approach is to add the **ValidateHttpAntiForgeryToken** attribute globally to the *App_Start\WebApiConfig.cs* file as shown below:
+  
+        public static class WebApiConfig
+        {
+            public static void Register(HttpConfiguration config)
+            {
+                config.Routes.MapHttpRoute(
+                    name: "DefaultApi",
+                    routeTemplate: "api/{controller}/{id}",
+                    defaults: new { id = RouteParameter.Optional }
+                );
+
+                GlobalConfiguration.Configuration.Filters.Add(new ValidateHttpAntiForgeryTokenAttribute());
+                //config.EnableQuerySupport();
+            }
+        }
+
+
 <h2><a name="bkmk_deploydatabaseupdate"></a>Publish the application update to Windows Azure and SQL Database</h2>
 
 To publish the application, you repeat the procedure you followed earlier.
@@ -725,7 +824,7 @@ Please leave feedback on what you liked or what you would like to see improved, 
 [addwebapi007]: ../Media/dntutmobile-webapi-contacts-in-notepad.png
 [lastdeploy001]: ../Media/dntutmobile-web-publish-settings.png
 [rxf]: ../Media/rxf.png
-
+[Add XSRF Protection]: #xsrf
 
 
 

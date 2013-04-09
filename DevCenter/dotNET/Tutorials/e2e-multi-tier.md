@@ -1,5 +1,4 @@
-<properties linkid="dev-net-e2e-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Windows Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" metaDescription="A tutorial that helps you develop a multi-tier app in Windows Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
-
+<properties linkid="dev-net-e2e-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Windows Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" metaDescription="A tutorial that helps you develop a multi-tier app in Windows Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="sethm" editor="mollybos" manager="dwrede"/>
 
 
 <div chunk="../chunks/article-left-menu.md" />
@@ -31,9 +30,11 @@ shown below:
 
 ![][0]
 
+**Note** Windows Azure also provides storage queue functionality. For more information about Windows Azure storage queues and Service Bus queues, see [Windows Azure Queues and Windows Azure Service Bus Queues - Compared and Contrasted][sbqueuecomparison].  
+
 <div chunk="../../Shared/Chunks/create-account-note.md" />
 
-<h2><span class="short-header">Inter-Role Communication</span>Scenario Overview: Inter-Role Communication</h2>
+<h2><span class="short-header">Inter-role communication</span>Scenario overview: inter-role communication</h2>
 
 To submit an order for processing, the front end UI component, running
 in the web role, needs to interact with the middle tier logic running in
@@ -92,7 +93,7 @@ messaging, namely:
 The following sections discuss the code that implements this
 architecture.
 
-<h2><span class="short-header">Set Up Environment</span>Set Up the Development Environment</h2>
+<h2><span class="short-header">Set up environment</span>Set up the development environment</h2>
 
 Before you can begin developing your Windows Azure application, you need
 to get the tools and set-up your development environment.
@@ -122,7 +123,7 @@ to get the tools and set-up your development environment.
     do not have Visual Studio installed, it also installs the free
     Visual Web Developer Express.
 
-<h2><span class="short-header">Set up the Namespace</span>Set up the Service Bus Namespace</h2>
+<h2><span class="short-header">Set up the namespace</span>Set up the Service Bus namespace</h2>
 
 The next step is to create a service namespace, and to obtain a shared
 secret key. A service namespace provides an application boundary for
@@ -171,14 +172,14 @@ application.
 
 10.  Make a note of the key, or copy it to the clipboard.
 
-<h2><span class="short-header">Create a Web Role</span>Create a Web Role</h2>
+<h2><span class="short-header">Create a web role</span>Create a web role</h2>
 
 In this section, you will build the front end of your application. You
 will first create the various pages that your application displays.
 After that, you will add the code for submitting items to a Service Bus
 Queue and displaying status information about the queue.
 
-### Create the Project
+### Create the project
 
 1.  Using administrator privileges, start either Microsoft Visual Studio
     2012 or Microsoft Visual Web Developer Express. To start Visual
@@ -230,7 +231,7 @@ Queue and displaying status information about the queue.
     then click **Class**. In the Name box, type the name
     **OnlineOrder.cs**. Then click **Add**.
 
-### Write the Web Code for Your Web Role
+### Write the code for your web role
 
 In this section, you will create the various pages that your application
 displays.
@@ -290,6 +291,9 @@ displays.
                 // Controler method for handling submissions from the submission
                 // form 
                 [HttpPost]
+				// Attribute to help prevent cross-site scripting attacks and 
+				// cross-site request forgery  
+    			[ValidateAntiForgeryToken] 
                 public ActionResult Submit(OnlineOrder order)
                 {
                     if (ModelState.IsValid)
@@ -306,7 +310,7 @@ displays.
             }
         }
 
-4.  Build the application (F6).
+4.  From the **Build** menu, click **Build Solution**.
 
 5.  Now, you will create the view for the **Submit()** method you
     created above. Right-click within the Submit() method, and choose
@@ -354,7 +358,7 @@ displays.
 
     ![][17]
 
-### Write the Code for Submitting Items to a Service Bus Queue
+### Write the code for submitting items to a Service Bus queue
 
 Now, you will add code for submitting items to a queue. You will first
 create a class that contains your Service Bus Queue connection
@@ -487,11 +491,11 @@ Service Bus Queue.
 
     ![][18]
 
-<h2><span class="short-header">Configuration Manager</span>Cloud Configuration Manager</h2>
+<h2><span class="short-header">Configuration manager</span>Cloud configuration manager</h2>
 
-Windows Azure supports a set of managed API that provides a consistent way to create new instances of Windows Azure service clients (such as the Service Bus) across Microsoft cloud services. The API enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in web sites, or in a persistent VM Role. You can also use these API to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The API are located in the [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] class. There are also APIs on the client side.
+Windows Azure supports a set of managed APIs that provides a consistent way to create new instances of Windows Azure service clients (such as the Service Bus) across Microsoft cloud services. These APIs enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in web sites, or in a persistent VM Role. You can also use these APIs to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The APIs are located in the [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] class. There are also APIs on the client side.
 
-### Connection String
+### Connection string
 
 To instantiate a client (for example, a Service Bus **QueueClient**), you can represent the configuration information as a connection string. On the client side, there is a **CreateFromConnectionString()** method that instantiates that client type by using that connection string. For example, given the following configuration section:
 
@@ -520,7 +524,7 @@ The following code retrieves the connection string, creates a queue, and initial
 
 The code in the following section uses these configuration management APIs.
 
-<h2><span class="short-header">Create Worker Role</span>Create the Worker Role</h2>
+<h2><span class="short-header">Create worker role</span>Create the worker role</h2>
 
 You will now create the worker role that processes the order
 submissions. This example uses the **Worker Role with Service Bus Queue** Visual Studio project template. First, you will use Server Explorer in Visual Studio to obtain the required credentials.
@@ -596,8 +600,21 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
     ![][20]
 
+<h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>  
+
+To learn more about Service Bus, see the following resources:  
+  
+* [Windows Azure Service Bus][sbmsdn]  
+* [Service Bus How To's][sbwacom]  
+* [How to Use Service Bus Queues][sbwacomqhowto]  
+
+To learn more about multi-tier scenarios, see:  
+
+* [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage]  
+
   [0]: ../Media/getting-started-multi-tier-01.png
   [1]: ../Media/getting-started-multi-tier-100.png
+  [sbqueuecomparison]: http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx
   [2]: ../Media/getting-started-multi-tier-101.png
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [3]: ../Media/getting-started-3.png
@@ -632,3 +649,9 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
   [30]: ../Media/sb-queues-09.png
   [31]: ../Media/sb-queues-06.png
   [32]: ../Media/getting-started-41.png
+  [sbmsdn]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx  
+  [sbwacom]: /en-us/manage/services/service-bus/  
+  [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/  
+  [mutitierstorage]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/ 
+
+
