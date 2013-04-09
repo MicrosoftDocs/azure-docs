@@ -23,9 +23,9 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
 3. Repeat the previous step at least three times, so that you have more than three items stored in the TodoItem table. 
 
-4. Open the TodoService.m file, and locate the following method:
+4. Open the QSTodoService.m file, and locate the following method:
 
-        - (void) refreshDataOnSuccess:(CompletionBlock)completion
+        - (void)refreshDataOnSuccess:(QSCompletionBlock)completion
 
    Replace the body of the entire method with the following code. 
 
@@ -33,9 +33,9 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
         NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
     
         // Retrieve the MSTable's MSQuery instance with the predicate you just created.
-        MSQuery * query = [self.table queryWhere:predicate];
+        MSQuery * query = [self.table queryWithPredicate:predicate];
         
-        query.includeTotalCount = TRUE; // Request the total item count
+        query.includeTotalCount = YES; // Request the total item count
     
         // Start with the first item, and retrieve only three items
         query.fetchOffset = 0;
@@ -45,7 +45,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
         [query readWithCompletion:^(NSArray *results, NSInteger totalCount, NSError *error) {
             
             [self logErrorIfNotNil:error];
-               if (!error)
+            if (!error)
             {
                 // Log total count.
                 NSLog(@"Total item count: %@",[NSString stringWithFormat:@"%zd", (ssize_t) totalCount]);            
