@@ -61,7 +61,7 @@ Now that the mobile service is validating data and sending error responses, you 
 
    Notice that the app raises an unhandled error as a result of the 400 response (Bad Request) returned by the mobile service.	
 
-3. In the TodoService.m file, locate the following line of code in the **addItem** method:
+3. In the QSTodoService.m file, locate the following line of code in the **addItem** method:
     
         [self logErrorIfNotNil:error]; 
 
