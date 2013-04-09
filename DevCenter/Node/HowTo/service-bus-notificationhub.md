@@ -10,19 +10,21 @@ from Node.js applications. The scenarios covered include **sending notifications
 
 ## Table of Contents
 
+-   [What is are Service Bus Notification Hubs?](#hub)
+-   [Create a Node.js application](#create)
+-   [Configure the application to use Service Bus](#config)
+-   [How to: Send notifications](#send)
+-   [Next Steps](#next)
 
--   [How to: Send notifications][]
--   [How to: Send iOS application notifications][]
--   [How to: Send Windows Store application notifications][]
--   [Next Steps][1]
+##<a id="hub"></a> What are Service Bus Notification Hubs? 
 
-<div chunk="../../shared/chunks/howto-service-bus-topics.md" />
+Windows Azure Service Bus Notification Hubs provide an easy-to-use, multiplatform, scalable infrastructure for sending push notifications to mobile devices. For more information, see [Windows Azure Service Bus Notification Hubs](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx).
 
-## Create a Node.js Application
+##<a id="create"></a> Create a Node.js Application
 
 Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to a Windows Azure Web Site], [Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
-## Configure Your Application to Use Service Bus
+##<a id="config"></a> Configure Your Application to Use Service Bus
 
 To use Windows Azure Service Bus, you need to download and use the
 Node.js azure package. This includes a set of convenience libraries that
@@ -82,7 +84,7 @@ The connection **connectionstring** value can be obtained from the Windows Azure
 
 </div>
 
-## How to send notifications
+##<a id="send"></a> How to send notifications
 
 The **NotificationHubService** object exposes an instance of the **ApnsService** (notificationHubService.apns) and **WnsService** (notificationHubService.wns) objects. The **ApnsService** object is used to send notification to iOS applications. The **WnsService** object is used to send notifications to Windows Store applications.
 
@@ -141,11 +143,7 @@ The following is an example of using the **sendBadge** method:
 	    }
 	  });
 
-The **WnsService** object exposes a send and create method for every toast and tile template available for Windows Store applications. These methods follow the naming convention of **[create|send]*TemplateName***. For example, **createToastText01** and **sendToastText01** support the creating and sending of notifications that use the ToastText01 template.
-
-For a full list of toast templates, see [the toast template catalog](http://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx). For a full list of tile templates, see [the tile template catalog](http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx).
-
-## Next Steps
+##<a id="next"></a> Next Steps
 
 Now that you've learned the basics of Service Bus topics, follow these
 links to learn more.
