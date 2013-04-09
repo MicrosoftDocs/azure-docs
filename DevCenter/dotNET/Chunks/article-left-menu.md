@@ -2,6 +2,7 @@
 <div class="left-nav">
 <div class="static-nav">
 <ul>
+<li><a href="/en-us/develop/net/">.NET Home</a></li>
 <li class="menu-dotnet-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
 <li class="menu-dotnet-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
 <li class="menu-dotnet-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>

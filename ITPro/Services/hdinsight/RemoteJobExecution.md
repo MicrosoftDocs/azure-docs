@@ -24,7 +24,7 @@ WebHCat provides the following capabilities:
  There are several options for consuming the WebHCatREST API:
 
 * Construct REST calls directly using Curl, Fiddler or other HTTP tools
-* Leverage the .NET client that published on CodePlex: [CodePlex](http://hdx.codeplex.com)
+* Leverage the .NET client that published on CodePlex: [CodePlex](http://hadoopsdk.codeplex.com)
 
 ##Constructing REST Calls Directly##
 

@@ -4,20 +4,21 @@
 
 #Using HDInsight to Process Blob Storage Data and Write the Results to a SQL Database
 
-This tutorial will show you how to use the Windows Azure HDInsight Service to process data stored in Windows Azure Blob Storage and move the results to a Windows Azure SQL Database. To enable the HDInsight preview, click [here](https://account.windowsazure.com/PreviewFeatures). For more information on Using Windows Azure Blob storage, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/using-blob-store/)
+Hive provides a means of running MapReduce job through an SQL-like scripting language, called HiveQL, which can be applied towards summarization, querying, and analysis of large volumes of data. This tutorial will show you how to use HiveQL to process data stored in Windows Azure Blob Storage and move the results to a Windows Azure SQL Database. 
 
 **Estimated time to complete:** 30 minutes
 
 ##In this article:
 
-* Download the test data
-* Upload data to Windows Azure Blob Storage
-* Connect to the Hive console
-* Create a Hive table and populate data
-* Execute a HiveQL Query
-* Export data from HDFS to Windows Azure SQL Database
+* [Download the test data](#downloaddata)
+* [Upload data to Windows Azure Blob Storage](#uploaddata)
+* [Connect to the Hive console](#connect)
+* [Create a Hive table and populate data](#createtable)
+* [Execute a HiveQL Query](#executequery)
+* [Export data from HDFS to Windows Azure SQL Database](#exportdata)
+* [Next Steps](#nextsteps)
 
-## Download the Test Data
+##<a id="downloaddata"></a>Download the Test Data
 In this tutorial, you will use the on-time performance of airline flights data from [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] (RITA). 
 
 1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] (RITA).
@@ -32,41 +33,39 @@ In this tutorial, you will use the on-time performance of airline flights data f
 
 3. Click **Download**. Each file could take up to 15 minutes to download.
 4. Unzip the file to the **C:\Tutorials** folder.  Each file is a CSV file and is approximately 60 GB in size.
-5.	Rename the file to the name of the month that it contains data for. For example, the file containing the January data would be named January.csv.
+5.	Rename the file to the name of the month that it contains data for. For example, the file containing the January data would be named *January.csv*.
 6. Repeat step 2 and 5 to download a file for each of the 12 months in 2012.
 
-##Upload Data to Windows Azure Blob Storage
-
-You must have a [Windows Azure subscription][free-trial], and a [Windows Azure Storage Account][create-storage-account] before you can proceed. You must also know your Windows Azure storage account name and account key. For the instructions for get the information, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+##<a id="uploaddata"></a>Upload Data to Windows Azure Blob Storage
+HDInsight provides two options for storing data, Windows Azure Blob Storage and Hadoop Distributed File system (HDFS). For more information on choosing file storage, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store). When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file.
 
 *Azure Storage Explorer* is a useful tool for inspecting and altering the data in your Windows Azure Storage. It is a free tool that can be downloaded from [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
-2. Run **Azure Storage Explorer**.
+Before using the tool, you must know your Windows Azure storage account name and account key. For the instructions on creating a Windows Azure Storage account, see [How To Create a Storage Account](/en-us/manage/services/storage/how-to-create-a-storage-account/). For the instructions for get the information, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+
+1. Run **Azure Storage Explorer**.
 
 	![HDI.AzureStorageExplorer](../media/HDI.AzureStorageExplorer.png "Azure Storage Explorer")
 
-3. Click **Add Account** if the Windows Azure storage account has not been added to the tool. 
+2. Click **Add Account** if the Windows Azure storage account has not been added to the tool. 
 
 	![HDI.ASEAddAccount](../media/HDI.ASEAddAccount.png "Add Account")
 
-4. Enter **Storage account name** and **Storage account key**, and then click **Add Storage Account**. 
+3. Enter **Storage account name** and **Storage account key**, and then click **Add Storage Account**. 
+4. From **Storage Type**, click **Blobs** to display the Windows Azure Blob storage of the account.
+5. From **Container**, click **New** to create a new container for the flight on-time data.
+6. Enter **flightinfo** as the container name, and then click **Create Container**.
+7. Click the **flightinfo** container to select it.  
+8. From **Blob**, click **Upload**.
+9. Select the 12 files and then click **Open**.
+10. Select **January.csv**, and then click **Rename**.
+11. Prefix the name with **delays/**. When you are finished, you should have file names that look like this:
 
-5. From **Storage Type**, click **Blobs** to display the Windows Azure Blob storage of the account.
-
-	![HDI.ASEBlob](../media/HDI.ASEUploadFile.png "Azure Storage Explorer")
-
-6. From **Container**, click **New** to create a new container for the flight on-time data.
-7. Enter **flightinfo** as the container name, and then click **Create Container**.
-8. Click the **flightinfo** container to select it.  
-9. From **Blob**, click **Upload**.
-10. Select the 12 files and then click **Open**.
-11. Select **January.csv**, and then click **Rename**.
-12. Prefix the name with **delays/**. When you are finished, you should have file names that look like this:
-
-	![ASV files][asv-files]
+	![ASV files](../media/ASV-files.png "ASV files")
 
 
-## Connect to the Hive Console
+##<a id="connect"></a> Connect to the Hive Console
+You must have an HDInsight cluster previsioned before you can work on this tutorial. To enable the Windows Azure HDInsight Service preview, click [here](https://account.windowsazure.com/PreviewFeatures). For information on prevision an HDInsight cluster see [How to Administer HDInsight Service](/en-us/manage/services/hdinsight/howto-administer-hdinsight/) or [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/).
 
 In this tutorial, you will use the Hive console to run the Hive queries.  The other options is Hadoop Command Line from remote desktop.  
 
@@ -79,12 +78,18 @@ In this tutorial, you will use the Hive console to run the Hive queries.  The ot
 
  	![HDI.TileInteractiveConsole](../media/HDI.TileInteractiveConsole.png "Interactive Console")
 
-7. Click **Hive** on the upper right corner.
+7. Click **JavaScript** on the upper right corner.
+8. Replace **StorageAccountName** in the following command with your storage account name, and then run the command:
 
-##Create a Hive Table and Populate Data
+		#ls asv://flightinfo@StorageAccountName.blob.core.windows.net/delays
+
+	You will get the list of files you uploaded using Azure Storage Explorer.
+
+##<a id="createtable"></a>Create a Hive Table and Populate Data
 The next step is to create a Hive table from the data in Azure Storage Vault (ASV)/Blog storage. 
 
-1. Replace **storageaccountname** in the following query with your Windows Azure Storage account name, and then copy and paste the following code to the query pane:
+1. From the Interactive console, click **Hive** on the upper right corner.
+2. Replace **storageaccountname** in the following query with your Windows Azure Storage account name, and then copy and paste the following code to the query pane:
 
 		create external table delays_raw (
 			YEAR string, 
@@ -189,16 +194,16 @@ The next step is to create a Hive table from the data in Azure Storage Vault (AS
 		OK
 		Time taken: 139.283 seconds
 
-##Execute a HiveQL Query
+##<a id="executequery"></a>Execute a HiveQL Query
 After the *delays* table has been created, you are now ready to run queries against it.
 
-1. Replace **username** in the following query with the username you used to log into the cluster, and then copy and paste the followingquery into the query pane
+1. Replace **username** in the following query with the username you used to log into the cluster, and then copy and paste the following query into the query pane
 
 		INSERT OVERWRITE DIRECTORY '/user/username/queryoutput' select regexp_replace(origin_city_name, '''', ''), avg(weather_delay) from delays where weather_delay is not null group by origin_city_name;
 
 	This query computes the average weather delay and groups the results by city name. It will also output the results to HDFS. Note that the query will remove apostrophes from the data and will exclude rows where the value for *weather_deal*y is *null*, which is necessary because Sqoop, used in the next step, doesn't handle those values gracefully by default.
 
-2. Click **Evaluate**.Output from the query above should look similar to the following:
+2. Click **Evaluate**. The output from the query above should look similar to the following:
 
 		Hive history file=c:\apps\dist\hive-0.9.0\logs/hive_job_log_RD00155D47138A$_201303220108_1260638792.txt
 		Logging initialized using configuration in file:/C:/apps/dist/hive-0.9.0/conf/hive-log4j.properties
@@ -235,7 +240,7 @@ After the *delays* table has been created, you are now ready to run queries agai
 		js> #cat asv:///user/username/queryoutput/000000_0		
 		
 	
-##Export Data from HDFS to Windows Azure SQL Database
+##<a id="exportdata"></a>Export Data from HDFS to Windows Azure SQL Database
 
 Before copying data from HDFS to a Windows Azure SQL Database, the SQL Database must exist. To create a database, follow the instructions here: [Getting started with Windows Azure SQL Database](http://www.windowsazure.com/en-us/manage/services/sql-databases/getting-started-w-sql-databases/). Note that your table schema must match that of the data in HDFS and it must have a clustered index. To use the command below, create a database called **MyDatabase** and a table called **AvgDelays** with the following schema:
 
@@ -315,9 +320,10 @@ Before copying data from HDFS to a Windows Azure SQL Database, the SQL Database 
 	![SQL results][sql-results]
 
 
-## Next Steps
+##<a id="nextsteps"></a> Next Steps
 Now that you understand how to upload file to Blob storage, how to populate a Hive table using the data from Blob storage, how to run Hive queries, and how to use Sqoop to export data from HDFS to Windows Azure SQL Database. To learn more, see the following articles:
 
+* [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 * [Tutorial: Using MapReduce with HDInsight](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
 * [Tutorial: Using Hive with HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
 * [Tutorial: Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)

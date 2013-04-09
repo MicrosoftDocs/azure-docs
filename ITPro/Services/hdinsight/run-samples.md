@@ -4,13 +4,14 @@
 
 # How to Run the HDInsight Samples#
 
-## Introduction ##
-
-A set of sample jobs is installed with each cluster that you can run quickly and easily to get started with HDInsight. This topic provides a brief overview on what these samples do and instructions on how to run them.
-
-**What These Samples Are**
-
-These samples are intended to get you started quickly learning and to give you an extensible testing bed to work through concepts. They provide you an easy way to create data sets of various sizes and allow running samples over the various sizes so you may observe the effects of data size on jobs as you get to learn your cluster.
+<div class="dev-onpage-video-clear clearfix">
+<div class="dev-onpage-left-content">
+<p>Installed with each cluster are a set of sample jobs that you can run to quickly and easily get started with HDInsight.</p>
+<p><strong>What These Samples Are</strong></p>
+<p>These samples are intended to get you started quickly learning and to give you an extensible testing bed to work through concepts. They provide you an easy way to create data sets of various sizes and allow running samples over the various sizes so you may observe the effects of data size on jobs as you get to learn your cluster.</p>
+</div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Creating-your-first-HDInsight-cluster-and-run-samples" class="label">watch the tutorial</a> <a style="background-image: url('/media/itpro/services/videos/hdinsight-hero-180x120.png') !important;" href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Creating-your-first-HDInsight-cluster-and-run-samples" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">7:51</span></div>
+</div>
 
 **What These Samples Are Not**
 
