@@ -1,10 +1,8 @@
-<properties linkid="manage-linux-tutorial-vm-from-galllery" urlDisplayName="Create a virtual machine" pageTitle="Create a virtual machine running Linux in Windows Azure" metaKeywords="Azure Linux vm, Linux vm" metaDescription="Learn how to capture an image of a Windows Azure virtual machine (VM) running Linux. " metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-linux-tutorial-vm-from-galllery" urlDisplayName="Create a virtual machine" pageTitle="Create a virtual machine running Linux in Windows Azure" metaKeywords="Azure Linux vm, Linux vm" metaDescription="Learn how to capture an image of a Windows Azure virtual machine (VM) running Linux. " metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="kathydav" editor="tysonn" manager="jeffreyg" />
 
 <div chunk="../chunks/linux-left-nav.md" />
 
 #Create a Virtual Machine Running Linux 
-
-<div chunk="../../Shared/Chunks/disclaimer.md" />
 
 Creating a virtual machine that is running the Linux operating system is easy when you use the Image Gallery in the Windows Azure Management Portal. This guide assumes that you have no prior experience using Windows Azure. You can create a virtual machine running the Linux operating system in the cloud that you can access and customize.
 
@@ -16,21 +14,23 @@ You will learn:
 - [How to attach a data disk to the new virtual machine] []
 - [How to set up communication with the virtual machine] []
 
+Note: This tutorial creates a virtual machine that is not connected to a virtual network. If you want a virtual machine to use a virtual network, you must specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+
 ## <a id="virtualmachine"> </a>What is a virtual machine in Windows Azure ##
 
 A virtual machine in Windows Azure is a server in the cloud that you can control and manage. After you create a virtual machine in Windows Azure, you can delete and recreate it whenever you need to, and you can access the virtual machine just as you do with a server in your office. Virtual hard disk (VHD) files are used to create a virtual machine. The following types of VHDs are used for a virtual machine:
 
 - **Image** - A VHD that is used as a template to create a new virtual machine. An image is a template because it doesn’t have specific settings like a running virtual machine, such as the computer name and user account settings. If you create a virtual machine using an image, an operating system disk is automatically created for the new virtual machine.
-- **Disk** - A VHD that can be booted and mounted as a running version of an operating system. A disk is a runnable version of an image. Any VHD that is attached to virtualized hardware and running as part of a service is a disk. After an image is provisioned, it becomes a disk and a disk is always created when you use an image to create a virtual machine.
+- **Disk** - A disk is a VHD that you can boot and mount as a running version of an operating system. After an image is provisioned, it becomes a disk. A disk is always created when you use an image to create a virtual machine. Any VHD that is attached to virtualized hardware and that is running as part of a service is a disk
 
 The following options are available for using images to create a virtual machine:
 
 - Create a virtual machine by using an image that is provided in the Image Gallery of the Windows Azure Management Portal.
-- Create and upload a VHD file that contains an image to Windows Azure, and then create a virtual machine using the image. For more information about creating and uploading a custom image, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../CommonTasks/LinuxVHDCommonTask.md)
+- Create and upload a .vhd file that contains an image to Windows Azure, and then create a virtual machine using the image. For more information about creating and uploading a custom image, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../CommonTasks/LinuxVHDCommonTask.md).
 
 ## <a id="custommachine"> </a>How to create a custom virtual machine running the Linux operating system by using the Management Portal ##
 
-You use the **From Gallery** method to create a custom virtual machine in the Management Portal. When you create this machine, you can define the size of the machine, the connected resources, the DNS name, and the network connectivity if needed.
+You use the **From Gallery** method to create a custom virtual machine in the Management Portal. This method provides more options for configuring the virtual machine when you create it, such as the connected resources, the DNS name, and the network connectivity if needed.
 
 1. Sign in to the Windows Azure Management Portal.
 On the command bar, click **New**.
@@ -41,29 +41,23 @@ On the command bar, click **New**.
 
 	![Choose to create a virtual machine From Gallery] (../media/createnew.png)
 
-3. The **VM OS Selection** dialog box opens. You can now select an image from the Image Gallery.
+3. The **Select the virtual machine operating system** dialog box appears. 
 
-	![Select the OS image] (../media/imageselectionlinux.png)
+4. From **Platform Images**, select the **OpenLogic CentOS 6.2** image, and then click the arrow to continue.
 
-4. Click **Platform Images**, select the **OpenLogic CentOS 6.2** image, and then click the arrow to continue.
-
-	The **VM Configuration** dialog box appears.
-
-	![Specify the details of the machine] (../media/imagedefinelinux.png)
+	The **Virtual machine configuration ** dialog box appears.
 
 5. In **Virtual Machine Name**, type the name that you want to use for the virtual machine. The name must be 15 characters or less. For this virtual machine, type **MyTestVM1**.
 
 6. In **New User Name**, type the name of the account that you will use to administer the virtual machine. You cannot use root for the user name. For this virtual machine, type **NewUser1**.
 
-7. In **New Password**, type the password that is used for the user account on the virtual machine. For this virtual machine, type **MyPassword1**. In **Confirm Password**, retype the password that you previously entered.
+7. In **New Password**, type a strong password for the administrative account on the virtual machine. For this virtual machine, type **@dm1nVM1**. In **Confirm Password**, retype the password.
 
 8. In **Size**, select the size that you want to use for the virtual machine. The size that you choose depends on the number of cores that are needed for your application.  For this virtual machine, accept the default of **Extra Small**.
 
 9. Click the arrow to continue.
 
-	The **VM Mode dialog** box appears.
-
-	![Define a standalone virtual machine] (../media/imagestandalonelinux.png)
+	The **Virtual machine mode** dialog box appears.
 
 10. You can connect virtual machines together under a cloud service to provide robust applications, but for this tutorial, you only create a single virtual machine. To do this, select **Standalone Virtual Machine**.
 
@@ -75,13 +69,12 @@ On the command bar, click **New**.
 
 14. Click the arrow to continue.
 
-	The **VM Options** dialog box appears.
+	The **Virtual machine options** dialog box appears.
 
-	![Specify the connection options of the machine] (../media/imageoptionslinux.png)
-
+	
 15. The options on this page are only used if you are connecting this virtual machine to other machines or if you are adding the machine to a virtual network. For this virtual machine, you are not creating an availability set or connecting to a virtual network. Click the check mark to create the virtual machine.
     
-	The virtual machine is created and operating system settings are configured. When the virtual machine is created, you will see the new virtual machine listed as Running in the Windows Azure Management Portal.
+	The virtual machine is created and operating system settings are configured. When the virtual machine is created, you will see the new virtual machine listed as **Running** in the Windows Azure Management Portal.
 
 	![Successful virtual machine creation] (../media/vmsuccesslinux.png)
 

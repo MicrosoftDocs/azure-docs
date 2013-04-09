@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-common-tasks-manage-certs" urlDisplayName="Manage certificates" pageTitle="Manage certificates for Linux virtual machines in Windows Azure" metaKeywords="Azure management certs, uploading management certs, Azure Service Management API" metaDescription="Learn how to create and upload management certificates for Linux in Windows Azure. The certificate is required if you use the Service Management API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-linux-common-tasks-manage-certs" urlDisplayName="Manage certificates" pageTitle="Manage certificates for Linux virtual machines in Windows Azure" metaKeywords="Azure management certs, uploading management certs, Azure Service Management API" metaDescription="Learn how to create and upload management certificates for Linux in Windows Azure. The certificate is required if you use the Service Management API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="kathydav" editor="tysonn" manager="jeffreyg" />
 
 <div chunk="../chunks/linux-left-nav.md" />
 
@@ -7,17 +7,17 @@
 
 <div chunk="../../shared/chunks/disclaimer.md" />
 
-A management certificate is needed anytime that you want to use the Service Management API to interact with the Windows Azure image platform. 
+A management certificate is needed when you want to use the Service Management API to interact with the Windows Azure image platform. 
 
-There is already documentation on how to create and manage these certificates at [http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx) or you can also use OpenSSL to create the management certificate.  For more information, see [OpenSSL](http://openssl.org/). However, this documentation  is primarily focused on the use of the Silverlight portal that might not be accessible to all the Linux users. It describes how you will be able to gain access to these certificates and integrate them with our different tools, partners and use them on your own until this functionality is added in the Windows Azure Management Portal. 
+There is already documentation on how to create and manage these certificates at [http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx). You can also use OpenSSL to create the management certificate.  For more information, see [OpenSSL](http://openssl.org/). However, this documentation  is primarily focused on the use of the Silverlight portal that might not be accessible to all the Linux users. It describes how you will be able to gain access to these certificates and integrate them with our different tools, partners and use them on your own until this functionality is added in the Windows Azure Management Portal. 
 
 
 ##Table of Contents##
 
-* [How to: Create and upload a management certificate](#createcert)
-* [How to: Create a management certificate using the Windows Azure Management Portal](#silverlight)
+* [Obtain a management certificate from the publishsettings file](#createcert)
+* [Install a management certificate using the Windows Azure Management Portal](#management)
 
-<h2><a id="createcert"></a>How to: Create and upload a management certificate</h2>
+<h2><a id="publishsettings"></a>How to: Create and upload a management certificate</h2>
 
 
 We have created an easy way for you to create a management certificate for Windows Azure by visiting: [https://windows.azure.com/download/publishprofile.aspx](https://windows.azure.com/download/publishprofile.aspx)
@@ -26,7 +26,7 @@ This web site will ask you to login using your portal credentials and then gener
 
 ![linuxcredentials](../media/linuxcredentials.png)
 
-Make sure you save this file in safe place as you will not be able to recover it and will need to generate a new management cert. (There is a limit for the total number of certs that you can use in the system. See the appropriate section on this web site to confirm this.) You can then use this certificate in multiple ways:
+Make sure you save this file in safe place as you will not be able to recover it and will need to generate a new management certificate. (There is a limit for the total number of certificates that you can use in the system. See the appropriate section on this web site to confirm this.) You can then use this certificate in multiple ways:
 
 ###In Visual Studio###
 
@@ -39,9 +39,9 @@ You can import the certificate so that you can use it by running the Windows Azu
 
 ![cmdlinepublish](../media/cmdlinepublish.png)
 
-With any other partner or software where you need the tool you will need to extract the management cert from within the file itself and Base 64 decode it. Some partners such as ScaleXtreme and SUSE Studio will consume the file directly in their current form. 
+With any other partner or software where you need the tool you will need to extract the management certificate from within the file itself and Base 64 decode it. Some partners such as ScaleXtreme and SUSE Studio will consume the file directly in their current form. 
 
-In order to extract the management cert you will need to follow this procedure.
+In order to extract the management certificate you will need to follow this procedure.
 
 You will need to extract from that file the base 64 encoded content between the  quotes after ManagementCertificate.
 
@@ -69,50 +69,44 @@ In Windows you can decode and extract the PFX file using powershell or a free wi
 
 	base64 -d key.txt ->key.pfx
 
-####Cert Generation limit####
+####Certificate Generation limit####
 
-There is a limit of up to 10 certs that you can create in the platform with this tool.
+There is a limit of up to 10 certificates that you can create in the platform with this tool.
 Unfortunately there is no way for you to recover the keys that you have generated once they have been generated as we do not save these private keys anywhere in the system.
-If you reach the limit of certs in the system you will need to contact support through the Windows Azure forums in order to have your certificates erased or use a browser that can render the old Silverlight portal to perform these tasks.
+If you reach the limit of certificates in the system you will need to contact support through the Windows Azure forums in order to have your certificates erased or use a browser that can render the old Silverlight portal to perform these tasks.
 
 ####If your private key is compromised ####
 
-If your private key is compromised at any point you will need to use a browser that supports Silverlight to access the old portal and delete the corresponding management cert on file or contact support through the forums.  
-Generating a new cert is not enough since all 10 certificates are valid and your old compromised key will still be able to access the web site.
+If your private key is compromised at any point you will need to use a browser that supports Silverlight to access the old portal and delete the corresponding management certificates on file or contact support through the forums.  
+Generating a new certificates is not enough since all 10 certificates are valid and your old compromised key will still be able to access the web site.
 
-###Post Preview timeframe story###
+<h2><a id="management"></a>Install a management certificate using the Windows Azure Management Portal</h2>
 
-At some point after preview you will be able to use the new portal to get access to all the management cert functionality.
+You can create a management certificate in a variety of ways.  For more information about creating certificates, see [Create a Management Certificate for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).  After you create the certificate, add it to your subscription in Windows Azure. 
 
-<h2><a id="servicemanagement"></a>How to: Create a management certificate using the Windows Azure Management Portal</h2>
+1. Sign in to the Windows Azure Management Portal.
 
-You can read more on how to create the certificate at [http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx) or you can also use OpenSSL to create the management certificate.  For more information, see [OpenSSL](http://openssl.org).  After you create the certificate, you must add it to your subscription in Windows Azure. 
+2. In the navigation pane, click **Settings**.
 
-1.	Sign in to the Windows Azure Management Portal.
-2.	In the upper-left corner of the Management Portal, click **Preview**, and then click **Previous Management Portal**.
+3. Under **Management Certificates**, click **Upload a management certificate**.
 
-	![preview](../media/preview.png)
+4. In **Upload a management certificate**, browse to the certificate file, and then click **OK**.
 
+### Obtain the thumbprint of the certificate and the subscription ID ###
 
-3.	In the navigation pane, click **Hosted Services, Storage Accounts & CDN**. 
-4.	At the top of the navigation pane, click **Management Certificates**.
-5.	On the ribbon, in the **Certificates** group, click **Add Certificate**.
-6.	In **Choose a subscription**, select the Windows Azure subscription to which you want to add the management certificate.
-7.	In **Certificate file**, browse to the certificate file, and then click OK.
+You need the thumbprint of the management certificate that you added and you need the subscription ID to be able to upload the .vhd file to Windows Azure.
 
-###Obtain the thumbprint of the certificate and the subscription ID###
+1. From the Management Portal, click **Settings**.
 
-You need the thumbprint of the management certificate that you added and you need the subscription ID to be able to upload the VHD file to Windows Azure.
+2. Under **Management Certificates**, click your certificate, and then record the thumbprint from the **Properties** pane by copying and pasting it to a location where you can retrieve it later.
 
-1.	While still in the previous Management Portal, click **Hosted Services, Storage Accounts & CDN**, and then click **Management Certificates**.
-2.	In the center pane, click your certificate, and then record the thumbprint from the Properties pane by copying and pasting it to a location where you can retrieve it later.
+You also need the ID of your subscription to upload the .vhd file.
 
-You also need the ID of your subscription to upload the VHD file.
+1. From the Management Portal, click **All Items**.
 
-1.	In the previous Management Portal, click **Hosted Services, Storage Accounts & CDN**, and then click **Hosted Services**.
-2.	In the center pane, select your subscription, and then record the subscription ID from the Properties pane by copying and pasting it to a location where you can retrieve it later.
+2. In the center pane, under **Subscription**, copy the subscription and paste it to a location where you can retrieve it later.
 
-###Providing this information to tools if  you generated your own key###
+###Providing this information to tools if you generated your own key###
 
 ####For CSUPLOAD
 
@@ -142,5 +136,5 @@ You will then need to merge your subscription ID and the base64 encoded pfx into
 		  </PublishProfile>
 		</PublishData>
 		
-Where xxxxx is the contents of the [enconded file] you will use to provide the details to the Linux Windwos Azure Command Line Tools with the commands:
+Where xxxxx is the contents of the [enconded file] you will use to provide the details to the Linux Windows Azure Command Line Tools with the commands:
 Azure account import (File)
