@@ -6,7 +6,7 @@
 # How to Use Service Bus Notification Hubs
 
 This guide will show you how to use Service Bus Notification Hubs
-from Node.js applications. The scenarios covered include **sending notifications to iOS and Windows Store applications**. For more information on notification hubs, see the [Next Steps][] section.
+from Node.js applications. The scenarios covered include **sending notifications to iOS and Windows Store applications**. For more information on notification hubs, see the [Next Steps](#next) section.
 
 ## Table of Contents
 
@@ -129,17 +129,6 @@ The following code uses the **WnsService** instance exposed by the **Notificatio
 	  function(error){
 	    if(!error){
  	      // notification sent
-	    }
-	  });
-
-The **WnsService** object also exposes additional send methods that support the sending of specific notification types. For example, the **sendBadge** method allows you to send badge notifications by specifying a number or name of a status glyph. For more information on the status glyph values, see [http://msdn.microsoft.com/en-us/library/windows/apps/br212849.aspx](http://msdn.microsoft.com/en-us/library/windows/apps/br212849.aspx).
-
-The following is an example of using the **sendBadge** method:
-
-	notificationHubService.wns.sendBadge(null, 'alert',
-      function (error) {
-        if(!error){
-	      // notification sent
 	    }
 	  });
 
