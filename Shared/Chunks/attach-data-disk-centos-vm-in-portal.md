@@ -2,8 +2,6 @@
 
 2. On the command bar click **Attach** and then click **Attach Empty Disk**.
 
-	![Attach Empty Disk][Image1]
-
 	The **Attach Empty Disk** dialog box appears.
 
 
@@ -83,7 +81,6 @@ The data disk that you just attached to the virtual machine is offline and not i
 
 [AzurePreviewPortal]: http://manage.windowsazure.com
 
-[Image1]: ../../Shared/Media/AttachDataDiskLinuxVM.png
 [Image2]: ../../Shared/Media/AttachDataDiskLinuxVM2.png
 [Image3]: ../../Shared/Media/AttachDataDiskLinuxVM3.png
 [Image4]: ../../Shared/Media/GrepScsiMessages.png
