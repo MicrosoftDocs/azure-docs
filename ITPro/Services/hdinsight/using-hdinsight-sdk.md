@@ -169,7 +169,7 @@ While the application is open in Visual Studio, press **F5** to run the applicat
 </div>
 
 ##<a id="nextsteps"></a>Next Steps
-Now you understand how to create a .NET application using HDInsight client SDK. To learn more, see the following articles:
+Now you understand how to create a .NET application using Hadoop .NET SDK. To learn more, see the following articles:
 
 * [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 * [Using Pig with HDInsight][hdinsight-pig] 
