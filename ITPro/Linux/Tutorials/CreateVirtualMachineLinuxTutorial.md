@@ -45,7 +45,7 @@ On the command bar, click **New**.
 
 4. From **Platform Images**, select the **OpenLogic CentOS 6.2** image, and then click the arrow to continue.
 
-	The **Virtual machine configuration ** dialog box appears.
+	The **Virtual machine configuration** dialog box appears.
 
 5. In **Virtual Machine Name**, type the name that you want to use for the virtual machine. The name must be 15 characters or less. For this virtual machine, type **MyTestVM1**.
 
@@ -65,7 +65,7 @@ On the command bar, click **New**.
 
 12. You can select a storage account where the VHD file is stored. For this tutorial, accept the default setting of **Use Automatically Generated Storage Account**.
 
-13. In **Region/Affinity Group/Virtual Network**, select **West US** for where the location of the virtual machine.
+13. In **Region/Affinity Group/Virtual Network**, select where you want to locate the virtual machine.
 
 14. Click the arrow to continue.
 
@@ -133,7 +133,7 @@ Your application may need to store data. To set this up, you attach a data disk 
 
 The data disk that you just attached to the virtual machine is offline and not initialized after you add it. You must log on to the machine and initialize the disk to use it for storing data.
 
-1. Connect to the virtual machine by using the steps listed in **Log on to the Virtual Machine**.
+1. Connect to the virtual machine by using the steps listed above in **How to log on to the virtual machine after you create it**.
 
 2. In the SSH window, type the following command, and then enter **MyPassword1** for the account password:
 

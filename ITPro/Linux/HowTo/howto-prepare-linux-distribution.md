@@ -575,17 +575,17 @@ You need a management certificate uploaded to Windows Azure before you can uploa
 
 ### Obtain the thumbprint of the certificate and the subscription ID ###
 
-You need the thumbprint of the management certificate that you added and you need the subscription ID to be able to upload the VHD file to Windows Azure.
+You need the thumbprint of the management certificate that you added and you need the subscription ID to be able to upload the .vhd file to Windows Azure.
 
-1.	In the Previous Management Portal, click **Hosted Services, Storage Accounts & CDN**, and then click **Management Certificates**.
+1. From the Management Portal, click **Settings**.
 
-2.	In the center pane, click your certificate, and then record the thumbprint from the **Properties** pane by copying and pasting it to a location where you can retrieve it later.
+2. Under **Management Certificates**, click your certificate, and then record the thumbprint from the **Properties** pane by copying and pasting it to a location where you can retrieve it later.
 
-You also need the ID of your subscription to upload the VHD file.
+You also need the ID of your subscription to upload the .vhd file.
 
-1.	In the Previous Management Portal, click **Hosted Services, Storage Accounts & CDN**, and then click **Hosted Services**.
+1. From the Management Portal, click **All Items**.
 
-2.	In the center pane, select your subscription, and then record the subscription ID from the **Properties** pane by copying and pasting it to a location where you can retrieve it later.
+2. In the center pane, under **Subscription**, copy the subscription and paste it to a location where you can retrieve it later.
 
 ### Use the Linux command-line tool to upload the image ###
 

@@ -6,7 +6,7 @@ You can create a custom virtual machine by providing advanced options, such as s
 
 Before you create a virtual machine, you should decide how it will be used. If you have a need for only one virtual machine in your application, you choose to create a stand-alone virtual machine. If you need multiple virtual machines in the same cloud service that can communicate with each other and act as a load-balanced application, connect the new virtual machine to an existing virtual machine.
 
-**Important**: If you want your virtual machine to use a virtual network, make sure you specify the virtual network when you create the virtual machine. An existing virtual machine can be configured to join a virtual network only when you create the virtual machine. For more information about virtual networks, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+**Important**: If you want your virtual machine to use a virtual network so you can connect to it directly by hostname or set up cross-premises connections, make sure you specify the virtual network when you create the virtual machine. A virtual machine can be configured to join a virtual network only when you create the virtual machine. For more information about virtual networks, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
 1. Sign in to the [Windows Azure Management Portal](http://manage.windowsazure.com).
 
@@ -23,7 +23,7 @@ Before you create a virtual machine, you should decide how it will be used. If y
 	
 4. From **Platform Images**, select a platform image that you want to use, and then click the arrow to continue.
 
-	**Note**: These instructions show the selection of a Windows Server image, but the instructions also apply to Linux images.
+	**Note**: These instructions describe the selection of a Windows Server image, but the instructions also apply to Linux images.
 
 	The **Virtual machine configuration** dialog box appears.
 
@@ -67,8 +67,4 @@ Before you create a virtual machine, you should decide how it will be used. If y
 [About Affinity Groups for Virtual Network]:http://msdn.microsoft.com/en-us/library/windowsazure/
 [Create a new virtual machine]:../media/create.png
 [Create a new custom virtual machine]:../media/createnew.png
-[Select the image]:../media/imageselectionwindows.png
-[Define the image]:../media/imagedefinewindows.png
-[Define the stand-alone virtual machine]:../media/imagestandalonewindows.png
-[Define the virtual machine options]:../media/imageoptionswindows.png
 [Custom virtual machine creation successful]:../media/vmsuccesswindows.png
