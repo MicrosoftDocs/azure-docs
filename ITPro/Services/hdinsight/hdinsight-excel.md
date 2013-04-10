@@ -23,7 +23,7 @@ Follow the steps below to install the Hive ODBC Driver.
 
 	![Hive ODBC Drivers](../media/HDI.HiveOdbcForExcel.Drivers.png)
 
-2. If you have the 32-bit version of Excel installed, double click the **HiveODBCSetupx86.msi** link. If you have the 64-bit version of Excel installed, double click the **HiveODBCSetupx64.msi** link. If you are not sure which version of Excel you have installed, open Excel, go to **File** -> **Help** and inspect the version information provided in the **About Microsoft Excel** section.
+2. If you have the 32-bit version of Excel installed, double click the **HiveODBCSetupx86.msi** link. If you have the 64-bit version of Excel installed, double click the **HiveODBCSetupx64.msi** link. If you are not sure which version of Excel you have installed, open Excel, go to **File** -> **Help** and inspect the version information provided in the **About Microsoft Excel** section. Here is what you would expect to see in Excel 2010.
 
 	![Check Excel Version](../media/HDI.HiveOdbc.ExcelVersion.PNG)
 
@@ -79,7 +79,7 @@ The following steps show you how to create a Hive ODBC Data Source.
 
 The steps below describe the way to import data from a hive table into excel workbook using the ODBC data source that you created in the steps above.
 
-1. Open Excel.
+1. Open a new or existing workbook in Excel 2010 or 2013.
 
 2. In Excel, click the **Data** tab. 
 
