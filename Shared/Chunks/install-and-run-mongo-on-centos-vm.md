@@ -50,12 +50,15 @@ Follow these steps to install and run MongoDB on a virtual machine running CentO
 	The database is created by the insert.
 
 7. Once MongoDB is installed you must configure an endpoint so that MongoDB can be accessed remotely. In the Management Portal, click **Virtual Machines**, then click the name of your new virtual machine, then click **Endpoints**.
+	
 	![Endpoints][Image7]
 
 8. Click **Add Endpoint** at the bottom of the page.
+	
 	![Endpoints][Image8]
 
 9. Add an endpoint with name "Mongo", protocol **TCP**, and both **Public** and **Private** ports set to "27017". This will allow MongoDB to be accessed remotely.
+	
 	![Endpoints][Image9]
 
 
