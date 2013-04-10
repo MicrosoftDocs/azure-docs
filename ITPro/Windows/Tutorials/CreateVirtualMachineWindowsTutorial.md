@@ -4,8 +4,6 @@
 
 # Create a Virtual Machine Running Windows Server #
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
-
 It's easy to create a virtual machine that is running the Windows Server operating system when you use the Image Gallery in the Windows Azure Management Portal. This tutorial will teach you how to create a virtual machine running Windows Server in the cloud that you can then access and customize. You don't need prior experience with Windows Azure to use this tutorial. 
 
 You will learn:
@@ -32,10 +30,10 @@ You can use the following options to create a virtual machine from an image:
 
 ## <a id="custommachine"> </a>How to use the Management Portal to create a custom virtual machine running Windows Server ##
 
-This tutorial shows you how to use the **From Gallery** method in the Management Portal to create a custom virtual machine. This method provides more options for configuring the virtual machine when you create it, such as the connected resources, the DNS name, and the network connectivity if needed.
+This tutorial shows you how to use the **From Gallery** method in the Management Portal to create a custom virtual machine. This method provides more options than the **Quick Create** method does for configuring the virtual machine when you create it, such as the connected resources, the DNS name, and the network connectivity if needed.
 
 
-1. Sign in to the Windows Azure Management Portal.
+1. Sign in to the Windows Azure [Management Portal](http://manage.windowsazure.com).
 2. On the command bar, click **New**.
 
 	![Create new virtual machine] (../media/create.png)
@@ -44,29 +42,24 @@ This tutorial shows you how to use the **From Gallery** method in the Management
 	
 	![Create virtual machine from gallery] (../media/createnew.png)
 
-	The **Select the virtual machine operating system** dialog box appears. From **Platform Images**, select an image.
+	The **Select the virtual machine operating system** dialog box appears. 
 
-	![Select the OS image] (../media/imageselectionwindows.png)
-
+	
 4. Click **Platform Images**, select the **Windows2012 image** image, and then click the arrow to continue.
 
 	The **Virtual machine configuration** dialog box appears.
-
-	![Specify the details of the machine] (../media/imagedefinewindows.png)
-
+	
 5. In **Virtual Machine Name**, type the name that you want to use for the virtual machine. For this virtual machine, type **MyTestVM1**.
 
 6. In **New User Name**, type a name for the administrative account that you want to use to manage the server. For this virtual machine, type **MyTestVM1Admin**.
 
-7. In **New Password**, type a strong password for the Administrator account on the virtual machine. For this virtual machine, type **@dm1nVM1**. In **Confirm Password**, retype the password.
+7. In **New Password**, type a strong password for the administrative account on the virtual machine. In **Confirm Password**, retype the password.
 
-8. In **Size**, select the size of the virtual machine. The size that you select depends on the number of cores that are needed for your application. For this virtual machine, select **Extra Small**.
+8. In **Size**, select the size of the virtual machine. The size that you select depends on the number of cores that are needed for your application. 
 
 9. Click the arrow to continue.
 
-	The **Virtual machine options** dialog box appears.
-
-	![Specify the details of the machine] (../media/imagestandalonewindows.png)
+	The **Virtual machine mode** dialog box appears.
 
 10. Although you can connect virtual machines within a cloud service to provide robust applications, in this tutorial you are creating a single virtual machine. So, select **Stand-alone Virtual Machine**.
 
@@ -86,7 +79,7 @@ This tutorial shows you how to use the **From Gallery** method in the Management
 
 You can log on to the virtual machine that you created to manage both its settings and the applications that are running on it.
 
-1. Sign in to the Windows Azure Management Portal.
+1. Sign in to the Windows Azure [Management Portal](http://manage.windowsazure.com).
 
 2. Click **Virtual Machines**, and then select the **MyTestVM1** virtual machine.
 
@@ -112,7 +105,7 @@ You can log on to the virtual machine that you created to manage both its settin
 
 Your application might need to store data. To set this up, attach a data disk to the virtual machine. The easiest way to do this is to attach an empty data disk to the virtual machine.
 
-1. Sign in to the Windows Azure Management Portal.
+1. Sign in to the Windows Azure [Management Portal](http://manage.windowsazure.com).
 
 1. Click **Virtual Machines**, and then select the **MyTestVM1** virtual machine.
 
@@ -136,7 +129,7 @@ Your application might need to store data. To set this up, attach a data disk to
 
 After you attach the data disk to the virtual machine, the disk is offline and not initialized. Before you can use it to store data, you'll need to log on to the virtual machine and initialize the disk.
 
-1. Connect to the virtual machine by using the steps listed in **Log on to the virtual machine**.
+1. Connect to the virtual machine by using the steps in the previous section, **How to log on to the virtual machine after you create it**.
 
 2. After you log on to the virtual machine, open **Server Manager**. In the left pane, expand **Storage**, and then click **Disk Management**.
 
@@ -160,7 +153,7 @@ After you attach the data disk to the virtual machine, the disk is offline and n
 
 All virtual machines that you create in Windows Azure can automatically communicate with other virtual machines in the same cloud service or virtual network. However, you need to add an endpoint to a virtual machine for other resources on the Internet or other virtual networks to communicate with it. You can associate specific ports and a protocol to endpoints.
 
-1. Sign in to the Windows Azure Management Portal.
+1. Sign in to the Windows Azure [Management Portal](http://manage.windowsazure.com).
 
 2. Click **Virtual Machines**, and then select the **MyTestVM1** virtual machine.
 
