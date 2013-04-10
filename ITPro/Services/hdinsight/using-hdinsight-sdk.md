@@ -31,10 +31,10 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 	* **WebHCat client library** - manages the scheduling and execution of jobs in HDInsight cluster.
 	
 The NuGet syntax to install the libraries:
-
-		install-package Microsoft.Hadoop.MapReduce
-		install-package Microsoft.Hadoop.Hive 
-		install-package Microsoft.Hadoop.WebClient 
+	
+	install-package Microsoft.Hadoop.MapReduce
+	install-package Microsoft.Hadoop.Hive 
+	install-package Microsoft.Hadoop.WebClient 
 			
 These commands add the libraries and references to the current Visual Studio project.
 
