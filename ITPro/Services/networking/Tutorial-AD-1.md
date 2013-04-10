@@ -4,8 +4,6 @@
 
 #Install a Replica Active Directory Domain Controller in Windows Azure Virtual Networks
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
-
 This tutorial walks you through the steps to install an additional domain controller from your Corp Active Directory forest on a virtual machine (VM) on [Windows Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx). In this tutorial, the virtual network for the VM is connected to the network at your company. For conceptual guidance about installing Active Directory Domain Services (AD DS) on Windows Azure Virtual Network, see [Guidelines for Deploying Windows Server Active Directory on Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
 
 ##Table of Contents##

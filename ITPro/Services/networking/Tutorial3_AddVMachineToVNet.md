@@ -7,9 +7,6 @@
 
 <!--SOMEWHERE IN THIS TUTORIAL I NEED TO XREF TO THE OTHER VMACHINE TUTORIAL -->
 
-
-<div chunk="../../Shared/Chunks/disclaimer.md" />
-
 This tutorial walks you through the steps to create a Windows Azure storage account and virtual machine (VM) that you add to a [virtual network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
 
 This tutorial assumes you have no prior experience using Windows Azure.
@@ -50,7 +47,7 @@ In this tutorial you will learn:
 
 ## <a name="CreateStorageAcct">Create Storage Account</a> ##
 
-1.	After you have created your virtual network in the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com/), on the lower left-hand corner of the screen, click **New**.
+1.	After you have created your virtual network in the [Windows Azure Management Portal](http://manage.windowsazure.com/), on the lower left-hand corner of the screen, click **New**.
 
 	![NewStorAcct] []
 
