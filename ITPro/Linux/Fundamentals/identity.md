@@ -4,4 +4,4 @@
 
 <div chunk="../chunks/article-left-menu.md" />
 
-<div chunk="../../Shared/Chunks/identity.md" />
+<div chunk="../../../devcenter/Shared/Chunks/Shared/Chunks/identity.md" />
