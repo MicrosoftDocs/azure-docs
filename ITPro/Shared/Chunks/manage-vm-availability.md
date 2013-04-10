@@ -34,7 +34,7 @@ To create an availability set that contains virtual machines, you can create the
 3. Click **Virtual Machine**, and then click **From Gallery**.
 
 
-	The **Select the virtual machine operating system** dialog box appears. This article shows the selection of a Windows Server 2012 image, but these instructions also apply to Linux images.
+	The **Select the virtual machine operating system** dialog box appears. 
 	
 4. From **Platform Images**, select an image and then click the arrow to continue.
 
@@ -72,8 +72,6 @@ To create an availability set that contains virtual machines, you can create the
 
 	From the dashboard of the new virtual machine, you can click **Configure** and see that the virtual machine is a member of the new availability set.
 
-	![Configure availability][Configure availability]
-
 ## <a id="addmachine"> </a>Step 2: Add a virtual machine to the cloud service and assign it to the availability set during the creation process ##
 
 The previous step showed you how to create a virtual machine and availability set at the same time. You can now create a new virtual machine, connect it to the cloud service of the first virtual machine, and then add it to the availability set that you previously created.
@@ -90,49 +88,43 @@ The previous step showed you how to create a virtual machine and availability se
 
 	![Create from gallery][Create from gallery]
 
-	The **VM OS Selection** dialog box appears. You can now select an image from the Image Gallery.
+	The **Select the virtual machine operating system** dialog box appears. You can now select an image from the Image Gallery.
 
-	![Select platform image][Select platform image]
-
+	
 4. Click **Platform Images**, select the platform image that you want to use, and then click the arrow to continue.
 
-	The **VM Configuration** dialog box appears.
-
-	![Define the virtual machine][Define the virtual machine]
+	The **Virtual machine configuration** dialog box appears.
 
 5. In **Virtual Machine Name**, type the name that you want to use for the virtual machine.
 
-6. In **New Password**, type the password that is used for the Administrator account on the virtual machine. In **Confirm Password**, retype the password that you previously entered.
+6. 6.In **New User Name**, type a name for the administrative account that you want to use to manage the server. 
 
-7. In **Size**, select the size that you want to use for the virtual machine. The size that you select depends on the number of cores that are needed for your application.
+7. In **New Password**, type a strong password for the administrative account on the virtual machine. In **Confirm Password**, retype the password.
 
-8. For a virtual machine running the Linux operating system, you can select to secure the machine with an SSH Key.
+8. In **Size**, select the size that you want to use for the virtual machine. The size that you select depends on the number of cores that are needed for your application.
 
-9.	Click the arrow to continue.
+9. For a virtual machine running the Linux operating system, you can select to secure the machine with an SSH Key.
 
-	The **VM Mode** dialog box appears.
+10.	Click the arrow to continue.
 
-	![Connect virtual machines][Connect virtual machines]
+	The **Virtual machine mode** dialog box appears.
 
-10. Select **Connect to existing Virtual Machine** to create a new virtual machine that will be connected with the first virtual machine in the availability set.  Select the cloud service that contains the virtual machine in the availability set.
+	
+11. Select **Connect to existing Virtual Machine** to create a new virtual machine that will be connected with the first virtual machine in the availability set.  Select the cloud service that contains the virtual machine in the availability set.
 
-11. In **Storage Account**, select a storage account where the VHD file is stored.
+12. In **Storage Account**, select a storage account where the VHD file is stored.
 
-12. In **Region/Affinity Group/Virtual Network**, select region that you want to contain the virtual machine.
+13. In **Region/Affinity Group/Virtual Network**, select region that you want to contain the virtual machine.
 
-13. Click the arrow to continue.
+14. Click the arrow to continue.
 
-	The **VM Options** dialog box appears.
+	The **Virtual machine options** dialog box appears.
 
-	![Select the availability set][Select the availability set]
+15. Select the availability set that was created when you created the first virtual machine.
 
-14. Select the availability set that was created when you created the first virtual machine.
-
-15. Click the check mark to create the connected virtual machine and add it to the availability set.
+16. Click the check mark to create the connected virtual machine and add it to the availability set.
 
 	From the dashboard of the new virtual machine, you can click **Configure** and see that the virtual machine is a member of the new availability set.
-
-	![Availability set success][Availability set success]
 
 ## <a id="previousmachine"> </a>Step 3: (Optional) Create an availability set for previously created virtual machines ##
 
@@ -146,11 +138,8 @@ You can create an availability set and add a virtual machine to it after you cre
 
 3. Click **Configure**.
 
-	![Configure the virtual machine][Configure the virtual machine]
-
 4. In the **Availability Set** section, select **Create Availability Set**, and then enter a name for the set.
 
-	![Create availability set][Create availability set]
 
 5. Click **Save**.
 
@@ -168,11 +157,7 @@ You can easily add an existing virtual machine to an availability set that was p
 
 3. Click **Configure**.
 
-	![Configure the virtual machine][Configure the virtual machine]
-
 4. In the **Availability Set** section, select the availability set that you previously created.
-
-	![Add a virtual machine][Add a virtual machine]
 
 5. Click **Save**. 
 
