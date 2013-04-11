@@ -5,8 +5,6 @@
 
 #Create management certificates for Linux in Windows Azure
 
-<div chunk="../../shared/chunks/disclaimer.md" />
-
 A management certificate is needed when you want to use the Service Management API to interact with the Windows Azure image platform. 
 
 There is already documentation on how to create and manage these certificates at [http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx). You can also use OpenSSL to create the management certificate.  For more information, see [OpenSSL](http://openssl.org/). However, this documentation  is primarily focused on the use of the Silverlight portal that might not be accessible to all the Linux users. It describes how you will be able to gain access to these certificates and integrate them with our different tools, partners and use them on your own until this functionality is added in the Windows Azure Management Portal. 

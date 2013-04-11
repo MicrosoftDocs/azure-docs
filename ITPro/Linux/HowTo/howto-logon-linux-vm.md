@@ -4,8 +4,6 @@
 
 #How to Log on to a Virtual Machine Running Linux #
 
-<div chunk="../../shared/chunks/disclaimer.md" />
-
 For a virtual machine that is running the Linux operating system, you use a Secure Shell (SSH) client to logon.
 
 You must install an SSH client on your computer that you want to use to log on to the virtual machine. There are many SSH client programs that you can choose from. The following are possible choices:
