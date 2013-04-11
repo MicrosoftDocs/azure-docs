@@ -90,7 +90,6 @@ After VMM servers are registered, all clouds configured on the servers are displ
 
 * The target location that will be used for failover of virtual machines in the source cloud.
 * How initial replication of data from the source to target locations will be handled.
-* How frequently data will be synced between the source and target locations following initial replication.
 * How often to create data checkpoints.  
 After you select a cloud, all clusters and host servers that are configured in the source and target clouds are configured for replication. Specifically:
 * Firewall rules used by Hyper-V Replica are configured.
@@ -98,21 +97,31 @@ After you select a cloud, all clusters and host servers that are configured in t
 * Certificates required for replication are installed.
 * Hyper-V Replica settings are configured.
 
-<h2><a id="networks"></a>Configure Networks and Servers (Optional)</h2>
+<h2><a id="networks"></a>Configure Networks</h2>
 
-You can optionally map logical networks in source clouds to logical networks in target clouds, to ensure that failed over virtual machines are connected to appropriate networks after the failover.
+You can map VM networks in source VMM servers to VM networks in target VMM server, to ensure that replica virtual machines are connected to appropriate networks.
  
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
 2. Click **Recovery Services**, then click the name of vault that contains the VMM servers for which you want to configure network mapping.
 
-3. Select the source cloud and then click **Networks**
+3. Click **Resources** and then click **Networks**
 
-4. Select a source server and a target location.
+4. Select the source VMM server and then the target VMM server.
 
-5. Select an item from **Network on source** and then click **Map**. The network settings from the source network are applied to the target location automatically.
+5. Select an item from **Network on source** and then click **Map**. 
 
 	![Manage certificate](../media/RS_networks.png)
+
+6. In the dialog that is displayed, select one of the VM networks from the target VMM server. 
+
+7. Click the information icon next to the source and target network names to view the subnets and type for each network.
+
+	When you select a target network, the protected clouds that use the source network are displayed. Availability of target networks associated with the clouds used for protection is also displayed. It is recommended that you select a target network that is available to all clouds used for protection.
+
+8. Click the checkmark to complete the mapping process.
+
+	This will connect any existing replica virtual machines corresponding to the virtual machines connected to the source VM network to the target VM network. This will also connect new replica virtual machines that are created after enabling replication on the virtual machines connected to the source VM network to the target VM network.
 
 <h2><a id="protect"></a>How to: Protect virtual machines</h2>
 After servers, clouds, and networks are configured correctly, you can enable virtual machines in the cloud for recovery and failover. Protection is enabled in the VMM console, by selecting the **Enable Replication** checkbox for each virtual machine you want to protect. Once the virtual machines are replicated to the vault you will be able to view them in the virtual machines list of your cloud.
