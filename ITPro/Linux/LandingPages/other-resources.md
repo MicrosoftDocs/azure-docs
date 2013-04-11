@@ -18,7 +18,7 @@ Review a list of the partners who deliver Linux-based cloud solutions in Windows
 
 ###[Windows Azure command-line tool for Mac and Linux](/en-us/manage/linux/other-resources/command-line-tools/)
 
-Learn about this command-line that provides functionality for creating, deploying and managing virtual machines and web sites from Mac and Linux desktops. This functionality is similar to that provided by the PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS and PHP.
+Learn about this command-line that provides functionality for creating, deploying and managing virtual machines and web sites from Mac and Linux desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS and PHP.
 
 
 ###[Selecting User Names for Linux on Windows Azure](/en-us/manage/linux/other-resources/user-names-in-linux/)
