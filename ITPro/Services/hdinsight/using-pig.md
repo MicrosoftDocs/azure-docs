@@ -11,20 +11,25 @@
 - **Transform**: Manipulate the data 
 - **Dump or store**: Output data to the screen or store for processing
 
-In this tutorial, you will write Pig Latin statements to analyze an [Apache log4j](http://en.wikipedia.org/wiki/Log4j) log file, and run various queries on the data to generate output. This tutorial demonstrates the advantages of Pig, and how it can be used to simplify MapReduce jobs. 
+In this tutorial, you will write Pig Latin statements to analyze an Apache log4j log file, and run various queries on the data to generate output. This tutorial demonstrates the advantages of Pig, and how it can be used to simplify MapReduce jobs. 
+
+[Apache Log4j](http://en.wikipedia.org/wiki/Log4j) is a logging utility. Each log inside a file contains a *log level* field to show the type and the severity. For example:
+
+	2012-02-03 20:26:41 SampleClass3 [TRACE] verbose detail for id 1527353937
 
 **Estimated time to complete:** 30 minutes
 
-#In this Article
+##In this Article
 
-- The Pig usage case
-- Procedures
-- Next Steps
+* [The Pig usage case](#usage)
+* [Upload a sample log4j file to Windows Azure Blob Storage](#uploaddata)
+* [Connect to your HDInsight cluster](#connect)
+* [Use Pig in the interactive mode](#interactivemode)
+* [Use Pig in the batch mode](#batchmode)
+* [Tutorial clean up](#cleanup)
+* [Next steps](#nextsteps)
  
-
-
-
-## The Pig Usage Case
+##<a id="usage"></a>The Pig Usage Case
 Databases are great for small sets of data and low latency queries. However, when it comes to Big Data and large data sets in terabytes, traditional SQL databases are not the ideal solution. As database load increases and performance degrades, historically, database administrators have had to buy bigger hardware. 
 
 Generally, all applications save errors, exceptions and other coded issues in a log file, so administrators can review the problems, or generate certain metrics from the log file data. These log files usually get quite large in size, containing a wealth of data that must be processed and mined. 
@@ -42,11 +47,9 @@ Figure 1: File Sample:
 
 Figure 2: Data Transformation:
 
-![Data Transformation](../media/HDI.DataTransformation.png)
+![Data Transformation](../media/HDI.DataTransformation.gif)
 
-
-## Procedure
-You will perform the following tasks:
+You will complete the following tasks in this tutorial:
 
 * Upload a sample log4j file to Windows Azure Blob Storage
 * Connect to your HDInsight cluster
@@ -54,7 +57,10 @@ You will perform the following tasks:
 * Use Pig in the batch mode
 * Tutorial clean up
 
-###Upload a Sample Log4j File to Windows Azure Blob Storage
+##<a id="uploaddata"></a>Upload a Sample Log4j File to Windows Azure Blob Storage
+
+HDInsight provides two options for storing data, Windows Azure Blob Storage and Hadoop Distributed File system (HDFS). For more information on choosing file storage, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store). When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file.
+
 *Azure Storage Explorer* is a useful tool for inspecting and altering the data in your Windows Azure Storage. It is a free tool that can be downloaded from [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
 Before using the tool, you must know your Windows Azure storage account name and account key. For the instructions for get the information, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
@@ -82,8 +88,11 @@ Before using the tool, you must know your Windows Azure storage account name and
 12. Click **Close**. 
 13. From the **File** menu, click **Exit** to close Azure Storage Explorer.
 
-### Connect to your HDInsight Cluster ##
+For information on access ASV, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).
 
+##<a id="connect"></a>Connect to Your HDInsight Cluster ##
+
+You must have an HDInsight cluster previsioned before you can work on this tutorial. To enable the Windows Azure HDInsight Service preview, click [here](https://account.windowsazure.com/PreviewFeatures). For information on prevision an HDInsight cluster see [How to Administer HDInsight Service](/en-us/manage/services/hdinsight/howto-administer-hdinsight/) or [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/).
   
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 2. Click **HDINSIGHT**. You shall see a list of deployed Hadoop clusters.
@@ -94,7 +103,7 @@ Before using the tool, you must know your Windows Azure storage account name and
 10. Click **Yes**.
 11. From Desktop, double-click **Hadoop Command Line**.
 	
-### Use Pig in the Interactive Mode   ##
+##<a id="interactivemode"></a> Use Pig in the Interactive Mode   ##
 
 First, you will use Pig Latin in interactive mode (Grunt shell) to analyze a single log file, and then you will use Pig in batch mode (script) to perform the same task. 
 
@@ -106,6 +115,14 @@ First, you will use Pig Latin in interactive mode (Grunt shell) to analyze a sin
 2. Load the sample.log file, and give it the alias *LOGS*:
 
 		grunt> LOGS = LOAD 'asv:///sample.log';
+
+	<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>To use asvs, you must provide the FQDN. For example: <br/>
+LOG = LOAD 'asvs://container@storagename.blob.core.windows.net/sample.log'. For more information, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).</p> 
+	</div>
+
+
 
 3. Show the content:
 
@@ -145,7 +162,7 @@ First, you will use Pig Latin in interactive mode (Grunt shell) to analyze a sin
 
 		grunt> dump FILTEREDLEVELS;
 
-	The output is similiar to the following:
+	The output is similar to the following:
 
 		(DEBUG)
 		(TRACE)
@@ -175,7 +192,7 @@ First, you will use Pig Latin in interactive mode (Grunt shell) to analyze a sin
 
 		grunt> dump GROUPEDLEVELS;
 
-	The output is similiar to the following:
+	The output is similar to the following:
 
 		(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
 		(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
@@ -198,7 +215,7 @@ First, you will use Pig Latin in interactive mode (Grunt shell) to analyze a sin
  
 		grunt> dump FREQUENCIES;
  
-	The output is similiar to the following:
+	The output is similar to the following:
 
 		(INFO,3355)
 		(WARN,361)
@@ -233,7 +250,7 @@ First, you will use Pig Latin in interactive mode (Grunt shell) to analyze a sin
 
 		grunt> quit;
 
-### Use Pig in the Batch Mode   ##
+##<a id="batchmode"></a>Use Pig in the Batch Mode   ##
 
 Next, you will use Pig in batch mode by creating a Pig script made up of the same Pig commands you used in the last task. 
  
@@ -243,20 +260,20 @@ Next, you will use Pig in batch mode by creating a Pig script made up of the sam
 
 2. Copy and paste the following Pig commands to the pigscript.pig file, and save:
 
-	- load the log file 
-			LOGS = LOAD 'asv:///sample.log';
-	-  iterate through each line and match on the 6 log levels
-			LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-	- filter out non-match rows, i.e. empty rows
-			FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-	- now group/consolidate all of the log levels into their own row, counting is not done yet
-			GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-	- for each group, now count the occurrences of log levels which will be the frequencies of each log level
-			FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-	- sort the frequencies in descending order
-			RESULT = order FREQUENCIES by COUNT desc;
-	- write the result to a file
-			store RESULT into 'sampleout';
+		- load the log file 
+				LOGS = LOAD 'asv:///sample.log';
+		-  iterate through each line and match on the 6 log levels
+				LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+		- filter out non-match rows, i.e. empty rows
+				FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+		- now group/consolidate all of the log levels into their own row, counting is not done yet
+				GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+		- for each group, now count the occurrences of log levels which will be the frequencies of each log level
+				FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+		- sort the frequencies in descending order
+				RESULT = order FREQUENCIES by COUNT desc;
+		- write the result to a file
+				store RESULT into 'sampleout';
 
 3. Save the file and close Notepad. 
  
@@ -272,7 +289,7 @@ Next, you will use Pig in batch mode by creating a Pig script made up of the sam
  
 	The results are the same as what you got in the interactive mode. 
  
-### Tutorial Clean Up ##
+##<a id="cleanup"></a>Tutorial Clean Up ##
 
 In this task, you will delete input and output directories so that if you like, you can run the tutorial again. 
 
@@ -282,22 +299,13 @@ In this task, you will delete input and output directories so that if you like, 
  
 Congratulations! You have successfully completed this tutorial.
 
-##Next Steps
+##<a id="nextsteps"></a>Next Steps
 
 While Pig allows you to perform data analysis, other languages included with the HDInsight Service may be of interest to you also. Hive provides a SQL-like query language that allows you to easily query against data stored in HDInsight, while MapReduce jobs written in Java allow you to perform complex data analysis. For more information, see the following:
 
-* [Using Hive with HDInsight][hdinsight-hive] 
-* [Using MapReduce with HDInsight][hdinsight-mapreduce]
 
-
-[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
-[hdinsight-hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
-
-
-
-
-
-
-
-
- 
+* [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+* [Using MapReduce with HDInsight](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
+* [Using Hive with HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
+* [Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/) 
+* [How to Run the HDInsight Samples](/en-us/manage/services/hdinsight/howto-run-samples/)

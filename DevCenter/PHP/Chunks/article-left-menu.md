@@ -1,6 +1,7 @@
 <div class="left-nav">
 <div class="static-nav">
 <ul>
+<li><a href="/en-us/develop/php/">PHP Home</a></li>
 <li class="menu-php-websites"><a href="/en-us/develop/php/web-sites/">Web Sites</a></li>
 <li class="menu-php-vmachines"><a href="/en-us/develop/php/virtual-machines/">Virtual Machines</a></li>
 <li class="menu-php-cloud"><a href="/en-us/develop/php/cloud-services/">Cloud Services</a></li>

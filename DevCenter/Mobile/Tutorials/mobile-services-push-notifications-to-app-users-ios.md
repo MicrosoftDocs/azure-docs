@@ -40,39 +40,20 @@ Next, you will modify the push notifications app to store data in this new table
 
 ## <a name="update-app"></a>Update your app
 
-1. In Xcode, open the TodoService.h file and add the following method declarations: 
-
-        // Declare the singleton instance for other users
-        + (TodoService *) getCurrent;
+1. In Xcode, open the QSTodoService.h file and add the following method declaration: 
 
         // Declare method to register device token for other users
-        - (void) registerDeviceToken:(NSString *)deviceToken;
+        - (void)registerDeviceToken:(NSString *)deviceToken;
 
-   This enables other callers to get an instance of the TodoService and register a deviceToken with the Mobile Service.
+   This enables the App Delegate to register a deviceToken with the Mobile Service.
 
-2. In TodoService.m, add the following variable and static method inside the @implementation of the TodoService: 
-
-        // Add a variable to support Singleton creation.
-        TodoService *instance;
-
-        // Add static method to return TodoService instance.
-        + (TodoService *)getCurrent
-        {
-            if (instance == nil) {
-                instance = [[TodoService alloc] init];
-            }
-            return instance;
-        }
-
-   This enables the singleton pattern for the TodoService class.
-
-3. In TodoService.m, underneath the preceding code, add the following instance method:
+2. In QSTodoService.m, add the following instance method:
 
         // Instance method to register deviceToken in Devices table.
         // Called in AppDelegate.m when APNS registration succeeds.
         - (void)registerDeviceToken:(NSString *)deviceToken
         {
-            MSTable* devicesTable = [self.client getTable:@"Devices"]; 
+            MSTable *devicesTable = [self.client tableWithName:@"Devices"]; 
             NSDictionary *device = @{ @"deviceToken" : deviceToken };
     
             // Insert the item into the devices table and add to the items array on completion
@@ -85,13 +66,13 @@ Next, you will modify the push notifications app to store data in this new table
 
    This allows other callers to register the device token with Mobile Services.
 
-4. In the AppDelegate.m file, add the following import statement:
+3. In the QSAppDelegate.m file, add the following import statement:
 
-        #import "TodoService.h"
+        #import "QSTodoService.h"
 
      This code makes the AppDelegate aware of the TodoService implementation.
 
-5. In AppDelegate.m, replace the **didRegisterForRemoteNotificationsWithDeviceToken** method with the following code:
+4. In QSAppDelegate.m, replace the **didRegisterForRemoteNotificationsWithDeviceToken** method with the following code:
 
         // We have registered, so now store the device token (as a string) on the AppDelegate instance
         // taking care to remove the angle brackets first.
@@ -102,25 +83,14 @@ Next, you will modify the push notifications app to store data in this new table
            NSCharacterSet *angleBrackets = [NSCharacterSet characterSetWithCharactersInString:@"<>"];
            NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:angleBrackets];
         	
-           TodoService *instance = [TodoService getCurrent];
+           QSTodoService *instance = [QSTodoService defaultService];
            [instance registerDeviceToken:token];
         }
 
-6. In the TodoListController.m file, in the **(void)viewDidLoad** method, locate the following line of code:
-
-        self.todoService = [[TodoService alloc]init]; 
-
-   Replace this with the following code:
-
-        // Create the todoService.
-        self.todoService = [TodoService getCurrent]; 
-
-   This creates the Mobile Service client inside the wrapped service using the new singleton.
-
-7. In TodoListController.m, locate the **(IBAction)onAdd** method and remove the following code:
+5. In QSTodoListViewController.m, locate the **(IBAction)onAdd** method and _remove_ the following code:
 
         // Get a reference to the AppDelegate to easily retrieve the deviceToken
-        AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+        QSAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     
         NSDictionary *item = @{
             @"text" : itemText.text,
