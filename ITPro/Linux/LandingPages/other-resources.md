@@ -5,7 +5,6 @@
 #Other resources for Linux virtual machines
 
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
 
 ###[Linux on Windows Azure-Endorsed Distributions](/en-us/manage/linux/other-resources/endorsed-distributions/)
 

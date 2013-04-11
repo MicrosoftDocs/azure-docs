@@ -3,7 +3,7 @@
 
 #Tutorials for Linux virtual machines
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
+
 
 ###[Introduction to Linux on Windows Azure](/en-us/manage/linux/tutorials/intro-to-linux/)
 This topic provides an overview of using Linux virtual machines in the Windows Azure cloud. 

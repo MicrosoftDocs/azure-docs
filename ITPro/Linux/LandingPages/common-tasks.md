@@ -3,7 +3,7 @@
 
 #Common tasks for Linux virtual machines
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
+
 
 ###[Create Management Certificates for Linux](/en-us/manage/linux/common-tasks/manage-certificates/)
 

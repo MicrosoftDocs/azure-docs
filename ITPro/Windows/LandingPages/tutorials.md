@@ -3,7 +3,7 @@
 
 #Tutorials for Windows virtual machines
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
+
 
 ###[Create a Virtual Machine Running Windows Server](/en-us/manage/windows/tutorials/virtual-machine-from-gallery/)
 

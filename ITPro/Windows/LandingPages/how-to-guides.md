@@ -2,7 +2,7 @@
 
 
 #How to guides for Windows virtual machines
-<div chunk="../../Shared/Chunks/disclaimer.md" />
+
 
 ###[How to Create a Custom Virtual Machine](/en-us/manage/windows/how-to-guides/custom-create-a-vm/)
 
