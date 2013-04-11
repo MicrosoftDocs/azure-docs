@@ -4,8 +4,6 @@
 
 #Introduction to Linux on Windows Azure
 
-<div chunk="../../shared/chunks/disclaimer.md" />
-
 This topic provides an overview of some aspects of using Linux virtual machines in the Windows Azure cloud. Deploying a Linux virtual machine is a straightforward process when using a pre-existing image in the gallery. 
 
 ## Table of Contents ##
