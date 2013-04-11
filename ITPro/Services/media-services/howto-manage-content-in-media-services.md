@@ -45,7 +45,7 @@ Currently you can perform the following content operations directly from the por
 
 ## How to: Encode content ##
 
-1. In the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name.
+1. In the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name. 
 2. Click the **Content** view at the top of the page.
 3. Click on the desired source video for the encoding job, and then click **Encode** at the bottom of the page.
 4. In the Windows Azure Media Encoder dialog, choose from one of the common or advanced encoding presets.
