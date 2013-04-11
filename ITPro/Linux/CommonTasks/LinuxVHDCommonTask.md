@@ -6,15 +6,15 @@
 
 A virtual machine in Windows Azure runs the operating system that you choose when you create the virtual machine. The operating systems are stored in virtual hard disk (.vhd) files. When you create a virtual machine, you can choose a .vhd file that is supplied for you in the Image Gallery, or you can use one that you have uploaded to Windows Azure. This article shows you how to create and upload a .vhd file. For more information about disks and images in Windows Azure, see [Manage Disks and Images](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
 
-**Note**: When you create the virtual machine, you can customize the operating system settings to facilitate running your application. The configuration that you set is stored on disk for that virtual machine. For instructions, see [How to Create a Custom Virtual Machine](..how-to-guides/custom-create-a-vm/howto-custom-create-vm.md).
+**Note**: When you create the virtual machine, you can customize the operating system settings to facilitate running your application. The configuration that you set is stored on disk for that virtual machine. For instructions, see [How to Create a Custom Virtual Machine](../HowTo/howto-custom-create-vm.md).
 
 The following resources must be available to complete this task:
 
 - **Server running Hyper-V, with Hyper-V Manager installed.** This task depends on using the Hyper-V Manager that is a part of the Hyper-V role in the Windows Server. Multiple tools exist to create .vhd files. This article uses Hyper-V Manager to create the .vhd file that is uploaded to Windows Azure. For more information, see [Hyper-V](http://technet.microsoft.com/en-us/library/cc753637(WS.10).aspx).
-- **Linux operating system media.** Before you start this task, you must make sure that you have access to media that contains the Linux operating system. For a list of endorsed distributions, see [Linux on Windows Azure-Endorsed Distributions](../other-resources/endorsed-distributions/linux-on-endorsed-distributions.md).
+- **Linux operating system media.** Before you start this task, you must make sure that you have access to media that contains the Linux operating system. For a list of endorsed distributions, see [Linux on Windows Azure-Endorsed Distributions](../other-resources/linux-on-endorsed-distributions.md).
 
 - **Linux Azure command-line tool.** If you are using a Linux operating system to create your image, use this tool to upload the VHD file. To download the tool, see [Windows Azure Command-Line Tools for Linux and Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409).
-- **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. You must use the tools available in Windows Azure SDK - June 2012 or later to upload VHDs to Windows Azure. To download the SDK and the tools, see [Windows Azure Downloads](/en-us/develop/downloads/).
+- **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. You must use the tools available in Windows Azure SDK - June 2012 or later to upload VHDs to Windows Azure. To download the SDK and the tools, see [Windows Azure Downloads](/en-us/downloads/).
 
 This task includes the following steps:
 

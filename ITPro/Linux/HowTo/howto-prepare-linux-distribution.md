@@ -9,7 +9,7 @@ A virtual machine that you create in Windows Azure runs the operating system tha
 The following resources must be available to complete this task:
 
 - **Server running the Windows Server operating system.** This task depends on using the Hyper-V Manager that is a part of the Hyper-V role in the Windows Server operating system.
-- **Linux operating system media.** Before you start this task, you must make sure that you have access to media that contains the Linux operating system. For a list of endorsed distributions, see [Linux on Windows Azure-Endorsed Distributions](../other-resources/endorsed-distributions/linux-on-endorsed-distributions.md).
+- **Linux operating system media.** Before you start this task, you must make sure that you have access to media that contains the Linux operating system. For a list of endorsed distributions, see [Linux on Windows Azure-Endorsed Distributions](../other-resources/linux-on-endorsed-distributions.md).
 
 - **Linux Azure command-line tool.** If you are using a Linux operating system to create your image, you use this tool to upload the VHD file. To download the tool, see [Windows Azure Command-Line Tools for Linux and Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409).
 - **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. You must use the tools available in Windows Azure SDK - June 2012 or later to upload VHDs to Windows Azure. To download the SDK and the tools, see [Windows Azure Downloads](/en-us/develop/downloads/).
