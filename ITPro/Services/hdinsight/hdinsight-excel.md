@@ -42,10 +42,9 @@ Follow the steps below to install the Hive ODBC Driver.
 
 5. Once the installation has completed, click **Finish** to exit the Setup Wizard. 
 
-<div class="dev-callout">
-<b>Note</b>
-	<p>The Hive ODBC driver released is in Preview only and should not be used for production workloads. It is supported only on Windows and only to work with HDInsight Hive installations. Due to current limitations with Hive Server 1, the Hive ODBC driver is supported in single user mode only and should not be used to run concurrent queries from concurrent connections. Attempting to run multiple queries at the same time may result in unexpected behavior. Microsoft is working to provide support for the ODBC driver with Hive Server 2. Hive Server 2 provides support for concurrency for both ODBC and Java Database Connectivity (JDBC). When this driver is released, the existing ODBC driver will be deprecated. For more information about current Hive Server 1 limitations, see <a href="https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Thrift+API">https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Thrift+API</a> </p> 
-</div>
+
+**Note**
+The Hive ODBC driver released is in Preview only and should not be used for production workloads. It is supported only on Windows and only to work with HDInsight Hive installations. Due to current limitations with Hive Server 1, the Hive ODBC driver is supported in single user mode only and should not be used to run concurrent queries from concurrent connections. Attempting to run multiple queries at the same time may result in unexpected behavior. Microsoft is working to provide support for the ODBC driver with Hive Server 2. Hive Server 2 provides support for concurrency for both ODBC and Java Database Connectivity (JDBC). When this driver is released, the existing ODBC driver will be deprecated. For more information about current Hive Server 1 limitations, see <a href="https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Thrift+API">https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Thrift+API</a>
 
 
 <h2><a id="CreateHiveODBCDataSource"></a>Create a Hive ODBC Data Source</h2>
