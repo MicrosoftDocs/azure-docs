@@ -174,9 +174,6 @@ Big data analysis is important, and so Hadoop is also important. By providing Ha
 
 More broadly, data of all kinds is important. This is why Windows Azure includes a range of options for data management and business analytics. Whatever application you’re trying to create, it’s likely that you’ll find something in this cloud platform that will work for you.
 
-##About the Author
-David Chappell is Principal of Chappell & Associates ([www.davidchappell.com](http://www.davidchappell.com)) in San Francisco, California. Through his speaking, writing, and consulting, he helps people around the world understand, use, and make better decisions about new technologies.
-
 [blobs]: ../../Shared/Media/Data_01_Blobs.png
 [SQLSvr-vm]: ../../Shared/Media/Data_02_SQLSvrVM.png
 [SQL-db]: ../../Shared/Media/Data_03_SQLdb.png
