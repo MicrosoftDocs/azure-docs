@@ -33,11 +33,11 @@ This tutorial shows you how to use the **From Gallery** method in the Management
 1. Sign in to the Windows Azure [Management Portal](http://manage.windowsazure.com).
 2. On the command bar, click **New**.
 
-	![Create new virtual machine] (../media/create.png)
+	![Create new virtual machine] (../../itpro/windows/media/create.png)
 
 3. Click **Virtual Machine**, and then click **From Gallery**.
 	
-	![Create virtual machine from gallery] (../media/createnew.png)
+	![Create virtual machine from gallery] (../../itpro/windows/media/createnew.png)
 
 	The **Select the virtual machine operating system** dialog box appears. 
 
@@ -70,7 +70,7 @@ This tutorial shows you how to use the **From Gallery** method in the Management
     
 	Windows Azure creates the virtual machine and configures the operating system settings. After Windows Azure creates the virtual machine, it is listed as **Running** in the Windows Azure Management Portal.
 
-	![Successful virtual machine creation] (../media/vmsuccesswindows.png)
+	![Successful virtual machine creation] (../../itpro/windows/media/vmsuccesswindows.png)
 
 ## <a id="logon"> </a>How to log on to the virtual machine after you create it ##
 
@@ -82,19 +82,19 @@ You can log on to the virtual machine that you created to manage both its settin
 
 3. On the command bar, click **Connect**.
 
-	![Connect to the virtual machine] (../media/connectwindows.png)
+	![Connect to the virtual machine] (../../itpro/windows/media/connectwindows.png)
 
 4. Click **Open** to use the remote desktop protocol file that was automatically created for the virtual machine.
 
 5. Click **Connect**.
 
-	![Continue with connecting] (../media/connectpublisher.png)
+	![Continue with connecting] (../../itpro/windows/media/connectpublisher.png)
 
 6. In the password box, type the user name and password that you specified when you created the virtual machine, and then click **OK**.
 
 7. Click **Yes** to verify the identity of the virtual machine.
 
-	![Verify the identity of the machine] (../media/connectverify.png)
+	![Verify the identity of the machine] (../../itpro/windows/media/connectverify.png)
 
 	You can now work with the virtual machine just like you would a server in your office.
 
@@ -108,7 +108,7 @@ Your application might need to store data. To set this up, attach a data disk to
 
 2. On the command bar, click **Attach**, and then click **Attach Empty Disk**.
 
-	![Attach empty disk] (../media/attachdiskwindows.png)
+	![Attach empty disk] (../../itpro/windows/media/attachdiskwindows.png)
 
 	The **Attach Empty Disk** dialog box appears.
 
@@ -122,7 +122,7 @@ Your application might need to store data. To set this up, attach a data disk to
 
 	The virtual machine now has 2 disks. The disk that you attached is listed in the **Disks** table.
 
-	![Attach empty disk] (../media/attachemptysuccess.png)
+	![Attach empty disk] (../../itpro/windows/media/attachemptysuccess.png)
 
 After you attach the data disk to the virtual machine, the disk is offline and not initialized. Before you can use it to store data, you'll need to log on to the virtual machine and initialize the disk.
 
@@ -130,21 +130,21 @@ After you attach the data disk to the virtual machine, the disk is offline and n
 
 2. After you log on to the virtual machine, open **Server Manager**. In the left pane, expand **Storage**, and then click **Disk Management**.
 
-	![Initialize the disk in Server Manager] (../media/servermanager.png)
+	![Initialize the disk in Server Manager] (../../itpro/windows/media/servermanager.png)
 
 3. Right-click **Disk 2**, and then click **Initialize Disk**.
 
-	![Start initialization] (../media/initializedisk.png)
+	![Start initialization] (../../itpro/windows/media/initializedisk.png)
 
 4. Click **OK** to start the initialization process.
 
 5. Right-click the space allocation area for Disk 2, click **New Simple Volume**, and then finish the wizard with the default values.
 
-	![Create the volume] (../media/initializediskvolume.png)
+	![Create the volume] (../../itpro/windows/media/initializediskvolume.png)
 
 	The disk is now online and ready to use with a new drive letter.
 
-	![Initialization success] (../media/initializesuccess.png)
+	![Initialization success] (../../itpro/windows/media/initializesuccess.png)
 
 ## <a id="endpoints"> </a>How to set up communication with the virtual machine ##
 
@@ -156,11 +156,11 @@ All virtual machines that you create in Windows Azure can automatically communic
 
 3. Click **Endpoints**.
 
-	![Add endponts] (../media/endpointswindows.png)
+	![Add endponts] (../../itpro/windows/media/endpointswindows.png)
 
 4. For this tutorial, you will add an endpoint for communicating with the virtual machine using the TCP protocol. Click **Add Endpoint**.
 
-	![Endpoints] (../media/addendpointstart.png)
+	![Endpoints] (../../itpro/windows/media/addendpointstart.png)
 
 	The **Add Endpoint** dialog box appears.
 
@@ -168,7 +168,7 @@ All virtual machines that you create in Windows Azure can automatically communic
 
 	The **New Endpoint Details** dialog box appears.
 
-	![Define the endpont] (../media/endpointtcpwindows.png)
+	![Define the endpont] (../../itpro/windows/media/endpointtcpwindows.png)
 
 6. In the Name field, type **MyTCPEndpoint1**.
 
@@ -178,7 +178,7 @@ All virtual machines that you create in Windows Azure can automatically communic
 
 	You will now see the endpoint listed on the **Endpoints** page.
 
-	![Endpont successfully created] (../media/endpointwindowsnew.png)
+	![Endpont successfully created] (../../itpro/windows/media/endpointwindowsnew.png)
 
 [What a virtual machine is in Windows Azure]: #virtualmachine
 [How to use the Management Portal to create a custom virtual machine running Windows Server]: #custommachine

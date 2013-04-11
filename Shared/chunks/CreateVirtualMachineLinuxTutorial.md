@@ -32,11 +32,11 @@ You use the **From Gallery** method to create a custom virtual machine in the Ma
 1. Sign in to the Windows Azure Management Portal.
 On the command bar, click **New**.
 
-	![Create new virtual machine] (../media/create.png)
+	![Create new virtual machine] (../../itpro/linux/media/create.png)
 
 2. Click **Virtual Machine**, and then click **From Gallery**.
 
-	![Choose to create a virtual machine From Gallery] (../media/createnew.png)
+	![Choose to create a virtual machine From Gallery] (../../itpro/linux/media/createnew.png)
 
 3. The **Select the virtual machine operating system** dialog box appears. 
 
@@ -73,7 +73,7 @@ On the command bar, click **New**.
     
 	The virtual machine is created and operating system settings are configured. When the virtual machine is created, you will see the new virtual machine listed as **Running** in the Windows Azure Management Portal.
 
-	![Successful virtual machine creation] (../media/vmsuccesslinux.png)
+	![Successful virtual machine creation] (../../itpro/linux/media/vmsuccesslinux.png)
 
 ## <a id="logon"> </a>How to log on to the virtual machine after you create it ##
 
@@ -86,17 +86,17 @@ This tutorial shows you how to use the PuTTY program to access the virtual machi
 
 1. Find the **Host Name** and **Port information** from the Management Portal. You can find the information that you need from the dashboard of the virtual machine. Click the virtual machine name and look for the **SSH Details** in the **Quick Glance** section of the dashboard.
 
-	![Find SSH details] (../media/SSHdetails.png)
+	![Find SSH details] (../../itpro/linux/media/SSHdetails.png)
 
 2. Open the PuTTY program.
 
 3. Enter the **Host Name** and the **Port information** that you collected from the dashboard, and then click **Open**.
 
-	![Enter the host name and port information] (../media/putty.png)
+	![Enter the host name and port information] (../../itpro/linux/media/putty.png)
 
 4. Log on to the virtual machine using the NewUser1 account that you specified when the machine was created.
 
-	![Log on to the new virtual machine] (../media/sshlogin.png)
+	![Log on to the new virtual machine] (../../itpro/linux/media/sshlogin.png)
 
 	You can now work with the virtual machine just as you would with any other server.
 
@@ -110,11 +110,11 @@ Your application may need to store data. To set this up, you attach a data disk 
 
 3. On the command bar, click **Attach**, and then click **Attach Empty Disk**.
 
-	![Attach empty disk] (../media/attachdiskwindows.png)
+	![Attach empty disk] (../../itpro/linux/media/attachdiskwindows.png)
 
 	The **Attach Empty Disk** dialog box appears.
 
-	![Define disk details] (../media/attachnewdisklinux.png)
+	![Define disk details] (../../itpro/linux/media/attachnewdisklinux.png)
 
 4. The **Virtual Machine Name**, **Storage Location**, and **File Name** are already defined for you. All you have to do is enter the size that you want for the disk. Type **5** in the **Size** field.
 
@@ -126,7 +126,7 @@ Your application may need to store data. To set this up, you attach a data disk 
 
 	The number of disks is now 2 for the virtual machine and the disk that you attached is listed in the **Disks** table.
 
-	![Attach disk success] (../media/attachemptysuccess.png)
+	![Attach disk success] (../../itpro/linux/media/attachemptysuccess.png)
 
 The data disk that you just attached to the virtual machine is offline and not initialized after you add it. You must log on to the machine and initialize the disk to use it for storing data.
 
@@ -138,7 +138,7 @@ The data disk that you just attached to the virtual machine is offline and not i
 
 	You can find the identifier of the last data disk that was added in the messages that are displayed.
 
-	![Identify disk] (../media/diskmessages.png)
+	![Identify disk] (../../itpro/linux/media/diskmessages.png)
 
 3. In the SSH window, type the following command to create a new device, and then enter **MyPassword1** for the account password:
 
@@ -146,25 +146,25 @@ The data disk that you just attached to the virtual machine is offline and not i
 
 4. Type **n** to create a new partition.
 
-	![Create new device] (../media/diskpartition.png)
+	![Create new device] (../../itpro/linux/media/diskpartition.png)
 
 5. Type **p** to make the partition the primary partition, type **1** to make it the first partition, and then type enter to accept the default value for the cylinder.
 
-	![Create partition] (../media/diskcylinder.png)
+	![Create partition] (../../itpro/linux/media/diskcylinder.png)
 
 6. Type **p** to see the details about the disk that is being partitioned.
 
-	![List disk information] (../media/diskinfo.png)
+	![List disk information] (../../itpro/linux/media/diskinfo.png)
 
 7. Type **w** to write the settings for the disk.
 
-	![Write the disk changes] (../media/diskwrite.png)
+	![Write the disk changes] (../../itpro/linux/media/diskwrite.png)
 
 8. You must create the file system on the new partition. Type the following command to create the file system, and then enter MyPassword1 for the account password:
 
 	`sudo mkfs -t ext4 /dev/sdc1`
 
-	![Create file system] (../media/diskfilesystem.png)
+	![Create file system] (../../itpro/linux/media/diskfilesystem.png)
 
 9. Type the following command to make a directory for mounting the drive, and then enter **MyPassword1** for the account password:
 
@@ -186,21 +186,21 @@ All virtual machines that you create in Windows Azure can automatically communic
 
 3. Click **Endpoints**.
 
-	![Endpoints] (../media/endpointswindows.png)
+	![Endpoints] (../../itpro/linux/media/endpointswindows.png)
 
 4. For this tutorial, you add an endpoint for communicating with the virtual machine using the TCP protocol. Click **Add Endpoint**.
 
-	![Add endpoints] (../media/addendpointstart.png)
+	![Add endpoints] (../../itpro/linux/media/addendpointstart.png)
 
 	The **Add Endpoint** dialog box appears.
 
-	![Add single endpoint] (../media/addendpointwindows.png)
+	![Add single endpoint] (../../itpro/linux/media/addendpointwindows.png)
 
 5. Accept the default selection of **Add Endpoint**, and then click the arrow to continue.
 
 	The **New Endpoint Details** page appears.
 
-	![Define the endpont] (../media/endpointtcpwindows.png)
+	![Define the endpont] (../../itpro/linux/media/endpointtcpwindows.png)
 
 6. In **Name**, type **MyTCPEndpoint1**.
 
@@ -210,7 +210,7 @@ All virtual machines that you create in Windows Azure can automatically communic
 
 	You will now see the endpoint listed on the **Endpoints** page.
 
-	![Endpont successfully created] (../media/endpointwindowsnew.png)
+	![Endpont successfully created] (../../itpro/linux/media/endpointwindowsnew.png)
 
 
 ##Next Steps 
