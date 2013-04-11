@@ -1,5 +1,6 @@
 <properties linkid="manage-linux-tutorials" urlDisplayName="Tutorials" pageTitle="Linux virtual machine tutorials - Windows Azure" metaKeywords="Linux tutorials Windows Azure, Linux tutorials Azure, Azure Linux tutorials, Azure Linux, Linux virtual machine Azure, Linux vm" metaDescription="Find tutorials about using Linux virtual machines with Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+<div chunk="../chunks/linux-left-nav.md" />
 
 #Tutorials for Linux virtual machines
 

@@ -1,6 +1,6 @@
 <properties linkid="landing-page" urlDisplayName="Other resources" pageTitle="Other resources Linux virtual machine Windows Azure" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Find topics about using Linux virtual machines in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
-
+<div chunk="../chunks/linux-left-nav.md" />
 
 #Other resources for Linux virtual machines
 

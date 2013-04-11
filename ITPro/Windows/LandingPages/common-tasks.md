@@ -1,5 +1,6 @@
 <properties linkid="manage-windows-common-tasks" urlDisplayName="Common tasks" pageTitle="Windows Azure Windows VM Common Tasks" metaKeywords="virtual machines Azure, VMs Azure" metaDescription="Find topics about virtual machines in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+<div chunk="../chunks/windows-left-nav.md" />
 
 #Common tasks for Windows virtual machines
 

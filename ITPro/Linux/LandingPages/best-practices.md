@@ -1,5 +1,6 @@
 <properties linkid="landing-page" urlDisplayName="Best practices" pageTitle="Windows Azure Linux virtual machine best practices" metaKeywords="Windows Azure best practices, Azure best practices" metaDescription="Find topics about best practices in Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/manage/windows/best-practices/" disqusComments="0" umbracoNaviHide="0" />
 
+<div chunk="../chunks/linux-left-nav.md" />
 
 # Best practices
 Guidance to help you manage robust Windows Azure solutions.
