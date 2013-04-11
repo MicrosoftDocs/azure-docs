@@ -9,12 +9,11 @@
 
 You will learn:
 
-- How to use the Preview Management Portal to select and install a Linux virtual machine running CentOS Linux from the gallery.
+- How to use the Management Portal to select and install a Linux virtual machine running CentOS Linux from the gallery.
 
 - How to connect to the virtual machine using SSH or PuTTY.
 - How to install MongoDB on the virtual machine.
 
-<div chunk="../../../DevCenter/Shared/Chunks/antares-iaas-signup-iaas.md"/>
 
 ##Create a virtual machine running CentOS Linux
 
