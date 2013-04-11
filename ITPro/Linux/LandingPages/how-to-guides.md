@@ -28,7 +28,7 @@ Learn how to create multiple virtual machines under the same cloud service to en
 
 ###[How to Quickly Create a Virtual Machine](/en-us/manage/linux/how-to-guides/quickly-create-a-vm/)
 
-Learn how to you use the Quick Create method to create a virtual machine in the Windows Azure (Preview) Management Portal. When you create this machine, all you need to provide is the name of the machine, the image that is used to create the machine, and the password for the user account that is used to manage the machine.
+Learn how to you use the Quick Create method to create a virtual machine in the management portal. When you create this machine, all you need to provide is the name of the machine, the image that is used to create the machine, and the password for the user account that is used to manage the machine.
 
 
 ###[How to Attach a Data Disk to a Virtual Machine](/en-us/manage/linux/how-to-guides/attach-a-disk/)
