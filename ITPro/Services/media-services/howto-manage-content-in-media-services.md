@@ -48,10 +48,18 @@ Currently you can perform the following content operations directly from the por
 1. In the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name.
 2. Click the **Content** view at the top of the page.
 3. Click on the desired source video for the encoding job, and then click **Encode** at the bottom of the page.
-4. In the Windows Azure Media Encoder dialog, choose from one of the available encoding presets.
+4. In the Windows Azure Media Encoder dialog, choose from one of the common or advanced encoding presets.
+
+	**Common Presets**
+
 - **Playback on PC/Mac (via Flash/Silverlight)**. This preset produces a Smooth Streaming asset with the following characteristics: 44.1 kHz 16 bits/sample stereo audio CBR encoded at 96 kbps using AAC, and 720p video CBR encoded at 6 bitrates ranging from 3400 kbps to 400 kbps using H.264 Main Profile, and two second GOPs.
 - **Playback via HTML5 (IE/Chrome/Safari)**. This preset produces a single MP4 file with the following characteristics: 44.1 kHz 16 bits/sample stereo audio CBR encoded at 128 kbps using AAC, and 720p video CBR encoded at 4500 kbps using H.264 Main Profile.
 - **Playback on iOS devices and PC/Mac**. This preset produces an asset with the same characteristics as the Smooth Streaming asset (described above), but in a format that can be used to deliver Apple HLS streams to iOS devices. 
+
+	**Advanced Presets**
+	
+- The [Task Preset Strings for Windows Azure Media Encoder](http://go.microsoft.com/fwlink/?LinkId=270865) topic explains what each prest in the Advanced Presets list means. 
+
 
 	![EncoderDialog][encoder]
 
@@ -82,4 +90,4 @@ Currently you can perform the following content operations directly from the por
 [status]: ../media/Status.png
 [statuscomplete]: ../media/StatusComplete.png
 [portaluploadcomplete]: ../media/PortalViewUploadComplete.png
-[encoder]: ../media/EncoderDialog.png
+[encoder]: ../media/EncoderDialog2.png
