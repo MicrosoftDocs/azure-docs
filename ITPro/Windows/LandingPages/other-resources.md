@@ -4,7 +4,7 @@
 
 #Other resources for Windows virtual machines
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
+
 
 ###[Guidelines for Deploying Windows Server Active Directory on Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx)
 

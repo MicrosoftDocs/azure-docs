@@ -5,7 +5,7 @@
 <h1 id="guides">How to guides for Linux virtual machines</h1>
 
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
+
 
 ###[How to Create a Custom Virtual Machine](/en-us/manage/linux/common-tasks/upload-a-VHD/)
 

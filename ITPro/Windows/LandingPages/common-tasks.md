@@ -3,7 +3,6 @@
 
 #Common tasks for Windows virtual machines
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
 
 ###[Provisioning a SQL Server Virtual Machine on Windows Azure](/en-us/manage/windows/common-tasks/install-sql-server/)
 
