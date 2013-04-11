@@ -21,7 +21,7 @@ First, you'll need to create a virtual machine with a new cloud service, and the
 
 	The **Select the virtual machine operating system** dialog box appears. 
 
-	4. From **Platform Images**, select an image, and then click the arrow to continue.
+4. From **Platform Images**, select an image, and then click the arrow to continue.
 
 	The **Virtual machine configuration** dialog box appears.
 
