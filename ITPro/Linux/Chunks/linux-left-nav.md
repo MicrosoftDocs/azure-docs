@@ -11,7 +11,7 @@
 </ul>
 <ul class="links">
 <li class="forum"><a href="http://go.microsoft.com/fwlink/p/?LinkId=291339">Forums</a></li>
-<li class="link">http://go.microsoft.com/fwlink/p/?LinkId=294804<a href="">Download CLI Tools</a></li>
+<li class="link"><a href="http://go.microsoft.com/fwlink/p/?LinkId=294804">Download CLI Tools</a></li>
 </div>
 <div class="floating-nav jump-to">
 <ul>
