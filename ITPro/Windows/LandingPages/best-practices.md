@@ -1,5 +1,6 @@
 <properties linkid="manage-windows-best-practices" urlDisplayName="Best practices" pageTitle="Windows Azure Windows virtual machine best practices" metaKeywords="Azure best practices" metaDescription="Find topics about best practices in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+<div chunk="../chunks/windows-left-nav.md" />
 
 # Best practices
 Guidance to help you manage robust Windows Azure solutions.
