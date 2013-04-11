@@ -2,4 +2,4 @@
 
 <div chunk="../chunks/windows-left-nav.md" />
 
-<div chunk="../../shared/chunks/howto-detach-disk-windows-linux.md" />
+<div chunk="../../../ITPro/Shared/Chunks/howto-detach-disk-windows-linux.md" />

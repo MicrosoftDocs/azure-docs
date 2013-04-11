@@ -1,4 +1,4 @@
-Windows Azure customers can unlock two months of SendGrid's Bronze Plan for free by entering the promo code **freesendgridbronze**. This will give you 40,000 free emails per month and all the bronze features free of charge for the first two months. For information about additional services provided by SendGrid, see the [SendGrid Features][] page.
+Windows Azure customers can unlock 25,000 free emails each month. These 25,000 free monthly emails will give you access to advanced reporting and analytics and all APIs (Web, SMTP, Event, Parse, Sub-User). For information about additional services provided by SendGrid, see the [SendGrid Features][] page.
 
 ### To sign up for a SendGrid account
 
@@ -16,21 +16,19 @@ Windows Azure customers can unlock two months of SendGrid's Bronze Plan for free
 
 5. In the **Personalize Add-on** dialog select the **SendGrid** plan you want to sign up for.
 
-6. To receive the two months of SendGrid's Bronze Plan for free, enter the promotion code "bronzesendgridmsft".
-
-7. Enter a name to identify your **SendGrid** service in your Windows Azure settings, or use the default value of **SendGrid**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Windows Azure Store Items.
+6. Enter a name to identify your **SendGrid** service in your Windows Azure settings, or use the default value of **SendGrid**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Windows Azure Store Items.
 
 	![store-screen-2][]
 
-8. Choose a value for the region; for example, West US. 
+7. Choose a value for the region; for example, West US.
 
-9. Click the right arrow.
+8. Click the right arrow.
 
-10. On the **Review Purchase** tab, review the plan and pricing information, and review the legal terms. If you agree to the terms, click the check mark. After you click the check mark, your SendGrid account will begin the provisioning process. 
+9. On the **Review Purchase** tab, review the plan and pricing information, and review the legal terms. If you agree to the terms, click the check mark. After you click the check mark, your SendGrid account will begin the provisioning process.
 
 	![store-screen-3][]
 
-11. After confirming your purchase you are redirected to the add-ons dashboard and you will see the message **Purchasing SendGrid**.
+10. After confirming your purchase you are redirected to the add-ons dashboard and you will see the message **Purchasing SendGrid**.
 
 	![sendgrid-purchasing-message][]
 
