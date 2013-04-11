@@ -85,11 +85,7 @@ The following steps show you how to create a Hive ODBC Data Source.
 
 The steps below describe the way to import data from a hive table into excel workbook using the ODBC data source that you created in the steps above.
 
-<<<<<<< HEAD
-1. Open a new or existing workbook in Excel 2010 or 2013.
-=======
 1. Open a new or existing workbook in Excel.
->>>>>>> bdb431779454d4db9d5a04b087be30cef5403e5e
 
 2. In Excel, click the **Data** tab. 
 
