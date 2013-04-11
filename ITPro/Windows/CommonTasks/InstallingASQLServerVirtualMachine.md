@@ -4,8 +4,6 @@
 
 # Provisioning a SQL Server Virtual Machine on Windows Azure #
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
-
 The Windows Azure virtual machine gallery includes several images that contain Microsoft SQL Server. You can select one of the virtual machine images from the gallery and with a few clicks you can provision the virtual machine to your Windows Azure environment.
 
 In this tutorial, you will:
