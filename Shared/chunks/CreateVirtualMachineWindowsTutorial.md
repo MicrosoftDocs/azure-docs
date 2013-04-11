@@ -23,7 +23,7 @@ A virtual machine in Windows Azure is a server in the cloud that you can control
 You can use the following options to create a virtual machine from an image:
 
 - Create a virtual machine by using a platform image available from the Windows Azure Management Portal.
-- Create and upload a .vhd file that contains an image to Windows Azure, and then  use the uploaded image to create a virtual machine. For instructions, see [Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System](../../common-tasks/upload-a-vhd/).
+- Create and upload a .vhd file that contains an image to Windows Azure, and then  use the uploaded image to create a virtual machine. For instructions, see [Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System](/en-us/manage/windows/common-tasks/upload-a-vhd/).
 
 ## <a id="custommachine"> </a>How to use the Management Portal to create a custom virtual machine running Windows Server ##
 
