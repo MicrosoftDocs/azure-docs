@@ -11,7 +11,7 @@
 <li>If you have an existing account but need to enable the Windows Azure Recovery Services preview, see <a href="/en-us/develop/net/tutorials/create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li>
 </ul>
  
-<p>After you request to join the Backup preview program wait for your status to become <b>You are active</b>. We are currently auto-approving all customers so this will not take a long time to occur.</p> 
+<p>After you request to join the Backup preview program wait for your status to become active. We are automatically approving all customers so this will not take a long time to occur.</p> 
 </div>
   
 
