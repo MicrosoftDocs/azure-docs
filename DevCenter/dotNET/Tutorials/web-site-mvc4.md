@@ -1,4 +1,4 @@
-<properties linkid="develop-net-tutorials-get-started" urlDisplayName="Get started with Windows Azure" pageTitle="Get started with Windows Azure for .NET" metaKeywords="" metaDescription="This tutorial shows you how to deploy an ASP.NET web site to Windows Azure. In less than 15 minutes you'll have an app up-and-running in the cloud." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-net-tutorials-get-started" urlDisplayName="Get started with Windows Azure" pageTitle="Get started with Windows Azure for .NET" metaKeywords="" metaDescription="This tutorial shows you how to deploy an ASP.NET web site to Windows Azure. In less than 15 minutes you'll have an app up-and-running in the cloud." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra" editor="mollybos" manager="wpickett" />
 
 
 
@@ -41,7 +41,7 @@ To start, set up your development environment by installing the Windows Azure SD
 
 2. When you are prompted to run or save the installation executable, click **Run**.<br/>
 3. In the Web Platform Installer window, click **Install** and proceed with the installation.<br/>
-![Web Platform Installer - Windows Azure SDK for .NET][WebPIAzureSDKNETVS12Oct2012]<br/>
+![Web Platform Installer - Windows Azure SDK for .NET][WebPIAzureSdk20NetVS12]<br/>
 4. If you are using Visual Studio 2010 or Visual Web Developer 2010 Express, install [MVC 4][MVC4Install].
 
 When the installation is complete, you have everything necessary to start developing.
@@ -88,26 +88,18 @@ This is all you need to do to create a simple application that you'll deploy to 
 
 <h2><a name="deploytowindowsazure"></a><span class="short-header">Deploy the app</span>Deploy the application to Windows Azure</h2>
 
-1. In your browser, open the [Windows Azure Management Portal][PreviewPortal].
-2. In the **Web Sites** tab, click the name of the site you created earlier.<br/>
-![Select a web site][ClickWebSite]
-3. Under **Quick glance** in the **Dashboard** tab, click **Download publish profile**.<br/>
-![Download publish profile link][DownloadPublishProfile]<br/>
-This step downloads a file that contains all of the settings that you need in order to deploy an application to your web site. You'll import this file into Visual Studio so you don't have to enter this information manually.
-4. Save the .publishsettings file in a location (such as a local folder) that you can access from Visual Studio.<br/>
-![Save the .publishsettings file][SavePublishSettings]
 5. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
 ![Publish in project context menu][PublishVSSolution]<br/>
 The **Publish Web** wizard opens.
 6. In the **Profile** tab of the **Publish Web** wizard, click **Import**.<br/>
 ![Import publish settings][ImportPublishSettings]
-7. Select the **.publishsettings** file you downloaded earlier, and then click **Open**.<br/>
-![Select publish settings file][SelectPublishSettingsFile]
+7. In the **Import Publish Profile** dialog box, select **Import from a Windows Azure web site**, select your web site from the drop-down list, and then click **OK**.<br/>
+![Import Publish Profile][ImportPublishProfile]
 8. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.<br/>
 ![Validate connection][ValidateConnection]<br/>
 9. When the connection has been validated, a green check mark is shown next to the **Validate Connection** button. Click **Next**.<br/>
 ![Successfully validated connection][ValidateConnectionSuccess]
-10. In the **Settings** tab, uncheck **Use this connection string at runtime** option, since this application is not using a databsae. You can accept the default settings for the remaining items on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server.<br/>
+10. In the **Settings** tab, uncheck **Use this connection string at runtime** option, since this application is not using a database. You can accept the default settings for the remaining items on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server.<br/>
 Click **Next**.<br/>
 ![Settings tab][PublishWebSettingsTab]
 11. In the **Preview** tab, click **Start Preview**.<br/>
@@ -125,7 +117,7 @@ The application you created is now running in the cloud.<br/>
 
 You've seen how to deploy a web application to a Windows Azure Web Site. When you are finished with your deployed web site, you can delete it in the Windows Azure management portal. In the **Web Sites** tab, click the name of the site you want to delete and click **Delete**.
 
-For information about how to deploy a web application that includes a SQL Server database, see [Deploying an ASP.NET Web Application to a Windows Azure Web Site and SQL Database][WebWithSQL].
+For information about how to deploy a web application that includes a SQL Server database, see [Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to a Windows Azure Web Site][WebWithSQL].
 
 To learn more about how to configure, manage, and scale Windows Azure Web Sites, see the how-to topics on the [Web Sites management][WebSitesManagement] page.
 
@@ -152,6 +144,7 @@ You can deploy a web application to a Windows Azure Cloud Service instead of a W
 [DeployedWebSite]: ../Media/DeployedWebSite.png
 [DownloadPublishProfile]: ../Media/DownloadPublishProfile.png
 [ImportPublishSettings]: ../Media/ImportPublishSettings.png
+[ImportPublishProfile]: ../Media/ImportPublishProfile.png
 [InternetAppTemplate]: ../Media/InternetAppTemplate.png
 [NewMVC4WebApp]: ../Media/NewMVC4WebApp.png
 [NewVSProject]: ../Media/NewVSProject.png
@@ -161,9 +154,8 @@ You can deploy a web application to a Windows Azure Cloud Service instead of a W
 [PublishWebStartPreview]: ../Media/PublishWebStartPreview.png
 [PublishWebStartPreviewOutput]: ../Media/PublishWebStartPreviewOutput.png
 [SavePublishSettings]: ../Media/SavePublishSettings.png
-[SelectPublishSettingsFile]: ../Media/SelectPublishSettingsFile.png
 [ValidateConnection]: ../Media/ValidateConnection.png
 [ValidateConnectionSuccess]: ../Media/ValidateConnectionSuccess.png
-[WebPIAzureSDKNETVS12Oct2012]: ../Media/WebPIAzureSDKNETVS12Oct2012.png
+[WebPIAzureSdk20NetVS12]: ../Media/WebPIAzureSdk20NetVS12.png
 [WebSiteNew]: ../Media/WebSiteNew.png
 [WebSiteStatusRunning]: ../Media/WebSiteStatusRunning.png
