@@ -139,7 +139,7 @@ In this tutorial you learned how to create a chat application hosted in a Window
 
 [socketio]: http://socket.io/
 [completed-app]: ../media/websitesocketcomplete.png
-[Socket.IO GitHub repository]: https://github.com/LearnBoost/socket.io
+[Socket.IO GitHub repository]: https://github.com/LearnBoost/socket.io/tree/0.9.14
 [cloudservice]: /en-us/develop/nodejs/tutorials/app-using-socketio/
 
 [chat-example-view]: ../Media/socketio-2.PNG
