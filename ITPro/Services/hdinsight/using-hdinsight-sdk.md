@@ -97,13 +97,13 @@ In this section you will learn how to upload files to Hadoop cluster programmati
 7. In the Main() function, copy and paste the following code:
 		
 		// Upload actors.txt to Blob Storage
-		var asvAccount = [Storage account name];
+		var asvAccount = [Storage-account-name.blob.core.windows.net];
 		var asvKey = [Storage account key];
 		var asvContainer = [Container name];
 		var localFile = "C:/Tutorials/Actors.txt"
 		var hadoopUser = [Hadoop user name]; // The HDInsight cluster user
 		var hadoopUserPassword = [Hadoop user password]; // The HDInsight cluster user password
-		var clusterURI = [HDInsight cluster URL]; //"https://HDInsightCluster Name.azurehdinsight.net";
+		var clusterURI = [HDInsight cluster URL]; //"https://HDInsightCluster Name.azurehdinsight.net:563";
 		
 		var storageAdapter = new BlobStorageAdapter(asvAccount, asvKey, asvContainer, true);
 		var HDFSClient = new WebHDFSClient(hadoopUser, storageAdapter);
