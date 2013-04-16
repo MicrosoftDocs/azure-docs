@@ -1,6 +1,19 @@
 <properties linkid="manage-dataservices-recoveryservices-backup" urlDisplayName="Windows Azure Backup" pageTitle="Configure Windows Azure Recovery Services to quickly and easily back-up Windows Server" metaKeywords="Windows Azure Backup, Online Backup, back-up service" metaDescription="Use Windows Azure Backup to help you protect important server data offsite with automated backups to Windows Azure, where they are available for easy data restoration." metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="starra" editor="tysonn" manager="cynthn" /> 
 <div chunk="../chunks/recoveryservices-left-nav.md"/>
 <h1><a id="configure-a-backup-vault-tutorial"></a>Configure Windows Azure Recovery Services to quickly and easily back-up Windows Server</h1>
+<div class="dev-callout"> 
+<strong>Note</strong>
+ 
+<p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Recovery Services feature enabled.</p>
+<ul> 
+<li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="/en-us/pricing/free-trial/">Windows Azure Free Trial</a>.</li> 
+ 
+<li>If you have an existing account but need to enable the Windows Azure Recovery Services preview, see <a href="/en-us/develop/net/tutorials/create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li>
+</ul>
+ 
+<p>After you request to join the Backup preview program wait for your status to become active. We are automatically approving all customers so this will not take a long time to occur.</p> 
+</div>
+  
 
 To backup files and data from your Windows Server in Windows Azure, you must create a backup vault in the geographic region where you want to store the data. This tutorial will walk you through the creation of the vault you will use to store backups, the uploading of a certificate to the vault, the installation of a backup agent, and an overview of the backup management tasks available through the management portal.
 
@@ -13,7 +26,7 @@ an X.509 v3 certificate to register your servers with Recovery Services vaults. 
 <ul>
 <li>Your own self-signed certificate created using makecert tool, OR</li> 
 
-<li>Any valid SSL certificate issued by a Certificate Authority (CA) that is trusted by Microsoft and whose root certificates are distributed via the Microsoft Root Certificate Program. For more information about this program see <a><href>http://support.microsoft.com/kb/931125</href></a>.</li>
+<li>Any valid SSL certificate issued by a Certificate Authority (CA) that is trusted by Microsoft and whose root certificates are distributed via the Microsoft Root Certificate Program. For more information about this program see <a href="http://go.microsoft.com/fwlink/p/?LinkId=294666">Windows Root Certificate Program members</a>.</li>
 </ul> 
 
 <p>Some other attributes which you need to ensure on the certificates are:</p> 
@@ -26,16 +39,18 @@ an X.509 v3 certificate to register your servers with Recovery Services vaults. 
 
 <p>To use your own self-signed certificate, follow these steps: </p>
 <ol>
-<li>Download Certificate Creation Tool (makecert.exe) from <a><href>http://gallery.technet.microsoft.com/Certificate-Creation-tool-5b7c054d</href></a></li>  
+<li>Download the <a href="http://go.microsoft.com/fwlink/p/?LinkID=294662">Certificate Creation tool (MakeCert.exe)</a>.</li>  
 
 
-<li>Open Command Prompt (cmd.exe) with Administrator privileges and run the following command, replacing <i>CertificateName</i> with the name of your certificate : 
+<li>Open Command Prompt (cmd.exe) with Administrator privileges and run the following command, replacing <i>CertificateName</i> with the name of your certificate and specifying the actual expiration date of your certificate after -e: 
 <code>
-makecert.exe -R -PE -N CN=CertificateName -SS my -SR localmachine -EKU 1.3.6.1.5.5.7.3.2 –len 2048 “CertificateName.cer”</code></li>
+makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5.5.7.3.2 -len 2048 -e 01/01/2016 CertificateName.cer</code></li>
 </ol>
 <p>
 If you will be registering a different server than the one you used to make the certificate, you need to export the .pfx file (that contains the private key), copy it to the other server and import it to that server’s Personal certificate store. 
-</p> 
+</p>
+<p>
+For step-by-step instructions on the vault certificate upload process, see <a href="http://go.microsoft.com/fwlink/p/?LinkID=294662">Upload certificates to the vault</a>.</p> 
 </div>
 
 <h2><a id="create"></a>Create a backup vault</h2>

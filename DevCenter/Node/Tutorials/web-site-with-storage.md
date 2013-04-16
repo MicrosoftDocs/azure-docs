@@ -366,7 +366,7 @@ Replace the above line with the code shown below. This will initialize an instan
 		  br
 
 		  form(action="/completetask", method="post")
-		    table(class="table table-striped table-bordered")
+		    table.table.table-striped.table-bordered
 		      tr
 		        td Name
 		        td Category
@@ -382,15 +382,15 @@ Replace the above line with the code shown below. This will initialize an instan
 		          td #{month + "/" + day + "/" + year}
 		          td
 		            input(type="checkbox", name="#{task.RowKey}", value="#{!task.itemCompleted}", checked=task.itemCompleted)
-		    button(type="submit", class="btn") Update tasks
+		    button.btn(type="submit") Update tasks
 		  hr
-		  form(action="/addtask", method="post", class="well")
+		  form.well(action="/addtask", method="post")
 		    label Item Name: 
 		    input(name="item[name]", type="textbox")
 		    label Item Category: 
 		    input(name="item[category]", type="textbox")
 		    br
-		    button(type="submit", class="btn") Add item
+		    button.btn(type="submit") Add item
 
 3. Save and close **index.jade** file.
 
@@ -408,11 +408,11 @@ The **layout.jade** file in the **views** directory is used as a global template
 		    title= title
 		    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
 		    link(rel='stylesheet', href='/stylesheets/style.css')
-		  body(class='app')
-		    div(class='navbar navbar-fixed-top')
+		  body.app
+		    div.navbar.navbar-fixed-top
 		      .navbar-inner
 		        .container
-		          a(class='brand', href='/') My Tasks
+		          a.brand(href='/') My Tasks
 		    block content
 
 3. Save the **layout.jade** file.
