@@ -59,11 +59,11 @@ The following is a screenshot of the completed application:
 
 	* **Linux** - Use your distributions package management system. This tutorial was validated on Ubuntu 12.10 using the ruby1.9.1 and ruby1.9.1-dev packages.
 
-	* **Windows** - There are several Ruby distributions for Windows. This tutorial was validated using [RubyInstaller](http://rubyinstaller.org/) 1.9.3-p392.
+	* **Windows** - There are several Ruby distributions for Windows. This tutorial was validated using [RailsInstaller](http://railsinstaller.org/) 1.9.3-p392.
 
-2. Use the following command to install the latest version of Rails:
+2. Open a new command-line or terminal session and enter the following command to install Ruby on Rails:
 
-		gem install rails
+		gem install rails --no-rdoc --no-ri
 
 	<div class="dev-callout">
 	<strong>Note</strong>
@@ -74,7 +74,6 @@ The following is a screenshot of the completed application:
 	<div class="dev-callout">
 	<strong>Note</strong>
 	<p>Version 3.2.12 of the Rails gem was used for this tutorial.</p>
-
 	</div>
 
 3. You must also install a JavaScript interpreter, which will be used by Rails to compile CoffeeScript assets used by your Rails application. A list of supported interpreters is available at [https://github.com/sstephenson/execjs#readme](https://github.com/sstephenson/execjs#readme).
@@ -83,11 +82,16 @@ The following is a screenshot of the completed application:
 
 ##<a id="create"></a>Create a Rails application
 
-1. Open a new command-line or terminal session and create a new Rails application named "blog_app" by using the following command:
+1. From the command-line or terminal session, create a new Rails application named "blog_app" by using the following command:
 
 		rails new blog_app
 
-	This command creates a new directory named **blog_app**, and populates it with the files and sub-directories required by a Rails application. Finally the **bundle install** command will be ran to install gems listed in the **Gemfile** created by the **rails new** command.
+	This command creates a new directory named **blog_app**, and populates it with the files and sub-directories required by a Rails application.
+
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>This command may take a minute or longer to complete. It performs a silent installation of the gems required for a default application, and during this time may appear to hang.</p>
+	</div>
 
 2. Change directories to the **blog_app** directory, and then use the following command to create a basic blog scaffolding:
 
@@ -140,12 +144,12 @@ For this tutorial, we will use [Git](http://git-scm.com/) and [GitHub](https://g
 	<p>The scripts created in later sections of this document will contain the address of your virtual machine and the user name used to deploy the application over SSH. For this reason, we recommend that you use a private GitHub repository if possible.</p>
 	</div>
 
-2.	Run the following commands from within the on your local computer to upload the initial version of the application:
+2.	From the command prompt, change directories to the **blog_app** directory and run the following commands to upload the initial version of the application to your GitHub repository:
 
 		git init
 		git add .
 		git commit -m "initial commit on azure"
-		git remote add origin git@github.com:YOUR_GITHUB_ACCOUNT/blog-azure.git
+		git remote add origin https://github.com/YOUR_GITHUB_ACCOUNT/blog-azure.git
 		git push -u origin master
 
 
@@ -163,7 +167,7 @@ Follow the instructions given [here][vm-instructions] to create a Windows Azure 
 <p>You <strong>only</strong> need to create the virtual machine. Stop after learning how to connect to the virtual machine using SSH.</p>
 </div>
 
-After creating the Windows Azure Virtual Machine, perform the following steps to install Ruby and Rails on the virtual machine:
+After creating the Windows Azure Virtual Machine using SSH and perform the following steps to install Ruby and Rails on the virtual machine:
 
 1. Connect to the virtual machine using SSH and use the following commands to update existing packages and install your Ruby environment:
 
@@ -373,8 +377,6 @@ If you append '/posts' to the URL, the posts index should appear and you should 
 In this article you have learned how to create and publish a basic forms-based Rails application to a Windows Azure Virtual Machine using Capistrano. The virtual machine used Unicorn and Nginx to handle web requests to the application.
 
 While Capistrano is a popular deployment method for Ruby on Rails applications, it is not the only one. To see another method of deploying an application to a virtual machine, see [Deploying Ruby on Rails to a Windows Azure VM using Chef].
-
-This article also used the SQLite database to store data. Learn how to use Rails with SQL Database in the [Using SQL Database with Rails][sql-rails] article.
 
 If you would like to learn more about Ruby on Rails, visit the [Ruby on Rails Guides][rails-guides].
 
