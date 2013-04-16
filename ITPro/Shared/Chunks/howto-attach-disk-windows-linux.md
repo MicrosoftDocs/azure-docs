@@ -1,7 +1,5 @@
 #How to Attach a Data Disk to a Virtual Machine
 
-To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures). 
-
 * [Concepts](#concepts)
 * [How to: Attach an existing disk](#attachexisting)
 * [How to: Attach an empty disk](#attachempty)
@@ -12,36 +10,7 @@ To use this feature and other new Windows Azure capabilities, sign up for the [f
 
 You can attach a data disk to a virtual machine to store application data. A data disk is a Virtual Hard Disk (VHD) that you can create either locally with your own computer or in the cloud with Windows Azure. You manage data disks in the virtual machine the same way you do on a server in your office.
 
-You can upload and attach a data disk that already contains data to the virtual machine, or you can attach an empty disk to the machine. The virtual machine is not stopped to add the disk. You are limited in the number of disks that you can attach to a virtual machine based on the size of the machine. The following table lists the number of attached disks that are allowed for each size of virtual machine.
-
-<P>
-  <TABLE BORDER="1" WIDTH="300">
-  <TR BGCOLOR="#E9E7E7">
-    <TH>Size</TH>
-    <TH>Data Disk Limit</TH>
-  </TR>
-  <TR>
-    <TD>Extra Small</TD>
-    <TD>1</TD>
-  </TR>
-  <TR>
-    <TD>Small</TD>
-    <TD>2</TD>
-  </TR>
-  <TR>
-    <TD>Medium</TD>
-    <TD>4</TD>
-  </TR>
-  <TR>
-    <TD>Large</TD>
-    <TD>8</TD>
-  </TR>
-  <TR>
-    <TD>Extra Large</TD>
-    <TD>16</TD>
-  </TR>
-  </TABLE>
-</P>
+You can upload and attach a data disk that already contains data to the virtual machine, or you can attach an empty disk to the machine. The virtual machine is not stopped to add the disk. You are limited in the number of disks that you can attach to a virtual machine based on the size of the machine. The following table lists the number of attached disks that are allowed for each size of virtual machine. For more information about virtual machine and disk sizes, see [Virtual Machine Sizes for Windows Azure](http://go.microsoft.com/FWLink/p/?LinkID=294683).
 
 For more information about using data disks, see [Manage disks and images] [].
 
@@ -101,7 +70,7 @@ When you create a new data disk, you decide the size of the disk. After you atta
 
 The data disk that you just attached to the virtual machine is offline and not initialized after you add it. You must access the machine and initialize the disk to use it for storing data. 
 
-1. Connect to the virtual machine by using the steps listed in [How to log on to a virtual machine running Windows Server 2008 R2][logon]
+1. Connect to the virtual machine by using the steps listed in [How to log on to a virtual machine running Windows Server][logon].
 
 2. After you log on to the machine, open **Server Manager**, in the left pane, expand **Storage**, and then click **Disk Management**.
 

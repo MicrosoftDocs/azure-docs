@@ -1,10 +1,8 @@
 <properties linkid="manage-services-cross-premises-connectivity" urlDisplayName="Cross-premises Connectivity" pageTitle="Create a cross-premises virtual network - Windows Azure" metaKeywords="" metaDescription="Learn how to create a Windows Azure Virtual Network with cross-premises connectivity." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-
+<div chunk="../chunks/networking-left-nav.md" />
 
 <h1 id="vnettut1">Create a Virtual Network for Cross-Premises Connectivity</h1>
-
-<div chunk="../../Shared/Chunks/disclaimer.md" />
 
 This tutorial walks you through the steps to create a [Windows Azure virtual network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx) that connects to your company's network using the Management Portal. After completing this tutorial, you will have a virtual network where you can deploy your Windows Azure services and communicate with your company's network.
 
@@ -54,7 +52,7 @@ In this tutorial you will learn:
 
 **To create a virtual network that connects to your company's network:**
 
-1.	Log in to the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com/).
+1.	Log in to the [Windows Azure Management Portal](http://manage.windowsazure.com/).
 2.	In the lower left-hand corner of the screen, click **New**. 
 
 	![CreateNew][]

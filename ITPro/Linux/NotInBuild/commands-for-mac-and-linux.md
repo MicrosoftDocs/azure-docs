@@ -1,3 +1,6 @@
+
+<div chunk="../chunks/linux-left-nav.md" />
+
 #Commands for the Windows Azure cmdline tool for Mac and Linux-ARCHIVED
 
 To use this tool with virtual machines and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
