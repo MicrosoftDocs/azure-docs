@@ -163,20 +163,26 @@ This is all you need to do for now to create the application that you'll deploy 
 The **Publish Web** wizard opens.
 6. In the **Profile** tab of the **Publish Web** wizard, click **Import**.<br/>
 ![Import publish settings][ImportPublishSettings]
-1. If you have not previously added a Windows Azure subscription, the **Import Publish Profile** dialog box will be empty. Click the link **Add Windows Azure subscription** 
-![add win az sub][rzAddWAsub]
-1. Click **Download subscription file**.
-![download sub][rzDownLoad]
-1. In your browser window, save the publish settings file.
-![download pub file][rzDown2]
-<div chunk="../../shared/chunks/publishsettingsFileWarningChunk.md" />
-1. Click **Browse** and navigate to the publish setting file.
-![download sub][rzDownLoad]
-1. Click **Import**.
-![import][rzImp]
-
+The **Import Publish Profile** dialog box appears.
+1. If you have not previously added your Windows Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from a Windows Azure web site** will include your web site.
+    1. In the **Import Publish Profile** dialog box, click **Add Windows Azure subscription**.<br/> 
+    ![add win az sub](../Media/rzAddWAsub.png)
+    1. In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.<br/>
+    ![download sub](../Media/rzDownLoad.png)
+    1. In your browser window, save the *.publishsettings* file.<br/>
+    ![download pub file](../Media/rzDown2.png)
+    <div chunk="../../shared/chunks/publishsettingsFileWarningChunk.md" />
+    1. In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
+    ![download sub](../Media/rzDownLoad.png)
+    1. Click **Import**.<br/>
+    ![import](../Media/rzImp.png)
 7. In the **Import Publish Profile** dialog box, select **Import from a Windows Azure web site**, select your web site from the drop-down list, and then click **OK**.<br/>
 ![Import Publish Profile][ImportPublishProfile]
+
+
+
+
+
 8. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.<br/>
 ![Validate connection][ValidateConnection]<br/>
 9. When the connection has been validated, a green check mark is shown next to the **Validate Connection** button.<br/>
