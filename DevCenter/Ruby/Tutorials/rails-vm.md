@@ -44,11 +44,11 @@ The following is a screenshot of the completed application:
 
 	* **Linux** - Use your distributions package management system. This tutorial was validated on Ubuntu 12.10 using the ruby1.9.1 and ruby1.9.1-dev packages.
 
-	* **Windows** - There are several Ruby distributions for Windows. This tutorial was validated using [RubyInstaller](http://rubyinstaller.org/) 1.9.3-p392.
+	* **Windows** - There are several Ruby distributions for Windows. This tutorial was validated using [RailsInstaller](http://railsinstaller.org/) 1.9.3-p392.
 
-2. Use the following command to install the latest version of Rails:
+2. Open a new command-line or terminal session and enter the following command to install Ruby on Rails:
 
-		gem install rails
+		gem install rails --no-rdoc --no-ri
 
 	<div class="dev-callout">
 	<strong>Note</strong>
@@ -68,13 +68,18 @@ The following is a screenshot of the completed application:
 
 ##<a id="create"></a>Create a Rails application
 
-1. Open a new command-line or terminal session and create a new Rails application named "blog" by using the following command:
+1. From the command-line or terminal session, create a new Rails application named "blog_app" by using the following command:
 
-		rails new blog
+		rails new blog_app
 
-	This command creates a new directory named **blog**, and populates it with the files and sub-directories required by a Rails application. Finally the **bundle install** command will be ran to install gems listed in the **Gemfile** created by the **rails new** command.
+	This command creates a new directory named **blog_app**, and populates it with the files and sub-directories required by a Rails application.
 
-2. Change directories to the the **blog** directory, and then use the following command to create a basic blog scaffolding:
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>This command may take a minute or longer to complete. It performs a silent installation of the gems required for a default application, and during this time may appear to hang.</p>
+	</div>
+
+2. Change directories to the the **blog_app** directory, and then use the following command to create a basic blog scaffolding:
 
 		rails generate scaffold Post name:string title:string content:text
 
@@ -90,7 +95,7 @@ The following is a screenshot of the completed application:
 
 Perform the following steps to start the Rails server in your development environment
 
-1. Change directories to the **hello** directory if you are not already there, and start the rails server using the following command:
+1. From the command-line or terminal session, start the rails server using the following command:
 
 		rails s
 
@@ -130,9 +135,24 @@ Follow the instructions given [here][vm-instructions] to create a Windows Azure 
 
 After creating the Windows Azure Virtual Machine, perform the following steps to install Ruby and Rails on the virtual machine:
 
-1. Connect to the virtual machine using SSH and use the following commands to install your Ruby environment:
+1. From the command-line or terminal session, use the following command to connect to the virtual machine using SSH:
 
-		sudo apt-get install ruby1.9.1 ruby1.9.l-dev build-essential libsqlite3-dev nodejs
+		ssh username@vmdns -p port
+
+	Substitute the user name specified during the creation of the VM, the DNS address of the VM, and the port of the SSH endpoint. For example:
+
+		ssh railsdev@railsvm.cloudapp.net -p 61830
+
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>If you are using Windows as your development environment, you can use a utility such as <b>PuTTY</b> for SSH functionality. PuTTY can be obtained from the <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY download page</a>.</p>
+	</div>
+
+2. From the SSH session, use the following commands to install Ruby on the VM:
+
+		sudo apt-get update -y
+		sudo apt-get upgrade -y
+		sudo apt-get install ruby1.9.1 ruby1.9.l-dev build-essential libsqlite3-dev nodejs -y
 
 	After the installation completes, use the following command to verify that Ruby has been successfully installed:
 
@@ -142,19 +162,19 @@ After creating the Windows Azure Virtual Machine, perform the following steps to
 
 2. Use the following command to install Bundler:
 
-		sudo gem install bundler
+		sudo gem install bundler --no-rdoc --no-ri
 
 	Bundler will be used to install the gems required by your rails application once it has been copied to the server.
 
 ##<a id="copy"></a>Copy the application to the VM
 
-From your development envirionment, use the **scp** command to copy the **hello** directory to the virtual machine. The format for this command is as follows:
+From your development envirionment, open a new command-line or terminal session and use the **scp** command to copy the **blog_app** directory to the virtual machine. The format for this command is as follows:
 
 	scp -r -P 54822 -C directory-to-copy user@vmdns:
 
 For example:
 
-	scp -r -P 54822 -C ~/blog railsdev@railsvm.cloudapp.net:
+	scp -r -P 54822 -C ~/blog_app railsdev@railsvm.cloudapp.net:
 
 <div class="dev-callout">
 <strong>Note</strong>
@@ -173,16 +193,16 @@ The parameters used for this command have the following effect:
 
 * **user@vmdns**: The address of the machine to copy the files to, as well as the user account to log in with
 
-After the copy operation, the **blog** directory will be located in the users home directory. Use the following commands in the SSH session with the virtual machine to view the files that were copied:
+After the copy operation, the **blog_app** directory will be located in the users home directory. Use the following commands in the SSH session with the virtual machine to view the files that were copied:
 
-	cd ~/blog
+	cd ~/blog_app
 	ls
 
-The list of files returned should match the files contained in the **blog** directory in your development environment.
+The list of files returned should match the files contained in the **blog_app** directory in your development environment.
 
 ##<a id="start"></a>Install gems and start Rails
 
-1. On the virtual machine, change directories to the **blog** directory and use the following command to install the gems specified in the **Gemfile**:
+1. On the virtual machine, change directories to the **blog_app** directory and use the following command to install the gems specified in the **Gemfile**:
 
 		sudo bundle install
 
@@ -220,7 +240,7 @@ The list of files returned should match the files contained in the **blog** dire
 
 	* **PUBLIC PORT**: 80
 
-	* **PRIVATE PORT**: &lt;port information from step 1 above&gt;
+	* **PRIVATE PORT**: &lt;port information from step 3 above&gt;
 
 	This will create a public port of 80 that will route traffic to the private port of 300 - where the Rails server is listening.
 
@@ -241,8 +261,6 @@ The list of files returned should match the files contained in the **blog** dire
 In this article you have learned how to create and publish a basic forms-based Rails application to a Windows Azure Virtual Machine. Most of the actions we performed were manual, and in a production environment it would be desirable to automate. Also, most production environments host the Rails application in conjunction with another server process such as Apache or NginX, which handles request routing to multiple instances of the Rails application and serving static resources.
 
 For information on automating deployment of your Rails application, as well as using the Unicorn web server and NginX, see [Unicorn+NginX+Capistrano with a Windows Azure Virtual Machine][unicorn-nginx-capistratno].
-
-This article also used the SQLite database to store data. Learn how to use Rails with SQL Database in the [Using SQL Database with Rails][sql-rails] article.
 
 If you would like to learn more about Ruby on Rails, visit the [Ruby on Rails Guides][rails-guides].
 
