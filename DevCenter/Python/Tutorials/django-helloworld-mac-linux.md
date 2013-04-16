@@ -11,11 +11,11 @@ Azure using a Linux virtual machine. This tutorial assumes you have no prior exp
 
 You will learn how to:
 
-* Setup a Windows Azure virtual machine to host Django. While this tutorial explains how to accomplish this under **Linux**, the same could also be done with a Windows Server 2008 R2 VM hosted in Windows Azure. 
+* Setup a Windows Azure virtual machine to host Django. While this tutorial explains how to accomplish this under **Linux**, the same could also be done with a Windows Server VM hosted in Windows Azure. 
 * Create a new Django application from Linux.
 
 By following this tutorial, you will build a simple Hello World web
-application. The application will be hosted in a Windows Azure Preview Portal virtual machine.
+application. The application will be hosted in a Windows Azure virtual machine.
 
 A screenshot of the completed application is below:
 
@@ -25,12 +25,12 @@ A screenshot of the completed application is below:
 
 ## Creating and configuring a Windows Azure virtual machine to host Django
 
-1. Follow the instructions given [here][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Ubuntu Server 12.04* flavor.
+1. Follow the instructions given [here][portal-vm] to create a Windows Azure virtual machine of the *Ubuntu Server 12.04* distribution.
 
   **Note:** you *only* need to create the virtual machine. Stop at the section titled *How to log on to the virtual machine after you create it*.
 
 1. Instruct Windows Azure to direct port **80** traffic from the web to port **80** on the virtual machine:
- * Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
+ * Navigate to your newly created virtual machine in the Windows Azure Portal and click the *ENDPOINTS* tab.
  * Click *ADD ENDPOINT* button at the bottom of the screen.
 ![][add endpoint]
  * Open up the *TCP* protocol's *PUBLIC PORT 80* as *PRIVATE PORT 80*.
@@ -116,11 +116,6 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 
 [A browser window displaying the hello world page on Windows Azure]: ../Media/mac-linux-django-helloworld-browser.png
 [The result of the django-admin command]: ../Media/mac-linux-django-helloworld-dir.png
-[http://www.windowsazure.com]: http://www.windowsazure.com
-[A browser window displaying http://www.windowsazure.com/ with the Free Trial link highlighted]: ../../../DevCenter/dotNet/Media/getting-started-12.png
-[A browser window displaying the liveID sign in page]: ../../../DevCenter/nodejs/Media/getting-started-13.png
 [add endpoint]: ../Media/mac-linux-django-helloworld-add-endpoint.png
 [port80]: ../Media/mac-linux-django-helloworld-port80.png
-[preview-portal]: https://manage.windowsazure.com
-[preview-portal-vm]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/
-[The result of the ifconfig command]: ../Media/mac-linux-django-helloworld-ifconfig.png
+[portal-vm]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/

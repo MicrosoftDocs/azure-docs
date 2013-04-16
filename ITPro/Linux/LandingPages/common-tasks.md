@@ -1,9 +1,10 @@
 <properties linkid="manage-linux-common-tasks" urlDisplayName="Common tasks" pageTitle="Windows Azure Linux VM Common Tasks" metaKeywords="Azure Linux vms, Linux vms, Linux virtual machine" metaDescription="Find topics about common tasks when using Linux virtual machines (VM) in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+<div chunk="../chunks/linux-left-nav.md" />
 
 #Common tasks for Linux virtual machines
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
+
 
 ###[Create Management Certificates for Linux](/en-us/manage/linux/common-tasks/manage-certificates/)
 
@@ -11,12 +12,12 @@ Learn how to create and upload a management certificate, which is needed anytime
 
 ###[Installing MongoDB on a CentOS Linux Virtual Machine in Windows Azure](/en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm/)
 
-Learn how to use the Windows Azure Management Portal to select and install a Linux virtual machine from the gallery, how to connect to the virtual machine using SSH or PuTTY, and how to install MongoDB on the virtual machine.
+Learn how to use the management portal to select and install a Linux virtual machine from the gallery, how to connect to the virtual machine using SSH or PuTTY, and how to install MongoDB on the virtual machine.
 
 
 ###[Installing MySQL on a OpenSUSE Linux Virtual Machine in Windows Azure](/en-us/manage/linux/common-tasks/mysql-on-a-linux-vm/)
 
-Learn how to use the Windows Azure (Preview) Management Portal to create a virtual machine running OpenSUSE Linux from the Image Gallery, and then install and configure a MySQL database on the virtual machine.
+Learn how to use the management portal to create a virtual machine running OpenSUSE Linux from the Image Gallery, and then install and configure a MySQL database on the virtual machine.
 
 
 ###[Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](/en-us/manage/linux/common-tasks/upload-a-vhd/)

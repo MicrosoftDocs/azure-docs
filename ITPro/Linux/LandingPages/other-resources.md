@@ -1,11 +1,10 @@
 <properties linkid="landing-page" urlDisplayName="Other resources" pageTitle="Other resources Linux virtual machine Windows Azure" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Find topics about using Linux virtual machines in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
-
+<div chunk="../chunks/linux-left-nav.md" />
 
 #Other resources for Linux virtual machines
 
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
 
 ###[Linux on Windows Azure-Endorsed Distributions](/en-us/manage/linux/other-resources/endorsed-distributions/)
 
@@ -18,7 +17,7 @@ Review a list of the partners who deliver Linux-based cloud solutions in Windows
 
 ###[Windows Azure command-line tool for Mac and Linux](/en-us/manage/linux/other-resources/command-line-tools/)
 
-Learn about this command-line that provides functionality for creating, deploying and managing virtual machines and web sites from Mac and Linux desktops. This functionality is similar to that provided by the PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS and PHP.
+Learn about this command-line that provides functionality for creating, deploying and managing virtual machines and web sites from Mac and Linux desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Windows Azure SDKs for .NET, Node.JS and PHP.
 
 
 ###[Selecting User Names for Linux on Windows Azure](/en-us/manage/linux/other-resources/user-names-in-linux/)

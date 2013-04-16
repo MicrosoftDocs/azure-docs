@@ -18,19 +18,11 @@ You’ll also need to install Git for pushing the site to Windows Azure – we r
 
 ## Web Site Creation on Portal
 
-The first step in creating your app is to create the web site via the Windows Azure Management Portal.  To do this you’ll need to login to the portal and then select the WEB SITES from the left hand side:
-
-![](../Media/django-ws-001.png)
-
-Then click on the NEW button in the bottom left corner:
-
-![](../Media/django-ws-002.png)
-
-And then click Quick Create, enter an URL, and select Create Web Site:
+The first step in creating your app is to create the web site via the Windows Azure Management Portal.  To do this you’ll need to login to the portal and click on the NEW button in the bottom left corner.  A window will appear.  Click Quick Create, enter an URL, and select Create Web Site.
 
 ![](../Media/django-ws-003.png)
 
-The site will be quickly setup:
+The site will be quickly set up.  Next, we want to add support for publishing via Git.  This can be done by clicking on the “Set up deployment from source control”.
 
 ![](../Media/django-ws-004.png)
 
@@ -41,6 +33,7 @@ Next, we want to add support for publishing via Git.  This can be done by clicki
 From the "Set up deployment" dialog, scroll down and select "Local Git" option then click the right arrow to continue.
 
 After setting up Git publishing you’ll momentarily see a page informing you the repo is being created and then you’ll be taken to the deployments tab after the repo has been created which includes instructions on how to connect.  
+>>>>>>> 34715cca9c26bc53aef92b81729af1a0f79fbd45
 
 ![](../Media/django-ws-006.png)
 
