@@ -1,3 +1,4 @@
+
 <div title="This is rendered content from macro" class="umbMacroHolder" onresizestart="return false;" umbpageid="14784" umbversionid="3f116ec5-0ae3-4ef6-8b18-ec8081f88260" ismacro="true" umb_chunkpath="devcenter/Menu" umb_modaltrigger="" umb_chunkurl="" umb_hide="0" umb_chunkname="NodeJSLeft" umb_modalpopup="0" umb_macroalias="AzureChunkDisplayer"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 <h1 id="menu-nodejs-data">Data Services</h1>
 <h2>Windows Azure Storage</h2>

@@ -8,9 +8,10 @@
 On completing this guide, you will have a simple Node.js application running 
 in a Windows Azure Cloud Service. Cloud Services are the building blocks of 
 scalable cloud applications in Windows Azure. They allow the separation and independent
-management and scale-out of front-end and back-end components of your application. These
-components are referred to as "web roles" and "worker roles" respectively. Cloud Services 
+management and scale-out of front-end and back-end components of your application.  Cloud Services 
 provide a robust dedicated virtual machine for hosting each role reliably.
+
+For more information on Cloud Services, and how they compare to Windows Azure Web Sites and Virtual machines, see [Windows Azure Web Sites, Cloud Services, and VMs: When to use which?](http://msdn.microsoft.com/en-us/library/windowsazure/jj218759.aspx)
 
 <div class="dev-callout"><strong>Looking to build a simple web site?</strong>
 <p>If your scenario involves just a simple web site front-end, consider <a href="../create-a-website-(mac)">using a 

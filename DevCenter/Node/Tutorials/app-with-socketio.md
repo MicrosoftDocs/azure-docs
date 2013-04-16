@@ -158,7 +158,7 @@ In this tutorial you learned how to create a basic chat application hosted in a 
   [completed-app]: ../Media/socketio-10.png
   [Windows Azure SDK for Node.js]: https://www.windowsazure.com/en-us/develop/nodejs/
   [Node.js Web Application]: https://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
-  [Socket.IO GitHub repository]: https://github.com/LearnBoost/socket.io
+  [Socket.IO GitHub repository]: https://github.com/LearnBoost/socket.io/tree/0.9.14
   [Windows Azure Considerations]: #windowsazureconsiderations
   [Hosting the Chat Example in a Worker Role]: #hostingthechatexampleinawebrole
   [Summary and Next Steps]: #summary

@@ -2,6 +2,16 @@
 <div chunk="../chunks/recoveryservices-left-nav.md"/> 
 
 <h1><a id="configure-hyper-v-recovery-vault-tutorial"></a>Configure Windows Azure Recovery Services to provide a Hyper-V recovery environment</h1>
+<div class="dev-callout"> 
+<strong>Note</strong>
+ 
+<p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Recovery Services feature enabled.</p>
+<ul> 
+<li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="/en-us/pricing/free-trial/">Windows Azure Free Trial</a>.</li> 
+ 
+<li>If you have an existing account but need to enable the Windows Azure Recovery Services preview, see <a href="/en-us/develop/net/tutorials/create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li>
+</ul>
+</div>
 
 A Hyper-V Recovery Manager vault defines a collection of Hyper-V virtual machines located in clouds on System Center 2012 Virtual Machine Manager (VMM) servers that are enabled for failover and protection using Windows Azure Recovery Services. This tutorial will walk you through the creation of the vault, the uploading of a certificate to the vault, the download and installation of the agent, and configuration tasks performed through the management portal.
 
@@ -14,7 +24,7 @@ an X.509 v3 certificate to register your servers with Recovery Services vaults. 
 <ul>
 <li>Your own self-signed certificate created using makecert tool, OR</li> 
 
-<li>Any valid SSL certificate issued by a Certificate Authority (CA) that is trusted by Microsoft and whose root certificates are distributed via the Microsoft Root Certificate Program. For more information about this program see <a><href>http://support.microsoft.com/kb/931125</href></a>.</li>
+<li>Any valid SSL certificate issued by a Certificate Authority (CA) that is trusted by Microsoft and whose root certificates are distributed via the Microsoft Root Certificate Program. For more information about this program see <a href="http://go.microsoft.com/fwlink/p/?LinkId=294666">Windows Root Certificate Program members</a>.</li>
 </ul> 
 
 <p>Some other attributes which you need to ensure on the certificates are:</p> 
@@ -27,12 +37,12 @@ an X.509 v3 certificate to register your servers with Recovery Services vaults. 
 
 <p>To use your own self-signed certificate, follow these steps: </p>
 <ol>
-<li>Download the Certificate Creation Tool (makecert.exe) from <a><href>http://gallery.technet.microsoft.com/Certificate-Creation-tool-5b7c054d</href></a></li>  
+<li>Download the <a href="http://go.microsoft.com/fwlink/p/?LinkID=294662">Certificate Creation tool (MakeCert.exe)</a>.</li>  
 
 
-<li>Open Command Prompt (cmd.exe) with Administrator privileges and run the following command, replacing <i>CertificateName</i> with the name of your certificate : 
+<li>Open Command Prompt (cmd.exe) with Administrator privileges and run the following command, replacing <i>CertificateName</i> with the name of your certificate and specifying the actual expiration date of your certificate after -e:
 <code>
-makecert.exe -R -PE -N CN=CertificateName -SS my -SR localmachine -EKU 1.3.6.1.5.5.7.3.2 –len 2048 “CertificateName.cer”</code></li>
+makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5.5.7.3.2 -len 2048 -e 01/01/2016 CertificateName.cer</code></li>
 </ol>
 <p>
 If you will be registering a different server than the one you used to make the certificate, you need to export the .pfx file (that contains the private key), copy it to the other server and import it to that server’s Personal certificate store. 
@@ -80,7 +90,6 @@ After VMM servers are registered, all clouds configured on the servers are displ
 
 * The target location that will be used for failover of virtual machines in the source cloud.
 * How initial replication of data from the source to target locations will be handled.
-* How frequently data will be synced between the source and target locations following initial replication.
 * How often to create data checkpoints.  
 After you select a cloud, all clusters and host servers that are configured in the source and target clouds are configured for replication. Specifically:
 * Firewall rules used by Hyper-V Replica are configured.
@@ -88,21 +97,31 @@ After you select a cloud, all clusters and host servers that are configured in t
 * Certificates required for replication are installed.
 * Hyper-V Replica settings are configured.
 
-<h2><a id="networks"></a>Configure Networks and Servers (Optional)</h2>
+<h2><a id="networks"></a>Configure Networks</h2>
 
-You can optionally map logical networks in source clouds to logical networks in target clouds, to ensure that failed over virtual machines are connected to appropriate networks after the failover.
+You can map VM networks in source VMM servers to VM networks in target VMM server, to ensure that replica virtual machines are connected to appropriate networks.
  
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
 2. Click **Recovery Services**, then click the name of vault that contains the VMM servers for which you want to configure network mapping.
 
-3. Select the source cloud and then click **Networks**
+3. Click **Resources** and then click **Networks**
 
-4. Select a source server and a target location.
+4. Select the source VMM server and then the target VMM server.
 
-5. Select an item from **Network on source** and then click **Map**. The network settings from the source network are applied to the target location automatically.
+5. Select an item from **Network on source** and then click **Map**. 
 
 	![Manage certificate](../media/RS_networks.png)
+
+6. In the dialog that is displayed, select one of the VM networks from the target VMM server. 
+
+7. Click the information icon next to the source and target network names to view the subnets and type for each network.
+
+	When you select a target network, the protected clouds that use the source network are displayed. Availability of target networks associated with the clouds used for protection is also displayed. It is recommended that you select a target network that is available to all clouds used for protection.
+
+8. Click the checkmark to complete the mapping process.
+
+	This will connect any existing replica virtual machines corresponding to the virtual machines connected to the source VM network to the target VM network. This will also connect new replica virtual machines that are created after enabling replication on the virtual machines connected to the source VM network to the target VM network.
 
 <h2><a id="protect"></a>How to: Protect virtual machines</h2>
 After servers, clouds, and networks are configured correctly, you can enable virtual machines in the cloud for recovery and failover. Protection is enabled in the VMM console, by selecting the **Enable Replication** checkbox for each virtual machine you want to protect. Once the virtual machines are replicated to the vault you will be able to view them in the virtual machines list of your cloud.

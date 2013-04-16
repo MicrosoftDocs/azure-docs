@@ -4,6 +4,8 @@
 <div chunk="../chunks/article-left-menu.md" />
 # REST service using ASP.NET Web API and SQL Database 
 
+***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra. Updated 15 April 2013.***
+
 This tutorial shows how to deploy an ASP.NET web application that uses the ASP.NET Web API to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012 or Visual Studio 2012 for Web Express.
 
 You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. So you can start developing for Windows Azure entirely for free.
@@ -22,6 +24,7 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
 ![screenshot of web site][intro001]
 
+<!-- <div chunk="../chunks/article-left-menu.md" /> -->
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
 In this tutorial:
@@ -41,10 +44,11 @@ In this tutorial:
 To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. 
 
 1. To install the Windows Azure SDK for .NET, click the link below. If you don't have Visual Studio 2012 installed yet, it will be installed by the link. This tutorial requires Visual Studio 2012. <br/>
-<a href="http://go.microsoft.com/fwlink/?LinkId=254364&clcid=0x409" class="site-arrowboxcta download-cta">Get Tools and SDK for Visual Studio 2012</a><br/>
-2. When you are prompted to run or save *vwdorvs11azurepack.exe*, click **Run**.
+[Windows Azure SDK for Visual Studio 2012]( http://go.microsoft.com/fwlink/?LinkId=254364)<br/>
+1. When you are prompted to run or save the installation executable, click **Run**.<br/>
+1. In the Web Platform Installer window, click **Install** and proceed with the installation.<br/>
+![Web Platform Installer - Windows Azure SDK for .NET][WebPIAzureSdk20NetVS12]<br/>
 
-![Web Platform Installer - Windows Azure SDK for .NET][rxF]<br/>
 
 When the installation is complete, you have everything necessary to start developing.
 
@@ -71,7 +75,7 @@ Accept the default connection string.
 ![Create a New Web Site step of New Web Site - Create with Database wizard][rxz]<br/>
 6. Click the arrow that points to the right at the bottom of the box.
 The wizard advances to the **Database Settings** step.
-7. In the **Name** box, enter *ContactDB*.
+7. In the **Name** box, enter *ContactDB*. (See image below.)
 8. In the **Server** box, select **New SQL Database server**. Alternatively, if you previously created a SQL Server database, you can select that SQL Server from the dropdown control.
 9. Click the arrow that points to the right at the bottom of the box.<br/>
 10. Enter an administrator **LOGIN NAME** and **PASSWORD**. If you selected **New SQL Database server** you aren't entering an existing name and password here, you're entering a new name and password that you're defining now to use later when you access the database. If you selected a SQL Server you’ve created previously, you’ll be prompted for the password to the previous SQL Server account name you created. For this tutorial, we won't check the **Advanced ** box. The **Advanced ** box allows you to set the DB size (the default is 1 GB but you can increase this to 150 GB) and the collation.
@@ -151,31 +155,38 @@ This is all you need to do for now to create the application that you'll deploy 
 
 <h2><a name="bkmk_deploytowindowsazure1"></a>Deploy the application to Windows Azure</h2>
 
-1. In your browser, open the [Windows Azure Management Portal](http://manage.windowsazure.com "portal").
-2. In the **Web Sites** tab, click the name of the site you created earlier.<br/>
-![Contact manager application in Management Portal Web Sites tab][setup009]
-3. On the right side of the window, click **Download publish profile**.<br/>
-![Quickstart tab and Download Publishing Profile button][firsdeploy001]<br/>
-This step downloads a file that contains all of the settings that you need in order to deploy an application to your Web Site. You'll import this file into Visual Studio so you don't have to enter this information manually.
-4. Save the .*publishsettings* file in a folder that you can access from Visual Studio.<br/>
-![saving the .publishsettings file][firsdeploy002]
-Security Note: The .publishsettings file contains your  credentials (unencoded) that are used to administer your Windows Azure subscriptions and services. The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then  delete it once the import has completed. A malicious user gaining access to the publishsettings file can edit, create, and delete your Windows Azure services.
+
+
+
 5. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
-![Publish in project context menu][firsdeploy003]<br/>
+![Publish in project context menu][PublishVSSolution]<br/>
 The **Publish Web** wizard opens.
 6. In the **Profile** tab of the **Publish Web** wizard, click **Import**.<br/>
-![Import button in Publish Web wizard][firsdeploy004]
-7. Select the *.publishsettings* file you downloaded earlier, and then click **Open**.
-8. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.
-When the connection has been validated, a green check mark is shown next to the **Validate Connection** button.
-9. Click **Next**.
+![Import publish settings][ImportPublishSettings]
+1. If you have not previously added a Windows Azure subscription, the **Import Publish Profile** dialog box will be empty. Click the link **Add Windows Azure subscription** 
+![add win az sub][rzAddWAsub]
+1. Click **Download subscription file**.
+![download sub][rzDownLoad]
+1. In your browser window, save the publish settings file.
+![download pub file][rzDown2]
+<div chunk="../../shared/chunks/publishsettingsFileWarningChunk.md" />
+1. Click **Browse** and navigate to the publish setting file.
+![download sub][rzDownLoad]
+1. Click **Import**.
+![import][rzImp]
+
+7. In the **Import Publish Profile** dialog box, select **Import from a Windows Azure web site**, select your web site from the drop-down list, and then click **OK**.<br/>
+![Import Publish Profile][ImportPublishProfile]
+8. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.<br/>
+![Validate connection][ValidateConnection]<br/>
+9. When the connection has been validated, a green check mark is shown next to the **Validate Connection** button.<br/>
 	<br/>![connection successful icon and Next button in Connection tab][firsdeploy007]
-10. In the **Settings** tab, click **Next**.<br/>
-You can accept all of the default settings on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server. The **UsersContext (DefaultConnection)** entry under **Databases** comes from the *UsersContext:DbContext* class which uses the DefaultConnection string.
+10. You can accept all of the default settings on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server. The **UsersContext (DefaultConnection)** entry under **Databases** comes from the *UsersContext:DbContext* class which uses the DefaultConnection string. <br/>
+Click **Next**.<br/>
 
 	<br/>![connection successful icon and Next button in Connection tab][rxPWS]
 12. In the **Preview** tab, click **Start Preview**.<br/>
-The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed.<br/>
+The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed. The next time you publish, only the files that have changed will be in the preview list.<br/>
 ![StartPreview button in the Preview tab][firsdeploy009]<br/>
 12. Click **Publish**.<br/>
 Visual Studio begins the process of copying the files to the Windows Azure server. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
@@ -762,8 +773,16 @@ Please leave feedback on what you liked or what you would like to see improved, 
 [rxStyle]: ../Media/rxStyle.png
 [rxz4]: ../Media/rxz4.png
 [rxz44]: ../Media/rxz44.png
+[rzAddWAsub]: ../Media/rzAddWAsub.png
+[rzDownLoad]: ../Media/rzDownLoad.png
+[rzDown2]: ../Media/rzDown2.png
+[rzImp]: ../Media/rzImp.png
 [rx]: ../Media/rx.png
 [rx]: ../Media/rx.png
+[rx]: ../Media/rx.png
+[rx]: ../Media/rx.png
+[rx]: ../Media/rx.png
+
 
 [rxCreateWSwithDB_2]: ../Media/rxCreateWSwithDB_2.png
 [rxNewCtx]: ../Media/rxNewCtx.png
@@ -823,8 +842,30 @@ Please leave feedback on what you liked or what you would like to see improved, 
 [addwebapi006]: ../Media/dntutmobile-webapi-save-returned-contacts.png
 [addwebapi007]: ../Media/dntutmobile-webapi-contacts-in-notepad.png
 [lastdeploy001]: ../Media/dntutmobile-web-publish-settings.png
+[WebPIAzureSdk20NetVS12]: ../Media/WebPIAzureSdk20NetVS12.png
 [rxf]: ../Media/rxf.png
 [Add XSRF Protection]: #xsrf
+[ClickWebSite]: ../Media/ClickWebSite.png
+[CreateWebsite]: ../Media/CreateWebsite.png
+[CreateWebsite]: ../Media/CreateWebsite.png
+[DeployedWebSite]: ../Media/DeployedWebSite.png
+[DownloadPublishProfile]: ../Media/DownloadPublishProfile.png
+[ImportPublishSettings]: ../Media/ImportPublishSettings.png
+[ImportPublishProfile]: ../Media/ImportPublishProfile.png
+[InternetAppTemplate]: ../Media/InternetAppTemplate.png
+[NewMVC4WebApp]: ../Media/NewMVC4WebApp.png
+[NewVSProject]: ../Media/NewVSProject.png
+[PublishOutput]: ../Media/PublishOutput.png
+[PublishVSSolution]: ../Media/PublishVSSolution.png
+[PublishWebSettingsTab]: ../Media/PublishWebSettingsTab.png
+[PublishWebStartPreview]: ../Media/PublishWebStartPreview.png
+[PublishWebStartPreviewOutput]: ../Media/PublishWebStartPreviewOutput.png
+[SavePublishSettings]: ../Media/SavePublishSettings.png
+[ValidateConnection]: ../Media/ValidateConnection.png
+[ValidateConnectionSuccess]: ../Media/ValidateConnectionSuccess.png
+[WebPIAzureSdk20NetVS12]: ../Media/WebPIAzureSdk20NetVS12.png
+[WebSiteNew]: ../Media/WebSiteNew.png
+[WebSiteStatusRunning]: ../Media/WebSiteStatusRunning.png
 
 
 
