@@ -1,10 +1,8 @@
 <properties linkid="manage-linux-common-tasks-lampstack" urlDisplayName="Install LAMP stack" pageTitle="Install the LAMP stack on a Linux virtual machine" metaKeywords="" metaDescription="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Windows Azure. You can install on Ubuntu or CentOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-
+<div chunk="../chunks/linux-left-nav.md" />
 
 #Install the LAMP Stack on a Linux virtual machine in Windows Azure
-
-<div chunk="../../shared/chunks/disclaimer.md" />
 
 A LAMP stack consists of the following different elements:
 

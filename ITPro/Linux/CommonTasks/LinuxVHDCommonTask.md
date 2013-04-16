@@ -1,23 +1,20 @@
-<properties linkid="manage-linux-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Linux VHD in Windows Azure" metaKeywords="Azure VHD, uploading Linux VHD" metaDescription="Learn to create and upload a Windows Azure virtual hard disk (VHD) that has the Linux operating system." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-linux-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Linux VHD in Windows Azure" metaKeywords="Azure VHD, uploading Linux VHD" metaDescription="Learn to create and upload a Windows Azure virtual hard disk (VHD) that has the Linux operating system." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="kathydav" editor="tysonn" manager="jeffreyg"/>
 
+<div chunk="../chunks/linux-left-nav.md" />
 
 # Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System 
 
+A virtual machine in Windows Azure runs the operating system that you choose when you create the virtual machine. The operating systems are stored in virtual hard disk (.vhd) files. When you create a virtual machine, you can choose a .vhd file that is supplied for you in the Image Gallery, or you can use one that you have uploaded to Windows Azure. This article shows you how to create and upload a .vhd file. For more information about disks and images in Windows Azure, see [Manage Disks and Images](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
 
-To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
-
-A virtual machine that you create in Windows Azure runs the operating system that you choose from the supported operating system versions. You can customize the operating system settings of the virtual machine to facilitate running your application. The configuration that you set is stored on disk. You create a virtual machine in Windows Azure by using a virtual hard disk (VHD) file. You can choose to create a virtual machine by using a VHD file that is supplied for you in the Image Gallery, or you can choose to create your own image and upload it to Windows Azure in a VHD file.
+**Note**: When you create the virtual machine, you can customize the operating system settings to facilitate running your application. The configuration that you set is stored on disk for that virtual machine. For instructions, see [How to Create a Custom Virtual Machine](../HowTo/howto-custom-create-vm.md).
 
 The following resources must be available to complete this task:
 
-- **Server running the Windows Server operating system.** This task depends on using the Hyper-V Manager that is a part of the Hyper-V role in the Windows Server operating system.
-- **Linux operating system media.** Before you start this task, you must make sure that you have access to media that contains the Linux operating system. The following are supported Linux distributions:
-	- Open SUSE 12.1
-	- SLES 11 SP2
-	- CentOS 6.3
-	- Ubuntu 12.04, 12.10
+- **Server running Hyper-V, with Hyper-V Manager installed.** This task depends on using the Hyper-V Manager that is a part of the Hyper-V role in the Windows Server. Multiple tools exist to create .vhd files. This article uses Hyper-V Manager to create the .vhd file that is uploaded to Windows Azure. For more information, see [Hyper-V](http://technet.microsoft.com/en-us/library/cc753637(WS.10).aspx).
+- **Linux operating system media.** Before you start this task, you must make sure that you have access to media that contains the Linux operating system. For a list of endorsed distributions, see [Linux on Windows Azure-Endorsed Distributions](../other-resources/linux-on-endorsed-distributions.md).
+
 - **Linux Azure command-line tool.** If you are using a Linux operating system to create your image, use this tool to upload the VHD file. To download the tool, see [Windows Azure Command-Line Tools for Linux and Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409).
-- **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. You must use the tools available in Windows Azure SDK - June 2012 or later to upload VHDs to Windows Azure. To download the SDK and the tools, see [Windows Azure Downloads](/en-us/develop/downloads/).
+- **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. You must use the tools available in Windows Azure SDK - June 2012 or later to upload VHDs to Windows Azure. To download the SDK and the tools, see [Windows Azure Downloads](/en-us/downloads/).
 
 This task includes the following steps:
 
@@ -567,12 +564,12 @@ You need to clear your current yum metadata:
 
 ## <a id="upload"> </a>Step 5: Upload the image to Windows Azure ##
 
-To upload an image contained in a VHD file to Windows Azure, you must:
+To upload an image contained in a .vhd file to Windows Azure, perform the following steps:
 
-1.	Create and install a management certificate
-2.	Obtain the thumbprint of the certificate and the subscription ID
-3.	Set the connection
-4.	Upload the VHD file
+1.	Create and install a management certificate.
+2.	Obtain the thumbprint of the certificate and the subscription ID.
+3.	Set the connection.
+4.	Upload the .vhd file.
 
 ### Create and install the management certificate ###
 
@@ -588,10 +585,11 @@ You need the thumbprint of the management certificate that you added and you nee
 
 You also need the ID of your subscription to upload the VHD file.
 
-1.	In the Previous Management Portal, click **Hosted Services, Storage Accounts & CDN**, and then click **Hosted Services**.
+1. Sign in to the Windows Azure Management Portal.
 
-2.	In the center pane, select your subscription, and then record the subscription ID from the **Properties** pane by copying and pasting it to a location where you can retrieve it later.
+2. From the Management Portal, click **All Items**.
 
+3. In the center pane, under **Subscription**, copy the subscription and paste it to a location where you can retrieve it later.
 ### Use the Linux command-line tool to upload the image ###
 
 You can upload an image by using the following command:
@@ -613,11 +611,11 @@ After the connection string is set, you use the CSUpload command-line tool to up
 
 1. Use the Windows Azure SDK Command Prompt window that you opened to set the connection string.
 
-2. Set the connection string by using the following command and replacing **Subscriptionid** and **CertThumbprint** with the values that you obtained earlier:
+2. Set the connection string by using the following command and replacing **Subscriptionid** and **CertThumbprint** with the values that you obtained earlier and where **BlobStorageURL** is the URL for the storage account that you created earlier:
 
 		csupload Add-PersistentVMImage -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>" -Label <VHDName> -LiteralPath <PathToVHDFile> -OS Windows
 
-	Where **BlobStorageURL** is the URL for the storage account that you created earlier. You can place the VHD file anywhere within your Blog storage. **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the VHD. **PathToVHDFile** is the full path and name of the VHD file.
+	You can place the VHD file anywhere within your Blog storage. **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the VHD. **PathToVHDFile** is the full path and name of the VHD file.
 
 ## <a id="nonendorsed"> </a>Information for Non Endorsed Distributions ##
 In essence all distributions running on Windows Azure will need to meet the following prerequisites to have a chance to properly run in the platform. 
@@ -650,13 +648,13 @@ The list below replaces step 2 of the process to create your own VHD:
 10.	No SWAP on Host OS DISK should be created 
 	SWAP if needed can be requested for creation on the local resource disk by the Linux Agent. You may modify /etc/waagent.conf appropriately.
 
-11.	You will need to Run the following commands to deprovision the virtual machine:
+11.	You will need to run the following commands to deprovision the virtual machine:
 
         waagent –force –deprovision
         export HISTSIZE=0
         logout
 
-12.	You will then need to Shutdown the VM and proceed with the Upload
+12.	You will then need to shut down the virtual machine and proceed with the upload.
 
 
 [Step 1: Install the Hyper-V role on your server]: #hyperv

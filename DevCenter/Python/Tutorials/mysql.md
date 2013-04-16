@@ -14,7 +14,7 @@ In this tutorial, you will learn how to:
 * Use MySQL directly from Python.
 * Host and run your MySQL Django application.
 
-You will expand upon the [Django Hello World] [djangohelloworld] sample by utilizing a MySQL database, hosted in a Windows Azure VM, to find an interesting replacement for *World*. The replacement will in turn be determined via a MySQL-backed Django *counter* app. As was the case for the Hello World sample, this Django application will again be hosted in a Windows Azure Preview Portal virtual machine.
+You will expand upon the [Django Hello World] [djangohelloworld] sample by utilizing a MySQL database, hosted in a Windows Azure VM, to find an interesting replacement for *World*. The replacement will in turn be determined via a MySQL-backed Django *counter* app. As was the case for the Hello World sample, this Django application will again be hosted in a Windows Azure virtual machine.
 
 The project files for this tutorial will be stored in **C:\django\helloworld** and the completed application will look similar to:
 
@@ -23,19 +23,14 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 <div chunk="../../Shared/Chunks/create-account-and-vms-note.md" />
 
 ## Setting up a virtual machine to host MySQL and Django
-1. Follow the instructions given [here ][preview-portal-vm] to create a Windows Azure Preview Portal virtual machine of the *Windows Server 2008 R2* flavor.
+1. Follow the instructions given [here ][preview-portal-vm] to create a Windows Azure virtual machine of the *Windows Server 2008 R2* distribution.
 
 1. Open up a TCP port for MySQL transactions on the virtual machine:
- * Navigate to your newly created virtual machine in the Windows Azure Preview Portal and click the *ENDPOINTS* tab.
+ * Navigate to your newly created virtual machine in the Windows Azure Portal and click the *ENDPOINTS* tab.
  * Click *ADD ENDPOINT* button at the bottom of the screen.
+ * Add an endpoint with NAME = **mysql**, PROTOCOL = **TCP**, PUBLIC PORT = **3306**, PRIVATE PORT = **3306**..
 
-  		![][6]
-
- * Open up the *TCP* protocol's *PUBLIC PORT* **3306** as *PRIVATE PORT* **3306**.
-
-  		![][8]
-
-1. Duplicate the previous *ENDPOINT* addition, this time opening up *TCP*'s *PUBLIC PORT 80* as *PRIVATE PORT 80*.  This redirects external Internet requests to the port Django runs on, namely *80*.
+1. Add another endpoint with NAME = **web**, PROTOCOL = **TCP**, PUBLIC PORT = **80**, PRIVATE PORT = **80**.  This redirects external Internet requests to the port Django runs on, namely *80*.
 
 1. Use Windows *Remote Desktop* to remotely log into the newly created Windows Azure virtual machine.
 
@@ -239,14 +234,7 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [0]: ../Media/mysql_tutorial01.png
 [1]: ../Media/mysql_tutorial01-1.png
 [2]: ../Media/mysql_tutorial01-2.png
-[3]: ../Media/mysql_tutorial01-3.png
-[4]: ../Media/mysql_tutorial01.png
 [5]: ../Media/mysql_tutorial01.png
-[6]: ../Media/mysql_tutorial02-1.png
-[7]: ../Media/mysql_tutorial02-2.png
-[8]: ../Media/mysql_tutorial02-3.png
-[9]: ../Media/mysql_tutorial03-1.png
-[10]: ../Media/mysql_tutorial03-2.png 
 
 [djangohelloworld]: ./django-helloworld.md
 [mysqldoc]: http://dev.mysql.com/doc/
