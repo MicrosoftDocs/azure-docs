@@ -52,9 +52,10 @@ This command imports a publishsettings file or certificate so that it can be use
 	warn:   Remember to delete it now that it has been imported.
 	info:   Account publish settings imported successfully
 
-Note: The publishsettings file can contain details (that is, subscription name and ID) about more than one subscription. When you import the publishsettings file, the first subscription is used as the default description. To use a different subscription, run the following command.
-
-	~$ azure config set subscription <other-subscription-id>
+<div class="dev-callout"><b>Note</b>
+   <p>The publishsettings file can contain details (that is, subscription name and ID) about more than one subscription. When you import the publishsettings file, the first subscription is used as the default description. To use a different subscription, run the following command.</p>
+<code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
+</div>
 
 **account clear [options]**
 
@@ -336,7 +337,11 @@ Data disks are .vhd files in blob storage that can be used by a virtual machine.
 
 The commands for attaching data disks (azure vm disk attach and azure vm disk attach-new) assign a Logical Unit Number (LUN) to the attached data disk, as required by the SCSI protocol. The first data disk attached to a virtual machine is assigned LUN 0, the next is assigned LUN 1, and so on.
 
-When you detach a data disk with the azure vm disk detach command, use the &lt;lun&gt; parameter to indicate which disk to detach. Note that you should always detach data disks in reverse order, starting with the highest-numbered LUN that has been assigned. The Linux SCSI layer does not support detaching a lower-numbered LUN while a higher-numbered LUN is still attached. For example, you should not detach LUN 0 if LUN 1 is still attached.
+When you detach a data disk with the azure vm disk detach command, use the &lt;lun&gt; parameter to indicate which disk to detach. 
+
+<div class="dev-callout"><b>Note</b>
+   <p>Note that you should always detach data disks in reverse order, starting with the highest-numbered LUN that has been assigned. The Linux SCSI layer does not support detaching a lower-numbered LUN while a higher-numbered LUN is still attached. For example, you should not detach LUN 0 if LUN 1 is still attached.</p>
+</div>
 
 **vm disk show [options] &lt;name>**
 
@@ -506,7 +511,7 @@ This command lists your web sites.
 
 **site create [options] [name]**
 
-This command creates a new web site and local directory. Note that the site name must be unique. You cannot create a site with the same DNS name as an existing site.
+This command creates a new web site and local directory. 
 
 	~$ azure site create mysite
 	info:   Executing command site create
@@ -516,6 +521,10 @@ This command creates a new web site and local directory. Note that the site name
 	info:   Initializing repository
 	info:   Repository initialized
 	info:   site create command OK
+
+<div class="dev-callout"><b>Note</b>
+   <p>The site name must be unique. You cannot create a site with the same DNS name as an existing site.</p>
+</div>
 
 **site portal [options] [name]**
 
@@ -604,6 +613,8 @@ Windows Azure Mobile Services brings together a set of Windows Azure services th
 + [Commands to manage mobile service configuration](#Mobile_Configuration)
 + [Commands to manage mobile service tables](#Mobile_Tables)
 + [Commands to manage mobile service scripts](#Mobile_Scripts)
++ [Commands to manage scheduled jobs](#Mobile_Jobs)
++ [Commands to scale a mobile service](#Mobile_Scale)
 
 The following options apply to most Mobile Services commands:
 
@@ -616,7 +627,7 @@ The following options apply to most Mobile Services commands:
 
 **mobile locations [options]**
 
-This command lists Mobile Services geographic locations.
+This command lists geographic locations supported by Mobile Services.
 
 	~$ azure mobile locations
 	info:    Executing command mobile locations
@@ -732,11 +743,13 @@ This command returns mobile service logs, filtering out all log types but `error
 This command supports the following additional options:
 
 + **-r `<query>`** or **--query `<query>`**: Executes the specified log query.
-+ **-t `<type>`** or **--type `<type>`**:  Filter the returned logs by entry `<type>`, whicih can be `information`, `warning`, or `error`.
++ **-t `<type>`** or **--type `<type>`**:  Filter the returned logs by entry `<type>`, which can be `information`, `warning`, or `error`.
 + **-k `<skip>`** or **--skip `<skip>`**: Skips the number of rows specified by `<skip>`.
 + **-p `<top>`** or **--top `<top>`**: Returns a specific number of rows, specified by `<top>`.
 
-Note that the **--query** parameter takes precedence over **--type**, **--skip**, and **--top**.
+<div class="dev-callout"><b>Note</b>
+   <p>The **--query** parameter takes precedence over **--type**, **--skip**, and **--top**.</p>
+</div>
 
 **mobile key regenerate [options] [servicename] [type]**
 
@@ -752,7 +765,6 @@ Key types are `master` and `application`.
 <div class="dev-callout"><b>Note</b>
    <p>When you regenerate keys, clients that use the old key may be unable to access your mobile service. When you regenerate the application key, you should update your app with the new key value. </p>
 </div> 
-
 
 ###<a name="Mobile_Configuration"></a>Commands to manage mobile service configuration
 
@@ -847,6 +859,26 @@ This command supports the following additional option:
 
 + **-p `<permissions>`** or **--permissions `<permissions>`**: Comma-delimited list of `<operation>`=`<permission>` pairs, where `<operation>` is `insert`, `read`, `update`, or `delete` and `<permissions>` is `public`, `application` (default), `user`, or `admin`.
 
+**mobile data read [options] [servicename] [tablename] [query]**
+
+This command reads data from a table.
+
+	~$azure mobile data read todolist TodoItem
+	info:    Executing command mobile data read
+	data:    id  text     complete
+	data:    --  -------  --------
+	data:    1   item #1  false
+	data:    2   item #2  true
+	data:    3   item #3  false
+	data:    4   item #4  true
+	info:    mobile data read command OK
+
+This command supports the following additional options:
+
++ **-k `<skip>`** or **--skip `<skip>`**: Skips the number of rows specified by `<skip>`.
++ **-t `<top>`** or **--top `<top>`**: Returns a specific number of rows, specified by `<top>`.
++ **-l** or **--list**: Returns data in a list format.
+
 **mobile table update [options] [servicename] [tablename]**
 
 This command changes delete permissions on a table to administrators only.
@@ -877,28 +909,21 @@ This command deletes a table.
 
 Specify the -q parameter to delete the table without confirmation. Do this to prevent blocking of automation scripts.
 
-**mobile data read [options] [servicename] [tablename] [query]**
+**mobile data truncate [options] [servicename] [tablename]**
 
-This command reads data from a table.
+This commands removes all rows of data from the table.
 
-	~$azure mobile data read todolist TodoItem
-	info:    Executing command mobile data read
-	data:    id  text     complete
-	data:    --  -------  --------
-	data:    1   item #1  false
-	data:    2   item #2  true
-	data:    3   item #3  false
-	data:    4   item #4  true
-	info:    mobile data read command OK
-
-This command supports the following additional options:
-
-+ **-k `<skip>`** or **--skip `<skip>`**: Skips the number of rows specified by `<skip>`.
-+ **-t `<top>`** or **--top `<top>`**: Returns a specific number of rows, specified by `<top>`.
-+ **-l** or **--list**: Returns data in a list format.
+	~$azure mobile data truncate todolist TodoItem
+	info:    Executing command mobile data truncate
+	info:    There are 7 data rows in the table.
+	Do you really want to delete all data from the table? (y/n): y
+	info:    Deleted 7 rows.
+	info:    mobile data truncate command OK
 
 
 ###<a name="Mobile_Scripts"></a>Commands to manage scripts
+
+Commands in this section are used to manage the server scripts that belong to a mobile service. For more information, see [Work with server scripts in Mobile Services](http://www.windowsazure.com/en-us/develop/mobile/how-to-guides/work-with-server-scripts/).
 
 **mobile script list [options] [servicename]**
 
@@ -928,7 +953,7 @@ This command uploads a new script named `todoitem.insert.js` from the `table` su
 	info:    Executing command mobile script upload
 	info:    mobile script upload command OK
 
-The name of the file must be composed from the table and operation names, and it must be located in the table subfolder relative to the location where the command is executed. You can also use the **-f `<file>`** or **--file `<file>`** parameter to specify a differnt filename and path to the file that contains the script to register.
+The name of the file must be composed from the table and operation names, and it must be located in the table subfolder relative to the location where the command is executed. You can also use the **-f `<file>`** or **--file `<file>`** parameter to specify a different filename and path to the file that contains the script to register.
 
 **mobile script download [options] [servicename] [scriptname]**
 
@@ -954,6 +979,112 @@ This command removes the existing insert script from the TodoItem table.
 	info:    Executing command mobile script delete
 	info:    mobile script delete command OK
 
+###<a name="Mobile_Jobs"></a>Commands to manage scheduled jobs
+
+Commands in this section are used to manage scheduled jobs that belong to a mobile service. For more information, see [Schedule jobs](http://msdn.microsoft.com/en-us/library/windowsazure/jj860528.aspx).
+
+**mobile job list [options] [servicename]**
+
+This command lists scheduled jobs.
+
+	~$azure mobile job list todolist
+	info:    Executing command mobile job list
+	info:    Scheduled jobs
+	data:    Job name    Script name           Status    Interval     Last run              Next run
+	data:    ----------  --------------------  --------  -----------  --------------------  --------------------
+	data:    getUpdates  scheduler/getUpdates  enabled   15 [minute]  2013-01-14T16:15:00Z  2013-01-14T16:30:00Z
+	info:    You can manipulate scheduled job scripts using the 'azure mobile script' command.
+	info:    mobile job list command OK
+
+**mobile job create [options] [servicename] [jobname]**
+
+This command creates a new job named `getUpdates` that is scheduled to run hourly.
+
+	~$azure mobile job create -i 1 -u hour todolist getUpdates 
+	info:    Executing command mobile job create
+	info:    Job was created in disabled state. You can enable the job using the 'azure mobile job update' command.
+	info:    You can manipulate the scheduled job script using the 'azure mobile script' command.
+	info:    mobile job create command OK
+
+This command supports the following additional options:
+
++ **-i `<number>`** or **--interval `<number>`**: The job interval, as an integer; the default value is `15`.
++ **-u `<unit>`** or **--intervalUnit `<unit>`**: The unit for the _interval_, which can be one of the following values: 
+	+ **minute** (default)
+	+ **hour**
+	+ **day**
+	+ **month** 
+	+ **none** (on-demand jobs)
++ **-t `<time>`** **--startTime `<time>`** The start time of the first run for the script, in ISO format; the default value is `now`.
+
+<div class="dev-callout"><b>Note</b>
+   <p>New jobs are created in a disabled state because a script must still be uploaded. Use the <strong>mobile script upload</strong> command to upload a script and the <strong>mobile job update</strong> command to enable the job.</p>
+</div> 
+
+**mobile job update [options] [servicename] [jobname]**
+
+The following command enables the disabled `getUpdates` job.
+
+	~$azure mobile job update -a enabled todolist getUpdates 
+	info:    Executing command mobile job update
+	info:    mobile job update command OK
+
+This command supports the following additional options:
+
++ **-i `<number>`** or **--interval `<number>`**: The job interval, as an integer; the default value is `15`.
++ **-u `<unit>`** or **--intervalUnit `<unit>`**: The unit for the _interval_, which can be one of the following values: 
+	+ **minute** (default)
+	+ **hour**
+	+ **day**
+	+ **month** 
+	+ **none** (on-demand jobs)
++ **-t `<time>`** **--startTime `<time>`** The start time of the first run for the script, in ISO format; the default value is `now`.
++ **-a `<status>`** or **--status `<status>`**: The job status, which can be either `enabled` or `disabled`.
+
+**mobile job delete [options] [servicename] [jobname]**
+
+This command removes the getUpdates scheduled job from the TodoList server.
+
+	~$azure mobile job delete todolist getUpdates
+	info:    Executing command mobile job delete
+	info:    mobile job delete command OK
+
+<div class="dev-callout"><b>Note</b>
+   <p>Deleting a job also deletes the uploaded script.</p>
+</div> 
+
+###<a name="Mobile_Scale"></a>Commands to scale a mobile service
+
+Commands in this section are used to scale a mobile service. For more information, see [Scaling a mobile service](http://msdn.microsoft.com/en-us/library/windowsazure/jj193178.aspx).
+
+**mobile scale show [options] [servicename]**
+
+This command displays scale information, including current compute mode and number of instances.
+
+	~$azure mobile scale show todolist
+	info:    Executing command mobile scale show
+	data:    webspace WESTUSWEBSPACE
+	data:    computeMode Free
+	data:    numberOfInstances 1
+	info:    mobile scale show command OK
+
+**mobile scale change [options] [servicename]**
+
+This command changes the scale of the mobile service from free to reserved mode.
+
+	~$azure mobile scale change -c Reserved -i 1 todolist
+	info:    Executing command mobile scale change
+	+ Rescaling the mobile service
+	info:    mobile scale change command OK
+
+This command supports the following additional options:
+
++ **-c `<mode>`** or **--computeMode `<mode>`**: The compute mode must be either `Free` or `Reserved`.
++ **-i `<count>` or **--numberOfInstances `<count>`**: The number of instances used when running in reserved mode.
+
+<div class="dev-callout"><b>Note</b>
+   <p>When you set compute mode to `Reserved`, all of your mobile services in the same region run in reserved mode.</p>
+</div>  
 
 ##<a name="Manage_tool_local_settings"></a>Manage tool local settings
 
