@@ -5,6 +5,7 @@
 </ul>
 <ul class="links">
 <li class="forum"><a href="http://go.microsoft.com/fwlink/p/?LinkId=291338">Forums</a></li>
+<li class="link"><a href="http://go.microsoft.com/fwlink/p/?LinkId=296564">Pricing</a></li>
 </ul>
 </div>
 <div class="floating-nav jump-to">
