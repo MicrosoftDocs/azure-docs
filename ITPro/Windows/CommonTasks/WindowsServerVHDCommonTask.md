@@ -21,13 +21,13 @@ The following resources must be available to complete this task:
     <TH>Architecture</TH>
   </TR>
   <TR>
-    <TD>Windows Server 2012 (en\_us)</TD>
+    <TD>Windows Server 2012</TD>
     <TD>All editions</TD>
     <TD>N/A</TD>
     <TD>x64</TD>
   </TR>
   <TR>
-    <TD>Windows Server 2008 R2 (en\_us)</TD>
+    <TD>Windows Server 2008 R2</TD>
     <TD>All editions</TD>
     <TD>SP1</TD>
     <TD>x64</TD>
