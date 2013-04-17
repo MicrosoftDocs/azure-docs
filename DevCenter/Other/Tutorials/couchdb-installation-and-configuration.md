@@ -1,5 +1,5 @@
 
-<properties linkid="develop-other-tutorials-couchdb-installation-and-configuration" urlDisplayName="CouchDB" pageTitle="Convert a WordPress Site to a Multisite" metaKeywords="WordPress, Multisite" metaDescription="Learn how to take an existing WordPress web site created through the Windows Azure Gallery and convert it to WordPress Multisite" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-other-tutorials-couchdb-installation-and-configuration" urlDisplayName="CouchDB" pageTitle="CouchDB Installation and Configuration" metaKeywords="CouchDB, Windows Azure" metaDescription="CouchDB Installation Configuration" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
