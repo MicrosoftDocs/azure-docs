@@ -62,8 +62,8 @@ Use your favorite text editor, add the following to the top of the Ruby file whe
 The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** 
 for information required to connect to your Windows Azure storage account. If these environment variables are not set, you must specify the account information before using **Azure::TableService** with the following code:
 
-		Azure.config.storage_account_name = "<your azure storage account>"
-		Azure.config.storage_access_key = "<your azure storage access key>"
+	Azure.config.storage_account_name = "<your azure storage account>"
+	Azure.config.storage_access_key = "<your azure storage access key>"
 
 To obtain these values:
 
@@ -79,19 +79,20 @@ To obtain these values:
 
 The **Azure::TableService** object lets you work with tabls and entities. To create a table, use the **create\_table()** method. The following example creates a table or print out the error if there is any.
 
-		azure_table_service = Azure::TableService.new
-		begin
-			azure_table_service.create_table("testtable")
-		rescue
-			puts $!
-		end
+	azure_table_service = Azure::TableService.new
+	begin
+	  azure_table_service.create_table("testtable")
+	rescue
+	  puts $!
+	end
 
 ## <a id="how-to-add-an-entity-to-a-table"></a>How to Add an Entity to a Table
 
 To add an entity, first create a hash object that defines your entity properties. Note that for every entity you mustspecify a **PartitionKey** and **RowKey**. These are the unique identifiers of your entities, and are values that can be queried much faster than your other properties. Windows Azure Storage Service uses **PartitionKey** to automatically distribute the table’s entities over many storage nodes. Entities with the same **PartitionKey** are stored on the same node. The **RowKey** is the unique ID of the entity within the partition it belongs to. 
 
-		entity = { "content" => "test entity", :PartitionKey => "test-partition-key", :RowKey => "1" }
-		azure_table_service.insert_entity("testtable", entity)
+	entity = { "content" => "test entity", 
+	  :PartitionKey => "test-partition-key", :RowKey => "1" }
+	azure_table_service.insert_entity("testtable", entity)
 
 ## <a id="how-to-update-an-entity"></a>How To: Update an Entity
 
@@ -104,8 +105,9 @@ There are multiple methods available to update an existing entity:
 
 The following example demonstrates updating an entity using **update\_entity()**:
 
-		entity= { "content" => "test entity with updated content", :PartitionKey => "test-partition-key", :RowKey => "1" }
-		azure_table_service.update_entity("testtable", entity)
+	entity = { "content" => "test entity with updated content", 
+	  :PartitionKey => "test-partition-key", :RowKey => "1" }
+	azure_table_service.update_entity("testtable", entity)
 
 With **update\_entity()** and **merge\_entity()**, if the entity that is being updated doesn’t exist then the update operation will fail. Therefore if you wish to store an entity regardless of whether it already exists, you should instead use **insert\_or\_replace\_entity()** or **insert\_or\_merge\_entity()**.
 
@@ -113,25 +115,27 @@ With **update\_entity()** and **merge\_entity()**, if the entity that is being u
 
 Sometimes it makes sense to submit multiple operations together in a batch to ensure atomic processing by the server. To accomplish that, you first create a **Batch** object and then use the **execute\_batch()** method on **TableService**. The following example demonstrates submitting two entities with RowKey 2 and 3 in a batch. Notice that it only works for entities with the same PartitionKey.
 
-		azure_table_service = Azure::TableService.new
-		batch = Azure::Storage::Table::Batch.new("testtable", "test-partition-key") do
-			insert "2", { "content" => "new content 2" }
-			insert "3", { "content" => "new content 3" }
-		end
-		results = azure_table_service.execute_batch(batch)
+	azure_table_service = Azure::TableService.new
+	batch = Azure::Storage::Table::Batch.new("testtable", 
+	  "test-partition-key") do
+	  insert "2", { "content" => "new content 2" }
+	  insert "3", { "content" => "new content 3" }
+	end
+	results = azure_table_service.execute_batch(batch)
 
 ## <a id="how-to-query-for-an-entity"></a>How to: Query for an Entity
 
 To query an entity in a table, use the **get\_entity()** method, by passing the table name, **PartitionKey** and **RowKey**.
 
-		result = azure_table_service.get_entity("testtable", "test-partition-key", "1")
+	result = azure_table_service.get_entity("testtable", "test-partition-key", 
+	  "1")
 
 ## <a id="how-to-query-a-set-of-entities"></a>How to: Query a Set of Entities
 
 To query a set of entities in a table, create a query hash object and use the **query\_entities()** method. The following example demonstrates getting all the entities with the same **PartitionKey**:
 
-		query = { :filter => "PartitionKey eq 'test-partition-key'" }
-		result, token = azure_table_service.query_entities("testtable", query)
+	query = { :filter => "PartitionKey eq 'test-partition-key'" }
+	result, token = azure_table_service.query_entities("testtable", query)
 
 **Notice** that if the result set is too large for a single query to return, a continuation token will be returned which you can use to retrieve subsequent pages.
 
@@ -139,8 +143,9 @@ To query a set of entities in a table, create a query hash object and use the **
 
 A query to a table can retrieve just a few properties from an entity. This technique, called "projection", reduces bandwidth and can improve query performance, especially for large entities. Use the select clause and pass the names of the properties you would like to bring over to the client.
 
-		query = { :filter => "PartitionKey eq 'test-partition-key'", :select => ["content"] }
-		result, token = azure_table_service.query_entities("testtable", query)
+	query = { :filter => "PartitionKey eq 'test-partition-key'", 
+	  :select => ["content"] }
+	result, token = azure_table_service.query_entities("testtable", query)
 
 ## <a id="how-to-delete-an-entity"></a>How To: Delete an Entity
 
@@ -159,5 +164,5 @@ To delete a table, use the **delete\_table()** method and pass in the name of th
 Now that you’ve learned the basics of table storage, follow these links to learn how to do more complex storage tasks.
 
 * See the MSDN Reference: [Storing and Accessing Data in Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx).
-* Visit the [Windows Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
+* Visit the [Windows Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
 * Visit the [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub.

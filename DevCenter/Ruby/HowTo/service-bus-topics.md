@@ -81,7 +81,8 @@ Subscriptions are persistent and will continue to exist until either they, or th
 
 The **MatchAll** filter is the default filter that is used if no filter is specified when a new subscription is created. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named "all-messages" and uses the default **MatchAll** filter.
 
-	subscription = azure_service_bus_service.create_subscription("test-topic", "all-messages")
+	subscription = azure_service_bus_service.create_subscription("test-topic", 
+	  "all-messages")
 
 ### <a id="how-to-create-subscriptions"></a>Create Subscriptions with Filters
 
@@ -96,24 +97,30 @@ Since the default filter is applied automatically to all new subscriptions, you 
 
 The examples below creates a subscription named "high-messages" with a **Azure::ServiceBus::SqlFilter** that only selects messages that have a custom **message\_number** property greater than 3:
 
-	subscription = azure_service_bus_service.create_subscription("test-topic", "high-messages")
-	azure_service_bus_service.delete_rule("test-topic", "high-messages", "$Default")
+	subscription = azure_service_bus_service.create_subscription("test-topic", 
+	  "high-messages")
+	azure_service_bus_service.delete_rule("test-topic", "high-messages", 
+	  "$Default")
 	
 	rule = Azure::ServiceBus::Rule.new("high-messages-rule")
 	rule.topic = "test-topic"
 	rule.subscription = "high-messages"
-	rule.filter = Azure::ServiceBus::SqlFilter.new({ :sql_expression => "message_number > 3" })
+	rule.filter = Azure::ServiceBus::SqlFilter.new({ 
+	  :sql_expression => "message_number > 3" })
 	rule = azure_service_bus_service.create_rule(rule)
 
 Similarly, the following example creates a subscription named "low-messages" with a **Azure::ServiceBus::SqlFilter** that only selects messages that have a **message_number** property less than or equal to 3:
 
-	subscription = azure_service_bus_service.create_subscription("test-topic", "low-messages")
-	azure_service_bus_service.delete_rule("test-topic", "low-messages", "$Default")
+	subscription = azure_service_bus_service.create_subscription("test-topic", 
+	  "low-messages")
+	azure_service_bus_service.delete_rule("test-topic", "low-messages", 
+	  "$Default")
 	
 	rule = Azure::ServiceBus::Rule.new("low-messages-rule")
 	rule.topic = "test-topic"
 	rule.subscription = "low-messages"
-	rule.filter = Azure::ServiceBus::SqlFilter.new({ :sql_expression => "message_number <= 3" })
+	rule.filter = Azure::ServiceBus::SqlFilter.new({ 
+	  :sql_expression => "message_number <= 3" })
 	rule = azure_service_bus_service.create_rule(rule)
 
 When a message is now sent to "test-topic", it will always be delivered to receivers subscribed to the "all-messages" topic subscription, and selectively delivered to receivers subscribed to the "high-messages" and "low-messages" topic subscriptions (depending upon the message content).
@@ -125,7 +132,8 @@ To send a message to a Service Bus topic, your application must use the **send\_
 The following example demonstrates how to send five test messages to "test-topic". Note that the **message_number** custom property value of each message varies on the iteration of the loop (this will determine which subscription receive it):
 
 	5.times do |i|
-	  message = Azure::ServiceBus::BrokeredMessage.new("test message " + i, { :message_number => i })
+	  message = Azure::ServiceBus::BrokeredMessage.new("test message " + i, 
+	    { :message_number => i })
 	  azure_service_bus_service.send_topic_message("test-topic", message)
 	end
 
@@ -141,10 +149,12 @@ If the **:peek\_lock** parameter is set to **false**, reading and deleting the m
 
 The example below demonstrates how messages can be received and processed using **receive\_subscription\_message()**. The example first receives and deletes a message from the "low-messages" subscription by using **:peek\_lock** set to **false**, then it receives another message from the "high-messages" and then deletes the message using **delete\_queue\_message()**:
 
-    message = azure_service_bus_service.receive_subscription_message("test-topic", "low-messages", { :peek_lock => false })
-
-    message = azure_service_bus_service.receive_subscription_message("test-topic", "high-messages")
-    azure_service_bus_service.delete_subscription_message("test-topic", "high-messages", message.sequence_number, message.lock_token)
+    message = azure_service_bus_service.receive_subscription_message(
+	  "test-topic", "low-messages", { :peek_lock => false })
+    message = azure_service_bus_service.receive_subscription_message(
+	  "test-topic", "high-messages")
+    azure_service_bus_service.delete_subscription_message("test-topic", 
+	  "high-messages", message.sequence_number, message.lock_token)
 
 ## <a id="how-to-handle-application-crashes-and-unreadable-messages"></a>How to Handle Application Crashes and Unreadable Messages
 
@@ -168,6 +178,6 @@ Deleting a topic will also delete any subscriptions that are registered with the
 
 Now that you've learned the basics of Service Bus topics, follow these links to learn more.
 
--   See the MSDN Reference: [Queues, Topics, and Subscriptions]((http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)
+-   See the MSDN Reference: [Queues, Topics, and Subscriptions](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)
 -   API reference for [SqlFilter](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx)
 -	Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub.
