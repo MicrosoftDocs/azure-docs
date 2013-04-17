@@ -25,25 +25,6 @@ covered include **creating queues, sending and receiving messages**, and
 
 <div chunk="../../shared/chunks/howto-service-bus-queues.md" />
 
-
-## <a id="obtain-the-default-management-credentials-for-the-namespace"></a>Obtain the Default Management Credentials for the Namespace
-
-In order to perform management operations, such as creating a queue, on the new namespace, you need to obtain the management credentials for the namespace.
-
-1.  In the left navigation pane, click the **Service Bus** node, to display the list of available namespaces:
-
-    ![image](../../dotnet/media/sb-queues-13.png)
-
-2.  Select the namespace you just created from the list shown:
-
-    ![image](../../dotnet/media/sb-queues-05.png)
-
-3.  Click **Access Key**.
-
-    ![image](../../dotnet/media/sb-queues-06.png)
-
-4.  In the **Connect to your namespace** dialog, find the **Default Issuer** and **Default Key** entries. Make a note of these values, as you will use this information below to perform operations with the namespace.
-
 ## <a id="create-a-ruby-application"></a>Create a Ruby Application
 
 Create a Ruby application. For instructions, see [Create a Ruby Application on Windows Azure](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
@@ -113,10 +94,11 @@ If the **:peek\_lock** parameter is set to **false**, reading and deleting the m
 
 The example below demonstrates how messages can be received and processed using **receive\_queue\_message()**. The example first receives and deletes a message by using **:peek\_lock** set to **false**, then it receives another message and then deletes the message using **delete\_queue\_message()**:
 
-    message = azure_service_bus_service.receive_queue_message("test-queue", { :peek_lock => false })
-
+    message = azure_service_bus_service.receive_queue_message("test-queue", 
+	  { :peek_lock => false })
     message = azure_service_bus_service.receive_queue_message("test-queue")
-    azure_service_bus_service.delete_queue_message("test-queue", message.sequence_number, message.lock_token)
+    azure_service_bus_service.delete_queue_message("test-queue",
+	  message.sequence_number, message.lock_token)
 
 ## <a id="how-to-handle-application-crashes-and-unreadable-messages"></a>How to Handle Application Crashes and Unreadable Messages
 

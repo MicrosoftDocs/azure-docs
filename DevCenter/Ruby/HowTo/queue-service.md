@@ -1,11 +1,11 @@
-<properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Ruby) - Windows Azure" metaKeywords="Windows Azure Queue Service get messages Ruby" metaDescription="Learn how to use the Windows Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="guayan" />
+<properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue storage service (Ruby) - Windows Azure" metaKeywords="Windows Azure Queue Service get messages Ruby" metaDescription="Learn how to use the Windows Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="guayan" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
-# How to Use the Queue Service from Ruby
+# How to Use the Queue Storage Service from Ruby
 
 This guide shows you how to perform common scenarios using the Windows
-Azure Queue service. The samples are written using the Ruby Azure API.
+Azure Queue Storage service. The samples are written using the Ruby Azure API.
 The scenarios covered include **inserting**, **peeking**, **getting**,
 and **deleting** queue messages, as well as **creating and deleting
 queues**. For more information on queues, refer to the [Next
@@ -13,7 +13,7 @@ Steps](#next-steps) section.
 
 ## Table of Contents
 
-* [What is the Queue Service?](#what-is)
+* [What is the Queue Storage?](#what-is)
 * [Concepts](#concepts)
 * [Create a Windows Azure Storage Account](#create-a-windows-azure-storage-account)
 * [Create a Ruby Application](#create-a-ruby-application)
@@ -98,7 +98,8 @@ To insert a message into a queue, use the **create_message()** method to create 
 
 You can peek at the message in the front of a queue without removing it from the queue by calling the **peek\_messages()** method. By default, **peek\_messages()** peeks at a single message. You can also specify how many messages you want to peek.
 
-	result = azure_queue_service.peek_messages("test-queue", {:number_of_messages => 10})
+	result = azure_queue_service.peek_messages("test-queue",
+	  {:number_of_messages => 10})
 
 ## <a id="how-to-dequeue-the-next-message"></a>How To: Dequeue the Next Message
 
@@ -111,14 +112,17 @@ Your can removes a message from a queue in two steps.
 This two-step process of removing a message assures that when your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls **delete\_message()** right after the message has been processed.
 
 	messages = azure_queue_service.list_messages("test-queue", 30)
-	azure_queue_service.delete_message("test-queue", messages[0].id, messages[0].pop_receipt)
+	azure_queue_service.delete_message("test-queue", 
+	  messages[0].id, messages[0].pop_receipt)
 
 ## <a id="how-to-change-the-contents-of-a-queued-message"></a>How To: Change the Contents of a Queued Message
 
 You can change the contents of a message in-place in the queue. The code below uses the **update_message()** method to update a message. The method will return a tuple which contains the pop receipt of the queue message and a UTC date time value that represents when the message will be visible on the queue.
 
 	message = azure_queue_service.list_messages("test-queue", 30)
-	pop_receipt, time_next_visible = azure_queue_service.update_message("test-queue", message.id, message.pop_receipt, "updated test message", 30)
+	pop_receipt, time_next_visible = azure_queue_service.update_message(
+	  "test-queue", message.id, message.pop_receipt, "updated test message", 
+	  30)
 
 ## <a id="how-to-additional-options-for-dequeuing-messages"></a>How To: Additional Options for Dequeuing Messages
 
@@ -130,7 +134,8 @@ There are two ways you can customize message retrieval from a queue.
 
 The following code example uses the **list\_messages()** method to get 15 messages in one call. Then it prints and deletes each message. It also sets the invisibility timeout to five minutes for each message.
 
-	azure_queue_service.list_messages("test-queue", 300, {:number_of_messages => 15}).each do |m|
+	azure_queue_service.list_messages("test-queue", 300
+	  {:number_of_messages => 15}).each do |m|
 	  puts m.message_text
 	  azure_queue_service.delete_message("test-queue", m.id, m.pop_receipt)
 	end
@@ -139,7 +144,8 @@ The following code example uses the **list\_messages()** method to get 15 messag
 
 You can get an estimation of the number of messages in the queue. The **get\_queue\_metadata()** method asks the queue service to return the approximate message count and metadata about the queue.
 
-	approximate_message_count, metadata = azure_queue_service.get_queue_metadata("test-queue")
+	message_count, metadata = azure_queue_service.get_queue_metadata(
+	  "test-queue")
 
 ## <a id="how-to-delete-a-queue"></a>How To: Delete a Queue
 
@@ -153,4 +159,4 @@ Now that you've learned the basics of queue storage, follow these links to learn
 
 - See the MSDN Reference: [Storing and Accessing Data in Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
 - Visit the [Windows Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
-- Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub.
+- Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub

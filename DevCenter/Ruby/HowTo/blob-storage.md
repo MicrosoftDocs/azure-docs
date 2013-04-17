@@ -88,13 +88,13 @@ You can just modify the <strong>create\_container()</strong> call to pass the **
 	container = azure_blob_service.create_container("test-container", :public_access_level => "<public access level>")
 
 
-Valid values for the **:public_access_level** option are:
+Valid values for the **:public\_access\_level** option are:
 
 * **blob:** Specifies full public read access for container and blob data. Clients can enumerate blobs within the container via anonymous request, but cannot enumerate containers within the storage account.
 
 * **container:** Specifies public read access for blobs. Blob data within this container can be read via anonymous request, but container data is not available. Clients cannot enumerate blobs within the container via anonymous request.
 
-Alternatively, you can modify the public access level of a container by using **set_container_acl()** method to specify the public access level.
+Alternatively, you can modify the public access level of a container by using **set\_container\_acl()** method to specify the public access level.
  
 The following example changes the public access level to **container**:
 
@@ -107,7 +107,8 @@ To upload content to a blob, use the **create_block_blob()** method to create th
 The following code will upload the file **test.png** as a new blob named "image-blob" in the container.
 
 	content = File.open("test.png", "rb") { |file| file.read }
-	blob = azure_blob_service.create_block_blob(container.name,"image-blob",content)
+	blob = azure_blob_service.create_block_blob(container.name,
+	  "image-blob", content)
 	puts blob.name
 
 ## <a id="ListBlobs"></a>How To: List the Blobs in a Container
@@ -129,7 +130,7 @@ This outputs the urls of all the blobs in all the containers for the account.
 
 To download blobs, use the **get\_blob()** method to retrieve the contents. 
 
-The following example demonstrates using **get\_blob()** to download the contents of **image-blob** and write it to a local file.
+The following example demonstrates using **get\_blob()** to download the contents of "image-blob" and write it to a local file.
 
 	blob, content = azure_blob_service.get_blob(container.name,"image-blob")
 	File.open("download.png","wb") {|f| f.write(content)}
