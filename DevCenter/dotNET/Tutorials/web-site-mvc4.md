@@ -112,7 +112,7 @@ The **Import Publish Profile** dialog box appears.
 ![Validate connection][ValidateConnection]<br/>
 9. When the connection has been validated, a green check mark is shown next to the **Validate Connection** button. Click **Next**.<br/>
 ![Successfully validated connection][ValidateConnectionSuccess]
-10. In the **Settings** tab, uncheck **Use this connection string at runtime** option, since this application is not using a database. You can accept the default settings for the remaining items on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server.<br/>
+10. In the **Settings** tab, uncheck **Use this connection string at runtime** option, since this application is not using a database. You can accept the default settings for the remaining items on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server, precompile the application, or exclude files in the App_Data folder.<br/>
 Click **Next**.<br/>
 ![Settings tab][PublishWebSettingsTab]
 11. In the **Preview** tab, click **Start Preview**.<br/>
