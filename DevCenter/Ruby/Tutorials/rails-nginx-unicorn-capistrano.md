@@ -68,7 +68,7 @@ The following is a screenshot of the completed application:
 	<div class="dev-callout">
 	<strong>Note</strong>
 	<p>This command may require administrator or root privileges on some operating systems. If you receive an error while running this command, try using 'sudo' as follows:</p>
-	<pre><code>sudo gem install rails</code></pre>
+	<pre class="prettyprint">sudo gem install rails</pre>
 	</div>
 
 	<div class="dev-callout">
@@ -249,13 +249,12 @@ In this section, you will modify the application to use the Unicorn web server, 
 1. On your development machine, modify the **Gemfile** and uncomment the lines for **Capistrano** and **Unicorn** by removing the '#' character from the beginning of following lines:
 
 		# gem 'unicorn'
-
 		# gem 'capistrano'
 
 	<div class="dev-callout">
 	<strong>Note</strong>
 	<p>Unicorn is not available on Windows. If you are using Windows as your development environment, modify the <strong>Gemfile</strong> to ensure that it will only attempt to install Unicorn when deployed to the VM:</p>
-	<pre><code>platforms :ruby do<br />  gem 'unicorn'<br />end</code></pre>
+	<pre class="prettyprint">platforms :ruby do<br />  gem 'unicorn'<br />end</pre>
 	</div>
  
 5.	Run the following commands to install the new gems and setup Capistrano for your project:
@@ -375,8 +374,6 @@ If you append '/posts' to the URL, the posts index should appear and you should 
 ##<a id="next"></a>Next steps
 
 In this article you have learned how to create and publish a basic forms-based Rails application to a Windows Azure Virtual Machine using Capistrano. The virtual machine used Unicorn and Nginx to handle web requests to the application.
-
-While Capistrano is a popular deployment method for Ruby on Rails applications, it is not the only one. To see another method of deploying an application to a virtual machine, see [Deploying Ruby on Rails to a Windows Azure VM using Chef].
 
 If you would like to learn more about Ruby on Rails, visit the [Ruby on Rails Guides][rails-guides].
 

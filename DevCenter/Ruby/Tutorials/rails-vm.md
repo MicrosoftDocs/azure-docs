@@ -53,7 +53,7 @@ The following is a screenshot of the completed application:
 	<div class="dev-callout">
 	<strong>Note</strong>
 	<p>This command may require administrator or root privileges on some operating systems. If you receive an error while running this command, try using 'sudo' as follows:</p>
-	<pre><code>sudo gem install rails</code></pre>
+	<pre class="prettyprint">sudo gem install rails</pre>
 	</div>
 
 	<div class="dev-callout">
