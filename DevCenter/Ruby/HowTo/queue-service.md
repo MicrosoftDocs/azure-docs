@@ -70,9 +70,7 @@ To obtain these values:
 1. Log into the [Windows Azure Management Portal](https://manage.windowsazure.com/).
 2. Navigate to the storage account you want to use
 3. Click **MANAGE KEYS** at the bottom of the navigation pane.
-4. In the pop up dialog, you will see the storage account name, primary access key and secondary access key. For access key, you can either the primary one or the secondary one.
-
-   ![Manage keys dialog](images/manage-keys-dialog.png)
+4. In the pop up dialog, you will see the storage account name, primary access key and secondary access key. For access key, you can select either the primary one or the secondary one.
 
 ## <a id="how-to-create-a-queue"></a>How To: Create a Queue
 
