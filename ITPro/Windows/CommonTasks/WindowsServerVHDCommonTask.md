@@ -6,7 +6,7 @@
 
 A virtual machine in Windows Azure runs the operating system that you choose when you create the virtual machine. The operating systems are stored in virtual hard disk (.vhd) files. When you create a virtual machine, you can choose a .vhd file that is supplied for you in the Image Gallery, or you can use one that you have uploaded to Windows Azure. This article shows you how to create and upload a .vhd file. For more information about disks and images in Windows Azure, see [Manage Disks and Images](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
 
-**Note**: When you create the virtual machine, you can customize the operating system settings to facilitate running your application. The configuration that you set is stored on disk for that virtual machine. For instructions, see [How to Create a Custom Virtual Machine](..how-to-guides/custom-create-a-vm/howto-custom-create-vm.md).
+**Note**: When you create the virtual machine, you can customize the operating system settings to facilitate running your application. The configuration that you set is stored on disk for that virtual machine. For instructions, see [How to Create a Custom Virtual Machine](/en-us/manage/windows/how-to-guides/custom-create-a-vm/).
 
 The following resources must be available to complete this task:
 
