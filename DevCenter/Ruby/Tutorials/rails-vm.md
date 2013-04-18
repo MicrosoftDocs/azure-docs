@@ -265,7 +265,7 @@ For information on automating deployment of your Rails application, as well as u
 If you would like to learn more about Ruby on Rails, visit the [Ruby on Rails Guides][rails-guides].
 
 [vm-instructions]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/
-[unicorn-nginx-capistratno]: /en-us/develop/ruby/tutorials/unicorn-nginx-capistrano/
+[unicorn-nginx-capistratno]: /en-us/develop/ruby/tutorials/web-app-with-capistrano/
 [sql-rails]: /en-us/develop/ruby/howto/sql-rails/
 [rails-guides]: http://guides.rubyonrails.org/
 
