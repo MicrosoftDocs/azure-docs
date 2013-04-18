@@ -375,13 +375,26 @@ If you append '/posts' to the URL, the posts index should appear and you should 
 
 In this article you have learned how to create and publish a basic forms-based Rails application to a Windows Azure Virtual Machine using Capistrano. The virtual machine used Unicorn and Nginx to handle web requests to the application.
 
+For a more basic example of creating and deploying a Rails application to a Windows Azure VM using only SSH, see [Host a Ruby on Rails Web App using a Linux Virtual Machine][ruby-vm].
+
 If you would like to learn more about Ruby on Rails, visit the [Ruby on Rails Guides][rails-guides].
+
+To learn how to use the Windows Azure SDK for Ruby to access Windows Azure services from your Ruby application, see:
+
+* [Store unstructured data using blobs][blobs]
+
+* [Store key/value pairs using tables][tables]
+
+* [Serve high bandwidth content with the Content Delivery Network][cdn-howto]
 
 [vm-instructions]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/
 [unicorn-nginx-capistratno]: /en-us/develop/ruby/tutorials/unicorn-nginx-capistrano/
 [sql-rails]: /en-us/develop/ruby/howto/sql-rails/
 [rails-guides]: http://guides.rubyonrails.org/
-
+[blobs]: /en-us/develop/ruby/how-to-guides/blob-storage/
+[tables]: /en-us/develop/ruby/how-to-guides/table-service/
+[cdn-howto]: /en-us/develop/ruby/app-services/
+[ruby-vm]: /en-us/develop/ruby/tutorials/web-app-with-linux-vm/
  
 [blog-rails]: ../media/blograilslocal.png
 [blog-rails-cloud]: ../media/blograilscloud.png 

@@ -264,10 +264,22 @@ For information on automating deployment of your Rails application, as well as u
 
 If you would like to learn more about Ruby on Rails, visit the [Ruby on Rails Guides][rails-guides].
 
+To learn how to use the Windows Azure SDK for Ruby to access Windows Azure services from your Ruby application, see:
+
+* [Store unstructured data using blobs][blobs]
+
+* [Store key/value pairs using tables][tables]
+
+* [Serve high bandwidth content with the Content Delivery Network][cdn-howto]
+
+
 [vm-instructions]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/
 [unicorn-nginx-capistratno]: /en-us/develop/ruby/tutorials/web-app-with-capistrano/
 [sql-rails]: /en-us/develop/ruby/howto/sql-rails/
 [rails-guides]: http://guides.rubyonrails.org/
+[blobs]: /en-us/develop/ruby/how-to-guides/blob-storage/
+[tables]: /en-us/develop/ruby/how-to-guides/table-service/
+[cdn-howto]: /en-us/develop/ruby/app-services/
 
 [ruby-vm-endpoint]: 
 [ruby-http-endpoint-details]: 
