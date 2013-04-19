@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>upload-data.md</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+body{
+    margin: 0 auto;
+    font-family: Georgia, Palatino, serif;
+    color: #444444;
+    line-height: 1;
+    max-width: 960px;
+    padding: 5px;
+}
+h1, h2, h3, h4 {
+    color: #111111;
+    font-weight: 400;
+}
+h1, h2, h3, h4, h5, p {
+    margin-bottom: 16px;
+    padding: 0;
+}
+h1 {
+    font-size: 28px;
+}
+h2 {
+    font-size: 22px;
+    margin: 20px 0 6px;
+}
+h3 {
+    font-size: 21px;
+}
+h4 {
+    font-size: 18px;
+}
+h5 {
+    font-size: 16px;
+}
+a {
+    color: #0099ff;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+a:hover {
+    text-decoration: none;
+    color: #ff6600;
+}
+a:visited {
+    color: purple;
+}
+ul, ol {
+    padding: 0;
+    margin: 0;
+}
+li {
+    line-height: 24px;
+    margin-left: 44px;
+}
+li ul, li ul {
+    margin-left: 24px;
+}
+p, ul, ol {
+    font-size: 14px;
+    line-height: 20px;
+    max-width: 540px;
+}
+pre {
+    padding: 0px 24px;
+    max-width: 800px;
+    white-space: pre-wrap;
+}
+code {
+    font-family: Consolas, Monaco, Andale Mono, monospace;
+    line-height: 1.5;
+    font-size: 13px;
+}
+aside {
+    display: block;
+    float: right;
+    width: 390px;
+}
+blockquote {
+    border-left:.5em solid #eee;
+    padding: 0 2em;
+    margin-left:0;
+    max-width: 476px;
+}
+blockquote  cite {
+    font-size:14px;
+    line-height:20px;
+    color:#bfbfbf;
+}
+blockquote cite:before {
+    content: '\2014 \00A0';
+}
+
+blockquote p {  
+    color: #666;
+    max-width: 460px;
+}
+hr {
+    width: 540px;
+    text-align: left;
+    margin: 0 auto 0 0;
+    color: #999;
+}
+
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+button, input {
+  line-height: normal;
+  *overflow: visible;
+}
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+input[type=checkbox], input[type=radio] {
+  cursor: pointer;
+}
+/* override default chrome & firefox settings */
+input:not([type="image"]), textarea {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+label,
+input,
+select,
+textarea {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: normal;
+  margin-bottom: 18px;
+}
+input[type=checkbox], input[type=radio] {
+  cursor: pointer;
+  margin-bottom: 0;
+}
+input[type=text],
+input[type=password],
+textarea,
+select {
+  display: inline-block;
+  width: 210px;
+  padding: 4px;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  height: 18px;
+  color: #808080;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+select, input[type=file] {
+  height: 27px;
+  line-height: 27px;
+}
+textarea {
+  height: auto;
+}
+
+/* grey out placeholders */
+:-moz-placeholder {
+  color: #bfbfbf;
+}
+::-webkit-input-placeholder {
+  color: #bfbfbf;
+}
+
+input[type=text],
+input[type=password],
+select,
+textarea {
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+  outline: none;
+  border-color: rgba(82, 168, 236, 0.8);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+/* buttons */
+button {
+  display: inline-block;
+  padding: 4px 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  background-color: #0064cd;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#049cdb), to(#0064cd));
+  background-image: -moz-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -ms-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #049cdb), color-stop(100%, #0064cd));
+  background-image: -webkit-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -o-linear-gradient(top, #049cdb, #0064cd);
+  background-image: linear-gradient(top, #049cdb, #0064cd);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border: 1px solid #004b9a;
+  border-bottom-color: #003f81;
+  -webkit-transition: 0.1s linear all;
+  -moz-transition: 0.1s linear all;
+  transition: 0.1s linear all;
+  border-color: #0064cd #0064cd #003f81;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+button:hover {
+  color: #fff;
+  background-position: 0 -15px;
+  text-decoration: none;
+}
+button:active {
+  -webkit-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/* CSS stylesheet is based on Kevin Burke's Markdown.css project (http://kevinburke.bitbucket.org/markdowncss) */
+</style>
+</head>
+<body>
+<p><properties linkid="manage-services-hdinsight-upload-data" urlDisplayName="Upload data to HDInsight" pageTitle="How to upload data to HDInsight - Windows Azure Services" metaKeywords="hdinsight, hdinsight upload, hdinsight upload data, upload data azure" metaDescription="Learn how to upload data to the the HDInsight service." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="mollybos" manager="paulettm" /></p>
+
+<p><div chunk="../chunks/hdinsight-left-nav.md" /></p>
+
+<h1>How to Upload Data to HDInsight</h1>
+
+<p>Windows Azure HDInsight Service provides two options in how it manages its data, Azure Storage Vault (ASV) and Hadoop Distributed File System (HDFS). HDFS is designed to store data used by Hadoop applications. Data stored in Windows Azure Blob Storage can be accessed by Hadoop applications using Windows Azure Storage Vault (ASV), which provides a full featured HDFS file system over Windows Azure Blob storage. It has been designed as an HDFS extension to provide a seamless experience to customers by enabling the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Both options are distinct file systems that are optimized for storage of data and computations on that data.  </p>
+
+<p>Windows Azure HDInsight clusters are typically deployed to execute MapReduce jobs and are dropped once these jobs have been completed. Keeping the data in the HDFS clusters after computations have been completed would be an expensive way to store this data. Windows Azure Blob storage is a highly available, highly scalable, high capacity, low cost, and shareable storage option for data that is to be processed using HDInsight. Storing data in a Blob enables the HDInsight clusters used for computation to be safely released without losing data. </p>
+
+<p>Windows Azure Blob storage can either be accessed through the <a href="http://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/">API</a> programmatically or through explorer tools. Here are some of the tools available:</p>
+
+<ul>
+<li><a href="http://azurestorageexplorer.codeplex.com/">Azure Storage Explorer</a></li>
+<li><a href="http://www.cerebrata.com/Products/CloudStorageStudio/">cloud Storage Studio 2</a></li>
+<li><a href="http://clumsyleaf.com/products/cloudxplorer">CloudXplorer</a></li>
+<li><a href="http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx">Windows Azure Explorer</a></li>
+<li><a href="http://www.cloudberrylab.com/microsoft-azure-explorer-pro.aspx">Windows Azure Explorer PRO</a></li>
+</ul>
+
+<h2>Table of Contents</h2>
+
+<ul>
+<li><a href="#storageexplorer">How to: Upload data to Windows Azure Storage using Azure Storage Explorer</a></li>
+<li><a href="#blob">How to: Access data in Windows Azure Storage</a></li>
+<li><a href="#console">How to: Upload data to HDFS using Interactive JavaScript Console</a></li>
+<li><a href="#commandline">How to: Upload data to HDFS using Hadoop command line</a></li>
+<li><a href="#sqoop">How to: Import data from Windows Azure SQL Database to HDFS using Sqoop</a></li>
+</ul>
+
+<h2><a id="storageexplorer"></a>How to: Upload data to Windows Azure Storage using Azure Storage Explorer</h2>
+
+<p><em>Azure Storage Explorer</em> is a useful tool for inspecting and altering the data in your Windows Azure Storage. It is a free tool that can be downloaded from <a href="http://azurestorageexplorer.codeplex.com/" title="Azure Storage Explorer">http://azurestorageexplorer.codeplex.com/</a>.</p>
+
+<p>Before using the tool, you must know your Windows Azure storage account name and account key. For the instructions for get the information, see the <em>How to: View, copy and regenerate storage access keys</em> section of <a href="/en-us/manage/services/storage/how-to-manage-a-storage-account/">How to Manage Storage Accounts</a>.</p>
+
+<ol>
+<li><p>Run Azure Storage Explorer.</p>
+
+<p><img src="../media/HDI.AzureStorageExplorer.png" alt="HDI.AzureStorageExplorer" title="Azure Storage Explorer" /></p></li>
+<li><p>Click <strong>Add Account</strong>. After an account is added to Azure Storage Explorer, you don't need to go through this step again. </p>
+
+<p><img src="../media/HDI.ASEAddAccount.png" alt="HDI.ASEAddAccount" title="Add Account" /></p></li>
+<li><p>Enter <strong>Storage account name</strong> and <strong>Storage account key</strong>, and then click <strong>Add Storage Account</strong>. You can add multiple storage accounts, each account will be displayed on a tab. </p></li>
+<li><p>From <strong>Storage Type</strong>, click <strong>Blobs</strong> to display the Windows Azure Blob storage of the account.</p>
+
+<p><img src="../media/HDI.ASEBlob.png" alt="HDI.ASEBlob" title="Azure Storage Explorer" /></p></li>
+<li><p>From <strong>Container</strong>, click the container that is associated to your HDInsight cluster. When you create an HDInsight cluster, you must specify a container.  Otherwise, the cluster creation process creates one for you.</p></li>
+<li>From <strong>Blob</strong>, click <strong>Upload</strong>.</li>
+<li>Specify a file to upload, and then click <strong>Open</strong>.</li>
+</ol>
+
+<p>Blob storage containers store data as key/value pairs, and there is no directory hierarchy. However the ‘/’ character can be used within the key name to make it appear as if a file is stored within a directory structure. For example, a blob’s key may be ‘input/log1.txt’. No actual ‘input’ directory exists, but due to the presence of the ‘/’ character in the key name, it has the appearance of a file path. You can click <strong>Rename</strong> to give a file a folder structure.</p>
+
+<h2><a id="blob"></a>How to: Access Data Stored in Windows Azure Blob Storage</h2>
+
+<p>Data stored in Windows Azure Blob Storage can be accessed directly from the Interactive JavaScript Console by prefixing the protocol scheme of the URI for the assets you are accessing with asv://. To secure the connection, use asvs://. The scheme for accessing data in Windows Azure Blob Storage is:</p>
+
+<pre><code>asv[s]://[&lt;container&gt;@]&lt;accountname&gt;.blob.core.windows.net/&lt;path&gt;
+</code></pre>
+
+<p>The following is an example of viewing data stored in Windows Azure Blob Storage using the Interactive JavaScript Console:</p>
+
+<p><img src="../media/HDI.ASVSample.png" alt="HDI.ASVSample" title="ASV sample" /></p>
+
+<p>The following will run a Hadoop streaming job that uses Windows Azure Blob Storage for both input and output:</p>
+
+<pre><code>Hadoop jar hadoop-streaming.jar 
+    -files "hdfs:///example/apps/map.exe, hdfs:///example/apps/reduce.exe"
+    -input "asvs://container@storageaccount.blob.core.windows.net/iislogsinput/iislogs.txt"
+    -output "asvs://container@storageaccount.blob.core.windows.net/iislogsoutput/results.txt"
+    -mapper "map.exe"
+    -reducer "reduce.exe"
+</code></pre>
+
+<p>For more information, see <a href="/en-us/manage/services/hdinsight/howto-blob-store/">Using Windows Azure Blob Storage with HDInsight</a>.</p>
+
+<h2><a id="console"></a> How to: Upload Data to HDFS using Interactive JavaScript Console</h2>
+
+<p>Windows Azure HDInsight Service comes with a web based interactive JavaScript console that can be used as an administration/deployment tool. </p>
+
+<ol>
+<li>Sign in to the <a href="https://manage.windowsazure.com">Management Portal</a>.</li>
+<li>Click <strong>HDINSIGHT</strong>. You will see a list of deployed Hadoop clusters.</li>
+<li>Click the Hadoop cluster where you want to upload data to.</li>
+<li>From the HDInsight Dashboard, click the cluster URL.</li>
+<li>Enter <strong>User name</strong> and <strong>Password</strong> for the cluster, and then click <strong>Log On</strong>.</li>
+<li><p>Click <strong>Interactive Console</strong>.</p>
+
+<p><img src="../media/HDI.TileInteractiveConsole.png" alt="HDI.TileInteractiveConsole" title="Interactive Console" /></p></li>
+<li><p>From the Interactive JavaScript console, type the following command:</p>
+
+<pre><code>fs.put()
+</code></pre></li>
+<li><p>Press <strong>ENTER</strong>.</p>
+
+<p><img src="../media/HDI.fsput.png" alt="HDI.fs.put" title="fs.put()" /></p></li>
+<li><p>Enter <strong>Source</strong> and <strong>Destination</strong>, and then click <strong>Upload</strong>. In the Destination field, you can use "/" for the root "folder" of the default file system; you can also use the asv[s]:// syntax.</p></li>
+<li><p>Use the following command to list the uploaded files.</p>
+
+<pre><code>#ls &lt;path&gt;
+</code></pre></li>
+</ol>
+
+<h2><a id="commandline"></a> How to: Upload Data to HDFS Using Hadoop Command Line</h2>
+
+<p>To use Hadoop command line, you must first connect to the cluster using remote desktop. </p>
+
+<ol>
+<li>Sign in to the <a href="https://manage.windowsazure.com">Management Portal</a>.</li>
+<li>Click <strong>HDINSIGHT</strong>. You will see a list of deployed Hadoop clusters.</li>
+<li>Click the Hadoop cluster where you want to upload data to.</li>
+<li>Click the cluster URL, or <strong>Start Dashboard</strong> on the bottom of the page</li>
+<li>Enter <strong>User name</strong> and <strong>Password</strong> for the cluster, and then click <strong>Log On</strong>.</li>
+<li><p>Click <strong>Remote Desktop</strong>.</p>
+
+<p><img src="../media/HDI.TileRemoteDesktop.png" alt="HDI.TileRemoteDesktop" title="Remote Desktop" /></p></li>
+<li><p>Click <strong>Open</strong>.</p></li>
+<li>Enter your credentials, and then click <strong>OK</strong>.</li>
+<li>Click <strong>Yes</strong>.</li>
+<li>From the desktop, click <strong>Hadoop Command Line</strong>.</li>
+<li><p>The following sample demonstrates how to copy the davinci.txt file from the C:\temp\ directory to the /example/data directory.</p>
+
+<pre><code>hadoop dfs -copyFromLocal C:\temp\davinci.txt /example/data/davinci.txt
+</code></pre></li>
+<li><p>Use the following command to list the uploaded files:</p>
+
+<pre><code>hadoop dfs -lsr /example/data
+</code></pre></li>
+</ol>
+
+<h2><a id="sqoop"></a> How to: Import Data to HDFS from SQL Database/SQL Server Using Sqoop</h2>
+
+<p>Sqoop is a tool designed to transfer data between Hadoop and relational databases. You can use it to import data from a relational database management system (RDBMS) such as SQL or MySQL or Oracle into the Hadoop Distributed File System (HDFS), transform the data in Hadoop with MapReduce or Hive, and then export the data back into a RDBMS. For more information, see <a href="http://sqoop.apache.org/docs/1.4.2/SqoopUserGuide.html">Sqoop User Guide</a>.</p>
+
+<p>Before importing data, you must know the Windows Azure SQL Database server name, database account name, account password and database name. You must also configure a firewall rule for the database server to allow connections from your HDInsight cluster head node. For instruction on creating SQL database and configuring firewall rules, see <a href="http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-database/">How to use Windows Azure SQL Database in .NET applications</a>. To obtain the outward facing IP Address for your HDInsight cluster head node, you can use Remote Desktop to connect to the head node, and then browse to <a href="http://www.whatismyip.com">www.whatismyip.com</a>.</p>
+
+<ol>
+<li>Sign in to the <a href="https://manage.windowsazure.com">Management Portal</a>.</li>
+<li>Click <strong>HDINSIGHT</strong>. You will see a list of deployed Hadoop clusters.</li>
+<li>Click the Hadoop cluster where you want to upload data.</li>
+<li>Click <strong>Connect</strong> on the bottom of the page.</li>
+<li>Click <strong>Open</strong>.</li>
+<li>Enter your credentials, and then click <strong>OK</strong>.</li>
+<li>Click <strong>Yes</strong>.</li>
+<li>From the desktop, click <strong>Hadoop Command Line</strong>.</li>
+<li>Change directory to <strong>c:\apps\dist\sqoop-1.4.2\bin</strong>. Please note, the Sqoop version number could change in the future.</li>
+<li><p>Run a command similar to the following:</p>
+
+<pre><code>sqoop import 
+    --connect "jdbc:sqlserver://s6ok0p9kft.database.windows.net;username=user1@s6ok0p9kft;password=Pass@word1;database=AdventureWorks2012" 
+    --table Sales.SalesOrderDetail 
+    --columns "SalesOrderID,SalesOrderDetailID,CarrierTrackingNumber,OrderQty,ProductID,SpecialOfferID,UnitPrice,UnitPriceDiscount,LineTotal" 
+    --target-dir /data/lineitemData 
+    -m 1
+</code></pre>
+
+<p>In the command, the SQL database server is <em>s6ok0p9kft</em>, username is <em>user1</em>, password is <em>Pass@word1</em>, and the database is <em>AdventureWorks2012</em>.  </p></li>
+<li><p>You can run the #tail command from the Interactive Console to see the result:</p>
+
+<pre><code>#tail /data/lineitemData/part-m-00000
+</code></pre></li>
+</ol>
+
+<p>Note: When specifying an escape character as delimiter with the arguments <em>--input-fields-terminated-by</em> and <em>--input-fields-terminated-by</em>, do not put quotes around the escape character.  For example. </p>
+
+<pre><code>    sqoop export 
+        --connect "jdbc:sqlserver://localhost;username=sa;password=abc;database=AdventureWorks2012" 
+        --table Result 
+        --export-dir /hive/warehouse/result 
+        --input-fields-terminated-by \t 
+        --input-lines-terminated-by \n
+</code></pre>
+
+<h2>Next Steps</h2>
+
+<p>Now that you understand how to get data into HDInsight Service, use the following tutorials to learn how to perform analysis:</p>
+
+<ul>
+<li><a href="/en-us/manage/services/hdinsight/get-started-hdinsight/">Getting Started with Windows Azure HDInsight Service</a></li>
+<li><a href="/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/">Tutorial: Using MapReduce with HDInsight</a></li>
+<li><a href="/en-us/manage/services/hdinsight/using-hive-with-hdinsight/">Tutorial: Using Hive with HDInsight</a></li>
+<li><a href="/en-us/manage/services/hdinsight/using-pig-with-hdinsight/">Tutorial: Using Pig with HDInsight</a></li>
+</ul>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
