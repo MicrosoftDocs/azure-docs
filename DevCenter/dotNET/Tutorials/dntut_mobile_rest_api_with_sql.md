@@ -24,7 +24,6 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
 ![screenshot of web site][intro001]
 
-<!-- <div chunk="../chunks/article-left-menu.md" /> -->
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
 In this tutorial:
@@ -42,6 +41,7 @@ In this tutorial:
 <h2><a name="bkmk_setupdevenv"></a>Set up the development environment</h2>
 
 To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. 
+
 
 1. To install the Windows Azure SDK for .NET, click the link below. If you don't have Visual Studio 2012 installed yet, it will be installed by the link. This tutorial requires Visual Studio 2012. <br/>
 
@@ -89,7 +89,7 @@ SQL Database is a cloud-based relational database service that is built on SQL S
 
 	The wizard advances to the **Database Settings** step.
 
-7. In the **Name** box, enter *ContactDB*. (See image below.)
+7. In the **Name** box, enter *ContactDB*.
 
 8. In the **Server** box, select **New SQL Database server**. Alternatively, if you previously created a SQL Server database, you can select that SQL Server from the dropdown control.
 
@@ -902,7 +902,6 @@ Please leave feedback on what you liked or what you would like to see improved, 
 [rx]: ../Media/rx.png
 [rx]: ../Media/rx.png
 
-
 [rxCreateWSwithDB_2]: ../Media/rxCreateWSwithDB_2.png
 [rxNewCtx]: ../Media/rxNewCtx.png
 [rxCreateWSwithDB_2]: ../Media/rxCreateWSwithDB_2.png 
@@ -961,6 +960,10 @@ Please leave feedback on what you liked or what you would like to see improved, 
 [addwebapi006]: ../Media/dntutmobile-webapi-save-returned-contacts.png
 [addwebapi007]: ../Media/dntutmobile-webapi-contacts-in-notepad.png
 [lastdeploy001]: ../Media/dntutmobile-web-publish-settings.png
+[rxf]: ../Media/rxf.png
+[Add XSRF Protection]: #xsrf
+
+
 [WebPIAzureSdk20NetVS12]: ../Media/WebPIAzureSdk20NetVS12.png
 [rxf]: ../Media/rxf.png
 [Add XSRF Protection]: #xsrf
@@ -985,3 +988,4 @@ Please leave feedback on what you liked or what you would like to see improved, 
 [WebPIAzureSdk20NetVS12]: ../Media/WebPIAzureSdk20NetVS12.png
 [WebSiteNew]: ../Media/WebSiteNew.png
 [WebSiteStatusRunning]: ../Media/WebSiteStatusRunning.png
+

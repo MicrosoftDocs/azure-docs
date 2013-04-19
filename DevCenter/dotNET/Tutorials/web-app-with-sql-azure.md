@@ -122,12 +122,36 @@ This is all you need to do for now to create the application that you'll deploy 
 
 <h2><a name="bkmk_deploytowindowsazure1"></a>Deploy the application to Windows Azure</h2>
 
+1. In your browser, open the [Windows Azure Management Portal](http://manage.windowsazure.com "portal").
+
+2. In the **Web Sites** tab, click the name of the site you created earlier.<br/>
+
+	![Contact manager application in Management Portal Web Sites tab][setup009]
+
+3. On the right side of the window, click **Download publish profile**.<br/>
+
+	![Quickstart tab and Download Publishing Profile button][firsdeploy001]<br/>
+
+	This step downloads a file that contains all of the settings that you need in order to deploy an application to your Web Site. You'll import this file into Visual Studio so you don't have to enter this information manually.
+
+4. Save the .*publishsettings* file in a folder that you can access from Visual Studio.<br/>
+
+	![saving the .publishsettings file][firsdeploy002]
+
+	<div chunk="../../shared/chunks/publishsettingsFileWarningChunk.md" />
+
 5. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
-![Publish in project context menu][PublishVSSolution]<br/>
-The **Publish Web** wizard opens.
+
+	![Publish in project context menu][PublishVSSolution]<br/>
+	
+	The **Publish Web** wizard opens.
+
 6. In the **Profile** tab of the **Publish Web** wizard, click **Import**.<br/>
-![Import publish settings][ImportPublishSettings]
-The **Import Publish Profile** dialog box appears.
+
+	![Import publish settings][ImportPublishSettings]
+
+	The **Import Publish Profile** dialog box appears.
+
 1. If you have not previously added your Windows Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from a Windows Azure web site** will include your web site.
     
 	a.  In the **Import Publish Profile** dialog box, click **Add Windows Azure subscription**.<br/> 
