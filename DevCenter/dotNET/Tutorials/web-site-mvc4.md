@@ -95,17 +95,29 @@ The **Publish Web** wizard opens.
 ![Import publish settings][ImportPublishSettings]
 The **Import Publish Profile** dialog box appears.
 1. If you have not previously added your Windows Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from a Windows Azure web site** will include your web site.
-    1. In the **Import Publish Profile** dialog box, click **Import from a Windows Azure web site**, and then click **Add Windows Azure subscription**.<br/> 
-    ![add Windows Azure subscription](../Media/rzAddWAsub.png)
-    1. In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.<br/>
-    ![download subscription file](../Media/rzDownLoadDownload.png)
-    1. In your browser window, save the *.publishsettings* file.<br/>
-    ![download .publishsettings file](../Media/rzDown2.png)<br/>
-    <div chunk="../../shared/chunks/publishsettingsFileWarningChunk.md" />
-    1. In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
+    
+	a.  In the **Import Publish Profile** dialog box, click **Import from a Windows Azure web site**, and then click **Add Windows Azure subscription**.<br/> 
+    
+	![add Windows Azure subscription](../Media/rzAddWAsub.png)
+    
+	b.  In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.<br/>
+    
+	![download subscription file](../Media/rzDownLoadDownload.png)
+    
+	c.  In your browser window, save the *.publishsettings* file.<br/>
+    
+	![download .publishsettings file](../Media/rzDown2.png)<br/>
+    
+	<div chunk="../../shared/chunks/publishsettingsFileWarningChunk.md" />
+
+	d.  In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
+
     ![download sub](../Media/rzDownLoadBrowse.png)
-    1. Click **Import**.<br/>
-    ![import](../Media/rzImp.png)
+
+	e.  Click **Import**.<br/>
+    
+	![import](../Media/rzImp.png)
+
 7. In the **Import Publish Profile** dialog box, select **Import from a Windows Azure web site**, select your web site from the drop-down list, and then click **OK**.<br/>
 ![Import Publish Profile][ImportPublishProfile]
 8. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.<br/>
