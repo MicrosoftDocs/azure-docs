@@ -151,7 +151,7 @@ You must have an HDInsight cluster provisioned before you can work on this tutor
 
 		hadoop fs -ls asv://<container>@<storagename..blob.core.windows.net/sample.log
 
-	Replace *<container>* with the container name, and *<storagename>* with the Blob Storage account name. 
+	Replace *&lt;container&gt;* with the container name, and *&lt;storagename&gt;* with the Blob Storage account name. 
 
 	Because the file is located on the default file system, the same result can also be retrieved by using the following command:
 
