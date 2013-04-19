@@ -4,8 +4,6 @@
 <div chunk="../chunks/article-left-menu.md" />
 # REST service using ASP.NET Web API and SQL Database 
 
-***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra. Updated 15 April 2013.***
-
 This tutorial shows how to deploy an ASP.NET web application that uses the ASP.NET Web API to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012 or Visual Studio 2012 for Web Express.
 
 You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. So you can start developing for Windows Azure entirely for free.
@@ -24,7 +22,6 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
 ![screenshot of web site][intro001]
 
-<!-- <div chunk="../chunks/article-left-menu.md" /> -->
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
 In this tutorial:
@@ -43,12 +40,12 @@ In this tutorial:
 
 To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. 
 
+
 1. To install the Windows Azure SDK for .NET, click the link below. If you don't have Visual Studio 2012 installed yet, it will be installed by the link. This tutorial requires Visual Studio 2012. <br/>
 [Windows Azure SDK for Visual Studio 2012]( http://go.microsoft.com/fwlink/?LinkId=254364)<br/>
 1. When you are prompted to run or save the installation executable, click **Run**.<br/>
 1. In the Web Platform Installer window, click **Install** and proceed with the installation.<br/>
 ![Web Platform Installer - Windows Azure SDK for .NET][WebPIAzureSdk20NetVS12]<br/>
-
 
 When the installation is complete, you have everything necessary to start developing.
 
@@ -75,7 +72,7 @@ Accept the default connection string.
 ![Create a New Web Site step of New Web Site - Create with Database wizard][rxz]<br/>
 6. Click the arrow that points to the right at the bottom of the box.
 The wizard advances to the **Database Settings** step.
-7. In the **Name** box, enter *ContactDB*. (See image below.)
+7. In the **Name** box, enter *ContactDB*.
 8. In the **Server** box, select **New SQL Database server**. Alternatively, if you previously created a SQL Server database, you can select that SQL Server from the dropdown control.
 9. Click the arrow that points to the right at the bottom of the box.<br/>
 10. Enter an administrator **LOGIN NAME** and **PASSWORD**. If you selected **New SQL Database server** you aren't entering an existing name and password here, you're entering a new name and password that you're defining now to use later when you access the database. If you selected a SQL Server you’ve created previously, you’ll be prompted for the password to the previous SQL Server account name you created. For this tutorial, we won't check the **Advanced ** box. The **Advanced ** box allows you to set the DB size (the default is 1 GB but you can increase this to 150 GB) and the collation.
@@ -154,8 +151,6 @@ The application home page appears in the default browser.<br/>
 This is all you need to do for now to create the application that you'll deploy to Windows Azure. Later you'll add database functionality.
 
 <h2><a name="bkmk_deploytowindowsazure1"></a>Deploy the application to Windows Azure</h2>
-
-
 
 
 5. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
@@ -783,7 +778,6 @@ Please leave feedback on what you liked or what you would like to see improved, 
 [rx]: ../Media/rx.png
 [rx]: ../Media/rx.png
 
-
 [rxCreateWSwithDB_2]: ../Media/rxCreateWSwithDB_2.png
 [rxNewCtx]: ../Media/rxNewCtx.png
 [rxCreateWSwithDB_2]: ../Media/rxCreateWSwithDB_2.png 
@@ -842,6 +836,10 @@ Please leave feedback on what you liked or what you would like to see improved, 
 [addwebapi006]: ../Media/dntutmobile-webapi-save-returned-contacts.png
 [addwebapi007]: ../Media/dntutmobile-webapi-contacts-in-notepad.png
 [lastdeploy001]: ../Media/dntutmobile-web-publish-settings.png
+[rxf]: ../Media/rxf.png
+[Add XSRF Protection]: #xsrf
+
+
 [WebPIAzureSdk20NetVS12]: ../Media/WebPIAzureSdk20NetVS12.png
 [rxf]: ../Media/rxf.png
 [Add XSRF Protection]: #xsrf
@@ -866,7 +864,6 @@ Please leave feedback on what you liked or what you would like to see improved, 
 [WebPIAzureSdk20NetVS12]: ../Media/WebPIAzureSdk20NetVS12.png
 [WebSiteNew]: ../Media/WebSiteNew.png
 [WebSiteStatusRunning]: ../Media/WebSiteStatusRunning.png
-
 
 
 
