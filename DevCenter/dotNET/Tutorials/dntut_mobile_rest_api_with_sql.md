@@ -29,26 +29,29 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
 In this tutorial:
 
-- [Set up the development environment][setupdbenv]
-- [Set up the Windows Azure environment][setupwindowsazureenv]
-- [Create an ASP.NET MVC 4 application][createapplication]
-- [Deploy the application to Windows Azure][deployapp1]
-- [Add a database to the application][adddb]
-- [Add a Controller and a view for the data][addcontroller]
-- [Add a Web API Restful interface][addwebapi]
-- [Add XSRF Protection][]
-- [Publish the application update to Windows Azure and SQL Database][deploy2]
+* [Set up the development environment][setupdbenv]
+* [Set up the Windows Azure environment][setupwindowsazureenv]
+* [Create an ASP.NET MVC 4 application][createapplication]
+* [Deploy the application to Windows Azure][deployapp1]
+* [Add a database to the application][adddb]
+* [Add a Controller and a view for the data][addcontroller]
+* [Add a Web API Restful interface][addwebapi]
+* [Add XSRF Protection][]
+* [Publish the application update to Windows Azure and SQL Database][deploy2]
 
 <h2><a name="bkmk_setupdevenv"></a>Set up the development environment</h2>
 
 To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. 
 
 1. To install the Windows Azure SDK for .NET, click the link below. If you don't have Visual Studio 2012 installed yet, it will be installed by the link. This tutorial requires Visual Studio 2012. <br/>
-[Windows Azure SDK for Visual Studio 2012]( http://go.microsoft.com/fwlink/?LinkId=254364)<br/>
-1. When you are prompted to run or save the installation executable, click **Run**.<br/>
-1. In the Web Platform Installer window, click **Install** and proceed with the installation.<br/>
-![Web Platform Installer - Windows Azure SDK for .NET][WebPIAzureSdk20NetVS12]<br/>
 
+	[Windows Azure SDK for Visual Studio 2012]( http://go.microsoft.com/fwlink/?LinkId=254364)<br/>
+
+1. When you are prompted to run or save the installation executable, click **Run**.<br/>
+
+1. In the Web Platform Installer window, click **Install** and proceed with the installation.<br/>
+
+	![Web Platform Installer - Windows Azure SDK for .NET][WebPIAzureSdk20NetVS12]<br/>
 
 When the installation is complete, you have everything necessary to start developing.
 
@@ -65,25 +68,45 @@ Your Windows Azure Web Site will run in a shared hosting environment, which mean
 SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
 
 1. In the [Windows Azure Management Portal](https://manage.windowsazure.com), click **Web Sites** in the left tab, and then click  **New**.<br/>
+
 2. Click **CUSTOM CREATE**.<br/>
-![Create with Database link in Management Portal][rxCreateWSwithDB]<br/>
-The **New Web Site - Custom Create** wizard opens. 
+
+	![Create with Database link in Management Portal][rxCreateWSwithDB]<br/>
+
+	The **New Web Site - Custom Create** wizard opens. 
+
 3. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "contactmgr22", but that URL is probably taken so you’ll have to choose a different one.
+
 1. In the **Region** drop-down list, choose the region that is closest to you.<br/>
+
 1. In the **Database** drop-down list, choose **Create a new SQL database**.
-Accept the default connection string.
-![Create a New Web Site step of New Web Site - Create with Database wizard][rxz]<br/>
+
+	Accept the default connection string.
+
+	![Create a New Web Site step of New Web Site - Create with Database wizard][rxz]<br/>
+
 6. Click the arrow that points to the right at the bottom of the box.
-The wizard advances to the **Database Settings** step.
+
+	The wizard advances to the **Database Settings** step.
+
 7. In the **Name** box, enter *ContactDB*. (See image below.)
+
 8. In the **Server** box, select **New SQL Database server**. Alternatively, if you previously created a SQL Server database, you can select that SQL Server from the dropdown control.
+
 9. Click the arrow that points to the right at the bottom of the box.<br/>
+
 10. Enter an administrator **LOGIN NAME** and **PASSWORD**. If you selected **New SQL Database server** you aren't entering an existing name and password here, you're entering a new name and password that you're defining now to use later when you access the database. If you selected a SQL Server you’ve created previously, you’ll be prompted for the password to the previous SQL Server account name you created. For this tutorial, we won't check the **Advanced ** box. The **Advanced ** box allows you to set the DB size (the default is 1 GB but you can increase this to 150 GB) and the collation.
+
 11. Click the check mark at the bottom of the box to indicate you're finished.
-![Database Settings step of New Web Site - Create with Database wizard][setup007]<br/>
-<br/> The following image shows using an existing SQL Server and Login.
-![Database Settings step of New Web Site - Create with Database wizard][rxPrevDB]<br/>
-The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon, and the number of databases appears next to the **SQL Databases** icon.<br/>
+
+	![Database Settings step of New Web Site - Create with Database wizard][setup007]<br/>
+
+	<br/> The following image shows using an existing SQL Server and Login.
+	
+	![Database Settings step of New Web Site - Create with Database wizard][rxPrevDB]<br/>
+
+	The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon, and the number of databases appears next to the **SQL Databases** icon.<br/>
+
 <!-- [Web Sites page of Management Portal, web site created][setup009] -->
 
 <h2><a name="bkmk_createmvc4app"></a>Create an ASP.NET MVC 4 application</h2>
@@ -103,103 +126,129 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 
 1. In **Solution Explorer**, expand the *Views\Shared* folder and open the *_Layout.cshtml* file.<br/>
+
 	![_Layout.cshtml in Solution Explorer][newapp004]
+
 1. Replace the contents of the *_Layout.cshtml* file with the following code:
 <br/>
 
-  
-    &lt;!DOCTYPE html&gt;<br/>
-    &lt;html lang=&quot;en&quot;&gt;<br/>
-    &lt;head&gt;<br/>
-        &lt;meta charset=&quot;utf-8&quot; /&gt;<br/>
-        &lt;title&gt;@ViewBag.Title - Contact Manager&lt;/title&gt;<br/>
-        &lt;link href=&quot;~/favicon.ico&quot; rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; /&gt;<br/>
-        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;<br/>
-        @Styles.Render(&quot;~/Content/css&quot;)<br/>
-        @Scripts.Render(&quot;~/bundles/modernizr&quot;)<br/>
-    &lt;/head&gt;<br/>
-    &lt;body&gt;<br/>
-        &lt;header&gt;<br/>
-            &lt;div class=&quot;content-wrapper&quot;&gt;<br/>
-                &lt;div class=&quot;float-left&quot;&gt;<br/>
-                    &lt;p class=&quot;site-title&quot;&gt;@Html.ActionLink(&quot;Contact Manager&quot;, &quot;Index&quot;, &quot;Home&quot;)&lt;/p&gt;<br/>              
-                &lt;/div&gt;<br/>
-            &lt;/div&gt;<br/>
-        &lt;/header&gt;<br/>
-        &lt;div id=&quot;body&quot;&gt;<br/>
-            @RenderSection(&quot;featured&quot;, required: false)<br/>
-            &lt;section class=&quot;content-wrapper main-content clear-fix&quot;&gt;<br/>
-                @RenderBody()<br/>
-            &lt;/section&gt;<br/>
-        &lt;/div&gt;<br/>
-        &lt;footer&gt;<br/>
-            &lt;div class=&quot;content-wrapper&quot;&gt;<br/>
-                &lt;div class=&quot;float-left&quot;&gt;<br/>
-                    &lt;p&gt;&amp;copy; @DateTime.Now.Year - Contact Manager&lt;/p&gt;<br/>
-                &lt;/div&gt;<br/>
-            &lt;/div&gt;<br/>
-        &lt;/footer&gt;<br/><br/>
-    	@Scripts.Render("~/bundles/jquery")<br/>
-    	@RenderSection("scripts", required: false)
-    &lt;/body&gt;<br/>
-    &lt;/html&gt;
-
+		&lt;!DOCTYPE html&gt;<br/>
+	    &lt;html lang=&quot;en&quot;&gt;<br/>
+	    &lt;head&gt;<br/>
+	        &lt;meta charset=&quot;utf-8&quot; /&gt;<br/>
+	        &lt;title&gt;@ViewBag.Title - Contact Manager&lt;/title&gt;<br/>
+	        &lt;link href=&quot;~/favicon.ico&quot; rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; /&gt;<br/>
+	        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;<br/>
+	        @Styles.Render(&quot;~/Content/css&quot;)<br/>
+	        @Scripts.Render(&quot;~/bundles/modernizr&quot;)<br/>
+	    &lt;/head&gt;<br/>
+	    &lt;body&gt;<br/>
+	        &lt;header&gt;<br/>
+	            &lt;div class=&quot;content-wrapper&quot;&gt;<br/>
+	                &lt;div class=&quot;float-left&quot;&gt;<br/>
+	                    &lt;p class=&quot;site-title&quot;&gt;@Html.ActionLink(&quot;Contact Manager&quot;, &quot;Index&quot;, &quot;Home&quot;)&lt;/p&gt;<br/>              
+	                &lt;/div&gt;<br/>
+	            &lt;/div&gt;<br/>
+	        &lt;/header&gt;<br/>
+	        &lt;div id=&quot;body&quot;&gt;<br/>
+	            @RenderSection(&quot;featured&quot;, required: false)<br/>
+	            &lt;section class=&quot;content-wrapper main-content clear-fix&quot;&gt;<br/>
+	                @RenderBody()<br/>
+	            &lt;/section&gt;<br/>
+	        &lt;/div&gt;<br/>
+	        &lt;footer&gt;<br/>
+	            &lt;div class=&quot;content-wrapper&quot;&gt;<br/>
+	                &lt;div class=&quot;float-left&quot;&gt;<br/>
+	                    &lt;p&gt;&amp;copy; @DateTime.Now.Year - Contact Manager&lt;/p&gt;<br/>
+	                &lt;/div&gt;<br/>
+	            &lt;/div&gt;<br/>
+	        &lt;/footer&gt;<br/><br/>
+	    	@Scripts.Render("~/bundles/jquery")<br/>
+	    	@RenderSection("scripts", required: false)
+	    &lt;/body&gt;<br/>
+	    &lt;/html&gt;
+	
 
 ### Run the application locally
 
 1. Press CTRL+F5 to run the application.
 The application home page appears in the default browser.<br/>
-![To Do List home page][rxzz]
+
+	![To Do List home page][rxzz]
 
 This is all you need to do for now to create the application that you'll deploy to Windows Azure. Later you'll add database functionality.
 
 <h2><a name="bkmk_deploytowindowsazure1"></a>Deploy the application to Windows Azure</h2>
 
-
-
-
 5. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
-![Publish in project context menu][PublishVSSolution]<br/>
-The **Publish Web** wizard opens.
+
+	![Publish in project context menu][PublishVSSolution]<br/>
+
+	The **Publish Web** wizard opens.
+
 6. In the **Profile** tab of the **Publish Web** wizard, click **Import**.<br/>
-![Import publish settings][ImportPublishSettings]
-The **Import Publish Profile** dialog box appears.
+
+	![Import publish settings][ImportPublishSettings]
+
+	The **Import Publish Profile** dialog box appears.
+
 1. If you have not previously added your Windows Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from a Windows Azure web site** will include your web site.
-    1. In the **Import Publish Profile** dialog box, click **Add Windows Azure subscription**.<br/> 
-    ![add win az sub](../Media/rzAddWAsub.png)
-    1. In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.<br/>
-    ![download sub](../Media/rzDownLoad.png)
-    1. In your browser window, save the *.publishsettings* file.<br/>
-    ![download pub file](../Media/rzDown2.png)
-    <div chunk="../../shared/chunks/publishsettingsFileWarningChunk.md" />
-    1. In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
-    ![download sub](../Media/rzDownLoad.png)
-    1. Click **Import**.<br/>
-    ![import](../Media/rzImp.png)
+
+    a. In the **Import Publish Profile** dialog box, click **Add Windows Azure subscription**.<br/> 
+    
+	![add win az sub](../Media/rzAddWAsub.png)
+    
+	b. In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.<br/>
+    
+	![download sub](../Media/rzDownLoad.png)
+    
+	c. In your browser window, save the *.publishsettings* file.<br/>
+    
+	![download pub file](../Media/rzDown2.png)
+    
+	<div chunk="../../shared/chunks/publishsettingsFileWarningChunk.md" />
+    
+	d. In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
+    
+	![download sub](../Media/rzDownLoad.png)
+    
+	e. Click **Import**.<br/>
+    
+	![import](../Media/rzImp.png)
+
 7. In the **Import Publish Profile** dialog box, select **Import from a Windows Azure web site**, select your web site from the drop-down list, and then click **OK**.<br/>
-![Import Publish Profile][ImportPublishProfile]
 
-
-
-
+	![Import Publish Profile][ImportPublishProfile]
 
 8. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.<br/>
-![Validate connection][ValidateConnection]<br/>
+
+	![Validate connection][ValidateConnection]<br/>
+
 9. When the connection has been validated, a green check mark is shown next to the **Validate Connection** button.<br/>
-	<br/>![connection successful icon and Next button in Connection tab][firsdeploy007]
+
+	![connection successful icon and Next button in Connection tab][firsdeploy007]
+
 10. You can accept all of the default settings on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server. The **UsersContext (DefaultConnection)** entry under **Databases** comes from the *UsersContext:DbContext* class which uses the DefaultConnection string. <br/>
-Click **Next**.<br/>
 
-	<br/>![connection successful icon and Next button in Connection tab][rxPWS]
+	Click **Next**.<br/>
+
+	![connection successful icon and Next button in Connection tab][rxPWS]
+
 12. In the **Preview** tab, click **Start Preview**.<br/>
-The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed. The next time you publish, only the files that have changed will be in the preview list.<br/>
-![StartPreview button in the Preview tab][firsdeploy009]<br/>
-12. Click **Publish**.<br/>
-Visual Studio begins the process of copying the files to the Windows Azure server. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
-14. The default browser automatically opens to the URL of the deployed site.<br/>
-The application you created is now running in the cloud.
-	<br/>![To Do List home page running in Windows Azure][rxz2]
 
+	The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed. The next time you publish, only the files that have changed will be in the preview list.<br/>
+
+	![StartPreview button in the Preview tab][firsdeploy009]<br/>
+
+12. Click **Publish**.<br/>
+
+	Visual Studio begins the process of copying the files to the Windows Azure server. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
+
+14. The default browser automatically opens to the URL of the deployed site.<br/>
+
+	The application you created is now running in the cloud.
+	
+	![To Do List home page running in Windows Azure][rxz2]
 
 <h2><a name="bkmk_addadatabase"></a>Add a database to the application</h2>
 
@@ -210,10 +259,13 @@ Next, you'll update the MVC application to add the ability to display and update
 You begin by creating a simple data model in code.
 
 1. In **Solution Explorer**, right-click the Models folder, click **Add**, and then **Class**.<br/>
-![Add Class in Models folder context menu][adddb001]
+
+	![Add Class in Models folder context menu][adddb001]
 
 2. In the **Add New Item** dialog box, name the new class file *Contact.cs*, and then click **Add**.<br/>
-![Add New Item dialog box][adddb002]
+
+	![Add New Item dialog box][adddb002]
+
 3. Replace the contents of the Contacts.cs file with the following code.
 
 		using System.Globalization;
@@ -237,6 +289,7 @@ You begin by creating a simple data model in code.
         		}
     		}
 		}
+
 The **Contacts** class defines the data that you will store for each contact, plus a primary key, ContactID, that is needed by the database.
 
 ### Create web pages that enable app users to work with the contacts
@@ -246,47 +299,65 @@ The ASP.NET MVC the scaffolding feature can automatically generate code that per
 <h2><a name="bkmk_addcontroller"></a>Add a Controller and a view for the data</h2>
 
 1. In **Solution Explorer**, expand the Controllers folder.
+
 3. Build the project **(Ctrl+Shift+B)**. (You must build the project before using scaffolding mechanism.) <br/>
-4. Right-click the Controllers folder and click **Add**, and then click **Controller...**.<br/>
-![Add Controller in Controllers folder context menu][addcode001]<br/>
+
+4. Right-click the Controllers folder and click **Add**, and then click **Controller**.<br/>
+
+	![Add Controller in Controllers folder context menu][addcode001]<br/>
+
 5. In the **Add Controller** dialog box, enter "HomeController" as your controller name. Set the **Scaffolding options Template** to  **MVC Controller with read/write actions and views, using Entity Framework**.
-6. Select **Contact** as your model class and **&lt;New data context...>** as your data context class.<br/>
-![Add Controller dialog box][addcode002]<br/>
+
+6. Select **Contact** as your model class and **&lt;New data context...>** as your data context class.
+
+	![Add Controller dialog box][addcode002]<br/>
+
 7. On the **New Data Context** dialog box, accept the default value *ContactManager.Models.ContactManagerContext*.
+
 	<br/>![Add Controller dialog box][rxNewCtx]<br/>
+
 8. Click **OK**, then click **Add** in the **Add Controller** dialog box.<br/>
+
 9. On the **Add Controller** overwrite dialog, make sure all options are checked and click **OK**.
-	<br/>![Add Controller message box][rxOverwrite] <br/>
-Visual Studio creates a controller methods and views for CRUD database operations for **Contact** objects.
+
+	![Add Controller message box][rxOverwrite] <br/>
+
+	Visual Studio creates a controller methods and views for CRUD database operations for **Contact** objects.
 
 ## Enable Migrations, create the database, add sample data and a data initializer ##
 
 The next task is to enable the [Code First Migrations](http://atlas.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application "code first MVC") feature in order to create the database based on the data model you created.
 
 1. In the **Tools** menu, select **Library Package Manager** and then **Package Manager Console**.
-	<br/>![Package Manager Console in Tools menu][addcode008]
+
+	![Package Manager Console in Tools menu][addcode008]
+
 2. In the **Package Manager Console** window, enter the following command:<br/>
 
 		enable-migrations -ContextTypeName ContactManagerContext
-<br/>![enable-migrations][rxE] <br/>
+
+	<br/>![enable-migrations][rxE] <br/>
+	
 	You must specify the context type name (**ContactManagerContext**) because the project contains two [DbContext](http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx) derived classes, the **ContactManagerContext** we just added and the **UsersContext**, which is used for the membership database. The **ContactManagerContext** class was added by the Visual Studio scaffolding wizard.<br/>
-  The **enable-migrations** command creates a *Migrations* folder and it puts in that folder a *Configuration.cs* file that you can edit to configure Migrations. <br/>
+  
+	The **enable-migrations** command creates a *Migrations* folder and it puts in that folder a *Configuration.cs* file that you can edit to configure Migrations. <br/>
 
 2. In the **Package Manager Console** window, enter the following command:<br/>
 
 		add-migration Initial
 
-
 	The **add-migration Initial** command generates a class named **&lt;date_stamp&gt;Initial** that creates the database. The first parameter ( *Initial* ) is arbitrary and used to create the name of the file. You can see the new class files in **Solution Explorer**.<br/>
+
 	In the **Initial** class, the **Up** method creates the Contacts table, and the **Down** method (used when you want to return to the previous state) drops it.<br/>
+
 3. Right-click the Migrations folder and open the **Configuration.cs** file. 
+
 4. Add the following namespaces. 
 
     	 using ContactManager.Models;
 
 5. Replace the *Seed* method with the following code:
 		
-
         protected override void Seed(ContactManager.Models.ContactManagerContext context)
         {
             context.Contacts.AddOrUpdate(p => p.Name,
@@ -363,7 +434,9 @@ The application shows the seed data and provides edit, details and delete links.
 <h2><a name="bkmk_addview"></a>Edit the View</h2>
 
 1. Expand the Views\Home folder and open the Index.cshtml file.
+	
 	<!--<br/>![Modify index.cshtml in views\home folder context menu][addcode004]-->
+
 2. Replace the contents of the file with the following code.
 
 		@model IEnumerable<ContactManager.Models.Contact>
@@ -455,9 +528,12 @@ The application shows the seed data and provides edit, details and delete links.
 		</form>
 
 3. Right-click the Content folder and click **Add**, and then click **New Item...**.
+
 	<br/><br/>![Add style sheet in Content folder context menu][addcode005]
+
 4. In the **Add New Item** dialog box, enter **Style** in the upper right search box and then select **Style Sheet**.
 	<br/>![Add New Item dialog box][rxStyle]
+
 5. Name the file Contacts.css and click **Add**. Replace the contents of the file with the following code.
     
         .column {
@@ -515,7 +591,9 @@ The application shows the seed data and provides edit, details and delete links.
         }
 
 6. Expand the App\_Start folder and open the BundleConfig.cs file.
+
 	<!--<br/>![Modify BundleConfig.cs in App_Start folder context menu][addcode007]-->
+
 7. Add the following statement to register the [Knockout](http://knockoutjs.com/index.html "KO") plugin.
 
 		bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
@@ -534,33 +612,51 @@ To:
 <h2><a name="bkmk_addwebapi"></a>Add a controller for the Web API Restful interface</h2>
 
 1. In **Solution Explorer**, right-click Controllers and click **Add** and then **Controller....** 
+
 4. In the **Add Controller** dialog box, enter "ContactsController" as your controller name, select the **API controller with read/write actions, using Entity Framework** template. 
+
 5. In **Model Class** select *Contact (ContactManager.Models)* and in **Data Context Class** select *ContactManagerContext (ContactManager.Models)*.
- <br/>![Add API controller][rxAddApiController]<br/>
+
+	<br/>![Add API controller][rxAddApiController]<br/>
+
 6. Click **Add**.
 
 ### Run the application locally
 
 1. Press CTRL+F5 to run the application.<br/>
-![Index page][intro001]
-2. Enter a contact and click **Add**. The app returns to the home page and displays the contact you entered.<br/>
-![Index page with to-do list items][addwebapi004]
-3. In the browser, append /api/contacts to the URL.
-The resulting URL will resemble http://localhost:1234/api/contacts. The RESTful web API you added returns the stored contacts.<br/> FireFox and Chrome will display the data in XML format.
 
-<br/>![Index page with to-do list items][rxFFchrome]<br/>
-IE will prompt you to open or save the contacts.
-![Web API save dialog][addwebapi006]<br/>
+	![Index page][intro001]
+
+2. Enter a contact and click **Add**. The app returns to the home page and displays the contact you entered.<br/>
+
+	![Index page with to-do list items][addwebapi004]
+
+3. In the browser, append /api/contacts to the URL.
+
+	The resulting URL will resemble http://localhost:1234/api/contacts. The RESTful web API you added returns the stored contacts.<br/> FireFox and Chrome will display the data in XML format.
+
+	<br/>![Index page with to-do list items][rxFFchrome]<br/>
+
+	IE will prompt you to open or save the contacts.
+
+	![Web API save dialog][addwebapi006]<br/>
+	
 	You can open the returned contacts in notepad or a browser.
+	
 	This output can be consumed by another application such as mobile web page or application.<br/>
-![Web API save dialog][addwebapi007]
+
+	![Web API save dialog][addwebapi007]
 
 <h2><a name="xsrf"></a><span class="short-header">XSRF</span>Add XSRF Protection</h2>
+
 Cross-site request forgery (also known as XSRF or CSRF) is an attack against web-hosted applications whereby a malicious web site can influence the interaction between a client browser and a web site trusted by that browser. These attacks are made possible because web browsers will send authentication tokens automatically with every request to a web site. The canonical example is an authentication cookie, such as ASP.NET’s Forms Authentication ticket. However, web sites which use any persistent authentication mechanism (such as Windows Authentication, Basic, and so forth) can be targeted by these attacks.
+
 An XSRF attack is distinct from a phishing attack. Phishing attacks require interaction from the victim. In a phishing attack, a malicious web site will mimic the target web site, and the victim is fooled into providing sensitive information to the attacker. In an XSRF attack, there is often no interaction necessary from the victim. Rather, the attacker is relying on the browser automatically sending all relevant cookies to the destination web site.
+
 For more information, see the [Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
 
 1. In **Solution Explorer**, right click **Filters** and click **Add** and then click **Class**.
+
 2. Name the file *ValidateHttpAntiForgeryTokenAttribute.cs* and add the following code:
 
         using System;
@@ -658,24 +754,41 @@ For more information, see the [Open Web Application Security Project](https://ww
 To publish the application, you repeat the procedure you followed earlier.
 
 1. In **Solution Explorer**, right click the project and select **Publish**.
- <br/>![Publish][rxP]<br/><br/>
+
+	<br/>![Publish][rxP]<br/><br/>
+
 5. Click the **Settings** tab.
-![Settings tab of Publish Web wizard][rxz4]<br/>
+
+	![Settings tab of Publish Web wizard][rxz4]<br/>
+
 1. Under **ContactsManagerContext(ContactsManagerContext)**, click the **v** icon to change *Remote connection string* to the connection string for the contact database.
+
 6. The remote connection string box for the **ContactsManagerContext(ContactsManagerContext)** database now contains the SQL Database connection string that was provided in the *publishsettings* file. Click on the ellipsis (**...**) to see the *ContactDB* settings.<br/>
- <br/>![DB settings][rx22]<br/><br/>
+
+	<br/>![DB settings][rx22]<br/><br/>
+
 7. Close the **Destination Connections String Dialog** and in the **Publish Web** dialog check the box for **Execute Code First Migrations (runs on application start)** for the **UsersContext(DefaultConnection)** database.<br/>
-![Settings tab of Publish Web wizard][rxz44]<br/>
+
+	![Settings tab of Publish Web wizard][rxz44]<br/>
+
 1. You can click the **^** icon next to the **UsersContext(DefaultConnection)** database, that is the connection information for the membership database and we're not using it in this tutorial. A real application would require authentication and authorization, and you would use the membership database for that purpose. See [Deploy a Secure ASP.NET MVC application with OAuth, Membership and SQL Database](http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/) which is based on this tutorial and shows how to deploy a web application with the membership database.
+
 1. Click **Next** and then click **Preview**. Visual Studio displays a list of the files that will be added or updated.
+
 8. Click **Publish**.<br/>
 After the deployment completes, the browser opens to the home page of the application.<br/>
-![Index page with no contacts][intro001]<br/>
-The Visual Studio publish process automatically configured the connection string in the deployed *Web.config* file to point to the SQL database. It also configured Code First Migrations to automatically upgrade the database to the latest version the first time the application accesses the database after deployment.
-As a result of this configuration, Code First created the database by running the code in the **Initial** class that you created earlier. It did this the first time the application tried to access the database after deployment.
+
+	![Index page with no contacts][intro001]<br/>
+
+	The Visual Studio publish process automatically configured the connection string in the deployed *Web.config* file to point to the SQL database. It also configured Code First Migrations to automatically upgrade the database to the latest version the first time the application accesses the database after deployment.
+
+	As a result of this configuration, Code First created the database by running the code in the **Initial** class that you created earlier. It did this the first time the application tried to access the database after deployment.
+
 9. Enter a contact as you did when you ran the app locally, to verify that database deployment succeeded.
+
 When you see that the item you enter is saved and appears on the contact manager page, you know that it has been stored in the database.<br/>
-![Index page with contacts][addwebapi004]
+
+	![Index page with contacts][addwebapi004]
 
 The application is now running in the cloud, using SQL Database to store its data. After you finish testing the application in Windows Azure, delete it. The application is public and doesn't have a mechanism to limit access.
 
@@ -686,10 +799,10 @@ A real application would require authentication and authorization, and you would
 Another way to store data in a Windows Azure application is to use Windows Azure storage, which provide non-relational data storage in the form of blobs and tables. The following links provide more information on Web API, ASP.NET MVC and Window Azure.
  
 
-- [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs](http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
-- [Getting Started with Entity Framework using MVC][EFCodeFirstMVCTutorial]
-- [Intro to ASP.NET MVC 4](http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4)
-- [Your First ASP.NET Web API](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
+* [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs](http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
+* [Getting Started with Entity Framework using MVC][EFCodeFirstMVCTutorial]
+* [Intro to ASP.NET MVC 4](http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4)
+* [Your First ASP.NET Web API](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
 
 
 This tutorial and the sample application was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) with assistance from Tom Dykstra, Tom FitzMacken and Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
@@ -872,7 +985,3 @@ Please leave feedback on what you liked or what you would like to see improved, 
 [WebPIAzureSdk20NetVS12]: ../Media/WebPIAzureSdk20NetVS12.png
 [WebSiteNew]: ../Media/WebSiteNew.png
 [WebSiteStatusRunning]: ../Media/WebSiteStatusRunning.png
-
-
-
-

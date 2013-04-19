@@ -129,21 +129,26 @@ The **Publish Web** wizard opens.
 ![Import publish settings][ImportPublishSettings]
 The **Import Publish Profile** dialog box appears.
 1. If you have not previously added your Windows Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from a Windows Azure web site** will include your web site.
-    1. In the **Import Publish Profile** dialog box, click **Add Windows Azure subscription**.<br/> 
+    
+	a.  In the **Import Publish Profile** dialog box, click **Add Windows Azure subscription**.<br/> 
     ![add win az sub](../Media/rzAddWAsub.png)
-    1. In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.<br/>
+	b. In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.<br/>
     ![download sub](../Media/rzDownLoad.png)
-    1. In your browser window, save the *.publishsettings* file.<br/>
+	c. In your browser window, save the *.publishsettings* file.<br/>
     ![download pub file](../Media/rzDown2.png)
     <div chunk="../../shared/chunks/publishsettingsFileWarningChunk.md" />
-    1. In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
+	d. In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
     ![download sub](../Media/rzDownLoad.png)
-    1. Click **Import**.<br/>
+	e. Click **Import**.<br/>
     ![import](../Media/rzImp.png)
+
 7. In the **Import Publish Profile** dialog box, select **Import from a Windows Azure web site**, select your web site from the drop-down list, and then click **OK**.<br/>
-![Import Publish Profile][ImportPublishProfile]
-The application you created is now running in the cloud. The next time you deploy the application, only the changed (or new) files will be deployed.
-	<br/><br/>![To Do List home page running in Windows Azure][newapp005]
+
+	![Import Publish Profile][ImportPublishProfile]
+
+	The application you created is now running in the cloud. The next time you deploy the application, only the changed (or new) files will be deployed.
+	
+	![To Do List home page running in Windows Azure][newapp005]
 
 
 <h2><a name="bkmk_addadatabase"></a>Add a database to the application</h2>
@@ -392,32 +397,32 @@ In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/li
 1. Add   [Authorize(Roles = "canEdit")] to the Get and Post methods that change data (Create, Edit, Delete). 
 1. Add the *About* and *Contact* methods. A portion of the completed code is shown below.
 
-    public class HomeController : Controller
-    {
-        private ContactManagerContext db = new ContactManagerContext();
-        [AllowAnonymous]
-        public ActionResult Index()
-        {
-            return View(db.Contacts.ToList());
-        }
-
-        public ActionResult About()
-        {
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            return View();
-        }
-
-        [Authorize(Roles = "canEdit")]
-        public ActionResult Create()
-        {
-            return View();
-        }
-        // Methods moved and omitted for clarity.
-    }
+	    public class HomeController : Controller
+	    {
+	        private ContactManagerContext db = new ContactManagerContext();
+	        [AllowAnonymous]
+	        public ActionResult Index()
+	        {
+	            return View(db.Contacts.ToList());
+	        }
+	
+	        public ActionResult About()
+	        {
+	            return View();
+	        }
+	
+	        public ActionResult Contact()
+	        {
+	            return View();
+	        }
+	
+	        [Authorize(Roles = "canEdit")]
+	        public ActionResult Create()
+	        {
+	            return View();
+	        }
+	        // Methods moved and omitted for clarity.
+	    }
 
 1. Remove ASP.NET membership registration. The current  ASP.NET membership registration in the project does not provide support for password resets and it does not verify that a human is registering (for example with a [CAPTCHA](http://www.asp.net/web-pages/tutorials/security/16-adding-security-and-membership)). Once a user is authenticated using one of the third party providers, they can register. In the AccountController, remove the *[AllowAnonymous]* from the GET and POST *Register* methods. This will prevent bots and anonymous users from registering.
 1. In the *Views\Shared\_LoginPartial.cshtml*, remove the Register action link.
