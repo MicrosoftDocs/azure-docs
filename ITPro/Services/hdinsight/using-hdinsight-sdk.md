@@ -174,7 +174,7 @@ Now you understand how to create a .NET application using Hadoop .NET SDK. To le
 * [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 * [Using Pig with HDInsight][hdinsight-pig] 
 * [Using MapReduce with HDInsight][hdinsight-mapreduce]
-* [Using Hive with HDInsight](/en-us/manage/services/hdinsight/using-hive/)
+* [Using Hive with HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
 
 [hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
 [hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
