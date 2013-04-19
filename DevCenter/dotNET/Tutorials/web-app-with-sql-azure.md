@@ -131,16 +131,26 @@ The **Import Publish Profile** dialog box appears.
 1. If you have not previously added your Windows Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from a Windows Azure web site** will include your web site.
     
 	a.  In the **Import Publish Profile** dialog box, click **Add Windows Azure subscription**.<br/> 
-    ![add win az sub](../Media/rzAddWAsub.png)
+
+	![add win az sub](../Media/rzAddWAsub.png)
+	
 	b. In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.<br/>
-    ![download sub](../Media/rzDownLoad.png)
+    
+	![download sub](../Media/rzDownLoad.png)
+	
 	c. In your browser window, save the *.publishsettings* file.<br/>
-    ![download pub file](../Media/rzDown2.png)
-    <div chunk="../../shared/chunks/publishsettingsFileWarningChunk.md" />
+    
+	![download pub file](../Media/rzDown2.png)
+    
+	<div chunk="../../shared/chunks/publishsettingsFileWarningChunk.md" />
+	
 	d. In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
-    ![download sub](../Media/rzDownLoad.png)
+    
+	![download sub](../Media/rzDownLoad.png)
+	
 	e. Click **Import**.<br/>
-    ![import](../Media/rzImp.png)
+    
+	![import](../Media/rzImp.png)
 
 7. In the **Import Publish Profile** dialog box, select **Import from a Windows Azure web site**, select your web site from the drop-down list, and then click **OK**.<br/>
 
@@ -191,7 +201,7 @@ The ASP.NET MVC scaffolding feature can automatically generate code that perform
 <h2><a name="bkmk_addcontroller"></a>Add a Controller and a view for the data</h2>
 
 1. Build the project **(Ctrl+Shift+B)**. (You must build the project before using scaffolding mechanism.) <br/>
-1. In **Solution Explorer**, right-click the Controllers folder and click **Add**, and then click **Controller...**.<br/>
+1. In **Solution Explorer**, right-click the Controllers folder and click **Add**, and then click **Controller**.<br/>
 ![Add Controller in Controllers folder context menu][addcode001]<br/>
 5. In the **Add Controller** dialog box, enter "HomeController" as your controller name. 
 1. Set the **Scaffolding options** Template to  **MVC Controller with read/write actions and views, using Entity Framework**.
