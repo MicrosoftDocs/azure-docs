@@ -50,7 +50,7 @@ makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5
 If you will be registering a different server than the one you used to make the certificate, you need to export the .pfx file (that contains the private key), copy it to the other server and import it to that server’s Personal certificate store. 
 </p>
 <p>
-For step-by-step instructions on the vault certificate upload process, see <a href="http://go.microsoft.com/fwlink/p/?LinkID=294662">Upload certificates to the vault</a>.</p> 
+For step-by-step instructions on the vault certificate upload process and more information on exporting and importing .pfx files, see <a href="http://go.microsoft.com/fwlink/p/?LinkID=294662">Manage vault certificates</a>.</p> 
 </div>
 
 <h2><a id="create"></a>Create a backup vault</h2>
