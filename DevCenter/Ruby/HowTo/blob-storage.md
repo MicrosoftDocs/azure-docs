@@ -85,7 +85,8 @@ If you want to make the files in the container public, you can set the container
 
 You can just modify the <strong>create\_container()</strong> call to pass the **:public\_access\_level** option:
 
-	container = azure_blob_service.create_container("test-container", :public_access_level => "<public access level>")
+	container = azure_blob_service.create_container("test-container", 
+	  :public_access_level => "<public access level>")
 
 
 Valid values for the **:public\_access\_level** option are:
@@ -102,7 +103,7 @@ The following example changes the public access level to **container**:
 
 ## <a id="UploadBlob"></a>How To: Upload a Blob into a Container
 
-To upload content to a blob, use the **create_block_blob()** method to create the blob, use a file or string as the content of the blob. 
+To upload content to a blob, use the **create\_block\_blob()** method to create the blob, use a file or string as the content of the blob. 
 
 The following code will upload the file **test.png** as a new blob named "image-blob" in the container.
 
