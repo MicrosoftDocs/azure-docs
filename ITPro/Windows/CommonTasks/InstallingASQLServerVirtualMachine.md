@@ -147,7 +147,7 @@ The virtual machine must have an endpoint to listen for incoming TCP communicati
 
 <h3 id="FW">Open TCP ports in the Windows firewall for the default instance of the Database Engine</h3>
 
-1. On the Start menu, click **Run**, type **WF.msc**, and then click **OK**.
+1. Connect to the virtual machine via Windows Remote Desktop. Once logged in, on the Start menu, click **Run**, type **WF.msc**, and then click **OK**.
 
 
     ![Start the Firewall Program] [Image12]
