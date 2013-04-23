@@ -1,4 +1,4 @@
-<properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Windows Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" metaDescription="Learn how to create a Windows Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Windows Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" metaDescription="Learn how to create a Windows Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" />
 
 
 <div chunk="../chunks/article-left-menu.md" />
@@ -32,23 +32,24 @@ The following is an example of the Java application monitoring the compute-inten
 
 ## To create a virtual machine
 
-1. Log in to the [Windows Azure Preview Management Portal](https://manage.windowsazure.com).
+1. Log in to the [Windows Azure Management Portal](https://manage.windowsazure.com).
 2. Click **New**.
 3. Click **Virtual machine**.
 4. Click **Quick create**.
 5. In the **Create a virtual machine** screen, enter a value for **DNS name**.
 6. From the **Image** dropdown list, select an image, such as **Windows Server 2008 R2 SP1**.
-7. Enter a password in the **New password** field, and re-enter it in the **Confirm** field. Remember this password, you will use it when you remotely log in to the virtual machine.
-8. From the **Location** drop down list, select the data center location for your virtual machine; for example, **West US**.
-9. Click **Create virtual machine**. Your virtual machine will be created. You can monitor the status in the **Virtual machines** section of the management portal.
+7. Enter a name for the administrator in the **User Name** field. Remember this name and the password you will enter next, you will use them when you remotely log in to the virtual machine.
+8. Enter a password in the **New password** field, and re-enter it in the **Confirm** field.
+9. From the **Location** drop down list, select the data center location for your virtual machine.
+10. Click **Create virtual machine**. Your virtual machine will be created. You can monitor the status in the **Virtual machines** section of the management portal.
 
 ## To remotely log in to your virtual machine
 
-1. Log on to the [Preview Management Portal](https://manage.windowsazure.com).
+1. Log on to the [Management Portal](https://manage.windowsazure.com).
 2. Click **Virtual machines**.
 3. Click the name of the virtual machine that you want to log in to.
 4. Click **Connect**.
-5. Respond to the prompts as needed to connect to the virtual machine. When prompted for the password, use the password that you provided when you created the virtual machine.
+5. Respond to the prompts as needed to connect to the virtual machine. When prompted for the administrator name and password, use the values that you provided when you created the virtual machine.
 
 ## To install a JRE or JDK on your virtual machine
 
@@ -73,7 +74,7 @@ container for addressing Service Bus resources within your application.
 
 To create a service namespace:
 
-1.  Log on to the [Windows Azure Management Portal](http://windows.azure.com) (note this is not the same portal as the Windows Azure Preview Management Portal).
+1.  Log on to the [Windows Azure Management Portal](https://manage.windowsazure.com).
 2.  In the lower left navigation pane of the Management Portal, click **Service Bus, Access Control & Caching**.
 3.  In the upper left pane of the Management Portal, click the **Service
     Bus** node, and then click the **New** button.  

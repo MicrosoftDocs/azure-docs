@@ -1,11 +1,11 @@
 <properties linkid="manage-linux-how-to-guides" urlDisplayName="How to guides" pageTitle="Windows Azure Linux virtual machine how-to guides" metaKeywords="Azure Linux vms, Linux vms, Linux virtual machine" metaDescription="Find topics about Linux virtual machines (VMs) on Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
-
+<div chunk="../chunks/linux-left-nav.md" />
 
 <h1 id="guides">How to guides for Linux virtual machines</h1>
 
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
+
 
 ###[How to Create a Custom Virtual Machine](/en-us/manage/linux/common-tasks/upload-a-VHD/)
 
@@ -28,7 +28,7 @@ Learn how to create multiple virtual machines under the same cloud service to en
 
 ###[How to Quickly Create a Virtual Machine](/en-us/manage/linux/how-to-guides/quickly-create-a-vm/)
 
-Learn how to you use the Quick Create method to create a virtual machine in the Windows Azure (Preview) Management Portal. When you create this machine, all you need to provide is the name of the machine, the image that is used to create the machine, and the password for the user account that is used to manage the machine.
+Learn how to you use the Quick Create method to create a virtual machine in the management portal. When you create this machine, all you need to provide is the name of the machine, the image that is used to create the machine, and the password for the user account that is used to manage the machine.
 
 
 ###[How to Attach a Data Disk to a Virtual Machine](/en-us/manage/linux/how-to-guides/attach-a-disk/)

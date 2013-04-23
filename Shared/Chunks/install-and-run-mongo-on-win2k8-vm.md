@@ -46,31 +46,41 @@ Follow these steps to install and run MongoDB on a virtual machine running Windo
 
 	This creates a service named "Mongo DB" with a description of "Mongo DB". The **--logpath** option must be used to specify a log file, since the running service will not have a command window to display output.  The **--logpath** option specifies that a restart of the service will cause output to append to the existing log file.  The **--dbpath** option specifies the location of the data directory. For more service-related command line options, see [Service-related command line options] [MongoWindowsSvcOptions].
 10. Now that MongoDB is installed and running you must open a port in Windows Firewall in order to remotely connect to MongoDB.  From the **Start** menu, select **Administrator Tools** and then **Windows Firewall with Advanced Security**. 
+
 11. In the left pane, select **Inbound Rules**.  In the **Actions** pane on the right, select **New Rule...**.
+	
 	![Windows Firewall][Image1]
 
 	In the **New Inbound Rule Wizard**, select **Port** and then click **Next**.
+	
 	![Windows Firewall][Image2]
 
 	Select **TCP** and then **Specific local ports**.  Specify a port of "27107" (the port MongoDB listens on) and click **Next**.
+
 	![Windows Firewall][Image3]
 
 	Select **Allow the connection** and click **Next**.
+
 	![Windows Firewall][Image4]
 
 	Click **Next** again.
+	
 	![Windows Firewall][Image5]
 
 	Specify a name for the rule, such as "MongoPort", and click **Finish**.
+
 	![Windows Firewall][Image6]
 	
 12. Once MongoDB is installed you must configure an endpoint so that MongoDB can be accessed remotely. In the Management Portal, click **Virtual Machines**, then click the name of your new virtual machine, then click **Endpoints**.
-![Endpoints][Image7]
+
+	![Endpoints][Image7]
 13. Click **Add Endpoint** at the bottom of the page. Select **Add Endpoint** and click **Next**.
+	
 	![Endpoints][Image8]
 
 14. Add an endpoint with name "Mongo", protocol **TCP**, and both **Public** and **Private** ports set to "27017". This will allow MongoDB to be accessed remotely.
-![Endpoints][Image9]
+
+	![Endpoints][Image9]
 
 [MongoDownloads]: http://www.mongodb.org/downloads
 [MongoWindowsSvc]: http://www.mongodb.org/display/DOCS/Windows

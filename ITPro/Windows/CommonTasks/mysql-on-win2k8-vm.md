@@ -1,23 +1,16 @@
-<properties linkid="manage-windows-common-tasks-install-mysql" urlDisplayName="Install MySQL" pageTitle="Create a virtual machine running MySQL in Windows Azure " metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" metaDescription="Create a Windows Azure virtual machine running Windows Server 2008 R2, and then install and configure a MySQL database on the virtual machine." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="manage-windows-common-tasks-install-mysql" urlDisplayName="Install MySQL" pageTitle="Create a virtual machine running MySQL in Windows Azure " metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" metaDescription="Create a Windows Azure virtual machine running Windows Server 2008 R2, and then install and configure a MySQL database on the virtual machine." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="kathydav" editor="tysonn" manager="jeffreyg" />
 
+<div chunk="../chunks/windows-left-nav.md" />
 
 #Install MySQL on a virtual machine running Windows Server 2008 R2 in Windows Azure
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
+[MySQL](http://www.mysql.com) is a popular open source, SQL database. Using the [Windows Azure Management Portal][AzurePreviewPortal], you can create a virtual machine running Windows Server 2008 R2 from the Image Gallery.  You can then install and configure a MySQL database on the virtual machine.
 
-[MySQL](http://www.mysql.com) is a popular open source, SQL database. Using the [Windows Azure (Preview) Management Portal][AzurePreviewPortal], you can create a virtual machine running Windows Server 2008 R2 from the Image Gallery.  You can then install and configure a MySQL database on the virtual machine.
+In this tutorial, you will learn how to:
 
-In this tutorial, you will learn:
+- Use the Management Portal to create a virtual machine running Windows Server 2008 R2.
 
-- How to use the Preview Management Portal to create a virtual machine running Windows Server 2008 R2.
-
-- How to install and run MySQL Community Server on the virtual machine.
-
-## Sign up for the Virtual Machines preview feature
-
-You will need to sign up for the Windows Azure Virtual Machines preview feature in order to create a virtual machine. You can also sign up for a free trial account if you do not have a Windows Azure account.
-
-<div chunk="../../../DevCenter/Shared/Chunks/antares-iaas-signup-iaas.md"/>
+- Install and run MySQL Community Server on the virtual machine.
 
 ##Create a virtual machine running Windows Server 2008 R2
 
@@ -135,14 +128,16 @@ Follow these steps to install, configure, and run MySQL Community Server:
 
 		quit
 
-30. Once MySQL is installed you must configure an endpoint so that MySQL can be accessed remotely. Log in to the [Windows Azure Management Portal][AzurePreviewPortal]. In the Windows Azure portal, click **Virtual Machines**, then the name of your new VM, then **Endpoints**, and then  **Add Endpoint**.
+30. Once MySQL is installed you must configure an endpoint so that MySQL can be accessed remotely. Log in to the [Windows Azure Management Portal][AzurePreviewPortal]. In the Windows Azure portal, click **Virtual Machines**, then the name of your new virtual machine, then **Endpoints**, and then  **Add Endpoint**.
 
 	![Endpoints][AddEndPoint]
 
 31. Select **Add Endpoint** and click arrow to continue.
+	
 	![Endpoints][AddEndPoint2]
 
 32. Add an endpoint with name "MySQL", protocol **TCP**, and both **Public** and **Private** ports set to "3306". Click the check mark. This will allow MySQL to be accessed remotely.
+	
 	![Endpoints][AddEndPoint3]
 
 33. You can remotely connect to MySQL running on your virtual machine in Windows Azure.  From a local computer running MySQL, run the following command to log in as the **mysqluser** user you created in the steps above:

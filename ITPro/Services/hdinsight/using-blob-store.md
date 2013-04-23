@@ -223,8 +223,8 @@ In this article, you learned how to use Blob Storage with HDInsight and that Blo
 
 Now you understand how to use Windows Azure Blob Storage. To learn more, see the following articles:
 
-* [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 * [How to: Upload data][upload-data]
+* [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 * [Using Pig with HDInsight][pig]
 * [Using Hive with HDInsight][hive]
 * [Using MapReduce with HDInsight][mapreduce]
