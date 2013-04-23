@@ -1,0 +1,600 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>configure-hyper-v-recovery-vault-tutorial</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: d5e7ce436666e7d4a2eeb12e7f8261dacceb3565 */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+.markdown-body img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<p><properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-hyper-v-recovery-vault" pageTitle="Configure Windows Azure Recovery Services to provide a Hyper-V recovery environment" metaKeywords="hyper-v recovery, disaster recovery" metaDescription="Windows Azure Hyper-V Recovery Manager can help you protect important services by coordinating the replication and recovery of System Center 2012 private clouds at a secondary location." metaCanonical="http://www.windowsazure.com/" umbracoNaviHide="0" disqusComments="1" writer="starra" editor="tysonn" manager="cynthn" /></p>
+<div chunk="../chunks/recoveryservices-left-nav.md"/> 
+<h1><a id="configure-hyper-v-recovery-vault-tutorial"></a>Configure Hyper-V Recovery Manager in Windows Azure Recovery Services</h1>
+<div class="dev-callout"> 
+<p>Hyper-V Recovery Manager in Windows Azure Recovery Services provides failover and protection for Hyper-V virtual machines located in clouds on System Center 2012 Virtual Machine Manager (VMM) servers.</P>
+
+<p>This tutorial helps you to create a Hyper-V Recovery Manager vault in Windows Azure, upload a management certificate to the vault, download and install the Hyper-V Recovery Manager agent on VMM servers,  register VMM servers with the vault, configure settings for VMM clouds, and enable protection for Hyper-V virtual machines in the clouds.</P>
+
+<P>After virtual machines are enabled for protection, you can create recovery plans that specify the order in which groups of virtual machines should fail over.</P>
+
+<p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Recovery Services feature enabled.</p>
+
+<ul> 
+<li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="/en-us/pricing/free-trial/">Windows Azure Free Trial</a>.</li> 
+<li>If you have an existing account but need to enable the Windows Azure Recovery Services preview, see <a href="/en-us/develop/net/tutorials/create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li>
+</ul>
+</div>
+<h2><a id="before"></a>Before you begin</h2> 
+<div class="dev-callout"> 
+
+<p>To successfully complete this tutorial you need the following:</p>
+
+<UL>
+<li>At least two VMM servers running System Center 2012 Service Pack 1 (SP1), located in different datacenters. Check that VMM servers in both datacenters are available.</LI>
+<LI>At least one cloud configured on the source VMM server you want to protect, and one cloud on the destination VMM server that you want to use for failover and recovery.</LI>
+<LI>One or more virtual machines located in the cloud that you want to protect.</LI>
+<LI>Verify that VM networks are configured on the source server, and that corresponding VM networks are created on the destination server. Ensure that networks are connected to the correct source and destination clouds.</LI>
+<LI>A management certificate that you will upload to the Hyper-V Recovery vault. Note that:
+	<UL>
+	<LI>To upload to the certificate to the vault, you must export it as a .cer format file that contains the public key.</LI>
+	<LI>The certificate should be an x.509 v3 certificate.</LI>
+	<LI>The key length should be at least 2048 bits.</LI>
+	<LI>The certificate must have a valid ClientAuthentication EKU.</LI>
+	<LI>The certificate should be currently valid with a validity period that does not exceed 3 years.</LI>
+	<LI>The certificate should reside in the Personal certificate store of your Local Computer.</LI>
+	<LI>The private key should be included during installation of the certificate.</LI>
+	<LI>You can create a self-signed certificate using the makecert tool, or use any valid SSL certificate issued by a Certification Authority (CA) trusted by Microsoft, whose root certificates are distributed via the Microsoft Root Certificate Program. For more information about this program, see Microsoft article <a href="http://go.microsoft.com/fwlink/p/?LinkId=294666">Windows Root Certificate Program members</a>.</LI>
+	</UL>
+</LI>
+</UL>
+
+<P>To use makecert.exe note that:</P>
+
+<UL>
+<li>If you register the server you used to run makecert.exe, you can browse for the certificate using the Register Server Wizard (after installation of the agent).</LI>
+<li>If you want to register a server that was not used to run makecert.exe, you must export the .pfx file (containing the private key) from that server, and copy it to the server you want to register, and import it into the Personal certificate store on that server. After the import, you can browse for the certificate using the Register Server Wizard (which runs as part of the agent installation application).</LI>
+</UL>
+
+<P>Use the following procedures to perform these actions.</P>
+
+<h3><a id="obtaincert"></a>To obtain a self-signed certificate</h3>
+<ol>
+<li>Download the <a href="http://go.microsoft.com/fwlink/p/?LinkID=298212">Certificate Creation tool (MakeCert.exe)</a>.</li>  
+<li>Open Command Prompt (cmd.exe) with Administrator privileges and run the following command, replacing <i>CertificateName</i> with the name of your certificate and specifying the actual expiration date of your certificate after -e:
+<code>
+makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5.5.7.3.2 -len 2048 -e 01/01/2016 CertificateName.cer</code></li>
+</ol>
+
+
+<h3><a id="exportcert"></a>To export a certificate (.pfx) using the Certificates snap-in</h3>
+<OL>
+<LI>From the Start screen type mmc.exe to start the Microsoft Management Console (MMC).</LI>
+<LI>On the <b>File</b> menu, click <b>Add/Remove Snap-in</b>. The Add or Remove Snap-ins dialog box appears.</LI>
+<LI>In <b>Available snap-ins</b>, click <b>Certificates</b>, and then click <b>Add</b>.</LI>
+<LI>Select <b>Computer account</b>, and then click <b>Next</b>.</LI>
+<LI>Select <b>Local computer</b>, and then click <b>Finish</b>.</LI>
+<LI>In the MMC, in the console tree, expand <b>Certificates</b>, and then expand <b>Personal</b>.</LI>
+<LI>In the details pane, click the certificate you want to manage.</LI>
+<LI>On the <b>Action</b> menu, point to <b>All Tasks</b>, and then click <b>Export</b>. The Certificate Export Wizard appears. Click <b>Next</b>.</LI>
+<LI>On the <b>Export Private Key</b> page, click <b>Yes</b>, export the private key. Click <b>Next</b>. Note that this is only required if you want to export the private key to other servers after the installation.</LI>
+<LI>On the <b>Export File Format</b> page, select <b>Personal Information Exchange – PKCS #12 (.PFX)</b>. Click <B>Next</B>.</LI>
+<LI>On the <b>Password</b> page, type and confirm the password that is used to encrypt the private key. Click <b>Next</b>.</LI>
+<LI>Follow the pages of the wizard to export the certificate in PFX format.</LI>
+</ol>
+
+
+<h3><a id="obtaincert"></a>To import the private key certificate to a different server</h3>
+<OL>
+<li>Copy the private-key (.pfx) certificate files to a location on the local server.</LI>
+<LI>In the Certificates MMC snap-in select <b>Computer account</b> and click <b>Next</b>.</LI>
+<li>Select <B>Local Computer</B> and click <B>Finish</b>. You are returned to the Add/Remove Snap-in dialog box, click <b>OK</b>. </LI>
+<LI>In the MMC, expand <b>Certificates</b>, right-click <B>Personal</b>, point to <B>All Tasks</b>, and then click <B>Import</b> to start the Certificate Import Wizard.</LI>
+<LI>On the <b>Certificate Import Wizard Welcome</b> page, click <B>Next</b>.</LI>
+<LI>On the <b>File to Impor</b> page, click <b>Browse</b> and locate the folder that contains the .pfx certificate file that contains the certificate that you want to import. Select the appropriate file, and then click <b>Open</b>.</LI>
+<LI>On the <b>Password</b> page, in the <b>Password</b> box, type the password for the private-key file that you specified in the previous procedure and then click <b>Next</b>.</LI>
+<LI>On the <b>Certificate Store</b> page, select <b>Place all certificates in the following store</b>, click <b>Browse</b>, select the <b>Personal</b> store, click <b>OK</b>, and then click <b>Next</b>.</LI>
+<LI>On the <B>Completing the Certificate Import Wizard</b> page, click <b>Finish</b>.</LI>
+</OL>
+</div>
+<h2><a id="create"></a>Create a vault</h2>
+<ol>
+<li>
+<p>Sign in to the <a href="https://manage.windowsazure.com">Management Portal</a>.</p>
+<div chunk="../../Shared/Chunks/disclaimer.md"/>
+</li>
+<li>
+<p>Click <strong>Data Services</strong>, then click <strong>Recovery Services</strong>. If you have not signed up for the Recovery Services preview, the vault options will be grayed out. To register for the preview, click <strong>Preview Program</strong>. The preview process is automatically approved.</p>
+<p><img src="../media/RS_PreviewProgram.png" alt="Preview Program" /></p>
+</li>
+<li>
+<p>Click <strong>Recovery Services</strong>, then click <strong>Create New</strong>,  point to <strong>Hyper-V Recovery Manager Vault</strong>, and then click <strong>Quick Create</strong>.</p>
+<p><img src="../media/RS_hvvault.png" alt="New vault" /></p>
+</li>
+<li>
+<p>In <strong>Name</strong>, enter a friendly name to identify the vault.</p>
+</li>
+<li>
+<p>In <strong>Region</strong>, select the geographic region for the vault.  
+</p>
+</li>
+<li>
+<p>Click <strong>Create vault</strong>.</p>
+<p>It can take a while for the vault to be created. To check the status, you can monitor the notifications at the bottom of the portal. After the vault has been created, a message will tell you that the vault has been successfully created and it will be listed in the resources for Recovery Services as <strong>Online</strong>. </p>
+</li>
+</ol>
+<h2><a id="upload"></a>Upload a certificate</h2>
+<ol>
+<li>
+<p>Click the Quick Start icon to open the Quick Start page.</p>
+<p><img src="../media/RS_QuickStartIcon.png" alt="Quick Start Icon" /></p>
+</li>
+<li>
+<p>Click <strong>Manage Certificate</strong>.</p>
+<p><img src="../media/RS_QuickStart.png" alt="Quick Start" /></p>
+</li>
+<li>
+<p>In the <strong>Manage Certificate</strong> dialog click <strong>Browse Your Computer</strong> to locate the .cer file to upload to the vault.</p>
+</li>
+</ol>
+<p>You can also upload and manage certificates from the <strong>Dashboard</strong> tab for the vault. To do this, click <strong>Recovery Services</strong>, and click the vault name. On the <strong>Dashboard</strong> tab, click <strong>Manage Certificate</strong>.</p>
+<h2><a id="download"></a>Download and install the agent</h2>
+<p>Install the Hyper-V Recovery Manager provider agent on each VMM server that contains virtual machines you want to protect. Agents are accessed on the Windows Azure Download Center, and have their own setup process. When setup runs the agent is installed, and the VMM server is registered with the vault, as follows:</p>
+<ol>
+<li>
+<p>On the <strong>Quick Start</strong> page, click <strong>Download Agent</strong>. Run Setup to start the installation wizard.</p>
+<p><img src="../media/RS_installwiz.png" alt="Download Agent" /></p>
+</li>
+<li>
+<p>After the agent installation is complete, the VMM server is registered with the vault. During registration you do the following:</p>
+<UL>
+<li>Specify how the agent running on the VMM server connects to the Internet. The agent can use the default Internet connection settings, or you can configure specific proxy settings.</LI>
+<li>Select the .pfx file that corresponds to the .cer that you uploaded to the vault. The private key of the certificate is used to register the VMM server to the vault.</LI>
+</UL>
+</li>
+</ol>
+<h2><a id="manage"></a>Configure clouds for protection</h2>
+<p>After VMM servers are registered, all clouds configured on the servers are displayed in the vault.</p>
+<pre><code>![Clouds](../media/RS_clouds.png)
+</code></pre>
+
+<p>To configure clouds for protection, do the following: </p>
+<ol>
+<li>On the Quick Start page, click <strong>Configure Protection Settings</strong>.</li>
+<li>
+<p>In the <strong>Protected Items</strong> list, select the cloud that you want to configure and drill down to the <strong>Configuration</strong> tab.</p>
+<p><img src="../media/RS_CloudConfig.png" alt="Cloud Configuration" /></p>
+</li>
+<li>
+<p>In <strong>Target Location</strong>, specify the VMM server that manages the cloud which will be used for recovery.</p>
+</li>
+<li>In <strong>Target Cloud</strong>, specify the target cloud that will be used for failover of virtual machines in the source cloud.</li>
+<li>In <strong>Application-Consistent Snapshot Frequency</strong>, specify how often to create snapshots.These snapshots use Volume Shadow Copy Service (VSS) to ensure that applications are in a consistent state when the snapshot is taken.  Note that taking snapshots of applications running on source virtual machines will impact performance. </li>
+<li>
+In <strong>Initial Replication Settings</strong>, specify how the initial replication of data from source to target locations will be handled, before regular replication starts. 
+<ul>
+<li>Over the network—Copying data over the network can be time-consuming and resource-intensive. We recommend that you use this option if the cloud contains virtual machines with relatively small virtual hard disks, and if the primary VMM server is connected to the secondary VMM server over a connection with wide bandwidth. You can specify that the copy should start immediately, or select a time. If you use network replication, we recommend that you schedule it during off-peak hours.</li>
+<li>Offline—This method specifies that the initial replication will be performed using external media. This method is useful if you want to avoid degradation in network performance, or for geographically remote locations. To use this method you specify the export location on the source cloud, and the import location on the target cloud. When you enable protection for a virtual machine, the virtual hard disk is copied to the specified export location. You send it to the target site, and copy it to the import location. The system copies the imported information to the replica virtual machines.</li>
+</ul>
+</li>
+</ol>
+<p>Note the following prerequisites for offline replication:</p>
+<ul>
+<li>On the source server, give full control NTFS &amp; Share permissions to the VMM service  on the export path. On the target server, give these permissions to the VMM service account on the import path.</li>
+<li>If the path is shared, Administrator, Power User, Print Operator, or Server Operator group membership is required for the VMM service account  —on the remote machine on which the path is shared. This applies to both the import and export paths.</li>
+<li>If you are using any Run As Accounts to add hosts, give read &amp; write permissions to the Run As Accounts in VMM, on the import &amp; export path.</li>
+<li>In Active Directory, enable and configured constrained delegation on each host to trust the remote machine (with import/export path) to use any authentication protocol with allowed services as cifs.</li>
+<li>The import and export shares should not be located on any computer used as a host, because loopback configuration is not supported by Hyper-V.</li>
+</ul>
+<p>After you select a cloud, all clusters and host servers that are configured in the source and target clouds are configured for replication. Specifically, the following are configured:</p>
+<ul>
+<li>Firewall rules used by Hyper-V Replica </li>
+<li>Ports for replication traffic are opened</li>
+<li>Certificates required for replication are installed</li>
+<li>Hyper-V Replica settings are configured</li>
+</ul>
+<p>Cloud settings can be modified and saved on the <strong>Configure</strong> tab:</p>
+<ul>
+<li>We recommend that you select a target cloud that meets recovery requirements for the virtual machines you will protect. </li>
+<li>A cloud can only belong to a single cloud mapping — either as a primary or a target cloud.</li>
+<li>After saving the cloud configuration, to modify the target location or target cloud you must remove the cloud configuration, and then reconfigure the cloud.</li>
+</ul>
+<h2><a id="networks"></a>Configure Networks</h2>
+<p>On the <strong>Networks</strong> tab you configure mapping between VM networks on source and target VMM servers. Network mapping is used during placement of a replica virtual machine. Replica virtual machines are placed on hosts which have access to the VM networks. When protection is enabled, the replica virtual machine is connected to the VM network. This ensures that when the machine fails over it is connected to the right network. </p>
+<p>We recommend you map networks as follows: </p>
+<ul>
+<li>Map networks used by each cloud that is configured for protection.</li>
+<li>Perform network mapping before enabling virtual machines for protection. Hyper-V Recovery Manager tries to connect the virtual machine to specified network and the attempt will fail if the host on which the virtual machine is placed does not have access to the network. If you do not configure mapping first, you will need to either add the network to the host, or migrate the virtual machine to a host which has access to the network.  </li>
+</ul>
+<p>To map networks, do the following:</p>
+<ol>
+<li>
+<p>On the Quick Start page, click <strong>Configure Network Mapping</strong>.</p>
+</li>
+<li>
+<p>Select the source VMM server and then the target VMM server.</p>
+</li>
+<li>
+<p>Select an item from <strong>Network on source</strong> and then click <strong>Map</strong>. </p>
+<p><img src="../media/RS_networks.png" alt="Manage certificate" /></p>
+</li>
+<li>
+<p>In the dialog that is displayed, select one of the VM networks from the target VMM server. </p>
+</li>
+<li>
+<p>Click the information icon next to the source and target network names to view the subnets and type for each network.</p>
+<p>When you select a target network, the protected clouds that use the source network are displayed. Availability of target networks associated with the clouds used for protection is also displayed. We reommend that you select a target network that is available to all clouds used for protection.</p>
+</li>
+<li>
+<p>Click the checkmark to complete the mapping process.</p>
+<p>This will connect any existing replica virtual machines corresponding to the virtual machines connected to the source VM network to the target VM network. This will also connect new replica virtual machines that are created after enabling replication on the virtual machines connected to the source VM network to the target VM network.</p>
+</li>
+</ol>
+<h2><a id="protect"></a>Enable protection for virtual machines</h2>
+<p>After servers, clouds, and networks are configured correctly, you can enable virtual machines in the cloud for recovery and failover. Protection is enabled in the VMM console, by selecting the <strong>Enable Replication</strong> checkbox for each virtual machine you want to protect. Once the virtual machines are replicated to the vault you will be able to view them in the virtual machines list of your cloud.</p>
+<p><img src="../media/RS_clouds.png" alt="Manage certificate" /></p>
+<h2><a id="protect"></a>Create recovery plans</h2>
+<p>A recovery plan groups virtual machines together for the purposes of failover and recovery, and specifies the order in which the grouped virtual machines should fail over. You can customize recovery plans to include automatic scripts that run as part of the recovery plan, or add a prompt to wait for confirmation of a manual action. To create a recovery plan do the following: </p>
+<ol>
+<li>On the <strong>Recovery Plans</strong> tab, click <strong>Create Recovery Plan</strong>.</li>
+<li>
+<p>Specify a name for the recovery plan, and the source and target VMM servers. Note that source servers must have virtual machines that are enabled for failover and recovery.</p>
+<p><img src="../media/RS_RecoveryPlan1.png" alt="Create Recovery Plan" /></p>
+</li>
+<li>
+<p>In <strong>Select Virtual Machine</strong>, select virtual machines to add to the recovery plan. These are added to the recovery plan default group — Group 1.</p>
+<p><img src="../media/RS_RecoveryPlan2.png" alt="Recovery Plan VMs" /></p>
+</li>
+</ol>
+<p>After creating a recovery plan, you can perform the following actions:</p>
+<ul>
+<li>Customize additional recovery plans. You can add new groups and custom actions in the form of scripts and manual actions that are completed before and after specified groups. Group names are incremental. After the default recovery plan Group 1, you create Group 2, then Group 3 etc. Virtual machines fail over according to group order.</li>
+<li>Perform failover on a recovery plan.</li>
+<li>Customize a recovery plan.</li>
+<li>Delete a recovery plan.</li>
+</ul>
+<h2><a id="protect"></a>Customize recovery plans</h2>
+<ol>
+<li>On the <strong>Recovery Plans</strong> tab, click a recovery plan to drill down. </li>
+<li>
+<p>You can customize the recovery plan as follows:</p>
+<UL>
+<LI>Add new groups to the recovery plan—This appends a new empty group to the plan. You can create up to seven groups. </LI>
+<LI>Add virtual machines to a group—Only virtual machines that are not currently in the recovery plan are available to add. A virtual machine can be added to multiple recovery plans, but can only appear once in each plan. 
+</LI>
+<LI>Add a script to the recovery plan—You can optionally add scripts to run before or after a specific group. When a script is added, a new set of actions for the group is created. For example a set of pre-steps for Group 1 will be created with the name: Group 1: Pre-steps. All pre-steps will be listed inside this set. To add a script to a recovery plan, do the following:</LI>
+	<OL>
+	<LI>Create the script, verify it works as expected, and place it at location \<VMMServerName>\MSSCVMMLibrary on the source and target VMM servers.</LI>
+	<LI>In the Script Location text box, type in the relative path to the share. For example, if the share is located at \\<VMMServerName>\MSSCVMMLibrary\Scripts\Script.PS1, specify the path: \Scripts\Script.PS1.</LI>
+	</OL>
+<LI>Move the script location—Use the Script command button to move the location of the script up or down, and specify at which point in the recovery plan it will run.</LI>
+<LI>Add a manual action to the recovery plan—You can optionally add manual actions to run before or after a selected group. Specify a name and a list of instructions for the action. You can specify whether the action should be included in a test failover, planned failover, unplanned failover, or in a combination of these. Use the Manual Action command button to specify the point at which the manual action will run. When the recovery plan runs, it will stop at the point that the manual action should be run, and a dialog will appear that allows you to specify that the manual action was completed.</LI>
+<LI>Move steps up or down—You can reorder steps in a recovery plan by moving them up or down.</LI> 
+<LI>Remove or move virtual machines—You can remove virtual machines from a recovery plan, or move them to a different group.</LI>
+<LI>Delete groups from the recovery plan—When a group is deleted, the groups below it are moved up. For example if you delete Group 2, then Group 3 becomes Group 2. You cannot delete the default group — Group 1. Deleting a group also deletes the pre and post custom actions steps if any. </LI>
+</UL>
+</li>
+</ol>
+<p>Note the following:</p>
+<ul>
+<li>Scripts should be written using Windows PowerShell</li>
+<li>Scripts in a recovery plan run in the context of the VMM Service account.  Ensure that the script is tested to run at the VMM service account privilege level.</li>
+<li>If there is an exception in the script, the script stops running, and shows the task as failed. Ensure that you use try-catch blocks, so that the exceptions are handled gracefully.</li>
+</ul>
+<h2><a id="protect"></a>Run recovery plans</h2>
+<p>Recovery plans can run as part of a proactive test or planned failover, or during an unplanned failover.</p>
+<ul>
+<li>
+<strong>Test failover</strong>—Use a test failover if you want to verify that your recovery plan and virtual machine failover strategy is working as expected.  Test failover simulates your failover and recovery mechanism in an isolated network.  When a test failover is triggered, you are requested to select a logical network to use. You should create a separate  logical network (not used in production) for this purpose. This logical network is used to create VM networks during test failover. After the test failover completes, the temporary networks and test virtual machines are cleaned up automatically. Note that:
+<ul>
+<li>If you are using a VLAN-based logical network, ensure that the network sites you add to the logical network are isolated. </li>
+<li>If you are using a Windows Network Virtualization-based logical network, Hyper-V Recovery Manager will automatically create isolated VM networks.</li>
+</ul>
+</li>
+<li><strong>Planned failover</strong>—Use a planned failover to perform a complete failover and recovery of virtual machines in your recovery plans. This provides a real validation of your environment. The virtual machines being failed over should be shut down to ensure zero data loss. If any errors occur during planned failover of a recovery plan, the plan stops running.   Script failures will not stop the recovery plan failover.</li>
+<li><strong>Unplanned failover</strong>—Un	planned failover occurs when a primary site experiences an unexpected incident such as a power outage or virus attack. Even if errors occur during an unplanned failover, the recovery plan runs until complete. </li>
+</ul>
+<p>After a failover is started, you can track its progress on the <strong>Jobs</strong> tab.</p>
+<p>Note the following when running recovery plans:</p>
+<ul>
+<li>The first step shown in the recovery plan is shutdown of all the virtual machines. This step is only performed during a planned failover.</li>
+<li>If an error occurs when running a script, any remaining part of the script will not run. If this occurs, verify that the script works as expected and then rerun the recovery plan.</li>
+<li>If a planned or unplanned failover in a recovery plan does not run as expected, errors might not be displayed properly when you click <strong>Error Details</strong>. As a workaround, open the failover job in the <strong>Jobs</strong> tab to see error details.</li>
+</ul>
+<h2><a id="protect"></a>Using the Jobs tab and Dashboard</h2>
+<h3><a id="protect"></a>Jobs</h3>
+<p>The <strong>Jobs</strong> tab displays the main tasks performed by the Hyper-V Recovery vault. </p>
+<ul>
+<li>You can drill down to details for a job, to see the specific tasks and actions associated with the job, and their status. This is useful to check whether jobs complete as expected, and for troubleshooting if required.</li>
+<li>
+You can run queries to retrieve jobs that match specified criteria, including:
+<ul>
+<li>Find jobs that ran on a specific VMM server.</li>
+<li>Find jobs that were performed on a cloud, virtual machine, network, recovery plan in a cloud, or on all of these.</li>
+<li>Identify jobs that happened during a specific time range.</li>
+</ul>
+</li>
+</ul>
+<p><img src="../media/RS_Jobs.png" alt="Jobs tab" /></p>
+<ul>
+<li>Jobs errors can be viewed in <strong>Error Details</strong>. The error description can be copied to the clipboard for troubleshooting.</li>
+</ul>
+<h3><a id="protect"></a>Dashboard</h3>
+<p>The <strong>Dashboard</strong> tab provides a quick overview of Hyper-V Recovery Manager usage in your organization.  It provides a centralized gateway to view virtual machines protected by Hyper-V Recovery Manager vaults.</p>
+<ul>
+<li><strong>Usage Overview</strong> shows the number of virtual machines that have protection managed by Hyper-V Recovery. </li>
+<li><strong>Quick Glance</strong> displays crucial configuration information for recovery services and the Hyper-V Recovery Manager vault. It tells you whether the vault is online, which certificate is assigned to it, when the certificate expires, and subscription details for the service.  </li>
+</ul>
+<p>From the dashboard you can download the Hyper-V Recovery Manager agent for installation on a server, modify settings for certificates uploaded to the vault, and delete a vault if required.</p>
+<p><img src="../media/RS_Dashboard.png" alt="Dashboard" /></p>
+<h2><a id="next"></a>Next steps</h2>
+<p>Visit the <a href="http://go.microsoft.com/fwlink/p/?LinkId=296711">Windows Azure Recovery Services Forum</a>. Note that sign in is required for the forum. It is only open to customers who have signed up for the Hyper-V Recovery Manager vault preview.</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
